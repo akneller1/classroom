@@ -8655,208 +8655,216 @@
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the determinant of [-3, 3; -1, -2].",
-   "answer": "9",
+   "prompt": "Find x so that the determinant of [x, 3; 3, 4] equals 15.",
+   "answer": "x = 6",
    "options": [
     {
-     "text": "-9",
+     "text": "x = 7",
      "correct": false
     },
     {
-     "text": "6",
+     "text": "x = 15",
      "correct": false
     },
     {
-     "text": "3",
+     "text": "x = -6",
      "correct": false
     },
     {
-     "text": "9",
+     "text": "x = 6",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = 9."
+    "det = x(4) − (3)(3) = 4x − 9.",
+    "4x − 9 = 15, so 4x = 24.",
+    "x = 6."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-solve). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-007",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the determinant of [-1, -2; 6, -2].",
-   "answer": "14",
+   "prompt": "Find k so that the matrix [k, 6; 4, 4] has no inverse.",
+   "answer": "k = 6",
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = 14."
+    "A matrix has no inverse exactly when its determinant is 0.",
+    "det = 4k − 24 = 0.",
+    "k = 24/4 = 6."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-singular). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-008",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the determinant of [1, 3; -3, 6].",
-   "answer": "15",
+   "prompt": "Find the area of the parallelogram formed by the vectors ⟨1, -3⟩ and ⟨3, 5⟩.",
+   "answer": "14",
    "options": [
     {
-     "text": "15",
+     "text": "14",
      "correct": true
     },
     {
-     "text": "6",
+     "text": "-14",
      "correct": false
     },
     {
-     "text": "-15",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "-3",
+     "text": "7",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = 15."
+    "Place the vectors as the columns of a matrix: [1, 3; -3, 5].",
+    "det = (1)(5) − (3)(-3) = 14.",
+    "Area = |det| = 14."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-009",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the determinant of [4, -5; -1, 4].",
-   "answer": "11",
+   "prompt": "A is a 2×2 matrix with det(A) = 3. Find det(3A).",
+   "answer": "27",
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = 11."
+    "Multiplying a 2×2 matrix by 3 multiplies each of its 2 rows by 3.",
+    "Each row scaling multiplies the determinant by 3, so det(3A) = 3²·det(A).",
+    "det(3A) = 9(3) = 27."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-scale). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-010",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the determinant of [2, -3; -2, -6].",
-   "answer": "-18",
+   "prompt": "Find x so that the determinant of [x, -2; -1, 5] equals 3.",
+   "answer": "x = 1",
    "options": [
     {
-     "text": "-12",
-     "correct": false
-    },
-    {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "-18",
+     "text": "x = 1",
      "correct": true
     },
     {
-     "text": "-6",
+     "text": "x = 3",
+     "correct": false
+    },
+    {
+     "text": "x = -1",
+     "correct": false
+    },
+    {
+     "text": "x = 2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = -18."
+    "det = x(5) − (-2)(-1) = 5x − 2.",
+    "5x − 2 = 3, so 5x = 5.",
+    "x = 1."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-solve). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-011",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the determinant of [5, -2; 1, 1].",
-   "answer": "7",
+   "prompt": "Find k so that the matrix [k, 6; 6, 4] has no inverse.",
+   "answer": "k = 9",
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = 7."
+    "A matrix has no inverse exactly when its determinant is 0.",
+    "det = 4k − 36 = 0.",
+    "k = 36/4 = 9."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-singular). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-012",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the determinant of [-3, -1; 2, 5].",
-   "answer": "-13",
+   "prompt": "Find the area of the parallelogram formed by the vectors ⟨4, 4⟩ and ⟨-3, 3⟩.",
+   "answer": "24",
    "options": [
     {
-     "text": "-13",
+     "text": "24",
      "correct": true
     },
     {
-     "text": "13",
+     "text": "-24",
      "correct": false
     },
     {
-     "text": "-17",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "-15",
+     "text": "0",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = -13."
+    "Place the vectors as the columns of a matrix: [4, -3; 4, 3].",
+    "det = (4)(3) − (-3)(4) = 24.",
+    "Area = |det| = 24."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-013",
    "skillId": "matrices-skill-08",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the determinant of [5, 2; 5, -6].",
-   "answer": "-40",
+   "prompt": "A and B are 2×2 matrices with det(A) = -4 and det(B) = 2. Find det(AB).",
+   "answer": "-8",
    "solutionSteps": [
-    "det = ad - bc.",
-    "det = -40."
+    "For square matrices, det(AB) = det(A)·det(B).",
+    "det(AB) = (-4)(2).",
+    "det(AB) = -8."
    ],
    "standards": [
     "N-VM.C.10",
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_det). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: det-product). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-mat-s08-cp2-014",

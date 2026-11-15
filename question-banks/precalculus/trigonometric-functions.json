@@ -17352,6 +17352,6370 @@
     "F-TF.C.8"
    ],
    "sourceNotes": "Original Claude-authored item (family: te_solve_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-trg-s07-cp2-p001",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(x) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 2); next minimum (3π/2, −2); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 2).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "2",
+     "C": "0",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "2"
+      ],
+      "min": [
+       "3/2",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-2"
+        ],
+        "min": [
+         "1/2",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "5/2",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "2"
+        ],
+        "min": [
+         "2",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p001.png",
+     "alt": "Graph of y = 2 sin(x): midline y = 0, maximum at (π/2, 2), next minimum at (3π/2, −2), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p002",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = sin(x) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 0); next minimum (3π/2, −2); midline y = −1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = −1; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 0).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "0"
+      ],
+      "min": [
+       "3/2",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-2"
+        ],
+        "min": [
+         "1/2",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "3/2",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "0"
+        ],
+        "min": [
+         "5/2",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "0"
+        ],
+        "min": [
+         "2",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p002.png",
+     "alt": "Graph of y = sin(x) − 1: midline y = −1, maximum at (π/2, 0), next minimum at (3π/2, −2), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p003",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(x) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 3); next minimum (3π/2, −1); midline y = 1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 3).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "2",
+     "C": "0",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "3"
+      ],
+      "min": [
+       "3/2",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-1"
+        ],
+        "min": [
+         "1/2",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "5/2",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "3"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p003.png",
+     "alt": "Graph of y = 2 sin(x) + 1: midline y = 1, maximum at (π/2, 3), next minimum at (3π/2, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p004",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3 sin(x) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 3); next minimum (3π/2, −3); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 3).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "3",
+     "P": "2",
+     "C": "0",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "3"
+      ],
+      "min": [
+       "3/2",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-3"
+        ],
+        "min": [
+         "1/2",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "5/2",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "3"
+        ],
+        "min": [
+         "2",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p004.png",
+     "alt": "Graph of y = 3 sin(x): midline y = 0, maximum at (π/2, 3), next minimum at (3π/2, −3), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p005",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3 sin(x) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 2); next minimum (3π/2, −4); midline y = −1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = −1; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 2).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "3",
+     "P": "2",
+     "C": "0",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "2"
+      ],
+      "min": [
+       "3/2",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-4"
+        ],
+        "min": [
+         "1/2",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "5/2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "2"
+        ],
+        "min": [
+         "2",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p005.png",
+     "alt": "Graph of y = 3 sin(x) − 1: midline y = −1, maximum at (π/2, 2), next minimum at (3π/2, −4), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p006",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = sin(x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 3); next minimum (3π/2, 1); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 3).",
+    "The next minimum is half a period later, at x = 3π/2 (y = 1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "3"
+      ],
+      "min": [
+       "3/2",
+       "1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "1/2",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "5/2",
+         "1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "3"
+        ],
+        "min": [
+         "2",
+         "1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p006.png",
+     "alt": "Graph of y = sin(x) + 2: midline y = 2, maximum at (π/2, 3), next minimum at (3π/2, 1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p007",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = sin(x) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 1); next minimum (3π/2, −1); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 1).",
+    "The next minimum is half a period later, at x = 3π/2 (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "1"
+      ],
+      "min": [
+       "3/2",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "-1"
+        ],
+        "min": [
+         "1/2",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "3/2",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "5/2",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "1"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p007.png",
+     "alt": "Graph of y = sin(x): midline y = 0, maximum at (π/2, 1), next minimum at (3π/2, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp2-p008",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 4); next minimum (3π/2, 0); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going up at x = 0, so a maximum is at x = π/2 (y = 4).",
+    "The next minimum is half a period later, at x = 3π/2 (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "2",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "4"
+      ],
+      "min": [
+       "3/2",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "0"
+        ],
+        "min": [
+         "1/2",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "5"
+        ],
+        "min": [
+         "3/2",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "5"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "5/2",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "4"
+        ],
+        "min": [
+         "2",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp2-p008.png",
+     "alt": "Graph of y = 2 sin(x) + 2: midline y = 2, maximum at (π/2, 4), next minimum at (3π/2, 0), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p001",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(x + π/2) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 0); next minimum (π, −4); midline y = −2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −2; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/2 to the left.",
+    "Sine starts on the midline going up at x = −π/2, so a maximum is at x = 0 (y = 0).",
+    "The next minimum is half a period later, at x = π (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "2",
+     "C": "-1/2",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "0"
+      ],
+      "min": [
+       "1",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-4"
+        ],
+        "min": [
+         "0",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "1"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "1"
+        ],
+        "min": [
+         "1",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "0"
+        ],
+        "min": [
+         "2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "0"
+        ],
+        "min": [
+         "3/2",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p001.png",
+     "alt": "Graph of y = 2 sin(x + π/2) − 2: midline y = −2, maximum at (0, 0), next minimum at (π, −4), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p002",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 sin(x + π/2) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π, 3); next minimum (2π, −1); midline y = 1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/2 to the left.",
+    "Sine starts on the midline going down at x = −π/2, so a maximum is at x = π (y = 3).",
+    "The next minimum is half a period later, at x = 2π (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-2",
+     "P": "2",
+     "C": "-1/2",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1",
+       "3"
+      ],
+      "min": [
+       "2",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "2",
+         "-1"
+        ],
+        "min": [
+         "1",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "4"
+        ],
+        "min": [
+         "2",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "4"
+        ],
+        "min": [
+         "2",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "3"
+        ],
+        "min": [
+         "3",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "3"
+        ],
+        "min": [
+         "5/2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p002.png",
+     "alt": "Graph of y = −2 sin(x + π/2) + 1: midline y = 1, maximum at (π, 3), next minimum at (2π, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p003",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = sin(3(x − π/6)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/3, 0); next minimum (2π/3, −2); midline y = −1; period 2π/3.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = −1; period = 2π ÷ 3 = 2π/3.",
+    "Phase shift: π/6 to the right.",
+    "Sine starts on the midline going up at x = π/6, so a maximum is at x = π/3 (y = 0).",
+    "The next minimum is half a period later, at x = 2π/3 (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/6",
+     "xSnap": "1/12"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1",
+     "P": "2/3",
+     "C": "1/6",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/3",
+       "0"
+      ],
+      "min": [
+       "2/3",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "2/3",
+         "-2"
+        ],
+        "min": [
+         "1/3",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "1"
+        ],
+        "min": [
+         "2/3",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "1"
+        ],
+        "min": [
+         "2/3",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "0"
+        ],
+        "min": [
+         "1",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "0"
+        ],
+        "min": [
+         "5/6",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p003.png",
+     "alt": "Graph of y = sin(3(x − π/6)) − 1: midline y = −1, maximum at (π/3, 0), next minimum at (2π/3, −2), period 2π/3."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p004",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 sin(2(x + π/4)) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 0); next minimum (π, −4); midline y = −2; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −2; period = 2π ÷ 2 = π.",
+    "Phase shift: π/4 to the left.",
+    "Sine starts on the midline going down at x = −π/4, so a maximum is at x = π/2 (y = 0).",
+    "The next minimum is half a period later, at x = π (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-2",
+     "P": "1",
+     "C": "-1/4",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "0"
+      ],
+      "min": [
+       "1",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-4"
+        ],
+        "min": [
+         "1/2",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "1",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "0"
+        ],
+        "min": [
+         "3/2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "0"
+        ],
+        "min": [
+         "5/4",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p004.png",
+     "alt": "Graph of y = −2 sin(2(x + π/4)) − 2: midline y = −2, maximum at (π/2, 0), next minimum at (π, −4), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p005",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 3 sin(2(x + π/4)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 2); next minimum (π/2, −4); midline y = −1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = −1; period = 2π ÷ 2 = π.",
+    "Phase shift: π/4 to the left.",
+    "Sine starts on the midline going up at x = −π/4, so a maximum is at x = 0 (y = 2).",
+    "The next minimum is half a period later, at x = π/2 (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "3",
+     "P": "1",
+     "C": "-1/4",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "2"
+      ],
+      "min": [
+       "1/2",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "-4"
+        ],
+        "min": [
+         "0",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1/2",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1/2",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "1",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "2"
+        ],
+        "min": [
+         "3/4",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p005.png",
+     "alt": "Graph of y = 3 sin(2(x + π/4)) − 1: midline y = −1, maximum at (0, 2), next minimum at (π/2, −4), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p006",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = sin(3(x + π/6)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 2); next minimum (π/3, 0); midline y = 1; period 2π/3.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 1; period = 2π ÷ 3 = 2π/3.",
+    "Phase shift: π/6 to the left.",
+    "Sine starts on the midline going up at x = −π/6, so a maximum is at x = 0 (y = 2).",
+    "The next minimum is half a period later, at x = π/3 (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/6",
+     "xSnap": "1/12"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1",
+     "P": "2/3",
+     "C": "-1/6",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "2"
+      ],
+      "min": [
+       "1/3",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "0"
+        ],
+        "min": [
+         "0",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1/3",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1/3",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "2/3",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/6",
+         "2"
+        ],
+        "min": [
+         "1/2",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p006.png",
+     "alt": "Graph of y = sin(3(x + π/6)) + 1: midline y = 1, maximum at (0, 2), next minimum at (π/3, 0), period 2π/3."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p007",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 sin(x) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/2, 0); next minimum (5π/2, −4); midline y = −2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −2; period = 2π ÷ 1 = 2π.",
+    "Sine starts on the midline going down at x = 0, so a maximum is at x = 3π/2 (y = 0).",
+    "The next minimum is half a period later, at x = 5π/2 (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-2",
+     "P": "2",
+     "C": "0",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/2",
+       "0"
+      ],
+      "min": [
+       "5/2",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/2",
+         "-4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "5/2",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "5/2",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "0"
+        ],
+        "min": [
+         "7/2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "2",
+         "0"
+        ],
+        "min": [
+         "3",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p007.png",
+     "alt": "Graph of y = −2 sin(x) − 2: midline y = −2, maximum at (3π/2, 0), next minimum at (5π/2, −4), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-cp1-p008",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 sin(2x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/4, 4); next minimum (5π/4, 0); midline y = 2; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 2 = π.",
+    "Sine starts on the midline going down at x = 0, so a maximum is at x = 3π/4 (y = 4).",
+    "The next minimum is half a period later, at x = 5π/4 (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-2",
+     "P": "1",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/4",
+       "4"
+      ],
+      "min": [
+       "5/4",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "0"
+        ],
+        "min": [
+         "3/4",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "5"
+        ],
+        "min": [
+         "5/4",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "5"
+        ],
+        "min": [
+         "5/4",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "7/4",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-cp1-p008.png",
+     "alt": "Graph of y = −2 sin(2x) + 2: midline y = 2, maximum at (3π/4, 4), next minimum at (5π/4, 0), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p001",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(2(x − 3π/8)) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (5π/8, 0); next minimum (9π/8, −4); midline y = −2; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −2; period = 2π ÷ 2 = π.",
+    "Phase shift: 3π/8 to the right.",
+    "Sine starts on the midline going up at x = 3π/8, so a maximum is at x = 5π/8 (y = 0).",
+    "The next minimum is half a period later, at x = 9π/8 (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "1",
+     "C": "3/8",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "5/8",
+       "0"
+      ],
+      "min": [
+       "9/8",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "9/8",
+         "-4"
+        ],
+        "min": [
+         "5/8",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "1"
+        ],
+        "min": [
+         "9/8",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "1"
+        ],
+        "min": [
+         "9/8",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "0"
+        ],
+        "min": [
+         "13/8",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "0"
+        ],
+        "min": [
+         "11/8",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p001.png",
+     "alt": "Graph of y = 2 sin(2(x − 3π/8)) − 2: midline y = −2, maximum at (5π/8, 0), next minimum at (9π/8, −4), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p002",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −sin(2(x − π/8)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (7π/8, 0); next minimum (11π/8, −2); midline y = −1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = −1; period = 2π ÷ 2 = π.",
+    "Phase shift: π/8 to the right.",
+    "Sine starts on the midline going down at x = π/8, so a maximum is at x = 7π/8 (y = 0).",
+    "The next minimum is half a period later, at x = 11π/8 (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-1",
+     "P": "1",
+     "C": "1/8",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "7/8",
+       "0"
+      ],
+      "min": [
+       "11/8",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "11/8",
+         "-2"
+        ],
+        "min": [
+         "7/8",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "1"
+        ],
+        "min": [
+         "11/8",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "1"
+        ],
+        "min": [
+         "11/8",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "0"
+        ],
+        "min": [
+         "15/8",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "9/8",
+         "0"
+        ],
+        "min": [
+         "13/8",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p002.png",
+     "alt": "Graph of y = −sin(2(x − π/8)) − 1: midline y = −1, maximum at (7π/8, 0), next minimum at (11π/8, −2), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p003",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(2(x − 3π/8)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (5π/8, 3); next minimum (9π/8, −1); midline y = 1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 2 = π.",
+    "Phase shift: 3π/8 to the right.",
+    "Sine starts on the midline going up at x = 3π/8, so a maximum is at x = 5π/8 (y = 3).",
+    "The next minimum is half a period later, at x = 9π/8 (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "1",
+     "C": "3/8",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "5/8",
+       "3"
+      ],
+      "min": [
+       "9/8",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "9/8",
+         "-1"
+        ],
+        "min": [
+         "5/8",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "4"
+        ],
+        "min": [
+         "9/8",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "4"
+        ],
+        "min": [
+         "9/8",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "3"
+        ],
+        "min": [
+         "13/8",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "3"
+        ],
+        "min": [
+         "11/8",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p003.png",
+     "alt": "Graph of y = 2 sin(2(x − 3π/8)) + 1: midline y = 1, maximum at (5π/8, 3), next minimum at (9π/8, −1), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p004",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(2(x − π/8)) − 3 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/8, −1); next minimum (7π/8, −5); midline y = −3; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −3; period = 2π ÷ 2 = π.",
+    "Phase shift: π/8 to the right.",
+    "Sine starts on the midline going up at x = π/8, so a maximum is at x = 3π/8 (y = −1).",
+    "The next minimum is half a period later, at x = 7π/8 (y = −5)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "1",
+     "C": "1/8",
+     "D": "-3"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/8",
+       "-1"
+      ],
+      "min": [
+       "7/8",
+       "-5"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "-5"
+        ],
+        "min": [
+         "3/8",
+         "-1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "0"
+        ],
+        "min": [
+         "7/8",
+         "-4"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "0"
+        ],
+        "min": [
+         "7/8",
+         "-6"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "-1"
+        ],
+        "min": [
+         "11/8",
+         "-5"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "-1"
+        ],
+        "min": [
+         "9/8",
+         "-5"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p004.png",
+     "alt": "Graph of y = 2 sin(2(x − π/8)) − 3: midline y = −3, maximum at (3π/8, −1), next minimum at (7π/8, −5), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p005",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 sin(x − 3π/4) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (5π/4, 2); next minimum (9π/4, −2); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Phase shift: 3π/4 to the right.",
+    "Sine starts on the midline going up at x = 3π/4, so a maximum is at x = 5π/4 (y = 2).",
+    "The next minimum is half a period later, at x = 9π/4 (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "2",
+     "P": "2",
+     "C": "3/4",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "5/4",
+       "2"
+      ],
+      "min": [
+       "9/4",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "9/4",
+         "-2"
+        ],
+        "min": [
+         "5/4",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "3"
+        ],
+        "min": [
+         "9/4",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "3"
+        ],
+        "min": [
+         "9/4",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "2"
+        ],
+        "min": [
+         "13/4",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "7/4",
+         "2"
+        ],
+        "min": [
+         "11/4",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p005.png",
+     "alt": "Graph of y = 2 sin(x − 3π/4): midline y = 0, maximum at (5π/4, 2), next minimum at (9π/4, −2), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p006",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 1/2 sin(3(x − π/6)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/3, 3/2); next minimum (2π/3, 1/2); midline y = 1; period 2π/3.",
+   "solutionSteps": [
+    "Amplitude |A| = 1/2; midline y = 1; period = 2π ÷ 3 = 2π/3.",
+    "Phase shift: π/6 to the right.",
+    "Sine starts on the midline going up at x = π/6, so a maximum is at x = π/3 (y = 3/2).",
+    "The next minimum is half a period later, at x = 2π/3 (y = 1/2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/6",
+     "xSnap": "1/12"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "1/2",
+     "P": "2/3",
+     "C": "1/6",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/3",
+       "3/2"
+      ],
+      "min": [
+       "2/3",
+       "1/2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "2/3",
+         "1/2"
+        ],
+        "min": [
+         "1/3",
+         "3/2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "5/2"
+        ],
+        "min": [
+         "2/3",
+         "3/2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "5/2"
+        ],
+        "min": [
+         "2/3",
+         "-1/2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/3",
+         "3/2"
+        ],
+        "min": [
+         "1",
+         "1/2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3/2"
+        ],
+        "min": [
+         "5/6",
+         "1/2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p006.png",
+     "alt": "Graph of y = 1/2 sin(3(x − π/6)) + 1: midline y = 1, maximum at (π/3, 3/2), next minimum at (2π/3, 1/2), period 2π/3."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p007",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −3 sin(x − π/2) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 4); next minimum (π, −2); midline y = 1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 1; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/2 to the right.",
+    "Sine starts on the midline going down at x = π/2, so a maximum is at x = 0 (y = 4).",
+    "The next minimum is half a period later, at x = π (y = −2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "-3",
+     "P": "2",
+     "C": "1/2",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "4"
+      ],
+      "min": [
+       "1",
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-2"
+        ],
+        "min": [
+         "0",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "1",
+         "-1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "2",
+         "-2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "-2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p007.png",
+     "alt": "Graph of y = −3 sin(x − π/2) + 1: midline y = 1, maximum at (0, 4), next minimum at (π, −2), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s07-honors-p008",
+   "skillId": "trigonometric-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3 sin(2(x − π/4)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 2); next minimum (π, −4); midline y = −1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = −1; period = 2π ÷ 2 = π.",
+    "Phase shift: π/4 to the right.",
+    "Sine starts on the midline going up at x = π/4, so a maximum is at x = π/2 (y = 2).",
+    "The next minimum is half a period later, at x = π (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "sin",
+     "A": "3",
+     "P": "1",
+     "C": "1/4",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "2"
+      ],
+      "min": [
+       "1",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-4"
+        ],
+        "min": [
+         "1/2",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "1",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "3/2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "2"
+        ],
+        "min": [
+         "5/4",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s07-honors-p008.png",
+     "alt": "Graph of y = 3 sin(2(x − π/4)) − 1: midline y = −1, maximum at (π/2, 2), next minimum at (π, −4), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = cos(x) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 1); next minimum (π, −1); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 1).",
+    "The next minimum is half a period later, at x = π (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "1"
+      ],
+      "min": [
+       "1",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-1"
+        ],
+        "min": [
+         "0",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "1",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "1",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "1"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p001.png",
+     "alt": "Graph of y = cos(x): midline y = 0, maximum at (0, 1), next minimum at (π, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos(x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 4); next minimum (π, 0); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 4).",
+    "The next minimum is half a period later, at x = π (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "2",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "4"
+      ],
+      "min": [
+       "1",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "0"
+        ],
+        "min": [
+         "0",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "1",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "1",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "2",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p002.png",
+     "alt": "Graph of y = 2 cos(x) + 2: midline y = 2, maximum at (0, 4), next minimum at (π, 0), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(x) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 2); next minimum (π, −4); midline y = −1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = −1; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 2).",
+    "The next minimum is half a period later, at x = π (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "2",
+     "C": "0",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "2"
+      ],
+      "min": [
+       "1",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-4"
+        ],
+        "min": [
+         "0",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "3/2",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p003.png",
+     "alt": "Graph of y = 3 cos(x) − 1: midline y = −1, maximum at (0, 2), next minimum at (π, −4), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 5); next minimum (π, −1); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 5).",
+    "The next minimum is half a period later, at x = π (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "2",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "5"
+      ],
+      "min": [
+       "1",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-1"
+        ],
+        "min": [
+         "0",
+         "5"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "6"
+        ],
+        "min": [
+         "1",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "6"
+        ],
+        "min": [
+         "1",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "5"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p004.png",
+     "alt": "Graph of y = 3 cos(x) + 2: midline y = 2, maximum at (0, 5), next minimum at (π, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(x) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 3); next minimum (π, −3); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 3).",
+    "The next minimum is half a period later, at x = π (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "2",
+     "C": "0",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "3"
+      ],
+      "min": [
+       "1",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-3"
+        ],
+        "min": [
+         "0",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "2",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p005.png",
+     "alt": "Graph of y = 3 cos(x): midline y = 0, maximum at (0, 3), next minimum at (π, −3), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = cos(x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 3); next minimum (π, 1); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 3).",
+    "The next minimum is half a period later, at x = π (y = 1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "3"
+      ],
+      "min": [
+       "1",
+       "1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "1"
+        ],
+        "min": [
+         "0",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "0"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "2",
+         "1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p006.png",
+     "alt": "Graph of y = cos(x) + 2: midline y = 2, maximum at (0, 3), next minimum at (π, 1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos(x) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 3); next minimum (π, −1); midline y = 1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 3).",
+    "The next minimum is half a period later, at x = π (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "2",
+     "C": "0",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "3"
+      ],
+      "min": [
+       "1",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "-1"
+        ],
+        "min": [
+         "0",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "1",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p007.png",
+     "alt": "Graph of y = 2 cos(x) + 1: midline y = 1, maximum at (0, 3), next minimum at (π, −1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp2-p008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = cos(x) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 2); next minimum (π, 0); midline y = 1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 1; period = 2π ÷ 1 = 2π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 2).",
+    "The next minimum is half a period later, at x = π (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "1",
+     "P": "2",
+     "C": "0",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "2"
+      ],
+      "min": [
+       "1",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "0"
+        ],
+        "min": [
+         "0",
+         "2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "3"
+        ],
+        "min": [
+         "1",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "2"
+        ],
+        "min": [
+         "2",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "2"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp2-p008.png",
+     "alt": "Graph of y = cos(x) + 1: midline y = 1, maximum at (0, 2), next minimum at (π, 0), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos((1/2)(x + π)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π, 1); next minimum (5π, −3); midline y = −1; period 4π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −1; period = 2π ÷ 1/2 = 4π.",
+    "Phase shift: π to the left.",
+    "Cosine starts at a maximum at x = −π, so a maximum is at x = 3π (y = 1).",
+    "The next minimum is half a period later, at x = 5π (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-4",
+     "xmax": "8",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1",
+     "xSnap": "1/2"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "4",
+     "C": "-1",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3",
+       "1"
+      ],
+      "min": [
+       "5",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5",
+         "-3"
+        ],
+        "min": [
+         "3",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "2"
+        ],
+        "min": [
+         "5",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "2"
+        ],
+        "min": [
+         "5",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "1"
+        ],
+        "min": [
+         "7",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "4",
+         "1"
+        ],
+        "min": [
+         "6",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p001.png",
+     "alt": "Graph of y = 2 cos((1/2)(x + π)) − 1: midline y = −1, maximum at (3π, 1), next minimum at (5π, −3), period 4π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 cos((1/2)(x − π)) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π, 4); next minimum (5π, 0); midline y = 2; period 4π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 1/2 = 4π.",
+    "Phase shift: π to the right.",
+    "Cosine starts at a minimum at x = π, so a maximum is at x = 3π (y = 4).",
+    "The next minimum is half a period later, at x = 5π (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-4",
+     "xmax": "8",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1",
+     "xSnap": "1/2"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-2",
+     "P": "4",
+     "C": "1",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3",
+       "4"
+      ],
+      "min": [
+       "5",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5",
+         "0"
+        ],
+        "min": [
+         "3",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "5"
+        ],
+        "min": [
+         "5",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "5"
+        ],
+        "min": [
+         "5",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "4"
+        ],
+        "min": [
+         "7",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "4",
+         "4"
+        ],
+        "min": [
+         "6",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p002.png",
+     "alt": "Graph of y = −2 cos((1/2)(x − π)) + 2: midline y = 2, maximum at (3π, 4), next minimum at (5π, 0), period 4π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos((1/2)(x + π)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π, 3); next minimum (5π, −1); midline y = 1; period 4π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 1/2 = 4π.",
+    "Phase shift: π to the left.",
+    "Cosine starts at a maximum at x = −π, so a maximum is at x = 3π (y = 3).",
+    "The next minimum is half a period later, at x = 5π (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-4",
+     "xmax": "8",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1",
+     "xSnap": "1/2"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "4",
+     "C": "-1",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3",
+       "3"
+      ],
+      "min": [
+       "5",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5",
+         "-1"
+        ],
+        "min": [
+         "3",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "4"
+        ],
+        "min": [
+         "5",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "4"
+        ],
+        "min": [
+         "5",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3",
+         "3"
+        ],
+        "min": [
+         "7",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "4",
+         "3"
+        ],
+        "min": [
+         "6",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p003.png",
+     "alt": "Graph of y = 2 cos((1/2)(x + π)) + 1: midline y = 1, maximum at (3π, 3), next minimum at (5π, −1), period 4π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(2(x + π/4)) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/4, 3); next minimum (5π/4, −3); midline y = 0; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 0; period = 2π ÷ 2 = π.",
+    "Phase shift: π/4 to the left.",
+    "Cosine starts at a maximum at x = −π/4, so a maximum is at x = 3π/4 (y = 3).",
+    "The next minimum is half a period later, at x = 5π/4 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "1",
+     "C": "-1/4",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/4",
+       "3"
+      ],
+      "min": [
+       "5/4",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "-3"
+        ],
+        "min": [
+         "3/4",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "5/4",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "5/4",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "3"
+        ],
+        "min": [
+         "7/4",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "3"
+        ],
+        "min": [
+         "3/2",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p004.png",
+     "alt": "Graph of y = 3 cos(2(x + π/4)): midline y = 0, maximum at (3π/4, 3), next minimum at (5π/4, −3), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 cos(x − π/2) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/2, 1); next minimum (5π/2, −3); midline y = −1; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −1; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/2 to the right.",
+    "Cosine starts at a minimum at x = π/2, so a maximum is at x = 3π/2 (y = 1).",
+    "The next minimum is half a period later, at x = 5π/2 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-2",
+     "P": "2",
+     "C": "1/2",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/2",
+       "1"
+      ],
+      "min": [
+       "5/2",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/2",
+         "-3"
+        ],
+        "min": [
+         "3/2",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "2"
+        ],
+        "min": [
+         "5/2",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "2"
+        ],
+        "min": [
+         "5/2",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "7/2",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "2",
+         "1"
+        ],
+        "min": [
+         "3",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p005.png",
+     "alt": "Graph of y = −2 cos(x − π/2) − 1: midline y = −1, maximum at (3π/2, 1), next minimum at (5π/2, −3), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 cos(2x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/2, 4); next minimum (π, 0); midline y = 2; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 2 = π.",
+    "Cosine starts at a minimum at x = 0, so a maximum is at x = π/2 (y = 4).",
+    "The next minimum is half a period later, at x = π (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-2",
+     "P": "1",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/2",
+       "4"
+      ],
+      "min": [
+       "1",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "1",
+         "0"
+        ],
+        "min": [
+         "1/2",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "5"
+        ],
+        "min": [
+         "1",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "5"
+        ],
+        "min": [
+         "1",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "5/4",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p006.png",
+     "alt": "Graph of y = −2 cos(2x) + 2: midline y = 2, maximum at (π/2, 4), next minimum at (π, 0), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos((1/2)x) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (0, 4); next minimum (2π, 0); midline y = 2; period 4π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 2; period = 2π ÷ 1/2 = 4π.",
+    "Cosine starts at a maximum at x = 0, so a maximum is at x = 0 (y = 4).",
+    "The next minimum is half a period later, at x = 2π (y = 0)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-4",
+     "xmax": "8",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1",
+     "xSnap": "1/2"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "4",
+     "C": "0",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "0",
+       "4"
+      ],
+      "min": [
+       "2",
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "2",
+         "0"
+        ],
+        "min": [
+         "0",
+         "4"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "2",
+         "1"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "5"
+        ],
+        "min": [
+         "2",
+         "-1"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "0",
+         "4"
+        ],
+        "min": [
+         "4",
+         "0"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1",
+         "4"
+        ],
+        "min": [
+         "3",
+         "0"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p007.png",
+     "alt": "Graph of y = 2 cos((1/2)x) + 2: midline y = 2, maximum at (0, 4), next minimum at (2π, 0), period 4π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-cp1-p008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2 cos(x − π/2) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/2, 0); next minimum (5π/2, −4); midline y = −2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −2; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/2 to the right.",
+    "Cosine starts at a minimum at x = π/2, so a maximum is at x = 3π/2 (y = 0).",
+    "The next minimum is half a period later, at x = 5π/2 (y = −4)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-2",
+     "P": "2",
+     "C": "1/2",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/2",
+       "0"
+      ],
+      "min": [
+       "5/2",
+       "-4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/2",
+         "-4"
+        ],
+        "min": [
+         "3/2",
+         "0"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "5/2",
+         "-3"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "1"
+        ],
+        "min": [
+         "5/2",
+         "-5"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/2",
+         "0"
+        ],
+        "min": [
+         "7/2",
+         "-4"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "2",
+         "0"
+        ],
+        "min": [
+         "3",
+         "-4"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-cp1-p008.png",
+     "alt": "Graph of y = −2 cos(x − π/2) − 2: midline y = −2, maximum at (3π/2, 0), next minimum at (5π/2, −4), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos(4(x − 3π/16)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/16, 3); next minimum (7π/16, −1); midline y = 1; period π/2.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = 1; period = 2π ÷ 4 = π/2.",
+    "Phase shift: 3π/16 to the right.",
+    "Cosine starts at a maximum at x = 3π/16, so a maximum is at x = 3π/16 (y = 3).",
+    "The next minimum is half a period later, at x = 7π/16 (y = −1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/8",
+     "xSnap": "1/16"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "1/2",
+     "C": "3/16",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/16",
+       "3"
+      ],
+      "min": [
+       "7/16",
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "7/16",
+         "-1"
+        ],
+        "min": [
+         "3/16",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/16",
+         "4"
+        ],
+        "min": [
+         "7/16",
+         "0"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/16",
+         "4"
+        ],
+        "min": [
+         "7/16",
+         "-2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/16",
+         "3"
+        ],
+        "min": [
+         "11/16",
+         "-1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "5/16",
+         "3"
+        ],
+        "min": [
+         "9/16",
+         "-1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p001.png",
+     "alt": "Graph of y = 2 cos(4(x − 3π/16)) + 1: midline y = 1, maximum at (3π/16, 3), next minimum at (7π/16, −1), period π/2."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(x − π/4) (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/4, 3); next minimum (5π/4, −3); midline y = 0; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = 0; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/4 to the right.",
+    "Cosine starts at a maximum at x = π/4, so a maximum is at x = π/4 (y = 3).",
+    "The next minimum is half a period later, at x = 5π/4 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "2",
+     "C": "1/4",
+     "D": "0"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/4",
+       "3"
+      ],
+      "min": [
+       "5/4",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "-3"
+        ],
+        "min": [
+         "1/4",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "4"
+        ],
+        "min": [
+         "5/4",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "4"
+        ],
+        "min": [
+         "5/4",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "3"
+        ],
+        "min": [
+         "9/4",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "3"
+        ],
+        "min": [
+         "7/4",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p002.png",
+     "alt": "Graph of y = 3 cos(x − π/4): midline y = 0, maximum at (π/4, 3), next minimum at (5π/4, −3), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 1/2 cos(4(x + π/16)) + 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (7π/16, 3/2); next minimum (11π/16, 1/2); midline y = 1; period π/2.",
+   "solutionSteps": [
+    "Amplitude |A| = 1/2; midline y = 1; period = 2π ÷ 4 = π/2.",
+    "Phase shift: π/16 to the left.",
+    "Cosine starts at a maximum at x = −π/16, so a maximum is at x = 7π/16 (y = 3/2).",
+    "The next minimum is half a period later, at x = 11π/16 (y = 1/2)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/8",
+     "xSnap": "1/16"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "1/2",
+     "P": "1/2",
+     "C": "-1/16",
+     "D": "1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "7/16",
+       "3/2"
+      ],
+      "min": [
+       "11/16",
+       "1/2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "11/16",
+         "1/2"
+        ],
+        "min": [
+         "7/16",
+         "3/2"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "7/16",
+         "5/2"
+        ],
+        "min": [
+         "11/16",
+         "3/2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "7/16",
+         "5/2"
+        ],
+        "min": [
+         "11/16",
+         "-1/2"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "7/16",
+         "3/2"
+        ],
+        "min": [
+         "15/16",
+         "1/2"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "9/16",
+         "3/2"
+        ],
+        "min": [
+         "13/16",
+         "1/2"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p003.png",
+     "alt": "Graph of y = 1/2 cos(4(x + π/16)) + 1: midline y = 1, maximum at (7π/16, 3/2), next minimum at (11π/16, 1/2), period π/2."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos(2(x − 3π/8)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/8, 1); next minimum (7π/8, −3); midline y = −1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −1; period = 2π ÷ 2 = π.",
+    "Phase shift: 3π/8 to the right.",
+    "Cosine starts at a maximum at x = 3π/8, so a maximum is at x = 3π/8 (y = 1).",
+    "The next minimum is half a period later, at x = 7π/8 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "1",
+     "C": "3/8",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/8",
+       "1"
+      ],
+      "min": [
+       "7/8",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "7/8",
+         "-3"
+        ],
+        "min": [
+         "3/8",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "2"
+        ],
+        "min": [
+         "7/8",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "2"
+        ],
+        "min": [
+         "7/8",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/8",
+         "1"
+        ],
+        "min": [
+         "11/8",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "5/8",
+         "1"
+        ],
+        "min": [
+         "9/8",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p004.png",
+     "alt": "Graph of y = 2 cos(2(x − 3π/8)) − 1: midline y = −1, maximum at (3π/8, 1), next minimum at (7π/8, −3), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −cos(3(x − π/12)) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (5π/12, 3); next minimum (3π/4, 1); midline y = 2; period 2π/3.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 2; period = 2π ÷ 3 = 2π/3.",
+    "Phase shift: π/12 to the right.",
+    "Cosine starts at a minimum at x = π/12, so a maximum is at x = 5π/12 (y = 3).",
+    "The next minimum is half a period later, at x = 3π/4 (y = 1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/6",
+     "xSnap": "1/12"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-1",
+     "P": "2/3",
+     "C": "1/12",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "5/12",
+       "3"
+      ],
+      "min": [
+       "3/4",
+       "1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "1"
+        ],
+        "min": [
+         "5/12",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "5/12",
+         "4"
+        ],
+        "min": [
+         "3/4",
+         "2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "5/12",
+         "4"
+        ],
+        "min": [
+         "3/4",
+         "0"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "5/12",
+         "3"
+        ],
+        "min": [
+         "13/12",
+         "1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "7/12",
+         "3"
+        ],
+        "min": [
+         "11/12",
+         "1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p005.png",
+     "alt": "Graph of y = −cos(3(x − π/12)) + 2: midline y = 2, maximum at (5π/12, 3), next minimum at (3π/4, 1), period 2π/3."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2 cos(2(x − π/4)) − 1 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/4, 1); next minimum (3π/4, −3); midline y = −1; period π.",
+   "solutionSteps": [
+    "Amplitude |A| = 2; midline y = −1; period = 2π ÷ 2 = π.",
+    "Phase shift: π/4 to the right.",
+    "Cosine starts at a maximum at x = π/4, so a maximum is at x = π/4 (y = 1).",
+    "The next minimum is half a period later, at x = 3π/4 (y = −3)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-1",
+     "xmax": "2",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/4",
+     "xSnap": "1/8"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "2",
+     "P": "1",
+     "C": "1/4",
+     "D": "-1"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/4",
+       "1"
+      ],
+      "min": [
+       "3/4",
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "-3"
+        ],
+        "min": [
+         "1/4",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "2"
+        ],
+        "min": [
+         "3/4",
+         "-2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "2"
+        ],
+        "min": [
+         "3/4",
+         "-4"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "1"
+        ],
+        "min": [
+         "5/4",
+         "-3"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "1/2",
+         "1"
+        ],
+        "min": [
+         "1",
+         "-3"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p006.png",
+     "alt": "Graph of y = 2 cos(2(x − π/4)) − 1: midline y = −1, maximum at (π/4, 1), next minimum at (3π/4, −3), period π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −cos(x + π/4) + 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (3π/4, 3); next minimum (7π/4, 1); midline y = 2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 1; midline y = 2; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/4 to the left.",
+    "Cosine starts at a minimum at x = −π/4, so a maximum is at x = 3π/4 (y = 3).",
+    "The next minimum is half a period later, at x = 7π/4 (y = 1)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -4,
+     "ymax": 4,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "-1",
+     "P": "2",
+     "C": "-1/4",
+     "D": "2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "3/4",
+       "3"
+      ],
+      "min": [
+       "7/4",
+       "1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "7/4",
+         "1"
+        ],
+        "min": [
+         "3/4",
+         "3"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "7/4",
+         "2"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "4"
+        ],
+        "min": [
+         "7/4",
+         "0"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "3"
+        ],
+        "min": [
+         "11/4",
+         "1"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "3"
+        ],
+        "min": [
+         "9/4",
+         "1"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p007.png",
+     "alt": "Graph of y = −cos(x + π/4) + 2: midline y = 2, maximum at (3π/4, 3), next minimum at (7π/4, 1), period 2π."
+    }
+   }
+  },
+  {
+   "id": "pc-trg-s08-honors-p008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3 cos(x − π/4) − 2 (x in radians). Place a maximum point and the next minimum point.",
+   "answer": "Maximum (π/4, 1); next minimum (5π/4, −5); midline y = −2; period 2π.",
+   "solutionSteps": [
+    "Amplitude |A| = 3; midline y = −2; period = 2π ÷ 1 = 2π.",
+    "Phase shift: π/4 to the right.",
+    "Cosine starts at a maximum at x = π/4, so a maximum is at x = π/4 (y = 1).",
+    "The next minimum is half a period later, at x = 5π/4 (y = −5)."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cosine-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "sinusoid",
+    "grid": {
+     "xmin": "-2",
+     "xmax": "4",
+     "ymin": -6,
+     "ymax": 6,
+     "step": 1,
+     "snap": "1/2",
+     "xUnit": "pi",
+     "xStep": "1/2",
+     "xSnap": "1/4"
+    },
+    "target": {
+     "fn": "cos",
+     "A": "3",
+     "P": "2",
+     "C": "1/4",
+     "D": "-2"
+    },
+    "feedback": {
+     "max-min-swapped": "Your “maximum” is lower than your “minimum.” Swap them.",
+     "midline": "The midline is y = D, halfway between the maximum and minimum.",
+     "amplitude": "The amplitude |A| is the distance from the midline to a maximum.",
+     "period": "A maximum and the next minimum are half a period apart. Period = 2π ÷ B.",
+     "phase": "The shape is right but shifted. Use the phase shift to find where a maximum occurs."
+    },
+    "testVectors": {
+     "correct": {
+      "max": [
+       "1/4",
+       "1"
+      ],
+      "min": [
+       "5/4",
+       "-5"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "max": [
+         "5/4",
+         "-5"
+        ],
+        "min": [
+         "1/4",
+         "1"
+        ]
+       },
+       "expectCode": "max-min-swapped"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "2"
+        ],
+        "min": [
+         "5/4",
+         "-4"
+        ]
+       },
+       "expectCode": "midline"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "2"
+        ],
+        "min": [
+         "5/4",
+         "-6"
+        ]
+       },
+       "expectCode": "amplitude"
+      },
+      {
+       "response": {
+        "max": [
+         "1/4",
+         "1"
+        ],
+        "min": [
+         "9/4",
+         "-5"
+        ]
+       },
+       "expectCode": "period"
+      },
+      {
+       "response": {
+        "max": [
+         "3/4",
+         "1"
+        ],
+        "min": [
+         "7/4",
+         "-5"
+        ]
+       },
+       "expectCode": "phase"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-trg-s08-honors-p008.png",
+     "alt": "Graph of y = 3 cos(x − π/4) − 2: midline y = −2, maximum at (π/4, 1), next minimum at (5π/4, −5), period 2π."
+    }
+   }
   }
  ]
 }

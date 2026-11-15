@@ -11633,6 +11633,4498 @@
     "A-APR.B.3"
    ],
    "sourceNotes": "Partner-check companion to a2-pf-s05-cp1-015 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "a2-pf-s06-cp2-p001",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 1)(x − 3). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −1 (crosses), x = 3 (crosses); y-intercept (0, 3); left end down, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −1 (crosses), x = 3 (crosses).",
+    "y-intercept: f(0) = 3.",
+    "Degree 2 with leading coefficient −1: the left end goes down and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "3",
+      "ends": {
+       "left": "down",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-3",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p001.png",
+     "alt": "Graph of y = −(x + 1)(x − 3): zeros x = −1 (crosses), x = 3 (crosses); y-intercept 3; left end down, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p002",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 3)(x − 4). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (crosses), x = 4 (crosses); y-intercept (0, −12); left end up, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −3 (crosses), x = 4 (crosses).",
+    "y-intercept: f(0) = −12.",
+    "Degree 2 with leading coefficient 1: the left end goes up and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -14,
+     "ymax": 14,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "4",
+       "m": 1
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "4",
+        "behavior": "cross"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "-12",
+      "ends": {
+       "left": "up",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p002.png",
+     "alt": "Graph of y = (x + 3)(x − 4): zeros x = −3 (crosses), x = 4 (crosses); y-intercept −12; left end up, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p003",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 3)x. Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (crosses), x = 0 (crosses); y-intercept (0, 0); left end down, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −3 (crosses), x = 0 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 2 with leading coefficient −1: the left end goes down and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-3",
+       "m": 1
+      },
+      {
+       "r": "0",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-3",
+        "behavior": "cross"
+       },
+       {
+        "x": "0",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "down",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p003.png",
+     "alt": "Graph of y = −(x + 3)x: zeros x = −3 (crosses), x = 0 (crosses); y-intercept 0; left end down, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p004",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 2)(x + 1)(x − 2). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −2 (crosses), x = −1 (crosses), x = 2 (crosses); y-intercept (0, −4); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −2 (crosses), x = −1 (crosses), x = 2 (crosses).",
+    "y-intercept: f(0) = −4.",
+    "Degree 3 with leading coefficient 1: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "2",
+       "m": 1
+      },
+      {
+       "r": "-2",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "2",
+        "behavior": "cross"
+       },
+       {
+        "x": "-2",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "-4",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p004.png",
+     "alt": "Graph of y = (x + 2)(x + 1)(x − 2): zeros x = −2 (crosses), x = −1 (crosses), x = 2 (crosses); y-intercept −4; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p005",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 4)(x + 3). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −4 (crosses), x = −3 (crosses); y-intercept (0, −12); left end down, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −4 (crosses), x = −3 (crosses).",
+    "y-intercept: f(0) = −12.",
+    "Degree 2 with leading coefficient −1: the left end goes down and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -14,
+     "ymax": 14,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-3",
+       "m": 1
+      },
+      {
+       "r": "-4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-3",
+        "behavior": "cross"
+       },
+       {
+        "x": "-4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "-12",
+      "ends": {
+       "left": "down",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p005.png",
+     "alt": "Graph of y = −(x + 4)(x + 3): zeros x = −4 (crosses), x = −3 (crosses); y-intercept −12; left end down, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p006",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 2)(x − 1)(x − 3). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −2 (crosses), x = 1 (crosses), x = 3 (crosses); y-intercept (0, −6); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −2 (crosses), x = 1 (crosses), x = 3 (crosses).",
+    "y-intercept: f(0) = −6.",
+    "Degree 3 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-2",
+       "m": 1
+      },
+      {
+       "r": "3",
+       "m": 1
+      },
+      {
+       "r": "1",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-2",
+        "behavior": "cross"
+       },
+       {
+        "x": "3",
+        "behavior": "cross"
+       },
+       {
+        "x": "1",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "-6",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p006.png",
+     "alt": "Graph of y = −(x + 2)(x − 1)(x − 3): zeros x = −2 (crosses), x = 1 (crosses), x = 3 (crosses); y-intercept −6; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p007",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 4)(x + 1). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −4 (crosses), x = −1 (crosses); y-intercept (0, 4); left end up, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −4 (crosses), x = −1 (crosses).",
+    "y-intercept: f(0) = 4.",
+    "Degree 2 with leading coefficient 1: the left end goes up and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "-4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "-4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "4",
+      "ends": {
+       "left": "up",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p007.png",
+     "alt": "Graph of y = (x + 4)(x + 1): zeros x = −4 (crosses), x = −1 (crosses); y-intercept 4; left end up, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp2-p008",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 1)(x − 1)(x − 4). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −1 (crosses), x = 1 (crosses), x = 4 (crosses); y-intercept (0, 4); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −1 (crosses), x = 1 (crosses), x = 4 (crosses).",
+    "y-intercept: f(0) = 4.",
+    "Degree 3 with leading coefficient 1: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "1",
+       "m": 1
+      },
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "1",
+        "behavior": "cross"
+       },
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "4",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp2-p008.png",
+     "alt": "Graph of y = (x + 1)(x − 1)(x − 4): zeros x = −1 (crosses), x = 1 (crosses), x = 4 (crosses); y-intercept 4; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p001",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = 2(x + 3)(x + 1)². Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (crosses), x = −1 (touches, multiplicity 2); y-intercept (0, 6); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −3 (crosses), x = −1 (touches, multiplicity 2).",
+    "y-intercept: f(0) = 6.",
+    "Degree 3 with leading coefficient 2: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 2
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "touch"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "6",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p001.png",
+     "alt": "Graph of y = 2(x + 3)(x + 1)²: zeros x = −3 (crosses), x = −1 (touches, multiplicity 2); y-intercept 6; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p002",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 1)²(x − 4). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −1 (touches, multiplicity 2), x = 4 (crosses); y-intercept (0, 4); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −1 (touches, multiplicity 2), x = 4 (crosses).",
+    "y-intercept: f(0) = 4.",
+    "Degree 3 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 2
+      },
+      {
+       "r": "4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "touch"
+       },
+       {
+        "x": "4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "4",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-4",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "4",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p002.png",
+     "alt": "Graph of y = −(x + 1)²(x − 4): zeros x = −1 (touches, multiplicity 2), x = 4 (crosses); y-intercept 4; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p003",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 1)²(x − 3)(x − 4). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −1 (touches, multiplicity 2), x = 3 (crosses), x = 4 (crosses); y-intercept (0, 12); left end up, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −1 (touches, multiplicity 2), x = 3 (crosses), x = 4 (crosses).",
+    "y-intercept: f(0) = 12.",
+    "Degree 4 with leading coefficient 1: the left end goes up and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -14,
+     "ymax": 14,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 2
+      },
+      {
+       "r": "3",
+       "m": 1
+      },
+      {
+       "r": "4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "touch"
+       },
+       {
+        "x": "3",
+        "behavior": "cross"
+       },
+       {
+        "x": "4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "12",
+      "ends": {
+       "left": "up",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p003.png",
+     "alt": "Graph of y = (x + 1)²(x − 3)(x − 4): zeros x = −1 (touches, multiplicity 2), x = 3 (crosses), x = 4 (crosses); y-intercept 12; left end up, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p004",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 3)(x + 1)². Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (crosses), x = −1 (touches, multiplicity 2); y-intercept (0, 3); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −3 (crosses), x = −1 (touches, multiplicity 2).",
+    "y-intercept: f(0) = 3.",
+    "Degree 3 with leading coefficient 1: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 2
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "touch"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "3",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-3",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "3",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p004.png",
+     "alt": "Graph of y = (x + 3)(x + 1)²: zeros x = −3 (crosses), x = −1 (touches, multiplicity 2); y-intercept 3; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p005",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = −x²(x − 1). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = 0 (touches, multiplicity 2), x = 1 (crosses); y-intercept (0, 0); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = 0 (touches, multiplicity 2), x = 1 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 3 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "0",
+       "m": 2
+      },
+      {
+       "r": "1",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "0",
+        "behavior": "touch"
+       },
+       {
+        "x": "1",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p005.png",
+     "alt": "Graph of y = −x²(x − 1): zeros x = 0 (touches, multiplicity 2), x = 1 (crosses); y-intercept 0; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p006",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 1)²(x − 2). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −1 (touches, multiplicity 2), x = 2 (crosses); y-intercept (0, 2); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −1 (touches, multiplicity 2), x = 2 (crosses).",
+    "y-intercept: f(0) = 2.",
+    "Degree 3 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 2
+      },
+      {
+       "r": "2",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "touch"
+       },
+       {
+        "x": "2",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "2",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "2",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "2",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "2",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-2",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "2",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p006.png",
+     "alt": "Graph of y = −(x + 1)²(x − 2): zeros x = −1 (touches, multiplicity 2), x = 2 (crosses); y-intercept 2; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p007",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = x²(x − 1)(x − 2). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = 0 (touches, multiplicity 2), x = 1 (crosses), x = 2 (crosses); y-intercept (0, 0); left end up, right end up.",
+   "solutionSteps": [
+    "Zeros: x = 0 (touches, multiplicity 2), x = 1 (crosses), x = 2 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 4 with leading coefficient 1: the left end goes up and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "0",
+       "m": 2
+      },
+      {
+       "r": "2",
+       "m": 1
+      },
+      {
+       "r": "1",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "0",
+        "behavior": "touch"
+       },
+       {
+        "x": "2",
+        "behavior": "cross"
+       },
+       {
+        "x": "1",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "up",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p007.png",
+     "alt": "Graph of y = x²(x − 1)(x − 2): zeros x = 0 (touches, multiplicity 2), x = 1 (crosses), x = 2 (crosses); y-intercept 0; left end up, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-cp1-p008",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Sketch y = 2x²(x − 2). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = 0 (touches, multiplicity 2), x = 2 (crosses); y-intercept (0, 0); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = 0 (touches, multiplicity 2), x = 2 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 3 with leading coefficient 2: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "factors": [
+      {
+       "r": "0",
+       "m": 2
+      },
+      {
+       "r": "2",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "0",
+        "behavior": "touch"
+       },
+       {
+        "x": "2",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "-2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-cp1-p008.png",
+     "alt": "Graph of y = 2x²(x − 2): zeros x = 0 (touches, multiplicity 2), x = 2 (crosses); y-intercept 0; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p001",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (1/2)(x + 3)x(x − 1). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (crosses), x = 0 (crosses), x = 1 (crosses); y-intercept (0, 0); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −3 (crosses), x = 0 (crosses), x = 1 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 3 with leading coefficient 1/2: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/2",
+     "factors": [
+      {
+       "r": "1",
+       "m": 1
+      },
+      {
+       "r": "0",
+       "m": 1
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "1",
+        "behavior": "cross"
+       },
+       {
+        "x": "0",
+        "behavior": "cross"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p001.png",
+     "alt": "Graph of y = (1/2)(x + 3)x(x − 1): zeros x = −3 (crosses), x = 0 (crosses), x = 1 (crosses); y-intercept 0; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p002",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (−1/2)(x + 4)(x + 3)x. Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −4 (crosses), x = −3 (crosses), x = 0 (crosses); y-intercept (0, 0); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −4 (crosses), x = −3 (crosses), x = 0 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 3 with leading coefficient −1/2: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/2",
+     "factors": [
+      {
+       "r": "0",
+       "m": 1
+      },
+      {
+       "r": "-4",
+       "m": 1
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "0",
+        "behavior": "cross"
+       },
+       {
+        "x": "-4",
+        "behavior": "cross"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "0",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p002.png",
+     "alt": "Graph of y = (−1/2)(x + 4)(x + 3)x: zeros x = −4 (crosses), x = −3 (crosses), x = 0 (crosses); y-intercept 0; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p003",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 2)³(x + 1)x. Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −2 (crosses, multiplicity 3), x = −1 (crosses), x = 0 (crosses); y-intercept (0, 0); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −2 (crosses, multiplicity 3), x = −1 (crosses), x = 0 (crosses).",
+    "y-intercept: f(0) = 0.",
+    "Degree 5 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "-2",
+       "m": 3
+      },
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "0",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-2",
+        "behavior": "cross"
+       },
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "0",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "cross"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "touch"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p003.png",
+     "alt": "Graph of y = −(x + 2)³(x + 1)x: zeros x = −2 (crosses, multiplicity 3), x = −1 (crosses), x = 0 (crosses); y-intercept 0; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p004",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = −(x + 4)(x + 3)(x − 1)³. Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −4 (crosses), x = −3 (crosses), x = 1 (crosses, multiplicity 3); y-intercept (0, 12); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −4 (crosses), x = −3 (crosses), x = 1 (crosses, multiplicity 3).",
+    "y-intercept: f(0) = 12.",
+    "Degree 5 with leading coefficient −1: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -14,
+     "ymax": 14,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "factors": [
+      {
+       "r": "1",
+       "m": 3
+      },
+      {
+       "r": "-3",
+       "m": 1
+      },
+      {
+       "r": "-4",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "1",
+        "behavior": "cross"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       },
+       {
+        "x": "-4",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "12",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-12",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "12",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p004.png",
+     "alt": "Graph of y = −(x + 4)(x + 3)(x − 1)³: zeros x = −4 (crosses), x = −3 (crosses), x = 1 (crosses, multiplicity 3); y-intercept 12; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p005",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (1/2)(x + 4)(x + 3)(x + 1). Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −4 (crosses), x = −3 (crosses), x = −1 (crosses); y-intercept (0, 6); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −4 (crosses), x = −3 (crosses), x = −1 (crosses).",
+    "y-intercept: f(0) = 6.",
+    "Degree 3 with leading coefficient 1/2: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/2",
+     "factors": [
+      {
+       "r": "-1",
+       "m": 1
+      },
+      {
+       "r": "-4",
+       "m": 1
+      },
+      {
+       "r": "-3",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-1",
+        "behavior": "cross"
+       },
+       {
+        "x": "-4",
+        "behavior": "cross"
+       },
+       {
+        "x": "-3",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "6",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "1",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "cross"
+         },
+         {
+          "x": "3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-6",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-1",
+          "behavior": "cross"
+         },
+         {
+          "x": "-4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "6",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p005.png",
+     "alt": "Graph of y = (1/2)(x + 4)(x + 3)(x + 1): zeros x = −4 (crosses), x = −3 (crosses), x = −1 (crosses); y-intercept 6; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p006",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (−1/2)(x + 3)²x(x − 4)². Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −3 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2); y-intercept (0, 0); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = −3 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2).",
+    "y-intercept: f(0) = 0.",
+    "Degree 5 with leading coefficient −1/2: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/2",
+     "factors": [
+      {
+       "r": "4",
+       "m": 2
+      },
+      {
+       "r": "-3",
+       "m": 2
+      },
+      {
+       "r": "0",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "4",
+        "behavior": "touch"
+       },
+       {
+        "x": "-3",
+        "behavior": "touch"
+       },
+       {
+        "x": "0",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-4",
+          "behavior": "touch"
+         },
+         {
+          "x": "3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "cross"
+         },
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p006.png",
+     "alt": "Graph of y = (−1/2)(x + 3)²x(x − 4)²: zeros x = −3 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2); y-intercept 0; left end up, right end down."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p007",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (x + 2)²x(x − 4)². Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = −2 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2); y-intercept (0, 0); left end down, right end up.",
+   "solutionSteps": [
+    "Zeros: x = −2 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2).",
+    "y-intercept: f(0) = 0.",
+    "Degree 5 with leading coefficient 1: the left end goes down and the right end goes up."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "factors": [
+      {
+       "r": "-2",
+       "m": 2
+      },
+      {
+       "r": "4",
+       "m": 2
+      },
+      {
+       "r": "0",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "-2",
+        "behavior": "touch"
+       },
+       {
+        "x": "4",
+        "behavior": "touch"
+       },
+       {
+        "x": "0",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "0",
+      "ends": {
+       "left": "down",
+       "right": "up"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "touch"
+         },
+         {
+          "x": "-4",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "cross"
+         },
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "touch"
+         },
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "1",
+        "ends": {
+         "left": "down",
+         "right": "up"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-2",
+          "behavior": "touch"
+         },
+         {
+          "x": "4",
+          "behavior": "touch"
+         },
+         {
+          "x": "0",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "0",
+        "ends": {
+         "left": "down",
+         "right": "down"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p007.png",
+     "alt": "Graph of y = (x + 2)²x(x − 4)²: zeros x = −2 (touches, multiplicity 2), x = 0 (crosses), x = 4 (touches, multiplicity 2); y-intercept 0; left end down, right end up."
+    }
+   }
+  },
+  {
+   "id": "a2-pf-s06-honors-p008",
+   "skillId": "polynomial-functions-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Sketch y = (−1/2)(x − 1)(x − 2)²(x − 3)². Place each zero and choose whether the graph crosses or touches there, place the y-intercept, and choose the end behavior.",
+   "answer": "Zeros: x = 1 (crosses), x = 2 (touches, multiplicity 2), x = 3 (touches, multiplicity 2); y-intercept (0, 18); left end up, right end down.",
+   "solutionSteps": [
+    "Zeros: x = 1 (crosses), x = 2 (touches, multiplicity 2), x = 3 (touches, multiplicity 2).",
+    "y-intercept: f(0) = 18.",
+    "Degree 5 with leading coefficient −1/2: the left end goes up and the right end goes down."
+   ],
+   "standards": [
+    "F-IF.C.7c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: poly-sketch). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "polynomial",
+    "grid": {
+     "xmin": -6,
+     "xmax": 6,
+     "ymin": -20,
+     "ymax": 20,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/2",
+     "factors": [
+      {
+       "r": "3",
+       "m": 2
+      },
+      {
+       "r": "2",
+       "m": 2
+      },
+      {
+       "r": "1",
+       "m": 1
+      }
+     ]
+    },
+    "feedback": {
+     "zeros": "Check your zeros. Each factor (x − r) gives a zero at x = r.",
+     "zero-sign": "Watch the signs: the factor (x + 2) gives the zero x = −2, not x = 2.",
+     "multiplicity": "Check each zero: an odd power crosses the x-axis, an even power touches and turns.",
+     "y-intercept": "Find the y-intercept by substituting x = 0.",
+     "end-behavior": "End behavior depends on the degree and the sign of the leading coefficient."
+    },
+    "testVectors": {
+     "correct": {
+      "zeros": [
+       {
+        "x": "3",
+        "behavior": "touch"
+       },
+       {
+        "x": "2",
+        "behavior": "touch"
+       },
+       {
+        "x": "1",
+        "behavior": "cross"
+       }
+      ],
+      "yIntercept": "18",
+      "ends": {
+       "left": "up",
+       "right": "down"
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "2",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "18",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zeros"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "-3",
+          "behavior": "touch"
+         },
+         {
+          "x": "-2",
+          "behavior": "touch"
+         },
+         {
+          "x": "-1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "18",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "zero-sign"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "cross"
+         },
+         {
+          "x": "2",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "18",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "multiplicity"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "-18",
+        "ends": {
+         "left": "up",
+         "right": "down"
+        }
+       },
+       "expectCode": "y-intercept"
+      },
+      {
+       "response": {
+        "zeros": [
+         {
+          "x": "3",
+          "behavior": "touch"
+         },
+         {
+          "x": "2",
+          "behavior": "touch"
+         },
+         {
+          "x": "1",
+          "behavior": "cross"
+         }
+        ],
+        "yIntercept": "18",
+        "ends": {
+         "left": "up",
+         "right": "up"
+        }
+       },
+       "expectCode": "end-behavior"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-pf-s06-honors-p008.png",
+     "alt": "Graph of y = (−1/2)(x − 1)(x − 2)²(x − 3)²: zeros x = 1 (crosses), x = 2 (touches, multiplicity 2), x = 3 (touches, multiplicity 2); y-intercept 18; left end up, right end down."
+    }
+   }
   }
  ]
 }

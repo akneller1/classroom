@@ -1338,6 +1338,16 @@
       }
       throw new C.CheckError('unknown absolute value question');
     };
+    R['abs-graph'] = function(p,part,raw){
+      var formula=need(C.snippets(raw).find(function(t){return t.indexOf('|')>=0&&t.indexOf('=')>=0}),'printed absolute-value rule').split('=').slice(1).join('='),node=C.parseExpr(formula),pts=part.answerFig&&part.answerFig.points;
+      need(Array.isArray(pts)&&pts.length===5,'five plotted points');
+      var seen={},xs=pts.map(function(pt){need(Number.isInteger(pt.x)&&Number.isInteger(pt.y),'whole-number plot coordinates');need(!seen[pt.x],'distinct x coordinates');seen[pt.x]=true;return pt.x}).sort(function(a,b){return a-b}),h=xs[2];
+      need(xs[0]<h&&xs[1]<h&&xs[3]>h&&xs[4]>h&&xs[0]+xs[4]===2*h&&xs[1]+xs[3]===2*h,'two symmetric points on each side');
+      for(var i=0;i<pts.length;i++)if(!evalAt(node,'x',new Q(BigInt(pts[i].x))).eq(new Q(BigInt(pts[i].y))))return {status:'mismatch',msg:'A plotted point is not on the printed function.'};
+      var center=evalAt(node,'x',new Q(BigInt(h))),left=evalAt(node,'x',new Q(BigInt(h-1))),right=evalAt(node,'x',new Q(BigInt(h+1)));need(left.eq(right)&&!center.eq(right),'the middle point is the vertex');
+      var answers=pairsIn(part.answer||'');if(answers.length!==5||pts.some(function(pt){return !answers.some(function(a){return a[0]===pt.x&&a[1]===pt.y})}))return {status:'mismatch',msg:'The answer points do not match the graph.'};
+      return {status:'verified',computed:pts.map(function(pt){return '('+pt.x+', '+pt.y+')'}).join(', ')};
+    };
     R['abs-desc'] = function (p, part, raw) {
       var txt = C.plainText(raw), m = need(/The graph of is (?:(vertically (?:stretched|compressed) by a factor of (\d+|one-half)(?: and )?)?(reflected across the x-axis)?, then )?translated (\d+) units (left|right)(?: and (\d+) units (up|down))?\./.exec(txt.replace(/\s+/g, ' ')), 'description');
       var a = m[2] === 'one-half' ? new Q(1n, 2n) : new Q(BigInt(m[2] || 1)); if (m[3]) a = a.neg(); var h = (+m[4]) * (m[5] === 'right' ? 1 : -1), k = m[6] ? (+m[6]) * (m[7] === 'up' ? 1 : -1) : 0;

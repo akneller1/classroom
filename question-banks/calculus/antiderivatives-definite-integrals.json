@@ -7472,200 +7472,208 @@
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Given ∫ from -3 to 2 f(x) dx = -3, ∫ from 2 to 4 f(x) dx = -5, and ∫ from -3 to 2 g(x) dx = 6, find ∫ from -3 to 4 f(x) dx.",
-   "answer": "-8",
+   "prompt": "f is an even function and ∫ from 0 to 2 f(x) dx = 8. Find ∫ from −2 to 2 f(x) dx.",
+   "answer": "16",
    "options": [
     {
-     "text": "-2",
+     "text": "-16",
      "correct": false
     },
     {
-     "text": "15",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "-8",
+     "text": "16",
      "correct": true
     },
     {
-     "text": "2",
+     "text": "0",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -8."
+    "For an even function, the graph is symmetric about the y-axis.",
+    "So ∫ from −2 to 0 f(x) dx also equals 8.",
+    "Total: 8 + 8 = 16."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-even). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-007",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -1 to 6 f(x) dx = -8, ∫ from 6 to 7 f(x) dx = -6, and ∫ from -1 to 6 g(x) dx = -5, find ∫ from -1 to 6 (4f(x) - 1g(x)) dx.",
-   "answer": "-27",
+   "prompt": "∫ from -2 to 1 f(x) dx = 3. Find ∫ from -2 to 1 (f(x) + 4) dx.",
+   "answer": "15",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -27."
+    "Split the integral: ∫(f(x) + c) dx = ∫f(x) dx + ∫c dx.",
+    "∫ from -2 to 1 of 4 dx = 4·(1 − -2) = 12.",
+    "Total: 3 + 12 = 15."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-shift). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-008",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Given ∫ from -2 to 2 f(x) dx = 1, ∫ from 2 to 5 f(x) dx = 12, and ∫ from -2 to 2 g(x) dx = -2, find ∫ from 2 to -2 f(x) dx.",
-   "answer": "-1",
+   "prompt": "∫ from -2 to 4 f(x) dx = -2 and ∫ from 1 to 4 f(x) dx = 2. Find ∫ from -2 to 1 f(x) dx.",
+   "answer": "-4",
    "options": [
     {
-     "text": "-12",
+     "text": "0",
      "correct": false
     },
     {
-     "text": "12",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "-1",
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "-4",
      "correct": true
-    },
-    {
-     "text": "1",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -1."
+    "Because -2 < 1 < 4, ∫ from -2 to 4 = ∫ from -2 to 1 + ∫ from 1 to 4.",
+    "So -2 = ∫ from -2 to 1 f(x) dx + 2.",
+    "∫ from -2 to 1 f(x) dx = -2 − 2 = -4."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-009",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -2 to 3 f(x) dx = 2, ∫ from 3 to 6 f(x) dx = 11, and ∫ from -2 to 3 g(x) dx = -5, find ∫ from 3 to -2 f(x) dx.",
-   "answer": "-2",
+   "prompt": "Use geometry to find ∫ from -4 to 2 (2) dx.",
+   "answer": "12",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -2."
+    "The graph of y = 2 is a horizontal line.",
+    "The region from x = -4 to x = 2 is a rectangle of width 6 and signed height 2.",
+    "Signed area: 2·6 = 12."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-constant). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-010",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Given ∫ from -3 to 5 f(x) dx = 7, ∫ from 5 to 9 f(x) dx = -2, and ∫ from -3 to 5 g(x) dx = -1, find ∫ from -3 to 5 (-2f(x) - 4g(x)) dx.",
-   "answer": "-10",
+   "prompt": "f is an odd function that is continuous on [−3, 3]. Find ∫ from −3 to 3 f(x) dx.",
+   "answer": "0",
    "options": [
-    {
-     "text": "-56",
-     "correct": false
-    },
     {
      "text": "6",
      "correct": false
     },
     {
-     "text": "-10",
-     "correct": true
+     "text": "It cannot be determined.",
+     "correct": false
     },
     {
-     "text": "-18",
+     "text": "3",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -10."
+    "For an odd function, f(−x) = −f(x), so the area from −3 to 0 cancels the area from 0 to 3.",
+    "The two signed areas add to 0.",
+    "The integral is 0."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-odd). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-011",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from 3 to 4 f(x) dx = 12, ∫ from 4 to 5 f(x) dx = -6, and ∫ from 3 to 4 g(x) dx = 9, find ∫ from 3 to 4 (-2f(x) + 2g(x)) dx.",
-   "answer": "-6",
+   "prompt": "∫ from 1 to 3 f(x) dx = 9. Find ∫ from 1 to 3 (f(x) + 4) dx.",
+   "answer": "17",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -6."
+    "Split the integral: ∫(f(x) + c) dx = ∫f(x) dx + ∫c dx.",
+    "∫ from 1 to 3 of 4 dx = 4·(3 − 1) = 8.",
+    "Total: 9 + 8 = 17."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-shift). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-012",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Given ∫ from -2 to 2 f(x) dx = 5, ∫ from 2 to 5 f(x) dx = 11, and ∫ from -2 to 2 g(x) dx = 9, find ∫ from -2 to 5 f(x) dx.",
-   "answer": "16",
+   "prompt": "∫ from 0 to 6 f(x) dx = -6 and ∫ from 2 to 6 f(x) dx = -1. Find ∫ from 0 to 2 f(x) dx.",
+   "answer": "-5",
    "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
     {
      "text": "-6",
      "correct": false
     },
     {
-     "text": "6",
-     "correct": false
-    },
-    {
-     "text": "55",
-     "correct": false
-    },
-    {
-     "text": "16",
+     "text": "-5",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 16."
+    "Because 0 < 2 < 6, ∫ from 0 to 6 = ∫ from 0 to 2 + ∫ from 2 to 6.",
+    "So -6 = ∫ from 0 to 2 f(x) dx + -1.",
+    "∫ from 0 to 2 f(x) dx = -6 − -1 = -5."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-013",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 0 f(x) dx = 4, ∫ from 0 to 3 f(x) dx = -2, and ∫ from -3 to 0 g(x) dx = -7, find ∫ from -3 to 3 f(x) dx.",
-   "answer": "2",
+   "prompt": "Use geometry to find ∫ from -2 to 4 (5) dx.",
+   "answer": "30",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 2."
+    "The graph of y = 5 is a horizontal line.",
+    "The region from x = -2 to x = 4 is a rectangle of width 6 and signed height 5.",
+    "Signed area: 5·6 = 30."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-constant). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp2-014",
@@ -7860,15 +7868,167 @@
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Given ∫ from -2 to 1 f(x) dx = -2, ∫ from 1 to 9 f(x) dx = -11, and ∫ from -2 to 1 g(x) dx = 12, find ∫ from -2 to 9 f(x) dx.",
-   "answer": "-13",
+   "prompt": "f is an even function and ∫ from 0 to 6 f(x) dx = -5. Find ∫ from −6 to 6 f(x) dx.",
+   "answer": "-10",
    "options": [
     {
-     "text": "-9",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "-13",
+     "text": "-10",
+     "correct": true
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "For an even function, the graph is symmetric about the y-axis.",
+    "So ∫ from −6 to 0 f(x) dx also equals -5.",
+    "Total: -5 + -5 = -10."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-even). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-007",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "∫ from -1 to 2 f(x) dx = -5. Find ∫ from -1 to 2 (f(x) − 2) dx.",
+   "answer": "-11",
+   "solutionSteps": [
+    "Split the integral: ∫(f(x) + c) dx = ∫f(x) dx + ∫c dx.",
+    "∫ from -1 to 2 of -2 dx = -2·(2 − -1) = -6.",
+    "Total: -5 + -6 = -11."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-shift). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-008",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "∫ from -2 to 2 f(x) dx = -2 and ∫ from -1 to 2 f(x) dx = 3. Find ∫ from -2 to -1 f(x) dx.",
+   "answer": "-5",
+   "options": [
+    {
+     "text": "-5",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Because -2 < -1 < 2, ∫ from -2 to 2 = ∫ from -2 to -1 + ∫ from -1 to 2.",
+    "So -2 = ∫ from -2 to -1 f(x) dx + 3.",
+    "∫ from -2 to -1 f(x) dx = -2 − 3 = -5."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-009",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use geometry to find ∫ from -5 to -2 (-4) dx.",
+   "answer": "-12",
+   "solutionSteps": [
+    "The graph of y = -4 is a horizontal line.",
+    "The region from x = -5 to x = -2 is a rectangle of width 3 and signed height -4.",
+    "Signed area: -4·3 = -12."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-constant). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-010",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f is an odd function that is continuous on [−3, 3]. Find ∫ from −3 to 3 f(x) dx.",
+   "answer": "0",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
+    },
+    {
+     "text": "It cannot be determined.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "For an odd function, f(−x) = −f(x), so the area from −3 to 0 cancels the area from 0 to 3.",
+    "The two signed areas add to 0.",
+    "The integral is 0."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-odd). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-011",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "∫ from 2 to 6 f(x) dx = 12. Find ∫ from 2 to 6 (f(x) − 1) dx.",
+   "answer": "8",
+   "solutionSteps": [
+    "Split the integral: ∫(f(x) + c) dx = ∫f(x) dx + ∫c dx.",
+    "∫ from 2 to 6 of -1 dx = -1·(6 − 2) = -4.",
+    "Total: 12 + -4 = 8."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: int-shift). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s07-cp1-012",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "∫ from -1 to 3 f(x) dx = 10 and ∫ from 1 to 3 f(x) dx = -1. Find ∫ from -1 to 1 f(x) dx.",
+   "answer": "11",
+   "options": [
+    {
+     "text": "11",
      "correct": true
     },
     {
@@ -7876,53 +8036,7 @@
      "correct": false
     },
     {
-     "text": "22",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -13."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-007",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Given ∫ from -2 to -1 f(x) dx = -8, ∫ from -1 to 5 f(x) dx = -7, and ∫ from -2 to -1 g(x) dx = 11, find ∫ from -1 to -2 f(x) dx.",
-   "answer": "8",
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 8."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-008",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Given ∫ from 1 to 2 f(x) dx = -10, ∫ from 2 to 4 f(x) dx = -11, and ∫ from 1 to 2 g(x) dx = -7, find ∫ from 2 to 1 f(x) dx.",
-   "answer": "10",
-   "options": [
-    {
-     "text": "11",
-     "correct": false
-    },
-    {
      "text": "10",
-     "correct": true
-    },
-    {
-     "text": "-10",
      "correct": false
     },
     {
@@ -7931,129 +8045,31 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 10."
+    "Because -1 < 1 < 3, ∫ from -1 to 3 = ∫ from -1 to 1 + ∫ from 1 to 3.",
+    "So 10 = ∫ from -1 to 1 f(x) dx + -1.",
+    "∫ from -1 to 1 f(x) dx = 10 − -1 = 11."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-009",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 2 f(x) dx = 5, ∫ from 2 to 3 f(x) dx = 10, and ∫ from -3 to 2 g(x) dx = 9, find ∫ from -3 to 3 f(x) dx.",
-   "answer": "15",
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 15."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-010",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Given ∫ from -3 to -1 f(x) dx = -8, ∫ from -1 to 9 f(x) dx = -7, and ∫ from -3 to -1 g(x) dx = -10, find ∫ from -3 to -1 (-4f(x) - 3g(x)) dx.",
-   "answer": "62",
-   "options": [
-    {
-     "text": "62",
-     "correct": true
-    },
-    {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "960",
-     "correct": false
-    },
-    {
-     "text": "-18",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 62."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-011",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Given ∫ from -2 to -1 f(x) dx = 8, ∫ from -1 to 5 f(x) dx = -12, and ∫ from -2 to -1 g(x) dx = 10, find ∫ from -2 to 5 f(x) dx.",
-   "answer": "-4",
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -4."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "cal-int-s07-cp1-012",
-   "skillId": "antiderivatives-definite-integrals-skill-07",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Given ∫ from -2 to 5 f(x) dx = 11, ∫ from 5 to 8 f(x) dx = 3, and ∫ from -2 to 5 g(x) dx = 8, find ∫ from -2 to 8 f(x) dx.",
-   "answer": "14",
-   "options": [
-    {
-     "text": "14",
-     "correct": true
-    },
-    {
-     "text": "33",
-     "correct": false
-    },
-    {
-     "text": "8",
-     "correct": false
-    },
-    {
-     "text": "-8",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 14."
-   ],
-   "standards": [
-    "AP FUN-6.B"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp1-013",
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from 0 to 4 f(x) dx = -12, ∫ from 4 to 6 f(x) dx = -7, and ∫ from 0 to 4 g(x) dx = 6, find ∫ from 0 to 6 f(x) dx.",
-   "answer": "-19",
+   "prompt": "Use geometry to find ∫ from 2 to 6 (7) dx.",
+   "answer": "28",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -19."
+    "The graph of y = 7 is a horizontal line.",
+    "The region from x = 2 to x = 6 is a rectangle of width 4 and signed height 7.",
+    "Signed area: 7·4 = 28."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: int-constant). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "cal-int-s07-cp1-014",

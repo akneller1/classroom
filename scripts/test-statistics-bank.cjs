@@ -31,7 +31,7 @@ for(const unit of course.units){
  assert(kinds.includes('partner')&&kinds.includes('error'),'Partner Check and Error Analysis must be linked');
  for(const kind of ['color','who'])assert(kinds.includes(kind),'Missing expanded printable '+kind);
 }
-assert.equal(partnerPairs,114);assert.equal(errorItems,140);assert.equal(total,1931+require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='statistics').length);assert.equal(cells,114);assert.equal(g.window.LIBRARY.courses.find(c=>c.id==='discrete').units.length,10,'Discrete outline must be preserved');
+assert.equal(partnerPairs,114);assert.equal(errorItems,140);assert.equal(total,1931+require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='statistics').length+require('../tests/fixtures/statistics-display-items.json').length);assert.equal(cells,114);assert.equal(g.window.LIBRARY.courses.find(c=>c.id==='discrete').units.length,10,'Discrete outline must be preserved');
 console.log('PASS '+total+' Statistics questions, all 114 topic/level cells, figure assets, answer keys, whole-unit game pools, and supported resource links');
 
 

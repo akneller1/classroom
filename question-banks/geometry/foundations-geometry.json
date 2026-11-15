@@ -8,328 +8,280 @@
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "perpendicular bisector of segment AB",
+   "prompt": "To construct the perpendicular bisector of segment AB, what is the first step after drawing AB?",
+   "answer": "Open the compass to more than half of AB and draw arcs above and below AB from point A.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the perpendicular bisector of segment AB."
+    "The compass setting must be more than half of AB so the arcs from A and from B intersect.",
+    "Draw arcs from A, then from B with the same setting, on both sides of AB.",
+    "The line through the two intersection points is the perpendicular bisector."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-steps). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "equilateral triangle on segment AB",
-     "correct": false
-    },
-    {
-     "text": "perpendicular bisector of segment AB",
+     "text": "Open the compass to more than half of AB and draw arcs above and below AB from point A.",
      "correct": true
     },
     {
-     "text": "perpendicular to the line through point P",
+     "text": "Use a protractor to measure a 90° angle at the midpoint.",
      "correct": false
     },
     {
-     "text": "copy of segment AB onto the ray from C",
+     "text": "Draw a line through A that looks perpendicular to AB.",
+     "correct": false
+    },
+    {
+     "text": "Open the compass to less than half of AB and draw one arc from point A.",
      "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-01.png",
-     "alt": "Construction marks. Segment AB with two pairs of arcs of equal radius centered at A and B, meeting above and below AB; a line through both intersections crosses AB at M."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k002",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "bisector of angle V",
+   "prompt": "When copying angle A onto a ray from point P, which compass setting must be reused?",
+   "answer": "The distance between the two points where the first arc crosses the sides of angle A.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the bisector of angle V."
+    "First draw an arc centered at A and the same arc centered at P.",
+    "Then measure, with the compass, the opening between where the arc crosses the two sides of angle A.",
+    "Reusing that opening on the copy makes the two triangles congruent (SSS), so the angles match."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-steps). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "line through P parallel to the given line",
+     "text": "Any setting, as long as the arcs cross.",
      "correct": false
     },
     {
-     "text": "copy of angle A at point D",
+     "text": "The length of the ray from P.",
      "correct": false
     },
     {
-     "text": "perpendicular to the line through point P",
+     "text": "The distance from A to P.",
      "correct": false
     },
     {
-     "text": "bisector of angle V",
+     "text": "The distance between the two points where the first arc crosses the sides of angle A.",
      "correct": true
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-02.png",
-     "alt": "Construction marks. Angle V. An arc centered at V crosses both sides; from each crossing an arc of equal radius is drawn, and the arcs meet inside the angle; a ray from V passes through that meeting point."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k003",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "copy of segment AB onto the ray from C",
+   "prompt": "Why does the perpendicular-bisector construction work?",
+   "answer": "Each arc intersection point is the same distance from A as from B, and all such points lie on the perpendicular bisector.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the copy of segment AB onto the ray from C."
+    "Both arcs use the same radius, so each intersection point is equidistant from A and B.",
+    "The set of points equidistant from A and B is the perpendicular bisector of AB.",
+    "Two such points determine that line."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-why). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "copy of angle A at point D",
+     "text": "The arcs make two right angles at A and B.",
      "correct": false
     },
     {
-     "text": "copy of segment AB onto the ray from C",
+     "text": "The compass measures exactly half of AB.",
+     "correct": false
+    },
+    {
+     "text": "The two intersection points are always the midpoint of AB.",
+     "correct": false
+    },
+    {
+     "text": "Each arc intersection point is the same distance from A as from B, and all such points lie on the perpendicular bisector.",
      "correct": true
-    },
-    {
-     "text": "equilateral triangle on segment AB",
-     "correct": false
-    },
-    {
-     "text": "line through P parallel to the given line",
-     "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-03.png",
-     "alt": "Construction marks. Segment AB above a ray starting at C. An arc centered at C with radius AB crosses the ray at D."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k004",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "copy of angle A at point D",
+   "prompt": "In the angle-bisector construction, why are the two small triangles congruent?",
+   "answer": "They have three pairs of congruent sides (SSS), using equal compass settings.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the copy of angle A at point D."
+    "The first arc makes two equal segments along the sides of the angle.",
+    "The second pair of arcs uses one setting, so the segments to the new point are equal.",
+    "With the shared side, SSS makes the triangles congruent, so the two angle parts are equal."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-why). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "perpendicular to the line through point P",
+     "text": "They have two congruent angles (AA).",
      "correct": false
     },
     {
-     "text": "bisector of angle V",
-     "correct": false
-    },
-    {
-     "text": "copy of angle A at point D",
+     "text": "They have three pairs of congruent sides (SSS), using equal compass settings.",
      "correct": true
     },
     {
-     "text": "equilateral triangle on segment AB",
+     "text": "They share the vertex, so they must be congruent.",
+     "correct": false
+    },
+    {
+     "text": "They both contain a right angle (HL).",
      "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-04.png",
-     "alt": "Construction marks. Angle A with an arc across both sides. At D, a ray with the same-radius arc, a second arc measuring the chord from the first angle, and a new ray through the intersection."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k005",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "perpendicular to the line through point P",
+   "prompt": "Which construction would you use to find the midpoint of segment CD?",
+   "answer": "The perpendicular bisector of CD; it crosses CD at the midpoint.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the perpendicular to the line through point P."
+    "The midpoint is the point on CD equidistant from C and D.",
+    "The perpendicular bisector is the set of points equidistant from C and D.",
+    "So it meets CD exactly at the midpoint."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-choose). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "equilateral triangle on segment AB",
+     "text": "The angle bisector of angle C.",
      "correct": false
     },
     {
-     "text": "copy of angle A at point D",
-     "correct": false
-    },
-    {
-     "text": "perpendicular to the line through point P",
+     "text": "The perpendicular bisector of CD; it crosses CD at the midpoint.",
      "correct": true
     },
     {
-     "text": "bisector of angle V",
+     "text": "A copy of segment CD.",
+     "correct": false
+    },
+    {
+     "text": "A line parallel to CD through a point not on CD.",
      "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-05.png",
-     "alt": "Construction marks. A line and a point P above it. An arc centered at P cuts the line at two points; arcs of equal radius from those points meet below the line; a line through P and that meeting point is drawn."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k006",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "regular hexagon inscribed in circle O",
+   "prompt": "Which construction makes a 60° angle using only a compass and straightedge?",
+   "answer": "An equilateral triangle on a given segment.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the regular hexagon inscribed in circle O."
+    "Draw arcs with radius AB from A and from B; they meet at C.",
+    "AC = BC = AB, so triangle ABC is equilateral.",
+    "Every angle of an equilateral triangle measures 60°."
    ],
    "standards": [
     "G-CO.D.13"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-choose). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "perpendicular to the line through point P",
+     "text": "The perpendicular bisector of a segment.",
      "correct": false
     },
     {
-     "text": "regular hexagon inscribed in circle O",
+     "text": "Copying a segment twice.",
+     "correct": false
+    },
+    {
+     "text": "Bisecting a straight angle.",
+     "correct": false
+    },
+    {
+     "text": "An equilateral triangle on a given segment.",
      "correct": true
-    },
-    {
-     "text": "equilateral triangle on segment AB",
-     "correct": false
-    },
-    {
-     "text": "copy of segment AB onto the ray from C",
-     "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-06.png",
-     "alt": "Construction marks. Circle O. Starting from a point on the circle, arcs with radius equal to the circle's radius mark six points around the circle, which are joined to form a hexagon."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k007",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "equilateral triangle on segment AB",
+   "prompt": "A student uses a ruler to measure AB = 6 cm and marks 3 cm as the midpoint. Why is this not a construction?",
+   "answer": "Constructions use only a compass and an unmarked straightedge, not measurements.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the equilateral triangle on segment AB."
+    "A geometric construction allows only a compass and an unmarked straightedge.",
+    "Measuring with a ruler relies on numbers, not on geometric relationships.",
+    "The construction for the midpoint uses the perpendicular bisector instead."
    ],
    "standards": [
     "G-CO.D.13"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-tools). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "perpendicular to the line through point P",
+     "text": "It is a construction; any accurate method counts.",
      "correct": false
     },
     {
-     "text": "equilateral triangle on segment AB",
+     "text": "Because 3 cm is not exactly half of 6 cm.",
+     "correct": false
+    },
+    {
+     "text": "Because constructions must use a protractor.",
+     "correct": false
+    },
+    {
+     "text": "Constructions use only a compass and an unmarked straightedge, not measurements.",
      "correct": true
-    },
-    {
-     "text": "line through P parallel to the given line",
-     "correct": false
-    },
-    {
-     "text": "perpendicular bisector of segment AB",
-     "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-07.png",
-     "alt": "Construction marks. Segment AB. Arcs of radius AB centered at A and at B meet at C above the segment; C is joined to A and B."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp2-k008",
    "skillId": "foundations-geometry-skill-09",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The figure shows the compass marks (orange) and the finished construction (blue). Which construction is shown?",
-   "answer": "line through P parallel to the given line",
+   "prompt": "To construct a line through P parallel to line ℓ, a student copies an angle. Which angles are made congruent?",
+   "answer": "Corresponding angles formed by a transversal through P.",
    "solutionSteps": [
-    "Look at what the arcs are centered on and what the final blue line or shape does.",
-    "This is the line through P parallel to the given line."
+    "Draw a transversal through P that crosses ℓ.",
+    "Copy the angle the transversal makes with ℓ at P, in the corresponding position.",
+    "Congruent corresponding angles make the new line parallel to ℓ."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: construction-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-geometry-constructions-solids. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (family: construct-tools). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review.",
    "options": [
     {
-     "text": "equilateral triangle on segment AB",
-     "correct": false
-    },
-    {
-     "text": "line through P parallel to the given line",
+     "text": "Corresponding angles formed by a transversal through P.",
      "correct": true
     },
     {
-     "text": "copy of segment AB onto the ray from C",
+     "text": "Same-side interior angles.",
      "correct": false
     },
     {
-     "text": "perpendicular to the line through point P",
+     "text": "Two right angles at P.",
+     "correct": false
+    },
+    {
+     "text": "Vertical angles at the intersection with ℓ.",
      "correct": false
     }
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/geometry/constructions/con-08.png",
-     "alt": "Construction marks. A horizontal line, a point P above it, and a dashed transversal through P meeting the line at Q. Equal angles are copied at Q and at P with arcs, and a line through P parallel to the first line is drawn."
-    }
-   }
+   ]
   },
   {
    "id": "geo-fg-s09-cp1-k001",

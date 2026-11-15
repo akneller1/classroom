@@ -11126,6 +11126,6430 @@
     "F-LE.A.4"
    ],
    "sourceNotes": "Partner-check companion to a2-el-s07-cp1-019 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "a2-el-s02-cp2-p001",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x − 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −3; passes through (0, −2), (1, −1), (2, 1).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −3.",
+    "Make a table: x = 0 → y = −2; x = 1 → y = −1; x = 2 → y = 1; x = 3 → y = 5.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "-3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "1",
+        "-1"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "1",
+          "-1"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-1"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "5"
+         ],
+         [
+          "-2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-4"
+         ],
+         [
+          "1",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p001.png",
+     "alt": "Graph of y = 2^x − 3 with dashed asymptote y = −3 through (0, −2), (1, −1), (2, 1)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p002",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x − 2. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −2; passes through (0, −1), (1, 0), (2, 2).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −2.",
+    "Make a table: x = 0 → y = −1; x = 1 → y = 0; x = 2 → y = 2; x = 3 → y = 6.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "-2"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-2",
+      "points": [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "2",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-3",
+          "6"
+         ],
+         [
+          "-2",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "0",
+          "-3"
+         ],
+         [
+          "1",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p002.png",
+     "alt": "Graph of y = 2^x − 2 with dashed asymptote y = −2 through (0, −1), (1, 0), (2, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p003",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x − 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −1; passes through (0, 0), (1, 1), (2, 3).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −1.",
+    "Make a table: x = 0 → y = 0; x = 1 → y = 1; x = 2 → y = 3; x = 3 → y = 7.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "-1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "1",
+        "1"
+       ],
+       [
+        "2",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "1",
+          "1"
+         ],
+         [
+          "2",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "1",
+          "1"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-3",
+          "7"
+         ],
+         [
+          "-2",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p003.png",
+     "alt": "Graph of y = 2^x − 1 with dashed asymptote y = −1 through (0, 0), (1, 1), (2, 3)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p004",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x + 2. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 2; passes through (0, 3), (1, 4), (2, 6).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 2.",
+    "Make a table: x = 0 → y = 3; x = 1 → y = 4; x = 2 → y = 6.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "2"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "2",
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "1",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "3"
+         ],
+         [
+          "1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "3"
+         ],
+         [
+          "0",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-2",
+          "6"
+         ],
+         [
+          "-1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "1"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p004.png",
+     "alt": "Graph of y = 2^x + 2 with dashed asymptote y = 2 through (0, 3), (1, 4), (2, 6)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p005",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x + 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 3; passes through (0, 4), (1, 5), (2, 7).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 3.",
+    "Make a table: x = 0 → y = 4; x = 1 → y = 5; x = 2 → y = 7.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "3",
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "1",
+        "5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "0",
+          "4"
+         ],
+         [
+          "1",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "4"
+         ],
+         [
+          "0",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "7"
+         ],
+         [
+          "-1",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p005.png",
+     "alt": "Graph of y = 2^x + 3 with dashed asymptote y = 3 through (0, 4), (1, 5), (2, 7)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p006",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2^x + 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 1; passes through (0, 2), (1, 3), (2, 5).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 1.",
+    "Make a table: x = 0 → y = 2; x = 1 → y = 3; x = 2 → y = 5.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "1",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "0",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p006.png",
+     "alt": "Graph of y = 2^x + 1 with dashed asymptote y = 1 through (0, 2), (1, 3), (2, 5)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p007",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3^x − 4. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −4; passes through (0, −3), (1, −1), (2, 5).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −4.",
+    "Make a table: x = 0 → y = −3; x = 1 → y = −1; x = 2 → y = 5.",
+    "The base 3 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "0",
+     "k": "-4"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-4",
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "1",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-3"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-3"
+         ],
+         [
+          "0",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-5"
+         ],
+         [
+          "1",
+          "-7"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p007.png",
+     "alt": "Graph of y = 3^x − 4 with dashed asymptote y = −4 through (0, −3), (1, −1), (2, 5)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp2-p008",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 3^x − 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −1; passes through (0, 0), (1, 2), (2, 8).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −1.",
+    "Make a table: x = 0 → y = 0; x = 1 → y = 2; x = 2 → y = 8.",
+    "The base 3 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "0",
+     "k": "-1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "1",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "0",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-2",
+          "8"
+         ],
+         [
+          "-1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp2-p008.png",
+     "alt": "Graph of y = 3^x − 1 with dashed asymptote y = −1 through (0, 0), (1, 2), (2, 8)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p001",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2^(x + 3) + 4. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 4; passes through (−3, 5), (−2, 6), (−1, 8).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 4.",
+    "Make a table: x = −3 → y = 5; x = −2 → y = 6; x = −1 → y = 8.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-3",
+     "k": "4"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "4",
+      "points": [
+       [
+        "-3",
+        "5"
+       ],
+       [
+        "-2",
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-3",
+          "5"
+         ],
+         [
+          "-2",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "5"
+         ],
+         [
+          "-3",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-5",
+          "8"
+         ],
+         [
+          "-4",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "3",
+          "5"
+         ],
+         [
+          "4",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "3"
+         ],
+         [
+          "-2",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p001.png",
+     "alt": "Graph of y = 2^(x + 3) + 4 with dashed asymptote y = 4 through (−3, 5), (−2, 6), (−1, 8)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p002",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (1/2)^(x + 2) + 4. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 4; passes through (−4, 8), (−3, 6), (−2, 5).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 4.",
+    "Make a table: x = −4 → y = 8; x = −3 → y = 6; x = −2 → y = 5.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "-2",
+     "k": "4"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "4",
+      "points": [
+       [
+        "-4",
+        "8"
+       ],
+       [
+        "-3",
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-4",
+          "8"
+         ],
+         [
+          "-3",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-4",
+          "8"
+         ],
+         [
+          "-4",
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-1",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "0",
+          "8"
+         ],
+         [
+          "1",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-5",
+          "-4"
+         ],
+         [
+          "-4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p002.png",
+     "alt": "Graph of y = (1/2)^(x + 2) + 4 with dashed asymptote y = 4 through (−4, 8), (−3, 6), (−2, 5)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p003",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (1/2)^(x + 1) − 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −3; passes through (−4, 5), (−3, 1), (−2, −1).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −3.",
+    "Make a table: x = −4 → y = 5; x = −3 → y = 1; x = −2 → y = −1; x = −1 → y = −2.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "-1",
+     "k": "-3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-3",
+        "1"
+       ],
+       [
+        "-2",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-3",
+          "1"
+         ],
+         [
+          "-2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "1"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-1",
+          "-2"
+         ],
+         [
+          "0",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "-7"
+         ],
+         [
+          "-2",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p003.png",
+     "alt": "Graph of y = (1/2)^(x + 1) − 3 with dashed asymptote y = −3 through (−4, 5), (−3, 1), (−2, −1)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p004",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2^(x − 3) + 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 1; passes through (3, 0), (4, −1), (5, −3).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 1.",
+    "Make a table: x = 3 → y = 0; x = 4 → y = −1; x = 5 → y = −3; x = 6 → y = −7.",
+    "The base 2 is greater than 1, so the graph grows as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "b": "2",
+     "h": "3",
+     "k": "1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "4",
+        "-1"
+       ],
+       [
+        "5",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "4",
+          "-1"
+         ],
+         [
+          "5",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "4",
+          "-1"
+         ],
+         [
+          "4",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "-7"
+         ],
+         [
+          "1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p004.png",
+     "alt": "Graph of y = −2^(x − 3) + 1 with dashed asymptote y = 1 through (3, 0), (4, −1), (5, −3)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p005",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −(1/2)^(x + 3) − 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −1; passes through (−5, −5), (−4, −3), (−3, −2).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −1.",
+    "Make a table: x = −5 → y = −5; x = −4 → y = −3; x = −3 → y = −2.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "b": "1/2",
+     "h": "-3",
+     "k": "-1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "-5",
+        "-5"
+       ],
+       [
+        "-4",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "-5",
+          "-5"
+         ],
+         [
+          "-4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-5",
+          "-5"
+         ],
+         [
+          "-5",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-3",
+          "-2"
+         ],
+         [
+          "-2",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "2",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-6",
+          "7"
+         ],
+         [
+          "-5",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p005.png",
+     "alt": "Graph of y = −(1/2)^(x + 3) − 1 with dashed asymptote y = −1 through (−5, −5), (−4, −3), (−3, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p006",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (1/2)^x + 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 1; passes through (−2, 5), (−1, 3), (0, 2).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 1.",
+    "Make a table: x = −2 → y = 5; x = −1 → y = 3; x = 0 → y = 2.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "0",
+     "k": "1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "-2",
+        "5"
+       ],
+       [
+        "-1",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-2",
+          "5"
+         ],
+         [
+          "-2",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-3",
+          "-7"
+         ],
+         [
+          "-2",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p006.png",
+     "alt": "Graph of y = (1/2)^x + 1 with dashed asymptote y = 1 through (−2, 5), (−1, 3), (0, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p007",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −(1/2)^(x + 1) + 4. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 4; passes through (−4, −4), (−3, 0), (−2, 2).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 4.",
+    "Make a table: x = −4 → y = −4; x = −3 → y = 0; x = −2 → y = 2; x = −1 → y = 3.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "b": "1/2",
+     "h": "-1",
+     "k": "4"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "4",
+      "points": [
+       [
+        "-3",
+        "0"
+       ],
+       [
+        "-2",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-2",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-1",
+          "3"
+         ],
+         [
+          "0",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-2",
+          "-4"
+         ],
+         [
+          "-1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "8"
+         ],
+         [
+          "-2",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p007.png",
+     "alt": "Graph of y = −(1/2)^(x + 1) + 4 with dashed asymptote y = 4 through (−4, −4), (−3, 0), (−2, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-cp1-p008",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (1/3)^(x − 2) − 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −3; passes through (0, 6), (1, 0), (2, −2).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −3.",
+    "Make a table: x = 0 → y = 6; x = 1 → y = 0; x = 2 → y = −2.",
+    "The base 1/3 is between 0 and 1, so the graph decays as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/3",
+     "h": "2",
+     "k": "-3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "0",
+        "6"
+       ],
+       [
+        "1",
+        "0"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "0",
+          "6"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "6"
+         ],
+         [
+          "0",
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "2",
+          "-2"
+         ],
+         [
+          "3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-4",
+          "6"
+         ],
+         [
+          "-3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "2",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-cp1-p008.png",
+     "alt": "Graph of y = (1/3)^(x − 2) − 3 with dashed asymptote y = −3 through (0, 6), (1, 0), (2, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p001",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −2·2^(x − 2) − 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −3; passes through (1, −4), (2, −5), (3, −7).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −3.",
+    "Make a table: x = 1 → y = −4; x = 2 → y = −5; x = 3 → y = −7.",
+    "The base 2 is greater than 1, so the graph grows as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "b": "2",
+     "h": "2",
+     "k": "-3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "1",
+        "-4"
+       ],
+       [
+        "2",
+        "-5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "1",
+          "-4"
+         ],
+         [
+          "2",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-4"
+         ],
+         [
+          "1",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-7"
+         ],
+         [
+          "2",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "-4"
+         ],
+         [
+          "-2",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-2"
+         ],
+         [
+          "2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p001.png",
+     "alt": "Graph of y = −2·2^(x − 2) − 3 with dashed asymptote y = −3 through (1, −4), (2, −5), (3, −7)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p002",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3·3^(x − 3) − 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −1; passes through (2, 0), (3, 2), (4, 8).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −1.",
+    "Make a table: x = 2 → y = 0; x = 3 → y = 2; x = 4 → y = 8.",
+    "The base 3 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "b": "3",
+     "h": "3",
+     "k": "-1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "2",
+        "0"
+       ],
+       [
+        "3",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "8"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "-2"
+         ],
+         [
+          "3",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p002.png",
+     "alt": "Graph of y = 3·3^(x − 3) − 1 with dashed asymptote y = −1 through (2, 0), (3, 2), (4, 8)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p003",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −2·2^x + 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 1; passes through (−1, 0), (0, −1), (1, −3).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 1.",
+    "Make a table: x = −1 → y = 0; x = 0 → y = −1; x = 1 → y = −3; x = 2 → y = −7.",
+    "The base 2 is greater than 1, so the graph grows as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "b": "2",
+     "h": "0",
+     "k": "1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "0",
+        "-1"
+       ],
+       [
+        "1",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "0",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-2",
+          "-7"
+         ],
+         [
+          "-1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "-1",
+          "2"
+         ],
+         [
+          "0",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p003.png",
+     "alt": "Graph of y = −2·2^x + 1 with dashed asymptote y = 1 through (−1, 0), (0, −1), (1, −3)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p004",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −2·(1/2)^(x − 1) + 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 3; passes through (−1, −5), (0, −1), (1, 1).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 3.",
+    "Make a table: x = −1 → y = −5; x = 0 → y = −1; x = 1 → y = 1; x = 2 → y = 2.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "b": "1/2",
+     "h": "1",
+     "k": "3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "3",
+      "points": [
+       [
+        "0",
+        "-1"
+       ],
+       [
+        "1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "0",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-3",
+          "-5"
+         ],
+         [
+          "-2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "0",
+          "7"
+         ],
+         [
+          "1",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p004.png",
+     "alt": "Graph of y = −2·(1/2)^(x − 1) + 3 with dashed asymptote y = 3 through (−1, −5), (0, −1), (1, 1)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p005",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −2·2^(x + 3) − 1. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −1; passes through (−4, −2), (−3, −3), (−2, −5).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −1.",
+    "Make a table: x = −4 → y = −2; x = −3 → y = −3; x = −2 → y = −5.",
+    "The base 2 is greater than 1, so the graph grows as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "b": "2",
+     "h": "-3",
+     "k": "-1"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "-4",
+        "-2"
+       ],
+       [
+        "-3",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "-4",
+          "-2"
+         ],
+         [
+          "-3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-4",
+          "-2"
+         ],
+         [
+          "-4",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-4",
+          "-5"
+         ],
+         [
+          "-3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "-2"
+         ],
+         [
+          "3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p005.png",
+     "alt": "Graph of y = −2·2^(x + 3) − 1 with dashed asymptote y = −1 through (−4, −2), (−3, −3), (−2, −5)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p006",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −(1/3)^(x + 2) + 2. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 2; passes through (−4, −7), (−3, −1), (−2, 1).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 2.",
+    "Make a table: x = −4 → y = −7; x = −3 → y = −1; x = −2 → y = 1.",
+    "The base 1/3 is between 0 and 1, so the graph decays as x increases, and a < 0 reflects it below the asymptote."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "b": "1/3",
+     "h": "-2",
+     "k": "2"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "2",
+      "points": [
+       [
+        "-4",
+        "-7"
+       ],
+       [
+        "-3",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-4",
+          "-7"
+         ],
+         [
+          "-3",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-4",
+          "-7"
+         ],
+         [
+          "-4",
+          "-7"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-2",
+          "1"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "-7"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-3",
+          "5"
+         ],
+         [
+          "-2",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p006.png",
+     "alt": "Graph of y = −(1/3)^(x + 2) + 2 with dashed asymptote y = 2 through (−4, −7), (−3, −1), (−2, 1)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p007",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2·(1/2)^x + 3. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = 3; passes through (−1, 7), (0, 5), (1, 4).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = 3.",
+    "Make a table: x = −1 → y = 7; x = 0 → y = 5; x = 1 → y = 4.",
+    "The base 1/2 is between 0 and 1, so the graph decays as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "b": "1/2",
+     "h": "0",
+     "k": "3"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "3",
+      "points": [
+       [
+        "-1",
+        "7"
+       ],
+       [
+        "0",
+        "5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-1",
+          "7"
+         ],
+         [
+          "0",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-1",
+          "7"
+         ],
+         [
+          "-1",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "0",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "-5"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p007.png",
+     "alt": "Graph of y = 2·(1/2)^x + 3 with dashed asymptote y = 3 through (−1, 7), (0, 5), (1, 4)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s02-honors-p008",
+   "skillId": "exponential-logarithmic-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2·2^(x − 3) − 4. Set the horizontal asymptote, then place two points on the curve.",
+   "answer": "Asymptote y = −4; passes through (2, −3), (3, −2), (4, 0).",
+   "solutionSteps": [
+    "The horizontal asymptote is y = −4.",
+    "Make a table: x = 2 → y = −3; x = 3 → y = −2; x = 4 → y = 0; x = 5 → y = 4.",
+    "The base 2 is greater than 1, so the graph grows as x increases."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-asymptote-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "exponential-asymptote",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "b": "2",
+     "h": "3",
+     "k": "-4"
+    },
+    "feedback": {
+     "asymptote": "Find the horizontal asymptote first: it is y = k, the number added outside the power.",
+     "same-point": "Your two points must have different x-values.",
+     "growth-decay": "Check the base: a base greater than 1 grows to the right; a base between 0 and 1 decays.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "a-sign": "A negative coefficient reflects the graph across the asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Substitute its x-value into the equation."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-4",
+      "points": [
+       [
+        "3",
+        "-2"
+       ],
+       [
+        "4",
+        "0"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "3",
+          "-2"
+         ],
+         [
+          "4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "3",
+          "-2"
+         ],
+         [
+          "3",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "1",
+          "4"
+         ],
+         [
+          "2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "growth-decay"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-4",
+          "-3"
+         ],
+         [
+          "-3",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "2",
+          "-5"
+         ],
+         [
+          "3",
+          "-6"
+         ]
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s02-honors-p008.png",
+     "alt": "Graph of y = 2·2^(x − 3) − 4 with dashed asymptote y = −4 through (2, −3), (3, −2), (4, 0)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p001",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 3. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −3; passes through (−2, 0), (−1, 1), (1, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 3, so the inverse is y = log_2(x + 3).",
+    "The original has horizontal asymptote y = −3, so the inverse has vertical asymptote x = −3.",
+    "Points on the inverse are the original points with coordinates swapped: (−2, 0), (−1, 1), (1, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-3",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-2",
+        "0"
+       ],
+       [
+        "-1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p001.png",
+     "alt": "Graph of y = log_2(x + 3) with dashed asymptote x = −3 through (−2, 0), (−1, 1), (1, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p002",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 0; passes through (1, 0), (2, 1), (4, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y, so the inverse is y = log_2(x).",
+    "The original has horizontal asymptote y = 0, so the inverse has vertical asymptote x = 0.",
+    "Points on the inverse are the original points with coordinates swapped: (1, 0), (2, 1), (4, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "0",
+      "points": [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "1"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p002.png",
+     "alt": "Graph of y = log_2(x) with dashed asymptote x = 0 through (1, 0), (2, 1), (4, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p003",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 4. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −4; passes through (−3, 0), (−1, 1), (5, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 4, so the inverse is y = log_3(x + 4).",
+    "The original has horizontal asymptote y = −4, so the inverse has vertical asymptote x = −4.",
+    "Points on the inverse are the original points with coordinates swapped: (−3, 0), (−1, 1), (5, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-4",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-4",
+      "points": [
+       [
+        "-3",
+        "0"
+       ],
+       [
+        "-1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-3"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p003.png",
+     "alt": "Graph of y = log_3(x + 4) with dashed asymptote x = −4 through (−3, 0), (−1, 1), (5, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p004",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x + 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 1; passes through (2, 0), (3, 1), (5, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y + 1, so the inverse is y = log_2(x − 1).",
+    "The original has horizontal asymptote y = 1, so the inverse has vertical asymptote x = 1.",
+    "Points on the inverse are the original points with coordinates swapped: (2, 0), (3, 1), (5, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "2",
+        "0"
+       ],
+       [
+        "3",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p004.png",
+     "alt": "Graph of y = log_2(x − 1) with dashed asymptote x = 1 through (2, 0), (3, 1), (5, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p005",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −1; passes through (0, 0), (2, 1), (8, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 1, so the inverse is y = log_3(x + 1).",
+    "The original has horizontal asymptote y = −1, so the inverse has vertical asymptote x = −1.",
+    "Points on the inverse are the original points with coordinates swapped: (0, 0), (2, 1), (8, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "0",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p005.png",
+     "alt": "Graph of y = log_3(x + 1) with dashed asymptote x = −1 through (0, 0), (2, 1), (8, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p006",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 3. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −3; passes through (−2, 0), (0, 1), (6, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 3, so the inverse is y = log_3(x + 3).",
+    "The original has horizontal asymptote y = −3, so the inverse has vertical asymptote x = −3.",
+    "Points on the inverse are the original points with coordinates swapped: (−2, 0), (0, 1), (6, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-3",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-2",
+        "0"
+       ],
+       [
+        "0",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p006.png",
+     "alt": "Graph of y = log_3(x + 3) with dashed asymptote x = −3 through (−2, 0), (0, 1), (6, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p007",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x + 2. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 2; passes through (3, 0), (4, 1), (6, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y + 2, so the inverse is y = log_2(x − 2).",
+    "The original has horizontal asymptote y = 2, so the inverse has vertical asymptote x = 2.",
+    "Points on the inverse are the original points with coordinates swapped: (3, 0), (4, 1), (6, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "2",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "2",
+      "points": [
+       [
+        "3",
+        "0"
+       ],
+       [
+        "4",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "4",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "3"
+         ],
+         [
+          "1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "4",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p007.png",
+     "alt": "Graph of y = log_2(x − 2) with dashed asymptote x = 2 through (3, 0), (4, 1), (6, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp2-p008",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −1; passes through (0, 0), (1, 1), (3, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 1, so the inverse is y = log_2(x + 1).",
+    "The original has horizontal asymptote y = −1, so the inverse has vertical asymptote x = −1.",
+    "Points on the inverse are the original points with coordinates swapped: (0, 0), (1, 1), (3, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "0",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp2-p008.png",
+     "alt": "Graph of y = log_2(x + 1) with dashed asymptote x = −1 through (0, 0), (1, 1), (3, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p001",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = (1/2)^x + 2. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 2; passes through (3, 0), (4, −1), (6, −2).",
+   "solutionSteps": [
+    "Swap x and y: x = (1/2)^y + 2, so the inverse is y = log_(1/2)(x − 2).",
+    "The original has horizontal asymptote y = 2, so the inverse has vertical asymptote x = 2.",
+    "Points on the inverse are the original points with coordinates swapped: (3, 0), (4, −1), (6, −2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "2",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "2",
+      "points": [
+       [
+        "3",
+        "0"
+       ],
+       [
+        "4",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "4",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "0",
+          "3"
+         ],
+         [
+          "-1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "3",
+          "0"
+         ],
+         [
+          "4",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p001.png",
+     "alt": "Graph of y = log_(1/2)(x − 2) with dashed asymptote x = 2 through (3, 0), (4, −1), (6, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p002",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 5. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −5; passes through (−4, 0), (−3, 1), (−1, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 5, so the inverse is y = log_2(x + 5).",
+    "The original has horizontal asymptote y = −5, so the inverse has vertical asymptote x = −5.",
+    "Points on the inverse are the original points with coordinates swapped: (−4, 0), (−3, 1), (−1, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-5",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-5",
+      "points": [
+       [
+        "-4",
+        "0"
+       ],
+       [
+        "-3",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "0",
+          "-4"
+         ],
+         [
+          "1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p002.png",
+     "alt": "Graph of y = log_2(x + 5) with dashed asymptote x = −5 through (−4, 0), (−3, 1), (−1, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p003",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = (1/2)^x. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 0; passes through (1, 0), (2, −1), (4, −2).",
+   "solutionSteps": [
+    "Swap x and y: x = (1/2)^y, so the inverse is y = log_(1/2)(x).",
+    "The original has horizontal asymptote y = 0, so the inverse has vertical asymptote x = 0.",
+    "Points on the inverse are the original points with coordinates swapped: (1, 0), (2, −1), (4, −2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "0",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "0",
+      "points": [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "2",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "1"
+         ],
+         [
+          "-1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p003.png",
+     "alt": "Graph of y = log_(1/2)(x) with dashed asymptote x = 0 through (1, 0), (2, −1), (4, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p004",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = (1/2)^x + 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 1; passes through (2, 0), (3, −1), (5, −2).",
+   "solutionSteps": [
+    "Swap x and y: x = (1/2)^y + 1, so the inverse is y = log_(1/2)(x − 1).",
+    "The original has horizontal asymptote y = 1, so the inverse has vertical asymptote x = 1.",
+    "Points on the inverse are the original points with coordinates swapped: (2, 0), (3, −1), (5, −2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "1",
+      "points": [
+       [
+        "2",
+        "0"
+       ],
+       [
+        "3",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "3",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "2"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "2",
+          "0"
+         ],
+         [
+          "3",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p004.png",
+     "alt": "Graph of y = log_(1/2)(x − 1) with dashed asymptote x = 1 through (2, 0), (3, −1), (5, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p005",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = (1/2)^x − 4. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −4; passes through (−3, 0), (−2, −1), (0, −2).",
+   "solutionSteps": [
+    "Swap x and y: x = (1/2)^y − 4, so the inverse is y = log_(1/2)(x + 4).",
+    "The original has horizontal asymptote y = −4, so the inverse has vertical asymptote x = −4.",
+    "Points on the inverse are the original points with coordinates swapped: (−3, 0), (−2, −1), (0, −2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "-4",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-4",
+      "points": [
+       [
+        "-3",
+        "0"
+       ],
+       [
+        "-2",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-3",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-3"
+         ],
+         [
+          "-1",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "4",
+        "points": [
+         [
+          "-3",
+          "0"
+         ],
+         [
+          "-2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p005.png",
+     "alt": "Graph of y = log_(1/2)(x + 4) with dashed asymptote x = −4 through (−3, 0), (−2, −1), (0, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p006",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = (1/2)^x − 3. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −3; passes through (−2, 0), (−1, −1), (1, −2).",
+   "solutionSteps": [
+    "Swap x and y: x = (1/2)^y − 3, so the inverse is y = log_(1/2)(x + 3).",
+    "The original has horizontal asymptote y = −3, so the inverse has vertical asymptote x = −3.",
+    "Points on the inverse are the original points with coordinates swapped: (−2, 0), (−1, −1), (1, −2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2",
+     "h": "-3",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-2",
+        "0"
+       ],
+       [
+        "-1",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p006.png",
+     "alt": "Graph of y = log_(1/2)(x + 3) with dashed asymptote x = −3 through (−2, 0), (−1, −1), (1, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p007",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 5. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −5; passes through (−4, 0), (−2, 1), (4, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 5, so the inverse is y = log_3(x + 5).",
+    "The original has horizontal asymptote y = −5, so the inverse has vertical asymptote x = −5.",
+    "Points on the inverse are the original points with coordinates swapped: (−4, 0), (−2, 1), (4, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-5",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-5",
+      "points": [
+       [
+        "-4",
+        "0"
+       ],
+       [
+        "-2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "0",
+          "-4"
+         ],
+         [
+          "1",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p007.png",
+     "alt": "Graph of y = log_3(x + 5) with dashed asymptote x = −5 through (−4, 0), (−2, 1), (4, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-cp1-p008",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 0; passes through (1, 0), (2, 1), (4, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y, so the inverse is y = log_2(x).",
+    "The original has horizontal asymptote y = 0, so the inverse has vertical asymptote x = 0.",
+    "Points on the inverse are the original points with coordinates swapped: (1, 0), (2, 1), (4, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "0",
+      "points": [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "1"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-cp1-p008.png",
+     "alt": "Graph of y = log_2(x) with dashed asymptote x = 0 through (1, 0), (2, 1), (4, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p001",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = 0; passes through (1, 0), (2, 1), (4, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y, so the inverse is y = log_2(x).",
+    "The original has horizontal asymptote y = 0, so the inverse has vertical asymptote x = 0.",
+    "Points on the inverse are the original points with coordinates swapped: (1, 0), (2, 1), (4, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "0",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "0",
+      "points": [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "1"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p001.png",
+     "alt": "Graph of y = log_2(x) with dashed asymptote x = 0 through (1, 0), (2, 1), (4, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p002",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 2. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −2; passes through (−1, 0), (0, 1), (2, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 2, so the inverse is y = log_2(x + 2).",
+    "The original has horizontal asymptote y = −2, so the inverse has vertical asymptote x = −2.",
+    "Points on the inverse are the original points with coordinates swapped: (−1, 0), (0, 1), (2, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-2",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-2",
+      "points": [
+       [
+        "-1",
+        "0"
+       ],
+       [
+        "0",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "-1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p002.png",
+     "alt": "Graph of y = log_2(x + 2) with dashed asymptote x = −2 through (−1, 0), (0, 1), (2, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p003",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −1; passes through (0, 0), (2, 1), (8, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 1, so the inverse is y = log_3(x + 1).",
+    "The original has horizontal asymptote y = −1, so the inverse has vertical asymptote x = −1.",
+    "Points on the inverse are the original points with coordinates swapped: (0, 0), (2, 1), (8, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "2",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "0",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p003.png",
+     "alt": "Graph of y = log_3(x + 1) with dashed asymptote x = −1 through (0, 0), (2, 1), (8, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p004",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 5. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −5; passes through (−4, 0), (−3, 1), (−1, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 5, so the inverse is y = log_2(x + 5).",
+    "The original has horizontal asymptote y = −5, so the inverse has vertical asymptote x = −5.",
+    "Points on the inverse are the original points with coordinates swapped: (−4, 0), (−3, 1), (−1, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-5",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-5",
+      "points": [
+       [
+        "-4",
+        "0"
+       ],
+       [
+        "-3",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-4",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-5",
+        "points": [
+         [
+          "0",
+          "-4"
+         ],
+         [
+          "1",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "5",
+        "points": [
+         [
+          "-4",
+          "0"
+         ],
+         [
+          "-3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p004.png",
+     "alt": "Graph of y = log_2(x + 5) with dashed asymptote x = −5 through (−4, 0), (−3, 1), (−1, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p005",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 3. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −3; passes through (−2, 0), (−1, 1), (1, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 3, so the inverse is y = log_2(x + 3).",
+    "The original has horizontal asymptote y = −3, so the inverse has vertical asymptote x = −3.",
+    "Points on the inverse are the original points with coordinates swapped: (−2, 0), (−1, 1), (1, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-3",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-2",
+        "0"
+       ],
+       [
+        "-1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p005.png",
+     "alt": "Graph of y = log_2(x + 3) with dashed asymptote x = −3 through (−2, 0), (−1, 1), (1, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p006",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 3. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −3; passes through (−2, 0), (0, 1), (6, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 3, so the inverse is y = log_3(x + 3).",
+    "The original has horizontal asymptote y = −3, so the inverse has vertical asymptote x = −3.",
+    "Points on the inverse are the original points with coordinates swapped: (−2, 0), (0, 1), (6, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-3",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-3",
+      "points": [
+       [
+        "-2",
+        "0"
+       ],
+       [
+        "0",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "-2",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-2"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "3",
+        "points": [
+         [
+          "-2",
+          "0"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p006.png",
+     "alt": "Graph of y = log_3(x + 3) with dashed asymptote x = −3 through (−2, 0), (0, 1), (6, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p007",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 3^x − 2. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −2; passes through (−1, 0), (1, 1), (7, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 3^y − 2, so the inverse is y = log_3(x + 2).",
+    "The original has horizontal asymptote y = −2, so the inverse has vertical asymptote x = −2.",
+    "Points on the inverse are the original points with coordinates swapped: (−1, 0), (1, 1), (7, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "3",
+     "h": "-2",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-2",
+      "points": [
+       [
+        "-1",
+        "0"
+       ],
+       [
+        "1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "-1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "-2",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "inverse-swapped"
+      },
+      {
+       "response": {
+        "asymptote": "2",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p007.png",
+     "alt": "Graph of y = log_3(x + 2) with dashed asymptote x = −2 through (−1, 0), (1, 1), (7, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-el-s03-honors-p008",
+   "skillId": "exponential-logarithmic-functions-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the inverse of y = 2^x − 1. Set the vertical asymptote, then place two points on the inverse.",
+   "answer": "Asymptote x = −1; passes through (0, 0), (1, 1), (3, 2).",
+   "solutionSteps": [
+    "Swap x and y: x = 2^y − 1, so the inverse is y = log_2(x + 1).",
+    "The original has horizontal asymptote y = −1, so the inverse has vertical asymptote x = −1.",
+    "Points on the inverse are the original points with coordinates swapped: (0, 0), (1, 1), (3, 2)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: log-as-inverse-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "log",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "2",
+     "h": "-1",
+     "k": "0"
+    },
+    "feedback": {
+     "asymptote": "A log graph has a vertical asymptote at x = h, where the input x − h equals 0.",
+     "h-sign": "Check the sign: log(x − h) has its asymptote at x = h, so log(x + 3) has x = −3.",
+     "same-point": "Your two points must have different x-values.",
+     "inverse-swapped": "Your points fit the exponential, not the log. Swap each point’s coordinates: (x, y) becomes (y, x).",
+     "a-sign": "A negative coefficient reflects the graph across the x-axis.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "points-off-curve": "At least one point is not on the curve. Pick x-values where x − h is a power of the base."
+    },
+    "testVectors": {
+     "correct": {
+      "asymptote": "-1",
+      "points": [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "1",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "asymptote": "0",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "asymptote"
+      },
+      {
+       "response": {
+        "asymptote": "-1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "0",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      },
+      {
+       "response": {
+        "asymptote": "1",
+        "points": [
+         [
+          "0",
+          "0"
+         ],
+         [
+          "1",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-sign"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-el-s03-honors-p008.png",
+     "alt": "Graph of y = log_2(x + 1) with dashed asymptote x = −1 through (0, 0), (1, 1), (3, 2)."
+    }
+   }
   }
  ]
 }

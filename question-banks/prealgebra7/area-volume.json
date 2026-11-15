@@ -1343,24 +1343,17 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with base 18 cm and height 8 cm.",
-   "answer": "72 cm²",
+   "prompt": "A triangle has area 33 cm² and base 11 cm. Find its height.",
+   "answer": "6 cm",
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(18)(8).",
-    "A = 72 cm²."
+    "A = ½bh.",
+    "33 = ½ × 11 × h, so 66 = 11h.",
+    "h = 66 ÷ 11 = 6 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-001.png",
-     "alt": "Triangle with base 18 units and a dashed height of 8 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tri-missing-height). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-002",
@@ -1402,42 +1395,35 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with base 22 cm and height 7 cm.",
-   "answer": "77 cm²",
+   "prompt": "Find the area of a parallelogram with base 5 m and height 8 m.",
+   "answer": "40 m²",
    "options": [
     {
-     "text": "29 cm²",
+     "text": "13 m²",
      "correct": false
     },
     {
-     "text": "154 cm²",
-     "correct": false
-    },
-    {
-     "text": "38.5 cm²",
-     "correct": false
-    },
-    {
-     "text": "77 cm²",
+     "text": "40 m²",
      "correct": true
+    },
+    {
+     "text": "20 m²",
+     "correct": false
+    },
+    {
+     "text": "26 m²",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(22)(7).",
-    "A = 77 cm²."
+    "A parallelogram can be rearranged into a rectangle with the same base and height.",
+    "A = bh.",
+    "A = 5 × 8 = 40 m²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-003.png",
-     "alt": "Triangle with base 22 units and a dashed height of 7 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: parallelogram-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-004",
@@ -1461,24 +1447,17 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with base 21 cm and height 12 cm.",
-   "answer": "126 cm²",
+   "prompt": "A house shape is a rectangle 16 ft wide and 5 ft tall with a triangular roof on top (base 16 ft, height 7 ft). Find the total area.",
+   "answer": "136 ft²",
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(21)(12).",
-    "A = 126 cm²."
+    "Rectangle: 16 × 5 = 80 ft².",
+    "Triangle: ½ × 16 × 7 = 56 ft².",
+    "Total: 80 + 56 = 136 ft²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-005.png",
-     "alt": "Triangle with base 21 units and a dashed height of 12 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: composite-house). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-006",
@@ -1520,42 +1499,35 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with base 13 cm and height 18 cm.",
-   "answer": "117 cm²",
+   "prompt": "Find the area of the triangle with vertices (-4, 0), (2, 0), and (6, -5). Each unit is 1 cm.",
+   "answer": "15 cm²",
    "options": [
     {
-     "text": "117 cm²",
+     "text": "18 cm²",
+     "correct": false
+    },
+    {
+     "text": "11 cm²",
+     "correct": false
+    },
+    {
+     "text": "15 cm²",
      "correct": true
     },
     {
-     "text": "234 cm²",
-     "correct": false
-    },
-    {
-     "text": "31 cm²",
-     "correct": false
-    },
-    {
-     "text": "58.5 cm²",
+     "text": "30 cm²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(13)(18).",
-    "A = 117 cm²."
+    "The base lies on the x-axis from -4 to 2: length 6 cm.",
+    "The height is the distance from (6, -5) to the x-axis: 5 cm.",
+    "A = ½ × 6 × 5 = 15 cm²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-007.png",
-     "alt": "Triangle with base 13 units and a dashed height of 18 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tri-coordinate-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-008",
@@ -1579,24 +1551,17 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with base 9 cm and height 12 cm.",
-   "answer": "54 cm²",
+   "prompt": "A triangle has area 19 1/2 cm² and base 13 cm. Find its height.",
+   "answer": "3 cm",
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(9)(12).",
-    "A = 54 cm²."
+    "A = ½bh.",
+    "19 1/2 = ½ × 13 × h, so 39 = 13h.",
+    "h = 39 ÷ 13 = 3 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-009.png",
-     "alt": "Triangle with base 9 units and a dashed height of 12 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tri-missing-height). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-010",
@@ -1638,42 +1603,35 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with base 16 cm and height 8 cm.",
-   "answer": "64 cm²",
+   "prompt": "Find the area of a parallelogram with base 15 m and height 14 m.",
+   "answer": "210 m²",
    "options": [
     {
-     "text": "128 cm²",
+     "text": "105 m²",
      "correct": false
     },
     {
-     "text": "64 cm²",
+     "text": "29 m²",
+     "correct": false
+    },
+    {
+     "text": "210 m²",
      "correct": true
     },
     {
-     "text": "24 cm²",
-     "correct": false
-    },
-    {
-     "text": "32 cm²",
+     "text": "58 m²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(16)(8).",
-    "A = 64 cm²."
+    "A parallelogram can be rearranged into a rectangle with the same base and height.",
+    "A = bh.",
+    "A = 15 × 14 = 210 m²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-011.png",
-     "alt": "Triangle with base 16 units and a dashed height of 8 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: parallelogram-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-012",
@@ -1697,24 +1655,17 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with base 15 cm and height 9 cm.",
-   "answer": "67.5 cm²",
+   "prompt": "A house shape is a rectangle 12 ft wide and 10 ft tall with a triangular roof on top (base 12 ft, height 2 ft). Find the total area.",
+   "answer": "132 ft²",
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(15)(9).",
-    "A = 67.5 cm²."
+    "Rectangle: 12 × 10 = 120 ft².",
+    "Triangle: ½ × 12 × 2 = 12 ft².",
+    "Total: 120 + 12 = 132 ft²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s02-cp2-013.png",
-     "alt": "Triangle with base 15 units and a dashed height of 9 units drawn from the top vertex to the base."
-    }
-   },
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: composite-house). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s02-cp2-014",
@@ -5103,25 +5054,18 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the surface area of a rectangular prism 15 cm long, 11 cm wide, and 7 cm high.",
-   "answer": "694 cm²",
+   "prompt": "A cube has volume 216 cm³. Find its surface area.",
+   "answer": "216 cm²",
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(15)(11) + 2(15)(7) + 2(11)(7).",
-    "= 330 + 210 + 154 = 694 cm²."
+    "The edge length is the cube root of 216: 6 cm.",
+    "Each face has area 6 × 6 = 36 cm².",
+    "Six faces: 6 × 36 = 216 cm²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-001.png",
-     "alt": "Rectangular prism labelled length 15, width 11, height 7."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: cube-sa-from-volume). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-002",
@@ -5146,43 +5090,36 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the surface area of a rectangular prism 11 cm long, 11 cm wide, and 3 cm high.",
-   "answer": "374 cm²",
+   "prompt": "An open box (no top) is 14 cm long, 7 cm wide, and 6 cm high. How much cardboard is needed to make it?",
+   "answer": "350 cm²",
    "options": [
     {
-     "text": "363 cm²",
+     "text": "588 cm²",
      "correct": false
     },
     {
-     "text": "374 cm²",
+     "text": "224 cm²",
+     "correct": false
+    },
+    {
+     "text": "448 cm²",
+     "correct": false
+    },
+    {
+     "text": "350 cm²",
      "correct": true
-    },
-    {
-     "text": "308 cm²",
-     "correct": false
-    },
-    {
-     "text": "187 cm²",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(11)(11) + 2(11)(3) + 2(11)(3).",
-    "= 242 + 66 + 66 = 374 cm²."
+    "Bottom: 14 × 7 = 98 cm².",
+    "Front and back: 2 × 14 × 6 = 168 cm²; left and right: 2 × 7 × 6 = 84 cm².",
+    "Total (no top): 350 cm²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-003.png",
-     "alt": "Rectangular prism labelled length 11, width 11, height 3."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: open-box-sa). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-004",
@@ -5225,25 +5162,18 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the surface area of a rectangular prism 11 cm long, 6 cm wide, and 2 cm high.",
-   "answer": "200 cm²",
+   "prompt": "A net folds into a box. It has two 10 cm × 7 cm rectangles, two 10 cm × 4 cm rectangles, and two 7 cm × 4 cm rectangles. Find the total area of the net.",
+   "answer": "276 cm²",
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(11)(6) + 2(11)(2) + 2(6)(2).",
-    "= 132 + 44 + 24 = 200 cm²."
+    "Two 10 × 7 faces: 140 cm².",
+    "Two 10 × 4 faces: 80 cm²; two 7 × 4 faces: 56 cm².",
+    "Total: 276 cm², the surface area of the box."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-005.png",
-     "alt": "Rectangular prism labelled length 11, width 6, height 2."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: net-sa). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-006",
@@ -5268,43 +5198,36 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the surface area of a rectangular prism 14 cm long, 7 cm wide, and 10 cm high.",
-   "answer": "616 cm²",
+   "prompt": "A rectangular prism has surface area 346 cm². It is 11 cm long and 10 cm wide. Find its height.",
+   "answer": "3 cm",
    "options": [
     {
-     "text": "980 cm²",
-     "correct": false
-    },
-    {
-     "text": "616 cm²",
+     "text": "3 cm",
      "correct": true
     },
     {
-     "text": "406 cm²",
+     "text": "11 5/21 cm",
      "correct": false
     },
     {
-     "text": "308 cm²",
+     "text": "4 cm",
+     "correct": false
+    },
+    {
+     "text": "3 8/55 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(14)(7) + 2(14)(10) + 2(7)(10).",
-    "= 196 + 280 + 140 = 616 cm²."
+    "SA = 2lw + 2lh + 2wh, so 346 = 2(11)(10) + 2(11)h + 2(10)h.",
+    "346 = 220 + 42h, so 42h = 126.",
+    "h = 126 ÷ 42 = 3 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-007.png",
-     "alt": "Rectangular prism labelled length 14, width 7, height 10."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sa-missing-height). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-008",
@@ -5347,25 +5270,18 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the surface area of a rectangular prism 11 cm long, 7 cm wide, and 8 cm high.",
-   "answer": "442 cm²",
+   "prompt": "A cube has volume 27 cm³. Find its surface area.",
+   "answer": "54 cm²",
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(11)(7) + 2(11)(8) + 2(7)(8).",
-    "= 154 + 176 + 112 = 442 cm²."
+    "The edge length is the cube root of 27: 3 cm.",
+    "Each face has area 3 × 3 = 9 cm².",
+    "Six faces: 6 × 9 = 54 cm²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-009.png",
-     "alt": "Rectangular prism labelled length 11, width 7, height 8."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: cube-sa-from-volume). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-010",
@@ -5408,43 +5324,36 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the surface area of a rectangular prism 10 cm long, 2 cm wide, and 7 cm high.",
-   "answer": "208 cm²",
+   "prompt": "An open box (no top) is 7 cm long, 4 cm wide, and 9 cm high. How much cardboard is needed to make it?",
+   "answer": "226 cm²",
    "options": [
     {
-     "text": "208 cm²",
+     "text": "254 cm²",
+     "correct": false
+    },
+    {
+     "text": "252 cm²",
+     "correct": false
+    },
+    {
+     "text": "226 cm²",
      "correct": true
     },
     {
-     "text": "140 cm²",
-     "correct": false
-    },
-    {
-     "text": "104 cm²",
-     "correct": false
-    },
-    {
-     "text": "124 cm²",
+     "text": "127 cm²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(10)(2) + 2(10)(7) + 2(2)(7).",
-    "= 40 + 140 + 28 = 208 cm²."
+    "Bottom: 7 × 4 = 28 cm².",
+    "Front and back: 2 × 7 × 9 = 126 cm²; left and right: 2 × 4 × 9 = 72 cm².",
+    "Total (no top): 226 cm²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-011.png",
-     "alt": "Rectangular prism labelled length 10, width 2, height 7."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: open-box-sa). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-012",
@@ -5469,25 +5378,18 @@
    "skillId": "area-volume-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the surface area of a rectangular prism 12 cm long, 2 cm wide, and 7 cm high.",
-   "answer": "244 cm²",
+   "prompt": "A net folds into a box. It has two 5 cm × 4 cm rectangles, two 5 cm × 8 cm rectangles, and two 4 cm × 8 cm rectangles. Find the total area of the net.",
+   "answer": "184 cm²",
    "solutionSteps": [
-    "SA = 2lw + 2lh + 2wh.",
-    "2(12)(2) + 2(12)(7) + 2(2)(7).",
-    "= 48 + 168 + 28 = 244 cm²."
+    "Two 5 × 4 faces: 40 cm².",
+    "Two 5 × 8 faces: 80 cm²; two 4 × 8 faces: 64 cm².",
+    "Total: 184 cm², the surface area of the box."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s05-cp2-013.png",
-     "alt": "Rectangular prism labelled length 12, width 2, height 7."
-    }
-   },
    "standards": [
     "7.G.B.6",
     "6.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: net-sa). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-arv-s05-cp2-014",

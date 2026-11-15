@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 87550721b5088ef9ebafac067a24daad484b0b42
+          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
           path: _course_sources/grade5
           persist-credentials: false
       - name: Assemble approved Grade 5 into production artifact
@@ -77,7 +77,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 87550721b5088ef9ebafac067a24daad484b0b42
+          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
           path: _course_sources/grade3
           persist-credentials: false
       - name: Assemble Grade 3 into production artifact
@@ -91,7 +91,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 87550721b5088ef9ebafac067a24daad484b0b42
+          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
           path: _course_sources/grade2
           persist-credentials: false
       - name: Assemble Grade 2 from separate repository into the public artifact
@@ -104,7 +104,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 87550721b5088ef9ebafac067a24daad484b0b42
+          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
           path: _course_sources/grade1
           persist-credentials: false
       - name: Assemble Grade 1 with study guides and teaching notes
@@ -118,8 +118,9 @@ jobs:
       - name: Apply reviewed Classroom content updates
         run: |
           node scripts/apply-content-updates.mjs
-          node --test tests/plot-content.test.cjs tests/data-displays.test.cjs tests/content-hybrid.test.cjs
+          node --test tests/plot-content.test.cjs tests/data-displays.test.cjs tests/function-graphs.test.cjs tests/statistics-displays.test.cjs tests/content-hybrid.test.cjs
           node scripts/test-content-release.cjs _site
+          node scripts/test-financial-error-release.cjs _site
       - name: Audit curated elementary Asteroid Blaster units and playable question pools
         run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool
@@ -140,6 +141,10 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Browser-check data displays and mobile graphing practice
         run: node scripts/test-data-displays-browser.cjs
+      - name: Browser-check secondary function graphing and Calculus images
+        run: |
+          node scripts/test-function-graphs-browser.cjs
+          node scripts/test-statistics-displays-browser.cjs
       - name: Browser-check elementary game routing, student links and course switching
         run: node scripts/test-elementary-browser-parity.cjs _site
       - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check

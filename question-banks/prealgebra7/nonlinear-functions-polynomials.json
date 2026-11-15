@@ -7502,208 +7502,208 @@
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Multiply: (x + 9)(x + 9)",
-   "answer": "x² + 18x + 81",
+   "prompt": "Multiply: (x − 6)(x + 1)",
+   "answer": "x² − 5x − 6",
    "options": [
     {
-     "text": "x² + 18x + 81",
+     "text": "x² − 5x − 6",
      "correct": true
     },
     {
-     "text": "x² + 81",
+     "text": "x² − 5x + 6",
      "correct": false
     },
     {
-     "text": "x² + 81x + 18",
+     "text": "x² + 5x − 6",
      "correct": false
     },
     {
-     "text": "x² + 18x + 18",
+     "text": "x² + 7x − 6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 9x; I: 9x; L: 81.",
-    "Combine like terms: x² + 18x + 81."
+    "x·x = x²; x·1 = 1x; −6·x = −6x; −6·1 = −6.",
+    "Combine like terms: 1x − 6x = -5x.",
+    "Result: x² − 5x − 6."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-negative). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-007",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Multiply: (x + 9)(x + 2)",
-   "answer": "x² + 11x + 18",
+   "prompt": "A rectangle has length x + 6 and width x + 2. Write its area as a polynomial.",
+   "answer": "x² + 8x + 12",
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 2x; I: 9x; L: 18.",
-    "Combine like terms: x² + 11x + 18."
+    "Area = length × width = (x + a)(x + b).",
+    "Multiply: x² + 2x + 6x + 12.",
+    "Area = x² + 8x + 12."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-008",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Multiply: (x + 3)(x + 1)",
-   "answer": "x² + 4x + 3",
+   "prompt": "Find the missing number: (x + 5)(x + ?) = x² + 13x + 40",
+   "answer": "8",
    "options": [
     {
-     "text": "x² + 3x + 4",
+     "text": "40",
      "correct": false
     },
     {
-     "text": "x² + 4x + 4",
+     "text": "13",
      "correct": false
     },
     {
-     "text": "x² + 4x + 3",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "x² + 3",
+     "text": "35",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: x; I: 3x; L: 3.",
-    "Combine like terms: x² + 4x + 3."
+    "The constant term is 5 × ? = 40, so ? = 8.",
+    "Check the middle term: 5 + 8 = 13. ✓",
+    "The missing number is 8."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-009",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Multiply: (x + 8)(x + 9)",
-   "answer": "x² + 17x + 72",
+   "prompt": "Lee wrote (x + 4)(x + 8) = x² + 32. What is the correct product?",
+   "answer": "x² + 12x + 32",
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 9x; I: 8x; L: 72.",
-    "Combine like terms: x² + 17x + 72."
+    "Lee multiplied only the first terms and the last terms.",
+    "The outer and inner products 8x and 4x are missing.",
+    "Correct product: x² + 12x + 32."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-error). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-010",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Multiply: (x + 7)(x + 6)",
-   "answer": "x² + 13x + 42",
+   "prompt": "Multiply: (x − 5)(x + 8)",
+   "answer": "x² + 3x − 40",
    "options": [
     {
-     "text": "x² + 13x + 13",
+     "text": "x² + 3x + 40",
      "correct": false
     },
     {
-     "text": "x² + 42",
-     "correct": false
-    },
-    {
-     "text": "x² + 42x + 13",
-     "correct": false
-    },
-    {
-     "text": "x² + 13x + 42",
+     "text": "x² + 3x − 40",
      "correct": true
+    },
+    {
+     "text": "x² − 3x − 40",
+     "correct": false
+    },
+    {
+     "text": "x² + 13x − 40",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 6x; I: 7x; L: 42.",
-    "Combine like terms: x² + 13x + 42."
+    "x·x = x²; x·8 = 8x; −5·x = −5x; −5·8 = −40.",
+    "Combine like terms: 8x − 5x = 3x.",
+    "Result: x² + 3x − 40."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-negative). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-011",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Multiply: (x + 2)(x + 2)",
-   "answer": "x² + 4x + 4",
+   "prompt": "A rectangle has length x + 1 and width x + 3. Write its area as a polynomial.",
+   "answer": "x² + 4x + 3",
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 2x; I: 2x; L: 4.",
-    "Combine like terms: x² + 4x + 4."
+    "Area = length × width = (x + a)(x + b).",
+    "Multiply: x² + 3x + 1x + 3.",
+    "Area = x² + 4x + 3."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-area). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-012",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Multiply: (x + 5)(x + 1)",
-   "answer": "x² + 6x + 5",
+   "prompt": "Find the missing number: (x + 9)(x + ?) = x² + 17x + 72",
+   "answer": "8",
    "options": [
     {
-     "text": "x² + 6x + 5",
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "8",
      "correct": true
     },
     {
-     "text": "x² + 5",
+     "text": "72",
      "correct": false
     },
     {
-     "text": "x² + 6x + 6",
-     "correct": false
-    },
-    {
-     "text": "x² + 5x + 6",
+     "text": "63",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: x; I: 5x; L: 5.",
-    "Combine like terms: x² + 6x + 5."
+    "The constant term is 9 × ? = 72, so ? = 8.",
+    "Check the middle term: 9 + 8 = 17. ✓",
+    "The missing number is 8."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-missing). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-013",
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Multiply: (x + 4)(x + 2)",
-   "answer": "x² + 6x + 8",
+   "prompt": "Lee wrote (x + 9)(x + 7) = x² + 63. What is the correct product?",
+   "answer": "x² + 16x + 63",
    "solutionSteps": [
-    "Use FOIL (or an area model): First, Outer, Inner, Last.",
-    "F: x²; O: 2x; I: 4x; L: 8.",
-    "Combine like terms: x² + 6x + 8."
+    "Lee multiplied only the first terms and the last terms.",
+    "The outer and inner products 7x and 9x are missing.",
+    "Correct product: x² + 16x + 63."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_foil). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: binom-error). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pa7-nfp-s07-cp2-014",

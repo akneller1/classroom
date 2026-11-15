@@ -350,7 +350,9 @@
       var r = ctx.rng, c = ctx.c, h = K.nz(r, -6, 6), k = r.int(-6, 6), a = c <= 2 ? 1 : c <= 4 ? r.pick([1, -1, 2, -2, 3]) : (!ctx.intOnly && c >= 6 && r.chance(0.4) ? Fr.of(r.pick([1, -1])).mul(new Fr(1, 2)) : r.pick([-3, -2, -1, 2, 3]));
       var A = Fr.of(a), rule = absRule(A, h, k), step = K.step, opens = A.sign() > 0 ? 'up' : 'down';
       var asks = c <= 2 ? ['vertex', 'axis', 'opens'] : c <= 4 ? ['vertex', 'range', 'opens', 'write'] : ['range', 'write', 'graph', 'vertex'];
+      asks.push('graph-hand');
       var ask = r.pick(asks);
+      if(ask==='graph-hand'){h=r.int(-4,4);k=r.int(-2,2);A=c<=2?Fr.of(r.pick([-1,1])):c<=4?Fr.of(r.pick([-3,-2,-1,1,2,3])):ctx.intOnly?Fr.of(r.pick([-1,1])):new Fr(r.pick([-1,1]),2);a=A;rule=absRule(A,h,k);}
       if (ask === 'range' && k === 0) k = r.pick([-5, -3, 2, 4, 7]);
       if (ask === 'range' || (ask !== 'write' && ask !== 'graph' && !A.abs().eq(1))) {   // print k first, so every printed number changes the answer
         if (k === 0) { A = Fr.of(A.sign()); opens = A.sign() > 0 ? 'up' : 'down'; rule = absRule(A, h, k); }
@@ -358,6 +360,13 @@
       }
       var lead = 'For ' + M('f(x)=' + rule) + ', ';
       var why = step('Compare with ⟨f(x)=a|x-h|+k⟩: the vertex is ⟨(h,k)=(' + h + ',' + k + ')⟩ and ⟨a=' + num(A) + '⟩.', '', 2);
+      if(ask==='graph-hand'){
+        var dx=A.d===2?2:1,pts=[-2,-1,0,1,2].map(function(i){return {x:h+i*dx,y:k+(A.mul(Math.abs(i*dx)).n/A.mul(Math.abs(i*dx)).d)}}),run=2*dx;
+        var key=plane([-10,10,-10,10],{points:pts,segs:[{a:[pts[0].x,pts[0].y],b:[h,k],aEnd:'arrow'},{a:[h,k],b:[pts[4].x,pts[4].y],bEnd:'arrow'}]});
+        return {variant:'abs-graph-hand-'+c,prompt:'Graph '+M('f(x)='+absRule(A,h,k))+' on the grid. Plot the vertex and two points on each side.',fig:plane([-10,10,-10,10]),
+          parts:[{answer:pts.map(function(pt){return M('('+pt.x+','+pt.y+')')}).join(', '),check:{type:'derive',kind:'abs-graph'},answerFig:key}],
+          steps:[step('The vertex is '+M('('+h+','+k+')')+'.','',1),step('From the vertex, move '+dx+' right and '+num(A.abs().mul(dx))+' '+(A.sign()>0?'up':'down')+'. Plot the mirror point on the other side.','',2),step('Use these five points: '+pts.map(function(pt){return M('('+pt.x+','+pt.y+')')}).join(', ')+'. Draw the V through them.','',2)],space:[1.2,1.4,1.6]};
+      }
       if (ask === 'vertex') return { variant: 'abs-vertex-' + c, prompt: lead + 'find the vertex.', parts: [{ answer: M('(' + h + ',\\ ' + k + ')'), check: { type: 'derive', kind: 'abs', alts: [M('(' + (-h) + ',\\ ' + k + ')'), M('(' + k + ',\\ ' + h + ')'), M('(' + h + ',\\ ' + (-k) + ')'), M('(' + (-h) + ',\\ ' + (-k) + ')')].filter(function (z, i, arr) { return z !== M('(' + h + ',\\ ' + k + ')') && arr.indexOf(z) === i; }) } }], steps: [why], space: [0.6, 0.7, 0.8] };
       if (ask === 'axis') return { variant: 'abs-axis-' + c, prompt: lead + 'find the axis of symmetry.', parts: [{ answer: M('x=' + h), check: { type: 'derive', kind: 'abs', alts: [M('x=' + (-h)), M('x=' + k), M('x=' + (h + 1))].filter(function (z) { return z !== M('x=' + h); }) } }], steps: [why, step('The axis of symmetry is the vertical line through the vertex.', 'x=' + h, 1)], space: [0.6, 0.7, 0.8] };
       if (ask === 'opens') return { variant: 'abs-opens-' + c, prompt: lead + 'find the vertex and tell whether the graph opens up or down.', parts: [{ answer: M('(' + h + ',\\ ' + k + ')') + ', opens ' + opens + ' because ' + M('a') + ' is ' + (opens === 'up' ? 'positive' : 'negative') + '.', check: { type: 'derive', kind: 'abs' } }], steps: [why, step(opens === 'up' ? 'a > 0, so the V opens up.' : 'a < 0, so the V opens down (reflected across the x-axis).', '', 1)], space: [0.5, 0.6, 0.7] };

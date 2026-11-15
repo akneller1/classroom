@@ -68,43 +68,36 @@
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with sides 11 cm and 29 cm and included angle 130°. Round to the nearest tenth.",
-   "answer": "122.2 cm²",
+   "prompt": "A triangle has area 36.7 cm², one side of 8 cm, and an included angle of 139°. Find the other side that forms the angle, to the nearest tenth.",
+   "answer": "14.0 cm",
    "options": [
     {
-     "text": "159.5 cm²",
+     "text": "7.0 cm",
      "correct": false
     },
     {
-     "text": "143.6 cm²",
-     "correct": false
-    },
-    {
-     "text": "244.4 cm²",
-     "correct": false
-    },
-    {
-     "text": "122.2 cm²",
+     "text": "14.0 cm",
      "correct": true
+    },
+    {
+     "text": "-12.2 cm",
+     "correct": false
+    },
+    {
+     "text": "9.2 cm",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(11)(29)sin 130°.",
-    "≈ 122.2 cm²."
+    "Area = ½ab sin C.",
+    "36.7 = ½ × 8 × b × sin 139°.",
+    "b = 2(36.7) ÷ (8 sin 139°) ≈ 14.0 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-003.png",
-     "alt": "Triangle ABC with CA = 29 cm, CB = 11 cm, and angle C = 130°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-find-side). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-004",
@@ -146,25 +139,18 @@
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 10 cm and 9 cm and included angle 47°. Round to the nearest tenth.",
-   "answer": "32.9 cm²",
+   "prompt": "A parallelogram has sides 18 m and 19 m with an angle of 78° between them. Find its area to the nearest tenth.",
+   "answer": "334.5 m²",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(10)(9)sin 47°.",
-    "≈ 32.9 cm²."
+    "A diagonal splits the parallelogram into two congruent triangles, each with area ½ab sin C.",
+    "Area = ab sin C = 18 × 19 × sin 78°.",
+    "Area ≈ 334.5 m²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-005.png",
-     "alt": "Triangle ABC with CA = 9 cm, CB = 10 cm, and angle C = 47°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-parallelogram). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-006",
@@ -206,43 +192,36 @@
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with sides 24 cm and 16 cm and included angle 29°. Round to the nearest tenth.",
-   "answer": "93.1 cm²",
+   "prompt": "A triangle has sides 10 cm and 16 cm, an acute included angle, and area 35.1 cm². Find the included angle to the nearest tenth of a degree.",
+   "answer": "26.0°",
    "options": [
     {
-     "text": "93.1 cm²",
+     "text": "154.0°",
+     "correct": false
+    },
+    {
+     "text": "0.4°",
+     "correct": false
+    },
+    {
+     "text": "26.0°",
      "correct": true
     },
     {
-     "text": "186.2 cm²",
-     "correct": false
-    },
-    {
-     "text": "172.8 cm²",
-     "correct": false
-    },
-    {
-     "text": "167.9 cm²",
+     "text": "64.0°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(24)(16)sin 29°.",
-    "≈ 93.1 cm²."
+    "Area = ½ab sin C.",
+    "sin C = 2(35.1) ÷ (10 × 16) = 0.4388.",
+    "C = sin⁻¹(0.4388) ≈ 26.0° (acute)."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-007.png",
-     "alt": "Triangle ABC with CA = 16 cm, CB = 24 cm, and angle C = 29°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-find-angle). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-008",
@@ -284,125 +263,90 @@
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 20 cm and 26 cm and included angle 117°. Round to the nearest tenth.",
-   "answer": "231.7 cm²",
+   "prompt": "In triangle ABC, a = 20, b = 10, and C = 66°. Which expression gives the area?",
+   "answer": "½(20)(10) sin 66°",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(20)(26)sin 117°.",
-    "≈ 231.7 cm²."
+    "The SAS area formula uses two sides and the angle between them.",
+    "Sides a and b meet at angle C = 66°.",
+    "Area = ½(20)(10) sin 66°."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-009.png",
-     "alt": "Triangle ABC with CA = 26 cm, CB = 20 cm, and angle C = 117°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-formula). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-010",
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 11 cm and 6 cm and included angle 150°. Round to the nearest tenth.",
-   "answer": "16.5 cm²",
+   "prompt": "A triangle has area 184.6 cm², one side of 16 cm, and an included angle of 106°. Find the other side that forms the angle, to the nearest tenth.",
+   "answer": "24.0 cm",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(11)(6)sin 150°.",
-    "≈ 16.5 cm²."
+    "Area = ½ab sin C.",
+    "184.6 = ½ × 16 × b × sin 106°.",
+    "b = 2(184.6) ÷ (16 sin 106°) ≈ 24.0 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-010.png",
-     "alt": "Triangle ABC with CA = 6 cm, CB = 11 cm, and angle C = 150°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-find-side). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-011",
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 7 cm and 27 cm and included angle 68°. Round to the nearest tenth.",
-   "answer": "87.6 cm²",
+   "prompt": "A parallelogram has sides 8 m and 13 m with an angle of 136° between them. Find its area to the nearest tenth.",
+   "answer": "72.2 m²",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(7)(27)sin 68°.",
-    "≈ 87.6 cm²."
+    "A diagonal splits the parallelogram into two congruent triangles, each with area ½ab sin C.",
+    "Area = ab sin C = 8 × 13 × sin 136°.",
+    "Area ≈ 72.2 m²."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-011.png",
-     "alt": "Triangle ABC with CA = 27 cm, CB = 7 cm, and angle C = 68°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-parallelogram). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-012",
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 22 cm and 26 cm and included angle 31°. Round to the nearest tenth.",
-   "answer": "147.3 cm²",
+   "prompt": "A triangle has sides 11 cm and 9 cm, an acute included angle, and area 21.7 cm². Find the included angle to the nearest tenth of a degree.",
+   "answer": "26.0°",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(22)(26)sin 31°.",
-    "≈ 147.3 cm²."
+    "Area = ½ab sin C.",
+    "sin C = 2(21.7) ÷ (11 × 9) = 0.4384.",
+    "C = sin⁻¹(0.4384) ≈ 26.0° (acute)."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-012.png",
-     "alt": "Triangle ABC with CA = 26 cm, CB = 22 cm, and angle C = 31°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-find-angle). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-013",
    "skillId": "general-triangle-trigonometry-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with sides 25 cm and 5 cm and included angle 50°. Round to the nearest tenth.",
-   "answer": "47.9 cm²",
+   "prompt": "In triangle ABC, a = 10, b = 7, and C = 73°. Which expression gives the area?",
+   "answer": "½(10)(7) sin 73°",
    "solutionSteps": [
-    "Area = (1/2)ab·sin C.",
-    "(1/2)(25)(5)sin 50°.",
-    "≈ 47.9 cm²."
+    "The SAS area formula uses two sides and the angle between them.",
+    "Sides a and b meet at angle C = 73°.",
+    "Area = ½(10)(7) sin 73°."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s01-cp2-013.png",
-     "alt": "Triangle ABC with CA = 5 cm, CB = 25 cm, and angle C = 50°."
-    }
-   },
    "standards": [
     "G-SRT.D.9",
     "G-SRT.D.10"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: sas-formula). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s01-cp2-014",
@@ -3899,25 +3843,18 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "In triangle ABC, a = 14, b = 4, and C = 33°. Find c to the nearest tenth.",
-   "answer": "10.9",
+   "prompt": "Two hikers leave camp. One walks 4 km and the other walks 5 km; the angle between their paths is 126°. How far apart are they, to the nearest tenth of a km?",
+   "answer": "8.0 km",
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 196 + 16 - 2(14)(4)cos(33°) ≈ 118.07.",
-    "c ≈ 10.9."
+    "The paths and the distance between the hikers form a triangle with an included angle (SAS).",
+    "c² = 4² + 5² − 2(4)(5) cos 126°.",
+    "c ≈ 8.0 km."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-001.png",
-     "alt": "Triangle ABC with a = 14, b = 4, and angle C = 33°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-context). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-002",
@@ -3960,43 +3897,36 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "In triangle ABC, a = 19, b = 21, and C = 63°. Find c to the nearest tenth.",
-   "answer": "21.0",
+   "prompt": "In triangle ABC, a = 19, b = 16, and C = 70°. Which equation can be solved for c?",
+   "answer": "c² = 19² + 16² − 2(19)(16) cos 70°",
    "options": [
     {
-     "text": "439.7",
-     "correct": false
-    },
-    {
-     "text": "34.1",
-     "correct": false
-    },
-    {
-     "text": "28.3",
-     "correct": false
-    },
-    {
-     "text": "21.0",
+     "text": "c² = 19² + 16² − 2(19)(16) cos 70°",
      "correct": true
+    },
+    {
+     "text": "c² = 19² + 16² − 2(19)(16) sin 70°",
+     "correct": false
+    },
+    {
+     "text": "c² = 19² + 16² + 2(19)(16) cos 70°",
+     "correct": false
+    },
+    {
+     "text": "c/sin 70° = 19/sin 16°",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 361 + 441 - 2(19)(21)cos(63°) ≈ 439.72.",
-    "c ≈ 21.0."
+    "Two sides and the included angle are known (SAS), so use the Law of Cosines.",
+    "The angle in the formula must be opposite the unknown side c, which is C.",
+    "c² = 19² + 16² − 2(19)(16) cos 70°."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-003.png",
-     "alt": "Triangle ABC with a = 19, b = 21, and angle C = 63°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-equation). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-004",
@@ -4021,25 +3951,18 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "In triangle ABC, a = 5, b = 11, and C = 118°. Find c to the nearest tenth.",
-   "answer": "14.1",
+   "prompt": "A triangle has sides 7, 15, and 19. Is its largest angle acute, right, or obtuse?",
+   "answer": "obtuse",
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 25 + 121 - 2(5)(11)cos(118°) ≈ 197.64.",
-    "c ≈ 14.1."
+    "The largest angle is opposite the longest side, 19.",
+    "Compare 19² = 361 with 7² + 15² = 274.",
+    "361 > 274, so the largest angle is obtuse."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-005.png",
-     "alt": "Triangle ABC with a = 5, b = 11, and angle C = 118°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-classify). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-006",
@@ -4082,43 +4005,36 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "In triangle ABC, a = 28, b = 9, and C = 148°. Find c to the nearest tenth.",
-   "answer": "36.0",
+   "prompt": "A parallelogram has sides 8 cm and 9 cm with a 135° angle between them. Find the diagonal opposite that angle, to the nearest tenth.",
+   "answer": "15.7 cm",
    "options": [
     {
-     "text": "1292.4",
+     "text": "12.0 cm",
      "correct": false
     },
     {
-     "text": "36.0",
+     "text": "8.5 cm",
+     "correct": false
+    },
+    {
+     "text": "15.7 cm",
      "correct": true
     },
     {
-     "text": "20.9",
-     "correct": false
-    },
-    {
-     "text": "29.4",
+     "text": "6.6 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 784 + 81 - 2(28)(9)cos(148°) ≈ 1292.42.",
-    "c ≈ 36.0."
+    "The diagonal opposite the 135° angle closes a triangle with sides 8 and 9.",
+    "d² = 8² + 9² − 2(8)(9) cos 135°.",
+    "d ≈ 15.7 cm."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-007.png",
-     "alt": "Triangle ABC with a = 28, b = 9, and angle C = 148°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-parallelogram). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-008",
@@ -4143,25 +4059,18 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "In triangle ABC, a = 23, b = 8, and C = 137°. Find c to the nearest tenth.",
-   "answer": "29.4",
+   "prompt": "Two hikers leave camp. One walks 8 km and the other walks 15 km; the angle between their paths is 42°. How far apart are they, to the nearest tenth of a km?",
+   "answer": "10.5 km",
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 529 + 64 - 2(23)(8)cos(137°) ≈ 862.14.",
-    "c ≈ 29.4."
+    "The paths and the distance between the hikers form a triangle with an included angle (SAS).",
+    "c² = 8² + 15² − 2(8)(15) cos 42°.",
+    "c ≈ 10.5 km."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-009.png",
-     "alt": "Triangle ABC with a = 23, b = 8, and angle C = 137°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-context). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-010",
@@ -4204,43 +4113,36 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "In triangle ABC, a = 13, b = 7, and C = 45°. Find c to the nearest tenth.",
-   "answer": "9.5",
+   "prompt": "In triangle ABC, a = 16, b = 9, and C = 96°. Which equation can be solved for c?",
+   "answer": "c² = 16² + 9² − 2(16)(9) cos 96°",
    "options": [
     {
-     "text": "18.6",
-     "correct": false
-    },
-    {
-     "text": "14.8",
-     "correct": false
-    },
-    {
-     "text": "9.5",
+     "text": "c² = 16² + 9² − 2(16)(9) cos 96°",
      "correct": true
     },
     {
-     "text": "89.3",
+     "text": "c/sin 96° = 16/sin 9°",
+     "correct": false
+    },
+    {
+     "text": "c² = 16² + 9² + 2(16)(9) cos 96°",
+     "correct": false
+    },
+    {
+     "text": "c² = 16² + 9² − 2(16)(9) sin 96°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 169 + 49 - 2(13)(7)cos(45°) ≈ 89.31.",
-    "c ≈ 9.5."
+    "Two sides and the included angle are known (SAS), so use the Law of Cosines.",
+    "The angle in the formula must be opposite the unknown side c, which is C.",
+    "c² = 16² + 9² − 2(16)(9) cos 96°."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-011.png",
-     "alt": "Triangle ABC with a = 13, b = 7, and angle C = 45°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-equation). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-012",
@@ -4265,25 +4167,18 @@
    "skillId": "general-triangle-trigonometry-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "In triangle ABC, a = 8, b = 19, and C = 20°. Find c to the nearest tenth.",
-   "answer": "11.8",
+   "prompt": "A triangle has sides 14, 20, and 21. Is its largest angle acute, right, or obtuse?",
+   "answer": "acute",
    "solutionSteps": [
-    "c² = a² + b² - 2ab·cos C.",
-    "c² = 64 + 361 - 2(8)(19)cos(20°) ≈ 139.33.",
-    "c ≈ 11.8."
+    "The largest angle is opposite the longest side, 21.",
+    "Compare 21² = 441 with 14² + 20² = 596.",
+    "441 < 596, so the largest angle is acute."
    ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/precalculus/general-triangle-trigonometry/pc-gtt-s04-cp2-013.png",
-     "alt": "Triangle ABC with a = 8, b = 19, and angle C = 20°."
-    }
-   },
    "standards": [
     "G-SRT.D.10",
     "G-SRT.D.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_side). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: loc-classify). Rewritten for task variety; answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-variety-wording. Awaiting teacher review."
   },
   {
    "id": "pc-gtt-s04-cp2-014",

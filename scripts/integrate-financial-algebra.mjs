@@ -25,6 +25,9 @@ function copyDir(from,to){
 fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(dest,{recursive:true});
 // Copy only Financial Algebra production resources, not unapproved elementary courses.
 copyDir(path.join(source,'financial'),path.join(dest,'financial'));
+// Main-catalog links also use /financial/. Keep both published entry points on the same source.
+copyDir(path.join(source,'financial'),path.join(output,'financial'));
+
 copyDir(path.join(source,'question-banks','financial-algebra'),path.join(dest,'question-banks','financial-algebra'));
 copyDir(path.join(source,'thumbs','financial-algebra'),path.join(dest,'thumbs','financial-algebra'));
 const artifacts=path.join(source,'artifacts');

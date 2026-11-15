@@ -31,6 +31,7 @@ for(const entry of entries){
  }
 }
 const additions=require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='algebra2').length;
-assert.equal(total,4667+additions); // Original bank plus reviewed November 15 additions
+const functionAdditions=require('../tests/fixtures/function-graph-items.json').filter(q=>q.id.startsWith('a2-')).length;
+assert.equal(total,4667+additions+functionAdditions); // Original bank plus reviewed November 15 additions
 assert.equal(skills.size,87);
 console.log('PASS 11 Algebra 2 banks, '+total+' questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');

@@ -12339,6 +12339,5496 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p001",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −x − 5 for x ≤ −1, and f(x) = −x − 2 for x > −1. For each piece, place its endpoint at x = −1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −x − 5 ending at (−1, −4) (closed); right piece: line y = −x − 2 starting at (−1, −1) (open).",
+   "solutionSteps": [
+    "Left piece: at x = −1, f = −x − 5 = −4, so its endpoint is (−1, −4); it is closed (≤).",
+    "Another point on the left piece: (−2, −3).",
+    "Right piece: at x = −1, f = −x − 2 = −1, so its endpoint is (−1, −1); it is open (>).",
+    "Another point on the right piece: (0, −2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1",
+       "b": "-5",
+       "closed": true
+      },
+      {
+       "m": "-1",
+       "b": "-2",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-1",
+         "-4"
+        ],
+        "closed": true,
+        "point": [
+         "-2",
+         "-3"
+        ]
+       },
+       {
+        "endpoint": [
+         "-1",
+         "-1"
+        ],
+        "closed": false,
+        "point": [
+         "0",
+         "-2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p001.png",
+     "alt": "Two-piece graph: y = −x − 5 left of x = −1 and y = −x − 2 right of it; endpoints (−1, −4) closed and (−1, −1) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p002",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = x + 1 for x < −1, and f(x) = −x − 2 for x ≥ −1. For each piece, place its endpoint at x = −1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = x + 1 ending at (−1, 0) (open); right piece: line y = −x − 2 starting at (−1, −1) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −1, f = x + 1 = 0, so its endpoint is (−1, 0); it is open (<).",
+    "Another point on the left piece: (−2, −1).",
+    "Right piece: at x = −1, f = −x − 2 = −1, so its endpoint is (−1, −1); it is closed (≥).",
+    "Another point on the right piece: (0, −2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1",
+       "b": "1",
+       "closed": false
+      },
+      {
+       "m": "-1",
+       "b": "-2",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-1",
+         "0"
+        ],
+        "closed": false,
+        "point": [
+         "-2",
+         "-1"
+        ]
+       },
+       {
+        "endpoint": [
+         "-1",
+         "-1"
+        ],
+        "closed": true,
+        "point": [
+         "0",
+         "-2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p002.png",
+     "alt": "Two-piece graph: y = x + 1 left of x = −1 and y = −x − 2 right of it; endpoints (−1, 0) open and (−1, −1) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p003",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −2 for x < −2, and f(x) = 1 for x ≥ −2. For each piece, place its endpoint at x = −2 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −2 ending at (−2, −2) (open); right piece: line y = 1 starting at (−2, 1) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −2, f = −2 = −2, so its endpoint is (−2, −2); it is open (<).",
+    "Another point on the left piece: (−3, −2).",
+    "Right piece: at x = −2, f = 1 = 1, so its endpoint is (−2, 1); it is closed (≥).",
+    "Another point on the right piece: (−1, 1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-2",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "0",
+       "b": "-2",
+       "closed": false
+      },
+      {
+       "m": "0",
+       "b": "1",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-2",
+         "-2"
+        ],
+        "closed": false,
+        "point": [
+         "-3",
+         "-2"
+        ]
+       },
+       {
+        "endpoint": [
+         "-2",
+         "1"
+        ],
+        "closed": true,
+        "point": [
+         "-1",
+         "1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-2"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-2"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p003.png",
+     "alt": "Two-piece graph: y = −2 left of x = −2 and y = 1 right of it; endpoints (−2, −2) open and (−2, 1) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p004",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −x − 4 for x < −3, and f(x) = −x − 3 for x ≥ −3. For each piece, place its endpoint at x = −3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −x − 4 ending at (−3, −1) (open); right piece: line y = −x − 3 starting at (−3, 0) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −3, f = −x − 4 = −1, so its endpoint is (−3, −1); it is open (<).",
+    "Another point on the left piece: (−4, 0).",
+    "Right piece: at x = −3, f = −x − 3 = 0, so its endpoint is (−3, 0); it is closed (≥).",
+    "Another point on the right piece: (−2, −1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1",
+       "b": "-4",
+       "closed": false
+      },
+      {
+       "m": "-1",
+       "b": "-3",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-3",
+         "-1"
+        ],
+        "closed": false,
+        "point": [
+         "-4",
+         "0"
+        ]
+       },
+       {
+        "endpoint": [
+         "-3",
+         "0"
+        ],
+        "closed": true,
+        "point": [
+         "-2",
+         "-1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-4",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-4",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-4",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-4",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p004.png",
+     "alt": "Two-piece graph: y = −x − 4 left of x = −3 and y = −x − 3 right of it; endpoints (−3, −1) open and (−3, 0) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p005",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = 1 for x ≤ 0, and f(x) = −x − 1 for x > 0. For each piece, place its endpoint at x = 0 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = 1 ending at (0, 1) (closed); right piece: line y = −x − 1 starting at (0, −1) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 0, f = 1 = 1, so its endpoint is (0, 1); it is closed (≤).",
+    "Another point on the left piece: (−1, 1).",
+    "Right piece: at x = 0, f = −x − 1 = −1, so its endpoint is (0, −1); it is open (>).",
+    "Another point on the right piece: (1, −2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "0",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "0",
+       "b": "1",
+       "closed": true
+      },
+      {
+       "m": "-1",
+       "b": "-1",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "0",
+         "1"
+        ],
+        "closed": true,
+        "point": [
+         "-1",
+         "1"
+        ]
+       },
+       {
+        "endpoint": [
+         "0",
+         "-1"
+        ],
+        "closed": false,
+        "point": [
+         "1",
+         "-2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p005.png",
+     "alt": "Two-piece graph: y = 1 left of x = 0 and y = −x − 1 right of it; endpoints (0, 1) closed and (0, −1) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p006",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −x + 1 for x < 1, and f(x) = −x + 2 for x ≥ 1. For each piece, place its endpoint at x = 1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −x + 1 ending at (1, 0) (open); right piece: line y = −x + 2 starting at (1, 1) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 1, f = −x + 1 = 0, so its endpoint is (1, 0); it is open (<).",
+    "Another point on the left piece: (0, 1).",
+    "Right piece: at x = 1, f = −x + 2 = 1, so its endpoint is (1, 1); it is closed (≥).",
+    "Another point on the right piece: (2, 0)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1",
+       "b": "1",
+       "closed": false
+      },
+      {
+       "m": "-1",
+       "b": "2",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "1",
+         "0"
+        ],
+        "closed": false,
+        "point": [
+         "0",
+         "1"
+        ]
+       },
+       {
+        "endpoint": [
+         "1",
+         "1"
+        ],
+        "closed": true,
+        "point": [
+         "2",
+         "0"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p006.png",
+     "alt": "Two-piece graph: y = −x + 1 left of x = 1 and y = −x + 2 right of it; endpoints (1, 0) open and (1, 1) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p007",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = x − 1 for x ≤ 3, and f(x) = 2x − 5 for x > 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = x − 1 ending at (3, 2) (closed); right piece: line y = 2x − 5 starting at (3, 1) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = x − 1 = 2, so its endpoint is (3, 2); it is closed (≤).",
+    "Another point on the left piece: (2, 1).",
+    "Right piece: at x = 3, f = 2x − 5 = 1, so its endpoint is (3, 1); it is open (>).",
+    "Another point on the right piece: (4, 3)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1",
+       "b": "-1",
+       "closed": true
+      },
+      {
+       "m": "2",
+       "b": "-5",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "2"
+        ],
+        "closed": true,
+        "point": [
+         "2",
+         "1"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "1"
+        ],
+        "closed": false,
+        "point": [
+         "4",
+         "3"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "1"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p007.png",
+     "alt": "Two-piece graph: y = x − 1 left of x = 3 and y = 2x − 5 right of it; endpoints (3, 2) closed and (3, 1) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp2-p008",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −5 for x < 0, and f(x) = −3 for x ≥ 0. For each piece, place its endpoint at x = 0 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −5 ending at (0, −5) (open); right piece: line y = −3 starting at (0, −3) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 0, f = −5 = −5, so its endpoint is (0, −5); it is open (<).",
+    "Another point on the left piece: (−1, −5).",
+    "Right piece: at x = 0, f = −3 = −3, so its endpoint is (0, −3); it is closed (≥).",
+    "Another point on the right piece: (1, −3)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "0",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "0",
+       "b": "-5",
+       "closed": false
+      },
+      {
+       "m": "0",
+       "b": "-3",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "0",
+         "-5"
+        ],
+        "closed": false,
+        "point": [
+         "-1",
+         "-5"
+        ]
+       },
+       {
+        "endpoint": [
+         "0",
+         "-3"
+        ],
+        "closed": true,
+        "point": [
+         "1",
+         "-3"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-5"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-5"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-5"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-5"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp2-p008.png",
+     "alt": "Two-piece graph: y = −5 left of x = 0 and y = −3 right of it; endpoints (0, −5) open and (0, −3) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p001",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (1/2)x + 4 for x ≤ 2, and f(x) = x − 5 for x > 2. For each piece, place its endpoint at x = 2 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (1/2)x + 4 ending at (2, 5) (closed); right piece: line y = x − 5 starting at (2, −3) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 2, f = (1/2)x + 4 = 5, so its endpoint is (2, 5); it is closed (≤).",
+    "Another point on the left piece: (0, 4).",
+    "Right piece: at x = 2, f = x − 5 = −3, so its endpoint is (2, −3); it is open (>).",
+    "Another point on the right piece: (3, −2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "2",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1/2",
+       "b": "4",
+       "closed": true
+      },
+      {
+       "m": "1",
+       "b": "-5",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "2",
+         "5"
+        ],
+        "closed": true,
+        "point": [
+         "0",
+         "4"
+        ]
+       },
+       {
+        "endpoint": [
+         "2",
+         "-3"
+        ],
+        "closed": false,
+        "point": [
+         "3",
+         "-2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "3",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "3",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "3",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p001.png",
+     "alt": "Two-piece graph: y = (1/2)x + 4 left of x = 2 and y = x − 5 right of it; endpoints (2, 5) closed and (2, −3) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p002",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = 2x − 2 for x < 3, and f(x) = −2x + 6 for x ≥ 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = 2x − 2 ending at (3, 4) (open); right piece: line y = −2x + 6 starting at (3, 0) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = 2x − 2 = 4, so its endpoint is (3, 4); it is open (<).",
+    "Another point on the left piece: (2, 2).",
+    "Right piece: at x = 3, f = −2x + 6 = 0, so its endpoint is (3, 0); it is closed (≥).",
+    "Another point on the right piece: (4, −2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "2",
+       "b": "-2",
+       "closed": false
+      },
+      {
+       "m": "-2",
+       "b": "6",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "4"
+        ],
+        "closed": false,
+        "point": [
+         "2",
+         "2"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "0"
+        ],
+        "closed": true,
+        "point": [
+         "4",
+         "-2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p002.png",
+     "alt": "Two-piece graph: y = 2x − 2 left of x = 3 and y = −2x + 6 right of it; endpoints (3, 4) open and (3, 0) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p003",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −2x − 7 for x ≤ −1, and f(x) = −2x for x > −1. For each piece, place its endpoint at x = −1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −2x − 7 ending at (−1, −5) (closed); right piece: line y = −2x starting at (−1, 2) (open).",
+   "solutionSteps": [
+    "Left piece: at x = −1, f = −2x − 7 = −5, so its endpoint is (−1, −5); it is closed (≤).",
+    "Another point on the left piece: (−2, −3).",
+    "Right piece: at x = −1, f = −2x = 2, so its endpoint is (−1, 2); it is open (>).",
+    "Another point on the right piece: (0, 0)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-2",
+       "b": "-7",
+       "closed": true
+      },
+      {
+       "m": "-2",
+       "b": "0",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-1",
+         "-5"
+        ],
+        "closed": true,
+        "point": [
+         "-2",
+         "-3"
+        ]
+       },
+       {
+        "endpoint": [
+         "-1",
+         "2"
+        ],
+        "closed": false,
+        "point": [
+         "0",
+         "0"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p003.png",
+     "alt": "Two-piece graph: y = −2x − 7 left of x = −1 and y = −2x right of it; endpoints (−1, −5) closed and (−1, 2) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p004",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = x + 7 for x < −2, and f(x) = −1 for x ≥ −2. For each piece, place its endpoint at x = −2 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = x + 7 ending at (−2, 5) (open); right piece: line y = −1 starting at (−2, −1) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −2, f = x + 7 = 5, so its endpoint is (−2, 5); it is open (<).",
+    "Another point on the left piece: (−3, 4).",
+    "Right piece: at x = −2, f = −1 = −1, so its endpoint is (−2, −1); it is closed (≥).",
+    "Another point on the right piece: (−1, −1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-2",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1",
+       "b": "7",
+       "closed": false
+      },
+      {
+       "m": "0",
+       "b": "-1",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-2",
+         "5"
+        ],
+        "closed": false,
+        "point": [
+         "-3",
+         "4"
+        ]
+       },
+       {
+        "endpoint": [
+         "-2",
+         "-1"
+        ],
+        "closed": true,
+        "point": [
+         "-1",
+         "-1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p004.png",
+     "alt": "Two-piece graph: y = x + 7 left of x = −2 and y = −1 right of it; endpoints (−2, 5) open and (−2, −1) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p005",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = x + 1 for x < 3, and f(x) = −4 for x ≥ 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = x + 1 ending at (3, 4) (open); right piece: line y = −4 starting at (3, −4) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = x + 1 = 4, so its endpoint is (3, 4); it is open (<).",
+    "Another point on the left piece: (2, 3).",
+    "Right piece: at x = 3, f = −4 = −4, so its endpoint is (3, −4); it is closed (≥).",
+    "Another point on the right piece: (4, −4)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1",
+       "b": "1",
+       "closed": false
+      },
+      {
+       "m": "0",
+       "b": "-4",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "4"
+        ],
+        "closed": false,
+        "point": [
+         "2",
+         "3"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "-4"
+        ],
+        "closed": true,
+        "point": [
+         "4",
+         "-4"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "-4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p005.png",
+     "alt": "Two-piece graph: y = x + 1 left of x = 3 and y = −4 right of it; endpoints (3, 4) open and (3, −4) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p006",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = −x + 3 for x < 0, and f(x) = −2x − 4 for x ≥ 0. For each piece, place its endpoint at x = 0 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = −x + 3 ending at (0, 3) (open); right piece: line y = −2x − 4 starting at (0, −4) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 0, f = −x + 3 = 3, so its endpoint is (0, 3); it is open (<).",
+    "Another point on the left piece: (−1, 4).",
+    "Right piece: at x = 0, f = −2x − 4 = −4, so its endpoint is (0, −4); it is closed (≥).",
+    "Another point on the right piece: (1, −6)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "0",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1",
+       "b": "3",
+       "closed": false
+      },
+      {
+       "m": "-2",
+       "b": "-4",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "0",
+         "3"
+        ],
+        "closed": false,
+        "point": [
+         "-1",
+         "4"
+        ]
+       },
+       {
+        "endpoint": [
+         "0",
+         "-4"
+        ],
+        "closed": true,
+        "point": [
+         "1",
+         "-6"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "3"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "3"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-5"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p006.png",
+     "alt": "Two-piece graph: y = −x + 3 left of x = 0 and y = −2x − 4 right of it; endpoints (0, 3) open and (0, −4) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p007",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = x + 1 for x < 3, and f(x) = −2x + 1 for x ≥ 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = x + 1 ending at (3, 4) (open); right piece: line y = −2x + 1 starting at (3, −5) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = x + 1 = 4, so its endpoint is (3, 4); it is open (<).",
+    "Another point on the left piece: (2, 3).",
+    "Right piece: at x = 3, f = −2x + 1 = −5, so its endpoint is (3, −5); it is closed (≥).",
+    "Another point on the right piece: (4, −7)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1",
+       "b": "1",
+       "closed": false
+      },
+      {
+       "m": "-2",
+       "b": "1",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "4"
+        ],
+        "closed": false,
+        "point": [
+         "2",
+         "3"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "-5"
+        ],
+        "closed": true,
+        "point": [
+         "4",
+         "-7"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "-7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "-7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p007.png",
+     "alt": "Two-piece graph: y = x + 1 left of x = 3 and y = −2x + 1 right of it; endpoints (3, 4) open and (3, −5) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-cp1-p008",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (1/2)x for x ≤ 0, and f(x) = −1 for x > 0. For each piece, place its endpoint at x = 0 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (1/2)x ending at (0, 0) (closed); right piece: line y = −1 starting at (0, −1) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 0, f = (1/2)x = 0, so its endpoint is (0, 0); it is closed (≤).",
+    "Another point on the left piece: (−2, −1).",
+    "Right piece: at x = 0, f = −1 = −1, so its endpoint is (0, −1); it is open (>).",
+    "Another point on the right piece: (1, −1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "0",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "1/2",
+       "b": "0",
+       "closed": true
+      },
+      {
+       "m": "0",
+       "b": "-1",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "0",
+         "0"
+        ],
+        "closed": true,
+        "point": [
+         "-2",
+         "-1"
+        ]
+       },
+       {
+        "endpoint": [
+         "0",
+         "-1"
+        ],
+        "closed": false,
+        "point": [
+         "1",
+         "-1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-cp1-p008.png",
+     "alt": "Two-piece graph: y = (1/2)x left of x = 0 and y = −1 right of it; endpoints (0, 0) closed and (0, −1) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p001",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = 2x − 10 for x < 3, and f(x) = (2/3)x − 2 for x ≥ 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = 2x − 10 ending at (3, −4) (open); right piece: line y = (2/3)x − 2 starting at (3, 0) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = 2x − 10 = −4, so its endpoint is (3, −4); it is open (<).",
+    "Another point on the left piece: (2, −6).",
+    "Right piece: at x = 3, f = (2/3)x − 2 = 0, so its endpoint is (3, 0); it is closed (≥).",
+    "Another point on the right piece: (6, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "2",
+       "b": "-10",
+       "closed": false
+      },
+      {
+       "m": "2/3",
+       "b": "-2",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "-4"
+        ],
+        "closed": false,
+        "point": [
+         "2",
+         "-6"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "0"
+        ],
+        "closed": true,
+        "point": [
+         "6",
+         "2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "-6"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "-6"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "-6"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "-6"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "6",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p001.png",
+     "alt": "Two-piece graph: y = 2x − 10 left of x = 3 and y = (2/3)x − 2 right of it; endpoints (3, −4) open and (3, 0) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p002",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (−1/3)x − 7/3 for x < 2, and f(x) = −x + 5 for x ≥ 2. For each piece, place its endpoint at x = 2 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (−1/3)x − 7/3 ending at (2, −3) (open); right piece: line y = −x + 5 starting at (2, 3) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 2, f = (−1/3)x − 7/3 = −3, so its endpoint is (2, −3); it is open (<).",
+    "Another point on the left piece: (−1, −2).",
+    "Right piece: at x = 2, f = −x + 5 = 3, so its endpoint is (2, 3); it is closed (≥).",
+    "Another point on the right piece: (3, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "2",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1/3",
+       "b": "-7/3",
+       "closed": false
+      },
+      {
+       "m": "-1",
+       "b": "5",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "2",
+         "-3"
+        ],
+        "closed": false,
+        "point": [
+         "-1",
+         "-2"
+        ]
+       },
+       {
+        "endpoint": [
+         "2",
+         "3"
+        ],
+        "closed": true,
+        "point": [
+         "3",
+         "2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "-3"
+          ],
+          "closed": true,
+          "point": [
+           "-1",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": false,
+          "point": [
+           "3",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "4"
+          ]
+         },
+         {
+          "endpoint": [
+           "2",
+           "3"
+          ],
+          "closed": true,
+          "point": [
+           "3",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p002.png",
+     "alt": "Two-piece graph: y = (−1/3)x − 7/3 left of x = 2 and y = −x + 5 right of it; endpoints (2, −3) open and (2, 3) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p003",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = 2x + 7 for x < −3, and f(x) = (1/3)x − 1 for x ≥ −3. For each piece, place its endpoint at x = −3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = 2x + 7 ending at (−3, 1) (open); right piece: line y = (1/3)x − 1 starting at (−3, −2) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −3, f = 2x + 7 = 1, so its endpoint is (−3, 1); it is open (<).",
+    "Another point on the left piece: (−4, −1).",
+    "Right piece: at x = −3, f = (1/3)x − 1 = −2, so its endpoint is (−3, −2); it is closed (≥).",
+    "Another point on the right piece: (0, −1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "2",
+       "b": "7",
+       "closed": false
+      },
+      {
+       "m": "1/3",
+       "b": "-1",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-3",
+         "1"
+        ],
+        "closed": false,
+        "point": [
+         "-4",
+         "-1"
+        ]
+       },
+       {
+        "endpoint": [
+         "-3",
+         "-2"
+        ],
+        "closed": true,
+        "point": [
+         "0",
+         "-1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-4",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-4",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "0"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-4",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-4",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": false,
+          "point": [
+           "-6",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "-2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p003.png",
+     "alt": "Two-piece graph: y = 2x + 7 left of x = −3 and y = (1/3)x − 1 right of it; endpoints (−3, 1) open and (−3, −2) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p004",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (−1/2)x − 5/2 for x ≤ −3, and f(x) = (2/3)x + 7 for x > −3. For each piece, place its endpoint at x = −3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (−1/2)x − 5/2 ending at (−3, −1) (closed); right piece: line y = (2/3)x + 7 starting at (−3, 5) (open).",
+   "solutionSteps": [
+    "Left piece: at x = −3, f = (−1/2)x − 5/2 = −1, so its endpoint is (−3, −1); it is closed (≤).",
+    "Another point on the left piece: (−5, 0).",
+    "Right piece: at x = −3, f = (2/3)x + 7 = 5, so its endpoint is (−3, 5); it is open (>).",
+    "Another point on the right piece: (0, 7)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1/2",
+       "b": "-5/2",
+       "closed": true
+      },
+      {
+       "m": "2/3",
+       "b": "7",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-3",
+         "-1"
+        ],
+        "closed": true,
+        "point": [
+         "-5",
+         "0"
+        ]
+       },
+       {
+        "endpoint": [
+         "-3",
+         "5"
+        ],
+        "closed": false,
+        "point": [
+         "0",
+         "7"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-2",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-5",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-5",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "8"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "-5",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-5",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": true,
+          "point": [
+           "-6",
+           "3"
+          ]
+         },
+         {
+          "endpoint": [
+           "-3",
+           "5"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p004.png",
+     "alt": "Two-piece graph: y = (−1/2)x − 5/2 left of x = −3 and y = (2/3)x + 7 right of it; endpoints (−3, −1) closed and (−3, 5) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p005",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (−1/3)x − 3 for x ≤ 3, and f(x) = (2/3)x for x > 3. For each piece, place its endpoint at x = 3 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (−1/3)x − 3 ending at (3, −4) (closed); right piece: line y = (2/3)x starting at (3, 2) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 3, f = (−1/3)x − 3 = −4, so its endpoint is (3, −4); it is closed (≤).",
+    "Another point on the left piece: (0, −3).",
+    "Right piece: at x = 3, f = (2/3)x = 2, so its endpoint is (3, 2); it is open (>).",
+    "Another point on the right piece: (6, 4)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "3",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1/3",
+       "b": "-3",
+       "closed": true
+      },
+      {
+       "m": "2/3",
+       "b": "0",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "3",
+         "-4"
+        ],
+        "closed": true,
+        "point": [
+         "0",
+         "-3"
+        ]
+       },
+       {
+        "endpoint": [
+         "3",
+         "2"
+        ],
+        "closed": false,
+        "point": [
+         "6",
+         "4"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "4",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "6",
+           "4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "6",
+           "5"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "-4"
+          ],
+          "closed": false,
+          "point": [
+           "0",
+           "-3"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "6",
+           "4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": true,
+          "point": [
+           "0",
+           "0"
+          ]
+         },
+         {
+          "endpoint": [
+           "3",
+           "2"
+          ],
+          "closed": false,
+          "point": [
+           "6",
+           "4"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p005.png",
+     "alt": "Two-piece graph: y = (−1/3)x − 3 left of x = 3 and y = (2/3)x right of it; endpoints (3, −4) closed and (3, 2) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p006",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (−1/3)x + 4/3 for x ≤ 1, and f(x) = (1/3)x − 1/3 for x > 1. For each piece, place its endpoint at x = 1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (−1/3)x + 4/3 ending at (1, 1) (closed); right piece: line y = (1/3)x − 1/3 starting at (1, 0) (open).",
+   "solutionSteps": [
+    "Left piece: at x = 1, f = (−1/3)x + 4/3 = 1, so its endpoint is (1, 1); it is closed (≤).",
+    "Another point on the left piece: (−2, 2).",
+    "Right piece: at x = 1, f = (1/3)x − 1/3 = 0, so its endpoint is (1, 0); it is open (>).",
+    "Another point on the right piece: (4, 1)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1/3",
+       "b": "4/3",
+       "closed": true
+      },
+      {
+       "m": "1/3",
+       "b": "-1/3",
+       "closed": false
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "1",
+         "1"
+        ],
+        "closed": true,
+        "point": [
+         "-2",
+         "2"
+        ]
+       },
+       {
+        "endpoint": [
+         "1",
+         "0"
+        ],
+        "closed": false,
+        "point": [
+         "4",
+         "1"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "2",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-2",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "4",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": true,
+          "point": [
+           "-2",
+           "-1"
+          ]
+         },
+         {
+          "endpoint": [
+           "1",
+           "0"
+          ],
+          "closed": false,
+          "point": [
+           "4",
+           "1"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p006.png",
+     "alt": "Two-piece graph: y = (−1/3)x + 4/3 left of x = 1 and y = (1/3)x − 1/3 right of it; endpoints (1, 1) closed and (1, 0) open."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p007",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (−1/3)x − 5 for x < 0, and f(x) = 3x − 1 for x ≥ 0. For each piece, place its endpoint at x = 0 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (−1/3)x − 5 ending at (0, −5) (open); right piece: line y = 3x − 1 starting at (0, −1) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = 0, f = (−1/3)x − 5 = −5, so its endpoint is (0, −5); it is open (<).",
+    "Another point on the left piece: (−3, −4).",
+    "Right piece: at x = 0, f = 3x − 1 = −1, so its endpoint is (0, −1); it is closed (≥).",
+    "Another point on the right piece: (1, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "0",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "-1/3",
+       "b": "-5",
+       "closed": false
+      },
+      {
+       "m": "3",
+       "b": "-1",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "0",
+         "-5"
+        ],
+        "closed": false,
+        "point": [
+         "-3",
+         "-4"
+        ]
+       },
+       {
+        "endpoint": [
+         "0",
+         "-1"
+        ],
+        "closed": true,
+        "point": [
+         "1",
+         "2"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "1",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "3"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-5"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "1",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": false,
+          "point": [
+           "-1",
+           "-4"
+          ]
+         },
+         {
+          "endpoint": [
+           "0",
+           "-1"
+          ],
+          "closed": true,
+          "point": [
+           "1",
+           "2"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p007.png",
+     "alt": "Two-piece graph: y = (−1/3)x − 5 left of x = 0 and y = 3x − 1 right of it; endpoints (0, −5) open and (0, −1) closed."
+    }
+   }
+  },
+  {
+   "id": "a2-ft-s06-honors-p008",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the piecewise function f(x) = (3/2)x + 5/2 for x < −1, and f(x) = (2/3)x + 14/3 for x ≥ −1. For each piece, place its endpoint at x = −1 (choose open or closed) and one more point on that piece.",
+   "answer": "Left piece: line y = (3/2)x + 5/2 ending at (−1, 1) (open); right piece: line y = (2/3)x + 14/3 starting at (−1, 4) (closed).",
+   "solutionSteps": [
+    "Left piece: at x = −1, f = (3/2)x + 5/2 = 1, so its endpoint is (−1, 1); it is open (<).",
+    "Another point on the left piece: (−3, −2).",
+    "Right piece: at x = −1, f = (2/3)x + 14/3 = 4, so its endpoint is (−1, 4); it is closed (≥).",
+    "Another point on the right piece: (2, 6)."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: piecewise-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "piecewise",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "boundary": "-1",
+     "continuous": false,
+     "pieces": [
+      {
+       "m": "3/2",
+       "b": "5/2",
+       "closed": false
+      },
+      {
+       "m": "2/3",
+       "b": "14/3",
+       "closed": true
+      }
+     ]
+    },
+    "feedback": {
+     "boundary": "Both pieces end at the boundary x-value. Put each endpoint exactly there.",
+     "wrong-side": "Each piece lives on one side of the boundary. Put the second point on the correct side.",
+     "pieces-swapped": "You graphed the rules on the wrong sides. Check which rule goes with x < c and which with x ≥ c.",
+     "piece-1": "The left piece is not on its line. Substitute your points into the first rule.",
+     "piece-2": "The right piece is not on its line. Substitute your points into the second rule.",
+     "not-a-function": "Both endpoints are filled in, so x = c would have two outputs. One endpoint must be open.",
+     "closed-open": "Check the inequality signs: ≤ or ≥ gives a closed dot, < or > gives an open dot."
+    },
+    "testVectors": {
+     "correct": {
+      "pieces": [
+       {
+        "endpoint": [
+         "-1",
+         "1"
+        ],
+        "closed": false,
+        "point": [
+         "-3",
+         "-2"
+        ]
+       },
+       {
+        "endpoint": [
+         "-1",
+         "4"
+        ],
+        "closed": true,
+        "point": [
+         "2",
+         "6"
+        ]
+       }
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "0",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "boundary"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "1"
+          ],
+          "closed": false,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "7"
+          ]
+         }
+        ]
+       },
+       "expectCode": "piece-2"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "not-a-function"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "1"
+          ],
+          "closed": true,
+          "point": [
+           "-3",
+           "-2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "2",
+           "6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "pieces": [
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": false,
+          "point": [
+           "-4",
+           "2"
+          ]
+         },
+         {
+          "endpoint": [
+           "-1",
+           "4"
+          ],
+          "closed": true,
+          "point": [
+           "2",
+           "6"
+          ]
+         }
+        ]
+       },
+       "expectCode": "pieces-swapped"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-ft-s06-honors-p008.png",
+     "alt": "Two-piece graph: y = (3/2)x + 5/2 left of x = −1 and y = (2/3)x + 14/3 right of it; endpoints (−1, 1) open and (−1, 4) closed."
+    }
+   }
   }
  ]
 }

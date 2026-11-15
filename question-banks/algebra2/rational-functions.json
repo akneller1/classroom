@@ -11085,6 +11085,3502 @@
     "F-IF.C.7d"
    ],
    "sourceNotes": "Partner-check companion to a2-rf-s07-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "a2-rf-s07-cp2-p001",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −1/(x) + 3. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 0 and y = 3; points such as (−1, 4) and (1, 2).",
+   "solutionSteps": [
+    "Vertical asymptote: x = 0, so x = 0.",
+    "Horizontal asymptote: y = 3.",
+    "Points: (−1, 4), (1, 2). Since a = −1 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": "0",
+     "k": "3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "0",
+      "hAsymptote": "3",
+      "points": [
+       [
+        "-1",
+        "4"
+       ],
+       [
+        "1",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-1",
+          "2"
+         ],
+         [
+          "1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p001.png",
+     "alt": "Hyperbola y = −1/(x) + 3 with dashed asymptotes x = 0 and y = 3 through (−1, 4), (1, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p002",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 1/(x + 2) − 3. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = −2 and y = −3; points such as (−3, −4) and (−1, −2).",
+   "solutionSteps": [
+    "Vertical asymptote: x + 2 = 0, so x = −2.",
+    "Horizontal asymptote: y = −3.",
+    "Points: (−3, −4), (−1, −2). Since a = 1 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": "-2",
+     "k": "-3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "-2",
+      "hAsymptote": "-3",
+      "points": [
+       [
+        "-3",
+        "-4"
+       ],
+       [
+        "-1",
+        "-2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "-3",
+          "-4"
+         ],
+         [
+          "-1",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "-4"
+         ],
+         [
+          "-1",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "-3",
+          "-4"
+         ],
+         [
+          "-1",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "-3",
+          "-2"
+         ],
+         [
+          "-1",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p002.png",
+     "alt": "Hyperbola y = 1/(x + 2) − 3 with dashed asymptotes x = −2 and y = −3 through (−3, −4), (−1, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p003",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −1/(x − 3) − 2. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = −2; points such as (2, −1) and (4, −3).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = −2.",
+    "Points: (2, −1), (4, −3). Since a = −1 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": "3",
+     "k": "-2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "-2",
+      "points": [
+       [
+        "2",
+        "-1"
+       ],
+       [
+        "4",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "-1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "2",
+          "-1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "2",
+          "-1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "2",
+          "-3"
+         ],
+         [
+          "4",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p003.png",
+     "alt": "Hyperbola y = −1/(x − 3) − 2 with dashed asymptotes x = 3 and y = −2 through (2, −1), (4, −3)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p004",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 1/(x − 2). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 2 and y = 0; points such as (1, −1) and (3, 1).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 2 = 0, so x = 2.",
+    "Horizontal asymptote: y = 0.",
+    "Points: (1, −1), (3, 1). Since a = 1 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": "2",
+     "k": "0"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "2",
+      "hAsymptote": "0",
+      "points": [
+       [
+        "1",
+        "-1"
+       ],
+       [
+        "3",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "-1"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "1",
+          "-1"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "1",
+          "-1"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "1",
+          "1"
+         ],
+         [
+          "3",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p004.png",
+     "alt": "Hyperbola y = 1/(x − 2) with dashed asymptotes x = 2 and y = 0 through (1, −1), (3, 1)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p005",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −1/(x − 3) − 4. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = −4; points such as (2, −3) and (4, −5).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = −4.",
+    "Points: (2, −3), (4, −5). Since a = −1 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": "3",
+     "k": "-4"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "-4",
+      "points": [
+       [
+        "2",
+        "-3"
+       ],
+       [
+        "4",
+        "-5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "-3"
+         ],
+         [
+          "4",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "2",
+          "-3"
+         ],
+         [
+          "4",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "2",
+          "-3"
+         ],
+         [
+          "4",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "2",
+          "-5"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p005.png",
+     "alt": "Hyperbola y = −1/(x − 3) − 4 with dashed asymptotes x = 3 and y = −4 through (2, −3), (4, −5)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p006",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 1/(x − 3) + 2. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = 2; points such as (2, 1) and (4, 3).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = 2.",
+    "Points: (2, 1), (4, 3). Since a = 1 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": "3",
+     "k": "2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "2",
+      "points": [
+       [
+        "2",
+        "1"
+       ],
+       [
+        "4",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "2",
+          "3"
+         ],
+         [
+          "4",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p006.png",
+     "alt": "Hyperbola y = 1/(x − 3) + 2 with dashed asymptotes x = 3 and y = 2 through (2, 1), (4, 3)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p007",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 1/(x − 2) − 4. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 2 and y = −4; points such as (1, −5) and (3, −3).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 2 = 0, so x = 2.",
+    "Horizontal asymptote: y = −4.",
+    "Points: (1, −5), (3, −3). Since a = 1 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": "2",
+     "k": "-4"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "2",
+      "hAsymptote": "-4",
+      "points": [
+       [
+        "1",
+        "-5"
+       ],
+       [
+        "3",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "1",
+          "-3"
+         ],
+         [
+          "3",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p007.png",
+     "alt": "Hyperbola y = 1/(x − 2) − 4 with dashed asymptotes x = 2 and y = −4 through (1, −5), (3, −3)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp2-p008",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 1/(x − 4) + 3. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 4 and y = 3; points such as (3, 2) and (5, 4).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 4 = 0, so x = 4.",
+    "Horizontal asymptote: y = 3.",
+    "Points: (3, 2), (5, 4). Since a = 1 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": "4",
+     "k": "3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "4",
+      "hAsymptote": "3",
+      "points": [
+       [
+        "3",
+        "2"
+       ],
+       [
+        "5",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "3",
+          "4"
+         ],
+         [
+          "5",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp2-p008.png",
+     "alt": "Hyperbola y = 1/(x − 4) + 3 with dashed asymptotes x = 4 and y = 3 through (3, 2), (5, 4)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p001",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 4/(x + 4) + 3. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = −4 and y = 3; points such as (−5, −1) and (−3, 7).",
+   "solutionSteps": [
+    "Vertical asymptote: x + 4 = 0, so x = −4.",
+    "Horizontal asymptote: y = 3.",
+    "Points: (−8, 2), (−6, 1), (−5, −1), (−3, 7). Since a = 4 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "h": "-4",
+     "k": "3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "-4",
+      "hAsymptote": "3",
+      "points": [
+       [
+        "-5",
+        "-1"
+       ],
+       [
+        "-3",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "-5",
+          "-1"
+         ],
+         [
+          "-3",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-5",
+          "-1"
+         ],
+         [
+          "-3",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "-5",
+          "-1"
+         ],
+         [
+          "-3",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-5",
+          "7"
+         ],
+         [
+          "-3",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-3",
+          "7"
+         ],
+         [
+          "-2",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p001.png",
+     "alt": "Hyperbola y = 4/(x + 4) + 3 with dashed asymptotes x = −4 and y = 3 through (−8, 2), (−6, 1), (−5, −1), (−3, 7)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p002",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 4/(x − 2) − 2. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 2 and y = −2; points such as (1, −6) and (3, 2).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 2 = 0, so x = 2.",
+    "Horizontal asymptote: y = −2.",
+    "Points: (−2, −3), (0, −4), (1, −6), (3, 2). Since a = 4 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "h": "2",
+     "k": "-2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "2",
+      "hAsymptote": "-2",
+      "points": [
+       [
+        "1",
+        "-6"
+       ],
+       [
+        "3",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "1",
+          "2"
+         ],
+         [
+          "3",
+          "-6"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "4",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p002.png",
+     "alt": "Hyperbola y = 4/(x − 2) − 2 with dashed asymptotes x = 2 and y = −2 through (−2, −3), (0, −4), (1, −6), (3, 2)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p003",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −3/(x − 2) − 1. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 2 and y = −1; points such as (1, 2) and (3, −4).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 2 = 0, so x = 2.",
+    "Horizontal asymptote: y = −1.",
+    "Points: (−1, 0), (1, 2), (3, −4), (5, −2). Since a = −3 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-3",
+     "h": "2",
+     "k": "-1"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "2",
+      "hAsymptote": "-1",
+      "points": [
+       [
+        "1",
+        "2"
+       ],
+       [
+        "3",
+        "-4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-1",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "2"
+         ],
+         [
+          "3",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "1",
+          "2"
+         ],
+         [
+          "3",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "1",
+          "2"
+         ],
+         [
+          "3",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "1",
+          "-4"
+         ],
+         [
+          "3",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p003.png",
+     "alt": "Hyperbola y = −3/(x − 2) − 1 with dashed asymptotes x = 2 and y = −1 through (−1, 0), (1, 2), (3, −4), (5, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p004",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −4/(x − 4) − 2. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 4 and y = −2; points such as (3, 2) and (5, −6).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 4 = 0, so x = 4.",
+    "Horizontal asymptote: y = −2.",
+    "Points: (0, −1), (2, 0), (3, 2), (5, −6). Since a = −4 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-4",
+     "h": "4",
+     "k": "-2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "4",
+      "hAsymptote": "-2",
+      "points": [
+       [
+        "3",
+        "2"
+       ],
+       [
+        "5",
+        "-6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "-6"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "-6"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "3",
+          "2"
+         ],
+         [
+          "5",
+          "-6"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "3",
+          "-6"
+         ],
+         [
+          "5",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "5",
+          "-6"
+         ],
+         [
+          "6",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p004.png",
+     "alt": "Hyperbola y = −4/(x − 4) − 2 with dashed asymptotes x = 4 and y = −2 through (0, −1), (2, 0), (3, 2), (5, −6)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p005",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −4/(x − 3). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = 0; points such as (2, 4) and (4, −4).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = 0.",
+    "Points: (−1, 1), (1, 2), (2, 4), (4, −4). Since a = −4 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-4",
+     "h": "3",
+     "k": "0"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "0",
+      "points": [
+       [
+        "2",
+        "4"
+       ],
+       [
+        "4",
+        "-4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "4"
+         ],
+         [
+          "4",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "2",
+          "4"
+         ],
+         [
+          "4",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "2",
+          "4"
+         ],
+         [
+          "4",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "2",
+          "-4"
+         ],
+         [
+          "4",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "4",
+          "-4"
+         ],
+         [
+          "5",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p005.png",
+     "alt": "Hyperbola y = −4/(x − 3) with dashed asymptotes x = 3 and y = 0 through (−1, 1), (1, 2), (2, 4), (4, −4)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p006",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2/(x − 3) − 1. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = −1; points such as (2, 1) and (4, −3).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = −1.",
+    "Points: (1, 0), (2, 1), (4, −3), (5, −2). Since a = −2 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "h": "3",
+     "k": "-1"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "-1",
+      "points": [
+       [
+        "2",
+        "1"
+       ],
+       [
+        "4",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-1",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "2",
+          "1"
+         ],
+         [
+          "4",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "2",
+          "-3"
+         ],
+         [
+          "4",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "4",
+          "-3"
+         ],
+         [
+          "5",
+          "-2"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p006.png",
+     "alt": "Hyperbola y = −2/(x − 3) − 1 with dashed asymptotes x = 3 and y = −1 through (1, 0), (2, 1), (4, −3), (5, −2)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p007",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 4/(x − 4). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 4 and y = 0; points such as (3, −4) and (5, 4).",
+   "solutionSteps": [
+    "Vertical asymptote: x − 4 = 0, so x = 4.",
+    "Horizontal asymptote: y = 0.",
+    "Points: (0, −1), (2, −2), (3, −4), (5, 4). Since a = 4 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "h": "4",
+     "k": "0"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "4",
+      "hAsymptote": "0",
+      "points": [
+       [
+        "3",
+        "-4"
+       ],
+       [
+        "5",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "3",
+          "4"
+         ],
+         [
+          "5",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "5",
+          "4"
+         ],
+         [
+          "6",
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p007.png",
+     "alt": "Hyperbola y = 4/(x − 4) with dashed asymptotes x = 4 and y = 0 through (0, −1), (2, −2), (3, −4), (5, 4)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-cp1-p008",
+   "skillId": "rational-functions-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2/(x) + 2. Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 0 and y = 2; points such as (−1, 4) and (1, 0).",
+   "solutionSteps": [
+    "Vertical asymptote: x = 0, so x = 0.",
+    "Horizontal asymptote: y = 2.",
+    "Points: (−2, 3), (−1, 4), (1, 0), (2, 1). Since a = −2 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-2",
+     "h": "0",
+     "k": "2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "0",
+      "hAsymptote": "2",
+      "points": [
+       [
+        "-1",
+        "4"
+       ],
+       [
+        "1",
+        "0"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-1",
+          "4"
+         ],
+         [
+          "1",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "-1",
+          "0"
+         ],
+         [
+          "1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "2",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-cp1-p008.png",
+     "alt": "Hyperbola y = −2/(x) + 2 with dashed asymptotes x = 0 and y = 2 through (−2, 3), (−1, 4), (1, 0), (2, 1)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p001",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (−x + 2) / (x + 2). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = −2 and y = −1; points such as (−3, −5) and (−1, 3).",
+   "solutionSteps": [
+    "Divide: (−x + 2) ÷ (x + 2) = −1 with remainder 4, so y = 4/(x + 2) − 1.",
+    "Vertical asymptote: x + 2 = 0, so x = −2.",
+    "Horizontal asymptote: y = −1.",
+    "Points: (−6, −2), (−4, −3), (−3, −5), (−1, 3). Since a = 4 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "h": "-2",
+     "k": "-1"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "-2",
+      "hAsymptote": "-1",
+      "points": [
+       [
+        "-3",
+        "-5"
+       ],
+       [
+        "-1",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-1",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "-3",
+          "-5"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "-3",
+          "-5"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "-3",
+          "-5"
+         ],
+         [
+          "-1",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "-3",
+          "3"
+         ],
+         [
+          "-1",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "-1",
+          "3"
+         ],
+         [
+          "0",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p001.png",
+     "alt": "Hyperbola y = (−x + 2) / (x + 2) with dashed asymptotes x = −2 and y = −1 through (−6, −2), (−4, −3), (−3, −5), (−1, 3)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p002",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (3x + 4) / (x). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 0 and y = 3; points such as (−1, −1) and (1, 7).",
+   "solutionSteps": [
+    "Divide: (3x + 4) ÷ (x) = 3 with remainder 4, so y = 4/(x) + 3.",
+    "Vertical asymptote: x = 0, so x = 0.",
+    "Horizontal asymptote: y = 3.",
+    "Points: (−4, 2), (−2, 1), (−1, −1), (1, 7). Since a = 4 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "h": "0",
+     "k": "3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "0",
+      "hAsymptote": "3",
+      "points": [
+       [
+        "-1",
+        "-1"
+       ],
+       [
+        "1",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "-1",
+          "-1"
+         ],
+         [
+          "1",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-1",
+          "-1"
+         ],
+         [
+          "1",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "-1",
+          "-1"
+         ],
+         [
+          "1",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "-1",
+          "7"
+         ],
+         [
+          "1",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "1",
+          "7"
+         ],
+         [
+          "2",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p002.png",
+     "alt": "Hyperbola y = (3x + 4) / (x) with dashed asymptotes x = 0 and y = 3 through (−4, 2), (−2, 1), (−1, −1), (1, 7)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p003",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (−3) / (x − 4). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 4 and y = 0; points such as (3, 3) and (5, −3).",
+   "solutionSteps": [
+    "Divide: (−3) ÷ (x − 4) = 0 with remainder −3, so y = −3/(x − 4).",
+    "Vertical asymptote: x − 4 = 0, so x = 4.",
+    "Horizontal asymptote: y = 0.",
+    "Points: (1, 1), (3, 3), (5, −3), (7, −1). Since a = −3 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-3",
+     "h": "4",
+     "k": "0"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "4",
+      "hAsymptote": "0",
+      "points": [
+       [
+        "3",
+        "3"
+       ],
+       [
+        "5",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "0",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "3"
+         ],
+         [
+          "5",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "3",
+          "3"
+         ],
+         [
+          "5",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "3",
+          "3"
+         ],
+         [
+          "5",
+          "-3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "3",
+          "-3"
+         ],
+         [
+          "5",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "0",
+        "points": [
+         [
+          "5",
+          "-3"
+         ],
+         [
+          "7",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p003.png",
+     "alt": "Hyperbola y = (−3) / (x − 4) with dashed asymptotes x = 4 and y = 0 through (1, 1), (3, 3), (5, −3), (7, −1)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p004",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (x + 9) / (x + 3). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = −3 and y = 1; points such as (−4, −5) and (−2, 7).",
+   "solutionSteps": [
+    "Divide: (x + 9) ÷ (x + 3) = 1 with remainder 6, so y = 6/(x + 3) + 1.",
+    "Vertical asymptote: x + 3 = 0, so x = −3.",
+    "Horizontal asymptote: y = 1.",
+    "Points: (−6, −1), (−5, −2), (−4, −5), (−2, 7). Since a = 6 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "6",
+     "h": "-3",
+     "k": "1"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "-3",
+      "hAsymptote": "1",
+      "points": [
+       [
+        "-4",
+        "-5"
+       ],
+       [
+        "-2",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "-4",
+          "-5"
+         ],
+         [
+          "-2",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "-4",
+          "-5"
+         ],
+         [
+          "-2",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "-4",
+          "-5"
+         ],
+         [
+          "-2",
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "-4",
+          "7"
+         ],
+         [
+          "-2",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "-2",
+          "7"
+         ],
+         [
+          "-1",
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p004.png",
+     "alt": "Hyperbola y = (x + 9) / (x + 3) with dashed asymptotes x = −3 and y = 1 through (−6, −1), (−5, −2), (−4, −5), (−2, 7)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p005",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (−2x + 7) / (x − 2). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 2 and y = −2; points such as (1, −5) and (3, 1).",
+   "solutionSteps": [
+    "Divide: (−2x + 7) ÷ (x − 2) = −2 with remainder 3, so y = 3/(x − 2) − 2.",
+    "Vertical asymptote: x − 2 = 0, so x = 2.",
+    "Horizontal asymptote: y = −2.",
+    "Points: (−1, −3), (1, −5), (3, 1), (5, −1). Since a = 3 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "h": "2",
+     "k": "-2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "2",
+      "hAsymptote": "-2",
+      "points": [
+       [
+        "1",
+        "-5"
+       ],
+       [
+        "3",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-1",
+        "points": [
+         [
+          "1",
+          "-5"
+         ],
+         [
+          "3",
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "1",
+          "1"
+         ],
+         [
+          "3",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "3",
+          "1"
+         ],
+         [
+          "5",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p005.png",
+     "alt": "Hyperbola y = (−2x + 7) / (x − 2) with dashed asymptotes x = 2 and y = −2 through (−1, −3), (1, −5), (3, 1), (5, −1)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p006",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (−3x + 15) / (x − 3). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 3 and y = −3; points such as (1, −6) and (4, 3).",
+   "solutionSteps": [
+    "Divide: (−3x + 15) ÷ (x − 3) = −3 with remainder 6, so y = 6/(x − 3) − 3.",
+    "Vertical asymptote: x − 3 = 0, so x = 3.",
+    "Horizontal asymptote: y = −3.",
+    "Points: (−3, −4), (0, −5), (1, −6), (4, 3). Since a = 6 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "6",
+     "h": "3",
+     "k": "-3"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "3",
+      "hAsymptote": "-3",
+      "points": [
+       [
+        "1",
+        "-6"
+       ],
+       [
+        "4",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-3",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-2",
+        "points": [
+         [
+          "1",
+          "-6"
+         ],
+         [
+          "4",
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "1",
+          "0"
+         ],
+         [
+          "4",
+          "-9"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "3",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "4",
+          "3"
+         ],
+         [
+          "5",
+          "0"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p006.png",
+     "alt": "Hyperbola y = (−3x + 15) / (x − 3) with dashed asymptotes x = 3 and y = −3 through (−3, −4), (0, −5), (1, −6), (4, 3)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p007",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (−4x + 1) / (x − 1). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 1 and y = −4; points such as (0, −1) and (2, −7).",
+   "solutionSteps": [
+    "Divide: (−4x + 1) ÷ (x − 1) = −4 with remainder −3, so y = −3/(x − 1) − 4.",
+    "Vertical asymptote: x − 1 = 0, so x = 1.",
+    "Horizontal asymptote: y = −4.",
+    "Points: (−2, −3), (0, −1), (2, −7), (4, −5). Since a = −3 is negative, the branches are in the upper-left and lower-right regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-3",
+     "h": "1",
+     "k": "-4"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "1",
+      "hAsymptote": "-4",
+      "points": [
+       [
+        "0",
+        "-1"
+       ],
+       [
+        "2",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "1",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "2",
+          "-7"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-1",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "2",
+          "-7"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "-3",
+        "points": [
+         [
+          "0",
+          "-1"
+         ],
+         [
+          "2",
+          "-7"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "0",
+          "-7"
+         ],
+         [
+          "2",
+          "-1"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "1",
+        "hAsymptote": "-4",
+        "points": [
+         [
+          "2",
+          "-7"
+         ],
+         [
+          "4",
+          "-5"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p007.png",
+     "alt": "Hyperbola y = (−4x + 1) / (x − 1) with dashed asymptotes x = 1 and y = −4 through (−2, −3), (0, −1), (2, −7), (4, −5)."
+    }
+   }
+  },
+  {
+   "id": "a2-rf-s07-honors-p008",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (2x − 2) / (x − 4). Set both asymptotes, then place one point on each branch.",
+   "answer": "Asymptotes x = 4 and y = 2; points such as (3, −4) and (5, 8).",
+   "solutionSteps": [
+    "Divide: (2x − 2) ÷ (x − 4) = 2 with remainder 6, so y = 6/(x − 4) + 2.",
+    "Vertical asymptote: x − 4 = 0, so x = 4.",
+    "Horizontal asymptote: y = 2.",
+    "Points: (−2, 1), (1, 0), (2, −1), (3, −4). Since a = 6 is positive, the branches are in the upper-right and lower-left regions around the asymptotes."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rational-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-function-graphing. Awaiting teacher review.",
+   "plot": {
+    "tool": "rational",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "6",
+     "h": "4",
+     "k": "2"
+    },
+    "feedback": {
+     "swapped-asymptotes": "You switched the asymptotes. The vertical one is x = h (where the denominator is 0); the horizontal one is y = k.",
+     "v-asymptote": "The vertical asymptote is where the denominator equals 0.",
+     "h-asymptote": "The horizontal asymptote is the value the function approaches as x gets very large: y = k.",
+     "branch": "Your points are in the wrong quadrants around the asymptotes. Check the sign of the numerator a.",
+     "same-branch": "Place one point on each branch, one on each side of the vertical asymptote.",
+     "points-off-curve": "At least one point is not on the curve. Choose x-values where x − h divides the numerator."
+    },
+    "testVectors": {
+     "correct": {
+      "vAsymptote": "4",
+      "hAsymptote": "2",
+      "points": [
+       [
+        "3",
+        "-4"
+       ],
+       [
+        "5",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "vAsymptote": "2",
+        "hAsymptote": "4",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "swapped-asymptotes"
+      },
+      {
+       "response": {
+        "vAsymptote": "-4",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "v-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "3",
+        "points": [
+         [
+          "3",
+          "-4"
+         ],
+         [
+          "5",
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "h-asymptote"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "3",
+          "8"
+         ],
+         [
+          "5",
+          "-4"
+         ]
+        ]
+       },
+       "expectCode": "branch"
+      },
+      {
+       "response": {
+        "vAsymptote": "4",
+        "hAsymptote": "2",
+        "points": [
+         [
+          "5",
+          "8"
+         ],
+         [
+          "6",
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-branch"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-rf-s07-honors-p008.png",
+     "alt": "Hyperbola y = (2x − 2) / (x − 4) with dashed asymptotes x = 4 and y = 2 through (−2, 1), (1, 0), (2, −1), (3, −4)."
+    }
+   }
   }
  ]
 }
