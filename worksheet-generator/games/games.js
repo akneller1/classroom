@@ -234,18 +234,47 @@
   }
 
   /* =========================== two-team games =========================== */
-  function teamSetup(game, intro, rules, start) {
+  // Solo mode: one student plays the computer (worksheet-generator/games/solo-ai.js).
+  // games.js loads it on demand from its own folder, so every Connect 4 and Tic-Tac-Toe page gets solo mode
+  // without its own script tag. If the file cannot load, the setup simply offers the two-team game.
+  var AI = null, CPU_NAME = 'Computer', AI_SRC = 'solo-ai.js?v=solo-1';
+  var gamesSrc = (doc.currentScript && doc.currentScript.src) || '';
+  function withSoloAI(done) {
+    if (G.MKSOLOAI || !gamesSrc) { AI = G.MKSOLOAI || null; return done(); }
+    var s = doc.createElement('script'), finished = false;
+    function fin() { if (finished) return; finished = true; AI = G.MKSOLOAI || null; done(); }
+    s.src = gamesSrc.replace(/[^\/]*$/, '') + AI_SRC; s.onload = fin; s.onerror = fin;
+    G.setTimeout(fin, 4000);
+    body.appendChild(s);
+  }
+  function teamSetup(game, intro, rules, start, soloRules) {
+    if (soloRules && !AI && !teamSetup.tried) { teamSetup.tried = true; return withSoloAI(function () { teamSetup(game, intro, rules, start, soloRules); }); }
     var nm = saved.names || ['Left side', 'Right side'];
+    var canSolo = !!(AI && soloRules), mode = canSolo && saved.mode === 'solo' ? 'solo' : 'teams';
+    function rulesHtml(list, id, hidden) { return '<ol class="gm-rules" id="' + id + '"' + (hidden ? ' hidden' : '') + '>' + list.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ol>'; }
     app.innerHTML = head(intro, game) + '<div class="gm-panel gm-setup"><h2 style="margin-top:0">Set up the game</h2>' +
-      '<label for="tA">First team</label><input type="text" id="tA" value="' + esc(nm[0]) + '"><label for="tB">Second team</label><input type="text" id="tB" value="' + esc(nm[1]) + '">' +
+      (canSolo ? '<div class="gm-mode" role="group" aria-label="Who is playing?"><button type="button" class="gm-mode-btn" data-mode="teams" aria-pressed="' + (mode === 'teams') + '">Two teams</button><button type="button" class="gm-mode-btn" data-mode="solo" aria-pressed="' + (mode === 'solo') + '">Solo vs. computer</button></div>' : '') +
+      '<div id="tTeams"' + (mode === 'solo' ? ' hidden' : '') + '><label for="tA">First team</label><input type="text" id="tA" value="' + esc(nm[0]) + '"><label for="tB">Second team</label><input type="text" id="tB" value="' + esc(nm[1]) + '"></div>' +
+      (canSolo ? '<div id="tSolo"' + (mode === 'solo' ? '' : ' hidden') + '><label for="tP">Your name</label><input type="text" id="tP" value="' + esc(saved.player || '') + '" placeholder="Player"><label for="tAI">Computer difficulty</label><select class="gm-sel" id="tAI">' +
+        Object.keys(AI.LEVELS).map(function (k) { return '<option value="' + k + '"' + ((saved.ai || 'medium') === k ? ' selected' : '') + '>' + esc(AI.levelName(k)) + '</option>'; }).join('') + '</select></div>' : '') +
       '<div class="gm-row" style="margin-top:12px"><div><label for="tLevel">Level</label>' + levelSel('tLevel', saved.level || 'cp1') + '</div><div><label for="tTimer">Timer per question</label><select class="gm-sel" id="tTimer">' +
       [0, 60, 90, 120, 180].map(function (s) { return '<option value="' + s + '"' + (String(saved.timer || 0) === String(s) ? ' selected' : '') + '>' + (s ? s + ' seconds' : 'Off') + '</option>'; }).join('') + '</select></div></div>' +
-      '<ol class="gm-rules">' + rules.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ol><button class="gm-btn primary" id="tGo">Start the game</button></div>';
+      rulesHtml(rules, 'tRulesTeams', mode === 'solo') + (canSolo ? rulesHtml(soloRules, 'tRulesSolo', mode !== 'solo') : '') + '<button class="gm-btn primary" id="tGo">Start the game</button></div>';
+    on('.gm-mode-btn', 'click', function () {
+      mode = this.getAttribute('data-mode');
+      $$('.gm-mode-btn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === mode)); });
+      $('#tTeams').hidden = $('#tRulesTeams').hidden = mode === 'solo';
+      $('#tSolo').hidden = $('#tRulesSolo').hidden = mode !== 'solo';
+    });
     $('#tGo').onclick = function () {
       var o = { names: [$('#tA').value || 'Left side', $('#tB').value || 'Right side'], level: $('#tLevel').value, timer: +$('#tTimer').value };
-      save(o); saved = o; start(o);
+      if (canSolo) { o.mode = mode; o.player = $('#tP').value.trim(); o.ai = $('#tAI').value; }
+      save(o); saved = o;
+      start(mode === 'solo' ? { names: [o.player || 'You', CPU_NAME], level: o.level, timer: o.timer, solo: true, ai: o.ai } : o);
     };
   }
+  // How long the computer "thinks" before it moves, so students can follow what happened.
+  function cpuDelay() { return 900 + Math.floor(Math.random() * 600); }
   function Timer(sec, tick, end) { this.sec = sec; this.tick = tick; this.end = end; this.h = null; }
   Timer.prototype.start = function () { var self = this; this.stop(); if (!this.sec) return; var t0 = Date.now(); this.h = G.setInterval(function () { var left = self.sec - (Date.now() - t0) / 1000; self.tick(Math.max(0, left)); if (left <= 0) { self.stop(); self.end(); } }, 200); };
   Timer.prototype.stop = function () { if (this.h) G.clearInterval(this.h); this.h = null; };
@@ -265,21 +294,39 @@
       'Teams take turns. Talk the problem over, then lock in one answer.',
       'A wrong answer or timeout offers the other team a steal on the same problem, with the wrong choice crossed out.',
       'A correct steal earns a disc; the team that missed goes next. Pass or miss the steal and play moves to the other team.',
-      'First team to connect four discs across, down or diagonally wins.'], play);
+      'First team to connect four discs across, down or diagonally wins.'], play, [
+      'You play against the computer. Answer your problem correctly to earn a disc, then pick a column.',
+      'A wrong answer or timeout means no disc this turn. The solution is shown so you can learn from it.',
+      'The computer has to solve its own problem too, and it does not always get it right.',
+      'Connect four discs across, down or diagonally before the computer does. Show your work on paper!']);
     function play(cfg) {
-      var pile = new Pile(cfg.level), S = { board: [], turn: 'L', answerer: 'L', starter: 'L', wins: { L: 0, R: 0 }, phase: 'q', it: null, sel: null, dead: [], win: null, stolen: false };
+      var pile = new Pile(cfg.level), S = { board: [], turn: 'L', answerer: 'L', starter: 'L', wins: { L: 0, R: 0 }, phase: 'q', it: null, sel: null, dead: [], win: null, stolen: false, solo: !!cfg.solo, ai: cfg.ai, cpuMsg: '', last: null, gen: 0 };
       GB._state = function () { return S; };
       var timer = new Timer(cfg.timer, tickUI(cfg.timer), function () { answer(true); });
-      function reset() { S.board = Array.from({length:6},function(){return Array(7).fill(null);});S.win=null;S.turn=S.starter;next(); }
-      function next() { S.phase='q';S.answerer=S.turn;S.sel=null;S.dead=[];S.stolen=false;S.timeout=false;pile.draw(function(it){
+      function reset() { S.gen++;timer.stop();S.board = Array.from({length:6},function(){return Array(7).fill(null);});S.win=null;S.last=null;S.cpuMsg='';S.turn=S.starter;next(); }
+      function next() { if(S.solo&&S.turn==='R')return cpuTurn();S.phase='q';S.answerer=S.turn;S.sel=null;S.dead=[];S.stolen=false;S.timeout=false;pile.draw(function(it){
         if(!it){app.innerHTML=head('No questions available for the selected skills and level.','Connect 4')+'<div class="gm-panel" role="alert"><button class="gm-btn" onclick="location.reload()">Choose skills again</button></div>';return;}
         S.it=it;render();timer.start();
       }); }
+      // Solo: the computer "answers" its own problem, then drops a disc if it got it right.
+      function cpuTurn() {
+        var gen=S.gen;S.phase='cpu';S.answerer='R';S.cpuMsg='';timer.stop();render();
+        G.setTimeout(function(){
+          if(gen!==S.gen||S.phase!=='cpu')return;
+          if(!AI.answers(S.ai)){S.cpuMsg='The computer missed its problem. No disc this turn.';S.turn='L';next();return;}
+          var col=AI.connectFourMove(S.board,'R','L',S.ai),r;
+          for(r=5;r>=0;r--)if(!S.board[r][col]){S.board[r][col]='R';break;}
+          S.last=[r,col];
+          S.win=winLine();if(S.win){S.wins.R++;S.phase='over';S.starter=other(S.starter);render();return;}
+          if(S.board[0].every(Boolean)){S.phase='over';S.starter=other(S.starter);render();return;}
+          S.cpuMsg='The computer solved its problem and dropped a disc in column '+(col+1)+'.';S.turn='L';next();
+        },cpuDelay());
+      }
       function answer(timeout) {
         if(!['q','steal'].includes(S.phase)||(!timeout&&S.sel===null))return;
-        timer.stop();var ok=!timeout&&S.it.options[S.sel].ok;
+        timer.stop();var ok=!timeout&&S.it.options[S.sel].ok;S.cpuMsg='';
         if(ok){S.stolen=S.phase==='steal';S.phase='drop';}
-        else if(S.phase==='q'){if(!timeout)S.dead.push(S.sel);S.sel=null;S.phase='steal-offer';S.timeout=!!timeout;}
+        else if(S.phase==='q'&&!S.solo){if(!timeout)S.dead.push(S.sel);S.sel=null;S.phase='steal-offer';S.timeout=!!timeout;}
         else{if(!timeout)S.dead.push(S.sel);S.phase='miss';S.timeout=!!timeout;}
         render();
       }
@@ -288,6 +335,7 @@
       function drop(col) {
         if(S.phase!=='drop')return;
         for(var r=5;r>=0;r--)if(!S.board[r][col]){S.board[r][col]=S.answerer;break;}if(r<0)return;
+        S.last=null;
         S.win=winLine();if(S.win){S.wins[S.answerer]++;S.phase='over';S.starter=other(S.starter);render();confetti();return;}
         if(S.board[0].every(Boolean)){S.phase='over';S.starter=other(S.starter);render();return;}
         S.phase='resolved';render();
@@ -295,20 +343,21 @@
       function advance(){S.turn=S.stolen?S.turn:other(S.turn);S.passed=false;next();}
       function winLine(){var D=[[0,1],[1,0],[1,1],[1,-1]];for(var r=0;r<6;r++)for(var c=0;c<7;c++){var t=S.board[r][c];if(!t)continue;for(var d=0;d<4;d++){var cells=[[r,c]];for(var k=1;k<4;k++){var rr=r+D[d][0]*k,cc=c+D[d][1]*k;if(rr<0||rr>5||cc<0||cc>6||S.board[rr][cc]!==t)break;cells.push([rr,cc]);}if(cells.length===4)return cells;}}return null;}
       function render(){
-        var it=S.it,live=S.phase==='q'||S.phase==='steal',who=S.phase==='steal-offer'?other(S.turn):S.answerer;
-        var h=head('Answer a problem to earn a disc. Connect four in a row to win.','Connect 4')+sidesHtml(cfg,S.phase==='over'?null:who,S.wins,S.phase==='steal-offer'?'Steal?':S.phase==='steal'?'Stealing':S.phase==='drop'?'Dropping a disc':'Answering');
+        var it=S.it,live=S.phase==='q'||S.phase==='steal',who=S.phase==='steal-offer'?other(S.turn):S.answerer,cpuLast=S.solo&&S.answerer==='R';
+        var h=head(S.solo?'You vs. the computer. Answer a problem to earn a disc. Connect four in a row to win.':'Answer a problem to earn a disc. Connect four in a row to win.','Connect 4')+sidesHtml(cfg,S.phase==='over'?null:who,S.wins,S.phase==='cpu'?'Thinking…':S.phase==='steal-offer'?'Steal?':S.phase==='steal'?'Stealing':S.phase==='drop'?'Dropping a disc':'Answering');
         h+='<div class="tm-main"><div class="gm-panel">';
-        if(S.phase==='over')h+='<h2>'+(S.win?esc(nameOf(cfg,S.answerer))+' wins!':'The board is full: a tie!')+'</h2>'+solHtml(it)+'<button class="gm-btn primary" id="c4Again">Play again</button>';
+        if(S.phase==='over')h+='<h2>'+(S.win?(cpuLast?'The computer wins this round.':esc(nameOf(cfg,S.answerer))+' wins!'):'The board is full: a tie!')+'</h2>'+(cpuLast?'<p class="gm-muted">The computer dropped its last disc in column '+(S.last[1]+1)+'. Try again: you can beat it!</p>':(it?solHtml(it):''))+'<button class="gm-btn primary" id="c4Again">Play again</button>';
+        else if(S.phase==='cpu')h+='<div class="gm-row"><span class="tm-who R"><i></i>'+esc(CPU_NAME)+'</span></div><div class="gm-msg" role="status"><span class="gm-spin gm-spin-sm"></span> The computer is working on its problem…</div>';
         else{
-          h+='<div class="gm-row"><span class="tm-who '+who+'"><i></i>'+esc(nameOf(cfg,who))+'</span><span class="gm-sp"></span><span class="gm-tag">'+esc(it.tagName)+'</span></div>'+(live?timerHtml(cfg.timer):'')+qHtml(it)+optsHtml(it,{sel:S.sel,dead:S.dead,reveal:['drop','miss','resolved'].includes(S.phase)});
+          h+=(S.cpuMsg?'<div class="gm-msg gm-cpu" role="status">'+esc(S.cpuMsg)+' Your turn!</div>':'')+'<div class="gm-row"><span class="tm-who '+who+'"><i></i>'+esc(nameOf(cfg,who))+'</span><span class="gm-sp"></span><span class="gm-tag">'+esc(it.tagName)+'</span></div>'+(live?timerHtml(cfg.timer):'')+qHtml(it)+optsHtml(it,{sel:S.sel,dead:S.dead,reveal:['drop','miss','resolved'].includes(S.phase)});
           if(live)h+='<div class="gm-row"><button class="gm-btn primary" id="c4Lock"'+(S.sel===null?' disabled':'')+'>Lock in answer</button>'+(S.phase==='q'?'<button class="gm-btn" id="c4Skip">Skip this problem</button>':'')+'</div>';
           if(S.phase==='steal-offer')h+='<div class="gm-msg">'+(S.timeout?'Time is up.':'Not quite.')+' '+esc(nameOf(cfg,other(S.turn)))+' can steal this problem.</div><div class="gm-row"><button class="gm-btn primary" id="c4Steal">Steal it</button><button class="gm-btn" id="c4Pass">Pass</button></div>';
           if(S.phase==='steal')h+='<p class="gm-msg">Steal attempt: the previous wrong choice is crossed out.</p>';
           if(S.phase==='drop')h+='<div class="gm-msg good">'+(S.stolen?'Steal successful!':'Correct!')+' Choose a column to drop your disc.</div>';
-          if(S.phase==='miss'||S.phase==='resolved')h+='<div class="gm-msg">'+(S.phase==='resolved'?'Disc placed.':S.passed?'Steal passed. No disc this turn.':'The steal missed. No disc this turn.')+' Next up: '+esc(nameOf(cfg,S.stolen?S.turn:other(S.turn)))+'.</div>'+solHtml(it)+'<button class="gm-btn primary" id="c4Next">Next turn →</button>';
+          if(S.phase==='miss'||S.phase==='resolved')h+='<div class="gm-msg">'+(S.phase==='resolved'?'Disc placed.':S.solo?(S.timeout?'Time is up.':'Not quite.')+' No disc this turn.':S.passed?'Steal passed. No disc this turn.':'The steal missed. No disc this turn.')+' Next up: '+esc(nameOf(cfg,S.stolen?S.turn:other(S.turn)))+'.</div>'+solHtml(it)+'<button class="gm-btn primary" id="c4Next">Next turn →</button>';
         }
         h+='</div><div><div class="c4-cols">'+[1,2,3,4,5,6,7].map(function(n){return '<span>'+n+'</span>';}).join('')+'</div><div class="c4-board'+(S.phase==='drop'?' pick':'')+'">';
-        for(var r=0;r<6;r++)for(var c=0;c<7;c++){var t=S.board[r][c],w=S.win&&S.win.some(function(x){return x[0]===r&&x[1]===c;});h+='<button class="c4-hole'+(t?' '+t:'')+(w?' win':'')+'" data-col="'+c+'" aria-label="Column '+(c+1)+'"'+(S.phase==='drop'&&!S.board[0][c]?'':' disabled')+'></button>';}
+        for(var r=0;r<6;r++)for(var c=0;c<7;c++){var t=S.board[r][c],w=S.win&&S.win.some(function(x){return x[0]===r&&x[1]===c;}),lst=S.last&&S.last[0]===r&&S.last[1]===c;h+='<button class="c4-hole'+(t?' '+t:'')+(w?' win':'')+(lst&&!w?' last':'')+'" data-col="'+c+'" aria-label="Column '+(c+1)+'"'+(S.phase==='drop'&&!S.board[0][c]?'':' disabled')+'></button>';}
         h+='</div></div></div>';app.innerHTML=h;
         on('[data-opt]','click',function(){if(live&&S.dead.indexOf(+this.dataset.opt)<0){S.sel=+this.dataset.opt;render();}});
         if($('#c4Lock'))$('#c4Lock').onclick=function(){answer(false);};if($('#c4Steal'))$('#c4Steal').onclick=steal;if($('#c4Pass'))$('#c4Pass').onclick=pass;
@@ -325,16 +374,39 @@
       'Teams take turns. On your turn, pick an open square and answer the problem that appears.',
       'Correct: your team marks the square. Wrong or out of time: the other team can <b>steal</b> the square by answering the same problem (the wrong choice is crossed out).',
       'If nobody gets it, the square stays open. Either way, the next team picks next.',
-      'Three in a row (across, down or diagonal) wins. Show your work on paper!'], play);
+      'Three in a row (across, down or diagonal) wins. Show your work on paper!'], play, [
+      'You play against the computer. On your turn, pick an open square and answer the problem that appears.',
+      'Correct: the square is yours. Wrong or out of time: the square stays open, and the solution is shown.',
+      'Then the computer picks a square and solves its own problem. It does not always get it right!',
+      'Three in a row (across, down or diagonal) wins. Show your work on paper!']);
     function play(cfg) {
       var pile = new Pile(cfg.level), LINES = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-      var S = { b: Array(9).fill(null), turn: 'L', starter: 'L', wins: { L: 0, R: 0 }, quiz: null, over: false, line: null };
+      var S = { b: Array(9).fill(null), turn: 'L', starter: 'L', wins: { L: 0, R: 0 }, quiz: null, over: false, line: null, solo: !!cfg.solo, ai: cfg.ai, cpu: false, cpuMsg: '', last: -1, gen: 0 };
     GB._state = function () { return S; };
       var timer = new Timer(cfg.timer, tickUI(cfg.timer), function () { submit(true); });
       var MARK = { L: '✕', R: '◯' };
-      function reset() { S.b = Array(9).fill(null); S.quiz = null; S.over = false; S.line = null; S.turn = S.starter; render(); }
+      function reset() { S.gen++; timer.stop(); S.b = Array(9).fill(null); S.quiz = null; S.over = false; S.line = null; S.cpu = false; S.cpuMsg = ''; S.last = -1; S.turn = S.starter; render(); if (S.solo && S.turn === 'R') cpuTurn(); }
+      function checkEnd() {
+        for (var k = 0; k < LINES.length; k++) { var l = LINES[k]; if (S.b[l[0]] && S.b[l[0]] === S.b[l[1]] && S.b[l[0]] === S.b[l[2]]) { S.line = l; S.over = S.b[l[0]]; } }
+        if (S.over) { S.wins[S.over]++; S.starter = other(S.starter); return true; }
+        if (S.b.every(Boolean)) { S.over = 'tie'; S.starter = other(S.starter); return true; }
+        return false;
+      }
+      // Solo: the computer chooses a square, then "answers" its own problem; a miss leaves the square open.
+      function cpuTurn() {
+        var gen = S.gen; S.cpu = true; S.cpuMsg = ''; render();
+        G.setTimeout(function () {
+          if (gen !== S.gen || S.over) return;
+          var sq = AI.ticTacToeMove(S.b, 'R', 'L', S.ai);
+          S.cpu = false; S.last = sq; S.turn = 'L';
+          if (AI.answers(S.ai)) { S.b[sq] = 'R'; S.cpuMsg = 'The computer took square ' + (sq + 1) + '.'; }
+          else S.cpuMsg = 'The computer tried square ' + (sq + 1) + ' but missed its problem. The square stays open.';
+          checkEnd(); render();
+        }, cpuDelay());
+      }
       function pick(i) {
-        if (S.over || S.b[i] || S.quiz || S.loadingQuestion) return;
+        if (S.over || S.b[i] || S.quiz || S.loadingQuestion || S.cpu || (S.solo && S.turn === 'R')) return;
+        S.cpuMsg = '';
         S.loadingQuestion = true;
         // Give immediate visual feedback even if the question pile must refill.
         var status = doc.createElement('div');
@@ -373,31 +445,32 @@
       function pickError() { app.innerHTML = head('No verified questions are currently available for this selected skill.', 'Tic-Tac-Toe') + '<div class="gm-panel" role="alert"><h2>Questions could not be generated</h2><p>Try another skill or level from the game setup. This topic is not currently producing verified game questions.</p><button class="gm-btn" id="tReload">Return to setup</button></div>'; $('#tReload').onclick = function () { G.location.reload(); }; }
       function submit(timeout) {
         var q = S.quiz; if (!q || q.stage === 'result') return; if (!timeout && q.sel === null) return;
-        timer.stop(); var ok = !timeout && q.it.options[q.sel].ok;
+        timer.stop(); var ok = !timeout && q.it.options[q.sel].ok; q.timeout = !!timeout;
         if (ok) { S.b[q.sq] = q.who; q.stage = 'result'; q.ok = true; }
-        else if (q.stage === 'ans' && q.it.options.length > 2) { if (q.sel !== null) q.dead.push(q.sel); q.sel = null; q.stage = 'steal'; q.who = other(q.who); q.first = timeout ? 'Time is up!' : 'That answer is not correct.'; render(); timer.start(); return; }
+        else if (q.stage === 'ans' && q.it.options.length > 2 && !S.solo) { if (q.sel !== null) q.dead.push(q.sel); q.sel = null; q.stage = 'steal'; q.who = other(q.who); q.first = timeout ? 'Time is up!' : 'That answer is not correct.'; render(); timer.start(); return; }
         else { q.stage = 'result'; q.ok = false; }
         render();
       }
       function after() {
         S.quiz = null; S.turn = other(S.turn);
-        for (var k = 0; k < LINES.length; k++) { var l = LINES[k]; if (S.b[l[0]] && S.b[l[0]] === S.b[l[1]] && S.b[l[0]] === S.b[l[2]]) { S.line = l; S.over = S.b[l[0]]; } }
-        if (S.over) { S.wins[S.over]++; S.starter = other(S.starter); render(); confetti(); return; }
-        if (S.b.every(Boolean)) { S.over = 'tie'; S.starter = other(S.starter); }
+        if (checkEnd()) { render(); if (S.over !== 'tie' && !(S.solo && S.over === 'R')) confetti(); return; }
         render();
+        if (S.solo && S.turn === 'R') cpuTurn();
       }
       function render() {
-        var h = head('Two teams, one board, nine squares. Earn each square by answering a problem.', 'Tic-Tac-Toe') + sidesHtml(cfg, S.over ? null : S.turn, S.wins, 'Picking a square') +
-          '<div class="gm-panel"><div style="text-align:center;font-weight:800;font-size:1.15rem;margin-bottom:12px">' +
-          (S.over ? (S.over === 'tie' ? 'Cat’s game: a tie!' : esc(nameOf(cfg, S.over)) + ' wins!') + ' <button class="gm-btn primary" id="tAgain">Play again</button>' : esc(nameOf(cfg, S.turn)) + ': pick a square') + '</div><div class="ttt-board">' +
-          S.b.map(function (v, i) { return '<button class="ttt-sq' + (v ? ' ' + v : '') + (S.line && S.line.indexOf(i) >= 0 ? ' win' : '') + '" data-sq="' + i + '"' + (v || S.over ? ' disabled' : '') + ' aria-label="Square ' + (i + 1) + (v ? ', ' + nameOf(cfg, v) : '') + '">' + (v ? MARK[v] : '') + '</button>'; }).join('') + '</div></div>';
+        var status = S.over ? (S.over === 'tie' ? 'Cat’s game: a tie!' : S.solo && S.over === 'R' ? 'The computer wins this round.' : esc(nameOf(cfg, S.over)) + ' wins!') + ' <button class="gm-btn primary" id="tAgain">Play again</button>'
+          : S.cpu ? '<span class="gm-spin gm-spin-sm"></span> The computer is choosing a square…' : esc(nameOf(cfg, S.turn)) + ': pick a square';
+        var h = head(S.solo ? 'You vs. the computer. Earn each square by answering a problem.' : 'Two teams, one board, nine squares. Earn each square by answering a problem.', 'Tic-Tac-Toe') + sidesHtml(cfg, S.over ? null : S.turn, S.wins, S.cpu ? 'Thinking…' : 'Picking a square') +
+          '<div class="gm-panel"><div style="text-align:center;font-weight:800;font-size:1.15rem;margin-bottom:12px" role="status">' + status + '</div>' +
+          (S.cpuMsg ? '<div class="gm-msg gm-cpu" style="text-align:center">' + esc(S.cpuMsg) + '</div>' : '') + '<div class="ttt-board">' +
+          S.b.map(function (v, i) { return '<button class="ttt-sq' + (v ? ' ' + v : '') + (S.line && S.line.indexOf(i) >= 0 ? ' win' : '') + (S.solo && i === S.last && !S.over ? ' last' : '') + '" data-sq="' + i + '"' + (v || S.over || S.cpu ? ' disabled' : '') + ' aria-label="Square ' + (i + 1) + (v ? ', ' + nameOf(cfg, v) : '') + '">' + (v ? MARK[v] : '') + '</button>'; }).join('') + '</div></div>';
         var q = S.quiz;
         if (q) {
           h += '<div class="gm-modal" role="dialog" aria-modal="true"><div class="gm-panel ' + (q.stage === 'result' ? (q.ok ? q.who : '') : q.who) + '"><div class="gm-row"><span class="tm-who ' + q.who + '"><i></i>' + esc(nameOf(cfg, q.who)) + '</span>' + (q.stage === 'steal' ? '<span class="gm-steal">Steal!</span>' : '') + '<span class="gm-sp"></span><span class="gm-tag">' + esc(q.it.tagName) + '</span></div>' +
             (q.stage === 'steal' ? '<div class="gm-msg bad">' + esc(q.first) + ' ' + esc(nameOf(cfg, q.who)) + ' can steal the square.</div>' : '') + (q.stage !== 'result' ? timerHtml(cfg.timer) : '') + qHtml(q.it) +
             optsHtml(q.it, { sel: q.sel, dead: q.dead, reveal: q.stage === 'result' });
           if (q.stage !== 'result') h += '<div class="gm-row" style="margin-top:12px"><button class="gm-btn primary" id="tLock"' + (q.sel === null ? ' disabled' : '') + '>Lock in answer</button></div>';
-          else h += '<div class="gm-msg ' + (q.ok ? 'good">Correct! ' + esc(nameOf(cfg, q.who)) + ' takes the square.' : 'bad">Nobody got it. The square stays open.') + '</div>' + solHtml(q.it) + '<button class="gm-btn primary" id="tCont">Continue</button>';
+          else h += '<div class="gm-msg ' + (q.ok ? 'good">Correct! ' + esc(nameOf(cfg, q.who)) + ' takes the square.' : 'bad">' + (S.solo ? (q.timeout ? 'Time is up.' : 'Not quite.') + ' The square stays open, and the computer goes next.' : 'Nobody got it. The square stays open.')) + '</div>' + solHtml(q.it) + '<button class="gm-btn primary" id="tCont">Continue</button>';
           h += '</div></div>';
         }
         app.innerHTML = h;

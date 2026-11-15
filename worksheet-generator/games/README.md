@@ -1,5 +1,31 @@
 # Generated games
 
+## Solo mode (one student against the computer)
+
+Connect 4 and Tic-Tac-Toe offer **Two teams** (the default, unchanged) or **Solo vs. computer** on the setup
+screen, with a computer difficulty of Easy, Medium or Hard. The choice, the player's name and the difficulty
+are remembered per game.
+
+- In solo mode there are no steals. A correct answer earns the disc or square; a wrong answer or timeout earns
+  nothing, shows the worked solution, and the computer goes next.
+- On its turn the computer "thinks" for about a second, then must solve its own problem (it gets it right
+  60% / 70% / 80% of the time on Easy / Medium / Hard). If it does, it moves; the move is described to the
+  student and highlighted on the board.
+- The computer's play (`solo-ai.js`, `MKSOLOAI`) is deliberately imperfect: limited look-ahead in Connect 4,
+  plus occasional random moves, missed wins and missed blocks. Simulated against a student who answers 70%
+  of problems correctly and plays sensibly, the student wins about 55–70% of games on Easy, 40–45% on
+  Medium and about 20% on Hard; at 85% accuracy the student wins about half the time even on Hard.
+- Generated pages need no extra script tag: `games.js` loads `solo-ai.js` from its own folder when a
+  Connect 4 or Tic-Tac-Toe setup opens. If it cannot load, the setup shows the two-team game only.
+- The hand-built Algebra 2 pages (`exponential-logarithmic-functions`, `functions-transformations`,
+  `linear-functions-systems`, `quadratic-functions-complex-numbers`) load `solo-ai.js` and
+  `solo-legacy.js` after their own script. Connect 4 gets a **Players** menu in the controls bar;
+  Tic-Tac-Toe gets a **Players** choice on its setup screen.
+
+Tests: `node worksheet-generator/games/tests/solo-ai-tests.cjs` (no browser: legal moves, wins and blocks,
+win-rate bands), and with a static server at `BASE`: `solo-browser.cjs` (generated games, both modes) and
+`solo-legacy-browser.cjs` (hand-built Algebra 2 pages, both modes). `CHANNEL=msedge` selects installed Edge.
+
 ## Sharing configured individual review
 
 Both library-card and activity-viewer student-link buttons open the game's own

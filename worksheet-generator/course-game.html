@@ -39,7 +39,7 @@
  location.replace(target.href);
  window.MK_GAME_REDIRECTING = true;
 })();
-</script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=inequality-parity-20261104b"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
+</script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=solo-20261114"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
 </head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
 <script src="core/rng.js"></script>
 <script src="core/frac.js"></script>
@@ -101,6 +101,6 @@
  document.body.setAttribute('data-unit',id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',source.unit.name+' '+({'flashcards':'Flashcards','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','showdown':'Showdown'}[game]||''));
  if(MK_QUESTION_BANKS.available(source.courseId,source.unit.id))document.body.setAttribute('data-algebra2-game','');
  if(['math6','prealgebra7','prealgebra'].includes(source.courseId)){window.MK_GRADE_GAME_COURSE=source.courseId;window.MK_GRADE_GAME_LABELS={cp2:'Remedial',cp1:'Standard',honors:'Advanced'};}
- var script=document.createElement('script');script.src='games/games.js?v=inequality-parity-20261104b';document.body.appendChild(script);
+ var script=document.createElement('script');script.src='games/games.js?v=solo-20261114
 })().catch(function(e){document.getElementById('app').textContent='Unable to load course game: '+e.message;});
 </script></body></html>
