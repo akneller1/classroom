@@ -30,6 +30,7 @@ for(const entry of entries){
   assert.ok((errors.get(skill+'|'+lv)||0)>=2,skill+' '+lv+' has fewer than 2 error-analysis questions');
  }
 }
-assert.equal(total,4667);   // 4,586 + 81 partner-check companions (tools/partner-check-companions-20261107)
+const additions=require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='algebra2').length;
+assert.equal(total,4667+additions); // Original bank plus reviewed November 15 additions
 assert.equal(skills.size,87);
-console.log('PASS 11 Algebra 2 banks, 4,667 questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');
+console.log('PASS 11 Algebra 2 banks, '+total+' questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');

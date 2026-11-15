@@ -25,5 +25,5 @@ for(const item of manifest.banks){
  assert.ok(fs.existsSync(path.join(root,item.path)),'Approved bank file missing: '+item.path);
 }
 assert.ok(html.includes("['math6','prealgebra7','prealgebra']"),'Middle-school course detection required');
-for(const label of ['Remedial','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
+for(const label of ['Support','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
 console.log('PASS approved flashcard player structure, gating and content rendering safeguards');

@@ -441,7 +441,7 @@ for pid, d in pairs.items():
         fails.append(f"{pid}: answers differ {a['answer']!r} vs {b['answer']!r}")
     if (a["skillId"], a["level"]) != (b["skillId"], b["level"]):
         fails.append(f"{pid}: pair spans different skill/level")
-    if a["prompt"].split(". ", 1)[-1] == b["prompt"].split(". ", 1)[-1]:
+    if re.sub(r"^Partner [AB]\.\s*", "", a["prompt"]) == re.sub(r"^Partner [AB]\.\s*", "", b["prompt"]):
         fails.append(f"{pid}: partners have identical problems")
 print(f"partner pairs checked: {len(pairs)}")
 print(f"checked {n_ok}/{len(CHECKS)} computed items")

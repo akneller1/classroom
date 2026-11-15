@@ -7,7 +7,7 @@ const G=require('../worksheet-generator/menu/tests/load.cjs')(['games/bank.js','
 G.location={hash:'#course=grade5'};
 G.fetch=async url=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(site,'worksheet-generator',url),'utf8'))});
 const run=f=>vm.runInContext(fs.readFileSync(path.join(site,f),'utf8'),G,{filename:f});
-for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/grade5-main-catalog.js','grade4-main-catalog.js','grade3-main-catalog.js','grade2-main-catalog.js','grade1-main-catalog.js','question-bank-adapter.js','question-bank-loader.js','worksheet-generator/algebra2-bank-native.js'])run(f);
+for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/grade5-main-catalog.js','grade4-main-catalog.js','grade3-main-catalog.js','grade2-main-catalog.js','grade1-main-catalog.js','question-bank-adapter.js','question-bank-loader.js','worksheet-generator/core/plot.js','worksheet-generator/algebra2-bank-native.js'])run(f);
 (async()=>{
  await G.MK_COURSE_BANKS_READY;
  const grade4=G.MKMENU.CATALOG.find(c=>c.course==='4th Grade Math');
@@ -32,8 +32,8 @@ for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/g
    assert.equal(new Set(items.map(p=>p.sourceId)).size,10,id+': repeat inside a version');
    assert.ok(v.sections[0].items.every(p=>p.authoredFormat==='open-response'));
    assert.ok(v.sections[1].items.every(p=>p.mc&&M.checkChoices(p)));
-   assert.ok(v.sections[2].items.every(p=>p.fig?.kind==='authored-image'));
-   for(const p of items){const q=G.MK_QUESTION_BANKS.select({courseId:'grade5',unitId:id.slice(7),level}).find(q=>q.id===p.sourceId);assert.ok(q,'wrong level or missing source');if(p.fig)assert.ok(fs.existsSync(path.join(site,p.fig.src)));}
+   assert.ok(v.sections[2].items.every(p=>['authored-image','authored-plot'].includes(p.fig?.kind)));
+   for(const p of items){const q=G.MK_QUESTION_BANKS.select({courseId:'grade5',unitId:id.slice(7),level}).find(q=>q.id===p.sourceId);assert.ok(q,'wrong level or missing source');if(p.fig)assert.ok(fs.existsSync(path.join(site,p.fig.kind==='authored-plot'?p.fig.plot.answerKey.src:p.fig.src)));}
    papers++;
   }
   const restored=M.deserialize(JSON.parse(M.serialize(st)));
