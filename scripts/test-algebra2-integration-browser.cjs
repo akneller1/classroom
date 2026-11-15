@@ -4,7 +4,7 @@ const base=process.env.MK_BASE_URL||'http://127.0.0.1:8765';
 const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseId==='algebra2').map(b=>b.unitId);
 (async()=>{
  const browser=await chromium.launch({headless:true}),page=await browser.newPage(),errors=[],cases=[];
- page.on('pageerror',e=>errors.push(e.message));
+ page.on('pageerror',e=>errors.push((e.stack||e.message)+' [page: '+page.url()+']'));
  page.on('response',r=>{if(r.status()>=400&&!r.url().includes('favicon'))errors.push(r.status()+' '+r.url())});
  fs.mkdirSync('test-results',{recursive:true});fs.mkdirSync('thumbs/previews/algebra2',{recursive:true});
  try{
