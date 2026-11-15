@@ -4,7 +4,7 @@ const out=path.resolve(process.argv[2]||'_site'),source=path.resolve('content-up
 function patchBank(file,changes){const d=read(file),byId=new Map(d.questions.map(q=>[q.id,q]));for(const e of changes){const q=byId.get(e.id);if(!q)throw Error('Content update missing item '+e.id+' in '+file);for(const [field,c]of Object.entries(e.changes||{[e.field]:{from:e.from,to:e.to}})){if('append'in c){if(!q[field].includes(c.append))q[field]+=c.append}else if(JSON.stringify(q[field])!==JSON.stringify(c.to)){if(JSON.stringify(q[field]??null)!==JSON.stringify(c.from??null))throw Error('Content update conflict '+e.id+'/'+field);q[field]=c.to;edits++}}}write(file,d)}
 const retags=read(path.join(source,'grade1-telling-time-retag.json')).edits;
 for(const rel of ['grade1/question-banks/math1/telling-time.json','question-banks/grade1/telling-time.json'])patchBank(path.join(out,rel),retags);
-for(const course of ['math1','math2','math3','math5']){
+for(const course of ['math1','math2','math3','math4','math5']){
  const folder=path.join(source,'elementary',course);if(!fs.existsSync(folder))continue;const grade=course.replace('math','grade');
  for(const name of fs.readdirSync(folder)){const d=read(path.join(folder,name)),unit=name.replace('.additions.json','');
   for(const rel of [`question-banks/${grade}/${unit}.json`,(course==='math5'?`${grade}/${course}/${unit}.json`:`${grade}/question-banks/${course}/${unit}.json`)]){

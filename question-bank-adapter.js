@@ -70,7 +70,7 @@
       }
       if (q.format === 'open-response' && (!Array.isArray(q.parts) || q.parts.length < 4)) errors.push(where + ' needs four parts');
       if (q.format === 'plot') {
-        var plot=q.plot, axis=plot&&(plot.grid||plot.numberLine), tools=['number-line-point','points','number-line-inequality','line','system','region','abs','parabola','sqrt','cbrt','exponential'];
+        var plot=q.plot, axis=plot&&(plot.grid||plot.numberLine||(plot.categories&&(plot.key||plot.valueAxis))), tools=['picture-graph','bar-graph','line-plot','number-line-point','points','number-line-inequality','line','system','region','abs','parabola','sqrt','cbrt','exponential'];
         if(!plot||tools.indexOf(plot.tool)<0||!plot.target||!axis||!plot.feedback||!plot.answerKey||typeof plot.answerKey.alt!=='string'||!plot.answerKey.alt.trim()||typeof plot.answerKey.src!=='string'||!/^question-banks\/assets\/[a-zA-Z0-9_/-]+\.png$/.test(plot.answerKey.src)||plot.answerKey.src.includes('..'))errors.push(where+' invalid plot specification');
       }
       if (q.diagram) {

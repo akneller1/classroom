@@ -1,6 +1,7 @@
 /* Shared graph responses. Rational checks are independent of the drawing code. */
 (function(G){'use strict';
-const tools=['number-line-point','points','number-line-inequality','line','system','region','abs','parabola','sqrt','cbrt','exponential'];
+const displayTools=['picture-graph','bar-graph','line-plot'];
+const tools=[...displayTools,'number-line-point','points','number-line-inequality','line','system','region','abs','parabola','sqrt','cbrt','exponential'];
 class R{
  constructor(n,d=1n){n=BigInt(n);d=BigInt(d);if(!d)throw Error('Zero denominator');if(d<0n){n=-n;d=-d}let a=n<0n?-n:n,b=d;while(b){[a,b]=[b,a%b]}this.n=n/(a||1n);this.d=d/(a||1n)}
  add(v){v=F(v);return new R(this.n*v.d+v.n*this.d,this.d*v.d)}sub(v){v=F(v);return this.add(v.neg())}mul(v){v=F(v);return new R(this.n*v.n,this.d*v.d)}div(v){v=F(v);return new R(this.n*v.d,this.d*v.n)}neg(){return new R(-this.n,this.d)}abs(){return this.n<0n?this.neg():this}eq(v){v=F(v);return this.n===v.n&&this.d===v.d}cmp(v){v=F(v);const d=this.n*v.d-v.n*this.d;return d<0n?-1:d>0n?1:0}pow(k){return k<0?new R(this.d,this.n).pow(-k):new R(this.n**BigInt(k),this.d**BigInt(k))}valueOf(){return Number(this.n)/Number(this.d)}toString(){return this.d===1n?String(this.n):this.n+'/'+this.d}
@@ -8,7 +9,7 @@ class R{
 function F(v){if(v instanceof R)return v;const s=String(v).trim().replace(/−/g,'-');if(!/^[+-]?\d+(?:\.\d+)?(?:\/\d+)?$/.test(s))throw Error('Invalid coordinate');if(s.includes('/')){const [a,b]=s.split('/');return F(a).div(F(b))}if(s.includes('.')){const [a,b]=s.split('.'),d=10n**BigInt(b.length);return new R(BigInt(a||0)*d+BigInt(b)*(s.startsWith('-')?-1n:1n),d)}return new R(BigInt(s))}
 const eq=(a,b)=>F(a).eq(b),pair=(a,b)=>eq(a[0],b[0])&&eq(a[1],b[1]);
 function on(kind,t,p){const x=F(p[0]),y=F(p[1]),a=F(t.a??1),h=F(t.h??0),k=F(t.k??0),r=x.sub(h);if(kind==='line')return y.eq(F(t.m).mul(x).add(t.b));if(kind==='abs')return y.eq(a.mul(r.abs()).add(k));if(kind==='parabola')return y.eq(a.mul(r.pow(2)).add(k));if(kind==='sqrt'){const s=Math.round(Math.sqrt(+r));return +r>=0&&r.d===1n&&F(s).pow(2).eq(r)&&y.eq(a.mul(s).add(k))}if(kind==='cbrt'){const c=Math.round(Math.cbrt(+r));return F(c).pow(3).eq(r)&&y.eq(a.mul(c).add(k))}if(kind==='exponential')return x.d===1n&&Math.abs(+x)<1000&&y.eq(F(t.a).mul(F(t.b).pow(+x)));return false}
-function check(p,r){try{return rawCheck(p,r)}catch(e){return {ok:false,code:'incomplete'}}}
+function check(p,r){try{return displayTools.includes(p.tool)?displayCheck(p,r):rawCheck(p,r)}catch(e){return {ok:false,code:'incomplete'}}}
 function rawCheck(p,r){const t=p.target,kind=p.tool,yes={ok:true,code:null},no=code=>({ok:false,code});if(!r)return no('incomplete');
  if(kind==='number-line-point'){const a=t.values.map(F).sort((a,b)=>a.cmp(b)),b=r.values.map(F).sort((a,b)=>a.cmp(b));return a.length===b.length&&a.every((v,i)=>v.eq(b[i]))?yes:no(a.length!==b.length?'count':'position')}
  if(kind==='points'){const keys=pts=>new Set(pts.map(p=>F(p[0])+','+F(p[1]))),a=keys(t.points),b=keys(r.points),same=(a,b)=>a.size===b.size&&[...a].every(v=>b.has(v));return same(a,b)?yes:no(same(a,keys(r.points.map(([x,y])=>[y,x])))?'swapped-coordinates':'position')}
@@ -19,12 +20,12 @@ function rawCheck(p,r){const t=p.target,kind=p.tool,yes={ok:true,code:null},no=c
  if(kind==='system'){if(r.lines.length!==t.lines.length)return no('incomplete');for(let i=0;i<t.lines.length;i++){const result=rawCheck({tool:'line',target:t.lines[i]},{points:r.lines[i]});if(!result.ok)return no('line-'+result.code)}return pair(r.solution,t.solution)?yes:no('solution')}
  return no('incomplete');
 }
-function valid(p){const axes=p&&(p.grid||p.numberLine);return !!(p&&tools.includes(p.tool)&&p.target&&axes&&Number.isFinite(+axes.min||+axes.xmin||0)&&p.answerKey&&/^question-banks\/assets\/[a-zA-Z0-9_/-]+\.png$/.test(p.answerKey.src)&&!p.answerKey.src.includes('..')&&typeof p.answerKey.alt==='string')}
+function valid(p){if(p&&displayTools.includes(p.tool))return validDisplay(p);const axes=p&&(p.grid||p.numberLine);return !!(p&&tools.includes(p.tool)&&p.target&&axes&&Number.isFinite(+axes.min||+axes.xmin||0)&&p.answerKey&&/^question-banks\/assets\/[a-zA-Z0-9_/-]+\.png$/.test(p.answerKey.src)&&!p.answerKey.src.includes('..')&&typeof p.answerKey.alt==='string')}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function geometry(p){const n=p.numberLine,g=p.grid||{},a=n||g;return {xmin:+(n?(a.min??a.xmin):g.xmin),xmax:+(n?(a.max??a.xmax):g.xmax),ymin:n?-1:+g.ymin,ymax:n?1:+g.ymax,snap:Number(F(a.snap??a.tick??a.step??1)),step:Number(F(a.tick??a.step??1)),number:!!n}}
 function points(p,r){if(!r)return [];if(p.tool==='number-line-point')return r.values.map(v=>[Number(F(v)),0]);if(p.tool==='number-line-inequality')return 'between'in p.target?[[Number(F(r.left.value)),0],[Number(F(r.right.value)),0]]:[[Number(F(r.boundary)),0]];if(p.tool==='system')return [...r.lines.flat(),r.solution];if(r.anchor)return [r.anchor,r.point];return r.points||[]}
 let clipCounter=0;
-function blank(p,r,active){const clipId="plotClip"+(++clipCounter);const g=geometry(p),w=480,h=g.number?140:400,L=38,T=20,W=420,H=g.number?85:342,x=v=>L+(v-g.xmin)/(g.xmax-g.xmin)*W,y=v=>T+(g.ymax-v)/(g.ymax-g.ymin)*H;
+function blank(p,r,active){if(displayTools.includes(p.tool))return displayBlank(p,r);const clipId="plotClip"+(++clipCounter);const g=geometry(p),w=480,h=g.number?140:400,L=38,T=20,W=420,H=g.number?85:342,x=v=>L+(v-g.xmin)/(g.xmax-g.xmin)*W,y=v=>T+(g.ymax-v)/(g.ymax-g.ymin)*H;
  let out='<svg viewBox="0 0 '+w+' '+h+'" class="mk-plot-svg" role="group" aria-label="'+(g.number?'Interactive number line':'Interactive coordinate grid')+'"><defs><clipPath id="plotClip"><rect x="38" y="20" width="420" height="'+H+'"/></clipPath></defs><rect x="38" y="20" width="420" height="'+H+'" fill="white" stroke="#d5dbe3"/>';
  const y0=y(0);for(let v=g.xmin,i=0;v<=g.xmax+1e-8&&i<100;v+=g.step,i++){out+='<path d="M'+x(v)+' '+(g.number?y0-5:T)+' V'+(g.number?y0+5:T+H)+'" stroke="#d5dbe3"/>';if(g.number||Math.abs(v%2)<1e-8)out+='<text x="'+x(v)+'" y="'+(g.number?y0+24:Math.max(T+14,Math.min(T+H-3,y0+15)))+'" text-anchor="middle" font-size="11" fill="#344054">'+esc(F(v.toFixed(8)).toString())+'</text>'}
  if(!g.number)for(let v=Math.ceil(g.ymin);v<=g.ymax;v++){out+='<path d="M38 '+y(v)+' H458" stroke="#d5dbe3"/>';if(v&&v%2===0)out+='<text x="'+Math.max(15,Math.min(440,x(0)-8))+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11">'+v+'</text>'}
@@ -38,8 +39,8 @@ function blank(p,r,active){const clipId="plotClip"+(++clipCounter);const g=geome
  pts.forEach((pt,i)=>{let closed=true;if(p.tool==='number-line-inequality')closed='between'in p.target?r[i?'right':'left'].closed:r.closed;out+='<circle data-handle="'+i+'" tabindex="0" role="button" aria-label="Point '+String.fromCharCode(65+i)+' at '+esc(pt.join(', '))+'" cx="'+x(pt[0])+'" cy="'+y(pt[1])+'" r="'+(i===active?9:7)+'" stroke="#1f5fa8" stroke-width="3" fill="'+(closed?'#1f5fa8':'white')+'"/><text x="'+(x(pt[0])+12)+'" y="'+(y(pt[1])-10)+'" font-size="13">'+String.fromCharCode(65+i)+'</text>'})}
  return (out+'</svg>').replace(/plotClip/g,clipId);
 }
-function initial(p){const kind=p.tool,zero=[0,0];if(kind==='number-line-point')return {values:p.target.values.map(()=>0)};if(kind==='points')return {points:p.target.points.map(()=>zero.slice())};if(kind==='number-line-inequality')return 'between'in p.target?{between:true,left:{value:0,closed:false},right:{value:0,closed:false}}:{boundary:0,closed:false,direction:'right'};if(kind==='system')return {lines:[[[0,0],[1,0]],[[0,1],[1,1]]],solution:[0,0]};if(['line','region','exponential'].includes(kind))return {points:[[0,0],[1,1]],...(kind==='region'?{dashed:false,shade:'above'}:{})};return {anchor:[0,0],point:[1,1]}}
-function create(host,p,opts={}){let r=JSON.parse(JSON.stringify(opts.response||initial(p))),active=0;const g=geometry(p);let dragged=false;
+function initial(p){if(displayTools.includes(p.tool))return p.tool==='line-plot'?{marks:[]}:p.tool==='picture-graph'?{symbols:p.categories.map(()=>0)}:{values:p.categories.map(()=>p.valueAxis.min)};const kind=p.tool,zero=[0,0];if(kind==='number-line-point')return {values:p.target.values.map(()=>0)};if(kind==='points')return {points:p.target.points.map(()=>zero.slice())};if(kind==='number-line-inequality')return 'between'in p.target?{between:true,left:{value:0,closed:false},right:{value:0,closed:false}}:{boundary:0,closed:false,direction:'right'};if(kind==='system')return {lines:[[[0,0],[1,0]],[[0,1],[1,1]]],solution:[0,0]};if(['line','region','exponential'].includes(kind))return {points:[[0,0],[1,1]],...(kind==='region'?{dashed:false,shade:'above'}:{})};return {anchor:[0,0],point:[1,1]}}
+function create(host,p,opts={}){if(displayTools.includes(p.tool))return displayCreate(host,p,opts);let r=JSON.parse(JSON.stringify(opts.response||initial(p))),active=0;const g=geometry(p);let dragged=false;
  function moved(){opts.onChange?.(JSON.parse(JSON.stringify(r)))}
  function place(i,xx,yy){const snap=v=>Math.round(v/g.snap)*g.snap;xx=+Math.max(g.xmin,Math.min(g.xmax,snap(xx))).toFixed(8);yy=+Math.max(g.ymin,Math.min(g.ymax,snap(yy))).toFixed(8);const pt=[xx,yy];if(p.tool==='number-line-point')r.values[i]=F(String(xx)).toString();else if(p.tool==='number-line-inequality'){if('between'in p.target)r[i?'right':'left'].value=xx;else r.boundary=xx}else if(p.tool==='system'){if(i===4)r.solution=pt;else r.lines[Math.floor(i/2)][i%2]=pt}else if(r.anchor)r[i?'point':'anchor']=pt;else r.points[i]=pt;active=i;moved()}
  function draw(){host.innerHTML='<div class="mk-plot-canvas">'+blank(p,r,active)+'</div><div class="mk-plot-controls"><label>Point <select data-point>'+points(p,r).map((v,i)=>'<option value="'+i+'" '+(i===active?'selected':'')+'>'+String.fromCharCode(65+i)+(p.tool==='system'?(i===4?' · Intersection':i<2?' · Line 1':' · Line 2'):r.anchor?(i?' · Second point':' · Anchor'):'')+'</option>').join('')+'</select></label><label>x <input data-x aria-label="x coordinate" value="'+esc(points(p,r)[active][0])+'" size="5"></label>'+(!g.number?'<label>y <input data-y aria-label="y coordinate" value="'+esc(points(p,r)[active][1])+'" size="5"></label>':'')+'<button type="button" data-set>Place point</button></div><div data-extra></div><p class="mk-plot-live" aria-live="polite">'+esc(points(p,r).map((v,i)=>String.fromCharCode(65+i)+': '+(g.number?v[0]:'('+v.join(', ')+')')).join(' · '))+'</p><p>Drag a dot or choose a point and tap the grid. Arrow keys move a focused dot; Enter checks your graph.</p>';
@@ -53,5 +54,66 @@ function create(host,p,opts={}){let r=JSON.parse(JSON.stringify(opts.response||i
  }
  host.classList.add('mk-plot');draw();return {getResponse:()=>JSON.parse(JSON.stringify(r))};
 }
+
+function displayCheck(p,r){
+ const no=code=>({ok:false,code}),yes={ok:true,code:null},t=p.target.values;
+ if(p.tool==='line-plot'){
+  if(!Array.isArray(r?.marks))return no('count');
+  let m;try{m=r.marks.map(F)}catch(e){return no('count')}
+  const n=p.numberLine,lo=F(n.min),hi=F(n.max),snap=F(n.snap),tick=F(n.tick);
+  if(m.length!==t.length||m.some(v=>v.cmp(lo)<0||v.cmp(hi)>0||v.sub(lo).div(snap).d!==1n))return no('count');
+  const remaining=t.map(F),extra=[];for(const v of m){const i=remaining.findIndex(w=>v.eq(w));if(i<0)extra.push(v);else remaining.splice(i,1)}
+  if(!extra.length)return yes;
+  const match=fn=>{const pool=remaining.slice();return extra.every(v=>{const i=pool.findIndex(w=>fn(v,w));if(i<0)return false;pool.splice(i,1);return true})};
+  if(lo.eq(0)&&match((v,w)=>w.cmp(1)>=0&&w.d!==1n&&v.eq(new R(w.n%w.d,w.d))))return no('whole-part');
+  if(match((v,w)=>v.sub(w).abs().eq(tick)))return no('wrong-tick');
+  return no('position');
+ }
+ const pic=p.tool==='picture-graph',a=pic?r?.symbols:r?.values,axis=p.valueAxis,unit=pic?(p.allowHalf?.5:1):axis.snap,min=pic?0:axis.min,max=pic?p.maxSymbols:axis.max;
+ if(!Array.isArray(a)||a.length!==t.length||a.some(v=>typeof v!=='number'||!Number.isFinite(v)||v<min||v>max||F(v).sub(min).div(unit).d!==1n))return no('count');
+ const expected=pic?t.map(v=>v/p.key.value):t;
+ if(a.every((v,i)=>v===expected[i]))return yes;
+ if(pic&&p.key.value>1&&a.every((v,i)=>v===t[i]))return no('key-ignored');
+ if(!pic&&axis.step>1&&a.every((v,i)=>v===t[i]/axis.step))return no('scale-count');
+ const diff=a.map((v,i)=>i).filter(i=>a[i]!==expected[i]);
+ if(pic&&diff.every(i=>!Number.isInteger(expected[i])&&Math.abs(a[i]-expected[i])===.5))return no('half-symbol');
+ if(diff.length===2&&a[diff[0]]===expected[diff[1]]&&a[diff[1]]===expected[diff[0]])return no('swapped');
+ if(diff.length===1&&Math.abs(a[diff[0]]-expected[diff[0]])===(pic?1:unit))return no('off-by-one');
+ return no('position');
+}
+function validDisplay(p){try{
+ if(!p.target?.values?.length||!p.answerKey||!/^question-banks\/assets\/[a-zA-Z0-9_/-]+\.png$/.test(p.answerKey.src)||p.answerKey.src.includes('..')||typeof p.answerKey.alt!=='string')return false;
+ if(p.tool==='line-plot'){const n=p.numberLine;if(!n||F(n.max).cmp(n.min)<=0||F(n.snap).cmp(0)<=0||F(n.tick).cmp(0)<=0)return false;return displayCheck(p,{marks:p.target.values}).ok}
+ if(!Array.isArray(p.categories)||p.categories.length!==p.target.values.length||!p.categories.every(c=>typeof c==='string'))return false;
+ if(p.tool==='picture-graph'){if(!(p.key?.value>0&&p.maxSymbols>0))return false;return displayCheck(p,{symbols:p.target.values.map(v=>v/p.key.value)}).ok}
+ const a=p.valueAxis;if(!a||!(a.max>a.min&&a.step>0&&a.snap>0))return false;return displayCheck(p,{values:p.target.values}).ok;
+ }catch(e){return false}}
+function tickValues(p){const n=p.numberLine,out=[];for(let v=F(n.min),i=0;v.cmp(n.max)<=0&&i<200;v=v.add(n.snap),i++)out.push(v.toString());return out}
+function mixed(v){const f=F(v);if(f.d===1n||f.n<f.d)return f.toString();return (f.n/f.d)+' '+(f.n%f.d)+'/'+f.d}
+function symbolShape(kind,x,y,half){let shape;
+ if(kind==='square')shape='<rect x="'+(x-9)+'" y="'+(y-9)+'" width="18" height="18"/>';
+ else if(kind==='heart')shape='<path d="M'+x+' '+(y+10)+' C'+(x-25)+' '+(y-6)+' '+(x-7)+' '+(y-20)+' '+x+' '+(y-8)+' C'+(x+7)+' '+(y-20)+' '+(x+25)+' '+(y-6)+' '+x+' '+(y+10)+'Z"/>';
+ else if(kind==='star'){let pts=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,r=i%2?4:11;pts.push((x+Math.cos(a)*r)+','+(y+Math.sin(a)*r))}shape='<polygon points="'+pts.join(' ')+'"/>'}
+ else shape='<circle cx="'+x+'" cy="'+y+'" r="9"/>';
+ const id='symbolClip'+(++clipCounter);return '<g fill="#2467a5">'+(half?'<defs><clipPath id="'+id+'"><rect x="'+(x-14)+'" y="'+(y-15)+'" width="14" height="30"/></clipPath></defs><g clip-path="url(#'+id+')">'+shape+'</g>':shape)+(kind==='smile'&&!half?'<path d="M'+(x-5)+' '+(y+2)+' Q'+x+' '+(y+8)+' '+(x+5)+' '+(y+2)+'" fill="none" stroke="white"/><circle cx="'+(x-3)+'" cy="'+(y-3)+'" r="1" fill="white"/><circle cx="'+(x+3)+'" cy="'+(y-3)+'" r="1" fill="white"/>':'')+'</g>'}
+function displayBlank(p,r){const pic=p.tool==='picture-graph',line=p.tool==='line-plot',w=600,h=line?330:pic?100+p.categories.length*55:390;
+ let out='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+esc(p.title||p.tool)+'"><rect width="600" height="'+h+'" fill="white"/><text x="300" y="25" text-anchor="middle" font-size="18">'+esc(p.title||'')+'</text>';
+ if(pic){out+='<text x="20" y="55" font-size="14">Key: one '+esc(p.key.symbol)+' = '+esc(p.key.value)+'</text>';p.categories.forEach((c,i)=>{const y=90+i*55;out+='<text x="10" y="'+(y+5)+'" font-size="14">'+esc(c)+'</text><path d="M130 '+(y+20)+' H580" stroke="#aab5c4"/>';const count=r?.symbols[i]||0;for(let j=0;j<Math.ceil(count);j++)out+=symbolShape(p.key.symbol,145+j*430/p.maxSymbols,y,j>=Math.floor(count))})}
+ else if(line){const ticks=tickValues(p),x=i=>40+i*520/Math.max(1,ticks.length-1);out+='<path d="M40 265 H560" stroke="#344054"/>';ticks.forEach((v,i)=>{out+='<path d="M'+x(i)+' 258 V272" stroke="#344054"/>';if(i%(p.numberLine.labelEvery||1)===0)out+='<text x="'+x(i)+'" y="290" text-anchor="middle" font-size="12">'+esc(p.numberLine.labelFormat==='mixed'?mixed(v):v)+'</text>';const count=r?.marks.filter(m=>F(m).eq(v)).length||0;for(let j=0;j<count;j++)out+='<text x="'+x(i)+'" y="'+(248-j*17)+'" text-anchor="middle" font-size="18" fill="#2467a5">×</text>'});out+='<text x="300" y="320" text-anchor="middle" font-size="14">'+esc(p.units||'')+'</text>'}
+ else{const a=p.valueAxis,y=v=>315-(v-a.min)/(a.max-a.min)*260,bw=480/p.categories.length;for(let v=a.min,i=0;v<=a.max&&i<100;v+=a.step,i++){out+='<path d="M65 '+y(v)+' H560" stroke="#d5dbe3"/>';if(i%(a.labelEvery||1)===0)out+='<text x="57" y="'+(y(v)+4)+'" text-anchor="end" font-size="12">'+v+'</text>'}p.categories.forEach((c,i)=>{const x=75+i*bw,v=r?.values[i]??a.min;out+='<rect data-bar="'+i+'" x="'+x+'" y="'+y(v)+'" width="'+(bw*.7)+'" height="'+(315-y(v))+'" fill="#2467a5"/><text x="'+(x+bw*.35)+'" y="338" text-anchor="middle" font-size="12">'+esc(c)+'</text>'});out+='<text transform="translate(18 185) rotate(-90)" text-anchor="middle" font-size="12">'+esc(a.label||'')+'</text><text x="300" y="375" text-anchor="middle" font-size="14">'+esc(p.categoryLabel||'')+'</text>'}
+ return out+'</svg>'}
+function displaySource(p){const s=p.source;if(!s)return '';if(s.type==='list')return '<p>Data: '+s.values.map(esc).join(', ')+'</p>';if(s.type==='objects')return '<p>Objects: '+s.items.map(o=>esc(o.color+' '+o.kind)).join(', ')+'</p>';
+ const tally=n=>Array.from({length:Math.floor(n/5)},()=> '||||/').concat(n%5?'|'.repeat(n%5):[]).join(' ');
+ return '<table class="mk-data-source"><thead><tr><th>Category</th><th>'+(s.type==='tally'?'Tally':'Count')+'</th></tr></thead><tbody>'+p.categories.map((c,i)=>'<tr><th scope="row">'+esc(c)+'</th><td>'+esc(s.type==='tally'?tally(s.counts[i]):s.counts[i])+'</td></tr>').join('')+'</tbody></table>'}
+function displayCreate(host,p,opts){let r=JSON.parse(JSON.stringify(opts.response||initial(p))),active=0;const line=p.tool==='line-plot',pic=p.tool==='picture-graph',labels=line?tickValues(p):p.categories;
+ function change(i,delta){if(line){if(delta>0&&r.marks.length<100)r.marks.push(labels[i]);else if(delta<0){const j=r.marks.findIndex(v=>F(v).eq(labels[i]));if(j>=0)r.marks.splice(j,1)}}else{const a=pic?r.symbols:r.values,lo=pic?0:p.valueAxis.min,hi=pic?p.maxSymbols:p.valueAxis.max;a[i]=Math.max(lo,Math.min(hi,Number(F(a[i]).add(delta))))}opts.onChange?.(JSON.parse(JSON.stringify(r)));draw(i)}
+ function draw(focus){host.innerHTML=displaySource(p)+'<div class="mk-plot-canvas">'+displayBlank(p,r)+'</div><p>'+(line?'Tap + to add an X; tap − to remove one.':pic?'Add or remove symbols in each category.':'Drag a bar or use the + and − buttons.')+' Arrow keys choose a row; + and − adjust it.'+(pic&&p.allowHalf?' H adds half a symbol.':'')+'</p><div class="mk-display-controls">'+labels.map((label,i)=>{const value=line?r.marks.filter(v=>F(v).eq(label)).length:pic?r.symbols[i]:r.values[i];return '<div class="mk-display-row"><strong>'+esc(line?mixed(label):label)+'</strong><button type="button" data-index="'+i+'" data-delta="-1" aria-label="Remove from '+esc(label)+'">−</button><output>'+value+'</output><button type="button" data-index="'+i+'" data-delta="1" aria-label="Add to '+esc(label)+'">+</button>'+(pic&&p.allowHalf?'<button type="button" data-index="'+i+'" data-delta="0.5">+½</button><button type="button" data-index="'+i+'" data-delta="-0.5">−½</button>':'')+'</div>'}).join('')+'</div><p aria-live="polite">'+labels.map((l,i)=>esc(l)+': '+(line?r.marks.filter(v=>F(v).eq(l)).length:pic?r.symbols[i]:r.values[i])).join(' · ')+'</p>';
+ host.querySelectorAll('[data-delta]').forEach(b=>b.onclick=()=>{active=+b.dataset.index;change(active,+b.dataset.delta*(pic||line?1:p.valueAxis.snap))});
+ host.onkeydown=e=>{if(e.target.dataset.index!==undefined)active=+e.target.dataset.index;if(['ArrowLeft','ArrowUp','ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();active=(active+(['ArrowLeft','ArrowUp'].includes(e.key)?-1:1)+labels.length)%labels.length;host.querySelector('[data-index="'+active+'"][data-delta="1"]').focus()}else if(['+','-','h','H'].includes(e.key)){e.preventDefault();if((e.key==='h'||e.key==='H')&&!(pic&&p.allowHalf))return;change(active,e.key==='-'?-(pic||line?1:p.valueAxis.snap):e.key.toLowerCase()==='h'?.5:pic||line?1:p.valueAxis.snap)}else if(e.key==='Enter'&&e.target.tagName!=='BUTTON'){e.preventDefault();opts.onSubmit?.()}};
+ if(!pic&&!line){const svg=host.querySelector('svg');let dragging=false;const set=e=>{const box=svg.getBoundingClientRect(),x=(e.clientX-box.left)/box.width*600,y=(e.clientY-box.top)/box.height*390,a=p.valueAxis;active=Math.max(0,Math.min(labels.length-1,Math.floor((x-75)/(480/labels.length))));const v=a.min+Math.round(((315-y)/260*(a.max-a.min))/a.snap)*a.snap;r.values[active]=Math.max(a.min,Math.min(a.max,v));opts.onChange?.(JSON.parse(JSON.stringify(r)));svg.innerHTML=displayBlank(p,r).replace(/^<svg[^>]*>|<\/svg>$/g,'')};svg.onpointerdown=e=>{dragging=true;svg.setPointerCapture(e.pointerId);set(e);e.preventDefault()};svg.onpointermove=e=>{if(dragging)set(e)};svg.onpointerup=()=>{dragging=false;draw(active)};svg.onpointercancel=()=>{dragging=false;draw(active)}}
+ if(focus!==undefined)host.querySelector('[data-index="'+focus+'"][data-delta="1"]').focus();}
+ host.classList.add('mk-plot');draw();return {getResponse:()=>JSON.parse(JSON.stringify(r))};
+}
+
 G.MK_PLOT={check,valid,blank,create,initial,number:v=>+F(v),tools};
 })(typeof window!=='undefined'?window:globalThis);

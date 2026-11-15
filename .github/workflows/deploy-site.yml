@@ -118,7 +118,7 @@ jobs:
       - name: Apply reviewed Classroom content updates
         run: |
           node scripts/apply-content-updates.mjs
-          node --test tests/plot-content.test.cjs tests/content-hybrid.test.cjs
+          node --test tests/plot-content.test.cjs tests/data-displays.test.cjs tests/content-hybrid.test.cjs
           node scripts/test-content-release.cjs _site
       - name: Audit curated elementary Asteroid Blaster units and playable question pools
         run: node scripts/test-elementary-asteroid.cjs _site
@@ -138,6 +138,8 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
+      - name: Browser-check data displays and mobile graphing practice
+        run: node scripts/test-data-displays-browser.cjs
       - name: Browser-check elementary game routing, student links and course switching
         run: node scripts/test-elementary-browser-parity.cjs _site
       - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check
