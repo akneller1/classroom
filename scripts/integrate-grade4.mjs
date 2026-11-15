@@ -1,5 +1,6 @@
 import { addAsteroidBlaster } from './asteroid-resources.mjs';
 import { addMultipleDrop } from './multiple-drop-resources.mjs';
+import { addMatchingGames } from './matching-resources.mjs';
 // Assemble the validated Grade 4 course from the separate FinancialAlgebra repository.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,6 +15,7 @@ const course=assembleGrade4({source,out});
 if(course.units.length!==10)throw Error('Grade 4 release requires ten units');
 addMultipleDrop(course);
 addAsteroidBlaster(course);
+addMatchingGames(course);
 const skills=course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
 'var L=G.LIBRARY;if(!L||!L.courses)throw Error("Grade 4 library missing");'+

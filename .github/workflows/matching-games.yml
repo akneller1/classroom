@@ -1,0 +1,46 @@
+# Matching card sorts: the function sort (printable + game) and the other matching kinds
+# (inequalities, proportional relationships, fractions/decimals/percents, systems, data displays,
+# sinusoids, f/f′/f″, conics, compound statements, transformations).
+name: Matching games
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'worksheet-generator/match-game.html'
+      - 'worksheet-generator/menu/match-*.js'
+      - 'worksheet-generator/menu/match-game.css'
+      - 'worksheet-generator/menu/printables-match.js'
+      - 'worksheet-generator/menu/tests/match-*.cjs'
+      - '.github/workflows/matching-games.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/match-game.html'
+      - 'worksheet-generator/menu/match-*.js'
+      - 'worksheet-generator/menu/printables-match.js'
+      - 'worksheet-generator/menu/tests/match-*.cjs'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Function card sort (every unit, level and set count)
+        run: node worksheet-generator/menu/tests/printables-match-tests.cjs
+      - name: Matching kinds (every card fits only its own set; every card re-derived)
+        run: node worksheet-generator/menu/tests/match-kinds-tests.cjs
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Play the function game and every matching kind in Chromium
+        run: |
+          node worksheet-generator/menu/tests/match-game-browser.cjs
+          node worksheet-generator/menu/tests/match-kinds-browser.cjs

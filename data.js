@@ -44,7 +44,21 @@ window.LIBRARY = {
       "id": "compound-statements-logic",
       "name": "The Logic of Compound Statements",
       "quarter": 1,
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Compound Statement Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=discrete-compound-statements-logic&kind=logic",
+          "thumb": "thumbs/matching-logic.svg",
+          "description": "Interactive card sort: match each symbolic statement to its English sentence, its truth table and a logically equivalent statement (De Morgan’s laws, contrapositive, conditional as a disjunction). Check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "The Logic of Compound Statements",
+            "Unit 2"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "number-theory-proof",
@@ -109,7 +123,21 @@ window.LIBRARY = {
       "id": "exploring-data",
       "name": "Exploring Data",
       "weeks": 4,
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Data Display Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=statistics-exploring-data&kind=data",
+          "thumb": "thumbs/matching-data.svg",
+          "description": "Interactive card sort: one data set shown four ways. Match each dot plot (or stem-and-leaf plot) to its histogram, box plot and summary statistics, all on one shared scale. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Exploring Data",
+            "Unit 1"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "sampling-experimentation",
@@ -142,7 +170,21 @@ window.LIBRARY = {
     {
       "id": "precalculus-review",
       "name": "Precalculus Review",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Precalculus Review Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=calculus-precalculus-review",
+          "thumb": "thumbs/matching-function.svg",
+          "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. Every card is checked to fit exactly one set.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Precalculus Review",
+            "Unit 1"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "limits-continuity",
@@ -152,12 +194,40 @@ window.LIBRARY = {
     {
       "id": "derivatives",
       "name": "Derivatives",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Function and Derivative Matching Game: Derivatives",
+          "path": "worksheet-generator/match-game.html#unit=calculus-derivatives&kind=deriv",
+          "thumb": "thumbs/matching-deriv.svg",
+          "description": "Interactive card sort: match each graph of f to the graphs of f′ and f″ and a description of how f behaves (increasing and decreasing, extrema, concavity, inflection points). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Derivatives",
+            "Unit 3"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "applications-derivatives",
       "name": "Applications of Derivatives",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Function and Derivative Matching Game: Applications of Derivatives",
+          "path": "worksheet-generator/match-game.html#unit=calculus-applications-derivatives&kind=deriv",
+          "thumb": "thumbs/matching-deriv.svg",
+          "description": "Interactive card sort: match each graph of f to the graphs of f′ and f″ and a description of how f behaves (increasing and decreasing, extrema, concavity, inflection points). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Applications of Derivatives",
+            "Unit 4"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "antiderivatives-definite-integrals",
@@ -182,7 +252,21 @@ window.LIBRARY = {
     {
       "id": "ap-review",
       "name": "AP Calculus Review",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Function and Derivative Matching Game: AP Calculus Review",
+          "path": "worksheet-generator/match-game.html#unit=calculus-ap-review&kind=deriv",
+          "thumb": "thumbs/matching-deriv.svg",
+          "description": "Interactive card sort: match each graph of f to the graphs of f′ and f″ and a description of how f behaves (increasing and decreasing, extrema, concavity, inflection points). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "AP Calculus Review",
+            "Unit 9"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     }
   ]
 },
@@ -197,22 +281,78 @@ window.LIBRARY = {
     {
       "id": "equations-inequalities",
       "name": "Equations and Inequalities",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Inequality Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=precalculus-equations-inequalities&kind=ineq",
+          "thumb": "thumbs/matching-ineq.svg",
+          "description": "Interactive card sort: match each inequality to the number line that shows its solutions and the words that describe them (and interval notation in Precalculus). Look-alikes differ only in direction or an open or closed endpoint. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Equations and Inequalities",
+            "Unit 1"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "functions",
       "name": "Functions",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Functions Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=precalculus-functions",
+          "thumb": "thumbs/matching-function.svg",
+          "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. Every card is checked to fit exactly one set.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Functions",
+            "Unit 2"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "conics",
       "name": "Conics",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Conic Section Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=precalculus-conics&kind=conic",
+          "thumb": "thumbs/matching-conic.svg",
+          "description": "Interactive card sort: match each conic in standard form to its graph, its general form and its features (center or vertex, radius, vertices, foci, directrix). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Conics",
+            "Unit 3"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "trigonometric-functions",
       "name": "Trigonometric Functions",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Sine and Cosine Graph Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=precalculus-trigonometric-functions&kind=trig",
+          "thumb": "thumbs/matching-trig.svg",
+          "description": "Interactive card sort: match each sinusoid equation to its graph, a table of key points and its features (amplitude, period, midline, maximum and minimum). Zoom in with a read-out in multiples of π; check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Trigonometric Functions",
+            "Unit 4"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "general-triangle-trigonometry",
@@ -798,6 +938,19 @@ window.LIBRARY = {
           "id": "inequalities",
           "name": "Linear Inequalities",
           "artifacts": [
+            {
+              "title": "Inequality Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-inequalities&kind=ineq",
+              "thumb": "thumbs/matching-ineq.svg",
+              "description": "Interactive card sort: match each inequality to the number line that shows its solutions and the words that describe them (and interval notation in Precalculus). Look-alikes differ only in direction or an open or closed endpoint. Drag or tap, zoom, check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Linear Inequalities",
+                "Unit 3"
+              ],
+              "added": "2026-11-14"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-inequalities",
@@ -1631,6 +1784,19 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
+            {
+              "title": "Systems of Equations Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-systems-of-equations&kind=sys",
+              "thumb": "thumbs/matching-sys.svg",
+              "description": "Interactive card sort: match each system in slope-intercept form to its graph, the same system in standard form and its solution (or no solution). Look-alike sets share a line. Drag or tap, zoom with coordinate read-out, check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Systems of Equations and Inequalities",
+                "Unit 6"
+              ],
+              "added": "2026-11-14"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-systems-of-equations",
@@ -3324,6 +3490,19 @@ window.LIBRARY = {
           "name": "Statistics and Data Modeling",
           "artifacts": [
             {
+              "title": "Data Display Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-statistics-data-modeling&kind=data",
+              "thumb": "thumbs/matching-data.svg",
+              "description": "Interactive card sort: one data set shown four ways. Match each dot plot (or stem-and-leaf plot) to its histogram, box plot and summary statistics, all on one shared scale. Drag or tap, zoom, check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Statistics and Data Modeling",
+                "Unit 12"
+              ],
+              "added": "2026-11-14"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-statistics-data-modeling",
               "thumb": "thumbs/practice-test.svg",
@@ -4816,6 +4995,19 @@ window.LIBRARY = {
           "name": "Conic Sections",
           "artifacts": [
             {
+              "title": "Conic Section Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-conic-sections&kind=conic",
+              "thumb": "thumbs/matching-conic.svg",
+              "description": "Interactive card sort: match each conic in standard form to its graph, its general form and its features (center or vertex, radius, vertices, foci, directrix). Drag or tap, zoom, check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Conic Sections",
+                "Unit 9"
+              ],
+              "added": "2026-11-14"
+            },
+            {
               "title": "Partner Check 1: Circles & Parabolas",
               "path": "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-conic-sections-partner-check-1.jpg",
@@ -4859,6 +5051,19 @@ window.LIBRARY = {
           "id": "trigonometric-functions",
           "name": "Trigonometric Functions",
           "artifacts": [
+            {
+              "title": "Sine and Cosine Graph Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-trigonometric-functions&kind=trig",
+              "thumb": "thumbs/matching-trig.svg",
+              "description": "Interactive card sort: match each sinusoid equation to its graph, a table of key points and its features (amplitude, period, midline, maximum and minimum). Zoom in with a read-out in multiples of π; check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Trigonometric Functions",
+                "Unit 10"
+              ],
+              "added": "2026-11-14"
+            },
             {
               "title": "Partner Check 1: Radians, Unit Circle & Right-Triangle Trig",
               "path": "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf",
@@ -6414,6 +6619,19 @@ window.LIBRARY = {
           "name": "Transformations",
           "artifacts": [
             {
+              "title": "Transformation Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=geometry-transformations&kind=xform",
+              "thumb": "thumbs/matching-xform.svg",
+              "description": "Interactive card sort: every set transforms the same triangle ABC. Match each description to its coordinate rule, the image coordinates and the picture. Drag or tap, zoom with coordinate read-out, check and hints; prints as a card sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Transformations",
+                "Unit 8"
+              ],
+              "added": "2026-11-14"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-transformations",
               "thumb": "thumbs/practice-test.svg",
@@ -7097,6 +7315,19 @@ window.LIBRARY = {
               "name": "Linear and Functional Relationships",
               "artifacts": [
                 {
+                  "title": "Linear and Functional Relationships Matching Game",
+                  "path": "worksheet-generator/match-game.html#unit=prealgebra-linear-functional-relationships",
+                  "thumb": "thumbs/matching-function.svg",
+                  "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. Every card is checked to fit exactly one set.",
+                  "type": "Game",
+                  "topics": [
+                    "Matching game",
+                    "Linear and Functional Relationships",
+                    "Unit 3"
+                  ],
+                  "added": "2026-11-14"
+                },
+                {
                   "title": "Linear and Functional Relationships Cheat Sheet",
                   "path": "artifacts/prealgebra-linear-functional-relationships-cheat-sheet/worksheet.pdf",
                   "thumb": "thumbs/prealgebra-linear-functional-relationships-cheat-sheet.jpg",
@@ -7116,6 +7347,19 @@ window.LIBRARY = {
               "id": "systems-linear-equations",
               "name": "Systems of Linear Equations",
               "artifacts": [
+                {
+                  "title": "Systems of Equations Matching Game",
+                  "path": "worksheet-generator/match-game.html#unit=prealgebra-systems-linear-equations&kind=sys",
+                  "thumb": "thumbs/matching-sys.svg",
+                  "description": "Interactive card sort: match each system in slope-intercept form to its graph, the same system in standard form and its solution (or no solution). Look-alike sets share a line. Drag or tap, zoom with coordinate read-out, check and hints; prints as a card sort.",
+                  "type": "Game",
+                  "topics": [
+                    "Matching game",
+                    "Systems of Linear Equations",
+                    "Unit 4"
+                  ],
+                  "added": "2026-11-14"
+                },
                 {
                   "title": "Systems of Linear Equations Cheat Sheet",
                   "path": "artifacts/prealgebra-systems-linear-equations-cheat-sheet/worksheet.pdf",
@@ -7156,6 +7400,19 @@ window.LIBRARY = {
               "id": "congruence-similarity",
               "name": "Congruence and Similarity",
               "artifacts": [
+                {
+                  "title": "Transformation Matching Game",
+                  "path": "worksheet-generator/match-game.html#unit=prealgebra-congruence-similarity&kind=xform",
+                  "thumb": "thumbs/matching-xform.svg",
+                  "description": "Interactive card sort: every set transforms the same triangle ABC. Match each description to its coordinate rule, the image coordinates and the picture. Drag or tap, zoom with coordinate read-out, check and hints; prints as a card sort.",
+                  "type": "Game",
+                  "topics": [
+                    "Matching game",
+                    "Congruence and Similarity",
+                    "Unit 6"
+                  ],
+                  "added": "2026-11-14"
+                },
                 {
                   "title": "Congruence and Similarity Cheat Sheet",
                   "path": "artifacts/prealgebra-congruence-similarity-cheat-sheet/worksheet.pdf",
@@ -7210,7 +7467,21 @@ window.LIBRARY = {
     {
       "id": "one-step-equations-inequalities",
       "name": "Solving One-Step Equations and Inequalities",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Inequality Matching Game: Solving One-Step Equations and Inequalities",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-one-step-equations-inequalities&kind=ineq",
+          "thumb": "thumbs/matching-ineq.svg",
+          "description": "Interactive card sort: match each inequality to the number line that shows its solutions and the words that describe them (and interval notation in Precalculus). Look-alikes differ only in direction or an open or closed endpoint. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Solving One-Step Equations and Inequalities",
+            "Unit 2"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "decimals-equations",
@@ -7230,17 +7501,72 @@ window.LIBRARY = {
     {
       "id": "ratios-proportions-percentages",
       "name": "Ratios, Proportions, and Percentages",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Fraction, Decimal and Percent Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-ratios-proportions-percentages&kind=fdp",
+          "thumb": "thumbs/matching-fdp.svg",
+          "description": "Interactive card sort: match each fraction to the same amount as a decimal, a percent and a hundred-grid or fraction-strip model. Look-alikes such as 40% and 4% sit side by side. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Ratios, Proportions, and Percentages",
+            "Unit 6"
+          ],
+          "added": "2026-11-14"
+        },
+        {
+          "title": "Proportional Relationships Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-ratios-proportions-percentages&kind=prop",
+          "thumb": "thumbs/matching-prop.svg",
+          "description": "Interactive card sort: match each real-world situation to its equation y = kx, its table and its graph by finding the unit rate. Look-alikes flip the rate (3/4 and 4/3). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Ratios, Proportions, and Percentages",
+            "Unit 6"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "solving-equations-inequalities",
       "name": "Solving Equations and Inequalities",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Inequality Matching Game: Solving Equations and Inequalities",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-solving-equations-inequalities&kind=ineq",
+          "thumb": "thumbs/matching-ineq.svg",
+          "description": "Interactive card sort: match each inequality to the number line that shows its solutions and the words that describe them (and interval notation in Precalculus). Look-alikes differ only in direction or an open or closed endpoint. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Solving Equations and Inequalities",
+            "Unit 7"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "linear-functions-graphing",
       "name": "Linear Functions and Graphing",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Linear Functions and Graphing Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-linear-functions-graphing",
+          "thumb": "thumbs/matching-function.svg",
+          "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. Every card is checked to fit exactly one set.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Linear Functions and Graphing",
+            "Unit 8"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "spatial-thinking",
@@ -7260,12 +7586,40 @@ window.LIBRARY = {
     {
       "id": "data-analysis-probability",
       "name": "Data Analysis and Probability",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Data Display Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-data-analysis-probability&kind=data",
+          "thumb": "thumbs/matching-data.svg",
+          "description": "Interactive card sort: one data set shown four ways. Match each dot plot (or stem-and-leaf plot) to its histogram, box plot and summary statistics, all on one shared scale. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Data Analysis and Probability",
+            "Unit 12"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "nonlinear-functions-polynomials",
       "name": "Nonlinear Functions and Polynomials",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Nonlinear Functions and Polynomials Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=prealgebra7-nonlinear-functions-polynomials",
+          "thumb": "thumbs/matching-function.svg",
+          "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. Every card is checked to fit exactly one set.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Nonlinear Functions and Polynomials",
+            "Unit 13"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     }
   ],
   "comingSoon": false
@@ -7280,7 +7634,34 @@ window.LIBRARY = {
     {
       "id": "ratios-rates-percent-proportions",
       "name": "Ratios, Rate, Percent and Proportions",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Fraction, Decimal and Percent Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=math6-ratios-rates-percent-proportions&kind=fdp",
+          "thumb": "thumbs/matching-fdp.svg",
+          "description": "Interactive card sort: match each fraction to the same amount as a decimal, a percent and a hundred-grid or fraction-strip model. Look-alikes such as 40% and 4% sit side by side. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Ratios, Rate, Percent and Proportions",
+            "Unit 1"
+          ],
+          "added": "2026-11-14"
+        },
+        {
+          "title": "Proportional Relationships Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=math6-ratios-rates-percent-proportions&kind=prop",
+          "thumb": "thumbs/matching-prop.svg",
+          "description": "Interactive card sort: match each real-world situation to its equation y = kx, its table and its graph by finding the unit rate. Look-alikes flip the rate (3/4 and 4/3). Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Ratios, Rate, Percent and Proportions",
+            "Unit 1"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "fractions-decimals-operations",
@@ -7300,7 +7681,21 @@ window.LIBRARY = {
     {
       "id": "inequalities",
       "name": "Inequalities",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Inequality Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=math6-inequalities&kind=ineq",
+          "thumb": "thumbs/matching-ineq.svg",
+          "description": "Interactive card sort: match each inequality to the number line that shows its solutions and the words that describe them (and interval notation in Precalculus). Look-alikes differ only in direction or an open or closed endpoint. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Inequalities",
+            "Unit 5"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "geometry",
@@ -7310,7 +7705,21 @@ window.LIBRARY = {
     {
       "id": "data-displays",
       "name": "Data Displays",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Data Display Matching Game",
+          "path": "worksheet-generator/match-game.html#unit=math6-data-displays&kind=data",
+          "thumb": "thumbs/matching-data.svg",
+          "description": "Interactive card sort: one data set shown four ways. Match each dot plot (or stem-and-leaf plot) to its histogram, box plot and summary statistics, all on one shared scale. Drag or tap, zoom, check and hints; prints as a card sort.",
+          "type": "Game",
+          "topics": [
+            "Matching game",
+            "Data Displays",
+            "Unit 7"
+          ],
+          "added": "2026-11-14"
+        }
+      ]
     }
   ],
   "comingSoon": false

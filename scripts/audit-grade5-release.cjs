@@ -157,7 +157,8 @@ else {
     const sharedGames = new Set(['/artifacts/multiple-drop/index.html', '/artifacts/times-table-sorter/index.html']);
     const asteroidUrl = new URL(a.path, 'https://mrksclassroom.com/');
     const approvedAsteroid = a.bankFormat==='asteroid-blaster' && raw==='/worksheet-generator/asteroid-blaster.html' && asteroidUrl.searchParams.get('course')==='grade5' && asteroidUrl.searchParams.get('unit')===unit.id;
-    const approvedSharedGame = a.type==='Game' && (sharedGames.has(raw) || approvedAsteroid);
+    const approvedMatching = a.type==='Game' && raw==='/worksheet-generator/match-game.html' && new URLSearchParams(asteroidUrl.hash.slice(1)).get('unit')==='grade5-'+unit.id;
+    const approvedSharedGame = a.type==='Game' && (sharedGames.has(raw) || approvedAsteroid || approvedMatching);
     if((!raw.startsWith('/grade5/')&&!approvedSharedGame)||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
    }
    const records=shared.MK_COURSE_CATALOG.getSkillRecords('grade5',unit.id);
