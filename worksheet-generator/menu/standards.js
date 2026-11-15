@@ -38,6 +38,18 @@
 
   /* ---------- summaries ---------- */
   var D = {
+    /* Locally authored Discrete Mathematics strands (not CCSS standards). */
+    'DM.LOGIC': 'Construct, evaluate, and compare compound logical statements and truth tables.',
+    'DM.COUNTING': 'Use systematic counting, permutations, combinations, and probability models.',
+    'DM.ELECTIONS': 'Analyze voting methods, rankings, and fairness in election systems.',
+    'DM.GRAPHS': 'Model networks with vertices, edges, trees, paths, and graph algorithms.',
+    'DM.PROOF': 'Use number theory and logical reasoning to construct and critique proofs.',
+    'DM.RELATIONS': 'Identify and analyze properties of mathematical relations and equivalence.',
+    'DM.INDUCTION': 'Use mathematical induction and recursive definitions to establish patterns.',
+    'DM.PATTERNS': 'Describe and extend numeric, visual, and recursively generated patterns.',
+    'DM.SETS': 'Use set notation, operations, subsets, and Venn diagrams.',
+    'DM.LANG': 'Communicate mathematical reasoning with precise language and notation.',
+
     /* Mathematical practices */
     'SMP 1–8': 'Standards for Mathematical Practice 1–8 (make sense of problems, reason, argue, model, use tools, precision, structure, regularity).',
     'MP.1': 'Make sense of problems and persevere in solving them.',
@@ -382,6 +394,7 @@
   };
   STD.framework = function (code) {
     var c = norm(code);
+    if (/^DM\\./.test(c)) return 'Discrete Mathematics';
     if (/^APSTATS/.test(c)) return 'AP Statistics';
     if (/^AP /.test(c)) return 'AP Calculus';
     if (STD.isPractice(c)) return 'CCSS Practice';
