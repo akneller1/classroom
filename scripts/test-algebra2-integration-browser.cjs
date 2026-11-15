@@ -32,7 +32,8 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
   }
   await page.goto(base+'/worksheet-generator/practice-test.html?course=algebra2#unit=algebra2-'+unit);
   await page.waitForFunction(expected=>document.querySelector('#pt-unit')?.value===expected,'algebra2-'+unit);
-  await page.locator('#pt-build').click();await page.locator('#pt-progress-count').waitFor();
+  await page.locator('#pt-build').click();
+  await page.waitForFunction(()=>{const progress=document.querySelector('#pt-progress-count');return progress&&/^0 of \d+ answered$/.test(progress.textContent.trim())&&document.querySelectorAll('[data-jump]').length>0;});
   assert.ok(await page.locator('[data-jump]').count()>0);cases.push(unit+'/practice');
   for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){
    await page.goto(base+'/worksheet-generator/algebra2-game.html?unit='+unit+'&game='+game);
