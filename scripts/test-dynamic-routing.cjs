@@ -44,6 +44,11 @@ function check(route,label){
   vm.runInContext(appSource,ctx,{filename:'app.js',timeout:20000});
   const html=get('main').innerHTML||'';
   assert(html.includes('<h1'), 'Missing heading');
+  if(route==='grade5.place-value-number-sense'){
+   assert(html.includes('id="algebra-projects"'), 'Missing Projects section');
+   assert(html.includes('Sports Stats Showdown'), 'Missing Sports Stats Showdown card');
+   assert(html.includes('/grade5/math5-project-sports-stats-showdown/index.html'), 'Missing native project link');
+  }
   if(label)assert(html.includes(label.slice(0,4)), 'Missing expected course/unit text: '+label);
   for(const m of html.matchAll(/href="([^"<>]+)"/g)){
    const href=m[1].replace(/&amp;/g,'&');
