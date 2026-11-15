@@ -1,0 +1,32 @@
+name: Release Phase 2 deployment queue
+
+on:
+  push:
+    paths:
+      - .github/workflows/release-phase2-unblock.yml
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cancel-stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel only superseded pre-Phase-2 Classroom deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner=context.repo.owner, repo=context.repo.repo;
+            const staleId=43771493785;
+            const expectedSha='e300c5561fcbb685f3caf6d651ba831d1c0fa940';
+            const {data:stale}=await github.rest.actions.getWorkflowRun({owner,repo,run_id:staleId});
+            if(stale.head_sha!==expectedSha)throw Error('Unexpected workflow SHA; aborting cancellation.');
+            if(stale.name!=='Deploy site')throw Error('Unexpected workflow name; aborting cancellation.');
+            if(stale.status==='completed'){
+              core.info('Superseded run is already complete; nothing to cancel.');
+              return;
+            }
+            core.info('Canceling superseded deployment run '+staleId+' ('+stale.status+').');
+            await github.rest.actions.cancelWorkflowRun({owner,repo,run_id:staleId});
