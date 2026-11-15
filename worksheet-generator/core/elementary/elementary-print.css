@@ -134,7 +134,7 @@
 .el-paper .el-foot{position:absolute;left:.5in;right:.5in;bottom:.2in;height:.8in;margin:0}
 .el-paper .el-sticker img{width:.75in;height:.75in}
 .el-paper.el-g35 .el-sticker img{width:.55in;height:.55in}
-.el-paper .el-qs{margin:0 0 var(--el-gap);align-items:start}
+.el-paper .el-qs{margin:0 0 calc(var(--el-gap) + var(--el-extra-gap,0px));align-items:start}
 .el-paper .el-qs.el-single{grid-template-columns:1fr}
 .el-paper .el-content{min-width:0}
 .el-paper .el-q{min-width:0;border:2px solid #d9ddf2;padding:.12in .14in}
@@ -150,6 +150,12 @@
 .el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:1.25in!important}
 .el-paper .el-choice>span:last-child{min-width:0;overflow-wrap:break-word}
 .el-paper .el-student-work{padding-left:.3in;margin:.08in 0}
+.el-paper .el-custom-note{font-size:.7em;line-height:1.35;margin:.05in 0}
+.el-paper .el-reference{font-size:.75em;line-height:1.4}
+.el-paper .el-graph{background-image:linear-gradient(#c8c8c8 .5px,transparent .5px),linear-gradient(90deg,#c8c8c8 .5px,transparent .5px);background-size:.2in .2in}
+.el-paper .el-coordinate{min-height:2.15in;text-align:center;padding-top:.2in}
+.el-paper .el-workrow:has(.el-coordinate){display:block}
+.el-paper .el-coordinate svg{max-width:100%;height:auto}
 .el-paper .el-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .el-paper.el-oversize{height:auto;min-height:11in}
 .el-paper.el-oversize .mm-body{position:relative;height:auto;left:0;right:0;top:0;margin:.45in .5in 1.2in}
