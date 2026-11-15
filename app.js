@@ -108,10 +108,11 @@
     { id: 'tarsia', name: 'Tarsia Puzzles', description: 'Cut out triangles and match math problems to their answers to build a hexagon. Printable puzzles with space to show your work.' },
     { id: 'assessment-menus', name: 'Assessment Menus', description: 'Choose problems from a menu of point values to demonstrate your understanding. Printable assessments with student choice, scoring guidance, and teacher keys.' },
     { id: 'stations', name: 'Stations', description: 'Printable station-work activities with sets of problems for small-group rotation, review, and independent practice.' },
+    { id: 'projects', name: 'Projects', description: 'Explore extended projects with student materials and teacher resources.' },
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
-    if (a.type === 'Project' || /-project-/.test(a.path || '')) return 'other';
+    if (a.type === 'Project' || /-project-/.test(a.path || '')) return 'projects';
     if (a.bankFormat) return a.bankFormat;
     // Grade 6–8 games share the generator page, but remain games, not worksheets.
     var middleGame = /worksheet-generator\/middle-school-game\.html\?/i.test(a.path || '') &&
@@ -182,6 +183,7 @@
     { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
     { id: 'interactive', name: 'Interactive Math', formats: ['interactive-math'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
+    { id: 'projects', name: 'Projects', formats: ['projects'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   // Keep the game's catalog type authoritative across all Browse Activities sections.
@@ -388,6 +390,7 @@
   function activityUrl(a) { var path=a.path||''; if (/^artifacts\/postit-games\/[a-z0-9-]+\/index\.html(?:#[a-z0-9=&.%,_-]+)?$/.test(path)) return path; if (/^\/?artifacts\/(multiple-drop|times-table-sorter|input-output-grid)\/index\.html(?:\?rules=linear)?$/.test(path)) return path; if (/^\/?grade[1-5]\//.test(path)) return path; if (/^https:\/\//i.test(path) || /^\/grade5\//.test(path) || /^financial\//.test(path) || /^artifacts\/financial-algebra-/.test(path)) return path; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity|asteroid-blaster)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
+    if (activityFormat(a) === 'projects') return 'Open project';
     var format = activityFormat(a);
     if (/worksheet-generator\/printables\.html/.test(a.path || '')) return 'Make printable';
     if (format === 'lesson-planner') return 'Plan a day';
@@ -807,6 +810,7 @@
         category('study-guides', 'Study Guides', guideFormats) +
         category('interactive', 'Interactive Math', interactiveFormats) +
         category('practice', 'Practice Activities', practiceFormats) +
+        category('projects', 'Projects', ['projects']) +
         unitPager(c, u) + '</div></section>'
     };
   }
