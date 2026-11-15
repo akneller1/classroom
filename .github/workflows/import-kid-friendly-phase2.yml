@@ -1,0 +1,66 @@
+name: Integrate Kid-Friendly Phase 2 art and print layouts
+
+on:
+  push:
+    paths:
+      - .github/workflows/import-kid-friendly-phase2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Read committed Grade 1 illustrations from the separate source repository
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: d352a44e1e86b3fc7f979c831104d581e4d25949
+          path: _phase2_source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unpack and verify exact uploaded Phase 2 archive
+        run: |
+          echo 'cde4192d7ddeac39a4db4610441e6e558958351fff0b03e85c7dc70d3174a249  kid-friendly-phase2-ready-to-deploy.zip' | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/kidphase2"
+          unzip -q kid-friendly-phase2-ready-to-deploy.zip -d "$RUNNER_TEMP/kidphase2"
+      - name: Install 54 original SVGs, primary layouts and exact Grade 1 pin
+        run: |
+          node "$RUNNER_TEMP/kidphase2/pin-grade1.mjs" _phase2_source .
+          node "$RUNNER_TEMP/kidphase2/install-phase2.mjs" _phase2_source .
+          node "$RUNNER_TEMP/kidphase2/verify-phase2.mjs" _phase2_source .
+      - name: Keep the deployment archive out of the published website
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file='scripts/build-site.mjs';
+          let s=fs.readFileSync(file,'utf8');
+          const anchor='const EXCLUDE_FILES = new Set([';
+          if(!s.includes(anchor))throw Error('Missing built-site exclusion list');
+          const line='  "kid-friendly-phase2-ready-to-deploy.zip",';
+          if(!s.includes(line))s=s.replace(anchor,anchor+'\n'+line);
+          fs.writeFileSync(file,s);
+          NODE
+      - name: Commit reviewed Classroom changes and release pin
+        run: |
+          git config user.name "mrks-classroom-automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/deploy-site.yml \
+            worksheet-generator/core/elementary/elementary-print.css \
+            worksheet-generator/core/elementary/art \
+            worksheet-generator/menu/elementary-print.js \
+            scripts/test-elementary-print-browser.cjs \
+            scripts/build-site.mjs
+          git diff --cached --stat
+          if ! git diff --cached --quiet; then
+            git commit -m "Integrate Phase 2 mascots, unit badges and illustrated primary print layouts"
+            git push origin HEAD:main
+          fi
