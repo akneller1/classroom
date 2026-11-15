@@ -113,7 +113,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await projects.locator('.pj-levels tr').count(),3);
     assert.equal(await projects.locator('.pj-card a').count(),12,'All editable files, keys and supports must be linked');
     assert.match(await projects.locator('.pj-teacher').innerText(),/Printable supports/);
-    assert.match(await projects.locator('.pj-levels').innerText(),/Remedial[\s\S]*Standard[\s\S]*Advanced/);
+    assert.match(await projects.locator('.pj-levels').innerText(),/Support[\s\S]*Standard[\s\S]*Advanced/);
   }
   await projects.close();
   console.log('PASS Grade 1 projects: all 12 units display their project and all 12 download links.');
