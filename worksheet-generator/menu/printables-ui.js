@@ -144,7 +144,8 @@
         var n = Math.min(p.per, p.list.length - i), pg;
         for (; n >= 1; n--) {
           pg = p.raw ? { html: p.html(i, i + n), nofoot: true } : page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
-          var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; mathDisplay(e); stage.appendChild(e);
+          pg.cls=p.cls||'';
+          var e = doc.createElement('div'); e.className = 'page mm-page pr-page '+pg.cls; e.innerHTML = pg.html; mathDisplay(e); stage.appendChild(e);
           var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight + 1 && (!b.classList.contains('pw-clues') || b.lastElementChild.getBoundingClientRect().bottom <= b.getBoundingClientRect().bottom - 12);
           // Station footers are absolutely positioned: scrollHeight alone cannot detect a
           // question or answer-key row that overlaps the footer while still inside the page.
@@ -497,7 +498,13 @@
   /* Division written with a slash in bank questions (2/5, (x + 1)/(x - 3)) prints as a stacked fraction, like the worksheets and games. */
   function mathDisplay(e) { if (G.MK_MATH_DISPLAY && G.MK_MATH_DISPLAY.decorate) G.MK_MATH_DISPLAY.decorate(e); }
   PR.pages = function (cfg, B, v, nV, key) {
-    return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages, match: matchPages })[cfg.kind](cfg, B, v, nV, key);
+    var pages=({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages, match: matchPages })[cfg.kind](cfg, B, v, nV, key);
+    if(!key&&G.MK_ELEMENTARY_PRINT?.grade(cfg))pages.forEach(function(p){
+      p.cls=(p.cls||'')+' '+G.MK_ELEMENTARY_PRINT.className(cfg)+' el-activity';
+      if(typeof p.html==='function'){var render=p.html;p.html=function(a,b){return G.MK_ELEMENTARY_PRINT.activity(cfg,render(a,b),false);};}
+      else p.html=G.MK_ELEMENTARY_PRINT.activity(cfg,p.html,false);
+    });
+    return pages;
   };
   /* Teacher key only: a closing page listing the standards the printable's problems address (menu/standards.js). */
   function problemsIn(B) {
@@ -539,6 +546,7 @@
       var e = doc.createElement('div'); e.className = 'page mm-page pr-page' + (p.land ? ' pr-land' : '') + (p.cls ? ' ' + p.cls : '');
       e.innerHTML = p.html + (p.nofoot ? (p.brand ? '<div class="pc-brand">Mr. K\'s Classroom</div>' : '') : '<div class="mm-foot"><span>' + p.foot + '</span><span>Page ' + (i + 1) + ' of ' + P.length + '</span></div>');
       mathDisplay(e);
+      if(!key&&G.MK_ELEMENTARY_PRINT?.grade(cfg)){e.querySelectorAll('.mm-foot').forEach(f=>f.remove());var foot=doc.createElement('div');foot.className='el-activity-foot';foot.innerHTML="<span>Mr. K's Classroom · page "+(i+1)+'</span>'+(i===P.length-1?G.MK_ELEMENTARY_PRINT.icon('i-did-it'):'');e.appendChild(foot);}
       return e;
     });
   };

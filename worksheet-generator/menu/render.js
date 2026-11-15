@@ -132,14 +132,14 @@
     return f;
   }
   NS.proofKeyFig = proofKeyFig;
-  function promptHtml(p, forKey, inlineLabel, pointsLabel, partSpace) {
+  function promptHtml(p, forKey, inlineLabel, pointsLabel, partSpace, cfg) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
     var questionText = (!forKey && p.mc && p.mc.prompt) ? p.mc.prompt : (p.prompt || '');
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
       questionText = questionText.split(' Establish:')[0];
     }
     questionText = NS.displayPrompt(p, questionText);
-    var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + mathSafe(questionText) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
+    var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + (forKey&&G.MK_ELEMENTARY_PRINT?.grade(cfg)?G.MK_ELEMENTARY_PRINT.prompt(p,true):mathSafe(questionText)) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && p.fig.proof && NS.figHtml) { var pf = forKey ? proofKeyFig(p) : p.fig;   // the proof table under the diagram holds every blank
       return h + NS.figHtml(pf) + (pf.kind !== 'geo-cong' && NS.geoFigures && NS.geoFigures.proofTable ? NS.geoFigures.proofTable(pf.proof) : ''); }
@@ -335,7 +335,7 @@
     var rub = mcasOn ? mcasRub : multiOn ? '<li><b>' + ptsText(+sec.points) + '</b>: select every correct statement and no incorrect statements.</li>' : mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
     if (NS.sectionFormat(cfg, si) === 'mc' && !p.mc && !p.failed) rub = '<li><span class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</span></li>' + rub;
     var ws = NS.isWorksheet(cfg), fallback = NS.sectionFormat(cfg, si) === 'mc' && !p.mc ? '<div class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</div>' : '';
-    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + stdChips(p, cfg) + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : multiOn ? multiHtml(p) : '') + statusBadge(p) + '</td>' +
+    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + stdChips(p, cfg) + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true, null, null, null, cfg) + (mcOn ? choicesHtml(p) : multiOn ? multiHtml(p) : '') + statusBadge(p) + '</td>' +
       '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (ws ? fallback : '') + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td>' + (ws ? '' : '<td><ul class="mm-rub">' + rub + '</ul></td>') + '</tr>';
   }
   function guideBlocks(state, vIdx) {
@@ -397,6 +397,7 @@
   }
   /* Returns a Promise of an array of page elements. */
   NS.renderPages = function (state, vIdx, kind) {
+    if(kind!=='key'&&G.MK_ELEMENTARY_PRINT?.grade(state.config)&&NS.isTest(state.config))return G.MK_ELEMENTARY_PRINT.renderPages(state,vIdx);
     var blocks = kind === 'key' ? keyBlocks(state, vIdx) : studentBlocks(state, vIdx);
     var stage = el('div', 'measure-stage mm-stage'); doc.body.appendChild(stage);
     var pages = [], cur = null, overflow = [];

@@ -86,6 +86,7 @@ function fm(s){
       out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
     if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
       out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='_'&&s[i+1]==='_'){let j=i;while(s[j]==='_')j++;out+='<span class="ans-box" role="img" aria-label="blank"></span>';i=j;continue;}
     if(c==='^'||c==='_'){
       i++;let inner='';
       if(s[i]==='{')inner=grp();
@@ -253,7 +254,7 @@ function decorate(root){
 }
 G.MK_MATH_DISPLAY={html,fractions,decorate,money,hasMatrix,trigSquares};
 if(G.document){
- const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=matrix-grid-20261113',script.src).href;G.document.head.appendChild(link);
+ const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=elementary-blanks-20261115',script.src).href;G.document.head.appendChild(link);
  const selector='.af-prompt,.gm-q,.gm-opt,.gm-sol,.prompt,.statement,.choices,.problem,.display,.eq,.q,.solution,.steps,.st,.item,.ord,.pm-text,.pm-big,#prPreview .page';
  let pending=false;function scan(){pending=false;G.document.querySelectorAll(selector).forEach(decorate)}
  function schedule(){if(!pending){pending=true;queueMicrotask(scan)}}

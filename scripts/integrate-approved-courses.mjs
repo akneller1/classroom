@@ -42,6 +42,11 @@ for(const f of ['grade5.html','grade5-resources.html','data.js','course-catalog.
  'assets/course-icons/grade5.svg','course-outlines/grade5.json',
  'worksheet-generator/core/math-display.js','worksheet-generator/core/math-display.css',
  'worksheet-generator/games/skill-setup.js'])copyFile(f);
+// Display fixes belong to Classroom's shared renderer, including the Grade 5
+// players assembled from the pinned course source.
+for(const rel of ['worksheet-generator/core/math-display.js','worksheet-generator/core/math-display.css']){
+ fs.copyFileSync(required(path.join(out,rel)),path.join(dst,rel));
+}
 for(const f of fs.readdirSync(path.join(stage,'src')).filter(x=>/^grade5-.*\.js$/.test(x)))copyFile('src/'+f);
 for(const f of fs.readdirSync(path.join(stage,'worksheet-generator')).filter(x=>/^grade5-.*\.html$/.test(x)))copyFile('worksheet-generator/'+f);
 copyDir('worksheet-generator/grade5');

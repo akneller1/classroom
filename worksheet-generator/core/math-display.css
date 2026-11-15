@@ -44,3 +44,15 @@ svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-widt
 .mx::before,.mx::after{content:"";width:.32em;border:.08em solid currentColor}
 .mx::before{border-right:0}.mx::after{border-left:0}
 .mxg{display:inline-grid;column-gap:.9em;row-gap:.22em;padding:.2em .35em;justify-items:center;align-items:center}
+
+/* Visible answer blanks across printables and student players. */
+.ans-box { display: inline-block; width: var(--el-box-w, .45in); height: var(--el-box-h, .36in);
+  border: 2px solid var(--el-ink, #14173a); border-radius: 6px; vertical-align: middle;
+  margin: 0 .05em; background: #fff; box-sizing: border-box; }
+/* Teacher key: same box, filled with the value */
+.ans-box.key { width: auto; min-width: var(--el-box-w, .45in); padding: 0 .08in; text-align: center;
+  line-height: calc(var(--el-box-h, .36in) - 4px); color: #b4231c; font-weight: 700; }
+
+.ans-box.answer { width: var(--el-big-w, .6in); height: var(--el-big-h, .44in); border-width: 2.5px; }
+.el-g1, .el-g2 { --el-big-w: .9in; --el-big-h: .62in; }
+.el-g35 { --el-big-w: .65in; --el-big-h: .44in; }

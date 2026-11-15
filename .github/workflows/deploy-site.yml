@@ -139,6 +139,10 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
+      - name: Verify kid-friendly elementary print layouts
+        run: |
+          node scripts/test-elementary-blanks.cjs _site
+          node scripts/test-elementary-print-browser.cjs _site
       - name: Browser-check data displays and mobile graphing practice
         run: node scripts/test-data-displays-browser.cjs
       - name: Browser-check secondary function graphing and Calculus images

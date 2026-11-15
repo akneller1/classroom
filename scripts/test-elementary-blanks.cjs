@@ -1,0 +1,9 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const root=path.resolve(process.argv[2]||'_site'),strings=[];
+function collect(v){if(typeof v==='string'){if(/_{2,}/.test(v))strings.push(v);}else if(Array.isArray(v))v.forEach(collect);else if(v&&typeof v==='object')Object.values(v).forEach(collect);}
+for(let grade=1;grade<=5;grade++){const dir=path.join(root,'question-banks/grade'+grade);for(const name of fs.readdirSync(dir).filter(n=>n.endsWith('.json'))){const bank=JSON.parse(fs.readFileSync(path.join(dir,name)));for(const q of bank.questions||[])collect({prompt:q.prompt,options:q.options,parts:q.parts,answer:q.answer,solutionSteps:q.solutionSteps});}}
+assert(strings.length>=2000,'Audit must include the full elementary release');
+const scripts=['worksheet-generator/core/math-display.js',...Array.from({length:5},(_,i)=>'grade'+(i+1)+'/worksheet-generator/core/math-display.js')];
+let runs=0;
+for(const script of scripts){const ctx={};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,script),'utf8'),ctx);for(const text of strings){const html=ctx.MK_MATH_DISPLAY.html(text);const expected=(text.match(/_{2,}/g)||[]).length;assert.equal((html.match(/class="ans-box"/g)||[]).length,expected,script+': '+text);assert(!/<sub class="s"><\/sub>/.test(html),script);runs+=expected;}const algebra=ctx.MK_MATH_DISPLAY.html('x_1 + x_{ab} + y^2');assert.equal((algebra.match(/<sub /g)||[]).length,2);assert.match(algebra,/<sup /);assert(!algebra.includes('ans-box'));}
+console.log('PASS '+strings.length+' elementary strings, '+runs+' visible blank boxes across all six shared/player renderers; real subscripts and exponents retained.');

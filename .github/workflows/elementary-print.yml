@@ -1,0 +1,61 @@
+name: Elementary print presentation
+on:
+  push:
+    paths:
+      - 'worksheet-generator/core/math-display.*'
+      - 'worksheet-generator/core/elementary/**'
+      - 'worksheet-generator/menu/elementary-print.js'
+      - 'worksheet-generator/menu/render.js'
+      - 'worksheet-generator/menu/printables-ui.js'
+      - 'scripts/test-elementary-*'
+      - '.github/workflows/elementary-print.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
+          path: _course_sources/current
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: e6c1aee6800f12f5734ebcbfb6b8ca2961fc6026
+          path: _course_sources/grade4
+          persist-credentials: false
+      - name: Assemble released elementary courses
+        run: |
+          node scripts/build-site.mjs
+          GRADE5_SOURCE_DIR=_course_sources/current node scripts/integrate-approved-courses.mjs
+          GRADE4_SOURCE_DIR=_course_sources/grade4 node scripts/integrate-grade4.mjs
+          GRADE3_SOURCE_DIR=_course_sources/current node scripts/integrate-grade3.mjs
+          GRADE2_SOURCE_DIR=_course_sources/current node scripts/integrate-grade2.mjs
+          GRADE1_SOURCE_DIR=_course_sources/current node scripts/integrate-grade1.mjs
+          node scripts/apply-content-updates.mjs
+      - name: Check every elementary blank and shared generator
+        run: |
+          node scripts/test-elementary-blanks.cjs _site
+          node scripts/test-elementary-generators.cjs _site
+      - name: Install browser
+        run: |
+          npm install --no-save --no-package-lock playwright
+          npx playwright install --with-deps chromium
+      - name: Verify grade layouts and capture print previews
+        run: node scripts/test-elementary-print-browser.cjs _site
+      - name: Check puzzle and station pagination
+        run: SITE_ROOT=_site node scripts/test-printable-layouts.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: elementary-print-previews
+          path: test-results/

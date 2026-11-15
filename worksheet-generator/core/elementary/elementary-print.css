@@ -1,0 +1,169 @@
+/* elementary-print.css — kid-friendly print layout for Grades 1-5.
+   Scope: add ONE class to the printed page wrapper (.page / .mm-page):
+     .el-g1  Grade 1      .el-g2  Grade 2      .el-g35  Grades 3-5
+   Everything below is scoped to those classes, so Algebra and other courses are unchanged.
+   Sizes are in inches/points so print output matches the spec exactly. */
+
+/* ---------- 1. Per-grade sizes ---------- */
+.el-g1  { --el-font: 21pt; --el-lh: 1.45; --el-box-w: .55in; --el-box-h: .48in;
+          --el-ans-w: 1.6in; --el-ans-h: .85in; --el-gap: .14in; --el-cols: 1; --el-bubble: .38in; --el-work-h: 1.3in; }
+.el-g2  { --el-font: 18pt; --el-lh: 1.4;  --el-box-w: .55in; --el-box-h: .45in;
+          --el-ans-w: 1.6in; --el-ans-h: .8in;  --el-gap: .2in;  --el-cols: 1; --el-bubble: .36in; --el-work-h: 1.4in; }
+.el-g35 { --el-font: 15pt; --el-lh: 1.35; --el-box-w: .45in; --el-box-h: .36in;
+          --el-ans-w: 1.2in; --el-ans-h: .55in; --el-gap: .14in; --el-cols: 2; --el-bubble: .3in; --el-work-h: .75in; }
+
+.el-g1, .el-g2, .el-g35 {
+  --el-ink: #14173a; --el-soft: #4a4f78; --el-guide: #9aa3d6; --el-tint: #fff4e0; --el-accent: #ff8a1f;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+  font-size: var(--el-font); line-height: var(--el-lh); color: var(--el-ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+/* ---------- 2. Title band and header ---------- */
+.el-band { display: flex; align-items: center; gap: .18in; padding: .12in .2in;
+  border: 2.5px solid var(--el-ink); border-radius: .18in; background: var(--el-tint); margin-bottom: .14in; }
+.el-band .el-mascot { width: .75in; height: .75in; flex: none; }          /* Phase 2: unit mascot goes here */
+.el-band h1 { margin: 0; font-size: 1.35em; line-height: 1.1; }
+.el-band .el-unit { font-size: .62em; color: var(--el-soft); font-weight: 700; letter-spacing: .02em; }
+
+.el-name { display: flex; align-items: flex-end; gap: .12in; margin: .06in 0 .16in; font-weight: 700; }
+.el-name img { width: .42in; height: .42in; }
+.el-name .el-lines { flex: 1; }
+.el-g35 .el-name .el-date { flex: 0 0 1.8in; }
+
+/* ---------- 3. Primary handwriting lines (solid top, dashed middle, solid baseline) ---------- */
+.el-lines { position: relative; height: .62in; border-top: 1.5px solid var(--el-guide);
+  border-bottom: 2px solid var(--el-ink); box-sizing: border-box; }
+.el-lines::after { content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  border-top: 1.5px dashed var(--el-guide); }
+.el-g35 .el-lines { height: .38in; border-top: none; }                     /* Grades 3-5: one plain line */
+.el-g35 .el-lines::after { display: none; }
+
+/* ---------- 4. Directions with icons ---------- */
+.el-dir { display: flex; align-items: center; gap: .12in; font-weight: 700; font-size: .9em;
+  margin: .1in 0 .12in; padding: .06in .14in; border-radius: .14in; background: #f1f3ff; }
+.el-dir img { width: .42in; height: .42in; flex: none; }
+.el-g35 .el-dir img { width: .32in; height: .32in; }
+
+/* ---------- 5. Question grid ---------- */
+.el-qs { display: grid; grid-template-columns: repeat(var(--el-cols), 1fr); gap: var(--el-gap) .3in; }
+.el-q { break-inside: avoid; display: grid; grid-template-columns: auto 1fr; gap: .12in;
+  padding: .12in .14in; border: 2px solid #d9ddf2; border-radius: .16in; }
+.el-num { min-width: 1.6em; height: 1.6em; border-radius: 50%; display: grid; place-items: center;
+  background: var(--el-ink); color: #fff; font-weight: 700; font-size: .8em; }
+.el-prompt { margin: 0 0 .08in; }
+.el-fig { display: block; margin: .04in auto .1in; max-height: 1.7in; max-width: 100%; }
+.el-g35 .el-fig { max-height: 1.1in; }
+
+/* ---------- 6. Inline blank box — replaces "___" everywhere ---------- */
+.ans-box { display: inline-block; width: var(--el-box-w, .45in); height: var(--el-box-h, .36in);
+  border: 2px solid var(--el-ink, #14173a); border-radius: 6px; vertical-align: middle;
+  margin: 0 .05em; background: #fff; box-sizing: border-box; }
+/* Teacher key: same box, filled with the value */
+.ans-box.key { width: auto; min-width: var(--el-box-w, .45in); padding: 0 .08in; text-align: center;
+  line-height: calc(var(--el-box-h, .36in) - 4px); color: #b4231c; font-weight: 700; }
+
+/* ---------- 7. Answer box and work area ---------- */
+.el-answer { display: flex; justify-content: flex-end; align-items: center; gap: .1in; margin-top: .06in; }
+.el-answer .lbl { font-size: .7em; font-weight: 700; color: var(--el-soft); }
+.el-answer .box { width: var(--el-ans-w); height: var(--el-ans-h); border: 2.5px solid var(--el-ink);
+  border-radius: .12in; padding: .08in .1in; box-sizing: border-box; display: flex; align-items: center; }
+.el-answer .box .el-lines { width: 100%; height: 72%; }
+.el-g35 .el-answer .box .el-lines { display: none; }
+.el-work { min-height: var(--el-work-h, 1.1in); border: 1.5px dashed var(--el-guide); border-radius: .12in; margin-top: .06in;
+  position: relative; }
+.el-work::before { content: "My work"; position: absolute; top: .04in; left: .1in; font-size: .55em;
+  color: var(--el-soft); font-weight: 700; }
+.el-g35 .el-work::before { content: "Work"; }
+
+/* ---------- 8. Multiple choice: bubble cards ---------- */
+.el-choices { display: flex; flex-wrap: wrap; gap: .1in .14in; margin-top: .06in; }
+.el-choice { display: flex; align-items: center; gap: .1in; padding: .06in .16in .06in .08in;
+  border: 2px solid #c9cfee; border-radius: 999px; min-width: 1.1in; }
+.el-bubble { width: var(--el-bubble); height: var(--el-bubble); border: 2px solid var(--el-ink); border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: .62em; flex: none; }
+
+/* ---------- 9. Footer ---------- */
+.el-foot { display: flex; justify-content: space-between; align-items: center; margin-top: .08in;
+  font-size: .55em; color: var(--el-soft); }
+.el-foot img { width: .8in; height: .8in; }                                /* "I did it!" sticker to color */
+
+/* ---------- 10. Fractions (Grades 3-5) ---------- */
+.el-frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;
+  font-size: .85em; line-height: 1.05; margin: 0 .06em; }
+.el-frac > span:first-child { border-bottom: 1.5px solid currentColor; padding: 0 .1em; }
+
+/* ---------- 11. "Show What You Know" (Grades 1-2 quiz) ---------- */
+.el-ican { display: flex; align-items: center; justify-content: space-between; gap: .1in;
+  border: 2px solid #d9ddf2; border-radius: .14in; padding: .06in .14in; margin-bottom: .08in; font-size: .8em; }
+.el-faces { display: flex; gap: .12in; }
+.el-faces svg { width: .4in; height: .4in; }
+
+/* Grades 3-5: short choices (<= 12 characters each) in a 2 x 2 grid; long choices stay one per line so a question stays short enough for 6 per page */
+.el-g35 .el-choices.short { display: grid; grid-template-columns: 1fr 1fr; gap: .06in .1in; }
+.el-g35 .el-choice { min-width: 0; padding: .04in .1in .04in .06in; border-radius: .14in; font-size: .9em; }
+
+.el-g35 .el-choices.long { flex-direction: column; gap: .04in; }
+.el-g35 .el-choices.long .el-choice { border-radius: .12in; }
+
+/* Work area and answer box side by side: saves about .6in per question */
+.el-workrow { display: flex; align-items: flex-end; gap: .12in; margin-top: .06in; }
+.el-workrow .el-work { flex: 1; margin-top: 0; }
+.el-workrow .el-answer { margin-top: 0; flex-direction: column; align-items: flex-end; gap: .02in; }
+.el-g35 .el-foot { margin-top: .06in; }
+.el-g35 .el-foot img { width: .55in; height: .55in; }
+.el-g35 .el-band { padding: .07in .16in; }
+.el-g35 .el-band .el-mascot { width: .55in; height: .55in; }
+.el-g35 .el-name { margin: .02in 0 .08in; }
+
+/* When a short-answer prompt has exactly ONE blank, that blank IS the answer space:
+   draw it larger and do not add the separate Answer box. */
+.ans-box.answer { width: var(--el-big-w, .6in); height: var(--el-big-h, .44in); border-width: 2.5px; }
+.el-g1, .el-g2 { --el-big-w: .9in; --el-big-h: .62in; }
+.el-g35 { --el-big-w: .65in; --el-big-h: .44in; }
+
+.el-g1 .el-band h1, .el-g2 .el-band h1 { font-size: 1.1em; }
+.el-g1 .el-band, .el-g2 .el-band { padding: .08in .18in; }
+.el-g1 .el-q, .el-g2 .el-q { padding: .1in .14in; }
+.el-g1 .el-fig, .el-g2 .el-fig { max-height: 1.25in; }
+.el-g1 .el-dir, .el-g2 .el-dir { margin: .06in 0 .1in; }
+
+/* Integrate with the shared Letter-page renderer without changing other courses. */
+.page.mm-page.el-paper{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:var(--el-font);line-height:var(--el-lh)}
+.page.mm-page.el-paper .mm-body{height:9.35in;overflow:visible}
+.el-paper .el-foot{position:absolute;left:.5in;right:.5in;bottom:.2in;height:.8in;margin:0}
+.el-paper .el-sticker img{width:.75in;height:.75in}
+.el-paper.el-g35 .el-sticker img{width:.55in;height:.55in}
+.el-paper .el-qs{margin:0 0 var(--el-gap);align-items:start}
+.el-paper .el-qs.el-single{grid-template-columns:1fr}
+.el-paper .el-content{min-width:0}
+.el-paper .el-q{min-width:0;border:2px solid #d9ddf2;padding:.12in .14in}
+.el-paper .el-q .el-prompt{font:inherit;line-height:inherit;overflow-wrap:break-word}
+.el-paper .el-part-title{font-size:.7em;font-weight:700;margin-top:.08in}
+.el-paper .el-work{min-height:calc(var(--el-work-h) * var(--el-work-scale,1))}
+.el-paper .el-parts .el-work{min-height:max(.25in,calc(var(--el-work-h) * var(--el-work-scale,1) / var(--el-part-count,1)))}
+.el-paper .el-parts>div{margin:.1in 0}
+.el-paper .el-points{float:right;font-size:.55em;margin-left:.1in}
+.el-paper .el-figure{margin:.06in 0;max-width:100%}
+.el-paper .el-figure img,.el-paper .el-figure svg{max-width:100%;object-fit:contain}
+.el-paper .el-figure:not(:has(.mk-plot)) img,.el-paper .el-figure:not(:has(.mk-plot)) svg{max-height:1.7in;width:auto}
+.el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:1.25in}
+.el-paper .el-choice>span:last-child{min-width:0;overflow-wrap:break-word}
+.el-paper .el-student-work{padding-left:.3in;margin:.08in 0}
+.el-paper .el-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.el-paper.el-oversize{height:auto;min-height:11in}
+.el-paper.el-oversize .mm-body{position:relative;height:auto;left:0;right:0;top:0;margin:.45in .5in 1.2in}
+.el-paper.el-oversize::after{content:"This question needs more than one sheet. Reduce work space before printing.";position:absolute;bottom:1in;left:.5in;font:10pt sans-serif;color:#b4231c}
+@media print{.el-paper{break-after:page}.el-paper .el-q{break-inside:avoid;page-break-inside:avoid}}
+
+/* Activity boards retain their authored puzzle sizes and card relationships. */
+.page.mm-page.el-activity{font-size:12pt}
+.el-activity .el-name{font-size:12pt;margin:.02in 0 .05in}
+.el-activity .el-name img{width:.28in;height:.28in}
+.el-activity .el-name .el-lines{height:.32in}
+.el-activity .el-dir{font-size:11pt;line-height:1.2;margin:.04in 0;padding:.04in .08in}
+.el-activity .el-dir img{width:.28in;height:.28in}
+.el-activity .ans-box{width:.35in;height:.27in}
+.el-activity .el-partner-name{font-size:11pt;margin:.02in 0}
+.el-activity-foot{position:absolute;bottom:.06in;left:.5in;right:.5in;display:flex;align-items:center;justify-content:space-between;height:.3in;font:9pt "Atkinson Hyperlegible",sans-serif}
+.el-activity-foot img{height:.3in;width:.3in}
