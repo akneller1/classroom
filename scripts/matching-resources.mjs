@@ -43,7 +43,7 @@ export function addMatchingGames(course) {
       if (unit.artifacts.some(a => a.path === path)) continue;
       const [title, description] = KIND[listing];
       unit.artifacts.push({ title, path, thumb: 'thumbs/matching-' + kind + '.svg', type: 'Game', bankFormat: 'topic-games',
-        level: ['Remedial', 'Standard', 'Advanced'], description: description + ' Drag or tap, zoom in, check sets and get hints; prints as a card sort.',
+        level: ['Support', 'Standard', 'Advanced'], description: description + ' Drag or tap, zoom in, check sets and get hints; prints as a card sort.',
         topics: ['Matching game', unit.name || unitId], added: '2026-11-14' });
     }
   }

@@ -49,7 +49,7 @@
 
   /* ---------------- levels & difficulty ---------------- */
   NS.LEVELS = {
-    cp2: { id: 'cp2', name: 'CP2', long: 'CP2 · Foundational', tiers: [1, 2, 3], intOnly: true,
+    cp2: { id: 'cp2', name: 'CP2', long: 'CP2 · Support', tiers: [1, 2, 3], intOnly: true,
       about: 'Whole-number answers, fewer steps, positive values first, plain wording.' },
     cp1: { id: 'cp1', name: 'CP1', long: 'CP1 · Standard', tiers: [3, 4, 5], intOnly: true,
       about: 'Grade-level, multi-step problems with negatives, fraction bars and decimals.' },

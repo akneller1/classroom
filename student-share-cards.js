@@ -73,7 +73,7 @@
         var select = document.createElement('select');
         select.className = 'student-share-level';
         select.setAttribute('aria-label', 'Student difficulty for ' + resource.title);
-        [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function (entry) {
+        [['cp2','Support'],['cp1','Standard'],['honors','Advanced']].forEach(function (entry) {
           var option = document.createElement('option');
           option.value = entry[0]; option.textContent = entry[1];
           if (entry[0] === 'cp1') option.selected = true;

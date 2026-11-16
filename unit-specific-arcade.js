@@ -4,7 +4,7 @@
    Bank games (newer courses): each reuses one of the arcade engines (its scene and motion) with questions from
    that unit's own question bank: single-answer multiple choice only, so every answer is checked against the key.
    The arcade page (artifacts/math-arcade/index.html) loads this file too and reads MK_UNIT_GAMES. */
-var MS=['Remedial','Standard','Advanced'],HS=['CP2','CP1','Honors'];
+var MS=['Support','Standard','Advanced'],HS=['CP2','CP1','Honors'];
 var G=function(engine,course,unit,title,courseName,topic,intro,added){return {engine:engine,bank:{course:course,unit:unit,skills:[]},levels:/^(math6|prealgebra7?)$/.test(course)?MS:HS,title:title,course:courseName,topic:topic,intro:intro,added:added||'2026-11-05'};};
 var UG={
  // 6th Grade
