@@ -409,3 +409,77 @@ SKILLS = {
     ("statistics", U, "Chi-Square Tests for Homogeneity and Independence"): dict(fns=[t_expected, t_df, t_stat, t_pvalue, t_which, t_hyp, t_decide], stds=["APSTATS.IV.B.6"], prefix="stat-u4"),
     ("statistics", U, "Significance Tests for the Slope of a Regression Line"): dict(fns=[s_t, s_df, s_p, s_hyp, s_decide, s_full], stds=["APSTATS.IV.B.7"], prefix="stat-u4"),
 }
+
+
+# ---------------------------------------------------------------- Partner Check pairs
+# Statistics Partner Check uses explicit A/B pairs whose answers match. One pair per new skill and level.
+def _df(n, k, what):
+    return (f"A chi-square goodness-of-fit test uses a random sample of {n} observations sorted into {k} {what}. How many degrees of freedom does the test have?", str(k - 1),
+            ["For a goodness-of-fit test, df = number of categories − 1.", f"df = {k} − 1 = {k - 1}."], dict(k="gofDf", cats=k, show=[f"into {k} "]))
+
+
+def _exp(sentence, n, unit, p, cat):
+    e = F(n * p, 100)
+    return (f"{sentence} A random sample of {n} {unit} is taken. What is the expected count for {cat}?", g(e),
+            [f"Expected count = n · p = {n} · {g(F(p, 100))}.", f"Expected count = {g(e)}."], dict(k="gofE", n=n, p=p, show=[f"{p}% {cat}", f"sample of {n} "]))
+
+
+def _comp(o, e):
+    v = F((o - e) ** 2, e)
+    return (f"In a chi-square test, one category has an observed count of {o} and an expected count of {e}. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.", f"{float(v):.2f}",
+            [f"O − E = {o} − {e} = {o - e}.", f"(O − E)² = {(o - e) ** 2}.", f"{(o - e) ** 2} ÷ {e} = {float(v):.2f}."], dict(k="chi", obs=[o], exp=[str(e)], show=[f"observed count of {o} ", f"expected count of {e}."]))
+
+
+def _tdf(rr, cc, a, b):
+    return (f"A chi-square test uses a two-way table of {a} and {b} with {rr} rows and {cc} columns (not counting totals). How many degrees of freedom does the test have?", str((rr - 1) * (cc - 1)),
+            ["df = (rows − 1)(columns − 1).", f"df = ({rr} − 1)({cc} − 1) = {rr - 1} · {cc - 1} = {(rr - 1) * (cc - 1)}."], dict(k="twoDf", r=rr, c=cc, show=[f"{rr} rows and {cc} columns"]))
+
+
+def _texp(n, row, col, a, b, rn, cn):
+    e = F(row * col, n)
+    return (f"A two-way table classifies {n} people by {a} and {b}. The row total for \"{rn}\" is {row} and the column total for \"{cn}\" is {col}. If H₀ is true, what is the expected count for the cell \"{rn}\" and \"{cn}\"? Round to two decimal places if needed.", g(e, 2),
+            ["Expected count = (row total · column total) ÷ grand total.", f"({row} · {col}) ÷ {n} = {row * col} ÷ {n}.", f"Expected count = {g(e, 2)}."], dict(k="twoE", n=n, row=row, col=col, show=[f"classifies {n} people", f"is {row} and", f"is {col}."]))
+
+
+def _tp(rr, cc, chi):
+    df = (rr - 1) * (cc - 1)
+    p = st.chi2.sf(chi, df)
+    return (f"A chi-square test on a two-way table with {rr} rows and {cc} columns gives χ² = {chi:.2f}. Find the P-value. Round to four decimal places.", f"{p:.4f}",
+            [f"df = ({rr} − 1)({cc} − 1) = {df}.", f"P-value = P(χ² ≥ {chi:.2f}) with df = {df}.", f"P-value ≈ {p:.4f}."], dict(k="twoP", r=rr, c=cc, chi=f"{chi:.2f}", show=[f"{rr} rows and {cc} columns", f"χ² = {chi:.2f}."]))
+
+
+def _sdf(n, x, y):
+    return (f"A significance test for the slope of the regression line relating {y} to {x} uses {n} data points. How many degrees of freedom does the t distribution have?", str(n - 2),
+            ["Regression estimates two parameters (intercept and slope), so df = n − 2.", f"df = {n} − 2 = {n - 2}."], dict(k="slopeDf", n=n, show=[f"uses {n} data points"]))
+
+
+def _st(n, b, se, x, y):
+    t = b / se
+    return (f"A regression of {y} on {x} (n = {n}) gives slope b = {bt(b)} with SE_b = {se}. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.", bt(f"{t:.2f}"),
+            ["t = (b − 0) ÷ SE_b.", f"t = {bt(b)} ÷ {se} = {bt(f'{t:.2f}')}."], dict(k="slopeT", b=str(b), se=str(se), show=[f"b = {bt(b)} ", f"SE_b = {se}."]))
+
+
+def _sp(t, n):
+    p = pval(t, n - 2, "two")
+    ts = bt(f"{t:.2f}")
+    return (f"A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = {ts} from n = {n} data points. Find the P-value. Round to four decimal places.", f"{p:.4f}",
+            [f"df = n − 2 = {n - 2}.", f"P-value = 2 · P(T ≥ |t|) with t = {ts}.", f"P-value ≈ {p:.4f}."], dict(k="slopeP", t=f"{t:.2f}", n=n, tail="two", show=["Hₐ: β ≠ 0 ", f"t = {ts} ", f"n = {n} "]))
+
+
+PARTNER_PAIRS = {
+    "Chi-Square Goodness-of-Fit Tests": {
+        "cp2": (_df(150, 5, "categories"), _df(240, 5, "flavors")),
+        "cp1": (_exp("A candy company claims its bags are 15% red, 35% blue, and 50% green.", 200, "candies", 15, "red"), _exp("A school claims its students travel to school as follows: 25% bus, 45% car, and 30% walking.", 120, "students", 25, "bus")),
+        "honors": (_comp(30, 20), _comp(60, 45)),
+    },
+    "Chi-Square Tests for Homogeneity and Independence": {
+        "cp2": (_tdf(3, 4, "grade level", "preferred lunch option"), _tdf(2, 7, "region", "favorite sport")),
+        "cp1": (_texp(200, 80, 60, "age group", "preferred news source", "Under 30", "online"), _texp(150, 40, 90, "work shift", "job satisfaction", "Night shift", "satisfied")),
+        "honors": (_tp(3, 4, 11.4), _tp(2, 7, 11.4)),
+    },
+    "Significance Tests for the Slope of a Regression Line": {
+        "cp2": (_sdf(24, "hours of study", "exam score"), _sdf(24, "car weight", "fuel efficiency")),
+        "cp1": (_st(18, 1.2, 0.5, "advertising spending", "weekly sales"), _st(26, 0.36, 0.15, "practice time", "free-throw percentage")),
+        "honors": (_sp(2.25, 20), _sp(-2.25, 20)),
+    },
+}

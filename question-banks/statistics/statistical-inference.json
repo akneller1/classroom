@@ -30699,6 +30699,320 @@
     "APSTATS.IV.B.7"
    ],
    "sourceNotes": "Original Claude-authored item (family: slope_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-017",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 150 observations sorted into 5 categories. How many degrees of freedom does the test have?",
+   "answer": "4",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 5 − 1 = 4."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-cp2 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s12-cp2-018",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 240 observations sorted into 5 flavors. How many degrees of freedom does the test have?",
+   "answer": "4",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 5 − 1 = 4."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-cp2 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s12-cp1-017",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A candy company claims its bags are 15% red, 35% blue, and 50% green. A random sample of 200 candies is taken. What is the expected count for red?",
+   "answer": "30",
+   "solutionSteps": [
+    "Expected count = n · p = 200 · 0.15.",
+    "Expected count = 30."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-cp1 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s12-cp1-018",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A school claims its students travel to school as follows: 25% bus, 45% car, and 30% walking. A random sample of 120 students is taken. What is the expected count for bus?",
+   "answer": "30",
+   "solutionSteps": [
+    "Expected count = n · p = 120 · 0.25.",
+    "Expected count = 30."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-cp1 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s12-honors-017",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a chi-square test, one category has an observed count of 30 and an expected count of 20. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "5.00",
+   "solutionSteps": [
+    "O − E = 30 − 20 = 10.",
+    "(O − E)² = 100.",
+    "100 ÷ 20 = 5.00."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-honors (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s12-honors-018",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a chi-square test, one category has an observed count of 60 and an expected count of 45. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "5.00",
+   "solutionSteps": [
+    "O − E = 60 − 45 = 15.",
+    "(O − E)² = 225.",
+    "225 ÷ 45 = 5.00."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s12-honors (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s13-cp2-017",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test uses a two-way table of grade level and preferred lunch option with 3 rows and 4 columns (not counting totals). How many degrees of freedom does the test have?",
+   "answer": "6",
+   "solutionSteps": [
+    "df = (rows − 1)(columns − 1).",
+    "df = (3 − 1)(4 − 1) = 2 · 3 = 6."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-cp2 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s13-cp2-018",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test uses a two-way table of region and favorite sport with 2 rows and 7 columns (not counting totals). How many degrees of freedom does the test have?",
+   "answer": "6",
+   "solutionSteps": [
+    "df = (rows − 1)(columns − 1).",
+    "df = (2 − 1)(7 − 1) = 1 · 6 = 6."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-cp2 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s13-cp1-017",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 200 people by age group and preferred news source. The row total for \"Under 30\" is 80 and the column total for \"online\" is 60. If H₀ is true, what is the expected count for the cell \"Under 30\" and \"online\"? Round to two decimal places if needed.",
+   "answer": "24",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(80 · 60) ÷ 200 = 4800 ÷ 200.",
+    "Expected count = 24."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-cp1 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s13-cp1-018",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 150 people by work shift and job satisfaction. The row total for \"Night shift\" is 40 and the column total for \"satisfied\" is 90. If H₀ is true, what is the expected count for the cell \"Night shift\" and \"satisfied\"? Round to two decimal places if needed.",
+   "answer": "24",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(40 · 90) ÷ 150 = 3600 ÷ 150.",
+    "Expected count = 24."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-cp1 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s13-honors-017",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test on a two-way table with 3 rows and 4 columns gives χ² = 11.40. Find the P-value. Round to four decimal places.",
+   "answer": "0.0768",
+   "solutionSteps": [
+    "df = (3 − 1)(4 − 1) = 6.",
+    "P-value = P(χ² ≥ 11.40) with df = 6.",
+    "P-value ≈ 0.0768."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-honors (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s13-honors-018",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test on a two-way table with 2 rows and 7 columns gives χ² = 11.40. Find the P-value. Round to four decimal places.",
+   "answer": "0.0768",
+   "solutionSteps": [
+    "df = (2 − 1)(7 − 1) = 6.",
+    "P-value = P(χ² ≥ 11.40) with df = 6.",
+    "P-value ≈ 0.0768."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s13-honors (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s14-cp2-017",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating exam score to hours of study uses 24 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "22",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 24 − 2 = 22."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-cp2 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s14-cp2-018",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating fuel efficiency to car weight uses 24 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "22",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 24 − 2 = 22."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-cp2 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s14-cp1-017",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A regression of weekly sales on advertising spending (n = 18) gives slope b = 1.2 with SE_b = 0.5. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "2.40",
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 1.2 ÷ 0.5 = 2.40."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-cp1 (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s14-cp1-018",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A regression of free-throw percentage on practice time (n = 26) gives slope b = 0.36 with SE_b = 0.15. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "2.40",
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 0.36 ÷ 0.15 = 2.40."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-cp1 (B); both partners' answers must match.",
+   "partnerRole": "B"
+  },
+  {
+   "id": "stat-u4-s14-honors-017",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 2.25 from n = 20 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0372",
+   "solutionSteps": [
+    "df = n − 2 = 18.",
+    "P-value = 2 · P(T ≥ |t|) with t = 2.25.",
+    "P-value ≈ 0.0372."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-honors (A); both partners' answers must match.",
+   "partnerRole": "A"
+  },
+  {
+   "id": "stat-u4-s14-honors-018",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = −2.25 from n = 20 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0372",
+   "solutionSteps": [
+    "df = n − 2 = 18.",
+    "P-value = 2 · P(T ≥ |t|) with t = −2.25.",
+    "P-value ≈ 0.0372."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: partner_pair). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review. Partner Check pair PC-u4-s14-honors (B); both partners' answers must match.",
+   "partnerRole": "B"
   }
  ]
 }
