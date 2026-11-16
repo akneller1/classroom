@@ -85,6 +85,29 @@ GB.makeItems=function(id,skill,c,policy,seed,used){
 };
 // Keep each selected difficulty exact. Native procedural decks otherwise retry
 // nearby tiers, which would cross authored CP2/CP1/Honors boundaries.
+// Showdown boards get harder from 100 to 500. On a one-level board the level's questions are sorted by
+// itemScore and split into five bands, one per row. On a Mixed board the rows climb Support, Support, Standard,
+// Advanced, Advanced; rows that share a level take its easier and harder half.
+const SD_MIXED=[['cp2',0,2],['cp2',1,2],['cp1',0,1],['honors',0,2],['honors',1,2]];
+function gradedBand(items,seed,used,want,bands){
+ const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed))), sorted=items.slice().sort((a,b)=>itemScore(a)-itemScore(b)||(a.id<b.id?-1:1));
+ const n=sorted.length, cut=Array.from({length:bands+1},(_,k)=>Math.round(k*n/bands)), order=Array.from({length:bands},(_,k)=>k);
+ for(const k of order.sort((a,b)=>Math.abs(a-want)-Math.abs(b-want)||b-a)){
+  const q=rng.shuffle(sorted.slice(cut[k],cut[k+1])).find(q=>!used?.keys?.has(q.id)); if(q)return q;
+ }
+ return null;
+}
+function showdownPick(id,slot,formats,seed,used){
+ const row=Math.max(0,Math.min(4,slot.row));
+ if(slot.level==='mixed'){
+  const [lv,want,bands]=SD_MIXED[row];
+  const order={cp2:['cp2','cp1','honors'],cp1:['cp1','cp2','honors'],honors:['honors','cp1','cp2']}[lv];
+  for(const l of order){const q=gradedBand(pool(id,slot.skill,slot.c,{level:l},formats),seed,used,l===lv?want:(l==='cp2'?0:1),l===lv?bands:2);if(q)return q}
+  return null;
+ }
+ return gradedBand(pool(id,slot.skill,slot.c,slot.level?{level:slot.level}:null,formats),seed,used,row,5);
+}
+NS._showdownPick=showdownPick; NS._itemScore=itemScore;
 GB.buildDeck=function(id,slots,opts,done){
  if(!isBank(id))return deck.apply(this,arguments);
  opts=opts||{};const used={keys:new Set()},out=[];
@@ -92,7 +115,7 @@ GB.buildDeck=function(id,slots,opts,done){
   const game=G.document?.body.getAttribute('data-game');
   const formats=game==='showdown'?['short-answer','multiple-choice','select-all','open-response','plot']:game==='flashcards'?['short-answer','multiple-choice']:['multiple-choice'];
   const seed=(opts.seed||Date.now())+'|'+i;
-  const q=slot.level==='mixed'?(choose(pool(id,slot.skill,slot.c,null,formats),seed,used)||choose(pool(id,slot.skill,slot.c,{level:'mixed'},formats),seed,used)):choose(pool(id,slot.skill,slot.c,slot.level?{level:slot.level}:null,formats),seed,used);
+  const q=game==='showdown'&&slot.row!=null?showdownPick(id,slot,formats,seed,used):slot.level==='mixed'?(choose(pool(id,slot.skill,slot.c,null,formats),seed,used)||choose(pool(id,slot.skill,slot.c,{level:'mixed'},formats),seed,used)):choose(pool(id,slot.skill,slot.c,slot.level?{level:slot.level}:null,formats),seed,used);
   if(q){used.keys.add(q.id);const it=item(q,id,slot.c);it.slot=slot;out.push(it)}
  }
  if(opts.progress)opts.progress(slots.length,slots.length);done(out);
