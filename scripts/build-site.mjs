@@ -18,6 +18,7 @@ import path from "node:path";
 import vm from "node:vm";
 import crypto from "node:crypto";
 import { asteroidEligibleUnits, filterAsteroidItems } from "./asteroid-eligibility.mjs";
+import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "_site");
@@ -364,6 +365,7 @@ for (const c of catalog) {
 <html lang="en">
 <head>
 ${headTags({ title: courseMeta.title, description: courseDescription, url: courseAddress, depth: courseDepth, fontsHref: GOOGLE_FONTS_HOME })}
+${courseJsonLd({ siteUrl: SITE_URL, courseName: c.title, courseUrl: courseAddress, description: courseDescription })}
 <style>${PAGE_CSS}</style>
 </head>
 <body>
@@ -399,6 +401,7 @@ ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> 
 <html lang="en">
 <head>
 ${headTags({ title: unitMeta.title, description: desc, url, depth, fontsHref: GOOGLE_FONTS_HOME })}
+${unitJsonLd({ siteUrl: SITE_URL, courseName: c.title, courseUrl: courseAddress, unitName: u.title, unitUrl: url, description: desc, skills: u.skills || [], standards: unitStandards(ROOT, c.id, u.id), resourceCount: u.items.length })}
 <style>${PAGE_CSS}</style>${accent}
 </head>
 <body>

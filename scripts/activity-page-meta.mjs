@@ -42,7 +42,7 @@ export function pageDescription(item, unitName, courseName) {
 }
 
 // Rewrite one HTML document. Pure, so it can be tested without a built site.
-export function applyMeta(html, { url, item, courseName, unitName }) {
+export function applyMeta(html, { url, item, courseName, unitName, image }) {
   const head = html.match(/<head[^>]*>/i);
   if (!head) return html;
   let out = html;
@@ -53,6 +53,14 @@ export function applyMeta(html, { url, item, courseName, unitName }) {
   const add = [];
   if (!/<meta\s+name=["']description["']/i.test(out)) add.push(`<meta name="description" content="${esc(pageDescription(item, unitName, courseName))}">`);
   if (!/<link\s+rel=["']canonical["']/i.test(out)) add.push(`<link rel="canonical" href="${esc(url)}">`);
+  // Link previews (Google Classroom, email, chat): title, description, URL and an image.
+  if (!/<meta\s+property=["']og:title["']/i.test(out)) {
+    const ogDesc = (out.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i) || [])[1] || esc(pageDescription(item, unitName, courseName));
+    add.push(`<meta property="og:type" content="website"><meta property="og:site_name" content="${esc(BRAND)}">` +
+      `<meta property="og:title" content="${esc(want.replace(/\s*\|\s*Mr\. K's Classroom$/, ""))}"><meta property="og:description" content="${ogDesc}">` +
+      `<meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(image || SITE_URL + "assets/social-preview.png")}">` +
+      `<meta name="twitter:card" content="summary_large_image">`);
+  }
   if (/-project-/.test(url)) out = out.replace(/<meta\s+name=["']robots["']\s+content=["']noindex[^"']*["']\s*\/?>/gi, "");
   if (add.length) {
     const charset = out.match(/<meta\s+charset=[^>]*>/i);
@@ -75,7 +83,10 @@ function main() {
     const file = path.join(OUT, rel);
     if (!fs.existsSync(file)) { missing++; continue; }
     const html = fs.readFileSync(file, "utf8");
-    const next = applyMeta(html, { url: SITE_URL + rel, ...info });
+    // A raster thumbnail from the catalog makes a better preview than the generic site image (SVG is not used by most previews).
+    const thumb = info.item.thumb ? sitePath(info.item.thumb) : "";
+    const image = thumb && /\.(png|jpe?g|webp)$/i.test(thumb) && fs.existsSync(path.join(OUT, thumb)) ? SITE_URL + thumb : "";
+    const next = applyMeta(html, { url: SITE_URL + rel, image, ...info });
     if (next !== html) { fs.writeFileSync(file, next); changed++; }
   }
   console.log(`Activity page metadata: ${changed} of ${owners.size} catalog pages updated` + (missing ? `, ${missing} not in this build` : "") + ".");
