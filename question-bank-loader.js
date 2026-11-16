@@ -29,7 +29,7 @@ function load(manifest, fetchJSON){
  })).then(function(results){
   // Validate every approved file before registering any, to avoid partial loads on validation failure.
   return results.map(function(result){
-   var applied=adapter.register(result.bank,{verified:true});
+   var applied=adapter.register(result.bank,{verified:true,owned:true});
    if(!applied.ok)throw new Error(result.item.path+': '+applied.errors.join('; '));
    return result.item.courseId+'/'+result.item.unitId;
   });
@@ -79,7 +79,7 @@ function loadUnitFromSite(courseId,unitId,path,base){
    var result=adapter.validate(bank);
    if(!result.ok)throw new Error(match.path+': '+result.errors.join('; '));
    if(!adapter.available(courseId,unitId)){
-    var applied=adapter.register(bank,{verified:true});
+    var applied=adapter.register(bank,{verified:true,owned:true});
     if(!applied.ok)throw new Error(match.path+': '+applied.errors.join('; '));
    }
    return [id];

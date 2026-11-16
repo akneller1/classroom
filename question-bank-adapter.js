@@ -89,7 +89,20 @@
     if (!result.ok) return result;
     var k = key(bank.courseId, bank.unitId);
     if (banks[k]) return { ok: false, errors: ['Bank already registered: ' + k] };
-    banks[k] = { data: polishProse(copy(bank)), verified: !!(opts && opts.verified === true) };
+    var data;
+    if (opts && opts.owned === true) {
+      // The site loaders pass a freshly parsed bank they never touch again, so
+      // the defensive deep copy is skipped and the bank is polished in place.
+      data = polishProse(bank);
+    } else {
+      // One serialization serves as both the defensive copy and a cheap pre-check:
+      // correctProse() only rewrites strings containing "There are 1", so banks
+      // without that phrase skip the recursive walk (76 of 78 banks today).
+      var json = JSON.stringify(bank);
+      data = JSON.parse(json);
+      if (/\bThere are 1\b/i.test(json)) data = polishProse(data);
+    }
+    banks[k] = { data: data, verified: !!(opts && opts.verified === true) };
     return { ok: true, errors: [], verified: banks[k].verified };
   }
   function available(courseId, unitId, opts) {
@@ -97,8 +110,7 @@
     if (!b) return false;
     return !!(b.verified || (opts && opts.includeUnverified === true));
   }
-  function select(options) {
-    options = options || {};
+  function matching(options) {
     var b = banks[key(options.courseId, options.unitId)];
     if (!b || (!b.verified && options.includeUnverified !== true)) return [];
     var acceptedSkills = options.skillIds && options.skillIds.length ? options.skillIds : null;
@@ -108,8 +120,11 @@
         (!acceptedSkills || acceptedSkills.indexOf(q.skillId) >= 0) &&
         (!acceptedFormats || acceptedFormats.indexOf(q.format) >= 0);
     });
-    return copy(typeof options.limit === 'number' && options.limit >= 0 ? questions.slice(0, options.limit) : questions);
+    return typeof options.limit === 'number' && options.limit >= 0 ? questions.slice(0, options.limit) : questions;
   }
+  function select(options) { return copy(matching(options || {})); }
+  // Same filter as select(), without deep-copying the questions: for callers that only need how many match.
+  function count(options) { return matching(options || {}).length; }
   function coverage(courseId, unitId) {
     var skillRecords = catalog ? catalog.getSkillRecords(courseId, unitId) : [];
     var b = banks[key(courseId, unitId)];
@@ -119,5 +134,5 @@
       return { id: skill.id, name: skill.name, counts: counts, verified: !!(b && b.verified) };
     });
   }
-  root.MK_QUESTION_BANKS = { version: 1, validate: validate, register: register, available: available, select: select, coverage: coverage };
+  root.MK_QUESTION_BANKS = { version: 1, validate: validate, register: register, available: available, select: select, count: count, coverage: coverage };
 })(typeof window !== 'undefined' ? window : globalThis);
