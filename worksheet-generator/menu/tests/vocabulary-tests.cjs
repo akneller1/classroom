@@ -45,6 +45,11 @@ const normal=M.defaultConfig(unit,'test');assert(M.sectionSkills(normal,0).every
 const menu=M.defaultConfig(unit);assert(!M.coverageTags(menu).includes('V'));assert.equal(M.checkRules(menu).errors.length,0);
 const mixed=M.defaultConfig(unit,'test');mixed.versions=2;mixed.sections.push(c.sections[0]);state=M.newAssessment(mixed);assert.equal(M.blockers(state).length,0);
 assert(state.versions.every(v=>v.sections[0].items.every(p=>!p.vocabulary)&&v.sections[2].items.every(p=>p.vocabulary)));
+const mathBefore=state.versions.map(v=>v.sections.slice(0,2).flatMap(s=>s.items.map(p=>p.key)));
+state.config.vocabularyWordBank=true;M.refreshVocabulary(state);
+assert.deepEqual(J(state.versions.map(v=>v.sections.slice(0,2).flatMap(s=>s.items.map(p=>p.key)))),J(mathBefore),'Vocabulary changes must preserve math questions');
+assert(state.versions.every(v=>v.sections[2].items.every(p=>p.prompt.includes('Word bank:'))));
+assert.equal(M.blockers(state).length,0);
 // Source wording is identical for creative Honors tasks in both makers.
 const draw=T.terms(unit).find(t=>t.draw);if(draw){const cfg=config(unit,'vocab_draw',1);cfg.level='honors';cfg.vocabularyTerms=[draw.term];assert.equal(M.newAssessment(cfg).versions[0].sections[0].items[0].prompt,T.honorsTask(draw,'draw'));}
 // Production assembly must load the same Grade 5 vocabulary into both makers.

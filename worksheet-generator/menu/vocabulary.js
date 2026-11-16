@@ -115,6 +115,15 @@
     });
     return r;
   };
+  NS.refreshVocabulary=function(state){
+    state.config.sections.forEach(function(section,si){
+      if(!NS.isVocabularyFormat(section.qformat))return;
+      state.versions[0].sections[si].items.slice().forEach(function(p){
+        var locked=state.versions.some(function(v){return v.sections[si].items.some(function(q){return q.slot===p.slot&&(q.pinned||q.edited||q.manual);});});
+        if(!locked)NS.setDifficulty(state,0,p.uid,p.c);
+      });
+    });
+  };
   var blockers=NS.blockers;
   NS.blockers=function(state){
     var list=blockers(state);

@@ -264,8 +264,8 @@
       c.sections.push({id:NS.uid('sec'),name:'Vocabulary',note:'',points:2,offered:n,required:n,tier:'ramp',adjust:0,skills:null,qformat:'vocab_blank'});
       if(S) NS.syncStructure(S);
     },true);
-    $$('.mmVocabTerm').forEach(function(b){b.onchange=upd(function(){c.vocabularyTerms=$$('.mmVocabTerm:checked').map(function(x){return x.value;});if(S) NS.rebuild(S);},true);});
-    if($('#mmVocabWordBank')) $('#mmVocabWordBank').onchange=upd(function(e){c.vocabularyWordBank=e.target.checked;if(S) NS.rebuild(S);},true);
+    $$('.mmVocabTerm').forEach(function(b){b.onchange=upd(function(){c.vocabularyTerms=$$('.mmVocabTerm:checked').map(function(x){return x.value;});if(S) NS.refreshVocabulary(S);},true);});
+    if($('#mmVocabWordBank')) $('#mmVocabWordBank').onchange=upd(function(e){c.vocabularyWordBank=e.target.checked;if(S) NS.refreshVocabulary(S);},true);
     if ($('#mmCov')) $('#mmCov').onchange = upd(function (e) { c.coverage.on = e.target.checked; }, true);
     $$('.mmCovTag').forEach(function (b) { b.onchange = upd(function () {
       var on = $$('.mmCovTag').filter(function (x) { return x.checked; }).map(function (x) { return x.value; });
