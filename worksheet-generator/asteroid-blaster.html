@@ -762,6 +762,7 @@ window.MK_ASTEROID={state:()=>G,usable,quickAnswer};
     S=window.MK_COURSE_ACTIVITY_SOURCE;
     buildPickers();
     if(!S||!S.unit)throw Error('Choose a course and unit above.');
+    {const q=new URLSearchParams(location.search);if(q.get('course')&&q.get('unit')&&(S.courseId!==q.get('course')||S.unit.id!==q.get('unit')))throw Error('Requested unit not available.');}
     if(!(S.unit.artifacts||[]).some(a=>a.bankFormat==='asteroid-blaster'))throw Error('Asteroid Blaster is not available for this unit: insufficient verified quick-answer multiple-choice questions. Choose another unit.');
     $('unitLine').textContent=S.course.name+' · '+S.unit.name;
     document.title=S.unit.name+" Asteroid Blaster · Mr. K's Classroom";
@@ -771,7 +772,14 @@ window.MK_ASTEROID={state:()=>G,usable,quickAnswer};
     $('loading').hidden=true;$('setupFields').hidden=false;
   }catch(e){
     $('loading').hidden=true;$('unitLine').textContent='Pick a course and unit';
-    $('startErr').textContent=e.message;$('startErr').hidden=false;
+    /* A link for an unsupported course or unit must say so, not silently show another unit. */
+    const req=new URLSearchParams(location.search),rc=req.get('course'),ru=req.get('unit');
+    let msg=e.message;
+    if(rc&&ru&&!(S&&S.courseId===rc&&S.unit&&S.unit.id===ru)){
+      const c=(window.LIBRARY&&LIBRARY.courses||[]).find(x=>x.id===rc),u=c&&(c.units||[]).find(x=>x.id===ru);
+      msg='Asteroid Blaster is not available for '+(c?c.name:rc)+(u?' · '+u.name:'')+'. Choose a supported course and unit above, or go back to the unit page for other games.';
+    }
+    $('startErr').textContent=msg;$('startErr').hidden=false;
   }
 })();
 })();

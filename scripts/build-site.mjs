@@ -17,6 +17,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import crypto from "node:crypto";
+import { asteroidEligibleUnits, filterAsteroidItems } from "./asteroid-eligibility.mjs";
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "_site");
@@ -166,6 +167,7 @@ function findCourses(root) {
   return [...courses.values()];
 }
 
+const ASTEROID_ELIGIBLE = asteroidEligibleUnits(ROOT);
 let catalog = [];
 try {
   const sb = loadData();
@@ -189,7 +191,7 @@ try {
         skills: sb.MK_COURSE_CATALOG.getSkills(course.id, u.id),
         items: (() => {
           if (course.planned) return [];
-          const items = u.artifacts.filter((a) => a && typeof a === "object" && (a.title || a.path));
+          const items = filterAsteroidItems(course.id, u.id, u.artifacts.filter((a) => a && typeof a === "object" && (a.title || a.path)), ASTEROID_ELIGIBLE);
           const aliases = {algebra:{"foundations-algebra":"foundations","exponents-exponential-functions":"exponents-scientific-notation","polynomials-factoring":"polynomials"},geometry:{"foundations-geometry":"basics-reasoning","triangle-congruence":"triangles-congruence"}};
           const setId = (course.id === "algebra" ? "algebra1" : course.id) + "-" + (aliases[course.id]?.[u.id] || u.id);
           for (const [title,page] of [["Lesson Plan Generator","lesson-planner.html"],["Worksheet Generator","worksheet.html"],["Activity Generator","printables.html"],["Assessment Generator","menu-assessment.html"]]) {
