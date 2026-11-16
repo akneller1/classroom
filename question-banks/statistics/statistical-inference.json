@@ -27112,6 +27112,3593 @@
      }
     }
    }
+  },
+  {
+   "id": "stat-u4-s12-cp2-001",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test about the blood types of donors gives χ² = 10.41 with df = 6, so the P-value is about 0.1084. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.1084 > 0.05.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-002",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a chi-square test, one category has an observed count of 13 and an expected count of 20. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "2.45",
+   "options": [
+    {
+     "text": "3.77",
+     "correct": false
+    },
+    {
+     "text": "0.35",
+     "correct": false
+    },
+    {
+     "text": "49.00",
+     "correct": false
+    },
+    {
+     "text": "2.45",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "O − E = 13 − 20 = -7.",
+    "(O − E)² = 49.",
+    "49 ÷ 20 ≈ 2.45."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-003",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test about the days on which customers shop gives χ² = 4.34 with df = 2, so the P-value is about 0.1142. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.1142 > 0.05.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-004",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A chi-square goodness-of-fit test with 3 categories gives χ² = 9.11. Find the P-value. Round to four decimal places.",
+   "answer": "0.0105",
+   "options": [
+    {
+     "text": "0.0105",
+     "correct": true
+    },
+    {
+     "text": "0.0053",
+     "correct": false
+    },
+    {
+     "text": "0.9895",
+     "correct": false
+    },
+    {
+     "text": "0.0279",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "df = 3 − 1 = 2.",
+    "P-value = P(χ² ≥ 9.11) with df = 2.",
+    "P-value ≈ 0.0105."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-005",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test has observed counts 25, 23, 12 and expected counts 20, 20, 20 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+   "answer": "4.90",
+   "solutionSteps": [
+    "χ² = Σ (O − E)²/E.",
+    "(25 − 20)²/20 + (23 − 20)²/20 + (12 − 20)²/20",
+    "χ² ≈ 4.90."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-006",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A game says its prize wheel lands on each outcome as follows: 15% small prize, 30% medium prize, 15% large prize, and 40% no prize. A random sample of 120 spins is taken. What is the expected count for small prize?",
+   "answer": "18",
+   "options": [
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "102",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = n · p = 120 · 0.15.",
+    "Expected count = 18."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-007",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A streaming service claims its viewers prefer genres as follows: 25% comedy, 40% drama, 15% action, and 20% documentary. A random sample of 100 viewers will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "Yes; the smallest expected count is 15, which is at least 5.",
+   "solutionSteps": [
+    "The smallest claimed percent is 15%.",
+    "Smallest expected count = 100 · 0.15 = 15.",
+    "Yes; the smallest expected count is 15, which is at least 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-008",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A goodness-of-fit test has observed counts 57, 58, 35 and expected counts 50, 50, 50 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+   "answer": "6.76",
+   "options": [
+    {
+     "text": "0.60",
+     "correct": false
+    },
+    {
+     "text": "338.00",
+     "correct": false
+    },
+    {
+     "text": "6.76",
+     "correct": true
+    },
+    {
+     "text": "8.39",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "χ² = Σ (O − E)²/E.",
+    "(57 − 50)²/50 + (58 − 50)²/50 + (35 − 50)²/50",
+    "χ² ≈ 6.76."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-009",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A nursery claims its mixed tulip bulbs bloom in these proportions: 30% red, 25% pink, and 45% white. A random sample of 120 bulbs is taken. What is the expected count for pink?",
+   "answer": "30",
+   "solutionSteps": [
+    "Expected count = n · p = 120 · 0.25.",
+    "Expected count = 30."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-010",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A streaming service claims its viewers prefer genres as follows: 10% comedy, 15% drama, 50% action, and 25% documentary. A random sample of 40 viewers will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "No; the smallest expected count is 4, which is less than 5.",
+   "options": [
+    {
+     "text": "Yes; the sample size 40 is at least 30.",
+     "correct": false
+    },
+    {
+     "text": "No; the smallest expected count is 4, which is less than 5.",
+     "correct": true
+    },
+    {
+     "text": "Yes; the percents add to 100%.",
+     "correct": false
+    },
+    {
+     "text": "Yes; the smallest expected count is 4, which is at least 5.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The smallest claimed percent is 10%.",
+    "Smallest expected count = 40 · 0.1 = 4.",
+    "No; the smallest expected count is 4, which is less than 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-011",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test about the grades in a large course gives χ² = 9.57 with df = 3, so the P-value is about 0.0226. Using α = 0.05, what is the conclusion?",
+   "answer": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0226 < 0.05.",
+    "A P-value below α means the data would be unusual if H₀ were true.",
+    "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-012",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A goodness-of-fit test about the colors in a bag of candy gives χ² = 10.71 with df = 5, so the P-value is about 0.0574. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "options": [
+    {
+     "text": "Fail to reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; the claimed distribution has been proven correct.",
+     "correct": false
+    },
+    {
+     "text": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0574 > 0.05.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-013",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test about the blood types of donors gives χ² = 11.12 with df = 3, so the P-value is about 0.0111. Using α = 0.05, what is the conclusion?",
+   "answer": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0111 < 0.05.",
+    "A P-value below α means the data would be unusual if H₀ were true.",
+    "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-014",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA game says its prize wheel lands on each outcome as follows: 40% small prize, 50% medium prize, and 10% large prize. A random sample of 60 spins will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?\nFarah's answer: No; the smallest expected count is 6, which is less than 5.\nIdentify the mistake and give the correct answer.",
+   "answer": "Yes; the smallest expected count is 6, which is at least 5.",
+   "solutionSteps": [
+    "Mistake: Farah compared the smallest expected count with 5 incorrectly.",
+    "The smallest claimed percent is 10%.",
+    "Smallest expected count = 60 · 0.1 = 6.",
+    "Yes; the smallest expected count is 6, which is at least 5.",
+    "Correct answer: Yes; the smallest expected count is 6, which is at least 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-015",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A goodness-of-fit test about the colors in a bag of candy gives χ² = 7.41 with df = 3, so the P-value is about 0.0599. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+    },
+    {
+     "prompt": "In a chi-square test, one category has an observed count of 7 and an expected count of 16. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+     "answer": "5.06"
+    },
+    {
+     "prompt": "A game says its prize wheel lands on each outcome as follows: 30% small prize, 50% medium prize, and 20% large prize. A random sample of 100 spins is taken. What is the expected count for large prize?",
+     "answer": "20"
+    },
+    {
+     "prompt": "A goodness-of-fit test has observed counts 39, 34, 47 and expected counts 40, 40, 40 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+     "answer": "2.15"
+    }
+   ],
+   "answer": "(a) Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution; (b) 5.06; (c) 20; (d) 2.15",
+   "solutionSteps": [
+    "(a) Compare the P-value with α: 0.0599 > 0.05. A P-value above α means the data are consistent with H₀. Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+    "(b) O − E = 7 − 16 = -9. (O − E)² = 81. 81 ÷ 16 ≈ 5.06.",
+    "(c) Expected count = n · p = 100 · 0.2. Expected count = 20.",
+    "(d) χ² = Σ (O − E)²/E. (39 − 40)²/40 + (34 − 40)²/40 + (47 − 40)²/40 χ² ≈ 2.15."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp2-016",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nIn a chi-square test, one category has an observed count of 19 and an expected count of 12. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.\nAva's answer: 2.58\nIdentify the mistake and give the correct answer.",
+   "answer": "4.08",
+   "solutionSteps": [
+    "Mistake: Ava divided by the observed count instead of the expected count.",
+    "O − E = 19 − 12 = 7.",
+    "(O − E)² = 49.",
+    "49 ÷ 12 ≈ 4.08.",
+    "The correct answer is 4.08, not 2.58."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-001",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test has observed counts 20, 98, 58, 24 and expected counts 20, 90, 50, 40 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+   "answer": "8.39",
+   "solutionSteps": [
+    "χ² = Σ (O − E)²/E.",
+    "(20 − 20)²/20 + (98 − 90)²/90 + (58 − 50)²/50 + (24 − 40)²/40",
+    "χ² ≈ 8.39."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-002",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A genetics model predicts offspring types in these proportions: 30% type A, 20% type B, and 50% type C. A random sample of 90 offspring is taken. What is the expected count for type C?",
+   "answer": "45",
+   "options": [
+    {
+     "text": "0.5",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = n · p = 90 · 0.5.",
+    "Expected count = 45."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-003",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test has observed counts 63, 24, 58, 55 and expected counts 60, 30, 60, 50 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+   "answer": "1.92",
+   "solutionSteps": [
+    "χ² = Σ (O − E)²/E.",
+    "(63 − 60)²/60 + (24 − 30)²/30 + (58 − 60)²/60 + (55 − 50)²/50",
+    "χ² ≈ 1.92."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-004",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A streaming service claims its viewers prefer genres as follows: 30% comedy, 30% drama, 30% action, and 10% documentary. A random sample of 150 viewers is taken. What is the expected count for documentary?",
+   "answer": "15",
+   "options": [
+    {
+     "text": "15",
+     "correct": true
+    },
+    {
+     "text": "37.5",
+     "correct": false
+    },
+    {
+     "text": "135",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = n · p = 150 · 0.1.",
+    "Expected count = 15."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-005",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A goodness-of-fit test about the blood types of donors gives χ² = 7.68 with df = 5, so the P-value is about 0.1748. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.1748 > 0.01.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-006",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In a chi-square test, one category has an observed count of 24 and an expected count of 16. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "4.00",
+   "options": [
+    {
+     "text": "4.00",
+     "correct": true
+    },
+    {
+     "text": "64.00",
+     "correct": false
+    },
+    {
+     "text": "0.50",
+     "correct": false
+    },
+    {
+     "text": "2.67",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "O − E = 24 − 16 = 8.",
+    "(O − E)² = 64.",
+    "64 ÷ 16 ≈ 4.00."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-007",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 140 observations sorted into 8 flavors. How many degrees of freedom does the test have?",
+   "answer": "7",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 8 − 1 = 7."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-008",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A nursery claims its mixed tulip bulbs bloom in these proportions: 25% red, 15% pink, 35% white, and 25% purple. A random sample of 20 bulbs will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "No; the smallest expected count is 3, which is less than 5.",
+   "options": [
+    {
+     "text": "Yes; the smallest expected count is 3, which is at least 5.",
+     "correct": false
+    },
+    {
+     "text": "No; the smallest expected count is 3, which is less than 5.",
+     "correct": true
+    },
+    {
+     "text": "Yes; the sample size 20 is at least 30.",
+     "correct": false
+    },
+    {
+     "text": "Yes; the percents add to 100%.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The smallest claimed percent is 15%.",
+    "Smallest expected count = 20 · 0.15 = 3.",
+    "No; the smallest expected count is 3, which is less than 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-009",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test with 6 categories gives χ² = 17.62. Find the P-value. Round to four decimal places.",
+   "answer": "0.0035",
+   "solutionSteps": [
+    "df = 6 − 1 = 5.",
+    "P-value = P(χ² ≥ 17.62) with df = 5.",
+    "P-value ≈ 0.0035."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-010",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 160 observations sorted into 7 outcomes. How many degrees of freedom does the test have?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "153",
+     "correct": false
+    },
+    {
+     "text": "159",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 7 − 1 = 6."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-011",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 390 observations sorted into 4 colors. How many degrees of freedom does the test have?",
+   "answer": "3",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 4 − 1 = 3."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-012",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In a chi-square test, one category has an observed count of 38 and an expected count of 30. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "2.13",
+   "options": [
+    {
+     "text": "1.68",
+     "correct": false
+    },
+    {
+     "text": "0.27",
+     "correct": false
+    },
+    {
+     "text": "64.00",
+     "correct": false
+    },
+    {
+     "text": "2.13",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "O − E = 38 − 30 = 8.",
+    "(O − E)² = 64.",
+    "64 ÷ 30 ≈ 2.13."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-013",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A candy company claims its bags are 25% red, 20% blue, 40% green, and 15% yellow. A random sample of 30 candies will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "No; the smallest expected count is 4.5, which is less than 5.",
+   "solutionSteps": [
+    "The smallest claimed percent is 15%.",
+    "Smallest expected count = 30 · 0.15 = 4.5.",
+    "No; the smallest expected count is 4.5, which is less than 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-014",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Gabe answered this problem incorrectly.\nA goodness-of-fit test about the grades in a large course gives χ² = 1.90 with df = 2, so the P-value is about 0.3867. Using α = 0.10, what is the conclusion?\nGabe's answer: Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.\nIdentify the mistake and give the correct answer.",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "solutionSteps": [
+    "Mistake: Gabe compared the P-value 0.3867 with α = 0.10 incorrectly.",
+    "Compare the P-value with α: 0.3867 > 0.10.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+    "Correct answer: Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-015",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A goodness-of-fit test has observed counts 136, 36, 128 and expected counts 135, 30, 135 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+     "answer": "1.57"
+    },
+    {
+     "prompt": "A goodness-of-fit test about the flavors customers choose gives χ² = 1.51 with df = 2, so the P-value is about 0.4700. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+    },
+    {
+     "prompt": "In a chi-square test, one category has an observed count of 36 and an expected count of 40. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+     "answer": "0.40"
+    },
+    {
+     "prompt": "A chi-square goodness-of-fit test uses a random sample of 100 observations sorted into 7 colors. How many degrees of freedom does the test have?",
+     "answer": "6"
+    }
+   ],
+   "answer": "(a) 1.57; (b) Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution; (c) 0.40; (d) 6",
+   "solutionSteps": [
+    "(a) χ² = Σ (O − E)²/E. (136 − 135)²/135 + (36 − 30)²/30 + (128 − 135)²/135 χ² ≈ 1.57.",
+    "(b) Compare the P-value with α: 0.4700 > 0.05. A P-value above α means the data are consistent with H₀. Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+    "(c) O − E = 36 − 40 = -4. (O − E)² = 16. 16 ÷ 40 ≈ 0.40.",
+    "(d) For a goodness-of-fit test, df = number of categories − 1. df = 7 − 1 = 6."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-cp1-016",
+   "skillId": "statistical-inference-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA goodness-of-fit test has observed counts 50, 30, 63, 157 and expected counts 45, 30, 60, 165 (in the same order). Compute the chi-square statistic. Round to two decimal places.\nAva's answer: 1.05\nIdentify the mistake and give the correct answer.",
+   "answer": "1.09",
+   "solutionSteps": [
+    "Mistake: Ava divided each squared difference by the observed count.",
+    "χ² = Σ (O − E)²/E.",
+    "(50 − 45)²/45 + (30 − 30)²/30 + (63 − 60)²/60 + (157 − 165)²/165",
+    "χ² ≈ 1.09.",
+    "The correct answer is 1.09, not 1.05."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_statistic_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-001",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 380 observations sorted into 7 regions. How many degrees of freedom does the test have?",
+   "answer": "6",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 7 − 1 = 6."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-002",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A candy company claims its bags are 25% red, 20% blue, and 55% green. A random sample of 60 candies will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "Yes; the smallest expected count is 12, which is at least 5.",
+   "options": [
+    {
+     "text": "Yes; the smallest expected count is 12, which is at least 5.",
+     "correct": true
+    },
+    {
+     "text": "No; the sample size 60 is less than 10% of the population.",
+     "correct": false
+    },
+    {
+     "text": "No; the smallest expected count is 12, which is less than 5.",
+     "correct": false
+    },
+    {
+     "text": "No; the expected counts are not all equal.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The smallest claimed percent is 20%.",
+    "Smallest expected count = 60 · 0.2 = 12.",
+    "Yes; the smallest expected count is 12, which is at least 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-003",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 340 observations sorted into 4 categories. How many degrees of freedom does the test have?",
+   "answer": "3",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 4 − 1 = 3."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-004",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a chi-square test, one category has an observed count of 34 and an expected count of 37.5. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "0.33",
+   "options": [
+    {
+     "text": "0.33",
+     "correct": true
+    },
+    {
+     "text": "12.25",
+     "correct": false
+    },
+    {
+     "text": "0.36",
+     "correct": false
+    },
+    {
+     "text": "0.09",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "O − E = 34 − 37.5 = -3.5.",
+    "(O − E)² = 12.25.",
+    "12.25 ÷ 37.5 ≈ 0.33."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-005",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A genetics model predicts offspring types in these proportions: 20% type A, 20% type B, 20% type C, and 40% type D. A random sample of 110 offspring is taken. What is the expected count for type D?",
+   "answer": "44",
+   "solutionSteps": [
+    "Expected count = n · p = 110 · 0.4.",
+    "Expected count = 44."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-006",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A goodness-of-fit test about the days on which customers shop gives χ² = 12.34 with df = 6, so the P-value is about 0.0548. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+   "options": [
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": true
+    },
+    {
+     "text": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; the claimed distribution has been proven correct.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0548 > 0.01.",
+    "A P-value above α means the data are consistent with H₀.",
+    "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-007",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test with 8 categories gives χ² = 14.46. Find the P-value. Round to four decimal places.",
+   "answer": "0.0436",
+   "solutionSteps": [
+    "df = 8 − 1 = 7.",
+    "P-value = P(χ² ≥ 14.46) with df = 7.",
+    "P-value ≈ 0.0436."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-008",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A candy company claims its bags are 35% red, 20% blue, 25% green, and 20% yellow. A random sample of 60 candies will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+   "answer": "Yes; the smallest expected count is 12, which is at least 5.",
+   "options": [
+    {
+     "text": "Yes; the smallest expected count is 12, which is at least 5.",
+     "correct": true
+    },
+    {
+     "text": "No; the sample size 60 is less than 10% of the population.",
+     "correct": false
+    },
+    {
+     "text": "No; the expected counts are not all equal.",
+     "correct": false
+    },
+    {
+     "text": "No; the smallest expected count is 12, which is less than 5.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The smallest claimed percent is 20%.",
+    "Smallest expected count = 60 · 0.2 = 12.",
+    "Yes; the smallest expected count is 12, which is at least 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-009",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A candy company claims its bags are 30% red, 15% blue, and 55% green. A random sample of 230 candies is taken. What is the expected count for green?",
+   "answer": "126.5",
+   "solutionSteps": [
+    "Expected count = n · p = 230 · 0.55.",
+    "Expected count = 126.5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-010",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a chi-square test, one category has an observed count of 59 and an expected count of 62.5. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "0.20",
+   "options": [
+    {
+     "text": "0.21",
+     "correct": false
+    },
+    {
+     "text": "0.06",
+     "correct": false
+    },
+    {
+     "text": "0.20",
+     "correct": true
+    },
+    {
+     "text": "12.25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "O − E = 59 − 62.5 = -3.5.",
+    "(O − E)² = 12.25.",
+    "12.25 ÷ 62.5 ≈ 0.20."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-011",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square goodness-of-fit test uses a random sample of 280 observations sorted into 8 categories. How many degrees of freedom does the test have?",
+   "answer": "7",
+   "solutionSteps": [
+    "For a goodness-of-fit test, df = number of categories − 1.",
+    "df = 8 − 1 = 7."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-012",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A goodness-of-fit test about the grades in a large course gives χ² = 14.40 with df = 5, so the P-value is about 0.0133. Using α = 0.05, what is the conclusion?",
+   "answer": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+   "options": [
+    {
+     "text": "Reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; the claimed distribution has been proven correct.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": false
+    },
+    {
+     "text": "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0133 < 0.05.",
+    "A P-value below α means the data would be unusual if H₀ were true.",
+    "Reject H₀; there is convincing evidence that the distribution differs from the claimed distribution."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-013",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a chi-square test, one category has an observed count of 4 and an expected count of 12.5. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+   "answer": "5.78",
+   "solutionSteps": [
+    "O − E = 4 − 12.5 = -8.5.",
+    "(O − E)² = 72.25.",
+    "72.25 ÷ 12.5 ≈ 5.78."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_component). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-014",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nA streaming service claims its viewers prefer genres as follows: 20% comedy, 35% drama, and 45% action. A random sample of 230 viewers is taken. What is the expected count for action?\nIsaac's answer: 45\nIdentify the mistake and give the correct answer.",
+   "answer": "103.5",
+   "solutionSteps": [
+    "Mistake: Isaac gave the percent instead of multiplying by the sample size.",
+    "Expected count = n · p = 230 · 0.45.",
+    "Expected count = 103.5.",
+    "The correct answer is 103.5, not 45."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_expected_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-015",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A school claims its students travel to school as follows: 15% bus, 35% car, 30% walking, and 20% bike. A random sample of 20 students will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?",
+     "answer": "No; the smallest expected count is 3, which is less than 5."
+    },
+    {
+     "prompt": "A goodness-of-fit test has observed counts 75, 67, 25, 33 and expected counts 80, 60, 20, 40 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+     "answer": "3.60"
+    },
+    {
+     "prompt": "A goodness-of-fit test has observed counts 74, 24, 25, 77 and expected counts 80, 20, 30, 70 (in the same order). Compute the chi-square statistic. Round to two decimal places.",
+     "answer": "2.78"
+    },
+    {
+     "prompt": "In a chi-square test, one category has an observed count of 36 and an expected count of 27.5. Find this category's contribution, (O − E)²/E, to the chi-square statistic. Round to two decimal places.",
+     "answer": "2.63"
+    }
+   ],
+   "answer": "(a) No; the smallest expected count is 3, which is less than 5; (b) 3.60; (c) 2.78; (d) 2.63",
+   "solutionSteps": [
+    "(a) The smallest claimed percent is 15%. Smallest expected count = 20 · 0.15 = 3. No; the smallest expected count is 3, which is less than 5.",
+    "(b) χ² = Σ (O − E)²/E. (75 − 80)²/80 + (67 − 60)²/60 + (25 − 20)²/20 + (33 − 40)²/40 χ² ≈ 3.60.",
+    "(c) χ² = Σ (O − E)²/E. (74 − 80)²/80 + (24 − 20)²/20 + (25 − 30)²/30 + (77 − 70)²/70 χ² ≈ 2.78.",
+    "(d) O − E = 36 − 27.5 = 8.5. (O − E)² = 72.25. 72.25 ÷ 27.5 ≈ 2.63."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s12-honors-016",
+   "skillId": "statistical-inference-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nA game says its prize wheel lands on each outcome as follows: 25% small prize, 20% medium prize, 40% large prize, and 15% no prize. A random sample of 30 spins will be used for a chi-square goodness-of-fit test. Is the Large Counts condition (every expected count is at least 5) met?\nOmar's answer: Yes; the smallest expected count is 4.5, which is at least 5.\nIdentify the mistake and give the correct answer.",
+   "answer": "No; the smallest expected count is 4.5, which is less than 5.",
+   "solutionSteps": [
+    "Mistake: Omar compared the smallest expected count with 5 incorrectly.",
+    "The smallest claimed percent is 15%.",
+    "Smallest expected count = 30 · 0.15 = 4.5.",
+    "No; the smallest expected count is 4.5, which is less than 5.",
+    "Correct answer: No; the smallest expected count is 4.5, which is less than 5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gof_large_counts_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-001",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test on a two-way table with 2 rows and 3 columns gives χ² = 6.80. Find the P-value. Round to four decimal places.",
+   "answer": "0.0334",
+   "solutionSteps": [
+    "df = (2 − 1)(3 − 1) = 2.",
+    "P-value = P(χ² ≥ 6.80) with df = 2.",
+    "P-value ≈ 0.0334."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-002",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence between blood type and allergy status for patients at a clinic gives χ² = 6.63 with df = 3, so the P-value is about 0.0847. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between blood type and allergy status.",
+   "options": [
+    {
+     "text": "Reject H₀; there is convincing evidence of an association between blood type and allergy status.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence of an association between blood type and allergy status.",
+     "correct": true
+    },
+    {
+     "text": "Reject H₀; blood type causes allergy status.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; blood type and allergy status have been proven independent.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0847 > 0.05.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between blood type and allergy status."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-003",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence uses one random sample of patients at a clinic, classified by blood type and allergy status. State the null hypothesis.",
+   "answer": "H₀: There is no association between blood type and allergy status for patients at a clinic.",
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "H₀: There is no association between blood type and allergy status for patients at a clinic."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-004",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test uses a two-way table of work shift and job satisfaction with 5 rows and 2 columns (not counting totals). How many degrees of freedom does the test have?",
+   "answer": "4",
+   "options": [
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "df = (rows − 1)(columns − 1).",
+    "df = (5 − 1)(2 − 1) = 4 · 1 = 4."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-005",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence between exercise habit and sleep quality for adults in a town gives χ² = 5.51 with df = 2, so the P-value is about 0.0636. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0636 > 0.05.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-006",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A study records region and favorite sport. Observed counts: North: 24 basketball, 42 baseball; South: 10 basketball, 44 baseball. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+   "answer": "4.66",
+   "options": [
+    {
+     "text": "2.10",
+     "correct": false
+    },
+    {
+     "text": "0.88",
+     "correct": false
+    },
+    {
+     "text": "4.66",
+     "correct": true
+    },
+    {
+     "text": "5.29",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row totals: 66 and 54; column totals: 34, 86; grand total: 120.",
+    "Expected counts (row total · column total ÷ grand total): North: 18.7, 47.3; South: 15.3, 38.7.",
+    "χ² = Σ (O − E)²/E ≈ 4.66."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-007",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A single random sample of 500 voters is classified by region and by opinion on a ballot question. Which chi-square test is appropriate?",
+   "answer": "Chi-square test for independence",
+   "solutionSteps": [
+    "There is one random sample, and each individual is classified on two categorical variables.",
+    "Use the chi-square test for independence."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-008",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A study records work shift and job satisfaction. Observed counts: Day shift: 19 dissatisfied, 15 satisfied; Swing shift: 32 dissatisfied, 34 satisfied. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+   "answer": "0.49",
+   "options": [
+    {
+     "text": "0.32",
+     "correct": false
+    },
+    {
+     "text": "0.50",
+     "correct": false
+    },
+    {
+     "text": "0.30",
+     "correct": false
+    },
+    {
+     "text": "0.49",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Row totals: 34 and 66; column totals: 51, 49; grand total: 100.",
+    "Expected counts (row total · column total ÷ grand total): Day shift: 17.34, 16.66; Swing shift: 33.66, 32.34.",
+    "χ² = Σ (O − E)²/E ≈ 0.49."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-009",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 150 people by grade level and preferred lunch option. The row total for \"9th graders\" is 20 and the column total for \"pizza\" is 60. If H₀ is true, what is the expected count for the cell \"9th graders\" and \"pizza\"? Round to two decimal places if needed.",
+   "answer": "8",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(20 · 60) ÷ 150 = 1200 ÷ 150.",
+    "Expected count = 8."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-010",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence uses one random sample of students at a college, classified by class year and study location. State the null hypothesis.",
+   "answer": "H₀: There is no association between class year and study location for students at a college.",
+   "options": [
+    {
+     "text": "H₀: In the sample, class year and study location are not associated.",
+     "correct": false
+    },
+    {
+     "text": "H₀: The mean class year equals the mean study location for students at a college.",
+     "correct": false
+    },
+    {
+     "text": "H₀: There is no association between class year and study location for students at a college.",
+     "correct": true
+    },
+    {
+     "text": "H₀: There is an association between class year and study location for students at a college.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "H₀: There is no association between class year and study location for students at a college."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-011",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Separate random samples of 200 teachers and 200 parents are asked whether they support, oppose, or are unsure about a later start time. Which chi-square test is appropriate?",
+   "answer": "Chi-square test for homogeneity",
+   "solutionSteps": [
+    "There are separate samples (or treatment groups), and one categorical variable is compared across them.",
+    "Use the chi-square test for homogeneity."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-012",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A two-way table classifies 200 people by region and favorite sport. The row total for \"South\" is 170 and the column total for \"baseball\" is 140. If H₀ is true, what is the expected count for the cell \"South\" and \"baseball\"? Round to two decimal places if needed.",
+   "answer": "119",
+   "options": [
+    {
+     "text": "0.595",
+     "correct": false
+    },
+    {
+     "text": "155",
+     "correct": false
+    },
+    {
+     "text": "119",
+     "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(170 · 140) ÷ 200 = 23800 ÷ 200.",
+    "Expected count = 119."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-013",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 240 people by work shift and job satisfaction. The row total for \"Swing shift\" is 80 and the column total for \"dissatisfied\" is 180. If H₀ is true, what is the expected count for the cell \"Swing shift\" and \"dissatisfied\"? Round to two decimal places if needed.",
+   "answer": "60",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(80 · 180) ÷ 240 = 14400 ÷ 240.",
+    "Expected count = 60."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-014",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nA two-way table classifies 120 people by age group and preferred news source. The row total for \"30 to 50\" is 20 and the column total for \"television\" is 60. If H₀ is true, what is the expected count for the cell \"30 to 50\" and \"television\"? Round to two decimal places if needed.\nBen's answer: 40\nIdentify the mistake and give the correct answer.",
+   "answer": "10",
+   "solutionSteps": [
+    "Mistake: Ben averaged the row and column totals.",
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(20 · 60) ÷ 120 = 1200 ÷ 120.",
+    "Expected count = 10.",
+    "The correct answer is 10, not 40."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-015",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A chi-square test on a two-way table with 2 rows and 3 columns gives χ² = 8.91. Find the P-value. Round to four decimal places.",
+     "answer": "0.0116"
+    },
+    {
+     "prompt": "A chi-square test for independence between age group and preferred news source for adults in a city gives χ² = 6.55 with df = 2, so the P-value is about 0.0378. Using α = 0.05, what is the conclusion?",
+     "answer": "Reject H₀; there is convincing evidence of an association between age group and preferred news source."
+    },
+    {
+     "prompt": "A chi-square test for independence between gender and payment method for shoppers at a mall gives χ² = 8.38 with df = 6, so the P-value is about 0.2116. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence of an association between gender and payment method."
+    },
+    {
+     "prompt": "A chi-square test for independence uses one random sample of adults in a city, classified by age group and preferred news source. State the null hypothesis.",
+     "answer": "H₀: There is no association between age group and preferred news source for adults in a city."
+    }
+   ],
+   "answer": "(a) 0.0116; (b) Reject H₀; there is convincing evidence of an association between age group and preferred news source; (c) Fail to reject H₀; there is not convincing evidence of an association between gender and payment method; (d) H₀: There is no association between age group and preferred news source for adults in a city",
+   "solutionSteps": [
+    "(a) df = (2 − 1)(3 − 1) = 2. P-value = P(χ² ≥ 8.91) with df = 2. P-value ≈ 0.0116.",
+    "(b) Compare the P-value with α: 0.0378 < 0.05. A P-value below α means the data would be unusual if the variables were independent. Reject H₀; there is convincing evidence of an association between age group and preferred news source.",
+    "(c) Compare the P-value with α: 0.2116 > 0.05. A P-value above α means the data are consistent with independence. Fail to reject H₀; there is not convincing evidence of an association between gender and payment method.",
+    "(d) The null hypothesis says the two variables are independent (no association) in the population. The alternative says there is an association. H₀: There is no association between age group and preferred news source for adults in a city."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp2-016",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nA chi-square test for independence between age group and preferred news source for adults in a city gives χ² = 4.26 with df = 1, so the P-value is about 0.0390. Using α = 0.05, what is the conclusion?\nBen's answer: Fail to reject H₀; there is not convincing evidence of an association between age group and preferred news source.\nIdentify the mistake and give the correct answer.",
+   "answer": "Reject H₀; there is convincing evidence of an association between age group and preferred news source.",
+   "solutionSteps": [
+    "Mistake: Ben compared the P-value 0.0390 with α = 0.05 incorrectly.",
+    "Compare the P-value with α: 0.0390 < 0.05.",
+    "A P-value below α means the data would be unusual if the variables were independent.",
+    "Reject H₀; there is convincing evidence of an association between age group and preferred news source.",
+    "Correct answer: Reject H₀; there is convincing evidence of an association between age group and preferred news source."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-001",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 300 people by class year and study location. The row total for \"Juniors\" is 230 and the column total for \"home\" is 265. If H₀ is true, what is the expected count for the cell \"Juniors\" and \"home\"? Round to two decimal places if needed.",
+   "answer": "203.17",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(230 · 265) ÷ 300 = 60950 ÷ 300.",
+    "Expected count ≈ 203.17."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-002",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A study records work shift and job satisfaction. Observed counts: Day shift: 12 dissatisfied, 16 neutral; Swing shift: 29 dissatisfied, 23 neutral. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+   "answer": "1.21",
+   "options": [
+    {
+     "text": "1.24",
+     "correct": false
+    },
+    {
+     "text": "0.52",
+     "correct": false
+    },
+    {
+     "text": "1.21",
+     "correct": true
+    },
+    {
+     "text": "0.79",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row totals: 28 and 52; column totals: 41, 39; grand total: 80.",
+    "Expected counts (row total · column total ÷ grand total): Day shift: 14.35, 13.65; Swing shift: 26.65, 25.35.",
+    "χ² = Σ (O − E)²/E ≈ 1.21."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-003",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A researcher takes one random sample of 400 adults and classifies each person by age group and by preferred news source. Which chi-square test is appropriate?",
+   "answer": "Chi-square test for independence",
+   "solutionSteps": [
+    "There is one random sample, and each individual is classified on two categorical variables.",
+    "Use the chi-square test for independence."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-004",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A two-way table classifies 200 people by age group and preferred news source. The row total for \"30 to 50\" is 45 and the column total for \"television\" is 70. If H₀ is true, what is the expected count for the cell \"30 to 50\" and \"television\"? Round to two decimal places if needed.",
+   "answer": "15.75",
+   "options": [
+    {
+     "text": "57.5",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "0.0788",
+     "correct": false
+    },
+    {
+     "text": "15.75",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(45 · 70) ÷ 200 = 3150 ÷ 200.",
+    "Expected count ≈ 15.75."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-005",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A company claims its candy is 30% red, 20% blue, and 50% green. A student counts the colors in one random sample of 200 candies. Which chi-square test is appropriate?",
+   "answer": "Chi-square goodness-of-fit test",
+   "solutionSteps": [
+    "There is one sample and one categorical variable, compared with a claimed distribution.",
+    "Use the chi-square goodness-of-fit test."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-006",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test on a two-way table with 4 rows and 3 columns gives χ² = 6.04. Find the P-value. Round to four decimal places.",
+   "answer": "0.4187",
+   "options": [
+    {
+     "text": "0.2094",
+     "correct": false
+    },
+    {
+     "text": "0.5813",
+     "correct": false
+    },
+    {
+     "text": "0.8707",
+     "correct": false
+    },
+    {
+     "text": "0.4187",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "df = (4 − 1)(3 − 1) = 6.",
+    "P-value = P(χ² ≥ 6.04) with df = 6.",
+    "P-value ≈ 0.4187."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-007",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A geneticist compares the counts of four offspring types in one random sample with the 9:3:3:1 ratio a model predicts. Which chi-square test is appropriate?",
+   "answer": "Chi-square goodness-of-fit test",
+   "solutionSteps": [
+    "There is one sample and one categorical variable, compared with a claimed distribution.",
+    "Use the chi-square goodness-of-fit test."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-008",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Independent random samples of 80 residents from each of four neighborhoods are asked which of three park designs they prefer. Which chi-square test is appropriate?",
+   "answer": "Chi-square test for homogeneity",
+   "options": [
+    {
+     "text": "Two-sample t-test for a difference in means",
+     "correct": false
+    },
+    {
+     "text": "Chi-square test for homogeneity",
+     "correct": true
+    },
+    {
+     "text": "Chi-square test for independence",
+     "correct": false
+    },
+    {
+     "text": "Chi-square goodness-of-fit test",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "There are separate samples (or treatment groups), and one categorical variable is compared across them.",
+    "Use the chi-square test for homogeneity."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-009",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence uses one random sample of shoppers at a mall, classified by gender and payment method. State the null hypothesis.",
+   "answer": "H₀: There is no association between gender and payment method for shoppers at a mall.",
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "H₀: There is no association between gender and payment method for shoppers at a mall."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-010",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence uses one random sample of patients at a clinic, classified by blood type and allergy status. State the alternative hypothesis.",
+   "answer": "Hₐ: There is an association between blood type and allergy status for patients at a clinic.",
+   "options": [
+    {
+     "text": "Hₐ: There is an association between blood type and allergy status for patients at a clinic.",
+     "correct": true
+    },
+    {
+     "text": "Hₐ: The mean blood type equals the mean allergy status for patients at a clinic.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: There is no association between blood type and allergy status for patients at a clinic.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: In the sample, blood type and allergy status are associated.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "Hₐ: There is an association between blood type and allergy status for patients at a clinic."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-011",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chi-square test on a two-way table with 4 rows and 4 columns gives χ² = 8.40. Find the P-value. Round to four decimal places.",
+   "answer": "0.4944",
+   "solutionSteps": [
+    "df = (4 − 1)(4 − 1) = 9.",
+    "P-value = P(χ² ≥ 8.40) with df = 9.",
+    "P-value ≈ 0.4944."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-012",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test on a two-way table with 2 rows and 4 columns gives χ² = 3.12. Find the P-value. Round to four decimal places.",
+   "answer": "0.3735",
+   "options": [
+    {
+     "text": "0.3735",
+     "correct": true
+    },
+    {
+     "text": "0.6265",
+     "correct": false
+    },
+    {
+     "text": "0.1867",
+     "correct": false
+    },
+    {
+     "text": "0.8737",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "df = (2 − 1)(4 − 1) = 3.",
+    "P-value = P(χ² ≥ 3.12) with df = 3.",
+    "P-value ≈ 0.3735."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-013",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 120 people by age group and preferred news source. The row total for \"Over 50\" is 60 and the column total for \"print\" is 75. If H₀ is true, what is the expected count for the cell \"Over 50\" and \"print\"? Round to two decimal places if needed.",
+   "answer": "37.5",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(60 · 75) ÷ 120 = 4500 ÷ 120.",
+    "Expected count ≈ 37.5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-014",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nA chi-square test on a two-way table with 2 rows and 4 columns gives χ² = 10.71. Find the P-value. Round to four decimal places.\nHana's answer: 0.9866\nIdentify the mistake and give the correct answer.",
+   "answer": "0.0134",
+   "solutionSteps": [
+    "Mistake: Hana found the area to the left of χ² instead of the right-tail area.",
+    "df = (2 − 1)(4 − 1) = 3.",
+    "P-value = P(χ² ≥ 10.71) with df = 3.",
+    "P-value ≈ 0.0134.",
+    "The correct answer is 0.0134, not 0.9866."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-015",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A study records class year and study location. Observed counts: Juniors: 35 cafe, 35 library; Seniors: 22 cafe, 28 library. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+     "answer": "0.42"
+    },
+    {
+     "prompt": "A chi-square test for independence between gender and payment method for shoppers at a mall gives χ² = 3.16 with df = 1, so the P-value is about 0.0755. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence of an association between gender and payment method."
+    },
+    {
+     "prompt": "A two-way table classifies 300 people by type of treatment and outcome. The row total for \"Placebo\" is 70 and the column total for \"improved\" is 40. If H₀ is true, what is the expected count for the cell \"Placebo\" and \"improved\"? Round to two decimal places if needed.",
+     "answer": "9.33"
+    },
+    {
+     "prompt": "A chi-square test uses a two-way table of age group and preferred news source with 3 rows and 3 columns (not counting totals). How many degrees of freedom does the test have?",
+     "answer": "4"
+    }
+   ],
+   "answer": "(a) 0.42; (b) Fail to reject H₀; there is not convincing evidence of an association between gender and payment method; (c) 9.33; (d) 4",
+   "solutionSteps": [
+    "(a) Row totals: 70 and 50; column totals: 57, 63; grand total: 120. Expected counts (row total · column total ÷ grand total): Juniors: 33.25, 36.75; Seniors: 23.75, 26.25. χ² = Σ (O − E)²/E ≈ 0.42.",
+    "(b) Compare the P-value with α: 0.0755 > 0.05. A P-value above α means the data are consistent with independence. Fail to reject H₀; there is not convincing evidence of an association between gender and payment method.",
+    "(c) Expected count = (row total · column total) ÷ grand total. (70 · 40) ÷ 300 = 2800 ÷ 300. Expected count ≈ 9.33.",
+    "(d) df = (rows − 1)(columns − 1). df = (3 − 1)(3 − 1) = 2 · 2 = 4."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-cp1-016",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Gabe answered this problem incorrectly.\nA two-way table classifies 300 people by age group and preferred news source. The row total for \"Over 50\" is 105 and the column total for \"print\" is 30. If H₀ is true, what is the expected count for the cell \"Over 50\" and \"print\"? Round to two decimal places if needed.\nGabe's answer: 67.5\nIdentify the mistake and give the correct answer.",
+   "answer": "10.5",
+   "solutionSteps": [
+    "Mistake: Gabe averaged the row and column totals.",
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(105 · 30) ÷ 300 = 3150 ÷ 300.",
+    "Expected count ≈ 10.5.",
+    "The correct answer is 10.5, not 67.5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-001",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence between exercise habit and sleep quality for adults in a town gives χ² = 4.24 with df = 2, so the P-value is about 0.1200. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.1200 > 0.01.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-002",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "One random sample of 300 shoppers is surveyed; each shopper is classified by gender and by payment method. Which chi-square test is appropriate?",
+   "answer": "Chi-square test for independence",
+   "options": [
+    {
+     "text": "Chi-square test for independence",
+     "correct": true
+    },
+    {
+     "text": "Chi-square test for homogeneity",
+     "correct": false
+    },
+    {
+     "text": "Two-sample t-test for a difference in means",
+     "correct": false
+    },
+    {
+     "text": "Chi-square goodness-of-fit test",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "There is one random sample, and each individual is classified on two categorical variables.",
+    "Use the chi-square test for independence."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_which_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-003",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence between exercise habit and sleep quality for adults in a town gives χ² = 1.78 with df = 2, so the P-value is about 0.4107. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.4107 > 0.01.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-004",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A two-way table classifies 350 people by work shift and job satisfaction. The row total for \"Day shift\" is 245 and the column total for \"neutral\" is 225. If H₀ is true, what is the expected count for the cell \"Day shift\" and \"neutral\"? Round to two decimal places if needed.",
+   "answer": "157.5",
+   "options": [
+    {
+     "text": "235",
+     "correct": false
+    },
+    {
+     "text": "0.45",
+     "correct": false
+    },
+    {
+     "text": "87.5",
+     "correct": false
+    },
+    {
+     "text": "157.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(245 · 225) ÷ 350 = 55125 ÷ 350.",
+    "Expected count ≈ 157.5."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-005",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 170 people by grade level and preferred lunch option. The row total for \"9th graders\" is 65 and the column total for \"salad\" is 120. If H₀ is true, what is the expected count for the cell \"9th graders\" and \"salad\"? Round to two decimal places if needed.",
+   "answer": "45.88",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(65 · 120) ÷ 170 = 7800 ÷ 170.",
+    "Expected count ≈ 45.88."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-006",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence between work shift and job satisfaction for employees at a company gives χ² = 6.91 with df = 2, so the P-value is about 0.0316. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between work shift and job satisfaction.",
+   "options": [
+    {
+     "text": "Reject H₀; there is convincing evidence of an association between work shift and job satisfaction.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence of an association between work shift and job satisfaction.",
+     "correct": true
+    },
+    {
+     "text": "Reject H₀; work shift causes job satisfaction.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; work shift and job satisfaction have been proven independent.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0316 > 0.01.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between work shift and job satisfaction."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-007",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence between blood type and allergy status for patients at a clinic gives χ² = 5.95 with df = 2, so the P-value is about 0.0510. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between blood type and allergy status.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0510 > 0.01.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between blood type and allergy status."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-008",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence uses one random sample of students at a large high school, classified by grade level and preferred lunch option. State the alternative hypothesis.",
+   "answer": "Hₐ: There is an association between grade level and preferred lunch option for students at a large high school.",
+   "options": [
+    {
+     "text": "Hₐ: There is an association between grade level and preferred lunch option for students at a large high school.",
+     "correct": true
+    },
+    {
+     "text": "Hₐ: In the sample, grade level and preferred lunch option are associated.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: There is no association between grade level and preferred lunch option for students at a large high school.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: The mean grade level equals the mean preferred lunch option for students at a large high school.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "Hₐ: There is an association between grade level and preferred lunch option for students at a large high school."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-009",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence between work shift and job satisfaction for employees at a company gives χ² = 1.54 with df = 1, so the P-value is about 0.2146. Using α = 0.10, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of an association between work shift and job satisfaction.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.2146 > 0.10.",
+    "A P-value above α means the data are consistent with independence.",
+    "Fail to reject H₀; there is not convincing evidence of an association between work shift and job satisfaction."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-010",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A study records work shift and job satisfaction. Observed counts: Night shift: 23 dissatisfied, 30 satisfied, 37 neutral; Day shift: 44 dissatisfied, 25 satisfied, 21 neutral. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+   "answer": "11.45",
+   "options": [
+    {
+     "text": "1.36",
+     "correct": false
+    },
+    {
+     "text": "12.53",
+     "correct": false
+    },
+    {
+     "text": "11.45",
+     "correct": true
+    },
+    {
+     "text": "5.73",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row totals: 90 and 90; column totals: 67, 55, 58; grand total: 180.",
+    "Expected counts (row total · column total ÷ grand total): Night shift: 33.5, 27.5, 29; Day shift: 33.5, 27.5, 29.",
+    "χ² = Σ (O − E)²/E ≈ 11.45."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-011",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 350 people by class year and study location. The row total for \"Seniors\" is 330 and the column total for \"library\" is 205. If H₀ is true, what is the expected count for the cell \"Seniors\" and \"library\"? Round to two decimal places if needed.",
+   "answer": "193.29",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(330 · 205) ÷ 350 = 67650 ÷ 350.",
+    "Expected count ≈ 193.29."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-012",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A chi-square test for independence uses one random sample of shoppers at a mall, classified by gender and payment method. State the alternative hypothesis.",
+   "answer": "Hₐ: There is an association between gender and payment method for shoppers at a mall.",
+   "options": [
+    {
+     "text": "Hₐ: There is an association between gender and payment method for shoppers at a mall.",
+     "correct": true
+    },
+    {
+     "text": "Hₐ: There is no association between gender and payment method for shoppers at a mall.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: In the sample, gender and payment method are associated.",
+     "correct": false
+    },
+    {
+     "text": "Hₐ: The mean gender equals the mean payment method for shoppers at a mall.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says the two variables are independent (no association) in the population.",
+    "The alternative says there is an association.",
+    "Hₐ: There is an association between gender and payment method for shoppers at a mall."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-013",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table classifies 260 people by age group and preferred news source. The row total for \"Under 30\" is 230 and the column total for \"print\" is 205. If H₀ is true, what is the expected count for the cell \"Under 30\" and \"print\"? Round to two decimal places if needed.",
+   "answer": "181.35",
+   "solutionSteps": [
+    "Expected count = (row total · column total) ÷ grand total.",
+    "(230 · 205) ÷ 260 = 47150 ÷ 260.",
+    "Expected count ≈ 181.35."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_expected). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-014",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nA study records class year and study location. Observed counts: Sophomores: 27 library, 31 cafe, 24 home; Seniors: 41 library, 30 cafe, 11 home. Compute the chi-square statistic for a test of association. Round to two decimal places.\nEmma's answer: 3.86\nIdentify the mistake and give the correct answer.",
+   "answer": "7.73",
+   "solutionSteps": [
+    "Mistake: Emma added the contributions from the first row only.",
+    "Row totals: 82 and 82; column totals: 68, 61, 35; grand total: 164.",
+    "Expected counts (row total · column total ÷ grand total): Sophomores: 34, 30.5, 17.5; Seniors: 34, 30.5, 17.5.",
+    "χ² = Σ (O − E)²/E ≈ 7.73.",
+    "The correct answer is 7.73, not 3.86."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_statistic_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-015",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A chi-square test for independence between exercise habit and sleep quality for adults in a town gives χ² = 8.76 with df = 4, so the P-value is about 0.0674. Using α = 0.01, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality."
+    },
+    {
+     "prompt": "A study records type of treatment and outcome. Observed counts: Treatment A: 17 worse, 22 no change, 42 improved; Placebo: 23 worse, 21 no change, 25 improved. Compute the chi-square statistic for a test of association. Round to two decimal places.",
+     "answer": "4.30"
+    },
+    {
+     "prompt": "A chi-square test for independence between grade level and preferred lunch option for students at a large high school gives χ² = 10.71 with df = 3, so the P-value is about 0.0134. Using α = 0.05, what is the conclusion?",
+     "answer": "Reject H₀; there is convincing evidence of an association between grade level and preferred lunch option."
+    },
+    {
+     "prompt": "A chi-square test for independence uses one random sample of students at a large high school, classified by grade level and preferred lunch option. State the null hypothesis.",
+     "answer": "H₀: There is no association between grade level and preferred lunch option for students at a large high school."
+    }
+   ],
+   "answer": "(a) Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality; (b) 4.30; (c) Reject H₀; there is convincing evidence of an association between grade level and preferred lunch option; (d) H₀: There is no association between grade level and preferred lunch option for students at a large high school",
+   "solutionSteps": [
+    "(a) Compare the P-value with α: 0.0674 > 0.01. A P-value above α means the data are consistent with independence. Fail to reject H₀; there is not convincing evidence of an association between exercise habit and sleep quality.",
+    "(b) Row totals: 81 and 69; column totals: 40, 43, 67; grand total: 150. Expected counts (row total · column total ÷ grand total): Treatment A: 21.6, 23.22, 36.18; Placebo: 18.4, 19.78, 30.82. χ² = Σ (O − E)²/E ≈ 4.30.",
+    "(c) Compare the P-value with α: 0.0134 < 0.05. A P-value below α means the data would be unusual if the variables were independent. Reject H₀; there is convincing evidence of an association between grade level and preferred lunch option.",
+    "(d) The null hypothesis says the two variables are independent (no association) in the population. The alternative says there is an association. H₀: There is no association between grade level and preferred lunch option for students at a large high school."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_conclusion_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s13-honors-016",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA chi-square test on a two-way table with 3 rows and 5 columns gives χ² = 13.31. Find the P-value. Round to four decimal places.\nQuinn's answer: 0.8984\nIdentify the mistake and give the correct answer.",
+   "answer": "0.1016",
+   "solutionSteps": [
+    "Mistake: Quinn found the area to the left of χ² instead of the right-tail area.",
+    "df = (3 − 1)(5 − 1) = 8.",
+    "P-value = P(χ² ≥ 13.31) with df = 8.",
+    "P-value ≈ 0.1016.",
+    "The correct answer is 0.1016, not 0.8984."
+   ],
+   "standards": [
+    "APSTATS.IV.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: twoway_pvalue_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-001",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = −1.29 from n = 19 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.2143",
+   "solutionSteps": [
+    "df = n − 2 = 17.",
+    "P-value = 2 · P(T ≥ |t|) with t = −1.29.",
+    "P-value ≈ 0.2143."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-002",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A regression of exam score on hours of study (n = 10) gives slope b = 1.64 with SE_b = 0.5. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "3.28",
+   "options": [
+    {
+     "text": "0.82",
+     "correct": false
+    },
+    {
+     "text": "0.30",
+     "correct": false
+    },
+    {
+     "text": "3.28",
+     "correct": true
+    },
+    {
+     "text": "10.37",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 1.64 ÷ 0.5 ≈ 3.28."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-003",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating ice cream sales to temperature uses 37 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "35",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 37 − 2 = 35."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-004",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A significance test for the slope of the regression line relating exam score to hours of study uses 26 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "24",
+   "options": [
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "26",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 26 − 2 = 24."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-005",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether hours of sleep tends to increase as hours of screen time increases (a positive linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β > 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A positive relationship means a positive slope.",
+    "H₀: β = 0; Hₐ: β > 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-006",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A significance test for the slope of the regression line relating salary to years of experience uses 53 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "51",
+   "options": [
+    {
+     "text": "52",
+     "correct": false
+    },
+    {
+     "text": "53",
+     "correct": false
+    },
+    {
+     "text": "51",
+     "correct": true
+    },
+    {
+     "text": "104",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 53 − 2 = 51."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-007",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether fuel efficiency tends to decrease as car weight increases (a negative linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β < 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A negative relationship means a negative slope.",
+    "H₀: β = 0; Hₐ: β < 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-008",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A researcher wants to test whether there is a linear relationship between temperature and ice cream sales. State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β ≠ 0",
+   "options": [
+    {
+     "text": "H₀: β = 0; Hₐ: β > 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: b = 0; Hₐ: b ≠ 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: β ≠ 0; Hₐ: β = 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: β = 0; Hₐ: β ≠ 0",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "No direction is stated, so the alternative is two-sided.",
+    "H₀: β = 0; Hₐ: β ≠ 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-009",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A two-sided test for the slope of the regression line relating salary to years of experience gives t = 2.13 with df = 23, so the P-value is about 0.0441. Using α = 0.05, what is the conclusion?",
+   "answer": "Reject H₀; there is convincing evidence of a linear relationship between years of experience and salary.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0441 < 0.05.",
+    "A P-value below α means a slope this far from 0 would be unusual if β = 0.",
+    "Reject H₀; there is convincing evidence of a linear relationship between years of experience and salary."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-010",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A significance test for the slope of the regression line relating ice cream sales to temperature uses 60 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "58",
+   "options": [
+    {
+     "text": "58",
+     "correct": true
+    },
+    {
+     "text": "60",
+     "correct": false
+    },
+    {
+     "text": "59",
+     "correct": false
+    },
+    {
+     "text": "118",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 60 − 2 = 58."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-011",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether hours of sleep tends to decrease as hours of screen time increases (a negative linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β < 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A negative relationship means a negative slope.",
+    "H₀: β = 0; Hₐ: β < 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-012",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A researcher wants to test whether ice cream sales tends to decrease as temperature increases (a negative linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β < 0",
+   "options": [
+    {
+     "text": "H₀: b = 0; Hₐ: b < 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: β = 0; Hₐ: β ≠ 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: β < 0; Hₐ: β = 0",
+     "correct": false
+    },
+    {
+     "text": "H₀: β = 0; Hₐ: β < 0",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A negative relationship means a negative slope.",
+    "H₀: β = 0; Hₐ: β < 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-013",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating fuel efficiency to car weight uses 34 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "32",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 34 − 2 = 32."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-014",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nA significance test for the slope of the regression line relating free-throw percentage to practice time uses 26 data points. How many degrees of freedom does the t distribution have?\nLeah's answer: 25\nIdentify the mistake and give the correct answer.",
+   "answer": "24",
+   "solutionSteps": [
+    "Mistake: Leah subtracted 1, as for a one-sample t-test.",
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 26 − 2 = 24.",
+    "The correct answer is 24, not 25."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-015",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A two-sided test for the slope of the regression line relating weekly sales to advertising spending gives t = 1.26 with df = 12, so the P-value is about 0.2316. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between advertising spending and weekly sales."
+    },
+    {
+     "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 1.79 from n = 11 data points. Find the P-value. Round to four decimal places.",
+     "answer": "0.1071"
+    },
+    {
+     "prompt": "A regression of fuel efficiency on car weight (n = 30) gives slope b = 0.227 with SE_b = 0.08. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+     "answer": "2.84"
+    },
+    {
+     "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 1.07 from n = 14 data points. Find the P-value. Round to four decimal places.",
+     "answer": "0.3057"
+    }
+   ],
+   "answer": "(a) Fail to reject H₀; there is not convincing evidence of a linear relationship between advertising spending and weekly sales; (b) 0.1071; (c) 2.84; (d) 0.3057",
+   "solutionSteps": [
+    "(a) Compare the P-value with α: 0.2316 > 0.05. A P-value above α means the sample slope is consistent with β = 0. Fail to reject H₀; there is not convincing evidence of a linear relationship between advertising spending and weekly sales.",
+    "(b) df = n − 2 = 9. P-value = 2 · P(T ≥ |t|) with t = 1.79. P-value ≈ 0.1071.",
+    "(c) t = (b − 0) ÷ SE_b. t = 0.227 ÷ 0.08 ≈ 2.84.",
+    "(d) df = n − 2 = 12. P-value = 2 · P(T ≥ |t|) with t = 1.07. P-value ≈ 0.3057."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp2-016",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nA two-sided test for the slope of the regression line relating hours of sleep to hours of screen time gives t = 1.87 with df = 11, so the P-value is about 0.0883. Using α = 0.05, what is the conclusion?\nEmma's answer: Reject H₀; there is convincing evidence of a linear relationship between hours of screen time and hours of sleep.\nIdentify the mistake and give the correct answer.",
+   "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of screen time and hours of sleep.",
+   "solutionSteps": [
+    "Mistake: Emma compared the P-value 0.0883 with α = 0.05 incorrectly.",
+    "Compare the P-value with α: 0.0883 > 0.05.",
+    "A P-value above α means the sample slope is consistent with β = 0.",
+    "Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of screen time and hours of sleep.",
+    "Correct answer: Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of screen time and hours of sleep."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-001",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β > 0 for a regression slope gives t = 2.18 from n = 17 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0228",
+   "solutionSteps": [
+    "df = n − 2 = 15.",
+    "P-value = P(T ≥ t) with t = 2.18.",
+    "P-value ≈ 0.0228."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-002",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A regression of plant height on fertilizer amount (n = 27) gives slope b = 0.25 with SE_b = 0.12. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "2.08",
+   "options": [
+    {
+     "text": "0.03",
+     "correct": false
+    },
+    {
+     "text": "10.83",
+     "correct": false
+    },
+    {
+     "text": "0.48",
+     "correct": false
+    },
+    {
+     "text": "2.08",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 0.25 ÷ 0.12 ≈ 2.08."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-003",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether fuel efficiency tends to increase as car weight increases (a positive linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β > 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A positive relationship means a positive slope.",
+    "H₀: β = 0; Hₐ: β > 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-004",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A two-sided test for the slope of the regression line relating salary to years of experience gives t = 1.73 with df = 21, so the P-value is about 0.0983. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary.",
+   "options": [
+    {
+     "text": "Reject H₀; changes in years of experience cause changes in salary.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary.",
+     "correct": true
+    },
+    {
+     "text": "Accept H₀; there is no relationship between years of experience and salary.",
+     "correct": false
+    },
+    {
+     "text": "Reject H₀; there is convincing evidence of a linear relationship between years of experience and salary.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0983 > 0.05.",
+    "A P-value above α means the sample slope is consistent with β = 0.",
+    "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-005",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether free-throw percentage tends to decrease as practice time increases (a negative linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β < 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "A negative relationship means a negative slope.",
+    "H₀: β = 0; Hₐ: β < 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-006",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A regression of hours of sleep on hours of screen time (n = 17) gives slope b = 2.53 with SE_b = 1.2. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "2.11",
+   "options": [
+    {
+     "text": "0.47",
+     "correct": false
+    },
+    {
+     "text": "3.04",
+     "correct": false
+    },
+    {
+     "text": "2.11",
+     "correct": true
+    },
+    {
+     "text": "8.69",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 2.53 ÷ 1.2 ≈ 2.11."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-007",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating ice cream sales to temperature uses 21 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "19",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 21 − 2 = 19."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-008",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A two-sided test for the slope of the regression line relating salary to years of experience gives t = 2.02 with df = 9, so the P-value is about 0.0741. Using α = 0.05, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary.",
+   "options": [
+    {
+     "text": "Reject H₀; there is convincing evidence of a linear relationship between years of experience and salary.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; there is no relationship between years of experience and salary.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary.",
+     "correct": true
+    },
+    {
+     "text": "Reject H₀; changes in years of experience cause changes in salary.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0741 > 0.05.",
+    "A P-value above α means the sample slope is consistent with β = 0.",
+    "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-009",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating ice cream sales to temperature uses 50 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "48",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 50 − 2 = 48."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-010",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = −2.24 from n = 29 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0335",
+   "options": [
+    {
+     "text": "0.0335",
+     "correct": true
+    },
+    {
+     "text": "0.0168",
+     "correct": false
+    },
+    {
+     "text": "0.0332",
+     "correct": false
+    },
+    {
+     "text": "0.9665",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "df = n − 2 = 27.",
+    "P-value = 2 · P(T ≥ |t|) with t = −2.24.",
+    "P-value ≈ 0.0335."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-011",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A researcher wants to test whether there is a linear relationship between hours of screen time and hours of sleep. State the hypotheses in terms of the slope β of the population regression line.",
+   "answer": "H₀: β = 0; Hₐ: β ≠ 0",
+   "solutionSteps": [
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "No direction is stated, so the alternative is two-sided.",
+    "H₀: β = 0; Hₐ: β ≠ 0"
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-012",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A regression of free-throw percentage on practice time (n = 15) gives slope b = 0.159 with SE_b = 0.08. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "1.99",
+   "options": [
+    {
+     "text": "0.50",
+     "correct": false
+    },
+    {
+     "text": "0.01",
+     "correct": false
+    },
+    {
+     "text": "7.70",
+     "correct": false
+    },
+    {
+     "text": "1.99",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 0.159 ÷ 0.08 ≈ 1.99."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-013",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β > 0 for a regression slope gives t = 1.76 from n = 28 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0451",
+   "solutionSteps": [
+    "df = n − 2 = 26.",
+    "P-value = P(T ≥ t) with t = 1.76.",
+    "P-value ≈ 0.0451."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-014",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nA two-sided test for the slope of the regression line relating plant height to fertilizer amount gives t = 1.91 with df = 15, so the P-value is about 0.0754. Using α = 0.10, what is the conclusion?\nChloe's answer: Fail to reject H₀; there is not convincing evidence of a linear relationship between fertilizer amount and plant height.\nIdentify the mistake and give the correct answer.",
+   "answer": "Reject H₀; there is convincing evidence of a linear relationship between fertilizer amount and plant height.",
+   "solutionSteps": [
+    "Mistake: Chloe compared the P-value 0.0754 with α = 0.10 incorrectly.",
+    "Compare the P-value with α: 0.0754 < 0.10.",
+    "A P-value below α means a slope this far from 0 would be unusual if β = 0.",
+    "Reject H₀; there is convincing evidence of a linear relationship between fertilizer amount and plant height.",
+    "Correct answer: Reject H₀; there is convincing evidence of a linear relationship between fertilizer amount and plant height."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-015",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A researcher wants to test whether salary tends to increase as years of experience increases (a positive linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+     "answer": "H₀: β = 0; Hₐ: β > 0"
+    },
+    {
+     "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 1.50 from n = 25 data points. Find the P-value. Round to four decimal places.",
+     "answer": "0.1472"
+    },
+    {
+     "prompt": "A significance test for the slope of the regression line relating free-throw percentage to practice time uses 49 data points. How many degrees of freedom does the t distribution have?",
+     "answer": "47"
+    },
+    {
+     "prompt": "A two-sided test for the slope of the regression line relating salary to years of experience gives t = 1.56 with df = 9, so the P-value is about 0.1532. Using α = 0.05, what is the conclusion?",
+     "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary."
+    }
+   ],
+   "answer": "(a) H₀: β = 0; Hₐ: β > 0; (b) 0.1472; (c) 47; (d) Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary",
+   "solutionSteps": [
+    "(a) The null hypothesis says there is no linear relationship, so H₀: β = 0. A positive relationship means a positive slope. H₀: β = 0; Hₐ: β > 0",
+    "(b) df = n − 2 = 23. P-value = 2 · P(T ≥ |t|) with t = 1.50. P-value ≈ 0.1472.",
+    "(c) Regression estimates two parameters (intercept and slope), so df = n − 2. df = 49 − 2 = 47.",
+    "(d) Compare the P-value with α: 0.1532 > 0.05. A P-value above α means the sample slope is consistent with β = 0. Fail to reject H₀; there is not convincing evidence of a linear relationship between years of experience and salary."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-cp1-016",
+   "skillId": "statistical-inference-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nA researcher wants to test whether there is a linear relationship between advertising spending and weekly sales. State the hypotheses in terms of the slope β of the population regression line.\nHana's answer: H₀: b = 0; Hₐ: b ≠ 0\nIdentify the mistake and give the correct answer.",
+   "answer": "H₀: β = 0; Hₐ: β ≠ 0",
+   "solutionSteps": [
+    "Mistake: Hana wrote the hypotheses about the sample slope b instead of the population slope β.",
+    "The null hypothesis says there is no linear relationship, so H₀: β = 0.",
+    "No direction is stated, so the alternative is two-sided.",
+    "H₀: β = 0; Hₐ: β ≠ 0",
+    "The correct answer is H₀: β = 0; Hₐ: β ≠ 0, not H₀: b = 0; Hₐ: b ≠ 0."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-001",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A regression of free-throw percentage on practice time (n = 13) gives slope b = 0.94 with SE_b = 0.5. Test H₀: β = 0 against Hₐ: β ≠ 0 at α = 0.05. Give t (two decimal places), the P-value (four decimal places), and the decision.",
+   "answer": "t ≈ 1.88, P-value ≈ 0.0868; fail to reject H₀",
+   "solutionSteps": [
+    "t = 0.94 ÷ 0.5 ≈ 1.88.",
+    "df = 13 − 2 = 11; P-value = 2 · P(T ≥ 1.88) ≈ 0.0868.",
+    "0.0868 > 0.05, so fail to reject H₀."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_full_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-002",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β > 0 for a regression slope gives t = 2.77 from n = 18 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0068",
+   "options": [
+    {
+     "text": "0.0068",
+     "correct": true
+    },
+    {
+     "text": "0.9932",
+     "correct": false
+    },
+    {
+     "text": "0.0137",
+     "correct": false
+    },
+    {
+     "text": "0.0066",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "df = n − 2 = 16.",
+    "P-value = P(T ≥ t) with t = 2.77.",
+    "P-value ≈ 0.0068."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-003",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating hours of sleep to hours of screen time uses 34 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "32",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 34 − 2 = 32."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-004",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A two-sided test for the slope of the regression line relating exam score to hours of study gives t = 1.55 with df = 11, so the P-value is about 0.1494. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of study and exam score.",
+   "options": [
+    {
+     "text": "Reject H₀; changes in hours of study cause changes in exam score.",
+     "correct": false
+    },
+    {
+     "text": "Accept H₀; there is no relationship between hours of study and exam score.",
+     "correct": false
+    },
+    {
+     "text": "Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of study and exam score.",
+     "correct": true
+    },
+    {
+     "text": "Reject H₀; there is convincing evidence of a linear relationship between hours of study and exam score.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Compare the P-value with α: 0.1494 > 0.01.",
+    "A P-value above α means the sample slope is consistent with β = 0.",
+    "Fail to reject H₀; there is not convincing evidence of a linear relationship between hours of study and exam score."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-005",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A significance test for the slope of the regression line relating hours of sleep to hours of screen time uses 23 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "21",
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 23 − 2 = 21."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-006",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A significance test for the slope of the regression line relating hours of sleep to hours of screen time uses 48 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "46",
+   "options": [
+    {
+     "text": "94",
+     "correct": false
+    },
+    {
+     "text": "48",
+     "correct": false
+    },
+    {
+     "text": "47",
+     "correct": false
+    },
+    {
+     "text": "46",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 48 − 2 = 46."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-007",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-sided test for the slope of the regression line relating free-throw percentage to practice time gives t = 2.61 with df = 28, so the P-value is about 0.0144. Using α = 0.01, what is the conclusion?",
+   "answer": "Fail to reject H₀; there is not convincing evidence of a linear relationship between practice time and free-throw percentage.",
+   "solutionSteps": [
+    "Compare the P-value with α: 0.0144 > 0.01.",
+    "A P-value above α means the sample slope is consistent with β = 0.",
+    "Fail to reject H₀; there is not convincing evidence of a linear relationship between practice time and free-throw percentage."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-008",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A significance test for the slope of the regression line relating fuel efficiency to car weight uses 57 data points. How many degrees of freedom does the t distribution have?",
+   "answer": "55",
+   "options": [
+    {
+     "text": "55",
+     "correct": true
+    },
+    {
+     "text": "57",
+     "correct": false
+    },
+    {
+     "text": "112",
+     "correct": false
+    },
+    {
+     "text": "56",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Regression estimates two parameters (intercept and slope), so df = n − 2.",
+    "df = 57 − 2 = 55."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_df). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-009",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A regression of exam score on hours of study (n = 40) gives slope b = −0.96 with SE_b = 0.4. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "−2.40",
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = −0.96 ÷ 0.4 ≈ −2.40."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-010",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A regression of plant height on fertilizer amount (n = 11) gives slope b = 0.5 with SE_b = 0.2. Test H₀: β = 0 against Hₐ: β ≠ 0 at α = 0.01. Give t (two decimal places), the P-value (four decimal places), and the decision.",
+   "answer": "t ≈ 2.50, P-value ≈ 0.0339; fail to reject H₀",
+   "options": [
+    {
+     "text": "t ≈ 2.50, P-value ≈ 0.0339; fail to reject H₀",
+     "correct": true
+    },
+    {
+     "text": "t ≈ 2.50, P-value ≈ 0.0169; fail to reject H₀",
+     "correct": false
+    },
+    {
+     "text": "t ≈ 2.50, P-value ≈ 0.0339; reject H₀",
+     "correct": false
+    },
+    {
+     "text": "t ≈ 0.40, P-value ≈ 0.6985; fail to reject H₀",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "t = 0.5 ÷ 0.2 ≈ 2.50.",
+    "df = 11 − 2 = 9; P-value = 2 · P(T ≥ 2.50) ≈ 0.0339.",
+    "0.0339 > 0.01, so fail to reject H₀."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_full_test). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-011",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 1.81 from n = 14 data points. Find the P-value. Round to four decimal places.",
+   "answer": "0.0954",
+   "solutionSteps": [
+    "df = n − 2 = 12.",
+    "P-value = 2 · P(T ≥ |t|) with t = 1.81.",
+    "P-value ≈ 0.0954."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-012",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A regression of plant height on fertilizer amount (n = 36) gives slope b = 1.01 with SE_b = 0.5. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "2.02",
+   "options": [
+    {
+     "text": "0.51",
+     "correct": false
+    },
+    {
+     "text": "2.02",
+     "correct": true
+    },
+    {
+     "text": "0.50",
+     "correct": false
+    },
+    {
+     "text": "12.12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = 1.01 ÷ 0.5 ≈ 2.02."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-013",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A regression of exam score on hours of study (n = 13) gives slope b = −0.97 with SE_b = 0.25. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+   "answer": "−3.88",
+   "solutionSteps": [
+    "t = (b − 0) ÷ SE_b.",
+    "t = −0.97 ÷ 0.25 ≈ −3.88."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_t_statistic). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-014",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nA test of H₀: β = 0 against Hₐ: β ≠ 0 for a regression slope gives t = 2.19 from n = 23 data points. Find the P-value. Round to four decimal places.\nChloe's answer: 0.0200\nIdentify the mistake and give the correct answer.",
+   "answer": "0.0400",
+   "solutionSteps": [
+    "Mistake: Chloe used one tail instead of two.",
+    "df = n − 2 = 21.",
+    "P-value = 2 · P(T ≥ |t|) with t = 2.19.",
+    "P-value ≈ 0.0400.",
+    "The correct answer is 0.0400, not 0.0200."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_pvalue_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-015",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A researcher wants to test whether plant height tends to increase as fertilizer amount increases (a positive linear relationship). State the hypotheses in terms of the slope β of the population regression line.",
+     "answer": "H₀: β = 0; Hₐ: β > 0"
+    },
+    {
+     "prompt": "A researcher wants to test whether there is a linear relationship between years of experience and salary. State the hypotheses in terms of the slope β of the population regression line.",
+     "answer": "H₀: β = 0; Hₐ: β ≠ 0"
+    },
+    {
+     "prompt": "A significance test for the slope of the regression line relating free-throw percentage to practice time uses 17 data points. How many degrees of freedom does the t distribution have?",
+     "answer": "15"
+    },
+    {
+     "prompt": "A regression of plant height on fertilizer amount (n = 12) gives slope b = −0.342 with SE_b = 0.12. Compute the t statistic for testing H₀: β = 0. Round to two decimal places.",
+     "answer": "−2.85"
+    }
+   ],
+   "answer": "(a) H₀: β = 0; Hₐ: β > 0; (b) H₀: β = 0; Hₐ: β ≠ 0; (c) 15; (d) −2.85",
+   "solutionSteps": [
+    "(a) The null hypothesis says there is no linear relationship, so H₀: β = 0. A positive relationship means a positive slope. H₀: β = 0; Hₐ: β > 0",
+    "(b) The null hypothesis says there is no linear relationship, so H₀: β = 0. No direction is stated, so the alternative is two-sided. H₀: β = 0; Hₐ: β ≠ 0",
+    "(c) Regression estimates two parameters (intercept and slope), so df = n − 2. df = 17 − 2 = 15.",
+    "(d) t = (b − 0) ÷ SE_b. t = −0.342 ÷ 0.12 ≈ −2.85."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_hypotheses_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "stat-u4-s14-honors-016",
+   "skillId": "statistical-inference-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Diego answered this problem incorrectly.\nA two-sided test for the slope of the regression line relating fuel efficiency to car weight gives t = 2.20 with df = 20, so the P-value is about 0.0397. Using α = 0.10, what is the conclusion?\nDiego's answer: Fail to reject H₀; there is not convincing evidence of a linear relationship between car weight and fuel efficiency.\nIdentify the mistake and give the correct answer.",
+   "answer": "Reject H₀; there is convincing evidence of a linear relationship between car weight and fuel efficiency.",
+   "solutionSteps": [
+    "Mistake: Diego compared the P-value 0.0397 with α = 0.10 incorrectly.",
+    "Compare the P-value with α: 0.0397 < 0.10.",
+    "A P-value below α means a slope this far from 0 would be unusual if β = 0.",
+    "Reject H₀; there is convincing evidence of a linear relationship between car weight and fuel efficiency.",
+    "Correct answer: Reject H₀; there is convincing evidence of a linear relationship between car weight and fuel efficiency."
+   ],
+   "standards": [
+    "APSTATS.IV.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: slope_conclusion_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
   }
  ]
 }

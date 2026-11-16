@@ -7740,6 +7740,1236 @@
     "AP FUN-6.D"
    ],
    "sourceNotes": "Original Claude-authored item (family: us_fn_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-001",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find ∫ (3x + 16)/(x + 3) dx.",
+   "answer": "3x + 7ln|x + 3| + C",
+   "solutionSteps": [
+    "Divide first: (3x + 16)/(x + 3) = 3 + 7/(x + 3).",
+    "Integrate the polynomial part: 3x.",
+    "∫ 7/(x + 3) dx = 7ln|x + 3|.",
+    "∫ (3x + 16)/(x + 3) dx = 3x + 7ln|x + 3| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-002",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 1/(x² - 4x + 13) dx.",
+   "answer": "(1/3)tan⁻¹((x - 2)/3) + C",
+   "options": [
+    {
+     "text": "(1/3)tan⁻¹((x - 2)/3) + C",
+     "correct": true
+    },
+    {
+     "text": "ln|x² - 4x + 13| + C",
+     "correct": false
+    },
+    {
+     "text": "tan⁻¹((x - 2)/3) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)tan⁻¹(x - 2) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² - 4x + 13 = (x - 2)² + 9.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 2 and a = 3.",
+    "∫ 1/(x² - 4x + 13) dx = (1/3)tan⁻¹((x - 2)/3) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-003",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Complete the square: x² + 4x + 8.",
+   "answer": "(x + 2)² + 4",
+   "solutionSteps": [
+    "Half of 4 is 2, and (2)² = 4.",
+    "x² + 4x + 8 = (x² + 4x + 4) + 8 - 4.",
+    "= (x + 2)² + 4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-004",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Complete the square: x² - 2x + 2.",
+   "answer": "(x - 1)² + 1",
+   "options": [
+    {
+     "text": "(x - 1)² + 2",
+     "correct": false
+    },
+    {
+     "text": "(x - 2)² + 1",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)² - 1",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)² + 1",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Half of -2 is -1, and (-1)² = 1.",
+    "x² - 2x + 2 = (x² - 2x + 1) + 2 - 1.",
+    "= (x - 1)² + 1."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-005",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Complete the square: x² - 2x + 10.",
+   "answer": "(x - 1)² + 9",
+   "solutionSteps": [
+    "Half of -2 is -1, and (-1)² = 1.",
+    "x² - 2x + 10 = (x² - 2x + 1) + 10 - 1.",
+    "= (x - 1)² + 9."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-006",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Complete the square: x² - 6x + 10.",
+   "answer": "(x - 3)² + 1",
+   "options": [
+    {
+     "text": "(x - 3)² + 10",
+     "correct": false
+    },
+    {
+     "text": "(x - 6)² + 1",
+     "correct": false
+    },
+    {
+     "text": "(x - 3)² + 1",
+     "correct": true
+    },
+    {
+     "text": "(x - 3)² - 1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Half of -6 is -3, and (-3)² = 9.",
+    "x² - 6x + 10 = (x² - 6x + 9) + 10 - 9.",
+    "= (x - 3)² + 1."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-007",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use long division to rewrite (x + 4)/(x + 2) as a polynomial plus a proper fraction.",
+   "answer": "1 + 2/(x + 2)",
+   "solutionSteps": [
+    "Divide x + 4 by x + 2: the quotient is 1 and the remainder is 2.",
+    "(x + 4)/(x + 2) = 1 + 2/(x + 2).",
+    "Check: (1)(x + 2) + 2 = x + 4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-008",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 1/(x² - 6x + 10) dx.",
+   "answer": "tan⁻¹(x - 3) + C",
+   "options": [
+    {
+     "text": "tan⁻¹(x) + C",
+     "correct": false
+    },
+    {
+     "text": "tan⁻¹(x + 3) + C",
+     "correct": false
+    },
+    {
+     "text": "ln|x² - 6x + 10| + C",
+     "correct": false
+    },
+    {
+     "text": "tan⁻¹(x - 3) + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² - 6x + 10 = (x - 3)² + 1.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 3 and a = 1.",
+    "∫ 1/(x² - 6x + 10) dx = tan⁻¹(x - 3) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-009",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Complete the square: x² + 6x + 18.",
+   "answer": "(x + 3)² + 9",
+   "solutionSteps": [
+    "Half of 6 is 3, and (3)² = 9.",
+    "x² + 6x + 18 = (x² + 6x + 9) + 18 - 9.",
+    "= (x + 3)² + 9."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-010",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ (3x + 12)/(x + 3) dx.",
+   "answer": "3x + 3ln|x + 3| + C",
+   "options": [
+    {
+     "text": "3 + 3ln|x + 3| + C",
+     "correct": false
+    },
+    {
+     "text": "3x - 3ln|x + 3| + C",
+     "correct": false
+    },
+    {
+     "text": "3x + 3ln|x + 3| + C",
+     "correct": true
+    },
+    {
+     "text": "3x + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Divide first: (3x + 12)/(x + 3) = 3 + 3/(x + 3).",
+    "Integrate the polynomial part: 3x.",
+    "∫ 3/(x + 3) dx = 3ln|x + 3|.",
+    "∫ (3x + 12)/(x + 3) dx = 3x + 3ln|x + 3| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-011",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Complete the square: x² - 6x + 18.",
+   "answer": "(x - 3)² + 9",
+   "solutionSteps": [
+    "Half of -6 is -3, and (-3)² = 9.",
+    "x² - 6x + 18 = (x² - 6x + 9) + 18 - 9.",
+    "= (x - 3)² + 9."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-012",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ (3x + 11)/(x + 2) dx.",
+   "answer": "3x + 5ln|x + 2| + C",
+   "options": [
+    {
+     "text": "3x - 5ln|x + 2| + C",
+     "correct": false
+    },
+    {
+     "text": "3x + 5ln|x + 2| + C",
+     "correct": true
+    },
+    {
+     "text": "3x + C",
+     "correct": false
+    },
+    {
+     "text": "3 + 5ln|x + 2| + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Divide first: (3x + 11)/(x + 2) = 3 + 5/(x + 2).",
+    "Integrate the polynomial part: 3x.",
+    "∫ 5/(x + 2) dx = 5ln|x + 2|.",
+    "∫ (3x + 11)/(x + 2) dx = 3x + 5ln|x + 2| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-013",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find ∫ 1/(x² - 4x + 8) dx.",
+   "answer": "(1/2)tan⁻¹((x - 2)/2) + C",
+   "solutionSteps": [
+    "Complete the square: x² - 4x + 8 = (x - 2)² + 4.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 2 and a = 2.",
+    "∫ 1/(x² - 4x + 8) dx = (1/2)tan⁻¹((x - 2)/2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-014",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nUse long division to rewrite (2x + 9)/(x + 2) as a polynomial plus a proper fraction.\nAva's answer: 2 - 5/(x + 2)\nIdentify the mistake and give the correct answer.",
+   "answer": "2 + 5/(x + 2)",
+   "solutionSteps": [
+    "Mistake: Ava made a sign error on the remainder.",
+    "Divide 2x + 9 by x + 2: the quotient is 2 and the remainder is 5.",
+    "(2x + 9)/(x + 2) = 2 + 5/(x + 2).",
+    "Check: (2)(x + 2) + 5 = 2x + 9.",
+    "The correct answer is 2 + 5/(x + 2), not 2 - 5/(x + 2)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_rewrite_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-015",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find ∫ 1/(x² + 2x + 5) dx.",
+     "answer": "(1/2)tan⁻¹((x + 1)/2) + C"
+    },
+    {
+     "prompt": "Complete the square: x² - 6x + 13.",
+     "answer": "(x - 3)² + 4"
+    },
+    {
+     "prompt": "Use long division to rewrite (x + 6)/(x + 3) as a polynomial plus a proper fraction.",
+     "answer": "1 + 3/(x + 3)"
+    },
+    {
+     "prompt": "Find ∫ 1/(x² - 6x + 13) dx.",
+     "answer": "(1/2)tan⁻¹((x - 3)/2) + C"
+    }
+   ],
+   "answer": "(a) (1/2)tan⁻¹((x + 1)/2) + C; (b) (x - 3)² + 4; (c) 1 + 3/(x + 3); (d) (1/2)tan⁻¹((x - 3)/2) + C",
+   "solutionSteps": [
+    "(a) Complete the square: x² + 2x + 5 = (x + 1)² + 4. Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x + 1 and a = 2. ∫ 1/(x² + 2x + 5) dx = (1/2)tan⁻¹((x + 1)/2) + C.",
+    "(b) Half of -6 is -3, and (-3)² = 9. x² - 6x + 13 = (x² - 6x + 9) + 13 - 9. = (x - 3)² + 4.",
+    "(c) Divide x + 6 by x + 3: the quotient is 1 and the remainder is 3. (x + 6)/(x + 3) = 1 + 3/(x + 3). Check: (1)(x + 3) + 3 = x + 6.",
+    "(d) Complete the square: x² - 6x + 13 = (x - 3)² + 4. Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 3 and a = 2. ∫ 1/(x² - 6x + 13) dx = (1/2)tan⁻¹((x - 3)/2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp2-016",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nFind ∫ 1/(x² + 4x + 8) dx.\nHana's answer: tan⁻¹((x + 2)/2) + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/2)tan⁻¹((x + 2)/2) + C",
+   "solutionSteps": [
+    "Mistake: Hana left out the factor 1/2.",
+    "Complete the square: x² + 4x + 8 = (x + 2)² + 4.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x + 2 and a = 2.",
+    "∫ 1/(x² + 4x + 8) dx = (1/2)tan⁻¹((x + 2)/2) + C.",
+    "The correct answer is (1/2)tan⁻¹((x + 2)/2) + C, not tan⁻¹((x + 2)/2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-001",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ 2/(x² - 2x + 5) dx.",
+   "answer": "tan⁻¹((x - 1)/2) + C",
+   "solutionSteps": [
+    "Complete the square: x² - 2x + 5 = (x - 1)² + 4.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 1 and a = 2.",
+    "∫ 2/(x² - 2x + 5) dx = tan⁻¹((x - 1)/2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-002",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from 0 to 4 (x² - x - 11)/(x + 2) dx.",
+   "answer": "-4 - 5ln(3)",
+   "options": [
+    {
+     "text": "-4 - 5ln(6)",
+     "correct": false
+    },
+    {
+     "text": "-4 + 5ln(3)",
+     "correct": false
+    },
+    {
+     "text": "-4 - 5ln(3)",
+     "correct": true
+    },
+    {
+     "text": "-4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Divide first: (x² - x - 11)/(x + 2) = x - 3 - 5/(x + 2).",
+    "An antiderivative is (1/2)x² - 3x - 5ln|x + 2|.",
+    "Evaluate from 0 to 4: the polynomial part gives -4 and the logarithm part gives -5(ln(6) - ln(2)).",
+    "The value is -4 - 5ln(3)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-003",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Complete the square: x² + 2x + 5.",
+   "answer": "(x + 1)² + 4",
+   "solutionSteps": [
+    "Half of 2 is 1, and (1)² = 1.",
+    "x² + 2x + 5 = (x² + 2x + 1) + 5 - 1.",
+    "= (x + 1)² + 4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-004",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 6/(x² + 6x + 34) dx.",
+   "answer": "(6/5)tan⁻¹((x + 3)/5) + C",
+   "options": [
+    {
+     "text": "(6/5)tan⁻¹(x + 3) + C",
+     "correct": false
+    },
+    {
+     "text": "6ln|x² + 6x + 34| + C",
+     "correct": false
+    },
+    {
+     "text": "6tan⁻¹((x + 3)/5) + C",
+     "correct": false
+    },
+    {
+     "text": "(6/5)tan⁻¹((x + 3)/5) + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² + 6x + 34 = (x + 3)² + 25.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x + 3 and a = 5.",
+    "∫ 6/(x² + 6x + 34) dx = (6/5)tan⁻¹((x + 3)/5) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-005",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ (x² + 2x - 5)/(x + 3) dx.",
+   "answer": "(1/2)x² - x - 2ln|x + 3| + C",
+   "solutionSteps": [
+    "Divide first: (x² + 2x - 5)/(x + 3) = x - 1 - 2/(x + 3).",
+    "Integrate the polynomial part: (1/2)x² - x.",
+    "∫ -2/(x + 3) dx = -2ln|x + 3|.",
+    "∫ (x² + 2x - 5)/(x + 3) dx = (1/2)x² - x - 2ln|x + 3| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-006",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from -6 to 0 2/(x² + 6x + 18) dx.",
+   "answer": "π/3",
+   "options": [
+    {
+     "text": "π",
+     "correct": false
+    },
+    {
+     "text": "π/3",
+     "correct": true
+    },
+    {
+     "text": "2π/3",
+     "correct": false
+    },
+    {
+     "text": "4/3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² + 6x + 18 = (x + 3)² + 9.",
+    "An antiderivative is (2/3)tan⁻¹((x + 3)/3).",
+    "At x = 0, u = 1; at x = -6, u = -1.",
+    "(2/3)(tan⁻¹(1) - tan⁻¹(-1)) = π/3."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-007",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from -3 to 5 3/(x² - 2x + 17) dx.",
+   "answer": "3π/8",
+   "solutionSteps": [
+    "Complete the square: x² - 2x + 17 = (x - 1)² + 16.",
+    "An antiderivative is (3/4)tan⁻¹((x - 1)/4).",
+    "At x = 5, u = 1; at x = -3, u = -1.",
+    "(3/4)(tan⁻¹(1) - tan⁻¹(-1)) = 3π/8."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-008",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ (x² + 5x + 8)/(x + 4) dx.",
+   "answer": "(1/2)x² + x + 4ln|x + 4| + C",
+   "options": [
+    {
+     "text": "x + 1 + 4ln|x + 4| + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)x² + x - 4ln|x + 4| + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)x² + x + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)x² + x + 4ln|x + 4| + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Divide first: (x² + 5x + 8)/(x + 4) = x + 1 + 4/(x + 4).",
+    "Integrate the polynomial part: (1/2)x² + x.",
+    "∫ 4/(x + 4) dx = 4ln|x + 4|.",
+    "∫ (x² + 5x + 8)/(x + 4) dx = (1/2)x² + x + 4ln|x + 4| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-009",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use long division to rewrite (x² + 7x + 16)/(x + 2) as a polynomial plus a proper fraction.",
+   "answer": "x + 5 + 6/(x + 2)",
+   "solutionSteps": [
+    "Divide x² + 7x + 16 by x + 2: the quotient is x + 5 and the remainder is 6.",
+    "(x² + 7x + 16)/(x + 2) = x + 5 + 6/(x + 2).",
+    "Check: (x + 5)(x + 2) + 6 = x² + 7x + 16."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-010",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from -6 to -4 2/(x² + 8x + 20) dx.",
+   "answer": "π/4",
+   "options": [
+    {
+     "text": "π/8",
+     "correct": false
+    },
+    {
+     "text": "π/4",
+     "correct": true
+    },
+    {
+     "text": "π/2",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² + 8x + 20 = (x + 4)² + 4.",
+    "An antiderivative is tan⁻¹((x + 4)/2).",
+    "At x = -4, u = 0; at x = -6, u = -1.",
+    "(tan⁻¹(0) - tan⁻¹(-1)) = π/4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-011",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from -1 to 3 1/(x² - 6x + 25) dx.",
+   "answer": "π/16",
+   "solutionSteps": [
+    "Complete the square: x² - 6x + 25 = (x - 3)² + 16.",
+    "An antiderivative is (1/4)tan⁻¹((x - 3)/4).",
+    "At x = 3, u = 0; at x = -1, u = -1.",
+    "(1/4)(tan⁻¹(0) - tan⁻¹(-1)) = π/16."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-012",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Complete the square: x² - 2x + 5.",
+   "answer": "(x - 1)² + 4",
+   "options": [
+    {
+     "text": "(x - 2)² + 4",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)² - 4",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)² + 4",
+     "correct": true
+    },
+    {
+     "text": "(x - 1)² + 5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Half of -2 is -1, and (-1)² = 1.",
+    "x² - 2x + 5 = (x² - 2x + 1) + 5 - 1.",
+    "= (x - 1)² + 4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-013",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ 1/(x² - 2x + 26) dx.",
+   "answer": "(1/5)tan⁻¹((x - 1)/5) + C",
+   "solutionSteps": [
+    "Complete the square: x² - 2x + 26 = (x - 1)² + 25.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 1 and a = 5.",
+    "∫ 1/(x² - 2x + 26) dx = (1/5)tan⁻¹((x - 1)/5) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-014",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nFind ∫ (x² + 6x + 3)/(x + 3) dx.\nOmar's answer: (1/2)x² + 3x + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/2)x² + 3x - 6ln|x + 3| + C",
+   "solutionSteps": [
+    "Mistake: Omar left out the integral of the remainder term.",
+    "Divide first: (x² + 6x + 3)/(x + 3) = x + 3 - 6/(x + 3).",
+    "Integrate the polynomial part: (1/2)x² + 3x.",
+    "∫ -6/(x + 3) dx = -6ln|x + 3|.",
+    "∫ (x² + 6x + 3)/(x + 3) dx = (1/2)x² + 3x - 6ln|x + 3| + C.",
+    "The correct answer is (1/2)x² + 3x - 6ln|x + 3| + C, not (1/2)x² + 3x + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-015",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Evaluate ∫ from -4 to 2 3/(x² + 2x + 10) dx.",
+     "answer": "π/2"
+    },
+    {
+     "prompt": "Complete the square: x² + 6x + 34.",
+     "answer": "(x + 3)² + 25"
+    },
+    {
+     "prompt": "Find ∫ (x² + 3x + 4)/(x + 1) dx.",
+     "answer": "(1/2)x² + 2x + 2ln|x + 1| + C"
+    },
+    {
+     "prompt": "Evaluate ∫ from 0 to 2 (x² + 2x + 6)/(x + 1) dx.",
+     "answer": "4 + 5ln(3)"
+    }
+   ],
+   "answer": "(a) π/2; (b) (x + 3)² + 25; (c) (1/2)x² + 2x + 2ln|x + 1| + C; (d) 4 + 5ln(3)",
+   "solutionSteps": [
+    "(a) Complete the square: x² + 2x + 10 = (x + 1)² + 9. An antiderivative is tan⁻¹((x + 1)/3). At x = 2, u = 1; at x = -4, u = -1. (tan⁻¹(1) - tan⁻¹(-1)) = π/2.",
+    "(b) Half of 6 is 3, and (3)² = 9. x² + 6x + 34 = (x² + 6x + 9) + 34 - 9. = (x + 3)² + 25.",
+    "(c) Divide first: (x² + 3x + 4)/(x + 1) = x + 2 + 2/(x + 1). Integrate the polynomial part: (1/2)x² + 2x. ∫ 2/(x + 1) dx = 2ln|x + 1|. ∫ (x² + 3x + 4)/(x + 1) dx = (1/2)x² + 2x + 2ln|x + 1| + C.",
+    "(d) Divide first: (x² + 2x + 6)/(x + 1) = x + 1 + 5/(x + 1). An antiderivative is (1/2)x² + x + 5ln|x + 1|. Evaluate from 0 to 2: the polynomial part gives 4 and the logarithm part gives 5(ln(3) - ln(1)). The value is 4 + 5ln(3)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-cp1-016",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nComplete the square: x² + 8x + 25.\nBen's answer: (x + 4)² + 25\nIdentify the mistake and give the correct answer.",
+   "answer": "(x + 4)² + 9",
+   "solutionSteps": [
+    "Mistake: Ben did not subtract 16 after adding it to complete the square.",
+    "Half of 8 is 4, and (4)² = 16.",
+    "x² + 8x + 25 = (x² + 8x + 16) + 25 - 16.",
+    "= (x + 4)² + 9.",
+    "The correct answer is (x + 4)² + 9, not (x + 4)² + 25."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_rewrite_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-001",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 1 to 5 (3x² + 2x - 14)/(x + 2) dx.",
+   "answer": "20 - 6ln(7/3)",
+   "solutionSteps": [
+    "Divide first: (3x² + 2x - 14)/(x + 2) = 3x - 4 - 6/(x + 2).",
+    "An antiderivative is (3/2)x² - 4x - 6ln|x + 2|.",
+    "Evaluate from 1 to 5: the polynomial part gives 20 and the logarithm part gives -6(ln(7) - ln(3)).",
+    "The value is 20 - 6ln(7/3)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-002",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 3/(x² - 2x + 10) dx.",
+   "answer": "tan⁻¹((x - 1)/3) + C",
+   "options": [
+    {
+     "text": "tan⁻¹((x - 1)/3) + C",
+     "correct": true
+    },
+    {
+     "text": "tan⁻¹(x - 1) + C",
+     "correct": false
+    },
+    {
+     "text": "3ln|x² - 2x + 10| + C",
+     "correct": false
+    },
+    {
+     "text": "3tan⁻¹((x - 1)/3) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² - 2x + 10 = (x - 1)² + 9.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 1 and a = 3.",
+    "∫ 3/(x² - 2x + 10) dx = tan⁻¹((x - 1)/3) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-003",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 1 (3x² + 10x + 15)/(x + 2) dx.",
+   "answer": "11/2 + 7ln(3/2)",
+   "solutionSteps": [
+    "Divide first: (3x² + 10x + 15)/(x + 2) = 3x + 4 + 7/(x + 2).",
+    "An antiderivative is (3/2)x² + 4x + 7ln|x + 2|.",
+    "Evaluate from 0 to 1: the polynomial part gives 11/2 and the logarithm part gives 7(ln(3) - ln(2)).",
+    "The value is 11/2 + 7ln(3/2)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-004",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from -10 to -3 4/(x² + 6x + 58) dx.",
+   "answer": "π/7",
+   "options": [
+    {
+     "text": "4/7",
+     "correct": false
+    },
+    {
+     "text": "π",
+     "correct": false
+    },
+    {
+     "text": "2π/7",
+     "correct": false
+    },
+    {
+     "text": "π/7",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² + 6x + 58 = (x + 3)² + 49.",
+    "An antiderivative is (4/7)tan⁻¹((x + 3)/7).",
+    "At x = -3, u = 0; at x = -10, u = -1.",
+    "(4/7)(tan⁻¹(0) - tan⁻¹(-1)) = π/7."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-005",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from -2 to 10 2/(x² - 8x + 52) dx.",
+   "answer": "π/6",
+   "solutionSteps": [
+    "Complete the square: x² - 8x + 52 = (x - 4)² + 36.",
+    "An antiderivative is (1/3)tan⁻¹((x - 4)/6).",
+    "At x = 10, u = 1; at x = -2, u = -1.",
+    "(1/3)(tan⁻¹(1) - tan⁻¹(-1)) = π/6."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-006",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from 1 to 2 (2x² + 15x + 30)/(x + 5) dx.",
+   "answer": "8 + 5ln(7/6)",
+   "options": [
+    {
+     "text": "8 + 5ln(7/6)",
+     "correct": true
+    },
+    {
+     "text": "8 + 5ln(7)",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "8 - 5ln(7/6)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Divide first: (2x² + 15x + 30)/(x + 5) = 2x + 5 + 5/(x + 5).",
+    "An antiderivative is x² + 5x + 5ln|x + 5|.",
+    "Evaluate from 1 to 2: the polynomial part gives 8 and the logarithm part gives 5(ln(7) - ln(6)).",
+    "The value is 8 + 5ln(7/6)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-007",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ (3x³ + 11x² + 8x + 1)/(x + 2) dx.",
+   "answer": "x³ + (5/2)x² - 2x + 5ln|x + 2| + C",
+   "solutionSteps": [
+    "Divide first: (3x³ + 11x² + 8x + 1)/(x + 2) = 3x² + 5x - 2 + 5/(x + 2).",
+    "Integrate the polynomial part: x³ + (5/2)x² - 2x.",
+    "∫ 5/(x + 2) dx = 5ln|x + 2|.",
+    "∫ (3x³ + 11x² + 8x + 1)/(x + 2) dx = x³ + (5/2)x² - 2x + 5ln|x + 2| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: division_integral). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-008",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from -3 to 0 4/(x² + 6x + 18) dx.",
+   "answer": "π/3",
+   "options": [
+    {
+     "text": "π",
+     "correct": false
+    },
+    {
+     "text": "2π/3",
+     "correct": false
+    },
+    {
+     "text": "4/3",
+     "correct": false
+    },
+    {
+     "text": "π/3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² + 6x + 18 = (x + 3)² + 9.",
+    "An antiderivative is (4/3)tan⁻¹((x + 3)/3).",
+    "At x = 0, u = 1; at x = -3, u = 0.",
+    "(4/3)(tan⁻¹(1) - tan⁻¹(0)) = π/3."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-009",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from -6 to 4 3/(x² + 2x + 26) dx.",
+   "answer": "3π/10",
+   "solutionSteps": [
+    "Complete the square: x² + 2x + 26 = (x + 1)² + 25.",
+    "An antiderivative is (3/5)tan⁻¹((x + 1)/5).",
+    "At x = 4, u = 1; at x = -6, u = -1.",
+    "(3/5)(tan⁻¹(1) - tan⁻¹(-1)) = 3π/10."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-010",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from -1 to 3 4/(x² - 2x + 5) dx.",
+   "answer": "π",
+   "options": [
+    {
+     "text": "2π",
+     "correct": false
+    },
+    {
+     "text": "π",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "π/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: x² - 2x + 5 = (x - 1)² + 4.",
+    "An antiderivative is 2tan⁻¹((x - 1)/2).",
+    "At x = 3, u = 1; at x = -1, u = -1.",
+    "2(tan⁻¹(1) - tan⁻¹(-1)) = π."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-011",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ 3/√(-x² + 2x + 35) dx.",
+   "answer": "3sin⁻¹((x - 1)/6) + C",
+   "solutionSteps": [
+    "Complete the square: -x² + 2x + 35 = 36 - (x - 1)².",
+    "Use ∫ 1/√(a² - u²) du = sin⁻¹(u/a) + C with u = x - 1 and a = 6.",
+    "∫ 3/√(-x² + 2x + 35) dx = 3sin⁻¹((x - 1)/6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arcsin). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-012",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2/√(-x² + 2x + 35) dx.",
+   "answer": "2sin⁻¹((x - 1)/6) + C",
+   "options": [
+    {
+     "text": "2sin⁻¹(x - 1) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)sin⁻¹((x - 1)/6) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)tan⁻¹((x - 1)/6) + C",
+     "correct": false
+    },
+    {
+     "text": "2sin⁻¹((x - 1)/6) + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Complete the square: -x² + 2x + 35 = 36 - (x - 1)².",
+    "Use ∫ 1/√(a² - u²) du = sin⁻¹(u/a) + C with u = x - 1 and a = 6.",
+    "∫ 2/√(-x² + 2x + 35) dx = 2sin⁻¹((x - 1)/6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arcsin). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-013",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ 1/√(-x² - 2x + 35) dx.",
+   "answer": "sin⁻¹((x + 1)/6) + C",
+   "solutionSteps": [
+    "Complete the square: -x² - 2x + 35 = 36 - (x + 1)².",
+    "Use ∫ 1/√(a² - u²) du = sin⁻¹(u/a) + C with u = x + 1 and a = 6.",
+    "∫ 1/√(-x² - 2x + 35) dx = sin⁻¹((x + 1)/6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arcsin). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-014",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nFind ∫ 3/(x² + 2x + 37) dx.\nKenji's answer: 3tan⁻¹((x + 1)/6) + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/2)tan⁻¹((x + 1)/6) + C",
+   "solutionSteps": [
+    "Mistake: Kenji left out the factor 1/6.",
+    "Complete the square: x² + 2x + 37 = (x + 1)² + 36.",
+    "Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x + 1 and a = 6.",
+    "∫ 3/(x² + 2x + 37) dx = (1/2)tan⁻¹((x + 1)/6) + C.",
+    "The correct answer is (1/2)tan⁻¹((x + 1)/6) + C, not 3tan⁻¹((x + 1)/6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-015",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find ∫ 1/√(-x² - 4x + 32) dx.",
+     "answer": "sin⁻¹((x + 2)/6) + C"
+    },
+    {
+     "prompt": "Evaluate ∫ from 0 to 4 (x² + 3x - 3)/(x + 2) dx.",
+     "answer": "12 - 5ln(3)"
+    },
+    {
+     "prompt": "Find ∫ (x³ + 6x² + 7x + 5)/(x + 5) dx.",
+     "answer": "(1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C"
+    },
+    {
+     "prompt": "Evaluate ∫ from 0 to 2 (x³ + 10x² + 22x - 19)/(x + 5) dx.",
+     "answer": "20/3 - 4ln(7/5)"
+    }
+   ],
+   "answer": "(a) sin⁻¹((x + 2)/6) + C; (b) 12 - 5ln(3); (c) (1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C; (d) 20/3 - 4ln(7/5)",
+   "solutionSteps": [
+    "(a) Complete the square: -x² - 4x + 32 = 36 - (x + 2)². Use ∫ 1/√(a² - u²) du = sin⁻¹(u/a) + C with u = x + 2 and a = 6. ∫ 1/√(-x² - 4x + 32) dx = sin⁻¹((x + 2)/6) + C.",
+    "(b) Divide first: (x² + 3x - 3)/(x + 2) = x + 1 - 5/(x + 2). An antiderivative is (1/2)x² + x - 5ln|x + 2|. Evaluate from 0 to 4: the polynomial part gives 12 and the logarithm part gives -5(ln(6) - ln(2)). The value is 12 - 5ln(3).",
+    "(c) Divide first: (x³ + 6x² + 7x + 5)/(x + 5) = x² + x + 2 - 5/(x + 5). Integrate the polynomial part: (1/3)x³ + (1/2)x² + 2x. ∫ -5/(x + 5) dx = -5ln|x + 5|. ∫ (x³ + 6x² + 7x + 5)/(x + 5) dx = (1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C.",
+    "(d) Divide first: (x³ + 10x² + 22x - 19)/(x + 5) = x² + 5x - 3 - 4/(x + 5). An antiderivative is (1/3)x³ + (5/2)x² - 3x - 4ln|x + 5|. Evaluate from 0 to 2: the polynomial part gives 20/3 and the logarithm part gives -4(ln(7) - ln(5)). The value is 20/3 - 4ln(7/5)."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arcsin_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s07-honors-016",
+   "skillId": "fundamental-theorem-calculus-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nEvaluate ∫ from -3 to 3 2/(x² + 6x + 45) dx.\nChloe's answer: π/2\nIdentify the mistake and give the correct answer.",
+   "answer": "π/12",
+   "solutionSteps": [
+    "Mistake: Chloe left out the factor 1/6.",
+    "Complete the square: x² + 6x + 45 = (x + 3)² + 36.",
+    "An antiderivative is (1/3)tan⁻¹((x + 3)/6).",
+    "At x = 3, u = 1; at x = -3, u = 0.",
+    "(1/3)(tan⁻¹(1) - tan⁻¹(0)) = π/12.",
+    "The correct answer is π/12, not π/2."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
   }
  ]
 }

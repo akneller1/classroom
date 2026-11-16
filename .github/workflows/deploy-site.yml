@@ -41,7 +41,7 @@ jobs:
           node-version: 22
       - name: Verify game routing, math display and money formatting
         run: |
-          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs tests/resource-card-checks.test.cjs tests/asteroid-static-eligibility.test.cjs tests/katex-mathml.test.cjs tests/mobile-fit.test.cjs tests/practice-test-start-label.test.cjs tests/level-labels.test.cjs tests/diagram-alt-no-answer.test.cjs tests/generator-copy.test.cjs tests/activity-page-meta.test.cjs tests/structured-data.test.cjs tests/generated-wording.test.cjs
+          node --test tests/course-game-routing.test.cjs tests/audit-gap-skills.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs tests/resource-card-checks.test.cjs tests/asteroid-static-eligibility.test.cjs tests/katex-mathml.test.cjs tests/mobile-fit.test.cjs tests/practice-test-start-label.test.cjs tests/level-labels.test.cjs tests/diagram-alt-no-answer.test.cjs tests/generator-copy.test.cjs tests/activity-page-meta.test.cjs tests/structured-data.test.cjs tests/generated-wording.test.cjs
           node scripts/normalize-money.mjs --check
       - name: Audit Post-it game rounds and answers
         run: node scripts/test-postit-games.cjs

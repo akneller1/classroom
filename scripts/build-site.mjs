@@ -232,11 +232,11 @@ const COURSE_SEO = {
     description: "Free Algebra 2 worksheets, classroom math games, lesson plans, flashcards and assessments for teaching functions, equations and more."
   },
   prealgebra: {
-    title: "Free 8th Grade Pre-Algebra Worksheets & Games",
-    description: "Teach 8th grade Pre-Algebra with free worksheets, interactive math games, practice activities, lesson plans and assessment generators."
+    title: "Free 8th Grade Math Worksheets & Games",
+    description: "Teach 8th grade math with free worksheets, interactive math games, practice activities, lesson plans and assessment generators."
   },
   prealgebra7: {
-    title: "Free 7th Grade Pre-Algebra Activities & Worksheets",
+    title: "Free 7th Grade Math & Pre-Algebra Worksheets",
     description: "Free 7th grade math worksheets, games, lesson plans and practice activities for integers, equations, ratios, geometry and more."
   },
   math6: {

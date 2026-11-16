@@ -243,6 +243,7 @@
     'A-APR.B.2': 'Know and apply the Remainder Theorem.',
     'A-APR.B.3': 'Identify zeros of polynomials when suitable factorizations are available; sketch the graph.',
     'A-APR.C.4': 'Prove polynomial identities and use them to describe numerical relationships.',
+    'A-APR.C.5': 'Know and apply the Binomial Theorem for the expansion of (x + y)ⁿ, with coefficients from Pascal’s Triangle.',
     'A-APR.D.6': 'Rewrite simple rational expressions in different forms (long division).',
     'A-APR.D.7': 'Add, subtract, multiply and divide rational expressions.',
     'A-CED.A.1': 'Create equations and inequalities in one variable and use them to solve problems.',
