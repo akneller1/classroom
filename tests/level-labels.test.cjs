@@ -7,3 +7,9 @@ test('runtime and static labels use Support, Standard, Advanced', () => {
     assert.doesNotMatch(fs.readFileSync(f, 'utf8'), /Level 1 · Warm-Up|Remedial|'On Level'/, f);
   assert.match(fs.readFileSync('worksheet-generator/menu/engine.js', 'utf8'), /long: 'CP2 · Support'/);
 });
+test('level-labels never rewrites an option that already shows its label (no MutationObserver loop)', () => {
+  const ll = require('node:fs').readFileSync('level-labels.js', 'utf8');
+  assert.match(ll, /if\(o\.textContent===text\)return;/);
+  // The build rewrites the word "Remedial" site-wide, so it must not appear in matching patterns here.
+  assert.doesNotMatch(ll, /Remedial/);
+});
