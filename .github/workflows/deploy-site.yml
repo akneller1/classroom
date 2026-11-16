@@ -1,5 +1,5 @@
 # To promote staging content, validate a FinancialAlgebra commit and update ALL course refs below together.
-# Sources are pinned; scheduled rebuilds are unnecessary.
+# Routine releases use bounded browser sampling; scheduled runs audit every resource.
 # Publishes only the public site (built by scripts/build-site.mjs) to GitHub Pages.
 # Supports branch-based Pages; selecting GitHub Actions as the Pages source avoids a duplicate automatic build.
 name: Deploy site
@@ -8,6 +8,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      full_resource_audit:
+        description: Browser-check every resource link
+        type: boolean
+        default: false
+  schedule:
+    - cron: '0 9 * * *'
   pull_request:
     branches: [main]
 
@@ -19,7 +26,7 @@ permissions:
 
 concurrency:
   # PR validation must not hold the production deployment queue.
-  group: public-site-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  group: public-site-pages-${{ github.event_name == 'schedule' && 'nightly-audit' || github.event_name == 'pull_request' && github.ref || 'production' }}
   # Finish an active deployment before starting the next one. Cancelled runs can
   # leave an unfinished Pages deployment behind and cause HTTP 400 conflicts.
   cancel-in-progress: false
@@ -34,7 +41,7 @@ jobs:
           node-version: 22
       - name: Verify game routing, math display and money formatting
         run: |
-          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs
+          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs tests/resource-card-checks.test.cjs
           node scripts/normalize-money.mjs --check
       - name: Audit Post-it game rounds and answers
         run: node scripts/test-postit-games.cjs
@@ -183,8 +190,15 @@ jobs:
           node --test tests/game-capabilities.test.cjs
           node scripts/apply-game-modes.mjs
           node scripts/test-game-modes.cjs _site
-      - name: Browser-check every course and unit resource card
-        run: node scripts/test-no-dead-end-cards.cjs _site
+      - name: Verify all resource files and browser-check representative cards
+        env:
+          FULL_RESOURCE_AUDIT: ${{ github.event_name == 'schedule' || inputs.full_resource_audit == true }}
+        run: |
+          if [ "$FULL_RESOURCE_AUDIT" = "true" ]; then
+            node scripts/test-no-dead-end-cards.cjs _site --full
+          else
+            node scripts/test-no-dead-end-cards.cjs _site
+          fi
       - name: Final site check (catalog files, no off-site links, no stray text)
         run: node scripts/test-site-hygiene.mjs
       - uses: actions/upload-pages-artifact@v3
@@ -192,7 +206,7 @@ jobs:
           path: _site
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.event_name != 'schedule'
     needs: build
     runs-on: ubuntu-latest
     environment:
