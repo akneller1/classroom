@@ -183,7 +183,7 @@ function newBankQuestion(){
 function renderArcadeMath(value){
  const raw=String(value==null?'':value);
  const escape=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
- const render=tex=>window.katex?katex.renderToString(tex,{throwOnError:false,trust:false,output:'html'}):escape(tex);
+ const render=tex=>window.katex?katex.renderToString(tex,{throwOnError:false,trust:false,output:'htmlAndMathml'}):escape(tex);
  const delimiter=/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]|⟨([^⟩]+)⟩/;
  let out='',rest=raw,m;
  while((m=delimiter.exec(rest))){

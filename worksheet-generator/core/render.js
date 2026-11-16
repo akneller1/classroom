@@ -2,6 +2,8 @@
    US-Letter pages (nothing is ever split across a page break). */
 (function (G) {
   'use strict';
+/* KaTeX emits MathML for screen readers; keep it visually hidden even where katex.min.css is absent. */
+(function(){try{var d=document;if(!d||d.getElementById('mk-katex-mathml'))return;var s=d.createElement('style');s.id='mk-katex-mathml';s.textContent='.katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}';(d.head||d.documentElement).appendChild(s);}catch(e){}})();
   var NS = (G.MKWS = G.MKWS || {});
   var doc = G.document;
 
@@ -9,7 +11,7 @@
 
   function math(markup) {
     return String(markup).replace(/⟨([^⟩]*)⟩/g, function (m, tex) {
-      try { return G.katex.renderToString(tex.replace(/\\frac/g, '\\dfrac'), { throwOnError: false, output: 'html' }); }
+      try { return G.katex.renderToString(tex.replace(/\\frac/g, '\\dfrac'), { throwOnError: false, output: 'htmlAndMathml' }); }
       catch (e) { return esc(tex); }
     });
   }

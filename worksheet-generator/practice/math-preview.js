@@ -1,6 +1,8 @@
 /* Student answer preview only. It never grades, parses correctness, or exposes keys. */
 (function(G){
 'use strict';
+/* KaTeX emits MathML for screen readers; keep it visually hidden even where katex.min.css is absent. */
+(function(){try{var d=document;if(!d||d.getElementById('mk-katex-mathml'))return;var s=d.createElement('style');s.id='mk-katex-mathml';s.textContent='.katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}';(d.head||d.documentElement).appendChild(s);}catch(e){}})();
 var API=G.MKMATHPREVIEW={};
 function escape(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function math(s){
@@ -23,7 +25,7 @@ API.preview=function(input){
  if(!raw)return {html:'<span class="pt-preview-empty">Your math appears here as you type.</span>',empty:true};
  var tex=math(raw);
  if(G.katex&&typeof G.katex.renderToString==='function'){
-  try{return {html:G.katex.renderToString(tex,{throwOnError:true,output:'html',trust:false,maxExpand:100}),empty:false};}
+  try{return {html:G.katex.renderToString(tex,{throwOnError:true,output:'htmlAndMathml',trust:false,maxExpand:100}),empty:false};}
   catch(e){}
  }
  return {html:'<span class="pt-preview-plain">'+escape(raw)+'</span>',empty:false};

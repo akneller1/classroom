@@ -1,6 +1,8 @@
 /* Interactive Practice Test — shares the menu generator's independently checked questions. */
 (function(G){
 'use strict';
+/* KaTeX emits MathML for screen readers; keep it visually hidden even where katex.min.css is absent. */
+(function(){try{var d=document;if(!d||d.getElementById('mk-katex-mathml'))return;var s=d.createElement('style');s.id='mk-katex-mathml';s.textContent='.katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}';(d.head||d.documentElement).appendChild(s);}catch(e){}})();
 var N=G.MKMENU, W=G.MKWS, root=document.getElementById('practice'), STORE='mk-readiness-auto-v3';
 var state=null,config={unit:'algebra1-expressions-equations',level:'cp1',count:10,mode:'test',format:'mixed',minutes:0,skills:[]};
 var STORE_PREFIX=STORE+':';
@@ -200,7 +202,7 @@ function solutionMath(value){
  // Use the site's own marked-math renderer, rather than relying on raw TeX as HTML.
  // If KaTeX is unavailable, preserve readable math instead of exposing commands.
  if(G.katex&&typeof G.katex.renderToString==='function'){
-   try{return G.katex.renderToString(source,{throwOnError:false,output:'html',trust:false});}catch(e){}
+   try{return G.katex.renderToString(source,{throwOnError:false,output:'htmlAndMathml',trust:false});}catch(e){}
  }
  var plain=source.replace(/\\cdot/g,' × ').replace(/\\times/g,' × ')
    .replace(/\\div/g,' ÷ ').replace(/\\pm/g,' ± ')

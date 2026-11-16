@@ -1,6 +1,8 @@
 /* Shared display-only renderer. The formatter is reused from Algebra 1 Connect 4.
  * Source questions and answer values are never modified. */
 (function(G){'use strict';
+/* KaTeX emits MathML for screen readers; keep it visually hidden even where katex.min.css is absent. */
+(function(){try{var d=document;if(!d||d.getElementById('mk-katex-mathml'))return;var s=d.createElement('style');s.id='mk-katex-mathml';s.textContent='.katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}';(d.head||d.documentElement).appendChild(s);}catch(e){}})();
 /*FM-START*/
 /* Math mini-syntax -> HTML.
    <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
@@ -237,7 +239,7 @@ function withMatrices(part){
 }
 function html(value,options){
  const rendered=money(value==null?'':value).split(/(⟨[^⟩]*⟩)/).map(part=>{
-  if(/^⟨/.test(part)&&G.katex){return G.katex.renderToString(part.slice(1,-1).replace(/\\frac/g,'\\dfrac'),{throwOnError:false,output:'html',trust:false})}
+  if(/^⟨/.test(part)&&G.katex){return G.katex.renderToString(part.slice(1,-1).replace(/\\frac/g,'\\dfrac'),{throwOnError:false,output:'htmlAndMathml',trust:false})}
   return withMatrices(part).replace(/\n/g,'<br>');
  }).join('');
  return options&&options.prose?'<span class="mk-prose">'+rendered+'</span>':rendered;
