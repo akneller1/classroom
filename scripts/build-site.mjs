@@ -19,6 +19,7 @@ import vm from "node:vm";
 import crypto from "node:crypto";
 import { asteroidEligibleUnits, filterAsteroidItems } from "./asteroid-eligibility.mjs";
 import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
+import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "_site");
@@ -202,7 +203,7 @@ try {
         })(),
       };
     });
-    catalog.push({ id: course?.id, title: cTitle, slug: cSlug, color: course?.color, planned: course?.planned, units: unitList });
+    catalog.push({ id: course?.id, title: cTitle, slug: cSlug, color: course?.color, planned: course?.planned, blurb: course?.blurb || "", units: unitList });
   }
 } catch (e) {
   console.warn("Could not read data.js, so the catalog was not pre-written:", e.message);
@@ -269,9 +270,9 @@ function seoCourse(c) {
   };
   const seo = COURSE_SEO[c.id] || {};
   return {
-    title: `${seo.title || `Free ${c.title} Math Activities & Worksheets`} | ${SITE_NAME}`,
+    title: coursePageTitle(c.title, seo.title),
     heading: `${c.title} Worksheets, Games & Lessons`,
-    description: seo.description || `Free ${c.title} worksheets, lesson plans, math games and assessments organized by unit for teachers.`
+    description: courseDescription(c.title, seo.description)
   };
 }
 
@@ -282,14 +283,10 @@ function seoUnit(c, u) {
     heading: `${u.title}: ${c.title} Unit Outline`,
     description: `Explore ${u.title} in the ${c.title} curriculum, including the skills and topics in this unit. Classroom activities are in development.`
   };
-  const hasGames = u.items.some((a) => a.type === "Game" || /escape room|showdown|connect 4|tic tac toe|detective game/i.test(a.title || ""));
-  const hasStudy = u.items.some((a) => /flashcard|cheat sheet|study guide/i.test(a.title || ""));
-  const extras = [hasGames ? "math games" : "practice activities", ...(hasStudy ? ["study guides"] : [])];
-  const description = `Free ${c.title} resources for ${u.title}: lesson plans, worksheet and assessment generators, ${listNames(extras)}. Browse ${u.items.length} classroom activities and tools.`;
   return {
-    title: `${base} ${base.length < 56 ? "Worksheets & Activities" : "Resources"} | ${SITE_NAME}`,
+    title: unitPageTitle(c.title, u.title),
     heading: `${u.title}: ${c.title} Worksheets & Activities`,
-    description: description.length <= 175 ? description : description.slice(0, 172).replace(/\s+\S*$/, "") + "…"
+    description: unitDescription(c.title, u.title, u.items)
   };
 }
 
@@ -298,13 +295,7 @@ const href = (p, depth) => isExternal(p) ? p : "../".repeat(depth) + String(p).r
 const courseUrl = (c) => `u/${c.slug}/`;
 const unitUrl = (c, u) => `u/${c.slug}/${u.slug}/`;
 
-function itemHtml(a, depth) {
-  const meta = [a.type, Array.isArray(a.level) ? a.level.join(" / ") : a.level].filter(Boolean).join(", ");
-  const topics = Array.isArray(a.topics) && a.topics.length ? `<p class="mk-topics">Topics: ${htmlEsc(a.topics.join(", "))}</p>` : "";
-  return `<li>${a.path ? `<a href="${htmlEsc(href(a.path, depth))}">${htmlEsc(a.title || a.path)}</a>` : htmlEsc(a.title)}`
-    + (meta ? ` <span class="mk-meta">(${htmlEsc(meta)})</span>` : "")
-    + (a.description ? `<p>${htmlEsc(a.description)}</p>` : "") + topics + `</li>`;
-}
+const itemHtml = (a, depth) => itemHtmlCopy(a, depth, href);
 
 // ---------- unit pages ----------
 const PAGE_CSS = `
@@ -327,7 +318,7 @@ ul.mk-items p{margin:.25rem 0 0}
 .mk-meta,.mk-topics{color:var(--muted);font-size:.95rem}
 .open-app{display:inline-block;margin-top:2rem;font-weight:700}
 footer{color:var(--muted);font-size:.9rem;margin-top:3rem}
-`;
+${EXTRA_CSS}`;
 const COLOR = { blue: "#1f5fbf", orange: "#c4570f", green: "#1d7a46", purple: "#6b3fb8" };
 
 function headTags({ title, description, url, depth, fontsHref }) {
@@ -374,10 +365,10 @@ ${courseJsonLd({ siteUrl: SITE_URL, courseName: c.title, courseUrl: courseAddres
 <main>
 <h1>${htmlEsc(courseMeta.heading)}</h1>
 <p class="lede">${htmlEsc(courseDescription)}</p>
-<h2>Explore ${htmlEsc(c.title)} units</h2>
+${c.planned ? `<h2>Explore ${htmlEsc(c.title)} units</h2>
 <ul class="mk-items">
-${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">${c.planned ? "(curriculum outline)" : `(${u.items.length} classroom resources)`}</span></li>`).join("\n")}
-</ul>
+${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(curriculum outline)</span></li>`).join("\n")}
+</ul>` : courseBody({ id: c.id, title: c.title, blurb: c.blurb, units: c.units.filter((u) => u.items.length) })}
 <a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
@@ -410,9 +401,9 @@ ${unitJsonLd({ siteUrl: SITE_URL, courseName: c.title, courseUrl: courseAddress,
 <main>
 <h1>${htmlEsc(unitMeta.heading)}</h1>
 <p class="lede">${htmlEsc(desc)}</p>
-<ul class="mk-items">
-${c.planned ? u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n") : u.items.map((a) => itemHtml(a, depth)).join("\n")}
-</ul>
+${c.planned ? `<ul class="mk-items">
+${u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n")}
+</ul>` : unitBody({ courseTitle: c.title, unitTitle: u.title, skills: u.skills || [], items: u.items, depth, href })}
 <a class="open-app" href="${appLink}">Open this unit in the full classroom site</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
@@ -424,6 +415,80 @@ ${c.planned ? u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n") : u
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "index.html"), page);
     sitemapUrls.push(url);
+  }
+}
+
+// ---------- 7th grade hub ----------
+// Standard-path 7th-grade teachers have no "7th Grade Math" course: every Grade 7 standard is taught in
+// Pre-Algebra (accelerated 7). This page lists those skills by Grade 7 domain and links each to its unit page.
+{
+  const pa7 = catalog.find((c) => c.id === "prealgebra7");
+  if (pa7) {
+    const DOMAINS = [["RP", "Ratios and Proportional Relationships"], ["NS", "The Number System"], ["EE", "Expressions and Equations"], ["G", "Geometry"], ["SP", "Statistics and Probability"]];
+    const byDomain = new Map(DOMAINS.map(([k]) => [k, []]));
+    for (const u of pa7.units) {
+      const file = path.join(ROOT, "question-banks", "prealgebra7", `${u.id}.json`);
+      if (!fs.existsSync(file) || !u.items.length) continue;
+      const tags = new Map();
+      for (const q of JSON.parse(fs.readFileSync(file, "utf8")).questions || []) {
+        for (const code of q.standards || []) {
+          const m = /^7\.(RP|NS|EE|G|SP)\./.exec(code);
+          if (!m) continue;
+          if (!tags.has(q.skillId)) tags.set(q.skillId, new Map());
+          tags.get(q.skillId).set(code, m[1]);
+        }
+      }
+      (u.skills || []).forEach((name, i) => {
+        const id = `${u.id}-skill-${String(i + 1).padStart(2, "0")}`;
+        const codes = tags.get(id);
+        if (!codes) return;
+        const domains = new Set(codes.values());
+        for (const d of domains) byDomain.get(d).push({ name, unit: u, codes: [...codes.keys()].filter((c) => codes.get(c) === d).sort() });
+      });
+    }
+    const n = [...byDomain.values()].reduce((a, l) => a + l.length, 0);
+    if (n) {
+      const url = SITE_URL + "u/grade7/";
+      const title = "7th Grade Math Worksheets, Games & Activities | " + SITE_NAME;
+      const description = "Free 7th grade math worksheets, games and lesson plans for every Grade 7 standard: ratios, integers, expressions, equations, geometry and probability.";
+      const sections = DOMAINS.filter(([k]) => byDomain.get(k).length).map(([k, label]) => `<h2>${htmlEsc(label)} (7.${k})</h2>
+<ul class="mk-items">
+${byDomain.get(k).map((x) => `<li><a href="../prealgebra7/${htmlEsc(x.unit.slug)}/">${htmlEsc(x.name)}</a> <span class="mk-meta">(${htmlEsc(x.codes.join(", "))})</span><p class="mk-topics">Unit: ${htmlEsc(x.unit.title)}</p></li>`).join("\n")}
+</ul>`).join("\n");
+      const page = `<!doctype html>
+<html lang="en">
+<head>
+${headTags({ title, description, url, depth: 2, fontsHref: GOOGLE_FONTS_HOME })}
+${courseJsonLd({ siteUrl: SITE_URL, courseName: "7th Grade Math", courseUrl: url, description })}
+<style>${PAGE_CSS}</style>
+</head>
+<body>
+<div class="wrap">
+<p class="crumbs"><a href="../../">${htmlEsc(SITE_NAME)}</a> / 7th Grade Math</p>
+<main>
+<h1>7th Grade Math Worksheets, Games &amp; Lessons</h1>
+<p class="lede">${htmlEsc(description)}</p>
+<p>Every Grade 7 standard is taught in the <a href="../prealgebra7/">Pre-Algebra (Grade 7)</a> course, the accelerated 7th-grade path that also covers most of Grade 8. If your class follows the standard path, use the skills below: each one links to its unit page with worksheets, games, lesson plans and practice tests at the Support, Standard and Advanced levels. For the next year, see <a href="../prealgebra/">8th Grade Math</a>; for review, see <a href="../math6/">6th Grade Math</a>.</p>
+${sections}
+<a class="open-app" href="../prealgebra7/">See the full Pre-Algebra (Grade 7) course</a>
+</main>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+</div>
+</body>
+</html>
+`;
+      fs.mkdirSync(path.join(OUT, "u", "grade7"), { recursive: true });
+      fs.writeFileSync(path.join(OUT, "u", "grade7", "index.html"), page);
+      sitemapUrls.push(url);
+      // Point the neighbouring course hubs at it.
+      for (const id of ["prealgebra7", "math6", "prealgebra"]) {
+        const f = path.join(OUT, "u", id, "index.html");
+        if (!fs.existsSync(f)) continue;
+        const html = fs.readFileSync(f, "utf8");
+        if (!html.includes('href="../grade7/"')) fs.writeFileSync(f, html.replace(/<p class="lede">([\s\S]*?)<\/p>/, (m) => m + `\n<p>Teaching standard-path 7th grade? See <a href="../grade7/">7th Grade Math by standard</a>.</p>`));
+      }
+      console.log(`7th grade hub: ${n} skills across ${DOMAINS.filter(([k]) => byDomain.get(k).length).length} domains.`);
+    }
   }
 }
 

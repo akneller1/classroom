@@ -187,7 +187,7 @@
         return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
           (ws ? '' : '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>') +
           '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
-          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + ((k === 'multi' && !NS.multiUnitSupported(c.unitId)) || ((s.qformat || 'open') !== k && !NS.formatAvailable(c, si, k)) ? ' disabled title="None of this part\'s selected skills can be asked this way"' : '') + '>' + esc(NS.FORMATS[k]) + ((k !== 'open' && (s.qformat || 'open') !== k && !NS.formatAvailable(c, si, k)) ? ' (not available here)' : '') + '</option>'; }).join('') + '</select></td>' +
+          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { var cur = (s.qformat || 'open') === k, off = (k === 'multi' && !NS.multiUnitSupported(c.unitId)) || (!cur && !NS.formatAvailable(c, si, k)); /* formats this part's skills can't use are left out, not shown as dead choices */ if (off && !cur) return ''; return '<option value="' + k + '"' + (cur ? ' selected' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
           '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
           '<span class="mm-adj"><button type="button" class="step-btn mmAdj" data-d="-1" aria-label="Make ' + esc(s.name) + ' easier">−</button><span class="mm-cval" title="Difficulty (1 to 7)">' + cTxt + '</span><button type="button" class="step-btn mmAdj" data-d="1" aria-label="Make ' + esc(s.name) + ' harder">+</button></span></td>' +
           '<td><button type="button" class="btn ghost sm mmSecSkills">' + skillsTxt + '</button></td>' +
@@ -223,7 +223,10 @@
       if (firstUnit) switchUnit(firstUnit[0]);
     };
     $('#mmUnitSel').onchange = function (e) { switchUnit(e.target.value); };
-    function switchUnit(id) { if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); }   // a new unit starts in the same format
+    function switchUnit(id) { if (authoredRoute(id)) return; if (!NS.skillSets[id]) return;
+      /* Another course's questions load on demand; finish that first, then switch. */
+      var pending = NS.ensureUnitBanks && NS.ensureUnitBanks(id);
+      if (pending) { var sel = $('#mmUnitSel'); if (sel) sel.disabled = true; var cs = $('#mmClassSel'); if (cs) cs.disabled = true; G.document.body.setAttribute('aria-busy', 'true'); pending.then(function () { G.document.body.removeAttribute('aria-busy'); switchUnit(id); }, function () { G.document.body.removeAttribute('aria-busy'); if (sel) sel.disabled = false; if (cs) cs.disabled = false; G.alert && G.alert('Questions for that unit could not be loaded. Check your connection and try again.'); }); return; } snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); }   // a new unit starts in the same format
     $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
       if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
       else { NS.setMode(draft, r.value); autosave(); render(); }
@@ -996,14 +999,18 @@
     if (!draft && !S) { draft = NS.defaultConfig(unit, PAGE_MODE || (/mode=menu/.test(G.location.hash || '') ? 'menu' : 'test')); /* a standard test unless #mode=menu */ if (level) draft.level = level; }
     return !!S;
   }
+  var startTries = 0;
   function startApp() {
-    registerTopicSets();
     var unit = hashUnit() || (NS.skillSets[lsGet(KEY_LAST)] ? lsGet(KEY_LAST) : null) || (NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
+    /* The last-used unit may belong to a course whose questions are not loaded yet. */
+    var pending = startTries++ < 2 && NS.ensureUnitBanks && NS.ensureUnitBanks(unit);
+    if (pending) { pending.then(startApp, startApp); return; }
+    registerTopicSets();
     var sharedLevel = /(?:^#|&)level=(cp2|cp1|honors)(?:&|$)/.exec(G.location.hash || '');
     var restored = loadUnit(unit, sharedLevel ? sharedLevel[1] : null);
     render();
     if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' ' + noun() + ' was restored from this browser.');
-    G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });
+    G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { var p = NS.ensureUnitBanks && NS.ensureUnitBanks(u); autosave(); if (p) p.then(function () { loadUnit(u); render(); }); else { loadUnit(u); render(); } } });
     NS.app = { state: function () { return S; }, render: render, ui: ui };   // for tests
   }
   if (G.MK_COURSE_BANKS_READY) {

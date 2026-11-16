@@ -27,7 +27,7 @@
         var classroomLabel = label.indexOf('mr. k') >= 0 || label.indexOf('mr k') >= 0 || label.indexOf('classroom') >= 0 || label.indexOf('back to class') >= 0 || label.indexOf('return home') >= 0;
         if (home || classroomLabel) a.remove();
       });
-      var heading = doc.querySelector('h1');
+      var heading = doc.querySelector('h1:not([data-static-h1])');
       var docTitle = (doc.title || '').toLowerCase();
       if (heading && (docTitle.indexOf('mr. k') >= 0 || docTitle.indexOf('mr k') >= 0 || docTitle.indexOf('classroom') >= 0)) doc.title = text(heading.textContent);
     }
@@ -60,10 +60,13 @@
     if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-ready', skills: skills }, G.location.origin);
     var doc = G.document, dialog = doc.createElement('dialog');
     dialog.className = 'teacher-skills';
+    var loading = typeof doc.querySelectorAll !== 'function' ? [] : [].filter.call(doc.querySelectorAll('body *'), function (el) { return !el.children.length && /^\s*Loading(\s+mathematics game)?(…|\.\.\.)\s*$/.test(el.textContent); });
+    loading.forEach(function (el) { el.setAttribute('data-picker-hidden', el.style.visibility); el.style.visibility = 'hidden'; });
+    var restoreLoading = function () { loading.forEach(function (el) { el.style.visibility = el.getAttribute('data-picker-hidden') || ''; el.removeAttribute('data-picker-hidden'); }); };
     dialog.style.cssText = 'box-sizing:border-box;width:min(640px,94vw);max-height:88vh;overflow:auto;border:2px solid #3456d1;border-radius:16px;padding:24px;background:#fff;color:#17233b;font:16px/1.5 system-ui;';
     var title = doc.createElement('h2'); title.textContent = 'Choose skills for this game';
     title.style.marginTop = '0'; dialog.appendChild(title);
-    var context = doc.createElement('p'); context.textContent = doc.title;
+    var context = doc.createElement('p'); context.textContent = text(doc.title).split(' | ')[0];
     context.style.fontWeight = '600'; dialog.appendChild(context);
     var help = doc.createElement('p'); help.textContent = note || 'All available skills are selected. Choose the skills you want students to practice.';
     dialog.appendChild(help);
@@ -79,6 +82,16 @@
       return input;
     });
     dialog.appendChild(list);
+    /* Level travels with the student link (games that use the shared levels read ?level=). */
+    var levelPick = null;
+    if (G.MKGAMES && G.MKGAMES.LEVELS && G.MKGAMES.LEVELS.cp1) {
+      var lvWrap = doc.createElement('label'); lvWrap.style.cssText = 'display:block;margin:12px 0 4px;font-weight:600;';
+      lvWrap.appendChild(doc.createTextNode('Level for the student link '));
+      levelPick = doc.createElement('select'); levelPick.style.cssText = 'margin-left:8px;padding:6px;font:inherit;';
+      var want = params.get('level');
+      [['cp2', 'Support'], ['cp1', 'Standard'], ['honors', 'Advanced']].forEach(function (o) { var opt = doc.createElement('option'); opt.value = o[0]; opt.textContent = o[1]; if (o[0] === (want || 'cp1')) opt.selected = true; levelPick.appendChild(opt); });
+      lvWrap.appendChild(levelPick); dialog.appendChild(lvWrap);
+    }
     var status = doc.createElement('p'); status.setAttribute('role', 'status'); dialog.appendChild(status);
     function button(label, parent, fn) {
       var b = doc.createElement('button'); b.type = 'button'; b.textContent = label;
@@ -88,10 +101,33 @@
     var go = button(sharing ? 'Generate student link' : 'Continue', dialog, function () {
       var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
       if (!ids.length && skills.length) return;
-      dialog.close(); dialog.remove();
-      if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-selected', skills: ids }, G.location.origin);
+      dialog.close(); dialog.remove(); restoreLoading();
+      if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-selected', skills: ids, level: levelPick ? levelPick.value : undefined }, G.location.origin);
       else start(ids);
     });
+    function studentUrl(ids) {
+      var url = new URL(G.location.href); url.hash = '';
+      ['teacher', 'teacherShare'].forEach(function (k) { url.searchParams.delete(k); });
+      url.searchParams.set('student', '1'); if (G.MK_GAME_CAPABILITIES && G.MK_GAME_CAPABILITIES.studentUrl) G.MK_GAME_CAPABILITIES.studentUrl(url);
+      url.searchParams.set('skills', JSON.stringify(ids)); if (levelPick) url.searchParams.set('level', levelPick.value);
+      return url.href;
+    }
+    if (!sharing && params.get('student') !== '1') {
+      var shareRow = doc.createElement('div'); dialog.appendChild(shareRow);
+      var linkField = null;
+      button('Copy student link', shareRow, function () {
+        var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; }); if (!ids.length) return;
+        var href = studentUrl(ids);
+        if (!linkField) { linkField = doc.createElement('input'); linkField.readOnly = true; linkField.setAttribute('aria-label', 'Student link'); linkField.style.cssText = 'display:block;box-sizing:border-box;width:100%;padding:10px;margin-top:8px'; shareRow.appendChild(linkField); }
+        linkField.value = href; linkField.focus(); linkField.select();
+        if (G.navigator.clipboard && G.navigator.clipboard.writeText) G.navigator.clipboard.writeText(href).then(function () { status.textContent = 'Student link copied. It opens straight into the game with these skills and this level.'; }, function () { status.textContent = 'Copy the selected student link.'; });
+        else status.textContent = 'Copy the selected student link.';
+      });
+      button('Preview as student', shareRow, function () {
+        var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; }); if (!ids.length) return;
+        G.open(studentUrl(ids), '_blank', 'noopener');
+      });
+    }
     function update() {
       var n = inputs.filter(function (i) { return i.checked; }).length;
       var canContinue = !skills.length || n > 0; go.disabled = !canContinue; go.style.opacity = canContinue ? '1' : '.5';

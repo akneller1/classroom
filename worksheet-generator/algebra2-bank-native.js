@@ -159,40 +159,69 @@ NS.figHtml=function(fig){
 };
 // Count matches without deep-copying them; falls back to select() if an older cached adapter lacks count().
 function bankCount(o){return G.MK_QUESTION_BANKS.count?G.MK_QUESTION_BANKS.count(o):G.MK_QUESTION_BANKS.select(o).length}
-var loadBanks=G.MK_APPROVED_RESOURCE_BANKS?G.MK_APPROVED_RESOURCE_BANKS.ready:G.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json','../');
-G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
- const course=G.LIBRARY.courses.find(c=>c.id==='algebra2');
+const L=G.MK_BANK_LOADER, MANIFEST='question-banks/manifest.json';
+// Only the open course's banks load up front (L.loadPageBanks); units of other courses are listed from the
+// manifest and their questions are fetched when the page switches to them (NS.ensureUnitBanks).
+let listed=null;
+const done=new Set();
+function approvedUnit(courseId,unitId){return G.MK_QUESTION_BANKS.available(courseId,unitId)||!!(listed&&listed.has(courseId+'/'+unitId))}
+function registerUnit(c,u,group){
+ const id=(c.id==='algebra'?'algebra1-':c.id+'-')+u.id, loaded=G.MK_QUESTION_BANKS.available(c.id,u.id);
+ if(['algebra','geometry'].includes(c.id)){
+  const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
+  const nativeId=(c.id==='algebra'?'algebra1-':c.id+'-')+(aliases[c.id]?.[u.id]||u.id), existing=NS.skillSets[nativeId];
+  if(existing){
+   // Hybrid units keep their procedural skills; bank-backed skills are added once the bank's questions are here.
+   if(!loaded||done.has(nativeId))return;
+   done.add(nativeId);
+   const fresh=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id).filter(s=>bankCount({courseId:c.id,unitId:u.id,skillIds:[s.id],formats:['short-answer','multiple-choice','select-all','open-response']}));
+   const rec={courseId:c.id,unitId:u.id,hybrid:true,skills:new Set(fresh.map(s=>s.id))};
+   registry.set(nativeId,rec);
+   G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
+   fresh.forEach(s=>{if(!existing.byId[s.id]){const skill={id:s.id,name:s.name,tag:s.name,blurb:'Reviewed question-bank practice.',print:['stations','partner'],generate:function(){throw Error('Authored selection required')}};existing.skills.push(skill);existing.byId[s.id]=skill;existing.tags[s.name]=s.name;}});
+   existing.supplementalBank=true;
+   return;
+  }
+ }
+ if(!approvedUnit(c.id,u.id))return;
+ if(!done.has(id)){
+  done.add(id);
+  if(!group.units.some(item=>item[0]===id))group.units.push([id,u.name]);
+  const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
+  registry.set(id,{courseId:c.id,unitId:u.id});
+  const printableKinds=['maze','color','partner','who','stations','tarsia','error'];
+  NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:printableKinds,generate:function(){throw Error('Authored bank selection required')}}))});
+ }
+ if(loaded&&!done.has(id+'#raw')){done.add(id+'#raw');G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));}
+}
+function registerAll(){
  G.LIBRARY.courses.forEach(c=>{
   let group=NS.CATALOG.find(g=>g.course===c.name);if(!group){group={course:c.name,units:[]};NS.CATALOG.push(group)}
   if(c.id==='algebra2')group.units=c.units.map(u=>[c.id+'-'+u.id,u.name]);
-  c.units.forEach(u=>{
-   const id=(c.id==='algebra'?'algebra1-':c.id+'-')+u.id;
-   if(!G.MK_QUESTION_BANKS.available(c.id,u.id))return;
-   if(['algebra','geometry'].includes(c.id)){
-    const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
-    const nativeId=(c.id==='algebra'?'algebra1-':c.id+'-')+(aliases[c.id]?.[u.id]||u.id), existing=NS.skillSets[nativeId];
-    if(existing){
-     const fresh=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id).filter(s=>bankCount({courseId:c.id,unitId:u.id,skillIds:[s.id],formats:['short-answer','multiple-choice','select-all','open-response']}));
-     const rec={courseId:c.id,unitId:u.id,hybrid:true,skills:new Set(fresh.map(s=>s.id))};
-     registry.set(nativeId,rec);
-     G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-     fresh.forEach(s=>{if(!existing.byId[s.id]){const skill={id:s.id,name:s.name,tag:s.name,blurb:'Reviewed question-bank practice.',print:['stations','partner'],generate:function(){throw Error('Authored selection required')}};existing.skills.push(skill);existing.byId[s.id]=skill;existing.tags[s.name]=s.name;}});
-     existing.supplementalBank=true;
-     return;
-    }
-   }
-   if(!group.units.some(item=>item[0]===id))group.units.push([id,u.name]);
-   const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
-   registry.set(id,{courseId:c.id,unitId:u.id});
-   G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   const printableKinds=['maze','color','partner','who','stations','tarsia','error'];
-   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:printableKinds,generate:function(){throw Error('Authored bank selection required')}}))});
-  });
+  c.units.forEach(u=>registerUnit(c,u,group));
  });
+}
+// Promise when a unit's course still has to be fetched; null when its questions are already here.
+NS.ensureUnitBanks=function(setId){
+ const courseId=L.courseOfSet&&L.courseOfSet(setId);
+ if(!courseId||!L.loadCoursesFromSite||L.isCourseLoaded(courseId))return null;
+ return L.loadCoursesFromSite([courseId],MANIFEST,'../').then(registerAll);
+};
+var pageBanks=G.MK_APPROVED_RESOURCE_BANKS?G.MK_APPROVED_RESOURCE_BANKS.ready:(L.loadPageBanks?L.loadPageBanks('../',undefined,G.MK_BANK_FALLBACK_COURSES):L.loadFromSite(MANIFEST,'../'));
+var loadBanks=Promise.all([pageBanks,L.manifestUnits?L.manifestUnits(MANIFEST,'../').then(list=>{listed=new Set(list.map(x=>x.courseId+'/'+x.unitId))},()=>{}):null]);
+G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
+ const course=G.LIBRARY.courses.find(c=>c.id==='algebra2');
+ registerAll();
  // Preserve original levels while selecting authored banks by exact level.
  if(G.document?.body.hasAttribute('data-algebra2-game')) { GB.LEVELS.cp2.tiers=[1,1,1];GB.LEVELS.cp1.tiers=[4,4,4];GB.LEVELS.honors.tiers=[6,6,6]; }
  return course;
 });
 G.MK_COURSE_BANKS_READY=G.MK_ALGEBRA2_NATIVE_READY;
+// A same-page link to another course (#course=… or #unit=…) fetches that course's banks; readiness waits for them.
+if(L.pageCourses&&L.loadCoursesFromSite&&typeof G.addEventListener==='function')G.addEventListener('hashchange',function(){
+ const missing=(L.pageCourses()||[]).filter(c=>!L.isCourseLoaded(c));
+ if(!missing.length)return;
+ G.MK_ALGEBRA2_NATIVE_READY=G.MK_COURSE_BANKS_READY=Promise.all([G.MK_ALGEBRA2_NATIVE_READY,L.loadCoursesFromSite(missing,MANIFEST,'../')]).then(function(r){registerAll();return r[0];});
+});
 })(window);
 

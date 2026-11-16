@@ -14,6 +14,7 @@ import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { loadSiteCatalog } from "./load-site-catalog.mjs";
+import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
 const OUT = path.resolve(process.env.SITE_DIR || "_site");
 const SITE_URL = (process.env.SITE_URL || "https://mrksclassroom.com/").replace(/\/?$/, "/");
@@ -36,7 +37,8 @@ const skillsFor = (courseId, unitId) => { try { return (courseCatalog && courseC
 const sample = fs.readdirSync(path.join(OUT, "u")).map((d) => path.join(OUT, "u", d, "index.html")).find((f) => fs.existsSync(f));
 if (!sample) throw Error("No existing u/<course>/index.html to copy the page style from");
 const sampleHtml = fs.readFileSync(sample, "utf8");
-const pageCss = (sampleHtml.match(/<style>([\s\S]*?)<\/style>/) || [])[1] || "";
+let pageCss = (sampleHtml.match(/<style>([\s\S]*?)<\/style>/) || [])[1] || "";
+if (!pageCss.includes("ul.mk-skills")) pageCss += EXTRA_CSS;
 const fontsLink = (sampleHtml.match(/<link rel="stylesheet" href="([^"]+)">/) || [])[1] || "";
 const fontsHref = (depth) => !fontsLink ? "" : /^(https?:)?\/\//.test(fontsLink) ? fontsLink : "../".repeat(depth) + fontsLink.replace(/^(\.\.\/)+/, "");
 
@@ -63,13 +65,7 @@ ${fontsHref(depth) ? `<link rel="stylesheet" href="${htmlEsc(fontsHref(depth))}"
 }
 const isExternal = (p) => /^(https?:)?\/\//i.test(p);
 const href = (p, depth) => isExternal(p) || String(p).startsWith("/") ? String(p) : "../".repeat(depth) + String(p).replace(/^\.?\//, "");
-function itemHtml(a, depth) {
-  const meta = [a.type, Array.isArray(a.level) ? a.level.join(" / ") : a.level].filter(Boolean).join(", ");
-  const topics = Array.isArray(a.topics) && a.topics.length ? `<p class="mk-topics">Topics: ${htmlEsc(a.topics.join(", "))}</p>` : "";
-  return `<li>${a.path ? `<a href="${htmlEsc(href(a.path, depth))}">${htmlEsc(a.title || a.path)}</a>` : htmlEsc(a.title)}`
-    + (meta ? ` <span class="mk-meta">(${htmlEsc(meta)})</span>` : "")
-    + (a.description ? `<p>${htmlEsc(a.description)}</p>` : "") + topics + `</li>`;
-}
+const itemHtml = (a, depth) => itemHtmlCopy(a, depth, href);
 const footer = `<footer>© ${new Date().getFullYear()} ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>`;
 
 // ---------- 3. Write the pages ----------
@@ -85,18 +81,18 @@ for (const id of COURSES) {
   const units = (course.units || []).filter((u) => (u.artifacts || []).length).map((u, i, all) => {
     let s = slug(u.id || u.name);
     if (all.slice(0, i).some((v) => slug(v.id || v.name) === s)) s += "-" + (i + 1);
-    return { id: u.id, title: u.name || u.title || "Unit", slug: s, items: (u.artifacts || []).filter((a) => a && (a.title || a.path)) };
+    return { id: u.id, title: u.name || u.title || "Unit", slug: s, skills: skillsFor(course.id, u.id), items: (u.artifacts || []).filter((a) => a && (a.title || a.path)) };
   });
   if (!units.length) { console.warn(`Course "${id}" has no units with activities; skipped.`); continue; }
   const accent = COLOR[course.color] ? `<style>:root{--accent:${COLOR[course.color]}}@media (prefers-color-scheme:dark){:root{--accent:var(--link)}}</style>` : "";
 
   const courseUrl = SITE_URL + `u/${cSlug}/`;
-  const courseDesc = `Free ${title} worksheets, lesson plans, math games and assessments organized by unit for teachers.`;
+  const courseDesc = courseDescription(title);
   fs.mkdirSync(courseDir, { recursive: true });
   fs.writeFileSync(path.join(courseDir, "index.html"), `<!doctype html>
 <html lang="en">
 <head>
-${head({ title: `Free ${title} Worksheets, Games & Lesson Plans | ${SITE_NAME}`, description: courseDesc, url: courseUrl, depth: 2 })}${accent}
+${head({ title: coursePageTitle(title, `Free ${title} Worksheets, Games & Lesson Plans`), description: courseDesc, url: courseUrl, depth: 2 })}${accent}
 ${courseJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, description: courseDesc })}
 </head>
 <body>
@@ -105,10 +101,7 @@ ${courseJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, description: c
 <main>
 <h1>${htmlEsc(title)} Worksheets, Games &amp; Lessons</h1>
 <p class="lede">${htmlEsc(courseDesc)}</p>
-<h2>Explore ${htmlEsc(title)} units</h2>
-<ul class="mk-items">
-${units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(${u.items.length} classroom resources)</span></li>`).join("\n")}
-</ul>
+${courseBody({ id: course.id, title, blurb: course.blurb || "", units })}
 <a class="open-app" href="../../#${encodeURIComponent(course.id)}">Open ${htmlEsc(title)} in the full classroom site</a>
 </main>
 ${footer}
@@ -120,18 +113,14 @@ ${footer}
 
   for (const u of units) {
     const url = SITE_URL + `u/${cSlug}/${u.slug}/`;
-    const hasGames = u.items.some((a) => a.type === "Game");
-    const hasStudy = u.items.some((a) => /flashcard|cheat sheet|study guide/i.test(a.title || "") || a.type === "Study Guide");
-    let desc = `Free ${title} resources for ${u.title}: lesson plans, worksheet and assessment generators, ${listNames([hasGames ? "math games" : "practice activities", ...(hasStudy ? ["study guides"] : [])])}. Browse ${u.items.length} classroom activities and tools.`;
-    if (desc.length > 175) desc = desc.slice(0, 172).replace(/\s+\S*$/, "") + "…";
-    const base = `${u.title} – ${title}`;
+    const desc = unitDescription(title, u.title, u.items);
     const dir = path.join(courseDir, u.slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "index.html"), `<!doctype html>
 <html lang="en">
 <head>
-${head({ title: `${base} ${base.length < 56 ? "Worksheets & Activities" : "Resources"} | ${SITE_NAME}`, description: desc, url, depth: 3 })}${accent}
-${unitJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, unitName: u.title, unitUrl: url, description: desc, skills: skillsFor(course.id, u.id), standards: unitStandards(OUT, course.id, u.id), resourceCount: u.items.length })}
+${head({ title: unitPageTitle(title, u.title), description: desc, url, depth: 3 })}${accent}
+${unitJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, unitName: u.title, unitUrl: url, description: desc, skills: u.skills, standards: unitStandards(OUT, course.id, u.id), resourceCount: u.items.length })}
 </head>
 <body>
 <div class="wrap">
@@ -139,9 +128,7 @@ ${unitJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, unitName: u.titl
 <main>
 <h1>${htmlEsc(u.title)}: ${htmlEsc(title)} Worksheets &amp; Activities</h1>
 <p class="lede">${htmlEsc(desc)}</p>
-<ul class="mk-items">
-${u.items.map((a) => itemHtml(a, 3)).join("\n")}
-</ul>
+${unitBody({ courseTitle: title, unitTitle: u.title, skills: u.skills, items: u.items, depth: 3, href })}
 <a class="open-app" href="${u.id ? `../../../#${encodeURIComponent(course.id + "." + u.id)}` : "../../../"}">Open this unit in the full classroom site</a>
 </main>
 ${footer}
@@ -183,12 +170,23 @@ if (fs.existsSync(coursesFile)) {
       let li = byName.get(name);
       const target = ready.has(c.id) ? `/u/${slug(c.id)}/` : null;
       if (li && target && /href="\/#/.test(li)) li = li.replace(/href="\/#[^"]*"/, `href="${target}"`);
+      if (li && target) li = li.replace(new RegExp(`href="/courses/${c.id}\\.html"`), `href="${target}"`);
       if (!li && target) li = `<li><a href="${target}">${htmlEsc(name)}</a> — ${htmlEsc((c.blurb || "").replace(/\.?$/, "."))}</li>`;
       return li;
     }).filter(Boolean);
     for (const li of existing) if (!items.includes(li) && !items.some((x) => x.includes((li.match(/>([^<]+)<\/a>/) || [])[1] + "<"))) items.push(li);
     html = html.replace(list[0], `<div class="panel"><ul>${items.join("")}</ul></div>`);
     fs.writeFileSync(coursesFile, html);
+  }
+}
+// Legacy course entry points: once /u/<course>/ exists, it is their canonical URL.
+for (const c of written) {
+  for (const rel of [`${c.id}/index.html`, `courses/${c.id}.html`]) {
+    const f = path.join(OUT, rel);
+    if (!fs.existsSync(f) || !fs.existsSync(path.join(OUT, "u", slug(c.id), "index.html"))) continue;
+    const html = fs.readFileSync(f, "utf8");
+    const next = html.replace(/<link\s+rel=["']canonical["']\s+href=["'][^"']*["']\s*\/?>/i, `<link rel="canonical" href="${SITE_URL}u/${slug(c.id)}/">`);
+    if (next !== html) fs.writeFileSync(f, next);
   }
 }
 console.log(`Done. ${added.length} pages added for ${written.map((c) => c.id).join(", ") || "no courses"}.`);

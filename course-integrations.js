@@ -68,6 +68,8 @@ add({id:'financial-algebra',name:'Financial Algebra',color:'purple',art:'finance
  });
  (r.games||[]).forEach(function(g){a.push(item(g.title,g.path,'Game',({'showdown':'showdown','connect-four':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','detective':'detective-games'})[g.id]||'topic-games','thumbs/financial-algebra/'+unit.id+'-'+g.id+'.svg',g.description));});
  (r.projects||[]).forEach(function(p){a.push(item(p.title,p.path,'Project','other','thumbs/financial-algebra/'+unit.id+'-project-'+p.slug+'.svg'));});
+ /* Vocabulary activities and crosswords use the shared Vocabulary Builder (vocabulary-data-financial.js). */
+ a.push(item('Vocabulary Activities and Crosswords','worksheet-generator/vocabulary.html?unit=financial-algebra-'+unit.id,'Printable','vocabulary','thumbs/vocabulary-prealgebra.svg','Matching, fill-in-the-blank, examples and crosswords using the unit vocabulary, with teacher keys.'));
  return {id:unit.id,name:unit.name,artifacts:a};
  })});
 /* Shared Asteroid Blaster registration after integrated courses are added.

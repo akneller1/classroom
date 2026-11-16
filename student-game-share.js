@@ -43,7 +43,7 @@
         var ids = event.data.skills;
         if (!Array.isArray(ids) || !ids.length || !ids.every(function (id) { return catalogue.some(function (s) { return s.id === id; }); })) return;
         G.removeEventListener('message', receive);
-        var url = new URL(path, G.location.href); url.hash = ''; url.searchParams.set('student', '1'); if(G.MK_GAME_CAPABILITIES)G.MK_GAME_CAPABILITIES.studentUrl(url); url.searchParams.set('skills', JSON.stringify(ids));
+        var url = new URL(path, G.location.href); url.hash = ''; url.searchParams.set('student', '1'); if(G.MK_GAME_CAPABILITIES)G.MK_GAME_CAPABILITIES.studentUrl(url); url.searchParams.set('skills', JSON.stringify(ids)); if (/^(cp2|cp1|honors)$/.test(event.data.level || '')) url.searchParams.set('level', event.data.level);
         frame.remove();
         var heading = doc.createElement('h2'); heading.textContent = 'Student link ready'; dialog.appendChild(heading);
         var summary = doc.createElement('p'); summary.textContent = 'Selected skills: ' + catalogue.filter(function (s) { return ids.indexOf(s.id) >= 0; }).map(function (s) { return s.name; }).join('; '); dialog.appendChild(summary);
@@ -56,7 +56,9 @@
           if (G.navigator.clipboard && G.navigator.clipboard.writeText) G.navigator.clipboard.writeText(input.value).then(function () { copy.textContent = 'Copied!'; }, fallback);
           else fallback();
         };
-        dialog.appendChild(copy); input.focus(); input.select();
+        dialog.appendChild(copy);
+        var preview = doc.createElement('a'); preview.href = url.href; preview.target = '_blank'; preview.rel = 'noopener'; preview.textContent = 'Preview as student'; preview.className = 'btn'; preview.style.marginLeft = '8px'; dialog.appendChild(preview);
+        input.focus(); input.select();
       }
     }
     G.addEventListener('message', receive);

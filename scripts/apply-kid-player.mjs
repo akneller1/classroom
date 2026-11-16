@@ -12,7 +12,7 @@ for(const course of fs.readdirSync('content-updates/kid-friendly/wording'))for(c
  const {edits}=JSON.parse(fs.readFileSync('content-updates/kid-friendly/wording/'+course+'/'+f));
  for(const bankFile of [path.join(out,'question-banks',grade,unit+'.json'),path.join(out,grade,'question-banks',course,unit+'.json')]){
   const bank=JSON.parse(fs.readFileSync(bankFile));
-  for(const e of edits){const q=bank.questions.find(q=>q.id===e.id);if(!q)throw Error('Missing wording question '+e.id);for(const [field,c] of Object.entries(e.changes)){if('append' in c){if(!String(q[field]||'').includes(c.append))q[field]=(q[field]||'')+c.append;}else{if(q[field]!==c.from&&q[field]!==c.to)throw Error('Wording conflict '+e.id+'/'+field);q[field]=c.to;}}}
+  for(const e of edits){const q=bank.questions.find(q=>q.id===e.id);if(!q)throw Error('Missing wording question '+e.id);for(const [field,c] of Object.entries(e.changes)){if('append' in c){if(!String(q[field]||'').includes(c.append))q[field]=(q[field]||'')+c.append;}else{const same=(x,y)=>JSON.stringify(x)===JSON.stringify(y);if(!same(q[field],c.from)&&!same(q[field],c.to))throw Error('Wording conflict '+e.id+'/'+field);q[field]=c.to;}}}
   pending.push([bankFile,bank]);
  }wording+=edits.length;
 }

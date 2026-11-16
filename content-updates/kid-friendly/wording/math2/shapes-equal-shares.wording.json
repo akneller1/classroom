@@ -98,10 +98,62 @@
    "changes": {
     "prompt": {
      "from": "Uma partitions a rectangle into 3 rows with 4 same‑size squares in each row. How many squares are there?",
-     "to": "A rectangle has 3 rows of 4 same‑size squares. How many squares in all?"
+     "to": "A rectangle has 4 rows of 5 same‑size squares. How many squares in all?"
+    },
+    "answer": {
+     "from": "12",
+     "to": "20"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 4 once for each row.",
+      "4 + 4 + 4 = 12."
+     ],
+     "to": [
+      "Add 5 once for each row.",
+      "5 + 5 + 5 + 5 = 20."
+     ]
     },
     "sourceNotes": {
-     "append": " Wording shortened for young readers 2026-11-15 (Claude, rule partition-rows); numbers and answer unchanged."
+     "append": " Numbers changed 2026-11-16 (Claude) so this Standard item differs from the Support item with 3 rows of 4; answer re-derived: 4 × 5 = 20."
     }
    }
   },

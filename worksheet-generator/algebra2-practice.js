@@ -34,5 +34,5 @@ function start(){
  $('status').textContent=list.length+' questions ready. Written responses use self review.';report();
 }
 $('all').onclick=()=>document.querySelectorAll('#skills input').forEach(i=>i.checked=true);$('none').onclick=()=>document.querySelectorAll('#skills input').forEach(i=>i.checked=false);$('start').onclick=start;$('unit').onchange=skills;skills();
-G.MK_BANK_LOADER.loadFromSite(undefined,'../').then(()=>{$('status').textContent='Ready to practice.';$('start').disabled=false}).catch(e=>{$('status').textContent='Unable to load questions: '+e.message});
+(G.MK_BANK_LOADER.loadPageBanks?G.MK_BANK_LOADER.loadPageBanks('../'):G.MK_BANK_LOADER.loadFromSite(undefined,'../')).then(()=>{$('status').textContent='Ready to practice.';$('start').disabled=false}).catch(e=>{$('status').textContent='Unable to load questions: '+e.message});
 })(window);
