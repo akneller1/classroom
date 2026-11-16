@@ -15,6 +15,10 @@ test('cached viewer links redirect with unit and student skill choices preserved
   const url=new URL(location.target);assert.equal(url.pathname,'/worksheet-generator/asteroid-blaster.html');assert.equal(url.searchParams.get('course'),course);assert.equal(url.searchParams.get('unit'),unit);assert.equal(url.searchParams.get('skills'),'s1,s2');assert.equal(url.searchParams.get('student'),'1');assert.equal(url.searchParams.get('level'),'cp1');assert.equal(url.searchParams.get('share'),'1');
  }
 });
-test('student-link card recognizes the Asteroid route',()=>{
- const match=app.match(/\((\/asteroid-blaster[^\n]+?)\.test\(a\.path/);assert(match);const regex=vm.runInNewContext(match[1]);assert(regex.test('worksheet-generator/asteroid-blaster.html?course=grade2&unit=place-value-1000'));
+test('Asteroid cards get one student-link control that opens the skill setup',()=>{
+ assert.doesNotMatch(app,/asteroid-blaster[^\n]*Copy student link<\/a>/,'app.js must not add a second Asteroid student-link anchor');
+ const share=fs.readFileSync('student-share-cards.js','utf8');
+ assert.match(share,/asteroidUrl\.searchParams\.set\('share', '1'\)/);
+ assert.match(share,/Set up student link/);
+ assert.match(share,/\.share-student, \.readiness-activity-share/);
 });
