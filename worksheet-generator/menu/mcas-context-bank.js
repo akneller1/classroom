@@ -246,13 +246,16 @@
     });
     // Vary the framing as well as the numbers so 25-question batches can
     // generate distinct verified prompts even for constrained CP2 values.
-    var audiences=['a teacher','a coach','a student','a club adviser','a principal','a volunteer',
-      'a technician','a mentor','a project leader','a parent','a counselor','a coordinator'];
-    var purposes=['a class report','a project summary','a team presentation','a budget meeting',
-      'a planning session','a math journal','a school newsletter','a progress report',
-      'a small-group discussion','a homework review','a study guide','an investigation'];
-    var frame='Present your findings to '+ctx.rng.pick(audiences)+' for '+ctx.rng.pick(purposes)+'. ';
-    return {variant:'mcas-context-'+unit+'-'+variant,prompt:x[0]+' '+frame+'Answer all four parts and show your reasoning.',
+    var readers=['your teacher','a classmate','a coach','a parent','a club adviser','a principal',
+      'a tutor','a younger student','a team captain','a school counselor','a family member','a substitute teacher'];
+    var asks=['Explain each step so that READER can follow your reasoning.',
+      'Show your work clearly enough for READER to check it.',
+      'Write your answers in complete sentences, as if explaining them to READER.',
+      'Label each answer and show the work READER would need to see.',
+      'Show how you found each answer so READER could repeat your method.',
+      'Explain your thinking for each part as you would to READER.'];
+    var frame=ctx.rng.pick(asks).replace('READER',ctx.rng.pick(readers))+' ';
+    return {variant:'mcas-context-'+unit+'-'+variant,prompt:x[0]+' Answer all four parts. '+frame.trim(),
       parts:parts,steps:parts.map(function(part){return {t:'Part ('+part.label+'): '+part.answer,w:1};}),
       space:[2.4,3.0,3.7]};
   };
