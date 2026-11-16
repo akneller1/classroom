@@ -133,7 +133,7 @@ NS.makeMcas=function(p){
 };
 function authoredAvailable(id,skill,level,format){
  const item=registry.get(id);if(!item)return false;
- return G.MK_QUESTION_BANKS.select({courseId:item.courseId,unitId:item.unitId,skillIds:[skill],level:level,formats:[format]}).length>0;
+ return bankCount({courseId:item.courseId,unitId:item.unitId,skillIds:[skill],level:level,formats:[format]})>0;
 }
 const multiUnit=NS.multiUnitSupported,multiCap=NS.multiCapable,mcCap=NS.mcCapable,mcasCap=NS.mcasCapable,skillFmt=NS.skillFormatOk;
 NS.multiUnitSupported=function(id){return isBank(id)?NS.skillSets[id].skills.some(s=>authoredAvailable(id,s.id,'cp1','select-all')):multiUnit.apply(this,arguments)};
@@ -157,6 +157,8 @@ NS.figHtml=function(fig){
  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  return '<img class="authored-bank-image" src="../'+esc(fig.src)+'" alt="'+esc(fig.alt)+'" style="display:block;max-width:100%;max-height:280px;object-fit:contain;margin:12px auto">';
 };
+// Count matches without deep-copying them; falls back to select() if an older cached adapter lacks count().
+function bankCount(o){return G.MK_QUESTION_BANKS.count?G.MK_QUESTION_BANKS.count(o):G.MK_QUESTION_BANKS.select(o).length}
 var loadBanks=G.MK_APPROVED_RESOURCE_BANKS?G.MK_APPROVED_RESOURCE_BANKS.ready:G.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json','../');
 G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
  const course=G.LIBRARY.courses.find(c=>c.id==='algebra2');
@@ -170,7 +172,7 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
     const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
     const nativeId=(c.id==='algebra'?'algebra1-':c.id+'-')+(aliases[c.id]?.[u.id]||u.id), existing=NS.skillSets[nativeId];
     if(existing){
-     const fresh=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id).filter(s=>G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id,skillIds:[s.id],formats:['short-answer','multiple-choice','select-all','open-response']}).length);
+     const fresh=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id).filter(s=>bankCount({courseId:c.id,unitId:u.id,skillIds:[s.id],formats:['short-answer','multiple-choice','select-all','open-response']}));
      const rec={courseId:c.id,unitId:u.id,hybrid:true,skills:new Set(fresh.map(s=>s.id))};
      registry.set(nativeId,rec);
      G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
