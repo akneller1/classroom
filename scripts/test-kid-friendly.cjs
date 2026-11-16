@@ -20,7 +20,7 @@ for(const grade of [1,2])for(const kind of ['maze','color','roll-cover','cut-pas
  if(b.bonds)b.bonds.forEach(x=>assert.equal(x.values[0],x.values[1]+x.values[2]));
  if(b.cards)b.cards.forEach(x=>assert.equal(x.group,grade===2?x.value%2:x.value===10?0:1));
  if(b.board){assert.equal(b.board.length,20);for(let n=2;n<=12;n++)assert(b.board.includes(n))}
- for(const key of [false,true]){const pages=P.youngPages(cfg,b,0,1,key);assert.equal(pages.length,1);assert(!pages[0].html.includes('undefined'));}
+ for(const key of [false,true]){const pages=P.youngPages(cfg,b,0,1,key);assert.equal(pages.length,kind==='maze'&&grade===2?2:1);for(const page of pages)assert(!page.html.includes('undefined'));if(kind==='maze'){const html=pages.map(p=>p.html).join('');assert.equal((html.match(/class="island"/g)||[]).length,b.items.length);for(let i=1;i<=b.items.length;i++)assert(html.includes('<b>'+i+'</b>'));if(pages.length>1){assert(pages[0].html.includes('KEEP GOING ON THE NEXT PAGE'));assert(pages[1].html.includes('CONTINUE FROM PAGE 1'));}}}
  activities++;
 }
 for(const grade of [2,3,4,5]){const dir=path.join(site,'question-banks/grade'+grade);for(const file of fs.readdirSync(dir)){const bank=JSON.parse(fs.readFileSync(path.join(dir,file)));for(const q of bank.questions){if(q.diagram?.spec?.src.includes('/kid-friendly/')){assert(fs.existsSync(path.join(site,q.diagram.spec.src)));assert(q.diagram.spec.alt);const native=path.join(site,'grade'+grade,grade===5?'math5':'question-banks/math'+grade,file);const copy=JSON.parse(fs.readFileSync(native)).questions.find(x=>x.id===q.id);assert(copy.diagram);assert(fs.existsSync(path.join(site,'grade'+grade,copy.diagram.spec.src)));pictures++}}}}
