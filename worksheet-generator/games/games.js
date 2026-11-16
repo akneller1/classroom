@@ -23,6 +23,8 @@
   function load() { try { return JSON.parse(G.localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
   function save(o) { try { G.localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { /* private window: settings are not remembered */ } }
   var saved = load();
+  /* A teacher's student link carries the level (?level=cp2|cp1|honors); it wins over this browser's saved choice. */
+  (function () { if (!G.location) return; var lv = new URLSearchParams(G.location.search || '').get('level'); if (/^(cp2|cp1|honors)$/.test(lv || '')) { saved.level = lv; saved.preset = lv; } })();
   if (G.MK_GRADE_GAME_COURSE && (!saved.level || !GB.LEVELS[saved.level])) saved.level = 'cp1';
   function $(s, r) { return (r || doc).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); }
@@ -170,7 +172,7 @@
   function showdown() {
     body.classList.add('dark');
     var PRESETS = { cp2: [1, 1, 2, 2, 3], cp1: [2, 3, 3, 4, 5], honors: [4, 5, 5, 6, 7], mixed: [1, 2, 4, 5, 7] };
-    var NAMES = G.MK_GRADE_GAME_COURSE ? { cp2:'Support',cp1:'Standard',honors:'Advanced',mixed:'Mixed (Support → Advanced)' } : { cp2: 'CP2', cp1: 'CP1', honors: 'Honors', mixed: 'Mixed (100 easy → 500 Honors)' };
+    var NAMES = G.MK_GRADE_GAME_COURSE ? { cp2:'Support',cp1:'Standard',honors:'Advanced',mixed:'Mixed (Support → Advanced)' } : { cp2: 'Support', cp1: 'Standard', honors: 'Advanced', mixed: 'Mixed (100 Support → 500 Advanced)' };
     if (G.MK_GRADE_GAME_COURSE) { PRESETS = {cp2:[1,1,1,2,2],cp1:[2,2,3,3,3],honors:[3,3,4,4,4],mixed:[1,2,2,3,4]}; }
     if(SET.authoredBank)NAMES.mixed='Mixed (all levels)';
     var S = { preset: saved.preset || 'cp1', teams: saved.teams || ['Team 1', 'Team 2'], score: [], cells: {}, open: null, showOpts: false, showAns: false };
@@ -261,6 +263,8 @@
       '<div class="gm-row" style="margin-top:12px"><div><label for="tLevel">Level</label>' + levelSel('tLevel', saved.level || 'cp1') + '</div><div><label for="tTimer">Timer per question</label><select class="gm-sel" id="tTimer">' +
       [0, 60, 90, 120, 180].map(function (s) { return '<option value="' + s + '"' + (String(saved.timer || 0) === String(s) ? ' selected' : '') + '>' + (s ? s + ' seconds' : 'Off') + '</option>'; }).join('') + '</select></div></div>' +
       rulesHtml(rules, 'tRulesTeams', mode === 'solo') + (canSolo ? rulesHtml(soloRules, 'tRulesSolo', mode !== 'solo') : '') + '<button class="gm-btn primary" id="tGo">Start the game</button></div>';
+    /* A teacher's student link already chose who plays and the level: students see only their name and Start. */
+    (function () { if (!G.location) return; var sp = new URLSearchParams(G.location.search || ''); if (sp.get('student') !== '1') return; var mg = $('.gm-mode'); if (mg) mg.hidden = true; if (/^(cp2|cp1|honors)$/.test(sp.get('level') || '')) { var lv = $('#tLevel'); if (lv && lv.parentNode) lv.parentNode.hidden = true; } })();
     on('.gm-mode-btn', 'click', function () {
       mode = this.getAttribute('data-mode');
       $$('.gm-mode-btn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === mode)); });

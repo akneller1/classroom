@@ -8,7 +8,10 @@ for(const dir of ['.git','.github','scripts','audits','incoming','docs','tools',
 assert(home.includes('u/math6/')&&home.includes('u/prealgebra7/'),'Grade 6/7 missing from catalog');
 const sitemap=fs.readFileSync(path.join(out,'sitemap.xml'),'utf8');
 assert(sitemap.includes('/u/math6/')&&sitemap.includes('/u/prealgebra7/'),'Grade 6/7 missing from sitemap');
-const courses=fs.readdirSync(path.join(out,'u'));assert.equal(courses.length,10);let count=0;
+// u/grade7/ is a standards hub that links into Pre-Algebra (Grade 7); it is not a course with unit pages.
+const hubs=['grade7'];
+for(const hub of hubs){const f=path.join(out,'u',hub,'index.html');assert(fs.existsSync(f),'Missing hub '+hub);const h=fs.readFileSync(f,'utf8');assert(h.includes('rel="canonical"')&&h.includes('<h1>'),'Hub metadata '+hub);}
+const courses=fs.readdirSync(path.join(out,'u')).filter(d=>!hubs.includes(d));assert.equal(courses.length,10);let count=0;
 const checkLinks=(file,text)=>{for(const match of text.matchAll(/(?:href|src)="([^"<>]+)"/g)){
  const link=match[1].replace(/&amp;/g,'&');if(/^(?:https?:|data:|mailto:|#)/.test(link))continue;
  const raw=link.split(/[?#]/)[0];if(!raw)continue;
@@ -29,9 +32,10 @@ for(const course of courses){
 }
 }
 assert(count>=91,'Previously published unit pages must remain available');
-const expectedStandalone=['courses/grade5.html','financial-algebra/'];
-for(const page of expectedStandalone)assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Missing integrated course sitemap entry '+page);
-assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+7+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
+// Legacy course URLs stay reachable but are not listed: /u/<course>/ is canonical.
+const expectedStandalone=[];
+for(const page of ['courses/grade5.html','financial-algebra/'])assert(!sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Legacy course URL must not be in the sitemap: '+page);
+assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+hubs.length+7+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
 for (const page of ["about.html", "guide.html", "privacy.html", "skills.html", "backup.html", "courses/"]) {
  assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
 }

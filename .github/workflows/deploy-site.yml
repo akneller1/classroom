@@ -36,12 +36,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history: finalize-sitemap.mjs dates each page from git
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Verify game routing, math display and money formatting
         run: |
-          node --test tests/course-game-routing.test.cjs tests/audit-gap-skills.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs tests/resource-card-checks.test.cjs tests/asteroid-static-eligibility.test.cjs tests/katex-mathml.test.cjs tests/mobile-fit.test.cjs tests/practice-test-start-label.test.cjs tests/level-labels.test.cjs tests/diagram-alt-no-answer.test.cjs tests/generator-copy.test.cjs tests/activity-page-meta.test.cjs tests/structured-data.test.cjs tests/generated-wording.test.cjs
+          node --test tests/course-game-routing.test.cjs tests/reaudit-fixes.test.cjs tests/audit-gap-skills.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs tests/resource-card-checks.test.cjs tests/asteroid-static-eligibility.test.cjs tests/katex-mathml.test.cjs tests/mobile-fit.test.cjs tests/practice-test-start-label.test.cjs tests/level-labels.test.cjs tests/diagram-alt-no-answer.test.cjs tests/generator-copy.test.cjs tests/activity-page-meta.test.cjs tests/structured-data.test.cjs tests/generated-wording.test.cjs
           node scripts/normalize-money.mjs --check
       - name: Audit Post-it game rounds and answers
         run: node scripts/test-postit-games.cjs
@@ -187,6 +189,10 @@ jobs:
         run: node scripts/add-feedback.mjs
       - name: Give activity pages descriptive titles, descriptions and canonical URLs
         run: node scripts/activity-page-meta.mjs
+      - name: Give tool pages accurate descriptions, canonical URLs and a heading
+        run: node scripts/tool-page-meta.mjs
+      - name: Finish the sitemap (activity pages and per-page dates)
+        run: node scripts/finalize-sitemap.mjs
       - name: Apply and verify consistent solo game modes
         run: |
           node --test tests/game-capabilities.test.cjs

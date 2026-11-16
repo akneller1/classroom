@@ -585,6 +585,17 @@
     });
     return link ? link.path : '../grade5/worksheet-generator/grade5-generators.html?mode=activity';
   }
+  function financeCourse() { return (G.LIBRARY && G.LIBRARY.courses || []).find(function (c) { return c.id === 'financial-algebra' && !c.comingSoon; }); }
+  function financeChooser() {
+    var c = financeCourse(); if (!c) return '';
+    var pick = function (u, re) { return (u.artifacts || []).find(function (a) { return re.test(a.title || ''); }); };
+    return '<section class="card" id="prFinance"><h2>Financial Algebra printables</h2><p class="hint">Financial Algebra has its own generator for worksheets and error analysis, plus vocabulary activities. Choose a unit:</p><ul class="pr-finance">' +
+      c.units.map(function (u) {
+        var ws = pick(u, /^Worksheet/i), err = pick(u, /^Error Analysis/i);
+        var links = [ws && ['Worksheet', ws.path], err && ['Error analysis', err.path], ['Vocabulary and crosswords', 'worksheet-generator/vocabulary.html?unit=financial-algebra-' + u.id]].filter(Boolean);
+        return '<li><strong>' + esc(u.name) + '</strong>: ' + links.map(function (l) { return '<a href="../' + esc(String(l[1]).replace(/^\.?\//, '')) + '">' + esc(l[0]) + '</a>'; }).join(' · ') + '</li>';
+      }).join('') + '</ul><p><button type="button" class="btn" id="prFinanceBack">Back to the other classes</button></p></section>';
+  }
   function classOptions(group) {
     var html = NS.CATALOG.map(function (g, i) {
       if (!availableUnits(g).length) return '';
@@ -592,6 +603,8 @@
     }).join('');
     // Grade 5 uses a separate, bank-aware activity engine. Expose the class
     // without pretending that the older generator has math5 skill sets.
+    // Financial Algebra prints from its own generator; the class opens a chooser for it.
+    if (financeCourse()) html += '<option value="financial-algebra">Financial Algebra</option>';
     return html;
   }
   function unitOptions(group) {
@@ -604,9 +617,8 @@
     var group = NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unit; }); });
     var h = '<section class="card"><h2>Activity</h2>' +
       '<label class="field"><span class="lbl">Class</span><select id="prClass">' + classOptions(group) + '</select></label>' +
-      '<p class="hint">Financial Algebra printables (worksheets, error analysis, case studies) are on each <a href="../u/financial-algebra/">Financial Algebra unit page</a>.</p>' +
       '<label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions(group) + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + (PR.kindsFor?PR.kindsFor(unit):PR.KINDS).map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.id === 'project' && elementaryProjects ? x.blurb.replace('CP2, CP1 and Honors', 'Support, Standard and Advanced') : x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing families of functions (linear, quadratic, exponential and other function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + (PR.kindsFor?PR.kindsFor(unit):PR.KINDS).map(function (x) { var ok = supported(unit, x.id); /* printables this unit can't make are left out (unless it is the one open now) */ if (!ok && x.id !== kind) return ''; return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.id === 'project' && elementaryProjects ? x.blurb.replace('CP2, CP1 and Honors', 'Support, Standard and Advanced') : x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing families of functions (linear, quadratic, exponential and other function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>' + (elementaryProjects ? 'Support' : 'CP2') + '</b> (guided), <b>' + (elementaryProjects ? 'Standard' : 'CP1') + '</b> (standard) and <b>' + (elementaryProjects ? 'Advanced' : 'Honors') + '</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
       '<section class="card"><h2>Teacher guide &amp; answer keys</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels are available from each project card below.</p></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
@@ -634,8 +646,18 @@
   }
   function render() {
     $('#prControls').innerHTML = controls();
-    function switchUnit(id) { unit = id; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); }
+    function switchUnit(id) {
+      var pending = NS.ensureUnitBanks && NS.ensureUnitBanks(id);
+      if (pending) { var u = $('#prUnit'), c = $('#prClass'); if (u) u.disabled = true; if (c) c.disabled = true; pending.then(function () { switchUnit(id); }, function () { if (u) u.disabled = false; if (c) c.disabled = false; }); return; }
+      unit = id; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); }
     $('#prClass').onchange = function (e) {
+      if (e.target.value === 'financial-algebra') {
+        var box = doc.createElement('div'); box.innerHTML = financeChooser();
+        var old = $('#prFinance'); if (old) old.remove();
+        $('#prControls').insertBefore(box.firstChild, $('#prControls').firstChild);
+        $('#prFinanceBack').onclick = function () { $('#prFinance').remove(); render(); };
+        return;
+      }
       if (e.target.value === 'grade5') {
         G.location.href = grade5Destination();
         return;

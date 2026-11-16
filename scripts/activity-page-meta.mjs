@@ -19,14 +19,14 @@ const unesc = (s) => String(s ?? "").replace(/&amp;/g, "&").replace(/&lt;/g, "<"
 // Internal-looking titles: Post-it slugs ("G6 Fdp Oddout"), bare file names, or empty.
 export function isSlugTitle(t) {
   t = String(t || "").trim();
-  return !t || /^G\d+\s/.test(t) || /^[a-z0-9-]+$/.test(t) || /\.html?$/i.test(t);
+  return !t || /^(G\d+|A[12]|M\d+|PA\d*|GEO)\s/.test(t) || /^[a-z0-9-]+$/.test(t) || /\.html?$/i.test(t);
 }
 
 export function pageTitle(current, item, courseName) {
   current = String(current || "").trim();
   if (/Mr\. K/.test(current) && !isSlugTitle(current.split(/ [|·] /)[0])) return current;
-  let base = isSlugTitle(current) ? item.title : current.replace(/\s*[|·]\s*Mr\. K.*$/, "");
-  base = String(base || "").trim();
+  let base = isSlugTitle(current.split(/ [|·] /)[0]) ? item.title : current.replace(/\s*[|·]\s*Mr\. K.*$/, "");
+  base = String(base || "").trim().replace(/^(G\d+|A[12]|M\d+|PA\d*|GEO)\s+/, "");
   if (courseName && !base.toLowerCase().includes(courseName.toLowerCase())) base += " · " + courseName;
   return base + " | " + BRAND;
 }
@@ -39,6 +39,15 @@ export function pageDescription(item, unitName, courseName) {
     d = sentence ? sentence[0] : d.slice(0, 155).replace(/\s+\S*$/, "") + "…";
   }
   return d;
+}
+
+// One visible-to-assistive-tech H1 for pages whose heading is drawn by script. It steps aside as soon as the page
+// renders its own H1, so the rendered page always has exactly one.
+export function addStaticH1(html, text) {
+  if (/<h1[\s>]/i.test(html) || !text || !/<body[^>]*>/i.test(html)) return html;
+  const h1 = `<h1 data-static-h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">${esc(text)}</h1>`
+    + `<script>(function(){var s=document.querySelector("[data-static-h1]"),m;if(!s)return;function c(){if(!s.parentNode)return;var o=[].filter.call(document.getElementsByTagName("h1"),function(h){return h!==s});if(o.length){s.parentNode.removeChild(s);if(m)m.disconnect();return;}var t=(document.title||"").split(/ [\u00b7|] /)[0];if(t&&s.textContent!==t)s.textContent=t;}if(window.MutationObserver){m=new MutationObserver(c);m.observe(document.documentElement,{childList:true,subtree:true});}addEventListener("load",c);})();</script>`;
+  return html.replace(/<body[^>]*>/i, (b) => b + h1);
 }
 
 // Rewrite one HTML document. Pure, so it can be tested without a built site.
@@ -61,6 +70,9 @@ export function applyMeta(html, { url, item, courseName, unitName, image }) {
       `<meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${esc(image || SITE_URL + "assets/social-preview.png")}">` +
       `<meta name="twitter:card" content="summary_large_image">`);
   }
+  if (!/<html[^>]*\slang=/i.test(out)) out = out.replace(/<html\b/i, '<html lang="en"');
+  if (!/<meta\s+charset=/i.test(out) && !/http-equiv=["']content-type/i.test(out)) out = out.replace(/<head[^>]*>/i, (h) => h + '<meta charset="utf-8">');
+  out = addStaticH1(out, want.replace(/\s*\|\s*Mr\. K's Classroom$/, "").replace(/\s*·.*$/, ""));
   if (/-project-/.test(url)) out = out.replace(/<meta\s+name=["']robots["']\s+content=["']noindex[^"']*["']\s*\/?>/gi, "");
   if (add.length) {
     const charset = out.match(/<meta\s+charset=[^>]*>/i);

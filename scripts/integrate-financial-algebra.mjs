@@ -70,6 +70,8 @@ for(const unit of manifest.units){
  }
 }
 const sitemap=path.join(output,'sitemap.xml');let xml=fs.readFileSync(sitemap,'utf8');
-if(!xml.includes('https://mrksclassroom.com/financial-algebra/'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/financial-algebra/</loc></url>\n</urlset>');
+// /u/financial-algebra/ is the canonical course hub; the app shell at /financial-algebra/ stays out of the sitemap.
+xml=xml.replace(/\s*<url><loc>https:\/\/mrksclassroom\.com\/financial-algebra\/<\/loc>(<lastmod>[^<]*<\/lastmod>)?<\/url>/g,'');
+for(const rel of ['financial-algebra/index.html','financial-algebra.html']){const f=path.join(output,rel);if(!fs.existsSync(f))continue;let h=fs.readFileSync(f,'utf8');if(!/rel=["']canonical/i.test(h))h=h.replace(/<head([^>]*)>/i,'<head$1><link rel="canonical" href="https://mrksclassroom.com/u/financial-algebra/">');if(!/name=["']robots/i.test(h))h=h.replace(/<head([^>]*)>/i,'<head$1><meta name="robots" content="noindex,follow">');fs.writeFileSync(f,h);}
 fs.writeFileSync(sitemap,xml);
 console.log('Financial Algebra approved: '+manifest.units.length+' units, '+checked+' resource targets. Built _site/financial-algebra/ from separate repository.');

@@ -194,7 +194,7 @@ const html='<!doctype html><html lang="en"><head><meta charset="utf-8">'+
  '<meta name="viewport" content="width=device-width,initial-scale=1">'+
  '<meta name="robots" content="noindex,follow">'+
  '<title>5th Grade Math | Mr. K&#39;s Classroom</title>'+
- '<link rel="canonical" href="https://mrksclassroom.com/courses/grade5.html">'+
+ '<link rel="canonical" href="https://mrksclassroom.com/courses/grade5.html">'+ /* build-integrated-unit-pages.mjs points this at /u/grade5/ once that page exists */
  '<meta http-equiv="refresh" content="0;url=../#grade5">'+
  '<script>(function(){var hit=/^(?:math5|grade5)\\.([a-z0-9-]+)$/.exec(location.hash.slice(1));'+
  'location.replace("../#grade5"+(hit?"."+hit[1]:""));})();</script>'+
@@ -214,7 +214,8 @@ if(fs.existsSync(siteJs)){
 const sitemap=path.join(out,'sitemap.xml');
 if(fs.existsSync(sitemap)){
  let xml=fs.readFileSync(sitemap,'utf8');
- if(!xml.includes('https://mrksclassroom.com/courses/grade5.html'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/courses/grade5.html</loc></url>\n</urlset>');
+ // /u/grade5/ is the canonical course page (added by build-integrated-unit-pages.mjs); keep the legacy URL out of the sitemap.
+ xml=xml.replace(/\s*<url><loc>https:\/\/mrksclassroom\.com\/courses\/grade5\.html<\/loc>(<lastmod>[^<]*<\/lastmod>)?<\/url>/g,'');
  fs.writeFileSync(sitemap,xml);
 }
 console.log('Grade 5 assembled: 11 approved units, '+diagrams+' question diagrams, '+copied.size+' released source files; no other staging pages.');

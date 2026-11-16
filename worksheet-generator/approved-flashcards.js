@@ -82,7 +82,7 @@ el('afReset').addEventListener('click',function(){S.ratings={};S.missedOnly=fals
 el('afMissed').addEventListener('click',function(){S.missedOnly=!S.missedOnly;S.index=0;refresh()});
 el('afShuffle').addEventListener('click',function(){for(var i=S.order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=S.order[i];S.order[i]=S.order[j];S.order[j]=t}S.index=0;S.flipped=false;render()});
 if(isLegacy){bridge.load().then(function(w){engine=w;status.textContent=course.name+' · '+unit.name+' · shared generator questions (teacher-reviewed sample format)';container.hidden=false;updateLegacy()}).catch(function(e){status.textContent='Unable to load shared generator: '+e.message});return;}
-root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(function(){
+(root.MK_BANK_LOADER.loadPageBanks?root.MK_BANK_LOADER.loadPageBanks('../'):root.MK_BANK_LOADER.loadFromSite(undefined,'../')).then(function(){
  if(!banks.available(courseId,unitId)&&vocabulary.length){S.mode='vocabulary';el('afMode').value='vocabulary';status.textContent=course.name+' · '+unit.name+' · vocabulary review';container.hidden=false;refresh();return;}
  if(!banks.available(courseId,unitId)){status.textContent='No independently approved flashcard bank is available for '+course.name+' — '+unit.name+'. Existing classroom resources are unaffected.';return;}
  status.textContent=course.name+' · '+unit.name+' · approved questions only';

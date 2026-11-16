@@ -336,7 +336,7 @@ $('all').addEventListener('click',()=>doc.querySelectorAll('#skills input').forE
 $('none').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=false));
 $('build').addEventListener('click',build);$('print').addEventListener('click',()=>layoutReady.then(()=>root.print()));
 skills();renderSpiralUnits();
-root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(()=>{
+(root.MK_BANK_LOADER.loadPageBanks?root.MK_BANK_LOADER.loadPageBanks('../'):root.MK_BANK_LOADER.loadFromSite(undefined,'../')).then(()=>{
  renderSpiralUnits();status.textContent=bank.available(courseId,unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.';
 }).catch(e=>{status.textContent='Could not load question banks: '+e.message;$('build').disabled=true});
 })(window);

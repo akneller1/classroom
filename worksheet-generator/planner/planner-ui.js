@@ -482,7 +482,7 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse">' + [['math6', '6th Grade Math'], ['prealgebra7', 'Pre-Algebra'], ['prealgebra', '8th Grade Math'], ['algebra1', 'Algebra 1'], ['geometry', 'Geometry'], ['algebra2', 'Algebra 2'], ['precalculus', 'Precalculus'], ['calculus', 'Calculus'], ['statistics', 'Statistics'], ['discrete', 'Discrete Math']].concat((G.LIBRARY.courses||[]).filter(function(c){return /^grade[1-5]$/.test(c.id)&&!c.comingSoon&&G['MKPLAN_SCOPE_'+c.id.toUpperCase()];}).map(function(c){return [c.id,c.name];})).sort(function(a,b){var rank=function(id){var m=/^grade([1-5])$/.exec(id);if(m)return +m[1];if(id==='math6')return 6;if(id==='prealgebra7')return 7;if(id==='prealgebra')return 8;return 9;};return rank(a[0])-rank(b[0]);}).filter(function (o) { return o[0] !== 'geometry' || G.MKPLAN_SCOPE_GEOMETRY || GEO; }).map(function (o) { return '<option value="' + o[0] + '"' + (COURSE === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse">' + [['math6', '6th Grade Math'], ['prealgebra7', 'Pre-Algebra'], ['prealgebra', '8th Grade Math'], ['algebra1', 'Algebra 1'], ['geometry', 'Geometry'], ['algebra2', 'Algebra 2'], ['precalculus', 'Precalculus'], ['calculus', 'Calculus'], ['statistics', 'Statistics'], ['discrete', 'Discrete Math']].concat(financeOption()).concat((G.LIBRARY.courses||[]).filter(function(c){return /^grade[1-5]$/.test(c.id)&&!c.comingSoon&&G['MKPLAN_SCOPE_'+c.id.toUpperCase()];}).map(function(c){return [c.id,c.name];})).sort(function(a,b){var rank=function(id){var m=/^grade([1-5])$/.exec(id);if(m)return +m[1];if(id==='math6')return 6;if(id==='prealgebra7')return 7;if(id==='prealgebra')return 8;if(id==='financial-algebra')return 99;return 9;};return rank(a[0])-rank(b[0]);}).filter(function (o) { return o[0] !== 'geometry' || G.MKPLAN_SCOPE_GEOMETRY || GEO; }).map(function (o) { return '<option value="' + o[0] + '"' + (COURSE === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select>';
     var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
@@ -699,7 +699,7 @@
       if (ui.selectedDays.indexOf(ui.day) < 0) ui.day = ui.selectedDays[0];
       render(); return;
     }
-    if (t.id === 'plCourse') { G.location.hash = '#course=' + t.value + '&day=1'; return; }
+    if (t.id === 'plCourse') { if (t.value === 'financial-algebra') { G.location.href = financeLessonUrl(); return; } G.location.hash = '#course=' + t.value + '&day=1'; return; }
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; resetSelection(); render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
     if (t.name === 'plNotes' || t.name === 'plNotesPlan') {   // the notes setting changes only the printed notes, not the problems
@@ -727,6 +727,10 @@
     var nx = cur === 'dark' ? 'light' : 'dark'; applyTheme(nx); lsSet(KEY_THEME, nx);
   };
   (function () { var cr = doc.querySelector('.crumb'); if (cr) cr.textContent = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1'); doc.title = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1') + ' · Mr. K\'s Classroom'; })();
+  /* Financial Algebra plans its lessons in its own generator (no 180-day scope here); the menu opens it. */
+  function financeCourse() { return (G.LIBRARY && G.LIBRARY.courses || []).find(function (c) { return c.id === 'financial-algebra' && !c.comingSoon; }); }
+  function financeOption() { var c = financeCourse(); return c ? [['financial-algebra', 'Financial Algebra (opens its lesson generator)']] : []; }
+  function financeLessonUrl() { var c = financeCourse(), u = c && c.units && c.units[0]; return '../financial/generators/index.html?unit=' + encodeURIComponent(u ? u.id : 'income') + '&mode=lesson'; }
   function startPlanner() { readHash(); resetSelection(); render(); P.ui = ui; }   // for tests
   if ((A2 || PA8) && G.MK_COURSE_BANKS_READY) G.MK_COURSE_BANKS_READY.then(startPlanner, startPlanner); else startPlanner();
 })(window);

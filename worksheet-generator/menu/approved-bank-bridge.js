@@ -14,7 +14,7 @@
   var ready = Promise.resolve().then(function () {
     if (!root.MK_BANK_LOADER || !root.MK_QUESTION_BANKS)
       throw new Error('Approved question-bank dependencies are unavailable');
-    return root.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json', '../');
+    return root.MK_BANK_LOADER.loadPageBanks ? root.MK_BANK_LOADER.loadPageBanks('../', undefined, root.MK_BANK_FALLBACK_COURSES) : root.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json', '../');
   }).then(function (units) {
     status = { state: 'ready', units: units.slice(), error: null };
     return status;

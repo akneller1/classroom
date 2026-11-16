@@ -604,8 +604,9 @@
     return {
       title: L.title,
       html: '<section class="task-home"><div class="wrap home-dashboard"><div class="task-workspace">' +
-        '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
-        '<h1 tabindex="-1">What would you like to do today?</h1>' +
+        '<div class="task-intro">' +
+        /* The page heading names what the site offers; the kicker styling keeps the layout as it was. */
+        '<h1 tabindex="-1"><span class="section-kicker">Free math games, worksheets &amp; lesson plans</span> What would you like to do today?</h1>' +
         '<p class="lede">Choose a task below, or pick your grade or course.</p>' +
         /* Phones: the course list sits below nine task cards, so offer a picker up top. */
         '<label class="home-course-pick"><span>Go to your grade or course</span><select id="homeCoursePick">' +
@@ -1014,7 +1015,8 @@
     var visible = items.slice(offset, offset + 24);
     var controls = '<div class="browse-filters" role="group" aria-label="Filter activities">' +
       browseSelect('subject', 'Subject', L.courses, state.subject, 'All subjects') +
-      browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
+      ((state.subject || state.unit) ? browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') :
+        '<label for="browse-unit">Unit<select id="browse-unit" data-browse="unit" disabled><option value="">Choose a subject first</option></select></label>') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
       browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
       ((state.category === 'games' || state.gameMode) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +

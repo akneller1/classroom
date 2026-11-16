@@ -87,5 +87,83 @@ function loadUnitFromSite(courseId,unitId,path,base){
  }).catch(function(e){delete scopedRequests[id];throw e;});
  return scopedRequests[id];
 }
-root.MK_BANK_LOADER={version:1,load:load,loadFromSite:loadFromSite,loadUnitFromSite:loadUnitFromSite};
+
+// Course-scoped loading for pages that open on one course or unit (generators, games, practice tests).
+// Only that course's banks are fetched up front; another course is fetched when the page switches to it
+// (algebra2-bank-native.js: MKMENU.ensureUnitBanks). Pages with no course in the URL still load everything.
+var COURSE_IDS=['grade1','grade2','grade3','grade4','grade5','math6','prealgebra7','prealgebra','algebra','geometry','algebra2','precalculus','calculus','statistics','discrete','financial-algebra'];
+function courseOfSet(id){
+ id=String(id||'');
+ if(/^algebra1(-|$)/.test(id))return 'algebra';
+ var best=null;
+ COURSE_IDS.forEach(function(c){if((id===c||id.indexOf(c+'-')===0)&&(!best||c.length>best.length))best=c;});
+ return best;
+}
+function pageCourses(loc){
+ loc=loc||root.location;if(!loc)return null;
+ var q,h;try{q=new URLSearchParams(loc.search||'');h=new URLSearchParams(String(loc.hash||'').replace(/^#/,''));}catch(e){return null;}
+ var c=q.get('course')||h.get('course');
+ if(c==='algebra1')c='algebra';
+ if(c&&COURSE_IDS.indexOf(c)>=0)return [c];
+ var u=h.get('unit')||q.get('unit'),fromSet=u&&courseOfSet(u);
+ if(fromSet)return [fromSet];
+ if(/algebra2-(game|practice)\.html$/.test(loc.pathname||''))return ['algebra2'];
+ return null;
+}
+var loadedCourses=Object.create(null),allLoaded=false,courseRequests=Object.create(null),manifestCache=Object.create(null);
+function readJSON(base,url,cache){return root.fetch(base+url,{cache:cache||'default'}).then(function(res){if(!res.ok)throw new Error('Unable to load '+url);return res.json()});}
+function siteManifest(path,base){
+ var key=base+path;
+ if(!manifestCache[key])manifestCache[key]=readJSON(base,path,'no-store').then(function(m){
+  if(!m||m.version!==1||!Array.isArray(m.banks))throw new Error('Invalid bank manifest');return m;
+ }).catch(function(e){delete manifestCache[key];throw e;});
+ return manifestCache[key];
+}
+function approvedEntry(item){return item&&(item.approved===true||(item.courseId==='algebra2'&&item.teacherUse===true));}
+function loadCoursesFromSite(courseIds,path,base){
+ base=base||'';path=path||'question-banks/manifest.json';
+ if(base!==''&&base!=='../')return Promise.reject(new Error('Invalid bank base path'));
+ if(!/^question-banks\/[a-z0-9/_-]+\.json$/.test(path))return Promise.reject(new Error('Invalid manifest path'));
+ if(typeof root.fetch!=='function')return Promise.reject(new Error('Fetch unavailable'));
+ return Promise.all((courseIds||[]).map(function(courseId){
+  if(allLoaded||loadedCourses[courseId])return Promise.resolve();
+  var key=base+path+'|'+courseId;
+  if(!courseRequests[key])courseRequests[key]=siteManifest(path,base).then(function(manifest){
+   var entries=manifest.banks.filter(function(item){
+    if(!item||!item.courseId||!item.unitId||typeof item.path!=='string'||!/^question-banks\/[a-z0-9/_-]+\.json$/.test(item.path))throw new Error('Invalid manifest entry');
+    return item.courseId===courseId&&approvedEntry(item)&&!adapter.available(item.courseId,item.unitId);
+   });
+   return Promise.all(entries.map(function(item){
+    return readJSON(base,item.path).then(function(bank){
+     if(!bank||bank.courseId!==item.courseId||bank.unitId!==item.unitId)throw new Error('Course/unit mismatch: '+item.path);
+     var v=adapter.validate(bank);if(!v.ok)throw new Error(item.path+': '+v.errors.join('; '));
+     return {item:item,bank:bank};
+    });
+   })).then(function(results){
+    results.forEach(function(r){if(adapter.available(r.item.courseId,r.item.unitId))return;var a=adapter.register(r.bank,{verified:true,owned:true});if(!a.ok)throw new Error(r.item.path+': '+a.errors.join('; '));});
+    loadedCourses[courseId]=true;
+   });
+  }).catch(function(e){delete courseRequests[key];throw e;});
+  return courseRequests[key];
+ })).then(function(){
+  return siteManifest(path,base).then(function(m){return m.banks.filter(function(i){return approvedEntry(i)&&adapter.available(i.courseId,i.unitId);}).map(function(i){return i.courseId+'/'+i.unitId;});});
+ });
+}
+// Approved units listed in the manifest, loaded or not (for menus that list every unit).
+function manifestUnits(path,base){
+ path=path||'question-banks/manifest.json';base=base||'';
+ return siteManifest(path,base).then(function(m){return m.banks.filter(approvedEntry).map(function(i){return {courseId:i.courseId,unitId:i.unitId};});});
+}
+var pageRequests=Object.create(null);
+// fallback: courses to load when the URL names none (pages that load other courses on demand pass their default
+// course); without it the page loads every approved bank, as before.
+function loadPageBanks(base,path,fallback){
+ base=base||'';path=path||'question-banks/manifest.json';
+ var key=base+path;
+ if(pageRequests[key])return pageRequests[key];
+ var courses=pageCourses()||(Array.isArray(fallback)&&fallback.length?fallback:null);
+ pageRequests[key]=courses?loadCoursesFromSite(courses,path,base):loadFromSite(path,base).then(function(ids){allLoaded=true;return ids;});
+ return pageRequests[key];
+}
+root.MK_BANK_LOADER={version:1,load:load,loadFromSite:loadFromSite,loadUnitFromSite:loadUnitFromSite,loadCoursesFromSite:loadCoursesFromSite,loadPageBanks:loadPageBanks,manifestUnits:manifestUnits,pageCourses:pageCourses,courseOfSet:courseOfSet,isCourseLoaded:function(c){return allLoaded||!!loadedCourses[c];}};
 })(typeof window!=='undefined'?window:globalThis);
