@@ -29,6 +29,7 @@ try{
    assert.deepEqual(errors,[]);checks++;await page.close();
   }
   const page=await browser.newPage();await page.goto(`${base}/grade${grade}/worksheet-generator/grade${grade}-games.html?unit=${unit}&game=${grade<5?'rocket-race':'math-race'}&student=1&level=cp1`);
+  await page.locator('.kid-play .kid-big-play').click();
   await page.getByText('This game requires teams.',{exact:false}).waitFor();assert.equal(await page.locator('.el-stage,.g5-stage').count(),0);await page.close();
  }
  console.log('PASS: '+checks+' elementary board games; correct answers, misses, automatic computer turns, and team-only student-link rejection.');
