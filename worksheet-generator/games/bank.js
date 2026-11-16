@@ -500,7 +500,8 @@
      including multi-part investigations, instead of discarding non-MC skills. */
   GB.makeWholeItems = function(setId,skillId,c,policy,seed,used) {
     var p=NS.generateProblem(setId,skillId,c,policy,seed,used);
-    if(p.failed||!p.verify||p.verify.status!=='verified')return [];
+    /* Generated problems must pass the verifier; approved-bank questions carry their teacher-reviewed source key. */
+    if(p.failed||!p.verify||(p.verify.status!=='verified'&&!(p.source==='authored-bank'&&p.verify.status==='source-key')))return [];
     var set=NS.skillSets[setId],rng=G.MKWS.rng.make(G.MKWS.rng.hash(seed+'|whole')),options=[];
     if(p.parts.length===1&&p.parts[0].check){var ds=GB.distractors(p,0,rng,3);if(ds.length)options=rng.shuffle([{a:p.parts[0].answer,ok:true}].concat(ds.map(function(a){return {a:a,ok:false};})));}
     return [{id:p.uid,p:p,k:0,skill:skillId,skillName:set.byId[skillId].name,tag:p.tag,tagName:set.tags[p.tag]||p.tag,c:c,
