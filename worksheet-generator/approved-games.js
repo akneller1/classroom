@@ -8,7 +8,7 @@ var bridge=root.MK_GRADE_LEGACY_BRIDGE,isLegacy=bridge&&bridge.isGrade(courseId)
 if(names.some(function(x){return x.id===params.get('skill')}))el('agSkill').value=params.get('skill');
 var requestedGame=params.get('game');if(['tic-tac-toe','connect-4','picture-reveal'].indexOf(requestedGame)>=0)el('agGame').value=requestedGame;
 var solo=params.get('student')==='1'||params.get('mode')==='solo',cpuTimer=null,generation=0;
-var players=doc.createElement('select');players.id='agPlayers';players.setAttribute('aria-label','Players');players.innerHTML='<option value=teams>Two players</option><option value=solo>Solo vs. computer</option>';players.value=solo?'solo':'teams';el('agGame').parentNode.appendChild(players);players.addEventListener('change',function(){solo=players.value==='solo';reset()});
+var players=doc.createElement('select');players.id='agPlayers';players.setAttribute('aria-label','Players');[['teams','Two players'],['solo','Solo vs. computer']].forEach(function(o){var opt=doc.createElement('option');opt.value=o[0];opt.textContent=o[1];players.appendChild(opt);});players.value=solo?'solo':'teams';el('agGame').parentNode.appendChild(players);players.addEventListener('change',function(){solo=players.value==='solo';reset()});
 var board=[],turn=1,pending=-1,question=null,items=[],cursor=0,finished=false,selectedAnswer=-1,feedback='',attempts=0,correctCount=0;
 function text(node,value){node.textContent=String(value)}
 function dimensions(){return el('agGame').value==='connect-4'?42:el('agGame').value==='picture-reveal'?16:9}

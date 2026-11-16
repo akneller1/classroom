@@ -54,7 +54,19 @@ const familyByUnit={
   'equations-inequalities':'inequalities','functions':'functions','conics':'conics',
   'trigonometric-functions':'trigonometry',
   'general-triangle-trigonometry':'trigonometry','matrices':'matrices',
-  'vectors':'vectors','probability':'probability'
+  'vectors':'vectors','probability':'probability',
+  'sequences-series-limits':'sequences'
+ },
+ discrete:{
+  'speaking-mathematically':'sets','compound-statements-logic':'logic',
+  'number-theory-proof':'modular','sequences-induction-recursion':'sequences',
+  'set-theory':'sets','properties-relations':'relations',
+  'counting-probability':'probability','graphs-trees':'graphs',
+  'election-theory':'voting','linear-programming':'systems'
+ },
+ statistics:{
+  'exploring-data':'statistics','sampling-experimentation':'sampling',
+  'anticipating-patterns':'probability','statistical-inference':'statistics'
  },
  calculus:{
   'precalculus-review':'functions','limits-continuity':'limits',
@@ -311,6 +323,50 @@ function create({courseId,unitId,level='cp1'}){
    p='A function solves y’(t) = '+a+' with initial condition y(0) = '+b+
      '. If y(k) = '+(a*x+b)+', find k.';
    steps=['Integrate y’ to get y(t) = '+a+'t + '+b+'.'];break;
+ }
+ case 'sets':{
+   // Inclusion-exclusion: |A ∩ B| = |A| + |B| − |A ∪ B|.
+   p='Sets A and B have |A| = '+(x+b)+', |B| = '+(x+c)+' and |A ∪ B| = '+(x+b+c)+'. How many elements are in A ∩ B?';
+   steps=['Use |A ∪ B| = |A| + |B| − |A ∩ B|.','So |A ∩ B| = '+(x+b)+' + '+(x+c)+' − '+(x+b+c)+'.'];break;
+ }
+ case 'logic':{
+   const up=x+c;
+   p=easy?'Find the smallest integer n that makes the statement ¬(n ≤ '+(x-1)+') true.'
+     :hard?'Find the smallest integer n that makes (n + '+a+' > '+(x-1+a)+') ∧ (n < '+up+') true.'
+     :'Find the smallest integer n that makes (n > '+(x-1)+') ∧ (n < '+up+') true.';
+   steps=easy?['¬(n ≤ '+(x-1)+') means n > '+(x-1)+'.','The smallest such integer is the next one.']
+     :['A conjunction is true only when both parts are true.','The smallest integer greater than '+(x-1)+' is also less than '+up+'.'];break;
+ }
+ case 'modular':{
+   const m=x+b,q=int(2,hard?12:7);
+   p='What is the remainder when '+(q*m+x)+' is divided by '+m+'?';
+   steps=['Write '+(q*m+x)+' = '+m+' · q + r with 0 ≤ r < '+m+'.','Here q = '+q+'.'];break;
+ }
+ case 'relations':{
+   const d=hard?int(2,4):1,n=x+d;
+   p='R is the relation on {1, 2, …, '+n+'} with (a, b) in R when b = a + '+d+'. How many ordered pairs are in R?';
+   steps=['a can be any element for which a + '+d+' is still at most '+n+'.','That gives a = 1, 2, …, '+(n-d)+'.'];break;
+ }
+ case 'graphs':{
+   // Handshake theorem: the degree sum is twice the number of edges.
+   // Build a real simple graph with x edges so the degree list is always possible.
+   let k=2;while(k*(k-1)/2<x)k++;k+=hard?2:1;
+   const pairs=[];for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)pairs.push([i,j]);
+   for(let i=pairs.length-1;i>0;i--){const j=int(0,i);[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
+   const deg=new Array(k).fill(0);pairs.slice(0,x).forEach(([i,j])=>{deg[i]++;deg[j]++;});
+   p='A graph has '+k+' vertices with degrees '+deg.join(', ')+'. How many edges does it have?';
+   steps=['The sum of the degrees is twice the number of edges.','Degree sum = '+(2*x)+'.'];break;
+ }
+ case 'voting':{
+   const runner=int(8,30),third=int(3,runner-1),win=runner+x;
+   p='In a plurality election, the candidates received '+win+', '+runner+' and '+third+' votes. By how many votes did the winner beat the runner-up?';
+   steps=['The winner has the most votes, '+win+'; the runner-up has '+runner+'.','Subtract.'];break;
+ }
+ case 'sampling':{
+   const k=10*int(2,easy?4:8);
+   // Proportional stratified sample: stratum share of the sample equals its share of the population.
+   p='A school has '+((x+b)*k)+' students; '+(x*k)+' of them are seniors. A proportional stratified sample of '+(x+b)+' students is chosen. How many seniors are in the sample?';
+   steps=['Seniors make up '+(x*k)+'/'+((x+b)*k)+' = '+x+'/'+(x+b)+' of the school.','Multiply the sample size by that fraction.'];break;
  }
  default: return null;
  }
