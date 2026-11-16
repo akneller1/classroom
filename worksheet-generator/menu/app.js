@@ -193,9 +193,14 @@
           '<td><button type="button" class="btn ghost sm mmSecSkills">' + skillsTxt + '</button></td>' +
           '<td><button type="button" class="btn ghost sm mmSecDel" aria-label="Remove part ' + esc(s.name) + '"' + (c.sections.length < 2 ? ' disabled' : '') + '>✕</button></td></tr>';
       }).join('') + '</tbody></table></div>' +
-      '<p><button type="button" class="btn ghost sm" id="mmAddSec">+ Add a part</button></p>' +
+      '<p><button type="button" class="btn ghost sm" id="mmAddSec">+ Add a part</button> ' + (NS.vocabularyTerms && NS.vocabularyTerms({unitId:c.unitId}).length ? '<button type="button" class="btn ghost sm" id="mmAddVocab">+ Add vocabulary</button>' : '') + '</p>' + vocabularySettings(c) +
       '<p class="hint">' + (ws ? 'Students answer every question; the answer key has each answer and a worked solution.' : 'Every student answers every question.') + ' Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are verified. Select-all questions have multiple mathematically checked true statements; Open Response questions require at least four connected parts. Unsupported skills are flagged rather than silently changed.</p>' +
       rulesHtml(rules) + '</section>';
+  }
+  function vocabularySettings(c) {
+    if (!NS.vocabularyTerms || !c.sections.some(function(s){return NS.isVocabularyFormat(s.qformat);})) return '';
+    var all=NS.vocabularyTerms({unitId:c.unitId});
+    return '<fieldset class="mm-skillgrp"><legend>Vocabulary terms</legend><p class="hint">Uses the same definitions and tasks as the Vocabulary Activity Maker. Choose terms below, then choose a vocabulary format for each part. A matching question is one set of up to five terms; its points cover the entire set. Versions use the same vocabulary with shuffled selections. Drawing and example keys give samples and scoring guidance.</p>' + all.map(function(t){return '<label class="chk"><input type="checkbox" class="mmVocabTerm" value="'+esc(t.term)+'"'+(!c.vocabularyTerms||c.vocabularyTerms.indexOf(t.term)>=0?' checked':'')+'><span>'+esc(t.term)+'</span></label>';}).join('')+'<label class="chk"><input type="checkbox" id="mmVocabWordBank"'+(c.vocabularyWordBank?' checked':'')+'><span>Include a word bank for fill-in-the-blank questions</span></label></fieldset>';
   }
   function rulesHtml(rules) {
     return '<div class="mm-rules" aria-live="polite"><div class="mm-max">' + (isWs() ? '<b>' + rules.totalOffered + '</b> questions' : 'Maximum score: <b>' + rules.maxScore + '</b> points · ' + (isTest() ? '<b>' + rules.totalOffered + '</b> questions' : 'students complete <b>' + rules.totalRequired + '</b> of <b>' + rules.totalOffered + '</b>')) + '</div>' +
@@ -247,13 +252,20 @@
       if ($('.mmSecPts', tr)) $('.mmSecPts', tr).onchange = upd(function (e) { var v = Math.round(parseFloat(e.target.value) * 2) / 2; s.points = v > 0 ? v : s.points; }, true);
       $('.mmSecOff', tr).onchange = upd(function (e) { var v = Math.max(1, Math.min(20, parseInt(e.target.value, 10) || 1)); s.offered = v; if (S) NS.syncStructure(S); }, true);
       if ($('.mmSecReq', tr)) $('.mmSecReq', tr).onchange = upd(function (e) { var v = Math.max(0, Math.min(20, parseInt(e.target.value, 10) || 0)); s.required = v; }, true);
-      if ($('.mmSecFmt', tr)) $('.mmSecFmt', tr).onchange = upd(function (e) { s.qformat = e.target.value; if (S) { NS.rebuild(S); NS.ensureFormats(S); } }, true);
+      if ($('.mmSecFmt', tr)) $('.mmSecFmt', tr).onchange = upd(function (e) { s.qformat = e.target.value; s.skills = null; if (s.qformat === 'vocab_match') { s.offered = 1; s.required = 1; } if (S) { NS.rebuild(S); NS.ensureFormats(S); } }, true);
       $('.mmSecTier', tr).onchange = upd(function (e) { s.tier = e.target.value === 'ramp' ? 'ramp' : +e.target.value; if (S) sectionDifficultyChanged(si); }, true);
       $$('.mmAdj', tr).forEach(function (b) { b.onclick = upd(function () { var d = +b.getAttribute('data-d'), sig = function () { return [0, 1, 2].map(function (k) { return NS.itemC(c, si, k, 3); }).join(',') + NS.sectionC(c, si); }, before = sig(); s.adjust = (s.adjust || 0) + d; if (sig() === before) s.adjust -= d; if (S) sectionDifficultyChanged(si); }, true); });
       $('.mmSecSkills', tr).onclick = function () { sectionSkillsDialog(si); };
       $('.mmSecDel', tr).onclick = upd(function () { c.sections.splice(si, 1); if (S) S.versions.forEach(function (v) { v.sections.splice(si, 1); }); }, true);
     });
     $('#mmAddSec').onclick = upd(function () { c.sections.push(NS.isTest(c) ? { id: NS.uid('sec'), name: 'Part ' + (c.sections.length + 1), note: 'Show your work.', points: NS.isWorksheet(c) ? 1 : 10, offered: 3, required: 3, tier: 'ramp', adjust: 0, skills: null, qformat: 'open' } : { id: NS.uid('sec'), name: 'Dessert', note: 'Bonus', points: 5, offered: 2, required: 1, tier: 2, adjust: 0, skills: null }); if (S) NS.syncStructure(S); }, true);
+    if ($('#mmAddVocab')) $('#mmAddVocab').onclick = upd(function () {
+      var terms=NS.vocabularyTerms(c), n=Math.min(5,terms.length||1);
+      c.sections.push({id:NS.uid('sec'),name:'Vocabulary',note:'',points:2,offered:n,required:n,tier:'ramp',adjust:0,skills:null,qformat:'vocab_blank'});
+      if(S) NS.syncStructure(S);
+    },true);
+    $$('.mmVocabTerm').forEach(function(b){b.onchange=upd(function(){c.vocabularyTerms=$$('.mmVocabTerm:checked').map(function(x){return x.value;});if(S) NS.rebuild(S);},true);});
+    if($('#mmVocabWordBank')) $('#mmVocabWordBank').onchange=upd(function(e){c.vocabularyWordBank=e.target.checked;if(S) NS.rebuild(S);},true);
     if ($('#mmCov')) $('#mmCov').onchange = upd(function (e) { c.coverage.on = e.target.checked; }, true);
     $$('.mmCovTag').forEach(function (b) { b.onchange = upd(function () {
       var on = $$('.mmCovTag').filter(function (x) { return x.checked; }).map(function (x) { return x.value; });
@@ -309,8 +321,9 @@
   function closeDialog() { var d = $('#mmDialog'); if (d.open && d.close) d.close(); else d.removeAttribute('open'); }
   function sectionSkillsDialog(si) {
     var c = cfg(), set = NS.skillSets[c.unitId], s = c.sections[si];
+    if (NS.isVocabularyFormat && NS.isVocabularyFormat(s.qformat)) { document.querySelector('.mmVocabTerm')?.scrollIntoView({block:'center'}); document.querySelector('.mmVocabTerm')?.focus(); toast('Choose vocabulary terms below the parts table.'); return; }
     openDialog('<h2 id="mmDialogTitle">Skills for ' + esc(s.name) + '</h2><p class="hint">Leave all unchecked to use every skill selected in step 4.</p>' +
-      set.skills.map(function (k) { return '<label class="chk"><input type="checkbox" value="' + k.id + '"' + (s.skills && s.skills.indexOf(k.id) >= 0 ? ' checked' : '') + (c.skills[k.id] ? '' : ' disabled') + '><span>' + esc(k.name) + ' <span class="mm-chip">' + k.tag + '</span>' + (c.skills[k.id] ? '' : '<small>Turned off in step 4</small>') + '</span></label>'; }).join('') +
+      set.skills.filter(function(k){return !k.vocabulary;}).map(function (k) { return '<label class="chk"><input type="checkbox" value="' + k.id + '"' + (s.skills && s.skills.indexOf(k.id) >= 0 ? ' checked' : '') + (c.skills[k.id] ? '' : ' disabled') + '><span>' + esc(k.name) + ' <span class="mm-chip">' + k.tag + '</span>' + (c.skills[k.id] ? '' : '<small>Turned off in step 4</small>') + '</span></label>'; }).join('') +
       '<div class="mm-dlgbtns"><button type="button" class="btn ghost" data-close>Cancel</button><button type="button" class="btn" id="mmSecSkillsOk">Save</button></div>', function (d) {
       $('#mmSecSkillsOk', d).onclick = function () {
         var on = $$('input:checked', d).map(function (x) { return x.value; });
@@ -330,7 +343,7 @@
 
   /* ---------------- REVIEW (step 6) ---------------- */
   function promptBlock(p) {
-    var h = '<div class="mm-cq">' + mathSafe(p.prompt) + '</div>';
+    var h = '<div class="mm-cq">' + mathSafe(p.prompt).replace(p.vocabulary ? /\n/g : /$^/g, '<br>') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
@@ -345,6 +358,7 @@
   function badge(p) {
     if (p.failed) return '<span class="mm-badge bad" title="' + esc(p.reason) + '">✕ No verified problem</span>';
     var st = p.verify && p.verify.status;
+    if (p.vocabulary && st === 'verified') return '<span class="mm-badge ok" title="Question and key match the shared vocabulary bank">✓ Vocabulary bank</span>';
     if (st === 'verified') return (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) ? '<span class="mm-badge ok" title="Unedited source item from Algebra 2 question bank; human sign-off pending">✓ From authored bank</span>' : '<span class="mm-badge ok" title="Answer recomputed independently from the printed problem">✓ Verified' + (p.edited ? ' (edited)' : '') + '</span>';
     if (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) return '<span class="mm-badge ok">✓ Approved question bank</span>';
     if (p.approved) return '<span class="mm-badge warn" title="' + esc((p.verify.issues || []).join(' ')) + '">✓ Approved by you</span>';

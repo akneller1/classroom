@@ -2,6 +2,7 @@ name: Menu assessment generator tests
 on:
   push:
     paths:
+      - 'worksheet-generator/vocabulary*'
       - 'worksheet-generator/menu/**'
       - 'worksheet-generator/menu-assessment.html'
       - 'worksheet-generator/core/**'
@@ -9,6 +10,7 @@ on:
       - '.github/workflows/menu-generator-tests.yml'
   pull_request:
     paths:
+      - 'worksheet-generator/vocabulary*'
       - 'worksheet-generator/menu/**'
       - 'worksheet-generator/menu-assessment.html'
       - 'worksheet-generator/core/**'
@@ -22,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Vocabulary assessment parts and shared source keys
+        run: node worksheet-generator/menu/tests/vocabulary-tests.cjs
       - name: Standards mappings and teacher key integration
         run: node scripts/test-standards.cjs
       - name: Geometry SVG diagrams and starter-bank mathematics

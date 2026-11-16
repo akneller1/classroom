@@ -139,7 +139,7 @@
       questionText = questionText.split(' Establish:')[0];
     }
     questionText = NS.displayPrompt(p, questionText);
-    var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + (forKey&&G.MK_ELEMENTARY_PRINT?.grade(cfg)?G.MK_ELEMENTARY_PRINT.prompt(p,true):mathSafe(questionText)) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
+    var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + (forKey&&G.MK_ELEMENTARY_PRINT?.grade(cfg)?G.MK_ELEMENTARY_PRINT.prompt(p,true):mathSafe(questionText).replace(p.vocabulary ? /\n/g : /$^/g, '<br>')) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && p.fig.proof && NS.figHtml) { var pf = forKey ? proofKeyFig(p) : p.fig;   // the proof table under the diagram holds every blank
       return h + NS.figHtml(pf) + (pf.kind !== 'geo-cong' && NS.geoFigures && NS.geoFigures.proofTable ? NS.geoFigures.proofTable(pf.proof) : ''); }
@@ -202,6 +202,10 @@
     var li = [ws ? 'Answer <b>all ' + nQ + ' questions</b>.' : 'Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
     cfg.sections.forEach(function (s, si) {
       var fmt = NS.sectionFormat(cfg, si), fm = fmt === 'mc' ? 'circle the letter of the best answer' : fmt === 'multi' ? (cfg.unitId === 'algebra1-inequalities' ? 'select every value that satisfies the inequality' : 'select every correct choice') : fmt === 'mcas' ? 'answer every part and explain your reasoning' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
+      if (fmt === 'vocab_match') fm = 'match each term to its definition; points cover the entire matching set';
+      else if (fmt === 'vocab_blank') fm = 'write the vocabulary term for each definition';
+      else if (fmt === 'vocab_draw') fm = 'draw and label each requested representation';
+      else if (fmt === 'vocab_example') fm = 'create an example and justify why it fits the term';
       li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b>' + (ws ? '' : ' (' + ptsText(+s.points) + ' each)') + ': ' + fm + '.');
     });
     return '<div class="mm-box mm-dirs"><h3>Directions</h3><ol>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></div>';
