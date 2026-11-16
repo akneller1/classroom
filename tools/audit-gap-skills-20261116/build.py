@@ -26,7 +26,7 @@ for mod in (ms_families, hs_families, stat_families, geo_families):
 LEVELS = ["cp2", "cp1", "honors"]
 NAMES = ["Ava", "Ben", "Chloe", "Diego", "Emma", "Farah", "Gabe", "Hana", "Isaac", "Jada", "Kenji", "Leah", "Mateo", "Nia", "Omar", "Priya", "Quinn", "Rosa", "Sam", "Tariq"]
 NOTE = ("Original Claude-authored item (family: {fam}). Answer, every option and every student answer re-checked from the printed "
-        "problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review.")
+        "problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16.")
 CAT = os.path.join(ROOT, "course-catalog.js")
 CHECKS = os.path.join(HERE, "out", "checks.json")
 MARK = "  // Coverage-gap additions, November 16, 2026 (site audit). Existing skill IDs stay stable.\n"
