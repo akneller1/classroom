@@ -49,7 +49,12 @@
         error.textContent = 'These assigned skills are unavailable. Ask your teacher for a new student link.';
         G.document.body.replaceChildren(error); return;
       }
-      start(selected); return;
+      var grade = G.MK_KID_GRADE;
+      if (G.MKKid && grade >= 1 && grade <= 5) {
+        var host = G.document.getElementById('app') || G.document.body;
+        G.MKKid.playScreen(host, {title: text(G.document.title).split(' · ')[0], subtitle: 'You can do it!', grade: grade, onPlay: function () { G.MK_KID_STARTED = true; start(selected); }});
+      } else start(selected);
+      return;
     }
     var sharing = params.get('teacherShare') === '1';
     if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-ready', skills: skills }, G.location.origin);

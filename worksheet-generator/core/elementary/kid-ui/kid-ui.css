@@ -1,0 +1,39 @@
+/* kid-ui.css — big, friendly on-screen pieces for Grades 1-5. Tap targets are at least 64px (Grades 1-2). */
+.el-read-aloud { display: inline-flex; align-items: center; gap: .4em; font-family: inherit; font-weight: 700; font-size: 1rem; line-height: 1; padding: .55em .9em; border-radius: 999px;
+  border: 2.5px solid #14173a; background: #fff4e0; color: #14173a; cursor: pointer; min-height: 48px; }
+.el-read-aloud:focus-visible, .kid-key:focus-visible, .kid-big-play:focus-visible { outline: 4px solid #3547f5; outline-offset: 3px; }
+
+.kid-pad { display: grid; grid-template-columns: repeat(3, 72px); gap: 10px; justify-content: center; margin: 14px auto 6px; }
+.kid-pad-compare { grid-template-columns: repeat(3, 84px); }
+.kid-key { height: 64px; border-radius: 16px; border: 3px solid #14173a; background: #fff; font: 700 1.8rem/1 "Atkinson Hyperlegible", system-ui, sans-serif;
+  color: #14173a; box-shadow: 0 4px 0 #14173a; cursor: pointer; touch-action: manipulation; }
+.kid-key:active { transform: translateY(3px); box-shadow: 0 1px 0 #14173a; }
+.kid-back { background: #ffe8d0; font-size: 1.5rem; }
+.kid-check { background: #22c08a; color: #fff; grid-column: span 1; }
+.kid-pad-compare .kid-check, .kid-pad-compare .kid-back { grid-column: span 1; }
+.el-hint-text.kid-hint { font-size: 1rem; font-weight: 700; color: #4a4f78; }
+
+.kid-play, .kid-finish { position: relative; overflow: hidden; text-align: center; padding: 28px 18px 26px; border-radius: 28px;
+  border: 3px solid #14173a; background: linear-gradient(#fff8e8, #fff); max-width: 620px; margin: 18px auto; }
+.kid-play h1, .kid-finish h2 { margin: .3em 0 .2em; font-size: 2.1rem; color: #14173a; }
+.kid-sub { font-size: 1.15rem; color: #4a4f78; margin: .2em 0 .8em; }
+.kid-mascot { width: 130px; height: 130px; }
+.bounce { animation: kid-bounce 1.4s ease-in-out infinite; }
+@keyframes kid-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.kid-big-play { font: 800 1.6rem/1 "Atkinson Hyperlegible", system-ui, sans-serif; padding: .7em 1.6em; border-radius: 999px; border: 3px solid #14173a;
+  background: #ff8a1f; color: #fff; box-shadow: 0 6px 0 #14173a; cursor: pointer; min-height: 72px; }
+.kid-big-play:active { transform: translateY(4px); box-shadow: 0 2px 0 #14173a; }
+
+.kid-stars { font-size: 2.2rem; letter-spacing: .1em; }
+.kid-stars .on { color: #ffd23f; -webkit-text-stroke: 1.5px #14173a; }
+.kid-stars .off { color: #e2e6ff; -webkit-text-stroke: 1.5px #9aa3d6; }
+.kid-sticker-new p { font-weight: 800; font-size: 1.2rem; margin: .4em 0 .2em; }
+.kid-sticker { width: 120px; height: 120px; }
+.pop { animation: kid-pop .7s cubic-bezier(.2, 1.6, .4, 1) both .3s; }
+@keyframes kid-pop { from { transform: scale(0) rotate(-30deg); } to { transform: scale(1) rotate(0); } }
+.kid-book { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0 16px; padding: 8px; border-radius: 16px; background: #f1f3ff; }
+.kid-book img { width: 44px; height: 44px; }
+.kid-confetti { position: absolute; inset: 0; pointer-events: none; }
+.kid-confetti i { position: absolute; top: -12px; width: 10px; height: 16px; border-radius: 3px; animation: kid-fall 2.4s ease-in forwards; }
+@keyframes kid-fall { to { transform: translateY(560px) rotate(540deg); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bounce, .pop, .kid-confetti i { animation: none; } .kid-confetti { display: none; } }

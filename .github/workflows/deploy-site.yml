@@ -118,6 +118,11 @@ jobs:
       - name: Apply reviewed Classroom content updates
         run: |
           node scripts/apply-content-updates.mjs
+          node scripts/apply-kid-friendly.mjs
+          node scripts/test-kid-friendly.cjs _site
+          node scripts/test-read-aloud.cjs _site
+          node scripts/test-kid-ui.cjs _site
+          node scripts/test-kid-player-dom.cjs _site
           node --test tests/plot-content.test.cjs tests/data-displays.test.cjs tests/function-graphs.test.cjs tests/statistics-displays.test.cjs tests/content-hybrid.test.cjs
           node scripts/test-content-release.cjs _site
           node scripts/test-financial-error-release.cjs _site
@@ -143,6 +148,7 @@ jobs:
         run: |
           node scripts/test-elementary-blanks.cjs _site
           node scripts/test-elementary-print-browser.cjs _site
+          node scripts/test-kid-player-browser.cjs _site
       - name: Browser-check data displays and mobile graphing practice
         run: node scripts/test-data-displays-browser.cjs
       - name: Browser-check secondary function graphing and Calculus images

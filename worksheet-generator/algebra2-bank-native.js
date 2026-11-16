@@ -32,6 +32,8 @@ NS.authoredPartnerPairs=function(id,skills,lv){
  }
  return out;
 };
+NS.authoredQuestion=function(id){return raw.get(id)};
+NS.authoredProblem=function(q,id,c){return problem(q,id,c)};
 function templateKey(q){return (q.sourceNotes||'').match(/family: ([\w-]+)/)?.[1]||q.prompt.replace(/-?\d+(?:\.\d+)?/g,'#').replace(/\s+/g,' ').toLowerCase().slice(0,90)}
 function choose(items,seed,used){const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed)));const available=rng.shuffle(items).filter(q=>!used?.keys?.has(q.id));if(!used)return available[0];used.templates=used.templates||new Map();const counts=used.templates;available.sort((a,b)=>(counts.get(a.skillId+'|'+templateKey(a))||0)-(counts.get(b.skillId+'|'+templateKey(b))||0));const q=available[0];if(q){const k=q.skillId+'|'+templateKey(q);counts.set(k,(counts.get(k)||0)+1)}return q}
 /* Easy → Medium → Harder inside one class level. Authored items carry no difficulty number, so each is scored by

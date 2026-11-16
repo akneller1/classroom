@@ -165,7 +165,7 @@
       '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : !(set.gaps || []).length ? '<b>Question coverage:</b> every topic listed above is generated and checked by the verifier.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
     // 5
     h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the ' + noun() + '</h2>' +
-      '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
+      '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + (c.showWhatYouKnow?[1,2]:[1,2,3]).map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
       '<p class="hint">' + (/^statistics-/.test(c.unitId) ? 'Versions keep the same layout and draw different questions from the selected topic banks.' : 'Versions share the same skills, difficulty and layout, with different numbers' + (isTest() ? ' (multiple-choice letters are reshuffled).' : '.')) + '</p>' +
       (S ? '<p><button type="button" class="btn" id="mmGoReview">Review my ' + noun() + ' →</button> <button type="button" class="btn ghost" id="mmRebuild">Rebuild with these settings</button></p><p class="hint">Rebuilding keeps every pinned or edited problem and replaces the rest.</p>'
          : '<p><button type="button" class="btn" id="mmBuildBtn"' + (rules.errors.length ? ' disabled' : '') + '>Build my ' + noun() + '</button></p>' + (rules.errors.length ? '<p class="hint bad">Fix the rule problems in step 3 first.</p>' : '')) +
@@ -179,7 +179,7 @@
     var ws = NS.isWorksheet(c);
     return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>' + (ws ? 'Worksheet parts' : 'Test parts') + '</h2>' +
       '<div class="mm-presets"><span class="lbl">Start from:</span> ' + (ws ? WS_PRESETS.map(function (x) { var disabled=(x[0]==='multi' && !NS.multiUnitSupported(c.unitId)) || !NS.presetAvailable(c,'w',x[0]); return '<button type="button" class="btn ghost sm" data-wpreset="' + x[0] + '"' + (disabled ? ' disabled title="Not available for the skills selected in this unit."' : '') + '>' + x[1] + '</button>'; }).join(' ') :
-        [['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']].map(function (x) { var off=!NS.presetAvailable(c,'t',x[0]); return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '"' + (off ? ' disabled title="Not available for the skills selected in this unit."' : '') + '>' + x[1] + '</button>'; }).join(' ')) + '</div>' +
+        ((NS.showWhatYouKnowUnit?.(c.unitId)?[['swk','Show What You Know']]:[]).concat([['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']])).map(function (x) { var off=x[0]!=='swk'&&!NS.presetAvailable(c,'t',x[0]); return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '"' + (off ? ' disabled title="Not available for the skills selected in this unit."' : '') + '>' + x[1] + '</button>'; }).join(' ')) + '</div>' +
       '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Part name</th>' + (ws ? '' : '<th>Points each</th>') + '<th>Questions</th><th>Question format</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
       c.sections.map(function (s, si) {
         var skillsTxt = s.skills && s.skills.length ? s.skills.length + ' chosen' : 'All selected', tierV = s.tier === undefined ? 'ramp' : s.tier, cs = [0, 1, 2].map(function (k) { return NS.itemC(c, si, k, 3); });
@@ -228,7 +228,8 @@
     $$('input[name=mmLevel]').forEach(function (r) { r.onchange = upd(function () { c.level = r.value; if (S) levelChanged(); }, true); });
     $('#mmAnswers').onchange = upd(function (e) { c.answers = e.target.value; if (S) levelChanged(); }, true);
     $$('[data-tpreset]').forEach(function (b) { b.onclick = upd(function () {
-      c.sections = NS.testSections(b.getAttribute('data-tpreset'));
+      if(b.getAttribute('data-tpreset')==='swk'){NS.applyShowWhatYouKnow(c);if(S)S=NS.newAssessment(c);return;}
+      delete c.showWhatYouKnow;c.sections = NS.testSections(b.getAttribute('data-tpreset'));
       if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
     }, true); });
     $$('[data-wpreset]').forEach(function (b) { b.onclick = upd(function () {
