@@ -38,7 +38,7 @@ function loadCrossUnits(){
 }
 function updateCrossCount(){
  const n=crossVocabulary().length;
- $('crossCount').textContent=crosswordUnitIds().length+' units · '+n+' unique crossword words available';
+ {const k=crosswordUnitIds().length;$('crossCount').textContent=k+(k===1?' unit · ':' units · ')+n+(n===1?' unique crossword word available':' unique crossword words available');}
 }
 const current=()=>{let id=$('unit').value,source=parse(bankText(id)),extra=$('custom').value.split('\n').filter(x=>x.includes('|')).map((r,i)=>{let [term,definition,example,draw]=r.split('|');return {id:'extra'+i,term:term.trim(),definition:(definition||'').trim(),example:(example||'').trim(),draw:(draw||'').trim()}});return source.filter(x=>selected.includes(x.id)).concat(extra).filter(x=>x.term&&x.definition)};
 function requestedUnit(){const u=new URL(location.href).searchParams.get('unit');if(!u)return null;const all=catalog.flatMap(c=>c.units.map(x=>x[0]));if(all.includes(u))return u;return all.find(id=>bankId(id)===u)||u;}
