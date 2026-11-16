@@ -27,7 +27,8 @@ textarea{width:100%;resize:vertical}
 /* setup */
 .mm-view-setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:16px;align-items:start}
 .mm-view-setup #mmMenu{grid-column:1/-1}
-@media (max-width:700px){.mm-view-setup{grid-template-columns:1fr}}
+@media (max-width:700px){.mm-view-setup{grid-template-columns:minmax(0,1fr)}}
+.mm-view-setup>*{min-width:0}
 .mm-card h2{scroll-margin-top:70px}
 .mm-levels{display:grid;gap:8px}
 .mm-level{display:block;border:2px solid var(--line);border-radius:10px;padding:8px 10px 8px 36px;position:relative;cursor:pointer;background:var(--card)}
@@ -38,7 +39,7 @@ textarea{width:100%;resize:vertical}
 .field select{max-width:100%}
 .mm-presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
 .mm-presets .lbl{font-weight:700;font-size:.9rem}
-.mm-tablewrap{overflow-x:auto}
+.mm-tablewrap{overflow-x:auto;position:relative}
 .mm-sectbl{border-collapse:collapse;width:100%;font-size:.92rem}
 .mm-sectbl th{text-align:left;font-size:.82rem;color:var(--ink2);padding:4px 6px;border-bottom:2px solid var(--line)}
 .mm-sectbl td{padding:6px;border-bottom:1px dashed var(--muted);vertical-align:top}

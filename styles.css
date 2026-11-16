@@ -665,6 +665,7 @@ body { background:var(--paper); }
 /* Keep the teacher tagline with the site name in the header. */
 .brand-tagline { margin-left: .2rem; padding-left: .75rem; border-left: 1px solid var(--line); color: var(--ink-soft); font-family: var(--body); font-size: .68rem; font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; }
 @media (max-width: 560px) { .brand-tagline { margin-left: .05rem; padding-left: .45rem; font-size: .56rem; letter-spacing: .05em; } }
+@media (max-width: 360px) { .site-header .brand { font-size: 1.12rem; gap: .4rem; } .site-header .brand svg { width: 1.7rem; height: 1.7rem; } .brand-tagline { padding-left: .35rem; letter-spacing: .02em; } }
 
 /* Homepage: square course tiles and wider, compact resource cards. */
 .home-subject-cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; align-content:start; }

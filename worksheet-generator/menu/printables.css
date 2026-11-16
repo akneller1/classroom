@@ -1,6 +1,7 @@
 /* Printable Generators — screen layout + paper styles (builds on core/app.css and menu/menu.css). */
 .pr-app{padding:14px 20px 40px;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);gap:16px;align-items:start}
-@media (max-width:900px){.pr-app{grid-template-columns:1fr}}
+@media (max-width:900px){.pr-app{grid-template-columns:minmax(0,1fr)}}
+.pr-app>*{min-width:0}
 .pr-app .card{margin-bottom:12px}
 .pr-app .card h2{margin:0 0 8px;font-size:1.05rem}
 .pr-kinds .chk,.pr-app .chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
