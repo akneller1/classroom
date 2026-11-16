@@ -40,7 +40,7 @@ export function loadSiteCatalog(OUT, { siteUrl = "https://mrksclassroom.com/", q
   if (!quiet) for (const p of problems) console.warn("Catalog script skipped (" + p + ")");
   const library = sandbox.LIBRARY || sandbox.window.LIBRARY;
   if (!library || !Array.isArray(library.courses)) throw Error("window.LIBRARY was not found after loading " + scripts.join(", "));
-  return { library, scripts, problems };
+  return { library, scripts, problems, courseCatalog: sandbox.MK_COURSE_CATALOG || null };
 }
 
 // "grade3/artifacts/x/index.html?y=1#z" -> "grade3/artifacts/x/index.html"; folders get index.html.

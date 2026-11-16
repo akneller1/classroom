@@ -10,6 +10,7 @@
 //  3. Adds the new pages to sitemap.xml and lists every course on the Courses page (courses/index.html).
 // A course whose catalog cannot be read is skipped with a warning; the deploy continues.
 
+import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { loadSiteCatalog } from "./load-site-catalog.mjs";
@@ -28,7 +29,8 @@ const listNames = (a) => a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") 
 if (!fs.existsSync(path.join(OUT, "index.html"))) throw Error("Build the site first: " + OUT + "/index.html is missing");
 
 // ---------- 1. Read the catalog the way the home page does ----------
-const { library } = loadSiteCatalog(OUT, { siteUrl: SITE_URL });
+const { library, courseCatalog } = loadSiteCatalog(OUT, { siteUrl: SITE_URL });
+const skillsFor = (courseId, unitId) => { try { return (courseCatalog && courseCatalog.getSkills(courseId, unitId)) || []; } catch { return []; } };
 
 // ---------- 2. Page template, copied from a page build-site.mjs wrote ----------
 const sample = fs.readdirSync(path.join(OUT, "u")).map((d) => path.join(OUT, "u", d, "index.html")).find((f) => fs.existsSync(f));
@@ -95,6 +97,7 @@ for (const id of COURSES) {
 <html lang="en">
 <head>
 ${head({ title: `Free ${title} Worksheets, Games & Lesson Plans | ${SITE_NAME}`, description: courseDesc, url: courseUrl, depth: 2 })}${accent}
+${courseJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, description: courseDesc })}
 </head>
 <body>
 <div class="wrap">
@@ -128,6 +131,7 @@ ${footer}
 <html lang="en">
 <head>
 ${head({ title: `${base} ${base.length < 56 ? "Worksheets & Activities" : "Resources"} | ${SITE_NAME}`, description: desc, url, depth: 3 })}${accent}
+${unitJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, unitName: u.title, unitUrl: url, description: desc, skills: skillsFor(course.id, u.id), standards: unitStandards(OUT, course.id, u.id), resourceCount: u.items.length })}
 </head>
 <body>
 <div class="wrap">

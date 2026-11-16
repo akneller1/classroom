@@ -606,7 +606,13 @@
       html: '<section class="task-home"><div class="wrap home-dashboard"><div class="task-workspace">' +
         '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
         '<h1 tabindex="-1">What would you like to do today?</h1>' +
-        '<p class="lede">Choose a task below or explore a course from the menu.</p>' +
+        '<p class="lede">Choose a task below, or pick your grade or course.</p>' +
+        /* Phones: the course list sits below nine task cards, so offer a picker up top. */
+        '<label class="home-course-pick"><span>Go to your grade or course</span><select id="homeCoursePick">' +
+        '<option value="">Choose a grade or course…</option>' +
+        L.courses.slice().sort(function (a, b) { return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) - (courseOrder[b.id] == null ? 99 : courseOrder[b.id]); })
+          .map(function (c) { return '<option value="' + esc(c.id) + '">' + esc(c.name) + '</option>'; }).join('') +
+        '</select></label>' +
         '</div>' +
         '<ul class="task-grid" aria-label="Teaching tasks">' + tasks.map(function (task) {
           return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
@@ -1322,6 +1328,11 @@
   });
   function sessionStorageGet() { try { return sessionStorage.getItem('mk-nav') === '1'; } catch (e) { return false; } }
   window.addEventListener('hashchange', function () { try { sessionStorage.setItem('mk-nav', '1'); } catch (e) { /* ignore */ } });
+  document.addEventListener('change', function (e) {
+    if (!e.target || e.target.id !== 'homeCoursePick' || !e.target.value) return;
+    var c = L.courses.filter(function (x) { return x.id === e.target.value; })[0];
+    if (c) location.hash = href(courseToken(c)).slice(1);
+  });
   /* Course cards link to /u/<course>/ for search engines and new tabs; a plain click opens the course in the app. */
   document.addEventListener('click', function courseNavClick(e) {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
