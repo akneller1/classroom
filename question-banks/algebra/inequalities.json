@@ -2648,6 +2648,2645 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p002",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x > 2 on the number line.",
+   "answer": "Open dot at 2, arrow right",
+   "solutionSteps": [
+    "Put an open dot at 2 because 2 itself is not included (>).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 2,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 2,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 2,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 2,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p002.png",
+     "alt": "Number line from −10 to 10 with an open dot at 2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p003",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x ≤ 5 on the number line.",
+   "answer": "Closed dot at 5, arrow left",
+   "solutionSteps": [
+    "Put a closed dot at 5 because 5 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 5,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 5,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p003.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 5 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p004",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x ≥ −4 on the number line.",
+   "answer": "Closed dot at -4, arrow right",
+   "solutionSteps": [
+    "Put a closed dot at −4 because −4 is included (≥).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -4,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -4,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p004.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -4 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p005",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x < 0 on the number line.",
+   "answer": "Open dot at 0, arrow left",
+   "solutionSteps": [
+    "Put an open dot at 0 because 0 itself is not included (<).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 0,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 0,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 0,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 0,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 1,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p005.png",
+     "alt": "Number line from −10 to 10 with an open dot at 0 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p006",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x > −7 on the number line.",
+   "answer": "Open dot at -7, arrow right",
+   "solutionSteps": [
+    "Put an open dot at −7 because −7 itself is not included (>).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -7,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -7,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -7,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -7,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p006.png",
+     "alt": "Number line from −10 to 10 with an open dot at -7 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p007",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x ≤ −1 on the number line.",
+   "answer": "Closed dot at -1, arrow left",
+   "solutionSteps": [
+    "Put a closed dot at −1 because −1 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -1,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -1,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -1,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -1,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 0,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p007.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -1 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp2-p008",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x ≥ 6 on the number line.",
+   "answer": "Closed dot at 6, arrow right",
+   "solutionSteps": [
+    "Put a closed dot at 6 because 6 is included (≥).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 6,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 6,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp2-p008.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 6 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p003",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 4 > x on the number line.",
+   "answer": "Open dot at 4, arrow left",
+   "solutionSteps": [
+    "Read it from x: 4 > x means x < 4.",
+    "Put an open dot at 4 because 4 itself is not included (<).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 4,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 4,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p003.png",
+     "alt": "Number line from −10 to 10 with an open dot at 4 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p004",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph −3 ≤ x on the number line.",
+   "answer": "Closed dot at -3, arrow right",
+   "solutionSteps": [
+    "Read it from x: −3 ≤ x means x ≥ −3.",
+    "Put a closed dot at −3 because −3 is included (≥).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p004.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -3 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p005",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 9 ≥ x on the number line.",
+   "answer": "Closed dot at 9, arrow left",
+   "solutionSteps": [
+    "Read it from x: 9 ≥ x means x ≤ 9.",
+    "Put a closed dot at 9 because 9 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 9,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 9,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 9,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 9,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 10,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p005.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 9 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p006",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph −6 < x on the number line.",
+   "answer": "Open dot at -6, arrow right",
+   "solutionSteps": [
+    "Read it from x: −6 < x means x > −6.",
+    "Put an open dot at −6 because −6 itself is not included (>).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -6,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -6,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -6,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -6,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -5,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p006.png",
+     "alt": "Number line from −10 to 10 with an open dot at -6 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p007",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph all numbers x that are at least 1.",
+   "answer": "Closed dot at 1, arrow right",
+   "solutionSteps": [
+    "\"At least 1\" means 1 or more: x ≥ 1.",
+    "Put a closed dot at 1 because 1 is included (≥).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 1,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 1,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 1,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 1,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 2,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p007.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 1 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p008",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph all numbers x that are less than −2.",
+   "answer": "Open dot at -2, arrow left",
+   "solutionSteps": [
+    "\"Less than −2\" means x < −2.",
+    "Put an open dot at −2 because −2 itself is not included (<).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -2,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -2,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -1,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-cp1-p008.png",
+     "alt": "Number line from −10 to 10 with an open dot at -2 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p003",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x > −5/2 on the number line.",
+   "answer": "Open dot at -5/2, arrow right",
+   "solutionSteps": [
+    "Put an open dot at −5/2 because −5/2 itself is not included (>).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -5,
+     "max": 5,
+     "tick": 0.5,
+     "labelEvery": 1,
+     "snap": 0.5
+    },
+    "target": {
+     "boundary": -2.5,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -2.5,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -2.5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -2.5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p003.png",
+     "alt": "Number line from −5 to 5 with an open dot at -5/2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p004",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x ≤ 7/2 on the number line.",
+   "answer": "Closed dot at 7/2, arrow left",
+   "solutionSteps": [
+    "Put a closed dot at 7/2 because 7/2 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -5,
+     "max": 5,
+     "tick": 0.5,
+     "labelEvery": 1,
+     "snap": 0.5
+    },
+    "target": {
+     "boundary": 3.5,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 3.5,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 3.5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 3.5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p004.png",
+     "alt": "Number line from −5 to 5 with a closed dot at 7/2 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p005",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph 3/2 ≥ x on the number line.",
+   "answer": "Closed dot at 3/2, arrow left",
+   "solutionSteps": [
+    "Read it from x: 3/2 ≥ x means x ≤ 3/2.",
+    "Put a closed dot at 3/2 because 3/2 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -5,
+     "max": 5,
+     "tick": 0.5,
+     "labelEvery": 1,
+     "snap": 0.5
+    },
+    "target": {
+     "boundary": 1.5,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 1.5,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 1.5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 1.5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 2,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p005.png",
+     "alt": "Number line from −5 to 5 with a closed dot at 3/2 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p006",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph −1/2 < x on the number line.",
+   "answer": "Open dot at -1/2, arrow right",
+   "solutionSteps": [
+    "Read it from x: −1/2 < x means x > −1/2.",
+    "Put an open dot at −1/2 because −1/2 itself is not included (>).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -5,
+     "max": 5,
+     "tick": 0.5,
+     "labelEvery": 1,
+     "snap": 0.5
+    },
+    "target": {
+     "boundary": -0.5,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -0.5,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -0.5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -0.5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 0,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p006.png",
+     "alt": "Number line from −5 to 5 with an open dot at -1/2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p007",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph all numbers x that are not greater than 7.",
+   "answer": "Closed dot at 7, arrow left",
+   "solutionSteps": [
+    "\"Not greater than 7\" means 7 or less: x ≤ 7.",
+    "Put a closed dot at 7 because 7 is included (≤).",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 7,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 7,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 7,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 8,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p007.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 7 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p008",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph all numbers x that are no less than −9/2.",
+   "answer": "Closed dot at -9/2, arrow right",
+   "solutionSteps": [
+    "\"No less than −9/2\" means −9/2 or more: x ≥ −9/2.",
+    "Put a closed dot at −9/2 because −9/2 is included (≥).",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -5,
+     "max": 5,
+     "tick": 0.5,
+     "labelEvery": 1,
+     "snap": 0.5
+    },
+    "target": {
+     "boundary": -4.5,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -4.5,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -4.5,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -4.5,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -4,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s01-honors-p008.png",
+     "alt": "Number line from −5 to 5 with a closed dot at -9/2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p004",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve x + 5 > 3. Then graph the solution on the number line.",
+   "answer": "x > -2: open dot at -2, arrow right",
+   "solutionSteps": [
+    "Subtract 5 from both sides: x > −2.",
+    "Open dot at −2, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -2,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -2,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -1,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp2-p004.png",
+     "alt": "Number line from −10 to 10 with an open dot at -2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p005",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve x − 4 ≤ 2. Then graph the solution on the number line.",
+   "answer": "x ≤ 6: closed dot at 6, arrow left",
+   "solutionSteps": [
+    "Add 4 to both sides: x ≤ 6.",
+    "Closed dot at 6, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 6,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 6,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 6,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 6,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp2-p005.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 6 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p006",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve 3x ≥ 12. Then graph the solution on the number line.",
+   "answer": "x ≥ 4: closed dot at 4, arrow right",
+   "solutionSteps": [
+    "Divide both sides by 3: x ≥ 4.",
+    "Closed dot at 4, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 4,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 4,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp2-p006.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 4 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p007",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve x/2 < 3. Then graph the solution on the number line.",
+   "answer": "x < 6: open dot at 6, arrow left",
+   "solutionSteps": [
+    "Multiply both sides by 2: x < 6.",
+    "Open dot at 6, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 6,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 6,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp2-p007.png",
+     "alt": "Number line from −10 to 10 with an open dot at 6 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p008",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve 5x > −15. Then graph the solution on the number line.",
+   "answer": "x > -3: open dot at -3, arrow right",
+   "solutionSteps": [
+    "Divide both sides by 5: x > −3.",
+    "Open dot at −3, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp2-p008.png",
+     "alt": "Number line from −10 to 10 with an open dot at -3 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p004",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 3x + 4 ≥ 13. Then graph the solution on the number line.",
+   "answer": "x ≥ 3: closed dot at 3, arrow right",
+   "solutionSteps": [
+    "Subtract 4: 3x ≥ 9.",
+    "Divide by 3: x ≥ 3.",
+    "Closed dot at 3, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 3,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 3,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 3,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp1-p004.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 3 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p005",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 5x − 7 > 8. Then graph the solution on the number line.",
+   "answer": "x > 3: open dot at 3, arrow right",
+   "solutionSteps": [
+    "Add 7: 5x > 15.",
+    "Divide by 5: x > 3.",
+    "Open dot at 3, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 3,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 3,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 3,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 3,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp1-p005.png",
+     "alt": "Number line from −10 to 10 with an open dot at 3 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p006",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 2x + 11 ≤ 5. Then graph the solution on the number line.",
+   "answer": "x ≤ -3: closed dot at -3, arrow left",
+   "solutionSteps": [
+    "Subtract 11: 2x ≤ −6.",
+    "Divide by 2: x ≤ −3.",
+    "Closed dot at −3, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp1-p006.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -3 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p007",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve x/3 − 2 < 1. Then graph the solution on the number line.",
+   "answer": "x < 9: open dot at 9, arrow left",
+   "solutionSteps": [
+    "Add 2: x/3 < 3.",
+    "Multiply by 3: x < 9.",
+    "Open dot at 9, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 9,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 9,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 9,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 9,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 10,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp1-p007.png",
+     "alt": "Number line from −10 to 10 with an open dot at 9 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p008",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 4 + 2x ≥ −6. Then graph the solution on the number line.",
+   "answer": "x ≥ -5: closed dot at -5, arrow right",
+   "solutionSteps": [
+    "Subtract 4: 2x ≥ −10.",
+    "Divide by 2: x ≥ −5.",
+    "Closed dot at −5, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -5,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -5,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -5,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -5,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -4,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-cp1-p008.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -5 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p004",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve −4x + 3 > 15. Then graph the solution on the number line.",
+   "answer": "x < -3: open dot at -3, arrow left",
+   "solutionSteps": [
+    "Subtract 3: −4x > 12.",
+    "Divide by −4 and FLIP the sign: x < −3.",
+    "Open dot at −3, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-honors-p004.png",
+     "alt": "Number line from −10 to 10 with an open dot at -3 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p005",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve 6 − 2x ≥ −4. Then graph the solution on the number line.",
+   "answer": "x ≤ 5: closed dot at 5, arrow left",
+   "solutionSteps": [
+    "Subtract 6: −2x ≥ −10.",
+    "Divide by −2 and FLIP the sign: x ≤ 5.",
+    "Closed dot at 5, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 5,
+     "closed": true,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 5,
+      "closed": true,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": 6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-honors-p005.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 5 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p006",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve 3(x − 2) < 5x + 4. Then graph the solution on the number line.",
+   "answer": "x > -5: open dot at -5, arrow right",
+   "solutionSteps": [
+    "Distribute: 3x − 6 < 5x + 4.",
+    "Subtract 5x and add 6: −2x < 10.",
+    "Divide by −2 and FLIP the sign: x > −5.",
+    "Open dot at −5, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -5,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -5,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-honors-p006.png",
+     "alt": "Number line from −10 to 10 with an open dot at -5 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p007",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve −x/2 + 1 ≤ 4. Then graph the solution on the number line.",
+   "answer": "x ≥ -6: closed dot at -6, arrow right",
+   "solutionSteps": [
+    "Subtract 1: −x/2 ≤ 3.",
+    "Multiply by −2 and FLIP the sign: x ≥ −6.",
+    "Closed dot at −6, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -6,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -6,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -5,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-honors-p007.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -6 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p008",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve 5x − 3 > 7x + 9. Then graph the solution on the number line.",
+   "answer": "x < -6: open dot at -6, arrow left",
+   "solutionSteps": [
+    "Subtract 7x and add 3: −2x > 12.",
+    "Divide by −2 and FLIP the sign: x < −6.",
+    "Open dot at −6, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -6,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -6,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      },
+      {
+       "response": {
+        "boundary": -5,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "boundary"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-ineq-s03-honors-p008.png",
+     "alt": "Number line from −10 to 10 with an open dot at -6 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }
