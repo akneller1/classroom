@@ -47,4 +47,11 @@ const mixed=M.defaultConfig(unit,'test');mixed.versions=2;mixed.sections.push(c.
 assert(state.versions.every(v=>v.sections[0].items.every(p=>!p.vocabulary)&&v.sections[2].items.every(p=>p.vocabulary)));
 // Source wording is identical for creative Honors tasks in both makers.
 const draw=T.terms(unit).find(t=>t.draw);if(draw){const cfg=config(unit,'vocab_draw',1);cfg.level='honors';cfg.vocabularyTerms=[draw.term];assert.equal(M.newAssessment(cfg).versions[0].sections[0].items[0].prompt,T.honorsTask(draw,'draw'));}
+// Production assembly must load the same Grade 5 vocabulary into both makers.
+const fs=require('node:fs'),path=require('node:path');
+const assembler=fs.readFileSync(path.resolve(__dirname,'../../../scripts/integrate-approved-courses.mjs'),'utf8');
+assert(assembler.includes("page==='menu-assessment.html'&&!html.includes('grade5-native-resources.js')"));
+env.MKVOCAB_BANKS['late-course']='One|First number|1|Draw one;Two|Second number|2|Draw two;Three|Third number|3|Draw three';
+M.registerSkillSet({id:'late-course',unitName:'Late course',tags:{X:'Math'},skills:[]});
+assert.equal(M.newAssessment(config('late-course','vocab_blank',2)).versions[0].sections[0].items.length,2);
 console.log(`PASS vocabulary assessment integration: ${units} units, ${questions} questions, all levels and 3 versions; keys, regeneration, saved files, tampering, limits and mixed math/vocabulary.`);

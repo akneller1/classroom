@@ -264,6 +264,7 @@ for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(na
  if(!html.includes('grade5-main-catalog.js'))html=html.replace(catalogTag[0],catalogTag[0]+'\n'+tag('main-catalog'));
  if(page==='lesson-planner.html'&&!html.includes('grade5-native-notes.js'))html=html.replace('<script src="planner/scope-algebra2.js',tag('native-notes')+'<script src="planner/scope-algebra2.js');
  if(page==='printables.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="menu/printables-match.js',tag('native-resources')+'<script src="menu/printables-match.js');
+ if(page==='menu-assessment.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="menu/vocabulary.js',tag('native-resources')+'<script src="menu/vocabulary.js');
  if(page==='vocabulary.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="vocabulary-builder.js',tag('native-resources')+'<script src="vocabulary-builder.js');
  fs.writeFileSync(file,html);
 }
