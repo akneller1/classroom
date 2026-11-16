@@ -775,7 +775,7 @@ window.MK_ASTEROID={state:()=>G,usable,quickAnswer};
     /* A link for an unsupported course or unit must say so, not silently show another unit. */
     const req=new URLSearchParams(location.search),rc=req.get('course'),ru=req.get('unit');
     let msg=e.message;
-    if(rc&&ru&&!(S&&S.courseId===rc&&S.unit&&S.unit.id===ru)){
+    if(rc&&ru){
       const c=(window.LIBRARY&&LIBRARY.courses||[]).find(x=>x.id===rc),u=c&&(c.units||[]).find(x=>x.id===ru);
       msg='Asteroid Blaster is not available for '+(c?c.name:rc)+(u?' · '+u.name:'')+'. Choose a supported course and unit above, or go back to the unit page for other games.';
     }

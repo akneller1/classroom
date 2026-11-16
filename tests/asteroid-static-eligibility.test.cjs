@@ -17,5 +17,6 @@ test('static pages only keep Asteroid cards for curated units', async () => {
 test('Asteroid Blaster reports an unsupported requested unit instead of switching', () => {
   const html = require('node:fs').readFileSync('worksheet-generator/asteroid-blaster.html', 'utf8');
   assert.match(html, /Asteroid Blaster is not available for '\+/);
+  assert.match(html, /if\(rc&&ru\)\{/);
   assert.match(html, /S\.courseId!==q\.get\('course'\)\|\|S\.unit\.id!==q\.get\('unit'\)/);
 });
