@@ -249,7 +249,16 @@
   /* ---------------- problem generation ---------------- */
   /* Everything a student sees: words, math, shown work and figures. */
   function figKey(p) { return p.fig ? '|fig:' + JSON.stringify(p.fig) : ''; }
-  function studentKey(p) { return NS.studentText(p).replace(/\s+/g, '') + figKey(p); }
+  function studentKey(p) {
+    var key = NS.studentText(p).replace(/\s+/g, '') + figKey(p);
+    // Property choose-all stems repeat by design; the printed equations distinguish the questions.
+    // Sort the options so merely shuffling the same equations is still the same question.
+    (p.parts || []).forEach(function (pt) {
+      if (pt.check && pt.check.type === 'property-select' && Array.isArray(pt.check.opts))
+        key += '|options:' + JSON.stringify(pt.check.opts.slice().sort());
+    });
+    return key;
+  }
   function nearSig(skill, p) {
     var nums = ((NS.studentText(p) + figKey(p)).match(/\d+(?:\.\d+)?/g) || []).map(Number).map(Math.abs).sort(function (a, b) { return a - b; });
     return skill + '|' + (p.variant || '') + '|' + nums.join(',');
@@ -573,7 +582,7 @@
     var q = m.derived; delete m.derived;
     ['prompt', 'parts', 'fig', 'verify', 'steps'].forEach(function (k) { if (q[k] === undefined) delete p[k]; else p[k] = q[k]; });
     if (!p.srcKey) p.srcKey = p.key;   // the generated problem it came from stays "used", so it is not generated again
-    p.mcNote = m.note; p.key = NS.studentText(p).replace(/\s+/g, '') + (p.fig ? '|fig:' + JSON.stringify(p.fig) : '');
+    p.mcNote = m.note; p.key = studentKey(p);
     m.src = mcSource(p); p.mc = m; delete p.mcFail; return p;
   }
   var multiCache={};
@@ -659,7 +668,7 @@
   }
   /* Every item matches its section's question format (after moves, edits and loading a file). */
   NS.ensureFormats = function (state) {
-    state.versions.forEach(function (v) { v.sections.forEach(function (s, si) { var f = NS.sectionFormat(state.config, si); s.items.forEach(function (it) { applyFormat(it, f); }); }); });
+    state.versions.forEach(function (v) { v.sections.forEach(function (s, si) { var f = NS.sectionFormat(state.config, si); s.items.forEach(function (it) { applyFormat(it, f); if ((it.parts || []).some(function (pt) { return pt.check && pt.check.type === 'property-select'; })) it.key = studentKey(it); }); }); });
   };
   /* Generate for a section: in a multiple-choice section, keep trying fresh problems until one makes good choices. */
   function formatted(state, si, gen) {

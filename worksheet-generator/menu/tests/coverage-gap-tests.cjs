@@ -126,6 +126,26 @@ for (const [unit, skill, c] of [['algebra1-foundations', 'properties', 3], ['geo
   ok(made >= 3, skill + ': choose-all questions are made');
 }
 
+// Fixed random stream reproduces the property choose-all regeneration collision.
+// The same property with different printed equations must have different keys.
+{
+  const originalRandom=env.Math.random;let random=123456789;
+  env.Math.random=()=>((random=(Math.imul(random,1664525)+1013904223)>>>0)/4294967296);
+  try {
+    for(let i=0;i<30;i++){
+      const c=NS.defaultConfig('algebra1-foundations','worksheet');c.level='cp2';c.versions=1;c.coverage.on=false;c.skills={properties:true};
+      c.sections=[{id:NS.uid('s'),name:'Properties',note:'',points:1,offered:6,required:6,tier:'ramp',adjust:0,skills:['properties'],qformat:'multi'}];
+      const state=NS.newAssessment(c),before=state.versions[0].sections[0].items[2];
+      const after=NS.regenerate(state,0,before.uid);
+      ok(after&&!after.failed&&after.multi&&after.key!==before.key,'property choose-all regenerates distinct printed choices for fixed stream '+i);
+      ok(NS.verifyProblem(after,{intOnly:true}).ok,'regenerated choose-all answer stays verified');
+      const expectedKey=after.key;after.key='legacy-stem-only-key';
+      const restored=NS.deserialize(NS.serialize(state));
+      ok(restored.versions[0].sections[0].items[2].key===expectedKey,'saved legacy choose-all keys are upgraded on load');
+    }
+  } finally { env.Math.random=originalRandom; }
+}
+
 /* 4. several distinct questions of one skill, and regeneration that keeps skill, difficulty and format */
 for (const [unit, skill, fmt, level] of [['algebra1-foundations', 'properties', 'mc', 'cp1'], ['geometry-right-triangles-trigonometry', 'law-of-sines', 'open', 'honors'], ['algebra1-foundations', 'properties', 'multi', 'cp2']]) {
   const c = NS.defaultConfig(unit, 'worksheet'); c.level = level; c.versions = 1; c.coverage.on = false; c.skills = {}; c.skills[skill] = true;
