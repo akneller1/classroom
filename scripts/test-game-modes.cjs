@@ -11,6 +11,7 @@ try{
    // Capture the question supplied by the real bank adapter; answer via its visible controls.
    await page.addInitScript(()=>{document.addEventListener('DOMContentLoaded',()=>{const K=window.MKEL||window.G5;if(!K)return;const original=K.card;K.card=function(host,p,o){window.__question=p;return original(host,p,o);};});});
    await page.goto(`${base}/grade${grade}/worksheet-generator/grade${grade}-games.html?unit=${unit}&game=${game}&student=1&level=cp1&mode=class2`);
+   await page.locator('.kid-play .kid-big-play').click();
    const prefix=grade<5?'el':'g5';await page.waitForSelector('.'+prefix+'-stage');
    await page.waitForFunction(()=>!!window.__question);
    assert.match(await page.locator('.'+prefix+'-hud').innerText(),/Computer/,'Student URL must override a team mode');
