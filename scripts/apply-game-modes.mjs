@@ -31,7 +31,7 @@ for(let grade=1;grade<=5;grade++){
  });
  const page=path.join(base,'grade'+grade+'-games.html');
  fs.mkdirSync(path.join(base,'games'),{recursive:true});fs.copyFileSync(path.join(root,'worksheet-generator/games/solo-ai.js'),path.join(base,'games/solo-ai.js'));
- edit(page,s=>s.replace(/<script src="(?:elementary\/el-games|grade5\/g5-games)\.js/, '<script src="games/solo-ai.js?v=solo-20261115"></script><script src="'+(elementary?'elementary/el-games':'grade5/g5-games')+'.js'));
+ edit(page,s=>s.replace(/<script src="(?:elementary\/el-games|grade5\/g5-games)\.js/, '<script src="games/solo-ai.js?v=solo-20261116"></script><script src="'+(elementary?'elementary/el-games':'grade5/g5-games')+'.js'));
 }
 // Financial Algebra bundles the same generated engine in two locations.
 for(const folder of ['financial/games/vendor','financial-algebra/financial/games/vendor']){
@@ -44,9 +44,9 @@ fs.writeFileSync(path.join(out,'elementary-board-catalog.js'),catalog);
 // Inject capabilities before the app, including independently rendered course pages.
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory()&&!['vendor','node_modules'].includes(e.name))walk(f);else if(e.name.endsWith('.html'))edit(f,s=>{
  const rel=path.relative(path.dirname(f),out).split(path.sep).join('/'),base=rel?rel+'/':'';
- if(/<script src="[^"]*app\.js/.test(s)&&!s.includes('elementary-board-catalog.js'))s=s.replace(/<script src="([^"<>]*app\.js[^"<>]*)">/,'<script src="'+base+'elementary-board-catalog.js?v=solo-20261115"></script><script src="$1">');
- if(s.includes('</head>')&&!s.includes('game-capabilities.js'))s=s.replace('</head>','<script src="'+base+'game-capabilities.js?v=solo-20261115"></script></head>');
+ if(/<script src="[^"]*app\.js/.test(s)&&!s.includes('elementary-board-catalog.js'))s=s.replace(/<script src="([^"<>]*app\.js[^"<>]*)">/,'<script src="'+base+'elementary-board-catalog.js?v=solo-20261116"></script><script src="$1">');
+ if(s.includes('</head>')&&!s.includes('game-capabilities.js'))s=s.replace('</head>','<script src="'+base+'game-capabilities.js?v=solo-20261116"></script></head>');
  s=s.replace("'connect-four','puzzle-masters'","'connect-four','tic-tac-toe','puzzle-masters'").replace("['student','skills'].forEach","['student','skills','mode','level'].forEach");
- return s.replace(/((?:el-games|el-core|g5-games|g5-core|games\/games|solo-legacy|student-share-cards|student-game-share|integrated-student-share|app|activity)\.js)(?:\?v=[^"<> ]*)?(?=")/g,'$1?v=solo-20261115');
+ return s.replace(/((?:el-games|el-core|g5-games|g5-core|games\/games|solo-legacy|student-share-cards|student-game-share|integrated-student-share|app|activity)\.js)(?:\?v=[^"<> ]*)?(?=")/g,'$1?v=solo-20261116');
  });}}
 walk(out);console.log('Applied solo modes, student-link guards and board catalogs across all courses.');
