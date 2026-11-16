@@ -7457,7 +7457,7 @@ window.LIBRARY = {
   "name": "Pre-Algebra",
   "color": "green",
   "art": "curve",
-  "blurb": "Accelerated Grade 7 course: every Grade 7 standard plus most of Grade 8 (integers, proportions, equations, linear functions, geometry, probability and polynomials). It prepares students for Algebra 1 in Grade 8.",
+  "blurb": "Accelerated 7th grade (Grade 7) course: every Grade 7 standard plus most of Grade 8 (integers, proportions, equations, linear functions, geometry, probability and polynomials). It prepares students for Algebra 1 in Grade 8.",
   "units": [
     {
       "id": "algebraic-expressions-integers",

@@ -1,0 +1,1259 @@
+{
+ "schemaVersion": 1,
+ "courseId": "geometry",
+ "unitId": "right-triangles-trigonometry",
+ "questions": [
+  {
+   "id": "geo-rt-s11-cp2-001",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know A = 35°, B = 59°, and a = 19. Which law should you use first to find another part of the triangle?",
+   "answer": "Law of Sines",
+   "solutionSteps": [
+    "The given information is AAS: side a is paired with its opposite angle A.",
+    "Start with the Law of Sines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-002",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 8, b = 15, and C = 77°. Find c to the nearest tenth.",
+   "answer": "15.3",
+   "options": [
+    {
+     "text": "18.5",
+     "correct": false
+    },
+    {
+     "text": "235.0",
+     "correct": false
+    },
+    {
+     "text": "15.3",
+     "correct": true
+    },
+    {
+     "text": "17.0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 8² + 15² − 2(8)(15)cos 77° ≈ 235.01.",
+    "c ≈ 15.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-003",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 12, b = 8, and C = 60°. Find c to the nearest tenth.",
+   "answer": "10.6",
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 12² + 8² − 2(12)(8)cos 60° ≈ 112.00.",
+    "c ≈ 10.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-004",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 93°, a = 19, and b = 10. Find angle B to the nearest tenth of a degree. (Because b < a, angle B is acute.)",
+   "answer": "31.7°",
+   "options": [
+    {
+     "text": "55.3°",
+     "correct": false
+    },
+    {
+     "text": "148.3°",
+     "correct": false
+    },
+    {
+     "text": "31.7°",
+     "correct": true
+    },
+    {
+     "text": "48.9°",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Sines: sin B / b = sin A / a.",
+    "sin B = 10 · sin 93° ÷ 19 ≈ 0.5256.",
+    "B = sin⁻¹(0.5256) ≈ 31.7°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-005",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 79°, a = 7, and b = 6. Find angle B to the nearest tenth of a degree. (Because b < a, angle B is acute.)",
+   "answer": "57.3°",
+   "solutionSteps": [
+    "Law of Sines: sin B / b = sin A / a.",
+    "sin B = 6 · sin 79° ÷ 7 ≈ 0.8414.",
+    "B = sin⁻¹(0.8414) ≈ 57.3°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-006",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 33°, B = 64°, and a = 15. Find b to the nearest tenth.",
+   "answer": "24.8",
+   "options": [
+    {
+     "text": "9.1",
+     "correct": false
+    },
+    {
+     "text": "29.1",
+     "correct": false
+    },
+    {
+     "text": "24.8",
+     "correct": true
+    },
+    {
+     "text": "7.8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 15 · sin 64° ÷ sin 33°.",
+    "b ≈ 24.8."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-007",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 41°, B = 71°, and a = 7. Find b to the nearest tenth.",
+   "answer": "10.1",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 7 · sin 71° ÷ sin 41°.",
+    "b ≈ 10.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-008",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know A = 40°, B = 70°, and a = 11. Which law should you use first to find another part of the triangle?",
+   "answer": "Law of Sines",
+   "options": [
+    {
+     "text": "SOH-CAH-TOA right-triangle ratios",
+     "correct": false
+    },
+    {
+     "text": "Law of Sines",
+     "correct": true
+    },
+    {
+     "text": "Law of Cosines",
+     "correct": false
+    },
+    {
+     "text": "Pythagorean Theorem",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The given information is AAS: side a is paired with its opposite angle A.",
+    "Start with the Law of Sines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-009",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 5, b = 9, and C = 54°. Find c to the nearest tenth.",
+   "answer": "7.3",
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 5² + 9² − 2(5)(9)cos 54° ≈ 53.10.",
+    "c ≈ 7.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-010",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 15, b = 5, and C = 83°. Find c to the nearest tenth.",
+   "answer": "15.2",
+   "options": [
+    {
+     "text": "15.2",
+     "correct": true
+    },
+    {
+     "text": "16.4",
+     "correct": false
+    },
+    {
+     "text": "231.7",
+     "correct": false
+    },
+    {
+     "text": "15.8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 15² + 5² − 2(15)(5)cos 83° ≈ 231.72.",
+    "c ≈ 15.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-011",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 34°, B = 81°, and a = 16. Find b to the nearest tenth.",
+   "answer": "28.3",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 16 · sin 81° ÷ sin 34°.",
+    "b ≈ 28.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-012",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 17, b = 20, and C = 39°. Find c to the nearest tenth.",
+   "answer": "12.7",
+   "options": [
+    {
+     "text": "160.5",
+     "correct": false
+    },
+    {
+     "text": "34.9",
+     "correct": false
+    },
+    {
+     "text": "26.2",
+     "correct": false
+    },
+    {
+     "text": "12.7",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 17² + 20² − 2(17)(20)cos 39° ≈ 160.54.",
+    "c ≈ 12.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-013",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 7, b = 17, and C = 47°. Find c to the nearest tenth.",
+   "answer": "13.3",
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 7² + 17² − 2(7)(17)cos 47° ≈ 175.68.",
+    "c ≈ 13.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-014",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), a = 12, b = 11, and c = 15. Find angle C to the nearest tenth of a degree.\nQuinn's answer: 52.3°\nIdentify the mistake and give the correct answer.",
+   "answer": "81.3°",
+   "solutionSteps": [
+    "Mistake: Quinn found angle A; angle C is opposite side c.",
+    "Law of Cosines: cos C = (a² + b² − c²) ÷ (2ab).",
+    "cos C = (12² + 11² − 15²) ÷ (2 · 12 · 11) ≈ 0.1515.",
+    "C = cos⁻¹(0.1515) ≈ 81.3°.",
+    "The correct answer is 81.3°, not 52.3°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_angle_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-015",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 36°, B = 76°, and a = 18. Find b to the nearest tenth.",
+     "answer": "29.7"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 34°, B = 102°, and a = 10. Find b to the nearest tenth.",
+     "answer": "17.5"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 13, b = 8, and C = 37°. Find c to the nearest tenth.",
+     "answer": "8.2"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know a = 7, b = 16, and C = 48°. Which law should you use first to find another part of the triangle?",
+     "answer": "Law of Cosines"
+    }
+   ],
+   "answer": "(a) 29.7; (b) 17.5; (c) 8.2; (d) Law of Cosines",
+   "solutionSteps": [
+    "(a) Law of Sines: a/sin A = b/sin B. b = 18 · sin 76° ÷ sin 36°. b ≈ 29.7.",
+    "(b) Law of Sines: a/sin A = b/sin B. b = 10 · sin 102° ÷ sin 34°. b ≈ 17.5.",
+    "(c) Law of Cosines: c² = a² + b² − 2ab·cos C. c² = 13² + 8² − 2(13)(8)cos 37° ≈ 66.88. c ≈ 8.2.",
+    "(d) The given information is SAS: two sides and the included angle are known, so no side is paired with its opposite angle. Start with the Law of Cosines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp2-016",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), you know A = 26°, B = 33°, and a = 5. Which law should you use first to find another part of the triangle?\nJada's answer: Law of Cosines\nIdentify the mistake and give the correct answer.",
+   "answer": "Law of Sines",
+   "solutionSteps": [
+    "Mistake: Jada did not notice that side a is paired with its opposite angle A.",
+    "The given information is AAS: side a is paired with its opposite angle A.",
+    "Start with the Law of Sines.",
+    "The correct answer is Law of Sines, not Law of Cosines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-001",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 25, b = 20, and c = 39. Find angle C to the nearest tenth of a degree.",
+   "answer": "119.7°",
+   "solutionSteps": [
+    "Law of Cosines: cos C = (a² + b² − c²) ÷ (2ab).",
+    "cos C = (25² + 20² − 39²) ÷ (2 · 25 · 20) ≈ -0.4960.",
+    "C = cos⁻¹(−0.4960) ≈ 119.7°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-002",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 10, b = 11, and C = 40°. Find c to the nearest tenth.",
+   "answer": "7.2",
+   "options": [
+    {
+     "text": "52.5",
+     "correct": false
+    },
+    {
+     "text": "14.9",
+     "correct": false
+    },
+    {
+     "text": "19.7",
+     "correct": false
+    },
+    {
+     "text": "7.2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 10² + 11² − 2(10)(11)cos 40° ≈ 52.47.",
+    "c ≈ 7.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-003",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 50°, B = 40°, and c = 16. Find a to the nearest tenth.",
+   "answer": "12.3",
+   "solutionSteps": [
+    "Find the third angle: C = 180° − 50° − 40° = 90°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 16 · sin 50° ÷ sin 90° ≈ 12.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-004",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 9, b = 35, and C = 99°. Find c to the nearest tenth.",
+   "answer": "37.5",
+   "options": [
+    {
+     "text": "1404.6",
+     "correct": false
+    },
+    {
+     "text": "37.5",
+     "correct": true
+    },
+    {
+     "text": "34.7",
+     "correct": false
+    },
+    {
+     "text": "36.1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 9² + 35² − 2(9)(35)cos 99° ≈ 1404.55.",
+    "c ≈ 37.5."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-005",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 31°, B = 95°, and c = 25. Find a to the nearest tenth.",
+   "answer": "15.9",
+   "solutionSteps": [
+    "Find the third angle: C = 180° − 31° − 95° = 54°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 25 · sin 31° ÷ sin 54° ≈ 15.9."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-006",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 90°, a = 27, and b = 25. Find angle B to the nearest tenth of a degree. (Because b < a, angle B is acute.)",
+   "answer": "67.8°",
+   "options": [
+    {
+     "text": "112.2°",
+     "correct": false
+    },
+    {
+     "text": "67.8°",
+     "correct": true
+    },
+    {
+     "text": "83.3°",
+     "correct": false
+    },
+    {
+     "text": "22.2°",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Sines: sin B / b = sin A / a.",
+    "sin B = 25 · sin 90° ÷ 27 ≈ 0.9259.",
+    "B = sin⁻¹(0.9259) ≈ 67.8°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-007",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 38, b = 21, and c = 39. Find angle C to the nearest tenth of a degree.",
+   "answer": "76.8°",
+   "solutionSteps": [
+    "Law of Cosines: cos C = (a² + b² − c²) ÷ (2ab).",
+    "cos C = (38² + 21² − 39²) ÷ (2 · 38 · 21) ≈ 0.2281.",
+    "C = cos⁻¹(0.2281) ≈ 76.8°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-008",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 39, b = 26, and C = 128°. Find c to the nearest tenth.",
+   "answer": "58.7",
+   "options": [
+    {
+     "text": "3445.6",
+     "correct": false
+    },
+    {
+     "text": "30.8",
+     "correct": false
+    },
+    {
+     "text": "58.7",
+     "correct": true
+    },
+    {
+     "text": "46.9",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 39² + 26² − 2(39)(26)cos 128° ≈ 3445.56.",
+    "c ≈ 58.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-009",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 32°, B = 78°, and a = 13. Find b to the nearest tenth.",
+   "answer": "24.0",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 13 · sin 78° ÷ sin 32°.",
+    "b ≈ 24.0."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-010",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A surveyor marks points A and B, 8 m apart, on one bank of a river and sights a tree at point C on the other bank. The angle at A is 69° and the angle at B is 45°. Find the distance from A to the tree to the nearest tenth of a meter.",
+   "answer": "6.2 m",
+   "options": [
+    {
+     "text": "10.3 m",
+     "correct": false
+    },
+    {
+     "text": "6.2 m",
+     "correct": true
+    },
+    {
+     "text": "5.7 m",
+     "correct": false
+    },
+    {
+     "text": "8.2 m",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The angle at C is 180° − 69° − 45° = 66°.",
+    "The distance from A to C is side b, opposite angle B. Law of Sines: b/sin B = c/sin C.",
+    "b = 8 · sin 45° ÷ sin 66° ≈ 6.2 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_application). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-011",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 64°, B = 41°, and a = 7. Find b to the nearest tenth.",
+   "answer": "5.1",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 7 · sin 41° ÷ sin 64°.",
+    "b ≈ 5.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-012",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 36, b = 27, and C = 72°. Find c to the nearest tenth.",
+   "answer": "37.7",
+   "options": [
+    {
+     "text": "37.7",
+     "correct": true
+    },
+    {
+     "text": "51.2",
+     "correct": false
+    },
+    {
+     "text": "1424.3",
+     "correct": false
+    },
+    {
+     "text": "45.0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 36² + 27² − 2(36)(27)cos 72° ≈ 1424.27.",
+    "c ≈ 37.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-013",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 28°, B = 80°, and a = 37. Find b to the nearest tenth.",
+   "answer": "77.6",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 37 · sin 80° ÷ sin 28°.",
+    "b ≈ 77.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-014",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), A = 83°, B = 47°, and c = 6. Find a to the nearest tenth.\nAva's answer: 8.1\nIdentify the mistake and give the correct answer.",
+   "answer": "7.8",
+   "solutionSteps": [
+    "Mistake: Ava paired side c with angle B instead of first finding angle C.",
+    "Find the third angle: C = 180° − 83° − 47° = 50°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 6 · sin 83° ÷ sin 50° ≈ 7.8.",
+    "The correct answer is 7.8, not 8.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-015",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know a = 7, b = 23, and c = 20. Which law should you use first to find another part of the triangle?",
+     "answer": "Law of Cosines"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 25, b = 19, and c = 26. Find angle C to the nearest tenth of a degree.",
+     "answer": "71.0°"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 81°, B = 38°, and c = 21. Find a to the nearest tenth.",
+     "answer": "23.7"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know a = 16, b = 19, and C = 72°. Which law should you use first to find another part of the triangle?",
+     "answer": "Law of Cosines"
+    }
+   ],
+   "answer": "(a) Law of Cosines; (b) 71.0°; (c) 23.7; (d) Law of Cosines",
+   "solutionSteps": [
+    "(a) The given information is SSS: three sides are known and no angle is known. Start with the Law of Cosines.",
+    "(b) Law of Cosines: cos C = (a² + b² − c²) ÷ (2ab). cos C = (25² + 19² − 26²) ÷ (2 · 25 · 19) ≈ 0.3263. C = cos⁻¹(0.3263) ≈ 71.0°.",
+    "(c) Find the third angle: C = 180° − 81° − 38° = 61°. Law of Sines: a/sin A = c/sin C. a = 21 · sin 81° ÷ sin 61° ≈ 23.7.",
+    "(d) The given information is SAS: two sides and the included angle are known, so no side is paired with its opposite angle. Start with the Law of Cosines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-cp1-016",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), a = 20, b = 40, and C = 60°. Find c to the nearest tenth.\nNia's answer: 44.7\nIdentify the mistake and give the correct answer.",
+   "answer": "34.6",
+   "solutionSteps": [
+    "Mistake: Nia used the Pythagorean Theorem, which needs a right angle.",
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 20² + 40² − 2(20)(40)cos 60° ≈ 1200.00.",
+    "c ≈ 34.6.",
+    "The correct answer is 34.6, not 44.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-001",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 30°, B = 99°, and c = 8.1. Find a to the nearest tenth.",
+   "answer": "5.2",
+   "solutionSteps": [
+    "Find the third angle: C = 180° − 30° − 99° = 51°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 8.1 · sin 30° ÷ sin 51° ≈ 5.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-002",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 72°, B = 48°, and c = 23.4. Find a to the nearest tenth.",
+   "answer": "25.7",
+   "options": [
+    {
+     "text": "25.7",
+     "correct": true
+    },
+    {
+     "text": "21.3",
+     "correct": false
+    },
+    {
+     "text": "29.9",
+     "correct": false
+    },
+    {
+     "text": "28.1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Find the third angle: C = 180° − 72° − 48° = 60°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 23.4 · sin 72° ÷ sin 60° ≈ 25.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-003",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 45°, B = 32°, and a = 7.8. Find b to the nearest tenth.",
+   "answer": "5.8",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 7.8 · sin 32° ÷ sin 45°.",
+    "b ≈ 5.8."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-004",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 36°, B = 93°, and c = 20.5. Find a to the nearest tenth.",
+   "answer": "15.5",
+   "options": [
+    {
+     "text": "27.1",
+     "correct": false
+    },
+    {
+     "text": "14.5",
+     "correct": false
+    },
+    {
+     "text": "12.1",
+     "correct": false
+    },
+    {
+     "text": "15.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Find the third angle: C = 180° − 36° − 93° = 51°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 20.5 · sin 36° ÷ sin 51° ≈ 15.5."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-005",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 82°, a = 37.4, and b = 20.5. Find angle B to the nearest tenth of a degree. (Because b < a, angle B is acute.)",
+   "answer": "32.9°",
+   "solutionSteps": [
+    "Law of Sines: sin B / b = sin A / a.",
+    "sin B = 20.5 · sin 82° ÷ 37.4 ≈ 0.5428.",
+    "B = sin⁻¹(0.5428) ≈ 32.9°."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_angle). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-006",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 34, b = 28.3, and C = 26°. Find c to the nearest tenth.",
+   "answer": "15.1",
+   "options": [
+    {
+     "text": "227.3",
+     "correct": false
+    },
+    {
+     "text": "44.2",
+     "correct": false
+    },
+    {
+     "text": "15.1",
+     "correct": true
+    },
+    {
+     "text": "60.7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 34² + 28.3² − 2(34)(28.3)cos 26° ≈ 227.25.",
+    "c ≈ 15.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-007",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 57°, B = 40°, and a = 14.1. Find b to the nearest tenth.",
+   "answer": "10.8",
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 14.1 · sin 40° ÷ sin 57°.",
+    "b ≈ 10.8."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-008",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two ships leave a port at the same time. After an hour one has sailed 31.9 miles and the other 12.1 miles, on courses that form a 33° angle. How far apart are the ships, to the nearest tenth of a mile?",
+   "answer": "22.7 miles",
+   "options": [
+    {
+     "text": "42.6 miles",
+     "correct": false
+    },
+    {
+     "text": "22.7 miles",
+     "correct": true
+    },
+    {
+     "text": "34.1 miles",
+     "correct": false
+    },
+    {
+     "text": "29.0 miles",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The two sides and the included angle are known (SAS), so use the Law of Cosines.",
+    "c² = 31.9² + 12.1² − 2(31.9)(12.1)cos 33° ≈ 516.58.",
+    "c ≈ 22.7 miles."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_application). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-009",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know A = 37°, a = 11.6, and b = 7. Which law should you use first to find another part of the triangle?",
+   "answer": "Law of Sines",
+   "solutionSteps": [
+    "The given information is SSA: side a is paired with its opposite angle A.",
+    "Start with the Law of Sines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-010",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), you know A = 30°, B = 49°, and c = 16.2. Which law should you use first to find another part of the triangle?",
+   "answer": "Law of Sines",
+   "options": [
+    {
+     "text": "Law of Sines",
+     "correct": true
+    },
+    {
+     "text": "Pythagorean Theorem",
+     "correct": false
+    },
+    {
+     "text": "Law of Cosines",
+     "correct": false
+    },
+    {
+     "text": "SOH-CAH-TOA right-triangle ratios",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The given information is ASA: the third angle C can be found and paired with side c.",
+    "Start with the Law of Sines."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_choice). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-011",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 20.4, b = 8.7, and C = 98°. Find c to the nearest tenth.",
+   "answer": "23.3",
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 20.4² + 8.7² − 2(20.4)(8.7)cos 98° ≈ 541.25.",
+    "c ≈ 23.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-012",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 30°, B = 65°, and a = 27.1. Find b to the nearest tenth.",
+   "answer": "49.1",
+   "options": [
+    {
+     "text": "58.7",
+     "correct": false
+    },
+    {
+     "text": "13.2",
+     "correct": false
+    },
+    {
+     "text": "15.0",
+     "correct": false
+    },
+    {
+     "text": "49.1",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Law of Sines: a/sin A = b/sin B.",
+    "b = 27.1 · sin 65° ÷ sin 30°.",
+    "b ≈ 49.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-013",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 17.9, b = 14.9, and C = 25°. Find c to the nearest tenth.",
+   "answer": "7.7",
+   "solutionSteps": [
+    "Law of Cosines: c² = a² + b² − 2ab·cos C.",
+    "c² = 17.9² + 14.9² − 2(17.9)(14.9)cos 25° ≈ 58.98.",
+    "c ≈ 7.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_cosines_side). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-014",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), A = 48°, B = 45°, and c = 10.5. Find a to the nearest tenth.\nOmar's answer: 11.0\nIdentify the mistake and give the correct answer.",
+   "answer": "7.8",
+   "solutionSteps": [
+    "Mistake: Omar paired side c with angle B instead of first finding angle C.",
+    "Find the third angle: C = 180° − 48° − 45° = 87°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 10.5 · sin 48° ÷ sin 87° ≈ 7.8.",
+    "The correct answer is 7.8, not 11.0."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-015",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 71°, B = 79°, and a = 29.3. Find b to the nearest tenth.",
+     "answer": "30.4"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), A = 35°, a = 29.2, and b = 18.8. Find angle B to the nearest tenth of a degree. (Because b < a, angle B is acute.)",
+     "answer": "21.7°"
+    },
+    {
+     "prompt": "A triangular garden has two sides of 31.3 m and 29.5 m that meet at a 112° angle. Find the length of the third side to the nearest tenth of a meter.",
+     "answer": "50.4 m"
+    },
+    {
+     "prompt": "In △ABC (sides a, b, c are opposite angles A, B, C), a = 6.2, b = 20.9, and C = 113°. Find c to the nearest tenth.",
+     "answer": "24.0"
+    }
+   ],
+   "answer": "(a) 30.4; (b) 21.7°; (c) 50.4 m; (d) 24.0",
+   "solutionSteps": [
+    "(a) Law of Sines: a/sin A = b/sin B. b = 29.3 · sin 79° ÷ sin 71°. b ≈ 30.4.",
+    "(b) Law of Sines: sin B / b = sin A / a. sin B = 18.8 · sin 35° ÷ 29.2 ≈ 0.3693. B = sin⁻¹(0.3693) ≈ 21.7°.",
+    "(c) The two sides and the included angle are known (SAS), so use the Law of Cosines. c² = 31.3² + 29.5² − 2(31.3)(29.5)cos 112° ≈ 2541.73. c ≈ 50.4 m.",
+    "(d) Law of Cosines: c² = a² + b² − 2ab·cos C. c² = 6.2² + 20.9² − 2(6.2)(20.9)cos 113° ≈ 576.51. c ≈ 24.0."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_side_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  },
+  {
+   "id": "geo-rt-s11-honors-016",
+   "skillId": "right-triangles-trigonometry-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nIn △ABC (sides a, b, c are opposite angles A, B, C), A = 51°, B = 94°, and c = 10.5. Find a to the nearest tenth.\nNia's answer: 8.2\nIdentify the mistake and give the correct answer.",
+   "answer": "14.2",
+   "solutionSteps": [
+    "Mistake: Nia paired side c with angle B instead of first finding angle C.",
+    "Find the third angle: C = 180° − 51° − 94° = 35°.",
+    "Law of Sines: a/sin A = c/sin C.",
+    "a = 10.5 · sin 51° ÷ sin 35° ≈ 14.2.",
+    "The correct answer is 14.2, not 8.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: law_sines_aas_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Awaiting human review."
+  }
+ ]
+}

@@ -1153,5 +1153,16 @@
   skills["algebra"]["relations-functions"].push("Square-Root and Cube-Root Functions", "Piecewise, Step, and Absolute Value Functions");
   skills["geometry"]["foundations-geometry"].push("Compass-and-Straightedge Constructions");
   skills["geometry"]["area-surface-area-volume"].push("Cross-Sections and Solids of Rotation", "Modeling with Density and Design");
+  // Coverage-gap additions, November 16, 2026 (site audit). Existing skill IDs stay stable.
+  skills["prealgebra"]["linear-functional-relationships"].push("Proportional relationships, unit rate, and slope");
+  skills["prealgebra7"]["ratios-proportions-percentages"].push("Rewriting Expressions in Context");
+  skills["algebra2"]["polynomial-functions"].push("Binomial Theorem and Pascal's Triangle");
+  skills["precalculus"]["functions"].push("Solving Exponential and Logarithmic Equations");
+  skills["calculus"]["fundamental-theorem-calculus"].push("Integration Using Long Division and Completing the Square");
+  skills["statistics"]["statistical-inference"].push("Chi-Square Goodness-of-Fit Tests");
+  skills["statistics"]["statistical-inference"].push("Chi-Square Tests for Homogeneity and Independence");
+  skills["statistics"]["statistical-inference"].push("Significance Tests for the Slope of a Regression Line");
+  skills["geometry"]["right-triangles-trigonometry"].push("Law of Sines and Law of Cosines");
+  skills["geometry"]["foundations-geometry"].push("Conditional Statements, Converses, and Biconditionals");
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);
