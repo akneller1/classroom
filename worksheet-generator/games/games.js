@@ -174,7 +174,6 @@
     var PRESETS = { cp2: [1, 1, 2, 2, 3], cp1: [2, 3, 3, 4, 5], honors: [4, 5, 5, 6, 7], mixed: [1, 2, 4, 5, 7] };
     var NAMES = G.MK_GRADE_GAME_COURSE ? { cp2:'Support',cp1:'Standard',honors:'Advanced',mixed:'Mixed (Support → Advanced)' } : { cp2: 'Support', cp1: 'Standard', honors: 'Advanced', mixed: 'Mixed (100 Support → 500 Advanced)' };
     if (G.MK_GRADE_GAME_COURSE) { PRESETS = {cp2:[1,1,1,2,2],cp1:[2,2,3,3,3],honors:[3,3,4,4,4],mixed:[1,2,2,3,4]}; }
-    if(SET.authoredBank)NAMES.mixed='Mixed (all levels)';
     var S = { preset: saved.preset || 'cp1', teams: saved.teams || ['Team 1', 'Team 2'], score: [], cells: {}, open: null, showOpts: false, showAns: false };
     GB._state = function () { return S; };
     /* one category per skill group; a unit with fewer than three groups gets one category per skill instead */
