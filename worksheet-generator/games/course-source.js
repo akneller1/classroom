@@ -32,5 +32,8 @@ function select(level,ids,n){
 }
 function html(t){return G.MK_MATH_DISPLAY.html(t)}
 function question(q){let h='<div class="prompt">'+html(q.prompt)+'</div>';if(q.diagram?.type==='image')h+='<img style="max-width:100%;max-height:280px" src="../'+q.diagram.spec.src+'" alt="'+String(q.diagram.spec.alt).replace(/"/g,'&quot;')+'">';else if(q._figure)h+=G.MKMENU.figHtml(q._figure);return h}
+/* Generic wrapper pages (course-game, course-activity) get a title naming the game, unit and course. */
+try{const GAME_NAMES={'flashcards':'Flashcards','showdown':'Showdown','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','detective':'Detective','escape-room':'Escape Room'};
+ const g=GAME_NAMES[p.get('game')];if(g&&course&&unit&&/^Classroom Activities\b/.test(G.document.title))G.document.title=unit.name+' '+g+' · '+course.name+" | Mr. K's Classroom";}catch(e){}
 G.MK_COURSE_ACTIVITY_SOURCE={course,unit,courseId,get setId(){return !procedural&&G.MK_QUESTION_BANKS.available(courseId,unit?.id)?(courseId==='algebra'?'algebra1-':courseId+'-')+unit.id:setId},records,select,html,question};
 })(window);
