@@ -70,3 +70,9 @@
 .sheet .el-foot { margin-top: .04in; }
 .sheet .el-foot img { width: .6in; height: .6in; }
 .yc-paper .el-figure img{max-height:.65in}.yc-paper .island{font-size:.68em;padding:.045in .1in}.yc-paper .el-band h1{font-size:1.05em}.yc-paper .el-name{margin:.06in 0}.yc-paper .el-dir{font-size:.65em;margin:.06in 0}.yc-paper .cbn-grid{display:grid;grid-template-columns:repeat(12,1fr);width:4.5in;margin:auto}.yc-paper .cbn-grid>div{height:.29in;border:1px solid #444;text-align:center;font-size:12pt}.yc-paper .pr-sw{display:inline-block;width:.2in;height:.2in;border:1px solid #333;border-radius:50%;flex-shrink:0;print-color-adjust:exact}.yc-board{display:grid;grid-template-columns:repeat(5,1fr);gap:.07in}.yc-board>div{border:2px solid #14173a;border-radius:.12in;text-align:center;padding:.15in}.el-selfcheck{font-size:.7em;border:1px solid #9aa3d6;padding:.08in;margin:.08in 0}.el-selfcheck>div{display:flex;justify-content:space-between;gap:.1in}.yc-paper *{print-color-adjust:exact}
+/* Bound both inline SVG diagrams and external pictures inside maze islands. */
+.yc-paper .el-figure img,.yc-paper .el-figure svg{display:block;max-height:.65in!important;max-width:100%;width:auto;height:auto;object-fit:contain}
+.yc-paper .island{box-sizing:border-box;min-width:0}
+.yc-paper .island>div{min-width:0}
+.yc-paper .cp-bins{display:grid;grid-template-columns:1fr 1fr;gap:.2in}
+.yc-paper .cp-bin{border:2.5px solid #14173a;border-radius:.16in;padding:.08in}
