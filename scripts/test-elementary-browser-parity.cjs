@@ -72,6 +72,7 @@ const server=http.createServer((req,res)=>{
   const student=await browser.newPage(),studentErrors=[];
   student.on('pageerror',e=>studentErrors.push(e.message));
   await student.goto(new URL(url,base).href,{waitUntil:'load'});
+  await student.locator('.kid-big-play').click();
   await student.waitForSelector('.el-stage',{timeout:25000});
   assert.deepEqual(studentErrors,[],'Grade 3 filtered student game errors');
   await student.close();
