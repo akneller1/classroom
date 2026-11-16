@@ -4,7 +4,8 @@ For each new skill: register its name at the end of course-catalog.js (existing 
 stable; the new id is <unit>-skill-NN by catalog order), then append 16 items per level (7 short
 answer, 6 multiple choice, 2 error analysis, 1 four-part open response) to
 question-banks/<course>/<unit>.json, add tags where the course keeps a tags file, and write the
-check data to out/checks.json. Run verify.py afterwards (must print TOTAL ERRORS 0).
+check data to out/checks.json. Statistics also gets one Partner Check pair (two short-answer
+items with matching answers) per new skill and level. Run verify.py afterwards (must print TOTAL ERRORS 0).
 
 Usage: python3 build.py <repo root>
 Re-running is safe: skills that already have questions are skipped.
@@ -146,6 +147,36 @@ def build_skill(course, unit, fns, stds, sidx, prefix, r, used, checks):
     return out, tags
 
 
+def add_partner_pairs(checks):
+    """Statistics Partner Check needs explicit A/B pairs with matching answers: one pair per new skill and level."""
+    course, unit, prefix = "statistics", "statistical-inference", "stat-u4"
+    bp = os.path.join(ROOT, "question-banks", course, unit + ".json")
+    bank, raw = load_json(bp)
+    names = catalog_names(course, unit)
+    used = {q["prompt"] for q in bank["questions"]}
+    added = 0
+    for name, by_level in stat_families.PARTNER_PAIRS.items():
+        sidx = names.index(name) + 1
+        for lv, pair in by_level.items():
+            pid = f"PC-u4-s{sidx:02d}-{lv}"
+            if any(f"Partner Check pair {pid} " in q.get("sourceNotes", "") for q in bank["questions"]):
+                continue
+            assert pair[0][1] == pair[1][1] and pair[0][0] != pair[1][0], pid
+            n = sum(1 for q in bank["questions"] if q["skillId"] == f"{unit}-skill-{sidx:02d}" and q["level"] == lv)
+            for role, (prompt, answer, steps, check) in zip("AB", pair):
+                assert prompt not in used, prompt
+                used.add(prompt)
+                n += 1
+                q = OrderedDict(id=f"{prefix}-s{sidx:02d}-{lv}-{n:03d}", skillId=f"{unit}-skill-{sidx:02d}", level=lv, format="short-answer", prompt=prompt, answer=answer, solutionSteps=steps,
+                                standards=SKILLS[(course, unit, name)]["stds"], sourceNotes=NOTE.format(fam="partner_pair") + f" Partner Check pair {pid} ({role}); both partners' answers must match.", partnerRole=role)
+                bank["questions"].append(q)
+                checks[q["id"]] = dict(check, bank=[course, unit])
+                added += 1
+    if added:
+        dump_json(bp, bank, raw)
+        print(f"{course}/{unit}: + {added} Partner Check items")
+
+
 def main():
     os.makedirs(os.path.join(HERE, "out"), exist_ok=True)
     checks = json.load(open(CHECKS, encoding="utf-8")) if os.path.exists(CHECKS) else {}
@@ -171,6 +202,7 @@ def main():
             tg.update(tags)
             dump_json(tp, tg, traw)
         print(f"{course}/{unit}: skill {sidx:02d} '{name}' + {len(items)} items")
+    add_partner_pairs(checks)
     json.dump(checks, open(CHECKS, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 

@@ -31,10 +31,16 @@ for (const [course, unit, index, name, standard] of SKILLS) {
     assert.strictEqual(record.name, name);
     assert.ok(manifest.banks.some(b => b.courseId === course && b.unitId === unit && (b.approved || b.teacherUse)), 'bank is not published in the manifest');
     const items = bank(course, unit).filter(q => q.skillId === record.id);
-    assert.strictEqual(items.length, 48);
+    const pairs = course === 'statistics' ? 2 : 0; // Statistics adds one Partner Check pair per level
+    assert.strictEqual(items.length, 48 + 3 * pairs);
     for (const level of ['cp2', 'cp1', 'honors']) {
       const set = items.filter(q => q.level === level);
-      assert.strictEqual(set.length, 16, level + ' count');
+      assert.strictEqual(set.length, 16 + pairs, level + ' count');
+      if (pairs) {
+        const pair = set.filter(q => q.partnerRole);
+        assert.deepStrictEqual(pair.map(q => q.partnerRole).sort(), ['A', 'B'], level + ' partner pair');
+        assert.strictEqual(pair[0].answer, pair[1].answer, level + ' partner answers match');
+      }
       assert.ok(set.filter(q => q.format === 'multiple-choice').length >= 6, level + ' multiple choice');
       assert.ok(set.some(q => q.format === 'open-response' && q.parts.length === 4), level + ' open response');
     }
