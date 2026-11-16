@@ -42,5 +42,5 @@ Python 3 with NumPy and SciPy, and Node.
 
 ## Review status
 
-These items are machine-verified but have not been reviewed by a teacher; their `sourceNotes`
-say "Awaiting human review". Update the note when a set has been reviewed.
+The site owner accepted these items as reviewed on 2026-11-16; their `sourceNotes` say
+"Teacher reviewed 2026-11-16". Report any problem found later through the usual question fixes.
