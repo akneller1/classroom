@@ -290,3 +290,13 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-page .mm-q{line-height:1.45}
 
 .mm-page .mm-tq.mm-part-cont{border-top:0;padding-top:0}
+/* Phones: keep generator pages at device width. Grid and flex children must be allowed to
+   shrink so wide tables scroll inside .mm-tablewrap instead of widening the whole page. */
+@media (max-width:640px){
+  .topbar{flex-wrap:wrap;row-gap:6px}
+  .mm-app,.mm-app .card,.mm-view-setup>*,.mm-app section,.mm-app fieldset,.pr-app>*,#prControls{min-width:0;max-width:100%}
+  .pr-app select{max-width:100%}
+  .mm-app .card{overflow-wrap:anywhere}
+  .mm-tablewrap{max-width:100%;-webkit-overflow-scrolling:touch}
+  .mm-sectbl input[type=text]{min-width:0;width:100%}
+}
