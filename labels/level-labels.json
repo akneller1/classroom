@@ -1,5 +1,5 @@
 {
- "decision": "One student-facing label set for every course; teacher-facing labels can stay course-specific. No student ever sees 'Remedial'.",
+ "decision": "One public label set for every course and audience: Support, Standard, Advanced. High-school teacher tools may prefix the track code (CP2 · Support, CP1 · Standard, Honors · Advanced). No student ever sees 'Remedial'. (Changed 2026-11-16 from 'Level 1 · Warm-Up / Level 2 · Core / Level 3 · Challenge' for students, per site audit Fix 7.)",
  "codes": [
   "cp2",
   "cp1",
@@ -7,21 +7,21 @@
  ],
  "studentFacing": {
   "all": {
-   "cp2": "Level 1 · Warm-Up",
-   "cp1": "Level 2 · Core",
-   "honors": "Level 3 · Challenge"
+   "cp2": "Support",
+   "cp1": "Standard",
+   "honors": "Advanced"
   }
  },
  "teacherFacing": {
   "grades1-8": {
    "cp2": "Support",
-   "cp1": "On Level",
-   "honors": "Challenge"
+   "cp1": "Standard",
+   "honors": "Advanced"
   },
   "high-school": {
-   "cp2": "CP2",
-   "cp1": "CP1",
-   "honors": "Honors"
+   "cp2": "CP2 · Support",
+   "cp1": "CP1 · Standard",
+   "honors": "Honors · Advanced"
   },
   "financial-algebra": {
    "cp1": "Standard"

@@ -545,7 +545,7 @@ window.LIBRARY = {
               "title": "Foundations of Algebra Flashcards",
               "path": "artifacts/foundations-algebra-flashcards/index.html",
               "thumb": "thumbs/foundations-algebra-flashcards.jpg",
-              "description": "A fresh deck of foundations of algebra flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of foundations of algebra flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Combining like terms",
@@ -856,7 +856,7 @@ window.LIBRARY = {
               "title": "Solving Equations Flashcards",
               "path": "artifacts/solving-equations-flashcards/index.html",
               "thumb": "thumbs/solving-equations-flashcards.jpg",
-              "description": "A fresh deck of solving equations flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of solving equations flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Multi-step equations",
@@ -1135,7 +1135,7 @@ window.LIBRARY = {
               "title": "Linear Inequalities Flashcards",
               "path": "artifacts/linear-inequalities-flashcards/index.html",
               "thumb": "thumbs/linear-inequalities-flashcards.jpg",
-              "description": "A fresh deck of linear inequalities flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of linear inequalities flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Solving inequalities",
@@ -1356,7 +1356,7 @@ window.LIBRARY = {
               "title": "Relations and Functions Flashcards",
               "path": "artifacts/relations-functions-flashcards/index.html",
               "thumb": "thumbs/relations-functions-flashcards.jpg",
-              "description": "A fresh deck of relations and functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of relations and functions flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Domain and range",
@@ -1707,7 +1707,7 @@ window.LIBRARY = {
               "title": "Linear Functions Flashcards",
               "path": "artifacts/linear-functions-flashcards/index.html",
               "thumb": "thumbs/linear-functions-flashcards.jpg",
-              "description": "A fresh deck of linear functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of linear functions flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Slope",
@@ -2036,7 +2036,7 @@ window.LIBRARY = {
               "title": "Systems of Equations Flashcards",
               "path": "artifacts/systems-flashcards/index.html",
               "thumb": "thumbs/systems-flashcards.jpg",
-              "description": "A fresh deck of systems of equations flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of systems of equations flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Systems of equations",
@@ -2266,7 +2266,7 @@ window.LIBRARY = {
               "title": "Exponents Flashcards",
               "path": "artifacts/exponents-flashcards/index.html",
               "thumb": "thumbs/exponents-flashcards.jpg",
-              "description": "A fresh deck of exponents flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of exponents flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Exponent rules",
@@ -2597,7 +2597,7 @@ window.LIBRARY = {
               "title": "Exponential Functions Flashcards",
               "path": "artifacts/exponential-functions-flashcards/index.html",
               "thumb": "thumbs/exponential-functions-flashcards.jpg",
-              "description": "A fresh deck of exponential functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of exponential functions flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Exponential growth and decay",
@@ -2834,7 +2834,7 @@ window.LIBRARY = {
               "title": "Polynomials Flashcards",
               "path": "artifacts/polynomials-flashcards/index.html",
               "thumb": "thumbs/polynomials-flashcards.jpg",
-              "description": "A fresh deck of polynomials flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of polynomials flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -3138,7 +3138,7 @@ window.LIBRARY = {
               "title": "Factoring Flashcards",
               "path": "artifacts/factoring-zero-product-flashcards/index.html",
               "thumb": "thumbs/factoring-zero-product-flashcards.jpg",
-              "description": "A fresh deck of factoring flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of factoring flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "GCF and grouping",
@@ -3412,7 +3412,7 @@ window.LIBRARY = {
               "title": "Quadratics Flashcards",
               "path": "artifacts/quadratic-practice-flashcards/index.html",
               "thumb": "thumbs/quadratic-practice-flashcards.jpg",
-              "description": "A fresh deck of quadratics flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of quadratics flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Parabolas",
@@ -3634,7 +3634,7 @@ window.LIBRARY = {
               "title": "Statistics Flashcards",
               "path": "artifacts/statistics-data-modeling-flashcards/index.html",
               "thumb": "thumbs/statistics-data-modeling-flashcards.jpg",
-              "description": "A fresh deck of statistics flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of statistics flashcards at Support, Standard or Advanced level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Measures of center and spread",
@@ -7760,7 +7760,7 @@ window.LIBRARY = {
  const course=G.LIBRARY.courses.find(c=>c.id==='prealgebra');if(!course)return;
  course.units.forEach(u=>{
   [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
-   u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course=prealgebra&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/previews/prealgebra/'+u.id+'-'+game+'.png',description:'Choose Grade 8 skills and Remedial, Standard, or Advanced questions.'});
+   u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course=prealgebra&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/previews/prealgebra/'+u.id+'-'+game+'.png',description:'Choose Grade 8 skills and Support, Standard, or Advanced questions.'});
   });
   u.artifacts.push({title:'Vocabulary Activities and Crosswords',path:'worksheet-generator/printables.html#unit=prealgebra-'+u.id+'&kind=vocabulary',type:'Printable',thumb:'thumbs/vocabulary-prealgebra.svg',description:'Matching, fill-in-the-blank, examples, and crosswords using vocabulary from the existing unit cheat sheet.'});
   if(u.id==='linear-functional-relationships')u.artifacts.push({title:'Matching Card Sort',path:'worksheet-generator/printables.html#unit=prealgebra-'+u.id+'&kind=match',type:'Printable',thumb:'thumbs/matching-game-linear-equations-slope.svg',description:'Match linear-function graphs, equations, tables, and descriptions. Print cards or play online.'});
@@ -7777,7 +7777,7 @@ window.LIBRARY = {
   const course=G.LIBRARY.courses.find(c=>c.id===courseId);if(!course)return;
   course.units.forEach(u=>{
    [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
-    u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course='+courseId+'&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(game==='flashcards'?'flashcards':['detective','escape-room'].includes(game)?'showdown':game)+'.jpg',description:'Choose '+label+' skills and Remedial, Standard, or Advanced questions from the approved bank.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+    u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course='+courseId+'&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(game==='flashcards'?'flashcards':['detective','escape-room'].includes(game)?'showdown':game)+'.jpg',description:'Choose '+label+' skills and Support, Standard, or Advanced questions from the approved bank.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    });
    u.artifacts.push({title:'Vocabulary Activities and Crosswords',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind=vocabulary',type:'Printable',thumb:'thumbs/vocabulary-prealgebra.svg',description:'Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
@@ -8030,7 +8030,7 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
 })(window);
 
 /* Reviewed graphing practice, available only where a plotted question bank exists. */
-(function(G){var units={"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:'Build graphs, picture graphs and line plots; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
+(function(G){var units={"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:/^grade[1-5]$/.test(c.id)?'Build picture graphs, bar graphs and line plots; get feedback and worked solutions.':'Plot points, lines and curves on a coordinate grid; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
 
 (function(G){var c=G.LIBRARY.courses.find(c=>c.id==="algebra"),u=c.units.find(u=>u.id==="relations-functions");u.artifacts.push({title:"Function Families Teaching Notes and Card Sort",type:"Teacher Guide",path:"artifacts/content-algebra1-teaching-notes/index.html",level:["CP2","CP1","Honors"],added:"2026-11-15"});})(window);
 

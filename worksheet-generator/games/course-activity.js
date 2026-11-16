@@ -2,7 +2,7 @@
 (async function(G){'use strict';
 await G.MK_ALGEBRA2_NATIVE_READY;
 const source=G.MK_COURSE_ACTIVITY_SOURCE,p=new URLSearchParams(location.search),escape=p.get('game')==='escape-room',kind=escape?'Escape Room':'Detective';
-const app=document.getElementById('app');document.title=(source.unit?.name||'Classroom')+' '+kind;
+const app=document.getElementById('app');document.title=(source.unit?.name||'Classroom')+' '+kind+(source.course?' · '+source.course.name:'')+" | Mr. K's Classroom";
 if(!source.unit){app.textContent='Select a valid course and unit.';return}
 const all=source.records();let ids=all.map(s=>s.id);
 function el(tag,host,text){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;host.appendChild(n);return n}

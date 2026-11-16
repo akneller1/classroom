@@ -84,7 +84,7 @@ def s1_match(r, L):
     order = [0, 1, 2, 3]
     r.shuffle(order)
     good = "ABCD"[order.index(0)]
-    alt = "Four line graphs: " + "; ".join(f"Graph {l}: y = {mx_b(*cands[i])}" for l, i in zip("ABCD", order))
+    alt = "Four graphs on coordinate grids. " + " ".join(f"Graph {l}: {line_alt(*cands[i])}." for l, i in zip("ABCD", order))
     shown = yeq(m, b) if L < 2 else std(-m.numerator, 1, b)
     return P(f"Which graph shows {shown}?", f"Graph {good}", [f"{'Rewrite: y = ' + mx_b(m, b) + '. ' if L == 2 else ''}y-intercept {N(b)}, slope {N(m)}.", f"Graph {good}."],
              options=[(f"Graph {l}", l == good) for l in "ABCD"], chk=chk_py("panel_line", lines=[[N(cands[i][0]), N(cands[i][1])] for i in order], eq=shown),

@@ -256,7 +256,7 @@ def s2_match_graph(r, L):
     r.shuffle(order)
     drawers = [plane_draw(lines=[cands[i]], label_every=2) for i in order]
     good = "ABCD"[order.index(0)]
-    alt = "Four graphs of lines: " + "; ".join(f"Graph {l}: y = {mx_b(*cands[i])}" for l, i in zip("ABCD", order)) + "."
+    alt = "Four graphs on coordinate grids. " + " ".join(f"Graph {l}: {line_alt(*cands[i])}." for l, i in zip("ABCD", order))
     return P(f"Which graph shows y = {mx_b(m, b)}?", f"Graph {good}", [f"The y-intercept is {N(b)} and the slope is {N(m)} ({'rises' if m > 0 else 'falls'} left to right).", f"Graph {good} matches both."],
              options=[(f"Graph {l}", l == good) for l in "ABCD"], chk=chk_py("panel_line", lines=[[N(cands[i][0]), N(cands[i][1])] for i in order], eq=f"y = {mx_b(m, b)}"),
              diagram={"draw": panels_draw(drawers), "alt": alt}, tags=["graph", "multiple-representations"], mode="mc")

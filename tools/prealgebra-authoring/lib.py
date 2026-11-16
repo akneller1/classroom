@@ -124,6 +124,16 @@ def mx_b(m, b, x="x"):
     return lin((m, x), (b, ""))
 
 
+def line_alt(m, b):
+    """Alt text for a drawn line that describes what is seen, not the equation (the equation is often the answer)."""
+    m = F(m)
+    steps = abs(m)
+    unit = "unit" if steps == 1 else "units"
+    move = "rises" if m > 0 else "falls" if m < 0 else "stays level"
+    tail = f" {N(steps)} {unit} for every 1 unit to the right" if m != 0 else ""
+    return f"a straight line that crosses the y-axis at {N(b)} and {move}{tail}"
+
+
 def pt(a, b):
     return f"({N(a)}, {N(b)})"
 

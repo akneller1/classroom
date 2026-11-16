@@ -70,6 +70,15 @@ def s1_ratio(r, L):
 # ============================================================== S2 Graphing Nonlinear Functions
 NL = [("y = x²", lambda x: x * x), ("y = -x²", lambda x: -x * x), ("y = |x|", lambda x: abs(x)), ("y = x² - 3", lambda x: x * x - 3), ("y = x³", lambda x: x ** 3), ("y = 2|x| - 1", lambda x: 2 * abs(x) - 1)]
 
+# Alt text describes each curve's shape, never its equation (the equation is the answer).
+NL_ALT = {
+    "y = x²": "a U-shaped curve opening up with its turning point at (0, 0)",
+    "y = -x²": "a U-shaped curve opening down with its turning point at (0, 0)",
+    "y = |x|": "a V shape opening up with its point at (0, 0); each side moves 1 unit up for every 1 unit away from the y-axis",
+    "y = x² - 3": "a U-shaped curve opening up with its turning point at (0, -3)",
+    "y = x³": "an S-shaped curve through (0, 0) that rises from lower left to upper right, flattening near the origin",
+    "y = 2|x| - 1": "a V shape opening up with its point at (0, -1); each side moves 2 units up for every 1 unit away from the y-axis",
+}
 
 @fam("012")
 def s2_table(r, L):
@@ -94,7 +103,7 @@ def s2_choose(r, L):
     ans_i = r.randrange(4)
     f = NL[idx[ans_i]][0]
     labs = "ABCD"
-    alt = "Four graphs. " + " ".join(f"Graph {labs[k]}: {NL[i][0]}." for k, i in enumerate(idx))
+    alt = "Four graphs on coordinate grids. " + " ".join(f"Graph {labs[k]}: {NL_ALT[NL[i][0]]}." for k, i in enumerate(idx))
     drawers = []
     for i in idx:
         fn = NL[i][1]

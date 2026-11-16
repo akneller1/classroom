@@ -22,6 +22,8 @@
   var filters = {};
   var focusKey = null;
   var firstRender = true;
+  /* The server-rendered homepage title carries the search keywords; keep it on the home route. */
+  var HOME_TITLE = (function () { try { var t = document.title; return t && t !== L.title ? t : ''; } catch (e) { return ''; } })();
   var ignoreHash = false;
   var saved = loadSaved();
   L.courses.forEach(function(c){c.units.forEach(function(u){u.artifacts.forEach(function(a){if((a.legacyPaths||[]).some(function(path){return saved.indexOf(path)>=0;})&&saved.indexOf(a.path)<0)saved.push(a.path);});});});
@@ -545,7 +547,7 @@
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           (activityFormat(a) === 'interactive-math' ? '<a class="btn btn-ghost" href="' + esc(presentationUrl(a)) + '" aria-label="Present ' + esc(a.title) + ' to the class">▣ Present</a>' : '') +
-          (/asteroid-blaster\.html\?/i.test(a.path || '') ? '<a class="btn btn-ghost" href="' + esc(activityUrl(a) + '&share=1') + '">Copy student link</a>' : '') +
+          
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
         '<a class="report-problem" href="' + esc(reportUrl(a)) + '">Report a problem<span class="sr"> with ' + esc(a.title) + ' — choose an email application</span></a>' +
       '</div></li>';
@@ -1152,7 +1154,9 @@
     var cards = courses.map(function (c) {
       var current = r && r.c && r.c.id === c.id;
       var soon = c.comingSoon || c.planned;
-      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + (c.sourceUrl || href(courseToken(c))) + '"' +
+      /* Real, crawlable links to the static course pages; clicks stay in the app (see courseNavClick). */
+      var link = soon || c.homePlaceholder ? (c.sourceUrl || href(courseToken(c))) : 'u/' + encodeURIComponent(c.id) + '/';
+      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + esc(link) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
         artFor(c) + '<span class="course-nav-description">' + esc(COURSE_CARD_DESCRIPTIONS[c.id] || c.blurb || '') + '</span>' +
@@ -1188,7 +1192,7 @@
     else view = notFoundView();
 
     app.innerHTML = view.html;
-    try { document.title = view.title === L.title ? L.title : view.title + ' | ' + L.title; } catch (e) {}
+    try { document.title = (!query && r.name === 'home' && HOME_TITLE) ? HOME_TITLE : view.title === L.title ? L.title : view.title + ' | ' + L.title; } catch (e) {}
     updateNav(query ? null : r);
 
     if (focusKey) {
@@ -1318,6 +1322,16 @@
   });
   function sessionStorageGet() { try { return sessionStorage.getItem('mk-nav') === '1'; } catch (e) { return false; } }
   window.addEventListener('hashchange', function () { try { sessionStorage.setItem('mk-nav', '1'); } catch (e) { /* ignore */ } });
+  /* Course cards link to /u/<course>/ for search engines and new tabs; a plain click opens the course in the app. */
+  document.addEventListener('click', function courseNavClick(e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest && e.target.closest('a.course-nav-card[data-course]');
+    if (!a || !/^u\//.test(a.getAttribute('href') || '')) return;
+    var c = L.courses.filter(function (x) { return x.id === a.getAttribute('data-course'); })[0];
+    if (!c) return;
+    e.preventDefault();
+    location.hash = href(courseToken(c)).slice(1);
+  });
   q.addEventListener('input', function () {
     query = q.value.trim();
     filters = {};

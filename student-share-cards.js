@@ -56,21 +56,24 @@
   function enhanceCards() {
     document.querySelectorAll('#main .card[data-path]').forEach(function (card) {
       var path = card.getAttribute('data-path');
-      if (!eligible[path] || card.querySelector('.share-student')) return;
+      /* One share control per card: Practice Test cards already carry their own setup button. */
+      if (!eligible[path] || card.querySelector('.share-student, .readiness-activity-share')) return;
       var actions = card.querySelector('.actions');
       if (!actions) return;
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'btn btn-ghost share-student';
-      button.textContent = 'Copy student link';
-      button.setAttribute('aria-label', 'Copy student link for ' +
+      /* Games that need skills chosen first open a setup page; say so instead of promising a copy. */
+      var opensSetup = /^(artifacts\/postit-games\/|worksheet-generator\/asteroid-blaster\.html\?)/i.test(path);
+      button.textContent = opensSetup ? 'Set up student link' : 'Copy student link';
+      button.setAttribute('aria-label', (opensSetup ? 'Set up student link for ' : 'Copy student link for ') +
         (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'activity'));
       var resource = eligible[path];
       if (resource.courseId === 'grade5' && (resource.type === 'Project' || /[?&]game=fraction-frenzy(?:&|$)/.test(resource.path))) {
         var select = document.createElement('select');
         select.className = 'student-share-level';
         select.setAttribute('aria-label', 'Student difficulty for ' + resource.title);
-        [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function (entry) {
+        [['cp2','Support'],['cp1','Standard'],['honors','Advanced']].forEach(function (entry) {
           var option = document.createElement('option');
           option.value = entry[0]; option.textContent = entry[1];
           if (entry[0] === 'cp1') option.selected = true;

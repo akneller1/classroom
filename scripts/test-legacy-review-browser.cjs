@@ -54,12 +54,12 @@ const assert=require('node:assert/strict');
   // Existing direct-access resources remain preserved, but not linked here.
   await page.goto(coursePage+'/index.html#prealgebra7.algebraic-expressions-integers');
   assert.ok(await page.locator('script[src^="skill-crosswalk.js"]').count()>0);
-  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
+  assert.equal(await page.locator('#nav a.course-nav-card[data-course="prealgebra7"][href="u/prealgebra7/"]').count(),1);
   assert.equal(await page.locator('a[href*="approved-flashcards.html?course=prealgebra7"]').count(),0);
   // Approved course-bank players are checked in the integration workflows.
   // Resource-specific player tests run separately from visibility checks.
   await page.setViewportSize({width:375,height:812});
-  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
+  assert.equal(await page.locator('#nav a.course-nav-card[data-course="prealgebra7"][href="u/prealgebra7/"]').count(),1);
   assert.equal(errors.length,0,errors.join('; '));
   console.log('PASS real browser course/skill selection, generated questions, reviewer notes, JSON download and mobile viewport');
  }finally{await browser.close()}
