@@ -1050,10 +1050,19 @@
   }
 
 
+  /* Fold simple plurals so "inequality" finds "inequalities" and "quadratics" finds "quadratic". */
+  function searchStem(w) {
+    if (w.length > 4 && /ies$/.test(w)) return w.slice(0, -3) + 'y';
+    if (w.length > 3 && /[^su]s$/.test(w) && !/is$/.test(w)) return w.slice(0, -1);
+    return w;
+  }
   function searchWords(text) {
     return String(text || '').toLowerCase().replace(/flash\s+cards/g, 'flashcards')
       .replace(/connect\s*(?:four|4)/g, 'connect4').replace(/algebra\s*1/g, 'algebra1')
-      .replace(/algebra\s*2/g, 'algebra2').replace(/[^a-z0-9]+/g, ' ').trim();
+      .replace(/algebra\s*2/g, 'algebra2')
+      /* "unit 4" is one token, closed with "u" so it cannot match "unit 41" or "Connect 4". */
+      .replace(/\bunit\s*(\d+)\b/g, 'unit$1u')
+      .replace(/[^a-z0-9]+/g, ' ').trim().split(' ').map(searchStem).join(' ');
   }
   function searchView(text) {
     var terms = searchWords(text).split(/\s+/).filter(Boolean);
