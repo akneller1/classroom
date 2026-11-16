@@ -1988,3 +1988,10 @@ body { background:var(--paper); }
 .card > .card-body { flex: 1 0 auto; }
 .card .actions { flex-shrink: 0; min-width: 0; }
 .card .actions > .btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
+/* Home: quick course picker for phones (the course list sits below the task cards there). */
+.home-course-pick { display:none; }
+@media (max-width:700px) {
+  .home-course-pick { display:grid; gap:.35rem; margin:.2rem 0 1.1rem; font-weight:700; }
+  .home-course-pick select { width:100%; min-height:2.9rem; padding:.55rem .7rem; font:inherit; font-weight:600; border:2px solid var(--line); border-radius:12px; background:var(--card, #fff); color:inherit; }
+}
