@@ -54,3 +54,7 @@ test('both main page and Financial Algebra page load the skill chooser before us
  assert.match(read('student-share-cards.js'),/MK_INTEGRATED_STUDENT_SHARE\.open\(resource\)/);
  assert.match(read('financial/classroom-site.mjs'),/MK_INTEGRATED_STUDENT_SHARE\.open\(resource\)/);
 });
+test('Financial Algebra student links offer a level, like Grades 1-5',()=>{
+ const src=read('integrated-student-share.js');
+ assert.match(src,/if\(\/\^grade\[1-5\]\$\/\.test\(resource\.courseId\)\|\|resource\.courseId==='financial-algebra'\)\{   \/\/ Financial Algebra has three levels/);
+});
