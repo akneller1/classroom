@@ -314,6 +314,58 @@
     else if (/^geo-right-radical-/.test(v) && st.length < 2) add(/-45-/.test(v) ? 'In a 45°-45°-90° triangle the sides are in the ratio 1 : 1 : √2, so the hypotenuse is a leg times √2 (and a leg is the hypotenuse ÷ √2).' : 'In a 30°-60°-90° triangle the sides are in the ratio 1 : √3 : 2: the long leg is the short leg times √3 and the hypotenuse is twice the short leg.');
     else if (/^geo-ssa-/.test(v) && st.length < 2) add('Answer: ' + a + '.', st.length);
   }
+  /* Difficulty tiers for core Geometry skills (audit #1, 2026-11-17). At difficulty 3 and up, a one-unknown problem whose
+     unknown measure is printed as a bare x gets that measure as an expression instead: (2x + 3) at 3–5, (7x − 12) at 6–7.
+     The original problem is kept in p.tier.orig; the verifier checks the original independently and checks that the
+     tiered text, figure and equation are exactly the original with x replaced by the expression. */
+  var TIER_KEEP = /(Find|find|for|value of|Let|let|Solve|solve|where|Write) x\b|\bx (represents?|is the|be the)\b/g;
+  function tierSub(str, E) {
+    var keep = [], s = String(str).replace(TIER_KEEP, function (w) { keep.push(w); return '\u0001' + (keep.length - 1) + '\u0002'; }), n = 0;
+    var bad = 0;
+    s = s.replace(/(^|[^A-Za-z0-9_\\])x(?![A-Za-z0-9_²^(\-′])/g, function (w, pre, at, all) { n++; var sent = all.slice(0, at).split(/[.?!]\s/).pop(); if (/\b(Find|find|What|what|Count|count|called|Determine|determine)\b/.test(sent)) bad++; return pre + E; });
+    s = s.replace(/\u0001(\d+)\u0002/g, function (w, i) { return keep[+i]; });
+    return { s: s, n: n, bad: bad };
+  }
+  function deepSub(o, E, cnt) {
+    if (typeof o === 'string') { if (/^\(?x\)?(°| cm| in\.| ft| m| mm| units?)?$/.test(o)) { cnt.n++; return o.replace(/^\(?x\)?/, E); } return o; }
+    if (Array.isArray(o)) return o.map(function (v) { return deepSub(v, E, cnt); });
+    if (o && typeof o === 'object') { var r = {}; Object.keys(o).forEach(function (k) { r[k] = deepSub(o[k], E, cnt); }); return r; }
+    return o;
+  }
+  NS.TIER_FIND = /Find x, (the|its) ([^.,]+?)(?: in (degrees|centimeters|inches|feet|meters|units|square [a-z]+|cubic [a-z]+))?((?:,[^.]*)?)\./;
+  var ALGEBRAIC = /\d\s*x\b|\bx\s*[+−\-*/^²]|[+−*/(]\s*x\b|\\frac\{[^}]*x/;
+  NS.geoTier = function (p, skillId, c, rng) {
+    if (!p || c < 3 || !p.parts || p.parts.length !== 1 || p.tier) return p;
+    var pt = p.parts[0], ck = pt.check, v = p.variant || '';
+    if (!ck || ck.type !== 'solve' || ck.v !== 'x' || /investigation|honors|-xt$/.test(v) || /greatest|least|smallest|largest|INTEGER|how many|number of/i.test(p.prompt || '') || /\bx, (the|which|in|of)\b|\bx (in|as) /.test(p.prompt || '') || /x\^|x\*x/.test(ck.eq || '')) return p;
+    var am = /^⟨x=(\d+)⟩$/.exec(String(pt.answer || '')); if (!am) return p;
+    var N = +am[1], figJ = p.fig ? JSON.stringify(p.fig) : '';
+    if (ALGEBRAIC.test(String(p.prompt || '').replace(/⟨|⟩/g, ' ')) || ALGEBRAIC.test(figJ) || (p.work || []).some(function (w) { return ALGEBRAIC.test(w); })) return p;
+    var a, b, X, tries = 0;
+    do { a = c <= 5 ? rng.int(2, c === 3 ? 3 : 5) : rng.int(3, 9); X = rng.int(2, c <= 5 ? 15 : 25); b = N - a * X; tries++; }
+    while ((b === 0 || Math.abs(b) > (c <= 5 ? 40 : 90) || (c <= 3 && b < 0)) && tries < 40);
+    if (b === 0 || Math.abs(b) > 90 || X < 1) return p;
+    var E = '(' + a + 'x ' + (b < 0 ? '−' : '+') + ' ' + Math.abs(b) + ')', Et = '(' + a + 'x' + (b < 0 ? '-' : '+') + Math.abs(b) + ')', Eq = '(' + a + '*x' + (b < 0 ? '-' : '+') + Math.abs(b) + ')';
+    if (/lines of symmetry/.test(p.prompt || '')) return p;
+    var fr = 0, pre0 = String(p.prompt || '').replace(NS.TIER_FIND, function (w, the, what, unit, rest) { fr++; return the.charAt(0).toUpperCase() + the.slice(1) + ' ' + what + ' is ' + E + (unit ? ' ' + unit : '') + '. Find x' + (rest || '') + '.'; });
+    if (fr > 1 || (fr === 0 && /\b[Ff]ind x,/.test(pre0))) return p;
+    var pr = tierSub(pre0, E); pr.n += fr; var cnt = { n: 0 }, fig = p.fig ? deepSub(p.fig, E, cnt) : p.fig, eq = tierSub(ck.eq, Eq);
+    if (pr.n + cnt.n < 1 || eq.n < 1 || pr.bad) return p;
+    if (fig && NS.geoFigures && NS.geoFigures.owns(fig) && !NS.geoFigures.check(fig).ok) return p;
+    var orig = JSON.parse(JSON.stringify(p)), q = JSON.parse(JSON.stringify(p));
+    q.prompt = pr.s; if (fig) q.fig = fig;
+    if (q.work) q.work = q.work.map(function (w) { return tierSub(w, Et).s; });
+    if (q.flashcardPrompt) q.flashcardPrompt = tierSub(q.flashcardPrompt, E).s;
+    q.parts[0].answer = '⟨x=' + X + '⟩'; q.parts[0].check = { type: 'solve', eq: eq.s, v: 'x' };
+    if (/Find x\b|find x\b|Solve for x|solve for x/.test(q.prompt) === false) q.prompt += ' Find x.';
+    q.steps = (p.steps || []).map(function (st) { return { t: tierSub(st.t || '', E).s, m: st.m ? tierSub(st.m, Et).s : '', w: st.w }; });
+    q.steps.unshift({ t: 'The unknown measure is written as ' + E + '. Set up the same relationship with this expression.', m: '', w: 1 });
+    q.steps.push({ t: 'So ' + a + 'x ' + (b < 0 ? '−' : '+') + ' ' + Math.abs(b) + ' = ' + N + '. Solve for x.', m: 'x=' + X, w: 1 });
+    q.steps.push({ t: 'Check: ' + a + '(' + X + ') ' + (b < 0 ? '−' : '+') + ' ' + Math.abs(b) + ' = ' + N + '.', m: '', w: 1 });
+    q.variant = v + '-xt'; q.tier = { orig: orig, E: E, Eq: Eq, a: a, b: b };
+    q.space = (p.space || [1, 1.3, 1.6]).map(function (z) { return z + 0.4; });
+    return q;
+  };
   NS.generateProblem = function (setId, skillId, c, policy, seed, used) {
     var set = sets[setId], sk = set && set.byId[skillId];
     if (!sk) return { failed: true, reason: 'Unknown skill ' + skillId };
@@ -323,7 +375,7 @@
       var rng = WS.rng.make(WS.rng.hash([seed, skillId, c, attempt].join('|')));
       var ctx = { rng: rng, c: c, intOnly: policy.intOnly, level: policy.level, compact: !!policy.compact };
       var p;
-      try { p = sk.generate(ctx); if (p && /^geometry-/.test(setId)) p = NS.geoWording(p, skillId); }
+      try { p = sk.generate(ctx); if (p && /^geometry-/.test(setId)) { p = NS.geoWording(p, skillId); if (!policy.noTier) { var tq = NS.geoTier(p, skillId, c, rng); if (tq !== p && NS.verifyProblem(tq, policy).ok) p = tq; } } }
       catch (e) {
         if (e && e.isReject) { NS.stats.rejectedByGenerator++; lastReason = e.message; continue; }
         // A generator bug must never crash the page or slip through: count it, report it, try again.
