@@ -283,6 +283,54 @@
   });
 
   (function(){var parent=skills.find(function(s){return s.id==="pow-eval";});if(parent)skill({id:"rational-exponents",best:parent.best,tag:parent.tag,name:"Evaluate rational exponents",blurb:"Evaluate powers with fractional exponents using nth roots.",difficultyProfile:'focused',fixedDifficulty:6,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:6}));}});})();
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'pow-error', best: [1, 2], tag: 'PRODUCT', name: 'Find and fix the mistake (exponent rules)',
+    blurb: 'Multiplying exponents in a product, adding coefficients (CP2) → adding exponents for a power of a power, not raising the coefficient (CP1) → negative exponents and powers of quotients (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), L = letters(r), x = L[0], y = L[1], orig, lines, why, cf, ex = {};
+      if (c === 1) {
+        var k = r.int(2, 6), m = r.int(2, 6), a = r.int(2, 5), b = r.int(2, 5); need(a * b !== a + b);
+        orig = mono(k, [[x, a]]) + '\\cdot ' + mono(m, [[x, b]]); cf = k * m; ex[x] = a + b;
+        lines = [simp(k * m, { [x]: a * b }, [x])]; why = 'multiplied the exponents (when you multiply powers with the same base, add the exponents)';
+      } else if (c === 2) {
+        var k2 = r.int(2, 6), m2 = r.int(2, 6), a2 = r.int(1, 5), b2 = r.int(2, 5), e2 = r.int(2, 4), f2 = r.int(1, 4); need(k2 * m2 !== k2 + m2);
+        orig = paren(mono(k2, [[x, a2], [y, e2]])) + paren(mono(m2, [[x, b2], [y, f2]])); cf = k2 * m2; ex[x] = a2 + b2; ex[y] = e2 + f2;
+        lines = [simp(k2 + m2, ex, [x, y])]; why = 'added the coefficients ' + M(k2) + ' and ' + M(m2) + ' (multiply them: ' + M(k2 + '\\cdot ' + m2 + '=' + k2 * m2) + ')';
+      } else if (c === 3) {
+        var a3 = r.int(2, 5), b3 = r.int(2, 4), e3 = r.int(1, 6); need(a3 * b3 !== a3 + b3);
+        orig = paren(vpow(x, a3)) + '^{' + b3 + '}\\cdot ' + vpow(x, e3); cf = 1; ex[x] = a3 * b3 + e3;
+        lines = [vpow(x, a3 + b3) + '\\cdot ' + vpow(x, e3), vpow(x, a3 + b3 + e3)]; why = 'added the exponents for a power of a power (multiply them: ' + M(a3 + '\\cdot ' + b3 + '=' + a3 * b3) + ')';
+      } else if (c === 4) {
+        var k4 = r.int(2, 5), a4 = r.int(2, 5), n4 = r.pick([2, 3]); need(Math.pow(k4, n4) !== k4 * n4);
+        orig = paren(mono(k4, [[x, a4]])) + '^{' + n4 + '}'; cf = Math.pow(k4, n4); ex[x] = a4 * n4;
+        if (r.chance(0.5)) { lines = [simp(k4, ex, [x])]; why = 'raised only ' + M(vpow(x, a4)) + ' to the power (the coefficient ' + M(k4) + ' must be raised to the ' + (n4 === 2 ? 'second' : 'third') + ' power too)'; }
+        else { lines = [k4 + '^{' + n4 + '}' + vpow(x, a4 * n4), simp(k4 * n4, ex, [x])]; why = 'multiplied ' + M(k4 + '\\cdot ' + n4) + ' instead of finding ' + M(k4 + '^{' + n4 + '}=' + Math.pow(k4, n4)); }
+      } else if (c === 5) {
+        var m5 = r.int(2, 4), q5 = r.int(2, 5), a5 = r.int(4, 8), b5 = r.int(1, a5 - 1), f5 = r.int(3, 7), e5 = r.int(1, f5 - 1);
+        orig = '\\frac{' + mono(m5 * q5, [[x, a5], [y, e5]]) + '}{' + mono(m5, [[x, b5], [y, f5]]) + '}'; cf = q5; ex[x] = a5 - b5; ex[y] = e5 - f5;
+        lines = [mono(q5, [[x, a5 - b5], [y, e5 - f5]]), mono(q5, [[x, a5 - b5], [y, f5 - e5]])];
+        why = 'dropped the negative sign of the exponent (a factor with a negative exponent moves to the denominator with a positive exponent)';
+      } else if (c === 6) {
+        var k6 = r.int(2, 7), a6 = r.int(3, 8), b6 = r.int(1, a6 - 1);
+        orig = mono(k6, [[x, -a6]]) + '\\cdot ' + vpow(x, b6); cf = k6; ex[x] = b6 - a6;
+        lines = [mono(k6, [[x, b6 - a6]]), '\\frac{1}{' + mono(k6, [[x, a6 - b6]]) + '}'];
+        why = 'moved the coefficient ' + M(k6) + ' to the denominator (only the power with the negative exponent moves)';
+      } else {
+        var k7 = r.int(2, 5), a7 = r.int(1, 4), b7 = r.int(1, 4);
+        orig = paren('\\frac{' + mono(k7, [[x, a7]]) + '}{' + vpow(y, b7) + '}') + '^{-2}'; cf = F(1, k7 * k7); ex[x] = -2 * a7; ex[y] = 2 * b7;
+        lines = [paren('\\frac{' + vpow(y, b7) + '}{' + mono(k7, [[x, a7]]) + '}') + '^{2}', '\\frac{' + vpow(y, 2 * b7) + '}{' + mono(k7, [[x, 2 * a7]]) + '}'];
+        why = 'did not square the coefficient ' + M(k7) + ' (it should be ' + M(k7 + '^{2}=' + k7 * k7) + ')';
+      }
+      var C = NS.check, first = 0, fix = simp(cf, ex, [x, y]); lines.forEach(function (ln, i) { if (!first && !C.equivalent(orig, ln)) first = i + 1; }); need(first > 0);
+      return K.errorProblem({ variant: 'pow-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' simplified ' + M(orig) + ' like this:',
+        checkA: { type: 'expr-error-line', expr: orig, lines: lines },
+        promptB: 'Simplify the expression correctly. Use positive exponents only.', answerB: M(fix), checkB: { type: 'pow-simplify', expr: orig },
+        steps: [step('Correct simplified form:', fix, 3)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponents-scientific-notation', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponents-exponential-functions', unitName: 'Exponents and Scientific Notation',
     title: 'The Power Pantry',

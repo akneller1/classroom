@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Center and Spread Explorer · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+/* Center and Spread Explorer (2026-11-17, Algebra 1 audit #20): drag the values of a dot plot and watch the mean,
+   median, quartiles, IQR, range and standard deviation change. Quartiles use the same method as the generators:
+   the median of each half, leaving out the overall median when n is odd. */
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({ course: 'Algebra 1', unit: 'Statistics and Data Modeling', title: 'Center and Spread Explorer', intro: 'Drag the dots left or right. Watch how the mean, the median, the box plot and the standard deviation respond, and find out which measures an outlier pulls.' });
+var BASE = [3, 5, 6, 7, 7, 8, 9, 10, 12];
+var st = { vals: BASE.slice(), showMean: true, showBox: true, showSd: false, outlier: false, seen: {} };
+var g = L.graph(P.stage, { xmin: -0.5, xmax: 20.5, ymin: -4.2, ymax: 8.5, width: 640, height: 420, xstep: 1, ystep: 1, xlabelStep: 2, noYAxis: true, label: 'Dot plot of the data with a box plot below it' });
+L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>data (drag the dots)</span><span><i style="background:var(--orange)"></i>mean</span><span><i style="background:var(--green)"></i>median and box plot</span><span><i style="background:var(--purple)"></i>mean ± 1 standard deviation</span>');
+L.h('p', { class: 'sub', style: 'margin:4px 6px 0' }, P.stage, 'Points scored by a basketball player in each game.');
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var row = L.h('div', { class: 'btn-row' }, P.panel);
+var bMean = L.button(row, 'Hide mean', function () { st.showMean = !st.showMean; bMean.textContent = st.showMean ? 'Hide mean' : 'Show mean'; draw(); });
+var bBox = L.button(row, 'Hide box plot', function () { st.showBox = !st.showBox; bBox.textContent = st.showBox ? 'Hide box plot' : 'Show box plot'; draw(); }, true);
+var bSd = L.button(row, 'Show ± 1 SD', function () { st.showSd = !st.showSd; bSd.textContent = st.showSd ? 'Hide ± 1 SD' : 'Show ± 1 SD'; draw(); }, true);
+var row2 = L.h('div', { class: 'btn-row' }, P.panel);
+L.button(row2, 'Add a game', function () { if (st.vals.length < 16) st.vals.push(10); draw(); }, true);
+L.button(row2, 'Remove a game', function () { if (st.vals.length > 3) st.vals.pop(); draw(); }, true);
+L.button(row2, 'Add an outlier', function () { if (!st.outlier) { st.vals.push(20); st.outlier = true; } draw(); }, true);
+L.button(row2, 'Reset', function () { st.vals = BASE.slice(); st.outlier = false; draw(); }, true);
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Drag one dot so the <b>mean is greater than the median</b>. Which way did you move it?', check: function () { return st.seen.skewR; } },
+  { text: 'Make the mean and the median <b>both equal 10</b>.', check: function () { return st.seen.both10; } },
+  { text: 'Add the outlier. Which changes more, the mean or the median? The range or the IQR?', check: function () { return st.outlier && st.showMean && st.showBox; } },
+  { text: 'Make the standard deviation <b>less than 1</b>. What do the dots look like?', check: function () { return st.seen.sd1; } },
+  { text: 'Keep the median at 7 but make the <b>range at least 15</b>.', check: function () { return st.seen.range15; } }
+]);
+function med(a) { var n = a.length, m = Math.floor(n / 2); return n % 2 ? a[m] : (a[m - 1] + a[m]) / 2; }
+function summary(vals) {
+  var a = vals.slice().sort(function (x, y) { return x - y; }), n = a.length, h = Math.floor(n / 2), mean = 0;
+  a.forEach(function (v) { mean += v; }); mean /= n;
+  var ss = 0; a.forEach(function (v) { ss += (v - mean) * (v - mean); });
+  return { n: n, mean: mean, median: med(a), q1: med(a.slice(0, h)), q3: med(a.slice(n % 2 ? h + 1 : h)), min: a[0], max: a[n - 1], sd: Math.sqrt(ss / n) };
+}
+var draw = L.scheduler(function () {
+  var S = summary(st.vals), stack = {};
+  g.clear();
+  if (st.showSd) g.rect(Math.max(-0.5, S.mean - S.sd), 0, Math.min(20.5, S.mean + S.sd) - Math.max(-0.5, S.mean - S.sd), 8.3, { fill: 'purple', opacity: 0.12 });
+  if (st.showMean) { g.line(S.mean, 0, S.mean, 8.3, { color: 'orange', width: 3, dash: '6 5' }); g.text(S.mean, 8, 'mean ' + L.num(S.mean, 2), { anchor: 'middle', color: 'orange', dy: -4 }); }
+  if (st.showBox) {
+    var y0 = -3.4, y1 = -1.4, ym = (y0 + y1) / 2;
+    g.line(S.min, ym, S.q1, ym, { color: 'green', width: 3 }); g.line(S.q3, ym, S.max, ym, { color: 'green', width: 3 });
+    g.rect(S.q1, y0, S.q3 - S.q1, y1 - y0, { fill: 'green', opacity: 0.15, stroke: 'green', strokeWidth: 3 });
+    g.line(S.median, y0, S.median, y1, { color: 'green', width: 4 }); g.line(S.min, y0 + 0.5, S.min, y1 - 0.5, { color: 'green', width: 3 }); g.line(S.max, y0 + 0.5, S.max, y1 - 0.5, { color: 'green', width: 3 });
+  }
+  st.vals.forEach(function (v, i) {
+    var k = stack[v] = (stack[v] || 0) + 1;
+    g.handle(v, k - 0.4, { color: 'blue', r: 9, snap: 1, label: 'Game ' + (i + 1) + ': ' + v + ' points', onDrag: function (x) { st.vals[i] = Math.max(0, Math.min(20, Math.round(x))); draw(); } });
+  });
+  if (S.mean > S.median + 1e-9) st.seen.skewR = true;
+  if (Math.abs(S.mean - 10) < 1e-9 && S.median === 10) st.seen.both10 = true;
+  if (S.sd < 1) st.seen.sd1 = true;
+  if (S.median === 7 && S.max - S.min >= 15) st.seen.range15 = true;
+  read.innerHTML = '<span class="c-orange">Mean = ' + L.num(S.mean, 2) + '</span> &nbsp; <span class="c-green">Median = ' + L.num(S.median, 2) + '</span>';
+  info.innerHTML = '<dt>Number of values</dt><dd>' + S.n + '</dd>' +
+    '<dt>Five-number summary</dt><dd>' + [S.min, S.q1, S.median, S.q3, S.max].map(function (v) { return L.num(v, 2); }).join(', ') + '</dd>' +
+    '<dt>IQR = Q3 − Q1</dt><dd>' + L.num(S.q3 - S.q1, 2) + '</dd>' +
+    '<dt>Range = max − min</dt><dd>' + L.num(S.max - S.min, 2) + '</dd>' +
+    '<dt>Standard deviation (σ)</dt><dd>' + L.num(S.sd, 2) + '</dd>';
+  ch.update();
+});
+draw();
+})();
+</script>
+</body></html>

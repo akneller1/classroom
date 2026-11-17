@@ -2347,6 +2347,7 @@
       return String(ans).trim()===String(want)?{status:'verified'}:{status:'mismatch',msg:'This context has a different domain type.'};
     }
     if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
+    if (A1NEW_TYPES.indexOf(t) >= 0) return checkA1NewPart(p, part, policy);
     if (FUNC_TYPES.indexOf(t) >= 0) return checkFuncPart(p, part, policy);
     if (t === 'compound') return checkCompound(p, part);
     if (EXP_TYPES.indexOf(t) >= 0) return checkExpPart(p, part, policy);
@@ -2388,9 +2389,14 @@
       return C.equivalent(mw, chk.expr) ? { status: 'verified' } : { status: 'mismatch', msg: 'Those words mean ' + mw + '.' };
     }
     if (t === 'expr-error-line') {
-      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The original expression is not printed.' };
+      var exprE = chk.expr;
+      if (chk.rule) {   // evaluating a printed function at a printed input: the target is the rule with the input substituted
+        if (!shown(p, chk.rule) || !shown(p, chk.call)) return { status: 'invalid', msg: 'The function or the input is not printed.' };
+        var cm = /^\s*[a-zA-Z]\(\s*(.+?)\s*\)\s*$/.exec(chk.call), vr = chk.v || 'x'; if (!cm) throw new C.CheckError('cannot read the input');
+        exprE = chk.rule.slice(chk.rule.indexOf('=') + 1).replace(new RegExp(vr, 'g'), '(' + cm[1] + ')');
+      } else if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The original expression is not printed.' };
       var firstE = 0;
-      chk.lines.forEach(function (ln, i) { if (!shown(p, ln)) throw new C.CheckError('work line not printed: ' + ln); if (!firstE && !C.equivalent(chk.expr, ln)) firstE = i + 1; });
+      chk.lines.forEach(function (ln, i) { if (!shown(p, ln)) throw new C.CheckError('work line not printed: ' + ln); if (!firstE && !C.equivalent(exprE, ln)) firstE = i + 1; });
       if (!firstE) return { status: 'invalid', msg: 'The shown work has no mistake.' };
       var mE = /line\s*(\d+)/i.exec(C.plainText(ans));
       return mE && +mE[1] === firstE ? { status: 'verified', computed: 'Line ' + firstE } : { status: 'mismatch', msg: 'The first wrong line is line ' + firstE + '.', computed: 'Line ' + firstE };
@@ -2617,6 +2623,73 @@
       }
       if (chk.want === 'best') return nums.some(function (q) { return q.eq(sc.best); }) && new RegExp(sc.dir === 'max' ? 'at most|maximum|up to|no more' : 'at least|minimum|no fewer', 'i').test(C.plainText(ans)) ? { status: 'verified' } : { status: 'mismatch', msg: 'The ' + (sc.dir === 'max' ? 'most' : 'least') + ' is ' + sc.best + '.' };
       if (chk.want === 'range') { var ints = C.numbersInText(ans), a0 = ceilQ(sc.lo), b0 = floorQ(sc.hi); return ints.length >= 2 && ints[0].eq(a0) && ints[1].eq(b0) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: from ' + a0 + ' to ' + b0 + '.' }; }
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- Algebra 1 standards-gap skills (audit #10, 2026-11-17) ----------
+     inverse-linear (F-BF.B.4a), on-graph (A-REI.D.10), unit-rate (F-LE.A.1b), combo-eq (A-REI.C.5), poly-graph (A-APR.B.3).
+     Every value is recomputed from the printed rule, equation, point or numbers. */
+  var A1NEW_TYPES = ['inverse-linear', 'on-graph', 'unit-rate', 'combo-eq', 'poly-graph'];
+  function relF(eqTeX) { var R = C.parseRelation(eqTeX); return function (env) { return C.evalNode(R.lhs, env).sub(C.evalNode(R.rhs, env)); }; }
+  function rhsOf(tex) { return String(tex).slice(String(tex).lastIndexOf('=') + 1); }
+  function checkA1NewPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), sn = C.snippets(ans);
+    if (t === 'inverse-linear') {
+      if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The function is not printed.' };
+      var body = rhsOf(chk.rule);
+      if (chk.at !== undefined) {   // f⁻¹(at): the answer n must satisfy f(n) = at
+        var nv = valueFromAnswer(ans), fv = C.evalNode(C.parseExpr(body), { x: nv });
+        return fv.eq(C.readNumber(String(chk.at))) ? { status: 'verified', computed: qText(nv) } : { status: 'mismatch', msg: 'f of the answer is not ' + chk.at + '.' };
+      }
+      if (!sn.length) return { status: 'mismatch', msg: 'No inverse in the answer.' };
+      var inv = rhsOf(sn[sn.length - 1]);
+      return C.equivalent(body.replace(/x/g, '(' + inv + ')'), 'x') ? { status: 'verified' } : { status: 'mismatch', msg: 'f(g(x)) is not x for that answer.' };
+    }
+    if (t === 'on-graph') {
+      if (!shown(p, chk.eq) || !shown(p, chk.point)) return { status: 'invalid', msg: 'The equation or the point is not printed.' };
+      var f = relF(chk.eq), xy = chk.point.replace(/\\[ ,;!]/g, ' ').replace(/[()\s]/g, '').split(',');
+      var rd = function (s0) { return /^-?[\d.\/]+$/.test(s0) || /\\frac/.test(s0) ? C.readNumber(s0) : null; };
+      var X = rd(xy[0]), Y = rd(xy[1]);
+      if (chk.want === 'yes') {
+        var on = f({ x: X, y: Y }).isZero(), said = /^\s*yes/.test(txt) ? true : /^\s*no/.test(txt) ? false : null;
+        return said === on ? { status: 'verified', computed: on ? 'yes' : 'no' } : { status: 'mismatch', msg: on ? 'The point is on the graph.' : 'The point is not on the graph.' };
+      }
+      var g = function (k) { return f({ x: X === null ? k : X, y: Y === null ? k : Y }); }, g0 = g(Q.ZERO), g1 = g(Q.ONE);
+      if (g1.sub(g0).isZero()) throw new C.CheckError('the missing coordinate is not determined');
+      var kq = g0.neg().div(g1.sub(g0)); if (!g(kq).isZero()) throw new C.CheckError('the equation is not linear in the missing coordinate');
+      return valueFromAnswer(ans).eq(kq) ? { status: 'verified', computed: qText(kq) } : { status: 'mismatch', msg: 'The missing coordinate is ' + qText(kq) + '.' };
+    }
+    if (t === 'unit-rate') {
+      var nums = C.numbersInText(p.prompt), need4 = chk.pts.reduce(function (a, b) { return a.concat(b); }, []).map(function (v) { return C.readNumber(String(v)); });
+      if (!need4.every(function (q) { return nums.some(function (m) { return m.eq(q); }); })) return { status: 'invalid', msg: 'The data points are not printed.' };
+      var rate = need4[3].sub(need4[1]).div(need4[2].sub(need4[0]));
+      if (chk.want === 'rate') return valueFromAnswer(ans).eq(rate) ? { status: 'verified', computed: qText(rate) } : { status: 'mismatch', msg: 'The rate is ' + qText(rate) + ' per unit.' };
+      if (chk.want === 'value') { var at = C.readNumber(String(chk.at)), val = need4[1].add(rate.mul(at.sub(need4[0]))); return valueFromAnswer(ans).eq(val) ? { status: 'verified', computed: qText(val) } : { status: 'mismatch', msg: 'The value is ' + qText(val) + '.' }; }
+      return /linear/.test(txt) && !/exponential/.test(txt) && /same|constant/.test(txt) ? { status: 'verified' } : { status: 'mismatch', msg: 'Say it is linear because it changes by the same amount each unit.' };
+    }
+    if (t === 'combo-eq') {
+      if (!chk.eqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The system is not printed.' };
+      if (!sn.length) return { status: 'mismatch', msg: 'No equation in the answer.' };
+      var f1 = relF(chk.eqs[0]), f2 = relF(chk.eqs[1]), fa = relF(sn[sn.length - 1]), kk = C.readNumber(String(chk.k));
+      var tgt = function (env) { return f1(env).mul(kk).add(f2(env)); }, P3 = [[0, 0], [1, 0], [0, 1]].map(function (q) { return { x: new Q(BigInt(q[0])), y: new Q(BigInt(q[1])) }; });
+      var lam = null, ok = P3.every(function (env) { var a1 = fa(env), b1 = tgt(env); if (b1.isZero()) return a1.isZero(); var l = a1.div(b1); if (lam === null) lam = l; return l.eq(lam); });
+      return ok && lam && !lam.isZero() ? { status: 'verified' } : { status: 'mismatch', msg: 'That is not ' + chk.k + ' times the first equation added to the second.' };
+    }
+    if (t === 'poly-graph') {
+      if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The function is not printed.' };
+      var co = coeffsOf(C.parseExpr(rhsOf(chk.rule)), 'x'), at0 = function (x) { return evalCo(co, x); };
+      if (chk.want === 'yint') { var y0 = at0(Q.ZERO); return valueFromAnswer(ans).eq(y0) ? { status: 'verified', computed: qText(y0) } : { status: 'mismatch', msg: 'The y-intercept is ' + qText(y0) + '.' }; }
+      if (chk.want === 'zeros') {
+        var got = listNumbers(ans); if (!got.length) return { status: 'mismatch', msg: 'No zeros in the answer.' };
+        var allZ = got.every(function (q) { return at0(q).isZero(); }), distinct = got.filter(function (q, i) { return got.findIndex(function (w) { return w.eq(q); }) === i; });
+        return allZ && distinct.length === got.length && distinct.length === chk.count ? { status: 'verified' } : { status: 'mismatch', msg: 'Not all zeros, or not every zero.' };
+      }
+      var zs = []; for (var dd = 1; dd <= 6; dd++) for (var nn = -60; nn <= 60; nn++) { var zq = new Q(BigInt(nn), BigInt(dd)); if (at0(zq).isZero() && !zs.some(function (w) { return w.eq(zq); })) zs.push(zq); }
+      zs.sort(function (u, w) { return C.cmpQ(u, w); }); if (zs.length < chk.gap + 2) throw new C.CheckError('could not find the zeros');
+      var mid = zs[chk.gap].add(zs[chk.gap + 1]).div(new Q(2n)), sg = at0(mid);
+      var saysPos = /positive|above/.test(txt), saysNeg = /negative|below/.test(txt);
+      return (sg.n > 0n && saysPos && !saysNeg) || (sg.n < 0n && saysNeg && !saysPos) ? { status: 'verified', computed: sg.n > 0n ? 'above' : 'below' } : { status: 'mismatch', msg: 'The graph is ' + (sg.n > 0n ? 'above' : 'below') + ' the x-axis there.' };
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }
@@ -4007,7 +4080,7 @@
   }
 
   /* ---------- quadratic functions and equations (Algebra 1 Unit 11) ---------- */
-  var QUAD_TYPES = ['quad-solve', 'quad-feature', 'quad-disc', 'quad-vertex-eq', 'quad-proj', 'quad-ctsq', 'quad-graph', 'quad-transform', 'quad-fit'];
+  var QUAD_TYPES = ['quad-error-line', 'quad-solve', 'quad-feature', 'quad-disc', 'quad-vertex-eq', 'quad-proj', 'quad-ctsq', 'quad-graph', 'quad-transform', 'quad-fit'];
   var fl = function (q) { return Number(q.n) / Number(q.d); };
   /* a small float evaluator for answers with square roots: numbers, \frac, \sqrt, + − and products */
   function surdEval(src) {
@@ -4080,6 +4153,31 @@
   }
   function checkQuadPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
+    if (t === 'quad-error-line') {   // first line whose solution set differs from the original equation's (degree ≤ 2; lines may be "… \text{ or } …")
+      if (!shown(p, chk.eq)) return { status: 'invalid', msg: 'The original equation is not printed.' };
+      var isq = function (n) { if (n < 0n) return null; var x = BigInt(Math.floor(Math.sqrt(Number(n)))); while (x * x > n) x--; while ((x + 1n) * (x + 1n) <= n) x++; return x * x === n ? x : null; };
+      var rootSig = function (line) {
+        var out = [];
+        String(line).split(/\\text\{\s*or\s*\}/).forEach(function (piece) {
+          var R = C.parseRelation(piece), co = coeffsOf({ k: 'sub', a: R.lhs, b: { k: 'grp', a: R.rhs } }, v);
+          if (co.length > 3) throw new C.CheckError('degree above 2 in ' + piece);
+          if (co.length === 1) { if (co[0].isZero()) out.push('ALL'); return; }
+          if (co.length === 2) { out.push(qText(co[0].neg().div(co[1]))); return; }
+          var a = co[2], b = co[1], c0 = co[0], D = b.mul(b).sub(a.mul(c0).mul(new Q(4n)));
+          if (D.n < 0n) return;
+          var sn = isq(D.n), sd = isq(D.d);
+          if (sn === null || sd === null) { out.push('irr:' + qText(b.div(a)) + ':' + qText(c0.div(a))); return; }
+          var sq = new Q(sn, sd), two = a.mul(new Q(2n));
+          out.push(qText(b.neg().add(sq).div(two)), qText(b.neg().sub(sq).div(two)));
+        });
+        return out.filter(function (x, i) { return out.indexOf(x) === i; }).sort().join('|');
+      };
+      var baseQ = rootSig(chk.eq), firstQ = 0;
+      chk.lines.forEach(function (ln, i) { if (!shown(p, ln)) throw new C.CheckError('work line not printed: ' + ln); if (!firstQ && rootSig(ln) !== baseQ) firstQ = i + 1; });
+      if (!firstQ) return { status: 'invalid', msg: 'The shown work has no mistake.' };
+      var mQ = /line\s*(\d+)/i.exec(C.plainText(ans));
+      return mQ && +mQ[1] === firstQ ? { status: 'verified', computed: 'Line ' + firstQ } : { status: 'mismatch', msg: 'The first wrong line is line ' + firstQ + '.', computed: 'Line ' + firstQ };
+    }
     if (t === 'quad-graph') {   // the key parabola must be the printed one; the vertex and points in the answer must be on it
       if (!part.answerFig) return { status: 'invalid', msg: 'The key has no graph.' };
       var coP = quadCo(p, chk), coK; try { coK = quadCo({ fig: part.answerFig }, {}); } catch (e) { return { status: 'mismatch', msg: 'The key graph is not a parabola: ' + e.message }; }

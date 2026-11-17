@@ -20,6 +20,18 @@
   /* Try a generator again (same rng stream) when one of its constraints rejects; for pages that call generate() directly. */
   K.retry = function (f) { for (var i = 0; ; i++) { try { return f(); } catch (e) { if (!e || !e.isReject || i >= 200) throw e; } } };
   K.step = function (t, m, w) { return { t: t || '', m: m || '', w: w === undefined ? 1 : w }; };
+  /* Find-and-fix-the-mistake problems (Algebra 1 audit #13): shown work lines, part a names the first wrong line, part b redoes it correctly. */
+  K.WHO = ['Alex', 'Jordan', 'Sam', 'Taylor', 'Riley', 'Casey', 'Morgan', 'Jamie', 'Avery', 'Quinn'];
+  K.plain = function (t) { return String(t).replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2').replace(/\\cdot/g, '·').replace(/\^\{([^{}]*)\}/g, '^$1').replace(/\\text\{([^{}]*)\}/g, '$1').replace(/\\left|\\right/g, '').replace(/\s+/g, ' ').replace(/-/g, '−'); };
+  K.errorProblem = function (o) {
+    var line = 'Line ' + o.first + ': ' + o.who + ' ' + String(o.why).replace(/⟨([^⟩]*)⟩/g, function (m, t) { return K.plain(t); }) + '.';   // words only: the line number is what is checked
+    return {
+      variant: o.variant, prompt: o.prompt, work: o.lines,
+      parts: [{ label: 'a', prompt: 'Which line has the first mistake? Explain what went wrong.', answer: line, check: o.checkA },
+              { label: 'b', prompt: o.promptB, answer: o.answerB, check: o.checkB }],
+      steps: [K.step(line, '', 3)].concat(o.steps || []), space: o.space || [1.2, 1.5, 1.8]
+    };
+  };
 
 
   /* Geometry Units 3 and 8: congruent or similar after a described sequence of transformations, and glide reflections

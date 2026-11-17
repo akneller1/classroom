@@ -260,6 +260,7 @@
     'A-REI.C.7': 'Solve a simple system of a linear equation and a quadratic equation in two variables algebraically and graphically.',
     'A-REI.C.8': 'Represent a system of linear equations as a single matrix equation.',
     'A-REI.C.9': 'Find the inverse of a matrix and use it to solve a system of linear equations.',
+    'A-REI.D.10': 'Understand that the graph of an equation in two variables is the set of all its solutions plotted in the plane.',
     'A-REI.D.11': 'Explain why the x-coordinates of intersection points solve f(x) = g(x); find solutions approximately.',
     'A-REI.D.12': 'Graph the solutions to a linear inequality as a half-plane, and to a system as the intersection.',
 

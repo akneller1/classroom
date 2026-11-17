@@ -307,6 +307,63 @@
     }
   });
 
+  /* ================= Replace an equation by a sum with a multiple of the other (A-REI.C.5, audit #10) ================= */
+  skill({
+    id: 'elim-replace', best: [0, 1, 2], tag: 'ELIM', name: 'Why elimination works: replace an equation',
+    blurb: 'Add the two equations as given (CP2) → add a multiple of the first equation (CP1) → a positive or negative multiple that eliminates x (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, x0 = nz(r, -6, 6), y0 = nz(r, -6, 6), steps = [];
+      var a1 = nz(r, -5, 5), b1 = nz(r, -5, 5), a2, b2, k;
+      if (c <= 2) { k = 1; a2 = nz(r, -5, 5); b2 = -b1; }
+      else if (c <= 4) { k = r.pick([2, 3, 4]); a2 = nz(r, -6, 6); b2 = -k * b1; need(Math.abs(b2) <= 15); }
+      else { k = r.pick([-2, -3, 2, 3]); a2 = -k * a1; b2 = nz(r, -6, 6); need(Math.abs(a2) <= 15); }
+      need(det(a1, b1, a2, b2) !== 0 && K.gcd(K.gcd(Math.abs(a1), Math.abs(b1)), Math.abs(a1 * x0 + b1 * y0)) === 1);
+      var e1 = eqThrough(a1, b1, x0, y0), e2 = eqThrough(a2, b2, x0, y0), na = k * a1 + a2, nb = k * b1 + b2, nc = k * (a1 * x0 + b1 * y0) + (a2 * x0 + b2 * y0);
+      var neq = std(na, nb, nc);
+      var how = k === 1 ? 'Add the two equations' : 'Multiply the first equation by ' + M(String(k)) + ' and add the result to the second equation';
+      steps.push(step(k === 1 ? 'Add the left sides and the right sides.' : 'Multiply every term of the first equation by ' + k + ', then add.', neq, 2));
+      steps.push(step('Any solution of both original equations also makes the new equation true (equals added to equals are equal), so the new system has the same solution.', '', 2));
+      steps.push(step('Solve the one-variable equation, then substitute back.', 'x=' + num(x0) + ',\\ y=' + num(y0), 1));
+      var parts = [{ label: 'a', prompt: how + '. Write the new equation.', answer: M(neq), check: { type: 'combo-eq', eqs: [e1, e2], k: String(k) } },
+                   { label: 'b', prompt: 'Replace the second equation with the new one and solve the system.', answer: pairAns(x0, y0), check: { type: 'system', eqs: [e1, e2] } }];
+      return { variant: 'er' + c, prompt: 'Use the system ' + sysTeX(e1, e2) + '.', parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
+    }
+  });
+
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'sys-error', best: [1, 2], tag: 'SUBST', name: 'Find and fix the mistake (substitution)',
+    blurb: 'Distributing to only one term, moving a constant with the wrong sign, dividing the wrong way (CP2: positive numbers → CP1 and Honors: negative slopes and coefficients).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), pos = c <= 2;
+      var x0 = pos ? r.int(1, 6) : nz(r, -6, 6), m = pos ? r.int(1, 4) : nz(r, -4, 4), k = pos ? r.int(1, 9) : nz(r, -9, 9), y0 = m * x0 + k;
+      var a = pos ? r.int(1, 5) : nz(r, -5, 5), b = c >= 5 ? nz(r, -5, 5) : r.int(2, 5), Cn = a * x0 + b * y0;
+      need(a + b * m !== 0 && a + b * m !== 1 && Math.abs(y0) <= 15 && K.gcd(K.gcd(Math.abs(a), Math.abs(b)), Math.abs(Cn)) === 1);
+      var e1 = si(m, k), e2 = std(a, b, Cn), inner = lin([[m, 'x'], [k, '']]);
+      var L1 = lin([[a, 'x']]) + (b > 0 ? '+' : '') + K.grp(b, inner) + '=' + num(Cn), co = a + b * m, rest = Cn - b * k;
+      var lines = [L1, lin([[a, 'x'], [b * m, 'x'], [b * k, '']]) + '=' + num(Cn), lin([[co, 'x'], [b * k, '']]) + '=' + num(Cn), lin([[co, 'x']]) + '=' + num(rest), 'x=' + num(F(rest, co))], why;
+      var kind = r.pick([0, 1, 2]);
+      if (kind === 0) {
+        need(k !== b * k);
+        lines[1] = lin([[a, 'x'], [b * m, 'x'], [k, '']]) + '=' + num(Cn); lines[2] = lin([[co, 'x'], [k, '']]) + '=' + num(Cn); lines[3] = lin([[co, 'x']]) + '=' + num(Cn - k); lines[4] = 'x=' + num(F(Cn - k, co));
+        why = 'multiplied only ' + M(lin([[m, 'x']])) + ' by ' + M(num(b)) + ' (the ' + M(num(k)) + ' must be multiplied too)';
+      } else if (kind === 1) {
+        lines[3] = lin([[co, 'x']]) + '=' + num(Cn + b * k); lines[4] = 'x=' + num(F(Cn + b * k, co));
+        why = (b * k > 0 ? 'added ' + M(num(b * k)) + ' to' : 'subtracted ' + M(num(-b * k)) + ' from') + ' the right side instead of ' + (b * k > 0 ? 'subtracting it from' : 'adding it to') + ' both sides';
+      } else {
+        need(rest !== 0 && Math.abs(rest) !== Math.abs(co));
+        lines[4] = 'x=' + num(F(co, rest));
+        why = 'divided ' + M(num(co)) + ' by ' + M(num(rest)) + ' (divide both sides by ' + M(num(co)) + ')';
+      }
+      var C = NS.check, base = C.solutionSet(L1, 'x'), first = 0; lines.forEach(function (ln, i) { if (!first && !C.setEqual(C.solutionSet(ln, 'x'), base)) first = i + 1; }); need(first > 0);
+      return K.errorProblem({ variant: 'sys-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' solved the system ' + sysTeX(e1, e2) + ' by substituting the first equation into the second. Here is the work for ' + M('x') + ':',
+        checkA: { type: 'error-line', ineq: L1, lines: lines, v: 'x' },
+        promptB: 'Solve the system correctly.', answerB: pairAns(x0, y0), checkB: { type: 'system', eqs: [e1, e2] },
+        steps: [step('Correct work: ' + M(lin([[co, 'x']]) + '=' + num(rest)) + ', so ' + M('x=' + num(x0)) + '.', '', 2), step('Substitute back:', 'y=' + num(m) + '(' + num(x0) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + num(y0), 1)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-systems-of-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'systems-of-equations', unitName: 'Systems of Equations and Inequalities',
     title: 'The Intersection Inn',
