@@ -109,7 +109,7 @@
     /* Area, surface area and volume: the answer is recomputed from the numbers printed in the question (or, for nets and stacked solids, from the figure alone). */
     if (/^geo-measure-/.test(p.variant || '')) {
       var mv = String(p.variant).replace(/^geo-measure-/, '').replace(/-\d+$/, ''), mt = C.plainText(p.prompt || ''), mn = (mt.match(/\d+(?:\.\d+)?/g) || []).map(Number), mf = p.fig, me = null, a0 = mn[0], b0 = mn[1], c0 = mn[2];
-      var need = { rectangle: 2, triangle: 2, parallelogram: 2, trapezoid: 3, 'prism-volume': 3, 'prism-surface': 3, 'cylinder-volume': 2, 'cylinder-surface': 2, pyramid: 3, 'cone-volume': 2, 'sphere-surface': 1, 'prism-height': 3, 'cylinder-height': 2 };
+      var need = { rectangle: 2, triangle: 2, parallelogram: 2, trapezoid: 3, 'prism-volume': 3, 'prism-surface': 3, 'cylinder-volume': 2, 'cylinder-surface': 2, pyramid: 3, 'cone-volume': 2, 'sphere-surface': 1, 'prism-height': 3, 'cylinder-height': 2, 'rectangle-length': 2, 'triangle-height': 2, 'parallelogram-height': 2, 'trapezoid-height': 3, 'prism-surface-height': 3, 'cylinder-surface-height': 2 };
       if (mv === 'net') {
         if (!mf || mf.kind !== 'geo-net' || !NS.geoFigures.check(mf).ok || mn.length) return false;
         me = [2 * (mf.l * mf.w + mf.l * mf.h + mf.w * mf.h), 1];
@@ -134,7 +134,9 @@
         me = mv === 'rectangle' || mv === 'parallelogram' ? [a0 * b0, 1] : mv === 'triangle' ? [a0 * b0, 2] : mv === 'trapezoid' ? [(a0 + b0) * c0, 2]
           : mv === 'prism-volume' ? [a0 * b0 * c0, 1] : mv === 'prism-surface' ? [2 * (a0 * b0 + a0 * c0 + b0 * c0), 1] : mv === 'cylinder-volume' ? [a0 * a0 * b0, 1]
           : mv === 'cylinder-surface' ? [2 * a0 * (a0 + b0), 1] : mv === 'pyramid' ? [a0 * b0 * c0, 3] : mv === 'cone-volume' ? [a0 * a0 * b0, 3] : mv === 'sphere-surface' ? [4 * a0 * a0, 1]
-          : mv === 'prism-height' ? [c0, a0 * b0] : mv === 'cylinder-height' ? [b0, a0 * a0] : null;
+          : mv === 'prism-height' ? [c0, a0 * b0] : mv === 'cylinder-height' ? [b0, a0 * a0]
+          : mv === 'rectangle-length' || mv === 'parallelogram-height' ? [a0, b0] : mv === 'triangle-height' ? [2 * a0, b0] : mv === 'trapezoid-height' ? [2 * c0, a0 + b0]
+          : mv === 'prism-surface-height' ? [c0 - 2 * a0 * b0, 2 * (a0 + b0)] : mv === 'cylinder-surface-height' ? [b0 - 2 * a0 * a0, 2 * a0] : null;
       }
       if (!me) return false;
       var msol; try { msol = C.solveLinear(chk.eq, 'x'); } catch (e) { return false; }
