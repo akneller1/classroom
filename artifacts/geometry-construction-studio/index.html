@@ -1,0 +1,203 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Construction Studio: Compass and Straightedge · Mr. K's Classroom</title>
+<meta name="description" content="Compass-and-straightedge constructions with step checking: copy a segment or angle, bisect segments and angles, perpendicular and parallel lines, and a hexagon, square and equilateral triangle inscribed in a circle. Printable construction pages.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+<style>
+#cs-svg{width:100%;height:auto;background:#fff;border:1px solid #d6d6d6;border-radius:10px;touch-action:none;cursor:crosshair;display:block}
+.cs-tools{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.cs-tools button{padding:6px 10px;border-radius:8px;border:1px solid #bbb;background:#f7f7f7;font:inherit;cursor:pointer}
+.cs-tools button[aria-pressed=true]{background:#1f5fa8;color:#fff;border-color:#1f5fa8}.cs-steps li.done{color:#1b7a3d}.cs-steps li.done::marker{content:'✓ '}
+.cs-fb{min-height:1.6em;font-weight:700}.cs-fb.ok{color:#1b7a3d}.cs-fb.no{color:#b3261e}
+.cs-task select{font:inherit;padding:4px;max-width:100%}#cs-print{display:none}
+@media print{body *{visibility:hidden}#cs-print,#cs-print *{visibility:visible}#cs-print{display:block;position:absolute;left:0;top:0;width:100%}
+ .cs-page{break-after:page;padding:10px}.cs-page h2{font-size:15pt;margin:0 0 4px}.cs-page p{margin:0 0 6px;font-size:11pt}.cs-page svg{width:100%;height:auto;border:1px solid #999}.cs-page .cs-lines{margin-top:8px;border-top:1px solid #999;height:110px}}
+</style>
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<div id="cs-print" aria-hidden="true"></div>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+(function () {
+'use strict';
+/* Construction Studio (2026-11-17, Geometry audit #5).
+   Only Euclid's tools: a point can be placed only where two drawn objects cross (or freely, to start an arc of any
+   radius), the straightedge draws through two existing points, and the compass is centered on an existing point.
+   So any drawn object that meets the goal was constructed. The goal checks are exact (to a fraction of a pixel). */
+var L = window.Lab, NS = 'http://www.w3.org/2000/svg', W = 800, H = 520, EPS = 0.6;
+var P = L.layout({ course: 'Geometry', unit: 'Foundations of Geometry', title: 'Construction Studio', intro: 'Construct with a compass and a straightedge. Points appear only where your arcs and lines cross, so a correct construction is checked step by step.' });
+function el(tag, attrs, parent, text) { var e = document.createElement(tag); for (var k in attrs || {}) e.setAttribute(k, attrs[k]); if (text) e.textContent = text; if (parent) parent.appendChild(e); return e; }
+function sv(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+var d = function (a, b) { return Math.hypot(a.x - b.x, a.y - b.y); };
+var rnd = function (a, b) { return a + Math.random() * (b - a); };
+
+/* ---------------- tasks ---------------- */
+var TASKS = [
+  { id: 'copy-seg', name: 'Copy a segment', std: 'G-CO.D.12', text: 'Construct point D on the ray from C so that CD = AB.',
+    steps: ['Set the compass width: compass center on A, opening to B.', 'Keep that width: use “Set and keep width” (A, then B), then click C as the center.', 'Mark D where the arc crosses the ray.'],
+    make: function () { var A = { x: 120, y: 140 }, B = { x: A.x + rnd(150, 230), y: A.y + rnd(-60, 40) }, C = { x: 150, y: 380 }, th = rnd(-0.35, 0.1);
+      return { pts: { A: A, B: B, C: C, R: { x: C.x + 520 * Math.cos(th), y: C.y + 520 * Math.sin(th) } }, segs: [['A', 'B']], rays: [['C', 'R']], hide: ['R'] }; },
+    goal: function (S, G) { var len = d(G.pts.A, G.pts.B), C = G.pts.C, R = G.pts.R; return S.pts.some(function (p) { return !p.given && onRay(p, C, R) && Math.abs(d(p, C) - len) < EPS; }); } },
+  { id: 'copy-angle', name: 'Copy an angle', std: 'G-CO.D.12', text: 'Construct an angle at E, on the given ray, congruent to ∠ABC.',
+    steps: ['Draw an arc centered at B crossing both sides of ∠ABC.', 'With the same width, draw an arc centered at E crossing the ray.', 'Set the compass to the distance between the two crossing points on ∠ABC.', 'Copy that width from the crossing point on E’s ray; mark where the arcs meet.', 'Draw the line from E through that point.'],
+    make: function () { var B = { x: 140, y: 420 }, a = rnd(0.45, 1.05), A = { x: B.x + 230, y: B.y }, C = { x: B.x + 230 * Math.cos(a), y: B.y - 230 * Math.sin(a) }, E = { x: 470, y: 440 };
+      return { pts: { A: A, B: B, C: C, E: E, F: { x: 770, y: 440 } }, segs: [['B', 'A'], ['B', 'C']], rays: [['E', 'F']], hide: ['F'], angle: a }; },
+    goal: function (S, G) { var E = G.pts.E, a = G.angle; return S.lines.some(function (l) { if (!through(l, E)) return false; var t = Math.abs(Math.atan2(l.b.y - l.a.y, l.b.x - l.a.x)); t = Math.min(t, Math.PI - t); return Math.abs(t - a) < 0.004 || Math.abs(Math.PI - t - a) < 0.004; }); } },
+  { id: 'perp-bis', name: 'Perpendicular bisector of a segment', std: 'G-CO.D.12', text: 'Construct the perpendicular bisector of segment AB.',
+    steps: ['Draw a circle centered at A with a radius more than half of AB.', 'Draw a circle centered at B with the same radius (use “Set and keep width”).', 'Mark the two points where the circles cross.', 'Draw the line through those two points.'],
+    make: function () { var A = { x: rnd(190, 260), y: rnd(230, 300) }, t = rnd(-0.4, 0.4), B = { x: A.x + 300 * Math.cos(t), y: A.y + 300 * Math.sin(t) }; return { pts: { A: A, B: B }, segs: [['A', 'B']] }; },
+    goal: function (S, G) { var A = G.pts.A, B = G.pts.B, M = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 }; return S.lines.some(function (l) { return through(l, M) && perp(l, A, B); }); } },
+  { id: 'angle-bis', name: 'Bisect an angle', std: 'G-CO.D.12', text: 'Construct the bisector of ∠ABC.',
+    steps: ['Draw an arc centered at B crossing both sides of the angle; mark both crossing points.', 'From each crossing point, draw arcs with the same width that cross inside the angle.', 'Mark where they cross and draw the line from B through it.'],
+    make: function () { var B = { x: 170, y: 420 }, a1 = rnd(0.05, 0.3), a2 = a1 + rnd(0.6, 1.2); return { pts: { B: B, A: { x: B.x + 420 * Math.cos(a1), y: B.y - 420 * Math.sin(a1) }, C: { x: B.x + 330 * Math.cos(a2), y: B.y - 330 * Math.sin(a2) } }, segs: [['B', 'A'], ['B', 'C']], mid: (a1 + a2) / 2 }; },
+    goal: function (S, G) { var B = G.pts.B, m = G.mid, Q = { x: B.x + 100 * Math.cos(m), y: B.y - 100 * Math.sin(m) }; return S.lines.some(function (l) { return through(l, B) && through(l, Q, 0.9); }); } },
+  { id: 'perp-on', name: 'Perpendicular through a point on a line', std: 'G-CO.D.12', text: 'Construct the line through P perpendicular to line ℓ.',
+    steps: ['Draw a circle centered at P; mark where it crosses ℓ on both sides.', 'From those two points, draw circles with a larger equal width.', 'Mark where they cross and draw the line through P and that point.'],
+    make: function () { var t = rnd(-0.25, 0.25), P0 = { x: 400, y: 300 }, U = { x: Math.cos(t), y: Math.sin(t) }; return { pts: { P: P0, L1: { x: P0.x - 380 * U.x, y: P0.y - 380 * U.y }, L2: { x: P0.x + 380 * U.x, y: P0.y + 380 * U.y } }, lines: [['L1', 'L2']], hide: ['L1', 'L2'], label: 'ℓ' }; },
+    goal: function (S, G) { return S.lines.some(function (l) { return through(l, G.pts.P) && perp(l, G.pts.L1, G.pts.L2); }); } },
+  { id: 'perp-from', name: 'Perpendicular from a point to a line', std: 'G-CO.D.12', text: 'Construct the line through P perpendicular to line ℓ.',
+    steps: ['Draw a circle centered at P that crosses ℓ twice; mark both points.', 'From those two points, draw circles with equal width that cross on the other side of ℓ.', 'Draw the line through P and that crossing point.'],
+    make: function () { var t = rnd(-0.2, 0.2), C0 = { x: 400, y: 360 }, U = { x: Math.cos(t), y: Math.sin(t) }; return { pts: { P: { x: rnd(330, 470), y: rnd(130, 190) }, L1: { x: C0.x - 390 * U.x, y: C0.y - 390 * U.y }, L2: { x: C0.x + 390 * U.x, y: C0.y + 390 * U.y } }, lines: [['L1', 'L2']], hide: ['L1', 'L2'], label: 'ℓ' }; },
+    goal: function (S, G) { return S.lines.some(function (l) { return through(l, G.pts.P) && perp(l, G.pts.L1, G.pts.L2); }); } },
+  { id: 'parallel', name: 'Parallel through a point', std: 'G-CO.D.12', text: 'Construct the line through P parallel to line ℓ.',
+    steps: ['Draw a line through P that crosses ℓ (a transversal); mark the crossing point Q.', 'Copy the angle that the transversal makes with ℓ at Q, to P (corresponding angles).', 'Draw the line through P and the copied point.'],
+    make: function () { var t = rnd(-0.2, 0.2), C0 = { x: 400, y: 380 }, U = { x: Math.cos(t), y: Math.sin(t) }; return { pts: { P: { x: rnd(330, 470), y: rnd(140, 200) }, L1: { x: C0.x - 390 * U.x, y: C0.y - 390 * U.y }, L2: { x: C0.x + 390 * U.x, y: C0.y + 390 * U.y }, T: { x: rnd(180, 260), y: C0.y + (rnd(180, 260) - C0.x) * U.y / U.x } }, lines: [['L1', 'L2']], hide: ['L1', 'L2', 'T'], label: 'ℓ' }; },
+    goal: function (S, G) { return S.lines.some(function (l) { return through(l, G.pts.P) && par(l, G.pts.L1, G.pts.L2); }); } },
+  { id: 'hexagon', name: 'Regular hexagon inscribed in a circle', std: 'G-CO.D.13', text: 'Construct a regular hexagon inscribed in the circle with center O. Draw its six sides.',
+    steps: ['Keep the compass width equal to the radius (center O, opening to A).', 'Copy that width from A; mark where the arc crosses the circle. Repeat around the circle.', 'Draw the six sides with the segment tool.'],
+    make: function () { var O = { x: 400, y: 265 }, r = rnd(170, 205), t = rnd(0, Math.PI * 2); return { pts: { O: O, A: { x: O.x + r * Math.cos(t), y: O.y + r * Math.sin(t) } }, circles: [['O', r]], poly: 6 }; },
+    goal: function (S, G) { return polyGoal(S, G, 6); } },
+  { id: 'triangle', name: 'Equilateral triangle inscribed in a circle', std: 'G-CO.D.13', text: 'Construct an equilateral triangle inscribed in the circle with center O. Draw its three sides.',
+    steps: ['Step around the circle with the radius as in the hexagon construction.', 'Use every other point: A and the 2nd and 4th points.', 'Draw the three sides.'],
+    make: function () { var O = { x: 400, y: 265 }, r = rnd(170, 205), t = rnd(0, Math.PI * 2); return { pts: { O: O, A: { x: O.x + r * Math.cos(t), y: O.y + r * Math.sin(t) } }, circles: [['O', r]], poly: 3 }; },
+    goal: function (S, G) { return polyGoal(S, G, 3); } },
+  { id: 'square', name: 'Square inscribed in a circle', std: 'G-CO.D.13', text: 'Construct a square inscribed in the circle with center O. Draw its four sides.',
+    steps: ['Draw the line through A and O; mark the second point where it crosses the circle.', 'Construct the perpendicular bisector of that diameter; mark where it crosses the circle.', 'Draw the four sides.'],
+    make: function () { var O = { x: 400, y: 265 }, r = rnd(170, 205), t = rnd(0, Math.PI * 2); return { pts: { O: O, A: { x: O.x + r * Math.cos(t), y: O.y + r * Math.sin(t) } }, circles: [['O', r]], poly: 4 }; },
+    goal: function (S, G) { return polyGoal(S, G, 4); } }
+];
+function onRay(p, C, R) { var vx = R.x - C.x, vy = R.y - C.y, wx = p.x - C.x, wy = p.y - C.y, n = Math.hypot(vx, vy); return Math.abs(vx * wy - vy * wx) / n < EPS && vx * wx + vy * wy > 0; }
+function through(l, p, tol) { var vx = l.b.x - l.a.x, vy = l.b.y - l.a.y; return Math.abs(vx * (p.y - l.a.y) - vy * (p.x - l.a.x)) / Math.hypot(vx, vy) < (tol || EPS); }
+function perp(l, A, B) { var u = unit(l.a, l.b), v = unit(A, B); return Math.abs(u.x * v.x + u.y * v.y) < 0.003; }
+function par(l, A, B) { var u = unit(l.a, l.b), v = unit(A, B); return Math.abs(u.x * v.y - u.y * v.x) < 0.003; }
+function unit(a, b) { var n = d(a, b); return { x: (b.x - a.x) / n, y: (b.y - a.y) / n }; }
+function polyGoal(S, G, n) {
+  var O = G.pts.O, r = G.circles[0][1], A = G.pts.A, a0 = Math.atan2(A.y - O.y, A.x - O.x), need = [];
+  var k;
+  // the polygon may start at any point of the circle; it must use constructed points on the circle
+  var on = S.pts.filter(function (p) { return Math.abs(d(p, O) - r) < EPS; });
+  for (var i = 0; i < on.length; i++) {
+    var t0 = Math.atan2(on[i].y - O.y, on[i].x - O.x), vs = [];
+    for (k = 0; k < n; k++) { var t = t0 + 2 * Math.PI * k / n, q = { x: O.x + r * Math.cos(t), y: O.y + r * Math.sin(t) }, hit = on.filter(function (p) { return d(p, q) < EPS * 2; })[0]; if (!hit) { vs = null; break; } vs.push(hit); }
+    if (!vs) continue;
+    var sides = vs.every(function (v, k2) { var w = vs[(k2 + 1) % n]; return S.segs.some(function (sg) { return (d(sg.a, v) < EPS * 2 && d(sg.b, w) < EPS * 2) || (d(sg.a, w) < EPS * 2 && d(sg.b, v) < EPS * 2); }); });
+    if (sides) return true;
+  }
+  void a0; void need; void A; return false;
+}
+
+/* ---------------- state ---------------- */
+var S, G, task = 0, tool = 'compass', pending = [], width = null, copyW = null, hist = [];
+var note = P.below && P.below.querySelector('.note'); if (note) note.innerHTML = '<span aria-hidden="true">✎</span><span><b>Printable pages:</b> “Print construction pages” makes one page per construction with the given figure, blank space and an explain-why prompt.</span>';
+var svg = sv('svg', { id: 'cs-svg', viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Construction canvas' }, P.stage);
+var tools = el('div', { class: 'cs-tools', role: 'toolbar', 'aria-label': 'Tools' }, P.stage);
+var TOOLS = [['compass', 'Compass (center, then radius)'], ['copy', 'Set and keep width'], ['line', 'Straightedge line'], ['seg', 'Segment'], ['point', 'Mark point']];
+var btn = {}; TOOLS.forEach(function (t) { btn[t[0]] = el('button', { type: 'button', 'aria-pressed': 'false' }, tools, t[1]); btn[t[0]].onclick = function () { setTool(t[0]); }; });
+var undoB = el('button', { type: 'button' }, tools, 'Undo'), clearB = el('button', { type: 'button' }, tools, 'Start over');
+var hint = el('p', { class: 'sub', 'aria-live': 'polite' }, P.stage);
+var tsel = el('div', { class: 'cs-task' }, P.panel); el('label', { for: 'cs-sel' }, tsel, 'Construction: ');
+var sel = el('select', { id: 'cs-sel' }, tsel); TASKS.forEach(function (t, i) { el('option', { value: i }, sel, (i + 1) + '. ' + t.name); });
+var ttext = el('p', {}, P.panel), steps = el('ol', { class: 'cs-steps' }, P.panel);
+var row = el('div', { class: 'cs-tools' }, P.panel), checkB = el('button', { type: 'button' }, row, 'Check my construction'), newB = el('button', { type: 'button' }, row, 'New figure'), printB = el('button', { type: 'button' }, row, 'Print construction pages');
+var fb = el('p', { class: 'cs-fb', 'aria-live': 'polite' }, P.panel);
+el('p', { class: 'sub' }, P.panel, 'Tip: points are created only where two drawn objects cross. Click a crossing with any tool to mark it. “Set and keep width” works like a compass you lift without changing its opening.');
+
+function setTool(t) { tool = t; pending = []; copyW = null; for (var k in btn) btn[k].setAttribute('aria-pressed', k === t ? 'true' : 'false'); hint.textContent = { compass: 'Click a center point, then a point (or anywhere) for the radius.', copy: 'Click a point and a second point (or any spot) to set the compass width; then click each center point.', line: 'Click two points to draw a line through them.', seg: 'Click two points to draw a segment.', point: 'Click where two objects cross to mark a point.' }[t]; draw(); }
+function load(i, fresh) {
+  task = i; sel.value = i; var T = TASKS[i]; if (fresh || !T.g) T.g = T.make(); G = T.g;
+  S = { pts: [], lines: [], segs: [], circles: [] }; hist = []; width = null; pending = []; fb.textContent = ''; fb.className = 'cs-fb';
+  Object.keys(G.pts).forEach(function (k) { S.pts.push({ x: G.pts[k].x, y: G.pts[k].y, label: (G.hide || []).indexOf(k) >= 0 ? '' : k, given: true, hidden: (G.hide || []).indexOf(k) >= 0 }); });
+  var P_ = function (k) { return S.pts.filter(function (p) { return Math.abs(p.x - G.pts[k].x) < 1e-9 && Math.abs(p.y - G.pts[k].y) < 1e-9; })[0]; };
+  (G.segs || []).forEach(function (s) { S.segs.push({ a: P_(s[0]), b: P_(s[1]), given: true }); });
+  (G.rays || []).forEach(function (s) { S.segs.push({ a: P_(s[0]), b: P_(s[1]), given: true, ray: true }); });
+  (G.lines || []).forEach(function (s) { S.lines.push({ a: P_(s[0]), b: P_(s[1]), given: true, label: G.label }); });
+  (G.circles || []).forEach(function (c) { S.circles.push({ c: P_(c[0]), r: c[1], given: true }); });
+  ttext.textContent = T.text + ' (' + T.std + ')';
+  steps.replaceChildren(); T.steps.forEach(function (s) { el('li', {}, steps, s); });
+  setTool(tool);
+}
+/* ---------------- geometry ---------------- */
+function inter(o1, o2) {
+  var out = [];
+  var LL = function (l, m) { var x1 = l.a.x, y1 = l.a.y, x2 = l.b.x, y2 = l.b.y, x3 = m.a.x, y3 = m.a.y, x4 = m.b.x, y4 = m.b.y, den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4); if (Math.abs(den) < 1e-9) return []; var t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den, u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den; return [{ x: x1 + t * (x2 - x1), y: y1 + t * (y2 - y1), t: t, u: u }]; };
+  var LC = function (l, c) { var dx = l.b.x - l.a.x, dy = l.b.y - l.a.y, fx = l.a.x - c.c.x, fy = l.a.y - c.c.y, A = dx * dx + dy * dy, B = 2 * (fx * dx + fy * dy), C = fx * fx + fy * fy - c.r * c.r, D = B * B - 4 * A * C; if (D < 0) return []; var s = Math.sqrt(D); return [(-B - s) / (2 * A), (-B + s) / (2 * A)].map(function (t) { return { x: l.a.x + t * dx, y: l.a.y + t * dy, t: t }; }); };
+  var CC = function (a, b) { var D = d(a.c, b.c); if (D < 1e-9 || D > a.r + b.r + 1e-9 || D < Math.abs(a.r - b.r) - 1e-9) return []; var x = (D * D + a.r * a.r - b.r * b.r) / (2 * D), h = Math.sqrt(Math.max(0, a.r * a.r - x * x)), ux = (b.c.x - a.c.x) / D, uy = (b.c.y - a.c.y) / D, mx = a.c.x + x * ux, my = a.c.y + x * uy; return [{ x: mx - h * uy, y: my + h * ux }, { x: mx + h * uy, y: my - h * ux }]; };
+  var isL = function (o) { return !!o.a; }, seg = function (o) { return o.k === 'seg'; };
+  if (isL(o1) && isL(o2)) out = LL(o1, o2).filter(function (p) { return (!seg(o1) || (p.t > -1e-9 && p.t < 1 + 1e-9)) && (!seg(o2) || (p.u > -1e-9 && p.u < 1 + 1e-9)) && (!o1.ray || p.t > -1e-9) && (!o2.ray || p.u > -1e-9); });
+  else if (isL(o1)) out = LC(o1, o2).filter(function (p) { return (!seg(o1) || (p.t > -1e-9 && p.t < 1 + 1e-9)) && (!o1.ray || p.t > -1e-9); });
+  else if (isL(o2)) out = LC(o2, o1).filter(function (p) { return (!seg(o2) || (p.t > -1e-9 && p.t < 1 + 1e-9)) && (!o2.ray || p.t > -1e-9); });
+  else out = CC(o1, o2);
+  return out;
+}
+function objects() { return S.lines.map(function (l) { return { a: l.a, b: l.b, k: 'line' }; }).concat(S.segs.map(function (s) { return { a: s.a, b: s.b, k: s.ray ? 'line' : 'seg', ray: s.ray }; }), S.circles.map(function (c) { return { c: c.c, r: c.r }; })); }
+function crossings() { var o = objects(), out = []; for (var i = 0; i < o.length; i++) for (var j = i + 1; j < o.length; j++) inter(o[i], o[j]).forEach(function (p) { if (p.x > -50 && p.x < W + 50 && p.y > -50 && p.y < H + 50) out.push({ x: p.x, y: p.y }); }); return out; }
+function nearPoint(q, r) { var best = null, bd = r || 14; S.pts.forEach(function (p) { if (p.hidden) return; var e = d(p, q); if (e < bd) { bd = e; best = p; } }); return best; }
+function nearCross(q) { var best = null, bd = 14; crossings().forEach(function (p) { var e = d(p, q); if (e < bd) { bd = e; best = p; } }); return best; }
+function getPoint(q) { var p = nearPoint(q, 10); if (p) return p; var c = nearCross(q); if (!c) return null; var ex = S.pts.filter(function (x) { return d(x, c) < 1e-6; })[0]; if (ex) return ex; save(); var np = { x: c.x, y: c.y, label: nextLabel() }; S.pts.push(np); return np; }
+var LAB = 'DEFGHJKMNQSTUVWXYZ'; function nextLabel() { var used = {}; S.pts.forEach(function (p) { used[p.label] = 1; }); for (var i = 0; i < LAB.length; i++) if (!used[LAB[i]]) return LAB[i]; return ''; }
+function save() { hist.push(JSON.stringify({ pts: S.pts.length, lines: S.lines.length, segs: S.segs.length, circles: S.circles.length })); }
+/* ---------------- input ---------------- */
+function pos(ev) { var r = svg.getBoundingClientRect(); return { x: (ev.clientX - r.left) * W / r.width, y: (ev.clientY - r.top) * H / r.height }; }
+svg.addEventListener('click', function (ev) {
+  var q = pos(ev), p;
+  if (tool === 'point') { p = getPoint(q); if (!p) say('Click where two drawn objects cross.'); draw(); return; }
+  if (tool === 'compass') {
+    if (!pending.length) { p = getPoint(q); if (!p) return say('The compass point must be on a point.'); pending = [p]; hint.textContent = 'Now click a point (or anywhere) to set the radius.'; }
+    else { var rp = getPoint(q) || q, r = d(pending[0], rp); if (r < 4) return; save(); S.circles.push({ c: pending[0], r: r }); width = r; pending = []; hint.textContent = 'Circle drawn. Click a center for another circle.'; }
+  } else if (tool === 'copy') {
+    p = getPoint(q); if (!p && !(!copyW && pending.length === 1)) return say(copyW ? 'The compass point must be on a point.' : 'Click a point to start the width.');
+    if (!copyW) { pending.push(p || q); if (pending.length === 2) { copyW = d(pending[0], pending[1]); pending = []; if (copyW < 1) { copyW = null; return say('Pick two different points.'); } hint.textContent = 'Width set. Click a center point (press Copy width again to choose a new width).'; } else hint.textContent = 'Click the second point.'; }
+    else { save(); S.circles.push({ c: p, r: copyW }); hint.textContent = 'Arc copied. Click another center, or press Copy width to choose a new width.'; }
+  } else if (tool === 'line' || tool === 'seg') {
+    p = getPoint(q); if (!p) return say('The straightedge goes through points: click points or crossings.');
+    pending.push(p); if (pending.length === 2) { if (pending[0] !== pending[1]) { save(); (tool === 'line' ? S.lines : S.segs).push({ a: pending[0], b: pending[1] }); } pending = []; }
+  }
+  draw();
+});
+function say(t) { hint.textContent = t; }
+undoB.onclick = function () { var h = hist.pop(); if (!h) return; h = JSON.parse(h); S.pts.length = h.pts; S.lines.length = h.lines; S.segs.length = h.segs; S.circles.length = h.circles; pending = []; draw(); };
+clearB.onclick = function () { load(task, false); };
+newB.onclick = function () { load(task, true); };
+sel.onchange = function () { load(+sel.value, true); };
+checkB.onclick = function () { var ok = TASKS[task].goal(S, G); fb.textContent = ok ? 'Correct! Your construction meets the goal.' : 'Not yet. Follow the steps: every line must go through points you constructed.'; fb.className = 'cs-fb ' + (ok ? 'ok' : 'no'); };
+/* ---------------- drawing ---------------- */
+function extend(a, b) { var u = unit(a, b), k = 2000; return { x1: a.x - k * u.x, y1: a.y - k * u.y, x2: a.x + k * u.x, y2: a.y + k * u.y }; }
+function figure(target, Sx, opt) {
+  while (target.firstChild) target.removeChild(target.firstChild);
+  sv('rect', { x: 0, y: 0, width: W, height: H, fill: '#fff' }, target);
+  Sx.circles.forEach(function (c) { sv('circle', { cx: c.c.x, cy: c.c.y, r: c.r, fill: 'none', stroke: c.given ? '#222' : '#1f5fa8', 'stroke-width': c.given ? 2.2 : 1.4 }, target); });
+  Sx.lines.forEach(function (l) { var e = extend(l.a, l.b); sv('line', { x1: e.x1, y1: e.y1, x2: e.x2, y2: e.y2, stroke: l.given ? '#222' : '#c0392b', 'stroke-width': l.given ? 2.2 : 1.6 }, target); if (l.label) { var t = sv('text', { x: l.b.x - 40, y: l.b.y - 10, 'font-size': 18, 'font-style': 'italic' }, target); t.textContent = l.label; } });
+  Sx.segs.forEach(function (s) { var b = s.ray ? { x: s.a.x + 2000 * unit(s.a, s.b).x, y: s.a.y + 2000 * unit(s.a, s.b).y } : s.b; sv('line', { x1: s.a.x, y1: s.a.y, x2: b.x, y2: b.y, stroke: s.given ? '#222' : '#0f7a3a', 'stroke-width': s.given ? 2.6 : 2.2 }, target); });
+  Sx.pts.forEach(function (p) { if (p.hidden) return; sv('circle', { cx: p.x, cy: p.y, r: p.given ? 4.5 : 3.6, fill: p.given ? '#222' : '#1f5fa8' }, target); if (p.label) { var t = sv('text', { x: p.x + 7, y: p.y - 7, 'font-size': 16, 'font-family': 'Arial' }, target); t.textContent = p.label; } });
+  if (opt && opt.marks) { pending.forEach(function (p) { sv('circle', { cx: p.x, cy: p.y, r: 9, fill: 'none', stroke: '#f39c12', 'stroke-width': 2.5 }, target); }); crossings().forEach(function (p) { if (!nearPoint(p, 2)) sv('circle', { cx: p.x, cy: p.y, r: 3, fill: 'none', stroke: '#999' }, target); }); }
+}
+function draw() { figure(svg, S, { marks: true }); }
+/* ---------------- printable pages ---------------- */
+printB.onclick = function () {
+  var out = document.getElementById('cs-print'); out.replaceChildren();
+  TASKS.forEach(function (T, i) {
+    var g = T.make(), Sx = { pts: [], lines: [], segs: [], circles: [] }, P_ = {};
+    Object.keys(g.pts).forEach(function (k) { var p = { x: g.pts[k].x, y: g.pts[k].y, label: (g.hide || []).indexOf(k) >= 0 ? '' : k, given: true, hidden: (g.hide || []).indexOf(k) >= 0 }; P_[k] = p; Sx.pts.push(p); });
+    (g.segs || []).forEach(function (s) { Sx.segs.push({ a: P_[s[0]], b: P_[s[1]], given: true }); }); (g.rays || []).forEach(function (s) { Sx.segs.push({ a: P_[s[0]], b: P_[s[1]], given: true, ray: true }); });
+    (g.lines || []).forEach(function (s) { Sx.lines.push({ a: P_[s[0]], b: P_[s[1]], given: true, label: g.label }); }); (g.circles || []).forEach(function (c) { Sx.circles.push({ c: P_[c[0]], r: c[1], given: true }); });
+    var page = el('section', { class: 'cs-page' }, out); el('h2', {}, page, 'Construction ' + (i + 1) + ': ' + T.name);
+    el('p', {}, page, T.text + ' Use only a compass and a straightedge, and leave your construction marks. (' + T.std + ')');
+    var s = sv('svg', { viewBox: '0 0 ' + W + ' ' + H }, page); figure(s, Sx);
+    el('p', {}, page, 'Explain why your construction works:'); el('div', { class: 'cs-lines' }, page);
+  });
+  window.print();
+};
+load(0, true); setTool('compass');
+window.__cs = { state: function () { return { S: S, G: G, task: task }; }, tasks: TASKS, load: load, crossings: crossings, check: function () { return TASKS[task].goal(S, G); } };
+})();
+</script>
+</body></html>
