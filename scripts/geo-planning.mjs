@@ -69,7 +69,7 @@ export function geoPacingMain() {
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const wk = (d) => Math.ceil(d / 5);
   let h = `<h1>Geometry Pacing Guide and Standards Coverage</h1>
-<p class="lede">A 180-day full-year plan in two semesters, a compressed one-semester (90-day block) plan, and a table showing which generator skills practice each Common Core Geometry standard. Every day links to a ready lesson plan in the Lesson Planner.</p>
+<p class="lede">A 180-day full-year plan in two semesters, a compressed one-semester (90-day block) plan, and a table showing which generator skills practice each Common Core Geometry standard. Every lesson has a ready plan in the Lesson Planner.</p>
 <p><a href="#year">Full year</a> · <a href="#block">One-semester block</a> · <a href="#standards">Standards coverage</a></p>
 <h2 id="year">Full year (180 days, 36 weeks)</h2>
 <table><thead><tr><th>Unit</th><th>Days</th><th>Weeks</th><th>Lessons</th></tr></thead><tbody>
@@ -87,15 +87,11 @@ export function geoPacingMain() {
   const fin = scope.days.filter((d) => d.unit === null && d.day > 170);
   if (fin.length) h += `<tr><td colspan="4"><strong>Final review and exam</strong> (days ${fin[0].day}–${fin[fin.length - 1].day})</td></tr>\n`;
   h += `</tbody></table>\n`;
-  // one semester (block): each unit's lessons and test, practice days halved
-  h += `<h2 id="block">One semester (90-day block)</h2>\n<p>For a block schedule, teach each lesson as planned, keep one practice day per two lessons, the quiz, the review day and the test, and drop the mixed-practice and flex days.</p>\n<table><thead><tr><th>Unit</th><th>Block days</th></tr></thead><tbody>\n`;
-  let day = 2;
-  for (const u of scope.units) {
-    const ds = scope.days.filter((d) => d.unit === u.unit);
-    const n = ds.filter((d) => d.day_type === "Lesson").length, keep = n + Math.ceil(n / 4) + 3;
-    h += `<tr><td>Unit ${u.unit}: ${esc(u.title)}</td><td>${day + 1}–${day + keep} (${keep})</td></tr>\n`; day += keep;
-  }
-  h += `<tr><td>Final review and exam</td><td>${day + 1}–${Math.max(day + 3, 90)}</td></tr>\n</tbody></table>\n`;
+  // one semester (block): each 90-minute block covers two days of the full-year plan
+  h += `<h2 id="block">One semester (90-day block)</h2>\n<p>On a block schedule each 90-minute class covers two days of the full-year plan: a lesson and its practice, or two lessons. Day 1 is the launch and diagnostic.</p>\n<table><thead><tr><th>Unit</th><th>Block days</th></tr></thead><tbody>\n`;
+  let day = 1;
+  for (const u of scope.units) { const keep = Math.ceil(u.total_days / 2); h += `<tr><td>Unit ${u.unit}: ${esc(u.title)}</td><td>${day + 1}–${day + keep} (${keep})</td></tr>\n`; day += keep; }
+  h += `<tr><td>Final review and exam</td><td>${day + 1}${day + 1 < 90 ? "–90" : ""}</td></tr>\n</tbody></table>\n`;
   // standards coverage
   const bySkill = [];
   for (const [set, skills] of Object.entries(stdSkills)) if (/^geometry-/.test(set)) for (const [sk, codes] of Object.entries(skills)) bySkill.push({ key: set + "/" + sk, codes });
