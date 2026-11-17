@@ -226,7 +226,7 @@
   }
   function safeH(x) { var f = x * 100 - Math.floor(x * 100); return Math.abs(f - 0.5) > 1e-6; }
   skill({
-    id: 'q-fit', best: [1, 2], tag: 'MODEL', name: 'Quadratic models and regression',
+    id: 'q-fit', levels: ['honors'], best: [1, 2], tag: 'MODEL', name: 'Quadratic models and regression',
     blurb: 'The quadratic through three points that include the y-intercept (CP2) → three points anywhere (CP1) → quadratic regression with a calculator, and predictions from it (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, steps = [], cx = r.pick(QCTX), pts = [], fig;
@@ -252,7 +252,7 @@
         parts.push({ label: 'b', answer: 'y ≈ ' + M(String(yr)), check: { type: 'quad-fit', want: 'predict', at: 'x=' + xp } });
         steps.push(step('Substitute ⟨x=' + xp + '⟩ into the rounded model.', 'y\\approx ' + yr, 2)); }
       if (!parts[0].label) delete parts[0].label;
-      return { variant: 'qf' + c, prompt: 'Use quadratic regression on a calculator to find a model ' + M('y=ax^{2}+bx+c') + ' for the data. Round each coefficient to the nearest hundredth.' + (c >= 6 ? ' Then use your rounded model to predict ⟨y⟩ when ' + M('x=' + (n + (c === 7 ? 2 : 1))) + ', to the nearest tenth.' : ''), fig: fig, parts: parts, steps: steps, space: [1.0, 1.3, 1.6] };
+      return { variant: 'qf' + c, prompt: 'Use quadratic regression on a calculator (TI-84: x in L1, y in L2, then STAT → CALC → QuadReg; Desmos: type the table, then y₁ ~ ax₁² + bx₁ + c) to find a model ' + M('y=ax^{2}+bx+c') + ' for the data. Round each coefficient to the nearest hundredth.' + (c >= 6 ? ' Then use your rounded model to predict ⟨y⟩ when ' + M('x=' + (n + (c === 7 ? 2 : 1))) + ', to the nearest tenth.' : ''), fig: fig, parts: parts, steps: steps, space: [1.0, 1.3, 1.6] };
     }
   });
 

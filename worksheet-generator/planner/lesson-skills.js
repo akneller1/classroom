@@ -68,7 +68,7 @@
     'U5-L8': full([['L', 'parperp', 1, 7]]),
     'U5-L9': full([['L', 'lin-transform', 1, 7]]),
     'U5-L10': full([['L', 'line-model', 1, 7]]),
-    'U5-L11': part([['R', 'linear-rule', 1, 7], ['R', 'rate-of-change', 3, 5]], 'Comparing two functions given in different forms has no generator yet; pair two of the problems and ask which grows faster.'),
+    'U5-L11': full([['L', 'compare-functions', 1, 7], ['R', 'linear-rule', 1, 7], ['R', 'rate-of-change', 3, 5]]),
     /* Unit 6 · Systems of Equations and Inequalities */
     'U6-L1': full([['S', 'sys-graph', 1, 3]]),
     'U6-L2': full([['S', 'sys-subst', 1, 7]]),

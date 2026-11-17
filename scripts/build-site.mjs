@@ -19,7 +19,7 @@ import vm from "node:vm";
 import crypto from "node:crypto";
 import { asteroidEligibleUnits, filterAsteroidItems } from "./asteroid-eligibility.mjs";
 import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
-import { geoUnitGuide, geoPacingMain } from "./geo-planning.mjs";
+import { geoUnitGuide, geoPacingMain, planningPage, planningCourses } from "./geo-planning.mjs";
 import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
 const ROOT = process.cwd();
@@ -370,7 +370,7 @@ ${c.planned ? `<h2>Explore ${htmlEsc(c.title)} units</h2>
 <ul class="mk-items">
 ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(curriculum outline)</span></li>`).join("\n")}
 </ul>` : courseBody({ id: c.id, title: c.title, blurb: c.blurb, units: c.units.filter((u) => u.items.length) })}
-${c.id === "geometry" ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../geometry-pacing/">Geometry pacing guide and standards coverage</a>: full-year and block plans, and which skills practice each Common Core standard</li></ul>` : ""}
+${planningCourses.includes(c.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../${planningPage(c.id)}">${htmlEsc(c.id === "algebra" ? "Algebra 1" : c.title)} pacing guide and standards coverage</a>: full-year and block plans, and which skills practice each Common Core standard</li></ul>` : ""}
 <a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
@@ -406,7 +406,7 @@ ${unitJsonLd({ siteUrl: SITE_URL, courseName: c.title, courseUrl: courseAddress,
 ${c.planned ? `<ul class="mk-items">
 ${u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n")}
 </ul>` : unitBody({ courseTitle: c.title, unitTitle: u.title, skills: u.skills || [], items: u.items, depth, href })}
-${c.id === "geometry" ? geoUnitGuide(u.title) : ""}
+${planningCourses.includes(c.id) ? geoUnitGuide(u.title, c.id) : ""}
 <a class="open-app" href="${appLink}">Open this unit in the full classroom site</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
@@ -419,21 +419,21 @@ ${c.id === "geometry" ? geoUnitGuide(u.title) : ""}
     fs.writeFileSync(path.join(dir, "index.html"), page);
     sitemapUrls.push(url);
   }
-  if (c.id === "geometry") {   // pacing guide and standards coverage (2026-11-17)
-    const pUrl = SITE_URL + "geometry-pacing/", pDir = path.join(OUT, "geometry-pacing");
-    const pDesc = "A 180-day Geometry pacing guide, a one-semester block plan, and Common Core standards coverage for every worksheet-generator skill.";
+  if (planningCourses.includes(c.id)) {   // pacing guide and standards coverage (Geometry and Algebra 1, 2026-11-17)
+    const cName = c.id === "algebra" ? "Algebra 1" : c.title, pPage = planningPage(c.id), pUrl = SITE_URL + pPage, pDir = path.join(OUT, pPage);
+    const pDesc = "A 180-day " + cName + " pacing guide, a one-semester block plan, and Common Core standards coverage for every worksheet-generator skill.";
     fs.mkdirSync(pDir, { recursive: true });
     fs.writeFileSync(path.join(pDir, "index.html"), `<!doctype html>
 <html lang="en">
 <head>
-${headTags({ title: "Geometry Pacing Guide and Standards Coverage | " + SITE_NAME, description: pDesc, url: pUrl, depth: 1, fontsHref: GOOGLE_FONTS_HOME })}
+${headTags({ title: cName + " Pacing Guide and Standards Coverage | " + SITE_NAME, description: pDesc, url: pUrl, depth: 1, fontsHref: GOOGLE_FONTS_HOME })}
 <style>${PAGE_CSS}table{border-collapse:collapse;width:100%;margin:.5em 0 1.5em}th,td{border:1px solid #ccc;padding:.35em .5em;text-align:left;vertical-align:top;font-size:.92rem}</style>
 </head>
 <body>
 <div class="wrap">
 <p class="crumbs"><a href="../">${htmlEsc(SITE_NAME)}</a> / <a href="../${courseUrl(c)}">${htmlEsc(c.title)}</a> / Pacing guide</p>
 <main>
-${geoPacingMain()}
+${geoPacingMain(c.id, (t) => { const uu = c.units.find((x) => x.title === t); return "../" + (uu ? unitUrl(c, uu) : courseUrl(c)); })}
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
 </div>

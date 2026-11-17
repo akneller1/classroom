@@ -197,7 +197,7 @@
     return f1(a, sgn * b, v) + '(' + poly([b * b, -sgn * a * b, a * a], v) + ')';
   }
   skill({
-    id: 'cubes', print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'SPECIAL', name: 'Sums and differences of cubes',
+    id: 'cubes', levels: ['honors'], print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'SPECIAL', name: 'Sums and differences of cubes',
     blurb: 'x³ − 8 and x³ + 27 (CP2) → 8x³ − 27, a common factor first (CP1) → a GCF with x, x⁶ − 64 (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, v = letter(r), sgn = r.sign(), steps = [], a = 1, b, g = 1, gx = 0, expr, ans;

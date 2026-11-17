@@ -159,7 +159,7 @@
       Object.keys(set.tags).map(function (t) {
         var list = set.skills.filter(function (s) { return s.tag === t; });
         return '<fieldset class="mm-skillgrp"><legend><span class="mm-chip">' + esc(t) + '</span> ' + esc(set.tags[t]) + '</legend>' + list.map(function (s) {
-          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + (NS.skillLevelAllowed(c, s) ? '' : ' disabled') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
+          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + (NS.skillLevelAllowed(c, s) ? '' : ' disabled') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + (NS.skillLevelAllowed(c, s) ? '' : ' (' + ((s.levels || [])[0] === 'cp1' ? 'Standard and Advanced only' : 'Advanced only') + ')') + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
         }).join('') + '</fieldset>';
       }).join('') +
       '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : !(set.gaps || []).length ? '<b>Question coverage:</b> every topic listed above is generated and checked by the verifier.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';

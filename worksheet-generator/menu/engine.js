@@ -62,7 +62,7 @@
   function policyOf(cfg) {
     var lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1;
     var intOnly = cfg.answers === 'integers' ? true : cfg.answers === 'fractions' ? false : lv.intOnly;
-    return { intOnly: intOnly, level: lv.id, questionPool: cfg.questionPool || ((cfg.mode === 'test' || cfg.mode === 'menu') ? 'formal' : null) };
+    return { intOnly: intOnly, autoAnswers: cfg.answers !== 'integers' && cfg.answers !== 'fractions', level: lv.id, questionPool: cfg.questionPool || ((cfg.mode === 'test' || cfg.mode === 'menu') ? 'formal' : null) };
   }
   NS.policyOf = policyOf;
   function policyFor(cfg, si) {
@@ -158,6 +158,7 @@
   };
 
   NS.skillLevelAllowed = function (cfg, skill) {
+    if (skill && Array.isArray(skill.levels) && cfg.level && skill.levels.indexOf(cfg.level) < 0) return false;   // e.g. levels: ['cp1', 'honors'] keeps a topic off Support
     return cfg.level === 'honors' || !/^Honors:/.test((skill || {}).name || '');
   };
   NS.normalizeLevelSkills = function (cfg) {
@@ -389,7 +390,10 @@
     var lastReason = 'no attempt succeeded', fallback = null;
     for (var attempt = 0; attempt < 500; attempt++) {
       var rng = WS.rng.make(WS.rng.hash([seed, skillId, c, attempt].join('|')));
-      var ctx = { rng: rng, c: c, intOnly: policy.intOnly, level: policy.level, compact: !!policy.compact };
+      /* Standard (CP1) promises fraction bars and decimals: in Algebra 1, about 40% of its top-tier problems may have
+         a fraction or decimal answer unless the teacher chose "whole numbers only" (2026-11-17, Algebra 1 audit #12). */
+      var pol = policy.intOnly && policy.autoAnswers && policy.level === 'cp1' && c >= 5 && /^algebra1-/.test(setId) && rng.next() < 0.4 ? Object.assign({}, policy, { intOnly: false }) : policy;
+      var ctx = { rng: rng, c: c, intOnly: pol.intOnly, level: policy.level, compact: !!policy.compact };
       var p;
       try { p = sk.generate(ctx); if (p && /^geometry-/.test(setId)) { p = NS.geoWording(p, skillId); if (!policy.noTier) { var tq = NS.geoTier(p, skillId, c, rng); if (tq !== p && NS.verifyProblem(tq, policy).ok) p = tq; } } }
       catch (e) {
@@ -418,7 +422,7 @@
       }
       if (used.keys.has(key)) { NS.stats.duplicates++; continue; }
       if (attempt < 350 && used.sigs.has(sig)) { NS.stats.duplicates++; if (!fallback) fallback = { p: p, key: key, sig: sig }; continue; }
-      var v = NS.verifyProblem(p, policy);
+      var v = NS.verifyProblem(p, pol);
       if (!v.ok) { NS.stats.rejectedByVerifier++; lastReason = 'verifier: ' + v.issues.join('; '); continue; }
       return finish(p, key, sig, v);
     }
@@ -1114,7 +1118,7 @@
     });
   };
   NS.changeSkill = function (state, vIdx, uidStr, skillId) {
-    if (!NS.skillLevelAllowed(state.config, sets[state.config.unitId].byId[skillId])) return { failed: true, reason: 'Choose Honors to use this skill.' };
+    if (!NS.skillLevelAllowed(state.config, sets[state.config.unitId].byId[skillId])) return { failed: true, reason: 'Choose ' + ((sets[state.config.unitId].byId[skillId].levels || [])[0] === 'cp1' ? 'Standard or Advanced' : 'Advanced (Honors)') + ' to use this skill.' };
     var loc = find(state, vIdx, uidStr); if (!loc) return;
     slotItems(state, loc.item.slot).forEach(function (l) {
       var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, skillId, l.item.c, policyFor(cfg, l.si), [cfg.seed, l.v, l.item.slot, skillId, r0, t].join('|'), usedSets(state, l.item.uid)); });
