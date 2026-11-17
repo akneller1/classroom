@@ -149,11 +149,68 @@ function compositePlane(ctx){var r=ctx.rng,c=ctx.c,shapes=c<=2?['L','hole']:c<=4
   alts=per?[(Math.round((2*d.h+2*d.w+Math.PI*d.w/2)*10)/10).toFixed(1),(Math.round((2*d.h+d.w+Math.PI*d.w)*10)/10).toFixed(1)]:[(Math.round((d.w*d.h+Math.PI*d.w*d.w/4)*10)/10).toFixed(1),(Math.round((d.w*d.h+Math.PI*d.w*d.w/2)*10)/10).toFixed(1)];}
  var sq=/perimeter/.test(prompt)?unit:'square '+unit;
  return {variant:'geo-comp-plane-'+k+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(String(ans))+' '+sq,check:D('comp-plane',alts,ans)}],steps:[step('Split the figure into shapes you know.',''),step(why,'')],space:[1.0,1.2,1.4]};}
+/* ---- 2026-11-17 audit: area/perimeter from coordinates (G-GPE.B.7), regular polygons with an apothem, circle circumference and area,
+   Cavalieri's principle (G-GMD.A.1, A.2), density (G-MG.A.2). The verifier recomputes every answer from the printed numbers. ---- */
+function t1(v){return (Math.round(v*10)/10).toFixed(1);}
+function safe(v){var t=v*10;return Math.abs(t-Math.floor(t)-0.5)>1e-3;}
+function coordPoly(ctx){var r=ctx.rng,c=ctx.c,P,ox=r.int(-7,1),oy=r.int(-6,1),per=c>=6&&r.chance(0.5),L;
+ if(c<=2){var a=r.int(2,8),b=r.int(2,7);P=r.chance(0.5)?[[0,0],[a,0],[a,b],[0,b]]:[[0,0],[a,0],[0,b]];}
+ else if(c<=5||per){if(r.chance(0.5)){P=[[0,0],[r.int(3,9),r.int(-2,2)],[r.int(-2,6),r.int(3,8)]];}else{var w=r.int(4,9),t=r.int(1,w-1),h=r.int(2,6),sh=r.int(-2,2);P=[[0,0],[w,0],[sh+t,h],[sh,h]];}}
+ else P=[[0,0],[r.int(4,8),r.int(-2,1)],[r.int(5,9),r.int(4,7)],[r.int(-2,2),r.int(3,6)]];
+ P=P.map(function(q){return [q[0]+ox,q[1]+oy];});L=['A','B','C','D'].slice(0,P.length);
+ var A2=0,i;for(i=0;i<P.length;i++){var u=P[i],v=P[(i+1)%P.length];A2+=u[0]*v[1]-v[0]*u[1];}K.need(A2>0);var area=A2/2;
+ var cr=function(i){var a=P[i],b=P[(i+1)%P.length],d=P[(i+2)%P.length];return (b[0]-a[0])*(d[1]-b[1])-(b[1]-a[1])*(d[0]-b[0]);};for(i=0;i<P.length;i++)K.need(cr(i)>0);
+ var lens=P.map(function(u,i){var v=P[(i+1)%P.length];return Math.hypot(v[0]-u[0],v[1]-u[1]);}),perim=lens.reduce(function(a,b){return a+b;},0);
+ var verts=L.map(function(n,i){return n+'('+P[i][0]+', '+P[i][1]+')';}).join(', '),name=L.length===3?'Triangle':'Quadrilateral';
+ if(per){K.need(safe(perim));return {variant:'geo-coordpoly-perimeter-'+c,prompt:name+' '+L.join('')+' has vertices '+verts+'. Find its perimeter to the nearest tenth of a unit.',fig:{kind:'geo-grid',shapes:[{id:'poly',pts:P,labels:L}]},
+  parts:[{answer:M(t1(perim)),check:{type:'derive',kind:'coord-poly',alts:[M(t1(perim+1)),M(t1(area))]}}],
+  steps:[step('Find each side with the distance formula: '+lens.map(function(x,i){return L[i]+L[(i+1)%L.length]+' ≈ '+x.toFixed(2);}).join(', ')+'.'),step('Add the sides and round.',M(t1(perim)))],space:[1.4,1.8,2.2]};}
+ var bad=[M(String(A2)),M(String(area+1))];
+ return {variant:'geo-coordpoly-area-'+L.length+'-'+c,prompt:name+' '+L.join('')+' has vertices '+verts+'. Find its area in square units.',fig:{kind:'geo-grid',shapes:[{id:'poly',pts:P,labels:L}]},
+  parts:[{answer:M(String(area)),check:{type:'derive',kind:'coord-poly',alts:bad}}],
+  steps:[step(c<=2?'Read the base and height from the grid.':'Enclose the figure in a rectangle and subtract the corner right triangles, or use the shoelace formula.'),step('Area:',M(String(area)))],space:[1.2,1.6,2]};}
+var NG={5:'pentagon',6:'hexagon',8:'octagon',10:'decagon',12:'dodecagon'};
+function apothem(ctx){var r=ctx.rng,c=ctx.c,n=r.pick(c<=2?[6]:c<=5?[5,6,8]:[5,6,8,10,12]),sd=r.int(c<=2?2:3,c<=2?12:20),ap=sd/(2*Math.tan(Math.PI/n)),apr=Math.round(ap*10)/10,unit=r.pick(['cm','in.','m','ft']);
+ var given=c<=5,area=given?n*sd*apr/2:n*sd*ap/2;K.need(safe(area));
+ var pr='A regular '+NG[n]+' has side length '+sd+' '+unit+(given?' and apothem '+apr.toFixed(1)+' '+unit:'')+'. Find its area to the nearest tenth of a square '+(unit==='in.'?'inch':unit==='ft'?'foot':unit==='m'?'meter':'centimeter')+'.';
+ var st=given?[step('Perimeter: '+n+' × '+sd+' = '+(n*sd)+' '+unit+'.'),step('Area = ½ × apothem × perimeter = ½ × '+apr.toFixed(1)+' × '+(n*sd)+'.',M(t1(area)))]
+  :[step('Each central angle is 360° ÷ '+n+' = '+(360/n)+'°. The apothem splits it in half: tan('+(180/n)+'°) = ('+sd+'/2) ÷ a.'),step('a = '+sd+' ÷ (2 tan '+(180/n)+'°) ≈ '+ap.toFixed(3)+' '+unit+'.'),step('Area = ½ × a × perimeter = ½ × '+ap.toFixed(3)+' × '+(n*sd)+'.',M(t1(area)))];
+ return {variant:'geo-apothem-'+(given?'given':'trig')+'-'+n+'-'+c,prompt:pr,parts:[{answer:M(t1(area)),check:{type:'derive',kind:'apothem',alts:[M(t1(area*2)),M(t1(n*sd*(given?apr:ap)))]}}],steps:st,space:[1.2,1.6,2]};}
+function circleBasic(ctx){var r=ctx.rng,c=ctx.c,unit=r.pick(['cm','in.','m','ft']),mode=c<=2?r.pick(['circ','area']):c<=5?r.pick(['circdec','areadec']):r.pick(['fromC','fromA']),rr,pr,ans,alts,st;
+ if(mode==='circ'){rr=r.int(2,25);pr='A circle has radius '+rr+' '+unit+'. Find its circumference in terms of π.';ans=M((2*rr)+'\\pi')+' '+unit;alts=[M((rr*rr)+'\\pi'),M(rr+'\\pi')];st=[step('C = 2πr = 2π('+rr+').',M((2*rr)+'\\pi'))];}
+ else if(mode==='area'){rr=r.int(2,20);pr='A circle has radius '+rr+' '+unit+'. Find its area in terms of π.';ans=M((rr*rr)+'\\pi')+' square '+unit;alts=[M((2*rr)+'\\pi'),M((2*rr*rr)+'\\pi')];st=[step('A = πr² = π('+rr+')².',M((rr*rr)+'\\pi'))];}
+ else if(mode==='circdec'){var d=r.int(3,40),v=Math.PI*d;K.need(safe(v));pr='A circle has diameter '+d+' '+unit+'. Find its circumference to the nearest tenth.';ans=M(t1(v))+' '+unit;alts=[M(t1(2*v)),M(t1(Math.PI*d*d/4))];st=[step('C = πd = π('+d+').',M(t1(v)))];}
+ else if(mode==='areadec'){var d2=r.int(3,40),v2=Math.PI*d2*d2/4;K.need(safe(v2));pr='A circle has diameter '+d2+' '+unit+'. Find its area to the nearest tenth.';ans=M(t1(v2))+' square '+unit;alts=[M(t1(Math.PI*d2*d2)),M(t1(Math.PI*d2))];st=[step('The radius is half the diameter: r = '+(d2/2)+'.'),step('A = πr² = π('+(d2/2)+')².',M(t1(v2)))];}
+ else if(mode==='fromC'){rr=r.int(2,20);pr='A circle has circumference '+(2*rr)+'π '+unit+'. Find its area in terms of π.';ans=M((rr*rr)+'\\pi')+' square '+unit;alts=[M((4*rr*rr)+'\\pi'),M((2*rr)+'\\pi')];st=[step('C = 2πr, so 2πr = '+(2*rr)+'π and r = '+rr+'.'),step('A = πr² = π('+rr+')².',M((rr*rr)+'\\pi'))];}
+ else {rr=r.int(2,20);pr='A circle has area '+(rr*rr)+'π square '+unit+'. Find its circumference in terms of π.';ans=M((2*rr)+'\\pi')+' '+unit;alts=[M((rr*rr)+'\\pi'),M(rr+'\\pi')];st=[step('A = πr², so r² = '+(rr*rr)+' and r = '+rr+'.'),step('C = 2πr = 2π('+rr+').',M((2*rr)+'\\pi'))];}
+ return {variant:'geo-circlebasic-'+mode+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'circle-basic',alts:alts}}],steps:st,space:[0.9,1.2,1.5]};}
+function cavalieri(ctx){var r=ctx.rng,c=ctx.c,pr,ans,alts,st,v;
+ if(c<=2){var n=r.int(10,30),rad=r.pick([1,1.2,1.5,2,2.5]),th=r.pick([0.2,0.25,0.3,0.4]);v=n*Math.PI*rad*rad*th;K.need(safe(v));
+  pr='Each coin in two stacks has radius '+rad+' cm and thickness '+th+' cm. One stack of '+n+' coins is straight; the other stack of '+n+' coins leans to one side. Find the volume of the leaning stack to the nearest tenth of a cubic centimeter.';
+  ans=M(t1(v));alts=[M(t1(v*1.2)),M(t1(Math.PI*rad*rad*th))];st=[step("Cavalieri's principle: both stacks have the same cross-sections at every height, so they have the same volume."),step('V = n·πr²·t = '+n+' · π('+rad+')² · '+th+'.',M(t1(v)))];}
+ else if(c<=5){var rr=r.int(2,9),h=r.int(4,20),sl=h+r.int(2,6);pr='An oblique cylinder has radius '+rr+' cm and height '+h+' cm. Its slanted side is '+sl+' cm long. Find its volume in terms of π.';ans=M((rr*rr*h)+'\\pi');alts=[M((rr*rr*sl)+'\\pi'),M((2*rr*h)+'\\pi')];
+  st=[step("By Cavalieri's principle an oblique cylinder has the same volume as a right cylinder with the same base and height. The slanted side length is not the height."),step('V = πr²h = π('+rr+')²('+h+').',M((rr*rr*h)+'\\pi'))];}
+ else {var b=r.int(3,15),h2=r.int(4,24),sl2=h2+r.int(2,7),cone=r.chance(0.5);v=cone?Math.PI*b*b*h2/3:b*b*h2/3;K.need(safe(v));
+  pr=cone?'An oblique cone has radius '+b+' cm and height '+h2+' cm. Its longest slanted edge is '+sl2+' cm. Find its volume to the nearest tenth of a cubic centimeter.':'An oblique pyramid has a square base with side '+b+' cm and height '+h2+' cm. One lateral edge is '+sl2+' cm long. Find its volume to the nearest tenth of a cubic centimeter.';
+  ans=M(t1(v));alts=[M(t1(v*sl2/h2)),M(t1(v*3))];st=[step("Cavalieri's principle: the volume depends only on the base area and the perpendicular height, not on the slant."),step(cone?'V = ⅓πr²h = ⅓π('+b+')²('+h2+').':'V = ⅓Bh = ⅓('+b+')²('+h2+').',M(t1(v)))];}
+ return {variant:'geo-cavalieri-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'cavalieri',alts:alts}}],steps:st,space:[1.1,1.4,1.7]};}
+function density(ctx){var r=ctx.rng,c=ctx.c,pr,ans,alts,st,v;
+ if(c<=2){var A=r.int(4,60),d=r.int(20,900),P=A*d;pr='A town covers '+A+' square miles and has a population of '+P+' people. Find its population density in people per square mile.';ans=M(String(d));alts=[M(String(P*A)),M(String(d+1))];st=[step('Density = population ÷ area = '+P+' ÷ '+A+'.',M(String(d)))];}
+ else if(c<=5){var l=r.int(2,12),w=r.int(2,10),h=r.int(2,10),rho=r.pick([0.5,0.7,0.9,1.1,2.7,7.9,8.9,11.3])+r.int(-2,2)/10,m=Math.round(l*w*h*rho);v=m/(l*w*h);K.need(safe(v)&&v>0.1);
+  pr='A rectangular block measures '+l+' cm by '+w+' cm by '+h+' cm and has a mass of '+m+' grams. Find its density in grams per cubic centimeter to the nearest tenth.';ans=M(t1(v));alts=[M(t1(l*w*h/m)),M(t1(v+1))];st=[step('Volume = '+l+' × '+w+' × '+h+' = '+(l*w*h)+' cm³.'),step('Density = mass ÷ volume = '+m+' ÷ '+(l*w*h)+'.',M(t1(v)))];}
+ else {var rr=r.pick([0.5,0.75,1,1.25,1.5]),L=r.int(4,20),dd=r.pick([22,28,32,35,40,45]);v=Math.PI*rr*rr*L*dd;K.need(safe(v));
+  pr='A cylindrical log has radius '+rr+' ft and length '+L+' ft. The wood has a density of '+dd+' pounds per cubic foot. Find the weight of the log to the nearest tenth of a pound.';ans=M(t1(v));alts=[M(t1(v/dd)),M(t1(2*Math.PI*rr*L*dd))];st=[step('Volume = πr²L = π('+rr+')²('+L+') ≈ '+(Math.PI*rr*rr*L).toFixed(3)+' ft³.'),step('Weight = density × volume = '+dd+' × '+(Math.PI*rr*rr*L).toFixed(3)+'.',M(t1(v)))];}
+ return {variant:'geo-density-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'density',alts:alts}}],steps:st,space:[1.1,1.4,1.7]};}
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids',SCALE:'Similar solids and scale factors',UNITS:'Unit conversions for area and volume'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section><section><h4>Surface area</h4><p>Square pyramid: s² + 2sl; cone: πr² + πrl (l = slant height).</p></section><section><h4>Similar solids</h4><p>Scale factor k: areas × k², volumes × k³.</p></section></div>',
 gaps:[],
 skills:[
+{id:'measure-coordinate-polygon',tag:'AREA',name:'Area and perimeter of polygons from coordinates',best:[0,1,2],generate:ctx=>K.retry(()=>coordPoly(ctx))},
+{id:'measure-regular-polygon-apothem',tag:'AREA',name:'Area of a regular polygon with an apothem',best:[0,1,2],generate:ctx=>K.retry(()=>apothem(ctx))},
+{id:'measure-circle-circumference-area',tag:'AREA',name:'Circumference and area of a circle',best:[0,1,2],generate:ctx=>K.retry(()=>circleBasic(ctx))},
+{id:'measure-cavalieri',tag:'VOLUME',name:"Cavalieri's principle: oblique solids",best:[0,1,2],generate:ctx=>K.retry(()=>cavalieri(ctx))},
+{id:'measure-density',tag:'UNITS',name:'Density: population, mass and weight',best:[0,1,2],generate:ctx=>K.retry(()=>density(ctx))},
 {id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1],generate:rect},
 {id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1],generate:triangle},
 {id:'measure-parallelogram-area',tag:'AREA',name:'Area of a parallelogram',best:[0,1],generate:parallelogram},

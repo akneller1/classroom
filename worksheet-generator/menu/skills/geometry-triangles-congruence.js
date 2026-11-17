@@ -435,6 +435,26 @@ NS.congruenceProofFor=function(ctx,pool,lead,cp){
  if(para){P.fig.proof.paragraph=true;P.fig.proof.lead='We are given that '+B.givens.map(prShow).join(' and ')+'.';P.prompt=P.prompt.replace(PR_MODE[mode],'Complete the paragraph proof by filling in each blank.');P.variant=P.variant.replace('geo-proof-table-','geo-proof-table-para-');}
  return P;};
 
+/* ---- 2026-11-17 audit: error analysis. A complete two-column proof with one wrong reason; students name the row and fix it.
+   The verifier re-checks every printed row, confirms exactly that row fails, and accepts any correct replacement reason. ---- */
+function proofError(ctx){var r=ctx.rng,c=ctx.c,B=prBuild(r,c,{cpctc:c>=6&&r.next()<0.6}),nr=B.rows.length,cand=[],i;
+ for(i=0;i<nr;i++){var rk=B.rows[i].rk;if(c<=2&&/^(given|reflexive|vertical)$/.test(rk))cand.push(i);else if(c>2&&c<=5&&i<nr-(B.cpctc?2:1))cand.push(i);else if(c>=6&&i>=nr-(B.cpctc?2:1))cand.push(i);}
+ K.need(cand.length);var e=r.pick(cand),rk0=B.rows[e].rk,wrong;
+ if(rk0==='cpctc')wrong=B.post;
+ else if(/^(SSS|SAS|ASA|AAS|HL)$/.test(rk0))wrong=r.pick(['SSA','AAA']);
+ else if(rk0==='given')wrong=PR_REASON.reflexive;
+ else if(rk0==='reflexive')wrong=PR_REASON.vertical;
+ else if(rk0==='vertical')wrong=PR_REASON.reflexive;
+ else wrong='Given';
+ var P=prProblem(ctx,B,'one',[],'error'),right=PR_REASON[rk0];
+ P.fig.proof.rows[e].r=wrong;
+ if(NS.proofCheck){var X=NS.proofCheck.ctx(P),res=NS.proofCheck.check(X,P.fig.proof.rows.map(function(q){return {s:q.s,r:q.r};}));K.need(res.bad[0]===e&&res.bad.every(function(b){return b===e||b>=nr-(B.cpctc?2:1);}));}
+ var other=(e+1)%nr;
+ P.prompt=P.prompt.replace(PR_MODE.one,'One row of this proof gives a wrong reason. Name the row and write the correct reason.');
+ P.variant=P.variant.replace('geo-proof-table-error-','geo-proof-error-');
+ P.parts=[{answer:'Row '+(e+1)+': '+right,check:{type:'geo-proof-error',alts:['Row '+(other+1)+': '+PR_REASON[B.rows[other].rk],'Row '+(e+1)+': '+wrong]}}];
+ P.steps=[step('Check each row: the reason must justify that exact statement.'),step('Row '+(e+1)+' says "'+wrong+'", but '+(rk0==='cpctc'?'CPCTC is the reason for corresponding parts after the triangles are proved congruent.':/^(SSS|SAS|ASA|AAS|HL)$/.test(rk0)?wrong+' does not prove triangles congruent; the rows above give '+rk0+'.':'that does not justify "'+B.rows[e]&&P.fig.proof.rows[e].s+'".')),step('Correct reason: '+right+'.')];
+ return P;}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{RIGID:'Congruence and rigid motions',CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
@@ -459,6 +479,7 @@ NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',course
  {id:'congruence-investigation-hl',tag:'CHAIN',name:'Four-part investigation: right triangles congruent by HL',best:[2],generate:investigationHL},
  {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof},
  {id:'congruence-proof-missing-reason',tag:'PROOFS',name:'Proof: supply the missing reason',best:[0,1],generate:proofSkill('one','hi')},
+ {id:'congruence-proof-error',tag:'PROOFS',name:'Proof error analysis: find and fix the wrong reason',best:[0,1,2],generate:ctx=>K.retry(()=>proofError(ctx))},
  {id:'congruence-proof-reasons',tag:'PROOFS',name:'Proof: fill in the missing reasons',best:[0,1],generate:proofSkill('reasons','hi')},
  {id:'congruence-proof-statements',tag:'PROOFS',name:'Proof: fill in the missing statements',best:[0,1],generate:proofSkill('statements','hi')},
  {id:'congruence-proof-mixed',tag:'PROOFS',name:'Proof: missing statements and reasons',best:[1,2],generate:proofSkill('mixed','hi')},

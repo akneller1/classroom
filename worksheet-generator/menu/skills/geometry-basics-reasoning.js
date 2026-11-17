@@ -191,12 +191,62 @@
  function bankSkill(bank,tag){return function(ctx){var r=ctx.rng,c=ctx.c,pool=bank.filter(function(b){return b[0]<=c;});K.need(pool.length);var b=r.pick(pool),L=r.shuffle('ABCDEFGHJKLNPQRSTUVWXYZ'.split('')),i=0,map={};
   var q=b[1].replace(/\{([A-Z])\}/g,function(w,k){if(!map[k])map[k]=L[i++];return map[k];});
   return {variant:'geo-'+tag+'-'+bank.indexOf(b)+'-'+c,prompt:q,parts:[{answer:b[2],check:{type:'derive',kind:'term',alts:b.slice(3)}}],steps:[st(((bank===TERM_BANK?TERM_WHY:bank===CONST_BANK?CONST_WHY:[])[bank.indexOf(b)]||'Use the definition.')),st('Answer: '+b[2]+'.')],space:[0.4,0.5,0.6]};};}
+
+ /* ---- 2026-11-17 audit: partitioning a directed segment (G-GPE.B.6), counterexamples, indirect proof ---- */
+ function gcd2(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a;}
+ function partition(ctx){
+  var r=ctx.rng,c=ctx.c,m,n;
+  if(c<=2){var pr=r.pick([[1,2],[2,1],[1,3],[3,1]]);m=pr[0];n=pr[1];}
+  else{do{m=r.int(1,c>=6?5:4);n=r.int(1,c>=6?5:4);}while(m===n||gcd2(m,n)!==1);}
+  var t=m+n,ax=r.int(-9,8),ay=r.int(-9,8),kx=r.int(c<=2?0:-3,3),ky=r.int(c<=2?0:-3,3);
+  if(c<=2){if(r.chance(0.5))ky=0;else kx=0;}
+  K.need((kx||ky)&&Math.abs(ax+kx*t)<=14&&Math.abs(ay+ky*t)<=14&&(c<=2||(kx&&ky)));
+  var bx=ax+kx*t,by=ay+ky*t,px=ax+kx*m,py=ay+ky*m,frac=c>=6&&r.chance(0.5);
+  var pt=function(x,y){return '('+x+', '+y+')';};
+  var prompt=frac?'Point P lies on directed segment AB from A'+pt(ax,ay)+' to B'+pt(bx,by)+', '+m+'/'+t+' of the way from A to B. Find the coordinates of P.'
+   :'Directed segment AB goes from A'+pt(ax,ay)+' to B'+pt(bx,by)+'. Point P on AB divides it so that AP : PB = '+m+' : '+n+'. Find the coordinates of P.';
+  var wrong=[pt(ax+kx*n,ay+ky*n),pt(py,px)];
+  if((ax+bx)%2===0&&(ay+by)%2===0)wrong.push(pt((ax+bx)/2,(ay+by)/2));
+  wrong=wrong.filter(function(w,i,a){return w!==pt(px,py)&&a.indexOf(w)===i;});
+  return {variant:'geo-partition-'+(frac?'frac-':'')+c,prompt:prompt,
+   fig:{kind:'geo-grid',shapes:[{id:'seg',pts:[[ax,ay],[bx,by]],labels:['A','B']}],alt:'Segment AB on a coordinate grid'},
+   parts:[{answer:pt(px,py),check:{type:'derive',kind:'partition',alts:wrong}}],
+   steps:[st((frac?'P is '+m+'/'+t:'AP : PB = '+m+' : '+n+', so P is '+m+'/'+t)+' of the way from A to B.'),
+    st('Change from A to B: '+(bx-ax)+' in x and '+(by-ay)+' in y. Take '+m+'/'+t+' of each: '+(px-ax)+' and '+(py-ay)+'.'),
+    st('Add to A: ('+ax+' + '+(px-ax)+', '+ay+' + '+(py-ay)+') = '+pt(px,py)+'.')],space:[1.2,1.5,1.8]};
+ }
+ function counterexample(ctx){
+  var r=ctx.rng,c=ctx.c,T=r.pick(c<=2?[1,2,3]:c<=5?[4,5,6,7]:[5,6,7,8]),pr,ans,why,alts;
+  var L='Conjecture: ';
+  if(T===1){var k=r.int(3,15);pr=L+'If x² = '+(k*k)+', then x = '+k+'. Give a value of x that is a counterexample.';ans='x = '+M(String(-k));why='('+(-k)+')² = '+(k*k)+' makes the hypothesis true, but '+(-k)+' ≠ '+k+'.';alts=['x = '+M(String(k))];}
+  else if(T===2){var A=r.pick([20,30,40,45,50,60,70,75,80]),a=r.int(Math.max(A+1,Math.ceil((A+90)/2)),90);pr=L+'If an angle measures more than '+A+'°, then it is obtuse. Give an angle measure that is a counterexample.';ans=a+'°';why='A '+a+'° angle measures more than '+A+'° but is not obtuse (it is not more than 90°).';alts=['120°'];}
+  else if(T===3){var B=r.pick([100,110,120,135,140,150,160,170]),b=r.int(90,Math.min(B-1,90+Math.floor((B-90)/2)));pr=L+'If an angle measures less than '+B+'°, then it is acute. Give an angle measure that is a counterexample.';ans=b+'°';why='A '+b+'° angle measures less than '+B+'° but is not acute (it is not less than 90°).';alts=['45°'];}
+  else if(T===4){var k4=r.int(2,20);pr=L+'If |x| > '+k4+', then x > '+k4+'. Give a value of x that is a counterexample.';ans='x = '+M(String(-k4-r.int(1,5)));why='A number below −'+k4+' has absolute value greater than '+k4+' but is not greater than '+k4+'.';alts=['x = '+M(String(k4+1))];}
+  else if(T===5){var k5=r.int(2,12),x5=r.int(-k5+1,k5);pr=L+'If x > -'+k5+', then x² > '+(k5*k5)+'. Give a value of x that is a counterexample.';ans='x = '+M(String(x5));why=x5+' > −'+k5+', but '+x5+'² = '+(x5*x5)+', which is not greater than '+(k5*k5)+'.';alts=['x = '+M(String(k5+1))];}
+  else if(T===6){var u=r.int(2,9),v=r.int(2,9),P=u*v;pr=L+'If the product of two integers is '+P+', then both integers are positive. Give two integers that are a counterexample.';ans=M(String(-u))+' and '+M(String(-v));why='('+(-u)+')('+(-v)+') = '+P+', but neither number is positive.';alts=[u+' and '+v];}
+  else if(T===7){var A7=r.pick([45,50,55,60,65,70,75,80]),p7=r.int(90-A7,45);pr=L+'If two angles are complementary, then one of them measures more than '+A7+'°. Give the measures of two angles that are a counterexample.';ans=p7+'° and '+(90-p7)+'°';why='They add to 90°, so they are complementary, and neither measures more than '+A7+'°.';alts=['10° and 80°'];}
+  else {var C8=r.int(5,20),a8=r.int(1,4),b8=C8+a8+r.int(0,6);pr='Segments of lengths a, b and '+C8+' satisfy a + b > '+C8+'. '+L+'the three segments always form a triangle. Give whole-number values of a and b that make a counterexample.';ans='a = '+a8+', b = '+b8;why=a8+' + '+b8+' > '+C8+', but '+a8+' + '+C8+' = '+(a8+C8)+' is not greater than '+b8+', so no triangle forms.';alts=['a = '+(C8-1)+', b = '+(C8-1)];}
+  return {variant:'geo-counterexample-'+T+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'counterex',open:true,alts:alts}}],
+   steps:[st('A counterexample makes the hypothesis (the "if" part) true and the conclusion false.'),st(why)],space:[0.6,0.8,1]};
+ }
+ function indirect(ctx){
+  var r=ctx.rng,c=ctx.c,T=r.pick(c<=2?[1,3]:c<=5?[1,2,4]:[2,5,4]),pr,ans,why,alts,H='Prove indirectly: ';
+  if(T===1){var a=r.int(2,9),v=r.int(-6,12),b=r.int(1,20);pr=H+'If '+a+'x + '+b+' = '+(a*v+b)+', then x = '+v+'. What do you assume at the start of the proof?';ans='Assume x ≠ '+v+'.';why='Assume the conclusion is false: x ≠ '+v+'. Then '+a+'x ≠ '+(a*v)+', so '+a+'x + '+b+' ≠ '+(a*v+b)+', which contradicts the hypothesis.';alts=['Assume x = '+v+'.'];}
+  else if(T===2){var A=r.int(30,80),B=r.int(30,80),Cc=180-A-B;pr=H+'In triangle ABC, if m∠A = '+A+'° and m∠B = '+B+'°, then m∠C = '+Cc+'°. What do you assume at the start of the proof?';ans='Assume m∠C ≠ '+Cc+'°.';why='Assume m∠C ≠ '+Cc+'°. Then the angle sum is not '+A+'° + '+B+'° + '+Cc+'° = 180°, which contradicts the Triangle Angle Sum Theorem.';alts=['Assume m∠C = '+Cc+'°.'];}
+  else if(T===3){var w=r.pick(['n','k','m']);pr=H+'If '+w+'² is even, then '+w+' is even. What do you assume at the start of the proof?';ans='Assume '+w+' is odd.';why='Assume '+w+' is odd: '+w+' = 2j + 1. Then '+w+'² = 4j² + 4j + 1 is odd, which contradicts the hypothesis that '+w+'² is even.';alts=['Assume '+w+' is even.'];}
+  else if(T===4){var q=r.pick([['right','two right angles add to 180°, leaving 0° for the third angle'],['obtuse','two obtuse angles add to more than 180°']]);pr=H+'A triangle cannot have two '+q[0]+' angles. What do you assume at the start of the proof?';ans='Assume a triangle has two '+q[0]+' angles.';why='Assume a triangle has two '+q[0]+' angles. Then '+q[1]+', which contradicts the Triangle Angle Sum Theorem.';alts=['Assume a triangle has no '+q[0]+' angles.'];}
+  else {var a5=r.int(2,7),v5=r.int(-5,15),b5=r.int(1,15);pr=H+'If '+a5+'x + '+b5+' > '+(a5*v5+b5)+', then x > '+v5+'. What do you assume at the start of the proof?';ans='Assume x ≤ '+v5+'.';why='Assume x ≤ '+v5+'. Then '+a5+'x + '+b5+' ≤ '+(a5*v5+b5)+', which contradicts the hypothesis.';alts=['Assume x < '+v5+'.','Assume x > '+v5+'.'];}
+  return {variant:'geo-indirect-'+T+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'indirect',alts:alts}}],
+   steps:[st('An indirect proof starts by assuming the conclusion is false.'),st(why)],space:[0.8,1,1.2]};
+ }
  NS.registerSkillSet({id:'geometry-basics-reasoning',course:'geometry',courseName:'Geometry',unit:'basics-reasoning',unitName:'Foundations of Geometry',title:'Geometry Foundations',
  tags:{LOGIC:'Conditional statements',TERMS:'Terms, postulates and constructions',SEGMENT:'Segment addition and lengths',ANGLE:'Angle addition and measures',MIDPOINT:'Midpoints',BISECTOR:'Angle bisectors',COORD:'Coordinate geometry'},
  reference:'<div class="mm-refgrid"><section><h4>Segment addition</h4><p>When B is between A and C, AB + BC = AC.</p></section><section><h4>Angle addition</h4><p>Adjacent angles add to the measure of their whole angle.</p></section></div>',
  gaps:['Students do not carry out compass-and-straightedge constructions here: construction steps and tools are asked in words, and drawing is left to class. Formal proofs begin in Unit 2.'],skills:[
  {id:'protractor-reading',tag:'ANGLE',name:'Measure and classify angles with a protractor',best:[0,1],generate:ctx=>K.retry(()=>protractor(ctx))},
  {id:'conditional-statements',tag:'LOGIC',name:'Conditional statements: converse, inverse, contrapositive, biconditional',best:[0,1,2],generate:ctx=>K.retry(()=>cond(ctx))},
+ {id:'counterexamples',tag:'LOGIC',name:'Counterexamples to conjectures',best:[0,1,2],generate:ctx=>K.retry(()=>counterexample(ctx))},
+ {id:'indirect-proof',tag:'LOGIC',name:'Indirect proof: the opening assumption',best:[0,1,2],generate:ctx=>K.retry(()=>indirect(ctx))},
  {id:'undefined-terms-postulates',tag:'TERMS',name:'Undefined terms, definitions and postulates',best:[0,1],generate:ctx=>K.retry(()=>bankSkill(TERM_BANK,'terms')(ctx))},
  {id:'constructions-concepts',tag:'TERMS',name:'Constructions: tools and steps',best:[0,1,2],generate:ctx=>K.retry(()=>bankSkill(CONST_BANK,'constructions')(ctx))},
  {id:'segment-addition',tag:'SEGMENT',name:'Find missing segment length',best:[0,1],generate:ctx=>K.retry(()=>question(ctx,'segment'))},
@@ -204,6 +254,7 @@
  {id:'midpoint',tag:'MIDPOINT',name:'Midpoint and equal segments',best:[0,1],generate:midpoint},
  {id:'angle-bisector',tag:'BISECTOR',name:'Angle bisectors',best:[0,1],generate:bisector},
  {id:'coordinate-midpoint',tag:'COORD',name:'Midpoint with missing endpoint coordinate',best:[0,1],generate:coordinateMidpoint},
+ {id:'coordinate-partition',tag:'COORD',name:'Partition a directed segment in a given ratio',best:[0,1,2],generate:ctx=>K.retry(()=>partition(ctx))},
  {id:'coordinate-distance',tag:'COORD',name:'Horizontal distance and missing coordinate',best:[0,1],generate:distanceCoordinate},
  {id:'basics-investigation-segment',tag:'COORD',name:'Honors: segment addition and midpoints with algebra',best:[2],generate:invSegment},
  {id:'basics-investigation-angle',tag:'ANGLE',name:'Honors: angle addition and bisectors with algebra',best:[2],generate:invAngle},

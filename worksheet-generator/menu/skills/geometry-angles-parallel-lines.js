@@ -192,10 +192,32 @@ function parProof(ctx){var r=ctx.rng,c=ctx.c,F=NS.geoFigures,REL=function(a,b){r
  var para=c>=4&&r.next()<0.35,f=fig({kind:'geo-transversal',numbered:true,marks:[],names:nm});f.proof=para?{rows:table,paragraph:true}:{rows:table};
  return {variant:'geo-par-proof-'+(para?'para-':'')+t+'-'+c,prompt:'Given: '+given+'. Prove: '+prove+'. '+(para?'Complete the paragraph proof by writing each missing reason.':'Complete the two-column proof by writing each missing reason.'),fig:f,parts:parts,
   steps:rows.map(function(x){return st(x[0]+' — '+x[1]);}),space:[0.2,0.3,0.4]};}
+
+ /* ---- 2026-11-17 audit: slopes of parallel and perpendicular lines (G-GPE.B.5) ---- */
+ function g2(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a||1;}
+ function red(p,q){if(q<0){p=-p;q=-q;}var g=g2(p,q);return [p/g,q/g];}
+ function fx(f){return f[1]===1?String(f[0]):(f[0]<0?'-':'')+'\\frac{'+Math.abs(f[0])+'}{'+f[1]+'}';}
+ function ft(f){return f[1]===1?String(f[0]):f[0]+'/'+f[1];}
+ function slopes(ctx){
+  var r=ctx.rng,c=ctx.c,perp=r.chance(c<=2?0.5:0.65),rel=perp?'perpendicular':'parallel',p=K.nz(r,-6,6),q=r.int(1,c<=2?5:6),S=red(p,q);
+  var W=perp?red(-S[1],S[0]):S,flip=perp?S:red(-S[1],S[0]),pr,ans,steps,alts,kind;
+  if(c<=2){pr='Line ℓ has slope '+ft(S)+'. Find the slope of a line '+rel+' to ℓ.';ans=M(fx(W));alts=[M(fx(flip)),M(fx(red(-W[0],W[1])))];
+   steps=[st(perp?'Perpendicular slopes are opposite reciprocals: flip the fraction and change the sign.':'Parallel lines have equal slopes.',M('m='+fx(W)))];kind='given';}
+  else if(c<=5){var x1=r.int(-8,8),y1=r.int(-8,8),k=r.int(1,c>=4?3:2)*(r.chance(0.5)?1:-1),x2=x1+S[1]*k,y2=y1+S[0]*k;K.need(Math.abs(x2)<=14&&Math.abs(y2)<=14);
+   pr='Line ℓ passes through ('+x1+', '+y1+') and ('+x2+', '+y2+'). Find the slope of a line '+rel+' to ℓ.';ans=M(fx(W));alts=[M(fx(flip)),M(fx(red(S[1],S[0])))];
+   steps=[st('Slope of ℓ = (change in y)/(change in x) = ('+y2+' − '+y1+')/('+x2+' − '+x1+').',M('m='+fx(S))),st(perp?'A perpendicular line has the opposite reciprocal slope.':'A parallel line has the same slope.',M('m='+fx(W)))];kind='points';}
+  else{var b=r.int(-9,9),a=W[1]*r.int(-3,3),bb=r.int(-9,9),yy=W[0]*a/W[1]+bb;
+   pr='Write an equation in slope-intercept form for the line through ('+a+', '+yy+') that is '+rel+' to the line y = '+(S[1]===1?(S[0]===1?'':S[0]===-1?'-':S[0]):'('+ft(S)+')')+'x'+(b<0?' - '+(-b):b>0?' + '+b:'')+'.';
+   var line=function(m,k){var mt=m[1]===1&&m[0]===1?'':m[1]===1&&m[0]===-1?'-':fx(m);return 'y='+mt+'x'+(k<0?'-'+(-k):k>0?'+'+k:'');};
+   ans=M(line(W,bb));alts=[M(line(flip,bb)),M(line(W,b))].filter(function(z){return z!==ans;});
+   steps=[st('The given line has slope '+ft(S)+'. '+(perp?'The perpendicular slope is the opposite reciprocal, ':'A parallel line has the same slope, ')+ft(W)+'.'),st('Substitute the point into y = mx + b: '+yy+' = ('+ft(W)+')('+a+') + b, so b = '+bb+'.',M(line(W,bb)))];kind='line';}
+  return {variant:'geo-slope-'+rel+'-'+kind+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'parperp',alts:alts}}],steps:steps,space:[1,1.3,1.7]};
+ }
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
- tags:{PAIRS:'Angle pairs and the converse theorems',INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
+ tags:{SLOPE:'Slopes of parallel and perpendicular lines',PAIRS:'Angle pairs and the converse theorems',INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',
  gaps:['Parallel-line proofs are completed as two-column or paragraph proofs (missing reasons), or written in full as a two-column proof at the top Honors level. Paragraph proofs written from scratch are not generated.'],skills:[
+ {id:'slopes-parallel-perpendicular',tag:'SLOPE',name:'Slopes and equations of parallel and perpendicular lines',best:[0,1,2],generate:ctx=>K.retry(()=>slopes(ctx))},
  {id:'two-transversals',tag:'PAIRS',name:'Two transversals between parallel lines',best:[0,1,2],generate:ctx=>K.retry(()=>twoTrans(ctx))},
  {id:'parallel-lines-proof',tag:'PAIRS',name:'Two-column parallel-line proofs (missing reasons)',best:[1,2],generate:ctx=>K.retry(()=>parProof(ctx))},
  {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1],generate:ctx=>angle(ctx,'complement')},

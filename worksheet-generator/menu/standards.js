@@ -346,6 +346,7 @@
     'G-GPE.B.7': 'Use coordinates to compute perimeters of polygons and areas of triangles and rectangles.',
     'G-GMD': 'Geometric measurement and dimension.',
     'G-GMD.A.1': 'Give informal arguments for the circumference, area and volume formulas of circles, cylinders, pyramids and cones.',
+    'G-GMD.A.2': 'Give an informal argument using Cavalieri’s principle for the volume formulas of a sphere and other solid figures.',
     'G-GMD.A.3': 'Use volume formulas for cylinders, pyramids, cones and spheres to solve problems.',
     'G-GMD.B.4': 'Identify cross sections of three-dimensional objects and solids of rotation.',
     'G-MG.A.1': 'Use geometric shapes, their measures and their properties to describe objects.',

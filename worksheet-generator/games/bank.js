@@ -171,6 +171,12 @@
         (p.fig && p.fig.proof ? p.fig.proof.rows : []).forEach(function (r) { if (r.s && r.s !== key && !/△/.test(r.s) === !/△/.test(key)) cands.push({ a: r.s, w: 2 }); });
       }
     }
+    // proof error analysis: other rows, and the right row with other standard reasons (each verified wrong below)
+    if ((p.parts[k].check || {}).type === 'geo-proof-error' && p.fig && p.fig.proof) {
+      var er = /^Row (\d+)/.exec(key), eRow = er ? +er[1] : 0;
+      p.fig.proof.rows.forEach(function (r, i) { if (i + 1 !== eRow) cands.push({ a: 'Row ' + (i + 1) + ': ' + r.r, w: 3 }); });
+      ['Given', 'Reflexive Property of Congruence', 'Vertical angles are congruent', 'Alternate interior angles are congruent', 'Definition of midpoint', 'SSS', 'SAS', 'ASA', 'AAS', 'SSA', 'CPCTC'].forEach(function (r) { var a = 'Row ' + eRow + ': ' + r; if (a !== key) cands.push({ a: a, w: 4 }); });
+    }
     // Written parallel-line and similarity proofs use the same whole-proof choice format.
     // Offer flawed rows only when the independent proof verifier rejects them below.
     if (p.fig && p.fig.proof && p.fig.proof.write && chP.type === 'derive' && /^(par-proof|sim-proof|sim2-proof)$/.test(chP.kind)) {

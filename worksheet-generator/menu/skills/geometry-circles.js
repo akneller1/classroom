@@ -118,8 +118,39 @@ function arcDecimal(ctx){var r=ctx.rng,c=ctx.c,sector=r.chance(0.5),useD=c>=4&&r
  return {fig:fig(CF().sector(th,th+'°',useD?'':rad+' '+ab,'?',sector?'inside':'arc')),variant:'geo-arcdec-'+(sector?'sector':'arc')+'-'+c,prompt:pr,parts:[{answer:M(out)+' '+(sector?'square '+unit:unit),check:{type:'derive',kind:'arc-dec',alts:[(Math.round((sector?2*Math.PI*rad*th/360:Math.PI*rad*rad*th/360)*10)/10).toFixed(1),(Math.round(val*20)/10).toFixed(1),(Math.round(val*5)/10).toFixed(1)].filter(function(z){return z!==out;}).map(M)}}],
   steps:[step((useD?'The radius is half the diameter: '+rad+'. ':'')+(sector?'Sector area = (θ/360)·πr².':'Arc length = (θ/360)·2πr.'),''),step('Compute and round: '+out+'.','')],space:[0.9,1.1,1.3]};}
 
+/* ---- 2026-11-17 audit: inscribed quadrilaterals (G-C.A.3) and parabolas from focus and directrix (G-GPE.A.2) ---- */
+function inscribedQuad(ctx){var r=ctx.rng,c=ctx.c,pair=r.pick([['A','C'],['B','D']]),P=pair[0],Qn=pair[1],angP,pr,ans,alts,st,lab={};
+ var ex=function(k,b){return (k===1?'x':k+'x')+(b<0?' − '+(-b):b>0?' + '+b:'');};
+ if(c<=2){angP=r.int(45,135);K.need(angP!==90);pr='Quadrilateral ABCD is inscribed in a circle. m∠'+P+' = '+angP+'°. Find m∠'+Qn+'.';ans=(180-angP)+'°';alts=[angP+'°',(360-angP)+'°'];lab[P]=angP+'°';lab[Qn]='?';
+  st=[step('Opposite angles of an inscribed quadrilateral are supplementary.',M('m\\angle '+Qn+'=180-'+angP)),step('m∠'+Qn+' = '+(180-angP)+'°.')];}
+ else{var x=r.int(5,30),p1=r.int(1,c>=6?5:3),q1=r.int(1,c>=6?5:3),b1=r.int(-20,40);angP=p1*x+b1;var angQ=180-angP,b2=angQ-q1*x;K.need(angP>=45&&angP<=135&&angP!==90&&b2>-40&&b2<80);
+  var askAngle=c>=6;pr='Quadrilateral ABCD is inscribed in a circle. m∠'+P+' = ('+ex(p1,b1)+')° and m∠'+Qn+' = ('+ex(q1,b2)+')°. Find '+(askAngle?'m∠'+P:'x')+'.';
+  ans=askAngle?angP+'°':M('x='+x);alts=askAngle?[angQ+'°',x+'°']:[M('x='+(x+1)),M('x='+Math.round((90-b1-b2)/(p1+q1)))].filter(function(z){return z!==ans;});lab[P]='('+ex(p1,b1)+')°';lab[Qn]='('+ex(q1,b2)+')°';
+  st=[step('Opposite angles of an inscribed quadrilateral are supplementary.',M('('+ex(p1,b1).replace(/ /g,'')+')+('+ex(q1,b2).replace(/ /g,'')+')=180')),step('Solve: '+(p1+q1)+'x + '+(b1+b2)+' = 180, so x = '+x+'.'),askAngle?step('m∠'+P+' = '+p1+'('+x+') '+(b1<0?'− '+(-b1):'+ '+b1)+' = '+angP+'°.'):step('x = '+x+'.')];}
+ // true figure: arcs AB, BC, CD, DA with the angle at the first vertex of the pair equal to angP
+ var angA=P==='A'?angP:null,ok=false,al,be,ga,de;for(var t=0;t<60&&!ok;t++){var sA=P==='A'?2*angP:2*r.int(50,130);be=r.int(40,sA-40);ga=sA-be;al=r.int(40,320-sA);de=360-sA-al;
+  if(P==='B'){// angle B = (ga+de)/2 = angP
+   var sB=2*angP;ga=r.int(40,sB-40);de=sB-ga;al=r.int(40,320-sB);be=360-sB-al;}
+  ok=Math.min(al,be,ga,de)>=40;}
+ K.need(ok);var t0=r.int(0,359),pos={A:t0,B:t0+al,C:t0+al+be,D:t0+al+be+ga},pts={};['A','B','C','D'].forEach(function(n){pts[n]=NS.geoFigures.on(pos[n]);});
+ var nb={A:['B','D'],B:['A','C'],C:['B','D'],D:['A','C']},angles=[P,Qn].map(function(n){return {v:n,a:nb[n][0],b:nb[n][1],label:lab[n]};});
+ var fig0={kind:'geo-circle',exact:true,pts:pts,onCircle:['A','B','C','D'],segs:[{p:'A',q:'B'},{p:'B',q:'C'},{p:'C',q:'D'},{p:'D',q:'A'}],angles:angles,alt:'Quadrilateral ABCD inscribed in a circle'};
+ return {variant:'geo-inscribed-quad-'+(c<=2?'value':'expr')+'-'+c,prompt:pr,fig:fig(fig0),parts:[{answer:ans,check:{type:'derive',kind:'inscribed-quad',alts:alts}}],steps:st,space:[1.1,1.5,1.9]};}
+function parabola(ctx){var r=ctx.rng,c=ctx.c,p=r.pick([1,2,3,4,-1,-2,-3,-4,1.5,-1.5].filter(function(v){return c>=6||Number.isInteger(v);})),h=c<=2?0:r.int(-6,6),k=c<=2?r.int(-3,3):r.int(-6,6),horiz=c>=6&&r.chance(0.5),f4=4*p;
+ var coef=Number.isInteger(f4)?(f4<0?'-':'')+'\\frac{1}{'+Math.abs(f4)+'}':(f4<0?'-':'')+'\\frac{1}{'+Math.abs(f4)+'}';
+ var sq=function(v,a){return a===0?v+'^2':'('+v+(a>0?'-'+a:'+'+(-a))+')^2';},cst=function(b){return b===0?'':b>0?'+'+b:'-'+(-b);};
+ var fmt=function(n){return String(n).replace('-','−');},focus,dir,ans,alts;
+ if(!horiz){focus='('+fmt(h)+', '+fmt(k+p)+')';dir='y = '+fmt(k-p);ans=M('y='+coef+sq('x',h)+cst(k));alts=[M('y='+(f4<0?'-':'')+'\\frac{1}{'+Math.abs(2*p)+'}'+sq('x',h)+cst(k)),M('y='+(f4<0?'':'-')+'\\frac{1}{'+Math.abs(f4)+'}'+sq('x',h)+cst(k))];}
+ else{focus='('+fmt(h+p)+', '+fmt(k)+')';dir='x = '+fmt(h-p);ans=M('x='+coef+sq('y',k)+cst(h));alts=[M('y='+coef+sq('x',h)+cst(k)),M('x='+(f4<0?'':'-')+'\\frac{1}{'+Math.abs(f4)+'}'+sq('y',k)+cst(h))];}
+ alts=alts.filter(function(z){return z!==ans;});
+ var pr='A parabola has focus '+focus+' and directrix '+dir+'. Write an equation of the parabola.';
+ var st=[step('Every point on a parabola is the same distance from the focus and the directrix.'),step('The vertex is halfway between them: ('+fmt(h)+', '+fmt(k)+'), and p = '+fmt(p)+' is the directed distance from the vertex to the focus.'),
+  step(horiz?'For a horizontal parabola: x = (1/(4p))(y − k)² + h.':'For a vertical parabola: y = (1/(4p))(x − h)² + k.',ans)];
+ var gr={kind:'geo-grid',shapes:[{id:'f',pts:[horiz?[h+p,k]:[h,k+p]],labels:['F']}],lines:[horiz?{x:h-p,text:dir.replace(/ /g,'')}:{y:k-p,text:dir.replace(/ /g,'')}],alt:'Focus F and the directrix on a coordinate grid'};
+ if(!Number.isInteger(p))gr=null;
+ return {variant:'geo-parabola-'+(horiz?'horizontal':'vertical')+'-'+c,prompt:pr,fig:gr?fig(gr):undefined,parts:[{answer:ans,check:{type:'derive',kind:'parabola',alts:alts}}],steps:st,space:[1.4,1.8,2.2]};}
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
-tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
+tags:{INVEST:'Four-part circle investigation',INSQUAD:'Inscribed quadrilaterals',PARABOLA:'Parabolas from focus and directrix',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
 gaps:[],
 skills:[
@@ -127,6 +158,7 @@ skills:[
 {id:'circle-arc-sector-decimal',tag:'ARC',name:'Arc length and sector area to the nearest tenth',best:[0,1,2],generate:ctx=>K.retry(()=>arcDecimal(ctx))},
 {id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1],generate:central},
 {id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1],generate:inscribed},
+{id:'circle-inscribed-quadrilateral',tag:'INSQUAD',name:'Opposite angles of an inscribed quadrilateral',best:[0,1,2],generate:ctx=>K.retry(()=>inscribedQuad(ctx))},
 {id:'circle-intercepted-arc',tag:'INSCRIBED',name:'Intercepted arc from inscribed angle',best:[0,1],generate:intercepted},
 {id:'circle-tangent-radius',tag:'TANGENT',name:'Radius and tangent angle',best:[0,1],generate:tangent},
 {id:'circle-diameter',tag:'MEASURE',name:'Diameter from radius',best:[0,1],generate:diameter},
@@ -141,6 +173,7 @@ skills:[
 {id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1],generate:chordLengthFromDistance},
 {id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1],generate:centerFromExpandedEquation},
 {id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1],generate:radiusFromExpandedEquation},
+{id:'parabola-focus-directrix',tag:'PARABOLA',name:'Equation of a parabola from its focus and directrix',best:[1,2],generate:ctx=>K.retry(()=>parabola(ctx))},
 {id:'circles-investigation-angles',tag:'INVEST',name:'Honors: inscribed angle and arc expressions, major arc, tangent-chord angle',best:[2],generate:invAngles},
 {id:'circles-investigation-power',tag:'INVEST',name:'Honors: chords, tangent-secant and secant-secant lengths',best:[2],generate:invPower},
 {id:'circles-investigation-coordinate',tag:'INVEST',name:'Honors: expanded circle equation, center, radius and area',best:[2],generate:invCoord},
