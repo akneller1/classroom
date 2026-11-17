@@ -397,7 +397,7 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="sequence";});if(!base)return;
     skill({id:"arithmetic-explicit",best:base.best,tag:base.tag,name:"Write an explicit arithmetic sequence formula",blurb:"Use the first term and common difference to write a_n.",
-      difficultyProfile:'focused',fixedDifficulty:4,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:ctx.c>=5?6:4}));}});   // from the first terms (1–4), from two terms far apart (5–7)
   })();
   (function(){var parent=skills.find(function(s){return s.id==="sequence";});if(parent)skill({id:"arithmetic-nth",best:parent.best,tag:parent.tag,name:"Find a specified arithmetic sequence term",blurb:"Use the common difference to calculate the nth term.",difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:3}));}});})();
   /* A discrete/continuous lesson-specific bank with verifiable numeric choice answers. */

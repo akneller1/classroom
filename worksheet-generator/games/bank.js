@@ -494,6 +494,9 @@
     }
     p.parts.forEach(function (pt, k) {
       if (!pt.check) return;
+      // A card whose answer is printed in its own question (e.g. "Graph y = 2x − 2" → "y = 2x − 2") gives itself away (2026-11-17).
+      var bare = function (t) { return String(t || '').replace(/[⟨⟩\s]|\\ /g, ''); }, ans0 = bare(pt.answer);
+      if (/^[a-z]=|=|\\[lg]e|[<>≤≥]/.test(ans0) && ans0.length >= 4 && bare(String(p.prompt || '') + ' ' + (pt.prompt || '')).indexOf(ans0) >= 0) return;   // equations and inequalities only
       var ds = GB.distractors(p, k, rng, 3);
       if (!ds.length) return;    // an item with no verified wrong options cannot be multiple choice
       var opts = rng.shuffle([{ a: pt.answer, ok: true }].concat(ds.map(function (d) { return { a: d, ok: false }; })));
