@@ -14,6 +14,7 @@ import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { loadSiteCatalog } from "./load-site-catalog.mjs";
+import { faUnitGuide } from "./fa-unit-guide.mjs";
 import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
 const OUT = path.resolve(process.env.SITE_DIR || "_site");
@@ -25,6 +26,7 @@ const COLOR = { blue: "#1f5fbf", orange: "#c4570f", green: "#1d7a46", purple: "#
 const htmlEsc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const slug = (s) => String(s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
   .replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "item";
+const readJson = (f) => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return null; } };
 const listNames = (a) => a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
 
 if (!fs.existsSync(path.join(OUT, "index.html"))) throw Error("Build the site first: " + OUT + "/index.html is missing");
@@ -129,6 +131,7 @@ ${unitJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, unitName: u.titl
 <h1>${htmlEsc(u.title)}: ${htmlEsc(title)} Worksheets &amp; Activities</h1>
 <p class="lede">${htmlEsc(desc)}</p>
 ${unitBody({ courseTitle: title, unitTitle: u.title, skills: u.skills, items: u.items, depth: 3, href })}
+${course.id === "financial-algebra" ? faUnitGuide(readJson(path.join(OUT, "financial", "banks", u.id + ".json")), u.title) : ""}
 <a class="open-app" href="${u.id ? `../../../#${encodeURIComponent(course.id + "." + u.id)}` : "../../../"}">Open this unit in the full classroom site</a>
 </main>
 ${footer}

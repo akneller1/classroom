@@ -1088,19 +1088,22 @@
       "Understand account fees",
       "Calculate simple interest",
       "Compare savings products",
-      "Interpret bank statements"
+      "Interpret bank statements",
+      "Spot scams and protect your identity"
     ],
     "credit": [
       "Calculate monthly interest",
       "Evaluate credit card repayment",
       "Compare repayment strategies",
-      "Interpret credit costs"
+      "Interpret credit costs",
+      "Understand credit scores and reports"
     ],
     "borrowing": [
       "Model installment loans",
       "Compare APR and loan term",
       "Build amortization schedules",
-      "Analyze total borrowing cost"
+      "Analyze total borrowing cost",
+      "Calculate the total cost of car ownership"
     ],
     "investing": [
       "Calculate compound growth",
@@ -1112,7 +1115,8 @@
       "Compare rental and ownership costs",
       "Model a mortgage",
       "Estimate ownership expenses",
-      "Analyze opportunity cost"
+      "Analyze opportunity cost",
+      "Plan the costs of renting"
     ],
     "insurance": [
       "Compare premiums and deductibles",
