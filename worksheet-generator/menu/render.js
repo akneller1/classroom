@@ -18,6 +18,13 @@
   /* Untrusted text (teacher edits, loaded files): escape everything outside ⟨…⟩; KaTeX renders the math safely. */
   function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part,{prose:true}) : esc(part)); }).join(''); }
   NS.mathSafe = mathSafe;
+  // Skill authors supply either raw TeX or an already delimited expression.
+  NS.stepMath = function (value) {
+    var tex = String(value || '').trim();
+    while (tex[0] === '⟨' && tex[tex.length - 1] === '⟩') tex = tex.slice(1, -1).trim();
+    return '⟨' + tex.replace(/\*/g, '\\cdot ') + '⟩';
+  };
+
   function el(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
 
   var DENS = { compact: 0, standard: 1, spacious: 2 };
@@ -53,7 +60,7 @@
     raw.map(function (r, i) { return [r - Math.floor(r), i]; }).sort(function (a, b) { return b[0] - a[0]; }).slice(0, left).forEach(function (x) { base[x[1]]++; });
     var lines = [], carry = '';
     steps.forEach(function (s, i) {
-      var txt = (s.t || '') + (s.m ? ' ' + '⟨' + s.m + '⟩' : '');
+      var txt = (s.t || '') + (s.m ? ' ' + NS.stepMath(s.m) : '');
       if (base[i] === 0) { carry += (carry ? ' ' : '') + txt; return; }
       lines.push({ pts: base[i] * unit, text: (carry ? carry + ' ' : '') + txt }); carry = '';
     });
@@ -332,7 +339,7 @@
     var fmt = NS.sectionFormat(cfg, si), mcOn = fmt === 'mc' && p.mc, multiOn = fmt === 'multi' && p.multi;
     var ans = multiOn ? '<b>' + p.multi.keys.map(function (k) { return 'ABCDEFGH'[k]; }).join(', ') + '</b> · ' + p.multi.keys.map(function (k) { return mathSafe(p.multi.opts[k]); }).join('; ') : mcOn ? '<b class="mm-letter">' + 'ABCDEFGH'[p.mc.key] + '</b> ' + mathSafe(p.parts[0].answer) + (p.mcNote ? '<div class="mm-flag warn">' + esc(p.mcNote) + '</div>' : '')
       : (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer) + (pt.answerFig && NS.figHtml ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
-    var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
+    var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe(NS.stepMath(s.m)) : '') + '</li>'; }).join('');
     var mcasOn = fmt === 'mcas' && !p.mcasFail;
     var mcasParts = (p.parts || []).filter(function (pt) { return pt.prompt && pt.answer; });
     var mcasRub = mcasParts.map(function (pt, ix) { var per = +sec.points / mcasParts.length; return '<li><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '(' + String.fromCharCode(97 + ix) + ')') + ' · ' + (Math.round(per * 100) / 100) + ' pts</b>: correct answer with supporting reasoning.</li>'; }).join('');

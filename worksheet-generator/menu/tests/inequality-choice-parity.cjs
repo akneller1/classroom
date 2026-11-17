@@ -67,14 +67,14 @@ for (const [level, cs] of Object.entries(levels)) {
     }
   }
 }
-// Honors' two-part situation must become a Yes/No point check when converted to MC.
+// Connected Honors situations remain complete instead of dropping earlier givens for MC.
 for (let seed = 0; seed < 20; seed++) {
   const p = M.generateProblem(UNIT, 'sys-ineq', 7,
     {intOnly:false, level:'honors'}, 'honors-scenario-' + seed, null);
   assert.ok(!p.failed && p.verify.status === 'verified', 'Honors situation verified');
   const m = M.makeChoices(p);
-  assert.equal(m.inequalityMode, 'point', 'Honors multipart point check uses Yes/No');
-  assert.ok(m.derived && m.derived.parts.length === 1, 'Honors multipart point question isolated');
+  assert.ok(m.fail, 'Honors multipart situations stay off MC sheets');
+  assert.equal(p.parts.length, 2, 'the connected situation is preserved');
 }
 assert.ok(graphs > 100 && points > 10, 'meaningful visual and point coverage');
 console.log('PASS: ' + generated + ' generated problems, ' + graphs +

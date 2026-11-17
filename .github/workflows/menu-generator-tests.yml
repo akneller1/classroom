@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Reddit worksheet feedback regressions
+        run: node worksheet-generator/menu/tests/reddit-feedback-regression.cjs
       - name: Vocabulary assessment parts and shared source keys
         run: node worksheet-generator/menu/tests/vocabulary-tests.cjs
       - name: Standards mappings and teacher key integration

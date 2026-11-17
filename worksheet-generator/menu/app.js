@@ -159,7 +159,7 @@
       Object.keys(set.tags).map(function (t) {
         var list = set.skills.filter(function (s) { return s.tag === t; });
         return '<fieldset class="mm-skillgrp"><legend><span class="mm-chip">' + esc(t) + '</span> ' + esc(set.tags[t]) + '</legend>' + list.map(function (s) {
-          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
+          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + (NS.skillLevelAllowed(c, s) ? '' : ' disabled') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
         }).join('') + '</fieldset>';
       }).join('') +
       '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : !(set.gaps || []).length ? '<b>Question coverage:</b> every topic listed above is generated and checked by the verifier.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
@@ -186,7 +186,7 @@
         var cTxt = tierV === 'ramp' ? cs[0] + '–' + cs[2] : String(NS.sectionC(c, si));
         return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
           (ws ? '' : '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>') +
-          '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
+          '<td><input type="number" class="mmSecOff" min="1" max="20" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"><small class="hint">Max 20 per part; add another part for more.</small></td>' +
           '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { var cur = (s.qformat || 'open') === k, off = (k === 'multi' && !NS.multiUnitSupported(c.unitId)) || (!cur && !NS.formatAvailable(c, si, k)); /* formats this part's skills can't use are left out, not shown as dead choices */ if (off && !cur) return ''; return '<option value="' + k + '"' + (cur ? ' selected' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
           '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
           '<span class="mm-adj"><button type="button" class="step-btn mmAdj" data-d="-1" aria-label="Make ' + esc(s.name) + ' easier">−</button><span class="mm-cval" title="Difficulty (1 to 7)">' + cTxt + '</span><button type="button" class="step-btn mmAdj" data-d="1" aria-label="Make ' + esc(s.name) + ' harder">+</button></span></td>' +
@@ -233,7 +233,7 @@
     }; });
     $('#mmTitle').oninput = function (e) { c.title = e.target.value; autosave(); };
     $('#mmSubtitle').oninput = function (e) { c.subtitle = e.target.value; autosave(); };
-    $$('input[name=mmLevel]').forEach(function (r) { r.onchange = upd(function () { c.level = r.value; if (S) levelChanged(); }, true); });
+    $$('input[name=mmLevel]').forEach(function (r) { r.onchange = upd(function () { NS.setLevel(c, r.value); if (S) levelChanged(); }, true); });
     $('#mmAnswers').onchange = upd(function (e) { c.answers = e.target.value; if (S) levelChanged(); }, true);
     $$('[data-tpreset]').forEach(function (b) { b.onclick = upd(function () {
       if(b.getAttribute('data-tpreset')==='swk'){NS.applyShowWhatYouKnow(c);if(S)S=NS.newAssessment(c);return;}
@@ -289,7 +289,7 @@
     if (rerender) { var y = G.scrollY; render(); G.scrollTo(0, y); } else { renderSummary(); }
   }
   /* Level changed after building: move every unpinned, unedited slot to its section's new difficulty. */
-  function levelChanged() { S.config.sections.forEach(function (s, si) { sectionDifficultyChanged(si); }); }
+  function levelChanged() { NS.rebuild(S); }
   function sectionDifficultyChanged(si) {
     var c = S.config, all = S.versions[0].sections[si].items.slice();
     all.forEach(function (a, i) {
@@ -355,7 +355,7 @@
   }
   function answerBlock(p) {
     var ans = (p.parts || []).map(function (pt) { return (pt.label ? '<b>(' + esc(pt.label) + ')</b> ' : '') + mathSafe(pt.answer) + (pt.answerFig ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
-    var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
+    var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe(NS.stepMath(s.m)) : '') + '</li>'; }).join('');
     return '<div class="mm-cans"><div><b>Answer:</b> ' + ans + '</div>' + (steps ? '<ol>' + steps + '</ol>' : '') + '</div>';
   }
   function badge(p) {
@@ -447,7 +447,7 @@
       }).join('') + '</div></aside>';
   }
   function reviewSkillOptions(c,selected){
-    return NS.skillSets[c.unitId].skills.map(function(sk){
+    return NS.skillSets[c.unitId].skills.filter(function(sk){return NS.skillLevelAllowed(c,sk);}).map(function(sk){
       var src=sk.topicSource,label=src?(src.course+' · '+src.unitName+' · '+sk.name):sk.name;
       return '<option value="'+esc(sk.id)+'"'+(sk.id===selected?' selected':'')+'>'+esc(label)+'</option>';
     }).join('');
@@ -996,7 +996,8 @@
         else if (o.format === 'mk-menu-assessment' && o.config.unitId === unit) { S = NS.deserialize(o); ui.view = 'review'; }
       } catch (e) { draft = null; S = null; }
     }
-    if (!draft && !S) { draft = NS.defaultConfig(unit, PAGE_MODE || (/mode=menu/.test(G.location.hash || '') ? 'menu' : 'test')); /* a standard test unless #mode=menu */ if (level) draft.level = level; }
+    if (!draft && !S) { draft = NS.defaultConfig(unit, PAGE_MODE || (/mode=menu/.test(G.location.hash || '') ? 'menu' : 'test')); /* a standard test unless #mode=menu */ if (level) NS.setLevel(draft, level); }
+    NS.normalizeLevelSkills(cfg());
     return !!S;
   }
   var startTries = 0;

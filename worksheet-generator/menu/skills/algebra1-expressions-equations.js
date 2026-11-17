@@ -1018,7 +1018,7 @@
         steps.push(step('Read the expression from the outside in: the last operation names the phrase.', '', 2), step('One correct phrase:', '', 2));
         return { variant: 'vb7', prompt: 'Write a verbal phrase for the expression ' + M(p7[1]) + '. Use “a number n” for the variable.', parts: [{ answer: p7[0].charAt(0).toUpperCase() + p7[0].slice(1) + '.', check: { type: 'verbal-words', expr: p7[1] } }], steps: steps, space: [0.5, 0.6, 0.7] };
       }
-      steps.push(step('“' + (/less than/.test(eng) ? 'Less than' : /more than/.test(eng) ? 'More than' : 'The phrase') + '” tells you the order: write each part, then the operation.', tex, 3));
+      steps.push(step('“' + eng + '” tells you the order: write each part, then the operation.', tex, 3));
       return { variant: 'vb' + c, prompt: 'Write an algebraic expression for “' + eng + '”.', parts: [{ answer: M(tex), check: { type: 'verbal-expr' } }], steps: steps, space: [0.4, 0.5, 0.6] };
     }
   });
