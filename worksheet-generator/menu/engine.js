@@ -383,6 +383,51 @@
     q.space = (p.space || [1, 1.3, 1.6]).map(function (z) { return z + 0.4; });
     return q;
   };
+  /* Algebra 1 one-line worked solutions get a check or reason step (2026-11-17, Algebra 1 audit #1). */
+  var A1_MORE = {
+    distribute: 'Check: every term inside the parentheses was multiplied by the factor outside, including its sign.',
+    literal: 'Check: substitute your expression back into the original equation; both sides are equal.',
+    'abs-eq': 'Check both answers: each one makes the absolute value equal to the right side.',
+    percent: 'Check the size: a percent below 100% gives less than the whole, above 100% gives more.',
+    verbal: 'Read the phrase again: “more than” and “less than” put the second quantity first.',
+    units: 'Check the units: the old unit cancels and the unit you want is left.',
+    'graph-read': 'Check with a test point on the shaded side: it makes the inequality true.',
+    'graph-number-line': 'Check with a test point on the shaded side: it makes the inequality true; the endpoint is closed only for ≤ or ≥.',
+    'rate-of-change': 'Check the sign: a graph that rises from left to right has a positive rate of change.',
+    'discrete-continuous': 'Ask whether values between whole numbers (like 2.5) make sense for the input: if they do, the domain is continuous.',
+    'exp-apply': 'Check: at t = 0 the function gives the starting amount, and each step multiplies by the growth or decay factor.',
+    'two-var': 'Check by multiplying the factors back together.',
+    boxplot: 'Half of the data lie on each side of the median, and the box holds the middle half of the data.',
+    scatter: 'The result is a prediction from the line of fit, not an exact value.',
+    histogram: 'Check: the bar heights add up to the total number of data values.',
+    regression: 'A prediction from a regression line is an estimate; it is most reliable within the range of the data.',
+    slope: 'Check with a different pair of points: a line has the same slope between any two of its points.',
+    forms: 'Check: substitute x = 0; the output is the y-intercept.',
+    'write-line': 'Check: at x = 0 the equation gives the y-intercept, and each step of 1 in x changes y by the slope.',
+    parperp: 'Parallel lines have equal slopes; perpendicular slopes multiply to −1.',
+    'line-model': 'Check the meaning: the amount after that time is the starting amount plus the rate times the time.',
+    'lin-transform': 'Check one point: compare f and g at the same x-value.',
+    'direct-variation': 'Check: y = kx gives the pair of values in the problem.',
+    'absolute-value-functions': 'Check: the vertex is where the expression inside the absolute value equals 0.',
+    'pow-product': 'Check by writing the factors out: the number of factors is the sum of the exponents.',
+    'pow-quotient': 'Check by writing the factors out and cancelling the common ones.',
+    'pow-eval': 'Remember: a negative exponent means a reciprocal, and a nonzero number to the 0 power is 1.',
+    'sci-convert': 'Check the size: a positive power of ten makes the number larger, a negative power makes it smaller.',
+    'poly-classify': 'The degree of a monomial is the sum of its variables’ exponents; a polynomial’s degree is that of its highest-degree term.',
+    'poly-mult': 'Check: substitute a value such as 2 for the variable into the original and into your answer; they agree.',
+    'multiply-monomials-polynomials': 'Check: substitute a value such as 2 for the variable into the original and into your answer; they agree.',
+    'poly-apply': 'Check: multiply your answer by the divisor to get back the original polynomial.',
+    'q-features': 'The axis of symmetry passes through the vertex; points the same distance from it have the same height.',
+    'q-roots': 'Check each solution by substituting it; a positive number has two square roots.',
+    'q-formula': 'A positive discriminant means two real solutions, zero means one, and negative means none.',
+    'q-complete': 'Check: the new trinomial factors as a perfect square, (variable + half of b)².',
+    'q-apply': 'Check the meaning and units of the answer in the situation.'
+  };
+  function a1FullerSteps(p, skillId) {
+    if (!p || !p.steps || p.steps.length > 1 || !A1_MORE[skillId]) return p;
+    p.steps = p.steps.concat([{ t: A1_MORE[skillId], m: '', w: 1 }]);
+    return p;
+  }
   NS.generateProblem = function (setId, skillId, c, policy, seed, used) {
     var set = sets[setId], sk = set && set.byId[skillId];
     if (!sk) return { failed: true, reason: 'Unknown skill ' + skillId };
@@ -395,7 +440,8 @@
       var pol = policy.intOnly && policy.autoAnswers && policy.level === 'cp1' && c >= 5 && /^algebra1-/.test(setId) && rng.next() < 0.4 ? Object.assign({}, policy, { intOnly: false }) : policy;
       var ctx = { rng: rng, c: c, intOnly: pol.intOnly, level: policy.level, compact: !!policy.compact };
       var p;
-      try { p = sk.generate(ctx); if (p && /^geometry-/.test(setId)) { p = NS.geoWording(p, skillId); if (!policy.noTier) { var tq = NS.geoTier(p, skillId, c, rng); if (tq !== p && NS.verifyProblem(tq, policy).ok) p = tq; } } }
+      try { p = sk.generate(ctx); if (p && /^algebra1-/.test(setId)) p = a1FullerSteps(p, skillId);
+        if (p && /^geometry-/.test(setId)) { p = NS.geoWording(p, skillId); if (!policy.noTier) { var tq = NS.geoTier(p, skillId, c, rng); if (tq !== p && NS.verifyProblem(tq, policy).ok) p = tq; } } }
       catch (e) {
         if (e && e.isReject) { NS.stats.rejectedByGenerator++; lastReason = e.message; continue; }
         // A generator bug must never crash the page or slip through: count it, report it, try again.

@@ -407,19 +407,31 @@
   });
 
 
-  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
-  (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
-    skill({id:"statistics-mean",best:base.best,tag:base.tag,name:"Find the mean",blurb:"Calculate the arithmetic mean of a data set.",
-      difficultyProfile:'focused',fixedDifficulty:1,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
-  })();
-  (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
-    skill({id:"statistics-median",best:base.best,tag:base.tag,name:"Find the median",blurb:"Order data and identify the middle value.",
-      difficultyProfile:'focused',fixedDifficulty:2,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
-  })();
-  (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
-    skill({id:"statistics-mode",best:base.best,tag:base.tag,name:"Find the mode",blurb:"Identify the value occurring most often.",
-      difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
-  })();
+  /* Focused center skills (mean, median, mode) with their own difficulty tiers (2026-11-17, Algebra 1 audit #4):
+     more values, rounding and even counts as the difficulty rises; every data set fits a real context (audit #2). */
+  function center1(ctx, want) {
+    var r = ctx.rng, c = ctx.c, data, n, D, steps = [], lohi = r.pick([[5, 11], [0, 20], [40, 100], [5, 90], [0, 40], [20, 100]]);
+    n = c <= 2 ? (want === 'median' ? 5 : 5) : c <= 4 ? r.int(6, 8) : r.int(9, 12);
+    if (want === 'median' && c <= 2) n = r.pick([5, 7]);
+    data = []; for (var i = 0; i < n; i++) data.push(r.int(lohi[0], lohi[1]));
+    var label = ctxFor(r, data);
+    if (want === 'mode') { var m = data[r.int(0, n - 1)], reps = c <= 2 ? 1 : 2; for (var k = 0; k < reps; k++) data[(data.indexOf(m) + 1 + k) % n] = m;
+      var cnt = {}; data.forEach(function (v) { cnt[v] = (cnt[v] || 0) + 1; }); var top = Math.max.apply(null, Object.values(cnt)), modes = Object.keys(cnt).filter(function (k2) { return cnt[k2] === top; });
+      need(modes.length === 1 && top >= 2); data = r.shuffle(data); D = list(data); label = ctxFor(r, data);
+      steps.push(step('Count how often each value occurs (' + n + ' values).', '', 1), step('The mode is the value that occurs most often: ' + modes[0] + ' (' + top + ' times).', modes[0], 2));
+      return out('fm' + c, 'Find the mode of the ' + label + ': ' + M(D) + '.', [{ answer: M(String(modes[0])), check: { type: 'stat', want: 'mode', data: D } }], steps); }
+    D = list(data);
+    if (want === 'mean') { var mn = sum(data) / n, ex = exact(mn, 1), rd = c >= 3 && !exact(mn, 0); need(c >= 3 || exact(mn, 0)); need(ex || safeRound(mn, 1));
+      steps.push(step('Add the ' + n + ' values: ' + sum(data) + '.', '', 1), step('Divide by the number of values: ' + sum(data) + ' ÷ ' + n + '.', dec(rd ? r1(mn) : mn), 2));
+      var ck = { type: 'stat', want: 'mean', data: D }; if (rd && !ex) ck.round = 1;
+      return out('fmean' + c, 'Find the mean of the ' + label + ': ' + M(D) + '.' + (rd && !ex ? ' Round to the nearest tenth.' : ''), [{ answer: M(dec(rd ? r1(mn) : mn)), check: ck }], steps); }
+    var md = median(data);
+    steps.push(step('Order the values.', list(sorted(data)), 1), step(n % 2 ? 'With an odd count, the median is the middle value.' : 'With an even count, the median is the mean of the two middle values.', dec(md), 2));
+    return out('fmed' + c, 'Find the median of the ' + label + ': ' + M(D) + '.', [{ answer: M(dec(md)), check: { type: 'stat', want: 'median', data: D } }], steps);
+  }
+  skill({ id: 'statistics-mean', best: [0, 1, 2], tag: 'CENTER', name: 'Find the mean', blurb: 'Five values (CP2) → six to eight values, rounded to the nearest tenth (CP1) → larger data sets (Honors).', generate: function (ctx) { return center1(ctx, 'mean'); } });
+  skill({ id: 'statistics-median', best: [0, 1, 2], tag: 'CENTER', name: 'Find the median', blurb: 'An odd number of values (CP2) → even counts, the mean of the two middle values (CP1) → larger data sets (Honors).', generate: function (ctx) { return center1(ctx, 'median'); } });
+  skill({ id: 'statistics-mode', best: [0, 1, 2], tag: 'CENTER', name: 'Find the mode', blurb: 'Five values (CP2) → six to eight values (CP1) → nine to twelve values (Honors).', generate: function (ctx) { return center1(ctx, 'mode'); } });
   NS.registerSkillSet({
     id: 'algebra1-statistics-data-modeling', course: 'algebra1', courseName: 'Algebra 1', unit: 'statistics-data-modeling', unitName: 'Statistics and Data Modeling',
     title: 'The Data Deli',

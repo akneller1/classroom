@@ -1346,10 +1346,7 @@
   }
 
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
-  (function(){var base=skills.find(function(s){return s.id==="both-sides";});if(!base)return;
-    skill({id:"solve-equations-variables-both-sides",best:base.best,tag:base.tag,name:"Equations with variables on both sides",blurb:"Solve multi-step equations with variable terms on both sides.",
-      difficultyProfile:'focused',fixedDifficulty:2,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
-  })();
+  // (2026-11-17, Algebra 1 audit #3) the focused copy of both-sides was removed: it was the same problem as both-sides at difficulty 2.
   NS.registerSkillSet({
     id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',
@@ -1363,7 +1360,8 @@
       '<section><h4>Formulas</h4><p>Perimeter of a rectangle ⟨P=2l+2w⟩ · Area ⟨A=lw⟩</p><p>Triangle ⟨A=\\frac{1}{2}bh⟩ · Trapezoid ⟨A=\\frac{h(b+c)}{2}⟩</p><p>Distance ⟨d=rt⟩ · Simple interest ⟨I=Prt⟩</p><p>Temperature ⟨F=\\frac{9}{5}C+32⟩</p></section>' +
       '<section><h4>Words to equations</h4><p>“3 more than twice ⟨w⟩” → ⟨2w+3⟩</p><p>Consecutive integers: ⟨n,\\ n+1,\\ n+2⟩; consecutive even or odd: ⟨n,\\ n+2,\\ n+4⟩</p><p>Fee + rate: ⟨\\text{total}=\\text{fee}+\\text{rate}\\cdot n⟩</p></section></div>',
     gaps: [],
-    skills: skills
+    // Unit 1 skills kept here for review are named as such, so the two units no longer list the same skill twice (audit #3).
+    skills: skills.map(function (sk) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'real-numbers', 'verbal'].indexOf(sk.id) >= 0 ? Object.assign({}, sk, { name: 'Unit 1 review: ' + sk.name.charAt(0).toLowerCase() + sk.name.slice(1), review: true }) : sk; })
   });
 
   /* Unit 1 · Foundations of Algebra: the simplify, distribute and evaluate skills on their own

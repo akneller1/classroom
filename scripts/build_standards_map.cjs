@@ -65,7 +65,7 @@ plans.forEach(([scopeFile, scopeKey, skillFile, skillKey]) => {
 /* ---------- skills no planner lesson maps (checked by hand against the CCSS-M) ---------- */
 const MANUAL = {
   'algebra1-foundations': { percent: ['7.RP.A.3', 'N-Q.A.1'], 'expr-error': ['A-SSE.A.2', 'A-SSE.A.1a'] },
-  'algebra1-expressions-equations': { 'eq-error': ['A-REI.A.1', 'A-REI.B.3'], 'expr-error': ['A-SSE.A.2', 'A-SSE.A.1a'], 'solve-equations-variables-both-sides': ['A-REI.B.3', 'A-REI.A.1'] },
+  'algebra1-expressions-equations': { 'eq-error': ['A-REI.A.1', 'A-REI.B.3'], 'expr-error': ['A-SSE.A.2', 'A-SSE.A.1a'] },
   'algebra1-inequalities': { 'error-analysis': ['A-REI.A.1', 'A-REI.B.3'], 'graph-number-line': ['A-REI.B.3'] },
   'algebra1-relations-functions': { 'table-fill': ['F-IF.A.2'], 'arithmetic-explicit': ['F-BF.A.2', 'F-LE.A.2'], 'arithmetic-nth': ['F-IF.A.3', 'F-BF.A.2'], 'discrete-continuous': ['F-IF.B.5'] },
   'algebra1-exponential-functions': { 'exponential-graph-features': ['F-IF.C.7e', 'F-IF.B.4', 'F-IF.B.5'], 'exp-graph-hand': ['F-IF.C.7e'] },
