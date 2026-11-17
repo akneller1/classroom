@@ -5,7 +5,7 @@ test('runtime and static labels use Support, Standard, Advanced', () => {
   assert.match(ll, /labels=\{cp2:'Support',cp1:'Standard',honors:'Advanced'\}/);
   for (const f of ['worksheet-generator/plot-practice.html', 'guide.html', 'unit-specific-arcade.js', 'student-share-cards.js', 'financial/games/vendor/games.js'])
     assert.doesNotMatch(fs.readFileSync(f, 'utf8'), /Level 1 · Warm-Up|Remedial|'On Level'/, f);
-  assert.match(fs.readFileSync('worksheet-generator/menu/engine.js', 'utf8'), /long: 'CP2 · Support'/);
+  assert.match(fs.readFileSync('worksheet-generator/menu/engine.js', 'utf8'), /long: 'Support \(CP2\)'/);
 });
 test('level-labels never rewrites an option that already shows its label (no MutationObserver loop)', () => {
   const ll = require('node:fs').readFileSync('level-labels.js', 'utf8');

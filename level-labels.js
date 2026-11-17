@@ -1,8 +1,9 @@
 /* Display labels never change saved level codes or student link parameters. */
 (function(G){'use strict';const doc=G.document;if(!doc)return;/* One public level vocabulary site-wide; high-school teacher pages may prefix the CP code. */
 const labels={cp2:'Support',cp1:'Standard',honors:'Advanced'};G.MK_LEVEL_LABELS=labels;
-/* Teacher menus that still show a bare CP code get the shared "CP2 · Support" form; card copy gets the public names. */
-const bare={CP2:'CP2 · Support',CP1:'CP1 · Standard',HONORS:'Honors · Advanced'};
+/* Teacher menus that still show a bare CP code get the shared "Support (CP2)" form, public name first (2026-11-17);
+   card copy gets the public names. */
+const bare={CP2:'Support (CP2)',CP1:'Standard (CP1)',HONORS:'Advanced (Honors)'};
 const PHRASES=[[/CP2\s*\/\s*CP1\s*\/\s*Honors/g,m=>m.replace('CP2','Support').replace('CP1','Standard').replace('Honors','Advanced')],[/CP2, CP1,? (or|and) Honors/g,m=>m.replace('CP2','Support').replace('CP1','Standard').replace('Honors','Advanced')],[/CP2, CP1, Honors/g,()=>'Support, Standard, Advanced'],[/\b500 Honors\b/g,()=>'500 Advanced']];
 function fixText(node){const v=node.nodeValue;if(!v||v.indexOf('CP2')<0&&v.indexOf('500 Honors')<0)return;let next=v;PHRASES.forEach(p=>{next=next.replace(p[0],p[1])});if(next!==v)node.nodeValue=next}
 function fixTree(root){if(!root)return;if(root.nodeType===3){fixText(root);return}if(root.nodeType!==1&&root.nodeType!==9&&root.nodeType!==11)return;if(root.nodeType===1&&/^(SCRIPT|STYLE|TEXTAREA|INPUT)$/.test(root.tagName))return;const w=doc.createTreeWalker(root,4);let n;while((n=w.nextNode())){const p=n.parentNode;if(p&&/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.tagName))continue;fixText(n)}}

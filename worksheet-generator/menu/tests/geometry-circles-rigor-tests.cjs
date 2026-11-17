@@ -26,7 +26,7 @@ run('power', (p, k, t, q) => {
   assert(p.fig && p.fig.kind === 'geo-circle', 'figure present');
 });
 run('coordinate', (p, k, t, q) => {
-  const m = /X² ([+-]) (\d+)X \+ Y² ([+-]) (\d+)Y ([+-]) (\d+) = 0/.exec(t), s = (g, v) => (g === '-' ? -1 : 1) * Number(v);
+  const m = /x² ([+-]) (\d+)x \+ y² ([+-]) (\d+)y ([+-]) (\d+) = 0/.exec(t), s = (g, v) => (g === '-' ? -1 : 1) * Number(v);
   const lx = s(m[1], m[2]), ly = s(m[3], m[4]), cs = s(m[5], m[6]);
   assert.strictEqual(k[0], -lx / 2); assert.strictEqual(k[1], -ly / 2);
   assert.strictEqual(k[2] * k[2], k[0] * k[0] + k[1] * k[1] - cs); assert(k[2] > 0); assert.strictEqual(k[3], k[2] * k[2]);

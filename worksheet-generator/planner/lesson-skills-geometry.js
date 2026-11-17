@@ -26,16 +26,21 @@ window.MKPLAN_SKILLS_GEOMETRY = {
  },
  "lessons": {
   "U1-L1": {
-   "cover": "none",
+   "cover": "full",
    "skills": [
+    [
+     "B",
+     "undefined-terms-postulates",
+     1,
+     3
+    ],
     [
      "B",
      "segment-addition",
      1,
      2
     ]
-   ],
-   "note": "Naming figures and postulates has no generator yet; the practice below reviews segment lengths. Add 4–5 naming and notation items."
+   ]
   },
   "U1-L2": {
    "cover": "full",
@@ -106,16 +111,15 @@ window.MKPLAN_SKILLS_GEOMETRY = {
    ]
   },
   "U1-L6": {
-   "cover": "none",
+   "cover": "full",
    "skills": [
     [
      "B",
-     "angle-addition",
+     "conditional-statements",
      1,
-     2
+     5
     ]
-   ],
-   "note": "Conditional statements, converses and counterexamples have no generator yet. Add 4–5 statements for students to rewrite and test."
+   ]
   },
   "U2-L1": {
    "cover": "full",
