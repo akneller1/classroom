@@ -210,7 +210,7 @@
   /* ================= DIVIDE · by a binomial ================= */
   function remTerm(rm, D) { return rm === 0 ? '' : (rm < 0 ? '-' : '+') + '\\frac{' + Math.abs(rm) + '}{' + tex(D) + '}'; }
   skill({
-    id: 'poly-divide', print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'DIVIDE', name: 'Divide by a binomial',
+    id: 'poly-divide', levels: ['honors'], print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'DIVIDE', name: 'Divide by a binomial',
     blurb: 'A quadratic divided by x + a with no remainder (CP2) → remainders, cubics, missing terms (CP1) → leading coefficients other than 1, divisors such as 2x − 1 (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, steps = [];

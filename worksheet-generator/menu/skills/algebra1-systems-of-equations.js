@@ -254,7 +254,7 @@
   /* ================= LINEAR–QUADRATIC SYSTEMS, THREE-VARIABLE SYSTEMS, VIABLE SOLUTIONS IN CONTEXT ================= */
   function quadTeX(a, b, c) { return lin([[a, 'x^2'], [b, 'x'], [c, '']]); }
   skill({
-    id: 'sys-linear-quadratic', best: [1, 2], tag: 'NONLIN', name: 'Linear–quadratic systems',
+    id: 'sys-linear-quadratic', levels: ['cp1', 'honors'], best: [1, 2], tag: 'NONLIN', name: 'Linear–quadratic systems',
     blurb: 'y = x² + c with a horizontal line (CP2) → a parabola and a slanted line with two, one or no intersection points (CP1) → leading coefficients other than 1 and fraction coordinates (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, step = K.step, a = c >= 6 ? r.pick([1, 2, -1, -2]) : 1, x1 = r.int(-5, 5), x2 = r.int(-5, 5), m, d, kind = r.pick(c <= 2 ? ['two'] : c <= 4 ? ['two', 'two', 'one', 'none'] : ['two', 'one', 'none']);

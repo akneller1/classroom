@@ -44,6 +44,8 @@ jobs:
         run: node worksheet-generator/menu/tests/geometry-reasoning-prompts-tests.cjs
       - name: Geometry geometric plausibility checks
         run: node worksheet-generator/menu/tests/geometry-plausibility-tests.cjs
+      - name: Algebra 1 plausibility checks
+        run: node worksheet-generator/menu/tests/algebra1-plausibility-tests.cjs
       - name: Geometry question-bank capacity audit (diagnostic)
         continue-on-error: true
         run: node worksheet-generator/menu/tests/geometry-capacity-audit.cjs

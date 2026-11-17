@@ -4,6 +4,11 @@
 (function(G) {
   'use strict';
   var M=G.MKMENU;
+  /* Five ordered whole-number data values whose mean is a whole number and differs from the median (2026-11-17). */
+  function five(r,lo,gap,iqr){for(var t=0;t<400;t++){var v=[lo];for(var i=1;i<5;i++)v.push(v[i-1]+r.int(1,gap));var sm=v.reduce(function(x,y){return x+y;},0);
+    if(sm%5||sm/5===v[2]||v[4]-v[0]===sm/5||v[4]-v[0]===v[2])continue;if(iqr&&((v[3]+v[4]-v[0]-v[1])%2||(v[3]+v[4]-v[0]-v[1])/2===v[2]||(v[3]+v[4]-v[0]-v[1])/2===sm/5))continue;return v;}
+    return iqr?[60,64,71,75,90]:[12,15,16,21,26];}
+  function mean5(v){return v.reduce(function(x,y){return x+y;},0)/5;}
   var scenes={
     'algebra1-foundations':function(r,c){
       var n=r.int(2,6+c),price=r.int(2,5+c),fee=r.int(2,7+c);
@@ -43,7 +48,7 @@
         [adult,student,adult*pa]];
     },
     'algebra1-exponents-scientific-notation':function(r,c){
-      var base=r.int(2,8+c),power=r.int(2,3+(c>4?2:0)),copies=r.int(2,6+c),q=base*Math.pow(10,power);
+      var base=r.int(2,Math.min(9,8+c)),power=r.int(2,3+(c>4?2:0)),copies=r.int(2,6+c),q=base*Math.pow(10,power);
       return ['A lab measures '+base+' times ten to the power of '+power+' particles in one sample. It collects '+copies+' identical samples.',
         ['How many particles are in one sample in standard notation?','How many particles are in all the samples?','What is the exponent of ten in the original measurement?'],
         [q,q*copies,power]];
@@ -73,10 +78,10 @@
         [flight,peakTime,height]];
     },
     'algebra1-statistics-data-modeling':function(r,c){
-      var start=r.int(3,13+c),step=r.int(2,6+c);var a=[0,1,2,3,4].map(i=>start+i*step);
+      var a=five(r,r.int(10,25),3+c);
       return ['Five students report study times of '+a.join(', ')+' minutes, listed in order.',
         ['What is the mean study time in minutes?','What is the median study time in minutes?','What is the range in minutes?'],
-        [a[2],a[2],a[4]-a[0]]];
+        [mean5(a),a[2],a[4]-a[0]]];
     }
   };
   /* Second distinct modeling task for every unit. These require the same
@@ -88,12 +93,12 @@
     'algebra1-relations-functions':function(r,c){var a=r.int(5,15+c),b=r.int(2,8+c),d=r.int(3,9+c);return ['A bike rental costs '+a+' dollars to start plus '+b+' dollars per hour for '+d+' hours.',['What is the total cost?','What would two more hours cost in total?','What is the increase in cost?'],[a+b*d,a+b*(d+2),2*b]];},
     'algebra1-linear-equations-slope':function(r,c){var a=r.int(2,7+c),b=r.int(3,8+c),d=r.int(2,8+c);return ['A cyclist is '+a+' miles from home and travels farther away at '+b+' miles per hour for '+d+' hours.',['What is the ending distance?','What is the slope of distance against time?','How far from home after one additional hour?'],[a+b*d,b,a+b*(d+1)]];},
     'algebra1-systems-of-equations':function(r,c){var a=r.int(4,12+c),b=r.int(3,10+c),d=r.int(2,6+c),e=d+r.int(2,6+c);return ['A fundraiser sells '+(a+b)+' items for '+(a*d+b*e)+' dollars. Small items cost '+d+' dollars and large items cost '+e+' dollars.',['How many small items?','How many large items?','How much revenue came from large items?'],[a,b,b*e]];},
-    'algebra1-exponents-scientific-notation':function(r,c){var a=r.int(2,9+c),b=r.int(2,4+(c>4?1:0)),d=r.int(2,7+c);return ['One image has '+a+' times ten to the power of '+b+' pixels. There are '+d+' identical images.',['How many pixels in one image?','How many pixels total?','How many more pixels than in one image?'],[a*10**b,a*10**b*d,a*10**b*(d-1)]];},
+    'algebra1-exponents-scientific-notation':function(r,c){var a=r.int(2,9),b=r.int(2,4+(c>4?1:0)),d=r.int(2,7+c);return ['One image has '+a+' times ten to the power of '+b+' pixels. There are '+d+' identical images.',['How many pixels in one image?','How many pixels total?','How many more pixels than in one image?'],[a*10**b,a*10**b*d,a*10**b*(d-1)]];},
     'algebra1-exponential-functions':function(r,c){var a=r.int(2,8+c),b=r.int(2,5+(c>4?1:0));return ['A video begins with '+a+' views and the view count triples daily for '+b+' days.',['How many views after the stated days?','How many views one day later?','What is the ratio of later views to earlier views?'],[a*3**b,a*3**(b+1),3]];},
     'algebra1-polynomials':function(r,c){var a=r.int(2,8+c),b=r.int(2,8+c),d=r.int(2,7+c);return ['A garden has width (x + '+a+') and length (x + '+b+'). Take x = '+d+'.',['What is the garden area?','What is the coefficient of x in its expanded area expression?','What is the constant term?'],[(d+a)*(d+b),a+b,a*b]];},
     'algebra1-factoring-zero-product':function(r,c){var a=r.int(2,8+c),b=r.int(a+1,a+6+c);return ['A polynomial is x squared minus '+(a+b)+'x plus '+(a*b)+'. Its zeros are positive integers.',['What is the smaller zero?','What is the larger zero?','What is the sum of the zeros?'],[a,b,a+b]];},
     'algebra1-quadratics':function(r,c){var a=r.int(2,7+c),b=r.int(2,7+c);return ['The height of a toy is h(t) = -(t - '+a+') squared + '+b*b+' meters.',['When is the maximum height reached?','What is the maximum height?','How far below the maximum is the height one second after the peak?'],[a,b*b,1]];},
-    'algebra1-statistics-data-modeling':function(r,c){var a=r.int(4,14+c),b=r.int(2,7+c),v=[a,a+b,a+2*b,a+3*b,a+4*b];return ['Five training distances are '+v.join(', ')+' kilometers.',['What is the median?','What is the range?','What is the mean?'],[v[2],v[4]-v[0],v[2]]];}
+    'algebra1-statistics-data-modeling':function(r,c){var v=five(r,r.int(3,8),2+c);return ['Five training distances are '+v.join(', ')+' kilometers.',['What is the median?','What is the range?','What is the mean?'],[v[2],v[4]-v[0],mean5(v)]];}
   };
   /* Third-family interpretation bank: tables, paired observations and model checks.
      More structurally varied than the two straightforward word-problem families. */
@@ -114,9 +119,9 @@
         ['What is the growth factor per hour?','What is the population at the requested hour?','How much larger is the population at the next hour?'],[factor,first*Math.pow(factor,time),first*Math.pow(factor,time)*(factor-1)]];
     },
     'algebra1-statistics-data-modeling':function(r,c){
-      var a=r.int(5,16+c),d=r.int(2,6+c),values=[a,a+d,a+2*d,a+3*d,a+4*d];
+      var values=five(r,r.int(55,70),3+c,true);
       return ['Five ordered scores are shown in a table: '+values.join(', ')+'. The team wants to compare typical performance and spread.',
-        ['What is the median score?','What is the interquartile range using medians of the lower and upper halves?','What is the mean score?'],[values[2],3*d,values[2]]];
+        ['What is the median score?','What is the interquartile range using medians of the lower and upper halves?','What is the mean score?'],[values[2],(values[3]+values[4]-values[0]-values[1])/2,mean5(values)]];
     }
   };
   /* Additional distinct multi-part families with modeling and comparison. */
@@ -146,10 +151,10 @@
        [n,m,m*child]];
     },
     'algebra1-exponents-scientific-notation':function(r,c){
-      var base=r.int(2,7+c),power=r.int(3,5),machines=r.int(2,6+c);
+      var base=r.int(2,Math.min(9,7+c)),power=r.int(3,5),machines=r.int(2,6+c);
       return ['A sensor records '+base+' times ten to the power of '+power+' readings per day. '+machines+' identical sensors operate for one day.',
-       ['How many readings does one sensor record?','How many readings do all sensors record?','How many additional readings does adding one more sensor produce?'],
-       [base*10**power,base*10**power*machines,base*10**power]];
+       ['How many readings does one sensor record?','How many readings do all sensors record?','How many readings do all the sensors record in 3 days?'],
+       [base*10**power,base*10**power*machines,3*base*10**power*machines]];
     },
     'algebra1-polynomials':function(r,c){
       var a=r.int(2,7+c),b=r.int(2,6+c),x=r.int(2,6+c);
@@ -197,10 +202,10 @@
         [x,y,x*a,y*b]];
     },
     'algebra1-exponents-scientific-notation':function(r,c) {
-      var coefficient=r.int(2,8+c),power=r.int(2,5),samples=r.int(3,7+c),one=coefficient*10**power;
+      var coefficient=r.int(2,Math.min(9,8+c)),power=r.int(2,5),samples=r.int(3,7+c),one=coefficient*10**power;
       return ['A sensor records '+coefficient+' times ten to the power of '+power+' data points per day. Researchers operate '+samples+' sensors for one day.',
-        ['How many data points does one sensor record?','How many data points do all sensors record?','How many data points do two sensors record?','How many additional data points come from adding a sensor?'],
-        [one,one*samples,2*one,one]];
+        ['How many data points does one sensor record?','How many data points do all sensors record?','How many data points do two sensors record?','How many data points would all the sensors record in a 7-day week?'],
+        [one,one*samples,2*one,7*one*samples]];
     },
     'algebra1-polynomials':function(r,c) {
       var a=r.int(2,8+c),b=r.int(2,8+c),x=r.int(2,7+c);
@@ -228,17 +233,28 @@
   M.contextReasoning=reasoning;
   M.makeContextProblem=function(unit, ctx) {
     var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
-    var draw=ctx.rng.int(0,reasoning[unit]?4:applied[unit]?3:interpretations[unit]?2:1);
-    var variant=draw===4?'reasoning':draw===3?'applied':draw===2?'interpret':draw===1?'extension':'original';
-    if (variant==='extension' && extensions[unit]) fn=extensions[unit];
-    if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
-    if (variant==='applied' && applied[unit]) fn=applied[unit];
-    if (variant==='reasoning' && reasoning[unit]) fn=reasoning[unit];
-    var x=fn(ctx.rng,ctx.c);
+    var draw,variant,x;
+    // Every part must have its own answer, so a later part never gives away an earlier one (audit #17): redraw until it does.
+    for (var tries=0;tries<60;tries++) {
+      fn=scenes[unit];
+      if (tries===0||tries>=30) draw=ctx.rng.int(0,reasoning[unit]?4:applied[unit]?3:interpretations[unit]?2:1);   // keep the chosen family first; switch only if it cannot give distinct answers
+      variant=draw===4?'reasoning':draw===3?'applied':draw===2?'interpret':draw===1?'extension':'original';
+      if (variant==='extension' && extensions[unit]) fn=extensions[unit];
+      if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
+      if (variant==='applied' && applied[unit]) fn=applied[unit];
+      if (variant==='reasoning' && reasoning[unit]) fn=reasoning[unit];
+      x=fn(ctx.rng,ctx.c);
+    // Print the mathematics as mathematics (2026-11-17, Algebra 1 audit #5): a × 10ᵇ and x² instead of words.
+    var mathify=function(t){return String(t).replace(/(\d+(?:\.\d+)?) times ten to the power of (\d+)/g,'⟨$1\\times 10^{$2}⟩')
+      .replace(/x squared (plus|minus) (\d+)x (plus|minus) (\d+)/g,function(w,o1,b,o2,c){return 'x² '+(o1==='plus'?'+':'−')+' '+b+'x '+(o2==='plus'?'+':'−')+' '+c;})
+      .replace(/ squared/g,'²');};
+    x[0]=mathify(x[0]);x[1]=x[1].map(mathify);
     // Fourth part requires interpreting the calculation, not just returning a scalar.
     if (x[1].length===3) {
-      x[1].push('A classmate doubles your numerical answer to part (a). What number would that produce? Explain whether doubling that quantity makes sense for this situation.');
+      x[1].push('A classmate doubles your numerical answer to part (a). What number would that produce?');
       x[2].push(2*x[2][0]);
+    }
+      if (!x[2].some(function(v,i){return x[2].indexOf(v)!==i;})) break;
     }
     var parts=x[1].map(function(t,i){
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
@@ -248,15 +264,15 @@
     // generate distinct verified prompts even for constrained CP2 values.
     var readers=['your teacher','a classmate','a coach','a parent','a club adviser','a principal',
       'a tutor','a younger student','a team captain','a school counselor','a family member','a substitute teacher'];
-    var asks=['Explain each step so that READER can follow your reasoning.',
+    var asks=['Show the calculation for each part so that READER can follow it.',
       'Show your work clearly enough for READER to check it.',
-      'Write your answers in complete sentences, as if explaining them to READER.',
+      'Write each answer with its units, and show the calculation READER would need to see.',
       'Label each answer and show the work READER would need to see.',
       'Show how you found each answer so READER could repeat your method.',
-      'Explain your thinking for each part as you would to READER.'];
+      'Write the expression you evaluate for each part, as you would for READER.'];
     var frame=ctx.rng.pick(asks).replace('READER',ctx.rng.pick(readers))+' ';
     return {variant:'mcas-context-'+unit+'-'+variant,prompt:x[0]+' Answer all four parts. '+frame.trim(),
-      parts:parts,steps:parts.map(function(part){return {t:'Part ('+part.label+'): '+part.answer,w:1};}),
+      parts:parts,steps:parts.map(function(part,i){return {t:'Part ('+part.label+'): '+x[1][i].replace(/\?$/,'')+'? Use the numbers in the scenario'+(i?' and your earlier answers':'')+': '+part.answer+'.',w:1};}).concat(x[1].length===4&&/doubles your numerical answer/.test(x[1][3])?[{t:'Doubling only makes sense if the same situation happens twice; it is a check on part (a), not a new fact about the scenario.',w:1}]:[]),
       space:[2.4,3.0,3.7]};
   };
   Object.keys(scenes).forEach(function(unit){

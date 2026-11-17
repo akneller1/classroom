@@ -3569,6 +3569,18 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Statistics and Data Modeling"
+              ],
+              "added": "2026-11-17"
+            },
+            {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=color",
               "thumb": "thumbs/color-generator-statistics-data-modeling.svg",

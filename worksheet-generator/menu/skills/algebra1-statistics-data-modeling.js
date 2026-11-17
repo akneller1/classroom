@@ -20,6 +20,13 @@
   function exact(x, places) { return Math.abs(x * Math.pow(10, places) - Math.round(x * Math.pow(10, places))) < 1e-9; }
   function r1(x) { return Math.round(x * 10 + 1e-9) / 10; }
   var CTX = [['quiz scores', ''], ['minutes spent on homework', ' minutes'], ['points scored in a game', ' points'], ['hours of sleep', ' hours'], ['books read this year', ' books']];
+  /* Realistic contexts (2026-11-17, Algebra 1 audit #2): the data are generated first, then a context whose real-world
+     range holds every value is chosen, so no one sleeps 1 or 20 hours and quiz scores stay on their scale. */
+  var RCTX = [['quiz scores (out of 20 points)', 0, 20], ['quiz scores (out of 30 points)', 0, 30], ['test scores', 40, 100], ['minutes spent on homework', 5, 90],
+    ['points scored by a basketball player in each game', 0, 40], ['hours of sleep', 5, 11], ['books read this year', 0, 60], ['text messages sent in a day', 0, 120],
+    ['daily high temperatures (°F)', 20, 100], ['number of pages read in a week', 0, 300], ['goals scored in each soccer game', 0, 8], ['ages of people at a family party', 1, 90]];
+  function ctxFor(r, vals) { var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), ok = RCTX.filter(function (c) { return lo >= c[1] && hi <= c[2] && (hi - lo) * 3 >= (c[2] - c[1]) * 0.35; });
+    if (!ok.length) ok = RCTX.filter(function (c) { return lo >= c[1] && hi <= c[2]; }); if (!ok.length) return 'data'; return r.pick(ok)[0]; }
 
   /* ================= CENTER · mean, median, mode ================= */
   skill({
@@ -29,10 +36,10 @@
       var r = ctx.rng, c = [0, 1, 2, 8, 3, 4, 5, 3][ctx.c], steps = [], cx = r.pick(CTX), data, D;
       if (c === 1) { data = rnd(r, 4, 2, 20); var m1 = r.int(5, 15), l1 = 5 * m1 - sum(data); need(l1 >= 1 && l1 <= 25); data.push(l1); data = r.shuffle(data); D = list(data);
         steps.push(step('Add the values: ' + sum(data) + '.', '', 1), step('Divide by how many values there are (5).', String(sum(data) / 5), 2));
-        return out('ce1', 'Find the mean of the ' + cx[0] + ': ' + M(D) + '.', [{ answer: M(String(sum(data) / 5)), check: { type: 'stat', want: 'mean', data: D } }], steps); }
+        return out('ce1', 'Find the mean of the ' + ctxFor(r, data) + ': ' + M(D) + '.', [{ answer: M(String(sum(data) / 5)), check: { type: 'stat', want: 'mean', data: D } }], steps); }
       if (c === 2) { var n2 = r.pick([6, 8]); data = rnd(r, n2, 1, 30); D = list(data); var md = median(data);
         steps.push(step('Order the values.', list(sorted(data)), 1), step('With an even count, the median is the mean of the two middle values.', dec(md), 2));
-        return out('ce2', 'Find the median of the ' + cx[0] + ': ' + M(D) + '.', [{ answer: M(dec(md)), check: { type: 'stat', want: 'median', data: D } }], steps); }
+        return out('ce2', 'Find the median of the ' + ctxFor(r, data) + ': ' + M(D) + '.', [{ answer: M(dec(md)), check: { type: 'stat', want: 'median', data: D } }], steps); }
       if (c === 8) {
         var modeValue = r.int(2, 15);
         data = r.shuffle([modeValue, modeValue, modeValue + 2, modeValue + 4, modeValue + 6]);
@@ -47,10 +54,10 @@
         return out('ce3', 'The mean of ' + n3 + ' test scores is ' + m3 + '. Here are ' + (n3 - 1) + ' of the scores: ' + M(D) + '. What is the missing score?', [{ answer: M(String(miss)), check: { type: 'stat', want: 'missing', data: D, count: 0, mean: 1 } }], steps); }
       if (c === 4) { var lo = r.int(0, 4), counts = {}, vals = []; for (var v = lo; v <= lo + 8; v++) { var k = r.int(0, 4); if (k) { counts[v] = k; for (var j = 0; j < k; j++) vals.push(v); } }
         need(vals.length >= 9 && vals.length <= 18); var best = 0, modes = []; Object.keys(counts).forEach(function (kk) { if (counts[kk] > best) { best = counts[kk]; modes = [+kk]; } else if (counts[kk] === best) modes.push(+kk); }); need(modes.length === 1 && best >= 2);
-        var fig = { kind: 'dotplot', min: lo, max: lo + 8, counts: counts, label: cx[0] };
+        var cxn = ctxFor(r, vals), fig = { kind: 'dotplot', min: lo, max: lo + 8, counts: counts, label: cxn };
         steps.push(step('Read every dot as one value (' + vals.length + ' values).', '', 1), step('Mean = total ÷ count; median = middle of the ordered values; mode = the tallest stack.', '', 2));
         var rd4 = !exact(mean(vals), 1), ck4 = { type: 'stat', want: 'mean' }; if (rd4) ck4.round = 1;
-        return out('ce4', 'The dot plot shows ' + cx[0] + '.', [{ label: 'a', prompt: 'Find the mean.' + (rd4 ? ' Round to the nearest tenth.' : ''), answer: M(dec(rd4 ? r1(mean(vals)) : mean(vals))), check: ck4 },
+        return out('ce4', 'The dot plot shows ' + cxn + '.', [{ label: 'a', prompt: 'Find the mean.' + (rd4 ? ' Round to the nearest tenth.' : ''), answer: M(dec(rd4 ? r1(mean(vals)) : mean(vals))), check: ck4 },
           { label: 'b', prompt: 'Find the median.', answer: M(dec(median(vals))), check: { type: 'stat', want: 'median' } }, { label: 'c', prompt: 'Find the mode.', answer: M(String(modes[0])), check: { type: 'stat', want: 'mode' } }], steps, fig); }
       if (c === 5) { data = rnd(r, r.pick([4, 9]), 10, 40); var add = r.int(41, 80); var nm = mean(data.concat([add])); need(exact(nm, 1)); D = list(data);
         steps.push(step('Old total: ' + sum(data) + '. New total: ' + (sum(data) + add) + '.', '', 1), step('Divide by the new count (' + (data.length + 1) + ').', dec(nm), 2));
@@ -229,7 +236,7 @@
   function safeRound(x, k) { var s = Math.pow(10, k), f = x * s - Math.floor(x * s); return Math.abs(f - 0.5) > 1e-6; }
   var ROUND = ['to the nearest whole number', 'to the nearest tenth', 'to the nearest hundredth'];
   skill({
-    id: 'stdev', best: [1, 2], tag: 'SPREAD', name: 'Standard deviation',
+    id: 'stdev', levels: ['cp1', 'honors'], best: [1, 2], tag: 'SPREAD', name: 'Standard deviation',
     blurb: 'Which data set is more spread out (CP2) → the standard deviation of a small data set (CP1) → adding to or multiplying every value, data from a dot plot (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, steps = [], cx = r.pick(CTX), data, D, k = c <= 3 ? 1 : 2;
@@ -247,21 +254,21 @@
       data = rnd(r, n, 1, c <= 3 ? 20 : 60); D = list(data); var s0 = sd(data); need(s0 > 0.5 && safeRound(s0, k));
       if (c <= 4) {
         steps.push(step('Find the mean: ' + dec(rTo(mean(data), 3)) + '.', '', 1), step('Square each distance from the mean and find the mean of the squares (the variance).', '', 2), step('Take the square root: ⟨\\sigma\\approx ' + rTo(s0, k) + '⟩.', '', 2));
-        return out('sd' + c, 'Find the standard deviation of the ' + cx[0] + ': ' + M(D) + '.' + sdNote + ' Round ' + ROUND[k] + '.',
+        return out('sd' + c, 'Find the standard deviation of the ' + ctxFor(r, data) + ': ' + M(D) + '.' + sdNote + ' Round ' + ROUND[k] + '.',
           [{ answer: 'σ ≈ ' + M(String(rTo(s0, k))), check: { type: 'stat', want: 'sd', data: D, round: k } }], steps);
       }
       if (c === 5 || c === 6) {
         var add = c === 5, kk = add ? r.int(2, 15) : r.int(2, 5), s1 = add ? s0 : s0 * kk; need(safeRound(s1, k));
         steps.push(step('The standard deviation of the data is about ' + rTo(s0, 3) + '.', '', 1));
         steps.push(step(add ? 'Adding the same number to every value moves the data but does not spread it out, so σ stays the same.' : 'Multiplying every value by ' + kk + ' multiplies every distance from the mean by ' + kk + ', so σ is ' + kk + ' times as large.', '', 3));
-        return out('sd-' + (add ? 'add' : 'mul'), 'Here are the ' + cx[0] + ': ' + M(D) + '. ' + (add ? 'Every value is increased by ' + kk + '.' : 'Every value is multiplied by ' + kk + '.') + ' What is the standard deviation of the new data?' + sdNote + ' Round ' + ROUND[k] + '.',
+        return out('sd-' + (add ? 'add' : 'mul'), 'Here are the ' + ctxFor(r, data) + ': ' + M(D) + '. ' + (add ? 'Every value is increased by ' + kk + '.' : 'Every value is multiplied by ' + kk + '.') + ' What is the standard deviation of the new data?' + sdNote + ' Round ' + ROUND[k] + '.',
           [{ answer: 'σ ≈ ' + M(String(rTo(s1, k))), check: { type: 'stat', want: 'sd', data: D, round: k, transform: add ? 'add' : 'mul' } }], steps);
       }
       var lo = r.int(0, 4), counts = {}, vals = []; for (var v = lo; v <= lo + 8; v++) { var cnt = r.int(0, 4); if (cnt) { counts[v] = cnt; for (var j = 0; j < cnt; j++) vals.push(v); } }
       need(vals.length >= 10 && vals.length <= 22); var s7 = sd(vals); need(safeRound(s7, 2));
       steps.push(step('Read every value from the dot plot (' + vals.length + ' values).', '', 1), step('Find the mean, then the mean of the squared distances, then the square root.', '\\sigma\\approx ' + rTo(s7, 2), 3));
-      return out('sd-dot', 'The dot plot shows the ' + cx[0] + ' for a group. Find the standard deviation of the data.' + sdNote + ' Round to the nearest hundredth.',
-        [{ answer: 'σ ≈ ' + M(String(rTo(s7, 2))), check: { type: 'stat', want: 'sd', round: 2 } }], steps, { kind: 'dotplot', min: lo, max: lo + 8, counts: counts, label: cx[0] });
+      var cxd = ctxFor(r, vals); return out('sd-dot', 'The dot plot shows the ' + cxd + ' for a group. Find the standard deviation of the data.' + sdNote + ' Round to the nearest hundredth.',
+        [{ answer: 'σ ≈ ' + M(String(rTo(s7, 2))), check: { type: 'stat', want: 'sd', round: 2 } }], steps, { kind: 'dotplot', min: lo, max: lo + 8, counts: counts, label: cxd });
     }
   });
 
@@ -308,7 +315,7 @@
     var Sxx = sxx - sx * sx / n, Sxy = sxy - sx * sy / n, Syy = syy - sy * sy / n, m = Sxy / Sxx; return { m: m, b: (sy - m * sx) / n, r: Sxy / Math.sqrt(Sxx * Syy) }; }
   function strength(rv) { var a = Math.abs(rv); return (a >= 0.8 ? 'strong' : a >= 0.5 ? 'moderate' : 'weak') + ' ' + (rv > 0 ? 'positive' : 'negative'); }
   skill({
-    id: 'regression', best: [1, 2], tag: 'SCATTER', name: 'Least-squares regression and correlation',
+    id: 'regression', levels: ['cp1', 'honors'], best: [1, 2], tag: 'SCATTER', name: 'Least-squares regression and correlation',
     blurb: 'Predict with a regression line, describe r (CP2) → find r and the least-squares line with a calculator (CP1) → predictions and residuals from the line you found (Honors).',
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, steps = [], L = r.pick(LS), n = c <= 3 ? 6 : r.int(6, 8), pts = [], xs = [];
@@ -318,7 +325,7 @@
       xs.forEach(function (x, j) { pts.push([x, Math.round((L[4] + L[5] * (x - L[2])) / (Math.abs(L[5]) < 1 ? 1 : 1) + r.int(-1, 1) * noise) ]); });
       var R = lsq(pts); need(Math.abs(R.r) > 0.3 && Math.abs(R.r) < 0.999 && safeRound(R.m, 2) && safeRound(R.b, 2) && safeRound(R.r, 2));
       var fig = { kind: 'table', vertical: true, head: [L[0], L[1]], rows: pts.map(function (p) { return [p[0], p[1]]; }) };
-      var calc = ' Use a calculator.', ln = lineTex(R.m, R.b, 2);
+      var calc = ' Use a calculator (TI-84: enter x in L1 and y in L2, then STAT → CALC → LinReg(ax+b); Desmos: type the table, then y₁ ~ mx₁ + b).', ln = lineTex(R.m, R.b, 2);
       if (c === 1) { var xg = L[2] + r.int(1, n) * L[3] + L[3] / 2, mm = rTo(R.m, 2), bb = rTo(R.b, 2), y1 = mm * xg + bb; need(safeRound(y1, 1));
         steps.push(step('Substitute ⟨x=' + xg + '⟩ into the regression line.', 'y=' + mm + '(' + xg + ')' + (bb < 0 ? '-' : '+') + Math.abs(bb) + '\\approx ' + rTo(y1, 1), 3));
         return out('ls-use', 'The least-squares regression line for the data is ' + M(ln) + '. Predict ⟨y⟩ when ' + M('x=' + xg) + '. Round to the nearest tenth.', [{ answer: 'y ≈ ' + M(String(rTo(y1, 1))), check: { type: 'lsrl', want: 'use', line: ln, at: 'x=' + xg, round: 1 } }], steps, fig); }

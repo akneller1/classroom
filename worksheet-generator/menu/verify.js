@@ -2191,7 +2191,7 @@
     if(t === 'mcas-context') {
       // Independent from the scenario generator: recover numerical inputs
       // exclusively from the STUDENT'S printed scenario, not check metadata.
-      var raw = C.plainText(p.prompt || ''), nums = (raw.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+      var raw = C.plainText(String(p.prompt || '').replace(/⟨(\d+(?:\.\d+)?)\\times 10\^\{(\d+)\}⟩/g, '$1 times ten to the power of $2')), nums = (raw.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 3)
         return {status:'invalid',msg:'Invalid scenario part.'};
@@ -2210,7 +2210,7 @@
             expected=[nAdult,nStudent,nAdult*d,nStudent*e];
         }
         else if(unit==='algebra1-exponents-scientific-notation' && nums.length===3 && b>=0 && b<=8)
-          expected=[a*10**b,a*10**b*d,2*a*10**b,a*10**b];
+          expected=[a*10**b,a*10**b*d,2*a*10**b,7*a*10**b*d];
         else if(unit==='algebra1-polynomials' && nums.length===3)
           expected=[a+b,a*b,(d+a)*(d+b),4*d+2*a+2*b];
         else if(unit==='algebra1-factoring-zero-product' && nums.length===2){
@@ -2234,7 +2234,7 @@
             expected=[adultCount,kidCount,kidCount*e];
         }
         else if (unit === 'algebra1-exponents-scientific-notation' && nums.length===3 && b>=0 && b<=9)
-          expected=[a*Math.pow(10,b),a*Math.pow(10,b)*d,a*Math.pow(10,b)];
+          expected=[a*Math.pow(10,b),a*Math.pow(10,b)*d,3*a*Math.pow(10,b)*d];
         else if (unit === 'algebra1-polynomials' && nums.length===3)
           expected=[a+b,a*b,(d+a)*(d+b)];
         else if (unit === 'algebra1-factoring-zero-product' && nums.length===2) {
