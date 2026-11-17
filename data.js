@@ -5384,6 +5384,19 @@ window.LIBRARY = {
               "added": "2026-10-28"
             },
             {
+              "title": "Construction Studio",
+              "path": "artifacts/geometry-construction-studio/index.html",
+              "thumb": "thumbs/geometry-construction-studio.svg",
+              "description": "Compass-and-straightedge constructions with checking: copy a segment or angle, bisect segments and angles, perpendicular and parallel lines, and a hexagon, square and equilateral triangle inscribed in a circle. Points appear only where arcs and lines cross, so every correct construction is a real one. Prints one construction page per task.",
+              "type": "Interactive",
+              "topics": [
+                "Constructions",
+                "Compass and straightedge",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-11-17"
+            },
+            {
               "title": "Maze Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=maze",
               "thumb": "thumbs/maze-generator-foundations.svg",
@@ -7238,6 +7251,19 @@ window.LIBRARY = {
                 "Circles"
               ],
               "added": "2026-10-28"
+            },
+            {
+              "title": "Construction Studio",
+              "path": "artifacts/geometry-construction-studio/index.html",
+              "thumb": "thumbs/geometry-construction-studio.svg",
+              "description": "Compass-and-straightedge constructions with checking: copy a segment or angle, bisect segments and angles, perpendicular and parallel lines, and a hexagon, square and equilateral triangle inscribed in a circle. Points appear only where arcs and lines cross, so every correct construction is a real one. Prints one construction page per task.",
+              "type": "Interactive",
+              "topics": [
+                "Constructions",
+                "Compass and straightedge",
+                "Circles"
+              ],
+              "added": "2026-11-17"
             },
             {
               "title": "Maze Generator",

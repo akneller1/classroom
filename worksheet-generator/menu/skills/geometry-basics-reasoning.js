@@ -242,7 +242,7 @@
  NS.registerSkillSet({id:'geometry-basics-reasoning',course:'geometry',courseName:'Geometry',unit:'basics-reasoning',unitName:'Foundations of Geometry',title:'Geometry Foundations',
  tags:{LOGIC:'Conditional statements',TERMS:'Terms, postulates and constructions',SEGMENT:'Segment addition and lengths',ANGLE:'Angle addition and measures',MIDPOINT:'Midpoints',BISECTOR:'Angle bisectors',COORD:'Coordinate geometry'},
  reference:'<div class="mm-refgrid"><section><h4>Segment addition</h4><p>When B is between A and C, AB + BC = AC.</p></section><section><h4>Angle addition</h4><p>Adjacent angles add to the measure of their whole angle.</p></section></div>',
- gaps:['Students do not carry out compass-and-straightedge constructions here: construction steps and tools are asked in words, and drawing is left to class. Formal proofs begin in Unit 2.'],skills:[
+ gaps:['Compass-and-straightedge constructions are drawn and checked in the Construction Studio on the unit page; here construction steps and tools are asked in words. Formal proofs begin in Unit 2.'],skills:[
  {id:'protractor-reading',tag:'ANGLE',name:'Measure and classify angles with a protractor',best:[0,1],generate:ctx=>K.retry(()=>protractor(ctx))},
  {id:'conditional-statements',tag:'LOGIC',name:'Conditional statements: converse, inverse, contrapositive, biconditional',best:[0,1,2],generate:ctx=>K.retry(()=>cond(ctx))},
  {id:'counterexamples',tag:'LOGIC',name:'Counterexamples to conjectures',best:[0,1,2],generate:ctx=>K.retry(()=>counterexample(ctx))},
