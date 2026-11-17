@@ -1108,6 +1108,23 @@
       }
       throw new C.CheckError('cannot read the similar figures');
     };
+    /* Geometry Unit 6 · right-triangle trig with an angle in degrees (2026-11-17): right angle at C, angle B given;
+       AB is the hypotenuse, AC is opposite B, BC is adjacent to B. Elevation, depression and ladder word problems. */
+    R['righttrig'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m, B, k, val, rad = Math.PI / 180;
+      if ((m = /m∠B = (\d+)°\. (AB|AC|BC), the [^,]+, is (\d+) units long\. Find (?:(AB|AC|BC), the [^,]+,|the perimeter of the triangle) to the nearest tenth/.exec(txt))) {
+        B = +m[1]; k = +m[3]; need(B > 0 && B < 90, 'an acute angle');
+        var hyp = m[2] === 'AB' ? k : m[2] === 'AC' ? k / Math.sin(B * rad) : k / Math.cos(B * rad), S = { AB: hyp, AC: hyp * Math.sin(B * rad), BC: hyp * Math.cos(B * rad) };
+        val = m[4] ? S[m[4]] : S.AB + S.AC + S.BC;
+        return rounded(part.answer || '', val, txt, 'x');
+      }
+      if ((m = /stands (\d+) feet from the base of a building on level ground\. The angle of elevation to the top of the building is (\d+)°\. How tall/.exec(txt))) return rounded(part.answer || '', +m[1] * Math.tan(+m[2] * rad), txt, 'x');
+      if ((m = /building is (\d+) feet tall\. From a point on level ground, the angle of elevation to the top of the building is (\d+)°\. How far/.exec(txt))) return rounded(part.answer || '', +m[1] / Math.tan(+m[2] * rad), txt, 'x');
+      if ((m = /A (\d+)-foot ladder leans against a vertical wall\. It makes a (\d+)° angle with the level ground\. How high/.exec(txt))) return rounded(part.answer || '', +m[1] * Math.sin(+m[2] * rad), txt, 'x');
+      if ((m = /boat is (\d+) feet from the base of a cliff\. From the top of the cliff, the angle of depression to the boat is (\d+)°\. How tall/.exec(txt))) return rounded(part.answer || '', +m[1] * Math.tan(+m[2] * rad), txt, 'x');
+      if ((m = /From the top of a (\d+)-foot cliff, the angle of depression to a boat is (\d+)°\. How far/.exec(txt))) return rounded(part.answer || '', +m[1] / Math.tan(+m[2] * rad), txt, 'x');
+      throw new C.CheckError('cannot read the right-triangle givens');
+    };
     /* Geometry Unit 6 · Law of Sines and Law of Cosines (to the nearest tenth) */
     R['oblique'] = function (p, part, raw) {
       var txt = C.plainText(raw), g = function (re) { var m = re.exec(txt); return m ? +m[1] : null; };
@@ -1264,6 +1281,46 @@
       return exact(part.answer || '', C.readNumber(String(Math.round(want * 1000) / 1000)));
     };
     /* Geometry Unit 8 · glide reflections of a point (the translation must be parallel to the mirror line) */
+    /* Geometry Unit 8 · image of a point (2026-11-17): the whole ordered pair, re-derived from the printed point or
+       triangle and the printed transformation (a translation shown only on the grid is read from the figure). */
+    R['pointimage'] = function (p, part, raw) {
+      var txt = C.plainText(raw).replace(/\s+/g, ' ').replace(/−/g, '-'), m, P, want;
+      var T = function (phrase, q) {
+        var t;
+        if ((t = /^reflected across the (x|y)-axis$/.exec(phrase))) return t[1] === 'x' ? [q[0], -q[1]] : [-q[0], q[1]];
+        if ((t = /^translated (\d+) units? (left|right|up|down)$/.exec(phrase))) { var d = +t[1]; return t[2] === 'right' ? [q[0] + d, q[1]] : t[2] === 'left' ? [q[0] - d, q[1]] : t[2] === 'up' ? [q[0], q[1] + d] : [q[0], q[1] - d]; }
+        if ((t = /^rotated 90° (clockwise|counterclockwise) about the origin$/.exec(phrase))) return t[1] === 'clockwise' ? [q[1], -q[0]] : [-q[1], q[0]];
+        if (/^rotated 180° about the origin$/.test(phrase)) return [-q[0], -q[1]];
+        if ((t = /^dilated about the origin (?:by|with) a scale factor of (\d+)$/.exec(phrase))) return [+t[1] * q[0], +t[1] * q[1]];
+        throw new C.CheckError('cannot read the transformation');
+      };
+      if ((m = /Point P\((-?\d+), (-?\d+)\) is ([^.]+)\. Find the coordinates of P′\./.exec(txt))) want = T(m[3], [+m[1], +m[2]]);
+      else {
+        var v = need(/Triangle ABC has vertices A\((-?\d+), (-?\d+)\), B\((-?\d+), (-?\d+)\), and C\((-?\d+), (-?\d+)\)\./.exec(txt), 'vertices');
+        var pts = { A: [+v[1], +v[2]], B: [+v[3], +v[4]], C: [+v[5], +v[6]] }, ask = need(/Find the coordinates of ([ABC])(′|″)\./.exec(txt), 'which vertex'), q = pts[ask[1]];
+        var shp = (p.fig && p.fig.shapes) || [], byId = function (id) { return shp.filter(function (s) { return s.id === id; })[0]; }, pre0 = byId('pre');
+        if (pre0) ['A', 'B', 'C'].forEach(function (L, i) { need(pre0.pts[i] && pre0.pts[i][0] === pts[L][0] && pre0.pts[i][1] === pts[L][1], 'the drawn triangle matches the printed vertices'); });
+        if (/It is translated to triangle A′B′C′, shown on the grid\./.test(txt)) {
+          var sh = (p.fig && p.fig.shapes) || [], pre = sh.filter(function (s) { return s.id === 'pre'; })[0], img = sh.filter(function (s) { return s.id === 'img'; })[0];
+          need(pre && img && pre.pts.length === 3 && img.pts.length === 3, 'the grid triangles');
+          ['A', 'B', 'C'].forEach(function (L, i) { need(pre.pts[i][0] === pts[L][0] && pre.pts[i][1] === pts[L][1], 'the drawn triangle matches the vertices'); });
+          var dx = img.pts[0][0] - pre.pts[0][0], dy = img.pts[0][1] - pre.pts[0][1];
+          for (var i = 1; i < 3; i++) need(img.pts[i][0] - pre.pts[i][0] === dx && img.pts[i][1] - pre.pts[i][1] === dy, 'one translation');
+          want = [q[0] + dx, q[1] + dy];
+        } else if (/It is reflected across the dashed line shown on the grid\./.test(txt)) {
+          var ln = need(p.fig && p.fig.lines && p.fig.lines[0], 'the mirror line');
+          want = ln.x !== undefined ? [2 * ln.x - q[0], q[1]] : [q[0], 2 * ln.y - q[1]];
+        } else if ((m = /It is first ([^.]+?) to form triangle A′B′C′ \(dashed\), and then translated (\d+) units? (left|right) and (\d+) units? (up|down) to form triangle A″B″C″\./.exec(txt))) {
+          var sx = (m[3] === 'right' ? 1 : -1) * +m[2], sy = (m[5] === 'up' ? 1 : -1) * +m[4], mid = T(m[1], q); want = [mid[0] + sx, mid[1] + sy];
+          var dm = byId('mid'), di = byId('img');   // the dashed middle triangle and the final one must follow the printed steps
+          if (dm || di) ['A', 'B', 'C'].forEach(function (L, i) { var mm = T(m[1], pts[L]); need(dm && di && dm.pts[i][0] === mm[0] && dm.pts[i][1] === mm[1] && di.pts[i][0] === mm[0] + sx && di.pts[i][1] === mm[1] + sy, 'the drawn steps match the printed steps'); });
+        } else if ((m = /It is ((?:rotated|dilated) [^.]+)\. Find/.exec(txt))) want = T(m[1], q);
+        else throw new C.CheckError('cannot read the transformation');
+      }
+      var g = /\(\s*(-?\d+)\s*,\\?\s*(-?\d+)\s*\)/.exec(String(part.answer || '').replace(/\\ /g, ' ').replace(/−/g, '-'));
+      if (!g) return { status: 'mismatch', msg: 'Write the image as (x, y).' };
+      return +g[1] === want[0] && +g[2] === want[1] ? { status: 'verified', computed: '(' + want[0] + ', ' + want[1] + ')' } : { status: 'mismatch', msg: 'Correct: (' + want[0] + ', ' + want[1] + ').' };
+    };
     R['glide'] = function (p, part, raw) {
       var txt = C.plainText(raw).replace(/\s+/g, ' '), m = need(/The point \((-?\d+), (-?\d+)\) is translated (\d+) units? (right|left|up|down) and then reflected across the (x|y)-axis/.exec(txt) || /The point ⟨\((-?\d+),\\? ?(-?\d+)\)⟩ is translated (\d+) units? (right|left|up|down) and then reflected across the (x|y)-axis/.exec(raw), 'glide reflection');
       var x = +m[1], y = +m[2], d = +m[3], dir = m[4], ax = m[5];
@@ -1896,9 +1953,9 @@
     if (t === 'geo-inverse-trig') {
       // Recover the ratio and trig function from student-visible text.
       var raw = C.plainText(p.prompt || '');
-      var m = /Find the acute angle x in degrees if (sin|cos|tan) x = (\d+)\/(\d+)\./.exec(raw);
+      var m = /Find the acute angle x in degrees if (sin|cos|tan) x = (\d+)(?:\/(\d+))?\./.exec(raw);
       if (!m) return {status:'invalid',msg:'Missing printed inverse-trig ratio.'};
-      var numerator=+m[2],denominator=+m[3];
+      var numerator=+m[2],denominator=m[3]===undefined?1:+m[3];
       if (!(numerator>0 && denominator>0)) return {status:'invalid',msg:'Invalid trig ratio.'};
       var ratio=numerator/denominator,rad;
       if(m[1]==='sin')rad=Math.asin(ratio);

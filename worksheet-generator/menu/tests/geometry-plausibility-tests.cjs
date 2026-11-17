@@ -36,3 +36,23 @@ for(const tier of [1,3,5,7]){
  }
 }
 console.log('Geometry plausibility: '+checked+' triangle/angle checks passed.');
+/* 2026-11-17: realistic numbers. Chords within a factor of 3 of each other, secants and tangent-secant lengths in
+   proportion, polygons with at most 20 sides, triangle and adjacent angles a student would recognize. */
+for(const tier of [1,3,5,7])for(let n=0;n<60;n++){
+  const seed='plaus2:'+tier+':'+n, g=(set,id)=>{const p=M.generateProblem(set,id,tier,{intOnly:tier<6,level:'test'},seed,{keys:new Set(),sigs:new Set()});assert.ok(!p.failed,id+': '+p.reason);return p;};
+  const ch=g('geometry-circles','circle-intersecting-chords'),nums=[...ch.prompt.matchAll(/measures (?:\(x\+)?(\d+)\)? cm/g)].map(m=>+m[1]);
+  const x=Number((ch.parts[0].answer.match(/x\s*=\s*(\d+)/)||[])[1]);
+  const pb=/PB measures \(x\+/.test(ch.prompt)?x+nums[1]:x, [pa,pc,pd]=/PB measures \(x\+/.test(ch.prompt)?[nums[0],nums[2],nums[3]]:[nums[0],nums[1],nums[2]];
+  const AB=pa+pb,CD=pc+pd; assert.ok(AB/CD<=3&&CD/AB<=3,'Chords out of proportion: '+[AB,CD]+' in '+ch.prompt);
+  const poly=g('geometry-quadrilaterals-polygons','polygon-interior-sum'),pm=poly.prompt.match(/is (\d+)°/),sides=pm?+pm[1]/180+2:+(poly.prompt.match(/(\d+) sides/)||[])[1];
+  assert.ok(sides>=3&&sides<=20,'Polygon with more than 20 sides: '+poly.prompt);
+  const ca=g('geometry-triangles-congruence','congruent-corresponding-angles'),deg=+ca.prompt.match(/and (\d+) degrees/)[1];
+  assert.ok(deg>=25&&deg<=150,'Unrealistic triangle angle: '+deg);
+  const ad=g('geometry-basics-reasoning','angle-addition'),parts=[...ad.prompt.matchAll(/(\d+)°/g)].map(m=>+m[1]);
+  assert.ok(parts.every(a=>a>=15&&a<180),'Unrealistic adjacent angles: '+parts);
+  const ts=g('geometry-circles','circle-tangent-secant'),t=+ts.prompt.match(/length (\d+) cm/)[1],e=+ts.prompt.match(/external segment of (\d+) cm/)[1];
+  assert.ok(t/e<=4,'Tangent far longer than the external segment: '+[t,e]);
+  checked+=5;
+}
+console.log('Geometry plausibility (2026-11-17 rules): all passed.');
+

@@ -64,7 +64,7 @@ function honorsSurvey(ctx){
 function inverseTrig(ctx){
  var r=ctx.rng,c=ctx.c,types=['sin','cos','tan'],kind=types[r.int(0,2)];
  var angle=kind==='sin'?30:kind==='cos'?60:45;
- var ratio=kind==='tan'?'1/1':'1/2';
+ var ratio=kind==='tan'?'1':'1/2';
  return {variant:'geo-right-inverse-'+kind+'-'+c,
   fig:kind==='sin'?rt({a:R3,b:1},[],null,{B:'x'}):kind==='cos'?rt({a:1,b:R3},[],null,{B:'x'}):rt({a:1,b:1},[],null,{B:'x'}),
   prompt:['','In the right triangle shown, angle B is an acute angle x. ','A student studies the right triangle shown. ','Triangle ABC is a right triangle with its right angle at C. ','Work with the right triangle shown. ','Consider the acute angle x marked in the right triangle. ','Angle x is marked in the right triangle shown. ','Use the right triangle shown to help you. ','Look at the right triangle shown. '][r.int(0,8)]+'Find the acute angle x in degrees if '+kind+' x = '+ratio+'. Use an inverse trigonometric function and explain why your answer is acute.',
@@ -221,6 +221,45 @@ function oblique(ctx,law){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,kind,A,B,Cg,a,b,
    steps=[step('Three sides: use the Law of Cosines solved for the angle.',M('\\cos C=\\frac{a^2+b^2-c^2}{2ab}')),step('Substitute.',M('\\cos C=\\frac{'+a+'^2+'+b+'^2-'+cc+'^2}{2('+a+')('+b+')}')),step('Use inverse cosine.',M('C\\approx '+r1t(val)+'^\\circ'))];}}
  var isAng=ask==='B'||ask==='C'&&kind==='angle',out=r1t(val).toFixed(1),alts=[r1t(val+10).toFixed(1),r1t(Math.max(0.1,val-7.3)).toFixed(1),r1t(val*1.25).toFixed(1)];
  return {variant:'geo-law-'+law+'-'+kind+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(out)+(isAng?'°':''),check:{type:'derive',kind:'oblique',alts:alts.map(function(z){return M(z)+(isAng?'°':'');})}}],steps:steps,space:[1.3,1.6,1.9]};}
+/* Right-triangle trigonometry with angles in degrees (2026-11-17). The angle is given, never the ratio, so the
+   answer is not printed in the question: students choose sine, cosine or tangent and use a calculator.
+   Difficulty: 1-2 the unknown side is on top of the ratio (multiply), angles in fives; 3-5 the unknown may be on the
+   bottom (divide) and any whole-degree angle; 6-7 find the perimeter (two sides). Checked by the verifier's
+   "righttrig" reader, which re-reads the printed angle and side. Figure: right angle at C, angle B at the right. */
+var SIDE_NAME={c:'AB',b:'AC',a:'BC'},SIDE_ROLE={c:'the hypotenuse',b:'the leg opposite ∠B',a:'the leg adjacent to ∠B'};
+function rtSide(ctx,fn){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,B=c<=2?5*r.int(4,14):r.int(18,72),pairs={sin:[['c','b'],['b','c']],cos:[['c','a'],['a','c']],tan:[['a','b'],['b','a']]}[fn];
+ var pr=c<=2?pairs[0]:pairs[r.int(0,1)],known=pr[0],ask=c>=6&&r.chance(0.5)?'P':pr[1],k=r.int(c<=2?6:5,c<=2?30:60),v={};
+ if(known==='c'){v.a=k*Math.cos(B*rad);v.b=k*Math.sin(B*rad);}else if(known==='a'){v.a=k;v.b=k*Math.tan(B*rad);}else{v.b=k;v.a=k/Math.tan(B*rad);}
+ K.need(B!==45);var hyp=Math.sqrt(v.a*v.a+v.b*v.b),val=ask==='P'?v.a+v.b+hyp:ask==='c'?hyp:v[ask];K.need(!nearHalf(val)&&v.a>0&&v.b>0&&v.b/v.a<6&&v.a/v.b<6);
+ var prompt='In right triangle ABC, ∠C is the right angle and m∠B = '+B+'°. '+SIDE_NAME[known]+', '+SIDE_ROLE[known]+', is '+k+' units long. '+(ask==='P'?'Find the perimeter of the triangle to the nearest tenth.':'Find '+SIDE_NAME[ask]+', '+SIDE_ROLE[ask]+', to the nearest tenth.');
+ var lab={};lab[known]=String(k);if(ask!=='P')lab[ask]='x';
+ var fig={kind:'geo-rt',v:v,lab:lab,ang:{B:B}};
+ var R3={sin:['opposite','hypotenuse'],cos:['adjacent','hypotenuse'],tan:['opposite','adjacent']}[fn],F={sin:'\\sin',cos:'\\cos',tan:'\\tan'}[fn];
+ var steps=[step('The ratio that links '+SIDE_ROLE[known].replace('the ','')+' and '+(ask==='P'?SIDE_ROLE[pr[1]].replace('the ',''):SIDE_ROLE[ask].replace('the ',''))+' is '+(fn==='sin'?'sine':fn==='cos'?'cosine':'tangent')+': '+F.slice(1)+' B = '+R3[0]+' ÷ '+R3[1]+'.','')];
+ var other=pr[1],ov=other==='c'?hyp:v[other],onTop=(fn==='sin'&&other==='b')||(fn==='cos'&&other==='a')||(fn==='tan'&&other==='b');
+ steps.push(step(onTop?'Multiply.':'The unknown is on the bottom, so divide.',M(SIDE_NAME[other]+'='+(onTop?k+F+' '+B+'^\\circ':'\\frac{'+k+'}{'+F+' '+B+'^\\circ}')+'\\approx '+r1t(ov))));
+ if(ask==='P'){var third=['a','b','c'].filter(function(z){return z!==known&&z!==other;})[0],tv=third==='c'?hyp:v[third];steps.push(step('Find the third side with the Pythagorean theorem or another ratio.',M(SIDE_NAME[third]+'\\approx '+r1t(tv))));steps.push(step('Add the three sides (round only at the end).',M('P\\approx '+r1t(val))));}
+ steps.push(step('Calculator in degree mode; round to the nearest tenth.',M((ask==='P'?'P':SIDE_NAME[ask])+'\\approx '+r1t(val).toFixed(1))));
+ var out=r1t(val).toFixed(1);
+ return {variant:'geo-righttrig-'+fn+'-'+(ask==='P'?'perimeter':onTop?'times':'divide')+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(out)+' units',check:{type:'derive',kind:'righttrig',alts:[r1t(val*1.3).toFixed(1),r1t(Math.max(0.1,val-4.2)).toFixed(1),r1t(k*B/45).toFixed(1)].filter(function(z){return z!==out;}).map(function(z){return M(z)+' units';})}}],steps:steps,space:[1.2,1.5,1.8]};}
+/* Angles of elevation and depression in degrees, on level ground. */
+function rtApplied(ctx,scene){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,th=c<=2?5*r.int(4,13):r.int(12,68),inverse=c>=4&&r.chance(0.5),ladder=scene==='elevation'&&c>=6&&r.chance(0.4),prompt,val,v,known,ask;
+ if(ladder){var L=r.int(12,32);th=r.int(55,78);v={a:L*Math.cos(th*rad),b:L*Math.sin(th*rad)};val=v.b;known='c';ask='b';
+  prompt='A '+L+'-foot ladder leans against a vertical wall. It makes a '+th+'° angle with the level ground. How high up the wall does the ladder reach, to the nearest tenth of a foot?';}
+ else if(scene==='elevation'){var d=r.int(20,c<=2?120:300),h=r.int(15,c<=2?90:250);
+  if(inverse){v={a:h/Math.tan(th*rad),b:h};val=v.a;known='b';ask='a';prompt='A building is '+h+' feet tall. From a point on level ground, the angle of elevation to the top of the building is '+th+'°. How far is the point from the base of the building, to the nearest tenth of a foot?';}
+  else{v={a:d,b:d*Math.tan(th*rad)};val=v.b;known='a';ask='b';prompt='A surveyor stands '+d+' feet from the base of a building on level ground. The angle of elevation to the top of the building is '+th+'°. How tall is the building, to the nearest tenth of a foot?';}}
+ else{var hh=r.int(20,c<=2?120:300),dd=r.int(20,c<=2?150:400);
+  if(inverse){v={a:dd,b:dd*Math.tan(th*rad)};val=v.b;known='a';ask='b';prompt='A boat is '+dd+' feet from the base of a cliff. From the top of the cliff, the angle of depression to the boat is '+th+'°. How tall is the cliff, to the nearest tenth of a foot?';}
+  else{v={a:hh/Math.tan(th*rad),b:hh};val=v.a;known='b';ask='a';prompt='From the top of a '+hh+'-foot cliff, the angle of depression to a boat is '+th+'°. How far is the boat from the base of the cliff, to the nearest tenth of a foot?';}}
+ K.need(th!==45&&!nearHalf(val)&&v.b/v.a<4&&v.a/v.b<4&&val<400);
+ var lab={};lab[known]=String(Math.round(known==='c'?Math.sqrt(v.a*v.a+v.b*v.b):v[known]))+' ft';lab[ask]='x';
+ var fig={kind:'geo-rt',v:v,lab:lab,ang:{B:th},unit:'ft',flip:scene==='elevation'&&!ladder};if(scene==='depression')fig.scene='depression';
+ var fn=ladder?'sin':'tan',onTop=ladder||ask==='b',F=ladder?'\\sin':'\\tan',kv=known==='c'?Math.round(Math.sqrt(v.a*v.a+v.b*v.b)):Math.round(v[known]);
+ var steps=[step(scene==='depression'?'The angle of depression equals the angle of elevation from the boat (alternate interior angles), so the angle at the boat is '+th+'°.':ladder?'The ladder is the hypotenuse; the height is the side opposite the '+th+'° angle, so use sine.':'The height is opposite the '+th+'° angle and the ground distance is adjacent, so use tangent.',''),
+  step(onTop?'Multiply.':'The unknown is on the bottom, so divide.',M('x='+(onTop?kv+F+' '+th+'^\\circ':'\\frac{'+kv+'}{'+F+' '+th+'^\\circ}')+'\\approx '+r1t(val).toFixed(1)))];
+ var out=r1t(val).toFixed(1);
+ return {variant:'geo-righttrig-'+scene+(ladder?'-ladder':inverse?'-inverse':'')+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(out)+' feet',check:{type:'derive',kind:'righttrig',alts:[r1t(val*1.25).toFixed(1),r1t(Math.max(0.1,val-6.3)).toFixed(1),r1t(kv*(onTop?1/Math.tan(th*rad):Math.tan(th*rad))).toFixed(1)].filter(function(z){return z!==out;}).map(function(z){return M(z)+' feet';})}}],steps:steps,space:[1.2,1.5,1.8]};}
 /* The ambiguous case (SSA): how many triangles fit the givens, and both angle measures when there are two. */
 function ambiguous(ctx){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,A=r.int(25,c>=6?120:65),b=r.int(8,25),h=b*Math.sin(A*rad),want=r.pick(c>=6?[0,1,2,2]:[0,1,2]),a;
  if(A>=90){K.need(b>4);a=want===0?r.int(Math.max(3,b-8),b-1):r.int(b+1,b+10);want=a>b?1:0;}
@@ -241,12 +280,12 @@ skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1],generate:leg},
 {id:'right-distance-formula',tag:'DISTANCE',name:'Distance on a coordinate plane',best:[0,1],generate:distance},
-{id:'right-sine-side',tag:'TRIG',name:'Sine: missing opposite side',best:[0,1],generate:ctx=>trig(ctx,'sin')},
-{id:'right-cosine-side',tag:'TRIG',name:'Cosine: missing adjacent side',best:[0,1],generate:ctx=>trig(ctx,'cos')},
-{id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1],generate:ctx=>trig(ctx,'tan')},
+{id:'right-sine-side',tag:'TRIG',name:'Sine: find a side from an angle',best:[0,1],generate:ctx=>K.retry(()=>rtSide(ctx,'sin'))},
+{id:'right-cosine-side',tag:'TRIG',name:'Cosine: find a side from an angle',best:[0,1],generate:ctx=>K.retry(()=>rtSide(ctx,'cos'))},
+{id:'right-tangent-side',tag:'TRIG',name:'Tangent: find a side from an angle',best:[0,1],generate:ctx=>K.retry(()=>rtSide(ctx,'tan'))},
 {id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1],generate:special45},
 {id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1],generate:special30},
-{id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
+{id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation (heights and distances)',best:[1,2],generate:ctx=>K.retry(()=>rtApplied(ctx,'elevation'))},
 {id:'right-investigation-pyth',tag:'HONORS',name:'Honors: two right triangles with a shared hypotenuse',best:[2],generate:rtPyth},
 {id:'right-investigation-special',tag:'HONORS',name:'Honors: 30-60-90 triangle with algebraic sides',best:[2],generate:rtSpecial},
 {id:'right-investigation-converse',tag:'HONORS',name:'Honors: converse of the Pythagorean theorem with algebra',best:[2],generate:rtConverse},
@@ -256,7 +295,7 @@ skills:[
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
 {id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal},
 {id:'right-special-radical',tag:'SPECIAL',name:'Exact radical sides in special right triangles',best:[1,2],generate:specialRadical},
-{id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression and vertical drop',best:[1,2],generate:depression},
+{id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression (heights and distances)',best:[1,2],generate:ctx=>K.retry(()=>rtApplied(ctx,'depression'))},
 {id:'law-of-sines',tag:'OBLIQUE',name:'Law of Sines (sides and angles to the nearest tenth)',best:[1,2],generate:ctx=>oblique(ctx,'sines')},
 {id:'law-of-sines-ambiguous',tag:'OBLIQUE',name:'Honors: the ambiguous case (SSA)',best:[2],generate:ctx=>K.retry(()=>ambiguous(ctx))},
 {id:'law-of-cosines',tag:'OBLIQUE',name:'Law of Cosines (sides and angles to the nearest tenth)',best:[2],generate:ctx=>oblique(ctx,'cosines')}

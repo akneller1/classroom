@@ -5,6 +5,7 @@
  var NS=G.MKMENU,K=NS.kit,M=K.M,st=K.step;
  function question(ctx,kind){
   var r=ctx.rng,c=ctx.c,x=r.int(c<3?2:3,c<3?12:24),a=c>4?r.int(2,5):1,b=r.int(2,12),total=a*x+b;
+  if(kind==='angle'){x=r.int(c<3?10:8,c<3?50:35);b=r.int(15,60);total=a*x+b;K.need(total<180);}   /* angles a protractor would show (2026-11-17) */
   var eq=a===1?'x+'+b+'='+total:a+'x+'+b+'='+total;
   var part=M(a===1?'x':a+'x');
   var text=kind==='segment'
@@ -198,8 +199,8 @@
  {id:'conditional-statements',tag:'LOGIC',name:'Conditional statements: converse, inverse, contrapositive, biconditional',best:[0,1,2],generate:ctx=>K.retry(()=>cond(ctx))},
  {id:'undefined-terms-postulates',tag:'TERMS',name:'Undefined terms, definitions and postulates',best:[0,1],generate:ctx=>K.retry(()=>bankSkill(TERM_BANK,'terms')(ctx))},
  {id:'constructions-concepts',tag:'TERMS',name:'Constructions: tools and steps',best:[0,1,2],generate:ctx=>K.retry(()=>bankSkill(CONST_BANK,'constructions')(ctx))},
- {id:'segment-addition',tag:'SEGMENT',name:'Find missing segment length',best:[0,1],generate:ctx=>question(ctx,'segment')},
- {id:'angle-addition',tag:'ANGLE',name:'Find missing angle measure',best:[0,1],generate:ctx=>question(ctx,'angle')},
+ {id:'segment-addition',tag:'SEGMENT',name:'Find missing segment length',best:[0,1],generate:ctx=>K.retry(()=>question(ctx,'segment'))},
+ {id:'angle-addition',tag:'ANGLE',name:'Find missing angle measure',best:[0,1],generate:ctx=>K.retry(()=>question(ctx,'angle'))},
  {id:'midpoint',tag:'MIDPOINT',name:'Midpoint and equal segments',best:[0,1],generate:midpoint},
  {id:'angle-bisector',tag:'BISECTOR',name:'Angle bisectors',best:[0,1],generate:bisector},
  {id:'coordinate-midpoint',tag:'COORD',name:'Midpoint with missing endpoint coordinate',best:[0,1],generate:coordinateMidpoint},
