@@ -297,6 +297,10 @@
       {
         "id": "credit-skill-04",
         "name": "Interpret credit costs"
+      },
+      {
+        "id": "credit-skill-05",
+        "name": "Understand credit scores and reports"
       }
     ],
     "banking": [
@@ -315,6 +319,10 @@
       {
         "id": "banking-skill-04",
         "name": "Interpret bank statements"
+      },
+      {
+        "id": "banking-skill-05",
+        "name": "Spot scams and protect your identity"
       }
     ],
     "investing": [
@@ -351,6 +359,10 @@
       {
         "id": "borrowing-skill-04",
         "name": "Analyze total borrowing cost"
+      },
+      {
+        "id": "borrowing-skill-05",
+        "name": "Calculate the total cost of car ownership"
       }
     ],
     "housing": [
@@ -369,6 +381,10 @@
       {
         "id": "housing-skill-04",
         "name": "Analyze opportunity cost"
+      },
+      {
+        "id": "housing-skill-05",
+        "name": "Plan the costs of renting"
       }
     ],
     "insurance": [

@@ -13,7 +13,7 @@ test('Grade 5 and Financial Algebra student share catalog includes exact unit sk
  assert.deepEqual(Object.keys(catalog.grade5),gradeUnits);
  assert.deepEqual(Object.keys(catalog['financial-algebra']).sort(),financeUnits.slice().sort());
  assert.equal(Object.values(catalog.grade5).flat().length,55);
- assert.equal(Object.values(catalog['financial-algebra']).flat().length,40);
+ assert.equal(Object.values(catalog['financial-algebra']).flat().length,44);
  for(const [course,units] of [['grade5',gradeUnits],['financial-algebra',financeUnits]]){
   for(const unit of units){
    const skills=catalog[course][unit];
