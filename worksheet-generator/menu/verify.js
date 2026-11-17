@@ -24,9 +24,16 @@
   // Never bypass the independent derivation checks for variants that require them.
   function geometryDerived(p, chk) {
     if (!chk || chk.type !== 'solve' || !/^geo-/.test(p.variant || '')) return false;
-    // These foundation prompts explicitly print their checked equation.
-    // Keep strict equation matching so tampered printed values are rejected.
-    if (/^geo-(segment|angle)-/.test(p.variant || '')) return false;
+    /* Segment and angle addition (2026-11-17): the prompt prints the parts and the whole, not the equation; the
+       equation is rebuilt from those printed values, so a changed number is still caught. */
+    if (/^geo-segment-/.test(p.variant || '')) {
+      var sg = /AB = ⟨([^⟩]+)⟩, BC = (\d+) and AC = (\d+)\./.exec(p.prompt || '');
+      return !!sg && sg[1] + '+' + sg[2] + '=' + sg[3] === chk.eq;
+    }
+    if (/^geo-angle-/.test(p.variant || '')) {
+      var ag = /Angle ABD measures ⟨([^⟩]+)⟩°, angle DBC measures (\d+)° and angle ABC measures (\d+)°\./.exec(p.prompt || '');
+      return !!ag && ag[1] + '+' + ag[2] + '=' + ag[3] === chk.eq;
+    }
     /* Parallel lines + transversal: the equation is rebuilt from the FIGURE (which pair of positions is marked, so
        equal or supplementary) and the printed labels, never from the generator's own bookkeeping. */
     if (/^geo-transversal-/.test(p.variant || '') && p.fig && p.fig.kind === 'geo-transversal' && NS.geoFigures) {
@@ -187,7 +194,7 @@
     }
     if (/^geo-congruence-third-angle-/.test(p.variant || '')) {
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
-      return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
+      return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180';
     }
     if (/^geo-circle-intercepted-expression-/.test(p.variant || '')) {
       var interceptedExpr=/inscribed angle measures ([0-9]+) degrees\. Its intercepted arc is labeled \(2x\+([0-9]+)\) degrees/.exec(p.prompt || '');
@@ -212,26 +219,26 @@
         chk.eq==='2*x+'+offsetCentral+'='+angleCentral;
     }
     if (/^geo-circle-expanded-radius-mixed-/.test(p.variant || '')) {
-      var mixed=/equation X\^2 \+ ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
+      var mixed=/equation x\^2 \+ ([0-9]+)x \+ y\^2 - ([0-9]+)y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
       if (!mixed) return false;
       var mx=Number(mixed[1]), my=Number(mixed[2]), mc=(mixed[3]==='-'?-1:1)*Number(mixed[4]);
       var mr2=(mx*mx+my*my)/4-mc, mr=Math.sqrt(mr2);
-      return mx>0 && my>0 && mx%2===0 && my%2===0 && mr2>0 && Number.isInteger(mr) && chk.eq==='x='+mr;
+      return mx>0 && my>0 && mx%2===0 && my%2===0 && mr2>0 && Number.isInteger(mr) && chk.eq==='r='+mr;
     }
     if (/^geo-circle-expanded-radius-/.test(p.variant || '')) {
-      var radiusEq = /equation X\^2 - ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
+      var radiusEq = /equation x\^2 - ([0-9]+)x \+ y\^2 - ([0-9]+)y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
       if (!radiusEq) return false;
       var aa=Number(radiusEq[1]), bb=Number(radiusEq[2]), cc=(radiusEq[3]==='-'?-1:1)*Number(radiusEq[4]);
       var radiusSq=(aa*aa+bb*bb)/4-cc;
       var derivedRadius=Math.sqrt(radiusSq);
-      return aa>0 && bb>0 && aa%2===0 && bb%2===0 && radiusSq>0 && Number.isInteger(derivedRadius) && chk.eq==='x='+derivedRadius;
+      return aa>0 && bb>0 && aa%2===0 && bb%2===0 && radiusSq>0 && Number.isInteger(derivedRadius) && chk.eq==='r='+derivedRadius;
     }
     if (/^geo-circle-expanded-center-/.test(p.variant || '')) {
-      var expanded = /equation X\^2 - ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
+      var expanded = /equation x\^2 - ([0-9]+)x \+ y\^2 - ([0-9]+)y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
       if (!expanded) return false;
       var a=Number(expanded[1]), b=Number(expanded[2]), constant=(expanded[3]==='-'?-1:1)*Number(expanded[4]);
       var radiusSquared=(a*a+b*b)/4-constant;
-      return a>0 && b>0 && a%2===0 && b%2===0 && radiusSquared>0 && Number.isInteger(Math.sqrt(radiusSquared)) && chk.eq==='2*x='+expanded[1];
+      return a>0 && b>0 && a%2===0 && b%2===0 && radiusSquared>0 && Number.isInteger(Math.sqrt(radiusSquared)) && chk.eq==='2*h='+expanded[1];
     }
     if (/^geo-circle-chord-distance-inverse-/.test(p.variant || '')) {
       var invChord=/circle has radius ([0-9]+) cm and a chord of length ([0-9]+) cm/.exec(p.prompt || '');
@@ -252,7 +259,7 @@
       if (!coords) return false;
       var dx = Math.abs(Number(coords[3])-Number(coords[1]));
       var dy = Math.abs(Number(coords[4])-Number(coords[2]));
-      return dx > 0 && dy > 0 && chk.eq === 'x='+dx+'*'+dx+'+'+dy+'*'+dy;
+      return dx > 0 && dy > 0 && chk.eq === 's='+dx+'*'+dx+'+'+dy+'*'+dy;
     }
     if (/^geo-circle-arc-length-inverse-/.test(p.variant || '')) {
       var invArc=/radius ([0-9]+) cm.*exact length ([0-9]+) times pi centimeters/.exec(p.prompt || '');
@@ -329,7 +336,10 @@
       var trap = /parallel bases measuring ([0-9]+) cm and ([0-9]+) cm/.exec(p.prompt || '');
       return !!trap && chk.eq === '2*x='+trap[1]+'+'+trap[2];
     }
-    if (/^geo-vertical-/.test(p.variant || '')) return false;
+    if (/^geo-vertical-/.test(p.variant || '')) {   // vertical angles are equal: the two printed measures
+      var vt = /Two vertical angles measure ⟨([^⟩]+)⟩° and (\d+)°\./.exec(p.prompt || '');
+      return !!vt && vt[1] + '=' + vt[2] === chk.eq;
+    }
     if (/^geo-transversal-/.test(p.variant || '')) {
       var b = /angle measures are ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
       if (!b) return false;

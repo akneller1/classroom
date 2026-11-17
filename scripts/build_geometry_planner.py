@@ -168,8 +168,8 @@ UNITS = [
  (1, 'Foundations of Geometry', [
   L('Points, Lines, Planes and Postulates', 'G-CO.A.1', 'name and describe points, lines, segments, rays and planes and use basic postulates.',
     'Students will describe in writing how two figures are different using precise vocabulary (point, line, plane, segment, ray).', 'A ___ has ___ but a ___ has ___.',
-    ['point', 'line', 'plane', 'segment', 'ray', 'collinear', 'postulate'], 'Treating a line and a segment as the same thing; a line has no endpoints.', FILL, 'none',
-    [('B', 'segment-addition', 1, 2)], 'Naming figures and postulates has no generator yet; the practice below reviews segment lengths. Add 4–5 naming and notation items.',
+    ['point', 'line', 'plane', 'segment', 'ray', 'collinear', 'postulate'], 'Treating a line and a segment as the same thing; a line has no endpoints.', FILL, 'full',
+    [('B', 'undefined-terms-postulates', 1, 3), ('B', 'segment-addition', 1, 2)], '',
     'A line goes on forever; a segment has two endpoints; a ray has one. Name figures with capital letters.'),
   L('Segments and Midpoints', 'G-CO.D.12, G-GPE.B.6', 'use the segment addition postulate and the midpoint to find missing lengths.',
     'Students will explain orally how a midpoint divides a segment using the words midpoint and congruent.', 'Because M is the midpoint, ___ = ___, so ___.',
@@ -189,8 +189,8 @@ UNITS = [
     [('B', 'coordinate-investigation', 1, 7), ('B', 'coordinate-midpoint', 5, 7)], '', 'A multi-part problem is a chain: check each answer before using it in the next part.'),
   L('Reasoning: If–Then Statements and Counterexamples', 'G-CO.C.9, MP.3', 'write conditional statements and their converses and use a counterexample to show a statement is false.',
     'Students will justify in writing why one counterexample disproves a statement.', 'The statement is false because ___ is a counterexample.',
-    ['conditional statement', 'converse', 'counterexample'], 'Believing a true conditional must have a true converse; check the converse separately.', FILL, 'none',
-    [('B', 'angle-addition', 1, 2)], 'Conditional statements, converses and counterexamples have no generator yet. Add 4–5 statements for students to rewrite and test.',
+    ['conditional statement', 'converse', 'counterexample'], 'Believing a true conditional must have a true converse; check the converse separately.', FILL, 'full',
+    [('B', 'conditional-statements', 1, 5)], '',
     'A conditional is true only if it is always true; one counterexample shows it is false. The converse may be false.'),
  ]),
  (2, 'Angles and Parallel Lines', [

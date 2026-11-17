@@ -49,11 +49,11 @@
 
   /* ---------------- levels & difficulty ---------------- */
   NS.LEVELS = {
-    cp2: { id: 'cp2', name: 'CP2', long: 'CP2 · Support', tiers: [1, 2, 3], intOnly: true,
+    cp2: { id: 'cp2', name: 'CP2', long: 'Support (CP2)', tiers: [1, 2, 3], intOnly: true,
       about: 'Whole-number answers, fewer steps, positive values first, plain wording.' },
-    cp1: { id: 'cp1', name: 'CP1', long: 'CP1 · Standard', tiers: [3, 4, 5], intOnly: true,
+    cp1: { id: 'cp1', name: 'CP1', long: 'Standard (CP1)', tiers: [3, 4, 5], intOnly: true,
       about: 'Grade-level, multi-step problems with negatives, fraction bars and decimals.' },
-    honors: { id: 'honors', name: 'Honors', long: 'Honors · Advanced', tiers: [5, 6, 7], intOnly: false,
+    honors: { id: 'honors', name: 'Honors', long: 'Advanced (Honors)', tiers: [5, 6, 7], intOnly: false,
       about: 'Fraction coefficients, combined concepts, multi-part problems; fraction answers allowed.' }
   };
   NS.DIFF_NAMES = ['', 'Warm-up', 'Basic', 'Developing', 'Standard', 'Strong', 'Advanced', 'Challenge'];
@@ -270,6 +270,50 @@
     var t = [p.prompt || ''].concat((p.parts || []).map(function (pt) { return pt.prompt || ''; })).join(' ').replace(/<[^>]+>/g, ' ').replace(/\u2212/g, '-');
     return (t.match(/\d+/g) || []).join(',');
   };
+  /* Geometry wording (2026-11-17): "Set up and solve an equation for x" only where writing an equation is the point
+     (x sits inside a relationship such as x + 64 = 90). Where the answer comes straight from a formula or a reading
+     (a diameter from a radius, an area, a reflected point) the instruction becomes "Show the formula you use" or is
+     dropped. An "explain/state" request on a one-number answer becomes "Name the theorem or property you use"; the
+     key's first step names it. Runs before verification, so the verifier checks the final wording. */
+  var GEO_EQ_SENT = /\s*(?:Set up and solve an equation (?:for|to find) [a-z]|Write and solve an equation for [a-z]|Set up an equation and show your reasoning)\.?/g;
+  var GEO_BY_EQ = / by writing (?:and solving )?an equation/g;
+  var GEO_POINT_SKILLS = /^(reflect-|translate-|rotate-90|dilate-|rotate-triangle|compose-triangle|symmetry-|circle-(central-arc|radius|diameter))/;
+  NS.geoWording = function (p, skillId) {
+    if (!p || typeof p.prompt !== 'string' || !(p.parts || []).length) return p;
+    var pt = p.parts[0], ch = pt.check || {}, eq = String(ch.eq || ''), one = p.parts.length === 1;
+    if (!GEO_EQ_SENT.test(p.prompt) && !GEO_BY_EQ.test(p.prompt)) { GEO_EQ_SENT.lastIndex = 0; GEO_BY_EQ.lastIndex = 0; }
+    GEO_EQ_SENT.lastIndex = 0; GEO_BY_EQ.lastIndex = 0;
+    if (one && ch.type === 'solve') {
+      var sides = eq.split('='), lhs = (sides[0] || '').replace(/\s/g, ''), v = ch.v || 'x';
+      var isolated = lhs === v, scaled = new RegExp('^\\d+\\*?' + v + '$').test(lhs) && /\*/.test(sides[1] || '');
+      var reading = GEO_POINT_SKILLS.test(skillId) || /^triangle-inequality/.test(skillId);
+      if (reading) p.prompt = p.prompt.replace(GEO_EQ_SENT, '').replace(GEO_BY_EQ, '');
+      else if (isolated || scaled) p.prompt = p.prompt.replace(GEO_EQ_SENT, ' Show the formula you use.').replace(GEO_BY_EQ, '');
+    }
+    if (one && /^⟨?[a-z]?=?[−-]?[\d.]+⟩?(\s*[a-z ]*)?$/.test(String(pt.answer).replace(/\s+(units|cm|degrees|inches|feet|ft|m)$/,'').replace(/\s/g, ''))) {
+      var named = false;
+      p.prompt = p.prompt.replace(/\s*(?:Explain|State|Justify)\b[^.?]*[.?]/g, function () { if (named) return ''; named = true; return ' Name the theorem or property you use.'; });
+    }
+    p.prompt = p.prompt.replace(/\s{2,}/g, ' ').replace(/\s+\./g, '.').trim();
+    geoFullerSteps(p);
+    return p;
+  };
+  /* One-line worked solutions get the reason spelled out (2026-11-17). */
+  var CENTER_WHY = { Circumcenter: 'The circumcenter is equally far from the three vertices, so it is the center of the circle through them.', Incenter: 'The incenter is equally far from the three sides, so it is the center of the circle inside the triangle.', Centroid: 'The centroid is the balance point; it divides each median in a 2 : 1 ratio.', Orthocenter: 'The orthocenter is where the three altitudes (or the lines containing them) meet.' };
+  var CRIT_WHY = { SSS: 'All three pairs of sides have matching tick marks.', SAS: 'Two pairs of sides and the angle between them are marked congruent.', ASA: 'Two pairs of angles and the side between them are marked congruent.', AAS: 'Two pairs of angles and a side that is not between them are marked congruent.', HL: 'Both triangles are right triangles, and the hypotenuses and one pair of legs are marked congruent.' };
+  function geoFullerSteps(p) {
+    var v = p.variant || '', st = p.steps = p.steps || [], a = String((p.parts && p.parts[0] && p.parts[0].answer) || '');
+    var add = function (t, at) { st.splice(at === undefined ? 0 : at, 0, { t: t, m: '', w: 1 }); };
+    if (/^geo-center-name-/.test(v) && st.length < 2) { var w = CENTER_WHY[a.replace(/[^A-Za-z]/g, '')]; if (w) add(w, st.length); }
+    else if (/^geo-identify-criterion-/.test(v) && st.length < 2) add(CRIT_WHY[a] || 'The marks show only SSA or AAA, and neither proves two triangles congruent.');
+    else if (/^geo-right-inverse-/.test(v) && st.length < 2) {
+      var m = /(sin|cos|tan) x = (\d+)\/(\d+)/.exec((p.prompt || '').replace(/⟨|⟩/g, ''));
+      if (m) add('Undo the ' + (m[1] === 'sin' ? 'sine' : m[1] === 'cos' ? 'cosine' : 'tangent') + ' with its inverse: x = ' + m[1] + '⁻¹(' + m[2] + '/' + m[3] + ').');
+      add('The result is between 0° and 90°, so the angle is acute.', st.length);
+    }
+    else if (/^geo-right-radical-/.test(v) && st.length < 2) add(/-45-/.test(v) ? 'In a 45°-45°-90° triangle the sides are in the ratio 1 : 1 : √2, so the hypotenuse is a leg times √2 (and a leg is the hypotenuse ÷ √2).' : 'In a 30°-60°-90° triangle the sides are in the ratio 1 : √3 : 2: the long leg is the short leg times √3 and the hypotenuse is twice the short leg.');
+    else if (/^geo-ssa-/.test(v) && st.length < 2) add('Answer: ' + a + '.', st.length);
+  }
   NS.generateProblem = function (setId, skillId, c, policy, seed, used) {
     var set = sets[setId], sk = set && set.byId[skillId];
     if (!sk) return { failed: true, reason: 'Unknown skill ' + skillId };
@@ -279,7 +323,7 @@
       var rng = WS.rng.make(WS.rng.hash([seed, skillId, c, attempt].join('|')));
       var ctx = { rng: rng, c: c, intOnly: policy.intOnly, level: policy.level, compact: !!policy.compact };
       var p;
-      try { p = sk.generate(ctx); }
+      try { p = sk.generate(ctx); if (p && /^geometry-/.test(setId)) p = NS.geoWording(p, skillId); }
       catch (e) {
         if (e && e.isReject) { NS.stats.rejectedByGenerator++; lastReason = e.message; continue; }
         // A generator bug must never crash the page or slip through: count it, report it, try again.
@@ -733,6 +777,9 @@
     cfg.sections.forEach(function (sec, si) {
       var skills = NS.sectionSkills(cfg, si), n = counts[si], out = [];
       if (!skills.length) { plans.push(out); return; }
+      /* Skills written for Honors (named "Honors: …") stay off Support and Standard worksheets unless they are the only
+         skills chosen (2026-11-17). */
+      if (cfg.level !== 'honors') { var notHonors = skills.filter(function (id) { return !/^Honors:/.test((set.byId[id] || {}).name || ''); }); if (notHonors.length) skills = notHonors; }
       var tier = sec.tier !== undefined ? sec.tier : Math.min(si, 2);
       var rng = WS.rng.make(WS.rng.hash([cfg.seed, 'plan', si].join('|')));
       var good = rng.shuffle(skills.filter(function (id) { var b = set.byId[id].best; return !b || b.indexOf(tier) >= 0; }));
