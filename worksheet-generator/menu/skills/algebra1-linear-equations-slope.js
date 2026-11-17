@@ -410,6 +410,34 @@
     }
   });
 
+  /* ================= A graph is its set of solutions (A-REI.D.10, audit #10) ================= */
+  skill({
+    id: 'graph-solution-set', best: [0, 1, 2], tag: 'GRAPHLINE', name: 'Points on a graph are solutions',
+    blurb: 'Is a point on the line y = mx + b? Find a missing coordinate (CP2) → standard form, missing x (CP1) → a curve, and what a point on the graph means (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, eq, f, steps = [], kind;
+      if (c <= 3) { var m = c === 3 ? F(nz(r, -4, 4), r.pick([1, 2])) : F(nz(r, -5, 5)), b = nz(r, -9, 9); eq = 'y=' + lin([[m, 'x'], [b, '']]); f = function (x, y) { return Fr.of(y).sub(m.mul(x)).sub(b); }; kind = 'yx'; }
+      else if (c <= 5) { var A = nz(r, -6, 6), B = nz(r, -6, 6), Cn = nz(r, -24, 24); need(gcd(gcd(Math.abs(A), Math.abs(B)), Math.abs(Cn)) === 1); eq = lin([[A, 'x'], [B, 'y']]) + '=' + Cn; f = function (x, y) { return F(A).mul(x).add(F(B).mul(y)).sub(Cn); }; kind = 'std'; }
+      else { var a2 = nz(r, -2, 2), b2 = nz(r, -5, 5), c2 = nz(r, -9, 9); eq = 'y=' + lin([[a2, 'x^{2}'], [b2, 'x'], [c2, '']]); f = function (x, y) { return Fr.of(y).sub(F(a2).mul(x).mul(x)).sub(F(b2).mul(x)).sub(c2); }; kind = 'quad'; }
+      /* part a: a point that is (or is not) on the graph */
+      var on = r.chance(0.5), px, py;
+      if (kind === 'std') { var Bx = eq; void Bx; px = F(r.int(-6, 6)); var Bq = f(px, F(0)), By = f(px, F(1)).sub(Bq); need(!By.isZero()); py = Bq.neg().div(By); need(py.isInt()); }
+      else { px = F(r.int(-5, 5)); py = f(px, F(0)).neg(); need(py.isInt() || !ctx.intOnly); }
+      if (!on) py = py.add(r.pick([-2, -1, 1, 2]));
+      var P = pt(px, py), sub = 'Substitute ' + M('x=' + num(px)) + ' and ' + M('y=' + num(py)) + ' into the equation.';
+      steps.push(step(sub, '', 1), step(on ? 'The equation is true, so the point is on the graph.' : 'The equation is false, so the point is not on the graph.', '', 1));
+      var parts = [{ label: 'a', prompt: 'Is ' + M(P) + ' on the graph of ' + M(eq) + '? Explain.', answer: (on ? 'Yes' : 'No') + ': substituting gives a ' + (on ? 'true' : 'false') + ' equation, so the point is ' + (on ? '' : 'not ') + 'a solution of the equation.', check: { type: 'on-graph', eq: eq, point: P, want: 'yes' } }];
+      /* part b: a missing coordinate */
+      var missX = kind === 'std' && c === 5, qx, qy, Q2;
+      if (missX) { qy = F(r.int(-6, 6)); var X0 = f(F(0), qy), X1 = f(F(1), qy).sub(X0); need(!X1.isZero()); qx = X0.neg().div(X1); need(qx.isInt() || !ctx.intOnly); Q2 = '(k,\\ ' + num(qy) + ')'; }
+      else { qx = F(nz(r, -6, 6)); if (kind === 'std') { var Y0 = f(qx, F(0)), Y1 = f(qx, F(1)).sub(Y0); need(!Y1.isZero()); qy = Y0.neg().div(Y1); need(qy.isInt() || !ctx.intOnly); } else { qy = f(qx, F(0)).neg(); need(qy.isInt() || !ctx.intOnly); } Q2 = '(' + num(qx) + ',\\ k)'; }
+      var kv = missX ? qx : qy;
+      parts.push({ label: 'b', prompt: 'The point ' + M(Q2) + ' is on the graph. Find ' + M('k') + '.', answer: M('k=' + num(kv)), check: { type: 'on-graph', eq: eq, point: Q2, want: 'missing' } });
+      steps.push(step('A point on the graph makes the equation true: substitute the known coordinate and solve for ' + M('k') + '.', 'k=' + num(kv), 2));
+      return { variant: 'gss' + c, prompt: 'Every point on the graph of an equation is a solution of the equation.', parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',

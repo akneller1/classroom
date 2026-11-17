@@ -362,6 +362,34 @@
     }
   });
 
+  /* ================= Constant rate per unit interval (F-LE.A.1b, audit #10) ================= */
+  var RATE_CTX = [   // [story, x unit (plural), x unit (one), y quantity, y unit, sign, y start range]
+    ['A tank is being filled with water at a constant rate.', 'minutes', 'minute', 'the tank holds', 'gallons', 1, [10, 60]],
+    ['A candle burns down at a constant rate.', 'hours', 'hour', 'the candle is', 'centimeters tall', -1, [20, 40]],
+    ['A sunflower grows at a constant rate.', 'weeks', 'week', 'the sunflower is', 'centimeters tall', 1, [10, 50]],
+    ['A phone battery drains at a constant rate.', 'hours', 'hour', 'the battery is at', 'percent', -1, [70, 100]],
+    ['A savings account grows by the same deposit each month.', 'months', 'month', 'the account holds', 'dollars', 1, [100, 400]]];
+  skill({
+    id: 'constant-rate', best: [0, 1, 2], tag: 'MODEL', name: 'Constant rate per unit interval',
+    blurb: 'Two readings one unit apart: find the rate and predict (CP2) → readings several units apart, explain why it is linear (CP1) → decimal rates (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, S = r.pick(RATE_CTX), steps = [];
+      var rate = c >= 5 && !ctx.intOnly ? F(r.int(1, 9) * 2 + 1, 2) : F(r.int(2, S[4] === 'dollars' ? 40 : 9)); rate = S[5] < 0 ? rate.neg() : rate;
+      var x1 = r.int(1, 4), x2 = c <= 2 ? x1 + 1 : x1 + r.int(2, 5), y0 = F(r.int(S[6][0], S[6][1])), y1 = y0.add(rate.mul(x1)), y2 = y0.add(rate.mul(x2)), x3 = x2 + r.int(1, 4), y3 = y0.add(rate.mul(x3));
+      need(y3.sign() > 0 && (S[4] !== 'percent' || y0.val() <= 100));
+      var dec = function (q) { return q.isInt() ? num(q) : String(q.val()); };
+      var prompt = S[0] + ' After ' + x1 + ' ' + (x1 === 1 ? S[2] : S[1]) + ', ' + S[3] + ' ' + dec(y1) + ' ' + S[4] + '. After ' + x2 + ' ' + S[1] + ', ' + S[3] + ' ' + dec(y2) + ' ' + S[4] + '.';
+      var pts = [[x1, dec(y1)], [x2, dec(y2)]], u = S[4].replace(/ tall$/, '');
+      var parts = [{ label: 'a', prompt: 'By how much does the amount change each ' + S[2] + '?', answer: M(dec(rate)) + ' ' + u + ' per ' + S[2], check: { type: 'unit-rate', pts: pts, want: 'rate' } },
+                   { label: 'b', prompt: 'If the rate stays the same, what will the amount be after ' + x3 + ' ' + S[1] + '?', answer: M(dec(y3)) + ' ' + u, check: { type: 'unit-rate', pts: pts, want: 'value', at: x3 } }];
+      steps.push(step('Rate per ' + S[2] + ': change in amount ÷ change in time.', '\\frac{' + dec(y2) + '-' + dec(y1) + '}{' + x2 + '-' + x1 + '}=' + dec(rate), 2));
+      steps.push(step('Add the rate once for each ' + S[2] + ' after ' + x2 + '.', dec(y2) + (rate.sign() < 0 ? '-' : '+') + (x3 - x2) + '\\cdot ' + dec(rate.abs()) + '=' + dec(y3), 2));
+      if (c >= 3) { parts.push({ label: 'c', prompt: 'Is the relationship linear or exponential? Explain.', answer: 'Linear: the amount changes by the same amount, ' + M(dec(rate)) + ' ' + u + ', every ' + S[2] + ' (a constant rate per unit interval).', check: { type: 'unit-rate', pts: pts, want: 'linear' } });
+        steps.push(step('Equal changes over equal intervals mean a linear function; equal factors would mean exponential.', '', 1)); }
+      return { variant: 'cr' + c, prompt: prompt, parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponential-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponential-functions', unitName: 'Exponential Functions',
     title: 'The Exponential Eatery',

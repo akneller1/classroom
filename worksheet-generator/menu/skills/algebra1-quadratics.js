@@ -313,6 +313,76 @@
     }
   });
 
+  /* ================= Complete the square to find a maximum or minimum (A-SSE.B.3b, audit #10) ================= */
+  skill({
+    id: 'quad-maxmin', best: [1, 2], tag: 'COMPLETE', name: 'Complete the square to find a maximum or minimum in context',
+    blurb: 'A minimum cost, leading coefficient 1 (CP2) → a maximum revenue, leading coefficient −1 (CP1) → leading coefficients like −2 and −5, and the input that gives the extreme value (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, a, h, k, lead, unit, what, xname, steps = [];
+      if (c <= 2) { a = 1; h = r.int(2, 9) * 5; k = r.int(10, 90) * 10; lead = 'A factory\'s daily cost, in dollars, of making ' + M('x') + ' bikes is ' + M('y='); what = 'minimum daily cost'; xname = 'number of bikes'; unit = 'dollars'; }
+      else if (c <= 5) { a = -1; h = r.int(3, 20); k = 0; lead = 'A theater sells tickets for ' + M('x') + ' dollars each. Its revenue for a show, in hundreds of dollars, is ' + M('y='); what = 'maximum revenue'; xname = 'ticket price'; unit = 'hundred dollars'; }
+      else { a = -r.pick([2, 4, 5]); h = r.int(2, 9); k = r.int(5, 40) * 5; lead = 'A company\'s weekly profit, in hundreds of dollars, when it spends ' + M('x') + ' hundred dollars on ads is ' + M('y='); what = 'maximum weekly profit'; xname = 'ad spending'; unit = 'hundred dollars'; }
+      var b = -2 * a * h, cc = a * h * h + k; if (a === -1) { k = h * h; cc = 0; }
+      if (c <= 2) need(cc > 0);
+      var expr = quad(a, b, cc), eq = 'y=' + expr, vf = vform(a, h, k);
+      lead = lead.replace(M('y='), M(eq));
+      if (a !== 1) steps.push(step('Factor ' + num(a) + ' out of the x-terms.', 'y=' + num(a) + '(' + quad(1, -2 * h, 0) + ')' + (cc ? (cc > 0 ? '+' : '-') + Math.abs(cc) : ''), 1));
+      steps.push(step('Half of ' + M(num(-2 * h)) + ' is ' + M(num(-h)) + '; add and subtract ' + M(String(h * h)) + ' inside to make a perfect square.', '', 2));
+      steps.push(step('Vertex form:', vf, 2));
+      steps.push(step('The ' + (a > 0 ? 'minimum' : 'maximum') + ' is ' + k + ' ' + unit + ', when ' + M('x=' + h) + ', because the squared term is ' + (a > 0 ? 'never negative' : 'never positive') + '.', '', 1));
+      var parts = [{ label: 'a', prompt: 'Complete the square to write the equation in vertex form.', answer: M(vf), check: { type: 'quad-vertex-eq', form: 'vertex', eq: eq, fn: true } },
+                   { label: 'b', prompt: 'What is the ' + what + '?', answer: (a > 0 ? 'Minimum' : 'Maximum') + ' value ' + M(String(k)) + ' ' + unit, check: { type: 'quad-feature', want: 'maxmin', eq: eq, fn: true } }];
+      if (c >= 3) parts.push({ label: 'c', prompt: 'What ' + xname + ' gives the ' + what + '?', answer: M('x=' + h), check: { type: 'quad-feature', want: 'axis', eq: eq, fn: true } });
+      return { variant: 'qm' + c, prompt: lead + '.', parts: parts, steps: steps, space: [1.0, 1.2, 1.4] };
+    }
+  });
+
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'quad-error', best: [1, 2], tag: 'ROOTS', name: 'Find and fix the mistake (solving quadratics)',
+    blurb: 'Not changing signs after the zero product property (CP2) → using the zero product property when the product is not zero, dividing by x (CP1) → forgetting ± with square roots, forgetting to divide by the coefficient (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), orig, lines, why, roots;
+      var OR = '\\text{ or }', xs = function (vals) { return vals.map(function (q) { return 'x=' + num(q); }).join(OR); }, fac = function (a, b) { return '(' + lin([[a, 'x'], [b, '']]) + ')'; };
+      var kind = c <= 2 ? (c === 1 ? 'sign' : r.pick(['sign', 'pair'])) : c <= 4 ? (c === 3 ? 'zpp' : r.pick(['zpp', 'divx'])) : c === 5 ? 'pm' : c === 6 ? 'coef' : r.pick(['coef', 'divx']);
+      if (kind === 'sign' || kind === 'pair') {
+        var p = c === 1 ? r.int(1, 9) : nz(r, -9, 9), q = c === 1 ? r.int(1, 9) : nz(r, -9, 9); need(p !== q && p + q !== 0);
+        orig = quad(1, p + q, p * q) + '=0'; roots = [F(-p), F(-q)];
+        lines = [fac(1, p) + fac(1, q) + '=0', lin([[1, 'x'], [p, '']]) + '=0' + OR + lin([[1, 'x'], [q, '']]) + '=0', xs(roots)];
+        if (kind === 'sign') { lines[2] = xs([F(p), F(q)]); why = 'did not change the signs: ' + M(lin([[1, 'x'], [p, '']]) + '=0') + ' gives ' + M('x=' + num(-p)); }
+        else { lines = [fac(1, -p) + fac(1, -q) + '=0', lin([[1, 'x'], [-p, '']]) + '=0' + OR + lin([[1, 'x'], [-q, '']]) + '=0', xs([F(p), F(q)])]; why = 'chose factors whose numbers multiply to ' + M(num(p * q)) + ' but add to ' + M(num(-p - q)) + ', not ' + M(num(p + q)); }
+      } else if (kind === 'zpp') {
+        var r1 = nz(r, -8, 8), r2 = nz(r, -8, 8), b = -(r1 + r2), k = r1 * r2 === 0 ? 0 : -r1 * r2; need(r1 !== r2 && b !== 0 && k !== 0);
+        orig = lin([[1, 'x^{2}'], [b, 'x']]) + '=' + num(k); roots = [F(r1), F(r2)];
+        lines = ['x' + fac(1, b) + '=' + num(k), 'x=' + num(k) + OR + lin([[1, 'x'], [b, '']]) + '=' + num(k), xs([F(k), F(k - b)])];
+        why = 'set each factor equal to ' + M(num(k)) + ' (the zero product property only works when the product is 0, so first move every term to one side)';
+      } else if (kind === 'divx') {
+        var A = c === 7 ? r.int(2, 6) : r.int(1, 4), B = nz(r, -9, 9) * (ctx.intOnly ? A : 1); need(B % A === 0 || !ctx.intOnly);
+        orig = lin([[A, 'x^{2}']]) + '=' + lin([[B, 'x']]); roots = [F(0), F(B, A)];
+        lines = [lin([[A, 'x']]) + '=' + num(B), 'x=' + num(F(B, A))]; if (A === 1) lines = [lines[1]];
+        why = 'divided both sides by ' + M('x') + ', which loses the solution ' + M('x=0') + ' (move every term to one side and factor instead)';
+      } else if (kind === 'pm') {
+        var a5 = r.int(1, 4), h = nz(r, -7, 7), s5 = r.int(1, 6);
+        orig = (a5 === 1 ? '' : a5) + '(' + lin([[1, 'x'], [-h, '']]) + ')^{2}=' + num(a5 * s5 * s5); roots = [F(h - s5), F(h + s5)];
+        lines = ['(' + lin([[1, 'x'], [-h, '']]) + ')^{2}=' + num(s5 * s5), lin([[1, 'x'], [-h, '']]) + '=' + s5, 'x=' + num(h + s5)]; if (a5 === 1) lines.shift();
+        why = 'took only the positive square root (' + M(lin([[1, 'x'], [-h, '']]) + '=\\pm ' + s5) + ')';
+      } else {
+        var a1 = r.int(2, 5), b1 = nz(r, -9, 9), a2 = r.int(1, 4), b2 = nz(r, -9, 9); need(gcd(a1, Math.abs(b1)) === 1 && gcd(a2, Math.abs(b2)) === 1 && a1 * b2 !== a2 * b1);
+        orig = quad(a1 * a2, a1 * b2 + a2 * b1, b1 * b2) + '=0'; roots = [F(-b1, a1), F(-b2, a2)];
+        need(!ctx.intOnly || roots.every(function (q) { return q.isInt(); }));
+        lines = [fac(a1, b1) + fac(a2, b2) + '=0', lin([[a1, 'x'], [b1, '']]) + '=0' + OR + lin([[a2, 'x'], [b2, '']]) + '=0', xs([F(-b1), roots[1]])];
+        why = 'solved ' + M(lin([[a1, 'x'], [b1, '']]) + '=0') + ' as ' + M('x=' + num(-b1)) + ' (divide by ' + M(a1) + ': ' + M('x=' + num(roots[0])) + ')';
+      }
+      roots.sort(function (u, w) { return u.cmp(w); });
+      var first = { sign: 3, pair: 1, zpp: 2, divx: 1, pm: lines.length - 1, coef: 3 }[kind];   // built so earlier lines are right; the verifier re-derives it
+      return K.errorProblem({ variant: 'quad-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' solved ' + M(orig) + ' like this:',
+        checkA: { type: 'quad-error-line', eq: orig, lines: lines, v: 'x' },
+        promptB: 'Solve the equation correctly.', answerB: roots.map(function (q) { return M('x=' + num(q)); }).join(' and '), checkB: { type: 'quad-solve', eq: orig, v: 'x' },
+        steps: [step('Correct solutions:', roots.map(function (q) { return 'x=' + num(q); }).join(',\\ '), 3)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-quadratics', course: 'algebra1', courseName: 'Algebra 1', unit: 'quadratics', unitName: 'Quadratic Functions and Equations',
     title: 'The Parabola Bakery',

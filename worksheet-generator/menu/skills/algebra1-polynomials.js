@@ -240,6 +240,57 @@
     skill({id:"multiply-binomials",best:base.best,tag:base.tag,name:"Multiply two binomials",blurb:"Use distribution/FOIL to multiply binomials.",
       difficultyProfile:'focused',fixedDifficulty:4,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
   })();
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'poly-error', best: [1, 2], tag: 'MULT', name: 'Find and fix the mistake (polynomials)',
+    blurb: 'Adding like terms by adding exponents, subtracting only the first term (CP2) → FOIL without the middle terms, squaring a binomial term by term (CP1) → a sign slip multiplying a binomial by a trinomial (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), orig, lines, why, ans;
+      var T = function (ts) { return tex(ts, 'x'); }, q = function (a, e) { return [a, e, 0]; };
+      if (c <= 2) {
+        var A = [q(r.int(2, 7), 2), q(nz(r, -9, 9), 1), q(nz(r, -9, 9), 0)], B = [q(r.int(2, 7), 2), q(nz(r, -9, 9), 1), q(nz(r, -9, 9), 0)];
+        if (c === 1) {
+          orig = P(T(A)) + '+' + P(T(B)); ans = add(A, B);
+          need(ans.length === 3 && ans.every(function (t) { return t[0] !== 0; }));
+          lines = [T([A[0], B[0], A[1], B[1], A[2], B[2]]), T([[A[0][0] + B[0][0], 4, 0], ans[1], ans[2]])];
+          why = 'added the exponents when combining ' + M(T([A[0]])) + ' and ' + M(T([B[0]])) + ' (like terms keep the same exponent)';
+        } else {
+          orig = P(T(A)) + '-' + P(T(B)); ans = add(A, B, -1);
+          need(ans.length === 3 && ans.every(function (t) { return t[0] !== 0; }));
+          var wrong0 = [A[0], A[1], A[2], q(-B[0][0], 2), B[1], B[2]];
+          lines = [T(wrong0), T(stdSort(combine(wrong0)))];
+          why = 'changed the sign of only the first term of the subtracted polynomial (every term changes sign)';
+        }
+      } else if (c <= 4) {
+        var p1 = nz(r, -9, 9), p2 = nz(r, -9, 9), a1 = c === 3 ? 1 : r.int(2, 4); need(p1 + a1 * p2 !== 0 || c === 4);
+        var X = [q(a1, 1), q(p1, 0)], Y = [q(1, 1), q(p2, 0)];
+        orig = P(T(X)) + P(T(Y)); ans = mul(X, Y); need(ans.length === 3);
+        if (r.chance(0.5)) { lines = [T([q(a1, 2), q(p1 * p2, 0)])]; why = 'multiplied only the first terms and the last terms (the outer and inner products are missing)'; }
+        else { var full = [q(a1, 2), q(a1 * p2, 1), q(p1, 1), q(-p1 * p2, 0)]; lines = [T(full), T(stdSort(combine(full)))]; why = 'wrote ' + M(num(p1) + '\\cdot ' + P(num(p2))) + ' as ' + M(num(-p1 * p2)) + ' (it is ' + M(num(p1 * p2)) + ')'; }
+      } else if (c === 5) {
+        var a5 = r.int(1, 5), b5 = nz(r, -9, 9), S = [q(a5, 1), q(b5, 0)];
+        orig = P(T(S)) + '^{2}'; ans = mul(S, S);
+        lines = [P(T(S)) + P(T(S)), T([q(a5 * a5, 2), q(b5 * b5, 0)])].slice(r.chance(0.5) ? 1 : 0);
+        why = 'squared each term separately (the middle term ' + M(T([q(2 * a5 * b5, 1)])) + ' is missing)';
+      } else {
+        var a6 = r.int(1, 3), b6 = nz(r, -6, 6), t2 = r.int(1, 4), t1 = nz(r, -6, 6), t0 = nz(r, -9, 9);
+        var L = [q(a6, 1), q(b6, 0)], Rr = [q(t2, 2), q(t1, 1), q(t0, 0)]; orig = P(T(L)) + P(T(Rr)); ans = mul(L, Rr);
+        var prods = []; L.forEach(function (u) { Rr.forEach(function (w) { prods.push([u[0] * w[0], u[1] + w[1], 0]); }); });
+        var bad = c === 6 ? 4 : 5; need(prods[bad][0] !== 0);
+        prods[bad] = [-prods[bad][0], prods[bad][1], 0];
+        lines = [T(prods), T(stdSort(combine(prods)))];
+        why = 'multiplied ' + M(num(b6)) + ' by ' + M(T([Rr[bad - 3]])) + ' and got the wrong sign';
+        need(ans.length >= 3);
+      }
+      var C = NS.check, first = 0; lines.forEach(function (ln, i) { if (!first && !C.equivalent(orig, ln)) first = i + 1; }); need(first > 0);
+      return K.errorProblem({ variant: 'poly-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' simplified ' + M(orig) + ' like this:',
+        checkA: { type: 'expr-error-line', expr: orig, lines: lines },
+        promptB: 'Simplify the expression correctly. Write the answer in standard form.', answerB: M(T(ans)), checkB: { type: 'poly-simplify', expr: orig },
+        steps: [step('Correct result in standard form:', T(ans), 3)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-polynomials', course: 'algebra1', courseName: 'Algebra 1', unit: 'polynomials-factoring', unitName: 'Polynomials',
     title: 'The Polynomial Pizzeria',

@@ -5,7 +5,7 @@
    integers, and finds the rational roots of every equation itself. */
 (function (G) {
   'use strict';
-  var NS = G.MKMENU, K = NS.kit, M = K.M, num = K.num, lin = K.lin;
+  var NS = G.MKMENU, K = NS.kit, M = K.M, num = K.num, lin = K.lin, F = K.F, Fr = K.Fr;
   var need = K.need, nz = K.nz, step = K.step, gcd = K.gcd;
   var skills = [], CUR = 'x';   // the variable letter of the current problem
   function letter(r) { CUR = r.pick(['x', 'x', 'x', 'y', 'a', 'm', 't', 'n']); return CUR; }
@@ -264,6 +264,65 @@
     skill({id:"factor-by-grouping",best:base.best,tag:base.tag,name:"Factor polynomials by grouping",blurb:"Group four terms and factor a common binomial.",
       difficultyProfile:'focused',fixedDifficulty:5,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:5}));}});
   })();
+  /* ================= Zeros of a factored polynomial and a rough graph (A-APR.B.3, audit #10) ================= */
+  skill({
+    id: 'poly-zeros-graph', best: [1, 2], tag: 'SOLVE', name: 'Zeros of a factored polynomial and its rough graph',
+    blurb: 'Two linear factors: zeros and where the graph is above or below the x-axis (CP2) → three factors and the y-intercept (CP1) → a negative leading coefficient or a factor like 2x − 3 (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, n = c <= 2 ? 2 : 3, lead = c >= 6 ? r.pick([-1, 2]) : 1, roots = [], facs = [], steps = [];
+      while (roots.length < n) { var z = r.int(-6, 6); if (roots.every(function (w) { return !w.eq(F(z)); })) roots.push(F(z)); }
+      if (lead === 2) { var k2 = r.pick([1, 3, 5]) * r.pick([-1, 1]); need(roots.every(function (w) { return !w.eq(F(k2, 2)); })); roots[0] = F(k2, 2); need(!ctx.intOnly); }
+      roots.forEach(function (q, i) { facs.push(lead === 2 && i === 0 ? '(' + lin([[2, 'x'], [-q.n, '']]) + ')' : q.isZero() ? 'x' : '(' + lin([[1, 'x'], [q.neg(), '']]) + ')'); });
+      facs.sort(function (u, w) { return (u === 'x' ? -1 : 0) - (w === 'x' ? -1 : 0); });
+      var rule = 'f(x)=' + (lead === -1 ? '-' : '') + facs.join('');
+      var sorted = roots.slice().sort(function (u, w) { return u.cmp(w); }), gi = r.int(0, n - 2), lo = sorted[gi], hi = sorted[gi + 1];
+      var fAt = function (x) { var v = F(lead === -1 ? -1 : 1); roots.forEach(function (q, i) { v = v.mul(lead === 2 && i === 0 ? F(2).mul(x).sub(F(2).mul(q)) : Fr.of(x).sub(q)); }); return v; };
+      var mid = lo.add(hi).div(F(2)), above = fAt(mid).sign() > 0, y0 = fAt(F(0));
+      steps.push(step('Set each factor equal to 0 (zero product property).', sorted.map(function (q) { return 'x=' + num(q); }).join(',\\ '), 2));
+      steps.push(step('Test a value between ' + num(lo) + ' and ' + num(hi) + ', such as ' + M('x=' + num(mid)) + ': ' + M('f(' + num(mid) + ')') + ' is ' + (above ? 'positive' : 'negative') + '.', '', 2));
+      var parts = [{ label: 'a', prompt: 'What are the zeros of ' + M('f') + '?', answer: sorted.map(function (q) { return M('x=' + num(q)); }).join(', '), check: { type: 'poly-graph', rule: rule, want: 'zeros', count: n } },
+                   { label: 'b', prompt: 'Between ' + M('x=' + num(lo)) + ' and ' + M('x=' + num(hi)) + ', is the graph above or below the x-axis?', answer: (above ? 'Above the x-axis: ' + M('f(x)') + ' is positive there.' : 'Below the x-axis: ' + M('f(x)') + ' is negative there.'), check: { type: 'poly-graph', rule: rule, want: 'sign', between: [num(lo), num(hi)] } }];
+      if (c >= 3) { parts.push({ label: 'c', prompt: 'Where does the graph cross the y-axis?', answer: M('y=' + num(y0)), check: { type: 'poly-graph', rule: rule, want: 'yint' } }); steps.push(step('The y-intercept is ' + M('f(0)') + '.', 'f(0)=' + num(y0), 1)); }
+      steps.push(step('A rough graph crosses the x-axis at each zero and is ' + (above ? 'above' : 'below') + ' the axis between ' + num(lo) + ' and ' + num(hi) + '; the sign switches at each zero.', '', 1));
+      return { variant: 'pzg' + c, prompt: 'Use ' + M(rule) + ' to sketch a rough graph.', parts: parts, steps: steps, space: [1.0, 1.2, 1.4] };
+    }
+  });
+
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'factor-error', best: [1, 2], tag: 'TRI', name: 'Find and fix the mistake (factoring)',
+    blurb: 'Factoring by grouping: a split that does not add to the middle term, a sign lost when factoring out a negative, a sign slip in the last line (CP2 and CP1: leading coefficient 1; Honors: leading coefficient above 1).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), v = letter(r);
+      var a1 = c >= 5 ? r.int(1, 4) : 1, a2 = c >= 5 ? r.int(2, 5) : 1, b1, b2;
+      if (c <= 2) { b1 = r.int(1, 9); b2 = r.int(1, 9); if (c === 2) b1 = -b1; } else { b1 = nz(r, -9, 9); b2 = nz(r, -9, 9); }
+      need(gcd(a1, Math.abs(b1)) === 1 && gcd(a2, Math.abs(b2)) === 1 && a1 * b2 + a2 * b1 !== 0);
+      var A = a1 * a2, B = a1 * b2 + a2 * b1, Cc = b1 * b2, orig = poly([Cc, B, A], v), X = function (p, q) { return f1(p, q, v); };
+      var sq = v + '^2', split = function (m, n) { return lin([[A, sq], [m, v], [n, v], [Cc, '']]); };
+      var head = (a1 === 1 ? '' : a1) + v + X(a2, b2), grpTerm = function (k, inner) { return (k < 0 ? '-' : '+') + (Math.abs(k) === 1 ? '' : Math.abs(k)) + inner; };
+      var good = [split(a1 * b2, a2 * b1), head + grpTerm(b1, X(a2, b2)), X(a1, b1) + X(a2, b2)], lines = good.slice(), why;
+      var kind = b1 < 0 ? r.pick([0, 1, 2]) : r.pick([0, 2]);
+      if (kind === 0) {   // the split numbers multiply to a·c but do not add to b
+        var m = -a1 * b2, n = -a2 * b1; need(m + n !== B && m * n === A * Cc);
+        lines = [split(m, n), (a1 === 1 ? '' : a1) + v + X(a2, -b2) + grpTerm(-b1, X(a2, -b2)), X(a1, -b1) + X(a2, -b2)];
+        why = 'split the middle term into ' + M(lin([[m, v]])) + ' and ' + M(lin([[n, v]])) + ', which multiply to ' + M(num(A * Cc)) + ' but add to ' + M(num(m + n)) + ', not ' + M(num(B));
+      } else if (kind === 1) {   // factoring out a negative without changing the sign inside
+        lines[1] = head + grpTerm(b1, X(a2, -b2)); need(b2 !== 0);
+        why = 'factored ' + M(num(b1)) + ' out of ' + M(lin([[a2 * b1, v], [Cc, '']])) + ' but did not change the sign of the constant inside';
+      } else {
+        lines[2] = X(a1, -b1) + X(a2, b2);
+        why = 'wrote the factor ' + M(X(a1, -b1)) + ' instead of ' + M(X(a1, b1)) + ' (the sign of the group\'s coefficient goes into the factor)';
+      }
+      var C = NS.check, first = 0; lines.forEach(function (ln, i) { if (!first && !C.equivalent(orig, ln)) first = i + 1; }); need(first > 0);
+      var fix = X(a1, b1) + X(a2, b2);
+      return K.errorProblem({ variant: 'factor-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' factored ' + M(orig) + ' by grouping like this:',
+        checkA: { type: 'expr-error-line', expr: orig, lines: lines },
+        promptB: 'Factor the expression correctly.', answerB: M(fix), checkB: { type: 'factor', expr: orig, v: v },
+        steps: [step('Split the middle term into two terms whose coefficients multiply to ' + M(num(A * Cc)) + ' and add to ' + M(num(B)) + ', then group.', good[0], 2), step('Factor each group.', good[1], 2), step('Factor out the common binomial.', fix, 2)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-factoring-zero-product', course: 'algebra1', courseName: 'Algebra 1', unit: 'factoring-zero-product', unitName: 'Factoring and Zero Product Property',
     title: 'The Factor Factory Café',

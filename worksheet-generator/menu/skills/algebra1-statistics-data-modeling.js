@@ -176,6 +176,46 @@
     }
   });
 
+  /* Summarize two categories in a two-way table (S-ID.B.5, audit #10): complete the table, then use it. */
+  skill({
+    id: 'twoway-summarize', best: [0, 1, 2], tag: 'TWOWAY', name: 'Complete and use a two-way table',
+    blurb: 'Fill in a table from its totals and find a joint percent (CP2) → fill in, then compare conditional percents (CP1) → fill in three cells and decide whether there is an association (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, t = r.pick(TW), n1 = r.pick([20, 25, 40, 50]), n2 = r.pick([20, 25, 40, 50]);
+      var pA = r.int(2, 8) * 10, pB = c >= 6 && r.chance(0.5) ? pA + r.pick([-10, 0, 10]) : r.int(2, 8) * 10;
+      var a = n1 * pA / 100, d = n2 * pB / 100; need(Number.isInteger(a) && Number.isInteger(d) && a > 0 && d > 0 && a < n1 && d < n2 && pB > 0 && pB < 100);
+      var b = n1 - a, e = n2 - d, cells = [[a, b, n1], [d, e, n2], [a + d, b + e, n1 + n2]], blank = cells.map(function (x) { return x.slice(); });
+      var nb = c <= 3 ? 2 : 3, pool = c <= 3 ? [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [2, 1]] : [[0, 0], [0, 1], [1, 0], [1, 1], [0, 2], [1, 2], [2, 0], [2, 1], [2, 2]], hide = null;
+      for (var tries = 0; tries < 30 && !hide; tries++) {   // the blanks must be fillable from the totals
+        var h = r.shuffle(pool.slice()).slice(0, nb), g = cells.map(function (x) { return x.slice(); }); h.forEach(function (q) { g[q[0]][q[1]] = null; });
+        for (var pass = 0; pass < 6; pass++) for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) if (g[i][j] === null) {
+          var rowN = g[i].filter(function (v) { return v === null; }).length, colN = g.map(function (rw) { return rw[j]; }).filter(function (v) { return v === null; }).length;
+          if (rowN === 1 || colN === 1) g[i][j] = cells[i][j];
+        }
+        if (g.every(function (rw) { return rw.every(function (v) { return v !== null; }); })) hide = h.sort(function (x, y) { return x[0] - y[0] || x[1] - y[1]; });
+      }
+      need(hide); hide.forEach(function (q) { blank[q[0]][q[1]] = '?'; });
+      var fig = { kind: 'twoway', corner: '', cols: [t[2], t[3], 'Total'], rows: [{ label: t[0], cells: blank[0] }, { label: t[1], cells: blank[1] }, { label: 'Total', cells: blank[2] }] };
+      var parts = [{ label: 'a', prompt: 'Find the missing values, from left to right and top to bottom.', answer: hide.map(function (q) { return M(String(cells[q[0]][q[1]])); }).join(', '), check: { type: 'twoway', want: 'fill' } }];
+      var steps = [step('Each row adds to its total and each column adds to its total; start with a row or column missing only one value.', '', 2)];
+      if (c <= 3) {
+        var jv = (a / (n1 + n2)) * 100; need(exact(jv, 1));
+        parts.push({ label: 'b', prompt: 'What percent of all the ' + t[4] + ' are in the group “' + t[0] + '” and “' + t[2] + '”?', answer: dec(jv) + '%', check: { type: 'twoway', want: 'joint', row: t[0], col: t[2] } });
+        steps.push(step('Joint relative frequency: ' + a + ' ÷ ' + (n1 + n2) + '.', dec(jv) + '\\%', 1));
+      } else {
+        parts.push({ label: 'b', prompt: 'Of the ' + t[4] + ' in the group “' + t[0] + '”, what percent are “' + t[2] + '”?', answer: pA + '%', check: { type: 'twoway', want: 'cond-row', row: t[0], col: t[2] } },
+                   { label: 'c', prompt: 'Of the ' + t[4] + ' in the group “' + t[1] + '”, what percent are “' + t[2] + '”?', answer: pB + '%', check: { type: 'twoway', want: 'cond-row', row: t[1], col: t[2] } });
+        steps.push(step('Conditional relative frequency: divide by the row total (' + n1 + ' and ' + n2 + ').', pA + '\\%,\\ ' + pB + '\\%', 2));
+        if (c >= 6) {
+          var diff = Math.abs(pA - pB); need(diff <= 5 || diff >= 15); var yes = diff >= 15;
+          parts.push({ label: 'd', prompt: 'Is there an association between the group and “' + t[2] + '”? Use your answers to (b) and (c).', answer: (yes ? 'Yes: ' : 'No: ') + pA + '% of ' + t[0] + ' and ' + pB + '% of ' + t[1] + ' are “' + t[2] + '”.', check: { type: 'twoway', want: 'assoc', rows: [t[0], t[1]], col: t[2] } });
+          steps.push(step(yes ? 'The percents are far apart, so there is an association.' : 'The percents are about the same, so there is no clear association.', '', 1));
+        }
+      }
+      return out('tws' + c, 'The two-way table shows data about ' + t[4] + ', with some values missing.', parts, steps, fig);
+    }
+  });
+
   /* ================= SCATTER · correlation, lines of fit, residuals ================= */
   var SC = [['Hours studied', 'Test score', 0, 10, 1, 40, 100, 10, 'hour of study', 'points', 'hours studied', 'the test score'], ['Temperature (°F)', 'Drinks sold', 50, 100, 5, 0, 120, 20, 'degree', 'drinks', 'the temperature', 'drinks sold'], ['Practice (hours)', 'Free throws made', 0, 10, 1, 0, 50, 5, 'hour of practice', 'free throws', 'hours of practice', 'free throws made'], ['Age of car (years)', 'Value ($1000s)', 0, 12, 1, 0, 40, 5, 'year', 'thousand dollars', 'the age of the car', 'the value of the car']];
   skill({

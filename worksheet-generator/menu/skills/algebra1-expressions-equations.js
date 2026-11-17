@@ -175,10 +175,28 @@
   /* ============================================================
      SIMPLIFY · Evaluate expressions
      ============================================================ */
+  /* Formulas in context for the evaluate skill (audit #14: more word problems in Units 1–2). Letters avoid those in \frac. */
+  function evalContext(ctx) {
+    var r = ctx.rng, c = ctx.c, k = r.pick(c === 3 ? [0, 1, 2] : c === 4 ? [0, 1, 3] : [3, 4, 5]), expr, vals = {}, lead, unit, ask;
+    if (k === 0) { var fee = 5 * r.int(2, 6), per = r.int(2, 9); vals.g = r.int(2, 12); expr = lin([[fee, ''], [per, 'g']]); lead = 'A phone plan costs ' + M(expr) + ' dollars a month, where ' + M('g') + ' is the number of gigabytes of data used.'; ask = 'How much does the plan cost in a month when ' + M('g=' + vals.g) + '?'; unit = 'dollars'; }
+    else if (k === 1) { vals.d = 5 * r.int(-4, 8); expr = '\\frac{9}{5}d+32'; lead = 'A temperature of ' + M('d') + ' degrees Celsius is ' + M(expr) + ' degrees Fahrenheit.'; ask = 'What is the temperature in degrees Fahrenheit when ' + M('d=' + vals.d) + '?'; unit = 'degrees Fahrenheit'; }
+    else if (k === 2) { var cost = r.pick([150, 200, 240, 300]), pr = r.int(8, 15), mk = r.int(2, 5); need(pr > mk); vals.n = r.int(20, 80); expr = pr + 'n-(' + cost + '+' + mk + 'n)'; lead = 'A club sells T-shirts for $' + pr + ' each. Each shirt costs $' + mk + ' to make, and the design costs $' + cost + '. The profit is ' + M(expr) + ' dollars for ' + M('n') + ' shirts sold.'; ask = 'What is the profit when ' + M('n=' + vals.n) + '?'; unit = 'dollars'; }
+    else if (k === 3) { var v0 = 16 * r.int(2, 5), s0 = r.int(0, 6) * 5; vals.t = r.int(1, Math.floor(v0 / 16)); expr = lin([[-16, 't^2'], [v0, 't'], [s0, '']]); lead = 'A ball is thrown upward. Its height in feet after ' + M('t') + ' seconds is ' + M(expr) + '.'; ask = 'How high is the ball when ' + M('t=' + vals.t) + '?'; unit = 'feet'; }
+    else if (k === 4) { vals.h = r.int(2, 9); vals.p = r.int(3, 12); vals.q = r.int(3, 12); need((vals.p + vals.q) * vals.h % 2 === 0); expr = '\\frac{h(p+q)}{2}'; lead = 'The area of a trapezoid with parallel sides ' + M('p') + ' and ' + M('q') + ' and height ' + M('h') + ' is ' + M(expr) + '.'; ask = 'Find the area in square inches when ' + M('h=' + vals.h) + ', ' + M('p=' + vals.p) + ' and ' + M('q=' + vals.q) + '.'; unit = 'square inches'; }
+    else { var bal = 100 * r.int(5, 20), wk = r.int(15, 40); vals.w = r.int(2, 10); vals.d = r.int(1, 4) * 10; expr = lin([[bal, ''], [-wk, 'w'], [1, 'd']]); lead = 'Sam has $' + bal + ' in savings, spends $' + wk + ' each week and adds a gift of ' + M('d') + ' dollars once. After ' + M('w') + ' weeks the balance is ' + M(expr) + ' dollars.'; ask = 'Find the balance when ' + M('w=' + vals.w) + ' and ' + M('d=' + vals.d) + '.'; unit = 'dollars'; }
+    var C = NS.check, env = {}; Object.keys(vals).forEach(function (v) { env[v] = C.readNumber(String(vals[v])); });
+    var q = C.evalNode(C.parseExpr(expr), env); need(q.isInt() && q.n >= 0n); var value = Number(q.n);
+    var names = Object.keys(vals), sub = expr, valTeX = {};
+    names.forEach(function (v) { sub = sub.replace(new RegExp(v, 'g'), '(' + num(vals[v]) + ')'); valTeX[v] = num(vals[v]); });
+    return { variant: 'ctx' + k, prompt: lead + ' ' + ask, parts: [{ answer: M(num(value)) + ' ' + unit, check: { type: 'evaluate', expr: expr, values: valTeX } }],
+      steps: [step('Substitute, using parentheses.', sub, 2), step('Follow the order of operations.', num(value), 2), step('Answer with units: ' + num(value) + ' ' + unit + '.', '', 1)], space: [0.9, 1.1, 1.3] };
+  }
+
   skill({
     id: 'evaluate', best: [0, 1], tag: 'SIMPLIFY', name: 'Evaluate expressions',
-    blurb: 'Positive inputs (CP2) → negatives, squares and two variables (CP1) → fraction bars and fraction inputs (Honors).',
+    blurb: 'Positive inputs (CP2) → negatives, squares and two variables, formulas in context (CP1) → fraction bars and fraction inputs (Honors).',
     generate: function (ctx) {
+      if (ctx.c >= 3 && ctx.c <= 6 && ctx.rng.chance(0.4)) return evalContext(ctx);
       var r = ctx.rng, c = ctx.c, expr, vals = {}, variant, a = r.int(2, 9), b = r.int(1, 12);
       if (c === 1) { vals.x = r.int(1, 9); expr = ax_b(a, b); variant = 'lin+'; }
       else if (c === 2) { vals.x = -r.int(1, 8); expr = r.chance(0.5) ? ax_b(a, -b) : lin([[b, ''], [-a, 'x']]); variant = 'lin-'; }
@@ -1347,6 +1365,23 @@
 
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   // (2026-11-17, Algebra 1 audit #3) the focused copy of both-sides was removed: it was the same problem as both-sides at difficulty 2.
+  /* Word-problem versions at the top tiers of the core equation skills (audit #14): the verified story problems of the
+     model skill, at the matching equation type (two-step → fee and rate; multi-step → perimeter and consecutive integers;
+     variables on both sides → two plans). */
+  (function () {
+    var model = skills.find(function (s) { return s.id === 'model'; }), map = { 'two-step': [3, function () { return 2; }], 'multi-step': [4, function (r) { return r.pick([3, 4]); }], 'both-sides': [5, function () { return 5; }] };
+    if (!model) return;
+    Object.keys(map).forEach(function (id) {
+      var sk = skills.find(function (s) { return s.id === id; }); if (!sk) return;
+      var base = sk.generate, from = map[id][0], tier = map[id][1];
+      sk.generate = function (ctx) {
+        if (ctx.c >= from && ctx.rng.chance(0.35)) { var p = model.generate(Object.assign({}, ctx, { c: tier(ctx.rng) })); p.variant = 'ctx-' + p.variant; return p; }
+        return base(ctx);
+      };
+      sk.blurb += ' Top tiers include word problems.';
+    });
+  })();
+
   NS.registerSkillSet({
     id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',

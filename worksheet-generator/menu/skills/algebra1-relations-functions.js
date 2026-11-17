@@ -445,6 +445,69 @@
     }
   });
 
+  /* ================= Inverse of a linear function (F-BF.B.4a, audit #10) ================= */
+  skill({
+    id: 'inverse-linear', best: [1, 2], tag: 'NOTATION', name: 'Inverse of a linear function',
+    blurb: 'Undo one operation, f(x) = x + b or f(x) = ax (CP2) → undo two operations and evaluate the inverse (CP1) → fraction slopes and a rule in context (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, fn = r.pick(['f', 'g', 'h']), a, b, steps = [];
+      if (c === 1) { a = F(1); b = F(nz(r, -12, 12)); }
+      else if (c === 2) { a = F(r.int(2, 9) * (r.chance(0.3) ? -1 : 1)); b = F(0); }
+      else if (c <= 4) { a = F(nz(r, -6, 6)); need(Math.abs(a.n) > 1); b = F(nz(r, -12, 12)); }
+      else { var d = r.pick([2, 3, 4, 5]), n = nz(r, -4, 4); need(gcd(Math.abs(n), d) === 1); a = F(n, d); b = F(nz(r, -9, 9)); }
+      var rule = fn + '(x)=' + lin([[a, 'x'], [b, '']]), ia = F(1).div(a), ib = b.neg().div(a), inv = lin([[ia, 'x'], [ib, '']]), name = fn + '^{-1}(x)';
+      steps.push(step('Write ' + M('y=' + lin([[a, 'x'], [b, '']])) + ' and switch ' + M('x') + ' and ' + M('y') + '.', 'x=' + lin([[a, 'y'], [b, '']]), 1));
+      if (!b.isZero()) steps.push(step(b.sign() > 0 ? 'Subtract ' + num(b) + ' from both sides.' : 'Add ' + num(b.neg()) + ' to both sides.', lin([[1, 'x'], [b.neg(), '']]) + '=' + lin([[a, 'y']]), 1));
+      if (!a.eq(1)) steps.push(step('Divide by ' + num(a) + ' (or multiply by its reciprocal).', 'y=' + inv, 1));
+      steps.push(step('Check: ' + M(fn + '(' + fn + '^{-1}(x))=x') + '; the inverse undoes the function.', '', 1));
+      var parts = [{ label: 'a', prompt: 'Find ' + M(name) + '.', answer: M(name + '=' + inv), check: { type: 'inverse-linear', rule: rule } }];
+      if (c >= 3) {
+        var out = a.mul(F(r.int(-6, 6) * a.d)).add(b);
+        var back = out.sub(b).div(a);
+        parts.push({ label: 'b', prompt: 'Find ' + M(fn + '^{-1}(' + num(out) + ')') + ' and say what it means.', answer: M(fn + '^{-1}(' + num(out) + ')=' + num(back)) + ', because ' + M(fn + '(' + num(back) + ')=' + num(out)) + ': the inverse gives the input that produces the output ' + M(num(out)) + '.', check: { type: 'inverse-linear', rule: rule, at: num(out) } });
+        steps.push(step('Substitute ' + num(out) + ' into the inverse.', fn + '^{-1}(' + num(out) + ')=' + num(back), 1));
+      }
+      var lead = 'For ' + M(rule) + ':';
+      return { variant: 'inv' + c, prompt: lead, parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
+    }
+  });
+
+  /* ================= Find and fix the mistake (audit #13) ================= */
+  skill({
+    id: 'func-error', best: [1, 2], tag: 'NOTATION', name: 'Find and fix the mistake (evaluating functions)',
+    blurb: 'Losing a negative sign when multiplying (CP2) → squaring a negative input: (−3)² is 9 (CP1) → squaring before multiplying by the coefficient, a negative leading coefficient (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), fn = r.pick(['f', 'g', 'h']), n = -r.int(2, 6), P = function (t) { return '(' + t + ')'; };
+      var rule, lines, why, val, sum = function (ts) { return K.lin(ts.map(function (t) { return [t, '']; })); };
+      if (c <= 2) {
+        var a = r.int(2, 9), b = nz(r, -12, 12);
+        if (c === 1) { rule = lin([[a, 'x'], [b, '']]); val = a * n + b; lines = [a + P(n) + (b < 0 ? '-' : '+') + Math.abs(b), sum([-a * n, b]), num(-a * n + b)]; why = 'wrote ' + M(a + P(n)) + ' as ' + M(num(-a * n)) + ' (a positive times a negative is negative: ' + M(num(a * n)) + ')'; }
+        else { rule = lin([[b, ''], [-a, 'x']]); val = b - a * n; lines = [num(b) + '-' + a + P(n), sum([b, a * n]), num(b + a * n)]; why = 'wrote ' + M('-' + a + P(n)) + ' as ' + M(num(a * n)) + ' (a negative times a negative is positive: ' + M('+' + (-a * n)) + ')'; }
+      } else if (c <= 4) {
+        var b3 = nz(r, -8, 8), c3 = nz(r, -9, 9); rule = lin([[1, 'x^{2}'], [b3, 'x'], [c3, '']]); val = n * n + b3 * n + c3;
+        var subst = P(n) + '^{2}' + (b3 < 0 ? '-' : '+') + (Math.abs(b3) === 1 ? '' : Math.abs(b3)) + P(n) + (c3 < 0 ? '-' : '+') + Math.abs(c3);
+        if (c === 3 || r.chance(0.5)) { lines = [subst, sum([-n * n, b3 * n, c3]), num(-n * n + b3 * n + c3)]; why = 'wrote ' + M(P(n) + '^{2}') + ' as ' + M(num(-n * n)) + ' (a negative number squared is positive: ' + M(num(n * n)) + ')'; }
+        else { lines = [n + '^{2}' + subst.slice(P(n).length + 4), sum([-n * n, b3 * n, c3]), num(-n * n + b3 * n + c3)]; why = 'substituted without parentheses, so only ' + M(-n) + ' was squared (write ' + M(P(n) + '^{2}=' + n * n) + ')'; }
+      } else if (c <= 6) {
+        var a5 = r.int(2, 4), b5 = nz(r, -8, 8), c5 = nz(r, -9, 9); rule = lin([[a5, 'x^{2}'], [b5, 'x'], [c5, '']]); val = a5 * n * n + b5 * n + c5;
+        lines = [a5 + P(n) + '^{2}' + (b5 < 0 ? '-' : '+') + (Math.abs(b5) === 1 ? '' : Math.abs(b5)) + P(n) + (c5 < 0 ? '-' : '+') + Math.abs(c5), sum([a5 * a5 * n * n, b5 * n, c5]), num(a5 * a5 * n * n + b5 * n + c5)];
+        why = 'multiplied ' + M(a5 + P(n)) + ' first and then squared (square first: ' + M(a5 + '\\cdot ' + n * n + '=' + a5 * n * n) + ')';
+      } else {
+        var b7 = nz(r, -8, 8), c7 = nz(r, -9, 9); rule = lin([[-1, 'x^{2}'], [b7, 'x'], [c7, '']]); val = -n * n + b7 * n + c7;
+        lines = ['-' + P(n) + '^{2}' + (b7 < 0 ? '-' : '+') + (Math.abs(b7) === 1 ? '' : Math.abs(b7)) + P(n) + (c7 < 0 ? '-' : '+') + Math.abs(c7), sum([n * n, b7 * n, c7]), num(n * n + b7 * n + c7)];
+        why = 'wrote ' + M('-' + P(n) + '^{2}') + ' as ' + M(n * n) + ' (square first, then take the opposite: ' + M(num(-n * n)) + ')';
+      }
+      rule = fn + '(x)=' + rule; var call = fn + P(n);
+      var C = NS.check, target = rule.slice(rule.indexOf('=') + 1).replace(/x/g, P(n)), first = 0;
+      lines.forEach(function (ln, i) { if (!first && !C.equivalent(target, ln)) first = i + 1; }); need(first > 0);
+      return K.errorProblem({ variant: 'func-error' + c, who: who, why: why, first: first, lines: lines,
+        prompt: who + ' found ' + M(call) + ' for ' + M(rule) + ' like this:',
+        checkA: { type: 'expr-error-line', rule: rule, call: call, lines: lines, v: 'x' },
+        promptB: 'Find ' + M(call) + ' correctly.', answerB: M(call + '=' + num(val)), checkB: { type: 'func-eval', rule: rule, expr: call },
+        steps: [step('Substitute with parentheses and follow the order of operations:', call + '=' + num(val), 3)] });
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',
