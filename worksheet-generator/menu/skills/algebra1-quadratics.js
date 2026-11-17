@@ -320,9 +320,9 @@
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, a, h, k, lead, unit, what, xname, steps = [];
       if (c <= 2) { a = 1; h = r.int(2, 9) * 5; k = r.int(10, 90) * 10; lead = 'A factory\'s daily cost, in dollars, of making ' + M('x') + ' bikes is ' + M('y='); what = 'minimum daily cost'; xname = 'number of bikes'; unit = 'dollars'; }
-      else if (c <= 5) { a = -1; h = r.int(3, 20); k = 0; lead = 'A theater sells tickets for ' + M('x') + ' dollars each. Its revenue for a show, in hundreds of dollars, is ' + M('y='); what = 'maximum revenue'; xname = 'ticket price'; unit = 'hundred dollars'; }
+      else if (c <= 5) { a = -1; h = r.int(5, 20); k = r.int(2, 40) * 5; lead = 'A theater sells tickets for ' + M('x') + ' dollars each. Its profit for a show, in hundreds of dollars, is ' + M('y='); what = 'maximum profit'; xname = 'ticket price'; unit = 'hundred dollars'; }
       else { a = -r.pick([2, 4, 5]); h = r.int(2, 9); k = r.int(5, 40) * 5; lead = 'A company\'s weekly profit, in hundreds of dollars, when it spends ' + M('x') + ' hundred dollars on ads is ' + M('y='); what = 'maximum weekly profit'; xname = 'ad spending'; unit = 'hundred dollars'; }
-      var b = -2 * a * h, cc = a * h * h + k; if (a === -1) { k = h * h; cc = 0; }
+      var b = -2 * a * h, cc = a * h * h + k;
       if (c <= 2) need(cc > 0);
       var expr = quad(a, b, cc), eq = 'y=' + expr, vf = vform(a, h, k);
       lead = lead.replace(M('y='), M(eq));
@@ -344,7 +344,7 @@
     generate: function (ctx) {
       var r = ctx.rng, c = ctx.c, who = r.pick(K.WHO), orig, lines, why, roots;
       var OR = '\\text{ or }', xs = function (vals) { return vals.map(function (q) { return 'x=' + num(q); }).join(OR); }, fac = function (a, b) { return '(' + lin([[a, 'x'], [b, '']]) + ')'; };
-      var kind = c <= 2 ? (c === 1 ? 'sign' : r.pick(['sign', 'pair'])) : c <= 4 ? (c === 3 ? 'zpp' : r.pick(['zpp', 'divx'])) : c === 5 ? 'pm' : c === 6 ? 'coef' : r.pick(['coef', 'divx']);
+      var kind = c <= 2 ? (c === 1 ? 'sign' : r.pick(['sign', 'pair'])) : c <= 4 ? (c === 3 ? 'zpp' : r.pick(['zpp', 'divx'])) : c === 5 ? 'pm' : ctx.intOnly ? r.pick(['divx', 'pm']) : c === 6 ? 'coef' : r.pick(['coef', 'divx']);
       if (kind === 'sign' || kind === 'pair') {
         var p = c === 1 ? r.int(1, 9) : nz(r, -9, 9), q = c === 1 ? r.int(1, 9) : nz(r, -9, 9); need(p !== q && p + q !== 0);
         orig = quad(1, p + q, p * q) + '=0'; roots = [F(-p), F(-q)];
@@ -378,7 +378,7 @@
       return K.errorProblem({ variant: 'quad-error' + c, who: who, why: why, first: first, lines: lines,
         prompt: who + ' solved ' + M(orig) + ' like this:',
         checkA: { type: 'quad-error-line', eq: orig, lines: lines, v: 'x' },
-        promptB: 'Solve the equation correctly.', answerB: roots.map(function (q) { return M('x=' + num(q)); }).join(' and '), checkB: { type: 'quad-solve', eq: orig, v: 'x' },
+        promptB: 'Solve the equation correctly.', answerB: M('x=' + roots.map(function (q) { return num(q); }).join(', ')), checkB: { type: 'quad-solve', eq: orig, v: 'x' },
         steps: [step('Correct solutions:', roots.map(function (q) { return 'x=' + num(q); }).join(',\\ '), 3)] });
     }
   });

@@ -2685,7 +2685,9 @@
         var allZ = got.every(function (q) { return at0(q).isZero(); }), distinct = got.filter(function (q, i) { return got.findIndex(function (w) { return w.eq(q); }) === i; });
         return allZ && distinct.length === got.length && distinct.length === chk.count ? { status: 'verified' } : { status: 'mismatch', msg: 'Not all zeros, or not every zero.' };
       }
-      var mid = C.readNumber(String(chk.between[0])).add(C.readNumber(String(chk.between[1]))).div(new Q(2n)), sg = at0(mid);
+      var zs = []; for (var dd = 1; dd <= 6; dd++) for (var nn = -60; nn <= 60; nn++) { var zq = new Q(BigInt(nn), BigInt(dd)); if (at0(zq).isZero() && !zs.some(function (w) { return w.eq(zq); })) zs.push(zq); }
+      zs.sort(function (u, w) { return C.cmpQ(u, w); }); if (zs.length < chk.gap + 2) throw new C.CheckError('could not find the zeros');
+      var mid = zs[chk.gap].add(zs[chk.gap + 1]).div(new Q(2n)), sg = at0(mid);
       var saysPos = /positive|above/.test(txt), saysNeg = /negative|below/.test(txt);
       return (sg.n > 0n && saysPos && !saysNeg) || (sg.n < 0n && saysNeg && !saysPos) ? { status: 'verified', computed: sg.n > 0n ? 'above' : 'below' } : { status: 'mismatch', msg: 'The graph is ' + (sg.n > 0n ? 'above' : 'below') + ' the x-axis there.' };
     }

@@ -24,7 +24,7 @@
   K.WHO = ['Alex', 'Jordan', 'Sam', 'Taylor', 'Riley', 'Casey', 'Morgan', 'Jamie', 'Avery', 'Quinn'];
   K.plain = function (t) { return String(t).replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2').replace(/\\cdot/g, '·').replace(/\^\{([^{}]*)\}/g, '^$1').replace(/\\text\{([^{}]*)\}/g, '$1').replace(/\\left|\\right/g, '').replace(/\s+/g, ' ').replace(/-/g, '−'); };
   K.errorProblem = function (o) {
-    var line = 'Line ' + o.first + ': ' + o.who + ' ' + o.why + '.';
+    var line = 'Line ' + o.first + ': ' + o.who + ' ' + String(o.why).replace(/⟨([^⟩]*)⟩/g, function (m, t) { return K.plain(t); }) + '.';   // words only: the line number is what is checked
     return {
       variant: o.variant, prompt: o.prompt, work: o.lines,
       parts: [{ label: 'a', prompt: 'Which line has the first mistake? Explain what went wrong.', answer: line, check: o.checkA },

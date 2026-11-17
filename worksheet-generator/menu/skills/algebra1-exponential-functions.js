@@ -384,7 +384,7 @@
                    { label: 'b', prompt: 'If the rate stays the same, what will the amount be after ' + x3 + ' ' + S[1] + '?', answer: M(dec(y3)) + ' ' + u, check: { type: 'unit-rate', pts: pts, want: 'value', at: x3 } }];
       steps.push(step('Rate per ' + S[2] + ': change in amount ÷ change in time.', '\\frac{' + dec(y2) + '-' + dec(y1) + '}{' + x2 + '-' + x1 + '}=' + dec(rate), 2));
       steps.push(step('Add the rate once for each ' + S[2] + ' after ' + x2 + '.', dec(y2) + (rate.sign() < 0 ? '-' : '+') + (x3 - x2) + '\\cdot ' + dec(rate.abs()) + '=' + dec(y3), 2));
-      if (c >= 3) { parts.push({ label: 'c', prompt: 'Is the relationship linear or exponential? Explain.', answer: 'Linear: the amount changes by the same amount, ' + M(dec(rate)) + ' ' + u + ', every ' + S[2] + ' (a constant rate per unit interval).', check: { type: 'unit-rate', pts: pts, want: 'linear' } });
+      if (c >= 3) { parts.push({ label: 'c', prompt: 'Is the relationship linear or exponential? Explain.', answer: 'Linear: the amount changes by the same amount every ' + S[2] + ' (a constant rate per unit interval).', check: { type: 'unit-rate', pts: pts, want: 'linear' } });
         steps.push(step('Equal changes over equal intervals mean a linear function; equal factors would mean exponential.', '', 1)); }
       return { variant: 'cr' + c, prompt: prompt, parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
     }

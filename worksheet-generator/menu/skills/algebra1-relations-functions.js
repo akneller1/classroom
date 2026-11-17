@@ -464,8 +464,8 @@
       if (c >= 3) {
         var out = a.mul(F(r.int(-6, 6) * a.d)).add(b);
         var back = out.sub(b).div(a);
-        parts.push({ label: 'b', prompt: 'Find ' + M(fn + '^{-1}(' + num(out) + ')') + ' and say what it means.', answer: M(fn + '^{-1}(' + num(out) + ')=' + num(back)) + ', because ' + M(fn + '(' + num(back) + ')=' + num(out)) + ': the inverse gives the input that produces the output ' + M(num(out)) + '.', check: { type: 'inverse-linear', rule: rule, at: num(out) } });
-        steps.push(step('Substitute ' + num(out) + ' into the inverse.', fn + '^{-1}(' + num(out) + ')=' + num(back), 1));
+        parts.push({ label: 'b', prompt: 'Find ' + M(fn + '^{-1}(' + num(out) + ')') + ' and say what it means.', answer: M(fn + '^{-1}(' + num(out) + ')=' + num(back)), check: { type: 'inverse-linear', rule: rule, at: num(out) } });
+        steps.push(step('Substitute ' + num(out) + ' into the inverse. Meaning: ' + M(fn + '(' + num(back) + ')=' + num(out)) + ', so ' + num(back) + ' is the input that gives the output ' + num(out) + '.', fn + '^{-1}(' + num(out) + ')=' + num(back), 1));
       }
       var lead = 'For ' + M(rule) + ':';
       return { variant: 'inv' + c, prompt: lead, parts: parts, steps: steps, space: [0.8, 1.0, 1.2] };
@@ -503,7 +503,7 @@
       return K.errorProblem({ variant: 'func-error' + c, who: who, why: why, first: first, lines: lines,
         prompt: who + ' found ' + M(call) + ' for ' + M(rule) + ' like this:',
         checkA: { type: 'expr-error-line', rule: rule, call: call, lines: lines, v: 'x' },
-        promptB: 'Find ' + M(call) + ' correctly.', answerB: M(call + '=' + num(val)), checkB: { type: 'func-eval', rule: rule, expr: call },
+        promptB: 'Find the correct value.', answerB: M(call + '=' + num(val)), checkB: { type: 'func-eval', rule: rule, expr: call },
         steps: [step('Substitute with parentheses and follow the order of operations:', call + '=' + num(val), 3)] });
     }
   });
