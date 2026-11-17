@@ -21,6 +21,9 @@ test('teacher guide lists the hook, key ideas, mistakes and discussion questions
   assert.match(html, /<h2>Common mistakes to watch for<\/h2>/);
   assert.match(html, /<h2>Discussion questions<\/h2>/);
   assert.equal(faUnitGuide({ lessons: [] }, 'X'), '');
+  const planned = faUnitGuide({ ...bank, skills: [{ name: 'Calculate monthly cash flow', standards: ['Spending 12-1: Budgets and financial goals'] }], planning: { pacingGuide: 'financial/pacing/index.html', spreadsheetLabs: [{ title: 'Spreadsheet Lab 1: Monthly Budget', path: 'financial/spreadsheet-labs/index.html?lab=budget' }] } }, 'Budgeting');
+  assert.match(planned, /<h2>National standards<\/h2>/); assert.match(planned, /Spending 12-1: Budgets and financial goals/);
+  assert.match(planned, /href="\.\.\/\.\.\/\.\.\/financial\/spreadsheet-labs\/index\.html\?lab=budget"/); assert.match(planned, /Pacing guide and standards map/);
   assert.equal(plain('**a** [[1||2]]'), 'a 1 ÷ 2');
   assert.match(fs.readFileSync(path.join(root, 'scripts/build-integrated-unit-pages.mjs'), 'utf8'), /faUnitGuide\(readJson\(path\.join\(OUT, "financial", "banks"/);
 });
