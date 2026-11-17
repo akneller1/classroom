@@ -106,282 +106,282 @@
     steps: ['Corresponding angles ⟨(3x + 10)°⟩ and ⟨(5x - 30)°⟩: ⟨3x + 10 = 5x - 30⟩, ⟨x = {{20}}⟩.', 'Angle: ⟨3(20) + 10 = {{70°}}⟩. Check: ⟨5(20) - 30 = 70°⟩ ✓'],
     figs: [transversal({ 2: '2', 6: '6' }, '⟨m\\angle 2 = (3x + 10)°⟩ and ⟨m\\angle 6 = (5x - 30)°⟩ are corresponding, so they are {{equal}}')]
   }];
-  /* ---------- Unit 3 · Congruent Triangles ---------- */
+  /* ---------- Unit 4 · Congruent Triangles ---------- */
   var TRI1 = { A: [0, 0], B: [4, 0], C: pol(3.686, 50) }, TRI2 = { D: [6, 0], E: [10, 0], F: pol(3.686, 50, [6, 0]) };
   function two(extra) { var P = {}; for (var k in TRI1) P[k] = TRI1[k]; for (k in TRI2) P[k] = TRI2[k]; var s = { t: 'geo', w: 300, P: P, poly: [['A', 'B', 'C'], ['D', 'E', 'F']] }; for (k in extra) s[k] = extra[k]; return s; }
-  N['U3-L1'] = [{
+  N['U4-L1'] = [{
     h: 'Congruent figures',
     big: '{{Congruent}} figures have the same size and shape: every pair of {{corresponding}} sides and angles is equal. In ⟨\\triangle ABC \\cong \\triangle DEF⟩ the letters match in {{order}}: A↔D, B↔E, C↔F.',
     steps: ['Read the statement letter by letter: ⟨\\angle B \\cong {{\\angle E}}⟩.', 'Sides use pairs of letters: ⟨\\overline{AC} \\cong {{\\overline{DF}}}⟩.', 'Match by the statement or the marks, not by how the picture looks.'],
     figs: [two({ tick: [['A', 'B', 1], ['D', 'E', 1], ['B', 'C', 2], ['E', 'F', 2], ['A', 'C', 3], ['D', 'F', 3]], ang: [['C', 'B', 'A', '', 1, '#1f5fbf', 14], ['F', 'E', 'D', '', 1, '#1f5fbf', 14]], cap: '⟨\\triangle ABC \\cong \\triangle DEF⟩: matching marks show the corresponding parts' })]
   }];
-  N['U3-L2'] = [{
+  N['U4-L2'] = [{
     h: 'Third Angle Theorem and perimeter',
     big: 'The angles of a triangle add to {{180°}}. So if two angles of one triangle equal two angles of another, the {{third}} angles are equal too. Congruent triangles have {{equal}} perimeters.',
     steps: ['⟨m\\angle C = 180° - 50° - 60° = {{70°}}⟩, so ⟨m\\angle F = 70°⟩ as well.', 'Perimeter = sum of the three sides; corresponding sides are equal, so the perimeters match.'],
     figs: [two({ ang: [['B', 'A', 'C', '50°', 1, '#1f5fbf', 16], ['C', 'B', 'A', '60°', 1, '#1f5fbf', 16], ['A', 'C', 'B', '{{70°}}', 1, '#c0561b', 14], ['E', 'D', 'F', '50°', 1, '#1f5fbf', 16], ['F', 'E', 'D', '60°', 1, '#1f5fbf', 16], ['D', 'F', 'E', '{{70°}}', 1, '#c0561b', 14]], cap: 'Corresponding angles 50°, 60°, 70°' })]
   }];
-  N['U3-L3'] = [{
+  N['U4-L3'] = [{
     h: 'SSS and SAS',
     big: '{{SSS}}: if all three pairs of sides are equal, the triangles are congruent. {{SAS}}: two pairs of sides and the {{included}} angle (the angle {{between}} those sides) are equal.',
     steps: ['Mark what is given (ticks for sides, arcs for angles).', 'Look for a shared side (reflexive property) or vertical angles.', 'For SAS, check that the angle is between the two sides.'],
     figs: [two({ tick: [['A', 'B', 1], ['D', 'E', 1], ['A', 'C', 2], ['D', 'F', 2]], ang: [['B', 'A', 'C', '', 1, '#1f5fbf', 14], ['E', 'D', 'F', '', 1, '#1f5fbf', 14]], cap: 'SAS: the marked angle is {{between}} the two marked sides' })]
   }];
-  N['U3-L4'] = [{
+  N['U4-L4'] = [{
     h: 'ASA and AAS',
     big: '{{ASA}}: two angles and the side {{between}} them. {{AAS}}: two angles and a side that is {{not}} between them. Both prove congruence.',
     steps: ['Mark the two equal angles in each triangle.', 'Is the equal side between them? Yes → ASA. No → AAS.'],
     figs: [two({ tick: [['A', 'B', 1], ['D', 'E', 1]], ang: [['B', 'A', 'C', '', 1, '#1f5fbf', 14], ['E', 'D', 'F', '', 1, '#1f5fbf', 14], ['C', 'B', 'A', '', 2, '#c0561b', 12], ['F', 'E', 'D', '', 2, '#c0561b', 12]], cap: '{{ASA}}: side ⟨\\overline{AB}⟩ is between ⟨\\angle A⟩ and ⟨\\angle B⟩' })]
   }];
-  N['U3-L5'] = [{
+  N['U4-L5'] = [{
     h: 'HL, and choosing a criterion',
     big: '{{HL}} works only for {{right}} triangles: equal hypotenuses and one pair of equal legs. The five valid criteria are SSS, SAS, ASA, AAS and HL. {{SSA}} and {{AAA}} do not prove congruence.',
     steps: ['Mark everything given and anything from the diagram.', 'Match the marks to a criterion; check the order (included or not).', 'If only AAA or SSA is available, the triangles are not proven congruent.'],
     figs: [{ t: 'geo', w: 280, P: { A: [0, 0], B: [3, 0], C: [0, 2.4], D: [5, 0], E: [8, 0], F: [5, 2.4] }, poly: [['A', 'B', 'C'], ['D', 'E', 'F']], right: [['B', 'A', 'C'], ['E', 'D', 'F']], tick: [['B', 'C', 2], ['E', 'F', 2], ['A', 'C', 1], ['D', 'F', 1]], cap: 'HL: hypotenuse and a leg' }]
   }];
-  N['U3-L6'] = [{
+  N['U4-L6'] = [{
     h: 'Writing a congruence proof',
     big: 'A proof is a chain of {{statements}}, each with a {{reason}} (given, a definition, a postulate or a theorem). Prove the triangles congruent first; then {{CPCTC}} gives any other matching parts.',
     steps: ['Start with the given facts.', 'Add facts from the diagram: a shared side (reflexive property), vertical angles, right angles.', 'State the criterion (SSS, SAS, ASA, AAS, HL).', 'Use CPCTC last.'],
     figs: [{ t: 'tbl', head: ['Statement', 'Reason'], rows: [['⟨\\overline{AB} \\cong \\overline{CB}⟩, ⟨\\overline{AD} \\cong \\overline{CD}⟩', 'Given'], ['⟨\\overline{BD} \\cong \\overline{BD}⟩', '{{Reflexive property}}'], ['⟨\\triangle ABD \\cong \\triangle CBD⟩', '{{SSS}}'], ['⟨\\angle A \\cong \\angle C⟩', '{{CPCTC}}']] },
       { t: 'geo', w: 190, P: { B: [2, 3], A: [0, 0], D: [2, -0.6], C: [4, 0] }, poly: [['A', 'B', 'C', 'D']], seg: ['BD'], tick: [['A', 'B', 1], ['C', 'B', 1], ['A', 'D', 2], ['C', 'D', 2]] }]
   }];
-  N['U3-L7'] = [{
+  N['U4-L7'] = [{
     h: 'Using CPCTC',
     big: '{{CPCTC}} means “corresponding parts of congruent triangles are congruent.” It can be used only {{after}} the triangles have been proven congruent. Then any matching side or angle is equal, and you can solve for unknowns.',
     steps: ['Prove ⟨\\triangle ABC \\cong \\triangle DEF⟩ (SSS, SAS, ASA, AAS or HL).', 'Match the parts with the letter order.', 'Set the matching expressions equal: ⟨BC = 2x + 3⟩ and ⟨EF = 15⟩ gives ⟨x = {{6}}⟩.'],
     figs: []
   }];
-  /* ---------- Unit 4 · Triangle Relationships ---------- */
-  N['U4-L1'] = [{
+  /* ---------- Unit 5 · Triangle Relationships ---------- */
+  N['U5-L1'] = [{
     h: 'Interior and exterior angles',
     big: 'The three interior angles of a triangle add to {{180°}}. An {{exterior angle}} is formed by extending a side; it equals the sum of the two {{remote}} (non-adjacent) interior angles.',
     steps: ['Missing interior angle: ⟨180° - 50° - 70° = {{60°}}⟩.', 'Exterior angle at C: ⟨50° + 70° = {{120°}}⟩ (also ⟨180° - 60°⟩).'],
     figs: [{ t: 'geo', w: 250, P: { A: [0, 0], B: [5, 0], C: pol(4.076, 60), E: pol(5.676, 60) }, poly: [['A', 'B', 'C']], ray: ['CE'], hide: ['E'],
       ang: [['B', 'A', 'C', '{{60°}}', 1, '#1f5fbf', 16], ['C', 'B', 'A', '50°', 1, '#1f5fbf', 16], ['A', 'C', 'B', '70°', 1, '#1f5fbf', 14], ['B', 'C', 'E', '{{110°}}', 1, '#c0561b', 14]], cap: 'Exterior angle at C = ⟨60° + 50° = {{110°}}⟩' }]
   }];
-  N['U4-L2'] = [{
+  N['U5-L2'] = [{
     h: 'Isosceles triangles',
     big: 'An isosceles triangle has two equal sides (the {{legs}}). The angles opposite them, the {{base angles}}, are {{equal}}. The third angle is the vertex angle.',
     steps: ['Vertex angle 40°: base angles ⟨\\frac{180° - 40°}{2} = {{70°}}⟩ each.', 'Base angle 65°: vertex angle ⟨180° - 2(65°) = {{50°}}⟩.'],
     figs: [{ t: 'geo', w: 180, P: { A: [0, 0], B: [4, 0], C: [2, 2 * Math.tan(70 * Math.PI / 180)] }, poly: [['A', 'B', 'C']], tick: [['A', 'C', 1], ['B', 'C', 1]], ang: [['B', 'A', 'C', '{{70°}}', 1, '#1f5fbf', 16], ['C', 'B', 'A', '{{70°}}', 1, '#1f5fbf', 16], ['A', 'C', 'B', '40°', 1, '#c0561b', 18]], cap: 'Equal legs → equal base angles' }]
   }];
-  N['U4-L3'] = [{
+  N['U5-L3'] = [{
     h: 'Triangle inequality; side–angle order',
     big: 'Any two sides of a triangle must add to {{more than}} the third side. For sides ⟨a⟩ and ⟨b⟩, the third side is between ⟨|a - b|⟩ and ⟨a + b⟩. The {{longest}} side is opposite the {{largest}} angle.',
     steps: ['Can 4, 6, 11 be a triangle? ⟨4 + 6 = 10 < 11⟩ → {{no}}.', 'Sides 5 and 9: third side ⟨4 < x < {{14}}⟩.', 'Order the sides by the angles opposite them.'],
     figs: [{ t: 'geo', w: 230, P: { A: [0, 0], B: [6, 0], C: [1.5, 2.6] }, poly: [['A', 'B', 'C']], ang: [['A', 'C', 'B', 'largest', 1, '#c0561b', 14]], slab: [['A', 'B', '{{longest side}}', -1]], cap: 'The longest side is across from the largest angle' }]
   }];
-  N['U4-L4'] = [{
+  N['U5-L4'] = [{
     h: 'Midsegments',
     big: 'A {{midsegment}} joins the midpoints of two sides of a triangle. It is {{parallel}} to the third side and {{half}} as long.',
     steps: ['Third side 18 → midsegment ⟨= {{9}}⟩.', 'Midsegment ⟨2x + 1⟩, third side ⟨6x - 4⟩: ⟨2(2x + 1) = 6x - 4⟩, ⟨x = {{3}}⟩.'],
     figs: [{ t: 'geo', w: 230, P: { A: [0, 0], B: [6, 0], C: [2, 3.6], M: [1, 1.8], N: [4, 1.8] }, poly: [['A', 'B', 'C']], seg: ['MN:blue'], tick: [['A', 'M', 1], ['M', 'C', 1], ['C', 'N', 2], ['N', 'B', 2]], par: [['M', 'N', 1], ['A', 'B', 1]], slab: [['A', 'B', '18', -1], ['M', 'N', '{{9}}', 1, 9, '#1f5fbf']], cap: '⟨MN = \\frac{1}{2}AB⟩ and ⟨\\overline{MN} \\parallel \\overline{AB}⟩' }]
   }];
-  N['U4-L5'] = [{
+  N['U5-L5'] = [{
     h: 'Medians and the centroid',
     big: 'A {{median}} goes from a vertex to the {{midpoint}} of the opposite side. The three medians meet at the {{centroid}}, which divides each median in a {{2 : 1}} ratio: the longer part is next to the vertex.',
     steps: ['The vertex-to-centroid part is ⟨\\frac{2}{3}⟩ of the median.', 'Median 18 → ⟨AG = {{12}}⟩ and ⟨GM = {{6}}⟩.'],
     figs: [{ t: 'geo', w: 230, P: { A: [0, 0], B: [6, 0], C: [2, 4.5], M: [4, 2.25], N: [1, 2.25], L: [3, 0], G: [8 / 3, 1.5] }, poly: [['A', 'B', 'C']], seg: ['AM:blue', 'BN', 'CL'], loff: { G: [10, 12] }, cap: '⟨AG : GM = {{2 : 1}}⟩' }]
   }];
-  N['U4-L6'] = [{
+  N['U5-L6'] = [{
     h: 'Perpendicular bisectors and altitudes',
     big: 'A {{perpendicular bisector}} crosses a segment at its midpoint at 90°; every point on it is {{equally far}} from the segment’s endpoints. An {{altitude}} goes from a vertex perpendicular to the opposite side (not necessarily to its midpoint); it is the height in ⟨A = \\frac{1}{2}bh⟩.',
     steps: ['Point P on the perpendicular bisector of ⟨\\overline{AB}⟩: ⟨PA = {{PB}}⟩.', 'Area with base 10 and altitude 6: ⟨\\frac{1}{2}(10)(6) = {{30}}⟩.'],
     figs: [{ t: 'geo', w: 170, P: { A: [0, 0], B: [4, 0], M: [2, 0], P: [2, 3], _u: [2, 3.6], _d: [2, -0.6] }, seg: ['AB', 'PA:dash', 'PB:dash', '_u,_d:blue'], right: [['B', 'M', 'P']], tick: [['A', 'M', 1], ['M', 'B', 1], ['P', 'A', 2], ['P', 'B', 2]], cap: '⟨PA = PB⟩' },
       { t: 'geo', w: 190, P: { A: [0, 0], B: [5, 0], C: [1.5, 3], H: [1.5, 0] }, poly: [['A', 'B', 'C']], seg: ['CH:dash'], right: [['B', 'H', 'C']], slab: [['C', 'H', '{{h}}', 1, 9]], cap: 'Altitude: perpendicular to the base' }]
   }];
-  N['U4-L7'] = [{
+  N['U5-L7'] = [{
     h: 'Combining triangle relationships',
     big: 'Multi-part triangle problems link the facts from this unit: midsegments (half and parallel), the centroid (2 : 1), isosceles base angles, the angle sum (180°) and the triangle inequality. Plan the {{chain}} of facts before calculating.',
     steps: ['Mark every given fact on the diagram.', 'List which theorem connects each given to the next unknown.', 'Solve in order and check each answer before the next part.'],
     figs: [{ t: 'tbl', head: ['If you see…', 'Use…'], rows: [['midpoints of two sides', '{{midsegment: half, parallel}}'], ['medians meeting', '{{centroid: 2 : 1}}'], ['two equal sides', '{{equal base angles}}'], ['three side lengths', '{{triangle inequality}}']] }]
   }];
-  /* ---------- Unit 5 · Similarity ---------- */
+  /* ---------- Unit 6 · Similarity ---------- */
   var SM = { A: [0, 0], B: [3, 0], C: [0.9, 1.8] }, LG = { D: [4.5, 0], E: [9, 0], F: [5.85, 2.7] };
   function sim(extra) { var P = {}; for (var k in SM) P[k] = SM[k]; for (k in LG) P[k] = LG[k]; var s = { t: 'geo', w: 300, P: P, poly: [['A', 'B', 'C'], ['D', 'E', 'F']] }; for (k in extra) s[k] = extra[k]; return s; }
-  N['U5-L1'] = [{
+  N['U6-L1'] = [{
     h: 'Similar figures',
     big: '{{Similar}} figures have the same shape: corresponding angles are {{equal}} and corresponding sides are {{proportional}}. In ⟨\\triangle ABC \\sim \\triangle DEF⟩ the letters match in order.',
     steps: ['Match sides that are opposite equal angles.', 'Write a proportion with the same triangle on top: ⟨\\frac{AB}{DE} = \\frac{BC}{EF}⟩.', '⟨\\frac{6}{9} = \\frac{4}{x}⟩, ⟨6x = 36⟩, ⟨x = {{6}}⟩.'],
     figs: [sim({ slab: [['A', 'B', '6', -1], ['D', 'E', '9', -1], ['B', 'C', '4', 1], ['E', 'F', '{{x = 6}}', 1]], ang: [['B', 'A', 'C', '', 1, '#1f5fbf', 12], ['E', 'D', 'F', '', 1, '#1f5fbf', 12]], cap: '⟨\\triangle ABC \\sim \\triangle DEF⟩ (scale factor 1.5)' })]
   }];
-  N['U5-L2'] = [{
+  N['U6-L2'] = [{
     h: 'Scale factor and dilations',
     big: 'A {{dilation}} makes a similar copy. The {{scale factor}} is ⟨\\frac{\\text{image length}}{\\text{original length}}⟩: greater than 1 {{enlarges}}, between 0 and 1 {{shrinks}}.',
     steps: ['Original side 4, image side 10: scale factor ⟨\\frac{10}{4} = {{2.5}}⟩.', 'Multiply every original length by the scale factor to get the image.'],
     figs: [{ t: 'plane', x: [-1, 9], y: [-1, 7], polys: [{ pts: [[0, 0], [2, 0], [0, 2]] }, { pts: [[0, 0], [6, 0], [0, 6]], fill: 'rgba(192,86,27,.10)', c: '#c0561b', dash: true }], segs: [[0, 0, 6, 0, false, '#c0561b']], txt: [[0.6, 0.35, '2', 10], [3.6, 0.35, '{{6}}', 10, '#c0561b'], [3.9, 3.6, 'image', 10, '#c0561b']], cap: 'Dilation with center ⟨(0, 0)⟩ and scale factor {{3}}' }]
   }];
-  N['U5-L3'] = [{
+  N['U6-L3'] = [{
     h: 'Perimeters of similar figures',
     big: 'If two figures are similar with scale factor ⟨k⟩, their perimeters are in the {{same ratio}} ⟨k⟩. (Areas are in the ratio ⟨k^2⟩ — not used for perimeter.)',
     steps: ['Scale factor ⟨\\frac{9}{6} = 1.5⟩.', 'Small perimeter 20 → large perimeter ⟨20 \\times 1.5 = {{30}}⟩.'],
     figs: [sim({ slab: [['A', 'B', '6', -1], ['D', 'E', '9', -1]], cap: 'Perimeter ratio = side ratio = {{3 : 2}}' })]
   }];
-  N['U5-L4'] = [{
+  N['U6-L4'] = [{
     h: 'AA similarity',
     big: 'If two angles of one triangle are equal to two angles of another, the triangles are {{similar}} (the third angles must match too, because the sum is 180°). Look for {{vertical angles}}, shared angles and parallel lines.',
     steps: ['Find two pairs of equal angles.', 'Write the similarity statement in matching order.', 'Then use proportions for missing sides.'],
     figs: [sim({ ang: [['B', 'A', 'C', '40°', 1, '#1f5fbf', 14], ['E', 'D', 'F', '40°', 1, '#1f5fbf', 14], ['C', 'B', 'A', '60°', 2, '#c0561b', 12], ['F', 'E', 'D', '60°', 2, '#c0561b', 12]], cap: 'Two pairs of equal angles → ⟨\\triangle ABC \\sim {{\\triangle DEF}}⟩. Not drawn to scale' })]
   }];
-  N['U5-L5'] = [{
+  N['U6-L5'] = [{
     h: 'SSS and SAS similarity',
     big: '{{SSS similarity}}: all three pairs of sides have the {{same ratio}}. {{SAS similarity}}: two pairs of sides have the same ratio and the {{included angles}} are equal. Sides must be proportional, not equal.',
     steps: ['Order each triangle’s sides from shortest to longest.', 'Divide matching sides: ⟨\\frac{4}{6}, \\frac{6}{9}, \\frac{8}{12}⟩ all ⟨= {{\\frac{2}{3}}}⟩ → similar by SSS.'],
     figs: [{ t: 'tbl', head: ['Small', 'Large', 'Ratio'], rows: [['4', '6', '{{⟨\\frac{2}{3}⟩}}'], ['6', '9', '{{⟨\\frac{2}{3}⟩}}'], ['8', '12', '{{⟨\\frac{2}{3}⟩}}']] }]
   }];
-  N['U5-L6'] = [{
+  N['U6-L6'] = [{
     h: 'The Triangle Proportionality Theorem',
     big: 'If a line is {{parallel}} to one side of a triangle, it cuts the other two sides {{proportionally}}: ⟨\\frac{AD}{DB} = \\frac{AE}{EC}⟩ (part over part on both sides).',
     steps: ['Mark the parallel segment.', 'Write part/part = part/part in the same order: ⟨\\frac{4}{6} = \\frac{5}{x}⟩.', '⟨4x = 30⟩, ⟨x = {{7.5}}⟩.'],
     figs: [{ t: 'geo', w: 230, P: { A: [2, 4], B: [0, 0], C: [6, 0], D: [1.2, 2.4], E: [3.6, 2.4] }, poly: [['A', 'B', 'C']], seg: ['DE:blue'], par: [['D', 'E', 1], ['B', 'C', 1]], slab: [['A', 'D', '4', 1], ['D', 'B', '6', 1], ['A', 'E', '5', -1], ['E', 'C', '{{x = 7.5}}', -1]], cap: '⟨\\overline{DE} \\parallel \\overline{BC}⟩. Not drawn to scale' }]
   }];
-  N['U5-L7'] = [{
+  N['U6-L7'] = [{
     h: 'Indirect measurement',
     big: 'At the same time of day, sun rays make the same angle with the ground, so an object and its shadow form a triangle {{similar}} to any other object and its shadow. Set up ⟨\\frac{\\text{height}}{\\text{shadow}} = \\frac{\\text{height}}{\\text{shadow}}⟩ with matching {{units}}.',
     steps: ['A 6-ft person casts a 4-ft shadow; a tree casts a 30-ft shadow.', '⟨\\frac{6}{4} = \\frac{h}{30}⟩, ⟨4h = 180⟩, ⟨h = {{45}}⟩ ft.'],
     figs: [{ t: 'geo', w: 280, P: { A: [0, 0], B: [0, 3], C: [2, 0], D: [4, 0], E: [4, 9], F: [10, 0] }, poly: [['A', 'B', 'C'], ['D', 'E', 'F']], right: [['C', 'A', 'B'], ['F', 'D', 'E']], hide: ['A', 'B', 'C', 'D', 'E', 'F'], slab: [['A', 'B', '6', 1], ['A', 'C', '4', -1], ['D', 'E', '{{h = 45}}', 1, 20], ['D', 'F', '30', -1]], cap: 'Person and tree: similar right triangles. Not drawn to scale' }]
   }];
-  N['U5-L8'] = [{
+  N['U6-L8'] = [{
     h: 'Similarity investigations',
     big: 'In a complicated figure, {{redraw}} the similar triangles separately, side by side and facing the same way. Label the {{corresponding}} sides, then write the proportion. When a part and a whole are both involved, use the {{whole}} side lengths for the big triangle.',
     steps: ['Identify why the triangles are similar (AA from parallel lines or a shared angle).', 'Draw them separately with all lengths.', 'Write and solve the proportion; check that the answer is reasonable.'],
     figs: [{ t: 'geo', w: 230, P: { A: [2, 4], B: [0, 0], C: [6, 0], D: [1.2, 2.4], E: [3.6, 2.4] }, poly: [['A', 'B', 'C']], seg: ['DE:blue'], par: [['D', 'E', 1], ['B', 'C', 1]], slab: [['D', 'E', '6', 1, 9], ['B', 'C', 'x', -1], ['A', 'D', '4', 1], ['D', 'B', '6', 1]], cap: '⟨\\triangle ADE \\sim \\triangle ABC⟩: ⟨\\frac{4}{10} = \\frac{6}{x}⟩, ⟨x = {{15}}⟩' }]
   }];
-  /* ---------- Unit 6 · Right Triangles and Trigonometry ---------- */
-  N['U6-L1'] = [{
+  /* ---------- Unit 7 · Right Triangles and Trigonometry ---------- */
+  N['U7-L1'] = [{
     h: 'The Pythagorean theorem',
     big: 'In a right triangle with legs ⟨a⟩ and ⟨b⟩ and {{hypotenuse}} ⟨c⟩ (the side across from the right angle, the longest side): ⟨a^2 + b^2 = c^2⟩. For a missing hypotenuse {{add}} the squares; for a missing leg {{subtract}}.',
     steps: ['Legs 6 and 8: ⟨c = \\sqrt{36 + 64} = {{10}}⟩.', 'Hypotenuse 13, leg 5: ⟨b = \\sqrt{169 - 25} = {{12}}⟩.', 'Whole-number sides like 3-4-5 are Pythagorean triples.'],
     figs: [{ t: 'geo', w: 220, P: { A: [0, 0], B: [8, 0], C: [0, 6] }, poly: [['A', 'B', 'C']], right: [['B', 'A', 'C']], slab: [['A', 'B', '8', -1], ['A', 'C', '6', 1], ['C', 'B', '{{c = 10}}', 1]], cap: '⟨6^2 + 8^2 = 10^2⟩' }]
   }];
-  N['U6-L2'] = [{
+  N['U7-L2'] = [{
     h: 'Distance with the Pythagorean theorem',
     big: 'To find the distance between two points, draw a {{right triangle}}: the legs are the horizontal change and the vertical change, and the distance is the {{hypotenuse}}.',
     steps: ['⟨(-2, 1)⟩ to ⟨(4, 9)⟩: horizontal change ⟨= 6⟩, vertical change ⟨= 8⟩.', '⟨d = \\sqrt{6^2 + 8^2} = {{10}}⟩.', 'Do not forget the {{square root}} at the end.'],
     figs: [{ t: 'plane', x: [-3, 5], y: [0, 10], segs: [[-2, 1, 4, 9, false, '#1f5fbf'], [-2, 1, 4, 1, true], [4, 1, 4, 9, true]], pts: [[-2, 1, '(−2, 1)', null, null, -2, 13], [4, 9, '(4, 9)', null, null, -6, -5]], txt: [[1, 0.4, '6', 10], [4.5, 5, '8', 10], [0.4, 5.9, '{{10}}', 11, '#1f5fbf']] }]
   }];
-  N['U6-L3'] = [{
+  N['U7-L3'] = [{
     h: 'Special right triangles',
     big: 'In a {{45°-45°-90°}} triangle the legs are equal and the hypotenuse is ⟨\\text{leg} \\cdot \\sqrt{2}⟩. In a {{30°-60°-90°}} triangle the hypotenuse is {{twice}} the short leg, and the long leg (opposite 60°) is ⟨\\text{short leg} \\cdot {{\\sqrt{3}}}⟩.',
     steps: ['45-45-90 with leg 5: hypotenuse ⟨= {{5\\sqrt{2}}}⟩.', '30-60-90 with short leg 4: hypotenuse ⟨= {{8}}⟩, long leg ⟨= {{4\\sqrt{3}}}⟩.'],
     figs: [{ t: 'geo', w: 160, P: { A: [0, 0], B: [3, 0], C: [0, 3] }, poly: [['A', 'B', 'C']], right: [['B', 'A', 'C']], hide: ['A', 'B', 'C'], ang: [['C', 'B', 'A', '45°', 1, '#1f5fbf', 18], ['A', 'C', 'B', '45°', 1, '#1f5fbf', 18]], slab: [['A', 'B', 'x', -1], ['A', 'C', 'x', 1], ['C', 'B', '{{x√2}}', 1]] },
       { t: 'geo', w: 190, P: { A: [0, 0], B: [Math.sqrt(3) * 2, 0], C: [0, 2] }, poly: [['A', 'B', 'C']], right: [['B', 'A', 'C']], hide: ['A', 'B', 'C'], ang: [['C', 'B', 'A', '30°', 1, '#1f5fbf', 22], ['A', 'C', 'B', '60°', 1, '#c0561b', 14]], slab: [['A', 'C', 'x', 1], ['A', 'B', '{{x√3}}', -1], ['C', 'B', '{{2x}}', 1]] }]
   }];
-  N['U6-L4'] = [{
+  N['U7-L4'] = [{
     h: 'Sine, cosine and tangent',
     big: 'For an acute angle θ in a right triangle, name the sides {{from that angle}}: the {{opposite}} side is across from θ, the {{adjacent}} side touches θ (not the hypotenuse). SOH-CAH-TOA: ⟨\\sin\\theta = \\frac{\\text{opp}}{\\text{hyp}}⟩, ⟨\\cos\\theta = \\frac{\\text{adj}}{\\text{hyp}}⟩, ⟨\\tan\\theta = \\frac{\\text{opp}}{\\text{adj}}⟩.',
     steps: ['Triangle 3-4-5 with θ opposite the side 3:', '⟨\\sin\\theta = \\frac{3}{5}⟩, ⟨\\cos\\theta = {{\\frac{4}{5}}}⟩, ⟨\\tan\\theta = {{\\frac{3}{4}}}⟩.'],
     figs: [{ t: 'geo', w: 250, pad: 48, P: { A: [0, 0], B: [4, 0], C: [4, 3] }, poly: [['A', 'B', 'C']], right: [['A', 'B', 'C']], hide: ['A', 'B', 'C'], ang: [['B', 'A', 'C', 'θ', 1, '#1f5fbf', 22]], slab: [['A', 'B', '{{adjacent 4}}', -1], ['B', 'C', '{{opposite 3}}', -1, 36], ['A', 'C', '{{hypotenuse 5}}', 1, 14]] }]
   }];
-  N['U6-L5'] = [{
+  N['U7-L5'] = [{
     h: 'Finding a side with trigonometry',
     big: 'Label the sides from the given angle. Choose the ratio that uses the side you {{know}} and the side you {{want}}. Write the equation and solve: if the unknown is on top, {{multiply}}; if it is on the bottom, divide.',
     steps: ['Angle 35°, hypotenuse 12, want the opposite side: use {{sine}}.', '⟨\\sin 35° = \\frac{x}{12}⟩, ⟨x = 12\\sin 35° \\approx {{6.88}}⟩.', 'Calculator in {{degree}} mode.'],
     figs: [{ t: 'geo', w: 250, pad: 44, P: { A: [0, 0], B: [12 * Math.cos(35 * Math.PI / 180), 0], C: [12 * Math.cos(35 * Math.PI / 180), 12 * Math.sin(35 * Math.PI / 180)] }, poly: [['A', 'B', 'C']], right: [['A', 'B', 'C']], hide: ['A', 'B', 'C'], ang: [['B', 'A', 'C', '35°', 1, '#1f5fbf', 30]], slab: [['A', 'C', '12', 1], ['B', 'C', '{{x ≈ 6.88}}', -1, 30]] }]
   }];
-  N['U6-L6'] = [{
+  N['U7-L6'] = [{
     h: 'Finding an angle: inverse trig',
     big: 'When you know two sides and want the {{angle}}, use an {{inverse}} trig function: ⟨\\theta = \\tan^{-1}\\left(\\frac{\\text{opp}}{\\text{adj}}\\right)⟩ (or ⟨\\sin^{-1}⟩, ⟨\\cos^{-1}⟩). It answers “which angle has this ratio?”',
     steps: ['Opposite 5, adjacent 8: ⟨\\tan\\theta = \\frac{5}{8}⟩.', '⟨\\theta = \\tan^{-1}(0.625) \\approx {{32.0°}}⟩.', 'Check: the angle should be smaller than 45° because opp < adj.'],
     figs: [{ t: 'geo', w: 220, P: { A: [0, 0], B: [8, 0], C: [8, 5] }, poly: [['A', 'B', 'C']], right: [['A', 'B', 'C']], hide: ['A', 'B', 'C'], ang: [['B', 'A', 'C', '{{32.0°}}', 1, '#1f5fbf', 32]], slab: [['A', 'B', '8', -1], ['B', 'C', '5', -1]] }]
   }];
-  N['U6-L7'] = [{
+  N['U7-L7'] = [{
     h: 'Angles of elevation and depression',
     big: 'Both angles are measured from a {{horizontal}} line. Looking up from the horizontal is an angle of {{elevation}}; looking down is an angle of {{depression}}. The angle of depression from the top equals the angle of elevation from the bottom ({{alternate interior}} angles).',
     steps: ['Draw the horizontal, the line of sight and the right triangle.', 'A ramp: 50 ft from the base, elevation 28°: ⟨h = 50\\tan 28° \\approx {{26.6}}⟩ ft.'],
     figs: [{ t: 'geo', w: 260, dots: false, P: { A: [0, 0], B: [8, 0], C: [8, 4.25], D: [2, 4.25] }, poly: [['A', 'B', 'C']], seg: ['CD:dash'], right: [['A', 'B', 'C']], hide: ['A', 'B', 'C', 'D'], ang: [['B', 'A', 'C', '{{elevation}}', 1, '#1f5fbf', 36, 26], ['D', 'C', 'A', '{{depression}}', 1, '#c0561b', 36, 26]], slab: [['A', 'B', '50 ft', -1], ['B', 'C', 'h', -1]], cap: 'Same angle (28°): alternate interior angles' }]
   }];
-  N['U6-L8'] = [{
+  N['U7-L8'] = [{
     h: 'Right-triangle investigations',
     big: 'A survey or investigation problem often has {{two}} right triangles that share a side. Solve the triangle with enough information {{first}}, then use the shared side in the second. Keep full calculator values until the {{end}}.',
     steps: ['Draw one diagram and mark every right angle.', 'Find the shared side from the first triangle.', 'Use it in the second triangle; round only the final answer.'],
     figs: [{ t: 'geo', w: 260, dots: false, P: { A: [0, 0], B: [4, 0], C: [10, 0], D: [10, 5] }, poly: [['A', 'C', 'D']], seg: ['BD'], right: [['A', 'C', 'D']], ang: [['C', 'A', 'D', '25°', 1, '#1f5fbf', 30], ['C', 'B', 'D', '40°', 1, '#c0561b', 20]], slab: [['A', 'B', '40 m', -1], ['C', 'D', '{{h}}', -1]], hide: ['A', 'B', 'C', 'D'], cap: 'Two angles of elevation from two spots. Not drawn to scale' }]
   }];
-  N['U6-L9'] = [{
+  N['U7-L9'] = [{
     h: 'Choosing a right-triangle tool',
     big: 'Two sides known, third side wanted → {{Pythagorean theorem}}. An angle and a side known → {{trig ratio}}. Two sides known, angle wanted → {{inverse trig}}. A 30°, 45° or 60° angle → special right triangle (exact answer).',
     steps: ['Draw and label the right triangle.', 'List what is known and what is wanted.', 'Pick the tool from the table and solve.'],
     figs: [{ t: 'tbl', head: ['Know', 'Want', 'Tool'], rows: [['2 sides', 'side', '{{⟨a^2 + b^2 = c^2⟩}}'], ['angle + side', 'side', '{{sin, cos, tan}}'], ['2 sides', 'angle', '{{⟨\\sin^{-1}⟩, ⟨\\cos^{-1}⟩, ⟨\\tan^{-1}⟩}}'], ['30°, 45°, 60°', 'exact side', '{{special triangles}}']] }]
   }];
-  /* ---------- Unit 7 · Polygons and Quadrilaterals ---------- */
-  N['U7-L1'] = [{
+  /* ---------- Unit 8 · Polygons and Quadrilaterals ---------- */
+  N['U8-L1'] = [{
     h: 'Interior angle sum',
     big: 'Diagonals from one vertex split an ⟨n⟩-sided polygon into ⟨n - 2⟩ {{triangles}}, so its interior angles add to ⟨{{(n - 2) \\cdot 180°}}⟩. Each angle of a {{regular}} polygon is that sum ÷ ⟨n⟩.',
     steps: ['Hexagon: ⟨(6 - 2) \\cdot 180° = {{720°}}⟩.', 'Regular hexagon: each angle ⟨720° \\div 6 = {{120°}}⟩.', 'Quadrilateral: ⟨360°⟩.'],
     figs: [{ t: 'geo', w: 190, P: { A: pol(2, 90), B: pol(2, 150), C: pol(2, 210), D: pol(2, 270), E: pol(2, 330), F: pol(2, 30) }, poly: [['A', 'B', 'C', 'D', 'E', 'F']], seg: ['AC:dash', 'AD:dash', 'AE:dash'], hide: ['B', 'C', 'D', 'E', 'F'], cap: 'A hexagon splits into {{4}} triangles' }]
   }];
-  N['U7-L2'] = [{
+  N['U8-L2'] = [{
     h: 'Exterior angles; diagonals',
     big: 'The exterior angles of any convex polygon (one at each vertex) add to {{360°}}, no matter how many sides. Each exterior angle of a regular ⟨n⟩-gon is ⟨{{\\frac{360°}{n}}}⟩. A polygon has ⟨\\frac{n(n - 3)}{2}⟩ {{diagonals}}.',
     steps: ['Regular octagon: exterior angle ⟨360° \\div 8 = {{45°}}⟩; interior ⟨180° - 45° = {{135°}}⟩.', 'Exterior angle 24° → ⟨n = 360 \\div 24 = {{15}}⟩ sides.', 'Pentagon diagonals: ⟨\\frac{5 \\cdot 2}{2} = {{5}}⟩.'],
     figs: [{ t: 'geo', w: 200, P: { A: pol(2, 90), B: pol(2, 162), C: pol(2, 234), D: pol(2, 306), E: pol(2, 18), X: pol(1.4, 36, pol(2, 90)) }, poly: [['A', 'B', 'C', 'D', 'E']], seg: ['AX:dash'], ang: [['X', 'A', 'E', '{{72°}}', 1, '#c0561b', 14]], hide: ['B', 'C', 'D', 'E', 'X'], cap: 'Regular pentagon: exterior angle ⟨360° \\div 5⟩' }]
   }];
-  N['U7-L3'] = [{
+  N['U8-L3'] = [{
     h: 'Properties of parallelograms',
     big: 'In a parallelogram: opposite sides are {{parallel}} and {{equal}}; opposite angles are {{equal}}; consecutive angles are {{supplementary}} (add to 180°); the diagonals {{bisect}} each other.',
     steps: ['One angle 70° → the opposite angle 70°, each consecutive angle {{110°}}.', 'Diagonal pieces: ⟨AE = EC⟩, so ⟨2x + 1 = 9⟩, ⟨x = {{4}}⟩.'],
     figs: [{ t: 'geo', w: 240, P: { A: [0, 0], B: [5, 0], C: [5 + 2.6 / Math.tan(70 * Math.PI / 180), 2.6], D: [2.6 / Math.tan(70 * Math.PI / 180), 2.6], E: [2.5 + 1.3 / Math.tan(70 * Math.PI / 180), 1.3] }, poly: [['A', 'B', 'C', 'D']], seg: ['AC:dash', 'BD:dash'], tick: [['A', 'B', 1], ['D', 'C', 1], ['A', 'D', 2], ['B', 'C', 2]], ang: [['B', 'A', 'D', '70°', 1, '#1f5fbf', 16], ['D', 'C', 'B', '{{70°}}', 1, '#1f5fbf', 16], ['C', 'B', 'A', '{{110°}}', 2, '#c0561b', 12]], loff: { E: [0, 16] } }]
   }];
-  N['U7-L4'] = [{
+  N['U8-L4'] = [{
     h: 'Rectangles, rhombi and squares',
     big: 'They are all parallelograms with extra properties. A {{rectangle}} has four right angles and {{equal}} diagonals. A {{rhombus}} has four equal sides and {{perpendicular}} diagonals that bisect its angles. A {{square}} has all of these.',
     steps: ['Rectangle diagonal pieces are all equal: ⟨AE = BE = CE = DE⟩.', 'Rhombus: diagonals meet at 90°, so use the Pythagorean theorem on the four right triangles.'],
     figs: [{ t: 'geo', w: 170, P: { A: [0, 0], B: [4, 0], C: [4, 2.4], D: [0, 2.4], E: [2, 1.2] }, poly: [['A', 'B', 'C', 'D']], seg: ['AC:dash', 'BD:dash'], right: [['B', 'A', 'D']], hide: ['A', 'B', 'C', 'D', 'E'], tick: [['A', 'E', 1], ['B', 'E', 1], ['C', 'E', 1], ['D', 'E', 1]], cap: 'Rectangle: {{equal}} diagonals' },
       { t: 'geo', w: 170, P: { A: [0, 1.5], B: [2, 0], C: [4, 1.5], D: [2, 3], E: [2, 1.5] }, poly: [['A', 'B', 'C', 'D']], seg: ['AC:dash', 'BD:dash'], right: [['C', 'E', 'D']], hide: ['A', 'B', 'C', 'D', 'E'], tick: [['A', 'B', 1], ['B', 'C', 1], ['C', 'D', 1], ['D', 'A', 1]], cap: 'Rhombus: {{perpendicular}} diagonals' }]
   }];
-  N['U7-L5'] = [{
+  N['U8-L5'] = [{
     h: 'Trapezoids',
     big: 'A {{trapezoid}} has exactly one pair of parallel sides, the {{bases}}. Its {{midsegment}} joins the midpoints of the legs; it is parallel to the bases and equals the {{average}} of the bases: ⟨\\frac{b_1 + b_2}{2}⟩.',
     steps: ['Bases 8 and 14: midsegment ⟨\\frac{8 + 14}{2} = {{11}}⟩.', 'Midsegment 15, one base 12: ⟨\\frac{12 + b}{2} = 15⟩, ⟨b = {{18}}⟩.'],
     figs: [{ t: 'geo', w: 240, P: { A: [0, 0], B: [7, 0], C: [5, 3], D: [1, 3], M: [0.5, 1.5], N: [6, 1.5] }, poly: [['A', 'B', 'C', 'D']], seg: ['MN:blue'], par: [['D', 'C', 1], ['A', 'B', 1], ['M', 'N', 1]], hide: ['A', 'B', 'C', 'D', 'M', 'N'], slab: [['D', 'C', '8', 1], ['A', 'B', '14', -1], ['M', 'N', '{{11}}', 1, 9, '#1f5fbf']], cap: 'Midsegment = average of the bases' }]
   }];
-  N['U7-L6'] = [{
+  N['U8-L6'] = [{
     h: 'Classifying quadrilaterals',
     big: 'Use the converses to prove a shape. If both pairs of opposite sides are equal, or the diagonals {{bisect each other}}, it is a parallelogram. A parallelogram with a right angle (or equal diagonals) is a {{rectangle}}; with perpendicular diagonals (or four equal sides) a {{rhombus}}; with both, a {{square}}.',
     steps: ['First show it is a parallelogram.', 'Then test the extra property with slopes (perpendicular: product −1) or lengths (distance formula).', 'Name the most specific shape that every test supports.'],
     figs: [{ t: 'tbl', head: ['Shape', 'Must have'], rows: [['Parallelogram', '{{diagonals bisect each other}}'], ['Rectangle', 'parallelogram + {{equal diagonals}}'], ['Rhombus', 'parallelogram + {{perpendicular diagonals}}'], ['Square', '{{rectangle and rhombus}}']] }]
   }];
-  /* ---------- Unit 8 · Transformations ---------- */
+  /* ---------- Unit 3 · Transformations ---------- */
   var TRI = [[1, 1], [4, 1], [2, 3]];
   function tf(img, cap, extra) { var s = { t: 'plane', x: [-6, 6], y: [-6, 6], numEvery: 2, polys: [{ pts: TRI }, { pts: img, c: '#c0561b', fill: 'rgba(192,86,27,.12)', dash: true }], pts: [[2, 3, 'A', null, null, -4, -6], [img[2][0], img[2][1], '{{A′}}', null, '#c0561b', -4, -6]], cap: cap }; for (var k in extra) s[k] = extra[k]; return s; }
-  N['U8-L1'] = [{
+  N['U3-L1'] = [{
     h: 'Translations',
     big: 'A {{translation}} slides every point the same distance in the same direction. The rule ⟨(x, y) \\to (x + a, y + b)⟩ adds ⟨a⟩ to every ⟨x⟩ (right if positive) and ⟨b⟩ to every ⟨y⟩ (up if positive). The image is {{congruent}} to the original.',
     steps: ['⟨(x, y) \\to (x - 5, y - 4)⟩: left 5, down 4.', '⟨A(2, 3) \\to A′({{-3}}, {{-1}})⟩.'],
     figs: [tf(TRI.map(function (p) { return [p[0] - 5, p[1] - 4]; }), '⟨(x, y) \\to (x - 5, y - 4)⟩', { vec: [[2, 3, -3, -1, '#888']] })]
   }];
-  N['U8-L2'] = [{
+  N['U3-L2'] = [{
     h: 'Reflections',
     big: 'A {{reflection}} flips a figure over a line; each image point is the {{same distance}} from the line as the original. Over the ⟨x⟩-axis: ⟨(x, y) \\to (x, {{-y}})⟩. Over the ⟨y⟩-axis: ⟨(x, y) \\to ({{-x}}, y)⟩.',
     steps: ['Over the ⟨x⟩-axis, ⟨A(2, 3) \\to A′(2, {{-3}})⟩.', 'Over the ⟨y⟩-axis, ⟨A(2, 3) \\to A′({{-2}}, 3)⟩.'],
     figs: [tf(TRI.map(function (p) { return [p[0], -p[1]]; }), 'Reflection over the ⟨x⟩-axis', { segs: [[2, 3, 2, -3, true, '#888']] })]
   }];
-  N['U8-L3'] = [{
+  N['U3-L3'] = [{
     h: 'Rotations about the origin',
     big: 'A {{rotation}} turns a figure about a center. About the origin: 90° counterclockwise ⟨(x, y) \\to ({{-y}}, x)⟩; 90° clockwise ⟨(x, y) \\to (y, {{-x}})⟩; 180° ⟨(x, y) \\to (-x, -y)⟩.',
     steps: ['90° counterclockwise: ⟨A(2, 3) \\to A′({{-3}}, {{2}})⟩.', 'Check with the picture: the segment from the origin to A turns a quarter turn.'],
     figs: [tf(TRI.map(function (p) { return [-p[1], p[0]]; }), '90° counterclockwise about ⟨(0, 0)⟩', { segs: [[0, 0, 2, 3, true, '#888'], [0, 0, -3, 2, true, '#888']] })]
   }];
-  N['U8-L4'] = [{
+  N['U3-L4'] = [{
     h: 'Dilations about the origin',
     big: 'A {{dilation}} with center the origin and scale factor ⟨k⟩ multiplies {{both}} coordinates by ⟨k⟩: ⟨(x, y) \\to (kx, ky)⟩. The image is {{similar}}, not congruent (unless ⟨k = 1⟩).',
     steps: ['⟨k = 2⟩: ⟨A(2, 3) \\to A′({{4}}, {{6}})⟩.', '⟨k = \\frac{1}{2}⟩: ⟨(4, 2) \\to ({{2}}, {{1}})⟩.'],
     figs: [{ t: 'plane', x: [-1, 9], y: [-1, 7], polys: [{ pts: TRI }, { pts: TRI.map(function (p) { return [2 * p[0], 2 * p[1]]; }), c: '#c0561b', fill: 'rgba(192,86,27,.12)', dash: true }], segs: [[0, 0, 4, 6, true, '#888']], pts: [[2, 3, 'A(2, 3)', null, null, -6, -4], [4, 6, '{{A′(4, 6)}}', null, '#c0561b', 6, 4]], cap: 'Scale factor 2, center ⟨(0, 0)⟩' }]
   }];
-  N['U8-L5'] = [{
+  N['U3-L5'] = [{
     h: 'Compositions',
     big: 'A {{composition}} is one transformation followed by another. Do them in the given {{order}}, writing the middle image ⟨A′⟩ before the final image ⟨A″⟩. Changing the order can change the result.',
     steps: ['Reflect over the ⟨y⟩-axis, then translate ⟨(x, y) \\to (x, y - 4)⟩.', '⟨A(2, 3) \\to A′(-2, 3) \\to A″({{-2}}, {{-1}})⟩.'],
     figs: [{ t: 'plane', x: [-6, 6], y: [-6, 6], numEvery: 2, polys: [{ pts: TRI }, { pts: TRI.map(function (p) { return [-p[0], p[1]]; }), c: '#888', fill: 'rgba(0,0,0,.05)', dash: true }, { pts: TRI.map(function (p) { return [-p[0], p[1] - 4]; }), c: '#c0561b', fill: 'rgba(192,86,27,.12)' }], pts: [[2, 3, 'A'], [-2, 3, 'A′', null, '#666', -6, -6], [-2, -1, '{{A″}}', null, '#c0561b', -6, 12]], cap: 'Reflect, then translate down 4' }]
   }];
-  N['U8-L6'] = [{
+  N['U3-L6'] = [{
     h: 'Symmetry',
     big: 'A figure has {{line symmetry}} if a reflection over a line maps it onto itself. It has {{rotational symmetry}} if a rotation of less than 360° maps it onto itself. A regular ⟨n⟩-gon has {{n}} lines of symmetry and rotational symmetry every ⟨{{\\frac{360°}{n}}}⟩.',
     steps: ['Regular hexagon: 6 lines; rotations of 60°, 120°, 180°, … map it onto itself.', 'Count lines through vertices AND lines through midpoints of sides.'],
     figs: [{ t: 'geo', w: 190, dots: false, P: { A: pol(2, 90), B: pol(2, 162), C: pol(2, 234), D: pol(2, 306), E: pol(2, 18), a: pol(2.4, 270), b: pol(2.4, 342), c: pol(2.4, 54), d: pol(2.4, 126), e: pol(2.4, 198), a2: pol(2.4, 90), b2: pol(2.4, 162), c2: pol(2.4, 234), d2: pol(2.4, 306), e2: pol(2.4, 18) }, poly: [['A', 'B', 'C', 'D', 'E']], seg: ['a2,a:dash:blue', 'b2,b:dash:blue', 'c2,c:dash:blue', 'd2,d:dash:blue', 'e2,e:dash:blue'], hide: ['A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e', 'a2', 'b2', 'c2', 'd2', 'e2'], cap: 'Regular pentagon: {{5}} lines of symmetry; rotation {{72°}}' }]
   }];
-  N['U8-L7'] = [{
+  N['U3-L7'] = [{
     h: 'Transformations and congruence',
     big: '{{Rigid motions}} — translations, reflections and rotations — keep lengths and angles, so the image is {{congruent}}. A {{dilation}} keeps angles but multiplies lengths, so the image is only {{similar}}. Two figures are congruent if a sequence of rigid motions maps one onto the other.',
     steps: ['Describe a sequence: e.g., rotate 90° counterclockwise, then translate right 2.', 'If any step is a dilation (scale factor ≠ 1), the figures are similar, not congruent.'],

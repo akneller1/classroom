@@ -33,7 +33,7 @@ for(const course of courses){
 }
 assert(count>=91,'Previously published unit pages must remain available');
 // Legacy course URLs stay reachable but are not listed: /u/<course>/ is canonical.
-const expectedStandalone=[];
+const expectedStandalone=['geometry-pacing/'];   // Geometry pacing guide and standards coverage (2026-11-17)
 for(const page of ['courses/grade5.html','financial-algebra/'])assert(!sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Legacy course URL must not be in the sitemap: '+page);
 assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+hubs.length+7+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
 for (const page of ["about.html", "guide.html", "privacy.html", "skills.html", "backup.html", "courses/"]) {

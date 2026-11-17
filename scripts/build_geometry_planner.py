@@ -18,7 +18,7 @@ SETS = {'B': 'geometry-basics-reasoning', 'A': 'geometry-angles-parallel-lines',
         'T': 'geometry-triangle-relationships', 'S': 'geometry-similarity', 'R': 'geometry-right-triangles-trigonometry',
         'Q': 'geometry-quadrilaterals-polygons', 'X': 'geometry-transformations', 'K': 'geometry-circles',
         'M': 'geometry-area-surface-area-volume'}
-UNIT_SET = {1: 'B', 2: 'A', 3: 'C', 4: 'T', 5: 'S', 6: 'R', 7: 'Q', 8: 'X', 9: 'K', 10: 'M'}
+UNIT_SET = {1: 'B', 2: 'A', 3: 'X', 4: 'C', 5: 'T', 6: 'S', 7: 'R', 8: 'Q', 9: 'K', 10: 'M'}
 FILL, EXPLORE, PRE = 'Guided fill-in notes', 'Exploration, then guided notes', 'Pre-filled reference notes'
 
 # ---------------------------------------------------------------- vocabulary (plain text; one definition per word)
@@ -224,7 +224,38 @@ UNITS = [
     ['transversal', 'supplementary', 'vertical angles'], 'Forgetting to substitute x back in to find the angle.', FILL, 'full',
     [('A', 'corresponding-angles', 5, 7), ('A', 'alternate-interior', 5, 7), ('A', 'alternate-exterior', 5, 7), ('A', 'same-side-interior', 5, 7)], '', 'Name the relationship, write the equation, solve for x, then find the angle.'),
  ]),
- (3, 'Triangle Congruence', [
+ (3, 'Transformations', [
+  L('Translations', 'G-CO.A.2, G-CO.A.5', 'translate points and figures on the coordinate plane.',
+    'Students will describe a translation using the words left, right, up and down.', 'The figure moves ___ units ___ and ___ units ___.',
+    ['transformation', 'image', 'translation', 'rigid motion'], 'Moving up when the rule says subtract; read the signs carefully.', EXPLORE, 'full',
+    [('X', 'translate-horizontal', 1, 7), ('X', 'translate-vertical', 1, 7), ('X', 'translate-triangle-figure', 1, 7)], '', 'A translation adds the same amount to every x and the same amount to every y.'),
+  L('Reflections', 'G-CO.A.2, G-CO.A.5', 'reflect points and figures across the axes and other lines.',
+    'Students will explain how a reflection changes the coordinates.', 'Reflecting over the ___-axis changes the sign of the ___-coordinate.',
+    ['reflection', 'image', 'rigid motion'], 'Changing the wrong coordinate; reflecting over the x-axis changes y.', EXPLORE, 'full',
+    [('X', 'reflect-x-axis', 1, 7), ('X', 'reflect-y-axis', 1, 7), ('X', 'reflect-triangle-figure', 1, 7)], '', 'Over the x-axis (x, y) → (x, −y). Over the y-axis (x, y) → (−x, y). Each point is the same distance from the mirror line.'),
+  L('Rotations', 'G-CO.A.2, G-CO.A.4', 'rotate points and figures 90° and 180° about the origin.',
+    'Students will describe a rotation using the angle and direction.', 'The figure is rotated ___° ___ about the ___.',
+    ['rotation', 'image', 'rigid motion'], 'Mixing up clockwise and counterclockwise.', EXPLORE, 'full',
+    [('X', 'rotate-90-clockwise', 1, 7), ('X', 'rotate-90-counterclockwise', 1, 7), ('X', 'rotate-triangle-figure', 1, 7)], '', '90° clockwise: (x, y) → (y, −x). 90° counterclockwise: (x, y) → (−y, x). 180°: (x, y) → (−x, −y).'),
+  L('Dilations', 'G-SRT.A.1', 'dilate points and figures about the origin by a scale factor.',
+    'Students will explain how a dilation changes the size but not the shape.', 'A dilation with scale factor ___ makes each distance ___ times as long.',
+    ['dilation', 'scale factor', 'image', 'similar'], 'Adding the scale factor instead of multiplying.', FILL, 'full',
+    [('X', 'dilate-origin', 1, 7), ('X', 'dilate-triangle-figure', 1, 7)], '', 'A dilation about the origin multiplies both coordinates by the scale factor.'),
+  L('Compositions of Transformations', 'G-CO.A.5', 'perform a sequence of two transformations and find the final image.',
+    'Students will explain the order in which the two transformations are done.', 'First I ___, then I ___, so the final image is ___.',
+    ['composition', 'transformation', 'image'], 'Doing the two steps in the wrong order; the order can change the answer.', FILL, 'full',
+    [('X', 'compose-triangle-figure', 1, 7)], '', 'Apply the first transformation, mark the middle image, then apply the second transformation to that image.'),
+  L('Symmetry', 'G-CO.A.3', 'find the lines of symmetry and the angle of rotational symmetry of regular polygons.',
+    'Students will describe the symmetry of a regular polygon using the number of sides.', 'A regular ___-gon has ___ lines of symmetry and rotates onto itself every ___°.',
+    ['line of symmetry', 'rotational symmetry', 'regular polygon'], 'Counting only the lines through vertices.', EXPLORE, 'full',
+    [('X', 'symmetry-lines-regular', 1, 7), ('X', 'symmetry-rotation-regular', 1, 7)], '', 'A regular n-gon has n lines of symmetry and rotates onto itself every 360° ÷ n.'),
+  L('Transformations and Congruence', 'G-CO.B.6, G-SRT.A.2', 'use rigid motions and dilations to explain congruent and similar figures.',
+    'Students will explain whether a sequence of transformations produces a congruent or a similar figure.', 'The figures are ___ because the transformations are ___.',
+    ['rigid motion', 'dilation', 'congruent', 'similar'], 'Thinking a dilation keeps the figure congruent; it only keeps it similar.', EXPLORE, 'full',
+    [('X', 'transformation-sequence-congruence', 1, 7), ('X', 'compose-triangle-figure', 3, 7), ('X', 'dilate-triangle-figure', 3, 7)], '',
+    'Translations, reflections and rotations keep size and shape (congruent). A dilation keeps shape but changes size (similar).'),
+ ]),
+ (4, 'Triangle Congruence', [
   L('Congruent Figures and Corresponding Parts', 'G-CO.B.7, G-CO.B.8', 'identify corresponding parts of congruent triangles and use them to find missing sides and angles.',
     'Students will explain how congruence statements show which parts match.', 'Triangle ABC ≅ triangle DEF, so side ___ matches side ___.',
     ['congruent', 'corresponding parts', 'CPCTC'], 'Matching parts by position on the page instead of by the order of the letters.', EXPLORE, 'full',
@@ -254,7 +285,7 @@ UNITS = [
     ['CPCTC', 'congruent', 'corresponding parts'], 'Using CPCTC before the triangles are proven congruent.', FILL, 'full',
     [('C', 'congruence-sss', 4, 7), ('C', 'congruence-sas', 4, 7), ('C', 'congruence-asa', 4, 7), ('C', 'congruence-aas', 4, 7), ('C', 'congruence-hl', 4, 7), ('C', 'congruence-proof-cpctc', 1, 7)], '', 'CPCTC can only be used after the triangles are proven congruent.'),
  ]),
- (4, 'Triangle Relationships', [
+ (5, 'Triangle Relationships', [
   L('Interior and Exterior Angles of Triangles', 'G-CO.C.10', 'use the triangle angle sum and the exterior angle theorem to find missing angles.',
     'Students will explain how an exterior angle relates to the remote interior angles.', 'The exterior angle equals the sum of ___.',
     ['interior angle', 'exterior angle', 'remote interior angles'], 'Adding the adjacent interior angle to find the exterior angle; use the two remote angles.', FILL, 'full',
@@ -284,7 +315,7 @@ UNITS = [
     ['midsegment', 'centroid', 'triangle inequality'], 'Treating each part as a separate problem; later parts use earlier answers.', EXPLORE, 'full',
     [('T', 'triangle-open-response-investigation', 1, 7), ('T', 'triangle-honors-connected-investigation', 5, 7)], '', 'Plan the chain of facts first, then solve each part in order.'),
  ]),
- (5, 'Similarity', [
+ (6, 'Similarity', [
   L('Ratios and Proportions in Similar Figures', 'G-SRT.A.2, G-SRT.B.5', 'set up and solve proportions to find missing sides of similar triangles.',
     'Students will explain which sides correspond and how they know.', 'Side ___ corresponds to side ___ because they are opposite ___.',
     ['similar', 'ratio', 'proportion', 'corresponding parts'], 'Matching sides by position instead of by equal angles.', FILL, 'full',
@@ -318,7 +349,7 @@ UNITS = [
     ['triangle proportionality theorem', 'similar', 'proportion'], 'Starting a proportion with sides that do not correspond.', EXPLORE, 'full',
     [('S', 'similarity-parallel-honors', 1, 7), ('S', 'similarity-parallel-segment', 5, 7)], '', 'Draw both similar triangles separately and label corresponding sides before writing the proportion.'),
  ]),
- (6, 'Right Triangles and Trigonometry', [
+ (7, 'Right Triangles and Trigonometry', [
   L('The Pythagorean Theorem', 'G-SRT.C.8, 8.G.B.7', 'use the Pythagorean theorem to find a missing side of a right triangle.',
     'Students will explain which side is the hypotenuse and how they know.', 'The hypotenuse is the side ___ the right angle.',
     ['hypotenuse', 'leg', 'Pythagorean theorem', 'Pythagorean triple'], 'Adding the squares when the unknown is a leg; subtract for a leg.', FILL, 'full',
@@ -356,7 +387,7 @@ UNITS = [
     ['Pythagorean theorem', 'sine', 'cosine', 'tangent', 'hypotenuse'], 'Choosing trigonometry when the Pythagorean theorem is faster (two sides known).', FILL, 'full',
     [('R', 'right-pythagorean-hypotenuse', 5, 7), ('R', 'right-pythagorean-leg', 5, 7), ('R', 'right-tangent-side', 5, 7), ('R', 'right-special-radical', 4, 7)], '', 'Two sides known: Pythagorean theorem. An angle and a side known: trigonometry. Special angle: special-triangle ratios.'),
  ]),
- (7, 'Quadrilaterals and Polygons', [
+ (8, 'Quadrilaterals and Polygons', [
   L('Interior Angles of Polygons', 'G-CO.C.11, G-CO.C.10', 'use the angle sum of a polygon to find missing angles and the number of sides.',
     'Students will explain how the number of sides gives the angle sum.', 'The interior angles add to ___ because the polygon splits into ___ triangles.',
     ['polygon', 'convex', 'interior angle', 'quadrilateral'], 'Using n × 180° instead of (n − 2) × 180°.', EXPLORE, 'full',
@@ -381,37 +412,6 @@ UNITS = [
     'Students will justify a classification using the converse of a parallelogram property.', 'It is a parallelogram because ___.',
     ['parallelogram', 'rhombus', 'square', 'converse'], 'Calling a shape a rectangle because it has one right angle.', FILL, 'full',
     [('Q', 'classify-square-rhombus', 1, 7), ('Q', 'parallelogram-diagonal-bisection-converse', 1, 7)], '', 'If both diagonals bisect each other, the quadrilateral is a parallelogram. Check every property before naming it a rectangle, rhombus or square.'),
- ]),
- (8, 'Transformations', [
-  L('Translations', 'G-CO.A.2, G-CO.A.5', 'translate points and figures on the coordinate plane.',
-    'Students will describe a translation using the words left, right, up and down.', 'The figure moves ___ units ___ and ___ units ___.',
-    ['transformation', 'image', 'translation', 'rigid motion'], 'Moving up when the rule says subtract; read the signs carefully.', EXPLORE, 'full',
-    [('X', 'translate-horizontal', 1, 7), ('X', 'translate-vertical', 1, 7), ('X', 'translate-triangle-figure', 1, 7)], '', 'A translation adds the same amount to every x and the same amount to every y.'),
-  L('Reflections', 'G-CO.A.2, G-CO.A.5', 'reflect points and figures across the axes and other lines.',
-    'Students will explain how a reflection changes the coordinates.', 'Reflecting over the ___-axis changes the sign of the ___-coordinate.',
-    ['reflection', 'image', 'rigid motion'], 'Changing the wrong coordinate; reflecting over the x-axis changes y.', EXPLORE, 'full',
-    [('X', 'reflect-x-axis', 1, 7), ('X', 'reflect-y-axis', 1, 7), ('X', 'reflect-triangle-figure', 1, 7)], '', 'Over the x-axis (x, y) → (x, −y). Over the y-axis (x, y) → (−x, y). Each point is the same distance from the mirror line.'),
-  L('Rotations', 'G-CO.A.2, G-CO.A.4', 'rotate points and figures 90° and 180° about the origin.',
-    'Students will describe a rotation using the angle and direction.', 'The figure is rotated ___° ___ about the ___.',
-    ['rotation', 'image', 'rigid motion'], 'Mixing up clockwise and counterclockwise.', EXPLORE, 'full',
-    [('X', 'rotate-90-clockwise', 1, 7), ('X', 'rotate-90-counterclockwise', 1, 7), ('X', 'rotate-triangle-figure', 1, 7)], '', '90° clockwise: (x, y) → (y, −x). 90° counterclockwise: (x, y) → (−y, x). 180°: (x, y) → (−x, −y).'),
-  L('Dilations', 'G-SRT.A.1', 'dilate points and figures about the origin by a scale factor.',
-    'Students will explain how a dilation changes the size but not the shape.', 'A dilation with scale factor ___ makes each distance ___ times as long.',
-    ['dilation', 'scale factor', 'image', 'similar'], 'Adding the scale factor instead of multiplying.', FILL, 'full',
-    [('X', 'dilate-origin', 1, 7), ('X', 'dilate-triangle-figure', 1, 7)], '', 'A dilation about the origin multiplies both coordinates by the scale factor.'),
-  L('Compositions of Transformations', 'G-CO.A.5', 'perform a sequence of two transformations and find the final image.',
-    'Students will explain the order in which the two transformations are done.', 'First I ___, then I ___, so the final image is ___.',
-    ['composition', 'transformation', 'image'], 'Doing the two steps in the wrong order; the order can change the answer.', FILL, 'full',
-    [('X', 'compose-triangle-figure', 1, 7)], '', 'Apply the first transformation, mark the middle image, then apply the second transformation to that image.'),
-  L('Symmetry', 'G-CO.A.3', 'find the lines of symmetry and the angle of rotational symmetry of regular polygons.',
-    'Students will describe the symmetry of a regular polygon using the number of sides.', 'A regular ___-gon has ___ lines of symmetry and rotates onto itself every ___°.',
-    ['line of symmetry', 'rotational symmetry', 'regular polygon'], 'Counting only the lines through vertices.', EXPLORE, 'full',
-    [('X', 'symmetry-lines-regular', 1, 7), ('X', 'symmetry-rotation-regular', 1, 7)], '', 'A regular n-gon has n lines of symmetry and rotates onto itself every 360° ÷ n.'),
-  L('Transformations and Congruence', 'G-CO.B.6, G-SRT.A.2', 'use rigid motions and dilations to explain congruent and similar figures.',
-    'Students will explain whether a sequence of transformations produces a congruent or a similar figure.', 'The figures are ___ because the transformations are ___.',
-    ['rigid motion', 'dilation', 'congruent', 'similar'], 'Thinking a dilation keeps the figure congruent; it only keeps it similar.', EXPLORE, 'full',
-    [('X', 'transformation-sequence-congruence', 1, 7), ('X', 'compose-triangle-figure', 3, 7), ('X', 'dilate-triangle-figure', 3, 7)], '',
-    'Translations, reflections and rotations keep size and shape (congruent). A dilation keeps shape but changes size (similar).'),
  ]),
  (9, 'Circles', [
   L('Parts of a Circle', 'G-C.A.1', 'name the parts of a circle and relate the radius and diameter.',
@@ -623,8 +623,8 @@ def build():
         # semester review / exam after Unit 5
         if u == 5:
             cov = [i for (uu, _, _, _, ids2) in unit_ranges for i in ids2]
-            for k2, (title, covs) in enumerate([('Semester Review: Units 1–3 (Foundations, Angles, Congruence)', [i for i in cov if i.startswith(('U1-', 'U2-', 'U3-'))]),
-                                                 ('Semester Review: Units 4–5 (Triangle Relationships, Similarity)', [i for i in cov if i.startswith(('U4-', 'U5-'))])]):
+            for k2, (title, covs) in enumerate([('Semester Review: Units 1–3 (Foundations, Angles, Transformations)', [i for i in cov if i.startswith(('U1-', 'U2-', 'U3-'))]),
+                                                 ('Semester Review: Units 4–5 (Triangle Congruence, Triangle Relationships)', [i for i in cov if i.startswith(('U4-', 'U5-'))])]):
                 add(day_type='Exam Review', lesson_id='SEM-%d' % (k2 + 1), unit=None, unit_title='Semester 1 Exam', title=title, standards='G-CO, G-SRT, G-GPE',
                     content_objective='Students will be able to review and practice key skills from %s and identify personal areas for growth.' % title.split(': ')[1].split(' (')[0],
                     language_objective='Students will explain to a partner how to solve a review problem using precise unit vocabulary.', sentence_frame='To solve this type of problem, I ___ because ___.',
@@ -635,8 +635,8 @@ def build():
                 key_vocabulary='', common_misconception='', notes_style='', do_now_strategy='None / routine', dn=[], sp=[], cov=cov)
 
     allc = [i for (_, _, _, _, ids2) in unit_ranges for i in ids2]
-    groups = [('Final Review: Foundations, Angles, and Congruence (Units 1–3)', ('U1-', 'U2-', 'U3-')), ('Final Review: Triangles and Similarity (Units 4–5)', ('U4-', 'U5-')),
-              ('Final Review: Right Triangles, Quadrilaterals, and Transformations (Units 6–8)', ('U6-', 'U7-', 'U8-')), ('Final Review: Circles and Measurement (Units 9–10)', ('U9-', 'U10-'))]
+    groups = [('Final Review: Foundations, Angles, and Transformations (Units 1–3)', ('U1-', 'U2-', 'U3-')), ('Final Review: Congruence and Triangle Relationships (Units 4–5)', ('U4-', 'U5-')),
+              ('Final Review: Similarity, Right Triangles, and Quadrilaterals (Units 6–8)', ('U6-', 'U7-', 'U8-')), ('Final Review: Circles and Measurement (Units 9–10)', ('U9-', 'U10-'))]
     for k2, (title, pre) in enumerate(groups):
         covs = [i for i in allc if i.startswith(pre)]
         add(day_type='Exam Review', lesson_id='END-%d' % (k2 + 1), unit=None, unit_title='Final Exam', title=title, standards='G-CO, G-SRT, G-C, G-GPE, G-GMD',

@@ -2033,7 +2033,29 @@
       return f(p, part, String(p.prompt || '') + (part.prompt ? ' ' + part.prompt : ''), policy);
     };
   })();
+  /* Difficulty-tier problems (audit #1): the original one-unknown problem is verified on its own, and the tiered problem must be
+     exactly that problem with the bare unknown x replaced by the printed expression (prompt, figure, work and equation). */
+  function checkTier(p, part, policy) {
+    var T = p.tier, o = T && T.orig;
+    if (!o || !o.parts || o.parts.length !== 1 || typeof T.E !== 'string' || typeof T.Eq !== 'string') return { status: 'invalid', msg: 'Missing original problem.' };
+    var em = /^\((\d+)x ([+−]) (\d+)\)$/.exec(T.E); if (!em) return { status: 'invalid', msg: 'Unreadable expression.' };
+    var a = +em[1], b = (em[2] === '+' ? 1 : -1) * +em[3];
+    if (T.Eq !== '(' + a + '*x' + (b < 0 ? '-' : '+') + Math.abs(b) + ')') return { status: 'invalid', msg: 'Expression and equation differ.' };
+    var back = function (s, E) { return String(s || '').split(E).join('x'); };
+    var Et = '(' + a + 'x' + (b < 0 ? '-' : '+') + Math.abs(b) + ')';
+    var pr = String(p.prompt || '').replace(/(The|Its) ([^.,]+?) is \((\d+)x [+−] (\d+)\)(?: (degrees|centimeters|inches|feet|meters|units|square [a-z]+|cubic [a-z]+))?\. Find x((?:,[^.]*)?)\./, function (w, the, what, a1, b1, unit, rest) { return '(' + a1 + 'x ' + (w.indexOf('−') >= 0 && w.indexOf('−') < w.indexOf(')') ? '−' : '+') + ' ' + b1 + ')' === T.E ? 'Find x, ' + the.toLowerCase() + ' ' + what + (unit ? ' in ' + unit : '') + (rest || '') + '.' : w; });
+    pr = back(pr, T.E); if (pr !== o.prompt && pr !== o.prompt + ' Find x.') return { status: 'invalid', msg: 'The printed problem is not the original with the expression.' };
+    if (JSON.stringify(p.fig ? JSON.parse(back(JSON.stringify(p.fig), T.E)) : null) !== JSON.stringify(o.fig || null)) return { status: 'invalid', msg: 'The figure is not the original with the expression.' };
+    if (JSON.stringify((p.work || []).map(function (w) { return back(w, Et); })) !== JSON.stringify(o.work || [])) return { status: 'invalid', msg: 'The work lines changed.' };
+    if (!part.check || part.check.type !== 'solve' || part.check.v !== 'x' || back(part.check.eq, T.Eq) !== o.parts[0].check.eq) return { status: 'invalid', msg: 'The equation is not the original with the expression.' };
+    var base = checkPart(o, o.parts[0], policy); if (base.status !== 'verified') return { status: 'invalid', msg: 'Original problem: ' + (base.msg || base.status) };
+    var N = valueFromAnswer(o.parts[0].answer, 'x'), got;
+    try { got = valueFromAnswer(part.answer, 'x'); } catch (e) { return { status: 'mismatch', msg: 'Write the answer as x = …' }; }
+    var val = got.mul(new Q(BigInt(a))).add(new Q(BigInt(b)));
+    return val.eq(N) ? { status: 'verified', computed: 'x=' + got } : { status: 'mismatch', msg: 'Then ' + T.E + ' would not equal ' + N + '.' };
+  }
   function checkPart(p, part, policy) {
+    if (p.tier && p.parts && p.parts.length === 1 && part === p.parts[0]) return checkTier(p, part, policy);
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
