@@ -12,11 +12,24 @@ function trig(ctx,kind){var t=triple(ctx),opp=t[0],adj=t[1],hyp=t[2],x,eq,prompt
 if(kind==='sin'){x=opp;eq=hyp+'*x='+opp+'*'+hyp;prompt='A right triangle has hypotenuse '+hyp+' and an acute angle θ with sin θ = '+opp+'/'+hyp+'. Find the positive length x of the side opposite θ.';}
 else if(kind==='cos'){x=adj;eq=hyp+'*x='+adj+'*'+hyp;prompt='A right triangle has hypotenuse '+hyp+' and an acute angle θ with cos θ = '+adj+'/'+hyp+'. Find the positive length x of the side adjacent to θ.';}
 else{x=opp;eq=adj+'*x='+opp+'*'+adj;prompt='A right triangle has an acute angle θ with tan θ = '+opp+'/'+adj+'. The adjacent leg is '+adj+'. Find the positive opposite leg length x.';}
-return make('geo-right-'+kind+'-'+ctx.c,prompt,eq,x,'Use the definition of '+(kind==='sin'?'sine (opposite/hypotenuse)':kind==='cos'?'cosine (adjacent/hypotenuse)':'tangent (opposite/adjacent)')+'.',undefined,kind==='sin'?rt({a:adj,b:opp},['c'],{b:'x'},{B:'θ'}):kind==='cos'?rt({a:adj,b:opp},['c'],{a:'x'},{B:'θ'}):rt({a:adj,b:opp},['a'],{b:'x'},{B:'θ'}));}
+var p=make('geo-right-'+kind+'-'+ctx.c,prompt,eq,x,'Use the definition of '+(kind==='sin'?'sine (opposite/hypotenuse)':kind==='cos'?'cosine (adjacent/hypotenuse)':'tangent (opposite/adjacent)')+'.',undefined,kind==='sin'?rt({a:adj,b:opp},['c'],{b:'x'},{B:'θ'}):kind==='cos'?rt({a:adj,b:opp},['c'],{a:'x'},{B:'θ'}):rt({a:adj,b:opp},['a'],{b:'x'},{B:'θ'}));
+var den=kind==='tan'?adj:hyp,num=kind==='cos'?adj:opp;
+p.steps.unshift(step('Write the trigonometric ratio with the unknown side.',M('\\frac{x}{'+den+'}=\\frac{'+num+'}{'+den+'}')));
+return p;}
 /* Exact-value special triangles with integer missing sides.
    Radical-valued targets are deferred until symbolic radical checks are supported. */
 function special45(ctx){
- var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?90:60),eq='2*x='+(2*n);
+ var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?90:60),eq='x='+n;
+ if(c>=5){
+  var x=r.int(3,18),a=r.int(2,5),d=a+r.int(1,4),b=r.int(2,9),e=r.int(2,9);
+  var length=a*(x+b)+d*x+e;
+  var left=c>=6?a+'(x+'+b+')+'+d+'x+'+e:(a+d)+'x+'+(a*b+e);
+  var rightConstant=length-(a+d+1)*x+(d+1)*b;
+  var right=c>=7?(d+1)+'(x-'+b+')+'+a+'x'+(rightConstant<0?'':'+')+rightConstant:lin(a+d+1,length-(a+d+1)*x,'x');
+  return make('geo-right-45-algebra-'+c,
+   'A 45°-45°-90° triangle has leg lengths '+M(left)+' and '+M(right)+' units. Find x and name the property that makes the legs congruent.',
+   left+'='+right,x,'Equal angles have congruent opposite sides, so set the two leg expressions equal.',undefined,rt({a:length,b:length},[],null,{B:45,A:45}));
+ }
  return make('geo-right-45-'+c,
   'A 45°-45°-90° triangle has one leg of length '+n+' units. Find the other leg x. Explain why the two legs are congruent.',
   eq,n,'The legs opposite equal 45° angles are equal.',undefined,rt({a:n,b:n},['a'],{b:'x'},{B:45,A:45}));

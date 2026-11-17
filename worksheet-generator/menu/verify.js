@@ -24,6 +24,11 @@
   // Never bypass the independent derivation checks for variants that require them.
   function geometryDerived(p, chk) {
     if (!chk || chk.type !== 'solve' || !/^geo-/.test(p.variant || '')) return false;
+    // Equal-leg algebra must be checked against both expressions students actually see.
+    if (/^geo-right-45-algebra-/.test(p.variant || '')) {
+      var legs = /^A 45°-45°-90° triangle has leg lengths ⟨([^⟩]+)⟩ and ⟨([^⟩]+)⟩ units\./.exec(p.prompt || '');
+      return !!legs && legs[1] + '=' + legs[2] === chk.eq;
+    }
     /* Segment and angle addition (2026-11-17): the prompt prints the parts and the whole, not the equation; the
        equation is rebuilt from those printed values, so a changed number is still caught. */
     if (/^geo-segment-/.test(p.variant || '')) {

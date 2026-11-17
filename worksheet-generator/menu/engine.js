@@ -144,7 +144,7 @@
   };
   NS.menuConfig = function (setId) {
     var set = sets[setId];
-    var skills = {}; if (set) set.skills.forEach(function (s) { skills[s.id] = true; });
+    var skills = {}; if (set) set.skills.forEach(function (s) { skills[s.id] = !/^Honors:/.test(s.name || ''); });
     return {
       format: 'mk-menu-assessment', schema: 1, unitId: setId, mode: 'menu',
       title: set ? set.title : 'Assessment Menu', subtitle: 'Assessment Menu · choose your meal and show what you know',
@@ -157,10 +157,26 @@
     };
   };
 
+  NS.skillLevelAllowed = function (cfg, skill) {
+    return cfg.level === 'honors' || !/^Honors:/.test((skill || {}).name || '');
+  };
+  NS.normalizeLevelSkills = function (cfg) {
+    var set = sets[cfg.unitId];
+    if (set) set.skills.forEach(function (sk) { if (!NS.skillLevelAllowed(cfg, sk)) cfg.skills[sk.id] = false; });
+    return cfg;
+  };
+  NS.setLevel = function (cfg, level) {
+    var previous = cfg.level; cfg.level = level;
+    var set = sets[cfg.unitId];
+    if (set && level === 'honors' && previous !== level)
+      set.skills.forEach(function (sk) { if (/^Honors:/.test(sk.name || '')) cfg.skills[sk.id] = true; });
+    return NS.normalizeLevelSkills(cfg);
+  };
+
   /* Which skills may appear in a section (teacher choice or all selected skills). */
   NS.sectionSkills = function (cfg, si) {
     var set = sets[cfg.unitId]; if (!set) return [];
-    var chosen = set.skills.filter(function (s) { return cfg.skills[s.id]; }).map(function (s) { return s.id; });
+    var chosen = set.skills.filter(function (s) { return cfg.skills[s.id] && NS.skillLevelAllowed(cfg, s); }).map(function (s) { return s.id; });
     var sec = cfg.sections[si];
     if (sec.skills && sec.skills.length) return sec.skills.filter(function (id) { return chosen.indexOf(id) >= 0; });
     return chosen;
@@ -449,13 +465,19 @@
         g.prompt = g.prompt.replace(/,?\s*and graph (the solution|the solutions|it)( on a number line)?/i, '').replace(/^Graph the solution(s)? (of|to) /i, 'Solve ');
         if (g.fig && Array.isArray(g.fig.pieces) && !g.fig.pieces.length) delete g.fig;   // the blank number line is not needed
         out.push({ p: g, note: 'Asked without the graph.' }); }
-    } else {
-      for (var k = p.parts.length - 1; k >= 0; k--) {
-        var q = clean(p), pt = q.parts[k]; if (pt.answerFig || !pt.prompt) continue;   // only parts with their own question
-        pt.label = ''; q.parts = [pt];   // the part's own question prints after the prompt, work lines and figure
-        out.push({ p: q, note: 'Made from part (' + (p.parts[k].label || k + 1) + ') of a multi-part problem.' });
-      }
     }
+    else if (p.parts.every(function (pt) { return pt.prompt && pt.check && pt.check.type === 'property-name'; })) {
+      // Each property identity supplies its entire equation; it needs no earlier result.
+      p.parts.forEach(function (part, index) {
+        var q = clean(p), pt = q.parts[index]; pt.label = ''; q.parts = [pt];
+        q.prompt = 'Name the property shown by this equation.';
+        q.steps = (q.steps || []).filter(function (st) { return st.m === pt.check.eq; });
+        out.push({ p: q, note: 'Self-contained property equation from part (' + (part.label || index + 1) + ').' });
+      });
+    }
+    // Connected parts can depend on definitions or results in earlier parts.
+    // Keep the complete problem in short answer/Open Response instead of extracting an orphan part.
+
     return out;
   }
   /* Single source of truth for visual inequality MC across generators and games.
@@ -513,6 +535,7 @@
     if (!p.verify || p.verify.status !== 'verified') return { fail: 'The answer is not verified, so no choices were made.' };
     var inequality = NS.inequalityChoices(p);
     if (inequality) return inequality;
+    if (p.parts.length > 1 && !p.parts.every(function (pt) { return pt.prompt && pt.check && pt.check.type === 'property-name'; })) return { fail: 'Connected multi-part questions stay in short answer or Open Response so all givens remain available.' };
     var cands = mcCandidates(p);
     for (var i = 0; i < cands.length; i++) {
       var q = cands[i].p;
@@ -829,9 +852,7 @@
     cfg.sections.forEach(function (sec, si) {
       var skills = NS.sectionSkills(cfg, si), n = counts[si], out = [];
       if (!skills.length) { plans.push(out); return; }
-      /* Skills written for Honors (named "Honors: …") stay off Support and Standard worksheets unless they are the only
-         skills chosen (2026-11-17). */
-      if (cfg.level !== 'honors') { var notHonors = skills.filter(function (id) { return !/^Honors:/.test((set.byId[id] || {}).name || ''); }); if (notHonors.length) skills = notHonors; }
+      // sectionSkills applies the class-level restriction before planning or coverage.
       var tier = sec.tier !== undefined ? sec.tier : Math.min(si, 2);
       var rng = WS.rng.make(WS.rng.hash([cfg.seed, 'plan', si].join('|')));
       var good = rng.shuffle(skills.filter(function (id) { var b = set.byId[id].best; return !b || b.indexOf(tier) >= 0; }));
@@ -910,6 +931,7 @@
   /* Make every version match the configuration: same sections, same number of slots,
      same skill + difficulty in each slot. Generates only what is missing. */
   NS.syncStructure = function (state, fresh) {
+    NS.normalizeLevelSkills(state.config);
     var cfg = state.config, nV = Math.max(1, Math.min(3, cfg.versions | 0 || 1));
     if (fresh) state.versions = [];
     while (state.versions.length < nV) state.versions.push({ label: LABELS[state.versions.length], sections: [] });
@@ -928,13 +950,15 @@
       cfg.sections.forEach(function (section, si) {
         if (section.skills) section.skills = section.skills.filter(function (id) { return !!currentSet.byId[id]; });
         var allowed = NS.sectionSkills(cfg, si);
-        if (!allowed.length) allowed = currentSet.skills.filter(function (sk) { return cfg.skills[sk.id]; }).map(function (sk) { return sk.id; });
-        if (!allowed.length) allowed = currentSet.skills.map(function (sk) { return sk.id; });
+        if (!allowed.length) allowed = currentSet.skills.filter(function (sk) { return cfg.skills[sk.id] && NS.skillLevelAllowed(cfg, sk); }).map(function (sk) { return sk.id; });
+        if (!allowed.length) allowed = currentSet.skills.filter(function (sk) { return NS.skillLevelAllowed(cfg, sk); }).map(function (sk) { return sk.id; });
         var first = A.sections[si] && A.sections[si].items || [];
         first.forEach(function (item, index) {
-          if (currentSet.byId[item.skill]) return;
+          var extracted = /^Made from part/.test(item.mcNote || '');
+          if (currentSet.byId[item.skill] && NS.skillLevelAllowed(cfg, currentSet.byId[item.skill]) && !extracted) return;
           if (item.manual || item.edited || item.pinned) return;   // a teacher-written, edited or pinned problem is the teacher's choice: never swap it out
-          var replacement = allowed[index % allowed.length];
+          var eligible = NS.sectionFormat(cfg, si) === 'mc' ? allowed.filter(function (id) { return NS.mcCapable(cfg.unitId, id, item.c || NS.sectionC(cfg, si)); }) : allowed;
+          var replacement = eligible[index % eligible.length];
           if (!replacement) return;
           state.versions.forEach(function (version, vi) {
             var items = version.sections[si].items;
@@ -1090,6 +1114,7 @@
     });
   };
   NS.changeSkill = function (state, vIdx, uidStr, skillId) {
+    if (!NS.skillLevelAllowed(state.config, sets[state.config.unitId].byId[skillId])) return { failed: true, reason: 'Choose Honors to use this skill.' };
     var loc = find(state, vIdx, uidStr); if (!loc) return;
     slotItems(state, loc.item.slot).forEach(function (l) {
       var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, skillId, l.item.c, policyFor(cfg, l.si), [cfg.seed, l.v, l.item.slot, skillId, r0, t].join('|'), usedSets(state, l.item.uid)); });
