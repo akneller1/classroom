@@ -54,6 +54,8 @@ for (const u of urls.filter((u) => /\/u\/[^/]+\/[^/]+\/$/.test(u))) {
   }
 }
 for (const a of activities) if (!seen.has(a)) { urls.push(a); seen.add(a); }
+// Financial Algebra planning pages (2026-11-17): the pacing guide and standards map, and the Spreadsheet Labs.
+for (const r of ["financial/pacing/", "financial/spreadsheet-labs/"]) if (read(r) && !seen.has(SITE_URL + r)) { urls.push(SITE_URL + r); seen.add(SITE_URL + r); }
 
 // 2. lastmod per URL.
 function lastmod(u) {
