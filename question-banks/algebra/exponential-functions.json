@@ -527,6 +527,1536 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "alg1-exp-s02-cp2-p005",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 4ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 4ˣ through (0, 1), (1, 4)",
+   "solutionSteps": [
+    "At x = 0, y = a = 1, so (0, 1) is on the graph.",
+    "Each step right multiplies y by 4: (0, 1), (1, 4).",
+    "The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "1"
+       ],
+       [
+        1,
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          1,
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          0,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp2-p005.png",
+     "alt": "Coordinate grid with the exponential curve y = 4ˣ through (0, 1), (1, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp2-p006",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 5ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 5ˣ through (0, 1), (1, 5)",
+   "solutionSteps": [
+    "At x = 0, y = a = 1, so (0, 1) is on the graph.",
+    "Each step right multiplies y by 5: (0, 1), (1, 5).",
+    "The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "1"
+       ],
+       [
+        1,
+        "5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          1,
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          0,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp2-p006.png",
+     "alt": "Coordinate grid with the exponential curve y = 5ˣ through (0, 1), (1, 5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp2-p007",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 6ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 6ˣ through (0, 1), (1, 6)",
+   "solutionSteps": [
+    "At x = 0, y = a = 1, so (0, 1) is on the graph.",
+    "Each step right multiplies y by 6: (0, 1), (1, 6).",
+    "The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "6"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "1"
+       ],
+       [
+        1,
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          1,
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "1"
+         ],
+         [
+          0,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp2-p007.png",
+     "alt": "Coordinate grid with the exponential curve y = 6ˣ through (0, 1), (1, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp2-p008",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = 2(4)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 2(4)ˣ through (0, 2), (1, 8)",
+   "solutionSteps": [
+    "At x = 0, y = a = 2, so (0, 2) is on the graph.",
+    "Each step right multiplies y by 4: (0, 2), (1, 8).",
+    "The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "2"
+       ],
+       [
+        1,
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "2"
+         ],
+         [
+          1,
+          "7"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "2"
+         ],
+         [
+          0,
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp2-p008.png",
+     "alt": "Coordinate grid with the exponential curve y = 2(4)ˣ through (0, 2), (1, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p002",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 6(1/2)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 6(1/2)ˣ through (0, 6), (1, 3)",
+   "solutionSteps": [
+    "At x = 0, y = a = 6, so (0, 6) is on the graph.",
+    "Each step right multiplies y by 1/2: (0, 6), (1, 3).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "6",
+     "b": "1/2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "6"
+       ],
+       [
+        1,
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "6"
+         ],
+         [
+          1,
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "6"
+         ],
+         [
+          0,
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p002.png",
+     "alt": "Coordinate grid with the exponential curve y = 6(1/2)ˣ through (0, 6), (1, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p003",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 8(1/4)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 8(1/4)ˣ through (0, 8), (1, 2)",
+   "solutionSteps": [
+    "At x = 0, y = a = 8, so (0, 8) is on the graph.",
+    "Each step right multiplies y by 1/4: (0, 8), (1, 2).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "8",
+     "b": "1/4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "8"
+       ],
+       [
+        1,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "8"
+         ],
+         [
+          1,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "8"
+         ],
+         [
+          0,
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p003.png",
+     "alt": "Coordinate grid with the exponential curve y = 8(1/4)ˣ through (0, 8), (1, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p004",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 4(2)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 4(2)ˣ through (-2, 1), (-1, 2), (0, 4), (1, 8)",
+   "solutionSteps": [
+    "At x = 0, y = a = 4, so (0, 4) is on the graph.",
+    "Each step right multiplies y by 2: (0, 4), (1, 8).",
+    "The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        "1"
+       ],
+       [
+        -1,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          "1"
+         ],
+         [
+          -1,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          "1"
+         ],
+         [
+          -2,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p004.png",
+     "alt": "Coordinate grid with the exponential curve y = 4(2)ˣ through (-2, 1), (-1, 2), (0, 4), (1, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p005",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 3(1/3)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 3(1/3)ˣ through (0, 3), (1, 1)",
+   "solutionSteps": [
+    "At x = 0, y = a = 3, so (0, 3) is on the graph.",
+    "Each step right multiplies y by 1/3: (0, 3), (1, 1).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "b": "1/3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "3"
+       ],
+       [
+        1,
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "3"
+         ],
+         [
+          1,
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "3"
+         ],
+         [
+          0,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p005.png",
+     "alt": "Coordinate grid with the exponential curve y = 3(1/3)ˣ through (0, 3), (1, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p006",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 6(1/3)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 6(1/3)ˣ through (0, 6), (1, 2)",
+   "solutionSteps": [
+    "At x = 0, y = a = 6, so (0, 6) is on the graph.",
+    "Each step right multiplies y by 1/3: (0, 6), (1, 2).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "6",
+     "b": "1/3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "6"
+       ],
+       [
+        1,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "6"
+         ],
+         [
+          1,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "6"
+         ],
+         [
+          0,
+          "6"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p006.png",
+     "alt": "Coordinate grid with the exponential curve y = 6(1/3)ˣ through (0, 6), (1, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p007",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 4(1/4)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 4(1/4)ˣ through (0, 4), (1, 1)",
+   "solutionSteps": [
+    "At x = 0, y = a = 4, so (0, 4) is on the graph.",
+    "Each step right multiplies y by 1/4: (0, 4), (1, 1).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "4",
+     "b": "1/4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "4"
+       ],
+       [
+        1,
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "4"
+         ],
+         [
+          1,
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "4"
+         ],
+         [
+          0,
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p007.png",
+     "alt": "Coordinate grid with the exponential curve y = 4(1/4)ˣ through (0, 4), (1, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-cp1-p008",
+   "skillId": "exponential-functions-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 5(1/5)ˣ. Drag two points that are on the graph (use whole-number x-values).",
+   "answer": "y = 5(1/5)ˣ through (0, 5), (1, 1)",
+   "solutionSteps": [
+    "At x = 0, y = a = 5, so (0, 5) is on the graph.",
+    "Each step right multiplies y by 1/5: (0, 5), (1, 1).",
+    "The graph falls and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "5",
+     "b": "1/5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        "5"
+       ],
+       [
+        1,
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "5"
+         ],
+         [
+          1,
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          "5"
+         ],
+         [
+          0,
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-cp1-p008.png",
+     "alt": "Coordinate grid with the exponential curve y = 5(1/5)ˣ through (0, 5), (1, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p003",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/2)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/2)ˣ through (-3, 8), (-2, 4), (-1, 2), (0, 1)",
+   "solutionSteps": [
+    "At x = 0, y = 1, so (0, 1) is on the graph.",
+    "Each step right multiplies y by 1/2, so the next y-values are fractions. Step LEFT instead: each step left multiplies y by 2.",
+    "Points: (-3, 8), (-2, 4), (-1, 2), (0, 1). The graph falls from left to right and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        "8"
+       ],
+       [
+        -2,
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          "8"
+         ],
+         [
+          -2,
+          "5"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          "8"
+         ],
+         [
+          -3,
+          "8"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p003.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/2)ˣ through (-3, 8), (-2, 4), (-1, 2), (0, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p004",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/3)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/3)ˣ through (-1, 3), (0, 1)",
+   "solutionSteps": [
+    "At x = 0, y = 1, so (0, 1) is on the graph.",
+    "Each step right multiplies y by 1/3, so the next y-values are fractions. Step LEFT instead: each step left multiplies y by 3.",
+    "Points: (-1, 3), (0, 1). The graph falls from left to right and approaches the x-axis on the right."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "b": "1/3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        "3"
+       ],
+       [
+        0,
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          "3"
+         ],
+         [
+          0,
+          "2"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          "3"
+         ],
+         [
+          -1,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p004.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/3)ˣ through (-1, 3), (0, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p005",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/2)(2)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/2)(2)ˣ through (1, 1), (2, 2), (3, 4), (4, 8)",
+   "solutionSteps": [
+    "At x = 0, y = 1/2, which is not on a grid point, so look for x-values that give whole-number y-values.",
+    "y = 1/2 · 2ˣ: x = 1 gives y = 1; x = 2 gives y = 2; x = 3 gives y = 4; x = 4 gives y = 8.",
+    "Plot two of these, such as (1, 1) and (2, 2). The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/2",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        "1"
+       ],
+       [
+        2,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          "1"
+         ],
+         [
+          2,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          "1"
+         ],
+         [
+          1,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p005.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/2)(2)ˣ through (1, 1), (2, 2), (3, 4), (4, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p006",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/4)(2)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/4)(2)ˣ through (2, 1), (3, 2), (4, 4), (5, 8)",
+   "solutionSteps": [
+    "At x = 0, y = 1/4, which is not on a grid point, so look for x-values that give whole-number y-values.",
+    "y = 1/4 · 2ˣ: x = 2 gives y = 1; x = 3 gives y = 2; x = 4 gives y = 4; x = 5 gives y = 8.",
+    "Plot two of these, such as (2, 1) and (3, 2). The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/4",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        2,
+        "1"
+       ],
+       [
+        3,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          "1"
+         ],
+         [
+          3,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          "1"
+         ],
+         [
+          2,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p006.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/4)(2)ˣ through (2, 1), (3, 2), (4, 4), (5, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p007",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/3)(3)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/3)(3)ˣ through (1, 1), (2, 3)",
+   "solutionSteps": [
+    "At x = 0, y = 1/3, which is not on a grid point, so look for x-values that give whole-number y-values.",
+    "y = 1/3 · 3ˣ: x = 1 gives y = 1; x = 2 gives y = 3.",
+    "Plot two of these, such as (1, 1) and (2, 3). The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/3",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        "1"
+       ],
+       [
+        2,
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          "1"
+         ],
+         [
+          2,
+          "4"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          "1"
+         ],
+         [
+          1,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p007.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/3)(3)ˣ through (1, 1), (2, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-exp-s02-honors-p008",
+   "skillId": "exponential-functions-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = (1/8)(2)ˣ. Drag two points that are on the graph (use integer x-values).",
+   "answer": "y = (1/8)(2)ˣ through (3, 1), (4, 2), (5, 4), (6, 8)",
+   "solutionSteps": [
+    "At x = 0, y = 1/8, which is not on a grid point, so look for x-values that give whole-number y-values.",
+    "y = 1/8 · 2ˣ: x = 3 gives y = 1; x = 4 gives y = 2; x = 5 gives y = 4; x = 6 gives y = 8.",
+    "Plot two of these, such as (3, 1) and (4, 2). The graph rises and approaches the x-axis on the left."
+   ],
+   "standards": [
+    "F-IF.C.7e",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-exponential). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-16-thin-skills. Teacher reviewed 2026-11-16.",
+   "plot": {
+    "tool": "exponential",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/8",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "points-off-curve": "Substitute your x-values into the equation and check the y-values."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        "1"
+       ],
+       [
+        4,
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          "1"
+         ],
+         [
+          4,
+          "3"
+         ]
+        ]
+       },
+       "expectCode": "points-off-curve"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          "1"
+         ],
+         [
+          3,
+          "1"
+         ]
+        ]
+       },
+       "expectCode": "same-point"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/alg1-exp-s02-honors-p008.png",
+     "alt": "Coordinate grid with the exponential curve y = (1/8)(2)ˣ through (3, 1), (4, 2), (5, 4), (6, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }
