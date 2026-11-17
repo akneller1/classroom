@@ -47,6 +47,12 @@ for(let c=1;c<=7;c++)for(let seed=0;seed<15;seed++){
   const x=Number(/x=(\d+)/.exec(p.parts[0].answer)[1]);
   const evaluate=t=>Function('x','return '+t.replace(/(\d)(x|\()/g,'$1*$2'))(x);
   assert.equal(evaluate(expressions[0]),evaluate(expressions[1]));assert.ok(evaluate(expressions[0])>0);
+  for (const expression of expressions) {
+   const changed=JSON.parse(JSON.stringify(p));
+   changed.prompt=changed.prompt.replace('⟨'+expression+'⟩','⟨'+expression.replace(/\d+/,n=>String(Number(n)+1))+'⟩');
+   assert.ok(!M.verifyProblem(changed,{intOnly:false,level:'honors'}).ok,'a changed printed leg must invalidate the key');
+  }
+
   if(c>=6)assert.ok(expressions[0].includes('('));if(c===7)assert.ok(expressions[1].includes('('));
  }
 }
