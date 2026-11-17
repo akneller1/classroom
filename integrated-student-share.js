@@ -33,7 +33,7 @@ function open(resource){
  const inputs=skills.map(function(skill){const label=doc.createElement('label');label.style.cssText='display:flex;align-items:baseline;gap:10px;padding:7px 3px;cursor:pointer';const input=doc.createElement('input');input.type='checkbox';input.checked=true;input.value=skill.id;input.style.cssText='width:18px;height:18px;flex:none';label.append(input,doc.createTextNode(skill.name));fieldset.appendChild(label);return input;});
  dialog.appendChild(fieldset);
  let level=null;
- if(/^grade[1-5]$/.test(resource.courseId)){
+ if(/^grade[1-5]$/.test(resource.courseId)||resource.courseId==='financial-algebra'){   // Financial Algebra has three levels too (2026-11-17)
   const label=doc.createElement('label');label.textContent='Student level ';label.style.cssText='display:block;font-weight:700;margin:14px 0';
   level=doc.createElement('select');level.style.cssText='display:block;padding:9px;margin:5px 0;width:100%;max-width:260px';
   [['cp2','Support'],['cp1','Standard'],['honors','Advanced']].forEach(function(pair){const o=doc.createElement('option');o.value=pair[0];o.textContent=pair[1];o.selected=pair[0]==='cp1';level.appendChild(o);});
