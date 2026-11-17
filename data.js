@@ -5382,6 +5382,30 @@ window.LIBRARY = {
                 "Basics & Reasoning"
               ],
               "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -5593,1024 +5617,30 @@ window.LIBRARY = {
                 "Angles & Parallel Lines"
               ],
               "added": "2026-10-28"
-            }
-          ]
-        },
-        {
-          "id": "triangle-congruence",
-          "name": "Triangle Congruence",
-          "artifacts": [
-            {
-              "title": "Practice Test",
-              "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
-              "thumb": "thumbs/practice-test.svg",
-              "description": "A Triangles & Congruence readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
-              "type": "Study Guide",
-              "added": "2026-10-28"
             },
             {
-              "title": "Daily Lesson Planner",
-              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangles-congruence",
-              "thumb": "thumbs/lesson-planner-geometry.svg",
-              "description": "Day-by-day lesson plans for Geometry, including Triangles & Congruence: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
-              "type": "Planning",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Worksheet Generator",
-              "path": "worksheet-generator/worksheet.html#unit=geometry-triangles-congruence",
-              "thumb": "thumbs/geometry-worksheet-generator-triangles-congruence.svg",
-              "description": "Differentiated Triangles & Congruence worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
-              "type": "Practice",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangles-congruence",
-              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
-              "description": "Build Triangles & Congruence quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
-              "type": "Printable",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Triangle Congruence Proofs",
-              "path": "artifacts/geometry-congruence-proofs/index.html",
-              "thumb": "thumbs/geometry-congruence-proofs.jpg",
-              "description": "Twelve two-column proofs on accurate generated diagrams that build from drag-and-drop statements, to reasons, to both, to written proofs and CPCTC. Every row is checked instantly; New set makes a fresh set, and teachers can print the worksheet and key.",
-              "type": "Practice",
-              "topics": [
-                "SSS",
-                "SAS",
-                "ASA",
-                "AAS",
-                "HL",
-                "CPCTC",
-                "Two-column proofs"
-              ],
-              "added": "2026-11-01"
-            },
-            {
-              "title": "Triangles & Congruence Flashcards",
-              "path": "artifacts/triangles-congruence-flashcards/index.html",
-              "description": "Generated congruence flashcards (matching parts, SSS, SAS, ASA, AAS, HL and proofs) with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
-              "type": "Practice",
-              "added": "2026-10-28",
-              "thumb": "thumbs/triangles-congruence-flashcards.jpg"
-            },
-            {
-              "title": "Congruence Four",
-              "path": "artifacts/triangles-congruence-connect-four/index.html",
-              "description": "Connect Four for two teams on Triangles & Congruence. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/triangles-congruence-connect-four.jpg"
-            },
-            {
-              "title": "Triangles & Congruence Picture Reveal",
-              "path": "artifacts/triangles-congruence-picture-reveal/index.html",
-              "description": "Ten typed problems on Triangles & Congruence. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
-              "type": "Game",
-              "topics": [
-                "classifying triangles, angle sums, isosceles triangles and side–angle relationships"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg"
-            },
-            {
-              "title": "Triangles Showdown",
-              "path": "artifacts/triangles-congruence-showdown/index.html",
-              "description": "A game board for Triangles & Congruence: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
-              "type": "Game",
-              "topics": [
-                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/triangles-congruence-showdown.jpg"
-            },
-            {
-              "title": "The Pyramid Puzzle",
-              "path": "artifacts/triangles-congruence-pyramid-puzzle/index.html",
-              "thumb": "thumbs/triangles-congruence-pyramid-puzzle.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Congruence rules",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Triangles & Congruence Tic-Tac-Toe",
-              "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
-              "description": "Tic-Tac-Toe for two teams on Triangles & Congruence. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
-                "Team game"
-              ],
-              "added": "2026-10-21",
-              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg"
-            },
-            {
-              "title": "Lockdown at the Robot Factory",
-              "path": "artifacts/triangles-congruence-escape-room/index.html",
-              "thumb": "thumbs/triangles-congruence-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Triangle Congruence Cheat Sheet",
-              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet for Triangles & Congruence. Front: classifying triangles, angle sums, isosceles triangles and side–angle relationships. Back: congruence shortcuts, CPCTC and two-column proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Triangles & Congruence",
-                "Unit 3"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Color by Number Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=color",
-              "thumb": "thumbs/geometry-color-generator-triangles-congruence.svg",
-              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
                 "Printable generator",
-                "Triangles & Congruence"
+                "Angles & Parallel Lines"
               ],
-              "added": "2026-10-28"
+              "added": "2026-11-17"
             },
             {
-              "title": "Error Analysis Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=error",
-              "thumb": "thumbs/geometry-error-generator-triangles-congruence.svg",
-              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
                 "Printable generator",
-                "Triangles & Congruence"
+                "Angles & Parallel Lines"
               ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Partner Check Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=partner",
-              "thumb": "thumbs/geometry-partner-generator-triangles-congruence.svg",
-              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangles & Congruence"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Whodunnit Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=who",
-              "thumb": "thumbs/geometry-who-generator-triangles-congruence.svg",
-              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangles & Congruence"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Stations Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=stations",
-              "thumb": "thumbs/geometry-stations-generator-triangles-congruence.svg",
-              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangles & Congruence"
-              ],
-              "added": "2026-10-28"
-            }
-          ]
-        },
-        {
-          "id": "triangle-relationships",
-          "name": "Triangle Relationships",
-          "artifacts": [
-            {
-              "title": "Starlight Observatory: Locked Under the Stars",
-              "path": "artifacts/triangle-relationships-escape-room/index.html",
-              "thumb": "thumbs/triangle-relationships-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
-              "type": "Game",
-              "topics": [
-                "Triangle relationships",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "The Harbor Museum Compass Caper",
-              "path": "artifacts/triangle-relationships-harbor-museum-caper/index.html",
-              "thumb": "thumbs/triangle-relationships-harbor-museum-caper.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Triangle relationships",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Practice Test",
-              "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
-              "thumb": "thumbs/practice-test.svg",
-              "description": "A Triangle Relationships readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
-              "type": "Study Guide",
-              "added": "2026-10-27"
-            },
-            {
-              "title": "Daily Lesson Planner",
-              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangle-relationships",
-              "thumb": "thumbs/lesson-planner-geometry.svg",
-              "description": "Day-by-day lesson plans for Geometry, including Triangle Relationships: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
-              "type": "Planning",
-              "added": "2026-10-27"
-            },
-            {
-              "title": "Worksheet Generator",
-              "path": "worksheet-generator/worksheet.html#unit=geometry-triangle-relationships",
-              "thumb": "thumbs/geometry-worksheet-generator-triangle-relationships.svg",
-              "description": "Differentiated Triangle Relationships worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
-              "type": "Practice",
-              "added": "2026-10-27"
-            },
-            {
-              "title": "Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangle-relationships",
-              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
-              "description": "Build Triangle Relationships quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
-              "type": "Printable",
-              "added": "2026-10-27"
-            },
-            {
-              "title": "Triangle Relationships Flashcards",
-              "path": "artifacts/triangle-relationships-flashcards/index.html",
-              "description": "Generated triangle angle-sum, exterior-angle, and isosceles-angle flashcards with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
-              "type": "Practice",
-              "added": "2026-10-18",
-              "thumb": "thumbs/triangle-relationships-flashcards.jpg"
-            },
-            {
-              "title": "Triangle Relationships Showdown",
-              "path": "artifacts/triangle-relationships-showdown/index.html",
-              "description": "A game board for Triangle Relationships: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
-              "type": "Game",
-              "topics": [
-                "angle facts, inequalities and special segments in triangles",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/triangle-relationships-showdown.jpg"
-            },
-            {
-              "title": "Triangle Relationships Four",
-              "path": "artifacts/triangle-relationships-connect-four/index.html",
-              "description": "Connect Four for two teams on Triangle Relationships. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "angle facts, inequalities and special segments in triangles",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/triangle-relationships-connect-four.jpg"
-            },
-            {
-              "title": "Triangle Relationships Tic-Tac-Toe",
-              "path": "artifacts/triangle-relationships-tic-tac-toe/index.html",
-              "description": "Tic-Tac-Toe for two teams on Triangle Relationships. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "angle facts, inequalities and special segments in triangles",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/triangle-relationships-tic-tac-toe.jpg"
-            },
-            {
-              "title": "Triangle Relationships Picture Reveal",
-              "path": "artifacts/triangle-relationships-picture-reveal/index.html",
-              "description": "Ten typed problems on Triangle Relationships. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
-              "type": "Game",
-              "topics": [
-                "angle facts, inequalities and special segments in triangles"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/triangle-relationships-picture-reveal.jpg"
-            },
-            {
-              "title": "Triangle Relationships Cheat Sheet",
-              "path": "artifacts/geometry-triangle-relationships-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangle-relationships-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet for Triangle Relationships. Front: angle facts, inequalities and special segments in triangles. Back: midsegments, medians, bisectors, altitudes and points of concurrency. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Triangle Relationships",
-                "Unit 4"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Color by Number Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=color",
-              "thumb": "thumbs/geometry-color-generator-triangle-relationships.svg",
-              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangle Relationships"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Error Analysis Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=error",
-              "thumb": "thumbs/geometry-error-generator-triangle-relationships.svg",
-              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangle Relationships"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Partner Check Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=partner",
-              "thumb": "thumbs/geometry-partner-generator-triangle-relationships.svg",
-              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangle Relationships"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Whodunnit Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=who",
-              "thumb": "thumbs/geometry-who-generator-triangle-relationships.svg",
-              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangle Relationships"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Stations Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=stations",
-              "thumb": "thumbs/geometry-stations-generator-triangle-relationships.svg",
-              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Triangle Relationships"
-              ],
-              "added": "2026-10-28"
-            }
-          ]
-        },
-        {
-          "id": "similarity",
-          "name": "Similarity",
-          "artifacts": [
-            {
-              "title": "Practice Test",
-              "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
-              "thumb": "thumbs/practice-test.svg",
-              "description": "A Similarity readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
-              "type": "Study Guide",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Daily Lesson Planner",
-              "path": "worksheet-generator/lesson-planner.html#unit=geometry-similarity",
-              "thumb": "thumbs/lesson-planner-geometry.svg",
-              "description": "Day-by-day lesson plans for Geometry, including Similarity: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
-              "type": "Planning",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Worksheet Generator",
-              "path": "worksheet-generator/worksheet.html#unit=geometry-similarity",
-              "thumb": "thumbs/geometry-worksheet-generator-similarity.svg",
-              "description": "Differentiated Similarity worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
-              "type": "Practice",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=geometry-similarity",
-              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
-              "description": "Build Similarity quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
-              "type": "Printable",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Similarity Four",
-              "path": "artifacts/similarity-connect-four/index.html",
-              "description": "Connect Four for two teams on Similarity. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Scale factor and proportions",
-                "AA, SAS~ and SSS~",
-                "Triangle proportionality theorem",
-                "Perimeter, area and indirect measurement",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/similarity-connect-four.jpg"
-            },
-            {
-              "title": "Similarity Flashcards",
-              "path": "artifacts/similarity-flashcards/index.html",
-              "thumb": "thumbs/similarity-flashcards.jpg",
-              "description": "25 flashcards with worked solutions on similar figures and scale factor, AA, SAS and SSS similarity, similar triangles inside triangles, the Triangle Proportionality Theorem, perimeter and area ratios, and indirect measurement. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Scale factor and proportions",
-                "AA, SAS~ and SSS~",
-                "Triangle proportionality theorem",
-                "Perimeter, area and indirect measurement"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Similarity Picture Reveal",
-              "path": "artifacts/similarity-picture-reveal/index.html",
-              "description": "Ten typed problems on Similarity. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
-              "type": "Game",
-              "topics": [
-                "Scale factor and proportions",
-                "AA, SAS~ and SSS~",
-                "Triangle proportionality theorem",
-                "Perimeter, area and indirect measurement"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/similarity-picture-reveal.jpg"
-            },
-            {
-              "title": "Similarity Showdown",
-              "path": "artifacts/similarity-showdown/index.html",
-              "description": "A game board for Similarity: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
-              "type": "Game",
-              "topics": [
-                "Scale factor and proportions",
-                "AA, SAS~ and SSS~",
-                "Triangle proportionality theorem",
-                "Perimeter, area and indirect measurement",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/similarity-showdown.jpg"
-            },
-            {
-              "title": "The Toy Workshop Theft",
-              "path": "artifacts/similarity-toy-workshop-theft/index.html",
-              "thumb": "thumbs/similarity-toy-workshop-theft.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Similar figures",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Similarity Tic-Tac-Toe",
-              "path": "artifacts/similarity-tic-tac-toe/index.html",
-              "description": "Tic-Tac-Toe for two teams on Similarity. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Scale factor and proportions",
-                "AA, SAS~ and SSS~",
-                "Triangle proportionality theorem",
-                "Perimeter, area and indirect measurement",
-                "Team game"
-              ],
-              "added": "2026-10-21",
-              "thumb": "thumbs/similarity-tic-tac-toe.jpg"
-            },
-            {
-              "title": "The Shrink-Ray Workshop",
-              "path": "artifacts/similarity-escape-room/index.html",
-              "thumb": "thumbs/similarity-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Ratios and proportions",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Similarity Cheat Sheet",
-              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet for Similarity. Front: scale factors, similar figures and proportions. Back: similarity criteria, dilations, area and indirect measurement. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Similarity",
-                "Unit 5"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Color by Number Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=color",
-              "thumb": "thumbs/geometry-color-generator-similarity.svg",
-              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Similarity"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Error Analysis Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=error",
-              "thumb": "thumbs/geometry-error-generator-similarity.svg",
-              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Similarity"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Partner Check Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=partner",
-              "thumb": "thumbs/geometry-partner-generator-similarity.svg",
-              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Similarity"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Whodunnit Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=who",
-              "thumb": "thumbs/geometry-who-generator-similarity.svg",
-              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Similarity"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Stations Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=stations",
-              "thumb": "thumbs/geometry-stations-generator-similarity.svg",
-              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Similarity"
-              ],
-              "added": "2026-10-28"
-            }
-          ]
-        },
-        {
-          "id": "right-triangles-trigonometry",
-          "name": "Right Triangles and Trigonometry",
-          "artifacts": [
-            {
-              "title": "Practice Test",
-              "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
-              "thumb": "thumbs/practice-test.svg",
-              "description": "A Right Triangles & Trigonometry readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
-              "type": "Study Guide",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Daily Lesson Planner",
-              "path": "worksheet-generator/lesson-planner.html#unit=geometry-right-triangles-trigonometry",
-              "thumb": "thumbs/lesson-planner-geometry.svg",
-              "description": "Day-by-day lesson plans for Geometry, including Right Triangles & Trigonometry: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
-              "type": "Planning",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Worksheet Generator",
-              "path": "worksheet-generator/worksheet.html#unit=geometry-right-triangles-trigonometry",
-              "thumb": "thumbs/geometry-worksheet-generator-right-triangles-trigonometry.svg",
-              "description": "Differentiated Right Triangles & Trigonometry worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
-              "type": "Practice",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=geometry-right-triangles-trigonometry",
-              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
-              "description": "Build Right Triangles & Trigonometry quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
-              "type": "Printable",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Trig Four",
-              "path": "artifacts/right-triangles-trigonometry-connect-four/index.html",
-              "description": "Connect Four for two teams on Right Triangles & Trigonometry. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Special right triangles",
-                "Sine, cosine and tangent",
-                "Elevation and depression",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/right-triangles-trigonometry-connect-four.jpg"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Flashcards",
-              "path": "artifacts/right-triangles-trigonometry-flashcards/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-flashcards.jpg",
-              "description": "25 flashcards with worked solutions on the Pythagorean Theorem and its converse, Pythagorean triples, special right triangles, sine, cosine and tangent, finding sides and angles, and angles of elevation and depression. Decimal answers are rounded to one decimal place.",
-              "type": "Practice",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Special right triangles",
-                "Sine, cosine and tangent",
-                "Elevation and depression"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Picture Reveal",
-              "path": "artifacts/right-triangles-trigonometry-picture-reveal/index.html",
-              "description": "Ten typed problems on Right Triangles & Trigonometry. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
-              "type": "Game",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Special right triangles",
-                "Sine, cosine and tangent",
-                "Elevation and depression"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/right-triangles-trigonometry-picture-reveal.jpg"
-            },
-            {
-              "title": "Right Triangles Showdown",
-              "path": "artifacts/right-triangles-trigonometry-showdown/index.html",
-              "description": "A game board for Right Triangles & Trigonometry: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
-              "type": "Game",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Special right triangles",
-                "Sine, cosine and tangent",
-                "Elevation and depression",
-                "Team game"
-              ],
-              "added": "2026-10-18",
-              "thumb": "thumbs/right-triangles-trigonometry-showdown.jpg"
-            },
-            {
-              "title": "The Lighthouse Lantern Mystery",
-              "path": "artifacts/right-triangles-trigonometry-lighthouse-lantern-mystery/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-lighthouse-lantern-mystery.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Right triangle trig",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Right Triangles & Trig Tic-Tac-Toe",
-              "path": "artifacts/right-triangles-trigonometry-tic-tac-toe/index.html",
-              "description": "Tic-Tac-Toe for two teams on Right Triangles & Trigonometry. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Special right triangles",
-                "Sine, cosine and tangent",
-                "Elevation and depression",
-                "Team game"
-              ],
-              "added": "2026-10-21",
-              "thumb": "thumbs/right-triangles-trigonometry-tic-tac-toe.jpg"
-            },
-            {
-              "title": "Rotor Rescue: Summit Mission",
-              "path": "artifacts/right-triangles-trigonometry-escape-room/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Cheat Sheet",
-              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet for Right Triangles & Trigonometry. Front: the Pythagorean Theorem, special right triangles and trig ratios. Back: finding sides and angles with SOH-CAH-TOA, elevation and depression. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Right Triangles & Trigonometry",
-                "Unit 6"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Color by Number Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=color",
-              "thumb": "thumbs/geometry-color-generator-right-triangles-trigonometry.svg",
-              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Error Analysis Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=error",
-              "thumb": "thumbs/geometry-error-generator-right-triangles-trigonometry.svg",
-              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Partner Check Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=partner",
-              "thumb": "thumbs/geometry-partner-generator-right-triangles-trigonometry.svg",
-              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Whodunnit Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=who",
-              "thumb": "thumbs/geometry-who-generator-right-triangles-trigonometry.svg",
-              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Stations Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=stations",
-              "thumb": "thumbs/geometry-stations-generator-right-triangles-trigonometry.svg",
-              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-28"
-            }
-          ]
-        },
-        {
-          "id": "quadrilaterals-polygons",
-          "name": "Quadrilaterals and Polygons",
-          "artifacts": [
-            {
-              "title": "Lockdown at the Tile Factory",
-              "path": "artifacts/quadrilaterals-polygons-escape-room/index.html",
-              "thumb": "thumbs/quadrilaterals-polygons-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
-              "type": "Game",
-              "topics": [
-                "Quadrilaterals and polygons",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "The Mosaic Gallery Heist",
-              "path": "artifacts/quadrilaterals-polygons-mosaic-gallery-heist/index.html",
-              "thumb": "thumbs/quadrilaterals-polygons-mosaic-gallery-heist.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Quadrilaterals and polygons",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Practice Test",
-              "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",
-              "thumb": "thumbs/practice-test.svg",
-              "description": "A Quadrilaterals & Polygons readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
-              "type": "Study Guide",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Daily Lesson Planner",
-              "path": "worksheet-generator/lesson-planner.html#unit=geometry-quadrilaterals-polygons",
-              "thumb": "thumbs/lesson-planner-geometry.svg",
-              "description": "Day-by-day lesson plans for Geometry, including Quadrilaterals & Polygons: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
-              "type": "Planning",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Worksheet Generator",
-              "path": "worksheet-generator/worksheet.html#unit=geometry-quadrilaterals-polygons",
-              "thumb": "thumbs/geometry-worksheet-generator-quadrilaterals-polygons.svg",
-              "description": "Differentiated Quadrilaterals & Polygons worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
-              "type": "Practice",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=geometry-quadrilaterals-polygons",
-              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
-              "description": "Build Quadrilaterals & Polygons quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
-              "type": "Printable",
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Flashcards",
-              "path": "artifacts/quadrilaterals-polygons-flashcards/index.html",
-              "description": "Generated polygon-angle and parallelogram flashcards with Easy, Medium, and Hard difficulty, skill selection, and practice tracking.",
-              "type": "Practice",
-              "added": "2026-10-27",
-              "thumb": "thumbs/quadrilaterals-polygons-flashcards.jpg"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Showdown",
-              "path": "artifacts/quadrilaterals-polygons-showdown/index.html",
-              "description": "A game board for Quadrilaterals & Polygons: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
-              "type": "Game",
-              "topics": [
-                "polygon angle sums and the properties of quadrilaterals",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/quadrilaterals-polygons-showdown.jpg"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Four",
-              "path": "artifacts/quadrilaterals-polygons-connect-four/index.html",
-              "description": "Connect Four for two teams on Quadrilaterals & Polygons. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "polygon angle sums and the properties of quadrilaterals",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/quadrilaterals-polygons-connect-four.jpg"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Tic-Tac-Toe",
-              "path": "artifacts/quadrilaterals-polygons-tic-tac-toe/index.html",
-              "description": "Tic-Tac-Toe for two teams on Quadrilaterals & Polygons. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "polygon angle sums and the properties of quadrilaterals",
-                "Team game"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/quadrilaterals-polygons-tic-tac-toe.jpg"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Picture Reveal",
-              "path": "artifacts/quadrilaterals-polygons-picture-reveal/index.html",
-              "description": "Ten typed problems on Quadrilaterals & Polygons. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
-              "type": "Game",
-              "topics": [
-                "polygon angle sums and the properties of quadrilaterals"
-              ],
-              "added": "2026-10-28",
-              "thumb": "thumbs/quadrilaterals-polygons-picture-reveal.jpg"
-            },
-            {
-              "title": "Quadrilaterals & Polygons Cheat Sheet",
-              "path": "artifacts/geometry-quadrilaterals-polygons-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-quadrilaterals-polygons-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet for Quadrilaterals & Polygons. Front: polygon angle sums and the properties of quadrilaterals. Back: parallelograms, rectangles, rhombuses, trapezoids, kites and coordinate proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Quadrilaterals & Polygons",
-                "Unit 7"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Color by Number Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=color",
-              "thumb": "thumbs/geometry-color-generator-quadrilaterals-polygons.svg",
-              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Quadrilaterals & Polygons"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Error Analysis Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=error",
-              "thumb": "thumbs/geometry-error-generator-quadrilaterals-polygons.svg",
-              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Quadrilaterals & Polygons"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Partner Check Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=partner",
-              "thumb": "thumbs/geometry-partner-generator-quadrilaterals-polygons.svg",
-              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Quadrilaterals & Polygons"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Whodunnit Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=who",
-              "thumb": "thumbs/geometry-who-generator-quadrilaterals-polygons.svg",
-              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Quadrilaterals & Polygons"
-              ],
-              "added": "2026-10-28"
-            },
-            {
-              "title": "Stations Generator",
-              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=stations",
-              "thumb": "thumbs/geometry-stations-generator-quadrilaterals-polygons.svg",
-              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
-              "type": "Printable",
-              "topics": [
-                "Printable generator",
-                "Quadrilaterals & Polygons"
-              ],
-              "added": "2026-10-28"
+              "added": "2026-11-17"
             }
           ]
         },
@@ -6772,7 +5802,7 @@ window.LIBRARY = {
                 "Cheat sheet",
                 "Reference",
                 "Transformations",
-                "Unit 8"
+                "Unit 3"
               ],
               "added": "2026-10-28"
             },
@@ -6835,6 +5865,1168 @@ window.LIBRARY = {
                 "Transformations"
               ],
               "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-11-17"
+            }
+          ]
+        },
+        {
+          "id": "triangle-congruence",
+          "name": "Triangle Congruence",
+          "artifacts": [
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Triangles & Congruence readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Triangles & Congruence: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/geometry-worksheet-generator-triangles-congruence.svg",
+              "description": "Differentiated Triangles & Congruence worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Triangles & Congruence quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Triangle Congruence Proofs",
+              "path": "artifacts/geometry-congruence-proofs/index.html",
+              "thumb": "thumbs/geometry-congruence-proofs.jpg",
+              "description": "Twelve two-column proofs on accurate generated diagrams that build from drag-and-drop statements, to reasons, to both, to written proofs and CPCTC. Every row is checked instantly; New set makes a fresh set, and teachers can print the worksheet and key.",
+              "type": "Practice",
+              "topics": [
+                "SSS",
+                "SAS",
+                "ASA",
+                "AAS",
+                "HL",
+                "CPCTC",
+                "Two-column proofs"
+              ],
+              "added": "2026-11-01"
+            },
+            {
+              "title": "Triangles & Congruence Flashcards",
+              "path": "artifacts/triangles-congruence-flashcards/index.html",
+              "description": "Generated congruence flashcards (matching parts, SSS, SAS, ASA, AAS, HL and proofs) with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
+              "type": "Practice",
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangles-congruence-flashcards.jpg"
+            },
+            {
+              "title": "Congruence Four",
+              "path": "artifacts/triangles-congruence-connect-four/index.html",
+              "description": "Connect Four for two teams on Triangles & Congruence. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-connect-four.jpg"
+            },
+            {
+              "title": "Triangles & Congruence Picture Reveal",
+              "path": "artifacts/triangles-congruence-picture-reveal/index.html",
+              "description": "Ten typed problems on Triangles & Congruence. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg"
+            },
+            {
+              "title": "Triangles Showdown",
+              "path": "artifacts/triangles-congruence-showdown/index.html",
+              "description": "A game board for Triangles & Congruence: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-showdown.jpg"
+            },
+            {
+              "title": "The Pyramid Puzzle",
+              "path": "artifacts/triangles-congruence-pyramid-puzzle/index.html",
+              "thumb": "thumbs/triangles-congruence-pyramid-puzzle.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Congruence rules",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Triangles & Congruence Tic-Tac-Toe",
+              "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Triangles & Congruence. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
+              ],
+              "added": "2026-10-21",
+              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Lockdown at the Robot Factory",
+              "path": "artifacts/triangles-congruence-escape-room/index.html",
+              "thumb": "thumbs/triangles-congruence-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Triangle inequality and angle sums",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Triangle Congruence Cheat Sheet",
+              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Triangles & Congruence. Front: classifying triangles, angle sums, isosceles triangles and side–angle relationships. Back: congruence shortcuts, CPCTC and two-column proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Triangles & Congruence",
+                "Unit 4"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=color",
+              "thumb": "thumbs/geometry-color-generator-triangles-congruence.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=error",
+              "thumb": "thumbs/geometry-error-generator-triangles-congruence.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-triangles-congruence.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=who",
+              "thumb": "thumbs/geometry-who-generator-triangles-congruence.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-triangles-congruence.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-11-17"
+            }
+          ]
+        },
+        {
+          "id": "triangle-relationships",
+          "name": "Triangle Relationships",
+          "artifacts": [
+            {
+              "title": "Starlight Observatory: Locked Under the Stars",
+              "path": "artifacts/triangle-relationships-escape-room/index.html",
+              "thumb": "thumbs/triangle-relationships-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "type": "Game",
+              "topics": [
+                "Triangle relationships",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "The Harbor Museum Compass Caper",
+              "path": "artifacts/triangle-relationships-harbor-museum-caper/index.html",
+              "thumb": "thumbs/triangle-relationships-harbor-museum-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Triangle relationships",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Triangle Relationships readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Triangle Relationships: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/geometry-worksheet-generator-triangle-relationships.svg",
+              "description": "Differentiated Triangle Relationships worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Triangle Relationships quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Triangle Relationships Flashcards",
+              "path": "artifacts/triangle-relationships-flashcards/index.html",
+              "description": "Generated triangle angle-sum, exterior-angle, and isosceles-angle flashcards with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
+              "type": "Practice",
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangle-relationships-flashcards.jpg"
+            },
+            {
+              "title": "Triangle Relationships Showdown",
+              "path": "artifacts/triangle-relationships-showdown/index.html",
+              "description": "A game board for Triangle Relationships: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-showdown.jpg"
+            },
+            {
+              "title": "Triangle Relationships Four",
+              "path": "artifacts/triangle-relationships-connect-four/index.html",
+              "description": "Connect Four for two teams on Triangle Relationships. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-connect-four.jpg"
+            },
+            {
+              "title": "Triangle Relationships Tic-Tac-Toe",
+              "path": "artifacts/triangle-relationships-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Triangle Relationships. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Triangle Relationships Picture Reveal",
+              "path": "artifacts/triangle-relationships-picture-reveal/index.html",
+              "description": "Ten typed problems on Triangle Relationships. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-picture-reveal.jpg"
+            },
+            {
+              "title": "Triangle Relationships Cheat Sheet",
+              "path": "artifacts/geometry-triangle-relationships-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangle-relationships-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Triangle Relationships. Front: angle facts, inequalities and special segments in triangles. Back: midsegments, medians, bisectors, altitudes and points of concurrency. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Triangle Relationships",
+                "Unit 5"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=color",
+              "thumb": "thumbs/geometry-color-generator-triangle-relationships.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=error",
+              "thumb": "thumbs/geometry-error-generator-triangle-relationships.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-triangle-relationships.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=who",
+              "thumb": "thumbs/geometry-who-generator-triangle-relationships.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-triangle-relationships.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-11-17"
+            }
+          ]
+        },
+        {
+          "id": "similarity",
+          "name": "Similarity",
+          "artifacts": [
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Similarity readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-similarity",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Similarity: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-similarity",
+              "thumb": "thumbs/geometry-worksheet-generator-similarity.svg",
+              "description": "Differentiated Similarity worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-similarity",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Similarity quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Similarity Four",
+              "path": "artifacts/similarity-connect-four/index.html",
+              "description": "Connect Four for two teams on Similarity. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-connect-four.jpg"
+            },
+            {
+              "title": "Similarity Flashcards",
+              "path": "artifacts/similarity-flashcards/index.html",
+              "thumb": "thumbs/similarity-flashcards.jpg",
+              "description": "25 flashcards with worked solutions on similar figures and scale factor, AA, SAS and SSS similarity, similar triangles inside triangles, the Triangle Proportionality Theorem, perimeter and area ratios, and indirect measurement. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Similarity Picture Reveal",
+              "path": "artifacts/similarity-picture-reveal/index.html",
+              "description": "Ten typed problems on Similarity. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-picture-reveal.jpg"
+            },
+            {
+              "title": "Similarity Showdown",
+              "path": "artifacts/similarity-showdown/index.html",
+              "description": "A game board for Similarity: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-showdown.jpg"
+            },
+            {
+              "title": "The Toy Workshop Theft",
+              "path": "artifacts/similarity-toy-workshop-theft/index.html",
+              "thumb": "thumbs/similarity-toy-workshop-theft.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Similar figures",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Similarity Tic-Tac-Toe",
+              "path": "artifacts/similarity-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Similarity. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
+              ],
+              "added": "2026-10-21",
+              "thumb": "thumbs/similarity-tic-tac-toe.jpg"
+            },
+            {
+              "title": "The Shrink-Ray Workshop",
+              "path": "artifacts/similarity-escape-room/index.html",
+              "thumb": "thumbs/similarity-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Ratios and proportions",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Similarity Cheat Sheet",
+              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-similarity-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Similarity. Front: scale factors, similar figures and proportions. Back: similarity criteria, dilations, area and indirect measurement. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Similarity",
+                "Unit 6"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=color",
+              "thumb": "thumbs/geometry-color-generator-similarity.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=error",
+              "thumb": "thumbs/geometry-error-generator-similarity.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-similarity.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=who",
+              "thumb": "thumbs/geometry-who-generator-similarity.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-similarity.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-11-17"
+            }
+          ]
+        },
+        {
+          "id": "right-triangles-trigonometry",
+          "name": "Right Triangles and Trigonometry",
+          "artifacts": [
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Right Triangles & Trigonometry readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Right Triangles & Trigonometry: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/geometry-worksheet-generator-right-triangles-trigonometry.svg",
+              "description": "Differentiated Right Triangles & Trigonometry worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Right Triangles & Trigonometry quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Trig Four",
+              "path": "artifacts/right-triangles-trigonometry-connect-four/index.html",
+              "description": "Connect Four for two teams on Right Triangles & Trigonometry. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-connect-four.jpg"
+            },
+            {
+              "title": "Right Triangles & Trigonometry Flashcards",
+              "path": "artifacts/right-triangles-trigonometry-flashcards/index.html",
+              "thumb": "thumbs/right-triangles-trigonometry-flashcards.jpg",
+              "description": "25 flashcards with worked solutions on the Pythagorean Theorem and its converse, Pythagorean triples, special right triangles, sine, cosine and tangent, finding sides and angles, and angles of elevation and depression. Decimal answers are rounded to one decimal place.",
+              "type": "Practice",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Right Triangles & Trigonometry Picture Reveal",
+              "path": "artifacts/right-triangles-trigonometry-picture-reveal/index.html",
+              "description": "Ten typed problems on Right Triangles & Trigonometry. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-picture-reveal.jpg"
+            },
+            {
+              "title": "Right Triangles Showdown",
+              "path": "artifacts/right-triangles-trigonometry-showdown/index.html",
+              "description": "A game board for Right Triangles & Trigonometry: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-showdown.jpg"
+            },
+            {
+              "title": "The Lighthouse Lantern Mystery",
+              "path": "artifacts/right-triangles-trigonometry-lighthouse-lantern-mystery/index.html",
+              "thumb": "thumbs/right-triangles-trigonometry-lighthouse-lantern-mystery.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Right triangle trig",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Right Triangles & Trig Tic-Tac-Toe",
+              "path": "artifacts/right-triangles-trigonometry-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Right Triangles & Trigonometry. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression",
+                "Team game"
+              ],
+              "added": "2026-10-21",
+              "thumb": "thumbs/right-triangles-trigonometry-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Rotor Rescue: Summit Mission",
+              "path": "artifacts/right-triangles-trigonometry-escape-room/index.html",
+              "thumb": "thumbs/right-triangles-trigonometry-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Pythagorean Theorem and its converse",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Right Triangles & Trigonometry Cheat Sheet",
+              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Right Triangles & Trigonometry. Front: the Pythagorean Theorem, special right triangles and trig ratios. Back: finding sides and angles with SOH-CAH-TOA, elevation and depression. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Right Triangles & Trigonometry",
+                "Unit 7"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=color",
+              "thumb": "thumbs/geometry-color-generator-right-triangles-trigonometry.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=error",
+              "thumb": "thumbs/geometry-error-generator-right-triangles-trigonometry.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-right-triangles-trigonometry.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=who",
+              "thumb": "thumbs/geometry-who-generator-right-triangles-trigonometry.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-right-triangles-trigonometry.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-11-17"
+            }
+          ]
+        },
+        {
+          "id": "quadrilaterals-polygons",
+          "name": "Quadrilaterals and Polygons",
+          "artifacts": [
+            {
+              "title": "Lockdown at the Tile Factory",
+              "path": "artifacts/quadrilaterals-polygons-escape-room/index.html",
+              "thumb": "thumbs/quadrilaterals-polygons-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "type": "Game",
+              "topics": [
+                "Quadrilaterals and polygons",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "The Mosaic Gallery Heist",
+              "path": "artifacts/quadrilaterals-polygons-mosaic-gallery-heist/index.html",
+              "thumb": "thumbs/quadrilaterals-polygons-mosaic-gallery-heist.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Quadrilaterals and polygons",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Quadrilaterals & Polygons readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Quadrilaterals & Polygons: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/geometry-worksheet-generator-quadrilaterals-polygons.svg",
+              "description": "Differentiated Quadrilaterals & Polygons worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Quadrilaterals & Polygons quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Flashcards",
+              "path": "artifacts/quadrilaterals-polygons-flashcards/index.html",
+              "description": "Generated polygon-angle and parallelogram flashcards with Easy, Medium, and Hard difficulty, skill selection, and practice tracking.",
+              "type": "Practice",
+              "added": "2026-10-27",
+              "thumb": "thumbs/quadrilaterals-polygons-flashcards.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Showdown",
+              "path": "artifacts/quadrilaterals-polygons-showdown/index.html",
+              "description": "A game board for Quadrilaterals & Polygons: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-showdown.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Four",
+              "path": "artifacts/quadrilaterals-polygons-connect-four/index.html",
+              "description": "Connect Four for two teams on Quadrilaterals & Polygons. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-connect-four.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Tic-Tac-Toe",
+              "path": "artifacts/quadrilaterals-polygons-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Quadrilaterals & Polygons. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Picture Reveal",
+              "path": "artifacts/quadrilaterals-polygons-picture-reveal/index.html",
+              "description": "Ten typed problems on Quadrilaterals & Polygons. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-picture-reveal.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Cheat Sheet",
+              "path": "artifacts/geometry-quadrilaterals-polygons-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-quadrilaterals-polygons-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Quadrilaterals & Polygons. Front: polygon angle sums and the properties of quadrilaterals. Back: parallelograms, rectangles, rhombuses, trapezoids, kites and coordinate proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Quadrilaterals & Polygons",
+                "Unit 8"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=color",
+              "thumb": "thumbs/geometry-color-generator-quadrilaterals-polygons.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=error",
+              "thumb": "thumbs/geometry-error-generator-quadrilaterals-polygons.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-quadrilaterals-polygons.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=who",
+              "thumb": "thumbs/geometry-who-generator-quadrilaterals-polygons.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-quadrilaterals-polygons.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -7046,6 +7238,30 @@ window.LIBRARY = {
                 "Circles"
               ],
               "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -7257,6 +7473,30 @@ window.LIBRARY = {
                 "Area, Surface Area & Volume"
               ],
               "added": "2026-10-28"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-11-17"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-11-17"
             }
           ]
         }
@@ -7337,7 +7577,7 @@ window.LIBRARY = {
                     "Cheat sheet",
                     "Reference",
                     "Linear and Functional Relationships",
-                    "Unit 3"
+                    "Unit 4"
                   ],
                   "added": "2026-11-01"
                 }
@@ -7370,7 +7610,7 @@ window.LIBRARY = {
                     "Cheat sheet",
                     "Reference",
                     "Systems of Linear Equations",
-                    "Unit 4"
+                    "Unit 5"
                   ],
                   "added": "2026-11-01"
                 }
@@ -7390,7 +7630,7 @@ window.LIBRARY = {
                     "Cheat sheet",
                     "Reference",
                     "Patterns and Bivariate Data",
-                    "Unit 5"
+                    "Unit 6"
                   ],
                   "added": "2026-11-01"
                 }
@@ -7423,7 +7663,7 @@ window.LIBRARY = {
                     "Cheat sheet",
                     "Reference",
                     "Congruence and Similarity",
-                    "Unit 6"
+                    "Unit 7"
                   ],
                   "added": "2026-11-01"
                 }
@@ -7443,7 +7683,7 @@ window.LIBRARY = {
                     "Cheat sheet",
                     "Reference",
                     "Geometry",
-                    "Unit 7"
+                    "Unit 8"
                   ],
                   "added": "2026-11-01"
                 }
@@ -7859,7 +8099,7 @@ window.LIBRARY = {
 (function(G){
  var c=G.LIBRARY.courses.find(function(x){return x.id==='discrete';});if(!c)return;
  var P=[{"unit":"speaking-mathematically","a":{"title":"Partner Check 1: Speaking Mathematically","path":"artifacts/discrete-speaking-mathematically-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-speaking-mathematically-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Speaking Mathematically"],"added":"2026-11-09"}},{"unit":"speaking-mathematically","a":{"title":"Partner Check 2: Speaking Mathematically","path":"artifacts/discrete-speaking-mathematically-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-speaking-mathematically-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Speaking Mathematically"],"added":"2026-11-09"}},{"unit":"compound-statements-logic","a":{"title":"Partner Check 1: The Logic of Compound Statements","path":"artifacts/discrete-compound-statements-logic-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-compound-statements-logic-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","The Logic of Compound Statements"],"added":"2026-11-09"}},{"unit":"compound-statements-logic","a":{"title":"Partner Check 2: The Logic of Compound Statements","path":"artifacts/discrete-compound-statements-logic-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-compound-statements-logic-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","The Logic of Compound Statements"],"added":"2026-11-09"}},{"unit":"number-theory-proof","a":{"title":"Partner Check 1: Elementary Number Theory and Methods of Proof","path":"artifacts/discrete-number-theory-proof-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-number-theory-proof-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Elementary Number Theory and Methods of Proof"],"added":"2026-11-09"}},{"unit":"number-theory-proof","a":{"title":"Partner Check 2: Elementary Number Theory and Methods of Proof","path":"artifacts/discrete-number-theory-proof-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-number-theory-proof-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Elementary Number Theory and Methods of Proof"],"added":"2026-11-09"}},{"unit":"sequences-induction-recursion","a":{"title":"Partner Check 1: Sequences, Mathematical Induction, and Recursion","path":"artifacts/discrete-sequences-induction-recursion-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-sequences-induction-recursion-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Sequences, Mathematical Induction, and Recursion"],"added":"2026-11-09"}},{"unit":"sequences-induction-recursion","a":{"title":"Partner Check 2: Sequences, Mathematical Induction, and Recursion","path":"artifacts/discrete-sequences-induction-recursion-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-sequences-induction-recursion-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Sequences, Mathematical Induction, and Recursion"],"added":"2026-11-09"}},{"unit":"set-theory","a":{"title":"Partner Check 1: Set Theory","path":"artifacts/discrete-set-theory-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-set-theory-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Set Theory"],"added":"2026-11-09"}},{"unit":"set-theory","a":{"title":"Partner Check 2: Set Theory","path":"artifacts/discrete-set-theory-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-set-theory-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Set Theory"],"added":"2026-11-09"}},{"unit":"properties-relations","a":{"title":"Partner Check 1: Properties of Relations","path":"artifacts/discrete-properties-relations-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-properties-relations-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Properties of Relations"],"added":"2026-11-09"}},{"unit":"properties-relations","a":{"title":"Partner Check 2: Properties of Relations","path":"artifacts/discrete-properties-relations-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-properties-relations-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Properties of Relations"],"added":"2026-11-09"}},{"unit":"counting-probability","a":{"title":"Partner Check 1: Counting and Probability","path":"artifacts/discrete-counting-probability-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-counting-probability-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Counting and Probability"],"added":"2026-11-09"}},{"unit":"counting-probability","a":{"title":"Partner Check 2: Counting and Probability","path":"artifacts/discrete-counting-probability-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-counting-probability-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Counting and Probability"],"added":"2026-11-09"}},{"unit":"graphs-trees","a":{"title":"Partner Check 1: Theory of Graphs and Trees","path":"artifacts/discrete-graphs-trees-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-graphs-trees-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Theory of Graphs and Trees"],"added":"2026-11-09"}},{"unit":"graphs-trees","a":{"title":"Partner Check 2: Theory of Graphs and Trees","path":"artifacts/discrete-graphs-trees-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-graphs-trees-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Theory of Graphs and Trees"],"added":"2026-11-09"}},{"unit":"election-theory","a":{"title":"Partner Check 1: Election Theory","path":"artifacts/discrete-election-theory-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-election-theory-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Election Theory"],"added":"2026-11-09"}},{"unit":"election-theory","a":{"title":"Partner Check 2: Election Theory","path":"artifacts/discrete-election-theory-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-election-theory-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Election Theory"],"added":"2026-11-09"}},{"unit":"linear-programming","a":{"title":"Partner Check 1: Linear Programming","path":"artifacts/discrete-linear-programming-partner-check-1/worksheet.pdf","thumb":"thumbs/discrete-linear-programming-partner-check-1.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Linear Programming"],"added":"2026-11-09"}},{"unit":"linear-programming","a":{"title":"Partner Check 2: Linear Programming","path":"artifacts/discrete-linear-programming-partner-check-2/worksheet.pdf","thumb":"thumbs/discrete-linear-programming-partner-check-2.jpg","description":"Discrete Math partner check: Partner A and Partner B solve different problems with matching answers. Six student pages (CP2, CP1 and Honors, A and B versions); teacher answer key included.","type":"Printable","level":["CP2","CP1","Honors"],"topics":["Partner Check","Linear Programming"],"added":"2026-11-09"}}];
- var S={"speaking-mathematically":{"title":"Speaking Mathematically Cheat Sheet","path":"artifacts/discrete-speaking-mathematically-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-speaking-mathematically-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: statements, variables, universal and existential statements, conditional statements. Back: set notation, subsets, Cartesian products, ordered pairs and strings. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Speaking Mathematically","Unit 1"],"added":"2026-11-09"},"compound-statements-logic":{"title":"The Logic of Compound Statements Cheat Sheet","path":"artifacts/discrete-compound-statements-logic-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-compound-statements-logic-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: connectives, truth tables, logical equivalence, conditionals and their negations. Back: converse, inverse and contrapositive; valid arguments, rules of inference and fallacies. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","The Logic of Compound Statements","Unit 2"],"added":"2026-11-09"},"number-theory-proof":{"title":"Elementary Number Theory and Methods of Proof Cheat Sheet","path":"artifacts/discrete-number-theory-proof-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-number-theory-proof-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: definitions, counterexamples, direct proof, existential and universal statements, rational numbers. Back: divisibility, the quotient-remainder theorem, proof by contradiction and contraposition, choosing a strategy. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Elementary Number Theory and Methods of Proof","Unit 3"],"added":"2026-11-09"},"sequences-induction-recursion":{"title":"Sequences, Mathematical Induction, and Recursion Cheat Sheet","path":"artifacts/discrete-sequences-induction-recursion-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-sequences-induction-recursion-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: explicit and recursive sequences, arithmetic and geometric patterns, factorials, binomial coefficients, Fibonacci. Back: iteration, the principle of mathematical induction, writing inductive proofs, patterns and tessellations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sequences, Mathematical Induction, and Recursion","Unit 4"],"added":"2026-11-09"},"set-theory":{"title":"Set Theory Cheat Sheet","path":"artifacts/discrete-set-theory-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-set-theory-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: set equality, the empty set, union, intersection, difference, complements and Venn diagrams. Back: power sets, element-argument proofs, set identities and disproving set statements. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Set Theory","Unit 5"],"added":"2026-11-09"},"properties-relations":{"title":"Properties of Relations Cheat Sheet","path":"artifacts/discrete-properties-relations-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-properties-relations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: relations and inverses, directed graphs, reflexive, symmetric and transitive properties. Back: relations on infinite sets, partitions, equivalence relations and equivalence classes. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Properties of Relations","Unit 6"],"added":"2026-11-09"},"counting-probability":{"title":"Counting and Probability Cheat Sheet","path":"artifacts/discrete-counting-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-counting-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: sample spaces, events, lists and arrays, possibility trees, addition and multiplication rules. Back: permutations and combinations, equally likely probability and counting with probability. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Counting and Probability","Unit 7"],"added":"2026-11-09"},"graphs-trees":{"title":"Theory of Graphs and Trees Cheat Sheet","path":"artifacts/discrete-graphs-trees-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-graphs-trees-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: vertices, edges, loops, degrees, directed graphs, constructing graphs and graph coloring. Back: walks, trails, paths, circuits, Euler and Hamiltonian circuits, trees and spanning trees. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Theory of Graphs and Trees","Unit 8"],"added":"2026-11-09"},"election-theory":{"title":"Election Theory Cheat Sheet","path":"artifacts/discrete-election-theory-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-election-theory-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: preference schedules and four named voting methods, fairness criteria. Back: weighted voting, coalitions and power, fair division and apportionment. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Election Theory","Unit 9"],"added":"2026-11-09"},"linear-programming":{"title":"Linear Programming Cheat Sheet","path":"artifacts/discrete-linear-programming-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-linear-programming-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: writing constraints, graphing systems of inequalities, feasible regions and objective functions. Back: corner points, maximizing and minimizing, special cases and interpreting solutions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Linear Programming","Unit 10"],"added":"2026-11-09"}};
+ var S={"speaking-mathematically":{"title":"Speaking Mathematically Cheat Sheet","path":"artifacts/discrete-speaking-mathematically-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-speaking-mathematically-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: statements, variables, universal and existential statements, conditional statements. Back: set notation, subsets, Cartesian products, ordered pairs and strings. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Speaking Mathematically","Unit 1"],"added":"2026-11-09"},"compound-statements-logic":{"title":"The Logic of Compound Statements Cheat Sheet","path":"artifacts/discrete-compound-statements-logic-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-compound-statements-logic-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: connectives, truth tables, logical equivalence, conditionals and their negations. Back: converse, inverse and contrapositive; valid arguments, rules of inference and fallacies. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","The Logic of Compound Statements","Unit 2"],"added":"2026-11-09"},"number-theory-proof":{"title":"Elementary Number Theory and Methods of Proof Cheat Sheet","path":"artifacts/discrete-number-theory-proof-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-number-theory-proof-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: definitions, counterexamples, direct proof, existential and universal statements, rational numbers. Back: divisibility, the quotient-remainder theorem, proof by contradiction and contraposition, choosing a strategy. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Elementary Number Theory and Methods of Proof","Unit 4"],"added":"2026-11-09"},"sequences-induction-recursion":{"title":"Sequences, Mathematical Induction, and Recursion Cheat Sheet","path":"artifacts/discrete-sequences-induction-recursion-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-sequences-induction-recursion-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: explicit and recursive sequences, arithmetic and geometric patterns, factorials, binomial coefficients, Fibonacci. Back: iteration, the principle of mathematical induction, writing inductive proofs, patterns and tessellations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sequences, Mathematical Induction, and Recursion","Unit 5"],"added":"2026-11-09"},"set-theory":{"title":"Set Theory Cheat Sheet","path":"artifacts/discrete-set-theory-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-set-theory-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: set equality, the empty set, union, intersection, difference, complements and Venn diagrams. Back: power sets, element-argument proofs, set identities and disproving set statements. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Set Theory","Unit 6"],"added":"2026-11-09"},"properties-relations":{"title":"Properties of Relations Cheat Sheet","path":"artifacts/discrete-properties-relations-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-properties-relations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: relations and inverses, directed graphs, reflexive, symmetric and transitive properties. Back: relations on infinite sets, partitions, equivalence relations and equivalence classes. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Properties of Relations","Unit 7"],"added":"2026-11-09"},"counting-probability":{"title":"Counting and Probability Cheat Sheet","path":"artifacts/discrete-counting-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-counting-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: sample spaces, events, lists and arrays, possibility trees, addition and multiplication rules. Back: permutations and combinations, equally likely probability and counting with probability. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Counting and Probability","Unit 8"],"added":"2026-11-09"},"graphs-trees":{"title":"Theory of Graphs and Trees Cheat Sheet","path":"artifacts/discrete-graphs-trees-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-graphs-trees-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: vertices, edges, loops, degrees, directed graphs, constructing graphs and graph coloring. Back: walks, trails, paths, circuits, Euler and Hamiltonian circuits, trees and spanning trees. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Theory of Graphs and Trees","Unit 3"],"added":"2026-11-09"},"election-theory":{"title":"Election Theory Cheat Sheet","path":"artifacts/discrete-election-theory-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-election-theory-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: preference schedules and four named voting methods, fairness criteria. Back: weighted voting, coalitions and power, fair division and apportionment. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Election Theory","Unit 9"],"added":"2026-11-09"},"linear-programming":{"title":"Linear Programming Cheat Sheet","path":"artifacts/discrete-linear-programming-cheat-sheet/worksheet.pdf","thumb":"thumbs/discrete-linear-programming-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: writing constraints, graphing systems of inequalities, feasible regions and objective functions. Back: corner points, maximizing and minimizing, special cases and interpreting solutions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Linear Programming","Unit 10"],"added":"2026-11-09"}};
  var T=[{"unit":"compound-statements-logic","a":{"title":"Truth Table Lab","path":"artifacts/discrete-truth-table-lab/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-truth-table-lab.jpg","description":"Type statements with ~, ∧, ∨, ⊕, → and ↔ and see a full truth table with every intermediate column. Compare two statements for logical equivalence, make the converse, inverse, contrapositive and negation of a conditional, and test argument forms using critical rows.","topics":["Truth tables","Logical equivalence","Conditional statements","Valid and invalid arguments"],"worksheet":"artifacts/discrete-truth-table-lab/worksheet.pdf","answerKey":"artifacts/discrete-truth-table-lab/teacher-key.pdf","added":"2026-11-09"}},{"unit":"number-theory-proof","a":{"title":"Euclidean Algorithm Explorer","path":"artifacts/discrete-euclid-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-euclid-explorer.jpg","description":"See the Euclidean algorithm as square tiling of an a × b rectangle, step through a = bq + r, back-substitute to write gcd(a, b) as a linear combination, compare prime factorizations, and explore the quotient-remainder theorem for negative numbers.","topics":["Greatest common divisor","Euclidean algorithm","Quotient-remainder theorem","Prime factorization"],"worksheet":"artifacts/discrete-euclid-explorer/worksheet.pdf","answerKey":"artifacts/discrete-euclid-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"sequences-induction-recursion","a":{"title":"Recursion & Closed Form Explorer","path":"artifacts/discrete-recursion-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-recursion-explorer.jpg","description":"Set first-order (aₙ = c·aₙ₋₁ + d) or second-order (aₙ = c·aₙ₋₁ + d·aₙ₋₂) recurrences with any initial terms. See the terms, partial sums and a graph, recognize arithmetic and geometric sequences, and check a closed-form guess against the first 15 terms before proving it by induction.","topics":["Recurrence relations","Arithmetic and geometric sequences","Closed formulas","Mathematical induction"],"worksheet":"artifacts/discrete-recursion-explorer/worksheet.pdf","answerKey":"artifacts/discrete-recursion-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"set-theory","a":{"title":"Venn Diagram & Membership Table Explorer","path":"artifacts/discrete-venn-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-venn-explorer.jpg","description":"Two- or three-set Venn diagrams inside a stated universe U = {1, …, 20}. Shade any set expression, compare two expressions region by region (a membership table), click or tab through regions to shade your own answer, and list the actual elements of the result.","topics":["Set operations","Venn diagrams","Set identities","Membership tables"],"worksheet":"artifacts/discrete-venn-explorer/worksheet.pdf","answerKey":"artifacts/discrete-venn-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"properties-relations","a":{"title":"Relation Property Explorer","path":"artifacts/discrete-relation-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-relation-explorer.jpg","description":"Toggle ordered pairs on a set of 3 to 6 elements using the relation matrix or the directed graph. See which properties hold with a witness for each failure, form reflexive, symmetric and transitive closures and the inverse, and see the equivalence classes whenever the relation is an equivalence relation.","topics":["Reflexive, symmetric, transitive","Directed graphs of relations","Equivalence relations and classes","Closures"],"worksheet":"artifacts/discrete-relation-explorer/worksheet.pdf","answerKey":"artifacts/discrete-relation-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"counting-probability","a":{"title":"Counting Outcomes Explorer","path":"artifacts/discrete-counting-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-counting-explorer.jpg","description":"List every outcome for selections of r items from n letters under all four counting models (ordered or not, with or without repetition). Group permutations into combinations to see why P(n, r) = C(n, r) · r!, and compute equally likely probabilities for events like “contains A”.","topics":["Multiplication rule","Permutations","Combinations","Equally likely probability"],"worksheet":"artifacts/discrete-counting-explorer/worksheet.pdf","answerKey":"artifacts/discrete-counting-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"graphs-trees","a":{"title":"Graph Explorer: Euler, Hamilton & Trees","path":"artifacts/discrete-graph-lab/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-graph-lab.jpg","description":"Add vertices, edges, loops and parallel edges by pointer or keyboard. See the degree sum, components, Euler circuit or trail (with a route), whether a Hamiltonian cycle exists (by exhaustive search on up to 10 vertices), whether the graph is a tree or bipartite, its chromatic number with a coloring, and a step-by-step minimum spanning tree.","topics":["Degree and the handshake theorem","Euler and Hamiltonian circuits","Trees and spanning trees","Graph coloring"],"worksheet":"artifacts/discrete-graph-lab/worksheet.pdf","answerKey":"artifacts/discrete-graph-lab/teacher-key.pdf","added":"2026-11-09"}},{"unit":"election-theory","a":{"title":"Voting, Power & Apportionment Explorer","path":"artifacts/discrete-voting-explorer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/discrete-voting-explorer.jpg","description":"Ranked ballots: plurality, Borda count, plurality with elimination and pairwise comparisons side by side, with majority and Condorcet checks and stated tie rules. Weighted voting: winning coalitions, critical players, Banzhaf and Shapley–Shubik indices, dictators, veto power and dummies. Apportionment: quotas, modified divisors, the quota rule and the Alabama paradox.","topics":["Voting methods","Fairness criteria","Weighted voting and power","Apportionment"],"worksheet":"artifacts/discrete-voting-explorer/worksheet.pdf","answerKey":"artifacts/discrete-voting-explorer/teacher-key.pdf","added":"2026-11-09"}},{"unit":"linear-programming","a":{"title":"Feasible Region Optimizer","path":"artifacts/algebra2-feasible-region-optimizer/index.html","bankFormat":"interactive-math","type":"Interactive","thumb":"thumbs/algebra2-feasible-region-optimizer.jpg","description":"Explore a linear programming problem: see the feasible region, slide the objective line, and discover why the maximum and minimum occur at vertices.","topics":["Linear programming","Feasible region","Optimization"],"worksheet":"artifacts/algebra2-feasible-region-optimizer/worksheet.pdf","answerKey":"artifacts/algebra2-feasible-region-optimizer/teacher-key.pdf","added":"2026-11-09"}}];
  var add=function(u,a){if(u&&!u.artifacts.some(function(x){return x.path===a.path;}))u.artifacts.push(a);};
  var unit=function(id){return c.units.find(function(u){return u.id===id;});};
@@ -7885,7 +8125,7 @@ window.LIBRARY = {
 
 /* Unit cheat sheets for 6th Grade, Pre-Algebra, Precalculus, Calculus and Statistics (built by scripts/cheat-sheets). */
 (function(G){
- var S={"statistics":{"exploring-data":{"title":"Exploring Data Cheat Sheet","path":"artifacts/statistics-exploring-data-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-exploring-data-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: displays, shape, center, spread, box plots, outliers, normal models and z-scores. Back: two-way tables, scatterplots, correlation, least-squares regression and residuals. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Exploring Data","Unit 1"],"added":"2026-11-07"},"sampling-experimentation":{"title":"Sampling and Experimentation Cheat Sheet","path":"artifacts/statistics-sampling-experimentation-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-sampling-experimentation-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: populations and samples, random sampling methods and sources of bias. Back: observational studies, experiments, experimental designs and the scope of inference. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sampling and Experimentation","Unit 2"],"added":"2026-11-07"},"anticipating-patterns":{"title":"Anticipating Patterns Cheat Sheet","path":"artifacts/statistics-anticipating-patterns-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-anticipating-patterns-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: probability rules, conditional probability, independence and simulation. Back: random variables, binomial and geometric models, and sampling distributions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Anticipating Patterns","Unit 3"],"added":"2026-11-07"},"statistical-inference":{"title":"Statistical Inference Cheat Sheet","path":"artifacts/statistics-statistical-inference-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-statistical-inference-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: confidence intervals for a proportion and a mean, conditions and interpretation. Back: significance tests, p-values, Type I and II errors, power and two-sample procedures. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Statistical Inference","Unit 4"],"added":"2026-11-07"}},"calculus":{"antiderivatives-definite-integrals":{"title":"Antiderivatives and Definite Integrals Cheat Sheet","path":"artifacts/calculus-antiderivatives-definite-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-antiderivatives-definite-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: antiderivatives, indefinite integrals and u-substitution. Back: Riemann sums, definite integrals and their properties. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Antiderivatives and Definite Integrals","Unit 5"],"added":"2026-11-05"},"ap-review":{"title":"AP Calculus Review Cheat Sheet","path":"artifacts/calculus-ap-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-ap-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limits, derivatives and their applications. Back: integrals, FTC and free-response tips. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","AP Review","Unit 9"],"added":"2026-11-05"},"applications-derivatives":{"title":"Applications of Derivatives Cheat Sheet","path":"artifacts/calculus-applications-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: related rates, motion and linearization. Back: extrema, the MVT, curve sketching and optimization. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Derivatives","Unit 4"],"added":"2026-11-05"},"applications-integrals":{"title":"Applications of Integrals Cheat Sheet","path":"artifacts/calculus-applications-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area between curves. Back: volumes by discs, washers and cross sections. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Integrals","Unit 7"],"added":"2026-11-05"},"derivatives":{"title":"Derivatives Cheat Sheet","path":"artifacts/calculus-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: the definition of the derivative and basic rules. Back: product, quotient and chain rules, implicit and higher derivatives. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Derivatives","Unit 3"],"added":"2026-11-05"},"differential-equations":{"title":"Differential Equations Cheat Sheet","path":"artifacts/calculus-differential-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-differential-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: slope fields and verifying solutions. Back: separation of variables and exponential growth and decay. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Differential Equations","Unit 8"],"added":"2026-11-05"},"fundamental-theorem-calculus":{"title":"The Fundamental Theorem of Calculus Cheat Sheet","path":"artifacts/calculus-fundamental-theorem-calculus-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-fundamental-theorem-calculus-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: FTC part 1 and part 2. Back: average value, accumulation functions and net change. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","The Fundamental Theorem of Calculus","Unit 6"],"added":"2026-11-05"},"limits-continuity":{"title":"Limits and Continuity Cheat Sheet","path":"artifacts/calculus-limits-continuity-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-limits-continuity-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limit notation, evaluating limits algebraically and graphically. Back: one-sided and infinite limits, continuity and the IVT. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Limits and Continuity","Unit 2"],"added":"2026-11-05"},"precalculus-review":{"title":"Precalculus Review Cheat Sheet","path":"artifacts/calculus-precalculus-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-precalculus-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: functions, domain, graphs and transformations. Back: exponentials, logarithms and trigonometry you will need. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Precalculus Review","Unit 1"],"added":"2026-11-05"}},"math6":{"data-displays":{"title":"Data Displays Cheat Sheet","path":"artifacts/math6-data-displays-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-data-displays-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: statistical questions, dot plots, histograms and box plots. Back: mean, median, range, IQR, MAD and the shape of a distribution. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Displays","Unit 7"],"added":"2026-11-05"},"expressions-equations":{"title":"Expressions and Equations Cheat Sheet","path":"artifacts/math6-expressions-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-expressions-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: exponents, the order of operations and algebraic expressions. Back: equivalent expressions, one-step equations and variables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Expressions and Equations","Unit 4"],"added":"2026-11-05"},"fractions-decimals-operations":{"title":"Operations of Fractions and Decimals Cheat Sheet","path":"artifacts/math6-fractions-decimals-operations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-fractions-decimals-operations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: dividing fractions and mixed numbers. Back: multi-digit decimals, GCF, LCM and the distributive property. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations of Fractions and Decimals","Unit 2"],"added":"2026-11-05"},"geometry":{"title":"Geometry Cheat Sheet","path":"artifacts/math6-geometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-geometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of quadrilaterals, triangles and composite polygons. Back: volume, polygons on the coordinate plane, nets and surface area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Geometry","Unit 6"],"added":"2026-11-05"},"inequalities":{"title":"Inequalities Cheat Sheet","path":"artifacts/math6-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: inequality symbols, solutions and graphs. Back: solving one-step inequalities and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Inequalities","Unit 5"],"added":"2026-11-05"},"rational-numbers":{"title":"Rational Numbers Cheat Sheet","path":"artifacts/math6-rational-numbers-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-rational-numbers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: positive and negative numbers, the number line, comparing and ordering. Back: absolute value and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Rational Numbers","Unit 3"],"added":"2026-11-05"},"ratios-rates-percent-proportions":{"title":"Ratios, Rate, Percent and Proportions Cheat Sheet","path":"artifacts/math6-ratios-rates-percent-proportions-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-ratios-rates-percent-proportions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, equivalent ratios and tables. Back: proportions, percents and unit conversions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Rate, Percent and Proportions","Unit 1"],"added":"2026-11-05"}},"prealgebra7":{"algebraic-expressions-integers":{"title":"Algebraic Expressions and Integers Cheat Sheet","path":"artifacts/prealgebra7-algebraic-expressions-integers-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-algebraic-expressions-integers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: place value, variables, expressions and the order of operations. Back: integer operations, estimation, patterns and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Algebraic Expressions and Integers","Unit 1"],"added":"2026-11-05"},"area-volume":{"title":"Area and Volume Cheat Sheet","path":"artifacts/prealgebra7-area-volume-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-area-volume-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of parallelograms, triangles, trapezoids and circles. Back: space figures, surface area and volume. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Area and Volume","Unit 10"],"added":"2026-11-05"},"data-analysis-probability":{"title":"Data Analysis and Probability Cheat Sheet","path":"artifacts/prealgebra7-data-analysis-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-data-analysis-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: frequency tables, histograms, box plots and stem-and-leaf plots. Back: probability, independent and dependent events, counting and sampling. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Analysis and Probability","Unit 12"],"added":"2026-11-05"},"decimals-equations":{"title":"Decimals and Equations Cheat Sheet","path":"artifacts/prealgebra7-decimals-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-decimals-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: rounding, estimating and measures of center. Back: formulas, decimal equations and the metric system. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Decimals and Equations","Unit 3"],"added":"2026-11-05"},"factors-fractions-exponents":{"title":"Factors, Fractions, and Exponents Cheat Sheet","path":"artifacts/prealgebra7-factors-fractions-exponents-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-factors-fractions-exponents-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: divisibility, prime factorization, GCF and simplifying fractions. Back: rational and irrational numbers, exponent rules, scientific notation and cube roots. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Factors, Fractions, and Exponents","Unit 4"],"added":"2026-11-05"},"linear-functions-graphing":{"title":"Linear Functions and Graphing Cheat Sheet","path":"artifacts/prealgebra7-linear-functions-graphing-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-linear-functions-graphing-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: relations, functions, two-variable equations, slope and intercepts. Back: writing rules, scatter plots, systems and graphing inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Linear Functions and Graphing","Unit 8"],"added":"2026-11-05"},"nonlinear-functions-polynomials":{"title":"Nonlinear Functions and Polynomials Cheat Sheet","path":"artifacts/prealgebra7-nonlinear-functions-polynomials-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-nonlinear-functions-polynomials-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: sequences, nonlinear graphs and exponential growth and decay. Back: adding, subtracting and multiplying polynomials. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Nonlinear Functions and Polynomials","Unit 13"],"added":"2026-11-05"},"one-step-equations-inequalities":{"title":"Solving One-Step Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-one-step-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-one-step-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: number properties, the distributive property and simplifying. Back: one-step equations and inequalities and their graphs. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving One-Step Equations and Inequalities","Unit 2"],"added":"2026-11-05"},"operations-fractions":{"title":"Operations with Fractions Cheat Sheet","path":"artifacts/prealgebra7-operations-fractions-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-operations-fractions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: comparing rational numbers, fractions and decimals, the four operations. Back: customary units, fraction equations and powers of quotients. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations with Fractions","Unit 5"],"added":"2026-11-05"},"ratios-proportions-percentages":{"title":"Ratios, Proportions, and Percentages Cheat Sheet","path":"artifacts/prealgebra7-ratios-proportions-percentages-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-ratios-proportions-percentages-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, proportions, scale drawings and probability. Back: percents, percent of change, markup, discount and tables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Proportions, and Percentages","Unit 6"],"added":"2026-11-05"},"right-triangles-algebra":{"title":"Right Triangles in Algebra Cheat Sheet","path":"artifacts/prealgebra7-right-triangles-algebra-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-right-triangles-algebra-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: square roots, the Pythagorean theorem, distance and midpoint. Back: proportions, special right triangles and trigonometric ratios. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Right Triangles in Algebra","Unit 11"],"added":"2026-11-05"},"solving-equations-inequalities":{"title":"Solving Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-solving-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-solving-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: two-step and multi-step equations, fractions and decimals. Back: variables on both sides, two-step inequalities, formulas and interest. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving Equations and Inequalities","Unit 7"],"added":"2026-11-05"},"spatial-thinking":{"title":"Spatial Thinking Cheat Sheet","path":"artifacts/prealgebra7-spatial-thinking-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-spatial-thinking-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: points, lines, planes, angle pairs, parallel lines and polygons. Back: congruence, circles, constructions, translations, symmetry and rotations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Spatial Thinking","Unit 9"],"added":"2026-11-05"}},"precalculus":{"conics":{"title":"Conics Cheat Sheet","path":"artifacts/precalculus-conics-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-conics-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: parabolas and circles. Back: ellipses, hyperbolas and identifying conics. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Conics","Unit 3"],"added":"2026-11-05"},"equations-inequalities":{"title":"Equations and Inequalities Cheat Sheet","path":"artifacts/precalculus-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: linear, absolute value and quadratic equations. Back: polynomial, rational and radical equations and inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Equations and Inequalities","Unit 1"],"added":"2026-11-05"},"functions":{"title":"Functions Cheat Sheet","path":"artifacts/precalculus-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: domain, range, graphs and transformations. Back: combinations, inverses, polynomial, rational, exponential and logarithmic functions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Functions","Unit 2"],"added":"2026-11-05"},"general-triangle-trigonometry":{"title":"Trigonometry of General Triangles Cheat Sheet","path":"artifacts/precalculus-general-triangle-trigonometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-general-triangle-trigonometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: right-triangle trig and the Law of Sines. Back: the Law of Cosines, the ambiguous case and triangle area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometry of General Triangles","Unit 5"],"added":"2026-11-05"},"matrices":{"title":"Matrices Cheat Sheet","path":"artifacts/precalculus-matrices-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-matrices-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: matrix operations and multiplication. Back: determinants, inverses and solving systems. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Matrices","Unit 6"],"added":"2026-11-05"},"probability":{"title":"Probability Cheat Sheet","path":"artifacts/precalculus-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: counting, permutations, combinations and basic probability. Back: conditional probability, independence, the binomial theorem and expected value. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Probability","Unit 8"],"added":"2026-11-05"},"trigonometric-functions":{"title":"Trigonometric Functions Cheat Sheet","path":"artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-trigonometric-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: angles, radians, the unit circle and graphs. Back: inverse trig functions, identities and trig equations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometric Functions","Unit 4"],"added":"2026-11-05"},"sequences-series-limits":{"title":"Sequences, Series, and Limits Cheat Sheet","path":"artifacts/precalculus-sequences-series-limits-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-sequences-series-limits-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: arithmetic and geometric sequences, finite series and sigma notation. Back: infinite geometric series, limits by factoring, limits at infinity and conjugates. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sequences, Series, and Limits","Unit 9"],"added":"2026-11-14"},"vectors":{"title":"Vectors, Complex Numbers & Polar Coordinates Cheat Sheet","path":"artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-vectors-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: vector components, magnitude, direction and operations. Back: dot product, angles between vectors, projections and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Vectors","Unit 7"],"added":"2026-11-05"}}};
+ var S={"statistics":{"exploring-data":{"title":"Exploring Data Cheat Sheet","path":"artifacts/statistics-exploring-data-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-exploring-data-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: displays, shape, center, spread, box plots, outliers, normal models and z-scores. Back: two-way tables, scatterplots, correlation, least-squares regression and residuals. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Exploring Data","Unit 1"],"added":"2026-11-07"},"sampling-experimentation":{"title":"Sampling and Experimentation Cheat Sheet","path":"artifacts/statistics-sampling-experimentation-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-sampling-experimentation-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: populations and samples, random sampling methods and sources of bias. Back: observational studies, experiments, experimental designs and the scope of inference. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sampling and Experimentation","Unit 2"],"added":"2026-11-07"},"anticipating-patterns":{"title":"Anticipating Patterns Cheat Sheet","path":"artifacts/statistics-anticipating-patterns-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-anticipating-patterns-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: probability rules, conditional probability, independence and simulation. Back: random variables, binomial and geometric models, and sampling distributions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Anticipating Patterns","Unit 4"],"added":"2026-11-07"},"statistical-inference":{"title":"Statistical Inference Cheat Sheet","path":"artifacts/statistics-statistical-inference-cheat-sheet/worksheet.pdf","thumb":"thumbs/statistics-statistical-inference-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: confidence intervals for a proportion and a mean, conditions and interpretation. Back: significance tests, p-values, Type I and II errors, power and two-sample procedures. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Statistical Inference","Unit 5"],"added":"2026-11-07"}},"calculus":{"antiderivatives-definite-integrals":{"title":"Antiderivatives and Definite Integrals Cheat Sheet","path":"artifacts/calculus-antiderivatives-definite-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-antiderivatives-definite-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: antiderivatives, indefinite integrals and u-substitution. Back: Riemann sums, definite integrals and their properties. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Antiderivatives and Definite Integrals","Unit 6"],"added":"2026-11-05"},"ap-review":{"title":"AP Calculus Review Cheat Sheet","path":"artifacts/calculus-ap-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-ap-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limits, derivatives and their applications. Back: integrals, FTC and free-response tips. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","AP Review","Unit 9"],"added":"2026-11-05"},"applications-derivatives":{"title":"Applications of Derivatives Cheat Sheet","path":"artifacts/calculus-applications-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: related rates, motion and linearization. Back: extrema, the MVT, curve sketching and optimization. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Derivatives","Unit 5"],"added":"2026-11-05"},"applications-integrals":{"title":"Applications of Integrals Cheat Sheet","path":"artifacts/calculus-applications-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area between curves. Back: volumes by discs, washers and cross sections. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Integrals","Unit 8"],"added":"2026-11-05"},"derivatives":{"title":"Derivatives Cheat Sheet","path":"artifacts/calculus-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: the definition of the derivative and basic rules. Back: product, quotient and chain rules, implicit and higher derivatives. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Derivatives","Unit 4"],"added":"2026-11-05"},"differential-equations":{"title":"Differential Equations Cheat Sheet","path":"artifacts/calculus-differential-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-differential-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: slope fields and verifying solutions. Back: separation of variables and exponential growth and decay. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Differential Equations","Unit 3"],"added":"2026-11-05"},"fundamental-theorem-calculus":{"title":"The Fundamental Theorem of Calculus Cheat Sheet","path":"artifacts/calculus-fundamental-theorem-calculus-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-fundamental-theorem-calculus-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: FTC part 1 and part 2. Back: average value, accumulation functions and net change. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","The Fundamental Theorem of Calculus","Unit 7"],"added":"2026-11-05"},"limits-continuity":{"title":"Limits and Continuity Cheat Sheet","path":"artifacts/calculus-limits-continuity-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-limits-continuity-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limit notation, evaluating limits algebraically and graphically. Back: one-sided and infinite limits, continuity and the IVT. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Limits and Continuity","Unit 2"],"added":"2026-11-05"},"precalculus-review":{"title":"Precalculus Review Cheat Sheet","path":"artifacts/calculus-precalculus-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-precalculus-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: functions, domain, graphs and transformations. Back: exponentials, logarithms and trigonometry you will need. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Precalculus Review","Unit 1"],"added":"2026-11-05"}},"math6":{"data-displays":{"title":"Data Displays Cheat Sheet","path":"artifacts/math6-data-displays-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-data-displays-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: statistical questions, dot plots, histograms and box plots. Back: mean, median, range, IQR, MAD and the shape of a distribution. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Displays","Unit 8"],"added":"2026-11-05"},"expressions-equations":{"title":"Expressions and Equations Cheat Sheet","path":"artifacts/math6-expressions-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-expressions-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: exponents, the order of operations and algebraic expressions. Back: equivalent expressions, one-step equations and variables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Expressions and Equations","Unit 5"],"added":"2026-11-05"},"fractions-decimals-operations":{"title":"Operations of Fractions and Decimals Cheat Sheet","path":"artifacts/math6-fractions-decimals-operations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-fractions-decimals-operations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: dividing fractions and mixed numbers. Back: multi-digit decimals, GCF, LCM and the distributive property. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations of Fractions and Decimals","Unit 2"],"added":"2026-11-05"},"geometry":{"title":"Geometry Cheat Sheet","path":"artifacts/math6-geometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-geometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of quadrilaterals, triangles and composite polygons. Back: volume, polygons on the coordinate plane, nets and surface area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Geometry","Unit 7"],"added":"2026-11-05"},"inequalities":{"title":"Inequalities Cheat Sheet","path":"artifacts/math6-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: inequality symbols, solutions and graphs. Back: solving one-step inequalities and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Inequalities","Unit 6"],"added":"2026-11-05"},"rational-numbers":{"title":"Rational Numbers Cheat Sheet","path":"artifacts/math6-rational-numbers-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-rational-numbers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: positive and negative numbers, the number line, comparing and ordering. Back: absolute value and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Rational Numbers","Unit 4"],"added":"2026-11-05"},"ratios-rates-percent-proportions":{"title":"Ratios, Rate, Percent and Proportions Cheat Sheet","path":"artifacts/math6-ratios-rates-percent-proportions-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-ratios-rates-percent-proportions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, equivalent ratios and tables. Back: proportions, percents and unit conversions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Rate, Percent and Proportions","Unit 1"],"added":"2026-11-05"}},"prealgebra7":{"algebraic-expressions-integers":{"title":"Algebraic Expressions and Integers Cheat Sheet","path":"artifacts/prealgebra7-algebraic-expressions-integers-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-algebraic-expressions-integers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: place value, variables, expressions and the order of operations. Back: integer operations, estimation, patterns and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Algebraic Expressions and Integers","Unit 1"],"added":"2026-11-05"},"area-volume":{"title":"Area and Volume Cheat Sheet","path":"artifacts/prealgebra7-area-volume-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-area-volume-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of parallelograms, triangles, trapezoids and circles. Back: space figures, surface area and volume. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Area and Volume","Unit 10"],"added":"2026-11-05"},"data-analysis-probability":{"title":"Data Analysis and Probability Cheat Sheet","path":"artifacts/prealgebra7-data-analysis-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-data-analysis-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: frequency tables, histograms, box plots and stem-and-leaf plots. Back: probability, independent and dependent events, counting and sampling. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Analysis and Probability","Unit 12"],"added":"2026-11-05"},"decimals-equations":{"title":"Decimals and Equations Cheat Sheet","path":"artifacts/prealgebra7-decimals-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-decimals-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: rounding, estimating and measures of center. Back: formulas, decimal equations and the metric system. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Decimals and Equations","Unit 4"],"added":"2026-11-05"},"factors-fractions-exponents":{"title":"Factors, Fractions, and Exponents Cheat Sheet","path":"artifacts/prealgebra7-factors-fractions-exponents-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-factors-fractions-exponents-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: divisibility, prime factorization, GCF and simplifying fractions. Back: rational and irrational numbers, exponent rules, scientific notation and cube roots. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Factors, Fractions, and Exponents","Unit 5"],"added":"2026-11-05"},"linear-functions-graphing":{"title":"Linear Functions and Graphing Cheat Sheet","path":"artifacts/prealgebra7-linear-functions-graphing-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-linear-functions-graphing-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: relations, functions, two-variable equations, slope and intercepts. Back: writing rules, scatter plots, systems and graphing inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Linear Functions and Graphing","Unit 3"],"added":"2026-11-05"},"nonlinear-functions-polynomials":{"title":"Nonlinear Functions and Polynomials Cheat Sheet","path":"artifacts/prealgebra7-nonlinear-functions-polynomials-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-nonlinear-functions-polynomials-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: sequences, nonlinear graphs and exponential growth and decay. Back: adding, subtracting and multiplying polynomials. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Nonlinear Functions and Polynomials","Unit 13"],"added":"2026-11-05"},"one-step-equations-inequalities":{"title":"Solving One-Step Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-one-step-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-one-step-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: number properties, the distributive property and simplifying. Back: one-step equations and inequalities and their graphs. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving One-Step Equations and Inequalities","Unit 2"],"added":"2026-11-05"},"operations-fractions":{"title":"Operations with Fractions Cheat Sheet","path":"artifacts/prealgebra7-operations-fractions-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-operations-fractions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: comparing rational numbers, fractions and decimals, the four operations. Back: customary units, fraction equations and powers of quotients. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations with Fractions","Unit 6"],"added":"2026-11-05"},"ratios-proportions-percentages":{"title":"Ratios, Proportions, and Percentages Cheat Sheet","path":"artifacts/prealgebra7-ratios-proportions-percentages-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-ratios-proportions-percentages-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, proportions, scale drawings and probability. Back: percents, percent of change, markup, discount and tables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Proportions, and Percentages","Unit 7"],"added":"2026-11-05"},"right-triangles-algebra":{"title":"Right Triangles in Algebra Cheat Sheet","path":"artifacts/prealgebra7-right-triangles-algebra-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-right-triangles-algebra-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: square roots, the Pythagorean theorem, distance and midpoint. Back: proportions, special right triangles and trigonometric ratios. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Right Triangles in Algebra","Unit 11"],"added":"2026-11-05"},"solving-equations-inequalities":{"title":"Solving Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-solving-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-solving-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: two-step and multi-step equations, fractions and decimals. Back: variables on both sides, two-step inequalities, formulas and interest. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving Equations and Inequalities","Unit 8"],"added":"2026-11-05"},"spatial-thinking":{"title":"Spatial Thinking Cheat Sheet","path":"artifacts/prealgebra7-spatial-thinking-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-spatial-thinking-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: points, lines, planes, angle pairs, parallel lines and polygons. Back: congruence, circles, constructions, translations, symmetry and rotations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Spatial Thinking","Unit 9"],"added":"2026-11-05"}},"precalculus":{"conics":{"title":"Conics Cheat Sheet","path":"artifacts/precalculus-conics-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-conics-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: parabolas and circles. Back: ellipses, hyperbolas and identifying conics. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Conics","Unit 4"],"added":"2026-11-05"},"equations-inequalities":{"title":"Equations and Inequalities Cheat Sheet","path":"artifacts/precalculus-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: linear, absolute value and quadratic equations. Back: polynomial, rational and radical equations and inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Equations and Inequalities","Unit 1"],"added":"2026-11-05"},"functions":{"title":"Functions Cheat Sheet","path":"artifacts/precalculus-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: domain, range, graphs and transformations. Back: combinations, inverses, polynomial, rational, exponential and logarithmic functions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Functions","Unit 2"],"added":"2026-11-05"},"general-triangle-trigonometry":{"title":"Trigonometry of General Triangles Cheat Sheet","path":"artifacts/precalculus-general-triangle-trigonometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-general-triangle-trigonometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: right-triangle trig and the Law of Sines. Back: the Law of Cosines, the ambiguous case and triangle area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometry of General Triangles","Unit 6"],"added":"2026-11-05"},"matrices":{"title":"Matrices Cheat Sheet","path":"artifacts/precalculus-matrices-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-matrices-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: matrix operations and multiplication. Back: determinants, inverses and solving systems. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Matrices","Unit 7"],"added":"2026-11-05"},"probability":{"title":"Probability Cheat Sheet","path":"artifacts/precalculus-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: counting, permutations, combinations and basic probability. Back: conditional probability, independence, the binomial theorem and expected value. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Probability","Unit 3"],"added":"2026-11-05"},"trigonometric-functions":{"title":"Trigonometric Functions Cheat Sheet","path":"artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-trigonometric-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: angles, radians, the unit circle and graphs. Back: inverse trig functions, identities and trig equations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometric Functions","Unit 5"],"added":"2026-11-05"},"sequences-series-limits":{"title":"Sequences, Series, and Limits Cheat Sheet","path":"artifacts/precalculus-sequences-series-limits-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-sequences-series-limits-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: arithmetic and geometric sequences, finite series and sigma notation. Back: infinite geometric series, limits by factoring, limits at infinity and conjugates. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Sequences, Series, and Limits","Unit 9"],"added":"2026-11-14"},"vectors":{"title":"Vectors, Complex Numbers & Polar Coordinates Cheat Sheet","path":"artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-vectors-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: vector components, magnitude, direction and operations. Back: dot product, angles between vectors, projections and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Vectors","Unit 8"],"added":"2026-11-05"}}};
  G.LIBRARY.courses.forEach(function(c){var m=S[c.id];if(!m)return;c.units.forEach(function(u){var a=m[u.id];if(!a||u.artifacts.some(function(x){return x.path===a.path}))return;u.artifacts.push(a);});});
 })(window);
 
@@ -8030,7 +8270,7 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
 })(window);
 
 /* Reviewed graphing practice, available only where a plotted question bank exists. */
-(function(G){var units={"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:/^grade[1-5]$/.test(c.id)?'Build picture graphs, bar graphs and line plots; get feedback and worked solutions.':'Plot points, lines and curves on a coordinate grid; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
+(function(G){var units={"geometry":["foundations-geometry","transformations","quadrilaterals-polygons","circles"],"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:/^grade[1-5]$/.test(c.id)?'Build picture graphs, bar graphs and line plots; get feedback and worked solutions.':'Plot points, lines and curves on a coordinate grid; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
 
 (function(G){var c=G.LIBRARY.courses.find(c=>c.id==="algebra"),u=c.units.find(u=>u.id==="relations-functions");u.artifacts.push({title:"Function Families Teaching Notes and Card Sort",type:"Teacher Guide",path:"artifacts/content-algebra1-teaching-notes/index.html",level:["CP2","CP1","Honors"],added:"2026-11-15"});})(window);
 

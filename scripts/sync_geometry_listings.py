@@ -17,6 +17,8 @@ U = {
 }
 # printables that can carry Geometry diagrams (Maze and Tarsia need short problems without a picture; the proof-based Congruence unit only fills stations)
 PRINT = [
+  ('maze', 'Maze Generator', 'Make a maze for this unit: each room shows a problem number, and the numbered problems (with their diagrams) print beside the maze. Correct answers lead through the doors. CP2/CP1/Honors, up to three versions, and a teacher key.'),
+  ('tarsia', 'Tarsia Puzzle Generator', 'Make a Tarsia puzzle for this unit: numbered problems with their diagrams print on a work page, and each answer matches an edge of the triangle pieces. CP2/CP1/Honors, up to three versions, and a teacher key.'),
   ('color', 'Color by Number Generator', 'Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.'),
   ('error', 'Error Analysis Generator', 'Make an error-analysis worksheet for this unit: each student\u2019s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.'),
   ('partner', 'Partner Check Generator', 'Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners\u2019 solutions.'),
@@ -56,9 +58,9 @@ for u in geo['units']:
     order = [base % t[1] for t in tools]
     A.sort(key=lambda a: order.index(a['path']) if a['path'] in order else len(order))
     for kind, ptitle, pdesc in PRINT:
-        if sid == 'geometry-triangles-congruence' and kind != 'stations': continue
+        if sid == 'geometry-triangles-congruence' and kind not in ('stations', 'maze', 'tarsia'): continue
         pp = 'worksheet-generator/printables.html#unit=%s&kind=%s' % (sid, kind)
-        upsert(A, lambda a, q=pp: a['path'] == q, {'title': ptitle, 'path': pp, 'description': pdesc, 'type': 'Printable', 'topics': ['Printable generator', label], 'added': TODAY})
+        upsert(A, lambda a, q=pp: a['path'] == q, dict({'title': ptitle, 'path': pp, 'description': pdesc, 'type': 'Printable', 'topics': ['Printable generator', label], 'added': TODAY}, **({'thumb': 'thumbs/%s-generator-foundations.svg' % kind} if kind in ('maze', 'tarsia') else {})), keep=('added', 'thumb'))
     # flashcards keep their entry; games
     gdesc = {
       'showdown': ('%s Showdown', 'A game board for %s: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.'),

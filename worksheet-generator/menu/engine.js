@@ -33,12 +33,12 @@
     { course: 'Geometry', units: [ // match the ten units published in data.js
       ['geometry-basics-reasoning', 'Unit 1 · Foundations of Geometry'],
       ['geometry-angles-parallel-lines', 'Unit 2 · Angles and Parallel Lines'],
-      ['geometry-triangles-congruence', 'Unit 3 · Triangle Congruence'],
-      ['geometry-triangle-relationships', 'Unit 4 · Triangle Relationships'],
-      ['geometry-similarity', 'Unit 5 · Similarity'],
-      ['geometry-right-triangles-trigonometry', 'Unit 6 · Right Triangles and Trigonometry'],
-      ['geometry-quadrilaterals-polygons', 'Unit 7 · Quadrilaterals and Polygons'],
-      ['geometry-transformations', 'Unit 8 · Transformations'],
+      ['geometry-transformations', 'Unit 3 · Transformations'],
+      ['geometry-triangles-congruence', 'Unit 4 · Triangle Congruence'],
+      ['geometry-triangle-relationships', 'Unit 5 · Triangle Relationships'],
+      ['geometry-similarity', 'Unit 6 · Similarity'],
+      ['geometry-right-triangles-trigonometry', 'Unit 7 · Right Triangles and Trigonometry'],
+      ['geometry-quadrilaterals-polygons', 'Unit 8 · Quadrilaterals and Polygons'],
       ['geometry-circles', 'Unit 9 · Circles'],
       ['geometry-area-surface-area-volume', 'Unit 10 · Area, Surface Area and Volume']] },
     { course: 'Algebra 2', units: [

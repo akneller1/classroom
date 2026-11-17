@@ -15,12 +15,12 @@ window.MKPLAN_SKILLS_GEOMETRY = {
  "UNIT_SET": {
   "1": "B",
   "2": "A",
-  "3": "C",
-  "4": "T",
-  "5": "S",
-  "6": "R",
-  "7": "Q",
-  "8": "X",
+  "3": "X",
+  "4": "C",
+  "5": "T",
+  "6": "S",
+  "7": "R",
+  "8": "Q",
   "9": "K",
   "10": "M"
  },
@@ -256,6 +256,143 @@ window.MKPLAN_SKILLS_GEOMETRY = {
    "cover": "full",
    "skills": [
     [
+     "X",
+     "translate-horizontal",
+     1,
+     7
+    ],
+    [
+     "X",
+     "translate-vertical",
+     1,
+     7
+    ],
+    [
+     "X",
+     "translate-triangle-figure",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L2": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "reflect-x-axis",
+     1,
+     7
+    ],
+    [
+     "X",
+     "reflect-y-axis",
+     1,
+     7
+    ],
+    [
+     "X",
+     "reflect-triangle-figure",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L3": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "rotate-90-clockwise",
+     1,
+     7
+    ],
+    [
+     "X",
+     "rotate-90-counterclockwise",
+     1,
+     7
+    ],
+    [
+     "X",
+     "rotate-triangle-figure",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L4": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "dilate-origin",
+     1,
+     7
+    ],
+    [
+     "X",
+     "dilate-triangle-figure",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L5": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "compose-triangle-figure",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L6": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "symmetry-lines-regular",
+     1,
+     7
+    ],
+    [
+     "X",
+     "symmetry-rotation-regular",
+     1,
+     7
+    ]
+   ]
+  },
+  "U3-L7": {
+   "cover": "full",
+   "skills": [
+    [
+     "X",
+     "transformation-sequence-congruence",
+     1,
+     7
+    ],
+    [
+     "X",
+     "compose-triangle-figure",
+     3,
+     7
+    ],
+    [
+     "X",
+     "dilate-triangle-figure",
+     3,
+     7
+    ]
+   ]
+  },
+  "U4-L1": {
+   "cover": "full",
+   "skills": [
+    [
      "C",
      "congruent-corresponding-sides",
      1,
@@ -269,7 +406,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L2": {
+  "U4-L2": {
    "cover": "full",
    "skills": [
     [
@@ -286,7 +423,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L3": {
+  "U4-L3": {
    "cover": "full",
    "skills": [
     [
@@ -303,7 +440,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L4": {
+  "U4-L4": {
    "cover": "full",
    "skills": [
     [
@@ -320,7 +457,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L5": {
+  "U4-L5": {
    "cover": "full",
    "skills": [
     [
@@ -337,7 +474,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L6": {
+  "U4-L6": {
    "cover": "full",
    "skills": [
     [
@@ -378,7 +515,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U3-L7": {
+  "U4-L7": {
    "cover": "full",
    "skills": [
     [
@@ -419,7 +556,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L1": {
+  "U5-L1": {
    "cover": "full",
    "skills": [
     [
@@ -436,7 +573,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L2": {
+  "U5-L2": {
    "cover": "full",
    "skills": [
     [
@@ -447,7 +584,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L3": {
+  "U5-L3": {
    "cover": "full",
    "skills": [
     [
@@ -464,7 +601,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L4": {
+  "U5-L4": {
    "cover": "full",
    "skills": [
     [
@@ -475,7 +612,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L5": {
+  "U5-L5": {
    "cover": "full",
    "skills": [
     [
@@ -486,7 +623,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L6": {
+  "U5-L6": {
    "cover": "full",
    "skills": [
     [
@@ -503,7 +640,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U4-L7": {
+  "U5-L7": {
    "cover": "full",
    "skills": [
     [
@@ -520,7 +657,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L1": {
+  "U6-L1": {
    "cover": "full",
    "skills": [
     [
@@ -537,7 +674,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L2": {
+  "U6-L2": {
    "cover": "full",
    "skills": [
     [
@@ -548,7 +685,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L3": {
+  "U6-L3": {
    "cover": "full",
    "skills": [
     [
@@ -559,7 +696,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L4": {
+  "U6-L4": {
    "cover": "full",
    "skills": [
     [
@@ -570,7 +707,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L5": {
+  "U6-L5": {
    "cover": "full",
    "skills": [
     [
@@ -587,7 +724,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L6": {
+  "U6-L6": {
    "cover": "full",
    "skills": [
     [
@@ -598,7 +735,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L7": {
+  "U6-L7": {
    "cover": "full",
    "skills": [
     [
@@ -609,7 +746,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U5-L8": {
+  "U6-L8": {
    "cover": "full",
    "skills": [
     [
@@ -626,7 +763,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L1": {
+  "U7-L1": {
    "cover": "full",
    "skills": [
     [
@@ -643,7 +780,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L2": {
+  "U7-L2": {
    "cover": "full",
    "skills": [
     [
@@ -654,7 +791,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L3": {
+  "U7-L3": {
    "cover": "full",
    "skills": [
     [
@@ -677,7 +814,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L4": {
+  "U7-L4": {
    "cover": "full",
    "skills": [
     [
@@ -700,7 +837,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L5": {
+  "U7-L5": {
    "cover": "full",
    "skills": [
     [
@@ -723,7 +860,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L6": {
+  "U7-L6": {
    "cover": "full",
    "skills": [
     [
@@ -740,7 +877,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L7": {
+  "U7-L7": {
    "cover": "full",
    "skills": [
     [
@@ -757,7 +894,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L8": {
+  "U7-L8": {
    "cover": "full",
    "skills": [
     [
@@ -774,7 +911,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U6-L9": {
+  "U7-L9": {
    "cover": "full",
    "skills": [
     [
@@ -803,7 +940,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L1": {
+  "U8-L1": {
    "cover": "full",
    "skills": [
     [
@@ -820,7 +957,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L2": {
+  "U8-L2": {
    "cover": "full",
    "skills": [
     [
@@ -837,7 +974,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L3": {
+  "U8-L3": {
    "cover": "full",
    "skills": [
     [
@@ -866,7 +1003,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L4": {
+  "U8-L4": {
    "cover": "full",
    "skills": [
     [
@@ -883,7 +1020,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L5": {
+  "U8-L5": {
    "cover": "full",
    "skills": [
     [
@@ -894,7 +1031,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
     ]
    ]
   },
-  "U7-L6": {
+  "U8-L6": {
    "cover": "full",
    "skills": [
     [
@@ -907,143 +1044,6 @@ window.MKPLAN_SKILLS_GEOMETRY = {
      "Q",
      "parallelogram-diagonal-bisection-converse",
      1,
-     7
-    ]
-   ]
-  },
-  "U8-L1": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "translate-horizontal",
-     1,
-     7
-    ],
-    [
-     "X",
-     "translate-vertical",
-     1,
-     7
-    ],
-    [
-     "X",
-     "translate-triangle-figure",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L2": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "reflect-x-axis",
-     1,
-     7
-    ],
-    [
-     "X",
-     "reflect-y-axis",
-     1,
-     7
-    ],
-    [
-     "X",
-     "reflect-triangle-figure",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L3": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "rotate-90-clockwise",
-     1,
-     7
-    ],
-    [
-     "X",
-     "rotate-90-counterclockwise",
-     1,
-     7
-    ],
-    [
-     "X",
-     "rotate-triangle-figure",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L4": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "dilate-origin",
-     1,
-     7
-    ],
-    [
-     "X",
-     "dilate-triangle-figure",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L5": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "compose-triangle-figure",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L6": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "symmetry-lines-regular",
-     1,
-     7
-    ],
-    [
-     "X",
-     "symmetry-rotation-regular",
-     1,
-     7
-    ]
-   ]
-  },
-  "U8-L7": {
-   "cover": "full",
-   "skills": [
-    [
-     "X",
-     "transformation-sequence-congruence",
-     1,
-     7
-    ],
-    [
-     "X",
-     "compose-triangle-figure",
-     3,
-     7
-    ],
-    [
-     "X",
-     "dilate-triangle-figure",
-     3,
      7
     ]
    ]
