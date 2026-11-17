@@ -5,6 +5,7 @@
  var NS=G.MKMENU,K=NS.kit,M=K.M,st=K.step;
  function question(ctx,kind){
   var r=ctx.rng,c=ctx.c,x=r.int(c<3?2:3,c<3?12:24),a=c>4?r.int(2,5):1,b=r.int(2,12),total=a*x+b;
+  if(kind==='angle'){x=r.int(c<3?10:8,c<3?50:35);b=r.int(15,60);total=a*x+b;K.need(total<180);}   /* angles a protractor would show (2026-11-17) */
   var eq=a===1?'x+'+b+'='+total:a+'x+'+b+'='+total;
   var part=M(a===1?'x':a+'x');
   var text=kind==='segment'

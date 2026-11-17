@@ -3,6 +3,7 @@
 var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 function corresponding(ctx,kind){
  var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?30:18),a=c>=5?r.int(2,4):1,b=r.int(1,12),value=a*x+b;
+ if(kind==='angle'){for(var t=0;t<100&&(value<25||value>150);t++){x=r.int(8,c>=5?40:60);b=r.int(5,40);value=a*x+b;}K.need(value>=25&&value<=150);}   /* a triangle angle a student would recognize (2026-11-17) */
  var eq=(a===1?'x':a+'x')+'+'+b+'='+value;
  var feature=kind==='side'?'corresponding sides':'corresponding angles';
  var unit=kind==='side'?' units':' degrees';

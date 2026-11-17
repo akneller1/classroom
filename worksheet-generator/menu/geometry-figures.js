@@ -540,19 +540,59 @@
     semicircle: function (aDeg, aText, xText) {
       return { kind: 'geo-circle', exact: true, pts: { A: [-1, 0], B: [1, 0], C: F.on(2 * aDeg) }, onCircle: ['A', 'B', 'C'], segs: [{ p: 'A', q: 'B' }, { p: 'A', q: 'C' }, { p: 'B', q: 'C' }], right: [['C', 'A', 'B']], angles: [{ v: 'A', a: 'B', b: 'C', label: aText }, { v: 'B', a: 'A', b: 'C', label: xText }], alt: 'Triangle ABC inscribed in a circle with AB a diameter' };
     },
-    chords: function (lab) {   // lab: {PA,PB,PC,PD}
+    chords: function (lab, num) {   // lab: {PA,PB,PC,PD}; num (optional): true lengths, drawn to scale
+      if (num) { var sc = CIRC.chordsScaled(lab, num); if (sc) return sc; }
       var A = F.on(200), B = F.on(30), C = F.on(125), D = F.on(300), d = (A[0] - B[0]) * (C[1] - D[1]) - (A[1] - B[1]) * (C[0] - D[0]);
       var a1 = A[0] * B[1] - A[1] * B[0], b1 = C[0] * D[1] - C[1] * D[0], Pp = [(a1 * (C[0] - D[0]) - (A[0] - B[0]) * b1) / d, (a1 * (C[1] - D[1]) - (A[1] - B[1]) * b1) / d];
       return { kind: 'geo-circle', pts: { A: A, B: B, C: C, D: D, P: Pp }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'P', q: 'A', label: lab.PA, t: 0.55 }, { p: 'P', q: 'B', label: lab.PB, t: 0.55 }, { p: 'P', q: 'C', label: lab.PC, t: 0.55 }, { p: 'P', q: 'D', label: lab.PD, t: 0.55 }], labels: { P: { dx: 10, dy: 0 } }, alt: 'Two chords intersecting inside a circle at P' };
     },
-    secants: function (a) {   // a: {ext1, ext2, in1, in2, whole1, whole2} labels (text); whole* uses a dimension line
+    /* to-scale versions: chord/secant pieces drawn in their true proportions (one common scale factor) */
+    chordsScaled: function (lab, n) {
+      var a = n.PA, b = n.PB, c = n.PC, e = n.PD, s = 1.86 / Math.max(a + b, c + e), d2 = 1 - a * b * s * s, d = Math.sqrt(d2);
+      if (!(d > 0.08)) return null;
+      var t1 = Math.acos(Math.max(-1, Math.min(1, -(b - a) * s / (2 * d)))), t2 = Math.acos(Math.max(-1, Math.min(1, -(e - c) * s / (2 * d)))), phi = rad(250);
+      var sep = function (x) { x = Math.abs(x) % Math.PI; return Math.min(x, Math.PI - x); };
+      var g1 = phi + t1, g2 = phi - t2;
+      if (sep(g1 - g2) < sep(t1 - t2)) g2 = phi + t2;
+      if (sep(g1 - g2) < rad(28)) return null;
+      var P0 = [d * Math.cos(phi), d * Math.sin(phi)], u1 = [Math.cos(g1), Math.sin(g1)], u2 = [Math.cos(g2), Math.sin(g2)];
+      function at(u, t) { var q = [P0[0] + t * u[0], P0[1] + t * u[1]], m = Math.hypot(q[0], q[1]); return [q[0] / m, q[1] / m]; }
+      return { kind: 'geo-circle', note: 'Segment lengths are drawn to scale.', pts: { A: at(u1, -a * s), B: at(u1, b * s), C: at(u2, -c * s), D: at(u2, e * s), P: P0 }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'P', q: 'A', label: lab.PA, t: 0.55 }, { p: 'P', q: 'B', label: lab.PB, t: 0.55 }, { p: 'P', q: 'C', label: lab.PC, t: 0.55 }, { p: 'P', q: 'D', label: lab.PD, t: 0.55 }], alt: 'Two chords AB and CD intersecting at P, drawn to scale' };
+    },
+    exterior: function (ext, whole, s) {   // distance OP and the secant's angle from PO for a secant ext*s, whole*s
+      var D = Math.sqrt(1 + ext * whole * s * s), cs = (ext + whole) * s / (2 * D);
+      return cs > 1 ? null : { D: D, th: Math.acos(cs) };
+    },
+    secantsScaled: function (a, n) {   // n: {ext1, whole1, ext2, whole2}
+      var s = Math.min(1.9 / Math.max(n.whole1 - n.ext1, n.whole2 - n.ext2), Math.sqrt((3.1 * 3.1 - 1) / (n.ext1 * n.whole1)));
+      var e1 = CIRC.exterior(n.ext1, n.whole1, s), e2 = CIRC.exterior(n.ext2, n.whole2, s);
+      if (!e1 || !e2 || e1.th + e2.th < rad(14) || n.ext1 * s < 0.25 || n.ext2 * s < 0.25) return null;
+      var P = [-e1.D, 0], u1 = mathDir(e1.th * 180 / Math.PI), u2 = mathDir(-e2.th * 180 / Math.PI), h1 = lineHits(P, u1), h2 = lineHits(P, u2);
+      if (!h1 || !h2) return null;
+      var spec = { kind: 'geo-circle', note: 'Segment lengths are drawn to scale.', pts: { P: P, A: h1[0], B: h1[1], C: h2[0], D: h2[1] }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'P', q: 'A', label: a.ext1, side: 1 }, { p: 'P', q: 'C', label: a.ext2, side: -1 }], dims: [], alt: 'Two secants from an exterior point P, drawn to scale' };
+      if (a.in1) spec.segs.push({ p: 'A', q: 'B', label: a.in1, side: 1 }); else spec.segs.push({ p: 'A', q: 'B' }), spec.dims.push({ p: 'P', q: 'B', label: a.whole1, side: 1, off: 20 });
+      if (a.in2) spec.segs.push({ p: 'C', q: 'D', label: a.in2, side: -1 }); else spec.segs.push({ p: 'C', q: 'D' }), spec.dims.push({ p: 'P', q: 'D', label: a.whole2, side: -1, off: 20 });
+      return spec;
+    },
+    tangentSecantScaled: function (a, n) {   // n: {tan, ext, whole}
+      var s = Math.min(1.9 / (n.whole - n.ext), Math.sqrt((3.1 * 3.1 - 1)) / n.tan), e = CIRC.exterior(n.ext, n.whole, s);
+      if (!e || n.ext * s < 0.25 || e.th < rad(5)) return null;
+      var D = e.D, P = [-D, 0], Tt = [-1 / D, Math.sqrt(1 - 1 / (D * D))], u = mathDir(-e.th * 180 / Math.PI), h1 = lineHits(P, u);
+      if (!h1) return null;
+      var spec = { kind: 'geo-circle', note: 'Segment lengths are drawn to scale.', showCenter: false, pts: { P: P, T: Tt, A: h1[0], B: h1[1] }, onCircle: ['T', 'A', 'B'], segs: [{ p: 'P', q: 'T', label: a.tan, side: -1 }, { p: 'P', q: 'A', label: a.ext, side: 1 }], dims: [], right: [], alt: 'A tangent and a secant from exterior point P, drawn to scale' };
+      if (a.inside) spec.segs.push({ p: 'A', q: 'B', label: a.inside, side: 1 }); else spec.segs.push({ p: 'A', q: 'B' }), spec.dims.push({ p: 'P', q: 'B', label: a.whole, side: -1, off: 22 });
+      return spec;
+    },
+    secants: function (a, num) {
+      if (num) { var sc = CIRC.secantsScaled(a, num); if (sc) return sc; }   // a: {ext1, ext2, in1, in2, whole1, whole2} labels (text); whole* uses a dimension line
       var P = [-2.4, 0], u1 = mathDir(14), u2 = mathDir(-10), h1 = lineHits(P, u1), h2 = lineHits(P, u2);
       var spec = { kind: 'geo-circle', pts: { P: P, A: h1[0], B: h1[1], C: h2[0], D: h2[1] }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'P', q: 'A', label: a.ext1, side: 1 }, { p: 'P', q: 'C', label: a.ext2, side: -1 }], dims: [], alt: 'Two secants from an exterior point P' };
       if (a.in1) spec.segs.push({ p: 'A', q: 'B', label: a.in1, side: 1 }); else spec.segs.push({ p: 'A', q: 'B' }), spec.dims.push({ p: 'P', q: 'B', label: a.whole1, side: 1, off: 20 });
       if (a.in2) spec.segs.push({ p: 'C', q: 'D', label: a.in2, side: -1 }); else spec.segs.push({ p: 'C', q: 'D' }), spec.dims.push({ p: 'P', q: 'D', label: a.whole2, side: -1, off: 20 });
       return spec;
     },
-    tangentSecant: function (a) {   // a: {tan, ext, in? , whole?}
+    tangentSecant: function (a, num) {   // a: {tan, ext, in? , whole?}
+      if (num) { var sc = CIRC.tangentSecantScaled(a, num); if (sc) return sc; }
       var d = 2.3, P = [-d, 0], Tt = [-1 / d, Math.sqrt(1 - 1 / (d * d))], u = mathDir(-9), h1 = lineHits(P, u);
       var spec = { kind: 'geo-circle', showCenter: false, pts: { P: P, T: Tt, A: h1[0], B: h1[1] }, onCircle: ['T', 'A', 'B'], segs: [{ p: 'P', q: 'T', label: a.tan, side: -1 }, { p: 'P', q: 'A', label: a.ext, side: 1 }], dims: [], right: [], alt: 'A tangent and a secant from an exterior point P' };
       if (a.inside) spec.segs.push({ p: 'A', q: 'B', label: a.inside, side: 1 }); else spec.segs.push({ p: 'A', q: 'B' }), spec.dims.push({ p: 'P', q: 'B', label: a.whole, side: -1, off: 22 });
@@ -560,6 +600,7 @@
     },
     sector: function (angDeg, angText, radText, text, where) {   // text: arc length (where 'arc') or sector area (where 'inside')
       var spec = { kind: 'geo-circle', exact: true, showCenter: true, labels: { O: { dx: -22, dy: -12 } }, pts: { A: F.on(-angDeg / 2), B: F.on(angDeg / 2) }, onCircle: ['A', 'B'], segs: [{ p: 'O', q: 'A', label: radText, side: -1 }, { p: 'O', q: 'B' }], arcs: [{ p: 'A', q: 'B', label: where === 'arc' ? text : 'A = ' + text }], angles: [{ v: 'O', a: 'A', b: 'B', label: angText }], texts: [], alt: 'Circle with a sector' };
+      if (angDeg > 180) { spec.arcs[0].major = true; spec.angles = []; spec.texts.push({ at: [-0.42, 0.02], text: angText }); spec.alt = 'Circle with a major sector'; }
       return spec;
     },
     chordDistance: function (ratio, radText, distText, chordText) {   // ratio = distance / radius (true proportions)

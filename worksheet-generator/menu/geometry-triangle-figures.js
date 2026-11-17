@@ -59,7 +59,7 @@
     if (!text) return out;
     var bis = [u1[0] + u2[0], u1[1] + u2[1]], m = Math.hypot(bis[0], bis[1]) || 1; bis = [bis[0] / m, bis[1] / m];
     var tw = String(text).length * 7.8 + 6, dot_ = Math.max(-1, Math.min(1, u1[0] * u2[0] + u1[1] * u2[1])), a = Math.acos(dot_);
-    for (var d = 36; d <= 70; d += 6) if (2 * d * Math.tan(a / 2) >= tw + 8 && d + tw / 2 <= (maxD || 90)) return out + T(V[0] + bis[0] * d, V[1] + bis[1] * d, text);
+    for (var d = 36; d <= Math.min(180, maxD || 70); d += 6) if (2 * d * Math.tan(a / 2) >= tw + 8 && d + tw / 2 <= (maxD || 90)) return out + T(V[0] + bis[0] * d, V[1] + bis[1] * d, text);
     var o = outward || bis, dd = 20 + tw / 2 + 4;
     return out + T(V[0] + o[0] * dd, V[1] + o[1] * dd, text);
   }

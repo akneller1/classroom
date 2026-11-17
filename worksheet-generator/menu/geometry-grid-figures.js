@@ -2,6 +2,7 @@
    spec: { kind:'geo-grid',
            shapes:[{ id:'pre', pts:[[x,y]...], labels:['A','B','C'], dash:false, of:'pre', tx:{...} }],
            lines:[{ x:2 } | { y:-1 }]   // dashed mirror lines (the axes are always drawn)
+           circles:[{ c:[h,k], r, dash }]   // circles drawn to scale on the grid
            note: 'text' }
    A shape that has "of" and "tx" is the IMAGE of an earlier shape under the transformation tx; the checker
    recomputes every image vertex from the preimage and refuses a figure whose drawn image disagrees.
@@ -29,7 +30,7 @@
   }
   F.grid = { apply: apply };
 
-  function isPt(p) { return Array.isArray(p) && p.length === 2 && isFinite(p[0]) && isFinite(p[1]) && Math.abs(p[0]) <= 15 && Math.abs(p[1]) <= 15; }
+  function isPt(p) { return Array.isArray(p) && p.length === 2 && isFinite(p[0]) && isFinite(p[1]) && Math.abs(p[0]) <= 20 && Math.abs(p[1]) <= 20; }
   function check(spec) {
     var sh = spec.shapes || [], byId = {}, i, j;
     if (!sh.length) return { ok: false, msg: 'no shapes' };
@@ -50,6 +51,8 @@
       }
       byId[s.id] = s;
     }
+    var cs = spec.circles || [];
+    for (i = 0; i < cs.length; i++) if (!isPt(cs[i].c) || !(cs[i].r > 0) || Math.abs(cs[i].c[0]) + cs[i].r > 20 || Math.abs(cs[i].c[1]) + cs[i].r > 20) return { ok: false, msg: 'circle out of range' };
     var ln = spec.lines || [];
     for (i = 0; i < ln.length; i++) if (!((typeof ln[i].x === 'number') !== (typeof ln[i].y === 'number'))) return { ok: false, msg: 'a mirror line is x=c or y=c' };
     return { ok: true };
@@ -63,6 +66,7 @@
   function render(spec) {
     var sh = spec.shapes, xs = [0], ys = [0], i, j;
     sh.forEach(function (s) { s.pts.forEach(function (p) { xs.push(p[0]); ys.push(p[1]); }); });
+    (spec.circles || []).forEach(function (q) { xs.push(q.c[0] - q.r, q.c[0] + q.r); ys.push(q.c[1] - q.r, q.c[1] + q.r); });
     var X = Math.max(3, Math.ceil(Math.max.apply(null, xs.map(Math.abs))) + 1), Y = Math.max(3, Math.ceil(Math.max.apply(null, ys.map(Math.abs))) + 1);
     var xmin = -X, xmax = X, ymin = -Y, ymax = Y;
     var nx = xmax - xmin, ny = ymax - ymin, cell = Math.max(10, Math.min(28, Math.floor(380 / nx), Math.floor(240 / ny)));
@@ -81,6 +85,7 @@
       o += '<path d="M' + r1(a[0]) + ' ' + r1(a[1]) + ' L' + r1(b[0]) + ' ' + r1(b[1]) + '" stroke="' + INK + '" stroke-width="2.2" stroke-dasharray="8 5"/>';
       if (l.text) o += l.x !== undefined ? txt(a[0] + 5, a[1] + 8, l.text, { anchor: 'start', size: 12, halo: true }) : txt(b[0] - 3, b[1] - 9, l.text, { anchor: 'end', size: 12, halo: true });
     });
+    (spec.circles || []).forEach(function (q) { o += '<circle cx="' + r1(gx(q.c[0])) + '" cy="' + r1(gy(q.c[1])) + '" r="' + r1(q.r * cell) + '" fill="none" stroke="' + INK + '" stroke-width="2.2"' + (q.dash ? ' stroke-dasharray="7 4"' : '') + '/>'; });
     /* vertex labels: collision-aware (other labels, every vertex dot, axis numbers) and kept inside the picture */
     var dots = [], tickBoxes = [], placed = [], hits = function (A, B) { return A[0] < B[2] && B[0] < A[2] && A[1] < B[3] && B[1] < A[3]; };
     for (i = xmin; i <= xmax; i++) if (i !== 0 && i % step === 0) tickBoxes.push([gx(i) - 9, gy(0) + 3, gx(i) + 9, gy(0) + 17]);
