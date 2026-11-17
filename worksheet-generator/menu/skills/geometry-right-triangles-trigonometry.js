@@ -272,6 +272,27 @@ function ambiguous(ctx){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,A=r.int(25,c>=6?12
  return {variant:'geo-ssa-both-'+c,prompt:pr+'There are two possible triangles. Find both possible measures of ∠B to the nearest tenth of a degree.',parts:[{answer:M(s1)+'° or '+M(s2)+'°',check:{type:'derive',kind:'ssa',alts:[M(s1)+'° only',M(s2)+'° only',M(s1)+'° or '+M((Math.round((180-A-B1)*10)/10).toFixed(1))+'°']}}],
   steps:[step(why,''),step('Law of Sines: sin B = b·sin A ÷ a, so B ≈ '+s1+'°.',''),step('The supplement also has that sine: 180° − '+s1+'° = '+s2+'°, and it still fits with angle A.','')],space:[1.3,1.6,1.9]};}
 
+/* ---- 2026-11-17 audit: sine and cosine of complementary angles (G-SRT.C.7), area = ½ab sin C (G-SRT.D.9) ---- */
+function t1x(v){return (Math.round(v*10)/10).toFixed(1);}
+function safeX(v){var t=v*10;return Math.abs(t-Math.floor(t)-0.5)>1e-3;}
+function cofunction(ctx){var r=ctx.rng,c=ctx.c,pr,ans,alts,st,mode=c<=2?r.pick(['ratio','deg']):c<=4?r.pick(['deg','one','two']):r.pick(['two','scaled']);
+ if(mode==='ratio'){var tr=r.pick([[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29],[9,40,41]]),leg=r.pick([0,1]),f=r.pick(['sin','cos']),g=f==='sin'?'cos':'sin';
+  pr='In right triangle ABC with the right angle at C, '+f+' A = '+tr[leg]+'/'+tr[2]+'. Find '+g+' B.';ans=M('\\frac{'+tr[leg]+'}{'+tr[2]+'}');alts=[M('\\frac{'+tr[1-leg]+'}{'+tr[2]+'}'),M('\\frac{'+tr[2]+'}{'+tr[leg]+'}')];
+  st=[step('A and B are complementary, so the side opposite A is the side adjacent to B.'),step(f+' A = '+g+' B because '+f+' θ = '+g+'(90° − θ).',ans)];}
+ else if(mode==='deg'){var a=r.int(5,85),f2=r.pick(['sin','cos']),g2=f2==='sin'?'cos':'sin';K.need(a!==45);pr=f2+' '+a+'° = '+g2+' x°. Find x, where x is between 0 and 90.';ans=M('x='+(90-a));alts=[M('x='+a),M('x='+(180-a))];
+  st=[step('Sine and cosine of complementary angles are equal: '+f2+' θ = '+g2+'(90° − θ).'),step('x = 90 − '+a+'.',M('x='+(90-a)))];}
+ else {var p1=mode==='one'?1:mode==='two'?r.int(1,3):r.int(2,5),q1=mode==='one'?0:mode==='two'?r.int(1,3):r.int(2,5),x=r.int(3,mode==='scaled'?12:20),b1=r.int(-10,20),A1=p1*x+b1,A2=90-A1,b2=A2-q1*x;
+  K.need(A1>5&&A2>5&&A1<85&&A2<85&&A1!==45&&(mode==='one'||b2!==0));
+  var ex=function(k,b){return (k===1?'x':k+'x')+(b<0?' − '+(-b):' + '+b);},lhs=ex(p1,b1),rhs=mode==='one'?String(A2):ex(q1,b2),eq=(p1===1?'x':p1+'*x')+'+'+b1+(mode==='one'?'':'+'+(q1===1?'x':q1+'*x'))+'+'+(mode==='one'?A2:b2)+'=90';
+  pr='sin('+lhs+')° = '+(mode==='one'?'cos '+rhs+'°':'cos('+rhs+')°')+', and both angles are acute. Find x.';ans=M('x='+x);alts=[M('x='+(x+1)),M('x='+Math.round((180-(b1+(mode==='one'?A2:b2)))/(p1+q1||1)))].filter(function(z){return z!==ans;});
+  st=[step('If sin A = cos B for acute angles, then A and B are complementary: A + B = 90.',M(eq.replace(/\+-/g,'-'))),step('Solve for x.',M('x='+x))];}
+ return {variant:'geo-cofunction-'+mode+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'cofunction',alts:alts}}],steps:st,space:[1,1.3,1.6]};}
+function sasArea(ctx){var r=ctx.rng,c=ctx.c,unit=r.pick(['cm','in.','m','ft']),a=r.int(4,c<=2?14:25),b=r.int(4,c<=2?14:25),th=c<=2?r.pick([30,150,90]):r.int(20,160),v=0.5*a*b*Math.sin(th*Math.PI/180),pr,ans,alts,st;
+ if(c>=6){var S=r.int(10,250),side=2*S/(a*Math.sin(th*Math.PI/180));K.need(safeX(side)&&side>2&&side<80&&th!==90);pr='The area of triangle ABC is '+S+' square '+unit+'. AB = '+a+' '+unit+' and m∠A = '+th+'°. Find AC to the nearest tenth.';ans=M(t1x(side));alts=[M(t1x(S/(a*Math.sin(th*Math.PI/180)))),M(t1x(2*S/a))];
+  st=[step('Area = ½ · AB · AC · sin A.',M(S+'=\\frac{1}{2}('+a+')(AC)\\sin '+th+'^\\circ')),step('AC = 2·'+S+' ÷ ('+a+' sin '+th+'°).',M(t1x(side)))];}
+ else {K.need(safeX(v));pr='In triangle ABC, AB = '+a+' '+unit+', AC = '+b+' '+unit+' and m∠A = '+th+'°. Find the area of the triangle to the nearest tenth.';ans=M(t1x(v));alts=[M(t1x(2*v)),M(t1x(0.5*a*b))].filter(function(z){return z!==ans;});
+  st=[step('Two sides and the included angle are known, so Area = ½ab sin C.'),step('Area = ½('+a+')('+b+') sin '+th+'°.',M(t1x(v)))];}
+ return {variant:'geo-sas-area-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'sas-area',alts:alts}}],steps:st,space:[1.1,1.4,1.7]};}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
 tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding',OBLIQUE:'Law of Sines and Law of Cosines'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section><section><h4>Oblique triangles</h4><p>Law of Sines: a/sin A = b/sin B = c/sin C. Law of Cosines: c² = a² + b² − 2ab cos C.</p></section></div>',
@@ -294,6 +315,8 @@ skills:[
 {id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey},
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
 {id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal},
+{id:'trig-complementary-cofunction',tag:'TRIG',name:'Sine and cosine of complementary angles',best:[0,1,2],generate:ctx=>K.retry(()=>cofunction(ctx))},
+{id:'trig-area-sas',tag:'TRIG',name:'Area of a triangle: ½ab sin C',best:[1,2],generate:ctx=>K.retry(()=>sasArea(ctx))},
 {id:'right-special-radical',tag:'SPECIAL',name:'Exact radical sides in special right triangles',best:[1,2],generate:specialRadical},
 {id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression (heights and distances)',best:[1,2],generate:ctx=>K.retry(()=>rtApplied(ctx,'depression'))},
 {id:'law-of-sines',tag:'OBLIQUE',name:'Law of Sines (sides and angles to the nearest tenth)',best:[1,2],generate:ctx=>oblique(ctx,'sines')},

@@ -1589,6 +1589,146 @@
     }
     function lineFromAnswer(ans) { var s = firstMath(ans || ''); if (!s) return null; var rel = C.parseRelation(s), f = function (x, y) { var env = { x: new Q(BigInt(x)), y: new Q(BigInt(y)) }; return C.evalNode(rel.lhs, env).sub(C.evalNode(rel.rhs, env)); };
       var c0 = f(0, 0), A = f(1, 0).sub(c0), B = f(0, 1).sub(c0); if (!f(2, 3).eq(A.mul(new Q(2n)).add(B.mul(new Q(3n))).add(c0)) || (A.n === 0n && B.n === 0n)) return null; return { A: A, B: B, C: c0 }; }
+    /* ---- 2026-11-17 audit additions (Geometry): each reader recomputes the answer from the printed text ---- */
+    function nums(ans) { return (String(ans || '').replace(/[⟨⟩]/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\\frac\{(\d+)\}\{(\d+)\}/g, '$1/$2').replace(/[−–]/g, '-').match(/-?\d+(?:\.\d+)?/g) || []).map(Number); }
+    function pairOf(ans) { var g = /\(\s*(-?\d+(?:\.\d+)?)\s*,\\?\s*(-?\d+(?:\.\d+)?)\s*\)/.exec(C.plainText(String(ans || '')).replace(/\\ /g, ' ').replace(/[−–]/g, '-')); return g ? [+g[1], +g[2]] : null; }
+    R['partition'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), m, A, B, f;
+      if ((m = /from A\((-?\d+), (-?\d+)\) to B\((-?\d+), (-?\d+)\)\. Point P on AB divides it so that AP : PB = (\d+) : (\d+)\./.exec(t))) f = +m[5] / (+m[5] + +m[6]);
+      else if ((m = /from A\((-?\d+), (-?\d+)\) to B\((-?\d+), (-?\d+)\), (\d+)\/(\d+) of the way from A to B\./.exec(t))) f = +m[5] / +m[6];
+      else throw new C.CheckError('cannot read the segment');
+      A = [+m[1], +m[2]]; B = [+m[3], +m[4]]; need(f > 0 && f < 1, 'a point between A and B');
+      var sh = p.fig && p.fig.shapes && p.fig.shapes[0]; if (sh) need(sh.pts[0][0] === A[0] && sh.pts[0][1] === A[1] && sh.pts[1][0] === B[0] && sh.pts[1][1] === B[1], 'the drawn segment matches the printed endpoints');
+      var want = [A[0] + f * (B[0] - A[0]), A[1] + f * (B[1] - A[1])], g = pairOf(part.answer);
+      if (!g) return { status: 'mismatch', msg: 'Write P as (x, y).' };
+      return Math.abs(g[0] - want[0]) < 1e-9 && Math.abs(g[1] - want[1]) < 1e-9 ? { status: 'verified', computed: '(' + want.join(', ') + ')' } : { status: 'mismatch', msg: 'Correct: (' + want.join(', ') + ').' };
+    };
+    R['counterex'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), m, v = nums(part.answer), ok, bad = { status: 'mismatch', msg: 'That does not make the hypothesis true and the conclusion false.' };
+      if ((m = /If x² = (\d+), then x = (\d+)\./.exec(t))) { need(v.length >= 1, ''); ok = v[0] * v[0] === +m[1] && v[0] !== +m[2]; }
+      else if ((m = /If an angle measures more than (\d+)°, then it is obtuse\./.exec(t))) ok = v.length >= 1 && v[0] > +m[1] && v[0] <= 90;
+      else if ((m = /If an angle measures less than (\d+)°, then it is acute\./.exec(t))) ok = v.length >= 1 && v[0] < +m[1] && v[0] >= 90;
+      else if ((m = /If \|x\| > (\d+), then x > \1\./.exec(t))) ok = v.length >= 1 && Math.abs(v[0]) > +m[1] && !(v[0] > +m[1]);
+      else if ((m = /If x > -(\d+), then x² > (\d+)\./.exec(t))) { need(+m[1] * +m[1] === +m[2], 'matching numbers'); ok = v.length >= 1 && v[0] > -m[1] && !(v[0] * v[0] > +m[2]); }
+      else if ((m = /If the product of two integers is (\d+), then both integers are positive\./.exec(t))) ok = v.length >= 2 && Number.isInteger(v[0]) && Number.isInteger(v[1]) && v[0] * v[1] === +m[1] && !(v[0] > 0 && v[1] > 0);
+      else if ((m = /If two angles are complementary, then one of them measures more than (\d+)°\./.exec(t))) ok = v.length >= 2 && v[0] > 0 && v[1] > 0 && v[0] + v[1] === 90 && v[0] <= +m[1] && v[1] <= +m[1];
+      else if ((m = /lengths a, b and (\d+) satisfy a \+ b > \1\. Conjecture: the three segments always form a triangle\./.exec(t))) { var c3 = +m[1]; ok = v.length >= 2 && v[0] > 0 && v[1] > 0 && Number.isInteger(v[0]) && Number.isInteger(v[1]) && v[0] + v[1] > c3 && !(v[0] + c3 > v[1] && v[1] + c3 > v[0]); }
+      else throw new C.CheckError('cannot read the conjecture');
+      return ok ? { status: 'verified' } : bad;
+    };
+    R['indirect'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), w = words(part.answer).replace(/[−–]/g, '-'), m, ok;
+      var neq = /≠|not equal|is not|isn't|does not equal/.test(w);
+      if ((m = /If (\d+)x \+ (\d+) = (-?\d+), then x = (-?\d+)\. What do you assume/.exec(t))) { need(+m[1] * +m[4] + +m[2] === +m[3], 'a true statement'); ok = neq && nums(w).indexOf(+m[4]) >= 0; }
+      else if ((m = /if m∠A = (\d+)° and m∠B = (\d+)°, then m∠C = (\d+)°\. What do you assume/.exec(t))) { need(+m[1] + +m[2] + +m[3] === 180, 'a true statement'); ok = neq && /∠\s*c|angle c/.test(w) && nums(w).indexOf(+m[3]) >= 0; }
+      else if ((m = /If ([nkm])² is even, then \1 is even\. What do you assume/.exec(t))) ok = new RegExp('\\b' + m[1] + '\\b').test(w) && (/\bodd\b/.test(w) || /not even/.test(w)) && !/² is/.test(w);
+      else if ((m = /A triangle cannot have two (right|obtuse) angles\. What do you assume/.exec(t))) ok = /\b(two|2|more than one|at least two)\b/.test(w) && new RegExp(m[1]).test(w) && !/cannot|can't|no /.test(w);
+      else if ((m = /If (\d+)x \+ (\d+) > (-?\d+), then x > (-?\d+)\. What do you assume/.exec(t))) { need(+m[1] * +m[4] + +m[2] === +m[3], 'a true statement'); ok = /≤|less than or equal|at most|not greater|<=/.test(w) && nums(w).indexOf(+m[4]) >= 0; }
+      else throw new C.CheckError('cannot read the statement');
+      return ok ? { status: 'verified' } : { status: 'mismatch', msg: 'Assume the conclusion is false.' };
+    };
+    function qOf(t) { var f = /^(-?\d+)(?:\/(\d+))?$/.exec(t); need(f, 'a slope'); return new Q(BigInt(f[1]), BigInt(f[2] || 1)); }
+    R['parperp'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), m, S, perp, pt = null;
+      if ((m = /Line ℓ has slope (-?\d+(?:\/\d+)?)\. Find the slope of a line (parallel|perpendicular) to ℓ\./.exec(t))) { S = qOf(m[1]); perp = m[2] === 'perpendicular'; }
+      else if ((m = /Line ℓ passes through \((-?\d+), (-?\d+)\) and \((-?\d+), (-?\d+)\)\. Find the slope of a line (parallel|perpendicular) to ℓ\./.exec(t))) { need(+m[3] !== +m[1], 'a non-vertical line'); S = new Q(BigInt(+m[4] - +m[2]), BigInt(+m[3] - +m[1])); perp = m[5] === 'perpendicular'; }
+      else if ((m = /line through \((-?\d+), (-?\d+)\) that is (parallel|perpendicular) to the line y = (?:\((-?\d+\/\d+)\)|(-?\d*))x(?: ([+-]) (\d+))?\./.exec(t))) { S = m[4] ? qOf(m[4]) : qOf(m[5] === '' ? '1' : m[5] === '-' ? '-1' : m[5]); perp = m[3] === 'perpendicular'; pt = [+m[1], +m[2]]; }
+      else throw new C.CheckError('cannot read the line');
+      var W = perp ? (need(S.n !== 0n, 'a non-horizontal line'), new Q(-S.d, S.n)) : S;
+      if (!pt) { var got = valueFromAnswer(part.answer, 'm'); return got.eq(W) ? { status: 'verified', computed: W.toString() } : { status: 'mismatch', msg: 'Correct slope: ' + W + '.' }; }
+      var L = lineFromAnswer(part.answer); if (!L || L.B.n === 0n) return { status: 'mismatch', msg: 'Write the line as y = mx + b.' };
+      var slope = L.A.neg ? L.A.neg().div(L.B) : new Q(0n, 1n).sub(L.A).div(L.B), on = L.A.mul(new Q(BigInt(pt[0]))).add(L.B.mul(new Q(BigInt(pt[1])))).add(L.C).n === 0n;
+      return slope.eq(W) && on ? { status: 'verified' } : { status: 'mismatch', msg: 'The line has slope ' + W + ' and passes through (' + pt.join(', ') + ').' };
+    };
+    R['slope'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), V = {}, re = /\b([A-Z])\((-?\d+), (-?\d+)\)/g, m;
+      while ((m = re.exec(t))) V[m[1]] = [+m[2], +m[3]];
+      var sh = p.fig && p.fig.shapes && p.fig.shapes[0]; if (sh) sh.labels.forEach(function (n, i) { need(V[n] && V[n][0] === sh.pts[i][0] && V[n][1] === sh.pts[i][1], 'the drawn vertices match the printed ones'); });
+      var q = need(/slope of ([A-Z])([A-Z])\./.exec(C.plainText(part.prompt || '')), 'which side'), a = need(V[q[1]], 'vertex'), b = need(V[q[2]], 'vertex');
+      if (a[0] === b[0]) return /undefined|no slope/.test(words(part.answer)) ? { status: 'verified', computed: 'undefined' } : { status: 'mismatch', msg: 'A vertical side has undefined slope.' };
+      var want = new Q(BigInt(b[1] - a[1]), BigInt(b[0] - a[0]));
+      if (/undefined/.test(words(part.answer))) return { status: 'mismatch', msg: 'Correct slope: ' + want + '.' };
+      return valueFromAnswer(part.answer).eq(want) ? { status: 'verified', computed: want.toString() } : { status: 'mismatch', msg: 'Correct slope: ' + want + '.' };
+    };
+    function piCoef(ans) { var t = String(ans || '').replace(/[⟨⟩]/g, '').replace(/\\pi/g, 'π').replace(/<[^>]+>/g, ' '); if (!/π/.test(t)) return null; var m = /(-?\d+(?:\.\d+)?)\s*π/.exec(t); return m ? +m[1] : null; }
+    R['coord-poly'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/[−–]/g, '-'), V = [], re = /\b([A-D])\((-?\d+), (-?\d+)\)/g, m;
+      while ((m = re.exec(t))) V.push([+m[2], +m[3]]);
+      need(V.length >= 3, 'the vertices'); var sh = p.fig && p.fig.shapes && p.fig.shapes[0]; need(sh && sh.pts.length === V.length && sh.pts.every(function (q, i) { return q[0] === V[i][0] && q[1] === V[i][1]; }), 'the drawn polygon matches the printed vertices');
+      var A2 = 0, per = 0; V.forEach(function (u, i) { var v = V[(i + 1) % V.length]; A2 += u[0] * v[1] - v[0] * u[1]; per += Math.hypot(v[0] - u[0], v[1] - u[1]); });
+      if (/Find its perimeter/.test(t)) return rounded(part.answer, per, t);
+      need(/Find its area/.test(t), 'the question'); var area = Math.abs(A2) / 2, got = valueFromAnswer(part.answer);
+      return Math.abs(Number(got.n) / Number(got.d) - area) < 1e-9 ? { status: 'verified', computed: String(area) } : { status: 'mismatch', msg: 'Correct area: ' + area + '.' };
+    };
+    R['apothem'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), N = { pentagon: 5, hexagon: 6, octagon: 8, decagon: 10, dodecagon: 12 };
+      var m = need(/A regular (pentagon|hexagon|octagon|decagon|dodecagon) has side length (\d+) [a-z.]+(?: and apothem (\d+\.\d) [a-z.]+)?\. Find its area/.exec(t), 'the polygon'), n = N[m[1]], sd = +m[2], ap = sd / (2 * Math.tan(Math.PI / n));
+      if (m[3]) { need(Math.abs(+m[3] - ap) < 0.051, 'an apothem that fits the side length'); ap = +m[3]; }
+      return rounded(part.answer, n * sd * ap / 2, t);
+    };
+    R['circle-basic'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), m;
+      if ((m = /A circle has (radius|diameter) (\d+) [a-z.]+\. Find its (circumference|area) to the nearest tenth\./.exec(t))) { var rr = m[1] === 'radius' ? +m[2] : +m[2] / 2; return rounded(part.answer, m[3] === 'area' ? Math.PI * rr * rr : 2 * Math.PI * rr, t); }
+      var want;
+      if ((m = /A circle has radius (\d+) [a-z.]+\. Find its (circumference|area) in terms of π\./.exec(t))) want = m[2] === 'area' ? +m[1] * +m[1] : 2 * +m[1];
+      else if ((m = /A circle has circumference (\d+)π [a-z.]+\. Find its area in terms of π\./.exec(t))) want = (+m[1] / 2) * (+m[1] / 2);
+      else if ((m = /A circle has area (\d+)π square [a-z.]+\. Find its circumference in terms of π\./.exec(t))) want = 2 * sqrtInt(+m[1]);
+      else throw new C.CheckError('cannot read the circle');
+      var g = piCoef(part.answer); return g === want ? { status: 'verified', computed: want + 'π' } : { status: 'mismatch', msg: 'Correct: ' + want + 'π.' };
+    };
+    R['cavalieri'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), m;
+      if ((m = /Each coin in two stacks has radius (\d+(?:\.\d+)?) cm and thickness (\d+(?:\.\d+)?) cm\. One stack of (\d+) coins is straight; the other stack of \3 coins leans/.exec(t))) return rounded(part.answer, +m[3] * Math.PI * m[1] * m[1] * m[2], t);
+      if ((m = /An oblique cylinder has radius (\d+) cm and height (\d+) cm\. Its slanted side is (\d+) cm long\. Find its volume in terms of π\./.exec(t))) { need(+m[3] > +m[2], 'a slant longer than the height'); var w = +m[1] * +m[1] * +m[2], g = piCoef(part.answer); return g === w ? { status: 'verified', computed: w + 'π' } : { status: 'mismatch', msg: 'Correct: ' + w + 'π.' }; }
+      if ((m = /An oblique cone has radius (\d+) cm and height (\d+) cm\. Its longest slanted edge is (\d+) cm/.exec(t))) { need(+m[3] > +m[2], 'a slant longer than the height'); return rounded(part.answer, Math.PI * m[1] * m[1] * m[2] / 3, t); }
+      if ((m = /An oblique pyramid has a square base with side (\d+) cm and height (\d+) cm\. One lateral edge is (\d+) cm long/.exec(t))) { need(+m[3] > +m[2], 'an edge longer than the height'); return rounded(part.answer, m[1] * m[1] * m[2] / 3, t); }
+      throw new C.CheckError('cannot read the solid');
+    };
+    R['density'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), m;
+      if ((m = /A town covers (\d+) square miles and has a population of (\d+) people\./.exec(t))) { var want = +m[2] / +m[1], got = valueFromAnswer(part.answer); return Math.abs(Number(got.n) / Number(got.d) - want) < 1e-9 ? { status: 'verified', computed: String(want) } : { status: 'mismatch', msg: 'Correct: ' + want + '.' }; }
+      if ((m = /measures (\d+) cm by (\d+) cm by (\d+) cm and has a mass of (\d+) grams/.exec(t))) return rounded(part.answer, +m[4] / (m[1] * m[2] * m[3]), t);
+      if ((m = /radius (\d+(?:\.\d+)?) ft and length (\d+) ft\. The wood has a density of (\d+) pounds per cubic foot/.exec(t))) return rounded(part.answer, Math.PI * m[1] * m[1] * m[2] * m[3], t);
+      throw new C.CheckError('cannot read the density question');
+    };
+    function linX(e) { var m = /^(\d*)x(?: ([+−-]) (\d+))?$/.exec(e.trim()); if (m) return [m[1] === '' ? 1 : +m[1], m[2] ? (m[2] === '+' ? 1 : -1) * +m[3] : 0]; m = /^(\d+)$/.exec(e.trim()); need(m, 'an angle expression'); return [0, +m[1]]; }
+    R['cofunction'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), m;
+      if ((m = /right angle at C, (sin|cos) A = (\d+)\/(\d+)\. Find (sin|cos) B\./.exec(t))) { need(m[1] !== m[4] && +m[2] < +m[3], 'a cofunction pair'); var w = new Q(BigInt(m[2]), BigInt(m[3])); return valueFromAnswer(part.answer).eq(w) ? { status: 'verified', computed: w.toString() } : { status: 'mismatch', msg: 'Correct: ' + w + '.' }; }
+      var want;
+      if ((m = /^(sin|cos) (\d+)° = (sin|cos) x°\. Find x, where x is between 0 and 90\./.exec(t))) { need(m[1] !== m[3], 'a cofunction pair'); want = 90 - +m[2]; }
+      else if ((m = /sin\(([^)]+)\)° = cos(?:\(([^)]+)\)| (\d+))°, and both angles are acute\. Find x\./.exec(t))) {
+        var A = linX(m[1]), B = linX(m[2] || m[3]); need(A[0] + B[0] > 0, 'an equation in x'); want = (90 - A[1] - B[1]) / (A[0] + B[0]);
+        var a1 = A[0] * want + A[1], a2 = B[0] * want + B[1]; need(a1 > 0 && a1 < 90 && a2 > 0 && a2 < 90, 'acute angles');
+      } else throw new C.CheckError('cannot read the cofunction question');
+      var got = valueFromAnswer(part.answer, 'x'); return Math.abs(Number(got.n) / Number(got.d) - want) < 1e-9 ? { status: 'verified', computed: String(want) } : { status: 'mismatch', msg: 'Correct: x = ' + want + '.' };
+    };
+    R['sas-area'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), m;
+      if ((m = /AB = (\d+) [a-z.]+, AC = (\d+) [a-z.]+ and m∠A = (\d+)°\. Find the area/.exec(t))) return rounded(part.answer, 0.5 * m[1] * m[2] * Math.sin(deg(+m[3])), t);
+      m = need(/The area of triangle ABC is (\d+) square [a-z.]+\. AB = (\d+) [a-z.]+ and m∠A = (\d+)°\. Find AC/.exec(t), 'the triangle');
+      return rounded(part.answer, 2 * m[1] / (m[2] * Math.sin(deg(+m[3]))), t);
+    };
+    R['inscribed-quad'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/−/g, '-'), m, opp = { A: 'C', C: 'A', B: 'D', D: 'B' }, want, v = nums(part.answer);
+      need(/Quadrilateral ABCD is inscribed in a circle\./.test(t), 'an inscribed quadrilateral');
+      if ((m = /m∠([ABCD]) = (\d+)°\. Find m∠([ABCD])\./.exec(t))) { need(opp[m[1]] === m[3], 'opposite angles'); want = 180 - +m[2]; }
+      else if ((m = /m∠([ABCD]) = \(([^)]+)\)° and m∠([ABCD]) = \(([^)]+)\)°\. Find (x|m∠([ABCD]))\./.exec(t))) {
+        need(opp[m[1]] === m[3], 'opposite angles'); var A = linX(m[2].replace(/ - /, ' − ')), B = linX(m[4].replace(/ - /, ' − ')); need(A[0] + B[0] > 0, 'x');
+        var x = (180 - A[1] - B[1]) / (A[0] + B[0]); want = m[5] === 'x' ? x : (m[6] === m[1] ? A[0] * x + A[1] : B[0] * x + B[1]); need(A[0] * x + A[1] > 0 && B[0] * x + B[1] > 0, 'positive angles');
+      } else throw new C.CheckError('cannot read the angles');
+      return v.length && Math.abs(v[0] - want) < 1e-9 ? { status: 'verified', computed: String(want) } : { status: 'mismatch', msg: 'Correct: ' + want + '.' };
+    };
+    R['parabola'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/−/g, '-'), m = need(/A parabola has focus \((-?\d+(?:\.\d+)?), (-?\d+(?:\.\d+)?)\) and directrix (x|y) = (-?\d+(?:\.\d+)?)\./.exec(t), 'focus and directrix');
+      var fx = C.readNumber(m[1]), fy = C.readNumber(m[2]), d = C.readNumber(m[4]), vert = m[3] === 'y', s = firstMath(part.answer || ''); if (!s) return { status: 'mismatch', msg: 'Write an equation.' };
+      var rel; try { rel = C.parseRelation(s); } catch (e) { return { status: 'mismatch', msg: 'Write an equation.' }; }
+      var two = new Q(2n), F = function (x, y) { var env = { x: x, y: y }; return C.evalNode(rel.lhs, env).sub(C.evalNode(rel.rhs, env)); };
+      var a = vert ? fx : fy, b = vert ? fy : fx, pp = b.sub(d).div(two), k0 = b.add(d).div(two); need(pp.n !== 0n, 'a focus off the directrix');
+      var ok = [-3, -1, 0, 2, 5].every(function (u) { var U = a.add(new Q(BigInt(u))), V = U.sub(a).mul(U.sub(a)).div(pp.mul(new Q(4n))).add(k0); return (vert ? F(U, V) : F(V, U)).n === 0n; });
+      var off = vert ? F(a, k0.add(new Q(1n))) : F(k0.add(new Q(1n)), a); ok = ok && off.n !== 0n;
+      return ok ? { status: 'verified' } : { status: 'mismatch', msg: 'Points of the parabola are equidistant from the focus and the directrix.' };
+    };
     R['circle-eq'] = function (p, part, raw) {
       var txt = C.plainText(raw).replace(/\s+/g, ' '), h, k, r2, m;
       if ((m = /passes through the points \((-?\d+), (-?\d+)\), \((-?\d+), (-?\d+)\) and \((-?\d+), (-?\d+)\)/.exec(txt))) {
@@ -1893,6 +2033,15 @@
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
     if (t === 'geo-proof-blank' || t === 'geo-proof-write') return checkProofPart(p, part);
+    if (t === 'geo-proof-error') {
+      var Xe = PF.ctx(p), rowsE = p.fig.proof.rows.map(function (q) { return { s: q.s, r: q.r }; }), resE = PF.check(Xe, rowsE);
+      if (!resE.bad.length) return { status: 'invalid', msg: 'The printed proof has no wrong row.' };
+      var ansE = C.plainText(String(part.answer || '')), mE = /row\s*(\d+)\s*(?:[:.,—–-]|is wrong[:.,]?)?\s*(.*)$/i.exec(ansE) || /^\s*(\d+)\s*[:.)—–-]\s*(.*)$/.exec(ansE);
+      if (!mE) return { status: 'mismatch', msg: 'Name the row (for example, Row 3) and the correct reason.' };
+      if (+mE[1] - 1 !== resE.bad[0]) return { status: 'mismatch', msg: 'Row ' + (resE.bad[0] + 1) + ' is the wrong one.' };
+      rowsE[resE.bad[0]].r = mE[2]; var fixed = PF.check(Xe, rowsE);
+      return fixed.ok ? { status: 'verified' } : { status: 'mismatch', msg: 'That reason does not justify row ' + mE[1] + '.' };
+    }
     if (t === 'geo-proof-reason') {
       var words = C.plainText(p.prompt || '');
       var shared = /Triangles ABC and ABD share side AB/.test(words);

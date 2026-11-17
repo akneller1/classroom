@@ -312,6 +312,8 @@ for (const set of SETS) for (const sk of set.skills) for (let c = 1; c <= 7; c++
     // open answers ("name a point in the region"): a far-away point above or below must be rejected (every boundary is non-vertical, so one of them is outside)
     if (pt.check && pt.check.want === 'point-in') { mutants++; const far = ['(0,\\ 40)', '(0,\\ -40)'].map(q => { const m0 = clone(p); m0.parts[k].answer = '⟨' + q + '⟩'; return M.verifyProblem(m0, { intOnly: false }).ok; });
       if (far.some(okk => !okk)) caught++; else missed.push('verifier MISSED: ' + sk.id + ' c' + c + ' far point accepted :: ' + p.prompt); return; }
+    // open answers with many correct values (counterexamples): every listed wrong answer must be rejected instead
+    if (pt.check && pt.check.open) { (pt.check.alts || []).forEach(w => { mutants++; const m0 = clone(p); m0.parts[k].answer = w; if (!M.verifyProblem(m0, { intOnly: false }).ok) caught++; else missed.push('verifier MISSED: ' + sk.id + ' c' + c + ' wrong open answer accepted :: ' + w); }); return; }
     // (a) numeric answers off by one
     const m = clone(p), a = m.parts[k].answer;
     const bumped = pt.check && /error-line$/.test(pt.check.type) ? a.replace(/Line (\d+)/, (w, d) => 'Line ' + (+d + 1)) : a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));   // explanations are words; the line number is what is checked
