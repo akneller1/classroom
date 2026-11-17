@@ -68,7 +68,7 @@
     predict: ['Plot a predicted value from a line of fit', function (lv) {
       var c = pick(PAIRS), mm = c[2] * pick(lv === 'cp2' ? [1, 2] : [0.5, 1, 1.5, 2]), b = c[2] > 0 ? R(0, 3) : R(9, 12), x = R(1, 11), y = mm * x + b;
       if (y < 0 || y > 12 || y !== Math.round(y)) return null;
-      return { prompt: 'A line of fit for ' + c[1].toLowerCase() + ' (y) against ' + c[0].toLowerCase() + ' (x) is y = ' + mm + 'x ' + (b >= 0 ? '+ ' + b : '− ' + -b) + '. Plot the predicted point for x = ' + x + '.', tool: 'points', target: { points: [[x, y]] }, feedback: FB_PTS,
+      return { prompt: 'A line of fit for ' + c[1].toLowerCase() + ' (y) against ' + c[0].toLowerCase() + ' (x) is y = ' + (mm === 1 ? '' : mm === -1 ? '−' : String(mm).replace('-', '−')) + 'x' + (b ? ' + ' + b : '') + '. Plot the predicted point for x = ' + x + '.', tool: 'points', target: { points: [[x, y]] }, feedback: FB_PTS,
         key: gridKey([[x, y]], { m: mm, b: b }, c[0], c[1]), alt: 'The predicted point ' + pt([x, y]) + ' on the line of fit.', steps: ['Substitute x = ' + x + ': y = ' + mm + '(' + x + ') + ' + b + ' = ' + y + '.', 'Plot ' + pt([x, y]) + '.'] };
     }],
     'box-plot': ['Make a box plot from a data set', function (lv) {
