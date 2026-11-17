@@ -1,7 +1,7 @@
 // Geometry planning content for the generated site (2026-11-17, audit #14 and #19).
 //  • geoUnitGuide(unitTitle): the teacher briefing on each Geometry unit page (u/geometry/<unit>/): lessons with
 //    their key idea, common mistakes, talk frames, standards and links to the pacing guide.
-//  • geoPacingMain(): the body of u/geometry/pacing/: semester and full-year plans and a standards coverage table.
+//  • geoPacingMain(): the body of geometry-pacing/: semester and full-year plans and a standards coverage table.
 // Everything is read from the lesson planner (worksheet-generator/planner/geometry_scope_sequence.json, the
 // generated notes and lesson-skill maps) and the generator's standards map, so the pages follow the course.
 import fs from "node:fs";
@@ -53,7 +53,7 @@ export function geoUnitGuide(unitTitle) {
   if (mistakes.length) html += `<h2>Common mistakes to watch for</h2>\n` + list(mistakes);
   if (talk.length) html += `<h2>Discussion frames</h2>\n` + list(talk);
   if (std.length) html += `<h2>Standards in this unit</h2>\n` + list(std.map((c) => `<strong>${esc(c)}</strong>${STD.describe(c) ? ": " + esc(STD.describe(c)) : ""}`));
-  html += `<h2>Planning</h2>\n` + list([`<a href="../pacing/">Geometry pacing guide and standards coverage</a>: semester and full-year plans, and which skills practice each standard`]);
+  html += `<h2>Planning</h2>\n` + list([`<a href="../../../geometry-pacing/">Geometry pacing guide and standards coverage</a>: semester and full-year plans, and which skills practice each standard`]);
   return html;
 }
 
@@ -76,7 +76,7 @@ export function geoPacingMain() {
 `;
   const row = (u) => {
     const ls = scope.days.filter((d) => d.unit === u.unit && d.day_type === "Lesson").map((d) => esc(d.title));
-    return `<tr><td><a href="../${slug(u.title)}/">Unit ${u.unit}: ${esc(u.title)}</a></td><td>${u.start_day}–${u.end_day} (${u.total_days})</td><td>${wk(u.start_day)}–${wk(u.end_day)}</td><td>${ls.join("; ")}</td></tr>\n`;
+    return `<tr><td><a href="../u/geometry/${slug(u.title)}/">Unit ${u.unit}: ${esc(u.title)}</a></td><td>${u.start_day}–${u.end_day} (${u.total_days})</td><td>${wk(u.start_day)}–${wk(u.end_day)}</td><td>${ls.join("; ")}</td></tr>\n`;
   };
   const sem = scope.days.find((d) => /^Semester Exam/.test(d.title));
   for (const u of scope.units) {
