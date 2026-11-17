@@ -38,7 +38,7 @@
       }
       ask(qhost,{label:names[turn]+' — answer correctly to earn '+(ttt?'a square.':'a disc.'),choiceOnly:true,tries:1,
         done:function(ok){earned=ok;draw();},
-        onNext:function(){if(earned){el('p',hud,'el-chip',ttt?'Choose an open square.':'Choose a column.');return;}turn=1-turn;round();},nextLabel:'Continue →'});
+        onNext:function(){if(earned){/* one hint, not a new line per press; move focus to the board */if(!hud.querySelector('.el-pick-hint'))el('p',hud,'el-chip el-pick-hint',ttt?'Choose an open square.':'Choose a column.');var open=G.document.querySelector('.el-grid-btns .el-btn:not([disabled])');if(open)open.focus();return;}turn=1-turn;round();},nextLabel:'Continue →'});
     }
     if(solo&&!AI){K.errorBox(qhost,'The computer opponent could not load. Reload the page to try again.');return;}
     round();
