@@ -165,7 +165,7 @@ window.LIBRARY = {
   "color": "orange",
   "art": "tangent",
   "planned": true,
-  "blurb": "Limits, derivatives, integrals, and their applications. AP Calculus AB scope.",
+  "blurb": "Limits, derivatives, integrals, and their applications. AP Calculus AB scope; Euler’s method is included as a BC extension.",
   "units": [
     {
       "id": "precalculus-review",

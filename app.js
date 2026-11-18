@@ -1165,7 +1165,7 @@
     geometry: 'Shapes, reasoning & transformations.',
     algebra2: 'Polynomials, functions & logarithms.',
     precalculus: 'Trigonometry, functions & vectors.',
-    calculus: 'Limits, derivatives & integrals.',
+    calculus: 'AP Calculus AB: limits, derivatives & integrals.',
     statistics: 'Data, probability & inference.',
     discrete: 'Logic, counting & graph theory.',
     'financial-algebra': 'Budgeting, credit & financial choices.'

@@ -16,6 +16,8 @@ on:
       - 'scripts/geo-planning.mjs'
       - 'tools/precalculus-audit-20261118/**'
       - 'artifacts/interactive-math/**'
+      - 'tools/calculus-audit-20261118/**'
+      - 'scripts/test-calculus-*.cjs'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   pull_request:
     paths:
@@ -29,6 +31,8 @@ on:
       - 'scripts/geo-planning.mjs'
       - 'tools/precalculus-audit-20261118/**'
       - 'artifacts/interactive-math/**'
+      - 'tools/calculus-audit-20261118/**'
+      - 'scripts/test-calculus-*.cjs'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   workflow_dispatch:
 jobs:
@@ -83,3 +87,11 @@ jobs:
       - name: Precalculus audit items 12-20 (levels, select-all, notation, rounding, option order, labs)
         if: matrix.course == 'precalculus'
         run: node scripts/test-precalculus-audit-next10.cjs
+      - name: Calculus audit regression checks
+        if: matrix.course == 'calculus'
+        run: node scripts/test-calculus-audit.cjs
+      - name: Recompute Calculus keys independently (sympy)
+        if: matrix.course == 'calculus'
+        run: |
+          python3 -m pip install --quiet sympy==1.14.0
+          python3 tools/calculus-audit-20261118/verify_keys.py

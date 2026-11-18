@@ -251,7 +251,7 @@ const COURSE_SEO = {
   },
   calculus: {
     title: "Free Calculus Worksheets & Interactive Math Tools",
-    description: "Free Calculus lesson plans, worksheets and interactive math activities for limits, derivatives, integrals and applications."
+    description: "Free AP Calculus AB lesson plans, worksheets and interactive math activities for limits, derivatives, integrals and applications."
   },
   statistics: {
     title: "Free Statistics Activities, Worksheets & Games",

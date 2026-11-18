@@ -361,7 +361,7 @@
    "skillId": "precalculus-review-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Factor completely: 2x² + 14x",
@@ -770,7 +770,7 @@
    "skillId": "precalculus-review-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Factor completely: x³ - x² + 7x - 7",
@@ -1179,7 +1179,7 @@
    "skillId": "precalculus-review-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Factor completely: 27x³ + 8",
@@ -1216,13 +1216,13 @@
    "skillId": "precalculus-review-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Ava answered this problem incorrectly.\nFactor completely: x³ + 1\nAva's answer: x³ + 3\nIdentify the mistake and give the correct answer.",
+   "prompt": "Ava answered this problem incorrectly.\nFactor completely: x³ + 1\nAva's answer: (x + 1)(x² + x + 1)\nIdentify the mistake and give the correct answer.",
    "answer": "(x + 1)(x² - x + 1)",
    "solutionSteps": [
-    "Mistake: Factored a different constant term.",
+    "Mistake: Used + x instead of − x in the second factor: x³ + 1 = (x + 1)(x² − x + 1).",
     "Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping).",
     "x³ + 1 = (x + 1)(x² - x + 1).",
-    "The correct answer is (x + 1)(x² - x + 1), not x³ + 3."
+    "The correct answer is (x + 1)(x² - x + 1), not (x + 1)(x² + x + 1)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -1594,7 +1594,7 @@
    "skillId": "precalculus-review-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Simplify (e^(3x))⁵.",
@@ -1609,7 +1609,7 @@
      "answer": "e^(4x)"
     },
     {
-     "prompt": "Simplify e^(6x)·e^(-1x).",
+     "prompt": "Simplify e^(6x)·e^(-x).",
      "answer": "e^(5x)"
     }
    ],
@@ -2009,7 +2009,7 @@
    "skillId": "precalculus-review-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Simplify (e^(2x))².",
@@ -2424,7 +2424,7 @@
    "skillId": "precalculus-review-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Simplify e^(2x) ÷ e^(4x).",
@@ -2834,7 +2834,7 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Evaluate log₅(25).",
@@ -2874,7 +2874,7 @@
    "prompt": "Omar answered this problem incorrectly.\nEvaluate ln(1).\nOmar's answer: 1\nIdentify the mistake and give the correct answer.",
    "answer": "0",
    "solutionSteps": [
-    "Mistake: Made a sign error.",
+    "Mistake: Confused ln(1) with ln(e). Since e⁰ = 1, ln(1) = 0.",
     "ln and eˣ are inverse functions; log means base 10.",
     "ln(1) = 0.",
     "The correct answer is 0, not 1."
@@ -2908,10 +2908,10 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve 5e^(x) = 20. Give the exact answer and its value to the nearest thousandth.",
+   "prompt": "Solve 5e^x = 20. Give the exact answer and its value to the nearest thousandth.",
    "answer": "x = ln(4) ≈ 1.386",
    "solutionSteps": [
-    "Divide by 5: e^(x) = 4.",
+    "Divide by 5: e^x = 4.",
     "Take ln: x = ln(4).",
     "x = ln(4) ≈ 1.386."
    ],
@@ -3247,7 +3247,7 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Write 3⁵ = 243 in logarithmic form.",
@@ -3284,13 +3284,13 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Yusuf answered this problem incorrectly.\nEvaluate ln(1).\nYusuf's answer: 1\nIdentify the mistake and give the correct answer.",
-   "answer": "0",
+   "prompt": "Yusuf answered this problem incorrectly.\nEvaluate ln(1/e).\nYusuf's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
    "solutionSteps": [
-    "Mistake: Made a sign error.",
-    "ln and eˣ are inverse functions; log means base 10.",
-    "ln(1) = 0.",
-    "The correct answer is 0, not 1."
+    "Mistake: Made a sign error: 1/e = e⁻¹, so ln(1/e) = −1.",
+    "Write 1/e as a power of e: 1/e = e⁻¹.",
+    "ln(e⁻¹) = −1 because ln and eˣ are inverse functions.",
+    "The correct answer is -1, not 1."
    ],
    "standards": [
     "F-LE.A.4",
@@ -3644,7 +3644,7 @@
    "prompt": "Tariq answered this problem incorrectly.\nExpand ln((x²)/(y⁵)) using properties of logarithms.\nTariq's answer: 2ln(x) + 5ln(y)\nIdentify the mistake and give the correct answer.",
    "answer": "2ln(x) - 5ln(y)",
    "solutionSteps": [
-    "Mistake: Applied the power to the whole argument.",
+    "Mistake: Added the logarithms. Division inside a log becomes subtraction: ln(x²) − ln(y⁵).",
     "ln(MN) = ln M + ln N; ln(M ÷ N) = ln M - ln N; ln(Mᵖ) = p·ln M.",
     "2ln(x) - 5ln(y).",
     "The correct answer is 2ln(x) - 5ln(y), not 2ln(x) + 5ln(y)."
@@ -3660,7 +3660,7 @@
    "skillId": "precalculus-review-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Evaluate log₂(2).",
@@ -3700,7 +3700,7 @@
    "prompt": "Uma answered this problem incorrectly.\nWrite 4ln(x) + ln(5) - ln(y) as a single logarithm.\nUma's answer: ln(5x⁴y)\nIdentify the mistake and give the correct answer.",
    "answer": "ln((5x⁴)/y)",
    "solutionSteps": [
-    "Mistake: Kept the coefficient in front of x.",
+    "Mistake: Added ln(y) instead of subtracting it; − ln(y) puts y in the denominator.",
     "Bring coefficients up as exponents.",
     "Sums become products; differences become quotients.",
     "ln((5x⁴)/y).",
@@ -3720,8 +3720,8 @@
    "prompt": "Find the exact value of tan(180°).",
    "answer": "0",
    "solutionSteps": [
-    "Reference angle 180°; quadrant none (on an axis).",
-    "tan(180°) = 0; apply the quadrant sign.",
+    "180° lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "tan(180°) = 0.",
     "tan(180°) = 0."
    ],
    "standards": [
@@ -3792,8 +3792,8 @@
    "prompt": "Find the exact value of tan(0°).",
    "answer": "0",
    "solutionSteps": [
-    "Reference angle 0°; quadrant none (on an axis).",
-    "tan(0°) = 0; apply the quadrant sign.",
+    "0° lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "tan(0°) = 0.",
     "tan(0°) = 0."
    ],
    "standards": [
@@ -3865,7 +3865,7 @@
    "answer": "(√3)/3",
    "solutionSteps": [
     "Reference angle 30°; quadrant 1.",
-    "tan(30°) = (√3)/3; apply the quadrant sign.",
+    "tan(30°) = (√3)/3.",
     "tan(30°) = (√3)/3."
    ],
    "standards": [
@@ -3883,7 +3883,7 @@
    "answer": "(-1, 0)",
    "solutionSteps": [
     "On the unit circle the point is (cos θ, sin θ).",
-    "Reference angle: 180°; quadrant none (axis).",
+    "180° lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
     "(-1, 0)."
    ],
    "standards": [
@@ -3937,7 +3937,7 @@
    "answer": "-(√3)/3",
    "solutionSteps": [
     "Reference angle 30°; quadrant 4.",
-    "tan(30°) = (√3)/3; apply the quadrant sign.",
+    "tan(30°) = (√3)/3.",
     "tan(330°) = -(√3)/3."
    ],
    "standards": [
@@ -4009,7 +4009,7 @@
    ],
    "solutionSteps": [
     "Reference angle 45°; quadrant 3.",
-    "tan(45°) = 1; apply the quadrant sign.",
+    "tan(45°) = 1.",
     "tan(225°) = 1."
    ],
    "standards": [
@@ -4064,7 +4064,7 @@
    "solutionSteps": [
     "Mistake: Used the cofunction.",
     "Reference angle 60°; quadrant 2.",
-    "tan(60°) = √3; apply the quadrant sign.",
+    "tan(60°) = √3.",
     "tan(120°) = -√3.",
     "The correct answer is -√3, not -(√3)/3."
    ],
@@ -4079,7 +4079,7 @@
    "skillId": "precalculus-review-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the exact value of sin(120°).",
@@ -4100,10 +4100,10 @@
    ],
    "answer": "(a) (√3)/2; (b) √3; (c) 0; (d) -1/2",
    "solutionSteps": [
-    "(a) sin(60°) = (√3)/2; apply the quadrant sign. sin(120°) = (√3)/2.",
-    "(b) tan(60°) = √3; apply the quadrant sign. tan(240°) = √3.",
-    "(c) tan(0°) = 0; apply the quadrant sign. tan(0°) = 0.",
-    "(d) cos(60°) = 1/2; apply the quadrant sign. cos(240°) = -1/2."
+    "(a) sin(60°) = (√3)/2. sin(120°) = (√3)/2.",
+    "(b) tan(60°) = √3. tan(240°) = √3.",
+    "(c) tan(0°) = 0. tan(0°) = 0.",
+    "(d) cos(60°) = 1/2. cos(240°) = -1/2."
    ],
    "standards": [
     "F-TF.A.2",
@@ -4119,9 +4119,9 @@
    "prompt": "Elena answered this problem incorrectly.\nFind the exact value of tan(180°).\nElena's answer: 1\nIdentify the mistake and give the correct answer.",
    "answer": "0",
    "solutionSteps": [
-    "Mistake: Used the cofunction.",
-    "Reference angle 180°; quadrant none (on an axis).",
-    "tan(180°) = 0; apply the quadrant sign.",
+    "Mistake: Used the value of tan(45°). tan(180°) = sin(180°) ÷ cos(180°) = 0 ÷ (−1) = 0.",
+    "180° lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "tan(180°) = 0.",
     "tan(180°) = 0.",
     "The correct answer is 0, not 1."
    ],
@@ -4139,8 +4139,8 @@
    "prompt": "Find the exact value of cos(0°).",
    "answer": "1",
    "solutionSteps": [
-    "Reference angle 0°; quadrant none (on an axis).",
-    "cos(0°) = 1; apply the quadrant sign.",
+    "0° lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "cos(0°) = 1.",
     "cos(0°) = 1."
    ],
    "standards": [
@@ -4230,7 +4230,7 @@
    ],
    "solutionSteps": [
     "Reference angle π/3; quadrant 1.",
-    "csc(π/3) = (2√3)/3; apply the quadrant sign.",
+    "csc(π/3) = (2√3)/3.",
     "csc(π/3) = (2√3)/3."
    ],
    "standards": [
@@ -4301,8 +4301,8 @@
    "prompt": "Find the exact value of csc(π/2).",
    "answer": "1",
    "solutionSteps": [
-    "Reference angle π/2; quadrant none (on an axis).",
-    "csc(π/2) = 1; apply the quadrant sign.",
+    "π/2 lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "csc(π/2) = 1.",
     "csc(π/2) = 1."
    ],
    "standards": [
@@ -4392,7 +4392,7 @@
    ],
    "solutionSteps": [
     "Reference angle 45°; quadrant 3.",
-    "cot(45°) = 1; apply the quadrant sign.",
+    "cot(45°) = 1.",
     "cot(225°) = 1."
    ],
    "standards": [
@@ -4464,7 +4464,7 @@
    "answer": "-(√3)/2",
    "solutionSteps": [
     "Reference angle 60°; quadrant 3.",
-    "sin(60°) = (√3)/2; apply the quadrant sign.",
+    "sin(60°) = (√3)/2.",
     "sin(240°) = -(√3)/2."
    ],
    "standards": [
@@ -4483,7 +4483,7 @@
    "solutionSteps": [
     "Mistake: Used the cofunction.",
     "Reference angle 30°; quadrant 4.",
-    "csc(30°) = 2; apply the quadrant sign.",
+    "csc(30°) = 2.",
     "csc(330°) = -2.",
     "The correct answer is -2, not (2√3)/3."
    ],
@@ -4498,7 +4498,7 @@
    "skillId": "precalculus-review-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the exact value of cot(5π/6).",
@@ -4519,10 +4519,10 @@
    ],
    "answer": "(a) -√3; (b) -1/2; (c) -1; (d) 1/2",
    "solutionSteps": [
-    "(a) cot(π/6) = √3; apply the quadrant sign. cot(5π/6) = -√3.",
-    "(b) sin(30°) = 1/2; apply the quadrant sign. sin(210°) = -1/2.",
-    "(c) sec(π) = 1; apply the quadrant sign. sec(π) = -1.",
-    "(d) sin(30°) = 1/2; apply the quadrant sign. sin(150°) = 1/2."
+    "(a) cot(π/6) = √3. cot(5π/6) = -√3.",
+    "(b) sin(30°) = 1/2. sin(210°) = -1/2.",
+    "(c) sec(π) = 1. sec(π) = -1.",
+    "(d) sin(30°) = 1/2. sin(150°) = 1/2."
    ],
    "standards": [
     "F-TF.A.2",
@@ -4540,7 +4540,7 @@
    "solutionSteps": [
     "Mistake: Used the wrong sign for the quadrant.",
     "Reference angle π/4; quadrant 1.",
-    "sec(π/4) = √2; apply the quadrant sign.",
+    "sec(π/4) = √2.",
     "sec(π/4) = √2.",
     "The correct answer is √2, not -√2."
    ],
@@ -4559,7 +4559,7 @@
    "answer": "(2√3)/3",
    "solutionSteps": [
     "Reference angle π/6; quadrant 1.",
-    "sec(π/6) = (2√3)/3; apply the quadrant sign.",
+    "sec(π/6) = (2√3)/3.",
     "sec(-11π/6) = (2√3)/3."
    ],
    "standards": [
@@ -4630,8 +4630,8 @@
    "prompt": "Find the exact value of cos(-π).",
    "answer": "-1",
    "solutionSteps": [
-    "Reference angle π; quadrant none (on an axis).",
-    "cos(π) = 1; apply the quadrant sign.",
+    "π lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "cos(π) = 1.",
     "cos(-π) = -1."
    ],
    "standards": [
@@ -4703,7 +4703,7 @@
    "answer": "-(√3)/3",
    "solutionSteps": [
     "Reference angle π/3; quadrant 2.",
-    "cot(π/3) = (√3)/3; apply the quadrant sign.",
+    "cot(π/3) = (√3)/3.",
     "cot(14π/3) = -(√3)/3."
    ],
    "standards": [
@@ -4774,8 +4774,8 @@
    "prompt": "Find the exact value of csc(-π/2).",
    "answer": "-1",
    "solutionSteps": [
-    "Reference angle 3π/2; quadrant none (on an axis).",
-    "csc(3π/2) = 1; apply the quadrant sign.",
+    "3π/2 lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "csc(3π/2) = 1.",
     "csc(-π/2) = -1."
    ],
    "standards": [
@@ -4883,7 +4883,7 @@
    ],
    "solutionSteps": [
     "Reference angle π/6; quadrant 2.",
-    "sec(π/6) = (2√3)/3; apply the quadrant sign.",
+    "sec(π/6) = (2√3)/3.",
     "sec(29π/6) = -(2√3)/3."
    ],
    "standards": [
@@ -4902,7 +4902,7 @@
    "solutionSteps": [
     "Mistake: Used the wrong sign for the quadrant.",
     "Reference angle π/3; quadrant 3.",
-    "sin(π/3) = (√3)/2; apply the quadrant sign.",
+    "sin(π/3) = (√3)/2.",
     "sin(16π/3) = -(√3)/2.",
     "The correct answer is -(√3)/2, not (√3)/2."
    ],
@@ -4917,7 +4917,7 @@
    "skillId": "precalculus-review-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the exact value of cos(-5π/3).",
@@ -4938,10 +4938,10 @@
    ],
    "answer": "(a) 1/2; (b) 0; (c) -√2; (d) -(√3)/2",
    "solutionSteps": [
-    "(a) cos(π/3) = 1/2; apply the quadrant sign. cos(-5π/3) = 1/2.",
-    "(b) sin(π) = 0; apply the quadrant sign. sin(5π) = 0.",
-    "(c) sec(π/4) = √2; apply the quadrant sign. sec(11π/4) = -√2.",
-    "(d) cos(π/6) = (√3)/2; apply the quadrant sign. cos(29π/6) = -(√3)/2."
+    "(a) cos(π/3) = 1/2. cos(-5π/3) = 1/2.",
+    "(b) sin(π) = 0. sin(5π) = 0.",
+    "(c) sec(π/4) = √2. sec(11π/4) = -√2.",
+    "(d) cos(π/6) = (√3)/2. cos(29π/6) = -(√3)/2."
    ],
    "standards": [
     "F-TF.A.2",
@@ -4957,9 +4957,9 @@
    "prompt": "Priya answered this problem incorrectly.\nFind the exact value of cos(-π).\nPriya's answer: 0\nIdentify the mistake and give the correct answer.",
    "answer": "-1",
    "solutionSteps": [
-    "Mistake: Used the cofunction.",
-    "Reference angle π; quadrant none (on an axis).",
-    "cos(π) = 1; apply the quadrant sign.",
+    "Mistake: Used sine instead of cosine: sin(−π) = 0, but cos(−π) = −1.",
+    "π lies on an axis, so read the coordinates of its unit-circle point directly (no reference angle or quadrant sign is needed).",
+    "cos(π) = 1.",
     "cos(-π) = -1.",
     "The correct answer is -1, not 0."
    ],
@@ -5357,7 +5357,7 @@
    "skillId": "precalculus-review-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Use the table (f(-2) = -5; f(2) = 13; f(8) = 37; f(10) = 6) to find the average rate of change of f from x = 8 to x = 10.",
@@ -5397,7 +5397,7 @@
    "prompt": "Tariq answered this problem incorrectly.\nFind the average rate of change of f(x) = -2x² - 2x - 4 on [1, 4].\nTariq's answer: -52/3\nIdentify the mistake and give the correct answer.",
    "answer": "-12",
    "solutionSteps": [
-    "Mistake: Added the outputs.",
+    "Mistake: Added f(4) and f(1) instead of subtracting them.",
     "f(4) = -44, f(1) = -8.",
     "(-44 - (-8)) ÷ (4 - 1) = -12.",
     "The correct answer is -12, not -52/3."
@@ -5796,7 +5796,7 @@
    "skillId": "precalculus-review-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Use the table (f(4) = 15; f(5) = -13; f(6) = 36; f(7) = 23) to find the average rate of change of f from x = 5 to x = 6.",
@@ -6228,7 +6228,7 @@
    "skillId": "precalculus-review-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the average rate of change of f(x) = 1/x on [3, 5].",
@@ -6268,7 +6268,7 @@
    "prompt": "Omar answered this problem incorrectly.\nFind the average rate of change of f(x) = -x² + 4x on [1, 7].\nOmar's answer: -3\nIdentify the mistake and give the correct answer.",
    "answer": "-4",
    "solutionSteps": [
-    "Mistake: Added the outputs.",
+    "Mistake: Added f(7) and f(1) instead of subtracting them.",
     "f(7) = -21, f(1) = 3.",
     "(-21 - 3) ÷ (7 - 1) = -4.",
     "The correct answer is -4, not -3."

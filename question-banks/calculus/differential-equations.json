@@ -360,7 +360,7 @@
    "skillId": "differential-equations-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
    "parts": [
     {
      "prompt": "For y′ = -3x + 4y, find the slope of the solution curve through (-3, -1).",
@@ -396,13 +396,13 @@
    "skillId": "differential-equations-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Tariq answered this problem incorrectly.\nFor y′ = 4x + 3y, find the slope of the solution curve through (0, -1).\nTariq's answer: -2\nIdentify the mistake and give the correct answer.",
+   "prompt": "Tariq answered this problem incorrectly.\nFor y′ = 4x + 3y, find the slope of the solution curve through (0, -1).\nTariq's answer: -4\nIdentify the mistake and give the correct answer.",
    "answer": "-3",
    "solutionSteps": [
-    "Mistake: Made an arithmetic error.",
+    "Mistake: Switched x and y: used x = −1 and y = 0.",
     "Substitute x = 0, y = -1 into y′.",
     "y′ = -3.",
-    "The correct answer is -3, not -2."
+    "The correct answer is -3, not -4."
    ],
    "standards": [
     "AP FUN-7.A"
@@ -766,7 +766,7 @@
    "skillId": "differential-equations-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
    "parts": [
     {
      "prompt": "For y′ = (1/2)x + (1/2)y, find the slope of the solution curve through (-2, -3).",
@@ -1154,13 +1154,13 @@
    "skillId": "differential-equations-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Dev answered this problem incorrectly.\nFor y′ = (1/2)x + (1/2)y, find the slope of the solution curve through (-1, -1).\nDev's answer: 0\nIdentify the mistake and give the correct answer.",
+   "prompt": "Dev answered this problem incorrectly.\nFor y′ = (1/2)x + (1/2)y, find the slope of the solution curve through (-1, -1).\nDev's answer: -2\nIdentify the mistake and give the correct answer.",
    "answer": "-1",
    "solutionSteps": [
-    "Mistake: Made an arithmetic error.",
+    "Mistake: Left out the factor 1/2: (−1) + (−1) = −2.",
     "Substitute x = -1, y = -1 into y′.",
     "y′ = -1.",
-    "The correct answer is -1, not 0."
+    "The correct answer is -1, not -2."
    ],
    "standards": [
     "AP FUN-7.A"
@@ -1172,7 +1172,7 @@
    "skillId": "differential-equations-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
    "parts": [
     {
      "prompt": "For y′ = -2x + 2y, find the slope of the solution curve through (1, -1).",
@@ -1487,7 +1487,7 @@
    "answer": "k = -2 or k = 1",
    "solutionSteps": [
     "y′ = ke^(kx), y″ = k²e^(kx).",
-    "k² + 1k - 2 = 0.",
+    "k² + k - 2 = 0.",
     "k = -2 or k = 1."
    ],
    "standards": [
@@ -1556,7 +1556,7 @@
    "solutionSteps": [
     "Mistake: Missed a root.",
     "y′ = ke^(kx), y″ = k²e^(kx).",
-    "k² + 1k - 2 = 0.",
+    "k² + k - 2 = 0.",
     "k = -2 or k = 1.",
     "The correct answer is k = -2 or k = 1, not k = -2."
    ],
@@ -1570,7 +1570,7 @@
    "skillId": "differential-equations-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 2y′ - 8y = 0.",
@@ -1592,7 +1592,7 @@
    "answer": "(a) k = -2 or k = 4; (b) k = -3 or k = 2; (c) k = -3 or k = 1; (d) k = -1 or k = 3",
    "solutionSteps": [
     "(a) k² - 2k - 8 = 0. k = -2 or k = 4.",
-    "(b) k² + 1k - 6 = 0. k = -3 or k = 2.",
+    "(b) k² + k - 6 = 0. k = -3 or k = 2.",
     "(c) k² + 2k - 3 = 0. k = -3 or k = 1.",
     "(d) k² - 2k - 3 = 0. k = -1 or k = 3."
    ],
@@ -1711,7 +1711,7 @@
    "skillId": "differential-equations-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is y = sin(2x) a solution of y″ + 1y = 0?",
+   "prompt": "Is y = sin(2x) a solution of y″ + y = 0?",
    "answer": "No",
    "solutionSteps": [
     "Differentiate the proposed solution.",
@@ -1886,7 +1886,7 @@
    "answer": "k = -3 or k = 2",
    "solutionSteps": [
     "y′ = ke^(kx), y″ = k²e^(kx).",
-    "k² + 1k - 6 = 0.",
+    "k² + k - 6 = 0.",
     "k = -3 or k = 2."
    ],
    "standards": [
@@ -1969,7 +1969,7 @@
    "skillId": "differential-equations-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ + 5y′ + 6y = 0.",
@@ -2010,7 +2010,7 @@
    "solutionSteps": [
     "Mistake: Used the coefficients as roots.",
     "y′ = ke^(kx), y″ = k²e^(kx).",
-    "k² - 1k - 2 = 0.",
+    "k² - k - 2 = 0.",
     "k = -1 or k = 2.",
     "The correct answer is k = -1 or k = 2, not k = -1 or k = -2."
    ],
@@ -2063,7 +2063,7 @@
    ],
    "solutionSteps": [
     "y′ = kxᵏ⁻¹, y″ = k(k - 1)xᵏ⁻².",
-    "k(k - 1) + 2k + -6 = 0.",
+    "k(k - 1) + 2k - 6 = 0.",
     "k = -3 or k = 2."
    ],
    "standards": [
@@ -2131,7 +2131,7 @@
    "answer": "k = -3 or k = 4",
    "solutionSteps": [
     "y′ = kxᵏ⁻¹, y″ = k(k - 1)xᵏ⁻².",
-    "k(k - 1) + 0k + -12 = 0.",
+    "k(k - 1) + 0k - 12 = 0.",
     "k = -3 or k = 4."
    ],
    "standards": [
@@ -2217,7 +2217,7 @@
    ],
    "solutionSteps": [
     "y′ = kxᵏ⁻¹, y″ = k(k - 1)xᵏ⁻².",
-    "k(k - 1) + -2k + -4 = 0.",
+    "k(k - 1) - 2k - 4 = 0.",
     "k = -1 or k = 4."
    ],
    "standards": [
@@ -2285,7 +2285,7 @@
    "answer": "k = -3 or k = 4",
    "solutionSteps": [
     "y′ = ke^(kx), y″ = k²e^(kx).",
-    "k² - 1k - 12 = 0.",
+    "k² - k - 12 = 0.",
     "k = -3 or k = 4."
    ],
    "standards": [
@@ -2368,7 +2368,7 @@
    "skillId": "differential-equations-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 7y′ + 12y = 0.",
@@ -2390,9 +2390,9 @@
    "answer": "(a) k = 3 or k = 4; (b) k = -3 or k = 4; (c) k = -3 or k = -1; (d) k = 1 or k = 4",
    "solutionSteps": [
     "(a) k² - 7k + 12 = 0. k = 3 or k = 4.",
-    "(b) k² - 1k - 12 = 0. k = -3 or k = 4.",
+    "(b) k² - k - 12 = 0. k = -3 or k = 4.",
     "(c) k² + 4k + 3 = 0. k = -3 or k = -1.",
-    "(d) k(k - 1) + -4k + 4 = 0. k = 1 or k = 4."
+    "(d) k(k - 1) - 4k + 4 = 0. k = 1 or k = 4."
    ],
    "standards": [
     "AP FUN-7.B"
@@ -2409,7 +2409,7 @@
    "solutionSteps": [
     "Mistake: Missed a root.",
     "y′ = kxᵏ⁻¹, y″ = k(k - 1)xᵏ⁻².",
-    "k(k - 1) + -2k + 2 = 0.",
+    "k(k - 1) - 2k + 2 = 0.",
     "k = 1 or k = 2.",
     "The correct answer is k = 1 or k = 2, not k = 1."
    ],
@@ -2423,7 +2423,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(2) for y′ = -3x + 2y, y(0) = -3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(2) for y′ = -3x + 2y, y(0) = -3.",
    "answer": "-30",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -2490,7 +2490,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -3x + y, y(2) = -1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x + y, y(2) = -1.",
    "answer": "-25",
    "options": [
     {
@@ -2525,7 +2525,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = 3x - y, y(2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = 3x - y, y(2) = 2.",
    "answer": "9",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -2583,7 +2583,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(-1) for y′ = x - y, y(-2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(-1) for y′ = x - y, y(-2) = 2.",
    "answer": "-0.75",
    "options": [
     {
@@ -2618,7 +2618,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(0) for y′ = x + y, y(-2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(0) for y′ = x + y, y(-2) = 2.",
    "answer": "3",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -2694,7 +2694,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(2) for y′ = -x + 2y, y(1) = -2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(2) for y′ = -x + 2y, y(1) = -2.",
    "answer": "-9.75",
    "options": [
     {
@@ -2729,7 +2729,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -3x - 2y, y(2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x - 2y, y(2) = 2.",
    "answer": "-1",
    "options": [
     {
@@ -2764,7 +2764,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Lena answered this problem incorrectly.\nUse Euler's method with step size 1 and 2 steps to approximate y(3) for y′ = -x + 2y, y(1) = 0.\nLena's answer: -1\nIdentify the mistake and give the correct answer.",
+   "prompt": "Lena answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(3) for y′ = -x + 2y, y(1) = 0.\nLena's answer: -1\nIdentify the mistake and give the correct answer.",
    "answer": "-5",
    "solutionSteps": [
     "Mistake: Stopped one step early.",
@@ -2783,22 +2783,22 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(1) for y′ = -x - y, y(0) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = -x - y, y(0) = 1.",
      "answer": "0"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(1) for y′ = -x + y, y(0) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = -x + y, y(0) = 1.",
      "answer": "2"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = 2x + 2y, y(2) = 2.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = 2x + 2y, y(2) = 2.",
      "answer": "36"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(1) for y′ = -x - y, y(-1) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(1) for y′ = -x - y, y(-1) = 1.",
      "answer": "0"
     }
    ],
@@ -2819,7 +2819,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Quinn answered this problem incorrectly.\nUse Euler's method with step size 1 and 2 steps to approximate y(2) for y′ = 3x + y, y(0) = 3.\nQuinn's answer: 6\nIdentify the mistake and give the correct answer.",
+   "prompt": "Quinn answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(2) for y′ = 3x + y, y(0) = 3.\nQuinn's answer: 6\nIdentify the mistake and give the correct answer.",
    "answer": "15",
    "solutionSteps": [
     "Mistake: Stopped one step early.",
@@ -2838,7 +2838,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(1) for y′ = 3x - y, y(-1) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(1) for y′ = 3x - y, y(-1) = 2.",
    "answer": "0",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -2905,7 +2905,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(2) for y′ = -3x - 2y, y(0) = -2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(2) for y′ = -3x - 2y, y(0) = -2.",
    "answer": "-5",
    "options": [
     {
@@ -2940,7 +2940,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(1) for y′ = -3x - 2y, y(-1) = 0.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(1) for y′ = -3x - 2y, y(-1) = 0.",
    "answer": "-3",
    "options": [
     {
@@ -3007,7 +3007,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.1 and 2 steps to approximate y(1.2) for y′ = -2x + y, y(1) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(1.2) for y′ = -2x + y, y(1) = 1.",
    "answer": "0.77",
    "options": [
     {
@@ -3042,7 +3042,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.1 and 2 steps to approximate y(-1.8) for y′ = 2x + y, y(-2) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(-1.8) for y′ = 2x + y, y(-2) = 1.",
    "answer": "0.39",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -3100,7 +3100,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.1 and 2 steps to approximate y(1.2) for y′ = -x - y, y(1) = -3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(1.2) for y′ = -x - y, y(1) = -3.",
    "answer": "-2.63",
    "options": [
     {
@@ -3135,7 +3135,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x + 2y, y(-1) = -2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x + 2y, y(-1) = -2.",
    "answer": "-4.25",
    "options": [
     {
@@ -3170,7 +3170,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Marco answered this problem incorrectly.\nUse Euler's method with step size 0.5 and 2 steps to approximate y(-1) for y′ = -x - 2y, y(-2) = 0.\nMarco's answer: 2\nIdentify the mistake and give the correct answer.",
+   "prompt": "Marco answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(-1) for y′ = -x - 2y, y(-2) = 0.\nMarco's answer: 2\nIdentify the mistake and give the correct answer.",
    "answer": "0.75",
    "solutionSteps": [
     "Mistake: Used the initial slope for every step.",
@@ -3189,22 +3189,22 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(3) for y′ = 2x - y, y(2) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = 2x - y, y(2) = 1.",
      "answer": "3.75"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(0) for y′ = -2x - y, y(-1) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -2x - y, y(-1) = -3.",
      "answer": "0.25"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(1) for y′ = x + y, y(0) = 0.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = x + y, y(0) = 0.",
      "answer": "0.25"
     },
     {
-     "prompt": "Use Euler's method with step size 0.1 and 2 steps to approximate y(-1.8) for y′ = 3x - y, y(-2) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(-1.8) for y′ = 3x - y, y(-2) = -3.",
      "answer": "-3.54"
     }
    ],
@@ -3225,14 +3225,14 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Elena answered this problem incorrectly.\nUse Euler's method with step size 0.1 and 2 steps to approximate y(-0.8) for y′ = 2x + y, y(-1) = 3.\nElena's answer: 3.067\nIdentify the mistake and give the correct answer.",
+   "prompt": "Elena answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(-0.8) for y′ = 2x + y, y(-1) = 3.\nElena's answer: 3.2\nIdentify the mistake and give the correct answer.",
    "answer": "3.23",
    "solutionSteps": [
-    "Mistake: Made an error updating the slope.",
+    "Mistake: Used the first slope (1) for both steps. Recompute the slope at (−0.9, 3.1).",
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
     "Step 1: y ≈ 3.1 at x = -0.9.",
     "Step 2: y ≈ 3.23 at x = -0.8.",
-    "The correct answer is 3.23, not 3.067."
+    "The correct answer is 3.23, not 3.2."
    ],
    "standards": [
     "AP FUN-7.C"
@@ -3244,7 +3244,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 3, y(-2) = -3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 3, y(-2) = -3.",
    "answer": "-116967/50000",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -3312,7 +3312,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 3 steps to approximate y(2) for y′ = xy + 3, y(-1) = 0.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(2) for y′ = xy + 3, y(-1) = 0.",
    "answer": "15",
    "options": [
     {
@@ -3348,7 +3348,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy - 3, y(1) = -1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy - 3, y(1) = -1.",
    "answer": "-14853/6250",
    "options": [
     {
@@ -3425,7 +3425,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(2.3) for y′ = xy + 2, y(2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(2.3) for y′ = xy + 2, y(2) = 2.",
    "answer": "107053/25000",
    "options": [
     {
@@ -3461,7 +3461,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.5 and 3 steps to approximate y(3.5) for y′ = xy - 3, y(2) = -2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 3 steps to approximate y(3.5) for y′ = xy - 3, y(2) = -2.",
    "answer": "-579/16",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -3538,7 +3538,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 3 steps to approximate y(4) for y′ = xy + 2, y(1) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(4) for y′ = xy + 2, y(1) = 2.",
    "answer": "82",
    "options": [
     {
@@ -3574,7 +3574,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 3 steps to approximate y(5) for y′ = xy + 2, y(2) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(5) for y′ = xy + 2, y(2) = 1.",
    "answer": "112",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -3592,15 +3592,15 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Marco answered this problem incorrectly.\nUse Euler's method with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy + 3, y(-2) = 1.\nMarco's answer: 5968227/5000000\nIdentify the mistake and give the correct answer.",
-   "answer": "63831/50000",
+   "prompt": "Marco answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy + 3, y(-2) = 1.\nMarco's answer: 1.3\nIdentify the mistake and give the correct answer.",
+   "answer": "1.27662",
    "solutionSteps": [
-    "Mistake: Made an error updating the slope.",
+    "Mistake: Used the first slope (1) for all three steps. Recompute the slope after each step.",
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
-    "Step 1: y ≈ 1.1 at x = -1.9.",
-    "Step 2: y ≈ 1.191 at x = -1.8.",
-    "Step 3: y ≈ 63831/50000 at x = -1.7.",
-    "The correct answer is 63831/50000, not 5968227/5000000."
+    "Step 1: slope (−2)(1) + 3 = 1, so y ≈ 1 + 0.1(1) = 1.1 at x = −1.9.",
+    "Step 2: slope (−1.9)(1.1) + 3 = 0.91, so y ≈ 1.1 + 0.091 = 1.191 at x = −1.8.",
+    "Step 3: slope (−1.8)(1.191) + 3 = 0.8562, so y ≈ 1.191 + 0.08562 = 1.27662 at x = −1.7.",
+    "The correct answer is 1.27662, not 1.3."
    ],
    "standards": [
     "AP FUN-7.C"
@@ -3612,22 +3612,22 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy - 1, y(1) = 0.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy - 1, y(1) = 0.",
      "answer": "-1051/3125"
     },
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 1, y(-2) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 1, y(-2) = -3.",
      "answer": "-737/400"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 3 steps to approximate y(-0.5) for y′ = xy - 3, y(-2) = 3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 3 steps to approximate y(-0.5) for y′ = xy - 3, y(-2) = 3.",
      "answer": "-39/16"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 3 steps to approximate y(3) for y′ = xy - 1, y(0) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(3) for y′ = xy - 1, y(0) = 1.",
      "answer": "-4"
     }
    ],
@@ -3648,7 +3648,7 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Ben answered this problem incorrectly.\nUse Euler's method with step size 1 and 3 steps to approximate y(1) for y′ = xy + 3, y(-2) = 2.\nBen's answer: -1\nIdentify the mistake and give the correct answer.",
+   "prompt": "Ben answered this problem incorrectly.\nUse Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(1) for y′ = xy + 3, y(-2) = 2.\nBen's answer: -1\nIdentify the mistake and give the correct answer.",
    "answer": "6",
    "solutionSteps": [
     "Mistake: Used the initial slope for every step.",
@@ -3765,7 +3765,7 @@
      "correct": false
     },
     {
-     "text": "y = -3/7x² + C",
+     "text": "y = -(3/7)x² + C",
      "correct": false
     },
     {
@@ -3877,7 +3877,7 @@
    "answer": "5y² + 3x² = C",
    "options": [
     {
-     "text": "y = -3/10x² + C",
+     "text": "y = -(3/10)x² + C",
      "correct": false
     },
     {
@@ -3963,7 +3963,7 @@
    "answer": "y = Ceˣ",
    "solutionSteps": [
     "Separate: (1/y) dy = 1 dx.",
-    "ln|y| = 1x + C₁.",
+    "ln|y| = x + C₁.",
     "y = Ceˣ."
    ],
    "standards": [
@@ -3996,7 +3996,7 @@
    "prompt": "Femi answered this problem incorrectly.\nFind the general solution of y′ = x/y.\nFemi's answer: y² + x² = C\nIdentify the mistake and give the correct answer.",
    "answer": "y² - x² = C",
    "solutionSteps": [
-    "Mistake: Added C instead of multiplying (or placed C incorrectly).",
+    "Mistake: Made a sign error moving x² to the left side: y² − x² = C.",
     "Separate: y dy = x dx.",
     "Integrate both sides and multiply by 2.",
     "y² - x² = C.",
@@ -4012,7 +4012,7 @@
    "skillId": "differential-equations-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = -25x⁴y.",
@@ -4051,7 +4051,7 @@
    "prompt": "Grace answered this problem incorrectly.\nFind the general solution of y′ = 7y.\nGrace's answer: y = Cx⁷\nIdentify the mistake and give the correct answer.",
    "answer": "y = Ce^(7x)",
    "solutionSteps": [
-    "Mistake: Integrated incorrectly.",
+    "Mistake: Wrote Cx⁷ instead of Ce^(7x). ∫ (1/y) dy = ln|y|, so y = Ce^(7x).",
     "Separate: (1/y) dy = 7 dx.",
     "ln|y| = 7x + C₁.",
     "y = Ce^(7x).",
@@ -4156,7 +4156,7 @@
    "answer": "y² - 2x² = C",
    "options": [
     {
-     "text": "y = 1x² + C",
+     "text": "y = x² + C",
      "correct": false
     },
     {
@@ -4395,7 +4395,7 @@
    "prompt": "Hiro answered this problem incorrectly.\nFind the general solution of y′ = 9x/(7y).\nHiro's answer: 7y² + 9x² = C\nIdentify the mistake and give the correct answer.",
    "answer": "7y² - 9x² = C",
    "solutionSteps": [
-    "Mistake: Added C instead of multiplying (or placed C incorrectly).",
+    "Mistake: Made a sign error moving 9x² to the left side: 7y² − 9x² = C.",
     "Separate: 7y dy = 9x dx.",
     "Integrate both sides and multiply by 2.",
     "7y² - 9x² = C.",
@@ -4411,7 +4411,7 @@
    "skillId": "differential-equations-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = 12y.",
@@ -4447,14 +4447,14 @@
    "skillId": "differential-equations-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Carmen answered this problem incorrectly.\nFind the general solution of y′ = -20x³y.\nCarmen's answer: y = C-5x⁴\nIdentify the mistake and give the correct answer.",
+   "prompt": "Carmen answered this problem incorrectly.\nFind the general solution of y′ = -20x³y.\nCarmen's answer: y = Ce^(-60x²)\nIdentify the mistake and give the correct answer.",
    "answer": "y = Ce^(-5x⁴)",
    "solutionSteps": [
-    "Mistake: Made a sign error or skipped a step.",
+    "Mistake: Differentiated −20x³ instead of integrating it. ∫ −20x³ dx = −5x⁴.",
     "Separate: (1/y) dy = -20x³ dx.",
     "ln|y| = -5x⁴ + C₁.",
     "y = Ce^(-5x⁴).",
-    "The correct answer is y = Ce^(-5x⁴), not y = C-5x⁴."
+    "The correct answer is y = Ce^(-5x⁴), not y = Ce^(-60x²)."
    ],
    "standards": [
     "AP FUN-7.D"
@@ -4559,7 +4559,7 @@
      "correct": false
     },
     {
-     "text": "y = 9/8x² + C",
+     "text": "y = (9/8)x² + C",
      "correct": false
     },
     {
@@ -4744,7 +4744,7 @@
    "answer": "y = -1/(x + C)",
    "solutionSteps": [
     "Separate: y⁻² dy = 1 dx.",
-    "-1/y = 1x + C.",
+    "-1/y = x + C.",
     "y = -1/(x + C)."
    ],
    "standards": [
@@ -4791,14 +4791,14 @@
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Omar answered this problem incorrectly.\nFind the general solution of y′ = x/(2y).\nOmar's answer: y = 1/4x² + C\nIdentify the mistake and give the correct answer.",
+   "prompt": "Omar answered this problem incorrectly.\nFind the general solution of y′ = x/(2y).\nOmar's answer: y = (1/4)x² + C\nIdentify the mistake and give the correct answer.",
    "answer": "2y² - x² = C",
    "solutionSteps": [
-    "Mistake: Made a sign error or skipped a step.",
+    "Mistake: Integrated x/2 and treated y as a constant instead of separating variables.",
     "Separate: 2y dy = x dx.",
     "Integrate both sides and multiply by 2.",
     "2y² - x² = C.",
-    "The correct answer is 2y² - x² = C, not y = 1/4x² + C."
+    "The correct answer is 2y² - x² = C, not y = (1/4)x² + C."
    ],
    "standards": [
     "AP FUN-7.D"
@@ -4810,7 +4810,7 @@
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = 9y².",
@@ -4849,7 +4849,7 @@
    "prompt": "Tariq answered this problem incorrectly.\nFind the general solution of y′ = 12y².\nTariq's answer: y = 1/(12x + C)\nIdentify the mistake and give the correct answer.",
    "answer": "y = -1/(12x + C)",
    "solutionSteps": [
-    "Mistake: Added C instead of multiplying (or placed C incorrectly).",
+    "Mistake: Lost the negative sign: ∫ y⁻² dy = −1/y.",
     "Separate: y⁻² dy = 12 dx.",
     "-1/y = 12x + C.",
     "y = -1/(12x + C).",
@@ -5002,7 +5002,7 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "y′ = -1y and y(0) = 11. Find y′(0).",
+   "prompt": "y′ = -y and y(0) = 11. Find y′(0).",
    "answer": "-11",
    "options": [
     {
@@ -5193,7 +5193,7 @@
    "prompt": "Tariq answered this problem incorrectly.\nFind the general solution of y′ = 2xy.\nTariq's answer: y = Cx²\nIdentify the mistake and give the correct answer.",
    "answer": "y = Ce^(x²)",
    "solutionSteps": [
-    "Mistake: Made a sign error or skipped a step.",
+    "Mistake: Left out the exponential. ln|y| = x² + C gives y = Ce^(x²).",
     "Separate: (1/y) dy = 2x dx.",
     "ln|y| = x² + C₁.",
     "y = Ce^(x²).",
@@ -5209,7 +5209,7 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = 15x²y.",
@@ -5245,14 +5245,14 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the general solution of y′ = 12x³y.\nPriya's answer: y = C3x⁴\nIdentify the mistake and give the correct answer.",
+   "prompt": "Priya answered this problem incorrectly.\nFind the general solution of y′ = 12x³y.\nPriya's answer: y = 3x⁴ + C\nIdentify the mistake and give the correct answer.",
    "answer": "y = Ce^(3x⁴)",
    "solutionSteps": [
-    "Mistake: Made a sign error or skipped a step.",
+    "Mistake: Integrated the right side without separating variables first.",
     "Separate: (1/y) dy = 12x³ dx.",
     "ln|y| = 3x⁴ + C₁.",
     "y = Ce^(3x⁴).",
-    "The correct answer is y = Ce^(3x⁴), not y = C3x⁴."
+    "The correct answer is y = Ce^(3x⁴), not y = 3x⁴ + C."
    ],
    "standards": [
     "AP FUN-7.D"
@@ -5451,7 +5451,7 @@
      "correct": false
     },
     {
-     "text": "y = -3/8x² + C",
+     "text": "y = -(3/8)x² + C",
      "correct": false
     }
    ],
@@ -5608,7 +5608,7 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = -4y.",
@@ -5647,7 +5647,7 @@
    "prompt": "Uma answered this problem incorrectly.\nFind the general solution of y′ = -3x²y.\nUma's answer: y = Ce^(-3x³)\nIdentify the mistake and give the correct answer.",
    "answer": "y = Ce^(-x³)",
    "solutionSteps": [
-    "Mistake: Integrated incorrectly.",
+    "Mistake: Forgot to divide by 3 when integrating: ∫ −3x² dx = −x³.",
     "Separate: (1/y) dy = -3x² dx.",
     "ln|y| = -x³ + C₁.",
     "y = Ce^(-x³).",
@@ -5907,7 +5907,7 @@
    "answer": "y = Ce^(-x)",
    "solutionSteps": [
     "Separate: (1/y) dy = -1 dx.",
-    "ln|y| = -1x + C₁.",
+    "ln|y| = -x + C₁.",
     "y = Ce^(-x)."
    ],
    "standards": [
@@ -5991,7 +5991,7 @@
    "prompt": "Marco answered this problem incorrectly.\nFind the general solution of y′ = 11y².\nMarco's answer: y = Ce^(11x)\nIdentify the mistake and give the correct answer.",
    "answer": "y = -1/(11x + C)",
    "solutionSteps": [
-    "Mistake: Made a sign error or skipped a step.",
+    "Mistake: Treated y′ = 11y² like y′ = 11y. Separate: y⁻² dy = 11 dx.",
     "Separate: y⁻² dy = 11 dx.",
     "-1/y = 11x + C.",
     "y = -1/(11x + C).",
@@ -6007,7 +6007,7 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the general solution of y′ = -3x²y.",
@@ -6043,14 +6043,14 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the general solution of y′ = y².\nPriya's answer: y = -1/(x) + C\nIdentify the mistake and give the correct answer.",
+   "prompt": "Priya answered this problem incorrectly.\nFind the general solution of y′ = y².\nPriya's answer: y = -1/x + C\nIdentify the mistake and give the correct answer.",
    "answer": "y = -1/(x + C)",
    "solutionSteps": [
-    "Mistake: Integrated incorrectly.",
+    "Mistake: Added C outside the fraction. −1/y = x + C gives y = −1/(x + C).",
     "Separate: y⁻² dy = 1 dx.",
-    "-1/y = 1x + C.",
+    "-1/y = x + C.",
     "y = -1/(x + C).",
-    "The correct answer is y = -1/(x + C), not y = -1/(x) + C."
+    "The correct answer is y = -1/(x + C), not y = -1/x + C."
    ],
    "standards": [
     "AP FUN-7.D"
@@ -6131,7 +6131,7 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "y′ = -1y and y(0) = 15. Find y(3), rounded to the nearest hundredth.",
+   "prompt": "y′ = -y and y(0) = 15. Find y(3), rounded to the nearest hundredth.",
    "answer": "0.75",
    "options": [
     {
@@ -6152,7 +6152,7 @@
     }
    ],
    "solutionSteps": [
-    "y = 15e^(-1x).",
+    "y = 15e^(-x).",
     "y(3) = 15e^(-3) ≈ 0.75."
    ],
    "standards": [
@@ -6236,10 +6236,10 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Solve y′ = 1y with y(0) = 13.",
+   "prompt": "Solve y′ = y with y(0) = 13.",
    "answer": "y = 13e^x",
    "solutionSteps": [
-    "General: y = Ce^(1x).",
+    "General: y = Ce^x.",
     "y(0) = C = 13.",
     "y = 13e^x."
    ],
@@ -6315,10 +6315,10 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "y′ = 1y and y(0) = 2. Find y(1), rounded to the nearest hundredth.",
+   "prompt": "y′ = y and y(0) = 2. Find y(1), rounded to the nearest hundredth.",
    "answer": "5.44",
    "solutionSteps": [
-    "y = 2e^(1x).",
+    "y = 2e^x.",
     "y(1) = 2e^(1) ≈ 5.44."
    ],
    "standards": [
@@ -6420,11 +6420,11 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Lena answered this problem incorrectly.\ny′ = 1y and y(0) = 13. Find y(1), rounded to the nearest hundredth.\nLena's answer: 2.72\nIdentify the mistake and give the correct answer.",
+   "prompt": "Lena answered this problem incorrectly.\ny′ = y and y(0) = 13. Find y(1), rounded to the nearest hundredth.\nLena's answer: 2.72\nIdentify the mistake and give the correct answer.",
    "answer": "35.34",
    "solutionSteps": [
     "Mistake: Forgot the initial value.",
-    "y = 13e^(1x).",
+    "y = 13e^x.",
     "y(1) = 13e^(1) ≈ 35.34.",
     "The correct answer is 35.34, not 2.72."
    ],
@@ -6439,14 +6439,14 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve y′ = 3y with y(0) = 13.",
      "answer": "y = 13e^(3x)"
     },
     {
-     "prompt": "y′ = 1y and y(0) = 11. Find y(2), rounded to the nearest hundredth.",
+     "prompt": "y′ = y and y(0) = 11. Find y(2), rounded to the nearest hundredth.",
      "answer": "81.28"
     },
     {
@@ -6461,7 +6461,7 @@
    "answer": "(a) y = 13e^(3x); (b) 81.28; (c) y = 8e^(-2x); (d) y = 20e^(-2x)",
    "solutionSteps": [
     "(a) y(0) = C = 13. y = 13e^(3x).",
-    "(b) y = 11e^(1x). y(2) = 11e^(2) ≈ 81.28.",
+    "(b) y = 11e^x. y(2) = 11e^(2) ≈ 81.28.",
     "(c) y(0) = C = 8. y = 8e^(-2x).",
     "(d) y(0) = C = 20. y = 20e^(-2x)."
    ],
@@ -6476,13 +6476,13 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\ny′ = -1y and y(0) = 14. Find y(3), rounded to the nearest hundredth.\nPriya's answer: 15.45\nIdentify the mistake and give the correct answer.",
+   "prompt": "Priya answered this problem incorrectly.\ny′ = -y and y(0) = 14. Find y(3), rounded to the nearest hundredth.\nPriya's answer: 281.20\nIdentify the mistake and give the correct answer.",
    "answer": "0.70",
    "solutionSteps": [
-    "Mistake: Multiplied by x outside the exponent.",
-    "y = 14e^(-1x).",
+    "Mistake: Left out the negative in the exponent: 14e³ ≈ 281.20.",
+    "y = 14e^(-x).",
     "y(3) = 14e^(-3) ≈ 0.70.",
-    "The correct answer is 0.70, not 15.45."
+    "The correct answer is 0.70, not 281.20."
    ],
    "standards": [
     "AP FUN-7.E",
@@ -6592,7 +6592,7 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "y′ = -1y and y(0) = 19. Find y(4), rounded to the nearest hundredth.",
+   "prompt": "y′ = -y and y(0) = 19. Find y(4), rounded to the nearest hundredth.",
    "answer": "0.35",
    "options": [
     {
@@ -6613,7 +6613,7 @@
     }
    ],
    "solutionSteps": [
-    "y = 19e^(-1x).",
+    "y = 19e^(-x).",
     "y(4) = 19e^(-4) ≈ 0.35."
    ],
    "standards": [
@@ -6714,7 +6714,7 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "y′ = -1y and y(0) = 18. Find y′(0).",
+   "prompt": "y′ = -y and y(0) = 18. Find y′(0).",
    "answer": "-18",
    "options": [
     {
@@ -6875,7 +6875,7 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "y′ = 2y and y(0) = 10. Find y(3), rounded to the nearest hundredth.",
@@ -6897,7 +6897,7 @@
    "answer": "(a) 4034.29; (b) y = 7e^(x²); (c) y = 20e^(-2x); (d) y = √(13 - x²)",
    "solutionSteps": [
     "(a) y = 10e^(2x). y(3) = 10e^(6) ≈ 4034.29.",
-    "(b) ln|y| = 1x² + C₁, so y = Ce^(1x²). C = 7: y = 7e^(x²).",
+    "(b) ln|y| = x² + C₁, so y = Ce^(x²). C = 7: y = 7e^(x²).",
     "(c) y(0) = C = 20. y = 20e^(-2x).",
     "(d) 3² = -2² + C, C = 13. y > 0 at the start, so y = √(13 - x²)."
    ],
@@ -7303,7 +7303,7 @@
    "skillId": "differential-equations-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A drink cools by T′ = -0.05(T - 64) (minutes, °F) from T(0) = 199. Find T(15), rounded to the nearest tenth.",

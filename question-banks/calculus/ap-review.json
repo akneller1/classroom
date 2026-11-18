@@ -375,7 +375,7 @@
    "skillId": "ap-review-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x for x < 1, and f(x) = 3x + k for x ≥ 1.",
@@ -412,15 +412,15 @@
    "skillId": "ap-review-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Elena answered this problem incorrectly.\nEvaluate lim (x → -3) (x² + 7x + 12)/(x + 3).\nElena's answer: 2\nIdentify the mistake and give the correct answer.",
+   "prompt": "Elena answered this problem incorrectly.\nEvaluate lim (x → -3) (x² + 7x + 12)/(x + 3).\nElena's answer: 7\nIdentify the mistake and give the correct answer.",
    "answer": "1",
    "solutionSteps": [
-    "Mistake: Made an algebra error.",
+    "Mistake: Substituted x = 3 instead of x = −3 after canceling.",
     "Direct substitution gives 0 ÷ 0, an indeterminate form.",
     "Factor and cancel (x + 3).",
     "Substitute into what remains.",
     "= 1.",
-    "The correct answer is 1, not 2."
+    "The correct answer is 1, not 7."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -779,15 +779,15 @@
    "skillId": "ap-review-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Sam answered this problem incorrectly.\nEvaluate lim (x → 2) (x³ - 8)/(x - 2).\nSam's answer: 24\nIdentify the mistake and give the correct answer.",
+   "prompt": "Sam answered this problem incorrectly.\nEvaluate lim (x → 2) (x³ - 8)/(x - 2).\nSam's answer: 8\nIdentify the mistake and give the correct answer.",
    "answer": "12",
    "solutionSteps": [
-    "Mistake: Made an algebra error.",
+    "Mistake: Factored x³ − 8 as (x − 2)(x² + 4). The second factor is x² + 2x + 4.",
     "0 ÷ 0: use the difference (or sum) of cubes.",
     "x³ - a³ = (x - a)(x² + ax + a²).",
     "Cancel and substitute: 3a².",
     "= 12.",
-    "The correct answer is 12, not 24."
+    "The correct answer is 12, not 8."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -800,7 +800,7 @@
    "skillId": "ap-review-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x + 1 for x < -2, and f(x) = kx + 3 for x ≥ -2.",
@@ -967,7 +967,7 @@
    "skillId": "ap-review-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Evaluate lim (x → 0) sin(1x)/(6x).",
+   "prompt": "Evaluate lim (x → 0) sin(x)/(6x).",
    "answer": "1/6",
    "options": [
     {
@@ -1225,7 +1225,7 @@
    "skillId": "ap-review-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x² - x for x < 3, and f(x) = kx + 1 for x ≥ 3.",
@@ -1262,15 +1262,15 @@
    "skillId": "ap-review-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Wren answered this problem incorrectly.\nEvaluate lim (x → 5) (x³ - 125)/(x - 5).\nWren's answer: 150\nIdentify the mistake and give the correct answer.",
+   "prompt": "Wren answered this problem incorrectly.\nEvaluate lim (x → 5) (x³ - 125)/(x - 5).\nWren's answer: 50\nIdentify the mistake and give the correct answer.",
    "answer": "75",
    "solutionSteps": [
-    "Mistake: Made an algebra error.",
+    "Mistake: Factored x³ − 125 as (x − 5)(x² + 25). The second factor is x² + 5x + 25.",
     "0 ÷ 0: use the difference (or sum) of cubes.",
     "x³ - a³ = (x - a)(x² + ax + a²).",
     "Cancel and substitute: 3a².",
     "= 75.",
-    "The correct answer is 75, not 150."
+    "The correct answer is 75, not 50."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1640,7 +1640,7 @@
    "prompt": "Zoe answered this problem incorrectly.\nFind f′(x) for f(x) = -x² - 8x.\nZoe's answer: -4x - 8\nIdentify the mistake and give the correct answer.",
    "answer": "-2x - 8",
    "solutionSteps": [
-    "Mistake: Made an error with the rule.",
+    "Mistake: Doubled the coefficient: d/dx(−x²) = −2x, not −4x.",
     "Power rule.",
     "f′(x) = -2x - 8.",
     "The correct answer is -2x - 8, not -4x - 8."
@@ -1657,7 +1657,7 @@
    "skillId": "ap-review-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A balloon's radius increases at 1 cm/s. How fast is its volume increasing when the radius is 2 cm? Give an exact answer.",
@@ -1698,7 +1698,7 @@
    "prompt": "Femi answered this problem incorrectly.\nFind f′(x) for f(x) = x² + 3x.\nFemi's answer: 4x + 3\nIdentify the mistake and give the correct answer.",
    "answer": "2x + 3",
    "solutionSteps": [
-    "Mistake: Made an error with the rule.",
+    "Mistake: Doubled the coefficient: d/dx(x²) = 2x, not 4x.",
     "Power rule.",
     "f′(x) = 2x + 3.",
     "The correct answer is 2x + 3, not 4x + 3."
@@ -1980,7 +1980,7 @@
    "solutionSteps": [
     "f(-1) = -7/3.",
     "f′(-1) = -8/9.",
-    "y - (-7/3) = -8/9(x - (-1)).",
+    "y - (-7/3) = -(8/9)(x - (-1)).",
     "y = -(8/9)x - 29/9."
    ],
    "standards": [
@@ -2072,7 +2072,7 @@
    "prompt": "Sam answered this problem incorrectly.\nFind f′(x) for f(x) = 4e^(6x) + 4ln(x).\nSam's answer: 24e^(12x) + 2/x\nIdentify the mistake and give the correct answer.",
    "answer": "24e^(6x) + 4/x",
    "solutionSteps": [
-    "Mistake: Made an error with the rule.",
+    "Mistake: Doubled the exponent and halved the log term. d/dx e^(6x) = 6e^(6x) and d/dx ln(x) = 1/x.",
     "(e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x.",
     "f′(x) = 24e^(6x) + 4/x.",
     "The correct answer is 24e^(6x) + 4/x, not 24e^(12x) + 2/x."
@@ -2089,7 +2089,7 @@
    "skillId": "ap-review-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A balloon's radius increases at 1 cm/s. How fast is its volume increasing when the radius is 9 cm? Give an exact answer.",
@@ -2130,7 +2130,7 @@
    "prompt": "Ben answered this problem incorrectly.\nFind f′(x) for f(x) = 3e^(4x) + 5ln(x).\nBen's answer: 12e^(8x) + 5/(2x)\nIdentify the mistake and give the correct answer.",
    "answer": "12e^(4x) + 5/x",
    "solutionSteps": [
-    "Mistake: Made an error with the rule.",
+    "Mistake: Doubled the exponent and halved the log term. d/dx e^(4x) = 4e^(4x) and d/dx ln(x) = 1/x.",
     "(e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x.",
     "f′(x) = 12e^(4x) + 5/x.",
     "The correct answer is 12e^(4x) + 5/x, not 12e^(8x) + 5/(2x)."
@@ -2188,7 +2188,7 @@
    "solutionSteps": [
     "f(-1) = -1/2.",
     "f′(-1) = 2/3.",
-    "y - (-1/2) = 2/3(x - (-1)).",
+    "y - (-1/2) = (2/3)(x - (-1)).",
     "y = (2/3)x + 1/6."
    ],
    "standards": [
@@ -2300,7 +2300,7 @@
    "solutionSteps": [
     "f(2) = 1/3.",
     "f′(2) = 5/18; the normal slope is -18/5.",
-    "y - 1/3 = -18/5(x - 2).",
+    "y - 1/3 = -(18/5)(x - 2).",
     "y = -(18/5)x + 113/15."
    ],
    "standards": [
@@ -2465,15 +2465,15 @@
    "skillId": "ap-review-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find f′(x) for f(x) = cos(x)⁵.",
-   "answer": "-5sin(x)cos(x)⁴",
+   "prompt": "Find f′(x) for f(x) = cos⁵(x).",
+   "answer": "-5sin(x)cos⁴(x)",
    "options": [
     {
-     "text": "-5sin(x)cos(x)⁴",
+     "text": "-5sin(x)cos⁴(x)",
      "correct": true
     },
     {
-     "text": "-5sin(x)cos(x)⁴ + 1",
+     "text": "-5sin(x)cos⁴(x) + 1",
      "correct": false
     },
     {
@@ -2481,13 +2481,13 @@
      "correct": false
     },
     {
-     "text": "5sin(x)cos(x)⁴",
+     "text": "5sin(x)cos⁴(x)",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Chain rule with a trigonometric outer function.",
-    "f′(x) = -5sin(x)cos(x)⁴."
+    "f′(x) = -5sin(x)cos⁴(x)."
    ],
    "standards": [
     "AP FUN-3.A",
@@ -2501,10 +2501,10 @@
    "skillId": "ap-review-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Uma answered this problem incorrectly.\nFind f′(x) for f(x) = cos(x)².\nUma's answer: sin(2x)\nIdentify the mistake and give the correct answer.",
+   "prompt": "Uma answered this problem incorrectly.\nFind f′(x) for f(x) = cos²(x).\nUma's answer: sin(2x)\nIdentify the mistake and give the correct answer.",
    "answer": "-sin(2x)",
    "solutionSteps": [
-    "Mistake: Made a sign error or missed a factor.",
+    "Mistake: Lost the negative sign: d/dx cos(x) = −sin(x), so f′(x) = −2sin(x)cos(x) = −sin(2x).",
     "Chain rule with a trigonometric outer function.",
     "f′(x) = -sin(2x).",
     "The correct answer is -sin(2x), not sin(2x)."
@@ -2521,7 +2521,7 @@
    "skillId": "ap-review-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Water pours into an inverted cone (height 8 ft, top radius 4 ft) at 8 ft³/min. How fast is the water level rising when the water is 7 ft deep? Give an exact answer.",
@@ -2562,7 +2562,7 @@
    "prompt": "Hiro answered this problem incorrectly.\nFind f′(x) for f(x) = (x² + 1)/(5x + 2).\nHiro's answer: (2/5)x\nIdentify the mistake and give the correct answer.",
    "answer": "(5x² + 4x - 5)/(5x + 2)²",
    "solutionSteps": [
-    "Mistake: Made a sign error or missed a factor.",
+    "Mistake: Divided the derivative of the numerator by the derivative of the denominator. Use the quotient rule.",
     "Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v².",
     "f′(x) = (5x² + 4x - 5)/(5x + 2)².",
     "The correct answer is (5x² + 4x - 5)/(5x + 2)², not (2/5)x."
@@ -2954,7 +2954,7 @@
    "skillId": "ap-review-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the average value of f(x) = 9x² + 8x - 6 on [-1, 3].",
@@ -3380,7 +3380,7 @@
    "skillId": "ap-review-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the average value of f(x) = 5sin(x) on [0, π/2].",
@@ -3806,7 +3806,7 @@
    "skillId": "ap-review-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the average value of f(x) = -3x² + 6x + 5 on [-2, 3].",
@@ -3918,7 +3918,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -3x + y, y(2) = 3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x + y, y(2) = 3.",
    "answer": "-9",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -3975,7 +3975,7 @@
    "answer": "7y² - 5x² = C",
    "options": [
     {
-     "text": "y = 5/14x² + C",
+     "text": "y = (5/14)x² + C",
      "correct": false
     },
     {
@@ -4024,7 +4024,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(-1) for y′ = x + 2y, y(-2) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(-1) for y′ = x + 2y, y(-2) = 1.",
    "answer": "1.25",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -4131,7 +4131,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(0) for y′ = 3x + 2y, y(-2) = 3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(0) for y′ = 3x + 2y, y(-2) = 3.",
    "answer": "6",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -4202,11 +4202,11 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Ava answered this problem incorrectly.\nSolve y′ = 1y with y(0) = 8.\nAva's answer: y = e^x + 7\nIdentify the mistake and give the correct answer.",
+   "prompt": "Ava answered this problem incorrectly.\nSolve y′ = y with y(0) = 8.\nAva's answer: y = e^x + 7\nIdentify the mistake and give the correct answer.",
    "answer": "y = 8e^x",
    "solutionSteps": [
     "Mistake: Added the constant.",
-    "General: y = Ce^(1x).",
+    "General: y = Ce^x.",
     "y(0) = C = 8.",
     "y = 8e^x.",
     "The correct answer is y = 8e^x, not y = e^x + 7."
@@ -4222,22 +4222,22 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x - 2y, y(-1) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x - 2y, y(-1) = 1.",
      "answer": "0.75"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(3) for y′ = -x - y, y(2) = 2.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = -x - y, y(2) = 2.",
      "answer": "-1.25"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(1) for y′ = 2x + y, y(0) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = 2x + y, y(0) = 1.",
      "answer": "2.75"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -x + y, y(2) = -1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -x + y, y(2) = -1.",
      "answer": "-11"
     }
    ],
@@ -4315,7 +4315,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x - 2y, y(-1) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x - 2y, y(-1) = 1.",
    "answer": "0.75",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -4354,7 +4354,7 @@
    "answer": "5y² - 8x² = C",
    "options": [
     {
-     "text": "y = 4/5x² + C",
+     "text": "y = (4/5)x² + C",
      "correct": false
     },
     {
@@ -4421,7 +4421,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(1) for y′ = x + 2y, y(-1) = 1.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(1) for y′ = x + 2y, y(-1) = 1.",
    "answer": "6",
    "options": [
     {
@@ -4546,7 +4546,7 @@
    "skillId": "ap-review-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -3x - y, y(2) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x - y, y(2) = 2.",
    "answer": "-9",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -4597,7 +4597,7 @@
      "correct": false
     },
     {
-     "text": "y = -9/8x² + C",
+     "text": "y = -(9/8)x² + C",
      "correct": false
     }
    ],
@@ -4622,7 +4622,7 @@
    "solutionSteps": [
     "Mistake: Forgot to divide by 2 when integrating.",
     "(1/y) dy = 2x dx.",
-    "ln|y| = 1x² + C₁, so y = Ce^(1x²).",
+    "ln|y| = x² + C₁, so y = Ce^(x²).",
     "C = 2: y = 2e^(x²).",
     "The correct answer is y = 2e^(x²), not y = 2e^(2x²)."
    ],
@@ -4637,22 +4637,22 @@
    "skillId": "ap-review-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.1 and 2 steps to approximate y(1.2) for y′ = 3x + 2y, y(1) = -2.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(1.2) for y′ = 3x + 2y, y(1) = -2.",
      "answer": "-2.19"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(2) for y′ = -3x + y, y(0) = 1.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(2) for y′ = -3x + y, y(0) = 1.",
      "answer": "1"
     },
     {
-     "prompt": "Use Euler's method with step size 1 and 2 steps to approximate y(4) for y′ = -3x + 2y, y(2) = 0.",
+     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x + 2y, y(2) = 0.",
      "answer": "-27"
     },
     {
-     "prompt": "Use Euler's method with step size 0.5 and 2 steps to approximate y(3) for y′ = 3x - y, y(2) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = 3x - y, y(2) = -3.",
      "answer": "4.5"
     }
    ],
@@ -4748,7 +4748,7 @@
    "skillId": "ap-review-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(0.3) for y′ = xy + 1, y(0) = -3.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(0.3) for y′ = xy + 1, y(0) = -3.",
    "answer": "-139279/50000",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -4856,7 +4856,7 @@
    "skillId": "ap-review-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use Euler's method with step size 0.5 and 3 steps to approximate y(2.5) for y′ = xy - 2, y(1) = 2.",
+   "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 3 steps to approximate y(2.5) for y′ = xy - 2, y(1) = 2.",
    "answer": "4",
    "options": [
     {
@@ -4963,7 +4963,7 @@
    "skillId": "ap-review-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use Euler's method with step size 1 and 3 steps to approximate y(4) for y′ = xy + 1, y(1) = 0.",
+   "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(4) for y′ = xy + 1, y(1) = 0.",
    "answer": "17",
    "solutionSteps": [
     "yₙ₊₁ = yₙ + h·f(xₙ, yₙ).",
@@ -5054,22 +5054,22 @@
    "skillId": "ap-review-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
    "parts": [
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(-0.7) for y′ = xy - 2, y(-1) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-0.7) for y′ = xy - 2, y(-1) = -3.",
      "answer": "-70297/25000"
     },
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 3, y(-2) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 3, y(-2) = -3.",
      "answer": "-116967/50000"
     },
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy + 1, y(1) = -3.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy + 1, y(1) = -3.",
      "answer": "-23539/6250"
     },
     {
-     "prompt": "Use Euler's method with step size 0.1 and 3 steps to approximate y(2.3) for y′ = xy - 3, y(2) = -2.",
+     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(2.3) for y′ = xy - 3, y(2) = -2.",
      "answer": "-232587/50000"
     }
    ],
@@ -5502,7 +5502,7 @@
    "prompt": "Priya answered this problem incorrectly.\nA continuous function has f(0) = -4; f(2) = -2; f(4) = 14; f(6) = 10; f(8) = 16. Use a trapezoidal sum with these four subintervals to approximate the average value of f on [0, 8].\nPriya's answer: 6\nIdentify the mistake and give the correct answer.",
    "answer": "7",
    "solutionSteps": [
-    "Mistake: Averaged the endpoint values.",
+    "Mistake: Averaged the two endpoint values instead of using the trapezoidal sum.",
     "∫ ≈ 56.",
     "Average ≈ 56 ÷ 8 = 7.",
     "The correct answer is 7, not 6."
@@ -5519,7 +5519,7 @@
    "skillId": "ap-review-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A differentiable function has f(0) = -6; f(2) = 4; f(4) = -8; f(6) = 10; f(8) = 16. Estimate f′(2) using the nearest values on either side.",
@@ -5984,7 +5984,7 @@
    "skillId": "ap-review-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A continuous function has f(0) = 19; f(2) = 11; f(5) = 17; f(7) = -8; f(10) = 2. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
@@ -6452,7 +6452,7 @@
    "skillId": "ap-review-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A continuous function has f(0) = -6; f(2) = 2; f(5) = 17; f(7) = 2; f(10) = 0. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
@@ -6545,38 +6545,36 @@
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "f is continuous on [3, 9] with f(3) = 3; f(4) = 8; f(7) = -5; f(9) = -1. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -2 on [3, 9]?",
-   "answer": "2",
+   "prompt": "f is differentiable and f′(1) = 0. Name the theorem, test or definition that justifies that f has a relative minimum at x = 1.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -2.",
-    "There are 2 such intervals.",
-    "At least 2."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-003",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = -x² - x + 5 on [1, 4].",
-   "answer": "c = 5/2",
+   "prompt": "f is differentiable and f′(2) = 0. Name the theorem, test or definition that justifies that f has a relative maximum at x = 2.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(4) - f(1)) ÷ (4 - 1) = -6.",
-    "Solve f′(c) = -6.",
-    "c = 5/2 (in the open interval)."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-004",
@@ -6619,74 +6617,72 @@
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "f is continuous on [1, 9] with f(1) = 2; f(3) = -7; f(7) = -5; f(9) = -7. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -4 on [1, 9]?",
-   "answer": "1",
+   "prompt": "f′(-1) = 0 and f″(-1) = -6. What can you conclude about x = -1, and why?",
+   "answer": "f has a relative maximum at x = -1 by the Second Derivative Test, because f′(-1) = 0 and f″(-1) < 0",
    "options": [
     {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "0",
-     "correct": false
-    },
-    {
-     "text": "1",
+     "text": "f has a relative maximum at x = -1 by the Second Derivative Test, because f′(-1) = 0 and f″(-1) < 0",
      "correct": true
+    },
+    {
+     "text": "f has a relative minimum at x = -1 by the Second Derivative Test, because f′(-1) = 0 and f″(-1) < 0",
+     "correct": false
+    },
+    {
+     "text": "f has a point of inflection at x = -1, because f′(-1) = 0",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible without the sign of f′ near x = -1",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -4.",
-    "There is 1 such interval.",
-    "At least 1."
+    "f″(-1) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "Each other choice either names the wrong theorem or leaves out a condition the theorem needs."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_choose). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-006",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = 3x² - 6x - 2 on [-4, -3].",
-   "answer": "c = -7/2",
+   "prompt": "f is continuous on [0, 4] and differentiable on (0, 4), with f(0) = 5 and f(4) = 9. Which conclusion is justified, and by what?",
+   "answer": "f′(c) = 1 for some c in (0, 4), by the Mean Value Theorem",
    "options": [
     {
-     "text": "c = -7/2",
+     "text": "f′(c) = 1 for some c in (0, 4), by the Mean Value Theorem",
      "correct": true
     },
     {
-     "text": "c = -27",
+     "text": "f(c) = 1 for some c in (0, 4), by the Mean Value Theorem",
      "correct": false
     },
     {
-     "text": "c = 7/2",
+     "text": "f′(c) = 1 for some c in (0, 4), by the Intermediate Value Theorem",
      "correct": false
     },
     {
-     "text": "c = 1/2",
+     "text": "f′(c) = 0 for some c in (0, 4), by the Mean Value Theorem",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Average rate: (f(-3) - f(-4)) ÷ (-3 - -4) = -27.",
-    "Solve f′(c) = -27.",
-    "c = -7/2 (in the open interval)."
+    "The MVT hypotheses hold, and the average rate of change is (9 − 5) ÷ (4 − 0) = 1.",
+    "Each other choice either names the wrong theorem or leaves out a condition the theorem needs."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_choose). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-007",
@@ -6729,38 +6725,36 @@
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "f is continuous on [0, 7] with f(0) = 8; f(3) = 8; f(4) = 7; f(7) = -4. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 2 on [0, 7]?",
-   "answer": "1",
+   "prompt": "f is differentiable and f′(1) = 0. Name the theorem, test or definition that justifies that f has a relative maximum at x = 1.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of 2.",
-    "There is 1 such interval.",
-    "At least 1."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-009",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = -x² + 2x + 3 on [-4, -3].",
-   "answer": "c = -7/2",
+   "prompt": "f is differentiable and f′(-3) = 0. Name the theorem, test or definition that justifies that f has a relative maximum at x = -3.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(-3) - f(-4)) ÷ (-3 - -4) = 9.",
-    "Solve f′(c) = 9.",
-    "c = -7/2 (in the open interval)."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-010",
@@ -6803,137 +6797,134 @@
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "f is continuous on [0, 5] with f(0) = -2; f(1) = -4; f(3) = 6; f(5) = 2. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 5 on [0, 5]?",
-   "answer": "2",
+   "prompt": "f is differentiable and f′(-3) = 0. Name the theorem, test or definition that justifies that f has a relative minimum at x = -3.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of 5.",
-    "There are 2 such intervals.",
-    "At least 2."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-012",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = -2x² - 6x + 1 on [-4, 0].",
-   "answer": "c = -2",
+   "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. V is continuous on [0, 6], V(0) = 35, and V(6) = 50. Name the theorem, test or definition that justifies that V(c) = 49 for some c in (0, 6).",
+   "answer": "Intermediate Value Theorem",
    "solutionSteps": [
-    "Average rate: (f(0) - f(-4)) ÷ (0 - -4) = 2.",
-    "Solve f′(c) = 2.",
-    "c = -2 (in the open interval)."
+    "The IVT needs continuity on the closed interval and a target value between the endpoint values; both hold.",
+    "So the justification is the Intermediate Value Theorem."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-013",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "f is continuous on [5, 9] with f(5) = -7; f(7) = -5; f(8) = 8; f(9) = -6. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -1 on [5, 9]?",
-   "answer": "2",
+   "prompt": "f is continuous on [0, 4] and differentiable on (0, 4), with f(0) = -1 and f(4) = 11. Name the theorem that guarantees a value c with f′(c) equal to the average rate of change.",
+   "answer": "Mean Value Theorem",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -1.",
-    "There are 2 such intervals.",
-    "At least 2."
+    "The MVT hypotheses hold, and the average rate of change is (11 − -1) ÷ (4 − 0) = 3.",
+    "So the justification is the Mean Value Theorem."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-014",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = -x² - 6x + 4 on [0, 2].\nPriya's answer: c = -1\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 1",
+   "prompt": "Hiro answered this problem incorrectly.\nf′(-2) = 0 and f″(-2) = -6. What can you conclude about x = -2, and why?\nHiro's answer: f″(-2) = -6, so f has a relative minimum at x = -2\nIdentify the mistake and give the correct answer.",
+   "answer": "f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0",
    "solutionSteps": [
-    "Mistake: Made a sign error.",
-    "Average rate: (f(2) - f(0)) ÷ (2 - 0) = -8.",
-    "Solve f′(c) = -8.",
-    "c = 1 (in the open interval).",
-    "The correct answer is c = 1, not c = -1."
+    "Mistake: Reversed the test. f″ < 0 means concave down, which gives a relative maximum.",
+    "f″(-2) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "The correct answer is f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0, not f″(-2) = -6, so f has a relative minimum at x = -2."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-015",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
+   "answer": "(a) f′ changes from negative to positive at x = -2; (b) W is continuous on [0, 6] and 62 is between W(0) = 60 and W(6) = 70, so the Intermediate Value Theorem applies; (c) f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0; (d) f has a relative minimum at x = 2 by the Second Derivative Test, because f′(2) = 0 and f″(2) > 0",
    "parts": [
     {
-     "prompt": "f is continuous on [2, 7] with f(2) = 7; f(4) = -5; f(5) = 8; f(7) = -1. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 3 on [2, 7]?",
-     "answer": "3"
+     "label": "a",
+     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative minimum at x = -2.",
+     "answer": "f′ changes from negative to positive at x = -2"
     },
     {
-     "prompt": "f is continuous on [3, 9] with f(3) = 4; f(4) = -1; f(6) = 3; f(9) = 6. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 0 on [3, 9]?",
-     "answer": "2"
+     "label": "b",
+     "prompt": "W(t) is the amount of water in a tank, in gallons, t minutes after a start time. W is continuous on [0, 6], W(0) = 60, and W(6) = 70. Write a sentence that justifies that W(c) = 62 for some c in (0, 6).",
+     "answer": "W is continuous on [0, 6] and 62 is between W(0) = 60 and W(6) = 70, so the Intermediate Value Theorem applies"
     },
     {
-     "prompt": "f is continuous on [1, 6] with f(1) = 5; f(2) = 4; f(3) = 7; f(6) = 5. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -3 on [1, 6]?",
-     "answer": "0"
+     "label": "c",
+     "prompt": "f′(-2) = 0 and f″(-2) = -3. What can you conclude about x = -2, and why?",
+     "answer": "f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0"
     },
     {
-     "prompt": "f is continuous on [0, 6] with f(0) = 0; f(1) = 5; f(2) = 0; f(6) = 2. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -1 on [0, 6]?",
-     "answer": "0"
+     "label": "d",
+     "prompt": "f′(2) = 0 and f″(2) = 5. What can you conclude about x = 2, and why?",
+     "answer": "f has a relative minimum at x = 2 by the Second Derivative Test, because f′(2) = 0 and f″(2) > 0"
     }
    ],
-   "answer": "(a) 3; (b) 2; (c) 0; (d) 0",
    "solutionSteps": [
-    "(a) There are 3 such intervals. At least 3.",
-    "(b) There are 2 such intervals. At least 2.",
-    "(c) There are 0 such intervals. At least 0.",
-    "(d) There are 0 such intervals. At least 0."
+    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "(b) The IVT needs continuity on the closed interval and a target value between the endpoint values; both hold.",
+    "(c) f″(-2) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "(d) f″(2) > 0 means the graph is concave up at the critical number, so it is a relative minimum."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-016",
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Ben answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = x² - 1 on [1, 3].\nBen's answer: c = 4\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 2",
+   "prompt": "Wren answered this problem incorrectly.\nf is differentiable and f′(2) = 0. Which statement justifies that f has a relative minimum at x = 2?\nWren's answer: f′(2) = 0, so f has a relative minimum at x = 2\nIdentify the mistake and give the correct answer.",
+   "answer": "f′ changes from negative to positive at x = 2",
    "solutionSteps": [
-    "Mistake: Gave the average rate instead of c.",
-    "Average rate: (f(3) - f(1)) ÷ (3 - 1) = 4.",
-    "Solve f′(c) = 4.",
-    "c = 2 (in the open interval).",
-    "The correct answer is c = 2, not c = 4."
+    "Mistake: f′(c) = 0 alone does not show an extremum (f′ might not change sign). State that f′ changes sign.",
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "The correct answer is f′ changes from negative to positive at x = 2, not f′(2) = 0, so f has a relative minimum at x = 2."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-001",
@@ -6976,38 +6967,36 @@
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "f is continuous on [3, 8] with f(3) = -4; f(4) = 0; f(6) = -7; f(8) = 0. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -2 on [3, 8]?",
-   "answer": "3",
+   "prompt": "f is differentiable and f′(-1) = 0. Name the theorem, test or definition that justifies that f has a relative minimum at x = -1.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -2.",
-    "There are 3 such intervals.",
-    "At least 3."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-003",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + 3x on [0, 6].",
-   "answer": "c = 2√3",
+   "prompt": "f is twice differentiable and f″(4) = 0. Name the theorem, test or definition that justifies that the graph of f has a point of inflection at x = 4.",
+   "answer": "definition of a point of inflection",
    "solutionSteps": [
-    "Average rate: (f(6) - f(0)) ÷ (6 - 0) = 39.",
-    "Solve f′(c) = 39.",
-    "c = 2√3 (in the open interval)."
+    "A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough.",
+    "So the justification is the definition of a point of inflection."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-004",
@@ -7087,56 +7076,55 @@
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "f is continuous on [0, 3] with f(0) = 3; f(1) = -7; f(2) = 0; f(3) = -7. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -2 on [0, 3]?",
-   "answer": "3",
+   "prompt": "f′(4) = 0 and f″(4) = 6. Name the test that classifies x = 4, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -2.",
-    "There are 3 such intervals.",
-    "At least 3."
+    "f″(4) > 0 means the graph is concave up at the critical number, so it is a relative minimum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-007",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + x on [0, 1].",
-   "answer": "c = (√3)/3",
+   "prompt": "f is continuous on [1, 4]. Which statement is justified?",
+   "answer": "f has an absolute maximum and an absolute minimum on [1, 4], by the Extreme Value Theorem",
    "options": [
     {
-     "text": "c = -(√3)/3",
-     "correct": false
-    },
-    {
-     "text": "c = (√3)/3",
+     "text": "f has an absolute maximum and an absolute minimum on [1, 4], by the Extreme Value Theorem",
      "correct": true
     },
     {
-     "text": "c = 1/2",
+     "text": "f′(c) = 0 for some c in (1, 4), by the Extreme Value Theorem",
      "correct": false
     },
     {
-     "text": "c = 2",
+     "text": "f(c) = 0 for some c in (1, 4), by the Intermediate Value Theorem",
+     "correct": false
+    },
+    {
+     "text": "f has a relative maximum in (1, 4), by the Mean Value Theorem",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Average rate: (f(1) - f(0)) ÷ (1 - 0) = 2.",
-    "Solve f′(c) = 2.",
-    "c = (√3)/3 (in the open interval)."
+    "A function continuous on a closed interval has an absolute maximum and minimum there (EVT). Nothing is known about f′ or its zeros.",
+    "Each other choice either names the wrong theorem or leaves out a condition the theorem needs."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
-    "AP FUN-4.A"
+    "AP FUN-4.A",
+    "AP FUN-1.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_choose). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-008",
@@ -7216,156 +7204,153 @@
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "f is continuous on [0, 9] with f(0) = -4; f(2) = -5; f(6) = -4; f(9) = -3. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 5 on [0, 9]?",
-   "answer": "0",
+   "prompt": "f′(4) = 0 and f″(4) = 3. Name the test that classifies x = 4, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of 5.",
-    "There are 0 such intervals.",
-    "At least 0."
+    "f″(4) > 0 means the graph is concave up at the critical number, so it is a relative minimum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-011",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ on [0, 9].",
-   "answer": "c = 3√3",
+   "prompt": "f′(-1) = 0 and f″(-1) = -6. Name the test that classifies x = -1, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(9) - f(0)) ÷ (9 - 0) = 81.",
-    "Solve f′(c) = 81.",
-    "c = 3√3 (in the open interval)."
+    "f″(-1) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-012",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "f is continuous on [2, 8] with f(2) = -2; f(6) = 1; f(7) = -8; f(8) = -8. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -1 on [2, 8]?",
-   "answer": "2",
+   "prompt": "f is continuous on [0, 5] and differentiable on (0, 5), with f(0) = -1 and f(5) = 14. Name the theorem that guarantees a value c with f′(c) equal to the average rate of change.",
+   "answer": "Mean Value Theorem",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -1.",
-    "There are 2 such intervals.",
-    "At least 2."
+    "The MVT hypotheses hold, and the average rate of change is (14 − -1) ÷ (5 − 0) = 3.",
+    "So the justification is the Mean Value Theorem."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-013",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + 2x on [0, 4].",
-   "answer": "c = (4√3)/3",
+   "prompt": "f′(-1) = 0 and f″(-1) = -2. Name the test that classifies x = -1, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(4) - f(0)) ÷ (4 - 0) = 18.",
-    "Solve f′(c) = 18.",
-    "c = (4√3)/3 (in the open interval)."
+    "f″(-1) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-014",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Kai answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = x³ - 3x on [0, 12].\nKai's answer: c = 141\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 4√3",
+   "prompt": "Hiro answered this problem incorrectly.\nf is continuous on [0, 5] and differentiable on (0, 5), with f(0) = 3 and f(5) = 21. Which conclusion is justified, and by what?\nHiro's answer: The average rate is 18/5, so f′(c) = 18/5 for some c\nIdentify the mistake and give the correct answer.",
+   "answer": "f′(c) = 18/5 for some c in (0, 5), by the Mean Value Theorem",
    "solutionSteps": [
-    "Mistake: Gave the average rate instead of c.",
-    "Average rate: (f(12) - f(0)) ÷ (12 - 0) = 141.",
-    "Solve f′(c) = 141.",
-    "c = 4√3 (in the open interval).",
-    "The correct answer is c = 4√3, not c = 141."
+    "Mistake: Left out the hypotheses. The MVT needs f continuous on [0, 5] and differentiable on (0, 5).",
+    "The MVT hypotheses hold, and the average rate of change is (21 − 3) ÷ (5 − 0) = 18/5.",
+    "The correct answer is f′(c) = 18/5 for some c in (0, 5), by the Mean Value Theorem, not The average rate is 18/5, so f′(c) = 18/5 for some c."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-015",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
+   "answer": "(a) f′ changes from negative to positive at x = 4; (b) f′(c) = 25/2 for some c in (0, 2), by the Mean Value Theorem; (c) f′ changes from positive to negative at x = -2; (d) f″ changes sign at x = 2",
    "parts": [
     {
-     "prompt": "f is continuous on [1, 8] with f(1) = -5; f(5) = 7; f(7) = 0; f(8) = -8. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -4 on [1, 8]?",
-     "answer": "2"
+     "label": "a",
+     "prompt": "f is differentiable and f′(4) = 0. Write a sentence that justifies that f has a relative minimum at x = 4.",
+     "answer": "f′ changes from negative to positive at x = 4"
     },
     {
-     "prompt": "f is continuous on [1, 9] with f(1) = -6; f(2) = 0; f(7) = -8; f(9) = 0. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -3 on [1, 9]?",
-     "answer": "3"
+     "label": "b",
+     "prompt": "f is continuous on [0, 2] and differentiable on (0, 2), with f(0) = 1 and f(2) = 26. State a conclusion and the theorem that justifies it.",
+     "answer": "f′(c) = 25/2 for some c in (0, 2), by the Mean Value Theorem"
     },
     {
-     "prompt": "f is continuous on [2, 7] with f(2) = -5; f(3) = 4; f(4) = -7; f(7) = -5. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -2 on [2, 7]?",
-     "answer": "2"
+     "label": "c",
+     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative maximum at x = -2.",
+     "answer": "f′ changes from positive to negative at x = -2"
     },
     {
-     "prompt": "f is continuous on [0, 7] with f(0) = -4; f(4) = -8; f(6) = -5; f(7) = 6. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 3 on [0, 7]?",
-     "answer": "1"
+     "label": "d",
+     "prompt": "f is twice differentiable and f″(2) = 0. Write a sentence that justifies that the graph of f has a point of inflection at x = 2.",
+     "answer": "f″ changes sign at x = 2"
     }
    ],
-   "answer": "(a) 2; (b) 3; (c) 2; (d) 1",
    "solutionSteps": [
-    "(a) There are 2 such intervals. At least 2.",
-    "(b) There are 3 such intervals. At least 3.",
-    "(c) There are 2 such intervals. At least 2.",
-    "(d) There is 1 such interval. At least 1."
+    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "(b) The MVT hypotheses hold, and the average rate of change is (26 − 1) ÷ (2 − 0) = 25/2.",
+    "(c) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "(d) A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-016",
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Jamal answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + 2x on [0, 6].\nJamal's answer: c = 3\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 2√3",
+   "prompt": "Wren answered this problem incorrectly.\nf is continuous on [-1, 3]. Which statement is justified?\nWren's answer: f′(c) = 0 for some c in (-1, 3), so f has an absolute maximum\nIdentify the mistake and give the correct answer.",
+   "answer": "f has an absolute maximum and an absolute minimum on [-1, 3], by the Extreme Value Theorem",
    "solutionSteps": [
-    "Mistake: Used half the interval length.",
-    "Average rate: (f(6) - f(0)) ÷ (6 - 0) = 38.",
-    "Solve f′(c) = 38.",
-    "c = 2√3 (in the open interval).",
-    "The correct answer is c = 2√3, not c = 3."
+    "Mistake: Assumed f is differentiable. The EVT needs only continuity on the closed interval, and the maximum might be at an endpoint.",
+    "A function continuous on a closed interval has an absolute maximum and minimum there (EVT). Nothing is known about f′ or its zeros.",
+    "The correct answer is f has an absolute maximum and an absolute minimum on [-1, 3], by the Extreme Value Theorem, not f′(c) = 0 for some c in (-1, 3), so f has an absolute maximum."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
-    "AP FUN-4.A"
+    "AP FUN-4.A",
+    "AP FUN-1.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-001",
@@ -7408,38 +7393,36 @@
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "f is continuous on [2, 9] with f(2) = 6; f(5) = -4; f(7) = 5; f(9) = -4. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -3 on [2, 9]?",
-   "answer": "3",
+   "prompt": "f is twice differentiable and f″(2) = 0. Name the theorem, test or definition that justifies that the graph of f has a point of inflection at x = 2.",
+   "answer": "definition of a point of inflection",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -3.",
-    "There are 3 such intervals.",
-    "At least 3."
+    "A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough.",
+    "So the justification is the definition of a point of inflection."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-003",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + 2x on [0, 6].",
-   "answer": "c = 2√3",
+   "prompt": "f′(4) = 0 and f″(4) = -6. Name the test that classifies x = 4, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(6) - f(0)) ÷ (6 - 0) = 38.",
-    "Solve f′(c) = 38.",
-    "c = 2√3 (in the open interval)."
+    "f″(4) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-004",
@@ -7519,74 +7502,73 @@
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "f is continuous on [1, 9] with f(1) = -8; f(5) = 5; f(6) = 5; f(9) = 7. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 0 on [1, 9]?",
-   "answer": "1",
+   "prompt": "f is twice differentiable and f″(2) = 0. Which statement justifies that the graph of f has a point of inflection at x = 2?",
+   "answer": "f″ changes sign at x = 2",
    "options": [
     {
-     "text": "1",
+     "text": "f′(2) = 0",
+     "correct": false
+    },
+    {
+     "text": "f′ changes sign at x = 2",
+     "correct": false
+    },
+    {
+     "text": "f″ changes sign at x = 2",
      "correct": true
     },
     {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "0",
-     "correct": false
-    },
-    {
-     "text": "4",
+     "text": "f″(2) = 0",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of 0.",
-    "There is 1 such interval.",
-    "At least 1."
+    "A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough.",
+    "Each other choice either names the wrong theorem or leaves out a condition the theorem needs."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_choose). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-007",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ - x on [0, 1].",
-   "answer": "c = (√3)/3",
+   "prompt": "f is continuous on [-3, 2]. Which statement is justified?",
+   "answer": "f has an absolute maximum and an absolute minimum on [-3, 2], by the Extreme Value Theorem",
    "options": [
     {
-     "text": "c = 0",
+     "text": "f′(c) = 0 for some c in (-3, 2), by the Extreme Value Theorem",
      "correct": false
     },
     {
-     "text": "c = -(√3)/3",
+     "text": "f has a relative maximum in (-3, 2), by the Mean Value Theorem",
      "correct": false
     },
     {
-     "text": "c = (√3)/3",
+     "text": "f(c) = 0 for some c in (-3, 2), by the Intermediate Value Theorem",
+     "correct": false
+    },
+    {
+     "text": "f has an absolute maximum and an absolute minimum on [-3, 2], by the Extreme Value Theorem",
      "correct": true
-    },
-    {
-     "text": "c = 1/2",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Average rate: (f(1) - f(0)) ÷ (1 - 0) = 0.",
-    "Solve f′(c) = 0.",
-    "c = (√3)/3 (in the open interval)."
+    "A function continuous on a closed interval has an absolute maximum and minimum there (EVT). Nothing is known about f′ or its zeros.",
+    "Each other choice either names the wrong theorem or leaves out a condition the theorem needs."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
-    "AP FUN-4.A"
+    "AP FUN-4.A",
+    "AP FUN-1.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_choose). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-008",
@@ -7630,175 +7612,171 @@
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "f is continuous on [0, 8] with f(0) = -7; f(1) = 0; f(3) = 1; f(8) = -3. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -5 on [0, 8]?",
-   "answer": "1",
+   "prompt": "f is differentiable and f′(2) = 0. Name the theorem, test or definition that justifies that f has a relative minimum at x = 2.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -5.",
-    "There is 1 such interval.",
-    "At least 1."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-010",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + x on [0, 12].",
-   "answer": "c = 4√3",
+   "prompt": "f′(4) = 0 and f″(4) = 5. Name the test that classifies x = 4, and why.",
+   "answer": "Second Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(12) - f(0)) ÷ (12 - 0) = 145.",
-    "Solve f′(c) = 145.",
-    "c = 4√3 (in the open interval)."
+    "f″(4) > 0 means the graph is concave up at the critical number, so it is a relative minimum.",
+    "So the justification is the Second Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-011",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "f is continuous on [2, 8] with f(2) = -2; f(4) = -1; f(6) = 6; f(8) = -8. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 2 on [2, 8]?",
-   "answer": "2",
+   "prompt": "f is continuous on [0, 2] and differentiable on (0, 2), with f(0) = 0 and f(2) = 16. Name the theorem that guarantees a value c with f′(c) equal to the average rate of change.",
+   "answer": "Mean Value Theorem",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of 2.",
-    "There are 2 such intervals.",
-    "At least 2."
+    "The MVT hypotheses hold, and the average rate of change is (16 − 0) ÷ (2 − 0) = 8.",
+    "So the justification is the Mean Value Theorem."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-012",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + x on [0, 6].",
-   "answer": "c = 2√3",
+   "prompt": "f is differentiable and f′(-1) = 0. Name the theorem, test or definition that justifies that f has a relative maximum at x = -1.",
+   "answer": "First Derivative Test",
    "solutionSteps": [
-    "Average rate: (f(6) - f(0)) ÷ (6 - 0) = 37.",
-    "Solve f′(c) = 37.",
-    "c = 2√3 (in the open interval)."
+    "A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "So the justification is the First Derivative Test."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-013",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "f is continuous on [1, 8] with f(1) = -4; f(3) = 1; f(4) = -7; f(8) = -1. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -3 on [1, 8]?",
-   "answer": "3",
+   "prompt": "f is continuous on [-1, 1]. Name the theorem that guarantees f has an absolute maximum and minimum on this interval.",
+   "answer": "Extreme Value Theorem",
    "solutionSteps": [
-    "Look for consecutive table values on opposite sides of -3.",
-    "There are 3 such intervals.",
-    "At least 3."
+    "A function continuous on a closed interval has an absolute maximum and minimum there (EVT). Nothing is known about f′ or its zeros.",
+    "So the justification is the Extreme Value Theorem."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
-    "AP FUN-4.A"
+    "AP FUN-4.A",
+    "AP FUN-1.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivtr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_name). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-014",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Tariq answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = x³ + 2x on [0, 12].\nTariq's answer: c = 6\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 4√3",
+   "prompt": "Hiro answered this problem incorrectly.\nf is continuous on [0, 5] and differentiable on (0, 5), with f(0) = -3 and f(5) = 15. Which conclusion is justified, and by what?\nHiro's answer: The average rate is 18/5, so f′(c) = 18/5 for some c\nIdentify the mistake and give the correct answer.",
+   "answer": "f′(c) = 18/5 for some c in (0, 5), by the Mean Value Theorem",
    "solutionSteps": [
-    "Mistake: Used half the interval length.",
-    "Average rate: (f(12) - f(0)) ÷ (12 - 0) = 146.",
-    "Solve f′(c) = 146.",
-    "c = 4√3 (in the open interval).",
-    "The correct answer is c = 4√3, not c = 6."
+    "Mistake: Left out the hypotheses. The MVT needs f continuous on [0, 5] and differentiable on (0, 5).",
+    "The MVT hypotheses hold, and the average rate of change is (15 − -3) ÷ (5 − 0) = 18/5.",
+    "The correct answer is f′(c) = 18/5 for some c in (0, 5), by the Mean Value Theorem, not The average rate is 18/5, so f′(c) = 18/5 for some c."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-015",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
+   "answer": "(a) f′ changes from negative to positive at x = -2; (b) f′ changes from positive to negative at x = 1; (c) f has a relative minimum at x = 4 by the Second Derivative Test, because f′(4) = 0 and f″(4) > 0; (d) f″ changes sign at x = -3",
    "parts": [
     {
-     "prompt": "f is continuous on [2, 6] with f(2) = 2; f(3) = -3; f(4) = -7; f(6) = -7. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 0 on [2, 6]?",
-     "answer": "1"
+     "label": "a",
+     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative minimum at x = -2.",
+     "answer": "f′ changes from negative to positive at x = -2"
     },
     {
-     "prompt": "f is continuous on [1, 8] with f(1) = 7; f(4) = -2; f(5) = 3; f(8) = 8. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = -3 on [1, 8]?",
-     "answer": "0"
+     "label": "b",
+     "prompt": "f is differentiable and f′(1) = 0. Write a sentence that justifies that f has a relative maximum at x = 1.",
+     "answer": "f′ changes from positive to negative at x = 1"
     },
     {
-     "prompt": "f is continuous on [0, 6] with f(0) = -5; f(1) = 2; f(3) = -1; f(6) = -4. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 5 on [0, 6]?",
-     "answer": "0"
+     "label": "c",
+     "prompt": "f′(4) = 0 and f″(4) = 5. What can you conclude about x = 4, and why?",
+     "answer": "f has a relative minimum at x = 4 by the Second Derivative Test, because f′(4) = 0 and f″(4) > 0"
     },
     {
-     "prompt": "f is continuous on [2, 8] with f(2) = -3; f(4) = 7; f(6) = 8; f(8) = 6. By the Intermediate Value Theorem, what is the least number of solutions of f(x) = 0 on [2, 8]?",
-     "answer": "1"
+     "label": "d",
+     "prompt": "f is twice differentiable and f″(-3) = 0. Write a sentence that justifies that the graph of f has a point of inflection at x = -3.",
+     "answer": "f″ changes sign at x = -3"
     }
    ],
-   "answer": "(a) 1; (b) 0; (c) 0; (d) 1",
    "solutionSteps": [
-    "(a) There is 1 such interval. At least 1.",
-    "(b) There are 0 such intervals. At least 0.",
-    "(c) There are 0 such intervals. At least 0.",
-    "(d) There is 1 such interval. At least 1."
+    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
+    "(b) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
+    "(c) f″(4) > 0 means the graph is concave up at the critical number, so it is a relative minimum.",
+    "(d) A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s8_ivto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-016",
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Tariq answered this problem incorrectly.\nFind the value of c guaranteed by the Mean Value Theorem for f(x) = x³ on [0, 2].\nTariq's answer: c = -(2√3)/3\nIdentify the mistake and give the correct answer.",
-   "answer": "c = (2√3)/3",
+   "prompt": "Wren answered this problem incorrectly.\nf′(-3) = 0 and f″(-3) = -3. What can you conclude about x = -3, and why?\nWren's answer: f″(-3) = -3, so f has a relative minimum at x = -3\nIdentify the mistake and give the correct answer.",
+   "answer": "f has a relative maximum at x = -3 by the Second Derivative Test, because f′(-3) = 0 and f″(-3) < 0",
    "solutionSteps": [
-    "Mistake: Made a sign error.",
-    "Average rate: (f(2) - f(0)) ÷ (2 - 0) = 4.",
-    "Solve f′(c) = 4.",
-    "c = (2√3)/3 (in the open interval).",
-    "The correct answer is c = (2√3)/3, not c = -(2√3)/3."
+    "Mistake: Reversed the test. f″ < 0 means concave down, which gives a relative maximum.",
+    "f″(-3) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
+    "The correct answer is f has a relative maximum at x = -3 by the Second Derivative Test, because f′(-3) = 0 and f″(-3) < 0, not f″(-3) = -3, so f has a relative minimum at x = -3."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s10_mvte_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: just_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-001",
@@ -7840,7 +7818,7 @@
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Which definite integral equals lim (n → ∞) Σ (k = 1 to n) (1k/n)³ · (1/n)?",
+   "prompt": "Which definite integral equals lim (n → ∞) Σ (k = 1 to n) (k/n)³ · (1/n)?",
    "answer": "∫ from 0 to 1 x³ dx",
    "options": [
     {
@@ -7913,18 +7891,18 @@
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -1 to 0 f(x) dx = -9, ∫ from 0 to 7 f(x) dx = 11, and ∫ from -1 to 0 g(x) dx = -7, find ∫ from 0 to -1 f(x) dx.",
-   "answer": "9",
+   "prompt": "Write the notation for \"the rate at which the height changes with respect to t when t = 5\"?",
+   "answer": "H′(5)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 9."
+    "The instantaneous rate of change at t = 5 is the derivative evaluated there, H′(5) (also written dH/dt at t = 5).",
+    "Answer: H′(5)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-005",
@@ -8039,186 +8017,188 @@
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from 2 to 3 f(x) dx = 5, ∫ from 3 to 7 f(x) dx = -12, and ∫ from 2 to 3 g(x) dx = 1, find ∫ from 2 to 3 (1f(x) - 4g(x)) dx.",
-   "answer": "1",
+   "prompt": "Write the notation for \"the rate at which the volume of air changes with respect to t when t = 5\"?",
+   "answer": "V′(5)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 1."
+    "The instantaneous rate of change at t = 5 is the derivative evaluated there, V′(5) (also written dV/dt at t = 5).",
+    "Answer: V′(5)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-009",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from 1 to 2 f(x) dx = -2, ∫ from 2 to 7 f(x) dx = -11, and ∫ from 1 to 2 g(x) dx = -7, find ∫ from 1 to 2 (3f(x) + 4g(x)) dx.",
-   "answer": "-34",
+   "prompt": "r(t) is the rate at which the height changes, in feet per second, t seconds after a start time. What does ∫ from 2 to 9 r(t) dt represent, and in what units?",
+   "answer": "The net change in the height from t = 2 to t = 9, in feet",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -34."
+    "Integrating a rate (feet per second) over time (seconds) gives a net change in feet; it is not the amount at t = 9 unless the amount at t = 2 is 0.",
+    "Answer: The net change in the height from t = 2 to t = 9, in feet"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-010",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 0 f(x) dx = -1, ∫ from 0 to 3 f(x) dx = 4, and ∫ from -3 to 0 g(x) dx = -6, find ∫ from -3 to 0 (-1f(x) + 3g(x)) dx.",
-   "answer": "-17",
+   "prompt": "r(t) is the rate at which the amount of water changes, in gallons per minute, t minutes after a start time. What does ∫ from 7 to 9 r(t) dt represent, and in what units?",
+   "answer": "The net change in the amount of water from t = 7 to t = 9, in gallons",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -17."
+    "Integrating a rate (gallons per minute) over time (minutes) gives a net change in gallons; it is not the amount at t = 9 unless the amount at t = 7 is 0.",
+    "Answer: The net change in the amount of water from t = 7 to t = 9, in gallons"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-011",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from -2 to 1 f(x) dx = -10, ∫ from 1 to 4 f(x) dx = -4, and ∫ from -2 to 1 g(x) dx = -5, find ∫ from -2 to 4 f(x) dx.",
-   "answer": "-14",
+   "prompt": "r(t) is the rate at which the temperature changes, in °F per hour, t hours after a start time. What does ∫ from 1 to 6 r(t) dt represent, and in what units?",
+   "answer": "The net change in the temperature from t = 1 to t = 6, in °F",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -14."
+    "Integrating a rate (°F per hour) over time (hours) gives a net change in °F; it is not the amount at t = 6 unless the amount at t = 1 is 0.",
+    "Answer: The net change in the temperature from t = 1 to t = 6, in °F"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-012",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from 4 to 5 f(x) dx = -2, ∫ from 5 to 6 f(x) dx = -12, and ∫ from 4 to 5 g(x) dx = -6, find ∫ from 4 to 6 f(x) dx.",
-   "answer": "-14",
+   "prompt": "W(t) is the amount of water in a tank, in gallons, t minutes after a start time. Write a sentence that interprets W′(3) = 3, with units.",
+   "answer": "At t = 3 minutes, the amount of water is increasing at 3 gallons per minute.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -14."
+    "W′(3) is a rate of change at one instant, in gallons per minute; its sign tells whether the amount of water is increasing or decreasing.",
+    "Answer: At t = 3 minutes, the amount of water is increasing at 3 gallons per minute."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-013",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Given ∫ from 1 to 4 f(x) dx = -12, ∫ from 4 to 8 f(x) dx = 12, and ∫ from 1 to 4 g(x) dx = -4, find ∫ from 1 to 4 (-1f(x) - 4g(x)) dx.",
-   "answer": "28",
+   "prompt": "Write the notation for \"the rate at which the height changes with respect to t when t = 4\"?",
+   "answer": "H′(4)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 28."
+    "The instantaneous rate of change at t = 4 is the derivative evaluated there, H′(4) (also written dH/dt at t = 4).",
+    "Answer: H′(4)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-014",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Jamal answered this problem incorrectly.\nGiven ∫ from -2 to 0 f(x) dx = 1, ∫ from 0 to 5 f(x) dx = -10, and ∫ from -2 to 0 g(x) dx = 1, find ∫ from -2 to 0 (-4f(x) + 2g(x)) dx.\nJamal's answer: -8\nIdentify the mistake and give the correct answer.",
-   "answer": "-2",
+   "prompt": "Hiro answered this problem incorrectly.\nr(t) is the rate at which the number of people changes, in people per hour, t hours after a start time. What does ∫ from 4 to 5 r(t) dt represent, and in what units?\nHiro's answer: The amount of number of people at t = 5, in people\nIdentify the mistake and give the correct answer.",
+   "answer": "The net change in the number of people from t = 4 to t = 5, in people",
    "solutionSteps": [
-    "Mistake: Multiplied the integrals.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -2.",
-    "The correct answer is -2, not -8."
+    "Mistake: Gave the amount at t = 5. The integral of the rate is the net change from t = 4 to t = 5.",
+    "Integrating a rate (people per hour) over time (hours) gives a net change in people; it is not the amount at t = 5 unless the amount at t = 4 is 0.",
+    "The correct answer is The net change in the number of people from t = 4 to t = 5, in people, not The amount of number of people at t = 5, in people."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-015",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
+   "answer": "(a) The net change in the temperature from t = 5 to t = 8, in °F; (b) At t = 4 seconds, the volume of air is increasing at 3 cubic inches per second.; (c) V′(5); (d) At t = 5 seconds, the volume of air is decreasing at 3 cubic inches per second.",
    "parts": [
     {
-     "prompt": "Given ∫ from -3 to -1 f(x) dx = -2, ∫ from -1 to 3 f(x) dx = -11, and ∫ from -3 to -1 g(x) dx = 7, find ∫ from -3 to -1 (3f(x) + 1g(x)) dx.",
-     "answer": "1"
+     "label": "a",
+     "prompt": "r(t) is the rate at which the temperature changes, in °F per hour, t hours after a start time. What does ∫ from 5 to 8 r(t) dt represent, and in what units?",
+     "answer": "The net change in the temperature from t = 5 to t = 8, in °F"
     },
     {
-     "prompt": "Given ∫ from 2 to 5 f(x) dx = 8, ∫ from 5 to 7 f(x) dx = -4, and ∫ from 2 to 5 g(x) dx = -5, find ∫ from 2 to 7 f(x) dx.",
-     "answer": "4"
+     "label": "b",
+     "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. Write a sentence that interprets V′(4) = 3, with units.",
+     "answer": "At t = 4 seconds, the volume of air is increasing at 3 cubic inches per second."
     },
     {
-     "prompt": "Given ∫ from -3 to 1 f(x) dx = -12, ∫ from 1 to 9 f(x) dx = -1, and ∫ from -3 to 1 g(x) dx = -11, find ∫ from -3 to 1 (-1f(x) - 2g(x)) dx.",
-     "answer": "34"
+     "label": "c",
+     "prompt": "Write the notation for \"the rate at which the volume of air changes with respect to t when t = 5\"?",
+     "answer": "V′(5)"
     },
     {
-     "prompt": "Given ∫ from -2 to -1 f(x) dx = 11, ∫ from -1 to 6 f(x) dx = -9, and ∫ from -2 to -1 g(x) dx = -8, find ∫ from -2 to -1 (4f(x) - 3g(x)) dx.",
-     "answer": "68"
+     "label": "d",
+     "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. Write a sentence that interprets V′(5) = -3, with units.",
+     "answer": "At t = 5 seconds, the volume of air is decreasing at 3 cubic inches per second."
     }
    ],
-   "answer": "(a) 1; (b) 4; (c) 34; (d) 68",
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 1.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 4.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 34.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 68."
+    "(a) Integrating a rate (°F per hour) over time (hours) gives a net change in °F; it is not the amount at t = 8 unless the amount at t = 5 is 0.",
+    "(b) V′(4) is a rate of change at one instant, in cubic inches per second; its sign tells whether the volume of air is increasing or decreasing.",
+    "(c) The instantaneous rate of change at t = 5 is the derivative evaluated there, V′(5) (also written dV/dt at t = 5).",
+    "(d) V′(5) is a rate of change at one instant, in cubic inches per second; its sign tells whether the volume of air is increasing or decreasing."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-016",
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Vic answered this problem incorrectly.\nGiven ∫ from -1 to 1 f(x) dx = 6, ∫ from 1 to 3 f(x) dx = 4, and ∫ from -1 to 1 g(x) dx = -3, find ∫ from -1 to 3 f(x) dx.\nVic's answer: -2\nIdentify the mistake and give the correct answer.",
-   "answer": "10",
+   "prompt": "Wren answered this problem incorrectly.\nr(t) is the rate at which the number of people changes, in people per hour, t hours after a start time. What does ∫ from 4 to 7 r(t) dt represent, and in what units?\nWren's answer: The amount of number of people at t = 7, in people\nIdentify the mistake and give the correct answer.",
+   "answer": "The net change in the number of people from t = 4 to t = 7, in people",
    "solutionSteps": [
-    "Mistake: Applied the property incorrectly.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 10.",
-    "The correct answer is 10, not -2."
+    "Mistake: Gave the amount at t = 7. The integral of the rate is the net change from t = 4 to t = 7.",
+    "Integrating a rate (people per hour) over time (hours) gives a net change in people; it is not the amount at t = 7 unless the amount at t = 4 is 0.",
+    "The correct answer is The net change in the number of people from t = 4 to t = 7, in people, not The amount of number of people at t = 7, in people."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-001",
@@ -8276,7 +8256,7 @@
      "correct": false
     },
     {
-     "text": "∫ from -2 to 2 (x + -2)³ dx",
+     "text": "∫ from -2 to 2 (x - 2)³ dx",
      "correct": false
     }
    ],
@@ -8333,18 +8313,18 @@
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from 1 to 2 f(x) dx = -11, ∫ from 2 to 9 f(x) dx = -10, and ∫ from 1 to 2 g(x) dx = -9, find ∫ from 1 to 2 (3f(x) + 1g(x)) dx.",
-   "answer": "-42",
+   "prompt": "r(t) is the rate at which the height changes, in feet per second, t seconds after a start time. What does ∫ from 1 to 9 r(t) dt represent, and in what units?",
+   "answer": "The net change in the height from t = 1 to t = 9, in feet",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -42."
+    "Integrating a rate (feet per second) over time (seconds) gives a net change in feet; it is not the amount at t = 9 unless the amount at t = 1 is 0.",
+    "Answer: The net change in the height from t = 1 to t = 9, in feet"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-005",
@@ -8459,186 +8439,188 @@
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from -2 to 3 f(x) dx = -10, ∫ from 3 to 9 f(x) dx = -8, and ∫ from -2 to 3 g(x) dx = -5, find ∫ from 3 to -2 f(x) dx.",
-   "answer": "10",
+   "prompt": "H(t) is the height of a balloon, in feet, t seconds after a start time. Write a sentence that interprets H′(5) = -6, with units.",
+   "answer": "At t = 5 seconds, the height is decreasing at 6 feet per second.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 10."
+    "H′(5) is a rate of change at one instant, in feet per second; its sign tells whether the height is increasing or decreasing.",
+    "Answer: At t = 5 seconds, the height is decreasing at 6 feet per second."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-009",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from 2 to 6 f(x) dx = -3, ∫ from 6 to 7 f(x) dx = 5, and ∫ from 2 to 6 g(x) dx = 12, find ∫ from 2 to 6 (-3f(x) - 4g(x)) dx.",
-   "answer": "-39",
+   "prompt": "Write an expression for the average value of V(t) on 5 ≤ t ≤ 10.",
+   "answer": "(1/5)∫ from 5 to 10 V(t) dt",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -39."
+    "Average value = (1/(b − a))∫ from a to b V(t) dt. (V(10) − V(5))/5 is the average rate of change, a different quantity.",
+    "Answer: (1/5)∫ from 5 to 10 V(t) dt"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-010",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from -1 to 6 f(x) dx = 3, ∫ from 6 to 9 f(x) dx = -11, and ∫ from -1 to 6 g(x) dx = -8, find ∫ from -1 to 9 f(x) dx.",
-   "answer": "-8",
+   "prompt": "Write the notation for \"the rate at which the number of people changes with respect to t when t = 3\"?",
+   "answer": "P′(3)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -8."
+    "The instantaneous rate of change at t = 3 is the derivative evaluated there, P′(3) (also written dP/dt at t = 3).",
+    "Answer: P′(3)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-011",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from -2 to 5 f(x) dx = 1, ∫ from 5 to 9 f(x) dx = -9, and ∫ from -2 to 5 g(x) dx = 4, find ∫ from -2 to 5 (2f(x) - 3g(x)) dx.",
-   "answer": "-10",
+   "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. What are the units of T″(t)?",
+   "answer": "°F per hour per hour",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -10."
+    "T″ is the rate of change of T′ (in °F per hour) per hour.",
+    "Answer: °F per hour per hour"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-012",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 4 f(x) dx = 8, ∫ from 4 to 5 f(x) dx = -6, and ∫ from -3 to 4 g(x) dx = -5, find ∫ from -3 to 5 f(x) dx.",
-   "answer": "2",
+   "prompt": "r(t) is the rate at which the temperature changes, in °F per hour, t hours after a start time. What does ∫ from 4 to 8 r(t) dt represent, and in what units?",
+   "answer": "The net change in the temperature from t = 4 to t = 8, in °F",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 2."
+    "Integrating a rate (°F per hour) over time (hours) gives a net change in °F; it is not the amount at t = 8 unless the amount at t = 4 is 0.",
+    "Answer: The net change in the temperature from t = 4 to t = 8, in °F"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-013",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Given ∫ from -2 to 0 f(x) dx = 2, ∫ from 0 to 6 f(x) dx = 9, and ∫ from -2 to 0 g(x) dx = -7, find ∫ from -2 to 6 f(x) dx.",
-   "answer": "11",
+   "prompt": "P(t) is the number of people in a park, in people, t hours after a start time. Write a sentence that interprets P′(3) = -2, with units.",
+   "answer": "At t = 3 hours, the number of people is decreasing at 2 people per hour.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 11."
+    "P′(3) is a rate of change at one instant, in people per hour; its sign tells whether the number of people is increasing or decreasing.",
+    "Answer: At t = 3 hours, the number of people is decreasing at 2 people per hour."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-014",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Marco answered this problem incorrectly.\nGiven ∫ from 5 to 6 f(x) dx = 9, ∫ from 6 to 7 f(x) dx = 5, and ∫ from 5 to 6 g(x) dx = 11, find ∫ from 5 to 7 f(x) dx.\nMarco's answer: -4\nIdentify the mistake and give the correct answer.",
-   "answer": "14",
+   "prompt": "Hiro answered this problem incorrectly.\nr(t) is the rate at which the number of people changes, in people per hour, t hours after a start time. What does ∫ from 3 to 8 r(t) dt represent, and in what units?\nHiro's answer: The amount of number of people at t = 8, in people\nIdentify the mistake and give the correct answer.",
+   "answer": "The net change in the number of people from t = 3 to t = 8, in people",
    "solutionSteps": [
-    "Mistake: Applied the property incorrectly.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 14.",
-    "The correct answer is 14, not -4."
+    "Mistake: Gave the amount at t = 8. The integral of the rate is the net change from t = 3 to t = 8.",
+    "Integrating a rate (people per hour) over time (hours) gives a net change in people; it is not the amount at t = 8 unless the amount at t = 3 is 0.",
+    "The correct answer is The net change in the number of people from t = 3 to t = 8, in people, not The amount of number of people at t = 8, in people."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-015",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
+   "answer": "(a) (1/7)∫ from 1 to 8 T(t) dt; (b) °F per hour; (c) °F per hour per hour; (d) At t = 5 seconds, the height is decreasing at 3 feet per second.",
    "parts": [
     {
-     "prompt": "Given ∫ from 3 to 5 f(x) dx = 4, ∫ from 5 to 7 f(x) dx = -3, and ∫ from 3 to 5 g(x) dx = 11, find ∫ from 3 to 5 (-3f(x) + 1g(x)) dx.",
-     "answer": "-1"
+     "label": "a",
+     "prompt": "Write an expression for the average value of T(t) on 1 ≤ t ≤ 8.",
+     "answer": "(1/7)∫ from 1 to 8 T(t) dt"
     },
     {
-     "prompt": "Given ∫ from -2 to 1 f(x) dx = 7, ∫ from 1 to 7 f(x) dx = 3, and ∫ from -2 to 1 g(x) dx = 7, find ∫ from 1 to -2 f(x) dx.",
-     "answer": "-7"
+     "label": "b",
+     "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. What are the units of T′(t)?",
+     "answer": "°F per hour"
     },
     {
-     "prompt": "Given ∫ from -1 to 3 f(x) dx = -11, ∫ from 3 to 4 f(x) dx = 5, and ∫ from -1 to 3 g(x) dx = 11, find ∫ from 3 to -1 f(x) dx.",
-     "answer": "11"
+     "label": "c",
+     "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. What are the units of T″(t)?",
+     "answer": "°F per hour per hour"
     },
     {
-     "prompt": "Given ∫ from -3 to 0 f(x) dx = 1, ∫ from 0 to 4 f(x) dx = 10, and ∫ from -3 to 0 g(x) dx = 3, find ∫ from 0 to -3 f(x) dx.",
-     "answer": "-1"
+     "label": "d",
+     "prompt": "H(t) is the height of a balloon, in feet, t seconds after a start time. Write a sentence that interprets H′(5) = -3, with units.",
+     "answer": "At t = 5 seconds, the height is decreasing at 3 feet per second."
     }
    ],
-   "answer": "(a) -1; (b) -7; (c) 11; (d) -1",
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -1.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -7.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 11.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -1."
+    "(a) Average value = (1/(b − a))∫ from a to b T(t) dt. (T(8) − T(1))/7 is the average rate of change, a different quantity.",
+    "(b) A derivative divides a change in T (°F) by a change in t (hours).",
+    "(c) T″ is the rate of change of T′ (in °F per hour) per hour.",
+    "(d) H′(5) is a rate of change at one instant, in feet per second; its sign tells whether the height is increasing or decreasing."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-016",
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Vic answered this problem incorrectly.\nGiven ∫ from 4 to 7 f(x) dx = -9, ∫ from 7 to 8 f(x) dx = 4, and ∫ from 4 to 7 g(x) dx = 11, find ∫ from 7 to 4 f(x) dx.\nVic's answer: 4\nIdentify the mistake and give the correct answer.",
-   "answer": "9",
+   "prompt": "Wren answered this problem incorrectly.\nWrite an expression for the average value of P(t) on 7 ≤ t ≤ 9.\nWren's answer: (P(9) − P(7))/2\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/2)∫ from 7 to 9 P(t) dt",
    "solutionSteps": [
-    "Mistake: Applied the property incorrectly.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 9.",
-    "The correct answer is 9, not 4."
+    "Mistake: Wrote the average rate of change of P. The average value of P uses the integral of P divided by the length of the interval.",
+    "Average value = (1/(b − a))∫ from a to b P(t) dt. (P(9) − P(7))/2 is the average rate of change, a different quantity.",
+    "The correct answer is (1/2)∫ from 7 to 9 P(t) dt, not (P(9) − P(7))/2."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-001",
@@ -8753,18 +8735,18 @@
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -1 to 2 f(x) dx = -4, ∫ from 2 to 9 f(x) dx = 9, and ∫ from -1 to 2 g(x) dx = -10, find ∫ from -1 to 9 3f(x) dx.",
-   "answer": "15",
+   "prompt": "Write the notation for \"the rate at which the height changes with respect to t when t = 2\"?",
+   "answer": "H′(2)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 15."
+    "The instantaneous rate of change at t = 2 is the derivative evaluated there, H′(2) (also written dH/dt at t = 2).",
+    "Answer: H′(2)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-005",
@@ -8806,11 +8788,11 @@
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which definite integral equals lim (n → ∞) Σ (k = 1 to n) sin(2 + 1k/n) · (1/n)?",
+   "prompt": "Which definite integral equals lim (n → ∞) Σ (k = 1 to n) sin(2 + k/n) · (1/n)?",
    "answer": "∫ from 2 to 3 sin(x) dx",
    "options": [
     {
-     "text": "∫ from 2 to 3 sin((x + 2)) dx",
+     "text": "∫ from 2 to 3 sin(x + 2) dx",
      "correct": false
     },
     {
@@ -8879,186 +8861,188 @@
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 2 f(x) dx = 10, ∫ from 2 to 8 f(x) dx = 5, and ∫ from -3 to 2 g(x) dx = 5, find ∫ from -3 to 2 (f(x) - 1) dx.",
-   "answer": "5",
+   "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. Write a sentence that interprets T′(3) = 3, with units.",
+   "answer": "At t = 3 hours, the temperature is increasing at 3 °F per hour.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 5."
+    "T′(3) is a rate of change at one instant, in °F per hour; its sign tells whether the temperature is increasing or decreasing.",
+    "Answer: At t = 3 hours, the temperature is increasing at 3 °F per hour."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-009",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 6 f(x) dx = 12, ∫ from 6 to 8 f(x) dx = -6, and ∫ from -3 to 6 g(x) dx = 10, find ∫ from -3 to 6 (f(x) - 4) dx.",
-   "answer": "-24",
+   "prompt": "P(t) is the number of people in a park, in people, t hours after a start time. What are the units of P″(t)?",
+   "answer": "people per hour per hour",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -24."
+    "P″ is the rate of change of P′ (in people per hour) per hour.",
+    "Answer: people per hour per hour"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-010",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from 2 to 4 f(x) dx = -3, ∫ from 4 to 8 f(x) dx = -1, and ∫ from 2 to 4 g(x) dx = -6, find ∫ from 2 to 4 (f(x) + 2) dx.",
-   "answer": "1",
+   "prompt": "r(t) is the rate at which the amount of water changes, in gallons per minute, t minutes after a start time. What does ∫ from 3 to 7 r(t) dt represent, and in what units?",
+   "answer": "The net change in the amount of water from t = 3 to t = 7, in gallons",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 1."
+    "Integrating a rate (gallons per minute) over time (minutes) gives a net change in gallons; it is not the amount at t = 7 unless the amount at t = 3 is 0.",
+    "Answer: The net change in the amount of water from t = 3 to t = 7, in gallons"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-011",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 1 f(x) dx = 1, ∫ from 1 to 3 f(x) dx = -9, and ∫ from -3 to 1 g(x) dx = -6, find ∫ from -3 to 1 (f(x) + 4) dx.",
-   "answer": "17",
+   "prompt": "W(t) is the amount of water in a tank, in gallons, t minutes after a start time. Write a sentence that interprets W′(5) = 2, with units.",
+   "answer": "At t = 5 minutes, the amount of water is increasing at 2 gallons per minute.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 17."
+    "W′(5) is a rate of change at one instant, in gallons per minute; its sign tells whether the amount of water is increasing or decreasing.",
+    "Answer: At t = 5 minutes, the amount of water is increasing at 2 gallons per minute."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-012",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -3 to 2 f(x) dx = -2, ∫ from 2 to 6 f(x) dx = -7, and ∫ from -3 to 2 g(x) dx = 9, find ∫ from -3 to 6 -4f(x) dx.",
-   "answer": "36",
+   "prompt": "Write the notation for \"the rate at which the temperature changes with respect to t when t = 3\"?",
+   "answer": "T′(3)",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 36."
+    "The instantaneous rate of change at t = 3 is the derivative evaluated there, T′(3) (also written dT/dt at t = 3).",
+    "Answer: T′(3)"
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-013",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Given ∫ from -1 to 2 f(x) dx = 12, ∫ from 2 to 5 f(x) dx = 7, and ∫ from -1 to 2 g(x) dx = -7, find ∫ from -1 to 2 (2f(x) + 3g(x)) dx.",
-   "answer": "3",
+   "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. Write a sentence that interprets V′(5) = 2, with units.",
+   "answer": "At t = 5 seconds, the volume of air is increasing at 2 cubic inches per second.",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 3."
+    "V′(5) is a rate of change at one instant, in cubic inches per second; its sign tells whether the volume of air is increasing or decreasing.",
+    "Answer: At t = 5 seconds, the volume of air is increasing at 2 cubic inches per second."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propsr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_write). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-014",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Wren answered this problem incorrectly.\nGiven ∫ from 0 to 5 f(x) dx = -1, ∫ from 5 to 8 f(x) dx = 1, and ∫ from 0 to 5 g(x) dx = 12, find ∫ from 0 to 5 (3f(x) - 4g(x)) dx.\nWren's answer: 144\nIdentify the mistake and give the correct answer.",
-   "answer": "-51",
+   "prompt": "Hiro answered this problem incorrectly.\nWrite the notation for \"the rate at which the temperature changes with respect to t when t = 3\"?\nHiro's answer: (T(3) − T(0))/3\nIdentify the mistake and give the correct answer.",
+   "answer": "T′(3)",
    "solutionSteps": [
-    "Mistake: Multiplied the integrals.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -51.",
-    "The correct answer is -51, not 144."
+    "Mistake: Wrote an accumulation. The rate at t = 3 is the derivative T′(3).",
+    "The instantaneous rate of change at t = 3 is the derivative evaluated there, T′(3) (also written dT/dt at t = 3).",
+    "The correct answer is T′(3), not (T(3) − T(0))/3."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-015",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
+   "answer": "(a) (1/6)∫ from 4 to 10 H(t) dt; (b) P′(3); (c) feet per second; (d) (1/7)∫ from 0 to 7 T(t) dt",
    "parts": [
     {
-     "prompt": "Given ∫ from -1 to 8 f(x) dx = -2, ∫ from 8 to 9 f(x) dx = -5, and ∫ from -1 to 8 g(x) dx = 5, find ∫ from -1 to 9 -3f(x) dx.",
-     "answer": "21"
+     "label": "a",
+     "prompt": "Write an expression for the average value of H(t) on 4 ≤ t ≤ 10.",
+     "answer": "(1/6)∫ from 4 to 10 H(t) dt"
     },
     {
-     "prompt": "Given ∫ from 3 to 6 f(x) dx = 6, ∫ from 6 to 7 f(x) dx = -12, and ∫ from 3 to 6 g(x) dx = 10, find ∫ from 3 to 7 -4f(x) dx.",
-     "answer": "24"
+     "label": "b",
+     "prompt": "Write the notation for \"the rate at which the number of people changes with respect to t when t = 3\"?",
+     "answer": "P′(3)"
     },
     {
-     "prompt": "Given ∫ from 0 to 7 f(x) dx = -9, ∫ from 7 to 8 f(x) dx = 2, and ∫ from 0 to 7 g(x) dx = 1, find ∫ from 0 to 7 (f(x) - 3) dx.",
-     "answer": "-30"
+     "label": "c",
+     "prompt": "H(t) is the height of a balloon, in feet, t seconds after a start time. What are the units of H′(t)?",
+     "answer": "feet per second"
     },
     {
-     "prompt": "Given ∫ from -1 to 0 f(x) dx = 9, ∫ from 0 to 2 f(x) dx = -10, and ∫ from -1 to 0 g(x) dx = 10, find ∫ from -1 to 2 -2f(x) dx.",
-     "answer": "2"
+     "label": "d",
+     "prompt": "Write an expression for the average value of T(t) on 0 ≤ t ≤ 7.",
+     "answer": "(1/7)∫ from 0 to 7 T(t) dt"
     }
    ],
-   "answer": "(a) 21; (b) 24; (c) -30; (d) 2",
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 21.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 24.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -30.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 2."
+    "(a) Average value = (1/(b − a))∫ from a to b H(t) dt. (H(10) − H(4))/6 is the average rate of change, a different quantity.",
+    "(b) The instantaneous rate of change at t = 3 is the derivative evaluated there, P′(3) (also written dP/dt at t = 3).",
+    "(c) A derivative divides a change in H (feet) by a change in t (seconds).",
+    "(d) Average value = (1/(b − a))∫ from a to b T(t) dt. (T(7) − T(0))/7 is the average rate of change, a different quantity."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-016",
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Tariq answered this problem incorrectly.\nGiven ∫ from -3 to 3 f(x) dx = 9, ∫ from 3 to 4 f(x) dx = 7, and ∫ from -3 to 3 g(x) dx = -4, find ∫ from -3 to 3 (f(x) - 2) dx.\nTariq's answer: 7\nIdentify the mistake and give the correct answer.",
-   "answer": "-3",
+   "prompt": "Wren answered this problem incorrectly.\nWrite an expression for the average value of V(t) on 1 ≤ t ≤ 11.\nWren's answer: (V(11) − V(1))/10\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/10)∫ from 1 to 11 V(t) dt",
    "solutionSteps": [
-    "Mistake: Subtracted instead of adding (or reversed a sign).",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -3.",
-    "The correct answer is -3, not 7."
+    "Mistake: Wrote the average rate of change of V. The average value of V uses the integral of V divided by the length of the interval.",
+    "Average value = (1/(b − a))∫ from a to b V(t) dt. (V(11) − V(1))/10 is the average rate of change, a different quantity.",
+    "The correct answer is (1/10)∫ from 1 to 11 V(t) dt, not (V(11) − V(1))/10."
    ],
    "standards": [
-    "AP LIM-1.A",
-    "AP FUN-6.A",
-    "AP CHA-4.A"
+    "AP CHA-3.A",
+    "AP CHA-4.B",
+    "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s7_propse_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: note_error). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   }
  ]
 }
