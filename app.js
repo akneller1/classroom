@@ -969,13 +969,11 @@
       crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
       '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
       '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>' +
-      (planner ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(planner)) + '">Plan a lesson</a><p>Pick any day of this unit: objectives, vocabulary, Do Now, notes, practice and exit ticket, printed as a student handout and a teacher key.</p></div>' : '') +
-      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '">Create a worksheet</a><p>Practice with short-answer or multiple-choice questions. Choose skills and CP2, CP1 or Honors difficulty; prints with an answer key.</p></div>' : '') +
-      (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '">Build an assessment</a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
+      ''; // calm redesign: the generators sit in the compact shortcut row below, like every other course
     return {
       title: unitLabel(c, u) + ', ' + c.name,
       html: bandHtml(c, inner, 'unit') +
-        '<section class="section"><div class="wrap">' + unitPager(c, u) +
+        '<section class="section"><div class="wrap">' + unitPager(c, u) + generatorLinks(c, u, true) +
         (items.length ? chipsHtml(items) + groupedCardsHtml(items, false)
                       : '<div class="empty"><h2>Coming soon</h2><p>No activities in this unit yet. <a href="' + href(courseToken(c)) + '">Back to ' + esc(c.name) + '</a></p></div>') +
         unitPager(c, u) + '</div></section>'
@@ -1216,7 +1214,8 @@
       '</form>';
   }
   function pickerCourses() {
-    return L.courses.concat(SOON).slice().sort(function (a, b) {
+    // Released courses can also be listed as coming soon; keep the released one.
+    return L.courses.concat(SOON.filter(function (c) { return !L.courses.some(function (x) { return x.id === c.id; }); })).slice().sort(function (a, b) {
       return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) - (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
     });
   }
