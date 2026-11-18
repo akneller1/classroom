@@ -14,7 +14,7 @@ const texts = q => [q.prompt, ...(Array.isArray(q.answer) ? q.answer : [q.answer
 // #8 a fraction written right before a variable, i, √ or ( reads two ways (1/2√x, 7/10i, 3/4x).
 const ambiguous = [];
 for (const q of items) for (const s of texts(q)) {
-  const m = /(?<![\w)\]/(])\d+\/\d+(?=\s?[√∛]|i\b|[a-zπθ](?![a-z])|\()/.exec(s);
+  const m = /(?<![\w)\]/(])\d+\/\d+(?=\s?[√∛]|i\b|[a-zπθ](?![a-z])|\(|sin|cos|tan|sec|csc|cot|log|ln)/.exec(s);
   if (m) ambiguous.push(q.id + ': ' + s.slice(Math.max(0, m.index - 12), m.index + 14));
 }
 assert.deepEqual(ambiguous, [], 'parenthesize fraction coefficients');
