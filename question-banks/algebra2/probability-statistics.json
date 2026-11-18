@@ -2255,7 +2255,8 @@
    ],
    "solutionSteps": [
     "(5/6)³ = 125/216.",
-    "P(X = 1) = 3(1/6)(5/6)² = 75/216."
+    "P(X = 1) = 3(1/6)(5/6)² = 75/216.",
+    "Every choice is correct, so select all four."
    ],
    "options": [
     {
@@ -2265,14 +2266,6 @@
     {
      "text": "X is binomial with n = 3, p = 1/6",
      "correct": true
-    },
-    {
-     "text": "P(X = 1) = 1/6",
-     "correct": false
-    },
-    {
-     "text": "X can equal 4",
-     "correct": false
     },
     {
      "text": "P(X ≥ 1) = 91/216",
@@ -2599,7 +2592,7 @@
    "skillId": "probability-statistics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A basketball player makes 75% of free throws. In a 1-and-1 (second shot only if the first is made), find the expected points.",
+   "prompt": "A basketball player makes 75% of free throws. In a 1-and-1 (second shot only if the first is made), find the expected points. Give the exact value as a decimal.",
    "answer": "1.3125",
    "solutionSteps": [
     "P(0) = 0.25, P(1) = 0.75·0.25, P(2) = 0.75².",
@@ -2616,7 +2609,7 @@
    "skillId": "probability-statistics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the price x that makes this game fair: pay x, roll two dice, win $10 if the sum is 7.",
+   "prompt": "Find the price x that makes this game fair: pay x, roll two dice, win $10 if the sum is 7. Give the exact value and the amount to the nearest cent.",
    "answer": "$5/3 ≈ $1.67",
    "solutionSteps": [
     "P(7) = 1/6.",
@@ -5406,16 +5399,13 @@
     "P(X = 3) = 1/27"
    ],
    "solutionSteps": [
-    "Binomial formula; mean np."
+    "Binomial formula; mean np.",
+    "Every choice is correct, so select all four."
    ],
    "options": [
     {
      "text": "P(X = 3) = 1/27",
      "correct": true
-    },
-    {
-     "text": "P(X = 1) = 1/3",
-     "correct": false
     },
     {
      "text": "The mean is 1",
@@ -5428,10 +5418,6 @@
     {
      "text": "P(X = 0) = 8/27",
      "correct": true
-    },
-    {
-     "text": "The mean is 1/3",
-     "correct": false
     }
    ],
    "standards": [
@@ -5552,7 +5538,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "X ~ Binomial(n = 5, p = 1/2). Find P(X ≥ 4).",
+   "prompt": "X ~ Binomial(n = 5, p = 1/2). Find P(X ≥ 4). Give a fraction and a decimal to four decimal places.",
    "answer": "3/16 ≈ 0.1875",
    "solutionSteps": [
     "Add P(X = 4) through P(X = 5).",
@@ -5568,7 +5554,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "X ~ Binomial(n = 6, p = 1/6). Find P(X ≥ 2).",
+   "prompt": "X ~ Binomial(n = 6, p = 1/6). Find P(X ≥ 2). Give a fraction and a decimal to four decimal places.",
    "answer": "12281/46656 ≈ 0.2632",
    "solutionSteps": [
     "Add P(X = 2) through P(X = 6).",
@@ -5584,7 +5570,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "X ~ Binomial(n = 10, p = 1/2). Find P(X ≥ 8).",
+   "prompt": "X ~ Binomial(n = 10, p = 1/2). Find P(X ≥ 8). Give a fraction and a decimal to four decimal places.",
    "answer": "7/128 ≈ 0.0547",
    "solutionSteps": [
     "Add P(X = 8) through P(X = 10).",
@@ -5600,7 +5586,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "X ~ Binomial(n = 4, p = 1/4). Find P(X ≥ 2).",
+   "prompt": "X ~ Binomial(n = 4, p = 1/4). Find P(X ≥ 2). Give a fraction and a decimal to four decimal places.",
    "answer": "67/256 ≈ 0.2617",
    "solutionSteps": [
     "Add P(X = 2) through P(X = 4).",
@@ -6021,7 +6007,7 @@
    "skillId": "probability-statistics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Each box of cereal contains 1 of 4 equally likely prizes. Find the expected number of boxes to collect all 4.",
+   "prompt": "Each box of cereal contains 1 of 4 equally likely prizes. Find the expected number of boxes to collect all 4. Give the exact value and a decimal to the nearest hundredth.",
    "answer": "25/3 ≈ 8.33",
    "solutionSteps": [
     "Expected waits: 1 + 4/3 + 4/2 + 4/1.",
@@ -6759,7 +6745,7 @@
    "skillId": "probability-statistics-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Counting principles and permutations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "There are 4 appetizers, 2 entrées, and 4 desserts. How many different meals use one of each?",
@@ -7089,7 +7075,7 @@
    "skillId": "probability-statistics-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Counting principles and permutations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "There are 2 shirts, 3 pants, and 2 pairs of shoes. How many different outfits use one of each?",
@@ -7381,7 +7367,7 @@
    "skillId": "probability-statistics-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Combinations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "How many ways can you choose 3 toppings from 10 available toppings?",
@@ -7661,7 +7647,7 @@
    "skillId": "probability-statistics-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Combinations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A club has 14 juniors and 5 seniors. How many ways can a group of 4 juniors and 1 seniors be chosen?",
@@ -7917,7 +7903,7 @@
    "skillId": "probability-statistics-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Independent and dependent events): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A bag holds 4 red, 3 white, 8 green marbles. Two are drawn with replacement. Find P(first white, then red).",
@@ -8286,7 +8272,7 @@
    "skillId": "probability-statistics-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Independent and dependent events): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A bag holds 9 white, 2 green, 9 yellow marbles. Two are drawn without replacement. Find P(first green, then green).",
@@ -8564,7 +8550,7 @@
    "skillId": "probability-statistics-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Conditional probability): answer each part and show your work.",
    "parts": [
     {
      "prompt": "P(the customer buys a sandwich) = 0.5 and P(a customer buys a drink and the customer buys a sandwich) = 0.4. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
@@ -8866,7 +8852,7 @@
    "skillId": "probability-statistics-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Conditional probability): answer each part and show your work.",
    "parts": [
     {
      "prompt": "P(the customer buys a sandwich) = 0.6 and P(a customer buys a drink and the customer buys a sandwich) = 0.1. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
@@ -9159,7 +9145,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Probability distributions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A probability distribution has P(X = 0) = 0.29; P(X = 1) = 0.15; P(X = 2) = 0.19; P(X = 3) = 0.27; P(X = 4) = p. Find p.",
@@ -9452,7 +9438,7 @@
    "skillId": "probability-statistics-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Probability distributions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A probability distribution has P(X = 0) = 0.25; P(X = 1) = p; P(X = 2) = 0.12. Find p.",
@@ -9809,7 +9795,7 @@
    "skillId": "probability-statistics-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Expected value): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A game costs $9 to play. A player wins $51 with probability 1/20 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
@@ -10118,7 +10104,7 @@
    "skillId": "probability-statistics-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Expected value): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A game costs $8 to play. A player wins $16 with probability 1/8 and wins $6 with probability 1/2 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
@@ -10632,7 +10618,7 @@
    "skillId": "probability-statistics-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Normal distributions and z-scores): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Scores are normally distributed with mean 98 and standard deviation 9. Find the z-score of 104. Round to the nearest hundredth.",
@@ -10834,7 +10820,7 @@
    "skillId": "probability-statistics-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Sampling, inference, and statistical models): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A random survey of 1600 people finds 51% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
@@ -11186,7 +11172,7 @@
    "skillId": "probability-statistics-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Sampling, inference, and statistical models): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A random survey of 400 people finds 66% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",

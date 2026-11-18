@@ -3663,13 +3663,10 @@
    ],
    "solutionSteps": [
     "Compare each argument with a power of the base: 2³ = 8 < 9, 3² = 9 > 8, 10³ = 1000 > 500, e² ≈ 7.39 < 10.",
-    "4³ = 64 > 60; log₅ 0.2 = -1."
+    "4³ = 64 > 60; log₅ 0.2 = -1.",
+    "Every choice is correct, so select all four."
    ],
    "options": [
-    {
-     "text": "log₄ 60 > 3",
-     "correct": false
-    },
     {
      "text": "log₂ 9 > 3",
      "correct": true
@@ -3685,10 +3682,6 @@
     {
      "text": "log 500 < 3",
      "correct": true
-    },
-    {
-     "text": "log₅ 0.2 > 0",
-     "correct": false
     }
    ],
    "standards": [
@@ -4144,7 +4137,7 @@
    "skillId": "exponential-logarithmic-functions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve e^x = 12.",
+   "prompt": "Solve e^x = 12. Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = ln 12 ≈ 2.485",
    "solutionSteps": [
     "Take ln."
@@ -4160,7 +4153,7 @@
    "skillId": "exponential-logarithmic-functions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve 2e^(3x) - 5 = 9.",
+   "prompt": "Solve 2e^(3x) - 5 = 9. Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = (ln 7)/3 ≈ 0.649",
    "solutionSteps": [
     "e^(3x) = 7.",
@@ -4177,7 +4170,7 @@
    "skillId": "exponential-logarithmic-functions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve 3^x = 2^(x + 1).",
+   "prompt": "Solve 3^x = 2^(x + 1). Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = ln 2/(ln 3 - ln 2) ≈ 1.710",
    "solutionSteps": [
     "x ln 3 = (x + 1) ln 2.",
@@ -4490,7 +4483,7 @@
    "skillId": "exponential-logarithmic-functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve ln x = 3.",
+   "prompt": "Solve ln x = 3. Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = e³ ≈ 20.086",
    "solutionSteps": [
     "Isolate the log or combine logs into one.",
@@ -5008,7 +5001,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$1,000 is invested at 5% interest compounded monthly for 10 years. Find the balance.",
+   "prompt": "$1,000 is invested at 5% interest compounded monthly for 10 years. Find the balance. Round to the nearest cent.",
    "answer": "$1,647.01",
    "solutionSteps": [
     "A = P(1 + r/n)^(nt) = 1000(1 + 0.05/12)^(12·10).",
@@ -5026,7 +5019,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$2,500 is invested at 3.5% interest compounded quarterly for 6 years. Find the balance.",
+   "prompt": "$2,500 is invested at 3.5% interest compounded quarterly for 6 years. Find the balance. Round to the nearest cent.",
    "answer": "$3,081.38",
    "solutionSteps": [
     "A = P(1 + r/n)^(nt) = 2500(1 + 0.035/4)^(4·6).",
@@ -5044,7 +5037,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$800 is invested at 7% interest compounded annually for 15 years. Find the balance.",
+   "prompt": "$800 is invested at 7% interest compounded annually for 15 years. Find the balance. Round to the nearest cent.",
    "answer": "$2,207.23",
    "solutionSteps": [
     "A = P(1 + r/n)^(nt) = 800(1 + 0.07/1)^(1·15).",
@@ -5062,7 +5055,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$15,000 is invested at 4.25% interest compounded daily for 5 years. Find the balance.",
+   "prompt": "$15,000 is invested at 4.25% interest compounded daily for 5 years. Find the balance. Round to the nearest cent.",
    "answer": "$18,551.26",
    "solutionSteps": [
     "A = P(1 + r/n)^(nt) = 15000(1 + 0.0425/365)^(365·5).",
@@ -5080,7 +5073,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$5,000 is invested at 6% interest compounded semiannually for 8 years. Find the balance.",
+   "prompt": "$5,000 is invested at 6% interest compounded semiannually for 8 years. Find the balance. Round to the nearest cent.",
    "answer": "$8,023.53",
    "solutionSteps": [
     "A = P(1 + r/n)^(nt) = 5000(1 + 0.06/2)^(2·8).",
@@ -5098,7 +5091,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$1,000 is invested at 4% compounded continuously for 10 years. Find the balance.",
+   "prompt": "$1,000 is invested at 4% compounded continuously for 10 years. Find the balance. Round to the nearest cent.",
    "answer": "$1,491.82",
    "solutionSteps": [
     "A = Pe^(rt) = 1000e^(0.04·10).",
@@ -5116,7 +5109,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$3,000 is invested at 6.5% compounded continuously for 7 years. Find the balance.",
+   "prompt": "$3,000 is invested at 6.5% compounded continuously for 7 years. Find the balance. Round to the nearest cent.",
    "answer": "$4,728.52",
    "solutionSteps": [
     "A = Pe^(rt) = 3000e^(0.065·7).",
@@ -5134,7 +5127,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "$500 is invested at 2.5% compounded continuously for 20 years. Find the balance.",
+   "prompt": "$500 is invested at 2.5% compounded continuously for 20 years. Find the balance. Round to the nearest cent.",
    "answer": "$824.36",
    "solutionSteps": [
     "A = Pe^(rt) = 500e^(0.025·20).",
@@ -5247,7 +5240,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A substance has a half-life of 30 years. How long until 10% remains?",
+   "prompt": "A substance has a half-life of 30 years. How long until 10% remains? Round to the nearest tenth of a year.",
    "answer": "99.7 years",
    "solutionSteps": [
     "Remaining fraction = (1/2)^(t/30).",
@@ -5266,12 +5259,13 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A substance has a half-life of 8 years. How long until half remains?",
-   "answer": "8.0 years",
+   "prompt": "A substance has a half-life of 8 years. How long until one-eighth of it remains?",
+   "answer": "24 years",
    "solutionSteps": [
-    "Remaining fraction = (1/2)^(t/8).",
-    "(1/2)^(t/8) = 0.5 → t = 8·log(0.5)/log(0.5).",
-    "t ≈ 8.0."
+    "After t years the fraction remaining is (1/2)^(t/8).",
+    "One-eighth is (1/2)³, so (1/2)^(t/8) = (1/2)³.",
+    "The exponents are equal: t/8 = 3.",
+    "t = 24, so one-eighth remains after 24 years (three half-lives)."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5474,12 +5468,12 @@
    "level": "honors",
    "format": "open-response",
    "prompt": "A town's population was 12,000 in 2015 and 15,000 in 2020, growing exponentially.",
-   "answer": "(a) 1.0456; (b) P = 12000(1.25)^(t/5); (c) 23,438; (d) 2036",
+   "answer": "(a) 1.0456; (b) P = 12000(1.25)^(t/5); (c) 23,438; (d) 2035",
    "solutionSteps": [
     "b⁵ = 1.25.",
     "Grows by 25% every 5 years.",
     "12000·1.25³.",
-    "(1.25)^(t/5) = 2.5 → t ≈ 20.5."
+    "12000(1.25)^(t/5) = 30000 → (1.25)^(t/5) = 2.5 → t = 5·log 2.5/log 1.25 ≈ 20.5, which is partway through 2035."
    ],
    "parts": [
     {
@@ -5495,8 +5489,8 @@
      "answer": "23,438"
     },
     {
-     "prompt": "In what year will it reach 30,000?",
-     "answer": "2036"
+     "prompt": "In what year will it reach 30,000? (t = 0 is the start of 2015.)",
+     "answer": "2035"
     }
    ],
    "standards": [
@@ -5760,7 +5754,8 @@
     "(2, 1)"
    ],
    "solutionSteps": [
-    "Substitute each x-coordinate."
+    "Substitute each x-coordinate.",
+    "Every choice is correct, so select all four."
    ],
    "options": [
     {
@@ -5778,14 +5773,6 @@
     {
      "text": "(2, 1)",
      "correct": true
-    },
-    {
-     "text": "(1, 8)",
-     "correct": false
-    },
-    {
-     "text": "(0, 5)",
-     "correct": false
     }
    ],
    "standards": [
@@ -7220,7 +7207,7 @@
    "skillId": "exponential-logarithmic-functions-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Exponential growth and decay): answer each part and show your work.",
    "parts": [
     {
      "prompt": "A car's value starts at 6,000 dollars and decreases by 2% per year. Find the amount after 3 years, to the nearest whole number.",
@@ -7441,7 +7428,7 @@
    "skillId": "exponential-logarithmic-functions-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphing exponential functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the range of f(x) = 2(3)ˣ - 2. Use interval notation.",
@@ -7810,7 +7797,7 @@
    "skillId": "exponential-logarithmic-functions-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphing exponential functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find the range of f(x) = (1/3)^(x + 1) - 2. Use interval notation.",
@@ -8322,7 +8309,7 @@
    "skillId": "exponential-logarithmic-functions-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Inverse relationship of exponentials and logarithms): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Write 2⁻³ = 1/8 in logarithmic form.",
@@ -8580,7 +8567,7 @@
    "skillId": "exponential-logarithmic-functions-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Logarithm properties): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Expand ln(5x³) using properties of logarithms.",
@@ -8807,7 +8794,7 @@
    "skillId": "exponential-logarithmic-functions-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Logarithm properties): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Expand ln((x³)/(y⁴)) using properties of logarithms.",
@@ -9066,7 +9053,7 @@
    "skillId": "exponential-logarithmic-functions-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Evaluating logarithms): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Evaluate log₂(1).",
@@ -9361,7 +9348,7 @@
    "skillId": "exponential-logarithmic-functions-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Evaluating logarithms): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve log₃(x - 8) = 0.",
@@ -9689,7 +9676,7 @@
    "skillId": "exponential-logarithmic-functions-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Solving exponential equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve 4^(x + 1) = 16.",
@@ -10143,7 +10130,7 @@
    "skillId": "exponential-logarithmic-functions-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Solving logarithmic equations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve log(x + 3) = 2.",
@@ -10711,7 +10698,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Compound interest and real-world models): answer each part and show your work.",
    "parts": [
     {
      "prompt": "$6,900 is deposited at 6% annual interest compounded annually. Find the balance after 7 years, to the nearest cent.",
@@ -10978,7 +10965,7 @@
    "skillId": "exponential-logarithmic-functions-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Compound interest and real-world models): answer each part and show your work.",
    "parts": [
     {
      "prompt": "$2,000 is deposited at 7% annual interest compounded annually. Find the balance after 12 years, to the nearest cent.",
