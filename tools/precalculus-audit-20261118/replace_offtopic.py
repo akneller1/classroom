@@ -65,7 +65,7 @@ def comp(r, lv):
             break
     s = str(val) if val.denominator == 1 else f"{val.numerator}/{val.denominator}"
     p = f"A rope pulls on a sled with force u = {v(a, b)} newtons. Find the scalar projection (component) of u in the direction v = {v(c, d)}: comp_v u = (u · v)/|v|."
-    steps = [f"u · v = ({a})({c}) + ({b})({d}) = {a * c + b * d}.", f"|v| = √({c}² + {d}²) = {m}.", f"comp_v u = {a * c + b * d}/{m} = {s}."]
+    steps = [f"u · v = ({a})({c}) + ({b})({d}) = {a * c + b * d}.", f"|v| = √(({c})² + ({d})²) = {m}.", f"comp_v u = {a * c + b * d}/{m} = {s}."]
     wrong = [(str(a * c + b * d), "did not divide by |v|"), (str(-val) if val.denominator == 1 else f"{-val.numerator}/{val.denominator}", "made a sign error"),
              (str(F(a * c + b * d, m * m)) if F(a * c + b * d, m * m).denominator > 1 else str(F(a * c + b * d, m * m)), "divided by |v|² (that gives the projection's scale factor)")]
     return p, s, steps, wrong, "dot_component"

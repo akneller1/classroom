@@ -36,7 +36,11 @@ assert.match(fs.readFileSync(path.join(ROOT, 'scripts/test-public-site.cjs'), 'u
 assert(!items.some(q => q.skillId === 'vectors-skill-08' && /moves straight from|Find the magnitude of v|Find \|v\|/.test(q.prompt)), 'off-topic dot-product items');
 for (const q of items.filter(q => q.standards.includes('N-CN.B.4'))) assert.match(q.prompt + JSON.stringify(q.parts || []), /trigonometric \(polar\) form|(\d|\b)i\b/, q.id + ' N-CN.B.4 on a complex-number item');
 
+// #7 every solution shows its work in at least two steps.
+const thinSteps = items.filter(q => !Array.isArray(q.solutionSteps) || q.solutionSteps.length < 2);
+assert.equal(thinSteps.length, 0, 'single-step solutions: ' + thinSteps.slice(0, 5).map(q => q.id).join(', '));
+
 // #10 open-response stems name the skill.
 assert(!items.some(q => q.format === 'open-response' && q.prompt.trim() === 'Answer each part. Show your work.'), 'generic open-response stem');
 
-console.log(`PASS Precalculus audit fixes: ${auto.length} of ${sa.length} short answers auto-graded, pacing, dot-product items, polar tags, stems`);
+console.log(`PASS Precalculus audit fixes: ${auto.length} of ${sa.length} short answers auto-graded, pacing, dot-product items, polar tags, worked solutions, stems`);

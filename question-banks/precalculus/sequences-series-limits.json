@@ -11,8 +11,9 @@
    "prompt": "Find the 5th term of the sequence 1, -2, 4, -8, …",
    "answer": "16",
    "solutionSteps": [
-    "Geometric: r = -2.",
-    "aₙ = a₁rⁿ⁻¹ = 1(-2)⁴ = 16."
+    "Each term is the previous one times r = -2 ÷ (1) = -2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = 1·(-2)^4 = 1·16.",
+    "a₅ = 16."
    ],
    "standards": [
     "F-BF.A.2",
@@ -46,8 +47,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 2.",
-    "aₙ = a₁rⁿ⁻¹ = -6(2)⁶ = -384."
+    "Each term is the previous one times r = -12 ÷ (-6) = 2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₇ = -6·(2)^6 = -6·64.",
+    "a₇ = -384."
    ],
    "standards": [
     "F-BF.A.2",
@@ -98,8 +100,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -2.",
-    "aₙ = a₁rⁿ⁻¹ = -6(-2)⁴ = -96."
+    "Each term is the previous one times r = 12 ÷ (-6) = -2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = -6·(-2)^4 = -6·16.",
+    "a₅ = -96."
    ],
    "standards": [
     "F-BF.A.2",
@@ -150,8 +153,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = -4(1/2)⁵ = -1/8."
+    "Each term is the previous one times r = -2 ÷ (-4) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = -4·(1/2)^5 = -4·1/32.",
+    "a₆ = -1/8."
    ],
    "standards": [
     "F-BF.A.2",
@@ -202,8 +206,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = -2(-3)⁷ = 4374."
+    "Each term is the previous one times r = 6 ÷ (-2) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₈ = -2·(-3)^7 = -2·-2187.",
+    "a₈ = 4374."
    ],
    "standards": [
     "F-BF.A.2",
@@ -254,8 +259,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 5(3)⁴ = 405."
+    "Each term is the previous one times r = 15 ÷ (5) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = 5·(3)^4 = 5·81.",
+    "a₅ = 405."
    ],
    "standards": [
     "F-BF.A.2",
@@ -271,8 +277,9 @@
    "prompt": "Find the 58th term of the sequence 20, 26, 32, 38, …",
    "answer": "362",
    "solutionSteps": [
-    "Arithmetic: d = 6.",
-    "aₙ = a₁ + (n - 1)d = 20 + (57)(6) = 362."
+    "The terms change by the same amount each time: d = 26 - (20) = 6 (arithmetic).",
+    "aₙ = a₁ + (n - 1)d, so a₅₈ = 20 + (58 - 1)(6) = 20 + (342).",
+    "a₅₈ = 362."
    ],
    "standards": [
     "F-BF.A.2",
@@ -306,8 +313,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 5(3)⁵ = 1215."
+    "Each term is the previous one times r = 15 ÷ (5) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = 5·(3)^5 = 5·243.",
+    "a₆ = 1215."
    ],
    "standards": [
     "F-BF.A.2",
@@ -323,8 +331,9 @@
    "prompt": "Find the 5th term of the sequence 3, -9, 27, -81, …",
    "answer": "243",
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = 3(-3)⁴ = 243."
+    "Each term is the previous one times r = -9 ÷ (3) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = 3·(-3)^4 = 3·81.",
+    "a₅ = 243."
    ],
    "standards": [
     "F-BF.A.2",
@@ -450,8 +459,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = 5(-3)⁷ = -10935."
+    "Each term is the previous one times r = -15 ÷ (5) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₈ = 5·(-3)^7 = 5·-2187.",
+    "a₈ = -10935."
    ],
    "standards": [
     "F-BF.A.2",
@@ -467,8 +477,9 @@
    "prompt": "Find the 7th term of the sequence 4, 2, 1, 1/2, …",
    "answer": "1/16",
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = 4(1/2)⁶ = 1/16."
+    "Each term is the previous one times r = 2 ÷ (4) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₇ = 4·(1/2)^6 = 4·1/64.",
+    "a₇ = 1/16."
    ],
    "standards": [
     "F-BF.A.2",
@@ -502,8 +513,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 2.",
-    "aₙ = a₁rⁿ⁻¹ = 5(2)⁷ = 640."
+    "Each term is the previous one times r = 10 ÷ (5) = 2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₈ = 5·(2)^7 = 5·128.",
+    "a₈ = 640."
    ],
    "standards": [
     "F-BF.A.2",
@@ -554,8 +566,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 2.",
-    "aₙ = a₁rⁿ⁻¹ = 4(2)⁸ = 1024."
+    "Each term is the previous one times r = 8 ÷ (4) = 2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₉ = 4·(2)^8 = 4·256.",
+    "a₉ = 1024."
    ],
    "standards": [
     "F-BF.A.2",
@@ -606,8 +619,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = -6(1/2)⁴ = -3/8."
+    "Each term is the previous one times r = -3 ÷ (-6) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = -6·(1/2)^4 = -6·1/16.",
+    "a₅ = -3/8."
    ],
    "standards": [
     "F-BF.A.2",
@@ -623,8 +637,9 @@
    "prompt": "Find the 26th term of the sequence -4, 2, 8, 14, …",
    "answer": "146",
    "solutionSteps": [
-    "Arithmetic: d = 6.",
-    "aₙ = a₁ + (n - 1)d = -4 + (25)(6) = 146."
+    "The terms change by the same amount each time: d = 2 - (-4) = 6 (arithmetic).",
+    "aₙ = a₁ + (n - 1)d, so a₂₆ = -4 + (26 - 1)(6) = -4 + (150).",
+    "a₂₆ = 146."
    ],
    "standards": [
     "F-BF.A.2",
@@ -658,8 +673,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = 2(-3)⁸ = 13122."
+    "Each term is the previous one times r = -6 ÷ (2) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₉ = 2·(-3)^8 = 2·6561.",
+    "a₉ = 13122."
    ],
    "standards": [
     "F-BF.A.2",
@@ -675,8 +691,9 @@
    "prompt": "Find the 7th term of the sequence -5, -5/2, -5/4, -5/8, …",
    "answer": "-5/64",
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = -5(1/2)⁶ = -5/64."
+    "Each term is the previous one times r = -5/2 ÷ (-5) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₇ = -5·(1/2)^6 = -5·1/64.",
+    "a₇ = -5/64."
    ],
    "standards": [
     "F-BF.A.2",
@@ -710,8 +727,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 6(3)⁵ = 1458."
+    "Each term is the previous one times r = 18 ÷ (6) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = 6·(3)^5 = 6·243.",
+    "a₆ = 1458."
    ],
    "standards": [
     "F-BF.A.2",
@@ -727,8 +745,9 @@
    "prompt": "Find the 5th term of the sequence 6, 3, 3/2, 3/4, …",
    "answer": "3/8",
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = 6(1/2)⁴ = 3/8."
+    "Each term is the previous one times r = 3 ÷ (6) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₅ = 6·(1/2)^4 = 6·1/16.",
+    "a₅ = 3/8."
    ],
    "standards": [
     "F-BF.A.2",
@@ -854,8 +873,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 3(3)⁵ = 729."
+    "Each term is the previous one times r = 9 ÷ (3) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = 3·(3)^5 = 3·243.",
+    "a₆ = 729."
    ],
    "standards": [
     "F-BF.A.2",
@@ -871,8 +891,9 @@
    "prompt": "Find the 7th term of the sequence -4, -2, -1, -1/2, …",
    "answer": "-1/16",
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = -4(1/2)⁶ = -1/16."
+    "Each term is the previous one times r = -2 ÷ (-4) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₇ = -4·(1/2)^6 = -4·1/64.",
+    "a₇ = -1/16."
    ],
    "standards": [
     "F-BF.A.2",
@@ -906,8 +927,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 2.",
-    "aₙ = a₁rⁿ⁻¹ = -5(2)⁵ = -160."
+    "Each term is the previous one times r = -10 ÷ (-5) = 2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = -5·(2)^5 = -5·32.",
+    "a₆ = -160."
    ],
    "standards": [
     "F-BF.A.2",
@@ -923,8 +945,9 @@
    "prompt": "Find the 23rd term of the sequence 15, 22, 29, 36, …",
    "answer": "169",
    "solutionSteps": [
-    "Arithmetic: d = 7.",
-    "aₙ = a₁ + (n - 1)d = 15 + (22)(7) = 169."
+    "The terms change by the same amount each time: d = 22 - (15) = 7 (arithmetic).",
+    "aₙ = a₁ + (n - 1)d, so a₂₃ = 15 + (23 - 1)(7) = 15 + (154).",
+    "a₂₃ = 169."
    ],
    "standards": [
     "F-BF.A.2",
@@ -958,8 +981,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 5(3)⁷ = 10935."
+    "Each term is the previous one times r = 15 ÷ (5) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₈ = 5·(3)^7 = 5·2187.",
+    "a₈ = 10935."
    ],
    "standards": [
     "F-BF.A.2",
@@ -975,8 +999,9 @@
    "prompt": "Find the 7th term of the sequence 5, 10, 20, 40, …",
    "answer": "320",
    "solutionSteps": [
-    "Geometric: r = 2.",
-    "aₙ = a₁rⁿ⁻¹ = 5(2)⁶ = 320."
+    "Each term is the previous one times r = 10 ÷ (5) = 2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₇ = 5·(2)^6 = 5·64.",
+    "a₇ = 320."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1010,8 +1035,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = -4(-3)⁷ = 8748."
+    "Each term is the previous one times r = 12 ÷ (-4) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₈ = -4·(-3)^7 = -4·-2187.",
+    "a₈ = 8748."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1027,8 +1053,9 @@
    "prompt": "Find the 10th term of the sequence 3, -9, 27, -81, …",
    "answer": "-59049",
    "solutionSteps": [
-    "Geometric: r = -3.",
-    "aₙ = a₁rⁿ⁻¹ = 3(-3)⁹ = -59049."
+    "Each term is the previous one times r = -9 ÷ (3) = -3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₁₀ = 3·(-3)^9 = 3·-19683.",
+    "a₁₀ = -59049."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1062,8 +1089,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = 3.",
-    "aₙ = a₁rⁿ⁻¹ = 4(3)⁵ = 972."
+    "Each term is the previous one times r = 12 ÷ (4) = 3 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₆ = 4·(3)^5 = 4·243.",
+    "a₆ = 972."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1079,8 +1107,9 @@
    "prompt": "Find the 10th term of the sequence -3, -3/2, -3/4, -3/8, …",
    "answer": "-3/512",
    "solutionSteps": [
-    "Geometric: r = 1/2.",
-    "aₙ = a₁rⁿ⁻¹ = -3(1/2)⁹ = -3/512."
+    "Each term is the previous one times r = -3/2 ÷ (-3) = 1/2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₁₀ = -3·(1/2)^9 = -3·1/512.",
+    "a₁₀ = -3/512."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1114,8 +1143,9 @@
     }
    ],
    "solutionSteps": [
-    "Geometric: r = -2.",
-    "aₙ = a₁rⁿ⁻¹ = -1(-2)¹⁰ = -1024."
+    "Each term is the previous one times r = 2 ÷ (-1) = -2 (geometric).",
+    "aₙ = a₁·r^(n - 1), so a₁₁ = -1·(-2)^10 = -1·1024.",
+    "a₁₁ = -1024."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1223,8 +1253,9 @@
    "prompt": "Find the sum of the first 20 terms of the series 9 + 7 + 5 + 3 + …",
    "answer": "-200",
    "solutionSteps": [
-    "a₁ = 9, d = -2, a₂₀ = -29.",
-    "Sₙ = n(a₁ + aₙ)/2 = -200."
+    "Arithmetic: a₁ = 9, d = -2.",
+    "a₂₀ = 9 + (20 - 1)(-2) = -29.",
+    "S₂₀ = n(a₁ + aₙ)/2 = 20(9 + (-29))/2 = 20(-20)/2 = -200."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1257,8 +1288,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = -5, d = 2, a₂₃ = 39.",
-    "Sₙ = n(a₁ + aₙ)/2 = 391."
+    "Arithmetic: a₁ = -5, d = 2.",
+    "a₂₃ = -5 + (23 - 1)(2) = 39.",
+    "S₂₃ = n(a₁ + aₙ)/2 = 23(-5 + (39))/2 = 23(34)/2 = 391."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1273,8 +1305,9 @@
    "prompt": "Find the sum of the first 22 terms of the series -7 - 11 - 15 - 19 + …",
    "answer": "-1078",
    "solutionSteps": [
-    "a₁ = -7, d = -4, a₂₂ = -91.",
-    "Sₙ = n(a₁ + aₙ)/2 = -1078."
+    "Arithmetic: a₁ = -7, d = -4.",
+    "a₂₂ = -7 + (22 - 1)(-4) = -91.",
+    "S₂₂ = n(a₁ + aₙ)/2 = 22(-7 + (-91))/2 = 22(-98)/2 = -1078."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1307,8 +1340,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 6, d = -3, a₂₂ = -57.",
-    "Sₙ = n(a₁ + aₙ)/2 = -561."
+    "Arithmetic: a₁ = 6, d = -3.",
+    "a₂₂ = 6 + (22 - 1)(-3) = -57.",
+    "S₂₂ = n(a₁ + aₙ)/2 = 22(6 + (-57))/2 = 22(-51)/2 = -561."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1323,8 +1357,9 @@
    "prompt": "Find the sum of the first 27 terms of the series 2 + 1 + 0 - 1 + …",
    "answer": "-297",
    "solutionSteps": [
-    "a₁ = 2, d = -1, a₂₇ = -24.",
-    "Sₙ = n(a₁ + aₙ)/2 = -297."
+    "Arithmetic: a₁ = 2, d = -1.",
+    "a₂₇ = 2 + (27 - 1)(-1) = -24.",
+    "S₂₇ = n(a₁ + aₙ)/2 = 27(2 + (-24))/2 = 27(-22)/2 = -297."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1357,8 +1392,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 10, d = 5, a₄₀ = 205.",
-    "Sₙ = n(a₁ + aₙ)/2 = 4300."
+    "Arithmetic: a₁ = 10, d = 5.",
+    "a₄₀ = 10 + (40 - 1)(5) = 205.",
+    "S₄₀ = n(a₁ + aₙ)/2 = 40(10 + (205))/2 = 40(215)/2 = 4300."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1373,8 +1409,9 @@
    "prompt": "Find the sum of the first 17 terms of the series -10 - 15 - 20 - 25 + …",
    "answer": "-850",
    "solutionSteps": [
-    "a₁ = -10, d = -5, a₁₇ = -90.",
-    "Sₙ = n(a₁ + aₙ)/2 = -850."
+    "Arithmetic: a₁ = -10, d = -5.",
+    "a₁₇ = -10 + (17 - 1)(-5) = -90.",
+    "S₁₇ = n(a₁ + aₙ)/2 = 17(-10 + (-90))/2 = 17(-100)/2 = -850."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1407,8 +1444,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 6, d = -2, a₃₇ = -66.",
-    "Sₙ = n(a₁ + aₙ)/2 = -1110."
+    "Arithmetic: a₁ = 6, d = -2.",
+    "a₃₇ = 6 + (37 - 1)(-2) = -66.",
+    "S₃₇ = n(a₁ + aₙ)/2 = 37(6 + (-66))/2 = 37(-60)/2 = -1110."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1423,8 +1461,9 @@
    "prompt": "Find the sum of the first 28 terms of the series 8 + 13 + 18 + 23 + …",
    "answer": "2114",
    "solutionSteps": [
-    "a₁ = 8, d = 5, a₂₈ = 143.",
-    "Sₙ = n(a₁ + aₙ)/2 = 2114."
+    "Arithmetic: a₁ = 8, d = 5.",
+    "a₂₈ = 8 + (28 - 1)(5) = 143.",
+    "S₂₈ = n(a₁ + aₙ)/2 = 28(8 + (143))/2 = 28(151)/2 = 2114."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1457,8 +1496,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = -8, d = 7, a₃₈ = 251.",
-    "Sₙ = n(a₁ + aₙ)/2 = 4617."
+    "Arithmetic: a₁ = -8, d = 7.",
+    "a₃₈ = -8 + (38 - 1)(7) = 251.",
+    "S₃₈ = n(a₁ + aₙ)/2 = 38(-8 + (251))/2 = 38(243)/2 = 4617."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1473,8 +1513,9 @@
    "prompt": "Find the sum of the first 32 terms of the series -9 - 7 - 5 - 3 + …",
    "answer": "704",
    "solutionSteps": [
-    "a₁ = -9, d = 2, a₃₂ = 53.",
-    "Sₙ = n(a₁ + aₙ)/2 = 704."
+    "Arithmetic: a₁ = -9, d = 2.",
+    "a₃₂ = -9 + (32 - 1)(2) = 53.",
+    "S₃₂ = n(a₁ + aₙ)/2 = 32(-9 + (53))/2 = 32(44)/2 = 704."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1507,8 +1548,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 3, d = -1, a₃₅ = -31.",
-    "Sₙ = n(a₁ + aₙ)/2 = -490."
+    "Arithmetic: a₁ = 3, d = -1.",
+    "a₃₅ = 3 + (35 - 1)(-1) = -31.",
+    "S₃₅ = n(a₁ + aₙ)/2 = 35(3 + (-31))/2 = 35(-28)/2 = -490."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1523,8 +1565,9 @@
    "prompt": "Find the sum of the first 40 terms of the series 6 + 13 + 20 + 27 + …",
    "answer": "5700",
    "solutionSteps": [
-    "a₁ = 6, d = 7, a₄₀ = 279.",
-    "Sₙ = n(a₁ + aₙ)/2 = 5700."
+    "Arithmetic: a₁ = 6, d = 7.",
+    "a₄₀ = 6 + (40 - 1)(7) = 279.",
+    "S₄₀ = n(a₁ + aₙ)/2 = 40(6 + (279))/2 = 40(285)/2 = 5700."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1612,7 +1655,8 @@
    "answer": "-1092",
    "solutionSteps": [
     "Geometric: a₁ = -3, r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1092."
+    "S₆ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (3)^6)/(1 - (3)).",
+    "= -3(-728)/(-2) = -1092."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1646,7 +1690,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = 4, r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4092."
+    "S₁₀ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (2)^10)/(1 - (2)).",
+    "= 4(-1023)/(-1) = 4092."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1661,8 +1706,9 @@
    "prompt": "Find the sum of the first 25 terms of the series -5 - 11 - 17 - 23 + …",
    "answer": "-1925",
    "solutionSteps": [
-    "a₁ = -5, d = -6, a₂₅ = -149.",
-    "Sₙ = n(a₁ + aₙ)/2 = -1925."
+    "Arithmetic: a₁ = -5, d = -6.",
+    "a₂₅ = -5 + (25 - 1)(-6) = -149.",
+    "S₂₅ = n(a₁ + aₙ)/2 = 25(-5 + (-149))/2 = 25(-154)/2 = -1925."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1696,7 +1742,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = -3, r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -765."
+    "S₈ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (2)^8)/(1 - (2)).",
+    "= -3(-255)/(-1) = -765."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1712,7 +1759,8 @@
    "answer": "-63",
    "solutionSteps": [
     "Geometric: a₁ = 3, r = -2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -63."
+    "S₆ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-2)^6)/(1 - (-2)).",
+    "= 3(-63)/(3) = -63."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1745,8 +1793,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 13, d = 3, a₃₂ = 106.",
-    "Sₙ = n(a₁ + aₙ)/2 = 1904."
+    "Arithmetic: a₁ = 13, d = 3.",
+    "a₃₂ = 13 + (32 - 1)(3) = 106.",
+    "S₃₂ = n(a₁ + aₙ)/2 = 32(13 + (106))/2 = 32(119)/2 = 1904."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1761,8 +1810,9 @@
    "prompt": "Find the sum of the first 11 terms of the series -8 - 13 - 18 - 23 + …",
    "answer": "-363",
    "solutionSteps": [
-    "a₁ = -8, d = -5, a₁₁ = -58.",
-    "Sₙ = n(a₁ + aₙ)/2 = -363."
+    "Arithmetic: a₁ = -8, d = -5.",
+    "a₁₁ = -8 + (11 - 1)(-5) = -58.",
+    "S₁₁ = n(a₁ + aₙ)/2 = 11(-8 + (-58))/2 = 11(-66)/2 = -363."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1796,7 +1846,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = -5, r = -2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 425."
+    "S₈ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (-2)^8)/(1 - (-2)).",
+    "= -5(-255)/(3) = 425."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1812,7 +1863,8 @@
    "answer": "-635",
    "solutionSteps": [
     "Geometric: a₁ = -5, r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -635."
+    "S₇ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (2)^7)/(1 - (2)).",
+    "= -5(-127)/(-1) = -635."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1845,8 +1897,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = -6, d = -6, a₂₅ = -150.",
-    "Sₙ = n(a₁ + aₙ)/2 = -1950."
+    "Arithmetic: a₁ = -6, d = -6.",
+    "a₂₅ = -6 + (25 - 1)(-6) = -150.",
+    "S₂₅ = n(a₁ + aₙ)/2 = 25(-6 + (-150))/2 = 25(-156)/2 = -1950."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1862,7 +1915,8 @@
    "answer": "-5115",
    "solutionSteps": [
     "Geometric: a₁ = -5, r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -5115."
+    "S₁₀ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (2)^10)/(1 - (2)).",
+    "= -5(-1023)/(-1) = -5115."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1895,8 +1949,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 10, d = -5, a₁₈ = -75.",
-    "Sₙ = n(a₁ + aₙ)/2 = -585."
+    "Arithmetic: a₁ = 10, d = -5.",
+    "a₁₈ = 10 + (18 - 1)(-5) = -75.",
+    "S₁₈ = n(a₁ + aₙ)/2 = 18(10 + (-75))/2 = 18(-65)/2 = -585."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1912,7 +1967,8 @@
    "answer": "513",
    "solutionSteps": [
     "Geometric: a₁ = 3, r = -2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 513."
+    "S₉ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-2)^9)/(1 - (-2)).",
+    "= 3(513)/(3) = 513."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -1999,8 +2055,9 @@
    "prompt": "Find the sum of the first 28 terms of the series 14 + 17 + 20 + 23 + …",
    "answer": "1526",
    "solutionSteps": [
-    "a₁ = 14, d = 3, a₂₈ = 95.",
-    "Sₙ = n(a₁ + aₙ)/2 = 1526."
+    "Arithmetic: a₁ = 14, d = 3.",
+    "a₂₈ = 14 + (28 - 1)(3) = 95.",
+    "S₂₈ = n(a₁ + aₙ)/2 = 28(14 + (95))/2 = 28(109)/2 = 1526."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2034,7 +2091,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = 1, r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 121."
+    "S₅ = a₁(1 - rⁿ)/(1 - r) = 1(1 - (3)^5)/(1 - (3)).",
+    "= 1(-242)/(-2) = 121."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2050,7 +2108,8 @@
    "answer": "5465",
    "solutionSteps": [
     "Geometric: a₁ = 5, r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 5465."
+    "S₇ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (3)^7)/(1 - (3)).",
+    "= 5(-2186)/(-2) = 5465."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2084,7 +2143,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = -1, r = -2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -43."
+    "S₇ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (-2)^7)/(1 - (-2)).",
+    "= -1(129)/(3) = -43."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2100,7 +2160,8 @@
    "answer": "1093",
    "solutionSteps": [
     "Geometric: a₁ = 1, r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 1093."
+    "S₇ = a₁(1 - rⁿ)/(1 - r) = 1(1 - (3)^7)/(1 - (3)).",
+    "= 1(-2186)/(-2) = 1093."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2134,7 +2195,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = -3, r = -2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -33."
+    "S₅ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (-2)^5)/(1 - (-2)).",
+    "= -3(33)/(3) = -33."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2150,7 +2212,8 @@
    "answer": "-9840",
    "solutionSteps": [
     "Geometric: a₁ = -3, r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -9840."
+    "S₈ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (3)^8)/(1 - (3)).",
+    "= -3(-6560)/(-2) = -9840."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2183,8 +2246,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = -1, d = -3, a₃₈ = -112.",
-    "Sₙ = n(a₁ + aₙ)/2 = -2147."
+    "Arithmetic: a₁ = -1, d = -3.",
+    "a₃₈ = -1 + (38 - 1)(-3) = -112.",
+    "S₃₈ = n(a₁ + aₙ)/2 = 38(-1 + (-112))/2 = 38(-113)/2 = -2147."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2199,8 +2263,9 @@
    "prompt": "Find the sum of the first 12 terms of the series -8 - 3 + 2 + 7 + …",
    "answer": "234",
    "solutionSteps": [
-    "a₁ = -8, d = 5, a₁₂ = 47.",
-    "Sₙ = n(a₁ + aₙ)/2 = 234."
+    "Arithmetic: a₁ = -8, d = 5.",
+    "a₁₂ = -8 + (12 - 1)(5) = 47.",
+    "S₁₂ = n(a₁ + aₙ)/2 = 12(-8 + (47))/2 = 12(39)/2 = 234."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2233,8 +2298,9 @@
     }
    ],
    "solutionSteps": [
-    "a₁ = 0, d = -6, a₂₂ = -126.",
-    "Sₙ = n(a₁ + aₙ)/2 = -1386."
+    "Arithmetic: a₁ = 0, d = -6.",
+    "a₂₂ = 0 + (22 - 1)(-6) = -126.",
+    "S₂₂ = n(a₁ + aₙ)/2 = 22(0 + (-126))/2 = 22(-126)/2 = -1386."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2249,8 +2315,9 @@
    "prompt": "Find the sum of the first 27 terms of the series 3 - 3 - 9 - 15 + …",
    "answer": "-2025",
    "solutionSteps": [
-    "a₁ = 3, d = -6, a₂₇ = -153.",
-    "Sₙ = n(a₁ + aₙ)/2 = -2025."
+    "Arithmetic: a₁ = 3, d = -6.",
+    "a₂₇ = 3 + (27 - 1)(-6) = -153.",
+    "S₂₇ = n(a₁ + aₙ)/2 = 27(3 + (-153))/2 = 27(-150)/2 = -2025."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2284,7 +2351,8 @@
    ],
    "solutionSteps": [
     "Geometric: a₁ = 5, r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 1275."
+    "S₈ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (2)^8)/(1 - (2)).",
+    "= 5(-255)/(-1) = 1275."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2299,8 +2367,9 @@
    "prompt": "Find the sum of the first 39 terms of the series 1 + 8 + 15 + 22 + …",
    "answer": "5226",
    "solutionSteps": [
-    "a₁ = 1, d = 7, a₃₉ = 267.",
-    "Sₙ = n(a₁ + aₙ)/2 = 5226."
+    "Arithmetic: a₁ = 1, d = 7.",
+    "a₃₉ = 1 + (39 - 1)(7) = 267.",
+    "S₃₉ = n(a₁ + aₙ)/2 = 39(1 + (267))/2 = 39(268)/2 = 5226."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -4715,8 +4784,9 @@
    "prompt": "Evaluate lim (x → -3) (x² - x - 12)/(x + 3).",
    "answer": "-7",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -7."
+    "Substituting x = -3 gives 0/0, so factor the numerator: x² - x - 12 = (x + 3)(x - 4).",
+    "Cancel the common factor (x + 3): for x ≠ -3, the expression equals x - 4.",
+    "The limit is -3 - 4 = -7."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4749,8 +4819,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is 1."
+    "Substituting x = -1 gives 0/0, so factor the numerator: x² + 3x + 2 = (x + 1)(x + 2).",
+    "Cancel the common factor (x + 1): for x ≠ -1, the expression equals x + 2.",
+    "The limit is -1 + 2 = 1."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4765,8 +4836,9 @@
    "prompt": "Evaluate lim (x → -3) (x² + x - 6)/(x + 3).",
    "answer": "-5",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -5."
+    "Substituting x = -3 gives 0/0, so factor the numerator: x² + x - 6 = (x + 3)(x - 2).",
+    "Cancel the common factor (x + 3): for x ≠ -3, the expression equals x - 2.",
+    "The limit is -3 - 2 = -5."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4799,8 +4871,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is 1."
+    "Substituting x = -4 gives 0/0, so factor the numerator: x² + 9x + 20 = (x + 4)(x + 5).",
+    "Cancel the common factor (x + 4): for x ≠ -4, the expression equals x + 5.",
+    "The limit is -4 + 5 = 1."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4815,8 +4888,9 @@
    "prompt": "Evaluate lim (x → -2) (x² - 4x - 12)/(x + 2).",
    "answer": "-8",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -8."
+    "Substituting x = -2 gives 0/0, so factor the numerator: x² - 4x - 12 = (x + 2)(x - 6).",
+    "Cancel the common factor (x + 2): for x ≠ -2, the expression equals x - 6.",
+    "The limit is -2 - 6 = -8."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4849,8 +4923,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is 5."
+    "Substituting x = -1 gives 0/0, so factor the numerator: x² + 7x + 6 = (x + 1)(x + 6).",
+    "Cancel the common factor (x + 1): for x ≠ -1, the expression equals x + 6.",
+    "The limit is -1 + 6 = 5."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4865,8 +4940,9 @@
    "prompt": "Evaluate lim (x → -2) (x² + x - 2)/(x + 2).",
    "answer": "-3",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -3."
+    "Substituting x = -2 gives 0/0, so factor the numerator: x² + x - 2 = (x + 2)(x - 1).",
+    "Cancel the common factor (x + 2): for x ≠ -2, the expression equals x - 1.",
+    "The limit is -2 - 1 = -3."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4899,8 +4975,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -9."
+    "Substituting x = -3 gives 0/0, so factor the numerator: x² - 3x - 18 = (x + 3)(x - 6).",
+    "Cancel the common factor (x + 3): for x ≠ -3, the expression equals x - 6.",
+    "The limit is -3 - 6 = -9."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4915,8 +4992,9 @@
    "prompt": "Evaluate lim (x → 4) (x² + 2x - 24)/(x - 4).",
    "answer": "10",
    "solutionSteps": [
-    "Factor: (x - 4)(x + 6) over x - 4.",
-    "The limit is 10."
+    "Substituting x = 4 gives 0/0, so factor the numerator: x² + 2x - 24 = (x - 4)(x + 6).",
+    "Cancel the common factor (x - 4): for x ≠ 4, the expression equals x + 6.",
+    "The limit is 4 + 6 = 10."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4949,8 +5027,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -1."
+    "Substituting x = -2 gives 0/0, so factor the numerator: x² + 3x + 2 = (x + 2)(x + 1).",
+    "Cancel the common factor (x + 2): for x ≠ -2, the expression equals x + 1.",
+    "The limit is -2 + 1 = -1."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4965,8 +5044,9 @@
    "prompt": "Evaluate lim (x → -3) (x² + 4x + 3)/(x + 3).",
    "answer": "-2",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -2."
+    "Substituting x = -3 gives 0/0, so factor the numerator: x² + 4x + 3 = (x + 3)(x + 1).",
+    "Cancel the common factor (x + 3): for x ≠ -3, the expression equals x + 1.",
+    "The limit is -3 + 1 = -2."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -4999,8 +5079,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is 2."
+    "Substituting x = -4 gives 0/0, so factor the numerator: x² + 10x + 24 = (x + 4)(x + 6).",
+    "Cancel the common factor (x + 4): for x ≠ -4, the expression equals x + 6.",
+    "The limit is -4 + 6 = 2."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5015,8 +5096,9 @@
    "prompt": "Evaluate lim (x → -4) (x² + 6x + 8)/(x + 4).",
    "answer": "-2",
    "solutionSteps": [
-    "Factor and cancel the common factor.",
-    "The limit is -2."
+    "Substituting x = -4 gives 0/0, so factor the numerator: x² + 6x + 8 = (x + 4)(x + 2).",
+    "Cancel the common factor (x + 4): for x ≠ -4, the expression equals x + 2.",
+    "The limit is -4 + 2 = -2."
    ],
    "standards": [
     "F-IF.C.7d"
