@@ -630,8 +630,7 @@
         '<nav class="calm-more" aria-label="More tools"><span>More:</span> ' + more.map(function (m) {
           return '<a href="' + esc(m[1]) + '">' + m[0] + '</a>';
         }).join('') + '</nav>' +
-        '<section class="calm-courses" aria-labelledby="calmCoursesTitle"><h2 id="calmCoursesTitle">Or browse by course</h2>' +
-        '<div class="course-sidebar"></div></section>' +
+        '<section class="calm-courses" aria-label="Go to your course"><div class="course-sidebar"></div></section>' +
         '</div></section>'
     };
   }
@@ -722,7 +721,9 @@
     { format: 'printable-generator', title: 'Activity', icon: '🧩', description: 'Mazes, puzzles, partner checks, and more.', page: 'printables.html' },
     { format: 'assessment-generator', title: 'Assessment', icon: '📋', description: 'Tests and choice-based assessments.', page: 'menu-assessment.html' }
   ];
-  function generatorLinks(c, u, compact) {
+  /* The URL a creation tool opens for a course (u null) or unit; '' when the course has no such tool,
+     'soon' when it is still being built. Shared by the course/unit shortcuts and the home picker. */
+  function toolUrl(c, u, tool) {
     // A course-level Grade 5 generator opens Unit 1; unit-level links use that unit.
     var items = u ? u.artifacts : (c && c.id === 'grade5' && c.units[0] ? c.units[0].artifacts : []);
     // Financial Algebra's own generators: the course page opens them for Unit 1, like the elementary courses.
@@ -733,26 +734,36 @@
         items.some(function (a) { var m = /#unit=([a-z0-9-]+)/.exec(a.path || ''); if (m) { unitId = m[1]; return true; } return false; });
       } else unitId = 'algebra1-' + u.id;
     }
+    var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
+    var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
+    if (c && c.id === 'grade5' && !match) return '';
+    if (c && c.id === 'financial-algebra' && !match) return '';
+    if (c && c.id === 'geometry') {
+      if (u && !unitId) return 'soon';
+      url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
+    }
+    if (c && ['algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete'].indexOf(c.id) >= 0) {
+      var selectedUnit = u ? u.id : c.units[0].id;
+      // Algebra 2 uses the same Lesson Planner, Worksheet and Assessment Generators as Algebra 1 and Geometry
+      // (bank-printable.html stays available for old links).
+      url = 'worksheet-generator/' + ({ 'printable-generator': 'printables.html', 'lesson-planner': 'lesson-planner.html', 'assessment-generator': 'menu-assessment.html', 'worksheet-generator': 'worksheet.html' }[tool.format] || tool.page) + '#unit=' + c.id + '-' + selectedUnit;
+    }
+    if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
+    return url;
+  }
+  function hasInteractive(c, u) {
+    return (c ? (u ? [u] : c.units) : L.courses.reduce(function (all, cc) { return all.concat(cc.units); }, [])).some(function (uu) {
+      return uu.artifacts.some(function (a) { return activityFormat(a) === 'interactive-math'; });
+    });
+  }
+  function generatorLinks(c, u, compact) {
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
       '<div class="generator-banner-heading"><h2>' + (compact ? (u ? 'Create Resources for This Unit' : 'Create Resources for This Course') : 'What would you like to do today?') + '</h2>' +
       (!compact ? '<p>Choose a generator, select your unit, and make classroom-ready resources.</p>' : '') + '</div>' +
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
-        var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
-        var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
-        if (c && c.id === 'grade5' && !match) return '';
-        if (c && c.id === 'financial-algebra' && !match) return '';
-        if (c && c.id === 'geometry') {
-          var supported = !u || !!unitId;
-          if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
-          url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
-        }
-        if (c && ['algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete'].indexOf(c.id) >= 0) {
-          var selectedUnit = u ? u.id : c.units[0].id;
-          // Algebra 2 uses the same Lesson Planner, Worksheet and Assessment Generators as Algebra 1 and Geometry
-          // (bank-printable.html stays available for old links).
-          url = 'worksheet-generator/' + ({ 'printable-generator': 'printables.html', 'lesson-planner': 'lesson-planner.html', 'assessment-generator': 'menu-assessment.html', 'worksheet-generator': 'worksheet.html' }[tool.format] || tool.page) + '#unit=' + c.id + '-' + selectedUnit;
-        }
-        if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
+        var url = toolUrl(c, u, tool);
+        if (!url) return '';
+        if (url === 'soon') return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
           '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
           '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
@@ -760,11 +771,8 @@
           '</span></a></li>';
       }).join('') +
       ['games', 'study-guides', 'interactive'].filter(function (category) {
-        if (category !== 'interactive') return true;
         // Only offer Interactive Math where this course (or unit) has tools.
-        return (c ? (u ? [u] : c.units) : L.courses.reduce(function (all, cc) { return all.concat(cc.units); }, [])).some(function (uu) {
-          return uu.artifacts.some(function (a) { return activityFormat(a) === 'interactive-math'; });
-        });
+        return category !== 'interactive' || hasInteractive(c, u);
       }).map(function (category) {
         var params = new URLSearchParams();
         if (c) params.set('subject', c.id);
@@ -1165,6 +1173,73 @@
     'financial-algebra': 'Budgeting, credit & financial choices.'
   };
 
+  /* ---------- home course picker: grade/course + what you need → one button ---------- */
+  var PICK_KEY = 'mk-home-course';
+  function courseNeeds(c) {
+    var soon = c.comingSoon || c.planned || c.homePlaceholder;
+    var browse = { id: 'browse', label: 'Browse the course', verb: 'Browse', url: soon ? (c.sourceUrl || href(courseToken(c))) : href(courseToken(c)) };
+    if (soon) return [browse];
+    var out = [browse];
+    [['lesson-planner', 'Plan a lesson', 'Plan a lesson:'], ['worksheet-generator', 'Make a worksheet', 'Make a worksheet:'],
+     ['assessment-generator', 'Give a quiz or test', 'Build a test:'], ['printable-generator', 'Mazes, puzzles & partner checks', 'Make an activity:']].forEach(function (n) {
+      var tool = GENERATOR_ACTIONS.filter(function (t) { return t.format === n[0]; })[0];
+      var url = tool && toolUrl(c, null, tool);
+      if (url && url !== 'soon') out.push({ id: n[0], label: n[1], verb: n[2], url: url });
+    });
+    [['games', 'Review games', 'Find games:'], ['study-guides', 'Flashcards & study guides', 'Find study guides:'], ['interactive', 'Interactive math', 'Explore interactive math:']].forEach(function (n) {
+      if (n[0] === 'interactive' && !hasInteractive(c, null)) return;
+      out.push({ id: n[0], label: n[1], verb: n[2], url: '#activities?subject=' + encodeURIComponent(c.id) + '&category=' + n[0] });
+    });
+    return out;
+  }
+  function pickerState(courses, courseId, needId) {
+    var c = courses.filter(function (x) { return x.id === courseId; })[0] || courses.filter(function (x) { return x.id === 'algebra'; })[0] || courses[0];
+    var needs = courseNeeds(c);
+    var need = needs.filter(function (n) { return n.id === needId; })[0] || needs[0];
+    return { c: c, needs: needs, need: need };
+  }
+  function pickerButtonLabel(st) { return st.need.id === 'browse' ? 'Browse ' + st.c.name : st.need.verb + ' ' + st.c.name; }
+  function needOptionsHtml(st) {
+    return st.needs.map(function (n) { return '<option value="' + esc(n.id) + '"' + (n === st.need ? ' selected' : '') + '>' + esc(n.label) + '</option>'; }).join('');
+  }
+  function coursePickerHtml(courses) {
+    var saved = ''; try { saved = localStorage.getItem(PICK_KEY) || ''; } catch (e) {}
+    var st = pickerState(courses, saved, 'browse');
+    return '<form class="course-picker" id="coursePicker">' +
+      '<div class="course-picker-field"><label for="pickCourse">Grade or course</label><select id="pickCourse">' +
+      courses.map(function (c) {
+        var soon = c.comingSoon || c.planned || c.homePlaceholder;
+        return '<option value="' + esc(c.id) + '"' + (c === st.c ? ' selected' : '') + '>' + esc(c.name + (soon ? ' (coming soon)' : '')) + '</option>';
+      }).join('') + '</select></div>' +
+      '<div class="course-picker-field"><label for="pickNeed">What do you need?</label><select id="pickNeed">' + needOptionsHtml(st) + '</select></div>' +
+      '<a class="course-picker-go" id="pickGo" href="' + esc(st.need.url) + '">' + esc(pickerButtonLabel(st)) + '</a>' +
+      '</form>';
+  }
+  function pickerCourses() {
+    return L.courses.concat(SOON).slice().sort(function (a, b) {
+      return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) - (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    var id = e.target && e.target.id;
+    if (id !== 'pickCourse' && id !== 'pickNeed') return;
+    var courseSel = document.getElementById('pickCourse'), needSel = document.getElementById('pickNeed'), go = document.getElementById('pickGo');
+    if (!courseSel || !needSel || !go) return;
+    var st = pickerState(pickerCourses(), courseSel.value, needSel.value);
+    if (id === 'pickCourse') {
+      needSel.innerHTML = needOptionsHtml(st);
+      try { localStorage.setItem(PICK_KEY, st.c.id); } catch (err) {}
+    }
+    go.setAttribute('href', st.need.url);
+    go.textContent = pickerButtonLabel(st);
+  });
+  document.addEventListener('submit', function (e) {
+    if (!e.target || e.target.id !== 'coursePicker') return;
+    e.preventDefault();
+    var go = document.getElementById('pickGo');
+    if (go) go.click();
+  });
+
   function updateNav(r) {
     var expanded = r && r.name === 'home';
     var courses = L.courses.concat(SOON).slice().sort(function (a, b) {
@@ -1185,13 +1260,8 @@
     if (sidebar) {
       sidebar.appendChild(nav);
       nav.setAttribute('aria-label', 'Courses');
-      nav.innerHTML = '<ul class="course-pills">' + courses.map(function (c) {
-        var soon = c.comingSoon || c.planned || c.homePlaceholder;
-        var link = soon ? (c.sourceUrl || href(courseToken(c))) : 'u/' + encodeURIComponent(c.id) + '/';
-        var n = soon ? 0 : courseCount(c);
-        return '<li><a class="course-nav-card course-pill' + (soon ? ' is-soon' : '') + '" data-course="' + esc(c.id) + '" href="' + esc(link) + '">' +
-          esc(c.name) + '<span class="course-pill-meta">' + (soon ? 'Coming soon' : n ? n : '') + '</span></a></li>';
-      }).join('') + '</ul>';
+      nav.setAttribute('aria-label', 'Go to your course');
+      nav.innerHTML = coursePickerHtml(courses);
     } else {
       document.querySelector('.site-header .bar').appendChild(nav);
       nav.setAttribute('aria-label', 'Courses');
