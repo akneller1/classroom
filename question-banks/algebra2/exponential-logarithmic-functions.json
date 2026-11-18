@@ -11,8 +11,9 @@
    "prompt": "y = 500(1.04)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Growth, 4%",
    "solutionSteps": [
-    "b = 1.04 > 1 → growth.",
-    "Rate = |b - 1| = 4%."
+    "In y = a·b^t the base b is the growth or decay factor: b = 1.04.",
+    "b > 1, so the function shows growth.",
+    "The rate is b - 1 = 0.04 = 4% per unit time: Growth, 4%."
    ],
    "options": [
     {
@@ -46,8 +47,9 @@
    "prompt": "y = 1200(0.85)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Decay, 15%",
    "solutionSteps": [
-    "b = 0.85 < 1 → decay.",
-    "Rate = |b - 1| = 15%."
+    "The base is b = 0.85.",
+    "0 < b < 1, so the function shows decay.",
+    "The rate is 1 - b = 0.15 = 15% per unit time: Decay, 15%."
    ],
    "options": [
     {
@@ -81,8 +83,9 @@
    "prompt": "y = 80(2)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Growth, 100%",
    "solutionSteps": [
-    "b = 2 > 1 → growth.",
-    "Rate = |b - 1| = 100%."
+    "The base is b = 2.",
+    "b > 1, so it is growth: the amount doubles each unit.",
+    "The rate is b - 1 = 1 = 100% per unit time: Growth, 100%."
    ],
    "options": [
     {
@@ -116,8 +119,9 @@
    "prompt": "y = 3000(0.5)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Decay, 50%",
    "solutionSteps": [
-    "b = 0.5 < 1 → decay.",
-    "Rate = |b - 1| = 50%."
+    "The base is b = 0.5.",
+    "0 < b < 1, so it is decay: the amount halves each unit.",
+    "The rate is 1 - b = 0.5 = 50%: Decay, 50%."
    ],
    "options": [
     {
@@ -147,8 +151,9 @@
    "prompt": "y = 45(1.125)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Growth, 12.5%",
    "solutionSteps": [
-    "b = 1.125 > 1 → growth.",
-    "Rate = |b - 1| = 12.5%."
+    "The base is b = 1.125.",
+    "b > 1, so it is growth.",
+    "The rate is b - 1 = 0.125 = 12.5%: Growth, 12.5%."
    ],
    "options": [
     {
@@ -182,8 +187,9 @@
    "prompt": "y = 10000(0.92)^t. Is this growth or decay, and at what percent rate per unit time?",
    "answer": "Decay, 8%",
    "solutionSteps": [
-    "b = 0.92 < 1 → decay.",
-    "Rate = |b - 1| = 8%."
+    "The base is b = 0.92.",
+    "0 < b < 1, so it is decay.",
+    "The rate is 1 - b = 0.08 = 8%: Decay, 8%."
    ],
    "options": [
     {
@@ -319,8 +325,9 @@
    "prompt": "Write an exponential function y = ab^x through (0, 3) and (1, 6).",
    "answer": "y = 3(2)^x",
    "solutionSteps": [
-    "Divide: b = 6/3 → b = 2.",
-    "a = 3 (the value at x = 0)."
+    "At x = 0, y = a·b⁰ = a, so a = 3.",
+    "At x = 1, y = ab = 6, so b = 6/3 = 2.",
+    "y = 3(2)^x."
    ],
    "standards": [
     "F-LE.A.1",
@@ -353,8 +360,9 @@
    "prompt": "Write an exponential function y = ab^x through (1, 12) and (3, 108).",
    "answer": "y = 4(3)^x",
    "solutionSteps": [
-    "Divide: b^2 = 108/12 → b = 3.",
-    "a = 12/3 = 4."
+    "Divide the two equations: ab³/(ab¹) = 108/12, so b² = 9 and b = 3 (b > 0).",
+    "Substitute into ab = 12: 3a = 12, so a = 4.",
+    "y = 4(3)^x."
    ],
    "standards": [
     "F-LE.A.1",
@@ -370,8 +378,9 @@
    "prompt": "Write an exponential function y = ab^x through (2, 20) and (4, 5).",
    "answer": "y = 80(0.5)^x",
    "solutionSteps": [
-    "Divide: b^2 = 5/20 → b = 0.5.",
-    "a = 20/0.5^2 = 80."
+    "Divide: ab⁴/(ab²) = 5/20, so b² = 1/4 and b = 0.5.",
+    "Substitute into ab² = 20: a(0.25) = 20, so a = 80.",
+    "y = 80(0.5)^x."
    ],
    "standards": [
     "F-LE.A.1",
@@ -387,8 +396,9 @@
    "prompt": "Write an exponential function y = ab^x through (1, 15) and (2, 22.5).",
    "answer": "y = 10(1.5)^x",
    "solutionSteps": [
-    "Divide: b = 22.5/15 → b = 1.5.",
-    "a = 15/1.5 = 10."
+    "Divide: ab²/(ab) = 22.5/15, so b = 1.5.",
+    "Substitute into ab = 15: 1.5a = 15, so a = 10.",
+    "y = 10(1.5)^x."
    ],
    "standards": [
     "F-LE.A.1",
@@ -439,7 +449,9 @@
    "prompt": "A population triples every 4 years. Which model gives the population after t years?",
    "answer": "P = P₀·3^(t/4)",
    "solutionSteps": [
-    "After t years there are t/4 tripling periods."
+    "The population is multiplied by 3 once every 4 years.",
+    "After t years there have been t/4 tripling periods, so it is multiplied by 3 a total of t/4 times.",
+    "P = P₀·3^(t/4)."
    ],
    "options": [
     {
@@ -609,8 +621,9 @@
    "prompt": "Bacteria double every 20 minutes. Starting with 50, how many after 3 hours?",
    "answer": "25,600",
    "solutionSteps": [
-    "3 hours = 180 min = 9 doublings.",
-    "50·2⁹ = 25,600."
+    "3 hours = 180 minutes, and one doubling takes 20 minutes, so there are 180/20 = 9 doublings.",
+    "The amount is multiplied by 2 nine times: 50·2⁹.",
+    "2⁹ = 512, so 50·512 = 25,600."
    ],
    "standards": [
     "F-LE.A.1",
@@ -626,8 +639,9 @@
    "prompt": "A substance has a half-life of 8 days. What percent remains after 30 days (nearest tenth)?",
    "answer": "7.4%",
    "solutionSteps": [
-    "Remaining fraction = (1/2)^(30/8).",
-    "≈ 0.0743."
+    "Each half-life multiplies the amount by 1/2; 30 days is 30/8 = 3.75 half-lives.",
+    "Remaining fraction = (1/2)^3.75 ≈ 0.0743.",
+    "About 7.4% remains."
    ],
    "standards": [
     "F-LE.A.1",
@@ -754,7 +768,9 @@
    "prompt": "Find the initial value and growth factor of y = 7(1.3)^x.",
    "answer": "initial value 7; growth factor 1.3",
    "solutionSteps": [
-    "a = 7, b = 1.3."
+    "In y = a·b^x, a is the initial value (the value at x = 0) and b is the growth factor.",
+    "Here a = 7 and b = 1.3 (b > 1, so 30% growth).",
+    "Initial value 7; growth factor 1.3."
    ],
    "standards": [
     "F-LE.A.1",
@@ -770,7 +786,9 @@
    "prompt": "A $20,000 car loses 10% of its value each year. Write a model for its value V after t years.",
    "answer": "V = 20000(0.9)^t",
    "solutionSteps": [
-    "Decay factor 1 - 0.10 = 0.9."
+    "Losing 10% each year leaves 100% - 10% = 90% of the value, so the decay factor is 0.9.",
+    "The initial value is $20,000.",
+    "V = 20000(0.9)^t."
    ],
    "standards": [
     "F-LE.A.1",
@@ -1517,8 +1535,10 @@
     "range y > 0"
    ],
    "solutionSteps": [
-    "b⁰ = 1 for every base.",
-    "(1, b) differs; both increase."
+    "For any base b > 0, b⁰ = 1, so both graphs pass through (0, 1).",
+    "Both are defined for all real x, have outputs that are always positive (range y > 0) and approach y = 0 as x → -∞ (asymptote y = 0).",
+    "They differ at x = 1 ((1, 2) vs (1, 5)), and both are increasing, not decreasing.",
+    "Shared: y-intercept (0, 1), horizontal asymptote y = 0, domain all real numbers and range y > 0."
    ],
    "options": [
     {
@@ -1609,8 +1629,9 @@
    "prompt": "Find the y-intercept and asymptote of y = 4(0.5)^x - 2.",
    "answer": "y-intercept 2; asymptote y = -2",
    "solutionSteps": [
-    "y(0) = 4 - 2 = 2.",
-    "k = -2."
+    "y-intercept: y(0) = 4(0.5)⁰ - 2 = 4 - 2 = 2.",
+    "As x → ∞, 4(0.5)^x → 0, so y → -2.",
+    "y-intercept 2; asymptote y = -2."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -1626,8 +1647,9 @@
    "prompt": "An exponential y = ab^x + k has asymptote y = 3 and passes through (0, 5) and (1, 7). Find a, b, k.",
    "answer": "a = 2, b = 2, k = 3",
    "solutionSteps": [
-    "k = 3; a + 3 = 5 → a = 2.",
-    "2b + 3 = 7 → b = 2."
+    "The horizontal asymptote of y = ab^x + k is y = k, so k = 3.",
+    "(0, 5): a + 3 = 5, so a = 2.",
+    "(1, 7): 2b + 3 = 7, so b = 2. So a = 2, b = 2, k = 3."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -1643,7 +1665,9 @@
    "prompt": "For which value of b is y = b^x NOT an exponential function?",
    "answer": "b = 1",
    "solutionSteps": [
-    "1^x = 1 is constant (linear), so b ≠ 1 is required."
+    "An exponential function y = b^x needs b > 0 and b ≠ 1.",
+    "When b = 1, y = 1^x = 1 for every x, a constant (horizontal line), so it neither grows nor decays.",
+    "So b = 1 does not give an exponential function."
    ],
    "options": [
     {
@@ -1677,7 +1701,9 @@
    "prompt": "The graph of y = 2^x is translated so its asymptote is y = -4. Which could be the new function?",
    "answer": "y = 2^x - 4",
    "solutionSteps": [
-    "Only a vertical shift moves the horizontal asymptote."
+    "The asymptote of y = 2^x is y = 0; only a vertical shift moves a horizontal asymptote.",
+    "Shifting down 4 moves it to y = -4.",
+    "y = 2^x - 4."
    ],
    "options": [
     {
@@ -1711,7 +1737,9 @@
    "prompt": "Compare the average rates of change of y = 3^x on [0, 1] and [2, 3].",
    "answer": "2 and 18",
    "solutionSteps": [
-    "(3 - 1)/1 = 2; (27 - 9)/1 = 18."
+    "On [0, 1]: (3¹ - 3⁰)/(1 - 0) = (3 - 1)/1 = 2.",
+    "On [2, 3]: (3³ - 3²)/(3 - 2) = (27 - 9)/1 = 18.",
+    "The rates are 2 and 18: the graph gets steeper as x increases."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -1727,7 +1755,9 @@
    "prompt": "What is the horizontal asymptote of y = 7^x + 1?",
    "answer": "y = 1",
    "solutionSteps": [
-    "k = 1."
+    "7^x gets closer and closer to 0 as x → -∞ but never reaches it.",
+    "Adding 1 shifts the graph up 1, so y gets close to 1.",
+    "The horizontal asymptote is y = 1."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -1743,8 +1773,9 @@
    "prompt": "Write 2^5 = 32 in logarithmic form.",
    "answer": "log₂(32) = 5",
    "solutionSteps": [
-    "b^y = x ⇔ log_b(x) = y.",
-    "Base 2, exponent 5, result 32."
+    "b^y = x is the same as log_b(x) = y: the logarithm is the exponent.",
+    "Base 2, exponent 5, result 32.",
+    "log₂(32) = 5."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1761,7 +1792,8 @@
    "answer": "log₃(81) = 4",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 3, exponent 4, result 81."
+    "Base 3, exponent 4, result 81.",
+    "log₃(81) = 4."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1777,8 +1809,9 @@
    "prompt": "Write 10^(-2) = 1/100 in logarithmic form.",
    "answer": "log(1/100) = -2",
    "solutionSteps": [
-    "b^y = x ⇔ log_b(x) = y.",
-    "Base 10, exponent -2, result 1/100."
+    "b^y = x ⇔ log_b(x) = y; base 10 is written log with no subscript.",
+    "Base 10, exponent -2, result 1/100.",
+    "log(1/100) = -2."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1795,7 +1828,8 @@
    "answer": "log₅(1) = 0",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 5, exponent 0, result 1."
+    "Base 5, exponent 0, result 1.",
+    "log₅(1) = 0."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1812,7 +1846,8 @@
    "answer": "log₄(2) = 1/2",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 4, exponent 1/2, result 2."
+    "Base 4, exponent 1/2, result 2.",
+    "log₄(2) = 1/2."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1829,7 +1864,8 @@
    "answer": "log_(1/3)(9) = -2",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 1/3, exponent -2, result 9."
+    "Base 1/3, exponent -2, result 9.",
+    "log_(1/3)(9) = -2."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1846,7 +1882,8 @@
    "answer": "log₇(7) = 1",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 7, exponent 1, result 7."
+    "Base 7, exponent 1, result 7.",
+    "log₇(7) = 1."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1863,7 +1900,8 @@
    "answer": "log₈(4) = 2/3",
    "solutionSteps": [
     "b^y = x ⇔ log_b(x) = y.",
-    "Base 8, exponent 2/3, result 4."
+    "Base 8, exponent 2/3, result 4.",
+    "log₈(4) = 2/3."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1879,7 +1917,9 @@
    "prompt": "Write log₆(36) = 2 in exponential form.",
    "answer": "6^2 = 36",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log_b(x) = y ⇔ b^y = x: the base raised to the log's value gives the argument.",
+    "Base 6, value 2, argument 36.",
+    "6^2 = 36."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1895,7 +1935,9 @@
    "prompt": "Write log₂(1/8) = -3 in exponential form.",
    "answer": "2^(-3) = 1/8",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log_b(x) = y ⇔ b^y = x.",
+    "Base 2, value -3, argument 1/8.",
+    "2^(-3) = 1/8."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1911,7 +1953,9 @@
    "prompt": "Write log(1000) = 3 in exponential form.",
    "answer": "10^3 = 1000",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log with no base means base 10; log_b(x) = y ⇔ b^y = x.",
+    "Base 10, value 3, argument 1000.",
+    "10^3 = 1000."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1927,7 +1971,9 @@
    "prompt": "Write log₉(3) = 1/2 in exponential form.",
    "answer": "9^(1/2) = 3",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log_b(x) = y ⇔ b^y = x.",
+    "Base 9, value 1/2, argument 3.",
+    "9^(1/2) = 3."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1943,7 +1989,9 @@
    "prompt": "Write log₅(1) = 0 in exponential form.",
    "answer": "5^0 = 1",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log_b(x) = y ⇔ b^y = x.",
+    "Base 5, value 0, argument 1.",
+    "5^0 = 1."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1959,7 +2007,9 @@
    "prompt": "Write log₁₆(8) = 3/4 in exponential form.",
    "answer": "16^(3/4) = 8",
    "solutionSteps": [
-    "log_b(x) = y ⇔ b^y = x."
+    "log_b(x) = y ⇔ b^y = x.",
+    "Base 16, value 3/4, argument 8.",
+    "16^(3/4) = 8."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -1975,8 +2025,9 @@
    "prompt": "Find the inverse of y = 3^x.",
    "answer": "y = log₃(x)",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = log₃(x)."
+    "Write y = 3^x and swap x and y: x = 3^y.",
+    "Solve for y by writing it in logarithmic form: y = log₃(x).",
+    "The inverse is y = log₃(x)."
    ],
    "options": [
     {
@@ -2010,8 +2061,9 @@
    "prompt": "Find the inverse of y = log₅(x).",
    "answer": "y = 5^x",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = 5^x."
+    "Write y = log₅(x) and swap: x = log₅(y).",
+    "Exponential form: y = 5^x.",
+    "The inverse is y = 5^x."
    ],
    "options": [
     {
@@ -2045,8 +2097,9 @@
    "prompt": "Find the inverse of y = e^x.",
    "answer": "y = ln(x)",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = ln(x)."
+    "Write y = e^x and swap: x = e^y.",
+    "The logarithm with base e is ln: y = ln(x).",
+    "The inverse is y = ln(x)."
    ],
    "options": [
     {
@@ -2080,8 +2133,9 @@
    "prompt": "Find the inverse of y = 2^(x - 1).",
    "answer": "y = log₂(x) + 1",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = log₂(x) + 1."
+    "Swap x and y: x = 2^(y - 1).",
+    "Logarithmic form: y - 1 = log₂(x).",
+    "Add 1: the inverse is y = log₂(x) + 1."
    ],
    "options": [
     {
@@ -2115,8 +2169,9 @@
    "prompt": "Find the inverse of y = log(x) + 2.",
    "answer": "y = 10^(x - 2)",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = 10^(x - 2)."
+    "Swap x and y: x = log(y) + 2, so log(y) = x - 2.",
+    "Exponential form (base 10): y = 10^(x - 2).",
+    "The inverse is y = 10^(x - 2)."
    ],
    "options": [
     {
@@ -2150,8 +2205,9 @@
    "prompt": "Find the inverse of y = 4^x + 3.",
    "answer": "y = log₄(x - 3)",
    "solutionSteps": [
-    "Swap x and y, then solve for y.",
-    "Inverse: y = log₄(x - 3)."
+    "Swap x and y: x = 4^y + 3, so 4^y = x - 3.",
+    "Logarithmic form: y = log₄(x - 3).",
+    "The inverse is y = log₄(x - 3)."
    ],
    "options": [
     {
@@ -2365,7 +2421,9 @@
    "prompt": "Simplify 5^(log₅ 12).",
    "answer": "12",
    "solutionSteps": [
-    "b^(log_b x) = x because exponentials and logs are inverses."
+    "log₅ 12 is the exponent you put on 5 to get 12.",
+    "So raising 5 to that exponent gives 12: b^(log_b x) = x.",
+    "5^(log₅ 12) = 12."
    ],
    "options": [
     {
@@ -2399,7 +2457,9 @@
    "prompt": "Simplify log₇(7^(2x)).",
    "answer": "2x",
    "solutionSteps": [
-    "log_b(b^y) = y."
+    "log₇(7^(2x)) asks: 7 to what power is 7^(2x)?",
+    "The power is 2x, because log_b(b^y) = y.",
+    "log₇(7^(2x)) = 2x."
    ],
    "options": [
     {
@@ -2485,8 +2545,9 @@
    "prompt": "f(x) = 2^(x + 3) - 1. Find f⁻¹(x) and its domain.",
    "answer": "f⁻¹(x) = log₂(x + 1) - 3; domain x > -1",
    "solutionSteps": [
-    "x = 2^(y + 3) - 1 → x + 1 = 2^(y + 3).",
-    "y + 3 = log₂(x + 1)."
+    "Swap x and y: x = 2^(y + 3) - 1, so x + 1 = 2^(y + 3).",
+    "Logarithmic form: y + 3 = log₂(x + 1), so y = log₂(x + 1) - 3.",
+    "f⁻¹(x) = log₂(x + 1) - 3; the argument must be positive, so its domain is x > -1 (the range of f)."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -2539,7 +2600,9 @@
    "prompt": "Write 10³ = 1000 in logarithmic form.",
    "answer": "log(1000) = 3",
    "solutionSteps": [
-    "Common log: base 10."
+    "b^y = x ⇔ log_b(x) = y, and the common log (base 10) is written log.",
+    "Base 10, exponent 3, result 1000.",
+    "log(1000) = 3."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -2875,7 +2938,9 @@
    "prompt": "A student writes log(x + y) = log x + log y. What is correct?",
    "answer": "log(x + y) cannot be split; log(xy) = log x + log y",
    "solutionSteps": [
-    "The product rule is about the log of a product, not a sum."
+    "The product rule is about the log of a product: log(xy) = log x + log y.",
+    "There is no rule that splits the log of a sum; for example log(1 + 1) = log 2 ≈ 0.301, but log 1 + log 1 = 0.",
+    "So log(x + y) cannot be split; log(xy) = log x + log y."
    ],
    "options": [
     {
@@ -2908,7 +2973,9 @@
    "prompt": "A student writes log₂(x³) = (log₂ x)³. What is correct?",
    "answer": "3log₂ x",
    "solutionSteps": [
-    "Power rule: log_b(x^n) = n·log_b x."
+    "The power rule moves an exponent on the argument to the front: log_b(x^n) = n·log_b x.",
+    "So log₂(x³) = 3log₂ x.",
+    "(log₂ x)³ is a different expression (for x = 4 it is 8, while log₂ 64 = 6), so the correct form is 3log₂ x."
    ],
    "options": [
     {
@@ -3082,8 +3149,9 @@
    "prompt": "Prove log_b(x/y) = log_b x - log_b y using exponents.",
    "answer": "Let m = log_b x and n = log_b y; then x/y = b^m/b^n = b^(m - n)",
    "solutionSteps": [
-    "x = b^m, y = b^n.",
-    "x/y = b^(m - n), so log_b(x/y) = m - n."
+    "Let m = log_b x and n = log_b y, so x = b^m and y = b^n.",
+    "Then x/y = b^m/b^n = b^(m - n) by the quotient rule for exponents.",
+    "In log form, log_b(x/y) = m - n = log_b x - log_b y."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3098,10 +3166,10 @@
    "prompt": "Use log 2 ≈ 0.301 and log 3 ≈ 0.477.",
    "answer": "(a) 0.778; (b) 1.255; (c) 0.176; (d) 0.699",
    "solutionSteps": [
-    "log 2 + log 3.",
-    "log 2 + 2log 3.",
-    "log 3 - log 2.",
-    "1 - log 2."
+    "(a) log 6 = log(2·3) = log 2 + log 3 ≈ 0.301 + 0.477 = 0.778.",
+    "(b) log 18 = log(2·3²) = log 2 + 2log 3 ≈ 0.301 + 0.954 = 1.255.",
+    "(c) log 1.5 = log(3/2) = log 3 - log 2 ≈ 0.176.",
+    "(d) log 5 = log(10/2) = log 10 - log 2 ≈ 1 - 0.301 = 0.699."
    ],
    "parts": [
     {
@@ -3170,7 +3238,9 @@
    "prompt": "Expand log₇(5x).",
    "answer": "log₇ 5 + log₇ x",
    "solutionSteps": [
-    "Product rule."
+    "5x is a product, so use the product rule log_b(MN) = log_b M + log_b N.",
+    "M = 5 and N = x.",
+    "log₇(5x) = log₇ 5 + log₇ x."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3345,7 +3415,9 @@
    "prompt": "Use a calculator to evaluate log(50) to four decimal places.",
    "answer": "1.6990",
    "solutionSteps": [
-    "Common log = base 10."
+    "log with no base is the common log (base 10); use the LOG key.",
+    "log(50) = 1.69897…, since 10^1.699 ≈ 50.",
+    "To four decimal places: 1.6990."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3360,7 +3432,9 @@
    "prompt": "Use a calculator to evaluate log(0.25) to four decimal places.",
    "answer": "-0.6021",
    "solutionSteps": [
-    "Common log = base 10."
+    "Use the LOG key (base 10).",
+    "log(0.25) = -0.60206… (negative because 0.25 < 1).",
+    "To four decimal places: -0.6021."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3375,7 +3449,9 @@
    "prompt": "Use a calculator to evaluate log(7) to four decimal places.",
    "answer": "0.8451",
    "solutionSteps": [
-    "Common log = base 10."
+    "Use the LOG key (base 10).",
+    "log(7) = 0.845098…",
+    "To four decimal places: 0.8451."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3390,7 +3466,9 @@
    "prompt": "Use a calculator to evaluate log(1234) to four decimal places.",
    "answer": "3.0913",
    "solutionSteps": [
-    "Common log = base 10."
+    "Use the LOG key (base 10).",
+    "log(1234) = 3.09131… (between 3 and 4 because 1000 < 1234 < 10000).",
+    "To four decimal places: 3.0913."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3405,8 +3483,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₃(20) to three decimal places.",
    "answer": "2.727",
    "solutionSteps": [
-    "log₃(20) = log(20)/log(3) = ln(20)/ln(3).",
-    "≈ 2.727."
+    "Change of base: log₃(20) = log(20)/log(3).",
+    "≈ 1.30103/0.47712 ≈ 2.7268.",
+    "To three decimal places: 2.727."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3421,8 +3500,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₂(10) to three decimal places.",
    "answer": "3.322",
    "solutionSteps": [
-    "log₂(10) = log(10)/log(2) = ln(10)/ln(2).",
-    "≈ 3.322."
+    "Change of base: log₂(10) = log(10)/log(2) = 1/log 2.",
+    "≈ 1/0.30103 ≈ 3.3219.",
+    "To three decimal places: 3.322."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3437,8 +3517,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₇(100) to three decimal places.",
    "answer": "2.367",
    "solutionSteps": [
-    "log₇(100) = log(100)/log(7) = ln(100)/ln(7).",
-    "≈ 2.367."
+    "Change of base: log₇(100) = log(100)/log(7) = 2/log 7.",
+    "≈ 2/0.84510 ≈ 2.3666.",
+    "To three decimal places: 2.367."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3453,8 +3534,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₅(0.4) to three decimal places.",
    "answer": "-0.569",
    "solutionSteps": [
-    "log₅(0.4) = log(0.4)/log(5) = ln(0.4)/ln(5).",
-    "≈ -0.569."
+    "Change of base: log₅(0.4) = log(0.4)/log(5).",
+    "≈ -0.39794/0.69897 ≈ -0.5693.",
+    "To three decimal places: -0.569."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3469,7 +3551,9 @@
    "prompt": "Evaluate ln(e⁵).",
    "answer": "5",
    "solutionSteps": [
-    "ln and e^x are inverses."
+    "ln is the logarithm with base e, so ln(e⁵) asks: e to what power is e⁵?",
+    "The power is 5 (ln and e^x are inverses).",
+    "ln(e⁵) = 5."
    ],
    "options": [
     {
@@ -3502,7 +3586,9 @@
    "prompt": "Evaluate log 1.",
    "answer": "0",
    "solutionSteps": [
-    "10⁰ = 1."
+    "log 1 asks: 10 to what power is 1?",
+    "10⁰ = 1.",
+    "log 1 = 0."
    ],
    "options": [
     {
@@ -3535,7 +3621,9 @@
    "prompt": "Between which two integers is log₃ 50?",
    "answer": "3 and 4",
    "solutionSteps": [
-    "3³ = 27 < 50 < 81 = 3⁴."
+    "log₃ 50 is the power of 3 that gives 50.",
+    "3³ = 27 < 50 < 81 = 3⁴.",
+    "So log₃ 50 is between 3 and 4."
    ],
    "options": [
     {
@@ -3568,7 +3656,9 @@
    "prompt": "Evaluate log₂(-8).",
    "answer": "Undefined (not a real number)",
    "solutionSteps": [
-    "2^y > 0 for every real y, so the argument must be positive."
+    "log₂(-8) would be the power y with 2^y = -8.",
+    "But 2^y > 0 for every real y, so no real power works.",
+    "log₂(-8) is undefined (not a real number)."
    ],
    "options": [
     {
@@ -3697,8 +3787,9 @@
    "prompt": "Evaluate log₂(log₃ 81).",
    "answer": "2",
    "solutionSteps": [
-    "log₃ 81 = 4.",
-    "log₂ 4 = 2."
+    "Work from the inside: log₃ 81 = 4 because 3⁴ = 81.",
+    "Then log₂(4) = 2 because 2² = 4.",
+    "log₂(log₃ 81) = 2."
    ],
    "standards": [
     "F-LE.A.4"
@@ -3729,10 +3820,10 @@
    "prompt": "Explore log₅ 125.",
    "answer": "(a) 5³; (b) 3; (c) 3/2; (d) -3",
    "solutionSteps": [
-    "125 = 5·5·5.",
-    "Exponent 3.",
-    "√125 = 5^(3/2).",
-    "5^(-3)."
+    "(a) 125 = 5 · 5 · 5 = 5³.",
+    "(b) log₅ 125 = log₅ 5³ = 3.",
+    "(c) √125 = (5³)^(1/2) = 5^(3/2), so log₅ √125 = 3/2.",
+    "(d) 1/125 = 5^(-3), so log₅(1/125) = -3."
    ],
    "parts": [
     {
@@ -3765,10 +3856,10 @@
    "prompt": "pH = -log[H⁺].",
    "answer": "(a) 4; (b) 10⁻⁷ mol/L; (c) 100; (d) 4.49",
    "solutionSteps": [
-    "-log 10⁻⁴.",
-    "[H⁺] = 10^(-pH).",
-    "10⁻³/10⁻⁵.",
-    "-log(3.2 × 10⁻⁵)."
+    "(a) pH = -log(10⁻⁴) = -(-4) = 4.",
+    "(b) pH = 7 means -log[H⁺] = 7, so [H⁺] = 10⁻⁷ mol/L.",
+    "(c) pH 3 has [H⁺] = 10⁻³ and pH 5 has 10⁻⁵; 10⁻³/10⁻⁵ = 10² = 100 times more acidic.",
+    "(d) pH = -log(3.2 × 10⁻⁵) = -(log 3.2 - 5) ≈ -(0.505 - 5) ≈ 4.49."
    ],
    "parts": [
     {
@@ -3801,7 +3892,9 @@
    "prompt": "Evaluate log₄ 64.",
    "answer": "3",
    "solutionSteps": [
-    "4³ = 64."
+    "log₄ 64 asks: 4 to what power is 64?",
+    "4³ = 4 · 4 · 4 = 64.",
+    "log₄ 64 = 3."
    ],
    "standards": [
     "F-LE.A.4"
@@ -4104,9 +4197,9 @@
    "prompt": "Solve 2(10)^x = 7. Round to the nearest hundredth.",
    "answer": "x ≈ 0.54",
    "solutionSteps": [
-    "Divide by a first.",
-    "(10)^x = 3.5.",
-    "x = log(3.5)/log(10) ≈ 0.54."
+    "Divide both sides by 2: 10^x = 3.5.",
+    "Take the common log: x = log(3.5).",
+    "log(3.5) ≈ 0.5441, so x ≈ 0.54."
    ],
    "standards": [
     "F-LE.A.4",
@@ -4140,7 +4233,9 @@
    "prompt": "Solve e^x = 12. Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = ln 12 ≈ 2.485",
    "solutionSteps": [
-    "Take ln."
+    "Take the natural log of both sides: ln(e^x) = ln 12.",
+    "ln(e^x) = x, so x = ln 12 exactly.",
+    "ln 12 ≈ 2.4849, so x = ln 12 ≈ 2.485."
    ],
    "standards": [
     "F-LE.A.4",
@@ -4156,8 +4251,9 @@
    "prompt": "Solve 2e^(3x) - 5 = 9. Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = (ln 7)/3 ≈ 0.649",
    "solutionSteps": [
-    "e^(3x) = 7.",
-    "3x = ln 7."
+    "Isolate the exponential: 2e^(3x) = 14, so e^(3x) = 7.",
+    "Take ln: 3x = ln 7, so x = (ln 7)/3.",
+    "ln 7 ≈ 1.9459, so x = (ln 7)/3 ≈ 0.649."
    ],
    "standards": [
     "F-LE.A.4",
@@ -4173,8 +4269,9 @@
    "prompt": "Solve 3^x = 2^(x + 1). Give the exact answer and a decimal to the nearest thousandth.",
    "answer": "x = ln 2/(ln 3 - ln 2) ≈ 1.710",
    "solutionSteps": [
-    "x ln 3 = (x + 1) ln 2.",
-    "x(ln 3 - ln 2) = ln 2."
+    "Take ln of both sides and use the power rule: x ln 3 = (x + 1) ln 2.",
+    "Collect the x-terms: x ln 3 - x ln 2 = ln 2, so x(ln 3 - ln 2) = ln 2.",
+    "x = ln 2/(ln 3 - ln 2) ≈ 0.6931/0.4055 ≈ 1.710."
    ],
    "standards": [
     "F-LE.A.4",
@@ -4190,8 +4287,9 @@
    "prompt": "Solve e^(2x) - 5e^x + 6 = 0.",
    "answer": "x = ln 2 or x = ln 3",
    "solutionSteps": [
-    "Let u = e^x: u² - 5u + 6 = 0 → u = 2 or 3.",
-    "x = ln 2, ln 3."
+    "e^(2x) = (e^x)², so let u = e^x: u² - 5u + 6 = 0.",
+    "(u - 2)(u - 3) = 0, so e^x = 2 or e^x = 3 (both positive, so both allowed).",
+    "x = ln 2 or x = ln 3."
    ],
    "standards": [
     "F-LE.A.4",
@@ -4224,7 +4322,9 @@
    "prompt": "A student solves 3·2^x = 24 by writing 6^x = 24. What is the error?",
    "answer": "3·2^x ≠ 6^x; divide by 3 first: 2^x = 8, x = 3",
    "solutionSteps": [
-    "Only the 2 is raised to x."
+    "In 3·2^x only the 2 is raised to the power x; 3·2^x is not (3·2)^x = 6^x.",
+    "Divide both sides by 3 first: 2^x = 8.",
+    "8 = 2³, so x = 3. The error: 3·2^x ≠ 6^x; divide by 3 first: 2^x = 8, x = 3."
    ],
    "options": [
     {
@@ -4264,7 +4364,10 @@
     "(1/2)^x = 1/8"
    ],
    "solutionSteps": [
-    "Substitute x = 3 into each equation."
+    "Substitute x = 3 into each equation.",
+    "2³ = 8 ✓; 3^(3 - 1) = 9 ✓; 4³ = 64 = 8² ✓; 10³ = 1000 ✓; (1/2)³ = 1/8 ✓.",
+    "5³ = 125 ≠ 15 and e³ ≈ 20.1 ≠ 3.",
+    "x = 3 solves 2^x = 8, 3^(x - 1) = 9, 4^x = 8^2, 10^x = 1000 and (1/2)^x = 1/8."
    ],
    "options": [
     {
@@ -4315,7 +4418,10 @@
     "x log 5 = log 30"
    ],
    "solutionSteps": [
-    "Take a log of both sides; change of base."
+    "By definition 5^x = 30 means x = log₅ 30.",
+    "Taking the common log of both sides gives x log 5 = log 30, so x = log 30/log 5; with ln instead, x = ln 30/ln 5.",
+    "log 30 - log 5 = log(30/5) = log 6 and 30/5 = 6 are not equal to log₅ 30 ≈ 2.11.",
+    "Equivalent: x = log₅ 30, x = log 30/log 5, x = ln 30/ln 5 and x log 5 = log 30."
    ],
    "options": [
     {
@@ -4361,10 +4467,10 @@
    "prompt": "Solve 7^(x - 2) = 50.",
    "answer": "(a) (x - 2)log 7 = log 50; (b) x = 2 + log 50/log 7; (c) 4.010; (d) 7^2.010 ≈ 50",
    "solutionSteps": [
-    "Power rule.",
-    "Divide, add 2.",
-    "Calculator.",
-    "Substitute."
+    "(a) log(7^(x - 2)) = log 50, so (x - 2)log 7 = log 50 by the power rule.",
+    "(b) Divide by log 7 and add 2: x = 2 + log 50/log 7.",
+    "(c) log 50/log 7 ≈ 1.69897/0.84510 ≈ 2.0104, so x ≈ 4.010.",
+    "(d) 7^(4.010 - 2) = 7^2.010 ≈ 50 ✓."
    ],
    "parts": [
     {
@@ -4609,8 +4715,9 @@
    "prompt": "Solve log₃(x) = 4.",
    "answer": "x = 81",
    "solutionSteps": [
-    "Exponential form: x = 3^4 = 81.",
-    "x = 81."
+    "Write in exponential form: log₃(x) = 4 means x = 3^4.",
+    "3^4 = 81.",
+    "x = 81 (positive, so it is in the domain)."
    ],
    "options": [
     {
@@ -4640,7 +4747,8 @@
    "answer": "x = -5/2",
    "solutionSteps": [
     "Exponential form: x + 3 = 2^(-1) = 1/2.",
-    "x = -5/2."
+    "x = 1/2 - 3 = -5/2.",
+    "Check: the argument -5/2 + 3 = 1/2 > 0, so x = -5/2."
    ],
    "options": [
     {
@@ -4673,8 +4781,9 @@
    "prompt": "Solve log(2x - 5) = 1.",
    "answer": "x = 15/2",
    "solutionSteps": [
-    "Exponential form: 2x - 5 = 10^1 = 10.",
-    "x = 15/2."
+    "Exponential form (base 10): 2x - 5 = 10^1 = 10.",
+    "2x = 15, so x = 15/2.",
+    "Check: the argument 15 - 5 = 10 > 0, so x = 15/2."
    ],
    "options": [
     {
@@ -4704,7 +4813,8 @@
    "answer": "x = 8",
    "solutionSteps": [
     "Exponential form: 3x + 1 = 5^2 = 25.",
-    "x = 8."
+    "3x = 24, so x = 8.",
+    "Check: the argument 25 > 0, so x = 8."
    ],
    "options": [
     {
@@ -4771,7 +4881,9 @@
    "prompt": "What is the domain restriction for log(x - 4) + log(x + 1)?",
    "answer": "x > 4",
    "solutionSteps": [
-    "Both arguments must be positive: x > 4 and x > -1."
+    "The argument of every logarithm must be positive.",
+    "x - 4 > 0 gives x > 4, and x + 1 > 0 gives x > -1.",
+    "Both must hold, so the domain is x > 4."
    ],
    "options": [
     {
@@ -4807,8 +4919,9 @@
     "-5"
    ],
    "solutionSteps": [
-    "x² - 9 = 16 → x² = 25 → x = ±5.",
-    "Both give argument 16 > 0."
+    "Exponential form: x² - 9 = 2⁴ = 16, so x² = 25 and x = ±5.",
+    "Check the argument: (±5)² - 9 = 16 > 0 for both.",
+    "The solutions are 5 and -5."
    ],
    "options": [
     {
@@ -4938,10 +5051,10 @@
    "prompt": "The Richter magnitude is M = log(A/A₀).",
    "answer": "(a) 100,000; (b) 100; (c) A = A₀·10^M; (d) 5.9",
    "solutionSteps": [
-    "10⁵.",
-    "10^(7 - 5).",
-    "Exponential form.",
-    "M = 4.2 + log 50."
+    "(a) M = 5 means log(A/A₀) = 5, so A/A₀ = 10⁵ = 100,000.",
+    "(b) Each magnitude step multiplies A by 10: 10^(7 - 5) = 100.",
+    "(c) A/A₀ = 10^M, so A = A₀·10^M.",
+    "(d) 50 times stronger adds log 50 ≈ 1.699 to the magnitude: 4.2 + 1.699 ≈ 5.9."
    ],
    "parts": [
     {
@@ -4974,7 +5087,9 @@
    "prompt": "Solve log₇ x = 2.",
    "answer": "x = 49",
    "solutionSteps": [
-    "7² = 49."
+    "Exponential form: log₇ x = 2 means x = 7².",
+    "7² = 49.",
+    "x = 49."
    ],
    "standards": [
     "F-LE.A.4"
@@ -4989,7 +5104,9 @@
    "prompt": "Solve log x = -1.",
    "answer": "x = 1/10",
    "solutionSteps": [
-    "10⁻¹."
+    "log x means base 10, so log x = -1 means x = 10⁻¹.",
+    "10⁻¹ = 1/10.",
+    "x = 1/10."
    ],
    "standards": [
     "F-LE.A.4"
@@ -5040,7 +5157,8 @@
    "prompt": "$800 is invested at 7% interest compounded annually for 15 years. Find the balance. Round to the nearest cent.",
    "answer": "$2,207.23",
    "solutionSteps": [
-    "A = P(1 + r/n)^(nt) = 800(1 + 0.07/1)^(1·15).",
+    "Use A = P(1 + r/n)^(nt) with P = 800, r = 0.07, n = 1, t = 15.",
+    "A = 800(1.07)^15 ≈ 800(2.759032).",
     "A ≈ $2,207.23."
    ],
    "standards": [
@@ -5076,7 +5194,8 @@
    "prompt": "$5,000 is invested at 6% interest compounded semiannually for 8 years. Find the balance. Round to the nearest cent.",
    "answer": "$8,023.53",
    "solutionSteps": [
-    "A = P(1 + r/n)^(nt) = 5000(1 + 0.06/2)^(2·8).",
+    "Use A = P(1 + r/n)^(nt) with P = 5000, r = 0.06, n = 2 (semiannually), t = 8.",
+    "A = 5000(1 + 0.03)^16 = 5000(1.03)^16 ≈ 5000(1.604706).",
     "A ≈ $8,023.53."
    ],
    "standards": [
@@ -5094,8 +5213,9 @@
    "prompt": "$1,000 is invested at 4% compounded continuously for 10 years. Find the balance. Round to the nearest cent.",
    "answer": "$1,491.82",
    "solutionSteps": [
-    "A = Pe^(rt) = 1000e^(0.04·10).",
-    "≈ $1,491.82."
+    "Continuous compounding: A = Pe^(rt) with P = 1000, r = 0.04, t = 10.",
+    "A = 1000e^0.4 ≈ 1000(1.491825).",
+    "A ≈ $1,491.82."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5112,8 +5232,9 @@
    "prompt": "$3,000 is invested at 6.5% compounded continuously for 7 years. Find the balance. Round to the nearest cent.",
    "answer": "$4,728.52",
    "solutionSteps": [
-    "A = Pe^(rt) = 3000e^(0.065·7).",
-    "≈ $4,728.52."
+    "A = Pe^(rt) with P = 3000, r = 0.065, t = 7.",
+    "rt = 0.455, so A = 3000e^0.455 ≈ 3000(1.576173).",
+    "A ≈ $4,728.52."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5130,8 +5251,9 @@
    "prompt": "$500 is invested at 2.5% compounded continuously for 20 years. Find the balance. Round to the nearest cent.",
    "answer": "$824.36",
    "solutionSteps": [
-    "A = Pe^(rt) = 500e^(0.025·20).",
-    "≈ $824.36."
+    "A = Pe^(rt) with P = 500, r = 0.025, t = 20.",
+    "rt = 0.5, so A = 500e^0.5 ≈ 500(1.648721).",
+    "A ≈ $824.36."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5205,9 +5327,9 @@
    "prompt": "How long to double money at 5% compounded continuously? Round to the nearest tenth of a year.",
    "answer": "≈ 13.9 years",
    "solutionSteps": [
-    "Set A = 2P and divide by P.",
-    "2 = e^(0.05t)",
-    "Use logs: t ≈ 13.9."
+    "Doubling means A = 2P: 2P = Pe^(0.05t). Divide by P: 2 = e^(0.05t).",
+    "Take ln: ln 2 = 0.05t, so t = ln 2/0.05.",
+    "t ≈ 0.6931/0.05 ≈ 13.86, so about 13.9 years."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5282,7 +5404,9 @@
    "prompt": "Which gives more money after 1 year at 6%: monthly or continuous compounding?",
    "answer": "Continuous (slightly more)",
    "solutionSteps": [
-    "(1 + 0.06/12)¹² ≈ 1.06168; e^0.06 ≈ 1.06184."
+    "Monthly: each dollar grows to (1 + 0.06/12)¹² ≈ 1.06168 after one year.",
+    "Continuous: each dollar grows to e^0.06 ≈ 1.06184.",
+    "1.06184 > 1.06168, so continuous compounding gives slightly more."
    ],
    "options": [
     {
@@ -5317,7 +5441,9 @@
    "prompt": "In A = 2000(1.015)^(4t), what is the annual interest rate if compounding is quarterly?",
    "answer": "6%",
    "solutionSteps": [
-    "r/4 = 0.015 → r = 0.06."
+    "Quarterly compounding has the form A = P(1 + r/4)^(4t).",
+    "Matching 1.015 = 1 + r/4 gives r/4 = 0.015.",
+    "r = 0.06, an annual rate of 6%."
    ],
    "options": [
     {
@@ -5352,7 +5478,9 @@
    "prompt": "What is the effective annual yield of 8% compounded quarterly (nearest hundredth)?",
    "answer": "8.24%",
    "solutionSteps": [
-    "(1 + 0.08/4)⁴ - 1."
+    "The effective annual yield is how much $1 grows in a year: (1 + r/n)^n - 1.",
+    "(1 + 0.08/4)⁴ - 1 = (1.02)⁴ - 1 ≈ 1.082432 - 1 = 0.082432.",
+    "The effective yield is about 8.24%."
    ],
    "options": [
     {
@@ -5508,7 +5636,9 @@
    "prompt": "Which formula is used for interest compounded continuously?",
    "answer": "A = Pe^(rt)",
    "solutionSteps": [
-    "Continuous compounding uses e."
+    "With n compoundings a year, A = P(1 + r/n)^(nt).",
+    "As n grows without bound, (1 + r/n)^(nt) approaches e^(rt).",
+    "So continuous compounding uses A = Pe^(rt)."
    ],
    "standards": [
     "F-LE.B.5",
@@ -5614,7 +5744,10 @@
     "(2, 1)"
    ],
    "solutionSteps": [
-    "Substitute each x-coordinate."
+    "Substitute each x into y = 2^(x - 2).",
+    "x = -1: 2^(-3) = 0.125 ✓. x = 0: 2^(-2) = 0.25 ✓. x = 1: 2^(-1) = 0.5 ✓. x = 2: 2⁰ = 1 ✓.",
+    "(1, 0.125) and (0, 1.25) do not match.",
+    "On the graph: (-1, 0.125), (0, 0.25), (1, 0.5) and (2, 1)."
    ],
    "options": [
     {
@@ -5660,7 +5793,10 @@
     "(2, -7)"
    ],
    "solutionSteps": [
-    "Substitute each x-coordinate."
+    "Substitute each x into y = -3^x + 2 (only 3^x is negated, so -3^x = -(3^x)).",
+    "x = 0: -1 + 2 = 1 ✓. x = 1: -3 + 2 = -1 ✓. x = 2: -9 + 2 = -7 ✓.",
+    "x = -1: -(1/3) + 2 = 5/3, not 1.5 ✗. (0, 2) and (1, 1.66667) do not match either.",
+    "On the graph: (0, 1), (1, -1) and (2, -7)."
    ],
    "options": [
     {
@@ -5676,7 +5812,7 @@
      "correct": true
     },
     {
-     "text": "(-1, 1.66667)",
+     "text": "(-1, 1.5)",
      "correct": false
     },
     {
@@ -5707,7 +5843,10 @@
     "(2, -0.75)"
    ],
    "solutionSteps": [
-    "Substitute each x-coordinate."
+    "Substitute each x into y = (0.5)^x - 1.",
+    "x = -1: 2 - 1 = 1 ✓. x = 0: 1 - 1 = 0 ✓. x = 1: 0.5 - 1 = -0.5 ✓. x = 2: 0.25 - 1 = -0.75 ✓.",
+    "(1, 1) and (0, 1) do not match.",
+    "On the graph: (-1, 1), (0, 0), (1, -0.5) and (2, -0.75)."
    ],
    "options": [
     {
@@ -5842,10 +5981,10 @@
    "prompt": "Let f(x) = log₃(x - 1) + 2.",
    "answer": "(a) x > 1; (b) x = 1; (c) 4; (d) f⁻¹(x) = 3^(x - 2) + 1",
    "solutionSteps": [
-    "x - 1 > 0.",
-    "Shift of x = 0 right 1.",
-    "log₃ 9 + 2.",
-    "Swap and solve."
+    "(a) The argument must be positive: x - 1 > 0, so x > 1.",
+    "(b) log₃ x has asymptote x = 0; shifting right 1 gives x = 1.",
+    "(c) f(10) = log₃ 9 + 2 = 2 + 2 = 4.",
+    "(d) Swap: x = log₃(y - 1) + 2, so y - 1 = 3^(x - 2) and f⁻¹(x) = 3^(x - 2) + 1."
    ],
    "parts": [
     {
@@ -5879,8 +6018,9 @@
    "prompt": "If log_b 2 = m and log_b 3 = n, which equals log_b 72?",
    "answer": "3m + 2n",
    "solutionSteps": [
-    "72 = 2³·3².",
-    "log_b 72 = 3log_b 2 + 2log_b 3."
+    "Factor 72 into 2s and 3s: 72 = 8 · 9 = 2³·3².",
+    "Product and power rules: log_b 72 = log_b 2³ + log_b 3² = 3log_b 2 + 2log_b 3.",
+    "= 3m + 2n."
    ],
    "options": [
     {
@@ -6000,7 +6140,9 @@
    "prompt": "Which is larger: log₃ 10 or log₄ 15?",
    "answer": "log₃ 10 (≈ 2.096 vs 1.953)",
    "solutionSteps": [
-    "Change of base."
+    "Change of base: log₃ 10 = log 10/log 3 ≈ 1/0.4771 ≈ 2.096.",
+    "log₄ 15 = log 15/log 4 ≈ 1.1761/0.6021 ≈ 1.953.",
+    "So log₃ 10 is larger (≈ 2.096 vs 1.953)."
    ],
    "options": [
     {
@@ -6033,7 +6175,9 @@
    "prompt": "Which first step solves 4·3^x = 36 most directly?",
    "answer": "Divide both sides by 4",
    "solutionSteps": [
-    "Isolate the exponential: 3^x = 9 → x = 2."
+    "To solve, first get the exponential term 3^x alone.",
+    "Divide both sides by 4: 3^x = 9.",
+    "So the most direct first step is to divide both sides by 4; then 3^x = 3² gives x = 2."
    ],
    "options": [
     {
@@ -6153,7 +6297,10 @@
     "2^3 = x"
    ],
    "solutionSteps": [
-    "log_b x = c ⇔ x = b^c."
+    "log_b x = c means x = b^c, so log₂(x) = 3 means x = 2^3, also written 2^3 = x.",
+    "2^3 = 8, so x = 8.",
+    "3/2, 2·3 = 6 and 3² = 9 come from misreading the log.",
+    "Correct: x = 2^3, x = 8 and 2^3 = x."
    ],
    "options": [
     {
@@ -6198,7 +6345,10 @@
     "6^2 = x"
    ],
    "solutionSteps": [
-    "log_b x = c ⇔ x = b^c."
+    "log₆(x) = 2 means x = 6^2, also written 6^2 = x.",
+    "6^2 = 36, so x = 36.",
+    "2/6, 2^6 and 6·2 come from misreading the log.",
+    "Correct: x = 6^2, x = 36 and 6^2 = x."
    ],
    "options": [
     {
@@ -6242,7 +6392,10 @@
     "3^-2 = x"
    ],
    "solutionSteps": [
-    "log_b x = c ⇔ x = b^c."
+    "log₃(x) = -2 means x = 3^-2 (or 3^-2 = x).",
+    "3^-2 = 1/9 ≈ 0.111…, so the rounded 0.111111 is not exactly the solution.",
+    "-2/3, 3·(-2) and -2^3 come from misreading the log.",
+    "Correct: x = 3^-2 and 3^-2 = x."
    ],
    "options": [
     {
@@ -6286,7 +6439,10 @@
     "10^0.5 = x"
    ],
    "solutionSteps": [
-    "log_b x = c ⇔ x = b^c."
+    "log(x) = 0.5 means base 10: x = 10^0.5 (or 10^0.5 = x).",
+    "10^0.5 = √10 ≈ 3.16228…, so the rounded decimal is not exact.",
+    "0.5/10, 0.5^10 and 10·0.5 come from misreading the log.",
+    "Correct: x = 10^0.5 and 10^0.5 = x."
    ],
    "options": [
     {
@@ -6465,8 +6621,9 @@
    "prompt": "Solve (log x)² - 3log x + 2 = 0.",
    "answer": "x = 10 or x = 100",
    "solutionSteps": [
-    "Let u = log x: u² - 3u + 2 = 0 → u = 1 or 2.",
-    "x = 10 or 100."
+    "Let u = log x: u² - 3u + 2 = 0.",
+    "(u - 1)(u - 2) = 0, so log x = 1 or log x = 2.",
+    "x = 10¹ = 10 or x = 10² = 100; both are positive, so x = 10 or x = 100."
    ],
    "standards": [
     "F-LE.A.4"
@@ -6481,7 +6638,9 @@
    "prompt": "Solve 3 + log₂(x - 5) = 7.",
    "answer": "x = 21",
    "solutionSteps": [
-    "log₂(x - 5) = 4 → x - 5 = 16."
+    "Isolate the log: log₂(x - 5) = 4.",
+    "Exponential form: x - 5 = 2⁴ = 16.",
+    "x = 21 (the argument 16 > 0)."
    ],
    "standards": [
     "F-LE.A.4"
@@ -6496,7 +6655,9 @@
    "prompt": "Solve 2ln x = ln 36.",
    "answer": "x = 6",
    "solutionSteps": [
-    "ln x² = ln 36 → x² = 36, x > 0."
+    "Power rule: 2ln x = ln x², so ln x² = ln 36.",
+    "Logs of equal arguments are equal, so x² = 36 and x = ±6.",
+    "ln x needs x > 0, so x = 6."
    ],
    "standards": [
     "F-LE.A.4"
@@ -6723,7 +6884,9 @@
    "prompt": "A $900 laptop loses 20% of its value each year. About how much is it worth after 4 years?",
    "answer": "$368.64",
    "solutionSteps": [
-    "900(0.8)⁴."
+    "Losing 20% a year leaves 80%, so V = 900(0.8)^t.",
+    "After 4 years: 900(0.8)⁴ = 900(0.4096).",
+    "V = $368.64."
    ],
    "options": [
     {
@@ -6758,7 +6921,9 @@
    "prompt": "In A = P(1 + r/n)^(nt), what does n represent?",
    "answer": "The number of times interest is compounded per year",
    "solutionSteps": [
-    "n = compounding periods per year."
+    "In A = P(1 + r/n)^(nt), r is the annual rate and t the number of years.",
+    "r/n is the rate per period and nt is the number of periods, so n counts periods per year.",
+    "n is the number of times interest is compounded per year."
    ],
    "options": [
     {
@@ -6793,7 +6958,9 @@
    "prompt": "Find the continuous rate that doubles an investment in 9 years (nearest hundredth of a percent).",
    "answer": "7.70%",
    "solutionSteps": [
-    "2 = e^(9r) → r = ln 2/9."
+    "Doubling in 9 years: 2 = e^(9r).",
+    "Take ln: ln 2 = 9r, so r = ln 2/9 ≈ 0.6931/9 ≈ 0.077016.",
+    "r ≈ 7.70%."
    ],
    "standards": [
     "F-LE.B.5",
@@ -6810,7 +6977,9 @@
    "prompt": "A radioactive sample of 80 g has a half-life of 12 days. How much remains after 30 days (nearest tenth)?",
    "answer": "14.1 g",
    "solutionSteps": [
-    "80(1/2)^(30/12)."
+    "30 days is 30/12 = 2.5 half-lives, so A = 80(1/2)^2.5.",
+    "(1/2)^2.5 ≈ 0.176777.",
+    "80 × 0.176777 ≈ 14.1 g."
    ],
    "standards": [
     "F-LE.B.5",
@@ -6827,8 +6996,9 @@
    "prompt": "A 98°F drink cools by T = 40 + 58e^(-kt). After 10 minutes it is 70°F. Find k (nearest thousandth).",
    "answer": "k ≈ 0.066",
    "solutionSteps": [
-    "30 = 58e^(-10k).",
-    "k = -ln(30/58)/10."
+    "At t = 10, T = 70: 70 = 40 + 58e^(-10k), so 30 = 58e^(-10k) and e^(-10k) = 30/58.",
+    "Take ln: -10k = ln(30/58) ≈ -0.6592.",
+    "k = 0.6592/10 ≈ 0.066."
    ],
    "standards": [
     "F-LE.B.5",
@@ -6898,9 +7068,9 @@
    "prompt": "Evaluate f(4) for f(x) = 380(0.5)ˣ.",
    "answer": "23.75",
    "solutionSteps": [
-    "f(4) = 380(0.5)⁴.",
+    "Substitute x = 4: f(4) = 380(0.5)⁴.",
     "(0.5)⁴ = 0.0625.",
-    "f(4) ≈ 23.8."
+    "380 × 0.0625 = 23.75."
    ],
    "standards": [
     "F-LE.A.1",
@@ -6994,8 +7164,9 @@
    "prompt": "The value of a car is modeled by y = 410(1.15)ᵗ, where t is in years. By what percent does it increase each year?",
    "answer": "15%",
    "solutionSteps": [
-    "The growth factor is b = 1.15.",
-    "b - 1 = 0.15 = 15%."
+    "In y = a·b^t the growth factor is b = 1.15.",
+    "b - 1 = 0.15.",
+    "The value increases by 15% each year."
    ],
    "standards": [
     "F-LE.A.1",
@@ -7047,9 +7218,9 @@
    "prompt": "Evaluate f(3) for f(x) = 270(0.5)ˣ.",
    "answer": "33.75",
    "solutionSteps": [
-    "f(3) = 270(0.5)³.",
+    "Substitute x = 3: f(3) = 270(0.5)³.",
     "(0.5)³ = 0.125.",
-    "f(3) ≈ 33.8."
+    "270 × 0.125 = 33.75."
    ],
    "standards": [
     "F-LE.A.1",
@@ -7136,9 +7307,9 @@
     }
    ],
    "solutionSteps": [
-    "f(3) = 450(0.75)³.",
+    "Substitute x = 3: f(3) = 450(0.75)³.",
     "(0.75)³ = 0.421875.",
-    "f(3) ≈ 189.8."
+    "450 × 0.421875 = 189.84375."
    ],
    "standards": [
     "F-LE.A.1",
@@ -7283,9 +7454,9 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = 1.",
-    "(0, 1)."
+    "Substitute x = 0: f(0) = 3(2)⁰ - 2.",
+    "2⁰ = 1, so f(0) = 3 - 2 = 1.",
+    "The y-intercept is (0, 1)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7301,9 +7472,9 @@
    "prompt": "Find the y-intercept of f(x) = 2(1/2)ˣ + 1.",
    "answer": "(0, 3)",
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = 3.",
-    "(0, 3)."
+    "Substitute x = 0: f(0) = 2(1/2)⁰ + 1.",
+    "(1/2)⁰ = 1, so f(0) = 2 + 1 = 3.",
+    "The y-intercept is (0, 3)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7508,9 +7679,9 @@
    "prompt": "Find the y-intercept of f(x) = -2(2)^(x - 3) - 2.",
    "answer": "(0, -9/4)",
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = -9/4.",
-    "(0, -9/4)."
+    "Substitute x = 0: f(0) = -2(2)^(-3) - 2.",
+    "2^(-3) = 1/8, so -2(1/8) = -1/4 and f(0) = -1/4 - 2.",
+    "f(0) = -9/4: the y-intercept is (0, -9/4)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7544,9 +7715,9 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = -126/25.",
-    "(0, -126/25)."
+    "Substitute x = 0: f(0) = -5^(-2) - 5 (only 5^(x - 2) is negated).",
+    "5^(-2) = 1/25, so f(0) = -1/25 - 5 = -1/25 - 125/25.",
+    "f(0) = -126/25: the y-intercept is (0, -126/25)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7598,9 +7769,9 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = 5/4.",
-    "(0, 5/4)."
+    "Substitute x = 0: f(0) = (1/2)² + 1.",
+    "(1/2)² = 1/4, so f(0) = 1/4 + 1.",
+    "f(0) = 5/4: the y-intercept is (0, 5/4)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7652,9 +7823,9 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = 18.",
-    "(0, 18)."
+    "Substitute x = 0: f(0) = 2⁴ + 2.",
+    "2⁴ = 16, so f(0) = 18.",
+    "The y-intercept is (0, 18)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7724,9 +7895,9 @@
    "prompt": "Find the y-intercept of f(x) = -2(1/2)^(x - 1) - 4.",
    "answer": "(0, -8)",
    "solutionSteps": [
-    "Substitute x = 0.",
-    "f(0) = -8.",
-    "(0, -8)."
+    "Substitute x = 0: f(0) = -2(1/2)^(-1) - 4.",
+    "(1/2)^(-1) = 2, so f(0) = -4 - 4.",
+    "f(0) = -8: the y-intercept is (0, -8)."
    ],
    "standards": [
     "F-IF.C.7e",
@@ -7838,6 +8009,7 @@
    "answer": "3⁴ = 81",
    "solutionSteps": [
     "log_b(v) = e is equivalent to bᵉ = v.",
+    "Base 3, value 4, argument 81.",
     "3⁴ = 81."
    ],
    "standards": [
@@ -8060,7 +8232,8 @@
     }
    ],
    "solutionSteps": [
-    "log_b(v) = e is equivalent to bᵉ = v.",
+    "log with no base means base 10; log_b(v) = e ⇔ bᵉ = v.",
+    "Base 10, value 4, argument 10000.",
     "10⁴ = 10000."
    ],
    "standards": [
@@ -8095,7 +8268,8 @@
    "prompt": "Write log₅(25) = 2 in exponential form.",
    "answer": "5² = 25",
    "solutionSteps": [
-    "log_b(v) = e is equivalent to bᵉ = v.",
+    "log_b(v) = e ⇔ bᵉ = v.",
+    "Base 5, value 2, argument 25.",
     "5² = 25."
    ],
    "standards": [
@@ -8256,7 +8430,8 @@
    "prompt": "Write log₄(1/16) = -2 in exponential form.",
    "answer": "4⁻² = 1/16",
    "solutionSteps": [
-    "log_b(v) = e is equivalent to bᵉ = v.",
+    "log_b(v) = e ⇔ bᵉ = v.",
+    "Base 4, value -2, argument 1/16.",
     "4⁻² = 1/16."
    ],
    "standards": [
@@ -8851,7 +9026,7 @@
    "answer": "0",
    "solutionSteps": [
     "log₃(1) asks: 3 to what power is 1?",
-    "3⁰ = 1.",
+    "3⁰ = 1 (any nonzero base to the 0 power is 1).",
     "So log₃(1) = 0."
    ],
    "standards": [
@@ -8868,6 +9043,7 @@
    "answer": "log₁₀(10) = 1",
    "solutionSteps": [
     "bᵉ = y is equivalent to log_b(y) = e.",
+    "Base 10, exponent 1, result 10.",
     "log₁₀(10) = 1."
    ],
    "standards": [
@@ -8918,7 +9094,8 @@
     }
    ],
    "solutionSteps": [
-    "bᵉ = y is equivalent to log_b(y) = e.",
+    "bᵉ = y ⇔ log_b(y) = e.",
+    "Base 2, exponent 4, result 16.",
     "log₂(16) = 4."
    ],
    "standards": [
@@ -8952,7 +9129,8 @@
     }
    ],
    "solutionSteps": [
-    "bᵉ = y is equivalent to log_b(y) = e.",
+    "bᵉ = y ⇔ log_b(y) = e.",
+    "Base 5, exponent 0, result 1.",
     "log₅(1) = 0."
    ],
    "standards": [
@@ -8968,7 +9146,8 @@
    "prompt": "Write 5¹ = 5 in logarithmic form.",
    "answer": "log₅(5) = 1",
    "solutionSteps": [
-    "bᵉ = y is equivalent to log_b(y) = e.",
+    "bᵉ = y ⇔ log_b(y) = e.",
+    "Base 5, exponent 1, result 5.",
     "log₅(5) = 1."
    ],
    "standards": [
@@ -9002,7 +9181,8 @@
     }
    ],
    "solutionSteps": [
-    "bᵉ = y is equivalent to log_b(y) = e.",
+    "bᵉ = y ⇔ log_b(y) = e.",
+    "Base 5, exponent 3, result 125.",
     "log₅(125) = 3."
    ],
    "standards": [
@@ -9145,8 +9325,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₆(40) to the nearest thousandth.",
    "answer": "2.059",
    "solutionSteps": [
-    "log₆(40) = log(40) ÷ log(6).",
-    "= 1.6021 ÷ 0.7782 ≈ 2.059."
+    "Change of base: log₆(40) = log(40) ÷ log(6).",
+    "≈ 1.6021 ÷ 0.7782.",
+    "≈ 2.059."
    ],
    "standards": [
     "F-LE.A.4"
@@ -9214,8 +9395,9 @@
     }
    ],
    "solutionSteps": [
-    "log₂(74) = log(74) ÷ log(2).",
-    "= 1.8692 ÷ 0.3010 ≈ 6.209."
+    "Change of base: log₂(74) = log(74) ÷ log(2).",
+    "≈ 1.8692 ÷ 0.3010.",
+    "≈ 6.209."
    ],
    "standards": [
     "F-LE.A.4"
@@ -9247,8 +9429,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₅(121) to the nearest thousandth.",
    "answer": "2.980",
    "solutionSteps": [
-    "log₅(121) = log(121) ÷ log(5).",
-    "= 2.0828 ÷ 0.6990 ≈ 2.980."
+    "Change of base: log₅(121) = log(121) ÷ log(5).",
+    "≈ 2.0828 ÷ 0.6990.",
+    "≈ 2.980."
    ],
    "standards": [
     "F-LE.A.4"
@@ -9298,8 +9481,9 @@
    "prompt": "Use the change-of-base formula to evaluate log₇(104) to the nearest thousandth.",
    "answer": "2.387",
    "solutionSteps": [
-    "log₇(104) = log(104) ÷ log(7).",
-    "= 2.0170 ÷ 0.8451 ≈ 2.387."
+    "Change of base: log₇(104) = log(104) ÷ log(7).",
+    "≈ 2.0170 ÷ 0.8451.",
+    "≈ 2.387."
    ],
    "standards": [
     "F-LE.A.4"
@@ -9405,8 +9589,8 @@
    "prompt": "Solve 5^(x + 2) = 625.",
    "answer": "x = 2",
    "solutionSteps": [
-    "Write 625 as 5⁴.",
-    "Set the exponents equal.",
+    "Write 625 as a power of 5: 625 = 5⁴.",
+    "5^(x + 2) = 5⁴, so the exponents are equal: x + 2 = 4.",
     "x = 2."
    ],
    "standards": [
@@ -9477,8 +9661,8 @@
     }
    ],
    "solutionSteps": [
-    "Write 81 as 3⁴.",
-    "Set the exponents equal.",
+    "Write 81 as a power of 3: 81 = 3⁴.",
+    "3^(x - 1) = 3⁴, so x - 1 = 4.",
     "x = 5."
    ],
    "standards": [
@@ -9514,7 +9698,7 @@
    "answer": "x = 3",
    "solutionSteps": [
     "Write 25 as 5².",
-    "Set the exponents equal.",
+    "5^(x - 1) = 5², so x - 1 = 2.",
     "x = 3."
    ],
    "standards": [
@@ -9586,7 +9770,7 @@
    ],
    "solutionSteps": [
     "Write 8 as 2³.",
-    "Set the exponents equal.",
+    "2^(x - 1) = 2³, so x - 1 = 3.",
     "x = 4."
    ],
    "standards": [
@@ -9622,7 +9806,7 @@
    "answer": "x = 7",
    "solutionSteps": [
     "Write 16 as 2⁴.",
-    "Set the exponents equal.",
+    "2^(x - 3) = 2⁴, so x - 3 = 4.",
     "x = 7."
    ],
    "standards": [
@@ -9811,7 +9995,7 @@
    "answer": "x = -4",
    "solutionSteps": [
     "Write 5 as 5¹.",
-    "Set the exponents equal.",
+    "5^(x + 5) = 5¹, so x + 5 = 1.",
     "x = -4."
    ],
    "standards": [
@@ -10404,8 +10588,8 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4600e^(0.03 × 14).",
+    "Continuous compounding: A = Pe^(rt) with P = 4600, r = 0.03, t = 14.",
+    "rt = 0.42, so A = 4600e^0.42 ≈ 4600(1.521962).",
     "A ≈ $7001.02."
    ],
    "standards": [
@@ -10459,8 +10643,8 @@
    "prompt": "$4,800 is invested at 3% interest compounded continuously. Find the balance after 6 years, to the nearest cent.",
    "answer": "$5746.64",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4800e^(0.03 × 6).",
+    "A = Pe^(rt) with P = 4800, r = 0.03, t = 6.",
+    "rt = 0.18, so A = 4800e^0.18 ≈ 4800(1.197217).",
     "A ≈ $5746.64."
    ],
    "standards": [
@@ -10514,8 +10698,8 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 1900e^(0.05 × 14).",
+    "A = Pe^(rt) with P = 1900, r = 0.05, t = 14.",
+    "rt = 0.7, so A = 1900e^0.7 ≈ 1900(2.013753).",
     "A ≈ $3826.13."
    ],
    "standards": [
@@ -10569,8 +10753,8 @@
    "prompt": "$5,000 is invested at 5% interest compounded continuously. Find the balance after 3 years, to the nearest cent.",
    "answer": "$5809.17",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 5000e^(0.05 × 3).",
+    "A = Pe^(rt) with P = 5000, r = 0.05, t = 3.",
+    "rt = 0.15, so A = 5000e^0.15 ≈ 5000(1.161834).",
     "A ≈ $5809.17."
    ],
    "standards": [
@@ -10624,8 +10808,8 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 600e^(0.05 × 3).",
+    "A = Pe^(rt) with P = 600, r = 0.05, t = 3.",
+    "rt = 0.15, so A = 600e^0.15 ≈ 600(1.161834).",
     "A ≈ $697.10."
    ],
    "standards": [
@@ -10798,8 +10982,8 @@
    "prompt": "How many years will it take an investment to double at 2% interest compounded annually? Round to the nearest tenth of a year.",
    "answer": "35.0 years",
    "solutionSteps": [
-    "2 = (1.02)ᵗ.",
-    "t = log 2 ÷ log(1.02).",
+    "Doubling with annual compounding at 2%: 2 = (1.02)ᵗ.",
+    "Take logs: t = log 2 ÷ log(1.02) ≈ 0.30103 ÷ 0.0086.",
     "t ≈ 35.0 years."
    ],
    "standards": [
@@ -10835,7 +11019,8 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(11).",
+    "Take ln of both sides: ln(e^(2x)) = ln(11), so 2x = ln(11).",
+    "Divide by 2.",
     "x = (1/2)ln(11)."
    ],
    "standards": [
@@ -10889,8 +11074,8 @@
    "prompt": "How many years will it take an investment to double at 8% interest compounded annually? Round to the nearest tenth of a year.",
    "answer": "9.0 years",
    "solutionSteps": [
-    "2 = (1.08)ᵗ.",
-    "t = log 2 ÷ log(1.08).",
+    "Doubling at 8% compounded annually: 2 = (1.08)ᵗ.",
+    "Take logs: t = log 2 ÷ log(1.08) ≈ 0.30103 ÷ 0.03342.",
     "t ≈ 9.0 years."
    ],
    "standards": [
@@ -10908,8 +11093,8 @@
    "prompt": "$3,000 is invested at 6% interest compounded continuously. Find the balance after 15 years, to the nearest cent.",
    "answer": "$7378.81",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 3000e^(0.06 × 15).",
+    "A = Pe^(rt) with P = 3000, r = 0.06, t = 15.",
+    "rt = 0.9, so A = 3000e^0.9 ≈ 3000(2.459603).",
     "A ≈ $7378.81."
    ],
    "standards": [
@@ -11006,7 +11191,8 @@
    "prompt": "Evaluate log₂(0.25).",
    "answer": "-2",
    "solutionSteps": [
-    "0.25 = 1/4 = 2^(-2).",
+    "Write 0.25 as a power of 2: 0.25 = 1/4 = 2^(-2).",
+    "log₂(0.25) asks: 2 to what power is 2^(-2)?",
     "log₂(0.25) = -2."
    ],
    "standards": [
@@ -11022,7 +11208,8 @@
    "prompt": "Evaluate log₂₅(5).",
    "answer": "1/2",
    "solutionSteps": [
-    "25^(1/2) = 5.",
+    "log₂₅(5) asks: 25 to what power is 5?",
+    "25^(1/2) = √25 = 5.",
     "log₂₅(5) = 1/2."
    ],
    "standards": [
@@ -11038,7 +11225,8 @@
    "prompt": "Evaluate log₂₇(9).",
    "answer": "2/3",
    "solutionSteps": [
-    "27 = 3³ and 9 = 3², so 27^(2/3) = 9.",
+    "Write both as powers of 3: 27 = 3³ and 9 = 3².",
+    "27^(2/3) = (3³)^(2/3) = 3² = 9.",
     "log₂₇(9) = 2/3."
    ],
    "standards": [
@@ -11054,8 +11242,9 @@
    "prompt": "Condense into a single logarithm (or evaluate): log₃ 18 - log₃ 2.",
    "answer": "2",
    "solutionSteps": [
-    "log₃ 18 - log₃ 2 = log₃(18/2) = log₃ 9.",
-    "log₃ 9 = 2."
+    "Quotient rule: log₃ 18 - log₃ 2 = log₃(18/2).",
+    "18/2 = 9, so this is log₃ 9.",
+    "3² = 9, so log₃ 9 = 2."
    ],
    "standards": [
     "F-LE.A.4"
@@ -11070,8 +11259,8 @@
    "prompt": "Solve 25^x = 5^(x + 2).",
    "answer": "x = 2",
    "solutionSteps": [
-    "25^x = 5^(2x).",
-    "2x = x + 2.",
+    "Write both sides with base 5: 25^x = (5²)^x = 5^(2x).",
+    "5^(2x) = 5^(x + 2), so 2x = x + 2.",
     "x = 2."
    ],
    "standards": [
@@ -11088,8 +11277,8 @@
    "prompt": "Solve 3^(x + 1) = 1/27.",
    "answer": "x = -4",
    "solutionSteps": [
-    "1/27 = 3^(-3).",
-    "x + 1 = -3.",
+    "Write 1/27 as a power of 3: 1/27 = 3^(-3).",
+    "3^(x + 1) = 3^(-3), so x + 1 = -3.",
     "x = -4."
    ],
    "standards": [
@@ -11106,8 +11295,9 @@
    "prompt": "Solve log₂(x + 2) = 3.",
    "answer": "x = 6",
    "solutionSteps": [
-    "x + 2 = 2³ = 8.",
-    "x = 6."
+    "Exponential form: x + 2 = 2³ = 8.",
+    "Subtract 2: x = 6.",
+    "Check: log₂ 8 = 3 ✓, so x = 6."
    ],
    "standards": [
     "F-LE.A.4"
