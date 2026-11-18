@@ -238,108 +238,106 @@
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the 5th term of the sequence 5, 15, 45, 135, …",
-   "answer": "405",
+   "prompt": "A sequence is defined by a₁ = -4 and a_n = a_(n - 1) + 2 for n ≥ 2. Find a_4.",
+   "answer": "2",
    "options": [
     {
-     "text": "1215",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "405",
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "2",
      "correct": true
-    },
-    {
-     "text": "50625",
-     "correct": false
-    },
-    {
-     "text": "17",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = 15 ÷ (5) = 3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₅ = 5·(3)^4 = 5·81.",
-    "a₅ = 405."
+    "Apply the rule repeatedly: a_1 = -4, a_2 = -2, a_3 = 0, a_4 = 2.",
+    "a_4 = 2."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_recursive), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp2-011",
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the 58th term of the sequence 20, 26, 32, 38, …",
-   "answer": "362",
+   "prompt": "An arithmetic sequence has a_4 = -18 and a_7 = -30. Find a_14.",
+   "answer": "-58",
    "solutionSteps": [
-    "The terms change by the same amount each time: d = 26 - (20) = 6 (arithmetic).",
-    "aₙ = a₁ + (n - 1)d, so a₅₈ = 20 + (58 - 1)(6) = 20 + (342).",
-    "a₅₈ = 362."
+    "d = (-30 - (-18))/(7 - 4) = -4.",
+    "a₁ = -18 - (4 - 1)(-4) = -6.",
+    "a_14 = -6 + (14 - 1)(-4) = -58."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_two_terms), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp2-012",
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the 6th term of the sequence 5, 15, 45, 135, …",
-   "answer": "1215",
+   "prompt": "An arithmetic sequence has a_9 = -33 and a_11 = -45. Find a_33.",
+   "answer": "-177",
    "options": [
     {
-     "text": "759375",
+     "text": "-183",
      "correct": false
     },
     {
-     "text": "3645",
+     "text": "-225",
      "correct": false
     },
     {
-     "text": "20",
-     "correct": false
-    },
-    {
-     "text": "1215",
+     "text": "-177",
      "correct": true
+    },
+    {
+     "text": "-369",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = 15 ÷ (5) = 3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₆ = 5·(3)^5 = 5·243.",
-    "a₆ = 1215."
+    "d = (-45 - (-33))/(11 - 9) = -6.",
+    "a₁ = -33 - (9 - 1)(-6) = 15.",
+    "a_33 = 15 + (33 - 1)(-6) = -177."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_two_terms), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp2-013",
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the 5th term of the sequence 3, -9, 27, -81, …",
-   "answer": "243",
+   "prompt": "A sequence is defined by a₁ = 7 and a_n = a_(n - 1) - 4 for n ≥ 2. Find a_5.",
+   "answer": "-9",
    "solutionSteps": [
-    "Each term is the previous one times r = -9 ÷ (3) = -3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₅ = 3·(-3)^4 = 3·81.",
-    "a₅ = 243."
+    "Apply the rule repeatedly: a_1 = 7, a_2 = 3, a_3 = -1, a_4 = -5, a_5 = -9.",
+    "a_5 = -9."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_recursive), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp2-014",
@@ -634,54 +632,54 @@
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the 26th term of the sequence -4, 2, 8, 14, …",
-   "answer": "146",
+   "prompt": "An arithmetic sequence has a_8 = -11 and a_9 = -14. Find a_29.",
+   "answer": "-74",
    "solutionSteps": [
-    "The terms change by the same amount each time: d = 2 - (-4) = 6 (arithmetic).",
-    "aₙ = a₁ + (n - 1)d, so a₂₆ = -4 + (26 - 1)(6) = -4 + (150).",
-    "a₂₆ = 146."
+    "d = (-14 - (-11))/(9 - 8) = -3.",
+    "a₁ = -11 - (8 - 1)(-3) = 10.",
+    "a_29 = 10 + (29 - 1)(-3) = -74."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_two_terms), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp1-010",
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the 9th term of the sequence 2, -6, 18, -54, …",
-   "answer": "13122",
+   "prompt": "An arithmetic sequence has a_10 = -16 and a_11 = -17. Find a_33.",
+   "answer": "-39",
    "options": [
     {
-     "text": "1679616",
+     "text": "-48",
      "correct": false
     },
     {
-     "text": "13122",
+     "text": "-40",
+     "correct": false
+    },
+    {
+     "text": "-38",
+     "correct": false
+    },
+    {
+     "text": "-39",
      "correct": true
-    },
-    {
-     "text": "-22",
-     "correct": false
-    },
-    {
-     "text": "-39366",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = -6 ÷ (2) = -3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₉ = 2·(-3)^8 = 2·6561.",
-    "a₉ = 13122."
+    "d = (-17 - (-16))/(11 - 10) = -1.",
+    "a₁ = -16 - (10 - 1)(-1) = -7.",
+    "a_33 = -7 + (33 - 1)(-1) = -39."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_two_terms), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp1-011",
@@ -706,36 +704,36 @@
    "skillId": "sequences-series-limits-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the 6th term of the sequence 6, 18, 54, 162, …",
-   "answer": "1458",
+   "prompt": "An arithmetic sequence has a_5 = 39 and a_8 = 57. Find a_15.",
+   "answer": "99",
    "options": [
     {
-     "text": "1458",
+     "text": "267",
+     "correct": false
+    },
+    {
+     "text": "99",
      "correct": true
     },
     {
-     "text": "4374",
+     "text": "105",
      "correct": false
     },
     {
-     "text": "21",
-     "correct": false
-    },
-    {
-     "text": "1889568",
+     "text": "123",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = 18 ÷ (6) = 3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₆ = 6·(3)^5 = 6·243.",
-    "a₆ = 1458."
+    "d = (57 - (39))/(8 - 5) = 6.",
+    "a₁ = 39 - (5 - 1)(6) = 15.",
+    "a_15 = 15 + (15 - 1)(6) = 99."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_two_terms), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-cp1-013",
@@ -1068,36 +1066,35 @@
    "skillId": "sequences-series-limits-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the 6th term of the sequence 4, 12, 36, 108, …",
-   "answer": "972",
+   "prompt": "A sequence is defined by a₁ = 7 and a_n = a_(n - 1) - 6 for n ≥ 2. Find a_5.",
+   "answer": "-17",
    "options": [
     {
-     "text": "19",
+     "text": "-16",
      "correct": false
     },
     {
-     "text": "248832",
+     "text": "-11",
      "correct": false
     },
     {
-     "text": "2916",
+     "text": "-23",
      "correct": false
     },
     {
-     "text": "972",
+     "text": "-17",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = 12 ÷ (4) = 3 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₆ = 4·(3)^5 = 4·243.",
-    "a₆ = 972."
+    "Apply the rule repeatedly: a_1 = 7, a_2 = 1, a_3 = -5, a_4 = -11, a_5 = -17.",
+    "a_5 = -17."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_recursive), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-honors-011",
@@ -1122,53 +1119,52 @@
    "skillId": "sequences-series-limits-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the 11th term of the sequence -1, 2, -4, 8, …",
-   "answer": "-1024",
+   "prompt": "A sequence is defined by a₁ = 2 and a_n = 3a_(n - 1) + 3 for n ≥ 2. Find a_5.",
+   "answer": "282",
    "options": [
     {
-     "text": "-1024",
+     "text": "282",
      "correct": true
     },
     {
-     "text": "-21",
+     "text": "93",
      "correct": false
     },
     {
-     "text": "1024",
+     "text": "849",
      "correct": false
     },
     {
-     "text": "2048",
+     "text": "14",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Each term is the previous one times r = 2 ÷ (-1) = -2 (geometric).",
-    "aₙ = a₁·r^(n - 1), so a₁₁ = -1·(-2)^10 = -1·1024.",
-    "a₁₁ = -1024."
+    "Apply the rule repeatedly: a_1 = 2, a_2 = 9, a_3 = 30, a_4 = 93, a_5 = 282.",
+    "a_5 = 282."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_recursive), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-honors-013",
    "skillId": "sequences-series-limits-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the 40th term of the sequence 3, -3, -9, -15, …",
-   "answer": "-231",
+   "prompt": "A sequence is defined by a₁ = 1 and a_n = -2a_(n - 1) + 4 for n ≥ 2. Find a_4.",
+   "answer": "4",
    "solutionSteps": [
-    "Arithmetic: d = -6.",
-    "aₙ = a₁ + (n - 1)d = 3 + (39)(-6) = -231."
+    "Apply the rule repeatedly: a_1 = 1, a_2 = 2, a_3 = 0, a_4 = 4.",
+    "a_4 = 4."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_term). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: seq_recursive), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s01-honors-014",
@@ -1406,173 +1402,166 @@
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 17 terms of the series -10 - 15 - 20 - 25 + …",
-   "answer": "-850",
+   "prompt": "An arithmetic series has 22 terms. The first term is 0 and the last term is 32. Find the sum.",
+   "answer": "352",
    "solutionSteps": [
-    "Arithmetic: a₁ = -10, d = -5.",
-    "a₁₇ = -10 + (17 - 1)(-5) = -90.",
-    "S₁₇ = n(a₁ + aₙ)/2 = 17(-10 + (-90))/2 = 17(-100)/2 = -850."
+    "S = n(a₁ + a_n)/2 = 22(0 + 32)/2.",
+    "= 352."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-008",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 37 terms of the series 6 + 4 + 2 + 0 + …",
-   "answer": "-1110",
+   "prompt": "How many terms of the arithmetic series 0 + 1 + 2 + … must be added to get a sum of 105?",
+   "answer": "15",
    "options": [
     {
-     "text": "-66",
+     "text": "30",
      "correct": false
     },
     {
-     "text": "-1080",
-     "correct": false
-    },
-    {
-     "text": "-1110",
+     "text": "15",
      "correct": true
     },
     {
-     "text": "-2220",
+     "text": "52",
+     "correct": false
+    },
+    {
+     "text": "16",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = 6, d = -2.",
-    "a₃₇ = 6 + (37 - 1)(-2) = -66.",
-    "S₃₇ = n(a₁ + aₙ)/2 = 37(6 + (-66))/2 = 37(-60)/2 = -1110."
+    "S_n = n/2 · [2(0) + (n - 1)(1)] = 105.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 15."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-009",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 28 terms of the series 8 + 13 + 18 + 23 + …",
-   "answer": "2114",
+   "prompt": "How many terms of the arithmetic series 4 + 9 + 14 + … must be added to get a sum of 1243?",
+   "answer": "22",
    "solutionSteps": [
-    "Arithmetic: a₁ = 8, d = 5.",
-    "a₂₈ = 8 + (28 - 1)(5) = 143.",
-    "S₂₈ = n(a₁ + aₙ)/2 = 28(8 + (143))/2 = 28(151)/2 = 2114."
+    "S_n = n/2 · [2(4) + (n - 1)(5)] = 1243.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 22."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-010",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 38 terms of the series -8 - 1 + 6 + 13 + …",
-   "answer": "4617",
+   "prompt": "An arithmetic series has 15 terms. The first term is 16 and the last term is 4. Find the sum.",
+   "answer": "150",
    "options": [
     {
-     "text": "251",
-     "correct": false
-    },
-    {
-     "text": "9234",
-     "correct": false
-    },
-    {
-     "text": "4617",
+     "text": "150",
      "correct": true
     },
     {
-     "text": "8991/2",
+     "text": "140",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "300",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = -8, d = 7.",
-    "a₃₈ = -8 + (38 - 1)(7) = 251.",
-    "S₃₈ = n(a₁ + aₙ)/2 = 38(-8 + (251))/2 = 38(243)/2 = 4617."
+    "S = n(a₁ + a_n)/2 = 15(16 + 4)/2.",
+    "= 150."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-011",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 32 terms of the series -9 - 7 - 5 - 3 + …",
-   "answer": "704",
+   "prompt": "A geometric series has a₁ = -6 and common ratio r = 2. Find the sum of its first 9 terms.",
+   "answer": "-3066",
    "solutionSteps": [
-    "Arithmetic: a₁ = -9, d = 2.",
-    "a₃₂ = -9 + (32 - 1)(2) = 53.",
-    "S₃₂ = n(a₁ + aₙ)/2 = 32(-9 + (53))/2 = 32(44)/2 = 704."
+    "S_n = a₁(1 - rⁿ)/(1 - r) = -6(1 - (2)^9)/(1 - (2)).",
+    "= -3066."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_geo_formula), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-012",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 35 terms of the series 3 + 2 + 1 + 0 + …",
-   "answer": "-490",
+   "prompt": "How many terms of the arithmetic series 7 + 11 + 15 + … must be added to get a sum of 403?",
+   "answer": "13",
    "options": [
     {
-     "text": "-490",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "26",
+     "correct": false
+    },
+    {
+     "text": "13",
      "correct": true
-    },
-    {
-     "text": "-476",
-     "correct": false
-    },
-    {
-     "text": "-31",
-     "correct": false
-    },
-    {
-     "text": "-980",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = 3, d = -1.",
-    "a₃₅ = 3 + (35 - 1)(-1) = -31.",
-    "S₃₅ = n(a₁ + aₙ)/2 = 35(3 + (-31))/2 = 35(-28)/2 = -490."
+    "S_n = n/2 · [2(7) + (n - 1)(4)] = 403.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 13."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-013",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 40 terms of the series 6 + 13 + 20 + 27 + …",
-   "answer": "5700",
+   "prompt": "How many terms of the arithmetic series -2 + 1 + 4 + … must be added to get a sum of 174?",
+   "answer": "12",
    "solutionSteps": [
-    "Arithmetic: a₁ = 6, d = 7.",
-    "a₄₀ = 6 + (40 - 1)(7) = 279.",
-    "S₄₀ = n(a₁ + aₙ)/2 = 40(6 + (279))/2 = 40(285)/2 = 5700."
+    "S_n = n/2 · [2(-2) + (n - 1)(3)] = 174.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 12."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp2-014",
@@ -1807,173 +1796,166 @@
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 11 terms of the series -8 - 13 - 18 - 23 + …",
-   "answer": "-363",
+   "prompt": "An arithmetic series has 20 terms. The first term is 16 and the last term is 75. Find the sum.",
+   "answer": "910",
    "solutionSteps": [
-    "Arithmetic: a₁ = -8, d = -5.",
-    "a₁₁ = -8 + (11 - 1)(-5) = -58.",
-    "S₁₁ = n(a₁ + aₙ)/2 = 11(-8 + (-58))/2 = 11(-66)/2 = -363."
+    "S = n(a₁ + a_n)/2 = 20(16 + 75)/2.",
+    "= 910."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-008",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 8 terms of the series -5 + 10 - 20 + 40 + …",
-   "answer": "425",
+   "prompt": "An arithmetic series has 22 terms. The first term is -8 and the last term is 27. Find the sum.",
+   "answer": "209",
    "options": [
     {
-     "text": "-5/3",
-     "correct": false
-    },
-    {
-     "text": "640",
-     "correct": false
-    },
-    {
-     "text": "-215",
-     "correct": false
-    },
-    {
-     "text": "425",
+     "text": "209",
      "correct": true
+    },
+    {
+     "text": "418",
+     "correct": false
+    },
+    {
+     "text": "19/2",
+     "correct": false
+    },
+    {
+     "text": "399/2",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Geometric: a₁ = -5, r = -2.",
-    "S₈ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (-2)^8)/(1 - (-2)).",
-    "= -5(-255)/(3) = 425."
+    "S = n(a₁ + a_n)/2 = 22(-8 + 27)/2.",
+    "= 209."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-009",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 7 terms of the series -5 - 10 - 20 - 40 + …",
-   "answer": "-635",
+   "prompt": "How many terms of the arithmetic series 10 + 14 + 18 + … must be added to get a sum of 504?",
+   "answer": "14",
    "solutionSteps": [
-    "Geometric: a₁ = -5, r = 2.",
-    "S₇ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (2)^7)/(1 - (2)).",
-    "= -5(-127)/(-1) = -635."
+    "S_n = n/2 · [2(10) + (n - 1)(4)] = 504.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 14."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-010",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 25 terms of the series -6 - 12 - 18 - 24 + …",
-   "answer": "-1950",
+   "prompt": "An arithmetic series has 21 terms. The first term is -1 and the last term is 19. Find the sum.",
+   "answer": "189",
    "options": [
     {
-     "text": "-1950",
+     "text": "180",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "189",
      "correct": true
     },
     {
-     "text": "-150",
-     "correct": false
-    },
-    {
-     "text": "-1872",
-     "correct": false
-    },
-    {
-     "text": "-3900",
+     "text": "378",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = -6, d = -6.",
-    "a₂₅ = -6 + (25 - 1)(-6) = -150.",
-    "S₂₅ = n(a₁ + aₙ)/2 = 25(-6 + (-150))/2 = 25(-156)/2 = -1950."
+    "S = n(a₁ + a_n)/2 = 21(-1 + 19)/2.",
+    "= 189."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-011",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 10 terms of the series -5 - 10 - 20 - 40 + …",
-   "answer": "-5115",
+   "prompt": "How many terms of the arithmetic series -5 + 0 + 5 + … must be added to get a sum of 385?",
+   "answer": "14",
    "solutionSteps": [
-    "Geometric: a₁ = -5, r = 2.",
-    "S₁₀ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (2)^10)/(1 - (2)).",
-    "= -5(-1023)/(-1) = -5115."
+    "S_n = n/2 · [2(-5) + (n - 1)(5)] = 385.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 14."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-012",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 18 terms of the series 10 + 5 + 0 - 5 + …",
-   "answer": "-585",
+   "prompt": "A geometric series has a₁ = 3 and common ratio r = -3. Find the sum of its first 5 terms.",
+   "answer": "183",
    "options": [
     {
-     "text": "-1105/2",
+     "text": "-546",
      "correct": false
     },
     {
-     "text": "-1170",
+     "text": "243",
      "correct": false
     },
     {
-     "text": "-75",
-     "correct": false
-    },
-    {
-     "text": "-585",
+     "text": "183",
      "correct": true
+    },
+    {
+     "text": "732",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = 10, d = -5.",
-    "a₁₈ = 10 + (18 - 1)(-5) = -75.",
-    "S₁₈ = n(a₁ + aₙ)/2 = 18(10 + (-75))/2 = 18(-65)/2 = -585."
+    "S_n = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-3)^5)/(1 - (-3)).",
+    "= 183."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_geo_formula), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-013",
    "skillId": "sequences-series-limits-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 9 terms of the series 3 - 6 + 12 - 24 + …",
-   "answer": "513",
+   "prompt": "A geometric series has a₁ = 3 and common ratio r = -2. Find the sum of its first 4 terms.",
+   "answer": "-15",
    "solutionSteps": [
-    "Geometric: a₁ = 3, r = -2.",
-    "S₉ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-2)^9)/(1 - (-2)).",
-    "= 3(513)/(3) = 513."
+    "S_n = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-2)^4)/(1 - (-2)).",
+    "= -15."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_geo_formula), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-cp1-014",
@@ -2225,156 +2207,150 @@
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 38 terms of the series -1 - 4 - 7 - 10 + …",
-   "answer": "-2147",
+   "prompt": "How many terms of the arithmetic series 9 + 13 + 17 + … must be added to get a sum of 624?",
+   "answer": "16",
    "options": [
     {
-     "text": "-4294",
+     "text": "32",
      "correct": false
     },
     {
-     "text": "-4181/2",
+     "text": "36",
      "correct": false
     },
     {
-     "text": "-112",
-     "correct": false
-    },
-    {
-     "text": "-2147",
+     "text": "16",
      "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = -1, d = -3.",
-    "a₃₈ = -1 + (38 - 1)(-3) = -112.",
-    "S₃₈ = n(a₁ + aₙ)/2 = 38(-1 + (-112))/2 = 38(-113)/2 = -2147."
+    "S_n = n/2 · [2(9) + (n - 1)(4)] = 624.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 16."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-009",
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 12 terms of the series -8 - 3 + 2 + 7 + …",
-   "answer": "234",
+   "prompt": "An arithmetic series has 17 terms. The first term is -12 and the last term is 28. Find the sum.",
+   "answer": "136",
    "solutionSteps": [
-    "Arithmetic: a₁ = -8, d = 5.",
-    "a₁₂ = -8 + (12 - 1)(5) = 47.",
-    "S₁₂ = n(a₁ + aₙ)/2 = 12(-8 + (47))/2 = 12(39)/2 = 234."
+    "S = n(a₁ + a_n)/2 = 17(-12 + 28)/2.",
+    "= 136."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-010",
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 22 terms of the series 0 - 6 - 12 - 18 + …",
-   "answer": "-1386",
+   "prompt": "A geometric series has a₁ = 5 and common ratio r = -2. Find the sum of its first 4 terms.",
+   "answer": "-25",
    "options": [
     {
-     "text": "-126",
-     "correct": false
-    },
-    {
-     "text": "-1323",
-     "correct": false
-    },
-    {
-     "text": "-2772",
-     "correct": false
-    },
-    {
-     "text": "-1386",
+     "text": "-25",
      "correct": true
+    },
+    {
+     "text": "55",
+     "correct": false
+    },
+    {
+     "text": "-40",
+     "correct": false
+    },
+    {
+     "text": "-75",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: a₁ = 0, d = -6.",
-    "a₂₂ = 0 + (22 - 1)(-6) = -126.",
-    "S₂₂ = n(a₁ + aₙ)/2 = 22(0 + (-126))/2 = 22(-126)/2 = -1386."
+    "S_n = a₁(1 - rⁿ)/(1 - r) = 5(1 - (-2)^4)/(1 - (-2)).",
+    "= -25."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_geo_formula), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-011",
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 27 terms of the series 3 - 3 - 9 - 15 + …",
-   "answer": "-2025",
+   "prompt": "An arithmetic series has 14 terms. The first term is 22 and the last term is 33. Find the sum.",
+   "answer": "385",
    "solutionSteps": [
-    "Arithmetic: a₁ = 3, d = -6.",
-    "a₂₇ = 3 + (27 - 1)(-6) = -153.",
-    "S₂₇ = n(a₁ + aₙ)/2 = 27(3 + (-153))/2 = 27(-150)/2 = -2025."
+    "S = n(a₁ + a_n)/2 = 14(22 + 33)/2.",
+    "= 385."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_first_last), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-012",
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the first 8 terms of the series 5 + 10 + 20 + 40 + …",
-   "answer": "1275",
+   "prompt": "How many terms of the arithmetic series 10 + 12 + 14 + … must be added to get a sum of 442?",
+   "answer": "17",
    "options": [
     {
-     "text": "-5",
-     "correct": false
-    },
-    {
-     "text": "640",
-     "correct": false
-    },
-    {
-     "text": "1275",
+     "text": "17",
      "correct": true
     },
     {
-     "text": "635",
+     "text": "31",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "34",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Geometric: a₁ = 5, r = 2.",
-    "S₈ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (2)^8)/(1 - (2)).",
-    "= 5(-255)/(-1) = 1275."
+    "S_n = n/2 · [2(10) + (n - 1)(2)] = 442.",
+    "Solve the quadratic in n; the positive whole-number solution is n = 17."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_find_n), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-013",
    "skillId": "sequences-series-limits-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the sum of the first 39 terms of the series 1 + 8 + 15 + 22 + …",
-   "answer": "5226",
+   "prompt": "A geometric series has a₁ = -4 and common ratio r = 1/2. Find the sum of its first 5 terms.",
+   "answer": "-31/4",
    "solutionSteps": [
-    "Arithmetic: a₁ = 1, d = 7.",
-    "a₃₉ = 1 + (39 - 1)(7) = 267.",
-    "S₃₉ = n(a₁ + aₙ)/2 = 39(1 + (267))/2 = 39(268)/2 = 5226."
+    "S_n = a₁(1 - rⁿ)/(1 - r) = -4(1 - (1/2)^5)/(1 - (1/2)).",
+    "= -31/4."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_sum). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: ser_geo_formula), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s02-honors-014",
@@ -2703,66 +2679,66 @@
    "skillId": "sequences-series-limits-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the infinite geometric series -22 - 22/3 - 22/9 - 22/27 + …",
-   "answer": "-33",
+   "prompt": "An infinite geometric series has common ratio 2/5 and sum -50/3. Find its first term.",
+   "answer": "-10",
    "solutionSteps": [
-    "r = 1/3 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = -22/(1 - 1/3) = -33."
+    "S = a₁/(1 - r), so a₁ = S(1 - r) = -50/3(1 - (2/5)).",
+    "a₁ = -10."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_find), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-cp2-012",
    "skillId": "sequences-series-limits-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the infinite geometric series 5 + 5/4 + 5/16 + 5/64 + …",
-   "answer": "20/3",
+   "prompt": "An infinite geometric series has common ratio -1/3 and sum 39/4. Find its first term.",
+   "answer": "13",
    "options": [
     {
-     "text": "4",
+     "text": "13/2",
      "correct": false
     },
     {
-     "text": "15/4",
+     "text": "117/16",
      "correct": false
     },
     {
-     "text": "20/3",
+     "text": "-13/4",
+     "correct": false
+    },
+    {
+     "text": "13",
      "correct": true
-    },
-    {
-     "text": "The series diverges.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "r = 1/4 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = 5/(1 - 1/4) = 20/3."
+    "S = a₁/(1 - r), so a₁ = S(1 - r) = 39/4(1 - (-1/3)).",
+    "a₁ = 13."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_find), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-cp2-013",
    "skillId": "sequences-series-limits-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the sum of the infinite geometric series -29 - 29/2 - 29/4 - 29/8 + …",
-   "answer": "-58",
+   "prompt": "Write the repeating decimal 0.777… as a fraction in lowest terms by treating it as the infinite geometric series 7/10 + 7/100 + 7/1000 + ….",
+   "answer": "7/9",
    "solutionSteps": [
-    "r = 1/2 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = -29/(1 - 1/2) = -58."
+    "a₁ = 7/10 and r = 1/10.",
+    "S = a₁/(1 - r) = (7/10)/(1 - 1/10) = 7/9."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_decimal), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-cp2-014",
@@ -3091,50 +3067,50 @@
    "skillId": "sequences-series-limits-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the sum of the infinite geometric series 14 + 21/2 + 63/8 + 189/32 + …",
-   "answer": "56",
+   "prompt": "Write the repeating decimal 0.222… as a fraction in lowest terms by treating it as the infinite geometric series 2/10 + 2/100 + 2/1000 + ….",
+   "answer": "2/9",
    "solutionSteps": [
-    "r = 3/4 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = 14/(1 - 3/4) = 56."
+    "a₁ = 1/5 and r = 1/10.",
+    "S = a₁/(1 - r) = (1/5)/(1 - 1/10) = 2/9."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_decimal), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-cp1-012",
    "skillId": "sequences-series-limits-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the infinite geometric series -15 - 45/4 - 135/16 - 405/64 + …",
-   "answer": "-60",
+   "prompt": "An infinite geometric series has common ratio 3/4 and sum 52. Find its first term.",
+   "answer": "13",
    "options": [
     {
-     "text": "-60",
+     "text": "91",
+     "correct": false
+    },
+    {
+     "text": "39",
+     "correct": false
+    },
+    {
+     "text": "13",
      "correct": true
     },
     {
-     "text": "-60/7",
-     "correct": false
-    },
-    {
-     "text": "-15/4",
-     "correct": false
-    },
-    {
-     "text": "The series diverges.",
+     "text": "208",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "r = 3/4 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = -15/(1 - 3/4) = -60."
+    "S = a₁/(1 - r), so a₁ = S(1 - r) = 52(1 - (3/4)).",
+    "a₁ = 13."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_find), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-cp1-013",
@@ -3445,50 +3421,50 @@
    "skillId": "sequences-series-limits-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the sum of the infinite geometric series 4 + 8/5 + 16/25 + 32/125 + …",
-   "answer": "20/3",
+   "prompt": "An infinite geometric series has common ratio 3/4 and sum -32. Find its first term.",
+   "answer": "-8",
    "options": [
     {
-     "text": "20/3",
+     "text": "-8",
      "correct": true
     },
     {
-     "text": "12/5",
+     "text": "-128",
      "correct": false
     },
     {
-     "text": "20/7",
+     "text": "-24",
      "correct": false
     },
     {
-     "text": "The series diverges.",
+     "text": "-56",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "r = 2/5 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = 4/(1 - 2/5) = 20/3."
+    "S = a₁/(1 - r), so a₁ = S(1 - r) = -32(1 - (3/4)).",
+    "a₁ = -8."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_find), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-honors-011",
    "skillId": "sequences-series-limits-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the sum of the infinite geometric series 9 + 9/2 + 9/4 + 9/8 + …",
-   "answer": "18",
+   "prompt": "Write the repeating decimal 0.696969… as a fraction in lowest terms by treating it as the infinite geometric series 69/100 + 69/10000 + ….",
+   "answer": "23/33",
    "solutionSteps": [
-    "r = 1/2 and |r| < 1, so the series converges.",
-    "S = a₁/(1 - r) = 9/(1 - 1/2) = 18."
+    "a₁ = 69/100 and r = 1/100.",
+    "S = a₁/(1 - r) = (69/100)/(1 - 1/100) = 23/33."
    ],
    "standards": [
     "A-SSE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: seq_inf). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inf_decimal), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-ssl-s03-honors-012",
@@ -6475,6 +6451,3446 @@
     "F-LE.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 9 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^9. What is the coefficient of x⁶y³?",
+   "answer": "84",
+   "solutionSteps": [
+    "The coefficient is C(9, 3) = 9!/(3! · 6!).",
+    "= 84."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Row 11 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^11. What is the coefficient of x⁴y⁷?",
+   "answer": "330",
+   "options": [
+    {
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "330",
+     "correct": true
+    },
+    {
+     "text": "462",
+     "correct": false
+    },
+    {
+     "text": "77",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(11, 7) = 11!/(7! · 4!).",
+    "= 330."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x + 1)^7?",
+   "answer": "2187",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (1))^7.",
+    "= 3^7 = 2187."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the third term of the expansion of (2x + 1)^6, written in descending powers of x.",
+   "answer": "240x⁴",
+   "options": [
+    {
+     "text": "-240x⁴",
+     "correct": false
+    },
+    {
+     "text": "160x³",
+     "correct": false
+    },
+    {
+     "text": "15x⁴",
+     "correct": false
+    },
+    {
+     "text": "240x⁴",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The third term uses k = 2: C(6, 2)(2x)⁴(1)².",
+    "C(6, 2) = 15, so the term is 240x⁴."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Expand (x - 3)^3.",
+   "answer": "x³ - 9x² + 27x - 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-3), C(3, 1)(x)²(-3), C(3, 2)(x)(-3)², C(3, 3)(x)(-3)³.",
+    "= x³ - 9x² + 27x - 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x in the expansion of (x - 3)^3.",
+   "answer": "27",
+   "options": [
+    {
+     "text": "-9",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "-27",
+     "correct": false
+    },
+    {
+     "text": "27",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The term with x is C(3, 1)·(1x)·(-3)².",
+    "C(3, 1) = 3; 3 · 1 · 9 = 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the seventh term of the expansion of (x + 2)^7, written in descending powers of x.",
+   "answer": "448x",
+   "solutionSteps": [
+    "The seventh term uses k = 6: C(7, 6)(x)(2)⁶.",
+    "C(7, 6) = 7, so the term is 448x."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the second term of the expansion of (2x - 1)^5, written in descending powers of x.",
+   "answer": "-80x⁴",
+   "options": [
+    {
+     "text": "-80x⁴",
+     "correct": true
+    },
+    {
+     "text": "-5x⁴",
+     "correct": false
+    },
+    {
+     "text": "80x⁴",
+     "correct": false
+    },
+    {
+     "text": "80x³",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The second term uses k = 1: C(5, 1)(2x)⁴(-1).",
+    "C(5, 1) = 5, so the term is -80x⁴."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 5 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^5. What is the coefficient of x²y³?",
+   "answer": "10",
+   "solutionSteps": [
+    "The coefficient is C(5, 3) = 5!/(3! · 2!).",
+    "= 10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the fourth term of the expansion of (2x - 1)^6, written in descending powers of x.",
+   "answer": "-160x³",
+   "options": [
+    {
+     "text": "60x²",
+     "correct": false
+    },
+    {
+     "text": "-20x³",
+     "correct": false
+    },
+    {
+     "text": "-160x³",
+     "correct": true
+    },
+    {
+     "text": "160x³",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fourth term uses k = 3: C(6, 3)(2x)³(-1)³.",
+    "C(6, 3) = 20, so the term is -160x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (x + 2)^5.",
+   "answer": "80",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(1x)²·(2)³.",
+    "C(5, 2) = 10; 10 · 1 · 8 = 80."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Row 12 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^12. What is the coefficient of x⁵y⁷?",
+   "answer": "792",
+   "options": [
+    {
+     "text": "792",
+     "correct": true
+    },
+    {
+     "text": "84",
+     "correct": false
+    },
+    {
+     "text": "924",
+     "correct": false
+    },
+    {
+     "text": "330",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(12, 7) = 12!/(7! · 5!).",
+    "= 792."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 10 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^10. What is the coefficient of x⁸y²?",
+   "answer": "45",
+   "solutionSteps": [
+    "The coefficient is C(10, 2) = 10!/(2! · 8!).",
+    "= 45."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nWhat is the sum of the coefficients in the expansion of (3x + 2)^3?\nIsaac's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "125",
+   "solutionSteps": [
+    "Mistake: Isaac added the binomial coefficients only.",
+    "Substitute x = 1: the sum of the coefficients is (3 + (2))^3.",
+    "= 5^3 = 125.",
+    "The correct answer is 125, not 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "What is the sum of the coefficients in the expansion of (x + 1)^5?",
+     "answer": "32"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (x + 3)^4.",
+     "answer": "54"
+    },
+    {
+     "prompt": "Expand (x + 4)^3.",
+     "answer": "x³ + 12x² + 48x + 64"
+    },
+    {
+     "prompt": "Find the fourth term of the expansion of (3x + 1)^6, written in descending powers of x.",
+     "answer": "540x³"
+    }
+   ],
+   "answer": "(a) 32; (b) 54; (c) x³ + 12x² + 48x + 64; (d) 540x³",
+   "solutionSteps": [
+    "(a) Substitute x = 1: the sum of the coefficients is (1 + (1))^5. = 2^5 = 32.",
+    "(b) The term with x² is C(4, 2)·(1x)²·(3)². C(4, 2) = 6; 6 · 1 · 9 = 54.",
+    "(c) Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1. Terms: C(3, 0)(x)³(4), C(3, 1)(x)²(4), C(3, 2)(x)(4)², C(3, 3)(x)(4)³. = x³ + 12x² + 48x + 64.",
+    "(d) The fourth term uses k = 3: C(6, 3)(3x)³(1)³. C(6, 3) = 20, so the term is 540x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Diego answered this problem incorrectly.\nExpand (x - 1)^3.\nDiego's answer: x³ - 1\nIdentify the mistake and give the correct answer.",
+   "answer": "x³ - 3x² + 3x - 1",
+   "solutionSteps": [
+    "Mistake: Diego raised each term to the power.",
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-1), C(3, 1)(x)²(-1), C(3, 2)(x)(-1)², C(3, 3)(x)(-1)³.",
+    "= x³ - 3x² + 3x - 1.",
+    "The correct answer is x³ - 3x² + 3x - 1, not x³ - 1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the third term of the expansion of (3x + 1)^5, written in descending powers of x.",
+   "answer": "270x³",
+   "solutionSteps": [
+    "The third term uses k = 2: C(5, 2)(3x)³(1)².",
+    "C(5, 2) = 10, so the term is 270x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Expand (x - 4)^4.",
+   "answer": "x⁴ - 16x³ + 96x² - 256x + 256",
+   "options": [
+    {
+     "text": "x⁴ + 16x³ + 96x² + 256x + 256",
+     "correct": false
+    },
+    {
+     "text": "x⁴ - 16x³ + 96x² - 256x + 256",
+     "correct": true
+    },
+    {
+     "text": "x⁴ - 4x³ + 16x² - 64x + 256",
+     "correct": false
+    },
+    {
+     "text": "x⁴ + 256",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(x)⁴(-4), C(4, 1)(x)³(-4), C(4, 2)(x)²(-4)², C(4, 3)(x)(-4)³, C(4, 4)(x)(-4)⁴.",
+    "= x⁴ - 16x³ + 96x² - 256x + 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Row 7 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^7. What is the coefficient of x³y⁴?",
+   "answer": "35",
+   "solutionSteps": [
+    "The coefficient is C(7, 4) = 7!/(4! · 3!).",
+    "= 35."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Expand (x - 2)^3.",
+   "answer": "x³ - 6x² + 12x - 8",
+   "options": [
+    {
+     "text": "x³ - 8",
+     "correct": false
+    },
+    {
+     "text": "x³ + 6x² + 12x + 8",
+     "correct": false
+    },
+    {
+     "text": "x³ - 6x² + 12x - 8",
+     "correct": true
+    },
+    {
+     "text": "x³ - 2x² + 4x - 8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-2), C(3, 1)(x)²(-2), C(3, 2)(x)(-2)², C(3, 3)(x)(-2)³.",
+    "= x³ - 6x² + 12x - 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Expand (x + 3)^3.",
+   "answer": "x³ + 9x² + 27x + 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(3), C(3, 1)(x)²(3), C(3, 2)(x)(3)², C(3, 3)(x)(3)³.",
+    "= x³ + 9x² + 27x + 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Row 6 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^6. What is the coefficient of x⁴y²?",
+   "answer": "15",
+   "options": [
+    {
+     "text": "15",
+     "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(6, 2) = 6!/(2! · 4!).",
+    "= 15."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (x - 3)^6?",
+   "answer": "64",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (1 + (-3))^6.",
+    "= -2^6 = 64."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x + 2)^4?",
+   "answer": "256",
+   "options": [
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "256",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "32",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (2))^4.",
+    "= 4^4 = 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (x - 1)^5.",
+   "answer": "-10",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(1x)²·(-1)³.",
+    "C(5, 2) = 10; 10 · 1 · -1 = -10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (x + 2)^7?",
+   "answer": "2187",
+   "options": [
+    {
+     "text": "129",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "2187",
+     "correct": true
+    },
+    {
+     "text": "128",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (1 + (2))^7.",
+    "= 3^7 = 2187."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (2x - 1)^5.",
+   "answer": "-40",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(2x)²·(-1)³.",
+    "C(5, 2) = 10; 10 · 4 · -1 = -40."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the fifth term of the expansion of (2x + 2)^6, written in descending powers of x.",
+   "answer": "960x²",
+   "options": [
+    {
+     "text": "-960x²",
+     "correct": false
+    },
+    {
+     "text": "384x",
+     "correct": false
+    },
+    {
+     "text": "960x²",
+     "correct": true
+    },
+    {
+     "text": "240x²",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fifth term uses k = 4: C(6, 4)(2x)²(2)⁴.",
+    "C(6, 4) = 15, so the term is 960x²."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Row 5 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^5. What is the coefficient of x³y²?",
+   "answer": "10",
+   "solutionSteps": [
+    "The coefficient is C(5, 2) = 5!/(2! · 3!).",
+    "= 10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nFind the second term of the expansion of (3x + 3)^4, written in descending powers of x.\nChloe's answer: 486x²\nIdentify the mistake and give the correct answer.",
+   "answer": "324x³",
+   "solutionSteps": [
+    "Mistake: Chloe used k equal to the term number (off by one).",
+    "The second term uses k = 1: C(4, 1)(3x)³(3).",
+    "C(4, 1) = 4, so the term is 324x³.",
+    "The correct answer is 324x³, not 486x²."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find the third term of the expansion of (x - 3)^5, written in descending powers of x.",
+     "answer": "90x³"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (-2x - 2)^4.",
+     "answer": "96"
+    },
+    {
+     "prompt": "Row 7 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^7. What is the coefficient of x²y⁵?",
+     "answer": "21"
+    },
+    {
+     "prompt": "Find the second term of the expansion of (x - 3)^6, written in descending powers of x.",
+     "answer": "-18x⁵"
+    }
+   ],
+   "answer": "(a) 90x³; (b) 96; (c) 21; (d) -18x⁵",
+   "solutionSteps": [
+    "(a) The third term uses k = 2: C(5, 2)(x)³(-3)². C(5, 2) = 10, so the term is 90x³.",
+    "(b) The term with x² is C(4, 2)·(-2x)²·(-2)². C(4, 2) = 6; 6 · 4 · 4 = 96.",
+    "(c) The coefficient is C(7, 5) = 7!/(5! · 2!). = 21.",
+    "(d) The second term uses k = 1: C(6, 1)(x)⁵(-3). C(6, 1) = 6, so the term is -18x⁵."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nWhat is the sum of the coefficients in the expansion of (3x - 2)^3?\nPriya's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "1",
+   "solutionSteps": [
+    "Mistake: Priya added the binomial coefficients only.",
+    "Substitute x = 1: the sum of the coefficients is (3 + (-2))^3.",
+    "= 1^3 = 1.",
+    "The correct answer is 1, not 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x in the expansion of (2x + 2)^4.",
+   "answer": "64",
+   "solutionSteps": [
+    "The term with x is C(4, 1)·(2x)·(2)³.",
+    "C(4, 1) = 4; 4 · 2 · 8 = 64."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x³ in the expansion of (-x - 3)^4.",
+   "answer": "12",
+   "options": [
+    {
+     "text": "12",
+     "correct": true
+    },
+    {
+     "text": "108",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The term with x³ is C(4, 3)·(-1x)³·(-3).",
+    "C(4, 3) = 4; 4 · -1 · -3 = 12."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Expand (3x - 3)^3.",
+   "answer": "27x³ - 81x² + 81x - 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(-3), C(3, 1)(3x)²(-3), C(3, 2)(3x)(-3)², C(3, 3)(3x)(-3)³.",
+    "= 27x³ - 81x² + 81x - 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Expand (3x + 2)^3.",
+   "answer": "27x³ + 54x² + 36x + 8",
+   "options": [
+    {
+     "text": "27x³ + 8",
+     "correct": false
+    },
+    {
+     "text": "3x³ + 18x² + 36x + 24",
+     "correct": false
+    },
+    {
+     "text": "27x³ + 54x² + 36x + 8",
+     "correct": true
+    },
+    {
+     "text": "27x³ + 18x² + 12x + 8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(2), C(3, 1)(3x)²(2), C(3, 2)(3x)(2)², C(3, 3)(3x)(2)³.",
+    "= 27x³ + 54x² + 36x + 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (2x + 3)^6.",
+   "answer": "4860",
+   "solutionSteps": [
+    "The term with x² is C(6, 2)·(2x)²·(3)⁴.",
+    "C(6, 2) = 15; 15 · 4 · 81 = 4860."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Expand (3x + 3)^4.",
+   "answer": "81x⁴ + 324x³ + 486x² + 324x + 81",
+   "options": [
+    {
+     "text": "3x⁴ + 36x³ + 162x² + 324x + 243",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 81x³ + 81x² + 81x + 81",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 81",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 324x³ + 486x² + 324x + 81",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(3x)⁴(3), C(4, 1)(3x)³(3), C(4, 2)(3x)²(3)², C(4, 3)(3x)(3)³, C(4, 4)(3x)(3)⁴.",
+    "= 81x⁴ + 324x³ + 486x² + 324x + 81."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (3x - 2)^5.",
+   "answer": "-720",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(3x)²·(-2)³.",
+    "C(5, 2) = 10; 10 · 9 · -8 = -720."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (3x - 2)^7?",
+   "answer": "1",
+   "options": [
+    {
+     "text": "128",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "2059",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (3 + (-2))^7.",
+    "= 1^7 = 1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x in the expansion of (2x - 1)^4.",
+   "answer": "-8",
+   "solutionSteps": [
+    "The term with x is C(4, 1)·(2x)·(-1)³.",
+    "C(4, 1) = 4; 4 · 2 · -1 = -8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the fourth term of the expansion of (x + 3)^4, written in descending powers of x.",
+   "answer": "108x",
+   "options": [
+    {
+     "text": "108x",
+     "correct": true
+    },
+    {
+     "text": "81",
+     "correct": false
+    },
+    {
+     "text": "4x",
+     "correct": false
+    },
+    {
+     "text": "-108x",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fourth term uses k = 3: C(4, 3)(x)(3)³.",
+    "C(4, 3) = 4, so the term is 108x."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Row 10 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^10. What is the coefficient of x⁷y³?",
+   "answer": "120",
+   "solutionSteps": [
+    "The coefficient is C(10, 3) = 10!/(3! · 7!).",
+    "= 120."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x⁴ in the expansion of (2x - 2)^8.",
+   "answer": "17920",
+   "options": [
+    {
+     "text": "70",
+     "correct": false
+    },
+    {
+     "text": "17920",
+     "correct": true
+    },
+    {
+     "text": "1120",
+     "correct": false
+    },
+    {
+     "text": "-17920",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The term with x⁴ is C(8, 4)·(2x)⁴·(-2)⁴.",
+    "C(8, 4) = 70; 70 · 16 · 16 = 17920."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x - 3)^7?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (-3))^7.",
+    "= -1^7 = -1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nExpand (3x - 2)^3.\nBen's answer: 27x³ - 8\nIdentify the mistake and give the correct answer.",
+   "answer": "27x³ - 54x² + 36x - 8",
+   "solutionSteps": [
+    "Mistake: Ben raised each term to the power.",
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(-2), C(3, 1)(3x)²(-2), C(3, 2)(3x)(-2)², C(3, 3)(3x)(-2)³.",
+    "= 27x³ - 54x² + 36x - 8.",
+    "The correct answer is 27x³ - 54x² + 36x - 8, not 27x³ - 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Row 8 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^8. What is the coefficient of x⁴y⁴?",
+     "answer": "70"
+    },
+    {
+     "prompt": "Expand (3x + 1)^3.",
+     "answer": "27x³ + 27x² + 9x + 1"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (-2x - 3)^5.",
+     "answer": "-1080"
+    },
+    {
+     "prompt": "What is the sum of the coefficients in the expansion of (2x + 2)^5?",
+     "answer": "1024"
+    }
+   ],
+   "answer": "(a) 70; (b) 27x³ + 27x² + 9x + 1; (c) -1080; (d) 1024",
+   "solutionSteps": [
+    "(a) The coefficient is C(8, 4) = 8!/(4! · 4!). = 70.",
+    "(b) Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1. Terms: C(3, 0)(3x)³(1), C(3, 1)(3x)²(1), C(3, 2)(3x)(1)², C(3, 3)(3x)(1)³. = 27x³ + 27x² + 9x + 1.",
+    "(c) The term with x² is C(5, 2)·(-2x)²·(-3)³. C(5, 2) = 10; 10 · 4 · -27 = -1080.",
+    "(d) Substitute x = 1: the sum of the coefficients is (2 + (2))^5. = 4^5 = 1024."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nExpand (2x - 4)^4.\nOmar's answer: 16x⁴ + 256\nIdentify the mistake and give the correct answer.",
+   "answer": "16x⁴ - 128x³ + 384x² - 512x + 256",
+   "solutionSteps": [
+    "Mistake: Omar raised each term to the power.",
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(2x)⁴(-4), C(4, 1)(2x)³(-4), C(4, 2)(2x)²(-4)², C(4, 3)(2x)(-4)³, C(4, 4)(2x)(-4)⁴.",
+    "= 16x⁴ - 128x³ + 384x² - 512x + 256.",
+    "The correct answer is 16x⁴ - 128x³ + 384x² - 512x + 256, not 16x⁴ + 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 7 if x < -1; kx - 5 if x ≥ -1. Find the value of k that makes f continuous at x = -1.",
+   "answer": "-13",
+   "solutionSteps": [
+    "Left limit: -1² + (7) = 8. Right value: k(-1) + (-5).",
+    "Set them equal: -1k = 13, so k = -13."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x + 3 if x < 5; -3x + 10 if x ≥ 5. What is the limit of f(x) as x → 5?",
+   "answer": "The limit does not exist.",
+   "options": [
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "The limit does not exist.",
+     "correct": true
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: -7. Right: -5.",
+    "The one-sided limits differ, so the limit does not exist."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - x - 6)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+   "answer": "-5",
+   "solutionSteps": [
+    "Factor: (x² - x - 6) = (x + 2)(x - 3).",
+    "For x ≠ -2, f(x) = x - 3, so the limit as x → -2 is -2 - (3) = -5.",
+    "Define f(-2) = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -3/x as x → 0⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "∞",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 0⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -3, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -3x - 4 if x < 2; x - 6 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+   "answer": "-10",
+   "solutionSteps": [
+    "As x → 2⁻, x < 2, so use the first piece.",
+    "Substitute x = 2: -10."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -4/(x - 4) as x → 4⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "As x → 4⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -4, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 10x + 21)/(x - 3) is undefined at x = 3. What value should f(3) be given to make f continuous there?",
+   "answer": "-4",
+   "solutionSteps": [
+    "Factor: (x² - 10x + 21) = (x - 3)(x - 7).",
+    "For x ≠ 3, f(x) = x - 7, so the limit as x → 3 is 3 - (7) = -4.",
+    "Define f(3) = -4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 9 if x < -4; kx - 3 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-7",
+   "options": [
+    {
+     "text": "-7",
+     "correct": true
+    },
+    {
+     "text": "-11/2",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -4² + (9) = 25. Right value: k(-4) + (-3).",
+    "Set them equal: -4k = 28, so k = -7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 9 if x < 1; kx - 9 if x ≥ 1. Find the value of k that makes f continuous at x = 1.",
+   "answer": "19",
+   "solutionSteps": [
+    "Left limit: 1² + (9) = 10. Right value: k(1) + (-9).",
+    "Set them equal: 1k = 19, so k = 19."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -5/(x - 4) as x → 4⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 4⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -5, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 8x + 12)/(x + 6) is undefined at x = -6. What value should f(-6) be given to make f continuous there?",
+   "answer": "-4",
+   "solutionSteps": [
+    "Factor: (x² + 8x + 12) = (x + 6)(x + 2).",
+    "For x ≠ -6, f(x) = x + 2, so the limit as x → -6 is -6 - (-2) = -4.",
+    "Define f(-6) = -4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -x + 4 if x < -4; -2x + 5 if x ≥ -4. Find the limit of f(x) as x → -4⁺ (from the right).",
+   "answer": "13",
+   "options": [
+    {
+     "text": "does not exist",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "13",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "As x → -4⁺, x > -4, so use the second piece.",
+    "Substitute x = -4: 13."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 5x + 6)/(x - 2) is undefined at x = 2. What value should f(2) be given to make f continuous there?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Factor: (x² - 5x + 6) = (x - 2)(x - 3).",
+    "For x ≠ 2, f(x) = x - 3, so the limit as x → 2 is 2 - (3) = -1.",
+    "Define f(2) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nf(x) = x if x < 3; -2x + 3 if x ≥ 3. Find the limit of f(x) as x → 3⁻ (from the left).\nJada's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Jada used the other piece.",
+    "As x → 3⁻, x < 3, so use the first piece.",
+    "Substitute x = 3: 3.",
+    "The correct answer is 3, not -3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = (x² - 2x - 3)/(x + 1) is undefined at x = -1. What value should f(-1) be given to make f continuous there?",
+     "answer": "-4"
+    },
+    {
+     "prompt": "f(x) = (x² - 4x - 5)/(x - 5) is undefined at x = 5. What value should f(5) be given to make f continuous there?",
+     "answer": "6"
+    },
+    {
+     "prompt": "f(x) = 4x + 8 if x < -3; 3x - 2 if x ≥ -3. Find the limit of f(x) as x → -3⁺ (from the right).",
+     "answer": "-11"
+    },
+    {
+     "prompt": "f(x) = (x² + 9x + 20)/(x + 5) is undefined at x = -5. What value should f(-5) be given to make f continuous there?",
+     "answer": "-1"
+    }
+   ],
+   "answer": "(a) -4; (b) 6; (c) -11; (d) -1",
+   "solutionSteps": [
+    "(a) Factor: (x² - 2x - 3) = (x + 1)(x - 3). For x ≠ -1, f(x) = x - 3, so the limit as x → -1 is -1 - (3) = -4. Define f(-1) = -4.",
+    "(b) Factor: (x² - 4x - 5) = (x - 5)(x + 1). For x ≠ 5, f(x) = x + 1, so the limit as x → 5 is 5 - (-1) = 6. Define f(5) = 6.",
+    "(c) As x → -3⁺, x > -3, so use the second piece. Substitute x = -3: -11.",
+    "(d) Factor: (x² + 9x + 20) = (x + 5)(x + 4). For x ≠ -5, f(x) = x + 4, so the limit as x → -5 is -5 - (-4) = -1. Define f(-5) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nf(x) = x² + 9 if x < 3; kx if x ≥ 3. Find the value of k that makes f continuous at x = 3.\nEmma's answer: 18\nIdentify the mistake and give the correct answer.",
+   "answer": "6",
+   "solutionSteps": [
+    "Mistake: Emma forgot to divide by x = c.",
+    "Left limit: 3² + (9) = 18. Right value: k(3) + (0).",
+    "Set them equal: 3k = 18, so k = 6.",
+    "The correct answer is 6, not 18."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = -2x - 3 if x < -4; -3x - 2 if x ≥ -4. Find the limit of f(x) as x → -4⁻ (from the left).",
+   "answer": "5",
+   "solutionSteps": [
+    "As x → -4⁻, x < -4, so use the first piece.",
+    "Substitute x = -4: 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of 5/(x - 1) as x → 1⁺.",
+   "answer": "∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": true
+    },
+    {
+     "text": "-∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 1⁺, the denominator approaches 0 through positive values.",
+    "The numerator is 5, so the quotient grows without bound: ∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 4x + 3)/(x - 1) is undefined at x = 1. What value should f(1) be given to make f continuous there?",
+   "answer": "-2",
+   "solutionSteps": [
+    "Factor: (x² - 4x + 3) = (x - 1)(x - 3).",
+    "For x ≠ 1, f(x) = x - 3, so the limit as x → 1 is 1 - (3) = -2.",
+    "Define f(1) = -2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -4/(x - 2)² as x → 2⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 2⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -4, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 3x - 28)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+   "answer": "-11",
+   "solutionSteps": [
+    "Factor: (x² + 3x - 28) = (x + 7)(x - 4).",
+    "For x ≠ -7, f(x) = x - 4, so the limit as x → -7 is -7 - (4) = -11.",
+    "Define f(-7) = -11."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -5/(x + 4)² as x → -4⁻.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -4⁻, the denominator approaches 0 through positive values.",
+    "The numerator is -5, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 7 if x < -1; kx + 6 if x ≥ -1. Find the value of k that makes f continuous at x = -1.",
+   "answer": "12",
+   "solutionSteps": [
+    "Left limit: -1² + (-7) = -6. Right value: k(-1) + (6).",
+    "Set them equal: -1k = -12, so k = 12."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -9/(x + 3)² as x → -3⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -3⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -9, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = 3x + 8 if x < 2; -4x - 6 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+   "answer": "14",
+   "solutionSteps": [
+    "As x → 2⁻, x < 2, so use the first piece.",
+    "Substitute x = 2: 14."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -7/(x + 6) as x → -6⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -6⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -7, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 7x)/(x - 7) is undefined at x = 7. What value should f(7) be given to make f continuous there?",
+   "answer": "7",
+   "solutionSteps": [
+    "Factor: (x² - 7x) = (x - 7)(x).",
+    "For x ≠ 7, f(x) = x, so the limit as x → 7 is 7 - (0) = 7.",
+    "Define f(7) = 7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 3x + 2 if x < 1; 2x + 8 if x ≥ 1. Find the limit of f(x) as x → 1⁺ (from the right).",
+   "answer": "10",
+   "options": [
+    {
+     "text": "10",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "does not exist",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 1⁺, x > 1, so use the second piece.",
+    "Substitute x = 1: 10."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + x - 6)/(x - 2) is undefined at x = 2. What value should f(2) be given to make f continuous there?",
+   "answer": "5",
+   "solutionSteps": [
+    "Factor: (x² + x - 6) = (x - 2)(x + 3).",
+    "For x ≠ 2, f(x) = x + 3, so the limit as x → 2 is 2 - (-3) = 5.",
+    "Define f(2) = 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nf(x) = (x² + x - 6)/(x + 3) is undefined at x = -3. What value should f(-3) be given to make f continuous there?\nSam's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Mistake: Sam substituted into the numerator only.",
+    "Factor: (x² + x - 6) = (x + 3)(x - 2).",
+    "For x ≠ -3, f(x) = x - 2, so the limit as x → -3 is -3 - (2) = -5.",
+    "Define f(-3) = -5.",
+    "The correct answer is -5, not 0."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = (x² - 4x + 3)/(x - 3) is undefined at x = 3. What value should f(3) be given to make f continuous there?",
+     "answer": "2"
+    },
+    {
+     "prompt": "f(x) = 4x - 5 if x < 2; -3x + 5 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = (x² - 6x + 5)/(x - 5) is undefined at x = 5. What value should f(5) be given to make f continuous there?",
+     "answer": "4"
+    },
+    {
+     "prompt": "f(x) = (x² + 11x + 28)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+     "answer": "-3"
+    }
+   ],
+   "answer": "(a) 2; (b) 3; (c) 4; (d) -3",
+   "solutionSteps": [
+    "(a) Factor: (x² - 4x + 3) = (x - 3)(x - 1). For x ≠ 3, f(x) = x - 1, so the limit as x → 3 is 3 - (1) = 2. Define f(3) = 2.",
+    "(b) As x → 2⁻, x < 2, so use the first piece. Substitute x = 2: 3.",
+    "(c) Factor: (x² - 6x + 5) = (x - 5)(x - 1). For x ≠ 5, f(x) = x - 1, so the limit as x → 5 is 5 - (1) = 4. Define f(5) = 4.",
+    "(d) Factor: (x² + 11x + 28) = (x + 7)(x + 4). For x ≠ -7, f(x) = x + 4, so the limit as x → -7 is -7 - (-4) = -3. Define f(-7) = -3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nf(x) = x² + 7 if x < -4; kx - 5 if x ≥ -4. Find the value of k that makes f continuous at x = -4.\nMateo's answer: -9/2\nIdentify the mistake and give the correct answer.",
+   "answer": "-7",
+   "solutionSteps": [
+    "Mistake: Mateo moved b to the wrong side.",
+    "Left limit: -4² + (7) = 23. Right value: k(-4) + (-5).",
+    "Set them equal: -4k = 28, so k = -7.",
+    "The correct answer is -7, not -9/2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 3x + 2)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Factor: (x² + 3x + 2) = (x + 2)(x + 1).",
+    "For x ≠ -2, f(x) = x + 1, so the limit as x → -2 is -2 - (-1) = -1.",
+    "Define f(-2) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 2 if x < -4; kx - 7 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-25/4",
+   "options": [
+    {
+     "text": "-25/4",
+     "correct": true
+    },
+    {
+     "text": "-11/4",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -4² + (2) = 18. Right value: k(-4) + (-7).",
+    "Set them equal: -4k = 25, so k = -25/4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x + 1 if x < 4; x - 1 if x ≥ 4. Find the limit of f(x) as x → 4⁺ (from the right).",
+   "answer": "3",
+   "solutionSteps": [
+    "As x → 4⁺, x > 4, so use the second piece.",
+    "Substitute x = 4: 3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x + 6 if x < -4; 2x + 26 if x ≥ -4. What is the limit of f(x) as x → -4?",
+   "answer": "18",
+   "options": [
+    {
+     "text": "The limit does not exist.",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    },
+    {
+     "text": "19",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: 18. Right: 18.",
+    "The one-sided limits agree, so the limit is 18."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 6 if x < 3; kx - 9 if x ≥ 3. Find the value of k that makes f continuous at x = 3.",
+   "answer": "8",
+   "solutionSteps": [
+    "Left limit: 3² + (6) = 15. Right value: k(3) + (-9).",
+    "Set them equal: 3k = 24, so k = 8."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of 5/(x + 2)² as x → -2⁻.",
+   "answer": "∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -2⁻, the denominator approaches 0 through positive values.",
+    "The numerator is 5, so the quotient grows without bound: ∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 2 if x < 1; kx + 7 if x ≥ 1. Find the value of k that makes f continuous at x = 1.",
+   "answer": "-8",
+   "solutionSteps": [
+    "Left limit: 1² + (-2) = -1. Right value: k(1) + (7).",
+    "Set them equal: 1k = -8, so k = -8."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x + 4 if x < 5; -4x + 12 if x ≥ 5. What is the limit of f(x) as x → 5?",
+   "answer": "The limit does not exist.",
+   "options": [
+    {
+     "text": "The limit does not exist.",
+     "correct": true
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-19",
+     "correct": false
+    },
+    {
+     "text": "-11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: -11. Right: -8.",
+    "The one-sided limits differ, so the limit does not exist."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -3x + 7 if x < 1; -4x + 3 if x ≥ 1. Find the limit of f(x) as x → 1⁻ (from the left).",
+   "answer": "4",
+   "solutionSteps": [
+    "As x → 1⁻, x < 1, so use the first piece.",
+    "Substitute x = 1: 4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 3 if x < -2; kx - 3 if x ≥ -2. Find the value of k that makes f continuous at x = -2.",
+   "answer": "-5",
+   "options": [
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -2² + (3) = 7. Right value: k(-2) + (-3).",
+    "Set them equal: -2k = 10, so k = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -2x - 7 if x < -1; -4x + 1 if x ≥ -1. Find the limit of f(x) as x → -1⁺ (from the right).",
+   "answer": "5",
+   "solutionSteps": [
+    "As x → -1⁺, x > -1, so use the second piece.",
+    "Substitute x = -1: 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x² + 12x + 35)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+   "answer": "-2",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor: (x² + 12x + 35) = (x + 7)(x + 5).",
+    "For x ≠ -7, f(x) = x + 5, so the limit as x → -7 is -7 - (-5) = -2.",
+    "Define f(-7) = -2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 2 if x < -4; kx - 6 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Left limit: -4² + (-2) = 14. Right value: k(-4) + (-6).",
+    "Set them equal: -4k = 20, so k = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nf(x) = (x² + 5x + 4)/(x + 1) is undefined at x = -1. What value should f(-1) be given to make f continuous there?\nJada's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Jada substituted into the numerator only.",
+    "Factor: (x² + 5x + 4) = (x + 1)(x + 4).",
+    "For x ≠ -1, f(x) = x + 4, so the limit as x → -1 is -1 - (-4) = 3.",
+    "Define f(-1) = 3.",
+    "The correct answer is 3, not 0."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = 4x if x < 4; -x - 1 if x ≥ 4. Find the limit of f(x) as x → 4⁺ (from the right).",
+     "answer": "-5"
+    },
+    {
+     "prompt": "f(x) = (x² - 4x - 12)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+     "answer": "-8"
+    },
+    {
+     "prompt": "f(x) = -x - 1 if x < 1; 3x - 2 if x ≥ 1. Find the limit of f(x) as x → 1⁺ (from the right).",
+     "answer": "1"
+    },
+    {
+     "prompt": "f(x) = (x² - 11x + 28)/(x - 7) is undefined at x = 7. What value should f(7) be given to make f continuous there?",
+     "answer": "3"
+    }
+   ],
+   "answer": "(a) -5; (b) -8; (c) 1; (d) 3",
+   "solutionSteps": [
+    "(a) As x → 4⁺, x > 4, so use the second piece. Substitute x = 4: -5.",
+    "(b) Factor: (x² - 4x - 12) = (x + 2)(x - 6). For x ≠ -2, f(x) = x - 6, so the limit as x → -2 is -2 - (6) = -8. Define f(-2) = -8.",
+    "(c) As x → 1⁺, x > 1, so use the second piece. Substitute x = 1: 1.",
+    "(d) Factor: (x² - 11x + 28) = (x - 7)(x - 4). For x ≠ 7, f(x) = x - 4, so the limit as x → 7 is 7 - (4) = 3. Define f(7) = 3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nf(x) = 2x + 5 if x < 0; x - 7 if x ≥ 0. Find the limit of f(x) as x → 0⁻ (from the left).\nAva's answer: -7\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Ava used the other piece.",
+    "As x → 0⁻, x < 0, so use the first piece.",
+    "Substitute x = 0: 5.",
+    "The correct answer is 5, not -7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w001",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A job pays $34,000 in the first year, with a 2% raise each year after. What are the total earnings over 7 years? Round to the nearest dollar.",
+   "answer": "≈ $252,766",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 34000 and r = 1.02.",
+    "S = 34000(1.02^7 - 1)/(1.02 - 1).",
+    "S ≈ $252,766."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w002",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A theater has 13 seats in the first row, and each row has 3 more seats than the row in front of it. There are 15 rows. How many seats are there in all?",
+   "answer": "510 seats",
+   "options": [
+    {
+     "text": "55 seats",
+     "correct": false
+    },
+    {
+     "text": "532 seats",
+     "correct": false
+    },
+    {
+     "text": "510 seats",
+     "correct": true
+    },
+    {
+     "text": "195 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 13 + (15 - 1)(3) = 55.",
+    "S = n(a₁ + a_n)/2 = 15(13 + 55)/2 = 510 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w003",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A job pays $65,000 in the first year, with a 4% raise each year after. What are the total earnings over 13 years? Round to the nearest dollar.",
+   "answer": "≈ $1,080,744",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 65000 and r = 1.04.",
+    "S = 65000(1.04^13 - 1)/(1.04 - 1).",
+    "S ≈ $1,080,744."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w004",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 19 seats in the first row, and each row has 3 more seats than the row in front of it. There are 13 rows. How many seats are there in all?",
+   "answer": "481 seats",
+   "solutionSteps": [
+    "Last row: 19 + (13 - 1)(3) = 55.",
+    "S = n(a₁ + a_n)/2 = 13(19 + 55)/2 = 481 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w005",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A theater has 26 seats in the first row, and each row has 4 more seats than the row in front of it. There are 16 rows. How many seats are there in all?",
+   "answer": "896 seats",
+   "options": [
+    {
+     "text": "928 seats",
+     "correct": false
+    },
+    {
+     "text": "86 seats",
+     "correct": false
+    },
+    {
+     "text": "896 seats",
+     "correct": true
+    },
+    {
+     "text": "416 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 26 + (16 - 1)(4) = 86.",
+    "S = n(a₁ + a_n)/2 = 16(26 + 86)/2 = 896 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w006",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A job pays $70,000 in the first year, with a 5% raise each year after. What are the total earnings over 7 years? Round to the nearest dollar.",
+   "answer": "≈ $569,941",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 70000 and r = 1.05.",
+    "S = 70000(1.05^7 - 1)/(1.05 - 1).",
+    "S ≈ $569,941."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w007",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nA job pays $64,000 in the first year, with a 3% raise each year after. What are the total earnings over 19 years? Round to the nearest dollar.\nKenji's answer: ≈ $108,956\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ $1,607,480",
+   "solutionSteps": [
+    "Mistake: Kenji gave the last year's salary.",
+    "The salaries form a geometric sequence with a₁ = 64000 and r = 1.03.",
+    "S = 64000(1.03^19 - 1)/(1.03 - 1).",
+    "S ≈ $1,607,480.",
+    "The correct answer is ≈ $1,607,480, not ≈ $108,956."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w008",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 27 seats in the first row, and each row has 2 more seats than the row in front of it. There are 18 rows. How many seats are there in all?",
+   "answer": "792 seats",
+   "solutionSteps": [
+    "Last row: 27 + (18 - 1)(2) = 61.",
+    "S = n(a₁ + a_n)/2 = 18(27 + 61)/2 = 792 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp2-w009",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A theater has 25 seats in the first row, and each row has 2 more seats than the row in front of it. There are 19 rows. How many seats are there in all?",
+   "answer": "817 seats",
+   "options": [
+    {
+     "text": "817 seats",
+     "correct": true
+    },
+    {
+     "text": "61 seats",
+     "correct": false
+    },
+    {
+     "text": "475 seats",
+     "correct": false
+    },
+    {
+     "text": "836 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 25 + (19 - 1)(2) = 61.",
+    "S = n(a₁ + a_n)/2 = 19(25 + 61)/2 = 817 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w001",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A job pays $34,000 in the first year, with a 3% raise each year after. What are the total earnings over 6 years? Round to the nearest dollar.",
+   "answer": "≈ $219,926",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 34000 and r = 1.03.",
+    "S = 34000(1.03^6 - 1)/(1.03 - 1).",
+    "S ≈ $219,926."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w002",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A job pays $69,000 in the first year, with a 4% raise each year after. What are the total earnings over 6 years? Round to the nearest dollar.",
+   "answer": "≈ $457,675",
+   "options": [
+    {
+     "text": "≈ $457,675",
+     "correct": true
+    },
+    {
+     "text": "≈ $414,000",
+     "correct": false
+    },
+    {
+     "text": "≈ $83,949",
+     "correct": false
+    },
+    {
+     "text": "≈ $544,982",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 69000 and r = 1.04.",
+    "S = 69000(1.04^6 - 1)/(1.04 - 1).",
+    "S ≈ $457,675."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w003",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A job pays $69,000 in the first year, with a 4% raise each year after. What are the total earnings over 13 years? Round to the nearest dollar.",
+   "answer": "≈ $1,147,252",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 69000 and r = 1.04.",
+    "S = 69000(1.04^13 - 1)/(1.04 - 1).",
+    "S ≈ $1,147,252."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w004",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A theater has 15 seats in the first row, and each row has 2 more seats than the row in front of it. There are 22 rows. How many seats are there in all?",
+   "answer": "792 seats",
+   "solutionSteps": [
+    "Last row: 15 + (22 - 1)(2) = 57.",
+    "S = n(a₁ + a_n)/2 = 22(15 + 57)/2 = 792 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w005",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A theater has 16 seats in the first row, and each row has 2 more seats than the row in front of it. There are 20 rows. How many seats are there in all?",
+   "answer": "700 seats",
+   "options": [
+    {
+     "text": "700 seats",
+     "correct": true
+    },
+    {
+     "text": "320 seats",
+     "correct": false
+    },
+    {
+     "text": "54 seats",
+     "correct": false
+    },
+    {
+     "text": "720 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 16 + (20 - 1)(2) = 54.",
+    "S = n(a₁ + a_n)/2 = 20(16 + 54)/2 = 700 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w006",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A job pays $68,000 in the first year, with a 5% raise each year after. What are the total earnings over 13 years? Round to the nearest dollar.",
+   "answer": "≈ $1,204,483",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 68000 and r = 1.05.",
+    "S = 68000(1.05^13 - 1)/(1.05 - 1).",
+    "S ≈ $1,204,483."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w007",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Gabe answered this problem incorrectly.\nA job pays $63,000 in the first year, with a 2% raise each year after. What are the total earnings over 20 years? Round to the nearest dollar.\nGabe's answer: ≈ $91,779\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ $1,530,734",
+   "solutionSteps": [
+    "Mistake: Gabe gave the last year's salary.",
+    "The salaries form a geometric sequence with a₁ = 63000 and r = 1.02.",
+    "S = 63000(1.02^20 - 1)/(1.02 - 1).",
+    "S ≈ $1,530,734.",
+    "The correct answer is ≈ $1,530,734, not ≈ $91,779."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w008",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A theater has 20 seats in the first row, and each row has 2 more seats than the row in front of it. There are 17 rows. How many seats are there in all?",
+   "answer": "612 seats",
+   "solutionSteps": [
+    "Last row: 20 + (17 - 1)(2) = 52.",
+    "S = n(a₁ + a_n)/2 = 17(20 + 52)/2 = 612 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-cp1-w009",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A job pays $48,000 in the first year, with a 5% raise each year after. What are the total earnings over 16 years? Round to the nearest dollar.",
+   "answer": "≈ $1,135,560",
+   "options": [
+    {
+     "text": "≈ $1,135,560",
+     "correct": true
+    },
+    {
+     "text": "≈ $99,789",
+     "correct": false
+    },
+    {
+     "text": "≈ $768,000",
+     "correct": false
+    },
+    {
+     "text": "≈ $1,240,338",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 48000 and r = 1.05.",
+    "S = 48000(1.05^16 - 1)/(1.05 - 1).",
+    "S ≈ $1,135,560."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w001",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A theater has 17 seats in the first row, and each row has 2 more seats than the row in front of it. There are 30 rows. How many seats are in the last row?",
+   "answer": "75 seats",
+   "solutionSteps": [
+    "a_n = a₁ + (n - 1)d = 17 + (30 - 1)(2).",
+    "= 75 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w002",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A theater has 25 seats in the first row, and each row has 3 more seats than the row in front of it. There are 25 rows. How many seats are there in all?",
+   "answer": "1525 seats",
+   "options": [
+    {
+     "text": "625 seats",
+     "correct": false
+    },
+    {
+     "text": "1525 seats",
+     "correct": true
+    },
+    {
+     "text": "97 seats",
+     "correct": false
+    },
+    {
+     "text": "1562 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 25 + (25 - 1)(3) = 97.",
+    "S = n(a₁ + a_n)/2 = 25(25 + 97)/2 = 1525 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w003",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A job pays $45,000 in the first year, with a 4% raise each year after. What are the total earnings over 10 years? Round to the nearest dollar.",
+   "answer": "≈ $540,275",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 45000 and r = 1.04.",
+    "S = 45000(1.04^10 - 1)/(1.04 - 1).",
+    "S ≈ $540,275."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w004",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A job pays $34,000 in the first year, with a 5% raise each year after. What are the total earnings over 20 years? Round to the nearest dollar.",
+   "answer": "≈ $1,124,242",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 34000 and r = 1.05.",
+    "S = 34000(1.05^20 - 1)/(1.05 - 1).",
+    "S ≈ $1,124,242."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w005",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A theater has 26 seats in the first row, and each row has 4 more seats than the row in front of it. There are 20 rows. How many seats are there in all?",
+   "answer": "1280 seats",
+   "options": [
+    {
+     "text": "520 seats",
+     "correct": false
+    },
+    {
+     "text": "1280 seats",
+     "correct": true
+    },
+    {
+     "text": "102 seats",
+     "correct": false
+    },
+    {
+     "text": "1320 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Last row: 26 + (20 - 1)(4) = 102.",
+    "S = n(a₁ + a_n)/2 = 20(26 + 102)/2 = 1280 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w006",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A theater has 16 seats in the first row, and each row has 4 more seats than the row in front of it. There are 15 rows. How many seats are in the last row?",
+   "answer": "72 seats",
+   "solutionSteps": [
+    "a_n = a₁ + (n - 1)d = 16 + (15 - 1)(4).",
+    "= 72 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w007",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA theater has 17 seats in the first row, and each row has 4 more seats than the row in front of it. There are 12 rows. How many seats are there in all?\nTariq's answer: 61 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "468 seats",
+   "solutionSteps": [
+    "Mistake: Tariq gave the last row.",
+    "Last row: 17 + (12 - 1)(4) = 61.",
+    "S = n(a₁ + a_n)/2 = 12(17 + 61)/2 = 468 seats.",
+    "The correct answer is 468 seats, not 61 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w008",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A job pays $38,000 in the first year, with a 5% raise each year after. What are the total earnings over 12 years? Round to the nearest dollar.",
+   "answer": "≈ $604,851",
+   "solutionSteps": [
+    "The salaries form a geometric sequence with a₁ = 38000 and r = 1.05.",
+    "S = 38000(1.05^12 - 1)/(1.05 - 1).",
+    "S ≈ $604,851."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_salary). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s02-honors-w009",
+   "skillId": "sequences-series-limits-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A theater has 19 seats in the first row, and each row has 3 more seats than the row in front of it. There are 19 rows. How many seats are in the last row?",
+   "answer": "73 seats",
+   "options": [
+    {
+     "text": "73 seats",
+     "correct": true
+    },
+    {
+     "text": "874 seats",
+     "correct": false
+    },
+    {
+     "text": "76 seats",
+     "correct": false
+    },
+    {
+     "text": "361 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a_n = a₁ + (n - 1)d = 19 + (19 - 1)(3).",
+    "= 73 seats."
+   ],
+   "standards": [
+    "A-SSE.B.4",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_seats). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w001",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 10 feet. Each bounce reaches 2/3 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "50 ft",
+   "solutionSteps": [
+    "Down 10 ft, then each rebound is travelled up and down: 2 · 10(2/3)/(1 - 2/3).",
+    "Total = 10 + 40 = 50 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w002",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 25 feet. Each bounce reaches 4/5 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "225 ft",
+   "options": [
+    {
+     "text": "225 ft",
+     "correct": true
+    },
+    {
+     "text": "125 ft",
+     "correct": false
+    },
+    {
+     "text": "250 ft",
+     "correct": false
+    },
+    {
+     "text": "100 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Down 25 ft, then each rebound is travelled up and down: 2 · 25(4/5)/(1 - 4/5).",
+    "Total = 25 + 200 = 225 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w003",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 25 feet. Each bounce reaches 2/3 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "125 ft",
+   "solutionSteps": [
+    "Down 25 ft, then each rebound is travelled up and down: 2 · 25(2/3)/(1 - 2/3).",
+    "Total = 25 + 100 = 125 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w004",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 8 feet. Each bounce reaches 4/5 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "72 ft",
+   "solutionSteps": [
+    "Down 8 ft, then each rebound is travelled up and down: 2 · 8(4/5)/(1 - 4/5).",
+    "Total = 8 + 64 = 72 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w005",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 24 feet. Each bounce reaches 3/5 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "96 ft",
+   "options": [
+    {
+     "text": "36 ft",
+     "correct": false
+    },
+    {
+     "text": "120 ft",
+     "correct": false
+    },
+    {
+     "text": "96 ft",
+     "correct": true
+    },
+    {
+     "text": "60 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Down 24 ft, then each rebound is travelled up and down: 2 · 24(3/5)/(1 - 3/5).",
+    "Total = 24 + 72 = 96 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp2-w006",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA ball is dropped from 25 feet. Each bounce reaches 3/4 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.\nAva's answer: 100 ft\nIdentify the mistake and give the correct answer.",
+   "answer": "175 ft",
+   "solutionSteps": [
+    "Mistake: Ava counted each rebound only once.",
+    "Down 25 ft, then each rebound is travelled up and down: 2 · 25(3/4)/(1 - 3/4).",
+    "Total = 25 + 150 = 175 ft.",
+    "The correct answer is 175 ft, not 100 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w001",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 15 feet. Each bounce reaches 1/2 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "45 ft",
+   "solutionSteps": [
+    "Down 15 ft, then each rebound is travelled up and down: 2 · 15(1/2)/(1 - 1/2).",
+    "Total = 15 + 30 = 45 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w002",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 18 feet. Each bounce reaches 1/2 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "54 ft",
+   "options": [
+    {
+     "text": "54 ft",
+     "correct": true
+    },
+    {
+     "text": "18 ft",
+     "correct": false
+    },
+    {
+     "text": "72 ft",
+     "correct": false
+    },
+    {
+     "text": "36 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Down 18 ft, then each rebound is travelled up and down: 2 · 18(1/2)/(1 - 1/2).",
+    "Total = 18 + 36 = 54 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w003",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 20 feet. Each bounce reaches 1/2 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "60 ft",
+   "solutionSteps": [
+    "Down 20 ft, then each rebound is travelled up and down: 2 · 20(1/2)/(1 - 1/2).",
+    "Total = 20 + 40 = 60 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w004",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 15 feet. Each bounce reaches 3/4 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "105 ft",
+   "solutionSteps": [
+    "Down 15 ft, then each rebound is travelled up and down: 2 · 15(3/4)/(1 - 3/4).",
+    "Total = 15 + 90 = 105 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w005",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 18 feet. Each bounce reaches 4/5 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "162 ft",
+   "options": [
+    {
+     "text": "90 ft",
+     "correct": false
+    },
+    {
+     "text": "72 ft",
+     "correct": false
+    },
+    {
+     "text": "180 ft",
+     "correct": false
+    },
+    {
+     "text": "162 ft",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Down 18 ft, then each rebound is travelled up and down: 2 · 18(4/5)/(1 - 4/5).",
+    "Total = 18 + 144 = 162 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-cp1-w006",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Diego answered this problem incorrectly.\nA ball is dropped from 12 feet. Each bounce reaches 3/4 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.\nDiego's answer: 48 ft\nIdentify the mistake and give the correct answer.",
+   "answer": "84 ft",
+   "solutionSteps": [
+    "Mistake: Diego counted each rebound only once.",
+    "Down 12 ft, then each rebound is travelled up and down: 2 · 12(3/4)/(1 - 3/4).",
+    "Total = 12 + 72 = 84 ft.",
+    "The correct answer is 84 ft, not 48 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w001",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 10 feet. Each bounce reaches 1/2 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "30 ft",
+   "solutionSteps": [
+    "Down 10 ft, then each rebound is travelled up and down: 2 · 10(1/2)/(1 - 1/2).",
+    "Total = 10 + 20 = 30 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w002",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 12 feet. Each bounce reaches 4/5 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "108 ft",
+   "options": [
+    {
+     "text": "60 ft",
+     "correct": false
+    },
+    {
+     "text": "120 ft",
+     "correct": false
+    },
+    {
+     "text": "108 ft",
+     "correct": true
+    },
+    {
+     "text": "48 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Down 12 ft, then each rebound is travelled up and down: 2 · 12(4/5)/(1 - 4/5).",
+    "Total = 12 + 96 = 108 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w003",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 9 feet. Each bounce reaches 2/3 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "45 ft",
+   "solutionSteps": [
+    "Down 9 ft, then each rebound is travelled up and down: 2 · 9(2/3)/(1 - 2/3).",
+    "Total = 9 + 36 = 45 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w004",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A ball is dropped from 16 feet. Each bounce reaches 3/4 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "112 ft",
+   "solutionSteps": [
+    "Down 16 ft, then each rebound is travelled up and down: 2 · 16(3/4)/(1 - 3/4).",
+    "Total = 16 + 96 = 112 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w005",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A ball is dropped from 6 feet. Each bounce reaches 1/3 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.",
+   "answer": "12 ft",
+   "options": [
+    {
+     "text": "9 ft",
+     "correct": false
+    },
+    {
+     "text": "18 ft",
+     "correct": false
+    },
+    {
+     "text": "3 ft",
+     "correct": false
+    },
+    {
+     "text": "12 ft",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Down 6 ft, then each rebound is travelled up and down: 2 · 6(1/3)/(1 - 1/3).",
+    "Total = 6 + 6 = 12 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s03-honors-w006",
+   "skillId": "sequences-series-limits-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nA ball is dropped from 9 feet. Each bounce reaches 1/3 of the previous height. If it bounces forever, what total vertical distance does it travel? Round to the nearest hundredth of a foot if necessary.\nChloe's answer: 13.5 ft\nIdentify the mistake and give the correct answer.",
+   "answer": "18 ft",
+   "solutionSteps": [
+    "Mistake: Chloe counted each rebound only once.",
+    "Down 9 ft, then each rebound is travelled up and down: 2 · 9(1/3)/(1 - 1/3).",
+    "Total = 9 + 9 = 18 ft.",
+    "The correct answer is 18 ft, not 13.5 ft."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_bounce_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

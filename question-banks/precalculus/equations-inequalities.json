@@ -228,19 +228,17 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write an equation in slope-intercept form for the line through (1, -7) and (-5, 17).",
-   "answer": "y = -4x - 3",
+   "prompt": "A line has x-intercept -7 and y-intercept 3. Write its equation in slope-intercept form.",
+   "answer": "y = (3/7)x + 3",
    "solutionSteps": [
-    "m = (17 - (-7)) ÷ (-5 - (1)) = -4.",
-    "Substitute (1, -7): -7 = -4(1) + b.",
-    "b = -3.",
-    "y = -4x - 3."
+    "It passes through (-7, 0) and (0, 3): slope = (3 - 0)/(0 - (-7)) = 3/7.",
+    "y = (3/7)x + 3."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_intercepts), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-cp2-010",
@@ -283,37 +281,35 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Write an equation in slope-intercept form for the line through (-6, -21) and (6, 27).",
-   "answer": "y = 4x + 3",
+   "prompt": "A line has x-intercept 5 and y-intercept -9. Write its equation in slope-intercept form.",
+   "answer": "y = (9/5)x - 9",
    "options": [
     {
-     "text": "y = -4x + 3",
+     "text": "y = (9/5)x + 5",
      "correct": false
     },
     {
-     "text": "y = 4x + 3",
+     "text": "y = -(9/5)x - 9",
+     "correct": false
+    },
+    {
+     "text": "y = (9/5)x - 9",
      "correct": true
     },
     {
-     "text": "y = 4x - 21",
-     "correct": false
-    },
-    {
-     "text": "y = (1/4)x + 3",
+     "text": "y = (5/9)x - 9",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "m = (27 - (-21)) ÷ (6 - (-6)) = 4.",
-    "Substitute (-6, -21): -21 = 4(-6) + b.",
-    "b = 3.",
-    "y = 4x + 3."
+    "It passes through (5, 0) and (0, -9): slope = (-9 - 0)/(0 - (5)) = 9/5.",
+    "y = (9/5)x - 9."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_intercepts), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-cp2-012",
@@ -338,19 +334,17 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write an equation in slope-intercept form for the line through (2, 5) and (3, 7).",
-   "answer": "y = 2x + 1",
+   "prompt": "Write an equation in slope-intercept form for the line with slope 2 that passes through (-7, 8).",
+   "answer": "y = 2x + 22",
    "solutionSteps": [
-    "m = (7 - (5)) ÷ (3 - (2)) = 2.",
-    "Substitute (2, 5): 5 = 2(2) + b.",
-    "b = 1.",
-    "y = 2x + 1."
+    "y - (8) = 2(x - (-7)).",
+    "y = 2x + (14) + (8), so y = 2x + 22."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_point_slope), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-cp2-014",
@@ -688,37 +682,35 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation in slope-intercept form for the line through (4, 4) and (2, 5).",
-   "answer": "y = -(1/2)x + 6",
+   "prompt": "The table shows points on a line.\nx: -3, -1, 1, 3\ny: 17, 11, 5, -1\nWrite the equation of the line in slope-intercept form.",
+   "answer": "y = -3x + 8",
    "options": [
     {
-     "text": "y = -2x + 6",
-     "correct": false
-    },
-    {
-     "text": "y = -(1/2)x + 6",
+     "text": "y = -3x + 8",
      "correct": true
     },
     {
-     "text": "y = (1/2)x + 6",
+     "text": "y = 3x + 8",
      "correct": false
     },
     {
-     "text": "y = -(1/2)x + 4",
+     "text": "y = -6x + 8",
+     "correct": false
+    },
+    {
+     "text": "y = -(1/3)x + 8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "m = (5 - (4)) ÷ (2 - (4)) = -1/2.",
-    "Substitute (4, 4): 4 = -1/2(4) + b.",
-    "b = 6.",
-    "y = -(1/2)x + 6."
+    "Slope = (11 - (17))/(-1 - (-3)) = -3.",
+    "b = y - mx = 17 - (-3)(-3) = 8, so y = -3x + 8."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_table), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-cp1-011",
@@ -779,19 +771,17 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation in slope-intercept form for the line through (3, 11) and (-2, 1).",
-   "answer": "y = 2x + 5",
+   "prompt": "A line has x-intercept 5 and y-intercept -6. Write its equation in slope-intercept form.",
+   "answer": "y = (6/5)x - 6",
    "solutionSteps": [
-    "m = (1 - (11)) ÷ (-2 - (3)) = 2.",
-    "Substitute (3, 11): 11 = 2(3) + b.",
-    "b = 5.",
-    "y = 2x + 5."
+    "It passes through (5, 0) and (0, -6): slope = (-6 - 0)/(0 - (5)) = 6/5.",
+    "y = (6/5)x - 6."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_intercepts), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-cp1-014",
@@ -1114,37 +1104,35 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Write an equation in slope-intercept form for the line through (-2, 0) and (-3, 1).",
-   "answer": "y = -x - 2",
+   "prompt": "The table shows points on a line.\nx: 0, 2, 4, 6\ny: 3, 15, 27, 39\nWrite the equation of the line in slope-intercept form.",
+   "answer": "y = 6x + 3",
    "options": [
     {
-     "text": "y = -x - 2",
+     "text": "y = -6x + 3",
+     "correct": false
+    },
+    {
+     "text": "y = 12x + 3",
+     "correct": false
+    },
+    {
+     "text": "y = (1/6)x + 3",
+     "correct": false
+    },
+    {
+     "text": "y = 6x + 3",
      "correct": true
-    },
-    {
-     "text": "y = -x",
-     "correct": false
-    },
-    {
-     "text": "y = -x + 2",
-     "correct": false
-    },
-    {
-     "text": "y = x - 2",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "m = (1 - (0)) ÷ (-3 - (-2)) = -1.",
-    "Substitute (-2, 0): 0 = -1(-2) + b.",
-    "b = -2.",
-    "y = -x - 2."
+    "Slope = (15 - (3))/(2 - (0)) = 6.",
+    "b = y - mx = 3 - (6)(0) = 3, so y = 6x + 3."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_table), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-honors-011",
@@ -1205,19 +1193,17 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write an equation in slope-intercept form for the line through (2, -4) and (-3, 6).",
-   "answer": "y = -2x",
+   "prompt": "The table shows points on a line.\nx: 0, 2, 4, 6\ny: 6, 2, -2, -6\nWrite the equation of the line in slope-intercept form.",
+   "answer": "y = -2x + 6",
    "solutionSteps": [
-    "m = (6 - (-4)) ÷ (-3 - (2)) = -2.",
-    "Substitute (2, -4): -4 = -2(2) + b.",
-    "b = 0.",
-    "y = -2x."
+    "Slope = (2 - (6))/(2 - (0)) = -2.",
+    "b = y - mx = 6 - (-2)(0) = 6, so y = -2x + 6."
    ],
    "standards": [
     "F-LE.A.2",
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: line_table), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s01-honors-014",
@@ -11889,35 +11875,34 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 3x + 9y ≤ 27, 7x + 7y ≤ 49 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(6, 1)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, x + 2y ≤ 8, 2x + 2y ≤ 14?",
+   "answer": "(4, 0)",
    "options": [
     {
-     "text": "(9, 0)",
+     "text": "(6, 4)",
      "correct": false
     },
     {
-     "text": "(1, 6)",
+     "text": "(4, 4)",
      "correct": false
     },
     {
-     "text": "(0, 7)",
-     "correct": false
-    },
-    {
-     "text": "(6, 1)",
+     "text": "(4, 0)",
      "correct": true
+    },
+    {
+     "text": "(7, 3)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 3x + 9y = 27 and 7x + 7y = 49 together.",
-    "Use elimination.",
-    "Vertex: (6, 1)."
+    "Test (4, 0): 1(4) + 2(0) = 4 ≤ 8 and 2(4) + 2(0) = 8 ≤ 14, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-007",
@@ -11941,35 +11926,34 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 6x + 4y ≤ 24, 9x + 3y ≤ 27 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(2, 3)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 3x + 6y ≤ 15, 6x + 3y ≤ 21?",
+   "answer": "(3, 1)",
    "options": [
     {
-     "text": "(4, 0)",
+     "text": "(5, 2)",
      "correct": false
     },
     {
-     "text": "(3, 2)",
+     "text": "(4, 3)",
      "correct": false
     },
     {
-     "text": "(0, 9)",
-     "correct": false
-    },
-    {
-     "text": "(2, 3)",
+     "text": "(3, 1)",
      "correct": true
+    },
+    {
+     "text": "(1, -1)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 6x + 4y = 24 and 9x + 3y = 27 together.",
-    "Use elimination.",
-    "Vertex: (2, 3)."
+    "Test (3, 1): 3(3) + 6(1) = 15 ≤ 15 and 6(3) + 3(1) = 21 ≤ 21, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-009",
@@ -11993,104 +11977,100 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 7x + 7y ≤ 49, 8x + 4y ≤ 32 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(1, 6)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 2x + 4y ≤ 24, 6x + y ≤ 39?",
+   "answer": "(3, 0)",
    "options": [
     {
-     "text": "(6, 1)",
+     "text": "(8, 3)",
      "correct": false
     },
     {
-     "text": "(0, 8)",
+     "text": "(8, 4)",
      "correct": false
     },
     {
-     "text": "(1, 6)",
+     "text": "(3, 0)",
      "correct": true
     },
     {
-     "text": "(7, 0)",
+     "text": "(7, 7)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 7x + 7y = 49 and 8x + 4y = 32 together.",
-    "Use elimination.",
-    "Vertex: (1, 6)."
+    "Test (3, 0): 2(3) + 4(0) = 6 ≤ 24 and 6(3) + 1(0) = 18 ≤ 39, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-011",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Is (8, 9) a solution of the system x ≥ 0, y ≥ 0, 8x + 4y ≤ 32, 4x + 6y ≤ 24?",
-   "answer": "No",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 2x + 3y ≤ 12, 4x + 2y ≤ 16 has a corner on the y-axis other than the origin. Find it.",
+   "answer": "(0, 4)",
    "solutionSteps": [
-    "Substitute the point into every inequality.",
-    "A solution must satisfy all of them.",
-    "No: at least one inequality is false."
+    "On the y-axis, x = 0. Each slanted line meets it at y = 4 and y = 8.",
+    "Both constraints must hold, so take the smaller value: (0, 4)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_test). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-012",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 9x + 6y ≤ 54, 8x + 8y ≤ 64 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(2, 6)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 4x + 6y ≤ 38, 3x + y ≤ 11?",
+   "answer": "(1, 3)",
    "options": [
     {
-     "text": "(0, 8)",
+     "text": "(3, 5)",
      "correct": false
     },
     {
-     "text": "(6, 2)",
+     "text": "(6, 4)",
      "correct": false
     },
     {
-     "text": "(2, 6)",
+     "text": "(3, 7)",
+     "correct": false
+    },
+    {
+     "text": "(1, 3)",
      "correct": true
-    },
-    {
-     "text": "(6, 0)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 9x + 6y = 54 and 8x + 8y = 64 together.",
-    "Use elimination.",
-    "Vertex: (2, 6)."
+    "Test (1, 3): 4(1) + 6(3) = 22 ≤ 38 and 3(1) + 1(3) = 6 ≤ 11, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-013",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Is (9, 0) a solution of the system x ≥ 0, y ≥ 0, 6x + 8y ≤ 48, 7x + 7y ≤ 49?",
-   "answer": "No",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 2x + 4y ≤ 24, 6x + y ≤ 17 has a corner on the y-axis other than the origin. Find it.",
+   "answer": "(0, 6)",
    "solutionSteps": [
-    "Substitute the point into every inequality.",
-    "A solution must satisfy all of them.",
-    "No: at least one inequality is false."
+    "On the y-axis, x = 0. Each slanted line meets it at y = 6 and y = 17.",
+    "Both constraints must hold, so take the smaller value: (0, 6)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_test). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp2-014",
@@ -12344,35 +12324,34 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 4x + 8y ≤ 32, 9x + 3y ≤ 27 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(2, 3)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, x + 4y ≤ 12, 2x + 3y ≤ 14?",
+   "answer": "(1, 1)",
    "options": [
     {
-     "text": "(0, 9)",
-     "correct": false
-    },
-    {
-     "text": "(8, 0)",
-     "correct": false
-    },
-    {
-     "text": "(3, 2)",
-     "correct": false
-    },
-    {
-     "text": "(2, 3)",
+     "text": "(1, 1)",
      "correct": true
+    },
+    {
+     "text": "(8, 1)",
+     "correct": false
+    },
+    {
+     "text": "(4, -1)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 2)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 4x + 8y = 32 and 9x + 3y = 27 together.",
-    "Use elimination.",
-    "Vertex: (2, 3)."
+    "Test (1, 1): 1(1) + 4(1) = 5 ≤ 12 and 2(1) + 3(1) = 5 ≤ 14, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp1-009",
@@ -12396,15 +12375,15 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 5x + 5y ≤ 25, 8x + 2y ≤ 16 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(1, 4)",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 3x + 3y ≤ 21, 3x + 2y ≤ 16 has a corner on the y-axis other than the origin. Find it.",
+   "answer": "(0, 7)",
    "options": [
     {
-     "text": "(1, 4)",
+     "text": "(0, 7)",
      "correct": true
     },
     {
-     "text": "(4, 1)",
+     "text": "(2, 5)",
      "correct": false
     },
     {
@@ -12412,88 +12391,84 @@
      "correct": false
     },
     {
-     "text": "(5, 0)",
+     "text": "(7, 0)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 5x + 5y = 25 and 8x + 2y = 16 together.",
-    "Use elimination.",
-    "Vertex: (1, 4)."
+    "On the y-axis, x = 0. Each slanted line meets it at y = 7 and y = 8.",
+    "Both constraints must hold, so take the smaller value: (0, 7)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp1-011",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is (6, 3) a solution of the system x ≥ 0, y ≥ 0, 6x + 4y ≤ 24, 4x + 8y ≤ 32?",
-   "answer": "No",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, x + 5y ≤ 34, 3x + 4y ≤ 36 has a corner on the x-axis other than the origin. Find it.",
+   "answer": "(12, 0)",
    "solutionSteps": [
-    "Substitute the point into every inequality.",
-    "A solution must satisfy all of them.",
-    "No: at least one inequality is false."
+    "On the x-axis, y = 0. Each slanted line meets it at x = 34 and x = 12.",
+    "Both constraints must hold, so take the smaller value: (12, 0)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_test). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp1-012",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 5x + 5y ≤ 25, 2x + 8y ≤ 16 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(4, 1)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 3x + 5y ≤ 22, 4x + y ≤ 18?",
+   "answer": "(3, 2)",
    "options": [
     {
-     "text": "(4, 1)",
+     "text": "(3, 6)",
+     "correct": false
+    },
+    {
+     "text": "(3, 2)",
      "correct": true
     },
     {
-     "text": "(5, 0)",
+     "text": "(6, 2)",
      "correct": false
     },
     {
-     "text": "(1, 4)",
-     "correct": false
-    },
-    {
-     "text": "(0, 2)",
+     "text": "(4, 4)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 5x + 5y = 25 and 2x + 8y = 16 together.",
-    "Use elimination.",
-    "Vertex: (4, 1)."
+    "Test (3, 2): 3(3) + 5(2) = 19 ≤ 22 and 4(3) + 1(2) = 14 ≤ 18, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp1-013",
    "skillId": "equations-inequalities-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is (7, 9) a solution of the system x ≥ 0, y ≥ 0, 6x + 4y ≤ 24, 5x + 5y ≤ 25?",
-   "answer": "No",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, x + 6y ≤ 35, 2x + 4y ≤ 30 has a corner on the x-axis other than the origin. Find it.",
+   "answer": "(15, 0)",
    "solutionSteps": [
-    "Substitute the point into every inequality.",
-    "A solution must satisfy all of them.",
-    "No: at least one inequality is false."
+    "On the x-axis, y = 0. Each slanted line meets it at x = 35 and x = 15.",
+    "Both constraints must hold, so take the smaller value: (15, 0)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_test). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-cp1-014",
@@ -12781,122 +12756,118 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 6x + 3y ≤ 18, 8x + 2y ≤ 16 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(1, 4)",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 3x + 4y ≤ 7, 4x + 4y ≤ 8 has a corner on the x-axis other than the origin. Find it.",
+   "answer": "(2, 0)",
    "options": [
     {
-     "text": "(0, 8)",
-     "correct": false
-    },
-    {
-     "text": "(1, 4)",
+     "text": "(2, 0)",
      "correct": true
     },
     {
-     "text": "(4, 1)",
+     "text": "(7/3, 0)",
      "correct": false
     },
     {
-     "text": "(3, 0)",
+     "text": "(1, 1)",
+     "correct": false
+    },
+    {
+     "text": "(0, 2)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 6x + 3y = 18 and 8x + 2y = 16 together.",
-    "Use elimination.",
-    "Vertex: (1, 4)."
+    "On the x-axis, y = 0. Each slanted line meets it at x = 7/3 and x = 2.",
+    "Both constraints must hold, so take the smaller value: (2, 0)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-011",
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Is (3, 0) a solution of the system x ≥ 0, y ≥ 0, 9x + 3y ≤ 27, 6x + 4y ≤ 24?",
-   "answer": "Yes",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 2x + 2y ≤ 4, 4x + y ≤ 5 has a corner on the y-axis other than the origin. Find it.",
+   "answer": "(0, 2)",
    "solutionSteps": [
-    "Substitute the point into every inequality.",
-    "A solution must satisfy all of them.",
-    "Yes"
+    "On the y-axis, x = 0. Each slanted line meets it at y = 2 and y = 5.",
+    "Both constraints must hold, so take the smaller value: (0, 2)."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_test). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-012",
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 9x + 6y ≤ 54, 7x + 7y ≤ 49 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(4, 3)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 4x + 4y ≤ 32, 2x + y ≤ 13?",
+   "answer": "(5, 0)",
    "options": [
     {
-     "text": "(4, 3)",
+     "text": "(5, 0)",
      "correct": true
     },
     {
-     "text": "(6, 0)",
+     "text": "(7, 0)",
      "correct": false
     },
     {
-     "text": "(0, 7)",
+     "text": "(6, 4)",
      "correct": false
     },
     {
-     "text": "(3, 4)",
+     "text": "(3, 6)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 9x + 6y = 54 and 7x + 7y = 49 together.",
-    "Use elimination.",
-    "Vertex: (4, 3)."
+    "Test (5, 0): 4(5) + 4(0) = 20 ≤ 32 and 2(5) + 1(0) = 10 ≤ 13, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-013",
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 8x + 4y ≤ 32, 4x + 6y ≤ 24 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(3, 2)",
+   "prompt": "Which point lies in the feasible region x ≥ 0, y ≥ 0, 2x + 5y ≤ 31, 6x + 4y ≤ 38?",
+   "answer": "(1, 3)",
    "options": [
     {
-     "text": "(4, 0)",
+     "text": "(1, 7)",
      "correct": false
     },
     {
-     "text": "(2, 3)",
+     "text": "(8, 5)",
      "correct": false
     },
     {
-     "text": "(0, 4)",
+     "text": "(7, 4)",
      "correct": false
     },
     {
-     "text": "(3, 2)",
+     "text": "(1, 3)",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Solve 8x + 4y = 32 and 4x + 6y = 24 together.",
-    "Use elimination.",
-    "Vertex: (3, 2)."
+    "Test (1, 3): 2(1) + 5(3) = 17 ≤ 31 and 6(1) + 4(3) = 18 ≤ 38, with x, y ≥ 0.",
+    "Each other choice breaks at least one inequality."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_in_region), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-014",
@@ -13278,35 +13249,32 @@
    "skillId": "equations-inequalities-skill-11",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The region x ≥ 0, y ≥ 0, 3x + 9y ≤ 27, 4x + 6y ≤ 24 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(3, 2)",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 3x + 2y ≤ 22, 5x + 3y ≤ 35 has a corner on the x-axis other than the origin. Find it.",
+   "answer": "(7, 0)",
    "solutionSteps": [
-    "Solve 3x + 9y = 27 and 4x + 6y = 24 together.",
-    "Use elimination.",
-    "Vertex: (3, 2)."
+    "On the x-axis, y = 0. Each slanted line meets it at x = 22/3 and x = 7.",
+    "Both constraints must hold, so take the smaller value: (7, 0)."
    ],
    "standards": [
     "A-CED.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s11-cp2-013",
    "skillId": "equations-inequalities-skill-11",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the maximum value of P = 7x + 6y subject to x ≥ 0, y ≥ 0, 3x + 9y ≤ 27, 5x + 5y ≤ 25.",
-   "answer": "35",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 4x + 4y ≤ 24, 4x + y ≤ 15 has a corner on the y-axis other than the origin. Find it.",
+   "answer": "(0, 6)",
    "solutionSteps": [
-    "The vertices of the feasible region are (0, 0), (5, 0), (3, 2), (0, 3).",
-    "Evaluate P at each vertex: P(0, 0) = 0, P(5, 0) = 35, P(3, 2) = 33, P(0, 3) = 18.",
-    "The maximum is 35.",
-    "The optimum of a linear objective occurs at a vertex."
+    "On the y-axis, x = 0. Each slanted line meets it at y = 6 and y = 15.",
+    "Both constraints must hold, so take the smaller value: (0, 6)."
    ],
    "standards": [
     "A-CED.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_lp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s11-cp2-014",
@@ -13690,35 +13658,32 @@
    "skillId": "equations-inequalities-skill-11",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The region x ≥ 0, y ≥ 0, 3x + 9y ≤ 27, 5x + 5y ≤ 25 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(3, 2)",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 3x + 2y ≤ 24, 3x + y ≤ 18 has corners (0, 0), (0, 12), (4, 6), (6, 0). Find the maximum value of P = 9x + 3y on the region.",
+   "answer": "54",
    "solutionSteps": [
-    "Solve 3x + 9y = 27 and 5x + 5y = 25 together.",
-    "Use elimination.",
-    "Vertex: (3, 2)."
+    "Evaluate P at each corner: P(0, 0) = 0; P(0, 12) = 36; P(4, 6) = 54; P(6, 0) = 54.",
+    "The maximum is 54, at (4, 6)."
    ],
    "standards": [
     "A-CED.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_max), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s11-cp1-013",
    "skillId": "equations-inequalities-skill-11",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the maximum value of P = 3x + 2y subject to x ≥ 0, y ≥ 0, 6x + 8y ≤ 48, 9x + 6y ≤ 54.",
-   "answer": "18",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, 3x + 3y ≤ 33, 3x + y ≤ 21 has corners (0, 0), (0, 11), (5, 6), (7, 0). Find the maximum value of P = 6x + 3y on the region.",
+   "answer": "48",
    "solutionSteps": [
-    "The vertices of the feasible region are (0, 0), (6, 0), (4, 3), (0, 6).",
-    "Evaluate P at each vertex: P(0, 0) = 0, P(6, 0) = 18, P(4, 3) = 18, P(0, 6) = 12.",
-    "The maximum is 18.",
-    "The optimum of a linear objective occurs at a vertex."
+    "Evaluate P at each corner: P(0, 0) = 0; P(0, 11) = 33; P(5, 6) = 48; P(7, 0) = 42.",
+    "The maximum is 48, at (5, 6)."
    ],
    "standards": [
     "A-CED.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_lp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_max), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s11-cp1-014",
@@ -14102,17 +14067,16 @@
    "skillId": "equations-inequalities-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The region x ≥ 0, y ≥ 0, 3x + 6y ≤ 18, 4x + 4y ≤ 16 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(2, 2)",
+   "prompt": "The feasible region x ≥ 0, y ≥ 0, x + 3y ≤ 10, 6x + 2y ≤ 12 has a corner on the x-axis other than the origin. Find it.",
+   "answer": "(2, 0)",
    "solutionSteps": [
-    "Solve 3x + 6y = 18 and 4x + 4y = 16 together.",
-    "Use elimination.",
-    "Vertex: (2, 2)."
+    "On the x-axis, y = 0. Each slanted line meets it at x = 10 and x = 2.",
+    "Both constraints must hold, so take the smaller value: (2, 0)."
    ],
    "standards": [
     "A-CED.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: lp_axis_corner), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s11-honors-013",
@@ -14207,6 +14171,660 @@
     "A-CED.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s11_lp_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kenji invests $3,500, part at 3% simple annual interest and the rest at 8%. After one year the total interest is $175. How much was invested at 3%?",
+   "answer": "$2,100",
+   "solutionSteps": [
+    "x + y = 3500 and 0.03x + 0.08y = 175.",
+    "Substitute y = 3500 - x: 0.03x + 0.08(3500 - x) = 175, so -0.05x = -105.",
+    "x = $2,100."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a basketball game cost $14 for adults and $3 for students. 380 tickets were sold for a total of $3,560. How many adult tickets were sold?",
+   "answer": "220",
+   "options": [
+    {
+     "text": "160",
+     "correct": false
+    },
+    {
+     "text": "190",
+     "correct": false
+    },
+    {
+     "text": "220",
+     "correct": true
+    },
+    {
+     "text": "254",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 380 and 14a + 3s = 3560.",
+    "Substitute s = 380 - a: 14a + 3(380 - a) = 3560, so 11a = 2420.",
+    "a = 220 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tickets for a basketball game cost $14 for adults and $3 for students. 461 tickets were sold for a total of $4,199. How many adult tickets were sold?",
+   "answer": "256",
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 461 and 14a + 3s = 4199.",
+    "Substitute s = 461 - a: 14a + 3(461 - a) = 4199, so 11a = 2816.",
+    "a = 256 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tickets for a science fair cost $8 for adults and $5 for students. 257 tickets were sold for a total of $1,417. How many adult tickets were sold?",
+   "answer": "44",
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 257 and 8a + 5s = 1417.",
+    "Substitute s = 257 - a: 8a + 5(257 - a) = 1417, so 3a = 132.",
+    "a = 44 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w005",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Kenji invests $11,600, part at 5% simple annual interest and the rest at 9%. After one year the total interest is $800. How much was invested at 5%?",
+   "answer": "$6,100",
+   "options": [
+    {
+     "text": "$5,500",
+     "correct": false
+    },
+    {
+     "text": "$6,100",
+     "correct": true
+    },
+    {
+     "text": "$16,000",
+     "correct": false
+    },
+    {
+     "text": "$5,800",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "x + y = 11600 and 0.05x + 0.09y = 800.",
+    "Substitute y = 11600 - x: 0.05x + 0.09(11600 - x) = 800, so -0.04x = -244.",
+    "x = $6,100."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w006",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kenji invests $13,800, part at 2% simple annual interest and the rest at 6%. After one year the total interest is $596. How much was invested at 2%?",
+   "answer": "$5,800",
+   "solutionSteps": [
+    "x + y = 13800 and 0.02x + 0.06y = 596.",
+    "Substitute y = 13800 - x: 0.02x + 0.06(13800 - x) = 596, so -0.04x = -232.",
+    "x = $5,800."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w007",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nTickets for a school play cost $10 for adults and $4 for students. 303 tickets were sold for a total of $2,778. How many adult tickets were sold?\nFarah's answer: 42\nIdentify the mistake and give the correct answer.",
+   "answer": "261",
+   "solutionSteps": [
+    "Mistake: Farah found the number of student tickets.",
+    "Let a = adult tickets and s = student tickets: a + s = 303 and 10a + 4s = 2778.",
+    "Substitute s = 303 - a: 10a + 4(303 - a) = 2778, so 6a = 1566.",
+    "a = 261 adult tickets.",
+    "The correct answer is 261, not 42."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w008",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tickets for a basketball game cost $14 for adults and $7 for students. 310 tickets were sold for a total of $3,423. How many adult tickets were sold?",
+   "answer": "179",
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 310 and 14a + 7s = 3423.",
+    "Substitute s = 310 - a: 14a + 7(310 - a) = 3423, so 7a = 1253.",
+    "a = 179 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-w009",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a basketball game cost $13 for adults and $7 for students. 436 tickets were sold for a total of $3,874. How many adult tickets were sold?",
+   "answer": "137",
+   "options": [
+    {
+     "text": "298",
+     "correct": false
+    },
+    {
+     "text": "137",
+     "correct": true
+    },
+    {
+     "text": "299",
+     "correct": false
+    },
+    {
+     "text": "218",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 436 and 13a + 7s = 3874.",
+    "Substitute s = 436 - a: 13a + 7(436 - a) = 3874, so 6a = 822.",
+    "a = 137 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A chemist mixes a 10% juice drink with a 40% juice drink to make 12 liters of a 30% juice drink. How many liters of the 10% juice drink are needed?",
+   "answer": "4 liters",
+   "solutionSteps": [
+    "x + y = 12 and 10x + 40y = 30(12) = 360.",
+    "Substitute y = 12 - x: 10x + 40(12 - x) = 360, so -30x = -120.",
+    "x = 4 liters."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_mixture). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a science fair cost $11 for adults and $5 for students. 414 tickets were sold for a total of $3,744. How many adult tickets were sold?",
+   "answer": "279",
+   "options": [
+    {
+     "text": "207",
+     "correct": false
+    },
+    {
+     "text": "135",
+     "correct": false
+    },
+    {
+     "text": "279",
+     "correct": true
+    },
+    {
+     "text": "340",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 414 and 11a + 5s = 3744.",
+    "Substitute s = 414 - a: 11a + 5(414 - a) = 3744, so 6a = 1674.",
+    "a = 279 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Kenji invests $9,800, part at 4% simple annual interest and the rest at 7%. After one year the total interest is $626. How much was invested at 4%?",
+   "answer": "$2,000",
+   "solutionSteps": [
+    "x + y = 9800 and 0.04x + 0.07y = 626.",
+    "Substitute y = 9800 - x: 0.04x + 0.07(9800 - x) = 626, so -0.03x = -60.",
+    "x = $2,000."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Tickets for a science fair cost $14 for adults and $4 for students. 248 tickets were sold for a total of $2,092. How many adult tickets were sold?",
+   "answer": "110",
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 248 and 14a + 4s = 2092.",
+    "Substitute s = 248 - a: 14a + 4(248 - a) = 2092, so 10a = 1100.",
+    "a = 110 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w005",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a basketball game cost $11 for adults and $3 for students. 350 tickets were sold for a total of $1,602. How many adult tickets were sold?",
+   "answer": "69",
+   "options": [
+    {
+     "text": "145",
+     "correct": false
+    },
+    {
+     "text": "175",
+     "correct": false
+    },
+    {
+     "text": "281",
+     "correct": false
+    },
+    {
+     "text": "69",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 350 and 11a + 3s = 1602.",
+    "Substitute s = 350 - a: 11a + 3(350 - a) = 1602, so 8a = 552.",
+    "a = 69 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w006",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isaac invests $10,800, part at 4% simple annual interest and the rest at 7%. After one year the total interest is $498. How much was invested at 4%?",
+   "answer": "$8,600",
+   "solutionSteps": [
+    "x + y = 10800 and 0.04x + 0.07y = 498.",
+    "Substitute y = 10800 - x: 0.04x + 0.07(10800 - x) = 498, so -0.03x = -258.",
+    "x = $8,600."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w007",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nGabe invests $8,500, part at 5% simple annual interest and the rest at 9%. After one year the total interest is $669. How much was invested at 5%?\nOmar's answer: $6,100\nIdentify the mistake and give the correct answer.",
+   "answer": "$2,400",
+   "solutionSteps": [
+    "Mistake: Omar found the amount at the other rate.",
+    "x + y = 8500 and 0.05x + 0.09y = 669.",
+    "Substitute y = 8500 - x: 0.05x + 0.09(8500 - x) = 669, so -0.04x = -96.",
+    "x = $2,400.",
+    "The correct answer is $2,400, not $6,100."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w008",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo invests $12,600, part at 3% simple annual interest and the rest at 8%. After one year the total interest is $753. How much was invested at 3%?",
+   "answer": "$5,100",
+   "solutionSteps": [
+    "x + y = 12600 and 0.03x + 0.08y = 753.",
+    "Substitute y = 12600 - x: 0.03x + 0.08(12600 - x) = 753, so -0.05x = -255.",
+    "x = $5,100."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp1-w009",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a science fair cost $10 for adults and $5 for students. 276 tickets were sold for a total of $1,830. How many adult tickets were sold?",
+   "answer": "90",
+   "options": [
+    {
+     "text": "186",
+     "correct": false
+    },
+    {
+     "text": "138",
+     "correct": false
+    },
+    {
+     "text": "183",
+     "correct": false
+    },
+    {
+     "text": "90",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 276 and 10a + 5s = 1830.",
+    "Substitute s = 276 - a: 10a + 5(276 - a) = 1830, so 5a = 450.",
+    "a = 90 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Emma invests $12,300, part at 3% simple annual interest and the rest at 5%. After one year the total interest is $529. How much was invested at 3%?",
+   "answer": "$4,300",
+   "solutionSteps": [
+    "x + y = 12300 and 0.03x + 0.05y = 529.",
+    "Substitute y = 12300 - x: 0.03x + 0.05(12300 - x) = 529, so -0.02x = -86.",
+    "x = $4,300."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a school play cost $14 for adults and $4 for students. 326 tickets were sold for a total of $3,574. How many adult tickets were sold?",
+   "answer": "227",
+   "options": [
+    {
+     "text": "227",
+     "correct": true
+    },
+    {
+     "text": "99",
+     "correct": false
+    },
+    {
+     "text": "163",
+     "correct": false
+    },
+    {
+     "text": "255",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 326 and 14a + 4s = 3574.",
+    "Substitute s = 326 - a: 14a + 4(326 - a) = 3574, so 10a = 2270.",
+    "a = 227 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Diego invests $15,200, part at 4% simple annual interest and the rest at 7%. After one year the total interest is $806. How much was invested at 4%?",
+   "answer": "$8,600",
+   "solutionSteps": [
+    "x + y = 15200 and 0.04x + 0.07y = 806.",
+    "Substitute y = 15200 - x: 0.04x + 0.07(15200 - x) = 806, so -0.03x = -258.",
+    "x = $8,600."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada invests $6,100, part at 2% simple annual interest and the rest at 6%. After one year the total interest is $214. How much was invested at 2%?",
+   "answer": "$3,800",
+   "solutionSteps": [
+    "x + y = 6100 and 0.02x + 0.06y = 214.",
+    "Substitute y = 6100 - x: 0.02x + 0.06(6100 - x) = 214, so -0.04x = -152.",
+    "x = $3,800."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w005",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A chemist mixes a 10% saline solution with a 40% saline solution to make 40 liters of a 13% saline solution. How many liters of the 10% saline solution are needed?",
+   "answer": "36 liters",
+   "options": [
+    {
+     "text": "4 liters",
+     "correct": false
+    },
+    {
+     "text": "36 liters",
+     "correct": true
+    },
+    {
+     "text": "20 liters",
+     "correct": false
+    },
+    {
+     "text": "52 liters",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "x + y = 40 and 10x + 40y = 13(40) = 520.",
+    "Substitute y = 40 - x: 10x + 40(40 - x) = 520, so -30x = -1080.",
+    "x = 36 liters."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_mixture). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w006",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada invests $6,200, part at 2% simple annual interest and the rest at 6%. After one year the total interest is $224. How much was invested at 2%?",
+   "answer": "$3,700",
+   "solutionSteps": [
+    "x + y = 6200 and 0.02x + 0.06y = 224.",
+    "Substitute y = 6200 - x: 0.02x + 0.06(6200 - x) = 224, so -0.04x = -148.",
+    "x = $3,700."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_invest). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w007",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nTickets for a concert cost $8 for adults and $6 for students. 257 tickets were sold for a total of $1,798. How many adult tickets were sold?\nHana's answer: 129\nIdentify the mistake and give the correct answer.",
+   "answer": "128",
+   "solutionSteps": [
+    "Mistake: Hana found the number of student tickets.",
+    "Let a = adult tickets and s = student tickets: a + s = 257 and 8a + 6s = 1798.",
+    "Substitute s = 257 - a: 8a + 6(257 - a) = 1798, so 2a = 256.",
+    "a = 128 adult tickets.",
+    "The correct answer is 128, not 129."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w008",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Tickets for a science fair cost $13 for adults and $7 for students. 552 tickets were sold for a total of $5,586. How many adult tickets were sold?",
+   "answer": "287",
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 552 and 13a + 7s = 5586.",
+    "Substitute s = 552 - a: 13a + 7(552 - a) = 5586, so 6a = 1722.",
+    "a = 287 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-honors-w009",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Tickets for a science fair cost $11 for adults and $4 for students. 224 tickets were sold for a total of $1,540. How many adult tickets were sold?",
+   "answer": "92",
+   "options": [
+    {
+     "text": "112",
+     "correct": false
+    },
+    {
+     "text": "92",
+     "correct": true
+    },
+    {
+     "text": "140",
+     "correct": false
+    },
+    {
+     "text": "132",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let a = adult tickets and s = student tickets: a + s = 224 and 11a + 4s = 1540.",
+    "Substitute s = 224 - a: 11a + 4(224 - a) = 1540, so 7a = 644.",
+    "a = 92 adult tickets."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

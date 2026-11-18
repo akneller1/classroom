@@ -6442,85 +6442,82 @@
    "skillId": "conics-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (3, -1), (-5, -1) and foci (4, -1), (-6, -1).",
-   "answer": "(x + 1)²/16 - (y + 1)²/9 = 1",
+   "prompt": "A hyperbola has center (-6, 3), a vertex at (-6, 9), and asymptotes with slopes ±6/5. Write its standard-form equation.",
+   "answer": "(y - 3)²/36 - (x + 6)²/25 = 1",
    "solutionSteps": [
-    "Center (-1, -1); a = 4, c = 5.",
-    "b² = c² - a² = 25 - 16 = 9.",
-    "(x + 1)²/16 - (y + 1)²/9 = 1."
+    "The vertex is 6 units from the center vertically, so a = 6.",
+    "Asymptote slope = a/b = 6/5, so b = 5.",
+    "(y - 3)²/36 - (x + 6)²/25 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp2-010",
    "skillId": "conics-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (0, 6), (0, -6) and foci (0, 10), (0, -10).",
-   "answer": "y²/36 - x²/64 = 1",
+   "prompt": "Find the foci of the hyperbola (y + 3)²/36 - (x - 1)²/64 = 1.",
+   "answer": "(1, 7) and (1, -13)",
    "solutionSteps": [
-    "Center (0, 0); a = 6, c = 10.",
-    "b² = c² - a² = 100 - 36 = 64.",
-    "y²/36 - x²/64 = 1."
+    "c² = a² + b² = 36 + 64 = 100, so c = 10.",
+    "The foci are 10 units from the center (1, -3) along the vertical axis: (1, 7) and (1, -13)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp2-011",
    "skillId": "conics-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (5, 0), (-5, 0) and foci (13, 0), (-13, 0).",
-   "answer": "x²/25 - y²/144 = 1",
+   "prompt": "Find the foci of the hyperbola (y + 4)²/25 - (x + 3)²/144 = 1.",
+   "answer": "(-3, 9) and (-3, -17)",
    "solutionSteps": [
-    "Center (0, 0); a = 5, c = 13.",
-    "b² = c² - a² = 169 - 25 = 144.",
-    "x²/25 - y²/144 = 1."
+    "c² = a² + b² = 25 + 144 = 169, so c = 13.",
+    "The foci are 13 units from the center (-3, -4) along the vertical axis: (-3, 9) and (-3, -17)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp2-012",
    "skillId": "conics-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (3, 6), (3, 0) and foci (3, 8), (3, -2).",
-   "answer": "(y - 3)²/9 - (x - 3)²/16 = 1",
+   "prompt": "Find the foci of the hyperbola (y - 5)²/64 - (x - 3)²/225 = 1.",
+   "answer": "(3, 22) and (3, -12)",
    "solutionSteps": [
-    "Center (3, 3); a = 3, c = 5.",
-    "b² = c² - a² = 25 - 9 = 16.",
-    "(y - 3)²/9 - (x - 3)²/16 = 1."
+    "c² = a² + b² = 64 + 225 = 289, so c = 17.",
+    "The foci are 17 units from the center (3, 5) along the vertical axis: (3, 22) and (3, -12)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp2-013",
    "skillId": "conics-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (1, 10), (1, -14) and foci (1, 11), (1, -15).",
-   "answer": "(y + 2)²/144 - (x - 1)²/25 = 1",
+   "prompt": "A hyperbola has center (-3, -6), a vertex at (1, -6), and asymptotes with slopes ±5/4. Write its standard-form equation.",
+   "answer": "(x + 3)²/16 - (y + 6)²/25 = 1",
    "solutionSteps": [
-    "Center (1, -2); a = 12, c = 13.",
-    "b² = c² - a² = 169 - 144 = 25.",
-    "(y + 2)²/144 - (x - 1)²/25 = 1."
+    "The vertex is 4 units from the center horizontally, so a = 4.",
+    "Asymptote slope = b/a = 5/4, so b = 5.",
+    "(x + 3)²/16 - (y + 6)²/25 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp2-014",
@@ -6843,85 +6840,82 @@
    "skillId": "conics-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (5, 4), (5, -6) and foci (5, 12), (5, -14).",
-   "answer": "(y + 1)²/25 - (x - 5)²/144 = 1",
+   "prompt": "Find the foci of the hyperbola (y + 1)²/9 - (x - 3)²/1 = 1.",
+   "answer": "(3, -1 + √10) and (3, -1 - √10)",
    "solutionSteps": [
-    "Center (5, -1); a = 5, c = 13.",
-    "b² = c² - a² = 169 - 25 = 144.",
-    "(y + 1)²/25 - (x - 5)²/144 = 1."
+    "c² = a² + b² = 9 + 1 = 10, so c = √10.",
+    "The foci are √10 units from the center (3, -1) along the vertical axis: (3, -1 + √10) and (3, -1 - √10)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp1-010",
    "skillId": "conics-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (8, -5), (2, -5) and asymptote slopes ±4/3.",
-   "answer": "(x - 5)²/9 - (y + 5)²/16 = 1",
+   "prompt": "A hyperbola has center (-3, 4), a vertex at (2, 4), and asymptotes with slopes ±7/5. Write its standard-form equation.",
+   "answer": "(x + 3)²/25 - (y - 4)²/49 = 1",
    "solutionSteps": [
-    "Center (5, -5); a = 3.",
-    "Slope = b/a = 4/3, so b = 4.",
-    "(x - 5)²/9 - (y + 5)²/16 = 1."
+    "The vertex is 5 units from the center horizontally, so a = 5.",
+    "Asymptote slope = b/a = 7/5, so b = 7.",
+    "(x + 3)²/25 - (y - 4)²/49 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp1-011",
    "skillId": "conics-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (4, 7), (4, 3) and foci (4, √13 + 5), (4, 5 - √13).",
-   "answer": "(y - 5)²/4 - (x - 4)²/9 = 1",
+   "prompt": "Find the foci of the hyperbola (y - 2)²/4 - (x + 5)²/9 = 1.",
+   "answer": "(-5, 2 + √13) and (-5, 2 - √13)",
    "solutionSteps": [
-    "Center (4, 5); a = 2, c = √13.",
-    "b² = c² - a² = 13 - 4 = 9.",
-    "(y - 5)²/4 - (x - 4)²/9 = 1."
+    "c² = a² + b² = 4 + 9 = 13, so c = √13.",
+    "The foci are √13 units from the center (-5, 2) along the vertical axis: (-5, 2 + √13) and (-5, 2 - √13)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp1-012",
    "skillId": "conics-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (2, 3), (-4, 3) and asymptote slopes ±2/3.",
-   "answer": "(x + 1)²/9 - (y - 3)²/4 = 1",
+   "prompt": "Find the foci of the hyperbola (x + 5)²/25 - (y + 5)²/144 = 1.",
+   "answer": "(8, -5) and (-18, -5)",
    "solutionSteps": [
-    "Center (-1, 3); a = 3.",
-    "Slope = b/a = 2/3, so b = 2.",
-    "(x + 1)²/9 - (y - 3)²/4 = 1."
+    "c² = a² + b² = 25 + 144 = 169, so c = 13.",
+    "The foci are 13 units from the center (-5, -5) along the horizontal axis: (8, -5) and (-18, -5)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp1-013",
    "skillId": "conics-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (6, 3), (2, 3) and foci (√5 + 4, 3), (4 - √5, 3).",
-   "answer": "(x - 4)²/4 - (y - 3)²/1 = 1",
+   "prompt": "A hyperbola has center (5, 1), a vertex at (9, 1), and asymptotes with slopes ±5/4. Write its standard-form equation.",
+   "answer": "(x - 5)²/16 - (y - 1)²/25 = 1",
    "solutionSteps": [
-    "Center (4, 3); a = 2, c = √5.",
-    "b² = c² - a² = 5 - 4 = 1.",
-    "(x - 4)²/4 - (y - 3)²/1 = 1."
+    "The vertex is 4 units from the center horizontally, so a = 4.",
+    "Asymptote slope = b/a = 5/4, so b = 5.",
+    "(x - 5)²/16 - (y - 1)²/25 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-cp1-014",
@@ -7243,85 +7237,82 @@
    "skillId": "conics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (-5, 6), (-5, 0) and asymptote slopes ±3/4.",
-   "answer": "(y - 3)²/9 - (x + 5)²/16 = 1",
+   "prompt": "Find the foci of the hyperbola (y + 4)²/144 - x²/25 = 1.",
+   "answer": "(0, 9) and (0, -17)",
    "solutionSteps": [
-    "Center (-5, 3); a = 3.",
-    "Slope = a/b = 3/4, so b = 4.",
-    "(y - 3)²/9 - (x + 5)²/16 = 1."
+    "c² = a² + b² = 144 + 25 = 169, so c = 13.",
+    "The foci are 13 units from the center (0, -4) along the vertical axis: (0, 9) and (0, -17)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-honors-010",
    "skillId": "conics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (2, 0), (2, -6) and asymptote slopes ±3/4.",
-   "answer": "(y + 3)²/9 - (x - 2)²/16 = 1",
+   "prompt": "Find the foci of the hyperbola (x + 5)²/9 - (y + 2)²/1 = 1.",
+   "answer": "(-5 + √10, -2) and (-5 - √10, -2)",
    "solutionSteps": [
-    "Center (2, -3); a = 3.",
-    "Slope = a/b = 3/4, so b = 4.",
-    "(y + 3)²/9 - (x - 2)²/16 = 1."
+    "c² = a² + b² = 9 + 1 = 10, so c = √10.",
+    "The foci are √10 units from the center (-5, -2) along the horizontal axis: (-5 + √10, -2) and (-5 - √10, -2)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-honors-011",
    "skillId": "conics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (4, 3), (-6, 3) and asymptote slopes ±12/5.",
-   "answer": "(x + 1)²/25 - (y - 3)²/144 = 1",
+   "prompt": "Find the foci of the hyperbola (y - 4)²/64 - (x + 1)²/225 = 1.",
+   "answer": "(-1, 21) and (-1, -13)",
    "solutionSteps": [
-    "Center (-1, 3); a = 5.",
-    "Slope = b/a = 12/5, so b = 12.",
-    "(x + 1)²/25 - (y - 3)²/144 = 1."
+    "c² = a² + b² = 64 + 225 = 289, so c = 17.",
+    "The foci are 17 units from the center (-1, 4) along the vertical axis: (-1, 21) and (-1, -13)."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_foci), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-honors-012",
    "skillId": "conics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (8, 5), (-16, 5) and foci (9, 5), (-17, 5).",
-   "answer": "(x + 4)²/144 - (y - 5)²/25 = 1",
+   "prompt": "A hyperbola has center (0, -5), a vertex at (3, -5), and asymptotes with slopes ±7/3. Write its standard-form equation.",
+   "answer": "x²/9 - (y + 5)²/49 = 1",
    "solutionSteps": [
-    "Center (-4, 5); a = 12, c = 13.",
-    "b² = c² - a² = 169 - 144 = 25.",
-    "(x + 4)²/144 - (y - 5)²/25 = 1."
+    "The vertex is 3 units from the center horizontally, so a = 3.",
+    "Asymptote slope = b/a = 7/3, so b = 7.",
+    "x²/9 - (y + 5)²/49 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-honors-013",
    "skillId": "conics-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write the standard-form equation of the hyperbola with vertices (4, -4), (-2, -4) and asymptote slopes ±2/3.",
-   "answer": "(x - 1)²/9 - (y + 4)²/4 = 1",
+   "prompt": "A hyperbola has center (-3, -5), a vertex at (-1, -5), and asymptotes with slopes ±3. Write its standard-form equation.",
+   "answer": "(x + 3)²/4 - (y + 5)²/36 = 1",
    "solutionSteps": [
-    "Center (1, -4); a = 3.",
-    "Slope = b/a = 2/3, so b = 2.",
-    "(x - 1)²/9 - (y + 4)²/4 = 1."
+    "The vertex is 2 units from the center horizontally, so a = 2.",
+    "Asymptote slope = b/a = 3, so b = 6.",
+    "(x + 3)²/4 - (y + 5)²/36 = 1."
    ],
    "standards": [
     "G-GPE.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: hyp_asym), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-con-s06-honors-014",
@@ -7396,6 +7387,608 @@
     "G-GPE.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_write_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-con-s02-cp2-w001",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A cross-section of a flashlight reflector is the parabola y = x²/10, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "2.5 cm",
+   "solutionSteps": [
+    "Write x² = 10y as x² = 4py: 4p = 10.",
+    "p = 2.5 cm: the bulb goes 2.5 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w002",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A cross-section of a car headlight mirror is the parabola y = x²/32, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "8 cm",
+   "options": [
+    {
+     "text": "8 cm",
+     "correct": true
+    },
+    {
+     "text": "0.0312 cm",
+     "correct": false
+    },
+    {
+     "text": "16 cm",
+     "correct": false
+    },
+    {
+     "text": "32 cm",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write x² = 32y as x² = 4py: 4p = 32.",
+    "p = 8 cm: the bulb goes 8 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w003",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 18 m above the road at the center, and it is 107 m above the road at the towers, 170 m on each side of the center. How high is the cable 85 m from the center?",
+   "answer": "40.25 m",
+   "solutionSteps": [
+    "y = ax² + 18; at x = 170: 107 = a(170)² + 18, so a = 89/28900.",
+    "At x = 85: y = 89/28900(85)² + 18 = 40.25 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w004",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 14 m above the road at the center, and it is 66 m above the road at the towers, 50 m on each side of the center. How high is the cable 25 m from the center?",
+   "answer": "27 m",
+   "solutionSteps": [
+    "y = ax² + 14; at x = 50: 66 = a(50)² + 14, so a = 13/625.",
+    "At x = 25: y = 13/625(25)² + 14 = 27 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w005",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 15 m above the road at the center, and it is 99 m above the road at the towers, 230 m on each side of the center. How high is the cable 115 m from the center?",
+   "answer": "36 m",
+   "options": [
+    {
+     "text": "78 m",
+     "correct": false
+    },
+    {
+     "text": "36 m",
+     "correct": true
+    },
+    {
+     "text": "21 m",
+     "correct": false
+    },
+    {
+     "text": "57 m",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y = ax² + 15; at x = 230: 99 = a(230)² + 15, so a = 21/13225.",
+    "At x = 115: y = 21/13225(115)² + 15 = 36 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w006",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 12 m above the road at the center, and it is 81 m above the road at the towers, 100 m on each side of the center. How high is the cable 50 m from the center?",
+   "answer": "29.25 m",
+   "solutionSteps": [
+    "y = ax² + 12; at x = 100: 81 = a(100)² + 12, so a = 69/10000.",
+    "At x = 50: y = 69/10000(50)² + 12 = 29.25 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w007",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nThe main cable of a suspension bridge hangs in a parabola. Its lowest point is 11 m above the road at the center, and it is 55 m above the road at the towers, 190 m on each side of the center. How high is the cable 95 m from the center?\nRosa's answer: 33 m\nIdentify the mistake and give the correct answer.",
+   "answer": "22 m",
+   "solutionSteps": [
+    "Mistake: Rosa assumed the cable is straight.",
+    "y = ax² + 11; at x = 190: 55 = a(190)² + 11, so a = 11/9025.",
+    "At x = 95: y = 11/9025(95)² + 11 = 22 m.",
+    "The correct answer is 22 m, not 33 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w008",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A cross-section of a car headlight mirror is the parabola y = x²/36, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "9 cm",
+   "solutionSteps": [
+    "Write x² = 36y as x² = 4py: 4p = 36.",
+    "p = 9 cm: the bulb goes 9 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp2-w009",
+   "skillId": "conics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A cross-section of a flashlight reflector is the parabola y = x²/8, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "2 cm",
+   "options": [
+    {
+     "text": "0.125 cm",
+     "correct": false
+    },
+    {
+     "text": "2 cm",
+     "correct": true
+    },
+    {
+     "text": "8 cm",
+     "correct": false
+    },
+    {
+     "text": "4 cm",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write x² = 8y as x² = 4py: 4p = 8.",
+    "p = 2 cm: the bulb goes 2 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w001",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/40, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "10 cm",
+   "solutionSteps": [
+    "Write x² = 40y as x² = 4py: 4p = 40.",
+    "p = 10 cm: the bulb goes 10 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w002",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A cross-section of a flashlight reflector is the parabola y = x²/32, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "8 cm",
+   "options": [
+    {
+     "text": "32 cm",
+     "correct": false
+    },
+    {
+     "text": "8 cm",
+     "correct": true
+    },
+    {
+     "text": "16 cm",
+     "correct": false
+    },
+    {
+     "text": "0.0312 cm",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write x² = 32y as x² = 4py: 4p = 32.",
+    "p = 8 cm: the bulb goes 8 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w003",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/36, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "9 cm",
+   "solutionSteps": [
+    "Write x² = 36y as x² = 4py: 4p = 36.",
+    "p = 9 cm: the bulb goes 9 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w004",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cross-section of a car headlight mirror is the parabola y = x²/12, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "3 cm",
+   "solutionSteps": [
+    "Write x² = 12y as x² = 4py: 4p = 12.",
+    "p = 3 cm: the bulb goes 3 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w005",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 19 m above the road at the center, and it is 45 m above the road at the towers, 90 m on each side of the center. How high is the cable 45 m from the center?",
+   "answer": "25.5 m",
+   "options": [
+    {
+     "text": "32 m",
+     "correct": false
+    },
+    {
+     "text": "6.5 m",
+     "correct": false
+    },
+    {
+     "text": "38.5 m",
+     "correct": false
+    },
+    {
+     "text": "25.5 m",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "y = ax² + 19; at x = 90: 45 = a(90)² + 19, so a = 13/4050.",
+    "At x = 45: y = 13/4050(45)² + 19 = 25.5 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w006",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 16 m above the road at the center, and it is 40 m above the road at the towers, 270 m on each side of the center. How high is the cable 135 m from the center?",
+   "answer": "22 m",
+   "solutionSteps": [
+    "y = ax² + 16; at x = 270: 40 = a(270)² + 16, so a = 2/6075.",
+    "At x = 135: y = 2/6075(135)² + 16 = 22 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w007",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nA cross-section of a flashlight reflector is the parabola y = x²/6, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?\nLeah's answer: 6 cm\nIdentify the mistake and give the correct answer.",
+   "answer": "1.5 cm",
+   "solutionSteps": [
+    "Mistake: Leah gave 4p.",
+    "Write x² = 6y as x² = 4py: 4p = 6.",
+    "p = 1.5 cm: the bulb goes 1.5 cm from the vertex.",
+    "The correct answer is 1.5 cm, not 6 cm."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w008",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cross-section of a car headlight mirror is the parabola y = x²/24, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "6 cm",
+   "solutionSteps": [
+    "Write x² = 24y as x² = 4py: 4p = 24.",
+    "p = 6 cm: the bulb goes 6 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-cp1-w009",
+   "skillId": "conics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 7 m above the road at the center, and it is 59 m above the road at the towers, 80 m on each side of the center. How high is the cable 20 m from the center?",
+   "answer": "10.25 m",
+   "options": [
+    {
+     "text": "10.25 m",
+     "correct": true
+    },
+    {
+     "text": "20 m",
+     "correct": false
+    },
+    {
+     "text": "55.75 m",
+     "correct": false
+    },
+    {
+     "text": "3.25 m",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y = ax² + 7; at x = 80: 59 = a(80)² + 7, so a = 13/1600.",
+    "At x = 20: y = 13/1600(20)² + 7 = 10.25 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w001",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/18, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "4.5 cm",
+   "solutionSteps": [
+    "Write x² = 18y as x² = 4py: 4p = 18.",
+    "p = 4.5 cm: the bulb goes 4.5 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w002",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 9 m above the road at the center, and it is 69 m above the road at the towers, 60 m on each side of the center. How high is the cable 30 m from the center?",
+   "answer": "24 m",
+   "options": [
+    {
+     "text": "39 m",
+     "correct": false
+    },
+    {
+     "text": "54 m",
+     "correct": false
+    },
+    {
+     "text": "15 m",
+     "correct": false
+    },
+    {
+     "text": "24 m",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "y = ax² + 9; at x = 60: 69 = a(60)² + 9, so a = 1/60.",
+    "At x = 30: y = 1/60(30)² + 9 = 24 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w003",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/24, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "6 cm",
+   "solutionSteps": [
+    "Write x² = 24y as x² = 4py: 4p = 24.",
+    "p = 6 cm: the bulb goes 6 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w004",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/16, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "4 cm",
+   "solutionSteps": [
+    "Write x² = 16y as x² = 4py: 4p = 16.",
+    "p = 4 cm: the bulb goes 4 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w005",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The main cable of a suspension bridge hangs in a parabola. Its lowest point is 7 m above the road at the center, and it is 56 m above the road at the towers, 250 m on each side of the center. How high is the cable 125 m from the center?",
+   "answer": "19.25 m",
+   "options": [
+    {
+     "text": "43.75 m",
+     "correct": false
+    },
+    {
+     "text": "31.5 m",
+     "correct": false
+    },
+    {
+     "text": "19.25 m",
+     "correct": true
+    },
+    {
+     "text": "12.25 m",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y = ax² + 7; at x = 250: 56 = a(250)² + 7, so a = 49/62500.",
+    "At x = 125: y = 49/62500(125)² + 7 = 19.25 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w006",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A satellite dish has a parabolic cross-section 8 inches wide and 4 inches deep. The receiver is placed at the focus. How far from the vertex is the receiver?",
+   "answer": "1 inches",
+   "solutionSteps": [
+    "Put the vertex at the origin: x² = 4py passes through (4, 4).",
+    "(4)² = 4p(4), so p = 16/16 = 1.",
+    "The receiver is 1 inches from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_dish). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w007",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nA solar cooker has a parabolic cross-section 4 inches wide and 0.5 inches deep. The receiver is placed at the focus. How far from the vertex is the receiver?\nNia's answer: 8 inches\nIdentify the mistake and give the correct answer.",
+   "answer": "2 inches",
+   "solutionSteps": [
+    "Mistake: Nia forgot the 4 in x² = 4py.",
+    "Put the vertex at the origin: x² = 4py passes through (2, 0.5).",
+    "(2)² = 4p(0.5), so p = 4/2 = 2.",
+    "The receiver is 2 inches from the vertex.",
+    "The correct answer is 2 inches, not 8 inches."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_dish_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w008",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/32, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "8 cm",
+   "solutionSteps": [
+    "Write x² = 32y as x² = 4py: 4p = 32.",
+    "p = 8 cm: the bulb goes 8 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-con-s02-honors-w009",
+   "skillId": "conics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A cross-section of a spotlight mirror is the parabola y = x²/14, measured in centimeters. Where should the bulb go: how far from the vertex is the focus?",
+   "answer": "3.5 cm",
+   "options": [
+    {
+     "text": "7 cm",
+     "correct": false
+    },
+    {
+     "text": "14 cm",
+     "correct": false
+    },
+    {
+     "text": "3.5 cm",
+     "correct": true
+    },
+    {
+     "text": "0.0714 cm",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write x² = 14y as x² = 4py: 4p = 14.",
+    "p = 3.5 cm: the bulb goes 3.5 cm from the vertex."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_reflector). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

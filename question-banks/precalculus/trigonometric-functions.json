@@ -23716,6 +23716,646 @@
      "alt": "Graph of y = 3 cos(x − π/4) − 2: midline y = −2, maximum at (π/4, 1), next minimum at (5π/4, −5), period 2π."
     }
    }
+  },
+  {
+   "id": "pc-trg-s08-cp2-w001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In Boston the longest day has 13.5 hours of daylight and the shortest has 10.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find A.",
+   "answer": "1.5",
+   "solutionSteps": [
+    "A = (13.5 - 10.5)/2 = 1.5 and C = (13.5 + 10.5)/2 = 12.",
+    "A = 1.5."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In Denver the longest day has 14 hours of daylight and the shortest has 8.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find C.",
+   "answer": "11.25",
+   "options": [
+    {
+     "text": "5.5",
+     "correct": false
+    },
+    {
+     "text": "11.25",
+     "correct": true
+    },
+    {
+     "text": "2.75",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A = (14 - 8.5)/2 = 2.75 and C = (14 + 8.5)/2 = 11.25.",
+    "C = 11.25."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 13.5 feet and the next low tide, 6.25 hours later, is 6 feet. The water depth is modeled by a sinusoidal function. What is the midline of the model?",
+   "answer": "d = 9.75",
+   "solutionSteps": [
+    "Amplitude = (13.5 - 6)/2 = 3.75; midline = (13.5 + 6)/2 = 9.75.",
+    "High to low is half a cycle, so the period is 2 · 6.25 = 12.5 hours.",
+    "The midline is d = 9.75."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A Ferris wheel 94 feet in diameter turns once every 4 minutes; its center is 53 feet above the ground. A rider boards at the bottom. The height is h(t) = 53 - 47 cos(2πt/4). How high is the rider after 3 minutes?",
+   "answer": "53 feet",
+   "solutionSteps": [
+    "2π(3)/4 = 3/2π.",
+    "h = 53 - 47 cos(3/2π) = 53 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 9.5 feet and the next low tide, 6.25 hours later, is 5.5 feet. The water depth is modeled by a sinusoidal function. What is the amplitude of the model?",
+   "answer": "2 feet",
+   "options": [
+    {
+     "text": "9.5 feet",
+     "correct": false
+    },
+    {
+     "text": "2 feet",
+     "correct": true
+    },
+    {
+     "text": "7.5 feet",
+     "correct": false
+    },
+    {
+     "text": "4 feet",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (9.5 - 5.5)/2 = 2; midline = (9.5 + 5.5)/2 = 7.5.",
+    "High to low is half a cycle, so the period is 2 · 6.25 = 12.5 hours.",
+    "The amplitude is 2 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A Ferris wheel 88 feet in diameter turns once every 4 minutes; its center is 49 feet above the ground. A rider boards at the bottom. The height is h(t) = 49 - 44 cos(2πt/4). How high is the rider after 2 minutes?",
+   "answer": "93 feet",
+   "solutionSteps": [
+    "2π(2)/4 = π.",
+    "h = 49 - 44 cos(π) = 93 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nA Ferris wheel 42 feet in diameter turns once every 12 minutes; its center is 24 feet above the ground. A rider boards at the bottom. The height is h(t) = 24 - 21 cos(2πt/12). How high is the rider after 3 minutes?\nSam's answer: 45 feet\nIdentify the mistake and give the correct answer.",
+   "answer": "24 feet",
+   "solutionSteps": [
+    "Mistake: Sam gave the top or bottom of the wheel.",
+    "2π(3)/12 = 1/2π.",
+    "h = 24 - 21 cos(1/2π) = 24 feet.",
+    "The correct answer is 24 feet, not 45 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 8 feet and the next low tide, 6.5 hours later, is 2.5 feet. The water depth is modeled by a sinusoidal function. What is the midline of the model?",
+   "answer": "d = 5.25",
+   "solutionSteps": [
+    "Amplitude = (8 - 2.5)/2 = 2.75; midline = (8 + 2.5)/2 = 5.25.",
+    "High to low is half a cycle, so the period is 2 · 6.5 = 13 hours.",
+    "The midline is d = 5.25."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp2-w009",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In Portland the longest day has 14.5 hours of daylight and the shortest has 10 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find A.",
+   "answer": "2.25",
+   "options": [
+    {
+     "text": "2.25",
+     "correct": true
+    },
+    {
+     "text": "14.5",
+     "correct": false
+    },
+    {
+     "text": "12.25",
+     "correct": false
+    },
+    {
+     "text": "4.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A = (14.5 - 10)/2 = 2.25 and C = (14.5 + 10)/2 = 12.25.",
+    "A = 2.25."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A Ferris wheel 106 feet in diameter turns once every 12 minutes; its center is 57 feet above the ground. A rider boards at the bottom. The height is h(t) = 57 - 53 cos(2πt/12). How high is the rider after 3 minutes?",
+   "answer": "57 feet",
+   "solutionSteps": [
+    "2π(3)/12 = 1/2π.",
+    "h = 57 - 53 cos(1/2π) = 57 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 15.5 feet and the next low tide, 6 hours later, is 1 feet. The water depth is modeled by a sinusoidal function. What is the midline of the model?",
+   "answer": "d = 8.25",
+   "options": [
+    {
+     "text": "d = 7.25",
+     "correct": false
+    },
+    {
+     "text": "d = 8.25",
+     "correct": true
+    },
+    {
+     "text": "d = 15.5",
+     "correct": false
+    },
+    {
+     "text": "d = 14.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (15.5 - 1)/2 = 7.25; midline = (15.5 + 1)/2 = 8.25.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The midline is d = 8.25."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In Denver the longest day has 14 hours of daylight and the shortest has 8.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find A.",
+   "answer": "2.75",
+   "solutionSteps": [
+    "A = (14 - 8.5)/2 = 2.75 and C = (14 + 8.5)/2 = 11.25.",
+    "A = 2.75."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 12.5 feet and the next low tide, 6 hours later, is 5 feet. The water depth is modeled by a sinusoidal function. What is the amplitude of the model?",
+   "answer": "3.75 feet",
+   "solutionSteps": [
+    "Amplitude = (12.5 - 5)/2 = 3.75; midline = (12.5 + 5)/2 = 8.75.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The amplitude is 3.75 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 13 feet and the next low tide, 6.5 hours later, is 5 feet. The water depth is modeled by a sinusoidal function. What is the amplitude of the model?",
+   "answer": "4 feet",
+   "options": [
+    {
+     "text": "9 feet",
+     "correct": false
+    },
+    {
+     "text": "13 feet",
+     "correct": false
+    },
+    {
+     "text": "8 feet",
+     "correct": false
+    },
+    {
+     "text": "4 feet",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (13 - 5)/2 = 4; midline = (13 + 5)/2 = 9.",
+    "High to low is half a cycle, so the period is 2 · 6.5 = 13 hours.",
+    "The amplitude is 4 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A Ferris wheel 102 feet in diameter turns once every 4 minutes; its center is 58 feet above the ground. A rider boards at the bottom. The height is h(t) = 58 - 51 cos(2πt/4). How high is the rider after 3 minutes?",
+   "answer": "58 feet",
+   "solutionSteps": [
+    "2π(3)/4 = 3/2π.",
+    "h = 58 - 51 cos(3/2π) = 58 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nAt a harbor, high tide is 18 feet and the next low tide, 6.25 hours later, is 4 feet. The water depth is modeled by a sinusoidal function. What is the amplitude of the model?\nFarah's answer: 14 feet\nIdentify the mistake and give the correct answer.",
+   "answer": "7 feet",
+   "solutionSteps": [
+    "Mistake: Farah used the full range.",
+    "Amplitude = (18 - 4)/2 = 7; midline = (18 + 4)/2 = 11.",
+    "High to low is half a cycle, so the period is 2 · 6.25 = 12.5 hours.",
+    "The amplitude is 7 feet.",
+    "The correct answer is 7 feet, not 14 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In Chicago the longest day has 15 hours of daylight and the shortest has 9.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find A.",
+   "answer": "2.75",
+   "solutionSteps": [
+    "A = (15 - 9.5)/2 = 2.75 and C = (15 + 9.5)/2 = 12.25.",
+    "A = 2.75."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-cp1-w009",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 14.5 feet and the next low tide, 6 hours later, is 5 feet. The water depth is modeled by a sinusoidal function. What is the midline of the model?",
+   "answer": "d = 9.75",
+   "options": [
+    {
+     "text": "d = 9.5",
+     "correct": false
+    },
+    {
+     "text": "d = 9.75",
+     "correct": true
+    },
+    {
+     "text": "d = 4.75",
+     "correct": false
+    },
+    {
+     "text": "d = 14.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (14.5 - 5)/2 = 4.75; midline = (14.5 + 5)/2 = 9.75.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The midline is d = 9.75."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w001",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 9 feet and the next low tide, 6.25 hours later, is 3 feet. The water depth is modeled by a sinusoidal function. What is the period of the model?",
+   "answer": "12.5 hours",
+   "solutionSteps": [
+    "Amplitude = (9 - 3)/2 = 3; midline = (9 + 3)/2 = 6.",
+    "High to low is half a cycle, so the period is 2 · 6.25 = 12.5 hours.",
+    "The period is 12.5 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w002",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 8.5 feet and the next low tide, 6 hours later, is 6 feet. The water depth is modeled by a sinusoidal function. What is the midline of the model?",
+   "answer": "d = 7.25",
+   "options": [
+    {
+     "text": "d = 1.25",
+     "correct": false
+    },
+    {
+     "text": "d = 8.5",
+     "correct": false
+    },
+    {
+     "text": "d = 2.5",
+     "correct": false
+    },
+    {
+     "text": "d = 7.25",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (8.5 - 6)/2 = 1.25; midline = (8.5 + 6)/2 = 7.25.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The midline is d = 7.25."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w003",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 14.5 feet and the next low tide, 6.25 hours later, is 4 feet. The water depth is modeled by a sinusoidal function. What is the amplitude of the model?",
+   "answer": "5.25 feet",
+   "solutionSteps": [
+    "Amplitude = (14.5 - 4)/2 = 5.25; midline = (14.5 + 4)/2 = 9.25.",
+    "High to low is half a cycle, so the period is 2 · 6.25 = 12.5 hours.",
+    "The amplitude is 5.25 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w004",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "At a harbor, high tide is 18.5 feet and the next low tide, 6 hours later, is 5 feet. The water depth is modeled by a sinusoidal function. What is the period of the model?",
+   "answer": "12 hours",
+   "solutionSteps": [
+    "Amplitude = (18.5 - 5)/2 = 6.75; midline = (18.5 + 5)/2 = 11.75.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The period is 12 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w005",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In Denver the longest day has 14.5 hours of daylight and the shortest has 10.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. Find A.",
+   "answer": "2",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "14.5",
+     "correct": false
+    },
+    {
+     "text": "12.5",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A = (14.5 - 10.5)/2 = 2 and C = (14.5 + 10.5)/2 = 12.5.",
+    "A = 2."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w006",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A Ferris wheel 40 feet in diameter turns once every 12 minutes; its center is 23 feet above the ground. A rider boards at the bottom. The height is h(t) = 23 - 20 cos(2πt/12). How high is the rider after 6 minutes?",
+   "answer": "43 feet",
+   "solutionSteps": [
+    "2π(6)/12 = π.",
+    "h = 23 - 20 cos(π) = 43 feet."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w007",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nIn Portland the longest day has 13.5 hours of daylight and the shortest has 8.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. How many hours of daylight does the model give on day 263 (about 91 days after day 172)? Round to the nearest tenth.\nLeah's answer: ≈ 13.5 hours\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 11.0 hours",
+   "solutionSteps": [
+    "Mistake: Leah used the maximum.",
+    "A = (13.5 - 8.5)/2 = 2.5 and C = (13.5 + 8.5)/2 = 11.",
+    "D(263) = 11 + 2.5 cos(2π · 91/365) ≈ 11.0 hours.",
+    "The correct answer is ≈ 11.0 hours, not ≈ 13.5 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w008",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In Boston the longest day has 13 hours of daylight and the shortest has 9.5 hours. Daylight is modeled by D(t) = A cos(2π(t - 172)/365) + C, with t the day of the year. How many hours of daylight does the model give on day 263 (about 91 days after day 172)? Round to the nearest tenth.",
+   "answer": "≈ 11.3 hours",
+   "solutionSteps": [
+    "A = (13 - 9.5)/2 = 1.75 and C = (13 + 9.5)/2 = 11.25.",
+    "D(263) = 11.25 + 1.75 cos(2π · 91/365) ≈ 11.3 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_daylight). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s08-honors-w009",
+   "skillId": "trigonometric-functions-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "At a harbor, high tide is 13.5 feet and the next low tide, 6 hours later, is 5 feet. The water depth is modeled by a sinusoidal function. What is the period of the model?",
+   "answer": "12 hours",
+   "options": [
+    {
+     "text": "6 hours",
+     "correct": false
+    },
+    {
+     "text": "3 hours",
+     "correct": false
+    },
+    {
+     "text": "12 hours",
+     "correct": true
+    },
+    {
+     "text": "24 hours",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Amplitude = (13.5 - 5)/2 = 4.25; midline = (13.5 + 5)/2 = 9.25.",
+    "High to low is half a cycle, so the period is 2 · 6 = 12 hours.",
+    "The period is 12 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.C.7e"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_tide). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

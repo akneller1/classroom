@@ -49,14 +49,14 @@ for (const u of units) for (const s of w.MK_COURSE_CATALOG.getSkillRecords('prec
     for (const t of [c.big].concat(c.steps)) { assert(textOk(t), s.id + ' markup: ' + t); blanks += (t.match(/\{\{/g) || []).length; }
   }
 }
-assert.equal(skills, 93, '93 Precalculus skills');
+assert(skills >= 100, 'Precalculus skills: ' + skills);
 assert.equal(Object.keys(N).length, skills, 'no notes for skills outside the catalog');
 assert(blanks >= 200, 'guided notes have blanks (' + blanks + ')');
 
 /* The planner sequence uses the notes: no lesson objective falls back to "work with …". */
 const scope = w.MKPLAN_SCOPE_PRECALCULUS;
 const lessons = scope.days.filter((d) => d.day_type === 'Lesson');
-assert.equal(lessons.length, 93, 'one planner lesson per skill');
+assert.equal(lessons.length, skills, 'one planner lesson per skill');
 for (const d of lessons) {
   assert(!/able to work with /.test(d.content_objective), d.lesson_id + ' objective: ' + d.content_objective);
   assert(d.key_vocabulary && d.common_misconception, d.lesson_id + ' vocabulary and misconception');

@@ -7698,104 +7698,100 @@
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [1, 3; 2, 1] and v = ⟨2, -6⟩.",
-   "answer": "⟨-16, -2⟩",
+   "prompt": "Which matrix reflects vectors over the line y = x?",
+   "answer": "[0, 1; 1, 0]",
    "options": [
     {
-     "text": "⟨2, -6⟩",
+     "text": "[1, 0; 0, -1]",
      "correct": false
     },
     {
-     "text": "⟨-2, -16⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-10, 0⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-16, -2⟩",
+     "text": "[0, 1; 1, 0]",
      "correct": true
+    },
+    {
+     "text": "[2, 0; 0, 2]",
+     "correct": false
+    },
+    {
+     "text": "[0, -1; 1, 0]",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨1(2) + 3(-6), 2(2) + 1(-6)⟩.",
-    "⟨-16, -2⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [0, 1; 1, 0]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-011",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-1, 4; -3, 2] and v = ⟨3, -3⟩.",
-   "answer": "⟨-15, -15⟩",
+   "prompt": "A = [0, 3; 3, -1] and B = [2, -1; 3, 3]. The vector v = ⟨5, -5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨-50, 15⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-1(3) + 4(-3), -3(3) + 2(-3)⟩.",
-    "⟨-15, -15⟩."
+    "First Av = ⟨-15, 20⟩.",
+    "Then B(Av) = ⟨-50, 15⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-012",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [3, 0; -4, -4] and v = ⟨-6, -1⟩.",
-   "answer": "⟨-18, 28⟩",
+   "prompt": "A = [3, 2; 0, -2] and B = [2, 1; 1, 2]. The vector v = ⟨5, -4⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨22, 23⟩",
    "options": [
     {
-     "text": "⟨-18, 28⟩",
+     "text": "⟨7, 8⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨6, -3⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨12, 6⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨22, 23⟩",
      "correct": true
-    },
-    {
-     "text": "⟨-14, 4⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨28, -18⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-18, 4⟩",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨3(-6) + 0(-1), -4(-6) + -4(-1)⟩.",
-    "⟨-18, 28⟩."
+    "First Av = ⟨7, 8⟩.",
+    "Then B(Av) = ⟨22, 23⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-013",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find Av for A = [3, 4; 0, -4] and v = ⟨-6, 3⟩.",
-   "answer": "⟨-6, -12⟩",
+   "prompt": "A = [-1, 0; -1, -2] and B = [-3, -3; 3, -1]. The vector v = ⟨4, 5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨54, 2⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨3(-6) + 4(3), 0(-6) + -4(3)⟩.",
-    "⟨-6, -12⟩."
+    "First Av = ⟨-4, -14⟩.",
+    "Then B(Av) = ⟨54, 2⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-014",
@@ -8101,104 +8097,100 @@
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [4, -3; 4, 0] and v = ⟨4, 5⟩.",
-   "answer": "⟨1, 16⟩",
+   "prompt": "Which matrix reflects vectors over the y-axis?",
+   "answer": "[-1, 0; 0, 1]",
    "options": [
     {
-     "text": "⟨16, 0⟩",
+     "text": "[2, 0; 0, 2]",
      "correct": false
     },
     {
-     "text": "⟨1, 16⟩",
+     "text": "[0, 1; 1, 0]",
+     "correct": false
+    },
+    {
+     "text": "[-1, 0; 0, -1]",
+     "correct": false
+    },
+    {
+     "text": "[-1, 0; 0, 1]",
      "correct": true
-    },
-    {
-     "text": "⟨36, -12⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨16, 1⟩",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨4(4) + -3(5), 4(4) + 0(5)⟩.",
-    "⟨1, 16⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [-1, 0; 0, 1]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-011",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-3, -2; -3, -4] and v = ⟨6, 1⟩.",
-   "answer": "⟨-20, -22⟩",
+   "prompt": "A = [-3, -1; -3, 3] and B = [3, 2; -3, 2]. The vector v = ⟨-1, 0⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨15, -3⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-3(6) + -2(1), -3(6) + -4(1)⟩.",
-    "⟨-20, -22⟩."
+    "First Av = ⟨3, 3⟩.",
+    "Then B(Av) = ⟨15, -3⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-012",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [2, 3; 1, 3] and v = ⟨-5, 0⟩.",
-   "answer": "⟨-10, -5⟩",
+   "prompt": "Which matrix rotates vectors 180°?",
+   "answer": "[-1, 0; 0, -1]",
    "options": [
     {
-     "text": "⟨-10, 0⟩",
+     "text": "[2, 0; 0, 2]",
      "correct": false
     },
     {
-     "text": "⟨-10, -15⟩",
+     "text": "[-1, 0; 0, 1]",
      "correct": false
     },
     {
-     "text": "⟨-5, -10⟩",
+     "text": "[1, 0; 0, -1]",
      "correct": false
     },
     {
-     "text": "⟨-10, -5⟩",
+     "text": "[-1, 0; 0, -1]",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨2(-5) + 3(0), 1(-5) + 3(0)⟩.",
-    "⟨-10, -5⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [-1, 0; 0, -1]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-013",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-1, 2; -4, 1] and v = ⟨-5, 6⟩.",
-   "answer": "⟨17, 26⟩",
+   "prompt": "A = [-3, 1; 0, 1] and B = [-2, -2; 0, 3]. The vector v = ⟨-4, 5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨-44, 15⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-1(-5) + 2(6), -4(-5) + 1(6)⟩.",
-    "⟨17, 26⟩."
+    "First Av = ⟨17, 5⟩.",
+    "Then B(Av) = ⟨-44, 15⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-014",
@@ -13822,6 +13814,4176 @@
     "N-VM.C.11"
    ],
    "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-vec-s12-cp2-001",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(-3 + 4i) · (8 - 15i)|.",
+   "answer": "85",
+   "solutionSteps": [
+    "|-3 + 4i| = √(-3² + 4²) = 5 and |8 - 15i| = 17.",
+    "The modulus of a product is the product of the moduli: 5 · 17 = 85."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-002",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Divide (23 + 14i) ÷ (-5 + 2i). Write the answer in the form a + bi.",
+   "answer": "-3 - 4i",
+   "options": [
+    {
+     "text": "-3 + 4i",
+     "correct": false
+    },
+    {
+     "text": "-23/5 + 7i",
+     "correct": false
+    },
+    {
+     "text": "-3 - 4i",
+     "correct": true
+    },
+    {
+     "text": "-87 - 116i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the numerator and denominator by the conjugate -5 - 2i.",
+    "Denominator: -5² + 2² = 29. Numerator: (23 + 14i)(-5 - 2i) = -87 - 116i.",
+    "(-87 - 116i)/29 = -3 - 4i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_quotient). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-003",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(-2) · (-3i)|.",
+   "answer": "6",
+   "solutionSteps": [
+    "|-2| = √(-2² + 0²) = 2 and |-3i| = 3.",
+    "The modulus of a product is the product of the moduli: 2 · 3 = 6."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-004",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "z = -6 + 3i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "45",
+   "options": [
+    {
+     "text": "45",
+     "correct": true
+    },
+    {
+     "text": "27 - 36i",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "27",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -6 - 3i.",
+    "z · z̄ = (-6 + 3i)(-6 - 3i) = -6² + 3² = 45."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-005",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(12 - 9i) ÷ (-3 + 4i)|.",
+   "answer": "3",
+   "solutionSteps": [
+    "|12 - 9i| = √(12² + -9²) = 15 and |-3 + 4i| = 5.",
+    "The modulus of a quotient is the quotient of the moduli: 15 ÷ 5 = 3."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-006",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "z = 1 - 7i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "50",
+   "options": [
+    {
+     "text": "-48",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": true
+    },
+    {
+     "text": "-48 - 14i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = 1 + 7i.",
+    "z · z̄ = (1 - 7i)(1 + 7i) = 1² + 7² = 50."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-007",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "z = -7 - 4i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "65",
+   "solutionSteps": [
+    "z̄ = -7 + 4i.",
+    "z · z̄ = (-7 - 4i)(-7 + 4i) = -7² + 4² = 65."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-008",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Write 1/(1 + 3i) in the form a + bi.",
+   "answer": "1/10 - (3/10)i",
+   "options": [
+    {
+     "text": "-1/8 + (3/8)i",
+     "correct": false
+    },
+    {
+     "text": "1 + (1/3)i",
+     "correct": false
+    },
+    {
+     "text": "1/10 + (3/10)i",
+     "correct": false
+    },
+    {
+     "text": "1/10 - (3/10)i",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (1 - 3i))/((1 + 3i)(1 - 3i)).",
+    "The denominator is 1² + 3² = 10.",
+    "= 1/10 - (3/10)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-009",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(-12 - 5i) · (4 - 3i)|.",
+   "answer": "65",
+   "solutionSteps": [
+    "|-12 - 5i| = √(-12² + -5²) = 13 and |4 - 3i| = 5.",
+    "The modulus of a product is the product of the moduli: 13 · 5 = 65."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-010",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "z = 9 + 4i. Find z + z̄.",
+   "answer": "18",
+   "options": [
+    {
+     "text": "97",
+     "correct": false
+    },
+    {
+     "text": "8i",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    },
+    {
+     "text": "18 + 8i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = 9 - 4i.",
+    "z + z̄ = 2 · 9 = 18 (the imaginary parts cancel)."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-011",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "z = -4 - 2i. Find z + z̄.",
+   "answer": "-8",
+   "solutionSteps": [
+    "z̄ = -4 + 2i.",
+    "z + z̄ = 2 · -4 = -8 (the imaginary parts cancel)."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-012",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "z = 1 + 2i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "5",
+   "options": [
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "-3 + 4i",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "-3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = 1 - 2i.",
+    "z · z̄ = (1 + 2i)(1 - 2i) = 1² + 2² = 5."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-013",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write 1/(5 + 6i) in the form a + bi.",
+   "answer": "5/61 - (6/61)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (5 - 6i))/((5 + 6i)(5 - 6i)).",
+    "The denominator is 5² + 6² = 61.",
+    "= 5/61 - (6/61)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-014",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nFind |(7i) ÷ (8 + 15i)|.\nJada's answer: 119\nIdentify the mistake and give the correct answer.",
+   "answer": "7/17",
+   "solutionSteps": [
+    "Mistake: Jada used the wrong operation on the moduli.",
+    "|7i| = √(0² + 7²) = 7 and |8 + 15i| = 17.",
+    "The modulus of a quotient is the quotient of the moduli: 7 ÷ 17 = 7/17.",
+    "The correct answer is 7/17, not 119."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-015",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Complex Conjugates, Moduli, and Quotients): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Divide (3 - 5i) ÷ (-1 - 4i). Write the answer in the form a + bi.",
+     "answer": "1 + i"
+    },
+    {
+     "prompt": "Write 1/(-4 - i) in the form a + bi.",
+     "answer": "-4/17 + (1/17)i"
+    },
+    {
+     "prompt": "z = -4 - 4i. Find z + z̄.",
+     "answer": "-8"
+    },
+    {
+     "prompt": "Divide (-42 - 9i) ÷ (-5 - 4i). Write the answer in the form a + bi.",
+     "answer": "6 - 3i"
+    }
+   ],
+   "answer": "(a) 1 + i; (b) -4/17 + (1/17)i; (c) -8; (d) 6 - 3i",
+   "solutionSteps": [
+    "(a) Multiply the numerator and denominator by the conjugate -1 + 4i. Denominator: -1² + 4² = 17. Numerator: (3 - 5i)(-1 + 4i) = 17 + 17i. (17 + 17i)/17 = 1 + i.",
+    "(b) Multiply by the conjugate: (1 · (-4 + i))/((-4 - i)(-4 + i)). The denominator is -4² + 1² = 17. = -4/17 + (1/17)i.",
+    "(c) z̄ = -4 + 4i. z + z̄ = 2 · -4 = -8 (the imaginary parts cancel).",
+    "(d) Multiply the numerator and denominator by the conjugate -5 + 4i. Denominator: -5² + 4² = 41. Numerator: (-42 - 9i)(-5 + 4i) = 246 - 123i. (246 - 123i)/41 = 6 - 3i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_quotient_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp2-016",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nFind |(7 - 24i) · (-8 - 15i)|.\nBen's answer: 25/17\nIdentify the mistake and give the correct answer.",
+   "answer": "425",
+   "solutionSteps": [
+    "Mistake: Ben used the wrong operation on the moduli.",
+    "|7 - 24i| = √(7² + -24²) = 25 and |-8 - 15i| = 17.",
+    "The modulus of a product is the product of the moduli: 25 · 17 = 425.",
+    "The correct answer is 425, not 25/17."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-001",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write 1/(-3 + 2i) in the form a + bi.",
+   "answer": "-3/13 - (2/13)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (-3 - 2i))/((-3 + 2i)(-3 - 2i)).",
+    "The denominator is -3² + 2² = 13.",
+    "= -3/13 - (2/13)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-002",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "z = 5 - 2i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "29",
+   "options": [
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "29",
+     "correct": true
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "21 - 20i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = 5 + 2i.",
+    "z · z̄ = (5 - 2i)(5 + 2i) = 5² + 2² = 29."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-003",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write 1/(2 + 5i) in the form a + bi.",
+   "answer": "2/29 - (5/29)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (2 - 5i))/((2 + 5i)(2 - 5i)).",
+    "The denominator is 2² + 5² = 29.",
+    "= 2/29 - (5/29)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-004",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Divide (-20 + 12i) ÷ (4 - 4i). Write the answer in the form a + bi.",
+   "answer": "-4 - i",
+   "options": [
+    {
+     "text": "-5 - 3i",
+     "correct": false
+    },
+    {
+     "text": "-4 - i",
+     "correct": true
+    },
+    {
+     "text": "-4 + i",
+     "correct": false
+    },
+    {
+     "text": "-128 - 32i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the numerator and denominator by the conjugate 4 + 4i.",
+    "Denominator: 4² + 4² = 32. Numerator: (-20 + 12i)(4 + 4i) = -128 - 32i.",
+    "(-128 - 32i)/32 = -4 - i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_quotient). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-005",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "z = -4 + 2i. Find z - z̄.",
+   "answer": "4i",
+   "solutionSteps": [
+    "z̄ = -4 - 2i.",
+    "z - z̄ = (-4 + 2i) - (-4 - 2i) = 4i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-006",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "z = -1 + i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "2",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "√2",
+     "correct": false
+    },
+    {
+     "text": "-2i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -1 - i.",
+    "z · z̄ = (-1 + i)(-1 - i) = -1² + 1² = 2."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-007",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find |(-7i) ÷ (-8 + 6i)|.",
+   "answer": "7/10",
+   "solutionSteps": [
+    "|-7i| = √(0² + -7²) = 7 and |-8 + 6i| = 10.",
+    "The modulus of a quotient is the quotient of the moduli: 7 ÷ 10 = 7/10."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-008",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Divide (-12 + 59i) ÷ (4 - 3i). Write the answer in the form a + bi.",
+   "answer": "-9 + 8i",
+   "options": [
+    {
+     "text": "-3 - (59/3)i",
+     "correct": false
+    },
+    {
+     "text": "-225 + 200i",
+     "correct": false
+    },
+    {
+     "text": "-9 + 8i",
+     "correct": true
+    },
+    {
+     "text": "-9 - 8i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the numerator and denominator by the conjugate 4 + 3i.",
+    "Denominator: 4² + 3² = 25. Numerator: (-12 + 59i)(4 + 3i) = -225 + 200i.",
+    "(-225 + 200i)/25 = -9 + 8i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_quotient). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-009",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find |(-9 + 12i) ÷ (6 + 8i)|.",
+   "answer": "3/2",
+   "solutionSteps": [
+    "|-9 + 12i| = √(-9² + 12²) = 15 and |6 + 8i| = 10.",
+    "The modulus of a quotient is the quotient of the moduli: 15 ÷ 10 = 3/2."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-010",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "z = 9 + 3i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "90",
+   "options": [
+    {
+     "text": "72 + 54i",
+     "correct": false
+    },
+    {
+     "text": "72",
+     "correct": false
+    },
+    {
+     "text": "144",
+     "correct": false
+    },
+    {
+     "text": "90",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = 9 - 3i.",
+    "z · z̄ = (9 + 3i)(9 - 3i) = 9² + 3² = 90."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-011",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "z = 2 + 3i. Find z + z̄.",
+   "answer": "4",
+   "solutionSteps": [
+    "z̄ = 2 - 3i.",
+    "z + z̄ = 2 · 2 = 4 (the imaginary parts cancel)."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-012",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find |(4 - 3i) ÷ (8 + 15i)|.",
+   "answer": "5/17",
+   "options": [
+    {
+     "text": "22",
+     "correct": false
+    },
+    {
+     "text": "5/17",
+     "correct": true
+    },
+    {
+     "text": "85",
+     "correct": false
+    },
+    {
+     "text": "25/289",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|4 - 3i| = √(4² + -3²) = 5 and |8 + 15i| = 17.",
+    "The modulus of a quotient is the quotient of the moduli: 5 ÷ 17 = 5/17."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-013",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "z = -5 + 4i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "41",
+   "solutionSteps": [
+    "z̄ = -5 - 4i.",
+    "z · z̄ = (-5 + 4i)(-5 - 4i) = -5² + 4² = 41."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-014",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nz = -4 - 2i. Find z - z̄.\nPriya's answer: -8\nIdentify the mistake and give the correct answer.",
+   "answer": "-4i",
+   "solutionSteps": [
+    "Mistake: Priya found z + z̄.",
+    "z̄ = -4 + 2i.",
+    "z - z̄ = (-4 - 2i) - (-4 + 2i) = -4i.",
+    "The correct answer is -4i, not -8."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-015",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Complex Conjugates, Moduli, and Quotients): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "z = 4 - 9i. Find z · z̄, where z̄ is the complex conjugate of z.",
+     "answer": "97"
+    },
+    {
+     "prompt": "z = 5 + 5i. Find z · z̄, where z̄ is the complex conjugate of z.",
+     "answer": "50"
+    },
+    {
+     "prompt": "z = 2 - 2i. Find z + z̄.",
+     "answer": "4"
+    },
+    {
+     "prompt": "Write 1/(5 - 2i) in the form a + bi.",
+     "answer": "5/29 + (2/29)i"
+    }
+   ],
+   "answer": "(a) 97; (b) 50; (c) 4; (d) 5/29 + (2/29)i",
+   "solutionSteps": [
+    "(a) z̄ = 4 + 9i. z · z̄ = (4 - 9i)(4 + 9i) = 4² + 9² = 97.",
+    "(b) z̄ = 5 - 5i. z · z̄ = (5 + 5i)(5 - 5i) = 5² + 5² = 50.",
+    "(c) z̄ = 2 + 2i. z + z̄ = 2 · 2 = 4 (the imaginary parts cancel).",
+    "(d) Multiply by the conjugate: (1 · (5 + 2i))/((5 - 2i)(5 + 2i)). The denominator is 5² + 2² = 29. = 5/29 + (2/29)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-cp1-016",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nDivide (-16 - 12i) ÷ (3 + i). Write the answer in the form a + bi.\nOmar's answer: -16/3 - 12i\nIdentify the mistake and give the correct answer.",
+   "answer": "-6 - 2i",
+   "solutionSteps": [
+    "Mistake: Omar divided the real parts and the imaginary parts separately.",
+    "Multiply the numerator and denominator by the conjugate 3 - i.",
+    "Denominator: 3² + 1² = 10. Numerator: (-16 - 12i)(3 - i) = -60 - 20i.",
+    "(-60 - 20i)/10 = -6 - 2i.",
+    "The correct answer is -6 - 2i, not -16/3 - 12i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_quotient_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-001",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "z = -9 - 4i. Find z + z̄.",
+   "answer": "-18",
+   "solutionSteps": [
+    "z̄ = -9 + 4i.",
+    "z + z̄ = 2 · -9 = -18 (the imaginary parts cancel)."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-002",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find |(5 + 12i) ÷ (-8 + 6i)|.",
+   "answer": "13/10",
+   "options": [
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "13/10",
+     "correct": true
+    },
+    {
+     "text": "169/100",
+     "correct": false
+    },
+    {
+     "text": "130",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|5 + 12i| = √(5² + 12²) = 13 and |-8 + 6i| = 10.",
+    "The modulus of a quotient is the quotient of the moduli: 13 ÷ 10 = 13/10."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-003",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(-2) ÷ (4 + 3i)|.",
+   "answer": "2/5",
+   "solutionSteps": [
+    "|-2| = √(-2² + 0²) = 2 and |4 + 3i| = 5.",
+    "The modulus of a quotient is the quotient of the moduli: 2 ÷ 5 = 2/5."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-004",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "z = -6 + 6i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "72",
+   "options": [
+    {
+     "text": "-72i",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "√72",
+     "correct": false
+    },
+    {
+     "text": "72",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -6 - 6i.",
+    "z · z̄ = (-6 + 6i)(-6 - 6i) = -6² + 6² = 72."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-005",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "z = 3 + 7i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "58",
+   "solutionSteps": [
+    "z̄ = 3 - 7i.",
+    "z · z̄ = (3 + 7i)(3 - 7i) = 3² + 7² = 58."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-006",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write 1/(-6 - 5i) in the form a + bi.",
+   "answer": "-6/61 + (5/61)i",
+   "options": [
+    {
+     "text": "-6/11 + (5/11)i",
+     "correct": false
+    },
+    {
+     "text": "-6/61 - (5/61)i",
+     "correct": false
+    },
+    {
+     "text": "-6/61 + (5/61)i",
+     "correct": true
+    },
+    {
+     "text": "-1/6 - (1/5)i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (-6 + 5i))/((-6 - 5i)(-6 + 5i)).",
+    "The denominator is -6² + 5² = 61.",
+    "= -6/61 + (5/61)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-007",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(2) ÷ (3i)|.",
+   "answer": "2/3",
+   "solutionSteps": [
+    "|2| = √(2² + 0²) = 2 and |3i| = 3.",
+    "The modulus of a quotient is the quotient of the moduli: 2 ÷ 3 = 2/3."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-008",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "z = -8 - 8i. Find z + z̄.",
+   "answer": "-16",
+   "options": [
+    {
+     "text": "128",
+     "correct": false
+    },
+    {
+     "text": "-16i",
+     "correct": false
+    },
+    {
+     "text": "-16",
+     "correct": true
+    },
+    {
+     "text": "-16 - 16i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -8 + 8i.",
+    "z + z̄ = 2 · -8 = -16 (the imaginary parts cancel)."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-009",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write 1/(-3 - 3i) in the form a + bi.",
+   "answer": "-1/6 + (1/6)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (-3 + 3i))/((-3 - 3i)(-3 + 3i)).",
+    "The denominator is -3² + 3² = 18.",
+    "= -1/6 + (1/6)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-010",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "z = -4 + 4i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "32",
+   "options": [
+    {
+     "text": "-32i",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "√32",
+     "correct": false
+    },
+    {
+     "text": "32",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -4 - 4i.",
+    "z · z̄ = (-4 + 4i)(-4 - 4i) = -4² + 4² = 32."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-011",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write 1/(-5 + i) in the form a + bi.",
+   "answer": "-5/26 - (1/26)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (-5 - i))/((-5 + i)(-5 - i)).",
+    "The denominator is -5² + 1² = 26.",
+    "= -5/26 - (1/26)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-012",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "z = -8 + 7i. Find z · z̄, where z̄ is the complex conjugate of z.",
+   "answer": "113",
+   "options": [
+    {
+     "text": "113",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "15 - 112i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z̄ = -8 - 7i.",
+    "z · z̄ = (-8 + 7i)(-8 - 7i) = -8² + 7² = 113."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_product). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-013",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write 1/(6 - 5i) in the form a + bi.",
+   "answer": "6/61 + (5/61)i",
+   "solutionSteps": [
+    "Multiply by the conjugate: (1 · (6 + 5i))/((6 - 5i)(6 + 5i)).",
+    "The denominator is 6² + 5² = 61.",
+    "= 6/61 + (5/61)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-014",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nFind |(5 + 12i) ÷ (-3 + 4i)|.\nMateo's answer: 65\nIdentify the mistake and give the correct answer.",
+   "answer": "13/5",
+   "solutionSteps": [
+    "Mistake: Mateo used the wrong operation on the moduli.",
+    "|5 + 12i| = √(5² + 12²) = 13 and |-3 + 4i| = 5.",
+    "The modulus of a quotient is the quotient of the moduli: 13 ÷ 5 = 13/5.",
+    "The correct answer is 13/5, not 65."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_modq_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-015",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Complex Conjugates, Moduli, and Quotients): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "z = 9 - 6i. Find z - z̄.",
+     "answer": "-12i"
+    },
+    {
+     "prompt": "Find |(9 + 12i) ÷ (-4 + 3i)|.",
+     "answer": "3"
+    },
+    {
+     "prompt": "Write 1/(-4 + 3i) in the form a + bi.",
+     "answer": "-4/25 - (3/25)i"
+    },
+    {
+     "prompt": "Write 1/(4 + 4i) in the form a + bi.",
+     "answer": "1/8 - (1/8)i"
+    }
+   ],
+   "answer": "(a) -12i; (b) 3; (c) -4/25 - (3/25)i; (d) 1/8 - (1/8)i",
+   "solutionSteps": [
+    "(a) z̄ = 9 + 6i. z - z̄ = (9 - 6i) - (9 + 6i) = -12i.",
+    "(b) |9 + 12i| = √(9² + 12²) = 15 and |-4 + 3i| = 5. The modulus of a quotient is the quotient of the moduli: 15 ÷ 5 = 3.",
+    "(c) Multiply by the conjugate: (1 · (-4 - 3i))/((-4 + 3i)(-4 - 3i)). The denominator is -4² + 3² = 25. = -4/25 - (3/25)i.",
+    "(d) Multiply by the conjugate: (1 · (4 - 4i))/((4 + 4i)(4 - 4i)). The denominator is 4² + 4² = 32. = 1/8 - (1/8)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_solve_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s12-honors-016",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nWrite 1/(5 - 3i) in the form a + bi.\nHana's answer: 1/5 - (1/3)i\nIdentify the mistake and give the correct answer.",
+   "answer": "5/34 + (3/34)i",
+   "solutionSteps": [
+    "Mistake: Hana took the reciprocal of each part.",
+    "Multiply by the conjugate: (1 · (5 + 3i))/((5 - 3i)(5 + 3i)).",
+    "The denominator is 5² + 3² = 34.",
+    "= 5/34 + (3/34)i.",
+    "The correct answer is 5/34 + (3/34)i, not 1/5 - (1/3)i."
+   ],
+   "standards": [
+    "N-CN.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cj_recip_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-001",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(2 + i)^3|.",
+   "answer": "5√5",
+   "solutionSteps": [
+    "|2 + i| = √(2² + 1²) = √5.",
+    "|zⁿ| = |z|ⁿ = (√5)^3 = 5√5."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-002",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find |(1 + i)^6|.",
+   "answer": "8",
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "64",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|1 + i| = √(1² + 1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^6 = 8."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-003",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(2i)^4|.",
+   "answer": "16",
+   "solutionSteps": [
+    "|2i| = √(0² + 2²) = √4.",
+    "|zⁿ| = |z|ⁿ = (√4)^4 = 16."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-004",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use De Moivre's Theorem to find (1(cos 45° + i sin 45°))^2. Write the answer in the form a + bi.",
+   "answer": "i",
+   "options": [
+    {
+     "text": "(√2)/2 + ((√2)/2)i",
+     "correct": false
+    },
+    {
+     "text": "2i",
+     "correct": false
+    },
+    {
+     "text": "-i",
+     "correct": false
+    },
+    {
+     "text": "i",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 1^2 = 1, 2 · 45° = 90°.",
+    "1(cos 90° + i sin 90°) = i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-005",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (2(cos 60° + i sin 60°))^4. Write the answer in the form a + bi.",
+   "answer": "-8 - 8√3i",
+   "solutionSteps": [
+    "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 2^4 = 16, 4 · 60° = 240°.",
+    "16(cos 240° + i sin 240°) = -8 - 8√3i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-006",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find |(1 - i)^3|.",
+   "answer": "2√2",
+   "options": [
+    {
+     "text": "2√2",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|1 - i| = √(1² + -1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^3 = 2√2."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-007",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(1 + i)^4|.",
+   "answer": "4",
+   "solutionSteps": [
+    "|1 + i| = √(1² + 1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^4 = 4."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-008",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find |(2 + 2i)^2|.",
+   "answer": "8",
+   "options": [
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "2√8",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "|2 + 2i| = √(2² + 2²) = √8.",
+    "|zⁿ| = |z|ⁿ = (√8)^2 = 8."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-009",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (3(cos 75° + i sin 75°))^2. Write the answer in the form a + bi.",
+   "answer": "-(9√3)/2 + (9/2)i",
+   "solutionSteps": [
+    "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 3^2 = 9, 2 · 75° = 150°.",
+    "9(cos 150° + i sin 150°) = -(9√3)/2 + (9/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-010",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use De Moivre's Theorem to find (1(cos 30° + i sin 30°))^2. Write the answer in the form a + bi.",
+   "answer": "1/2 + ((√3)/2)i",
+   "options": [
+    {
+     "text": "1 + √3i",
+     "correct": false
+    },
+    {
+     "text": "1/2 + ((√3)/2)i",
+     "correct": true
+    },
+    {
+     "text": "-1/2 - ((√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "(√3)/2 + (1/2)i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 1^2 = 1, 2 · 30° = 60°.",
+    "1(cos 60° + i sin 60°) = 1/2 + ((√3)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-011",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (3(cos 15° + i sin 15°))^2. Write the answer in the form a + bi.",
+   "answer": "(9√3)/2 + (9/2)i",
+   "solutionSteps": [
+    "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 3^2 = 9, 2 · 15° = 30°.",
+    "9(cos 30° + i sin 30°) = (9√3)/2 + (9/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-012",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The cube roots of 1(cos 90° + i sin 90°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+   "answer": "(√3)/2 + (1/2)i",
+   "options": [
+    {
+     "text": "i",
+     "correct": false
+    },
+    {
+     "text": "(√3)/6 + (1/6)i",
+     "correct": false
+    },
+    {
+     "text": "(√3)/2 + (1/2)i",
+     "correct": true
+    },
+    {
+     "text": "-(√3)/2 + (1/2)i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each root has modulus 1^(1/3) = 1.",
+    "The smallest angle is 90°/3 = 30°; the others add multiples of 120°.",
+    "1(cos 30° + i sin 30°) = (√3)/2 + (1/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-013",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find |(2 + i)^2|.",
+   "answer": "5",
+   "solutionSteps": [
+    "|2 + i| = √(2² + 1²) = √5.",
+    "|zⁿ| = |z|ⁿ = (√5)^2 = 5."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-014",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nThe square roots of 1(cos 120° + i sin 120°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.\nBen's answer: -1/2 + ((√3)/2)i\nIdentify the mistake and give the correct answer.",
+   "answer": "1/2 + ((√3)/2)i",
+   "solutionSteps": [
+    "Mistake: Ben did not divide the angle.",
+    "Each root has modulus 1^(1/2) = 1.",
+    "The smallest angle is 120°/2 = 60°; the others add multiples of 180°.",
+    "1(cos 60° + i sin 60°) = 1/2 + ((√3)/2)i.",
+    "The correct answer is 1/2 + ((√3)/2)i, not -1/2 + ((√3)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-015",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Products, Powers, and Roots in Polar Form): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Use De Moivre's Theorem to find (1(cos 15° + i sin 15°))^3. Write the answer in the form a + bi.",
+     "answer": "(√2)/2 + ((√2)/2)i"
+    },
+    {
+     "prompt": "Use De Moivre's Theorem to find (2(cos 60° + i sin 60°))^2. Write the answer in the form a + bi.",
+     "answer": "-2 + 2√3i"
+    },
+    {
+     "prompt": "Find |(6 + 8i)^2|.",
+     "answer": "100"
+    },
+    {
+     "prompt": "Find |(1 + i)^3|.",
+     "answer": "2√2"
+    }
+   ],
+   "answer": "(a) (√2)/2 + ((√2)/2)i; (b) -2 + 2√3i; (c) 100; (d) 2√2",
+   "solutionSteps": [
+    "(a) [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 1^3 = 1, 3 · 15° = 45°. 1(cos 45° + i sin 45°) = (√2)/2 + ((√2)/2)i.",
+    "(b) [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ): 2^2 = 4, 2 · 60° = 120°. 4(cos 120° + i sin 120°) = -2 + 2√3i.",
+    "(c) |6 + 8i| = √(6² + 8²) = √100. |zⁿ| = |z|ⁿ = (√100)^2 = 100.",
+    "(d) |1 + i| = √(1² + 1²) = √2. |zⁿ| = |z|ⁿ = (√2)^3 = 2√2."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_power_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp2-016",
+   "skillId": "vectors-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nFind |(1 - i)^2|.\nPriya's answer: 4\nIdentify the mistake and give the correct answer.",
+   "answer": "2",
+   "solutionSteps": [
+    "Mistake: Priya forgot the square root.",
+    "|1 - i| = √(1² + -1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^2 = 2.",
+    "The correct answer is 2, not 4."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-001",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find |(1 - i)^6|.",
+   "answer": "8",
+   "solutionSteps": [
+    "|1 - i| = √(1² + -1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^6 = 8."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-002",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use De Moivre's Theorem to find (√3 + i)^3. Write the answer in the form a + bi.",
+   "answer": "8i",
+   "options": [
+    {
+     "text": "16i",
+     "correct": false
+    },
+    {
+     "text": "4√3 + 4i",
+     "correct": false
+    },
+    {
+     "text": "-8i",
+     "correct": false
+    },
+    {
+     "text": "8i",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Polar form: |√3 + i| = 2 and the angle is 30°, so √3 + i = 2(cos 30° + i sin 30°).",
+    "(√3 + i)^3 = 2^3(cos 90° + i sin 90°) = 8(cos 90° + i sin 90°).",
+    "= 8i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-003",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (1 + i)^3. Write the answer in the form a + bi.",
+   "answer": "-2 + 2i",
+   "solutionSteps": [
+    "Polar form: |1 + i| = √2 and the angle is 45°, so 1 + i = √2(cos 45° + i sin 45°).",
+    "(1 + i)^3 = (√2)^3(cos 135° + i sin 135°) = 2√2(cos 135° + i sin 135°).",
+    "= -2 + 2i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-004",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find |(1 - i)^5|.",
+   "answer": "4√2",
+   "options": [
+    {
+     "text": "32",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "4√2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "|1 - i| = √(1² + -1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^5 = 4√2."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-005",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (√3 - i)^3. Write the answer in the form a + bi.",
+   "answer": "-8i",
+   "solutionSteps": [
+    "Polar form: |√3 - i| = 2 and the angle is 330°, so √3 - i = 2(cos 330° + i sin 330°).",
+    "(√3 - i)^3 = 2^3(cos 990° + i sin 990°) = 8(cos 270° + i sin 270°).",
+    "= -8i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-006",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find |(2i)^6|.",
+   "answer": "64",
+   "options": [
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "64",
+     "correct": true
+    },
+    {
+     "text": "4096",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|2i| = √(0² + 2²) = √4.",
+    "|zⁿ| = |z|ⁿ = (√4)^6 = 64."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-007",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find |(1 + i)^2|.",
+   "answer": "2",
+   "solutionSteps": [
+    "|1 + i| = √(1² + 1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^2 = 2."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-008",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The square roots of 9(cos 240° + i sin 240°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+   "answer": "-3/2 + ((3√3)/2)i",
+   "options": [
+    {
+     "text": "-3/2 - ((3√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "-9/2 + ((9√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "-3/2 + ((3√3)/2)i",
+     "correct": true
+    },
+    {
+     "text": "3/2 - ((3√3)/2)i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each root has modulus 9^(1/2) = 3.",
+    "The smallest angle is 240°/2 = 120°; the others add multiples of 180°.",
+    "3(cos 120° + i sin 120°) = -3/2 + ((3√3)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-009",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (1 - i)^3. Write the answer in the form a + bi.",
+   "answer": "-2 - 2i",
+   "solutionSteps": [
+    "Polar form: |1 - i| = √2 and the angle is 315°, so 1 - i = √2(cos 315° + i sin 315°).",
+    "(1 - i)^3 = (√2)^3(cos 945° + i sin 945°) = 2√2(cos 225° + i sin 225°).",
+    "= -2 - 2i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-010",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find (15(cos 65° + i sin 65°)) ÷ (5(cos 5° + i sin 5°)). Write the answer in the form a + bi.",
+   "answer": "3/2 + ((3√3)/2)i",
+   "options": [
+    {
+     "text": "-3/2 - ((3√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "3/2 + ((3√3)/2)i",
+     "correct": true
+    },
+    {
+     "text": "75/2 + ((75√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "3/2 - ((3√3)/2)i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Divide the moduli and subtract the angles: 15/5 = 3, 65° - 5° = 60°.",
+    "3(cos 60° + i sin 60°) = 3/2 + ((3√3)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pol_div). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-011",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (1 + i)^6. Write the answer in the form a + bi.",
+   "answer": "-8i",
+   "solutionSteps": [
+    "Polar form: |1 + i| = √2 and the angle is 45°, so 1 + i = √2(cos 45° + i sin 45°).",
+    "(1 + i)^6 = (√2)^6(cos 270° + i sin 270°) = 8(cos 270° + i sin 270°).",
+    "= -8i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-012",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find |(-3 + 4i)^2|.",
+   "answer": "25",
+   "options": [
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "625",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "|-3 + 4i| = √(-3² + 4²) = √25.",
+    "|zⁿ| = |z|ⁿ = (√25)^2 = 25."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-013",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (-1 + i)^4. Write the answer in the form a + bi.",
+   "answer": "-4",
+   "solutionSteps": [
+    "Polar form: |-1 + i| = √2 and the angle is 135°, so -1 + i = √2(cos 135° + i sin 135°).",
+    "(-1 + i)^4 = (√2)^4(cos 540° + i sin 540°) = 4(cos 180° + i sin 180°).",
+    "= -4."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-014",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nFind |(2 + 2i)^6|.\nLeah's answer: 262144\nIdentify the mistake and give the correct answer.",
+   "answer": "512",
+   "solutionSteps": [
+    "Mistake: Leah forgot the square root.",
+    "|2 + 2i| = √(2² + 2²) = √8.",
+    "|zⁿ| = |z|ⁿ = (√8)^6 = 512.",
+    "The correct answer is 512, not 262144."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-015",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Products, Powers, and Roots in Polar Form): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find |(3 + 4i)^3|.",
+     "answer": "125"
+    },
+    {
+     "prompt": "Use De Moivre's Theorem to find (-1 + √3i)^3. Write the answer in the form a + bi.",
+     "answer": "8"
+    },
+    {
+     "prompt": "Find |(3 + 4i)^5|.",
+     "answer": "3125"
+    },
+    {
+     "prompt": "Use De Moivre's Theorem to find (√3 - i)^4. Write the answer in the form a + bi.",
+     "answer": "-8 - 8√3i"
+    }
+   ],
+   "answer": "(a) 125; (b) 8; (c) 3125; (d) -8 - 8√3i",
+   "solutionSteps": [
+    "(a) |3 + 4i| = √(3² + 4²) = √25. |zⁿ| = |z|ⁿ = (√25)^3 = 125.",
+    "(b) Polar form: |-1 + √3i| = 2 and the angle is 120°, so -1 + √3i = 2(cos 120° + i sin 120°). (-1 + √3i)^3 = 2^3(cos 360° + i sin 360°) = 8(cos 0° + i sin 0°). = 8.",
+    "(c) |3 + 4i| = √(3² + 4²) = √25. |zⁿ| = |z|ⁿ = (√25)^5 = 3125.",
+    "(d) Polar form: |√3 - i| = 2 and the angle is 330°, so √3 - i = 2(cos 330° + i sin 330°). (√3 - i)^4 = 2^4(cos 1320° + i sin 1320°) = 16(cos 240° + i sin 240°). = -8 - 8√3i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-cp1-016",
+   "skillId": "vectors-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nUse De Moivre's Theorem to find (2i)^4. Write the answer in the form a + bi.\nLeah's answer: -16\nIdentify the mistake and give the correct answer.",
+   "answer": "16",
+   "solutionSteps": [
+    "Mistake: Leah used the wrong quadrant for the angle.",
+    "Polar form: |2i| = 2 and the angle is 90°, so 2i = 2(cos 90° + i sin 90°).",
+    "(2i)^4 = 2^4(cos 360° + i sin 360°) = 16(cos 0° + i sin 0°).",
+    "= 16.",
+    "The correct answer is 16, not -16."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-001",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (1 + i)^7. Write the answer in the form a + bi.",
+   "answer": "8 - 8i",
+   "solutionSteps": [
+    "Polar form: |1 + i| = √2 and the angle is 45°, so 1 + i = √2(cos 45° + i sin 45°).",
+    "(1 + i)^7 = (√2)^7(cos 315° + i sin 315°) = 8√2(cos 315° + i sin 315°).",
+    "= 8 - 8i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-002",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find (1(cos 100° + i sin 100°)) · (5(cos 20° + i sin 20°)). Write the answer in the form a + bi.",
+   "answer": "-5/2 + ((5√3)/2)i",
+   "options": [
+    {
+     "text": "5/2 - ((5√3)/2)i",
+     "correct": false
+    },
+    {
+     "text": "-5/2 + ((5√3)/2)i",
+     "correct": true
+    },
+    {
+     "text": "(5√3)/2 - (5/2)i",
+     "correct": false
+    },
+    {
+     "text": "-3 + 3√3i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the moduli and add the angles: 1 · 5 = 5, 100° + 20° = 120°.",
+    "5(cos 120° + i sin 120°) = -5/2 + ((5√3)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pol_mult). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-003",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(2 + i)^7|.",
+   "answer": "125√5",
+   "solutionSteps": [
+    "|2 + i| = √(2² + 1²) = √5.",
+    "|zⁿ| = |z|ⁿ = (√5)^7 = 125√5."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-004",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Use De Moivre's Theorem to find (√3 - i)^8. Write the answer in the form a + bi.",
+   "answer": "-128 + 128√3i",
+   "options": [
+    {
+     "text": "128 - 128√3i",
+     "correct": false
+    },
+    {
+     "text": "128√3 - 128i",
+     "correct": false
+    },
+    {
+     "text": "-128 + 128√3i",
+     "correct": true
+    },
+    {
+     "text": "-256 + 256√3i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Polar form: |√3 - i| = 2 and the angle is 330°, so √3 - i = 2(cos 330° + i sin 330°).",
+    "(√3 - i)^8 = 2^8(cos 2640° + i sin 2640°) = 256(cos 120° + i sin 120°).",
+    "= -128 + 128√3i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-005",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The fourth roots of 81(cos 180° + i sin 180°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+   "answer": "(3√2)/2 + ((3√2)/2)i",
+   "solutionSteps": [
+    "Each root has modulus 81^(1/4) = 3.",
+    "The smallest angle is 180°/4 = 45°; the others add multiples of 90°.",
+    "3(cos 45° + i sin 45°) = (3√2)/2 + ((3√2)/2)i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-006",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find (2(cos 105° + i sin 105°)) · (4(cos 30° + i sin 30°)). Write the answer in the form a + bi.",
+   "answer": "-4√2 + 4√2i",
+   "options": [
+    {
+     "text": "-4√2 + 4√2i",
+     "correct": true
+    },
+    {
+     "text": "4√2 - 4√2i",
+     "correct": false
+    },
+    {
+     "text": "-8√2 + 8√2i",
+     "correct": false
+    },
+    {
+     "text": "-3√2 + 3√2i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the moduli and add the angles: 2 · 4 = 8, 105° + 30° = 135°.",
+    "8(cos 135° + i sin 135°) = -4√2 + 4√2i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pol_mult). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-007",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(2 - 2i)^3|.",
+   "answer": "16√2",
+   "solutionSteps": [
+    "|2 - 2i| = √(2² + -2²) = √8.",
+    "|zⁿ| = |z|ⁿ = (√8)^3 = 16√2."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-008",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find (6(cos 10° + i sin 10°)) · (3(cos 35° + i sin 35°)). Write the answer in the form a + bi.",
+   "answer": "9√2 + 9√2i",
+   "options": [
+    {
+     "text": "(9√2)/2 + ((9√2)/2)i",
+     "correct": false
+    },
+    {
+     "text": "9√2 + 9√2i",
+     "correct": true
+    },
+    {
+     "text": "-9√2 - 9√2i",
+     "correct": false
+    },
+    {
+     "text": "-9√2 + 9√2i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply the moduli and add the angles: 6 · 3 = 18, 10° + 35° = 45°.",
+    "18(cos 45° + i sin 45°) = 9√2 + 9√2i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pol_mult). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-009",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use De Moivre's Theorem to find (1 + √3i)^3. Write the answer in the form a + bi.",
+   "answer": "-8",
+   "solutionSteps": [
+    "Polar form: |1 + √3i| = 2 and the angle is 60°, so 1 + √3i = 2(cos 60° + i sin 60°).",
+    "(1 + √3i)^3 = 2^3(cos 180° + i sin 180°) = 8(cos 180° + i sin 180°).",
+    "= -8."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-010",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The square roots of 4(cos 120° + i sin 120°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+   "answer": "1 + √3i",
+   "options": [
+    {
+     "text": "-1 - √3i",
+     "correct": false
+    },
+    {
+     "text": "1 + √3i",
+     "correct": true
+    },
+    {
+     "text": "-1 + √3i",
+     "correct": false
+    },
+    {
+     "text": "2 + 2√3i",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each root has modulus 4^(1/2) = 2.",
+    "The smallest angle is 120°/2 = 60°; the others add multiples of 180°.",
+    "2(cos 60° + i sin 60°) = 1 + √3i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-011",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(1 - i)^8|.",
+   "answer": "16",
+   "solutionSteps": [
+    "|1 - i| = √(1² + -1²) = √2.",
+    "|zⁿ| = |z|ⁿ = (√2)^8 = 16."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-012",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The cube roots of 8(cos 180° + i sin 180°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+   "answer": "1 + √3i",
+   "options": [
+    {
+     "text": "4 + 4√3i",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "4/3 + ((4√3)/3)i",
+     "correct": false
+    },
+    {
+     "text": "1 + √3i",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Each root has modulus 8^(1/3) = 2.",
+    "The smallest angle is 180°/3 = 60°; the others add multiples of 120°.",
+    "2(cos 60° + i sin 60°) = 1 + √3i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_root). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-013",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find |(2i)^2|.",
+   "answer": "4",
+   "solutionSteps": [
+    "|2i| = √(0² + 2²) = √4.",
+    "|zⁿ| = |z|ⁿ = (√4)^2 = 4."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-014",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nFind (12(cos 340° + i sin 340°)) ÷ (2(cos 160° + i sin 160°)). Write the answer in the form a + bi.\nTariq's answer: -24\nIdentify the mistake and give the correct answer.",
+   "answer": "-6",
+   "solutionSteps": [
+    "Mistake: Tariq multiplied the moduli.",
+    "Divide the moduli and subtract the angles: 12/2 = 6, 340° - 160° = 180°.",
+    "6(cos 180° + i sin 180°) = -6.",
+    "The correct answer is -6, not -24."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pol_div_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-015",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Products, Powers, and Roots in Polar Form): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find |(3 + 4i)^4|.",
+     "answer": "625"
+    },
+    {
+     "prompt": "Use De Moivre's Theorem to find (1 + i)^8. Write the answer in the form a + bi.",
+     "answer": "16"
+    },
+    {
+     "prompt": "Find (1(cos 145° + i sin 145°)) · (5(cos 80° + i sin 80°)). Write the answer in the form a + bi.",
+     "answer": "-(5√2)/2 - ((5√2)/2)i"
+    },
+    {
+     "prompt": "The square roots of 1(cos 180° + i sin 180°) are equally spaced around a circle. Find the root with the smallest positive angle. Write it in the form a + bi.",
+     "answer": "i"
+    }
+   ],
+   "answer": "(a) 625; (b) 16; (c) -(5√2)/2 - ((5√2)/2)i; (d) i",
+   "solutionSteps": [
+    "(a) |3 + 4i| = √(3² + 4²) = √25. |zⁿ| = |z|ⁿ = (√25)^4 = 625.",
+    "(b) Polar form: |1 + i| = √2 and the angle is 45°, so 1 + i = √2(cos 45° + i sin 45°). (1 + i)^8 = (√2)^8(cos 360° + i sin 360°) = 16(cos 0° + i sin 0°). = 16.",
+    "(c) Multiply the moduli and add the angles: 1 · 5 = 5, 145° + 80° = 225°. 5(cos 225° + i sin 225°) = -(5√2)/2 - ((5√2)/2)i.",
+    "(d) Each root has modulus 1^(1/2) = 1. The smallest angle is 180°/2 = 90°; the others add multiples of 180°. 1(cos 90° + i sin 90°) = i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_modulus_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s13-honors-016",
+   "skillId": "vectors-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nUse De Moivre's Theorem to find (2i)^7. Write the answer in the form a + bi.\nJada's answer: 128i\nIdentify the mistake and give the correct answer.",
+   "answer": "-128i",
+   "solutionSteps": [
+    "Mistake: Jada used the wrong quadrant for the angle.",
+    "Polar form: |2i| = 2 and the angle is 90°, so 2i = 2(cos 90° + i sin 90°).",
+    "(2i)^7 = 2^7(cos 630° + i sin 630°) = 128(cos 270° + i sin 270°).",
+    "= -128i.",
+    "The correct answer is -128i, not 128i."
+   ],
+   "standards": [
+    "N-CN.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dm_rect_power_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-001",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 1 - cos θ?",
+   "answer": "2",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 1 + 1 = 2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-002",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For 0 ≤ θ < 2π, at what value of θ does the graph of r = 4 - 4 sin θ pass through the pole?",
+   "answer": "θ = π/2",
+   "options": [
+    {
+     "text": "θ = 3π/2",
+     "correct": false
+    },
+    {
+     "text": "θ = π/6",
+     "correct": false
+    },
+    {
+     "text": "θ = π/2",
+     "correct": true
+    },
+    {
+     "text": "θ = 0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Set r = 0: sin θ = 1.",
+    "θ = π/2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-003",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 7 - 5 cos θ?",
+   "answer": "12",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 7 + 5 = 12."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-004",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 2 - 5 sin θ is symmetric about which line?",
+   "answer": "the line θ = π/2 (the y-axis)",
+   "options": [
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    },
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "sin(π - θ) = sin θ, so replacing θ with π - θ gives the same equation.",
+    "The graph is symmetric about the line θ = π/2 (the y-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-005",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 6 - 7 sin θ?",
+   "answer": "13",
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = -1 (θ = 3π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 6 + 7 = 13."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-006",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For 0 ≤ θ < 2π, at what value of θ does the graph of r = 7 - 7 cos θ pass through the pole?",
+   "answer": "θ = 0",
+   "options": [
+    {
+     "text": "θ = 0",
+     "correct": true
+    },
+    {
+     "text": "θ = π",
+     "correct": false
+    },
+    {
+     "text": "θ = π/2",
+     "correct": false
+    },
+    {
+     "text": "θ = π/4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Set r = 0: cos θ = 1.",
+    "θ = 0."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-007",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 4 + 5 sin θ?",
+   "answer": "9",
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 4 + 5 = 9."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-008",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For r = 8 + 6 cos θ, find r when θ = 2π/3.",
+   "answer": "5",
+   "options": [
+    {
+     "text": "8 + 3√3",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "cos(2π/3) = -1/2.",
+    "r = 8 + (6)(-1/2) = 5."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-009",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For 0 ≤ θ < 2π, at what value of θ does the graph of r = 3 - 3 sin θ pass through the pole?",
+   "answer": "θ = π/2",
+   "solutionSteps": [
+    "Set r = 0: sin θ = 1.",
+    "θ = π/2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-010",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For r = 7 + 2 cos θ, find r when θ = 4π/3.",
+   "answer": "6",
+   "options": [
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "7 - √3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "cos(4π/3) = -1/2.",
+    "r = 7 + (2)(-1/2) = 6."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-011",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 9 + 3 sin θ?",
+   "answer": "12",
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 9 + 3 = 12."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-012",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which best describes the graph of r = 4 - 5 sin θ?",
+   "answer": "a limaçon with an inner loop",
+   "options": [
+    {
+     "text": "a limaçon with an inner loop",
+     "correct": true
+    },
+    {
+     "text": "a dimpled limaçon",
+     "correct": false
+    },
+    {
+     "text": "a convex limaçon",
+     "correct": false
+    },
+    {
+     "text": "a cardioid",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "For r = a ± b sin θ, compare a = 4 with |b| = 5: 4/5 = 4/5.",
+    "Since a/|b| < 1, the graph is a limaçon with an inner loop."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_classify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-013",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 8 - 5 cos θ?",
+   "answer": "13",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 8 + 5 = 13."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-014",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nFor 0 ≤ θ < 2π, at what value of θ does the graph of r = 2 - 2 cos θ pass through the pole?\nChloe's answer: θ = π\nIdentify the mistake and give the correct answer.",
+   "answer": "θ = 0",
+   "solutionSteps": [
+    "Mistake: Chloe set the trig value equal to the wrong sign.",
+    "Set r = 0: cos θ = 1.",
+    "θ = 0.",
+    "The correct answer is θ = 0, not θ = π."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-015",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Limaçons and Cardioids): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 5 - 7 sin θ?",
+     "answer": "12"
+    },
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 2 - 2 cos θ?",
+     "answer": "4"
+    },
+    {
+     "prompt": "For r = 6 - 2 sin θ, find r when θ = 11π/6.",
+     "answer": "7"
+    },
+    {
+     "prompt": "For r = 3 - 8 cos θ, find r when θ = π/2.",
+     "answer": "3"
+    }
+   ],
+   "answer": "(a) 12; (b) 4; (c) 7; (d) 3",
+   "solutionSteps": [
+    "(a) sin θ ranges from -1 to 1, so |r| is greatest when sin θ = -1 (θ = 3π/2) or at the far side of an inner loop. Greatest |r| = 5 + 7 = 12.",
+    "(b) cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop. Greatest |r| = 2 + 2 = 4.",
+    "(c) sin(11π/6) = -1/2. r = 6 + (-2)(-1/2) = 7.",
+    "(d) cos(π/2) = 0. r = 3 + (-8)(0) = 3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp2-016",
+   "skillId": "vectors-skill-14",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nWhat is the greatest distance from the pole to a point on the graph of r = 2 - 3 sin θ?\nJada's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Jada subtracted instead of adding.",
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = -1 (θ = 3π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 2 + 3 = 5.",
+    "The correct answer is 5, not 1."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-001",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 8 + cos θ?",
+   "answer": "9",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = 1 (θ = 0) or at the far side of an inner loop.",
+    "Greatest |r| = 8 + 1 = 9."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-002",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 1 - 6 cos θ is symmetric about which line?",
+   "answer": "the polar axis (the x-axis)",
+   "options": [
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    },
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "cos(-θ) = cos θ, so replacing θ with -θ gives the same equation.",
+    "The graph is symmetric about the polar axis (the x-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-003",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "For r = 8 + 4 cos θ, find r when θ = π/6.",
+   "answer": "8 + 2√3",
+   "solutionSteps": [
+    "cos(π/6) = (√3)/2.",
+    "r = 8 + (4)((√3)/2) = 8 + 2√3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-004",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "For r = 6 - sin θ, find r when θ = 5π/6.",
+   "answer": "11/2",
+   "options": [
+    {
+     "text": "6 + (√3)/2",
+     "correct": false
+    },
+    {
+     "text": "11/2",
+     "correct": true
+    },
+    {
+     "text": "13/2",
+     "correct": false
+    },
+    {
+     "text": "-1/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin(5π/6) = 1/2.",
+    "r = 6 + (-1)(1/2) = 11/2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-005",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The graph of r = 2 + 4 sin θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = 7π/6 or θ = 11π/6",
+   "solutionSteps": [
+    "Set r = 0: sin θ = -1/2.",
+    "θ = 7π/6 or θ = 11π/6."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-006",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 1 - 2 cos θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = π/3 or θ = 5π/3",
+   "options": [
+    {
+     "text": "θ = π/6 or θ = 5π/6",
+     "correct": false
+    },
+    {
+     "text": "θ = π/3",
+     "correct": false
+    },
+    {
+     "text": "θ = 2π/3 or θ = 4π/3",
+     "correct": false
+    },
+    {
+     "text": "θ = π/3 or θ = 5π/3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Set r = 0: cos θ = 1/2.",
+    "θ = π/3 or θ = 5π/3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-007",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The graph of r = 4 + 8 sin θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = 7π/6 or θ = 11π/6",
+   "solutionSteps": [
+    "Set r = 0: sin θ = -1/2.",
+    "θ = 7π/6 or θ = 11π/6."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-008",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 8 + 6 sin θ?",
+   "answer": "14",
+   "options": [
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "14",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 8 + 6 = 14."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-009",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The graph of r = 4 - 8 cos θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = π/3 or θ = 5π/3",
+   "solutionSteps": [
+    "Set r = 0: cos θ = 1/2.",
+    "θ = π/3 or θ = 5π/3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-010",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 6 + 6 sin θ is symmetric about which line?",
+   "answer": "the line θ = π/2 (the y-axis)",
+   "options": [
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": true
+    },
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin(π - θ) = sin θ, so replacing θ with π - θ gives the same equation.",
+    "The graph is symmetric about the line θ = π/2 (the y-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-011",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 1 - 7 cos θ?",
+   "answer": "8",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 1 + 7 = 8."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-012",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "For r = 6 + 6 cos θ, find r when θ = 3π/4.",
+   "answer": "6 - 3√2",
+   "options": [
+    {
+     "text": "-3√2",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "6 + 3√2",
+     "correct": false
+    },
+    {
+     "text": "6 - 3√2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "cos(3π/4) = -(√2)/2.",
+    "r = 6 + (6)(-(√2)/2) = 6 - 3√2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-013",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The graph of r = 4 + 8 cos θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = 2π/3 or θ = 4π/3",
+   "solutionSteps": [
+    "Set r = 0: cos θ = -1/2.",
+    "θ = 2π/3 or θ = 4π/3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-014",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nFor r = 1 - 4 sin θ, find r when θ = 4π/3.\nHana's answer: 3\nIdentify the mistake and give the correct answer.",
+   "answer": "1 + 2√3",
+   "solutionSteps": [
+    "Mistake: Hana used cos instead of sin.",
+    "sin(4π/3) = -(√3)/2.",
+    "r = 1 + (-4)(-(√3)/2) = 1 + 2√3.",
+    "The correct answer is 1 + 2√3, not 3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-015",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Limaçons and Cardioids): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 3 - 7 cos θ?",
+     "answer": "10"
+    },
+    {
+     "prompt": "For r = 5 - 8 cos θ, find r when θ = 3π/2.",
+     "answer": "5"
+    },
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 6 + 3 sin θ?",
+     "answer": "9"
+    },
+    {
+     "prompt": "The graph of r = 3 - 6 sin θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+     "answer": "θ = π/6 or θ = 5π/6"
+    }
+   ],
+   "answer": "(a) 10; (b) 5; (c) 9; (d) θ = π/6 or θ = 5π/6",
+   "solutionSteps": [
+    "(a) cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop. Greatest |r| = 3 + 7 = 10.",
+    "(b) cos(3π/2) = 0. r = 5 + (-8)(0) = 5.",
+    "(c) sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop. Greatest |r| = 6 + 3 = 9.",
+    "(d) Set r = 0: sin θ = 1/2. θ = π/6 or θ = 5π/6."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-cp1-016",
+   "skillId": "vectors-skill-14",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nFor r = 5 - 4 sin θ, find r when θ = 0.\nJada's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Jada used cos instead of sin.",
+    "sin(0) = 0.",
+    "r = 5 + (-4)(0) = 5.",
+    "The correct answer is 5, not 1."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-001",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 1 - 4 sin θ?",
+   "answer": "5",
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = -1 (θ = 3π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 1 + 4 = 5."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-002",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which best describes the graph of r = 2 + 2 sin θ?",
+   "answer": "a cardioid",
+   "options": [
+    {
+     "text": "a dimpled limaçon",
+     "correct": false
+    },
+    {
+     "text": "a cardioid",
+     "correct": true
+    },
+    {
+     "text": "a limaçon with an inner loop",
+     "correct": false
+    },
+    {
+     "text": "a convex limaçon",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "For r = a ± b sin θ, compare a = 2 with |b| = 2: 2/2 = 1.",
+    "Since a/|b| = 1, the graph is a cardioid."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_classify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-003",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 2 - 7 cos θ?",
+   "answer": "9",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 2 + 7 = 9."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-004",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 8 + 7 cos θ is symmetric about which line?",
+   "answer": "the polar axis (the x-axis)",
+   "options": [
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": false
+    },
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": true
+    },
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "cos(-θ) = cos θ, so replacing θ with -θ gives the same equation.",
+    "The graph is symmetric about the polar axis (the x-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-005",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 5 - 2 cos θ?",
+   "answer": "7",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 5 + 2 = 7."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-006",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which best describes the graph of r = 16 + 6 sin θ?",
+   "answer": "a convex limaçon",
+   "options": [
+    {
+     "text": "a dimpled limaçon",
+     "correct": false
+    },
+    {
+     "text": "a limaçon with an inner loop",
+     "correct": false
+    },
+    {
+     "text": "a cardioid",
+     "correct": false
+    },
+    {
+     "text": "a convex limaçon",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "For r = a ± b sin θ, compare a = 16 with |b| = 6: 16/6 = 8/3.",
+    "Since a/|b| ≥ 2, the graph is a convex limaçon."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_classify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-007",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For r = 2 + 3 sin θ, find r when θ = π/6.",
+   "answer": "7/2",
+   "solutionSteps": [
+    "sin(π/6) = 1/2.",
+    "r = 2 + (3)(1/2) = 7/2."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-008",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 4 - 8 sin θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?",
+   "answer": "θ = π/6 or θ = 5π/6",
+   "options": [
+    {
+     "text": "θ = π/6 or θ = 5π/6",
+     "correct": true
+    },
+    {
+     "text": "θ = π/3 or θ = 5π/3",
+     "correct": false
+    },
+    {
+     "text": "θ = π/6",
+     "correct": false
+    },
+    {
+     "text": "θ = 7π/6 or θ = 11π/6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Set r = 0: sin θ = 1/2.",
+    "θ = π/6 or θ = 5π/6."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-009",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 7 - 3 cos θ?",
+   "answer": "10",
+   "solutionSteps": [
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 7 + 3 = 10."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-010",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 6 - 7 cos θ is symmetric about which line?",
+   "answer": "the polar axis (the x-axis)",
+   "options": [
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    },
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": true
+    },
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "cos(-θ) = cos θ, so replacing θ with -θ gives the same equation.",
+    "The graph is symmetric about the polar axis (the x-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-011",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the greatest distance from the pole to a point on the graph of r = 9 + 5 sin θ?",
+   "answer": "14",
+   "solutionSteps": [
+    "sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop.",
+    "Greatest |r| = 9 + 5 = 14."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-012",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of r = 6 - 8 cos θ is symmetric about which line?",
+   "answer": "the polar axis (the x-axis)",
+   "options": [
+    {
+     "text": "the polar axis (the x-axis)",
+     "correct": true
+    },
+    {
+     "text": "the line θ = π/4 (y = x)",
+     "correct": false
+    },
+    {
+     "text": "the line θ = π/2 (the y-axis)",
+     "correct": false
+    },
+    {
+     "text": "the pole only (origin symmetry)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "cos(-θ) = cos θ, so replacing θ with -θ gives the same equation.",
+    "The graph is symmetric about the polar axis (the x-axis)."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_symmetry). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-013",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For r = 6 - 8 sin θ, find r when θ = 3π/2.",
+   "answer": "14",
+   "solutionSteps": [
+    "sin(3π/2) = -1.",
+    "r = 6 + (-8)(-1) = 14."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-014",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nThe graph of r = 1 + 2 cos θ has an inner loop. For 0 ≤ θ < 2π, at what values of θ does it pass through the pole?\nAva's answer: θ = π/3 or θ = 5π/3\nIdentify the mistake and give the correct answer.",
+   "answer": "θ = 2π/3 or θ = 4π/3",
+   "solutionSteps": [
+    "Mistake: Ava used the wrong sign.",
+    "Set r = 0: cos θ = -1/2.",
+    "θ = 2π/3 or θ = 4π/3.",
+    "The correct answer is θ = 2π/3 or θ = 4π/3, not θ = π/3 or θ = 5π/3."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_pole2_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-015",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Limaçons and Cardioids): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "For r = 8 + 5 cos θ, find r when θ = 3π/4.",
+     "answer": "8 - (5√2)/2"
+    },
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 1 + 3 sin θ?",
+     "answer": "4"
+    },
+    {
+     "prompt": "What is the greatest distance from the pole to a point on the graph of r = 9 + 6 sin θ?",
+     "answer": "15"
+    },
+    {
+     "prompt": "For r = 2 - 4 sin θ, find r when θ = π/6.",
+     "answer": "0"
+    }
+   ],
+   "answer": "(a) 8 - (5√2)/2; (b) 4; (c) 15; (d) 0",
+   "solutionSteps": [
+    "(a) cos(3π/4) = -(√2)/2. r = 8 + (5)(-(√2)/2) = 8 - (5√2)/2.",
+    "(b) sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop. Greatest |r| = 1 + 3 = 4.",
+    "(c) sin θ ranges from -1 to 1, so |r| is greatest when sin θ = 1 (θ = π/2) or at the far side of an inner loop. Greatest |r| = 9 + 6 = 15.",
+    "(d) sin(π/6) = 1/2. r = 2 + (-4)(1/2) = 0."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_value_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s14-honors-016",
+   "skillId": "vectors-skill-14",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nWhat is the greatest distance from the pole to a point on the graph of r = 8 - 3 cos θ?\nChloe's answer: 5\nIdentify the mistake and give the correct answer.",
+   "answer": "11",
+   "solutionSteps": [
+    "Mistake: Chloe subtracted instead of adding.",
+    "cos θ ranges from -1 to 1, so |r| is greatest when cos θ = -1 (θ = π) or at the far side of an inner loop.",
+    "Greatest |r| = 8 + 3 = 11.",
+    "The correct answer is 11, not 5."
+   ],
+   "standards": [
+    "APPC.3.14",
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: lim_max_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w001",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 195 N and 125 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 231.6 N",
+   "solutionSteps": [
+    "|R|² = 195² + 125² + 2(195)(125) cos 90°.",
+    "|R| ≈ 231.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w002",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 520 mi/h heading due east. A 65 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 524.0 mi/h",
+   "options": [
+    {
+     "text": "≈ 524.0 mi/h",
+     "correct": true
+    },
+    {
+     "text": "≈ 515.9 mi/h",
+     "correct": false
+    },
+    {
+     "text": "455 mi/h",
+     "correct": false
+    },
+    {
+     "text": "585 mi/h",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(520² + 65²).",
+    "≈ 524.0 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w003",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 35 N and 70 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 78.3 N",
+   "solutionSteps": [
+    "|R|² = 35² + 70² + 2(35)(70) cos 90°.",
+    "|R| ≈ 78.3 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w004",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 40 N and 140 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 145.6 N",
+   "solutionSteps": [
+    "|R|² = 40² + 140² + 2(40)(140) cos 90°.",
+    "|R| ≈ 145.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w005",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 430 mi/h heading due north. A 75 mi/h wind blows toward the east. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 436.5 mi/h",
+   "options": [
+    {
+     "text": "355 mi/h",
+     "correct": false
+    },
+    {
+     "text": "505 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 436.5 mi/h",
+     "correct": true
+    },
+    {
+     "text": "≈ 423.4 mi/h",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(430² + 75²).",
+    "≈ 436.5 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w006",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 350 mi/h heading due east. A 20 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 350.6 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(350² + 20²).",
+    "≈ 350.6 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w007",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nTwo tugboats pull a barge with forces of 90 N and 195 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.\nTariq's answer: 285 N\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 214.8 N",
+   "solutionSteps": [
+    "Mistake: Tariq added the magnitudes.",
+    "|R|² = 90² + 195² + 2(90)(195) cos 90°.",
+    "|R| ≈ 214.8 N.",
+    "The correct answer is ≈ 214.8 N, not 285 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w008",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 220 mi/h heading due north. A 80 mi/h wind blows toward the west. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 234.1 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(220² + 80²).",
+    "≈ 234.1 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w009",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 45 N and 75 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 87.5 N",
+   "options": [
+    {
+     "text": "≈ 87.5 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 82.5 N",
+     "correct": false
+    },
+    {
+     "text": "120 N",
+     "correct": false
+    },
+    {
+     "text": "30 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 45² + 75² + 2(45)(75) cos 90°.",
+    "|R| ≈ 87.5 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w001",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due north. A 60 mi/h wind blows toward the east. By how many degrees does the wind push the plane off its heading toward the east? Round to the nearest tenth.",
+   "answer": "≈ 9.0°",
+   "solutionSteps": [
+    "tan θ = 60/380.",
+    "θ = tan⁻¹(60/380) ≈ 9.0°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w002",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 135 N and 95 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 143.6 N",
+   "options": [
+    {
+     "text": "230 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 165.1 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 143.6 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 184.1 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 135² + 95² + 2(135)(95) cos 105°.",
+    "|R| ≈ 143.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w003",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 200 N and 115 N. The angle between the ropes is 135°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 143.9 N",
+   "solutionSteps": [
+    "|R|² = 200² + 115² + 2(200)(115) cos 135°.",
+    "|R| ≈ 143.9 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w004",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due east. A 60 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 384.7 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(380² + 60²).",
+    "≈ 384.7 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w005",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 80 N and 125 N. The angle between the ropes is 45°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 190.2 N",
+   "options": [
+    {
+     "text": "≈ 190.2 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 148.4 N",
+     "correct": false
+    },
+    {
+     "text": "205 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 88.8 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 80² + 125² + 2(80)(125) cos 45°.",
+    "|R| ≈ 190.2 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w006",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 130 N and 90 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 137.6 N",
+   "solutionSteps": [
+    "|R|² = 130² + 90² + 2(130)(90) cos 105°.",
+    "|R| ≈ 137.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w007",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nA plane flies with an airspeed of 140 mi/h heading due east. A 65 mi/h wind blows toward the south. By how many degrees does the wind push the plane off its heading toward the south? Round to the nearest tenth.\nMateo's answer: ≈ 65.1°\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 24.9°",
+   "solutionSteps": [
+    "Mistake: Mateo measured from the wind's direction.",
+    "tan θ = 65/140.",
+    "θ = tan⁻¹(65/140) ≈ 24.9°.",
+    "The correct answer is ≈ 24.9°, not ≈ 65.1°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w008",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 75 N and 45 N. The angle between the ropes is 60°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 105.0 N",
+   "solutionSteps": [
+    "|R|² = 75² + 45² + 2(75)(45) cos 60°.",
+    "|R| ≈ 105.0 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w009",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 180 N and 90 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 179.2 N",
+   "options": [
+    {
+     "text": "≈ 201.2 N",
+     "correct": false
+    },
+    {
+     "text": "270 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 179.2 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 221.1 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 180² + 90² + 2(180)(90) cos 105°.",
+    "|R| ≈ 179.2 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w001",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due east. A 40 mi/h wind blows toward the south. By how many degrees does the wind push the plane off its heading toward the south? Round to the nearest tenth.",
+   "answer": "≈ 6.0°",
+   "solutionSteps": [
+    "tan θ = 40/380.",
+    "θ = tan⁻¹(40/380) ≈ 6.0°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w002",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 45 N and 60 N. The angle between the ropes is 120°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 54.1 N",
+   "options": [
+    {
+     "text": "≈ 75.0 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 54.1 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 91.2 N",
+     "correct": false
+    },
+    {
+     "text": "105 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 45² + 60² + 2(45)(60) cos 120°.",
+    "|R| ≈ 54.1 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w003",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 30 N and 35 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 39.8 N",
+   "solutionSteps": [
+    "|R|² = 30² + 35² + 2(30)(35) cos 105°.",
+    "|R| ≈ 39.8 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w004",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 100 N and 165 N. The angle between the ropes is 75°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 213.9 N",
+   "solutionSteps": [
+    "|R|² = 100² + 165² + 2(100)(165) cos 75°.",
+    "|R| ≈ 213.9 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w005",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 150 N and 105 N. The angle between the ropes is 135°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 106.1 N",
+   "options": [
+    {
+     "text": "≈ 106.1 N",
+     "correct": true
+    },
+    {
+     "text": "255 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 183.1 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 236.2 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 150² + 105² + 2(150)(105) cos 135°.",
+    "|R| ≈ 106.1 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w006",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 280 mi/h heading due east. A 25 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 281.1 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(280² + 25²).",
+    "≈ 281.1 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w007",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA plane flies with an airspeed of 210 mi/h heading due south. A 80 mi/h wind blows toward the west. By how many degrees does the wind push the plane off its heading toward the west? Round to the nearest tenth.\nQuinn's answer: ≈ 69.1°\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 20.9°",
+   "solutionSteps": [
+    "Mistake: Quinn measured from the wind's direction.",
+    "tan θ = 80/210.",
+    "θ = tan⁻¹(80/210) ≈ 20.9°.",
+    "The correct answer is ≈ 20.9°, not ≈ 69.1°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w008",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 190 mi/h heading due north. A 70 mi/h wind blows toward the east. By how many degrees does the wind push the plane off its heading toward the east? Round to the nearest tenth.",
+   "answer": "≈ 20.2°",
+   "solutionSteps": [
+    "tan θ = 70/190.",
+    "θ = tan⁻¹(70/190) ≈ 20.2°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w009",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 400 mi/h heading due north. A 55 mi/h wind blows toward the east. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 403.8 mi/h",
+   "options": [
+    {
+     "text": "455 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 396.2 mi/h",
+     "correct": false
+    },
+    {
+     "text": "345 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 403.8 mi/h",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(400² + 55²).",
+    "≈ 403.8 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

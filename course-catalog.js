@@ -1176,5 +1176,13 @@
   skills["algebra2"]["probability-statistics"].push("Simulation and evaluating models");
   skills["algebra2"]["probability-statistics"].push("Randomized experiments and comparing treatments");
   skills["algebra2"]["probability-statistics"].push("Evaluating reports based on data");
+  // Precalculus audit additions, November 18, 2026 (standards gaps). Existing skill IDs stay stable.
+  skills["precalculus"]["functions"].push("Rational Expressions and Partial Fractions");
+  skills["precalculus"]["functions"].push("Verifying Inverses and Restricting Domains");
+  skills["precalculus"]["vectors"].push("Complex Conjugates, Moduli, and Quotients");
+  skills["precalculus"]["vectors"].push("Products, Powers, and Roots in Polar Form");
+  skills["precalculus"]["vectors"].push("Limaçons and Cardioids");
+  skills["precalculus"]["sequences-series-limits"].push("The Binomial Theorem");
+  skills["precalculus"]["sequences-series-limits"].push("Continuity and One-Sided Limits");
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);

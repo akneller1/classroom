@@ -4988,208 +4988,202 @@
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -3y = 9; -x - 2y = 6.",
-   "answer": "(0, -3)",
+   "prompt": "Write the augmented matrix for the system 5x + 5y = -6; -3x + 2y = -5.",
+   "answer": "[5, 5, -6; -3, 2, -5]",
    "options": [
     {
-     "text": "(0, 3)",
+     "text": "[-5, -5, -6; 3, -2, -5]",
      "correct": false
     },
     {
-     "text": "(0, -3)",
+     "text": "[5, 5, -6; -3, 2, -5]",
      "correct": true
     },
     {
-     "text": "(9, 6)",
+     "text": "[5, 5; -3, 2]",
      "correct": false
     },
     {
-     "text": "(-3, 0)",
+     "text": "[5, 5, 6; -3, 2, 5]",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0; 0, 1, -3].",
-    "Solution: (0, -3)."
+    "Each equation is a row: the coefficients of x, y, then the constant.",
+    "[5, 5, -6; -3, 2, -5]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-007",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -x - y = -1; x - 3y = -11.",
-   "answer": "(-2, 3)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, -6, 9; 0, 1, 1, 7; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = -1.",
+   "answer": "(3, 8, -1)",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, -2; 0, 1, 3].",
-    "Solution: (-2, 3)."
+    "Row 1: x + -6z = 9, so x = 9 - (-6)(-1) = 3.",
+    "Row 2: y + 1z = 7, so y = 7 - (1)(-1) = 8.",
+    "The solution is (3, 8, -1)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-008",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: 4x - 3y = 23; -2x - 3y = -7.",
-   "answer": "(5, -1)",
+   "prompt": "A calculator gives the reduced row-echelon form [1, 0, 1, -2; 0, 1, -6, -2; 0, 0, 0, 1] for a system in x, y and z. How many solutions does the system have?",
+   "answer": "no solution",
    "options": [
     {
-     "text": "(5, -1)",
+     "text": "exactly one solution, (0, 0, 0)",
+     "correct": false
+    },
+    {
+     "text": "infinitely many solutions",
+     "correct": false
+    },
+    {
+     "text": "exactly one solution, (1, -2, -6)",
+     "correct": false
+    },
+    {
+     "text": "no solution",
      "correct": true
-    },
-    {
-     "text": "(-1, 5)",
-     "correct": false
-    },
-    {
-     "text": "(23, -7)",
-     "correct": false
-    },
-    {
-     "text": "(-5, 1)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 5; 0, 1, -1].",
-    "Solution: (5, -1)."
+    "The last row says 0 = a nonzero number, a contradiction.",
+    "The system has no solution."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_count), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-009",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -x - 3y = 10; -3x + 4y = -22.",
-   "answer": "(2, -4)",
+   "prompt": "Write the augmented matrix for the system -5x - 2y = -12; 6x - 3y = 7.",
+   "answer": "[-5, -2, -12; 6, -3, 7]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 2; 0, 1, -4].",
-    "Solution: (2, -4)."
+    "Each equation is a row: the coefficients of x, y, then the constant.",
+    "[-5, -2, -12; 6, -3, 7]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-010",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: 3x = 3; 3x - 4y = -17.",
-   "answer": "(1, 5)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, 2, -3; 0, 1, 5, -1; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = 2.",
+   "answer": "(-7, -11, 2)",
    "options": [
     {
-     "text": "(3, -17)",
-     "correct": false
-    },
-    {
-     "text": "(-1, -5)",
-     "correct": false
-    },
-    {
-     "text": "(1, 5)",
+     "text": "(-7, -11, 2)",
      "correct": true
     },
     {
-     "text": "(5, 1)",
+     "text": "(-11, -7, 2)",
+     "correct": false
+    },
+    {
+     "text": "(-3, -1, 2)",
+     "correct": false
+    },
+    {
+     "text": "(1, 9, 2)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 1; 0, 1, 5].",
-    "Solution: (1, 5)."
+    "Row 1: x + 2z = -3, so x = -3 - (2)(2) = -7.",
+    "Row 2: y + 5z = -1, so y = -1 - (5)(2) = -11.",
+    "The solution is (-7, -11, 2)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-011",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -2x = 6; 2x + y = -1.",
-   "answer": "(-3, 5)",
+   "prompt": "Write the augmented matrix for the system 4x - y = -9; -3x + 2y = -11.",
+   "answer": "[4, -1, -9; -3, 2, -11]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, -3; 0, 1, 5].",
-    "Solution: (-3, 5)."
+    "Each equation is a row: the coefficients of x, y, then the constant.",
+    "[4, -1, -9; -3, 2, -11]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-012",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: 4x + 2y = -22; -3x - 4y = 29.",
-   "answer": "(-3, -5)",
+   "prompt": "A calculator gives the reduced row-echelon form [1, 0, 0, 4; 0, 1, 0, -3; 0, 0, 1, -5] for a system in x, y and z. How many solutions does the system have?",
+   "answer": "exactly one solution, (4, -3, -5)",
    "options": [
     {
-     "text": "(3, 5)",
+     "text": "infinitely many solutions",
      "correct": false
     },
     {
-     "text": "(-22, 29)",
+     "text": "no solution",
      "correct": false
     },
     {
-     "text": "(-5, -3)",
-     "correct": false
-    },
-    {
-     "text": "(-3, -5)",
+     "text": "exactly one solution, (4, -3, -5)",
      "correct": true
+    },
+    {
+     "text": "exactly one solution, (-3, -3, 0)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, -3; 0, 1, -5].",
-    "Solution: (-3, -5)."
+    "Each variable has a leading 1, and there is no contradictory row.",
+    "The system has exactly one solution, (4, -3, -5)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_count), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-013",
    "skillId": "matrices-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: 4x + 4y = -12; x - 4y = 12.",
-   "answer": "(0, -3)",
+   "prompt": "Write the augmented matrix for the system -x - 4y = -11; -2x - 6y = 6.",
+   "answer": "[-1, -4, -11; -2, -6, 6]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0; 0, 1, -3].",
-    "Solution: (0, -3)."
+    "Each equation is a row: the coefficients of x, y, then the constant.",
+    "[-1, -4, -11; -2, -6, 6]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp2-014",
@@ -5372,35 +5366,34 @@
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -2x - 2y - 2z = 10; x - 3y - 2z = 23; 2x + 4y + z = -14.",
-   "answer": "(3, -4, -4)",
+   "prompt": "Write the augmented matrix for the system 6x + 3y + 2z = 0; 5x - y - 3z = -1; -x - 4y + 4z = 10.",
+   "answer": "[6, 3, 2, 0; 5, -1, -3, -1; -1, -4, 4, 10]",
    "options": [
     {
-     "text": "(10, 23, -14)",
+     "text": "[-6, -3, -2, 0; -5, 1, 3, -1; 1, 4, -4, 10]",
      "correct": false
     },
     {
-     "text": "(3, -4, -4)",
+     "text": "[6, 3, 2, 0; 5, -1, -3, 1; -1, -4, 4, -10]",
+     "correct": false
+    },
+    {
+     "text": "[6, 3, 2, 0; 5, -1, -3, -1; -1, -4, 4, 10]",
      "correct": true
     },
     {
-     "text": "(-3, 4, 4)",
-     "correct": false
-    },
-    {
-     "text": "(-4, -4, 3)",
+     "text": "[6, 3, 2; 5, -1, -3; -1, -4, 4]",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 3; 0, 1, 0, -4; 0, 0, 1, -4].",
-    "Solution: (3, -4, -4)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[6, 3, 2, 0; 5, -1, -3, -1; -1, -4, 4, 10]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-006",
@@ -5441,35 +5434,34 @@
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: x - 2y + 2z = -3; 2x - 3y + 2z = -9; -x - y + 3z = 10.",
-   "answer": "(-5, 1, 2)",
+   "prompt": "Write the augmented matrix for the system -2x + 3y + z = 10; -6x - 2y - 3z = -2; 3x + 5y - z = 4.",
+   "answer": "[-2, 3, 1, 10; -6, -2, -3, -2; 3, 5, -1, 4]",
    "options": [
     {
-     "text": "(-5, 1, 2)",
+     "text": "[2, -3, -1, 10; 6, 2, 3, -2; -3, -5, 1, 4]",
+     "correct": false
+    },
+    {
+     "text": "[-2, 3, 1; -6, -2, -3; 3, 5, -1]",
+     "correct": false
+    },
+    {
+     "text": "[-2, 3, 1, 10; -6, -2, -3, -2; 3, 5, -1, 4]",
      "correct": true
     },
     {
-     "text": "(-3, -9, 10)",
-     "correct": false
-    },
-    {
-     "text": "(2, 1, -5)",
-     "correct": false
-    },
-    {
-     "text": "(5, -1, -2)",
+     "text": "[-2, 3, 1, -10; -6, -2, -3, 2; 3, 5, -1, -4]",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -5; 0, 1, 0, 1; 0, 0, 1, 2].",
-    "Solution: (-5, 1, 2)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[-2, 3, 1, 10; -6, -2, -3, -2; 3, 5, -1, 4]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-008",
@@ -5510,85 +5502,83 @@
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -4x + y + z = -7; 4x - 3y + z = -3; 2x - 3y - z = 3.",
-   "answer": "(1, 1, -4)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, 5, -9; 0, 1, 2, -7; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = 1.",
+   "answer": "(-14, -9, 1)",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 1; 0, 1, 0, 1; 0, 0, 1, -4].",
-    "Solution: (1, 1, -4)."
+    "Row 1: x + 5z = -9, so x = -9 - (5)(1) = -14.",
+    "Row 2: y + 2z = -7, so y = -7 - (2)(1) = -9.",
+    "The solution is (-14, -9, 1)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-010",
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -4x + 4y + 4z = 0; 4x + 2y - 3z = 9; 2x - 3y - z = 2.",
-   "answer": "(4, 1, 3)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, -3, 4; 0, 1, -3, -2; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = 4.",
+   "answer": "(16, 10, 4)",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 4; 0, 1, 0, 1; 0, 0, 1, 3].",
-    "Solution: (4, 1, 3)."
+    "Row 1: x + -3z = 4, so x = 4 - (-3)(4) = 16.",
+    "Row 2: y + -3z = -2, so y = -2 - (-3)(4) = 10.",
+    "The solution is (16, 10, 4)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-011",
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -4x = 20; -2x - 3y = 1; -y + 4z = 9.",
-   "answer": "(-5, 3, 3)",
+   "prompt": "Write the augmented matrix for the system -x + 5y + 4z = -3; 6x - 6y - 6z = 8; 6x + y + 3z = -9.",
+   "answer": "[-1, 5, 4, -3; 6, -6, -6, 8; 6, 1, 3, -9]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -5; 0, 1, 0, 3; 0, 0, 1, 3].",
-    "Solution: (-5, 3, 3)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[-1, 5, 4, -3; 6, -6, -6, 8; 6, 1, 3, -9]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-012",
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -4x - 4y + 2z = 20; 2x + y - 4z = -6; x - y - 2z = 3.",
-   "answer": "(-1, -4, 0)",
+   "prompt": "Write the augmented matrix for the system -5x + 6y + 4z = -9; -4x + 5y + z = 11; 2x - y - 4z = 8.",
+   "answer": "[-5, 6, 4, -9; -4, 5, 1, 11; 2, -1, -4, 8]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -1; 0, 1, 0, -4; 0, 0, 1, 0].",
-    "Solution: (-1, -4, 0)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[-5, 6, 4, -9; -4, 5, 1, 11; 2, -1, -4, 8]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-013",
    "skillId": "matrices-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -3x + 3z = 0; 2x + y + z = -2; -3y + 2z = -5.",
-   "answer": "(-1, 1, -1)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, -6, 3; 0, 1, -3, 8; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = 5.",
+   "answer": "(33, 23, 5)",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -1; 0, 1, 0, 1; 0, 0, 1, -1].",
-    "Solution: (-1, 1, -1)."
+    "Row 1: x + -6z = 3, so x = 3 - (-6)(5) = 33.",
+    "Row 2: y + -3z = 8, so y = 8 - (-3)(5) = 23.",
+    "The solution is (33, 23, 5)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-cp1-014",
@@ -5789,17 +5779,16 @@
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -4x - 2y = 8; -2x - 2z = 16; -3x - 3y - 3z = 12.",
-   "answer": "(-4, 4, -4)",
+   "prompt": "Write the augmented matrix for the system 4x + y + 6z = -3; -4x + 6y + z = -1; -6x - 5y - 6z = 0.",
+   "answer": "[4, 1, 6, -3; -4, 6, 1, -1; -6, -5, -6, 0]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -4; 0, 1, 0, 4; 0, 0, 1, -4].",
-    "Solution: (-4, 4, -4)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[4, 1, 6, -3; -4, 6, 1, -1; -6, -5, -6, 0]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-006",
@@ -5840,35 +5829,34 @@
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: 2x + 2y - 2z = 6; -x + 4y - 2z = 4; 2x + 4y + 3z = -16.",
-   "answer": "(0, -1, -4)",
+   "prompt": "Write the augmented matrix for the system 5x + 3y - 2z = -11; 2x + 6y + 5z = -9; 4x + 3y - 4z = 0.",
+   "answer": "[5, 3, -2, -11; 2, 6, 5, -9; 4, 3, -4, 0]",
    "options": [
     {
-     "text": "(-4, -1, 0)",
-     "correct": false
-    },
-    {
-     "text": "(6, 4, -16)",
-     "correct": false
-    },
-    {
-     "text": "(0, -1, -4)",
+     "text": "[5, 3, -2, -11; 2, 6, 5, -9; 4, 3, -4, 0]",
      "correct": true
     },
     {
-     "text": "(0, 1, 4)",
+     "text": "[5, 3, -2, 11; 2, 6, 5, 9; 4, 3, -4, 0]",
+     "correct": false
+    },
+    {
+     "text": "[-5, -3, 2, -11; -2, -6, -5, -9; -4, -3, 4, 0]",
+     "correct": false
+    },
+    {
+     "text": "[5, 3, -2; 2, 6, 5; 4, 3, -4]",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 0; 0, 1, 0, -1; 0, 0, 1, -4].",
-    "Solution: (0, -1, -4)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[5, 3, -2, -11; 2, 6, 5, -9; 4, 3, -4, 0]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-008",
@@ -5909,85 +5897,81 @@
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: x + 4y - 4z = 23; -4x + z = 0; 2x - 3y + z = -12.",
-   "answer": "(-1, 2, -4)",
+   "prompt": "Write the augmented matrix for the system 2x + 5y + 3z = -4; -2x + 5y + 6z = 6; 2x - 2y + 5z = -4.",
+   "answer": "[2, 5, 3, -4; -2, 5, 6, 6; 2, -2, 5, -4]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -1; 0, 1, 0, 2; 0, 0, 1, -4].",
-    "Solution: (-1, 2, -4)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[2, 5, 3, -4; -2, 5, 6, 6; 2, -2, 5, -4]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-010",
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -2x - y - z = -3; -4x - 3y - 2z = -4; -x - 3y + 3z = -14.",
-   "answer": "(5, -2, -5)",
+   "prompt": "The reduced row-echelon form of a system's augmented matrix (variables x, y, z) is [1, 0, -3, -4; 0, 1, -4, 1; 0, 0, 0, 0]. The system has infinitely many solutions. Find the solution with z = 4.",
+   "answer": "(8, 17, 4)",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 5; 0, 1, 0, -2; 0, 0, 1, -5].",
-    "Solution: (5, -2, -5)."
+    "Row 1: x + -3z = -4, so x = -4 - (-3)(4) = 8.",
+    "Row 2: y + -4z = 1, so y = 1 - (-4)(4) = 17.",
+    "The solution is (8, 17, 4)."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_free), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-011",
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: x - 2y - 2z = 9; -4x + y - 4z = -12; -4x + 4y - 2z = -16.",
-   "answer": "(5, 0, -2)",
+   "prompt": "Write the augmented matrix for the system 2x - 6y - 6z = 2; 2x + y - z = 9; -6x - 4y + 5z = -4.",
+   "answer": "[2, -6, -6, 2; 2, 1, -1, 9; -6, -4, 5, -4]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 5; 0, 1, 0, 0; 0, 0, 1, -2].",
-    "Solution: (5, 0, -2)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[2, -6, -6, 2; 2, 1, -1, 9; -6, -4, 5, -4]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-012",
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: y - 4z = 4; -3x - 2y + z = 0; -4x - 3y + 4z = -4.",
-   "answer": "(2, -4, -2)",
+   "prompt": "Write the augmented matrix for the system -3x + y - z = -6; x + 5y - 4z = 4; -5x - y - 4z = 5.",
+   "answer": "[-3, 1, -1, -6; 1, 5, -4, 4; -5, -1, -4, 5]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, 2; 0, 1, 0, -4; 0, 0, 1, -2].",
-    "Solution: (2, -4, -2)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[-3, 1, -1, -6; 1, 5, -4, 4; -5, -1, -4, 5]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-013",
    "skillId": "matrices-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the reduced row-echelon form of the augmented matrix (technology allowed) to solve: -x + y - z = 0; 4x + 4y - z = -1; -3y - z = -14.",
-   "answer": "(-2, 3, 5)",
+   "prompt": "Write the augmented matrix for the system 3x + 6y - 5z = -7; -4x - 2y - 3z = -11; x + 3y - 3z = -1.",
+   "answer": "[3, 6, -5, -7; -4, -2, -3, -11; 1, 3, -3, -1]",
    "solutionSteps": [
-    "Enter the augmented matrix and compute rref.",
-    "rref = [1, 0, 0, -2; 0, 1, 0, 3; 0, 0, 1, 5].",
-    "Solution: (-2, 3, 5)."
+    "Each equation is a row: the coefficients of x, y, z, then the constant.",
+    "[3, 6, -5, -7; -4, -2, -3, -11; 1, 3, -3, -1]."
    ],
    "standards": [
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_rref). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: rref_aug), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s05-honors-014",
@@ -7511,108 +7495,107 @@
    "skillId": "matrices-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [-1, 6; 1, -5].",
-   "answer": "[5, 6; 1, 1]",
+   "prompt": "A = [-4, -2; 3, 1]. Find A⁻¹ and use it to solve A[x; y] = [-2; 3]. What is y?",
+   "answer": "-3",
    "options": [
     {
-     "text": "[5, 6; 1, 1]",
+     "text": "-3",
      "correct": true
     },
     {
-     "text": "[-1, 1/6; 1, -1/5]",
+     "text": "-6",
      "correct": false
     },
     {
-     "text": "[-5, -6; -1, -1]",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "[5, -6; -1, 1]",
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (-1)(-5) - (6)(1) = -1.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[5, 6; 1, 1]."
+    "det A = 2; A⁻¹ = [1/2, 1; -3/2, -2].",
+    "[x; y] = A⁻¹[-2; 3] = [2; -3].",
+    "y = -3."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-cp2-012",
    "skillId": "matrices-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [1, -1; -3, 2].",
-   "answer": "[-2, -1; -3, -1]",
+   "prompt": "A = [-4, 2; -3, 2]. Find A⁻¹ and use it to solve A[x; y] = [-14; -11]. What is y?",
+   "answer": "-1",
    "options": [
     {
-     "text": "[1, -1; -1/3, 1/2]",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "[2, 1; 3, 1]",
-     "correct": false
-    },
-    {
-     "text": "[-2, -1; -3, -1]",
+     "text": "-1",
      "correct": true
     },
     {
-     "text": "[-2, 1; 3, -1]",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (1)(2) - (-1)(-3) = -1.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[-2, -1; -3, -1]."
+    "det A = -2; A⁻¹ = [-1, 1; -3/2, 2].",
+    "[x; y] = A⁻¹[-14; -11] = [3; -1].",
+    "y = -1."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-cp2-013",
    "skillId": "matrices-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [-2, 3; 3, -4].",
-   "answer": "[4, 3; 3, 2]",
+   "prompt": "For what value of k does A = [k, 1; -8, -4] have no inverse?",
+   "answer": "2",
    "options": [
     {
-     "text": "[4, 3; 3, 2]",
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "2",
      "correct": true
     },
     {
-     "text": "[4, -3; -3, 2]",
-     "correct": false
-    },
-    {
-     "text": "[-4, -3; -3, -2]",
-     "correct": false
-    },
-    {
-     "text": "[-1/2, 1/3; 1/3, -1/4]",
+     "text": "1/2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (-2)(-4) - (3)(3) = -1.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[4, 3; 3, 2]."
+    "det = -4k - 1(-8).",
+    "det = 0 when k = 2."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_singular_k), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-cp2-014",
@@ -7948,36 +7931,36 @@
    "skillId": "matrices-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [2, 4; -4, -2].",
-   "answer": "[-1/6, -1/3; 1/3, 1/6]",
+   "prompt": "A = [2, -5; -1, 3]. Find A⁻¹ and use it to solve A[x; y] = [-20; 13]. What is x?",
+   "answer": "5",
    "options": [
     {
-     "text": "[-1/6, -1/3; 1/3, 1/6]",
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": true
-    },
-    {
-     "text": "[1/2, 1/4; -1/4, -1/2]",
-     "correct": false
-    },
-    {
-     "text": "[-1/6, 1/3; -1/3, 1/6]",
-     "correct": false
-    },
-    {
-     "text": "[-2, -4; 4, 2]",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (2)(-2) - (4)(-4) = 12.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[-1/6, -1/3; 1/3, 1/6]."
+    "det A = 1; A⁻¹ = [3, 5; 1, 2].",
+    "[x; y] = A⁻¹[-20; 13] = [5; 6].",
+    "x = 5."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-cp1-012",
@@ -8002,36 +7985,36 @@
    "skillId": "matrices-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [1, 2; -1, -5].",
-   "answer": "[5/3, 2/3; -1/3, -1/3]",
+   "prompt": "A = [-1, -1; -4, -5]. Find A⁻¹ and use it to solve A[x; y] = [3; 11]. What is x?",
+   "answer": "-4",
    "options": [
     {
-     "text": "[1, 1/2; -1, -1/5]",
-     "correct": false
-    },
-    {
-     "text": "[5/3, -2/3; 1/3, -1/3]",
-     "correct": false
-    },
-    {
-     "text": "[-5, -2; 1, 1]",
-     "correct": false
-    },
-    {
-     "text": "[5/3, 2/3; -1/3, -1/3]",
+     "text": "-4",
      "correct": true
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (1)(-5) - (2)(-1) = -3.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[5/3, 2/3; -1/3, -1/3]."
+    "det A = 1; A⁻¹ = [-5, 1; 4, -1].",
+    "[x; y] = A⁻¹[3; 11] = [-4; 1].",
+    "x = -4."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-cp1-014",
@@ -8367,36 +8350,36 @@
    "skillId": "matrices-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [-6, -1; -4, 0].",
-   "answer": "[0, -1/4; -1, 3/2]",
+   "prompt": "A = [3, -5; 1, -2]. Find A⁻¹ and use it to solve A[x; y] = [29; 11]. What is y?",
+   "answer": "-4",
    "options": [
     {
-     "text": "[0, 1/4; 1, -3/2]",
-     "correct": false
-    },
-    {
-     "text": "[0, 1/4; 1, 3/2]",
-     "correct": false
-    },
-    {
-     "text": "[0, 1; 4, -6]",
-     "correct": false
-    },
-    {
-     "text": "[0, -1/4; -1, 3/2]",
+     "text": "-4",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (-6)(0) - (-1)(-4) = -4.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[0, -1/4; -1, 3/2]."
+    "det A = -1; A⁻¹ = [2, -5; 1, -3].",
+    "[x; y] = A⁻¹[29; 11] = [3; -4].",
+    "y = -4."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-honors-012",
@@ -8421,36 +8404,36 @@
    "skillId": "matrices-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the inverse of A = [-3, 2; -1, -2].",
-   "answer": "[-1/4, -1/4; 1/8, -3/8]",
+   "prompt": "A = [3, -1; -1, 1]. Find A⁻¹ and use it to solve A[x; y] = [3; -1]. What is x?",
+   "answer": "1",
    "options": [
     {
-     "text": "[-2, -2; 1, -3]",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "[-1/4, 1/4; -1/8, -3/8]",
+     "text": "-1",
      "correct": false
     },
     {
-     "text": "[-1/4, -1/4; 1/8, -3/8]",
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "1",
      "correct": true
-    },
-    {
-     "text": "[-1/3, 1/2; -1, -1/2]",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "det A = (-3)(-2) - (2)(-1) = 8.",
-    "A⁻¹ = (1/det A)[d, -b; -c, a].",
-    "[-1/4, -1/4; 1/8, -3/8]."
+    "det A = 2; A⁻¹ = [1/2, 1/2; 1/2, 3/2].",
+    "[x; y] = A⁻¹[3; -1] = [1; 0].",
+    "x = 1."
    ],
    "standards": [
     "N-VM.C.10",
     "A-REI.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_inverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: inv_solve_entry), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s07-honors-014",
@@ -10429,35 +10412,34 @@
    "skillId": "matrices-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The vertices of a triangle are the columns of [-5, 3, 5; 3, -5, 2]. Find the vertex matrix of its image under a reflection over the y-axis.",
-   "answer": "[5, -3, -5; 3, -5, 2]",
+   "prompt": "The matrix [0, 1; -1, 0] represents a rotation of 270° counterclockwise. Multiply to find the image of (5, 6).",
+   "answer": "(6, -5)",
    "options": [
     {
-     "text": "[6, -2, -4; 4, -4, 3]",
+     "text": "(-6, 5)",
      "correct": false
     },
     {
-     "text": "[5, -3, -5; -3, 5, -2]",
+     "text": "(5, 6)",
      "correct": false
     },
     {
-     "text": "[5, -3, -5; 3, -5, 2]",
+     "text": "(-5, 6)",
+     "correct": false
+    },
+    {
+     "text": "(6, -5)",
      "correct": true
-    },
-    {
-     "text": "[-5, 3, 5; -3, 5, -2]",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Transformation matrix: [-1, 0; 0, 1].",
-    "Multiply it on the left of the vertex matrix.",
-    "[5, -3, -5; 3, -5, 2]."
+    "[0, 1; -1, 0][5; 6] = [0(5) + 1(6); -1(5) + 0(6)].",
+    "The image is (6, -5)."
    ],
    "standards": [
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_apply). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: mt_point), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s09-cp1-012",
@@ -10481,17 +10463,16 @@
    "skillId": "matrices-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The vertices of a triangle are the columns of [-3, 5, -6; -5, 2, -3]. Find the vertex matrix of its image under a rotation of 180°.",
-   "answer": "[3, -5, 6; 5, -2, 3]",
+   "prompt": "The matrix [0, -1; 1, 0] represents a rotation of 90° counterclockwise. Multiply to find the image of (8, -9).",
+   "answer": "(9, 8)",
    "solutionSteps": [
-    "Transformation matrix: [-1, 0; 0, -1].",
-    "Multiply it on the left of the vertex matrix.",
-    "[3, -5, 6; 5, -2, 3]."
+    "[0, -1; 1, 0][8; -9] = [0(8) + -1(-9); 1(8) + 0(-9)].",
+    "The image is (9, 8)."
    ],
    "standards": [
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_apply). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: mt_point), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s09-cp1-014",
@@ -10884,17 +10865,16 @@
    "skillId": "matrices-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The vertices of a triangle are the columns of [6, 2, -2; -5, -4, -4]. Find the vertex matrix of its image under a rotation of 270° counterclockwise.",
-   "answer": "[-5, -4, -4; -6, -2, 2]",
+   "prompt": "The matrix [-1, 0; 0, 1] represents a reflection over the y-axis. Multiply to find the image of (-1, 9).",
+   "answer": "(1, 9)",
    "solutionSteps": [
-    "Transformation matrix: [0, 1; -1, 0].",
-    "Multiply it on the left of the vertex matrix.",
-    "[-5, -4, -4; -6, -2, 2]."
+    "[-1, 0; 0, 1][-1; 9] = [-1(-1) + 0(9); 0(-1) + 1(9)].",
+    "The image is (1, 9)."
    ],
    "standards": [
     "N-VM.C.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_apply). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: mt_point), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-mat-s09-honors-014",
@@ -13768,6 +13748,633 @@
     "A-REI.C.9"
    ],
    "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w001",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A class orders 8 calculators, 15 pens and 3 folders: Q = [8, 15, 3]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [12, 5, 8; 5, 7, 12]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$195",
+   "solutionSteps": [
+    "Row 1 of P times Q: 12(8) + 5(15) + 8(3).",
+    "= $195."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w002",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A class orders 7 notebooks, 7 folders and 9 calculators: Q = [7, 7, 9]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [7, 9, 2; 12, 2, 2]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$130",
+   "options": [
+    {
+     "text": "$130",
+     "correct": true
+    },
+    {
+     "text": "$414",
+     "correct": false
+    },
+    {
+     "text": "$41",
+     "correct": false
+    },
+    {
+     "text": "$116",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of P times Q: 7(7) + 9(7) + 2(9).",
+    "= $130."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w003",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A league awards 2 points per win, 1 per tie and 0 per loss: V = [2; 1; 0]. Records (columns wins, ties, losses): R = [5, 6, 3; 7, 1, 5] for the Wolves and the Bears. Use R·V to find the Bears' points.",
+   "answer": "15 points",
+   "solutionSteps": [
+    "Row 2 of R times V: 7(2) + 1(1) + 5(0).",
+    "= 15 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w004",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A league awards 3 points per win, 2 per tie and 1 per loss: V = [3; 2; 1]. Records (columns wins, ties, losses): R = [1, 7, 3; 9, 11, 11] for the Lions and the Eagles. Use R·V to find the Eagles' points.",
+   "answer": "60 points",
+   "solutionSteps": [
+    "Row 2 of R times V: 9(3) + 11(2) + 11(1).",
+    "= 60 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w005",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A league awards 4 points per win, 2 per tie and 0 per loss: V = [4; 2; 0]. Records (columns wins, ties, losses): R = [11, 2, 0; 0, 1, 1] for the Bears and the Eagles. Use R·V to find the Eagles' points.",
+   "answer": "2 points",
+   "options": [
+    {
+     "text": "12 points",
+     "correct": false
+    },
+    {
+     "text": "6 points",
+     "correct": false
+    },
+    {
+     "text": "2 points",
+     "correct": true
+    },
+    {
+     "text": "48 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 2 of R times V: 0(4) + 1(2) + 1(0).",
+    "= 2 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w006",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A league awards 3 points per win, 1 per tie and 0 per loss: V = [3; 1; 0]. Records (columns wins, ties, losses): R = [12, 12, 0; 11, 5, 12] for the Eagles and the Lions. Use R·V to find the Lions' points.",
+   "answer": "38 points",
+   "solutionSteps": [
+    "Row 2 of R times V: 11(3) + 5(1) + 12(0).",
+    "= 38 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w007",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA league awards 3 points per win, 1 per tie and 0 per loss: V = [3; 1; 0]. Records (columns wins, ties, losses): R = [1, 5, 11; 6, 3, 9] for the Eagles and the Tigers. Use R·V to find the Tigers' points.\nAva's answer: 8 points\nIdentify the mistake and give the correct answer.",
+   "answer": "21 points",
+   "solutionSteps": [
+    "Mistake: Ava used the other team's row.",
+    "Row 2 of R times V: 6(3) + 3(1) + 9(0).",
+    "= 21 points.",
+    "The correct answer is 21 points, not 8 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w008",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A class orders 6 pens, 2 folders and 6 binders: Q = [6, 2, 6]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [7, 9, 6; 10, 11, 2]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$96",
+   "solutionSteps": [
+    "Row 1 of P times Q: 7(6) + 9(2) + 6(6).",
+    "= $96."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp2-w009",
+   "skillId": "matrices-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A league awards 3 points per win, 2 per tie and 1 per loss: V = [3; 2; 1]. Records (columns wins, ties, losses): R = [4, 0, 9; 5, 0, 2] for the Tigers and the Bears. Use R·V to find the Tigers' points.",
+   "answer": "21 points",
+   "options": [
+    {
+     "text": "17 points",
+     "correct": false
+    },
+    {
+     "text": "13 points",
+     "correct": false
+    },
+    {
+     "text": "21 points",
+     "correct": true
+    },
+    {
+     "text": "78 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of R times V: 4(3) + 0(2) + 9(1).",
+    "= 21 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w001",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A class orders 5 pens, 12 calculators and 3 binders: Q = [5, 12, 3]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [2, 12, 12; 6, 11, 5]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$190",
+   "solutionSteps": [
+    "Row 1 of P times Q: 2(5) + 12(12) + 12(3).",
+    "= $190."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w002",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A class orders 12 pens, 6 binders and 15 notebooks: Q = [12, 6, 15]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [1, 12, 6; 1, 7, 9]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$174",
+   "options": [
+    {
+     "text": "$627",
+     "correct": false
+    },
+    {
+     "text": "$52",
+     "correct": false
+    },
+    {
+     "text": "$174",
+     "correct": true
+    },
+    {
+     "text": "$189",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of P times Q: 1(12) + 12(6) + 6(15).",
+    "= $174."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w003",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A league awards 3 points per win, 2 per tie and 1 per loss: V = [3; 2; 1]. Records (columns wins, ties, losses): R = [5, 9, 3; 11, 2, 9] for the Lions and the Bears. Use R·V to find the Lions' points.",
+   "answer": "36 points",
+   "solutionSteps": [
+    "Row 1 of R times V: 5(3) + 9(2) + 3(1).",
+    "= 36 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w004",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A league awards 3 points per win, 1 per tie and 0 per loss: V = [3; 1; 0]. Records (columns wins, ties, losses): R = [4, 12, 5; 9, 10, 5] for the Hawks and the Lions. Use R·V to find the Lions' points.",
+   "answer": "37 points",
+   "solutionSteps": [
+    "Row 2 of R times V: 9(3) + 10(1) + 5(0).",
+    "= 37 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w005",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A league awards 4 points per win, 2 per tie and 0 per loss: V = [4; 2; 0]. Records (columns wins, ties, losses): R = [11, 1, 8; 10, 2, 1] for the Wolves and the Eagles. Use R·V to find the Wolves' points.",
+   "answer": "46 points",
+   "options": [
+    {
+     "text": "46 points",
+     "correct": true
+    },
+    {
+     "text": "44 points",
+     "correct": false
+    },
+    {
+     "text": "120 points",
+     "correct": false
+    },
+    {
+     "text": "20 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of R times V: 11(4) + 1(2) + 8(0).",
+    "= 46 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w006",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A class orders 3 notebooks, 14 binders and 8 folders: Q = [3, 14, 8]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [8, 1, 4; 7, 4, 5]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$70",
+   "solutionSteps": [
+    "Row 1 of P times Q: 8(3) + 1(14) + 4(8).",
+    "= $70."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w007",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nA league awards 4 points per win, 2 per tie and 0 per loss: V = [4; 2; 0]. Records (columns wins, ties, losses): R = [10, 9, 1; 10, 4, 9] for the Lions and the Tigers. Use R·V to find the Tigers' points.\nIsaac's answer: 58 points\nIdentify the mistake and give the correct answer.",
+   "answer": "48 points",
+   "solutionSteps": [
+    "Mistake: Isaac used the other team's row.",
+    "Row 2 of R times V: 10(4) + 4(2) + 9(0).",
+    "= 48 points.",
+    "The correct answer is 48 points, not 58 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w008",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A league awards 4 points per win, 2 per tie and 0 per loss: V = [4; 2; 0]. Records (columns wins, ties, losses): R = [6, 0, 3; 7, 5, 5] for the Wolves and the Tigers. Use R·V to find the Tigers' points.",
+   "answer": "38 points",
+   "solutionSteps": [
+    "Row 2 of R times V: 7(4) + 5(2) + 5(0).",
+    "= 38 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-cp1-w009",
+   "skillId": "matrices-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A league awards 3 points per win, 1 per tie and 0 per loss: V = [3; 1; 0]. Records (columns wins, ties, losses): R = [8, 6, 6; 0, 9, 10] for the Wolves and the Hawks. Use R·V to find the Wolves' points.",
+   "answer": "30 points",
+   "options": [
+    {
+     "text": "20 points",
+     "correct": false
+    },
+    {
+     "text": "30 points",
+     "correct": true
+    },
+    {
+     "text": "80 points",
+     "correct": false
+    },
+    {
+     "text": "9 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of R times V: 8(3) + 6(1) + 6(0).",
+    "= 30 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w001",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A class orders 8 notebooks, 11 calculators and 4 folders: Q = [8, 11, 4]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [10, 2, 6; 9, 9, 9]. The product P·Qᵀ gives each store's total. What is the total at Store B?",
+   "answer": "$207",
+   "solutionSteps": [
+    "Row 2 of P times Q: 9(8) + 9(11) + 9(4).",
+    "= $207."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w002",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A league awards 2 points per win, 1 per tie and 0 per loss: V = [2; 1; 0]. Records (columns wins, ties, losses): R = [5, 10, 0; 3, 1, 9] for the Eagles and the Tigers. Use R·V to find the Eagles' points.",
+   "answer": "20 points",
+   "options": [
+    {
+     "text": "15 points",
+     "correct": false
+    },
+    {
+     "text": "20 points",
+     "correct": true
+    },
+    {
+     "text": "7 points",
+     "correct": false
+    },
+    {
+     "text": "45 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of R times V: 5(2) + 10(1) + 0(0).",
+    "= 20 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w003",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A class orders 4 calculators, 9 notebooks and 12 binders: Q = [4, 9, 12]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [5, 7, 7; 3, 6, 3]. The product P·Qᵀ gives each store's total. What is the total at Store B?",
+   "answer": "$102",
+   "solutionSteps": [
+    "Row 2 of P times Q: 3(4) + 6(9) + 3(12).",
+    "= $102."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w004",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A league awards 4 points per win, 2 per tie and 0 per loss: V = [4; 2; 0]. Records (columns wins, ties, losses): R = [9, 7, 5; 3, 0, 12] for the Hawks and the Eagles. Use R·V to find the Hawks' points.",
+   "answer": "50 points",
+   "solutionSteps": [
+    "Row 1 of R times V: 9(4) + 7(2) + 5(0).",
+    "= 50 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w005",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A league awards 2 points per win, 1 per tie and 0 per loss: V = [2; 1; 0]. Records (columns wins, ties, losses): R = [4, 0, 10; 1, 7, 5] for the Eagles and the Wolves. Use R·V to find the Eagles' points.",
+   "answer": "8 points",
+   "options": [
+    {
+     "text": "14 points",
+     "correct": false
+    },
+    {
+     "text": "8 points",
+     "correct": true
+    },
+    {
+     "text": "42 points",
+     "correct": false
+    },
+    {
+     "text": "9 points",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of R times V: 4(2) + 0(1) + 10(0).",
+    "= 8 points."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_points). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w006",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A class orders 6 notebooks, 7 binders and 3 calculators: Q = [6, 7, 3]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [7, 12, 7; 2, 1, 7]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$147",
+   "solutionSteps": [
+    "Row 1 of P times Q: 7(6) + 12(7) + 7(3).",
+    "= $147."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w007",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA class orders 2 folders, 15 pens and 4 binders: Q = [2, 15, 4]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [4, 11, 7; 7, 1, 5]. The product P·Qᵀ gives each store's total. What is the total at Store A?\nFarah's answer: $49\nIdentify the mistake and give the correct answer.",
+   "answer": "$201",
+   "solutionSteps": [
+    "Mistake: Farah used the other store's row.",
+    "Row 1 of P times Q: 4(2) + 11(15) + 7(4).",
+    "= $201.",
+    "The correct answer is $201, not $49."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w008",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A class orders 11 binders, 4 calculators and 13 notebooks: Q = [11, 4, 13]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [3, 8, 6; 9, 3, 5]. The product P·Qᵀ gives each store's total. What is the total at Store B?",
+   "answer": "$176",
+   "solutionSteps": [
+    "Row 2 of P times Q: 9(11) + 3(4) + 5(13).",
+    "= $176."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-mat-s03-honors-w009",
+   "skillId": "matrices-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A class orders 12 folders, 5 pens and 5 binders: Q = [12, 5, 5]. Unit prices in dollars (rows Store A, Store B; columns in the same order): P = [6, 3, 12; 10, 5, 11]. The product P·Qᵀ gives each store's total. What is the total at Store A?",
+   "answer": "$147",
+   "options": [
+    {
+     "text": "$147",
+     "correct": true
+    },
+    {
+     "text": "$43",
+     "correct": false
+    },
+    {
+     "text": "$200",
+     "correct": false
+    },
+    {
+     "text": "$462",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Row 1 of P times Q: 6(12) + 3(5) + 12(5).",
+    "= $147."
+   ],
+   "standards": [
+    "N-VM.C.8",
+    "N-VM.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_cost). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

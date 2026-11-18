@@ -158,11 +158,13 @@ function intervals(s) {
 }
 function exactOf(text, flags) { return parseValue(text, flags); }
 
-// Rounded keys such as "x ≈ 4.489", "≈ 12.2 km/h" or "B ≈ 47.2°": the typed number must round to the key at the key's precision.
+// Rounded keys such as "x ≈ 4.489", "≈ 12.2 km/h", "B ≈ 47.2°" or "≈ $8,430": the typed number must round to the key at the key's precision.
+// Money signs and thousands separators are ignored on both sides.
+function plainNum(s) { return String(s == null ? '' : s).replace(/[−–]/g, '-').replace(/(≈\s*-?|^\s*-?)\$/, '$1').replace(/^(\s*-?)\$/, '$1').replace(/(\d),(?=\d{3}(?!\d))/g, '$1'); }
 var APPROX = /^(?:[a-zA-Zθ]\w*\s*)?≈\s*(-?\d+(?:\.(\d+))?)\s*(°|%|[a-zA-Z][a-zA-Z\/²³ ]{0,12})?$/;
 function approxGrade(answer, typed) {
-  var m = APPROX.exec(String(answer).replace(/[−–]/g, '-').trim().replace(/\.$/, '')), dp = m[2] ? m[2].length : 0;
-  var t = String(typed).replace(/[−–]/g, '-').replace(/^[a-zA-Zθ]\w*\s*[=≈]\s*/, '').replace(/^≈\s*/, '').trim().replace(/\s*(°|%|[a-zA-Z][a-zA-Z\/²³ ]{0,12})\.?$/, '');
+  var m = APPROX.exec(plainNum(answer).trim().replace(/\.$/, '')), dp = m[2] ? m[2].length : 0;
+  var t = plainNum(typed).replace(/^[a-zA-Zθ]\w*\s*[=≈]\s*/, '').replace(/^≈\s*/, '').trim().replace(/\s*(°|%|[a-zA-Z][a-zA-Z\/²³ ]{0,12})\.?$/, '');
   if (!/^-?\d+(?:\.\d+)?$/.test(t)) return { status: 'invalid', message: 'Enter a number rounded as the question asks.' };
   var tdp = (t.split('.')[1] || '').length;
   var k = decimal(m[1].replace('-', '')), v = decimal(t.replace('-', ''));
@@ -174,7 +176,7 @@ function approxGrade(answer, typed) {
 }
 
 API.supports = function (answer) {
-  if (APPROX.test(String(answer == null ? '' : answer).replace(/[−–]/g, '-').trim().replace(/\.$/, ''))) return 'approx';
+  if (APPROX.test(plainNum(answer).trim().replace(/\.$/, ''))) return 'approx';
   try {
     var sh = shape(answer), f = {};
     if (sh.kind === 'interval') { intervals(sh.s).forEach(function (iv) { if (iv.lo !== 'neg') exactOf(iv.lo, f); if (iv.hi !== 'pos') exactOf(iv.hi, f); }); return 'interval'; }
