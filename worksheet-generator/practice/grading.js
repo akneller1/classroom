@@ -62,5 +62,33 @@ function grade(problem,typed){
  }catch(e){return {status:'invalid',message:'Answer format could not be read. Use fractions such as 3/4, ordered pairs (2, -3), or standard algebra notation.'};}
  return {status:'self'};
 }
-API.supports=supports;API.grade=grade;
+/* Authored-bank short answers (Algebra 2 audit, 2026-11-17). Bank keys are plain text such as "24 years", "$1,647.01",
+   "(5, 2)" or "x = 1 or x = 5". Only kinds that cannot be gamed are graded automatically: a number (with an optional unit,
+   dollar sign or thousands commas), an ordered pair, a list of x-values or no solution / all real numbers. Expressions are
+   left to self-check because equivalence would accept the unfactored or unsimplified form a question asks to rewrite. */
+var BANK_KINDS={number:1,pair:1,roots:1,special:1};
+var UNIT=/^(\$?)\s*(-?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?|-?\d+\/\d+)\s*(%|°|[a-zA-Z][a-zA-Z .\/²³-]{0,30})?$/;
+function bankCore(s){
+ s=String(s==null?'':s).replace(/[−–]/g,'-').trim().replace(/\.$/,'');
+ var m=UNIT.exec(s);
+ if(m&&(m[1]||m[3]))return {text:m[2].replace(/,/g,''),unit:(m[3]||'').trim(),money:!!m[1]};
+ return {text:s.replace(/(\d),(?=\d{3}\b)/g,'$1'),unit:'',money:false};
+}
+function bankAnswer(answer){
+ if(typeof answer!=='string'||!C)return null;
+ if(/≈|\b(?:and|or)\b.*[a-wyz]\s*=|[;:]/i.test(answer)&&!/^\s*x\s*=.*\bor\b/i.test(answer))return null;
+ var core=bankCore(answer);
+ if(core.unit&&(!/^(?:%|°|[a-z.\/²³-]+(?: [a-z.\/²³-]+)?)$/i.test(core.unit)||/\b(?:above|below|left|right|up|down|before|after|from|to|of|than|more|less|units?)\b/i.test(core.unit)))return null;
+ try{var kind=classify(core.text);}catch(e){return null;}
+ if(!BANK_KINDS[kind])return null;
+ if(kind!=='number'&&core.unit)return null;
+ return core.text;
+}
+function gradeBank(answer,typed){
+ var key=bankAnswer(answer);
+ if(key===null)return {status:'self'};
+ var input=bankCore(typed).text;
+ return grade({parts:[{answer:key}]},input);
+}
+API.supports=supports;API.grade=grade;API.bankAnswer=bankAnswer;API.gradeBank=gradeBank;
 })(window);
