@@ -387,7 +387,10 @@
     'S-MD.A.3': 'Develop a probability distribution from theoretical probabilities and find the expected value.',
     'S-MD.B.5': 'Weigh the possible outcomes of a decision by assigning probabilities and finding expected values.',
     'S-MD.B.6': 'Use probabilities to make fair decisions (e.g., drawing by lots, using a random number generator).',
-    'S-MD.B.7': 'Analyze decisions and strategies using probability concepts.'
+    'S-MD.B.7': 'Analyze decisions and strategies using probability concepts.',
+    // AP Precalculus topics for content the Common Core does not cover (Precalculus audit, 2026-11-18)
+    'APPC.3.13': 'AP Precalculus 3.13: Convert between polar and rectangular coordinates.',
+    'APPC.3.14': 'AP Precalculus 3.14: Graph polar functions such as circles, roses, limaçons and cardioids.'
   };
   /* AP framework codes (Calculus, Statistics banks): summarize by big idea / topic outline area. */
   var AP_CALC = { LIM: 'AP Calculus · Big Idea: Limits', CHA: 'AP Calculus · Big Idea: Change', FUN: 'AP Calculus · Big Idea: Analysis of Functions' };
@@ -404,6 +407,7 @@
     var c = norm(code);
     if (/^DM\./.test(c)) return 'Discrete Mathematics';
     if (/^APSTATS/.test(c)) return 'AP Statistics';
+    if (/^APPC/.test(c)) return 'AP Precalculus';
     if (/^AP /.test(c)) return 'AP Calculus';
     if (STD.isPractice(c)) return 'CCSS Practice';
     return 'Common Core';
