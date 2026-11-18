@@ -1,0 +1,75 @@
+/* Calm theme for tool pages (2026-11-18)
+   Added by scripts/add-calm-theme.mjs to generator, planner, practice, game-setup and viewer pages
+   (including the Grade 1-5 and Financial Algebra copies). Matches calm.css on the home, course and
+   unit pages: one navy accent, thin grey borders, no offset shadows, no yellow, a white background.
+   Screen only: printed worksheets, keys and slides are unchanged. The paper preview (.page) is left
+   alone so it still shows exactly what will print. Remove the build step to go back. */
+
+@media screen {
+  :root:not([data-theme="dark"]) {
+    --bg: #f6f7f9; --paper: #ffffff; --card: #ffffff;
+    --line: #d1d5db; --muted: #9ca3af;
+    --blue: #1e3a8a; --blue-soft: #eef2ff; --accent: #e0e7ff;
+    --shadow: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --line: #334155; --accent: #1e293b; --shadow: none; }
+  }
+  :root[data-theme="dark"] { --line: #334155; --accent: #1e293b; --shadow: none; }
+
+  /* ---------- app shell (core/app.css, financial/generators/classroom-base.css) ---------- */
+  .topbar { border-bottom: 1px solid var(--line); }
+  .topbar .brand { font-family: "Bricolage Grotesque", system-ui, sans-serif; } /* the logo name stays */
+  .card, .ptool, #pagesWrap, #empty { border-width: 1px; box-shadow: none; border-radius: 10px; }
+  .card h2, .cat legend { font-family: var(--body); font-weight: 700; }
+  .cat legend { color: var(--ink); }
+  .cat { border-top: 1px solid var(--line); }
+  .step { background: transparent; border: 1px solid var(--blue); color: var(--blue); font-weight: 700; }
+  #pagesWrap { background: #e5e7eb; }
+
+  .btn, .btn.sm { border-width: 1px; box-shadow: none; border-radius: 8px; border-color: var(--blue); }
+  .btn:hover, .btn:active { transform: none; box-shadow: none; filter: brightness(1.08); }
+  .btn.ghost { border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--blue); filter: none; }
+  .btn.sec2 { background: var(--card); color: var(--blue); border-color: var(--blue); }
+  .btn.primary { box-shadow: none; }
+
+  input[type=number], input[type=text], select, textarea, #zoom, .step-btn {
+    border-width: 1px !important; border-color: var(--line); box-shadow: none !important; border-radius: 6px;
+  }
+  .seg, .ptool .grp { border-width: 1px; border-radius: 8px; }
+  .seg label, .ptool .tab { border-left-width: 1px; }
+  .step-btn:active { background: var(--blue-soft); }
+  .lrow.on { background: var(--blue-soft); }
+  :focus-visible { outline-color: var(--blue); }
+  .seg input:focus-visible + label { outline-color: var(--blue); }
+
+  /* ---------- assessment / worksheet / printables steps (menu/menu.css, menu/printables.css) ---------- */
+  .mm-skip, .mm-beta select, .mm-stepbtn, .mm-summary, .mm-level, .mm-dialog, .mm-vtabs, .mm-vtabs .tab,
+  .mm-dcard, .mm-bcard, .mm-toast, .pr-busy, .pr-err {
+    box-shadow: none !important; border-width: 1px !important; border-color: var(--line) !important;
+  }
+  .mm-stepbtn { border-radius: 999px; }
+  .mm-stepbtn[aria-current] .step { border-color: #fff; color: #fff; }
+  .mm-stepbtn[aria-current], .mm-stepbtn.on, .mm-stepbtn[aria-pressed="true"] { border-color: var(--blue) !important; }
+
+  /* ---------- Daily Lesson Planner (planner/planner.css) ---------- */
+  .pl-lv, .pl-tabs, .pl-tabs .tab, .pl-card, .pl-mins, .pl-noted textarea, .pl-noted input[type=text] {
+    box-shadow: none !important; border-width: 1px !important; border-color: var(--line) !important;
+  }
+  .pl-card { border-radius: 10px; }
+
+  /* ---------- seating chart (seating/seating.css) ---------- */
+  .btn.primary, .seg button[aria-pressed="true"] { box-shadow: none !important; }
+
+  /* ---------- game setup screens (games/games.css: skill picker, team setup) ---------- */
+  .tm-side { box-shadow: none !important; }
+
+  /* ---------- Grade 1-5 pages (elementary/el.css, el-tools.css, grade5/g5.css, g5-tools.css) ----------
+     Solid navy header bars instead of gradients, no background circles. Game boards keep their colours. */
+  .el-top, .tl-top, .g5-top { background: #1e3a8a !important; box-shadow: none !important; }
+  body.el, body.g5 { background-image: none !important; }
+
+  /* ---------- Financial Algebra pages (lib/fa.css, course-site.css) ---------- */
+  :root { --fa-accent: #1e3a8a; --fa-accent-text: #1e3a8a; --fa-tint: #eef2ff; }
+}

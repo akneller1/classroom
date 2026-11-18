@@ -64,3 +64,7 @@ for (const file of files) {
   added++; if (o) withUnit++;
 }
 console.log(`Shared header added to ${added} pages (${withUnit} with a Back-to-unit link).`);
+
+// Calm theme for tool pages (2026-11-18): same pass over the assembled site, so no extra workflow step.
+const { addCalmTheme } = await import("./add-calm-theme.mjs");
+console.log(`Calm tool theme added to ${addCalmTheme(OUT)} pages.`);
