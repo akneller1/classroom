@@ -25,12 +25,12 @@
      "correct": false
     },
     {
-     "text": "No: they are written differently",
-     "correct": false
-    },
-    {
      "text": "Yes: they have exactly the same elements",
      "correct": true
+    },
+    {
+     "text": "No: they are written differently",
+     "correct": false
     }
    ],
    "standards": [
@@ -52,10 +52,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "Yes: they have the same number of elements",
      "correct": false
     },
@@ -66,6 +62,10 @@
     {
      "text": "No: they are written differently",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     }
    ],
    "standards": [
@@ -87,16 +87,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No: one set has an element the other does not",
+     "correct": true
+    },
+    {
      "text": "Yes: they have the same number of elements",
      "correct": false
     },
     {
      "text": "No: they are written differently",
      "correct": false
-    },
-    {
-     "text": "No: one set has an element the other does not",
-     "correct": true
     },
     {
      "text": "Yes: they have exactly the same elements",
@@ -126,16 +126,16 @@
      "correct": false
     },
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "No: one set has an element the other does not",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     }
    ],
    "standards": [
@@ -157,16 +157,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No: one set has an element the other does not",
+     "correct": true
+    },
+    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "Yes: they have the same number of elements",
      "correct": false
-    },
-    {
-     "text": "No: one set has an element the other does not",
-     "correct": true
     },
     {
      "text": "Yes: they have exactly the same elements",
@@ -196,16 +196,16 @@
      "correct": false
     },
     {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
+    },
+    {
      "text": "No: one set has an element the other does not",
      "correct": false
     },
     {
      "text": "Yes: they have the same number of elements",
      "correct": false
-    },
-    {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
     }
    ],
    "standards": [
@@ -227,16 +227,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
+    },
+    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "Yes: they have the same number of elements",
      "correct": false
-    },
-    {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
     },
     {
      "text": "No: one set has an element the other does not",
@@ -266,16 +266,16 @@
      "correct": false
     },
     {
+     "text": "No: one set has an element the other does not",
+     "correct": true
+    },
+    {
      "text": "Yes: they have the same number of elements",
      "correct": false
     },
     {
      "text": "Yes: they have exactly the same elements",
      "correct": false
-    },
-    {
-     "text": "No: one set has an element the other does not",
-     "correct": true
     }
    ],
    "standards": [
@@ -297,16 +297,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "Yes: they have the same number of elements",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     },
     {
      "text": "No: one set has an element the other does not",
@@ -614,8 +614,7 @@
    "answer": "{3, 4, 5, 6, 7, 8}",
    "solutionSteps": [
     "A ∪ B is the union: elements in A or B (or both).",
-    "A ∪ B = {3, 4, 5, 6, 7, 8}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "A ∪ B = {3, 4, 5, 6, 7, 8}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -628,12 +627,12 @@
      "correct": false
     },
     {
-     "text": "{3, 4, 5, 6, 7}",
-     "correct": false
-    },
-    {
      "text": "{3, 4, 5, 6, 7, 8}",
      "correct": true
+    },
+    {
+     "text": "{3, 4, 5, 6, 7}",
+     "correct": false
     }
    ],
    "standards": [
@@ -667,8 +666,7 @@
    "answer": "{2, 4}",
    "solutionSteps": [
     "A − B is the difference: elements in A but not in B.",
-    "A − B = {2, 4}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "A − B = {2, 4}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -677,16 +675,16 @@
      "correct": false
     },
     {
-     "text": "{2, 4}",
-     "correct": true
-    },
-    {
      "text": "{4}",
      "correct": false
     },
     {
      "text": "{2, 4, 5}",
      "correct": false
+    },
+    {
+     "text": "{2, 4}",
+     "correct": true
     }
    ],
    "standards": [
@@ -703,11 +701,14 @@
    "answer": "{5, 7}",
    "solutionSteps": [
     "B − A is the difference: elements in B but not in A.",
-    "B − A = {5, 7}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "B − A = {5, 7}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "{5, 7}",
+     "correct": true
+    },
     {
      "text": "{7}",
      "correct": false
@@ -715,10 +716,6 @@
     {
      "text": "{5, 7, 8}",
      "correct": false
-    },
-    {
-     "text": "{5, 7}",
-     "correct": true
     },
     {
      "text": "{5}",
@@ -739,8 +736,7 @@
    "answer": "{1, 2, 3, 4, 5, 6}",
    "solutionSteps": [
     "A ∪ B is the union: elements in A or B (or both).",
-    "A ∪ B = {1, 2, 3, 4, 5, 6}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "A ∪ B = {1, 2, 3, 4, 5, 6}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -749,12 +745,12 @@
      "correct": false
     },
     {
-     "text": "{2, 3, 4, 5, 6}",
-     "correct": false
-    },
-    {
      "text": "{1, 2, 3, 4, 5, 6}",
      "correct": true
+    },
+    {
+     "text": "{2, 3, 4, 5, 6}",
+     "correct": false
     },
     {
      "text": "{1, 2, 3, 4, 5}",
@@ -822,12 +818,12 @@
      "correct": false
     },
     {
-     "text": "{1, 3, 6, 14, 15}",
-     "correct": false
-    },
-    {
      "text": "{4, 9, 10}",
      "correct": true
+    },
+    {
+     "text": "{1, 3, 6, 14, 15}",
+     "correct": false
     }
    ],
    "standards": [
@@ -918,6 +914,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "{9, 13, 14}",
+     "correct": true
+    },
+    {
      "text": "{3, 4, 8, 12, 15}",
      "correct": false
     },
@@ -928,10 +928,6 @@
     {
      "text": "{3, 9, 13, 14}",
      "correct": false
-    },
-    {
-     "text": "{9, 13, 14}",
-     "correct": true
     }
    ],
    "standards": [
@@ -974,12 +970,12 @@
      "correct": false
     },
     {
-     "text": "{-3, -1, 6}",
-     "correct": true
-    },
-    {
      "text": "{-1, 6}",
      "correct": false
+    },
+    {
+     "text": "{-3, -1, 6}",
+     "correct": true
     },
     {
      "text": "{-5, -3, -1, 6}",
@@ -1030,12 +1026,12 @@
      "correct": false
     },
     {
-     "text": "{-2, -1, 0, 6}",
-     "correct": true
-    },
-    {
      "text": "{-5, -2, -1, 0, 6}",
      "correct": false
+    },
+    {
+     "text": "{-2, -1, 0, 6}",
+     "correct": true
     }
    ],
    "standards": [
@@ -1437,16 +1433,16 @@
      "correct": false
     },
     {
+     "text": "{4, 10}",
+     "correct": true
+    },
+    {
      "text": "{1, 4, 10}",
      "correct": false
     },
     {
      "text": "{10}",
      "correct": false
-    },
-    {
-     "text": "{4, 10}",
-     "correct": true
     }
    ],
    "standards": [
@@ -1512,12 +1508,12 @@
      "correct": false
     },
     {
-     "text": "{1, 3, 5, 7, 8, 9, 10, 11, 12}",
-     "correct": true
-    },
-    {
      "text": "{3, 5, 7, 8, 9, 10, 11, 12}",
      "correct": false
+    },
+    {
+     "text": "{1, 3, 5, 7, 8, 9, 10, 11, 12}",
+     "correct": true
     }
    ],
    "standards": [
@@ -1557,6 +1553,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "{1, 2, 3, 4, 6, 7, 8, 9, 10, 11}",
+     "correct": true
+    },
+    {
      "text": "{2, 3, 4, 6, 7, 8, 9, 10, 11}",
      "correct": false
     },
@@ -1567,10 +1567,6 @@
     {
      "text": "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}",
      "correct": false
-    },
-    {
-     "text": "{1, 2, 3, 4, 6, 7, 8, 9, 10, 11}",
-     "correct": true
     }
    ],
    "standards": [
@@ -1628,12 +1624,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{f, i}",
-     "correct": true
-    },
-    {
      "text": "{i}",
      "correct": false
+    },
+    {
+     "text": "{f, i}",
+     "correct": true
     },
     {
      "text": "{a, b, c, d, e, g, h, j}",
@@ -1685,12 +1681,12 @@
      "correct": false
     },
     {
-     "text": "{c, e, f}",
-     "correct": true
-    },
-    {
      "text": "{a, c, e, f}",
      "correct": false
+    },
+    {
+     "text": "{c, e, f}",
+     "correct": true
     },
     {
      "text": "{e, f}",
@@ -1737,12 +1733,12 @@
      "correct": false
     },
     {
-     "text": "{3, 4, 5}",
-     "correct": true
-    },
-    {
      "text": "∅",
      "correct": false
+    },
+    {
+     "text": "{3, 4, 5}",
+     "correct": true
     },
     {
      "text": "{1, 2, 3, 4, 5}",
@@ -1771,12 +1767,12 @@
      "correct": false
     },
     {
-     "text": "A' ∪ B'",
-     "correct": false
-    },
-    {
      "text": "A' ∩ B'",
      "correct": true
+    },
+    {
+     "text": "A' ∪ B'",
+     "correct": false
     },
     {
      "text": "A ∩ B",
@@ -1802,10 +1798,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_universe). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "The odd integers",
-     "correct": true
-    },
-    {
      "text": "The negative integers",
      "correct": false
     },
@@ -1816,6 +1808,10 @@
     {
      "text": "The integers that are not divisible by 4",
      "correct": false
+    },
+    {
+     "text": "The odd integers",
+     "correct": true
     }
    ],
    "standards": [
@@ -2166,8 +2162,7 @@
    "answer": "18",
    "solutionSteps": [
     "Region counts: A only 8, B only 6, C only 7, A∩B only 5, A∩C only 2, B∩C only 4, all three 3, outside 5.",
-    "Answer: 18",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 18"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "diagram": {
@@ -2179,12 +2174,12 @@
    },
    "options": [
     {
-     "text": "18",
-     "correct": true
-    },
-    {
      "text": "36",
      "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
     },
     {
      "text": "17",
@@ -2209,8 +2204,7 @@
    "answer": "21",
    "solutionSteps": [
     "Region counts: A only 8, B only 6, C only 7, A∩B only 5, A∩C only 2, B∩C only 4, all three 3, outside 5.",
-    "Answer: 21",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 21"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "diagram": {
@@ -2222,12 +2216,12 @@
    },
    "options": [
     {
-     "text": "21",
-     "correct": true
-    },
-    {
      "text": "22",
      "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
     },
     {
      "text": "42",
@@ -2252,8 +2246,7 @@
    "answer": "8",
    "solutionSteps": [
     "Region counts: A only 8, B only 6, C only 7, A∩B only 5, A∩C only 2, B∩C only 4, all three 3, outside 5.",
-    "Answer: 8",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 8"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "diagram": {
@@ -2273,12 +2266,12 @@
      "correct": false
     },
     {
-     "text": "9",
-     "correct": false
-    },
-    {
      "text": "8",
      "correct": true
+    },
+    {
+     "text": "9",
+     "correct": false
     }
    ],
    "standards": [
@@ -2295,8 +2288,7 @@
    "answer": "14",
    "solutionSteps": [
     "Region counts: A only 8, B only 6, C only 7, A∩B only 5, A∩C only 2, B∩C only 4, all three 3, outside 5.",
-    "Answer: 14",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 14"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "diagram": {
@@ -2338,8 +2330,7 @@
    "answer": "7",
    "solutionSteps": [
     "Region counts: A only 8, B only 6, C only 7, A∩B only 5, A∩C only 2, B∩C only 4, all three 3, outside 5.",
-    "Answer: 7",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 7"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "diagram": {
@@ -2359,12 +2350,12 @@
      "correct": false
     },
     {
-     "text": "6",
-     "correct": false
-    },
-    {
      "text": "7",
      "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
     }
    ],
    "standards": [
@@ -2414,12 +2405,12 @@
      "correct": false
     },
     {
-     "text": "A − B",
-     "correct": true
-    },
-    {
      "text": "B − A",
      "correct": false
+    },
+    {
+     "text": "A − B",
+     "correct": true
     },
     {
      "text": "(A ∪ B)'",
@@ -2460,12 +2451,12 @@
      "correct": false
     },
     {
-     "text": "A ⊕ B (in exactly one set)",
-     "correct": true
-    },
-    {
      "text": "A ∩ B",
      "correct": false
+    },
+    {
+     "text": "A ⊕ B (in exactly one set)",
+     "correct": true
     }
    ],
    "diagram": {
@@ -2494,16 +2485,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_shade). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "(A ∪ B)' ∪ (A ∩ B)",
+     "correct": true
+    },
+    {
      "text": "(A ∩ B)'",
      "correct": false
     },
     {
      "text": "A' ∩ B'",
      "correct": false
-    },
-    {
-     "text": "(A ∪ B)' ∪ (A ∩ B)",
-     "correct": true
     },
     {
      "text": "A ∪ B",
@@ -2540,16 +2531,16 @@
      "correct": false
     },
     {
-     "text": "A'",
-     "correct": true
-    },
-    {
      "text": "B − A",
      "correct": false
     },
     {
      "text": "(A ∪ B)'",
      "correct": false
+    },
+    {
+     "text": "A'",
+     "correct": true
     }
    ],
    "diagram": {
@@ -2620,6 +2611,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_shade). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "C ∩ (A ∩ B)'",
+     "correct": true
+    },
+    {
      "text": "C ∩ (A ∪ B)'",
      "correct": false
     },
@@ -2630,10 +2625,6 @@
     {
      "text": "C − A",
      "correct": false
-    },
-    {
-     "text": "C ∩ (A ∩ B)'",
-     "correct": true
     }
    ],
    "diagram": {
@@ -2657,18 +2648,17 @@
    "answer": "20",
    "solutionSteps": [
     "Use |A ∪ B| = |A| + |B| − |A ∩ B| (and the three‑set version).",
-    "Answer: 20",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 20"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "19",
-     "correct": false
-    },
-    {
      "text": "20",
      "correct": true
+    },
+    {
+     "text": "19",
+     "correct": false
     },
     {
      "text": "21",
@@ -2974,12 +2964,12 @@
      "correct": false
     },
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "8",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     }
    ],
    "standards": [
@@ -3001,16 +2991,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_size). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "8",
+     "correct": true
+    },
+    {
      "text": "6",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
-    },
-    {
-     "text": "8",
-     "correct": true
     },
     {
      "text": "9",
@@ -3044,12 +3034,12 @@
      "correct": false
     },
     {
-     "text": "31",
-     "correct": false
-    },
-    {
      "text": "32",
      "correct": true
+    },
+    {
+     "text": "31",
+     "correct": false
     }
    ],
    "standards": [
@@ -3075,16 +3065,16 @@
      "correct": false
     },
     {
-     "text": "1",
-     "correct": true
-    },
-    {
      "text": "2",
      "correct": false
     },
     {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
     }
    ],
    "standards": [
@@ -3110,16 +3100,16 @@
      "correct": false
     },
     {
+     "text": "1024",
+     "correct": true
+    },
+    {
      "text": "100",
      "correct": false
     },
     {
      "text": "1023",
      "correct": false
-    },
-    {
-     "text": "1024",
-     "correct": true
     }
    ],
    "standards": [
@@ -3468,16 +3458,16 @@
      "correct": false
     },
     {
+     "text": "Let x ∈ A. Then \"x ∈ A or x ∈ B\" is true, so x ∈ A ∪ B.",
+     "correct": true
+    },
+    {
      "text": "Let x ∈ A ∪ B. Then x ∈ A.",
      "correct": false
     },
     {
      "text": "Check A = {1}, B = {2}.",
      "correct": false
-    },
-    {
-     "text": "Let x ∈ A. Then \"x ∈ A or x ∈ B\" is true, so x ∈ A ∪ B.",
-     "correct": true
     }
    ],
    "standards": [
@@ -3608,12 +3598,12 @@
      "correct": false
     },
     {
-     "text": "Let x ∈ A'. Then x ∈ B'.",
-     "correct": false
-    },
-    {
      "text": "Let x ∈ B'. Then x ∉ B. If x were in A, then x ∈ B since A ⊆ B, a contradiction. So x ∉ A, that is, x ∈ A'.",
      "correct": true
+    },
+    {
+     "text": "Let x ∈ A'. Then x ∈ B'.",
+     "correct": false
     },
     {
      "text": "Let x ∈ A. Then x ∉ B'.",
@@ -3717,12 +3707,12 @@
      "correct": false
     },
     {
-     "text": "If n = 3k, then n = 6(k/2).",
-     "correct": false
-    },
-    {
      "text": "If n = 6k for an integer k, then n = 3(2k) with 2k an integer.",
      "correct": true
+    },
+    {
+     "text": "If n = 3k, then n = 6(k/2).",
+     "correct": false
     }
    ],
    "standards": [
@@ -3752,12 +3742,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -3814,10 +3804,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No",
      "correct": false
     },
@@ -3828,6 +3814,10 @@
     {
      "text": "Cannot be determined",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -3849,12 +3839,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Cannot be determined",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "Cannot be determined",
+     "correct": false
     },
     {
      "text": "Only if A = B",
@@ -3892,12 +3882,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -3919,16 +3909,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "No",
      "correct": false
     },
     {
      "text": "Only if A = B",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "Cannot be determined",
@@ -4196,16 +4186,16 @@
      "correct": false
     },
     {
-     "text": "Yes, it is an identity",
-     "correct": true
-    },
-    {
      "text": "No, it fails for some sets",
      "correct": false
     },
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
+    },
+    {
+     "text": "Yes, it is an identity",
+     "correct": true
     }
    ],
    "standards": [
@@ -4227,16 +4217,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, it is an identity",
+     "correct": true
+    },
+    {
      "text": "Only when A, B, C are disjoint",
      "correct": false
     },
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
-    },
-    {
-     "text": "Yes, it is an identity",
-     "correct": true
     },
     {
      "text": "No, it fails for some sets",
@@ -4262,12 +4252,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No, it fails for some sets",
-     "correct": true
-    },
-    {
      "text": "Yes, it is an identity",
      "correct": false
+    },
+    {
+     "text": "No, it fails for some sets",
+     "correct": true
     },
     {
      "text": "Only when A, B, C are disjoint",
@@ -4301,16 +4291,16 @@
      "correct": false
     },
     {
-     "text": "Yes, it is an identity",
-     "correct": true
-    },
-    {
      "text": "Yes, because both sides use the same letters",
      "correct": false
     },
     {
      "text": "No, it fails for some sets",
      "correct": false
+    },
+    {
+     "text": "Yes, it is an identity",
+     "correct": true
     }
    ],
    "standards": [
@@ -4332,6 +4322,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, it is an identity",
+     "correct": true
+    },
+    {
      "text": "Only when A, B, C are disjoint",
      "correct": false
     },
@@ -4342,10 +4336,6 @@
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
-    },
-    {
-     "text": "Yes, it is an identity",
-     "correct": true
     }
    ],
    "standards": [
@@ -4371,16 +4361,16 @@
      "correct": false
     },
     {
+     "text": "No, it fails for some sets",
+     "correct": true
+    },
+    {
      "text": "Yes, it is an identity",
      "correct": false
     },
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
-    },
-    {
-     "text": "No, it fails for some sets",
-     "correct": true
     }
    ],
    "standards": [
@@ -4402,10 +4392,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes, it is an identity",
-     "correct": true
-    },
-    {
      "text": "No, it fails for some sets",
      "correct": false
     },
@@ -4416,6 +4402,10 @@
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
+    },
+    {
+     "text": "Yes, it is an identity",
+     "correct": true
     }
    ],
    "standards": [
@@ -4437,16 +4427,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No, it fails for some sets",
+     "correct": true
+    },
+    {
      "text": "Yes, it is an identity",
      "correct": false
     },
     {
      "text": "Only when A, B, C are disjoint",
      "correct": false
-    },
-    {
-     "text": "No, it fails for some sets",
-     "correct": true
     },
     {
      "text": "Yes, because both sides use the same letters",
@@ -4476,12 +4466,12 @@
      "correct": false
     },
     {
-     "text": "Yes, because both sides use the same letters",
-     "correct": false
-    },
-    {
      "text": "Yes, it is an identity",
      "correct": true
+    },
+    {
+     "text": "Yes, because both sides use the same letters",
+     "correct": false
     },
     {
      "text": "No, it fails for some sets",
@@ -4515,12 +4505,12 @@
      "correct": false
     },
     {
-     "text": "Absorption law",
-     "correct": false
-    },
-    {
      "text": "Identity law",
      "correct": true
+    },
+    {
+     "text": "Absorption law",
+     "correct": false
     }
    ],
    "standards": [
@@ -4542,10 +4532,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_law). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "De Morgan's law",
-     "correct": true
-    },
-    {
      "text": "Distributive law",
      "correct": false
     },
@@ -4556,6 +4542,10 @@
     {
      "text": "Absorption law",
      "correct": false
+    },
+    {
+     "text": "De Morgan's law",
+     "correct": true
     }
    ],
    "standards": [
@@ -4577,16 +4567,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_law). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Distributive law",
-     "correct": true
-    },
-    {
      "text": "De Morgan's law",
      "correct": false
     },
     {
      "text": "Associative law",
      "correct": false
+    },
+    {
+     "text": "Distributive law",
+     "correct": true
     },
     {
      "text": "Commutative law",
@@ -4612,10 +4602,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_law). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Absorption law",
-     "correct": true
-    },
-    {
      "text": "Identity law",
      "correct": false
     },
@@ -4626,6 +4612,10 @@
     {
      "text": "Distributive law",
      "correct": false
+    },
+    {
+     "text": "Absorption law",
+     "correct": true
     }
    ],
    "standards": [
@@ -4686,16 +4676,16 @@
      "correct": false
     },
     {
-     "text": "Complement law",
-     "correct": true
-    },
-    {
      "text": "Idempotent law",
      "correct": false
     },
     {
      "text": "Identity law",
      "correct": false
+    },
+    {
+     "text": "Complement law",
+     "correct": true
     }
    ],
    "standards": [
@@ -4717,12 +4707,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: simplify_sets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A ∪ B",
-     "correct": false
-    },
-    {
      "text": "A",
      "correct": true
+    },
+    {
+     "text": "A ∪ B",
+     "correct": false
     },
     {
      "text": "A ∩ B",
@@ -4752,12 +4742,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: simplify_sets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "B",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     },
     {
      "text": "A ∪ B",
@@ -4787,12 +4777,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: simplify_sets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A ∪ B",
-     "correct": false
-    },
-    {
      "text": "A",
      "correct": true
+    },
+    {
+     "text": "A ∪ B",
+     "correct": false
     },
     {
      "text": "B",
@@ -4826,16 +4816,16 @@
      "correct": false
     },
     {
+     "text": "A ∪ B",
+     "correct": true
+    },
+    {
      "text": "A",
      "correct": false
     },
     {
      "text": "U",
      "correct": false
-    },
-    {
-     "text": "A ∪ B",
-     "correct": true
     }
    ],
    "standards": [
@@ -4857,16 +4847,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: simplify_sets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A",
+     "correct": true
+    },
+    {
      "text": "A'",
      "correct": false
     },
     {
      "text": "U",
      "correct": false
-    },
-    {
-     "text": "A",
-     "correct": true
     },
     {
      "text": "∅",
@@ -5129,10 +5119,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A = {1}, B = ∅",
-     "correct": true
-    },
-    {
      "text": "A = {1, 2}, B = {1, 2}",
      "correct": false
     },
@@ -5143,6 +5129,10 @@
     {
      "text": "A = ∅, B = ∅",
      "correct": false
+    },
+    {
+     "text": "A = {1}, B = ∅",
+     "correct": true
     }
    ],
    "standards": [
@@ -5164,6 +5154,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A = ∅, B = {1}",
+     "correct": true
+    },
+    {
      "text": "A = {1}, B = ∅",
      "correct": false
     },
@@ -5174,10 +5168,6 @@
     {
      "text": "A = {1}, B = {1}",
      "correct": false
-    },
-    {
-     "text": "A = ∅, B = {1}",
-     "correct": true
     }
    ],
    "standards": [
@@ -5207,12 +5197,12 @@
      "correct": false
     },
     {
-     "text": "A = {1}, B = {1}, C = {2}",
-     "correct": false
-    },
-    {
      "text": "A = {1}, B = {2}, C = ∅",
      "correct": true
+    },
+    {
+     "text": "A = {1}, B = {1}, C = {2}",
+     "correct": false
     }
    ],
    "standards": [
@@ -5238,16 +5228,16 @@
      "correct": false
     },
     {
-     "text": "A = {1}, B = {1}",
-     "correct": true
-    },
-    {
      "text": "A = {1}, B = {2}",
      "correct": false
     },
     {
      "text": "A = {1, 2}, B = {3}",
      "correct": false
+    },
+    {
+     "text": "A = {1}, B = {1}",
+     "correct": true
     }
    ],
    "standards": [
@@ -5269,12 +5259,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A = ∅, B = ∅, C = ∅",
-     "correct": false
-    },
-    {
      "text": "A = {1}, B = {1}, C = {1}",
      "correct": true
+    },
+    {
+     "text": "A = ∅, B = ∅, C = ∅",
+     "correct": false
     },
     {
      "text": "A = {1}, B = {2}, C = {3}",
@@ -5343,12 +5333,12 @@
      "correct": false
     },
     {
-     "text": "It is neither true nor false",
-     "correct": false
-    },
-    {
      "text": "True: it can be proved for all sets",
      "correct": true
+    },
+    {
+     "text": "It is neither true nor false",
+     "correct": false
     },
     {
      "text": "True: it works for A = {1}, B = {1, 2}",
@@ -5374,16 +5364,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: prove_disprove). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "False: a counterexample exists",
-     "correct": true
-    },
-    {
      "text": "True: it can be proved for all sets",
      "correct": false
     },
     {
      "text": "True: it works for A = {1}, B = {1, 2}",
      "correct": false
+    },
+    {
+     "text": "False: a counterexample exists",
+     "correct": true
     },
     {
      "text": "It is neither true nor false",
@@ -5409,6 +5399,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: prove_disprove). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "True: it can be proved for all sets",
+     "correct": true
+    },
+    {
      "text": "It is neither true nor false",
      "correct": false
     },
@@ -5419,10 +5413,6 @@
     {
      "text": "True: it works for A = {1}, B = {1, 2}",
      "correct": false
-    },
-    {
-     "text": "True: it can be proved for all sets",
-     "correct": true
     }
    ],
    "standards": [
@@ -5448,16 +5438,16 @@
      "correct": false
     },
     {
+     "text": "False: a counterexample exists",
+     "correct": true
+    },
+    {
      "text": "It is neither true nor false",
      "correct": false
     },
     {
      "text": "True: it can be proved for all sets",
      "correct": false
-    },
-    {
-     "text": "False: a counterexample exists",
-     "correct": true
     }
    ],
    "standards": [
@@ -5487,12 +5477,12 @@
      "correct": false
     },
     {
-     "text": "False: a counterexample exists",
-     "correct": false
-    },
-    {
      "text": "True: it can be proved for all sets",
      "correct": true
+    },
+    {
+     "text": "False: a counterexample exists",
+     "correct": false
     }
    ],
    "standards": [
@@ -5836,12 +5826,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "Yes: both are described by a condition on n",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     },
     {
      "text": "No: one set has an element the other does not",
@@ -5910,16 +5900,16 @@
      "correct": false
     },
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "No: one set has an element the other does not",
      "correct": false
     },
     {
      "text": "No: they are written differently",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     }
    ],
    "standards": [
@@ -5949,12 +5939,12 @@
      "correct": false
     },
     {
-     "text": "No: they are written differently",
-     "correct": false
-    },
-    {
      "text": "Yes: they have exactly the same elements",
      "correct": true
+    },
+    {
+     "text": "No: they are written differently",
+     "correct": false
     }
    ],
    "standards": [
@@ -5980,16 +5970,16 @@
      "correct": false
     },
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "Yes: both are described by a condition on n",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     }
    ],
    "standards": [
@@ -6046,12 +6036,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No: one set has an element the other does not",
-     "correct": true
-    },
-    {
      "text": "Yes: both are described by a condition on n",
      "correct": false
+    },
+    {
+     "text": "No: one set has an element the other does not",
+     "correct": true
     },
     {
      "text": "No: they are written differently",
@@ -6085,16 +6075,16 @@
      "correct": false
     },
     {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
-    },
-    {
      "text": "No: they are written differently",
      "correct": false
     },
     {
      "text": "No: one set has an element the other does not",
      "correct": false
+    },
+    {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
     }
    ],
    "standards": [
@@ -6116,6 +6106,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes: they have exactly the same elements",
+     "correct": true
+    },
+    {
      "text": "No: one set has an element the other does not",
      "correct": false
     },
@@ -6126,10 +6120,6 @@
     {
      "text": "Yes: both are described by a condition on n",
      "correct": false
-    },
-    {
-     "text": "Yes: they have exactly the same elements",
-     "correct": true
     }
    ],
    "standards": [
@@ -6155,12 +6145,12 @@
      "correct": false
     },
     {
-     "text": "No: one set has an element the other does not",
-     "correct": false
-    },
-    {
      "text": "Yes: they have exactly the same elements",
      "correct": true
+    },
+    {
+     "text": "No: one set has an element the other does not",
+     "correct": false
     },
     {
      "text": "Yes: both are described by a condition on n",
@@ -6190,12 +6180,12 @@
      "correct": false
     },
     {
-     "text": "{1, 2, 4, 5, 6, 9}",
-     "correct": false
-    },
-    {
      "text": "{2, 4, 5, 6, 9}",
      "correct": true
+    },
+    {
+     "text": "{1, 2, 4, 5, 6, 9}",
+     "correct": false
     },
     {
      "text": "{4, 5, 6, 9}",
@@ -6221,12 +6211,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{3, 4, 5, 7, 9, 11}",
-     "correct": false
-    },
-    {
      "text": "{1, 2, 6, 8, 10, 12}",
      "correct": true
+    },
+    {
+     "text": "{3, 4, 5, 7, 9, 11}",
+     "correct": false
     },
     {
      "text": "{2, 6, 8, 10, 12}",
@@ -6260,12 +6250,12 @@
      "correct": false
     },
     {
-     "text": "{1, 2, 3, 4, 6, 8, 9, 12}",
-     "correct": false
-    },
-    {
      "text": "{5, 7, 10, 11}",
      "correct": true
+    },
+    {
+     "text": "{1, 2, 3, 4, 6, 8, 9, 12}",
+     "correct": false
     },
     {
      "text": "{1, 5, 7, 10, 11}",
@@ -6295,16 +6285,16 @@
      "correct": false
     },
     {
-     "text": "{1, 2, 3, 4, 5, 6, 7, 9, 10, 12}",
-     "correct": true
-    },
-    {
      "text": "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12}",
      "correct": false
     },
     {
      "text": "{8, 11}",
      "correct": false
+    },
+    {
+     "text": "{1, 2, 3, 4, 5, 6, 7, 9, 10, 12}",
+     "correct": true
     }
    ],
    "standards": [
@@ -6330,12 +6320,12 @@
      "correct": false
     },
     {
-     "text": "{1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
-     "correct": true
-    },
-    {
      "text": "{3}",
      "correct": false
+    },
+    {
+     "text": "{1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
+     "correct": true
     },
     {
      "text": "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
@@ -6451,12 +6441,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "3",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "4",
@@ -6486,12 +6476,12 @@
      "correct": false
     },
     {
-     "text": "8",
-     "correct": true
-    },
-    {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
     },
     {
      "text": "9",
@@ -6521,16 +6511,16 @@
      "correct": false
     },
     {
-     "text": "5",
-     "correct": true
-    },
-    {
      "text": "7",
      "correct": false
     },
     {
      "text": "6",
      "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
     }
    ],
    "standards": [
@@ -6552,16 +6542,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2",
+     "correct": true
+    },
+    {
      "text": "3",
      "correct": false
     },
     {
      "text": "1",
      "correct": false
-    },
-    {
-     "text": "2",
-     "correct": true
     },
     {
      "text": "4",
@@ -6587,16 +6577,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "8",
+     "correct": true
+    },
+    {
      "text": "9",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
-    },
-    {
-     "text": "8",
-     "correct": true
     },
     {
      "text": "10",
@@ -6626,12 +6616,12 @@
      "correct": false
     },
     {
-     "text": "7",
-     "correct": false
-    },
-    {
      "text": "8",
      "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
     },
     {
      "text": "10",
@@ -6696,12 +6686,12 @@
      "correct": false
     },
     {
-     "text": "192",
-     "correct": true
-    },
-    {
      "text": "191",
      "correct": false
+    },
+    {
+     "text": "192",
+     "correct": true
     },
     {
      "text": "194",
@@ -6731,16 +6721,16 @@
      "correct": false
     },
     {
-     "text": "34",
-     "correct": true
-    },
-    {
      "text": "35",
      "correct": false
     },
     {
      "text": "33",
      "correct": false
+    },
+    {
+     "text": "34",
+     "correct": true
     }
    ],
    "standards": [
@@ -6801,16 +6791,16 @@
      "correct": false
     },
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "Cannot be determined",
      "correct": false
     },
     {
      "text": "Only if A = B",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -6832,16 +6822,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined",
      "correct": false
     },
     {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if A = B",
@@ -6871,16 +6861,16 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only if A = B",
      "correct": false
     },
     {
      "text": "No",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -6937,16 +6927,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
     },
     {
      "text": "Cannot be determined",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if A = B",
@@ -6976,16 +6966,16 @@
      "correct": false
     },
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "Only if A = B",
      "correct": false
     },
     {
      "text": "Cannot be determined",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -7015,12 +7005,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     }
    ],
    "standards": [
@@ -7085,12 +7075,12 @@
      "correct": false
     },
     {
-     "text": "No, it fails for some sets",
-     "correct": false
-    },
-    {
      "text": "Yes, it is an identity",
      "correct": true
+    },
+    {
+     "text": "No, it fails for some sets",
+     "correct": false
     }
    ],
    "standards": [
@@ -7112,16 +7102,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: identity_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No, it fails for some sets",
-     "correct": true
-    },
-    {
      "text": "Yes, it is an identity",
      "correct": false
     },
     {
      "text": "Yes, because both sides use the same letters",
      "correct": false
+    },
+    {
+     "text": "No, it fails for some sets",
+     "correct": true
     },
     {
      "text": "Only when A, B, C are disjoint",
@@ -7155,12 +7145,12 @@
      "correct": false
     },
     {
-     "text": "Only when A, B, C are disjoint",
-     "correct": false
-    },
-    {
      "text": "Yes, it is an identity",
      "correct": true
+    },
+    {
+     "text": "Only when A, B, C are disjoint",
+     "correct": false
     }
    ],
    "standards": [
@@ -7267,10 +7257,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A = {1}, B = {1}",
-     "correct": true
-    },
-    {
      "text": "A = {1}, B = ∅",
      "correct": false
     },
@@ -7281,6 +7267,10 @@
     {
      "text": "A = ∅, B = {1}",
      "correct": false
+    },
+    {
+     "text": "A = {1}, B = {1}",
+     "correct": true
     }
    ],
    "standards": [
@@ -7306,12 +7296,12 @@
      "correct": false
     },
     {
-     "text": "A = {1}, B = {2}",
-     "correct": true
-    },
-    {
      "text": "A = ∅, B = ∅",
      "correct": false
+    },
+    {
+     "text": "A = {1}, B = {2}",
+     "correct": true
     },
     {
      "text": "A = {1, 2}, B = {2}",
@@ -7337,16 +7327,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: set_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A = {1}, B = {1}",
+     "correct": true
+    },
+    {
      "text": "A = {2}, B = {3}",
      "correct": false
     },
     {
      "text": "A = ∅, B = {2}",
      "correct": false
-    },
-    {
-     "text": "A = {1}, B = {1}",
-     "correct": true
     },
     {
      "text": "A = {1}, B = {2}",
@@ -7731,12 +7721,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "20",
-     "correct": false
-    },
-    {
      "text": "21",
      "correct": true
+    },
+    {
+     "text": "20",
+     "correct": false
     },
     {
      "text": "22",
@@ -7873,12 +7863,12 @@
      "correct": false
     },
     {
-     "text": "31",
-     "correct": true
-    },
-    {
      "text": "32",
      "correct": false
+    },
+    {
+     "text": "31",
+     "correct": true
     },
     {
      "text": "33",
@@ -7942,16 +7932,16 @@
      "correct": false
     },
     {
-     "text": "57",
-     "correct": true
-    },
-    {
      "text": "58",
      "correct": false
     },
     {
      "text": "59",
      "correct": false
+    },
+    {
+     "text": "57",
+     "correct": true
     }
    ],
    "standards": [
@@ -7990,12 +7980,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "52",
-     "correct": false
-    },
-    {
      "text": "53",
      "correct": true
+    },
+    {
+     "text": "52",
+     "correct": false
     },
     {
      "text": "54",
@@ -8063,16 +8053,16 @@
      "correct": false
     },
     {
-     "text": "22",
-     "correct": true
-    },
-    {
      "text": "23",
      "correct": false
     },
     {
      "text": "24",
      "correct": false
+    },
+    {
+     "text": "22",
+     "correct": true
     }
    ],
    "standards": [
@@ -8094,12 +8084,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "18",
-     "correct": false
-    },
-    {
      "text": "19",
      "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
     },
     {
      "text": "20",
@@ -8150,16 +8140,16 @@
      "correct": false
     },
     {
-     "text": "28",
-     "correct": true
-    },
-    {
      "text": "29",
      "correct": false
     },
     {
      "text": "30",
      "correct": false
+    },
+    {
+     "text": "28",
+     "correct": true
     }
    ],
    "standards": [
@@ -8237,12 +8227,12 @@
      "correct": false
     },
     {
-     "text": "36",
-     "correct": true
-    },
-    {
      "text": "37",
      "correct": false
+    },
+    {
+     "text": "36",
+     "correct": true
     },
     {
      "text": "38",
@@ -8306,16 +8296,16 @@
      "correct": false
     },
     {
-     "text": "58",
-     "correct": true
-    },
-    {
      "text": "59",
      "correct": false
     },
     {
      "text": "60",
      "correct": false
+    },
+    {
+     "text": "58",
+     "correct": true
     }
    ],
    "standards": [
@@ -8410,12 +8400,12 @@
      "correct": false
     },
     {
-     "text": "24",
-     "correct": true
-    },
-    {
      "text": "25",
      "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
     },
     {
      "text": "26",
@@ -8462,16 +8452,16 @@
      "correct": false
     },
     {
-     "text": "35",
-     "correct": true
-    },
-    {
      "text": "36",
      "correct": false
     },
     {
      "text": "37",
      "correct": false
+    },
+    {
+     "text": "35",
+     "correct": true
     }
    ],
    "standards": [
@@ -8514,16 +8504,16 @@
      "correct": false
     },
     {
-     "text": "41",
-     "correct": true
-    },
-    {
      "text": "42",
      "correct": false
     },
     {
      "text": "43",
      "correct": false
+    },
+    {
+     "text": "41",
+     "correct": true
     }
    ],
    "standards": [

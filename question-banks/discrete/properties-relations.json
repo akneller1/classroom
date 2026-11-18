@@ -170,6 +170,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_words). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "\"x is shorter than y\"",
+     "correct": true
+    },
+    {
      "text": "\"x is the same height as y\"",
      "correct": false
     },
@@ -180,10 +184,6 @@
     {
      "text": "\"x is taller than y\"",
      "correct": false
-    },
-    {
-     "text": "\"x is shorter than y\"",
-     "correct": true
     }
    ],
    "standards": [
@@ -205,10 +205,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_words). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "\"x is a multiple of y\"",
-     "correct": true
-    },
-    {
      "text": "\"x divides y\"",
      "correct": false
     },
@@ -219,6 +215,10 @@
     {
      "text": "\"x does not divide y\"",
      "correct": false
+    },
+    {
+     "text": "\"x is a multiple of y\"",
+     "correct": true
     }
    ],
    "standards": [
@@ -244,16 +244,16 @@
      "correct": false
     },
     {
+     "text": "\"x > y\"",
+     "correct": true
+    },
+    {
      "text": "\"x ≠ y\"",
      "correct": false
     },
     {
      "text": "\"x ≥ y\"",
      "correct": false
-    },
-    {
-     "text": "\"x > y\"",
-     "correct": true
     }
    ],
    "standards": [
@@ -274,12 +274,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: relation_member). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only (3, 1) is in R",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "No",
@@ -308,16 +308,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: relation_member). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "The question is meaningless for infinite sets",
      "correct": false
     },
     {
      "text": "Only (3, 1) is in R",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "No",
@@ -414,16 +414,16 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "The question is meaningless for infinite sets",
      "correct": false
     },
     {
      "text": "No",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -707,16 +707,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: read_digraph). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2",
+     "correct": true
+    },
+    {
      "text": "3",
      "correct": false
     },
     {
      "text": "5",
      "correct": false
-    },
-    {
-     "text": "2",
-     "correct": true
     },
     {
      "text": "1",
@@ -977,12 +977,12 @@
      "correct": false
     },
     {
-     "text": "a relation",
-     "correct": false
-    },
-    {
      "text": "symmetric",
      "correct": true
+    },
+    {
+     "text": "a relation",
+     "correct": false
     },
     {
      "text": "reflexive",
@@ -1011,12 +1011,12 @@
      "correct": false
     },
     {
-     "text": "Reflexivity",
-     "correct": false
-    },
-    {
      "text": "Transitivity",
      "correct": true
+    },
+    {
+     "text": "Reflexivity",
+     "correct": false
     },
     {
      "text": "Antisymmetry",
@@ -1153,12 +1153,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Only if R is also symmetric",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "Only if R is also symmetric",
+     "correct": false
     },
     {
      "text": "Cannot be determined from a finite list",
@@ -1232,12 +1232,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined from a finite list",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "Only if R is also symmetric",
@@ -1313,12 +1313,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined from a finite list",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Yes",
@@ -1392,16 +1392,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
     },
     {
      "text": "Cannot be determined from a finite list",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if R is also symmetric",
@@ -1552,12 +1552,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Cannot be determined from a finite list",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "Cannot be determined from a finite list",
+     "correct": false
     },
     {
      "text": "No",
@@ -1672,16 +1672,16 @@
      "correct": false
     },
     {
-     "text": "transitive only",
-     "correct": true
-    },
-    {
      "text": "symmetric only",
      "correct": false
     },
     {
      "text": "reflexive and transitive only",
      "correct": false
+    },
+    {
+     "text": "transitive only",
+     "correct": true
     }
    ],
    "standards": [
@@ -1707,16 +1707,16 @@
      "correct": false
     },
     {
-     "text": "reflexive and transitive only",
-     "correct": true
-    },
-    {
      "text": "transitive only",
      "correct": false
     },
     {
      "text": "symmetric only",
      "correct": false
+    },
+    {
+     "text": "reflexive and transitive only",
+     "correct": true
     }
    ],
    "standards": [
@@ -1738,16 +1738,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_properties). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "symmetric only",
+     "correct": true
+    },
+    {
      "text": "reflexive and transitive only",
      "correct": false
     },
     {
      "text": "transitive only",
      "correct": false
-    },
-    {
-     "text": "symmetric only",
-     "correct": true
     },
     {
      "text": "reflexive, symmetric and transitive",
@@ -1816,12 +1816,12 @@
      "correct": false
     },
     {
-     "text": "transitive only",
-     "correct": false
-    },
-    {
      "text": "symmetric only",
      "correct": true
+    },
+    {
+     "text": "transitive only",
+     "correct": false
     }
    ],
    "standards": [
@@ -2067,12 +2067,12 @@
      "correct": false
     },
     {
-     "text": "Only for positive numbers",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Only for positive numbers",
+     "correct": false
     }
    ],
    "standards": [
@@ -2152,7 +2152,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-003",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "cp2",
    "format": "short-answer",
    "prompt": "How many ordered pairs are in A × A if |A| = 4?",
@@ -2161,7 +2161,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "4·4 = 16."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2169,7 +2169,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-003",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "cp1",
    "format": "short-answer",
    "prompt": "How many different relations are there on a set with 3 elements?",
@@ -2178,7 +2178,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "|A × A| = 9 pairs, each in or out: 2⁹."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2186,7 +2186,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-004",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "cp1",
    "format": "short-answer",
    "prompt": "How many reflexive relations are there on a set with 3 elements?",
@@ -2195,7 +2195,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "Forced or paired choices leave 6 free decisions: 2⁶."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2203,7 +2203,7 @@
   },
   {
    "id": "dm-rl-s04-honors-003",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "honors",
    "format": "short-answer",
    "prompt": "How many symmetric relations are there on a set with 3 elements?",
@@ -2212,7 +2212,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "Forced or paired choices leave 6 free decisions: 2⁶."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2220,7 +2220,7 @@
   },
   {
    "id": "dm-rl-s04-honors-004",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "honors",
    "format": "short-answer",
    "prompt": "How many relations on a 3‑element set are both reflexive and symmetric?",
@@ -2229,7 +2229,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "3 loops forced; 3 pairs {a, b} chosen together: 2³."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2237,7 +2237,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-004",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-01",
    "level": "cp2",
    "format": "short-answer",
    "prompt": "How many ordered pairs are in the relation \"a = b\" on A = {1, 2, 3, 4, 5}?",
@@ -2246,7 +2246,7 @@
     "A relation is a subset of A × A; count the free choices.",
     "Only (a, a) pairs."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_relations). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -2505,16 +2505,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_partition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "No: some element of A is in no block",
      "correct": false
     },
     {
      "text": "No: some element is in two blocks",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "No: it contains the empty set",
@@ -2543,12 +2543,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": false
-    },
-    {
      "text": "No: some element is in two blocks",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     },
     {
      "text": "No: a partition must have exactly two blocks",
@@ -2581,12 +2581,12 @@
      "correct": false
     },
     {
-     "text": "No: a partition must have exactly two blocks",
-     "correct": false
-    },
-    {
      "text": "No: some element of A is in no block",
      "correct": true
+    },
+    {
+     "text": "No: a partition must have exactly two blocks",
+     "correct": false
     }
    ],
    "standards": [
@@ -2615,12 +2615,12 @@
      "correct": false
     },
     {
-     "text": "No: some element is in two blocks",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No: some element is in two blocks",
+     "correct": false
     }
    ],
    "standards": [
@@ -2649,12 +2649,12 @@
      "correct": false
     },
     {
-     "text": "No: it contains the empty set",
-     "correct": true
-    },
-    {
      "text": "No: a partition must have exactly two blocks",
      "correct": false
+    },
+    {
+     "text": "No: it contains the empty set",
+     "correct": true
     }
    ],
    "standards": [
@@ -2675,12 +2675,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_partition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No: some element is in two blocks",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No: some element is in two blocks",
+     "correct": false
     },
     {
      "text": "No: it contains the empty set",
@@ -2717,12 +2717,12 @@
      "correct": false
     },
     {
-     "text": "No: some element of A is in no block",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No: some element of A is in no block",
+     "correct": false
     }
    ],
    "standards": [
@@ -2743,10 +2743,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_partition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No: some element of A is in no block",
      "correct": false
     },
@@ -2757,6 +2753,10 @@
     {
      "text": "No: it contains the empty set",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -3172,12 +3172,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "Only on finite sets",
@@ -3203,10 +3203,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only on finite sets",
      "correct": false
     },
@@ -3217,6 +3213,10 @@
     {
      "text": "Yes, because it is symmetric",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -3273,12 +3273,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes, because it is symmetric",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes, because it is symmetric",
+     "correct": false
     },
     {
      "text": "Only on finite sets",
@@ -3312,12 +3312,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No",
+     "correct": false
     },
     {
      "text": "Yes, because it is symmetric",
@@ -3347,12 +3347,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only on finite sets",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Yes, because it is symmetric",
@@ -3413,10 +3413,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes, because it is symmetric",
      "correct": false
     },
@@ -3427,6 +3423,10 @@
     {
      "text": "Only on finite sets",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -3489,12 +3489,12 @@
      "correct": false
     },
     {
-     "text": "Only if A is infinite",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Only if A is infinite",
+     "correct": false
     }
    ],
    "standards": [
@@ -3835,8 +3835,7 @@
    "answer": "{1, 3, 5}",
    "solutionSteps": [
     "[x] = {y ∈ A | x R y}.",
-    "[3] = {1, 3, 5}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "[3] = {1, 3, 5}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_class). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3845,12 +3844,12 @@
      "correct": false
     },
     {
-     "text": "{1, 3}",
-     "correct": false
-    },
-    {
      "text": "{1, 3, 5}",
      "correct": true
+    },
+    {
+     "text": "{1, 3}",
+     "correct": false
     },
     {
      "text": "{3, 5}",
@@ -3871,8 +3870,7 @@
    "answer": "{1, 4}",
    "solutionSteps": [
     "[x] = {y ∈ A | x R y}.",
-    "[4] = {1, 4}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "[4] = {1, 4}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_class). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3907,8 +3905,7 @@
    "answer": "{3, 7, 11}",
    "solutionSteps": [
     "[x] = {y ∈ A | x R y}.",
-    "[7] = {3, 7, 11}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "[7] = {3, 7, 11}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_class). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3917,16 +3914,16 @@
      "correct": false
     },
     {
+     "text": "{3, 7, 11}",
+     "correct": true
+    },
+    {
      "text": "{3, 7, 11, 12}",
      "correct": false
     },
     {
      "text": "{7, 11}",
      "correct": false
-    },
-    {
-     "text": "{3, 7, 11}",
-     "correct": true
     }
    ],
    "standards": [
@@ -3960,18 +3957,17 @@
    "answer": "{-3, 3}",
    "solutionSteps": [
     "[x] = {y ∈ A | x R y}.",
-    "[-3] = {-3, 3}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "[-3] = {-3, 3}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_class). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{-3, 3}",
-     "correct": true
-    },
-    {
      "text": "{-3, 3, 4}",
      "correct": false
+    },
+    {
+     "text": "{-3, 3}",
+     "correct": true
     },
     {
      "text": "{-3}",
@@ -3996,8 +3992,7 @@
    "answer": "{5, 10}",
    "solutionSteps": [
     "[x] = {y ∈ A | x R y}.",
-    "[10] = {5, 10}",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "[10] = {5, 10}"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_class). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4010,12 +4005,12 @@
      "correct": false
     },
     {
-     "text": "{10}",
-     "correct": false
-    },
-    {
      "text": "{5, 10}",
      "correct": true
+    },
+    {
+     "text": "{10}",
+     "correct": false
     }
    ],
    "standards": [
@@ -4032,15 +4027,10 @@
    "answer": "5",
    "solutionSteps": [
     "Identify what the class of an element looks like and count.",
-    "Answer: 5",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 5"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: class_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "5",
-     "correct": true
-    },
     {
      "text": "4",
      "correct": false
@@ -4052,6 +4042,10 @@
     {
      "text": "10",
      "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
     }
    ],
    "standards": [
@@ -4102,15 +4096,10 @@
    "answer": "15",
    "solutionSteps": [
     "Identify what the class of an element looks like and count.",
-    "Answer: 15",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 15"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: class_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "15",
-     "correct": true
-    },
     {
      "text": "14",
      "correct": false
@@ -4122,6 +4111,10 @@
     {
      "text": "30",
      "correct": false
+    },
+    {
+     "text": "15",
+     "correct": true
     }
    ],
    "standards": [
@@ -4199,12 +4192,12 @@
      "correct": false
     },
     {
-     "text": "{{1, 2}, {4}, {3}}",
-     "correct": true
-    },
-    {
      "text": "{{1}, {2}, {3}, {4}}",
      "correct": false
+    },
+    {
+     "text": "{{1, 2}, {4}, {3}}",
+     "correct": true
     },
     {
      "text": "{{1, 2, 3, 4}}",
@@ -4230,16 +4223,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: list_classes). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "{{0, 2}, {1, 3}}",
+     "correct": true
+    },
+    {
      "text": "{{0, 2}}",
      "correct": false
     },
     {
      "text": "{{0}, {1}, {2}, {3}}",
      "correct": false
-    },
-    {
-     "text": "{{0, 2}, {1, 3}}",
-     "correct": true
     },
     {
      "text": "{{0, 1, 2, 3}}",
@@ -4502,16 +4495,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{(1, 3), (2, 1), (3, 2), (4, 1), (4, 2), (4, 4)}",
-     "correct": true
-    },
-    {
      "text": "{(1, 1), (1, 3), (2, 1), (2, 2), (3, 2), (3, 3), (3, 4), (4, 1), (4, 2), (4, 3)}",
      "correct": false
     },
     {
      "text": "{(1, 2), (1, 4), (2, 3), (2, 4), (3, 1), (4, 4)}",
      "correct": false
+    },
+    {
+     "text": "{(1, 3), (2, 1), (3, 2), (4, 1), (4, 2), (4, 4)}",
+     "correct": true
     },
     {
      "text": "{(2, 1), (3, 2), (4, 1), (4, 2), (4, 4)}",
@@ -4545,12 +4538,12 @@
      "correct": false
     },
     {
-     "text": "{(1, 2), (1, 3), (1, 4), (2, 2), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)}",
-     "correct": true
-    },
-    {
      "text": "{(1, 1), (1, 2), (1, 4), (2, 4), (3, 2), (3, 4), (4, 2)}",
      "correct": false
+    },
+    {
+     "text": "{(1, 2), (1, 3), (1, 4), (2, 2), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)}",
+     "correct": true
     }
    ],
    "standards": [
@@ -4607,16 +4600,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{(1, 1), (1, 4), (2, 1), (2, 2), (2, 4), (3, 1), (3, 3), (4, 2)}",
-     "correct": true
-    },
-    {
      "text": "{(1, 4), (2, 1), (2, 3), (3, 1), (3, 2), (3, 4), (4, 3), (4, 4)}",
      "correct": false
     },
     {
      "text": "{(1, 1), (1, 2), (1, 3), (2, 2), (2, 4), (3, 3), (4, 1), (4, 2)}",
      "correct": false
+    },
+    {
+     "text": "{(1, 1), (1, 4), (2, 1), (2, 2), (2, 4), (3, 1), (3, 3), (4, 2)}",
+     "correct": true
     },
     {
      "text": "{(1, 4), (2, 1), (2, 2), (2, 4), (3, 1), (3, 3), (4, 2)}",
@@ -4642,10 +4635,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "{(1, 1), (1, 2), (1, 4), (2, 1), (4, 1), (4, 2), (4, 3)}",
-     "correct": true
-    },
-    {
      "text": "{(1, 2), (1, 4), (2, 1), (4, 1), (4, 2), (4, 3)}",
      "correct": false
     },
@@ -4656,6 +4645,10 @@
     {
      "text": "{(1, 3), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3), (4, 2), (4, 3), (4, 4)}",
      "correct": false
+    },
+    {
+     "text": "{(1, 1), (1, 2), (1, 4), (2, 1), (4, 1), (4, 2), (4, 3)}",
+     "correct": true
     }
    ],
    "standards": [
@@ -4677,16 +4670,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "{(1, 3), (2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}",
+     "correct": true
+    },
+    {
      "text": "{(1, 1), (1, 3), (2, 1), (2, 3), (2, 4), (4, 1), (4, 2)}",
      "correct": false
     },
     {
      "text": "{(1, 2), (1, 4), (2, 2), (3, 1), (3, 2), (3, 3), (3, 4), (4, 3), (4, 4)}",
      "correct": false
-    },
-    {
-     "text": "{(1, 3), (2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}",
-     "correct": true
     },
     {
      "text": "{(2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}",
@@ -4751,12 +4744,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "5",
@@ -4782,10 +4775,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "2",
      "correct": false
     },
@@ -4796,6 +4785,10 @@
     {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -4817,12 +4810,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "0",
-     "correct": false
-    },
-    {
      "text": "1",
      "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
     },
     {
      "text": "3",
@@ -4856,12 +4849,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "3",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "4",
@@ -4887,16 +4880,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
     },
     {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
     },
     {
      "text": "1",
@@ -4926,12 +4919,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
     },
     {
      "text": "1",
@@ -4961,16 +4954,16 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": true
-    },
-    {
      "text": "1",
      "correct": false
     },
     {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
     }
    ],
    "standards": [
@@ -4992,16 +4985,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2",
+     "correct": true
+    },
+    {
      "text": "4",
      "correct": false
     },
     {
      "text": "3",
      "correct": false
-    },
-    {
-     "text": "2",
-     "correct": true
     },
     {
      "text": "1",
@@ -5027,12 +5020,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "4",
@@ -5066,12 +5059,12 @@
      "correct": false
     },
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     },
     {
      "text": "5",
@@ -5105,12 +5098,12 @@
      "correct": false
     },
     {
-     "text": "1",
-     "correct": false
-    },
-    {
      "text": "2",
      "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
     }
    ],
    "standards": [
@@ -5140,12 +5133,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
     }
    ],
    "standards": [
@@ -5167,16 +5160,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2",
+     "correct": true
+    },
+    {
      "text": "3",
      "correct": false
     },
     {
      "text": "4",
      "correct": false
-    },
-    {
-     "text": "2",
-     "correct": true
     },
     {
      "text": "1",
@@ -5202,12 +5195,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     },
     {
      "text": "6",
@@ -5272,16 +5265,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "Only if R is also reflexive",
      "correct": false
     },
     {
      "text": "No",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "Cannot be determined from a list",
@@ -5350,12 +5343,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     }
    ],
    "standards": [
@@ -5416,12 +5409,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only if R is also reflexive",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Yes",
@@ -5455,12 +5448,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -5486,16 +5479,16 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No",
      "correct": false
     },
     {
      "text": "Cannot be determined from a list",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -5575,7 +5568,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-007",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), (3, 1), (3, 2), (3, 4), (4, 1), (4, 2), (4, 3)}. Is R symmetric?",
@@ -5584,12 +5577,8 @@
     "Check the definition of symmetric on every relevant pair.",
     "Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
-    {
-     "text": "Yes",
-     "correct": true
-    },
     {
      "text": "Cannot be determined from a list",
      "correct": false
@@ -5597,6 +5586,10 @@
     {
      "text": "Only if R is also reflexive",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "No",
@@ -5610,7 +5603,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-008",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(2, 1), (2, 2), (2, 3), (4, 1), (4, 3), (4, 4)}. Is R transitive?",
@@ -5619,7 +5612,7 @@
     "Check the definition of transitive on every relevant pair.",
     "Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "No",
@@ -5630,12 +5623,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only if R is also reflexive",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -5645,7 +5638,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-009",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (3, 3), (3, 4), (4, 2)}. Is R reflexive?",
@@ -5654,15 +5647,15 @@
     "Check the definition of reflexive on every relevant pair.",
     "No: (1, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
-    {
-     "text": "Yes",
-     "correct": false
-    },
     {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     },
     {
      "text": "Only if R is also reflexive",
@@ -5680,7 +5673,7 @@
   },
   {
    "id": "dm-rl-s04-cp2-010",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(2, 1), (2, 2), (2, 4), (3, 3)}. Is R symmetric?",
@@ -5689,7 +5682,7 @@
     "Check the definition of symmetric on every relevant pair.",
     "No: (2, 1) ∈ R but (1, 2) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Cannot be determined from a list",
@@ -5715,7 +5708,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-007",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 3), (1, 4), (2, 2), (2, 4), (3, 1), (3, 3), (4, 1), (4, 2)}. Is R symmetric?",
@@ -5724,8 +5717,12 @@
     "Check the definition of symmetric on every relevant pair.",
     "Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
+    {
+     "text": "Yes",
+     "correct": true
+    },
     {
      "text": "Cannot be determined from a list",
      "correct": false
@@ -5733,10 +5730,6 @@
     {
      "text": "No",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "Only if R is also reflexive",
@@ -5750,7 +5743,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-008",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 1), (2, 4), (3, 2), (4, 1)}. Is R transitive?",
@@ -5759,15 +5752,15 @@
     "Check the definition of transitive on every relevant pair.",
     "No: (2, 4), (4, 1) ∈ R but (2, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
-    {
-     "text": "No",
-     "correct": true
-    },
     {
      "text": "Cannot be determined from a list",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Yes",
@@ -5785,7 +5778,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-009",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 3), (3, 3), (3, 4), (4, 2), (4, 3)}. Is R reflexive?",
@@ -5794,7 +5787,7 @@
     "Check the definition of reflexive on every relevant pair.",
     "No: (1, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Only if R is also reflexive",
@@ -5805,12 +5798,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     }
    ],
    "standards": [
@@ -5820,7 +5813,7 @@
   },
   {
    "id": "dm-rl-s04-cp1-010",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (3, 3), (3, 4), (4, 2), (4, 3)}. Is R symmetric?",
@@ -5829,15 +5822,11 @@
     "Check the definition of symmetric on every relevant pair.",
     "No: (1, 2) ∈ R but (2, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Only if R is also reflexive",
      "correct": false
-    },
-    {
-     "text": "No",
-     "correct": true
     },
     {
      "text": "Yes",
@@ -5846,6 +5835,10 @@
     {
      "text": "Cannot be determined from a list",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -5855,7 +5848,7 @@
   },
   {
    "id": "dm-rl-s04-honors-007",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 3), (1, 4), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (4, 1), (4, 2)}. Is R symmetric?",
@@ -5864,8 +5857,12 @@
     "Check the definition of symmetric on every relevant pair.",
     "Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
+    {
+     "text": "Yes",
+     "correct": true
+    },
     {
      "text": "Cannot be determined from a list",
      "correct": false
@@ -5877,10 +5874,6 @@
     {
      "text": "No",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -5890,7 +5883,7 @@
   },
   {
    "id": "dm-rl-s04-honors-008",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (2, 2), (2, 3), (2, 4), (4, 1)}. Is R transitive?",
@@ -5899,15 +5892,15 @@
     "Check the definition of transitive on every relevant pair.",
     "No: (1, 2), (2, 3) ∈ R but (1, 3) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
-    {
-     "text": "No",
-     "correct": true
-    },
     {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Cannot be determined from a list",
@@ -5925,7 +5918,7 @@
   },
   {
    "id": "dm-rl-s04-honors-009",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 1), (1, 2), (1, 3), (2, 1), (2, 4), (3, 1), (3, 2)}. Is R reflexive?",
@@ -5934,7 +5927,7 @@
     "Check the definition of reflexive on every relevant pair.",
     "No: (2, 2) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Only if R is also reflexive",
@@ -5960,7 +5953,7 @@
   },
   {
    "id": "dm-rl-s04-honors-010",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (1, 3), (3, 2), (4, 1)}. Is R symmetric?",
@@ -5969,7 +5962,7 @@
     "Check the definition of symmetric on every relevant pair.",
     "No: (1, 2) ∈ R but (2, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Yes",
@@ -5980,12 +5973,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined from a list",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -6007,10 +6000,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "10",
-     "correct": true
-    },
-    {
      "text": "16",
      "correct": false
     },
@@ -6021,6 +6010,10 @@
     {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
     }
    ],
    "standards": [
@@ -6081,16 +6074,16 @@
      "correct": false
     },
     {
+     "text": "10",
+     "correct": true
+    },
+    {
      "text": "6",
      "correct": false
     },
     {
      "text": "16",
      "correct": false
-    },
-    {
-     "text": "10",
-     "correct": true
     }
    ],
    "standards": [
@@ -6147,16 +6140,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "10",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "16",
      "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
     },
     {
      "text": "6",
@@ -6289,12 +6282,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes, because it contains loops",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if A is infinite",
@@ -6327,12 +6320,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -6353,6 +6346,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No",
+     "correct": true
+    },
+    {
      "text": "Yes",
      "correct": false
     },
@@ -6363,10 +6360,6 @@
     {
      "text": "Yes, because it contains loops",
      "correct": false
-    },
-    {
-     "text": "No",
-     "correct": true
     }
    ],
    "standards": [
@@ -6455,12 +6448,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if A is infinite",
@@ -6523,16 +6516,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
     },
     {
      "text": "Yes, because it contains loops",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if A is infinite",
@@ -7018,7 +7011,7 @@
   },
   {
    "id": "dm-rl-s04-honors-011",
-   "skillId": "properties-relations-skill-04",
+   "skillId": "properties-relations-skill-03",
    "level": "honors",
    "format": "short-answer",
    "prompt": "How many symmetric relations are on a 2‑element set {a, b}?\nMorgan's work:\n  A × A has 4 pairs, so 2⁴ = 16.\n(a) Identify the error and explain why it is wrong. (b) Correct the work and give the correct answer.",
@@ -7029,7 +7022,7 @@
     "2³ = 8.",
     "Correct answer: 8"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_symmetric_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_symmetric_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -7074,75 +7067,6 @@
    ]
   },
   {
-   "id": "dm-rl-s04-cp2-011",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 3}?",
-   "answer": "6",
-   "solutionSteps": [
-    "C(3, 2) + 3.",
-    "Answer: 6"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "5",
-     "correct": false
-    },
-    {
-     "text": "6",
-     "correct": true
-    },
-    {
-     "text": "7",
-     "correct": false
-    },
-    {
-     "text": "8",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-012",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many relations are there on a set with 1 elements?",
-   "answer": "2",
-   "solutionSteps": [
-    "2^(1²).",
-    "Answer: 2"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-013",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many reflexive relations are there on a set with 2 elements?",
-   "answer": "4",
-   "solutionSteps": [
-    "Loops forced; the other pairs are free.",
-    "Answer: 4"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
    "id": "dm-rl-s02-cp2-012",
    "skillId": "properties-relations-skill-02",
    "level": "cp2",
@@ -7152,58 +7076,6 @@
    "solutionSteps": [
     "One loop per element.",
     "Answer: 9"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-014",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 5}?",
-   "answer": "15",
-   "solutionSteps": [
-    "C(5, 2) + 5.",
-    "Answer: 15"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "14",
-     "correct": false
-    },
-    {
-     "text": "15",
-     "correct": true
-    },
-    {
-     "text": "16",
-     "correct": false
-    },
-    {
-     "text": "17",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-015",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many relations are there on a set with 3 elements?",
-   "answer": "512",
-   "solutionSteps": [
-    "2^(3²).",
-    "Answer: 512"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7229,75 +7101,6 @@
    ]
   },
   {
-   "id": "dm-rl-s04-cp2-016",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 6}?",
-   "answer": "21",
-   "solutionSteps": [
-    "C(6, 2) + 6.",
-    "Answer: 21"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-017",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many relations are there on a set with 4 elements?",
-   "answer": "65536",
-   "solutionSteps": [
-    "2^(4²).",
-    "Answer: 65536"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "65535",
-     "correct": false
-    },
-    {
-     "text": "65536",
-     "correct": true
-    },
-    {
-     "text": "65537",
-     "correct": false
-    },
-    {
-     "text": "65538",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-018",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many reflexive relations are there on a set with 4 elements?",
-   "answer": "4096",
-   "solutionSteps": [
-    "Loops forced; the other pairs are free.",
-    "Answer: 4096"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
    "id": "dm-rl-s02-cp2-013",
    "skillId": "properties-relations-skill-02",
    "level": "cp2",
@@ -7309,93 +7112,6 @@
     "Answer: 11"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-019",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 7}?",
-   "answer": "28",
-   "solutionSteps": [
-    "C(7, 2) + 7.",
-    "Answer: 28"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "27",
-     "correct": false
-    },
-    {
-     "text": "28",
-     "correct": true
-    },
-    {
-     "text": "29",
-     "correct": false
-    },
-    {
-     "text": "30",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-020",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many relations are there on a set with 5 elements?",
-   "answer": "33554432",
-   "solutionSteps": [
-    "2^(5²).",
-    "Answer: 33554432"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-021",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many reflexive relations are there on a set with 5 elements?",
-   "answer": "1048576",
-   "solutionSteps": [
-    "Loops forced; the other pairs are free.",
-    "Answer: 1048576"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "1048575",
-     "correct": false
-    },
-    {
-     "text": "1048576",
-     "correct": true
-    },
-    {
-     "text": "1048577",
-     "correct": false
-    },
-    {
-     "text": "1048578",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -7419,35 +7135,18 @@
      "correct": false
     },
     {
-     "text": "12",
-     "correct": true
-    },
-    {
      "text": "13",
      "correct": false
     },
     {
      "text": "14",
      "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
     }
    ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-022",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 8}?",
-   "answer": "36",
-   "solutionSteps": [
-    "C(8, 2) + 8.",
-    "Answer: 36"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -7471,41 +7170,6 @@
    ]
   },
   {
-   "id": "dm-rl-s04-cp2-023",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 9}?",
-   "answer": "45",
-   "solutionSteps": [
-    "C(9, 2) + 9.",
-    "Answer: 45"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "44",
-     "correct": false
-    },
-    {
-     "text": "45",
-     "correct": true
-    },
-    {
-     "text": "46",
-     "correct": false
-    },
-    {
-     "text": "47",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
    "id": "dm-rl-s02-cp2-016",
    "skillId": "properties-relations-skill-02",
    "level": "cp2",
@@ -7519,210 +7183,19 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "13",
-     "correct": false
-    },
-    {
      "text": "14",
      "correct": true
     },
     {
-     "text": "15",
+     "text": "13",
      "correct": false
     },
-    {
-     "text": "16",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-024",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 10}?",
-   "answer": "55",
-   "solutionSteps": [
-    "C(10, 2) + 10.",
-    "Answer: 55"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp2-025",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 11}?",
-   "answer": "66",
-   "solutionSteps": [
-    "C(11, 2) + 11.",
-    "Answer: 66"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "65",
-     "correct": false
-    },
-    {
-     "text": "66",
-     "correct": true
-    },
-    {
-     "text": "67",
-     "correct": false
-    },
-    {
-     "text": "68",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-012",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 4}?",
-   "answer": "6",
-   "solutionSteps": [
-    "C(4, 2).",
-    "Answer: 6"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-013",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many reflexive relations are there on a set with 1 elements?",
-   "answer": "1",
-   "solutionSteps": [
-    "Loops forced; the other pairs are free.",
-    "Answer: 1"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "0",
-     "correct": false
-    },
-    {
-     "text": "1",
-     "correct": true
-    },
-    {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "3",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-014",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many relations are there on a set with 2 elements?",
-   "answer": "16",
-   "solutionSteps": [
-    "2^(2²).",
-    "Answer: 16"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
     {
      "text": "15",
      "correct": false
     },
     {
      "text": "16",
-     "correct": true
-    },
-    {
-     "text": "17",
-     "correct": false
-    },
-    {
-     "text": "18",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-015",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 6}?",
-   "answer": "15",
-   "solutionSteps": [
-    "C(6, 2).",
-    "Answer: 15"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-016",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 7}?",
-   "answer": "21",
-   "solutionSteps": [
-    "C(7, 2).",
-    "Answer: 21"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "20",
-     "correct": false
-    },
-    {
-     "text": "21",
-     "correct": true
-    },
-    {
-     "text": "22",
-     "correct": false
-    },
-    {
-     "text": "23",
      "correct": false
     }
    ],
@@ -7749,68 +7222,16 @@
      "correct": false
     },
     {
-     "text": "9",
-     "correct": true
-    },
-    {
      "text": "10",
      "correct": false
     },
     {
      "text": "11",
      "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-017",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 8}?",
-   "answer": "28",
-   "solutionSteps": [
-    "C(8, 2).",
-    "Answer: 28"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-018",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 9}?",
-   "answer": "36",
-   "solutionSteps": [
-    "C(9, 2).",
-    "Answer: 36"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "35",
-     "correct": false
     },
     {
-     "text": "36",
+     "text": "9",
      "correct": true
-    },
-    {
-     "text": "37",
-     "correct": false
-    },
-    {
-     "text": "38",
-     "correct": false
     }
    ],
    "standards": [
@@ -7832,12 +7253,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "10",
-     "correct": false
-    },
-    {
      "text": "11",
      "correct": true
+    },
+    {
+     "text": "10",
+     "correct": false
     },
     {
      "text": "12",
@@ -7848,23 +7269,6 @@
      "correct": false
     }
    ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-019",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 10}?",
-   "answer": "45",
-   "solutionSteps": [
-    "C(10, 2).",
-    "Answer: 45"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -7882,93 +7286,6 @@
     "Answer: 12"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-020",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 11}?",
-   "answer": "55",
-   "solutionSteps": [
-    "C(11, 2).",
-    "Answer: 55"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "54",
-     "correct": false
-    },
-    {
-     "text": "55",
-     "correct": true
-    },
-    {
-     "text": "56",
-     "correct": false
-    },
-    {
-     "text": "57",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-021",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 12}?",
-   "answer": "66",
-   "solutionSteps": [
-    "C(12, 2).",
-    "Answer: 66"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-cp1-022",
-   "skillId": "properties-relations-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 12}?",
-   "answer": "78",
-   "solutionSteps": [
-    "C(12, 2) + 12.",
-    "Answer: 78"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "77",
-     "correct": false
-    },
-    {
-     "text": "78",
-     "correct": true
-    },
-    {
-     "text": "79",
-     "correct": false
-    },
-    {
-     "text": "80",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -8009,16 +7326,16 @@
      "correct": false
     },
     {
-     "text": "17",
-     "correct": true
-    },
-    {
      "text": "18",
      "correct": false
     },
     {
      "text": "19",
      "correct": false
+    },
+    {
+     "text": "17",
+     "correct": true
     }
    ],
    "standards": [
@@ -8078,68 +7395,16 @@
      "correct": false
     },
     {
-     "text": "16",
-     "correct": true
-    },
-    {
      "text": "17",
      "correct": false
     },
     {
      "text": "18",
      "correct": false
-    }
-   ],
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-honors-012",
-   "skillId": "properties-relations-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many ordered pairs are in the relation a < b on {1, 2, ..., 13}?",
-   "answer": "78",
-   "solutionSteps": [
-    "C(13, 2).",
-    "Answer: 78"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.7",
-    "DM.RELATIONS"
-   ]
-  },
-  {
-   "id": "dm-rl-s04-honors-013",
-   "skillId": "properties-relations-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many ordered pairs are in the relation a ≤ b on {1, 2, ..., 13}?",
-   "answer": "91",
-   "solutionSteps": [
-    "C(13, 2) + 13.",
-    "Answer: 91"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "90",
-     "correct": false
     },
     {
-     "text": "91",
+     "text": "16",
      "correct": true
-    },
-    {
-     "text": "92",
-     "correct": false
-    },
-    {
-     "text": "93",
-     "correct": false
     }
    ],
    "standards": [
@@ -8161,12 +7426,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "17",
-     "correct": false
-    },
-    {
      "text": "18",
      "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
     },
     {
      "text": "19",
@@ -8181,6 +7446,1518 @@
     "MP.7",
     "DM.RELATIONS"
    ]
+  },
+  {
+   "id": "dm-rl-s04-cp2-i01",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m − n is divisible by 5. Is R reflexive?",
+   "answer": "Yes: m − m = 0 = 5·0",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: m − m = 0 = 5·0.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: m − m = 0 = 5·0",
+     "correct": false
+    },
+    {
+     "text": "Yes: m − m = 0 = 5·0",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i02",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m − n is divisible by 5. Is R symmetric?",
+   "answer": "Yes: if m − n = 5k then n − m = 5(−k)",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: if m − n = 5k then n − m = 5(−k).",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: if m − n = 5k then n − m = 5(−k)",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    },
+    {
+     "text": "Yes: if m − n = 5k then n − m = 5(−k)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i03",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m − n is divisible by 5. Is R transitive?",
+   "answer": "Yes: if m − n = 5j and n − p = 5k then m − p = 5(j + k)",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: if m − n = 5j and n − p = 5k then m − p = 5(j + k).",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: if m − n = 5j and n − p = 5k then m − p = 5(j + k)",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    },
+    {
+     "text": "Yes: if m − n = 5j and n − p = 5k then m − p = 5(j + k)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i04",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m + n is odd. Is R reflexive?",
+   "answer": "No: 1 + 1 = 2 is even, so 1 is not related to 1",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "One counterexample is enough: 1 + 1 = 2 is even, so 1 is not related to 1.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: 1 + 1 = 2 is even, so 1 is not related to 1",
+     "correct": true
+    },
+    {
+     "text": "Yes: 1 + 1 = 2 is even, so 1 is not related to 1",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i05",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m + n is odd. Is R symmetric?",
+   "answer": "Yes: m + n = n + m",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: m + n = n + m.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: m + n = n + m",
+     "correct": true
+    },
+    {
+     "text": "No: m + n = n + m",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i06",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m + n is odd. Is R transitive?",
+   "answer": "No: 1 R 2 and 2 R 3, but 1 + 3 = 4 is even",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "One counterexample is enough: 1 R 2 and 2 R 3, but 1 + 3 = 4 is even.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 1 R 2 and 2 R 3, but 1 + 3 = 4 is even",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: 1 R 2 and 2 R 3, but 1 + 3 = 4 is even",
+     "correct": true
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i07",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺ (positive integers): a R b if and only if a divides b. Is R reflexive?",
+   "answer": "Yes: a = a·1",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: a = a·1.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: a = a·1",
+     "correct": false
+    },
+    {
+     "text": "Yes: a = a·1",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i08",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺ (positive integers): a R b if and only if a divides b. Is R symmetric?",
+   "answer": "No: 2 | 4 but 4 ∤ 2",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "One counterexample is enough: 2 | 4 but 4 ∤ 2.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 2 | 4 but 4 ∤ 2",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    },
+    {
+     "text": "No: 2 | 4 but 4 ∤ 2",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i09",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺ (positive integers): a R b if and only if a divides b. Is R transitive?",
+   "answer": "Yes: if b = aj and c = bk then c = a(jk)",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: if b = aj and c = bk then c = a(jk).",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: if b = aj and c = bk then c = a(jk)",
+     "correct": false
+    },
+    {
+     "text": "Yes: if b = aj and c = bk then c = a(jk)",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i10",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if |x − y| ≤ 1. Is R reflexive?",
+   "answer": "Yes: |x − x| = 0 ≤ 1",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: |x − x| = 0 ≤ 1.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: |x − x| = 0 ≤ 1",
+     "correct": true
+    },
+    {
+     "text": "No: |x − x| = 0 ≤ 1",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i11",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if |x − y| ≤ 1. Is R symmetric?",
+   "answer": "Yes: |x − y| = |y − x|",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: |x − y| = |y − x|.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: |x − y| = |y − x|",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: |x − y| = |y − x|",
+     "correct": true
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i12",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if |x − y| ≤ 1. Is R transitive?",
+   "answer": "No: 0 R 1 and 1 R 2, but |0 − 2| = 2 > 1",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "One counterexample is enough: 0 R 1 and 1 R 2, but |0 − 2| = 2 > 1.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 0 R 1 and 1 R 2, but |0 − 2| = 2 > 1",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: 0 R 1 and 1 R 2, but |0 − 2| = 2 > 1",
+     "correct": true
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i13",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x < y. Is R reflexive?",
+   "answer": "No: 1 < 1 is false",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "One counterexample is enough: 1 < 1 is false.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 1 < 1 is false",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    },
+    {
+     "text": "No: 1 < 1 is false",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i14",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x < y. Is R symmetric?",
+   "answer": "No: 1 < 2 but 2 < 1 is false",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "One counterexample is enough: 1 < 2 but 2 < 1 is false.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 1 < 2 but 2 < 1 is false",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    },
+    {
+     "text": "No: 1 < 2 but 2 < 1 is false",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i15",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x < y. Is R transitive?",
+   "answer": "Yes: x < y and y < z give x < z",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: x < y and y < z give x < z.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: x < y and y < z give x < z",
+     "correct": false
+    },
+    {
+     "text": "Yes: x < y and y < z give x < z",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i16",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if x² = y². Is R reflexive?",
+   "answer": "Yes: x² = x²",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: x² = x².",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: x² = x²",
+     "correct": true
+    },
+    {
+     "text": "No: x² = x²",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i17",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if x² = y². Is R symmetric?",
+   "answer": "Yes: x² = y² gives y² = x²",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: x² = y² gives y² = x².",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: x² = y² gives y² = x²",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: x² = y² gives y² = x²",
+     "correct": true
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i18",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if x² = y². Is R transitive?",
+   "answer": "Yes: x² = y² and y² = z² give x² = z²",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: x² = y² and y² = z² give x² = z².",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: x² = y² and y² = z² give x² = z²",
+     "correct": true
+    },
+    {
+     "text": "No: x² = y² and y² = z² give x² = z²",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i19",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if xy ≥ 0. Is R reflexive?",
+   "answer": "Yes: x·x = x² ≥ 0",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: x·x = x² ≥ 0.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: x·x = x² ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    },
+    {
+     "text": "Yes: x·x = x² ≥ 0",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i20",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if xy ≥ 0. Is R symmetric?",
+   "answer": "Yes: xy = yx",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: xy = yx.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: xy = yx",
+     "correct": false
+    },
+    {
+     "text": "Yes: xy = yx",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i21",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: x R y if and only if xy ≥ 0. Is R transitive?",
+   "answer": "No: −1 R 0 and 0 R 1, but (−1)(1) = −1 < 0",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "One counterexample is enough: −1 R 0 and 0 R 1, but (−1)(1) = −1 < 0.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: −1 R 0 and 0 R 1, but (−1)(1) = −1 < 0",
+     "correct": false
+    },
+    {
+     "text": "No: −1 R 0 and 0 R 1, but (−1)(1) = −1 < 0",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i22",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x − y is an integer. Is R reflexive?",
+   "answer": "Yes: x − x = 0 is an integer",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: x − x = 0 is an integer.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: x − x = 0 is an integer",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: x − x = 0 is an integer",
+     "correct": true
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i23",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x − y is an integer. Is R symmetric?",
+   "answer": "Yes: y − x = −(x − y) is an integer",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: y − x = −(x − y) is an integer.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: y − x = −(x − y) is an integer",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: y − x = −(x − y) is an integer",
+     "correct": true
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i24",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x − y is an integer. Is R transitive?",
+   "answer": "Yes: (x − y) + (y − z) = x − z is a sum of integers",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: (x − y) + (y − z) = x − z is a sum of integers.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: (x − y) + (y − z) = x − z is a sum of integers",
+     "correct": true
+    },
+    {
+     "text": "No: (x − y) + (y − z) = x − z is a sum of integers",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i25",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m ≤ n + 1. Is R reflexive?",
+   "answer": "Yes: m ≤ m + 1",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: m ≤ m + 1.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: m ≤ m + 1",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    },
+    {
+     "text": "Yes: m ≤ m + 1",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i26",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m ≤ n + 1. Is R symmetric?",
+   "answer": "No: 0 R 5 (0 ≤ 6) but 5 ≤ 0 + 1 is false",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "One counterexample is enough: 0 R 5 (0 ≤ 6) but 5 ≤ 0 + 1 is false.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 0 R 5 (0 ≤ 6) but 5 ≤ 0 + 1 is false",
+     "correct": false
+    },
+    {
+     "text": "No: 0 R 5 (0 ≤ 6) but 5 ≤ 0 + 1 is false",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i27",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ: m R n if and only if m ≤ n + 1. Is R transitive?",
+   "answer": "No: 2 R 1 (2 ≤ 2) and 1 R 0 (1 ≤ 1), but 2 ≤ 0 + 1 is false",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "One counterexample is enough: 2 R 1 (2 ≤ 2) and 1 R 0 (1 ≤ 1), but 2 ≤ 0 + 1 is false.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 2 R 1 (2 ≤ 2) and 1 R 0 (1 ≤ 1), but 2 ≤ 0 + 1 is false",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    },
+    {
+     "text": "No: 2 R 1 (2 ≤ 2) and 1 R 0 (1 ≤ 1), but 2 ≤ 0 + 1 is false",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i28",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on the power set of ℕ: A R B if and only if A ⊆ B. Is R reflexive?",
+   "answer": "Yes: every set is a subset of itself",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: every set is a subset of itself.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: every set is a subset of itself",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: every set is a subset of itself",
+     "correct": true
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i29",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on the power set of ℕ: A R B if and only if A ⊆ B. Is R symmetric?",
+   "answer": "No: ∅ ⊆ {1} but {1} ⊄ ∅",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "One counterexample is enough: ∅ ⊆ {1} but {1} ⊄ ∅.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: ∅ ⊆ {1} but {1} ⊄ ∅",
+     "correct": true
+    },
+    {
+     "text": "Yes: ∅ ⊆ {1} but {1} ⊄ ∅",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i30",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on the power set of ℕ: A R B if and only if A ⊆ B. Is R transitive?",
+   "answer": "Yes: A ⊆ B and B ⊆ C give A ⊆ C",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: A ⊆ B and B ⊆ C give A ⊆ C.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: A ⊆ B and B ⊆ C give A ⊆ C",
+     "correct": true
+    },
+    {
+     "text": "No: A ⊆ B and B ⊆ C give A ⊆ C",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i31",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺: m R n if and only if mn is a perfect square (m, n ≥ 1). Is R reflexive?",
+   "answer": "Yes: m·m = m² is a square",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "It holds for every element: m·m = m² is a square.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: m·m = m² is a square",
+     "correct": false
+    },
+    {
+     "text": "Yes: m·m = m² is a square",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i32",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺: m R n if and only if mn is a perfect square (m, n ≥ 1). Is R symmetric?",
+   "answer": "Yes: mn = nm",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: mn = nm.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: mn = nm",
+     "correct": false
+    },
+    {
+     "text": "Yes: mn = nm",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i33",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℤ⁺: m R n if and only if mn is a perfect square (m, n ≥ 1). Is R transitive?",
+   "answer": "Yes: if mn = a² and np = b² then mp·n² = (ab)², so mp is a square",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "It holds for every element: if mn = a² and np = b² then mp·n² = (ab)², so mp is a square.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "No: if mn = a² and np = b² then mp·n² = (ab)², so mp is a square",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    },
+    {
+     "text": "Yes: if mn = a² and np = b² then mp·n² = (ab)², so mp is a square",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i34",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x + y = 0. Is R reflexive?",
+   "answer": "No: 1 + 1 ≠ 0",
+   "solutionSteps": [
+    "Reflexive means every element is related to itself; check a general element, not a few examples.",
+    "One counterexample is enough: 1 + 1 ≠ 0.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 1 + 1 ≠ 0",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: 1 + 1 ≠ 0",
+     "correct": true
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i35",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x + y = 0. Is R symmetric?",
+   "answer": "Yes: x + y = y + x",
+   "solutionSteps": [
+    "Symmetric means a R b always forces b R a; check a general pair.",
+    "It holds for every element: x + y = y + x.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: x + y = y + x",
+     "correct": true
+    },
+    {
+     "text": "No: x + y = y + x",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: it fails for some element because the set is infinite",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i36",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R on ℝ: x R y if and only if x + y = 0. Is R transitive?",
+   "answer": "No: 1 R −1 and −1 R 1, but 1 + 1 ≠ 0",
+   "solutionSteps": [
+    "Transitive means a R b and b R c always force a R c; check a general chain.",
+    "One counterexample is enough: 1 R −1 and −1 R 1, but 1 + 1 ≠ 0.",
+    "On an infinite set you cannot check every case one by one, so a property needs a general argument and fails with a single counterexample."
+   ],
+   "options": [
+    {
+     "text": "Yes: 1 R −1 and −1 R 1, but 1 + 1 ≠ 0",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided on an infinite set",
+     "correct": false
+    },
+    {
+     "text": "No: 1 R −1 and −1 R 1, but 1 + 1 ≠ 0",
+     "correct": true
+    },
+    {
+     "text": "Yes: it holds for 1, 2 and 3, so it holds for every element",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_property). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i37",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if 7 divides a − b. Is (23, 2) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = 23 and b = 2 into the rule.",
+    "a − b = 21; 7 divides it.",
+    "So (23, 2) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i38",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if 7 divides a − b. Is (−5, 9) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = −5 and b = 9 into the rule.",
+    "a − b = −14; 7 divides it.",
+    "So (−5, 9) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i39",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if 7 divides a − b. Is (40, −2) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = 40 and b = −2 into the rule.",
+    "a − b = 42; 7 divides it.",
+    "So (40, −2) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i40",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if 7 divides a − b. Is (100, 2) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = 100 and b = 2 into the rule.",
+    "a − b = 98; 7 divides it.",
+    "So (100, 2) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i41",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if a² + b² is even. Is (17, −3) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = 17 and b = −3 into the rule.",
+    "a² + b² = 289 + 9 = 298, which is even.",
+    "So (17, −3) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i42",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if a² + b² is even. Is (8, 11) ∈ R? Answer Yes or No.",
+   "answer": "No",
+   "solutionSteps": [
+    "Substitute a = 8 and b = 11 into the rule.",
+    "a² + b² = 64 + 121 = 185, which is odd.",
+    "So (8, 11) is not in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i43",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if a² + b² is even. Is (−6, 40) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = −6 and b = 40 into the rule.",
+    "a² + b² = 36 + 1600 = 1636, which is even.",
+    "So (−6, 40) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i44",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "R on ℤ: a R b if and only if a² + b² is even. Is (15, 0) ∈ R? Answer Yes or No.",
+   "answer": "No",
+   "solutionSteps": [
+    "Substitute a = 15 and b = 0 into the rule.",
+    "a² + b² = 225 + 0 = 225, which is odd.",
+    "So (15, 0) is not in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i45",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (5.5, 3.5) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = 5.5 and b = 3.5 into the rule.",
+    "x − y = 2.0, which is at least 2.",
+    "So (5.5, 3.5) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp2-i46",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (2, 1) ∈ R? Answer Yes or No.",
+   "answer": "No",
+   "solutionSteps": [
+    "Substitute a = 2 and b = 1 into the rule.",
+    "x − y = 1, which is less than 2.",
+    "So (2, 1) is not in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-cp1-i47",
+   "skillId": "properties-relations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (−1, −4) ∈ R? Answer Yes or No.",
+   "answer": "Yes",
+   "solutionSteps": [
+    "Substitute a = −1 and b = −4 into the rule.",
+    "x − y = 3, which is at least 2.",
+    "So (−1, −4) is in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
+  },
+  {
+   "id": "dm-rl-s04-honors-i48",
+   "skillId": "properties-relations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (0, 0) ∈ R? Answer Yes or No.",
+   "answer": "No",
+   "solutionSteps": [
+    "Substitute a = 0 and b = 0 into the rule.",
+    "x − y = 0, which is less than 2.",
+    "So (0, 0) is not in R."
+   ],
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
   }
  ]
 }

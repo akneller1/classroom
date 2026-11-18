@@ -179,12 +179,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_formula). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a_n = 2n + 1",
-     "correct": true
-    },
-    {
      "text": "a_n = 3n",
      "correct": false
+    },
+    {
+     "text": "a_n = 2n + 1",
+     "correct": true
     },
     {
      "text": "a_n = 2n − 1",
@@ -215,16 +215,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_formula). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a_n = n²",
-     "correct": true
-    },
-    {
      "text": "a_n = 3n − 2",
      "correct": false
     },
     {
      "text": "a_n = 2ⁿ",
      "correct": false
+    },
+    {
+     "text": "a_n = n²",
+     "correct": true
     },
     {
      "text": "a_n = n² + 1",
@@ -255,16 +255,16 @@
      "correct": false
     },
     {
+     "text": "a_n = (−1)ⁿ",
+     "correct": true
+    },
+    {
      "text": "a_n = 1 − n",
      "correct": false
     },
     {
      "text": "a_n = (−1)ⁿ⁺¹",
      "correct": false
-    },
-    {
-     "text": "a_n = (−1)ⁿ",
-     "correct": true
     }
    ],
    "standards": [
@@ -287,16 +287,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_formula). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a_n = n/(n + 1)",
-     "correct": true
-    },
-    {
      "text": "a_n = n/(n + 2)",
      "correct": false
     },
     {
      "text": "a_n = (n + 1)/n",
      "correct": false
+    },
+    {
+     "text": "a_n = n/(n + 1)",
+     "correct": true
     },
     {
      "text": "a_n = 1/(n + 1)",
@@ -327,12 +327,12 @@
      "correct": false
     },
     {
-     "text": "a_n = 2n − 2",
-     "correct": false
-    },
-    {
      "text": "a_n = n² − n",
      "correct": true
+    },
+    {
+     "text": "a_n = 2n − 2",
+     "correct": false
     },
     {
      "text": "a_n = n² − 1",
@@ -390,8 +390,7 @@
    "answer": "15",
    "solutionSteps": [
     "Write out each term and add (Σ) or multiply (Π).",
-    "Value: 15",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Value: 15"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sigma_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -445,8 +444,7 @@
    "answer": "31",
    "solutionSteps": [
     "Write out each term and add (Σ) or multiply (Π).",
-    "Value: 31",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Value: 31"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sigma_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -482,11 +480,14 @@
    "answer": "3",
    "solutionSteps": [
     "Write out each term and add (Σ) or multiply (Π).",
-    "Value: 3",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Value: 3"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sigma_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "3",
+     "correct": true
+    },
     {
      "text": "2",
      "correct": false
@@ -494,10 +495,6 @@
     {
      "text": "4",
      "correct": false
-    },
-    {
-     "text": "3",
-     "correct": true
     },
     {
      "text": "6",
@@ -537,8 +534,7 @@
    "answer": "4/5",
    "solutionSteps": [
     "Write out each term and add (Σ) or multiply (Π).",
-    "Value: 4/5",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Value: 4/5"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sigma_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -547,16 +543,16 @@
      "correct": false
     },
     {
-     "text": "4/5",
-     "correct": true
-    },
-    {
      "text": "2/3",
      "correct": false
     },
     {
      "text": "1",
      "correct": false
+    },
+    {
+     "text": "4/5",
+     "correct": true
     }
    ],
    "standards": [
@@ -838,8 +834,7 @@
    "answer": "79",
    "solutionSteps": [
     "a_n = a₁ + (n − 1)d.",
-    "a_20 = 3 + 19(4) = 79",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "a_20 = 3 + 19(4) = 79"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: arith_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -848,12 +843,12 @@
      "correct": false
     },
     {
-     "text": "79",
-     "correct": true
-    },
-    {
      "text": "78",
      "correct": false
+    },
+    {
+     "text": "79",
+     "correct": true
     },
     {
      "text": "80",
@@ -875,8 +870,7 @@
    "answer": "8",
    "solutionSteps": [
     "a_n = a₁ + (n − 1)d.",
-    "a_15 = 50 + 14(-3) = 8",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "a_15 = 50 + 14(-3) = 8"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: arith_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -912,8 +906,7 @@
    "answer": "173",
    "solutionSteps": [
     "a_n = a₁ + (n − 1)d.",
-    "a_31 = -7 + 30(6) = 173",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "a_31 = -7 + 30(6) = 173"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: arith_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -922,12 +915,12 @@
      "correct": false
     },
     {
-     "text": "173",
-     "correct": true
-    },
-    {
      "text": "174",
      "correct": false
+    },
+    {
+     "text": "173",
+     "correct": true
     },
     {
      "text": "172",
@@ -949,8 +942,7 @@
    "answer": "19",
    "solutionSteps": [
     "a_n = a₁ + (n − 1)d.",
-    "a_12 = 2.5 + 11(1.5) = 19",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "a_12 = 2.5 + 11(1.5) = 19"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: arith_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -959,16 +951,16 @@
      "correct": false
     },
     {
-     "text": "19",
-     "correct": true
-    },
-    {
      "text": "20",
      "correct": false
     },
     {
      "text": "38",
      "correct": false
+    },
+    {
+     "text": "19",
+     "correct": true
     }
    ],
    "standards": [
@@ -1207,16 +1199,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Arithmetic, d = 5",
+     "correct": true
+    },
+    {
      "text": "Neither",
      "correct": false
     },
     {
      "text": "Geometric, r = 2",
      "correct": false
-    },
-    {
-     "text": "Arithmetic, d = 5",
-     "correct": true
     },
     {
      "text": "Geometric, r = 1/2",
@@ -1279,6 +1271,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Neither",
+     "correct": true
+    },
+    {
      "text": "Arithmetic, d = 5",
      "correct": false
     },
@@ -1289,10 +1285,6 @@
     {
      "text": "Geometric, r = 2",
      "correct": false
-    },
-    {
-     "text": "Neither",
-     "correct": true
     }
    ],
    "standards": [
@@ -1315,12 +1307,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Geometric, r = 1/2",
-     "correct": true
-    },
-    {
      "text": "Arithmetic, d = 5",
      "correct": false
+    },
+    {
+     "text": "Geometric, r = 1/2",
+     "correct": true
     },
     {
      "text": "Geometric, r = 2",
@@ -1359,12 +1351,12 @@
      "correct": false
     },
     {
-     "text": "Neither",
-     "correct": false
-    },
-    {
      "text": "Both arithmetic (d = 0) and geometric (r = 1)",
      "correct": true
+    },
+    {
+     "text": "Neither",
+     "correct": false
     }
    ],
    "standards": [
@@ -1810,12 +1802,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "0",
-     "correct": false
-    },
-    {
      "text": "10",
      "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
     },
     {
      "text": "15",
@@ -1882,12 +1874,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "21",
-     "correct": false
-    },
-    {
      "text": "35",
      "correct": true
+    },
+    {
+     "text": "21",
+     "correct": false
     },
     {
      "text": "42",
@@ -1918,12 +1910,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "28",
-     "correct": true
-    },
-    {
      "text": "36",
      "correct": false
+    },
+    {
+     "text": "28",
+     "correct": true
     },
     {
      "text": "48",
@@ -1954,12 +1946,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "50",
-     "correct": false
-    },
-    {
      "text": "252",
      "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
     },
     {
      "text": "262",
@@ -1990,12 +1982,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "190",
-     "correct": true
-    },
-    {
      "text": "210",
      "correct": false
+    },
+    {
+     "text": "190",
+     "correct": true
     },
     {
      "text": "360",
@@ -2034,12 +2026,12 @@
      "correct": false
     },
     {
-     "text": "n − 1",
-     "correct": false
-    },
-    {
      "text": "n",
      "correct": true
+    },
+    {
+     "text": "n − 1",
+     "correct": false
     }
    ],
    "standards": [
@@ -2062,10 +2054,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: factorial_simplify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(n + 2)(n + 1)",
-     "correct": true
-    },
-    {
      "text": "(n + 2)!",
      "correct": false
     },
@@ -2076,6 +2064,10 @@
     {
      "text": "2",
      "correct": false
+    },
+    {
+     "text": "(n + 2)(n + 1)",
+     "correct": true
     }
    ],
    "standards": [
@@ -2102,12 +2094,12 @@
      "correct": false
     },
     {
-     "text": "n(n − 1)/2",
-     "correct": true
-    },
-    {
      "text": "n²/2",
      "correct": false
+    },
+    {
+     "text": "n(n − 1)/2",
+     "correct": true
     },
     {
      "text": "n(n − 1)",
@@ -2142,12 +2134,12 @@
      "correct": false
     },
     {
-     "text": "n + 1",
-     "correct": true
-    },
-    {
      "text": "n",
      "correct": false
+    },
+    {
+     "text": "n + 1",
+     "correct": true
     }
    ],
    "standards": [
@@ -2670,12 +2662,12 @@
      "correct": false
     },
     {
-     "text": "89",
-     "correct": true
-    },
-    {
      "text": "144",
      "correct": false
+    },
+    {
+     "text": "89",
+     "correct": true
     },
     {
      "text": "512",
@@ -2702,10 +2694,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_ratio). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "The golden ratio, about 1.618",
-     "correct": true
-    },
-    {
      "text": "1.5",
      "correct": false
     },
@@ -2716,6 +2704,10 @@
     {
      "text": "√2, about 1.414",
      "correct": false
+    },
+    {
+     "text": "The golden ratio, about 1.618",
+     "correct": true
     }
    ],
    "standards": [
@@ -2738,10 +2730,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "F_n and F_(n+1) are relatively prime",
-     "correct": true
-    },
-    {
      "text": "F_n is odd",
      "correct": false
     },
@@ -2752,6 +2740,10 @@
     {
      "text": "F_n < n²",
      "correct": false
+    },
+    {
+     "text": "F_n and F_(n+1) are relatively prime",
+     "correct": true
     }
    ],
    "standards": [
@@ -3219,16 +3211,16 @@
      "correct": false
     },
     {
-     "text": "a₁ = 1, a_n = 2a_(n−1) + 1",
-     "correct": true
-    },
-    {
      "text": "a₁ = 1, a_n = a_(n−1) + 2",
      "correct": false
     },
     {
      "text": "a₁ = 1, a_n = 3a_(n−1)",
      "correct": false
+    },
+    {
+     "text": "a₁ = 1, a_n = 2a_(n−1) + 1",
+     "correct": true
     }
    ],
    "standards": [
@@ -3251,6 +3243,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_recursion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "a₁ = 2, a_n = 2a_(n−1) + 1",
+     "correct": true
+    },
+    {
      "text": "a₁ = 2, a_n = 3a_(n−1) − 1",
      "correct": false
     },
@@ -3261,10 +3257,6 @@
     {
      "text": "a₁ = 2, a_n = a_(n−1) + 3",
      "correct": false
-    },
-    {
-     "text": "a₁ = 2, a_n = 2a_(n−1) + 1",
-     "correct": true
     }
    ],
    "standards": [
@@ -3287,12 +3279,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_recursion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a₁ = 1, a_n = n · a_(n−1)",
-     "correct": true
-    },
-    {
      "text": "a₁ = 1, a_n = (n − 1)a_(n−1)",
      "correct": false
+    },
+    {
+     "text": "a₁ = 1, a_n = n · a_(n−1)",
+     "correct": true
     },
     {
      "text": "a₁ = 1, a_n = 2a_(n−1) + 2",
@@ -3323,16 +3315,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: find_recursion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a₁ = a₂ = 1, a_n = a_(n−1) + 2a_(n−2)",
-     "correct": true
-    },
-    {
      "text": "a₁ = a₂ = 1, a_n = 2a_(n−1) + a_(n−2)",
      "correct": false
     },
     {
      "text": "a₁ = 1, a_n = 2a_(n−1) + 1",
      "correct": false
+    },
+    {
+     "text": "a₁ = a₂ = 1, a_n = a_(n−1) + 2a_(n−2)",
+     "correct": true
     },
     {
      "text": "a₁ = a₂ = 1, a_n = a_(n−1) + a_(n−2)",
@@ -3606,16 +3598,16 @@
      "correct": false
     },
     {
+     "text": "a_n = 4n + 3",
+     "correct": true
+    },
+    {
      "text": "a_n = 7 + 4n²",
      "correct": false
     },
     {
      "text": "a_n = 4n + 7",
      "correct": false
-    },
-    {
-     "text": "a_n = 4n + 3",
-     "correct": true
     }
    ],
    "standards": [
@@ -3674,12 +3666,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: iterate_formula). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a_n = n²",
-     "correct": true
-    },
-    {
      "text": "a_n = n² − 1",
      "correct": false
+    },
+    {
+     "text": "a_n = n²",
+     "correct": true
     },
     {
      "text": "a_n = 2n − 1",
@@ -3750,16 +3742,16 @@
      "correct": false
     },
     {
-     "text": "a_n = 2·3ⁿ − 1",
-     "correct": true
-    },
-    {
      "text": "a_n = 3ⁿ + 2",
      "correct": false
     },
     {
      "text": "a_n = 2·3ⁿ + 1",
      "correct": false
+    },
+    {
+     "text": "a_n = 2·3ⁿ − 1",
+     "correct": true
     }
    ],
    "standards": [
@@ -3782,16 +3774,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: iterate_formula). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "a_n = n(n + 1)(2n + 1)/6",
+     "correct": true
+    },
+    {
      "text": "a_n = n³",
      "correct": false
     },
     {
      "text": "a_n = n²(n + 1)/2",
      "correct": false
-    },
-    {
-     "text": "a_n = n(n + 1)(2n + 1)/6",
-     "correct": true
     },
     {
      "text": "a_n = (n(n + 1)/2)²",
@@ -4240,12 +4232,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "n = 1: 1 = 1(2)/2",
-     "correct": true
-    },
-    {
      "text": "n = k + 1",
      "correct": false
+    },
+    {
+     "text": "n = 1: 1 = 1(2)/2",
+     "correct": true
     },
     {
      "text": "n = 2",
@@ -4283,12 +4275,12 @@
      "correct": false
     },
     {
-     "text": "1 + 3 + ... + (2k − 1) = k²",
-     "correct": false
-    },
-    {
      "text": "1 + 3 + ... + (2k − 1) + (2k + 1) = (k + 1)²",
      "correct": true
+    },
+    {
+     "text": "1 + 3 + ... + (2k − 1) = k²",
+     "correct": false
     }
    ],
    "standards": [
@@ -4345,16 +4337,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_step_goal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2ᵏ⁺¹ > k + 1",
-     "correct": true
-    },
-    {
      "text": "2ᵏ > k",
      "correct": false
     },
     {
      "text": "2ᵏ + 1 > k + 1",
      "correct": false
+    },
+    {
+     "text": "2ᵏ⁺¹ > k + 1",
+     "correct": true
     },
     {
      "text": "n = 1: 2 > 1",
@@ -4384,16 +4376,16 @@
      "correct": false
     },
     {
-     "text": "n = 1: 2 > 1",
-     "correct": true
-    },
-    {
      "text": "n = 2",
      "correct": false
     },
     {
      "text": "n = k",
      "correct": false
+    },
+    {
+     "text": "n = 1: 2 > 1",
+     "correct": true
     }
    ],
    "standards": [
@@ -4415,6 +4407,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_step_goal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "3 | ((k + 1)³ − (k + 1))",
+     "correct": true
+    },
+    {
      "text": "3 | (k³ − k)",
      "correct": false
     },
@@ -4425,10 +4421,6 @@
     {
      "text": "n = 0: 3 | 0",
      "correct": false
-    },
-    {
-     "text": "3 | ((k + 1)³ − (k + 1))",
-     "correct": true
     }
    ],
    "standards": [
@@ -4493,12 +4485,12 @@
      "correct": false
     },
     {
-     "text": "(k + 1)! > 2ᵏ⁺¹",
-     "correct": true
-    },
-    {
      "text": "k! + 1 > 2ᵏ + 1",
      "correct": false
+    },
+    {
+     "text": "(k + 1)! > 2ᵏ⁺¹",
+     "correct": true
     }
    ],
    "standards": [
@@ -4520,16 +4512,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "n = 4: 24 > 16",
+     "correct": true
+    },
+    {
      "text": "n = k + 1",
      "correct": false
     },
     {
      "text": "n = 2",
      "correct": false
-    },
-    {
-     "text": "n = 4: 24 > 16",
-     "correct": true
     },
     {
      "text": "n = k",
@@ -4559,12 +4551,12 @@
      "correct": false
     },
     {
-     "text": "n = 0: 1 = 2 − 1",
-     "correct": false
-    },
-    {
      "text": "1 + 2 + ... + 2ᵏ + 2ᵏ⁺¹ = 2ᵏ⁺² − 1",
      "correct": true
+    },
+    {
+     "text": "n = 0: 1 = 2 − 1",
+     "correct": false
     },
     {
      "text": "1 + 2 + ... + 2ᵏ = 2ᵏ⁺¹ − 1",
@@ -4598,12 +4590,12 @@
      "correct": false
     },
     {
-     "text": "n = 1: 3 | 0",
-     "correct": false
-    },
-    {
      "text": "n = 0: 1 = 2 − 1",
      "correct": true
+    },
+    {
+     "text": "n = 1: 3 | 0",
+     "correct": false
     }
    ],
    "standards": [
@@ -4676,12 +4668,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_domain). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "All integers n",
-     "correct": false
-    },
-    {
      "text": "All integers n ≥ 1",
      "correct": true
+    },
+    {
+     "text": "All integers n",
+     "correct": false
     },
     {
      "text": "Only n = 1",
@@ -4715,12 +4707,12 @@
      "correct": false
     },
     {
-     "text": "All integers n ≥ 3",
-     "correct": true
-    },
-    {
      "text": "All integers n ≥ 1",
      "correct": false
+    },
+    {
+     "text": "All integers n ≥ 3",
+     "correct": true
     },
     {
      "text": "All integers n ≥ 4",
@@ -5018,12 +5010,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(k + 1)(k + 2)/2",
-     "correct": true
-    },
-    {
      "text": "(k + 1)(k + 1)/2",
      "correct": false
+    },
+    {
+     "text": "(k + 1)(k + 2)/2",
+     "correct": true
     },
     {
      "text": "k(k + 2)/2",
@@ -5053,10 +5045,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(k + 1)²",
-     "correct": true
-    },
-    {
      "text": "k² + 1",
      "correct": false
     },
@@ -5067,6 +5055,10 @@
     {
      "text": "(2k + 1)²",
      "correct": false
+    },
+    {
+     "text": "(k + 1)²",
+     "correct": true
     }
    ],
    "standards": [
@@ -5088,6 +5080,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "(k + 1)(k + 2)(2k + 3)/6",
+     "correct": true
+    },
+    {
      "text": "(k + 1)(k + 2)(2k + 1)/6",
      "correct": false
     },
@@ -5098,10 +5094,6 @@
     {
      "text": "k(k + 1)(2k + 3)/6",
      "correct": false
-    },
-    {
-     "text": "(k + 1)(k + 2)(2k + 3)/6",
-     "correct": true
     }
    ],
    "standards": [
@@ -5123,16 +5115,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "(k + 1)(k + 2)(k + 3)/3",
+     "correct": true
+    },
+    {
      "text": "(k + 1)²(k + 2)/3",
      "correct": false
     },
     {
      "text": "(k + 1)(k + 2)(k + 2)/3",
      "correct": false
-    },
-    {
-     "text": "(k + 1)(k + 2)(k + 3)/3",
-     "correct": true
     },
     {
      "text": "k(k + 1)(k + 3)/3",
@@ -5162,16 +5154,16 @@
      "correct": false
     },
     {
+     "text": "(k + 1)/(k + 2)",
+     "correct": true
+    },
+    {
      "text": "k/(k + 2)",
      "correct": false
     },
     {
      "text": "(k + 1)/(k + 1)",
      "correct": false
-    },
-    {
-     "text": "(k + 1)/(k + 2)",
-     "correct": true
     }
    ],
    "standards": [
@@ -5197,16 +5189,16 @@
      "correct": false
     },
     {
+     "text": "5ᵏ⁺¹ − 1 = 5(5ᵏ − 1) + 4",
+     "correct": true
+    },
+    {
      "text": "5ᵏ⁺¹ − 1 = 5ᵏ − 1 + 4",
      "correct": false
     },
     {
      "text": "5ᵏ⁺¹ − 1 = (5ᵏ − 1) + 5",
      "correct": false
-    },
-    {
-     "text": "5ᵏ⁺¹ − 1 = 5(5ᵏ − 1) + 4",
-     "correct": true
     }
    ],
    "standards": [
@@ -5232,12 +5224,12 @@
      "correct": false
     },
     {
-     "text": "4ᵏ⁺¹ − 1 = 4(4ᵏ − 1) + 3",
-     "correct": true
-    },
-    {
      "text": "4ᵏ⁺¹ − 1 = 4ᵏ − 1 + 3",
      "correct": false
+    },
+    {
+     "text": "4ᵏ⁺¹ − 1 = 4(4ᵏ − 1) + 3",
+     "correct": true
     },
     {
      "text": "4ᵏ⁺¹ − 1 = 4(4ᵏ − 1) + 4",
@@ -5271,12 +5263,12 @@
      "correct": false
     },
     {
-     "text": "(k + 1)³ − (k + 1) = k³ − k + 1",
-     "correct": false
-    },
-    {
      "text": "(k + 1)³ − (k + 1) = (k³ − k) + 3k(k + 1)",
      "correct": true
+    },
+    {
+     "text": "(k + 1)³ − (k + 1) = k³ − k + 1",
+     "correct": false
     }
    ],
    "standards": [
@@ -5302,16 +5294,16 @@
      "correct": false
     },
     {
-     "text": "2³ᵏ⁺³ − 1 = 8(2³ᵏ − 1) + 7",
-     "correct": true
-    },
-    {
      "text": "2³ᵏ⁺³ − 1 = 3(2³ᵏ − 1) + 7",
      "correct": false
     },
     {
      "text": "2³ᵏ⁺³ − 1 = 2³ᵏ − 1 + 7",
      "correct": false
+    },
+    {
+     "text": "2³ᵏ⁺³ − 1 = 8(2³ᵏ − 1) + 7",
+     "correct": true
     }
    ],
    "standards": [
@@ -5616,11 +5608,14 @@
    "answer": "81",
    "solutionSteps": [
     "Substitute into the pattern rule.",
-    "Answer: 81",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 81"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: figurate). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "81",
+     "correct": true
+    },
     {
      "text": "82",
      "correct": false
@@ -5632,10 +5627,6 @@
     {
      "text": "80",
      "correct": false
-    },
-    {
-     "text": "81",
-     "correct": true
     }
    ],
    "standards": [
@@ -5669,11 +5660,14 @@
    "answer": "120",
    "solutionSteps": [
     "Substitute into the pattern rule.",
-    "Answer: 120",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Answer: 120"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: figurate). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "120",
+     "correct": true
+    },
     {
      "text": "121",
      "correct": false
@@ -5685,10 +5679,6 @@
     {
      "text": "119",
      "correct": false
-    },
-    {
-     "text": "120",
-     "correct": true
     }
    ],
    "standards": [
@@ -5850,12 +5840,12 @@
      "correct": false
     },
     {
-     "text": "Square",
-     "correct": false
-    },
-    {
      "text": "Regular pentagon",
      "correct": true
+    },
+    {
+     "text": "Square",
+     "correct": false
     },
     {
      "text": "Equilateral triangle",
@@ -5914,12 +5904,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tessellate). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "6",
-     "correct": false
-    },
-    {
      "text": "8",
      "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
     },
     {
      "text": "10",
@@ -5949,12 +5939,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tessellate). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3.3.3.3.6 (four triangles and a hexagon)",
-     "correct": true
-    },
-    {
      "text": "5.5.5 (three pentagons)",
      "correct": false
+    },
+    {
+     "text": "3.3.3.3.6 (four triangles and a hexagon)",
+     "correct": true
     },
     {
      "text": "4.4.6 (two squares and a hexagon)",
@@ -6223,16 +6213,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: nth_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "19",
+     "correct": true
+    },
+    {
      "text": "-19",
      "correct": false
     },
     {
      "text": "18",
      "correct": false
-    },
-    {
-     "text": "19",
-     "correct": true
     },
     {
      "text": "20",
@@ -6259,12 +6249,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: nth_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "-14",
-     "correct": false
-    },
-    {
      "text": "-12",
      "correct": true
+    },
+    {
+     "text": "-14",
+     "correct": false
     },
     {
      "text": "-11",
@@ -6295,12 +6285,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: arith_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "-193",
-     "correct": false
-    },
-    {
      "text": "-189",
      "correct": true
+    },
+    {
+     "text": "-193",
+     "correct": false
     },
     {
      "text": "-185",
@@ -6335,12 +6325,12 @@
      "correct": false
     },
     {
-     "text": "-15",
-     "correct": false
-    },
-    {
      "text": "20",
      "correct": true
+    },
+    {
+     "text": "-15",
+     "correct": false
     },
     {
      "text": "55",
@@ -6375,12 +6365,12 @@
      "correct": false
     },
     {
-     "text": "16",
-     "correct": false
-    },
-    {
      "text": "24",
      "correct": true
+    },
+    {
+     "text": "16",
+     "correct": false
     }
    ],
    "standards": [
@@ -6411,12 +6401,12 @@
      "correct": false
     },
     {
-     "text": "30",
-     "correct": true
-    },
-    {
      "text": "720",
      "correct": false
+    },
+    {
+     "text": "30",
+     "correct": true
     }
    ],
    "standards": [
@@ -6439,12 +6429,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: factorial_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "13",
-     "correct": false
-    },
-    {
      "text": "105",
      "correct": true
+    },
+    {
+     "text": "13",
+     "correct": false
     },
     {
      "text": "210",
@@ -6479,16 +6469,16 @@
      "correct": false
     },
     {
+     "text": "110",
+     "correct": true
+    },
+    {
      "text": "90",
      "correct": false
     },
     {
      "text": "100",
      "correct": false
-    },
-    {
-     "text": "110",
-     "correct": true
     }
    ],
    "standards": [
@@ -6515,16 +6505,16 @@
      "correct": false
     },
     {
-     "text": "21",
-     "correct": true
-    },
-    {
      "text": "26",
      "correct": false
     },
     {
      "text": "34",
      "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
     }
    ],
    "standards": [
@@ -6547,12 +6537,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "21",
-     "correct": false
-    },
-    {
      "text": "34",
      "correct": true
+    },
+    {
+     "text": "21",
+     "correct": false
     },
     {
      "text": "42",
@@ -6619,12 +6609,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "144",
-     "correct": false
-    },
-    {
      "text": "233",
      "correct": true
+    },
+    {
+     "text": "144",
+     "correct": false
     },
     {
      "text": "288",
@@ -6691,12 +6681,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1597",
-     "correct": false
-    },
-    {
      "text": "2584",
      "correct": true
+    },
+    {
+     "text": "1597",
+     "correct": false
     },
     {
      "text": "3194",
@@ -6807,12 +6797,12 @@
      "correct": false
     },
     {
-     "text": "256",
-     "correct": true
-    },
-    {
      "text": "448",
      "correct": false
+    },
+    {
+     "text": "256",
+     "correct": true
     }
    ],
    "standards": [
@@ -6835,16 +6825,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rec_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2",
+     "correct": true
+    },
+    {
      "text": "-1",
      "correct": false
     },
     {
      "text": "1",
      "correct": false
-    },
-    {
-     "text": "2",
-     "correct": true
     },
     {
      "text": "5",
@@ -6875,12 +6865,12 @@
      "correct": false
     },
     {
-     "text": "121",
-     "correct": false
-    },
-    {
      "text": "122",
      "correct": true
+    },
+    {
+     "text": "121",
+     "correct": false
     },
     {
      "text": "203",
@@ -6951,12 +6941,12 @@
      "correct": false
     },
     {
-     "text": "120",
-     "correct": true
-    },
-    {
      "text": "183",
      "correct": false
+    },
+    {
+     "text": "120",
+     "correct": true
     }
    ],
    "standards": [
@@ -6987,12 +6977,12 @@
      "correct": false
     },
     {
-     "text": "85",
-     "correct": true
-    },
-    {
      "text": "127",
      "correct": false
+    },
+    {
+     "text": "85",
+     "correct": true
     }
    ],
    "standards": [
@@ -7015,16 +7005,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rec_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "65537",
+     "correct": true
+    },
+    {
      "text": "257",
      "correct": false
     },
     {
      "text": "65536",
      "correct": false
-    },
-    {
-     "text": "65537",
-     "correct": true
     },
     {
      "text": "130817",
@@ -7055,12 +7045,12 @@
      "correct": false
     },
     {
-     "text": "1419",
-     "correct": false
-    },
-    {
      "text": "1420",
      "correct": true
+    },
+    {
+     "text": "1419",
+     "correct": false
     },
     {
      "text": "2637",
@@ -7091,16 +7081,16 @@
      "correct": false
     },
     {
-     "text": "19",
-     "correct": true
-    },
-    {
      "text": "20",
      "correct": false
     },
     {
      "text": "23",
      "correct": false
+    },
+    {
+     "text": "19",
+     "correct": true
     }
    ],
    "standards": [
@@ -7123,16 +7113,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rec_compute). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "81",
+     "correct": true
+    },
+    {
      "text": "12",
      "correct": false
     },
     {
      "text": "27",
      "correct": false
-    },
-    {
-     "text": "81",
-     "correct": true
     },
     {
      "text": "243",
@@ -7163,12 +7153,12 @@
      "correct": false
     },
     {
-     "text": "8",
-     "correct": false
-    },
-    {
      "text": "15",
      "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
     },
     {
      "text": "16",
@@ -7239,12 +7229,12 @@
      "correct": false
     },
     {
-     "text": "33",
-     "correct": true
-    },
-    {
      "text": "65",
      "correct": false
+    },
+    {
+     "text": "33",
+     "correct": true
     }
    ],
    "standards": [
@@ -7267,12 +7257,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rec_compute). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "12",
-     "correct": false
-    },
-    {
      "text": "20",
      "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
     },
     {
      "text": "25",
@@ -7343,12 +7333,12 @@
      "correct": false
     },
     {
-     "text": "39",
-     "correct": true
-    },
-    {
      "text": "40",
      "correct": false
+    },
+    {
+     "text": "39",
+     "correct": true
     },
     {
      "text": "44",
@@ -7379,12 +7369,12 @@
      "correct": false
     },
     {
-     "text": "n = k: 4k = 2k(k + 1)",
-     "correct": false
-    },
-    {
      "text": "n = 1: 4 = 2·1·2",
      "correct": true
+    },
+    {
+     "text": "n = k: 4k = 2k(k + 1)",
+     "correct": false
     },
     {
      "text": "n = 0: 0 = 0",
@@ -7414,12 +7404,12 @@
      "correct": false
     },
     {
-     "text": "n = 0: 5⁰ − 1 = 0, divisible by 4",
-     "correct": true
-    },
-    {
      "text": "n = 1: 5 − 1 = 4",
      "correct": false
+    },
+    {
+     "text": "n = 0: 5⁰ − 1 = 0, divisible by 4",
+     "correct": true
     },
     {
      "text": "n = 4: 624",
@@ -7445,10 +7435,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "n = 3: 9 ≥ 7",
-     "correct": true
-    },
-    {
      "text": "n = 1: 1 ≥ 3",
      "correct": false
     },
@@ -7459,6 +7445,10 @@
     {
      "text": "n = 0: 0 ≥ 1",
      "correct": false
+    },
+    {
+     "text": "n = 3: 9 ≥ 7",
+     "correct": true
     }
    ],
    "standards": [
@@ -7484,12 +7474,12 @@
      "correct": false
     },
     {
-     "text": "20",
-     "correct": true
-    },
-    {
      "text": "10",
      "correct": false
+    },
+    {
+     "text": "20",
+     "correct": true
     },
     {
      "text": "24",
@@ -7523,12 +7513,12 @@
      "correct": false
     },
     {
-     "text": "20",
-     "correct": true
-    },
-    {
      "text": "16",
      "correct": false
+    },
+    {
+     "text": "20",
+     "correct": true
     }
    ],
    "standards": [
@@ -7550,6 +7540,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Hand-authored; algebra re-checked numerically by verify_banks.py for k = 1..10 where an expression is given.",
    "options": [
     {
+     "text": "k + 1",
+     "correct": true
+    },
+    {
      "text": "1",
      "correct": false
     },
@@ -7560,10 +7554,6 @@
     {
      "text": "k(k + 1)/2",
      "correct": false
-    },
-    {
-     "text": "k + 1",
-     "correct": true
     }
    ],
    "standards": [
@@ -7659,16 +7649,16 @@
      "correct": false
     },
     {
-     "text": "2ᵏ⁺¹ > 2k",
-     "correct": true
-    },
-    {
      "text": "2ᵏ⁺¹ > k",
      "correct": false
     },
     {
      "text": "2ᵏ > 2k",
      "correct": false
+    },
+    {
+     "text": "2ᵏ⁺¹ > 2k",
+     "correct": true
     }
    ],
    "standards": [
@@ -7725,16 +7715,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_algebra). Hand-authored; algebra re-checked numerically by verify_banks.py for k = 1..10 where an expression is given.",
    "options": [
     {
+     "text": "((k + 1)(k + 2)/2)²",
+     "correct": true
+    },
+    {
      "text": "(k + 1)³(k + 2)/2",
      "correct": false
     },
     {
      "text": "(k(k + 2)/2)²",
      "correct": false
-    },
-    {
-     "text": "((k + 1)(k + 2)/2)²",
-     "correct": true
     },
     {
      "text": "((k + 1)(k + 1)/2)²",
@@ -7799,16 +7789,16 @@
      "correct": false
     },
     {
-     "text": "21",
-     "correct": true
-    },
-    {
      "text": "23",
      "correct": false
     },
     {
      "text": "30",
      "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
     }
    ],
    "standards": [
@@ -7834,12 +7824,12 @@
      "correct": false
     },
     {
-     "text": "9",
-     "correct": true
-    },
-    {
      "text": "12",
      "correct": false
+    },
+    {
+     "text": "9",
+     "correct": true
     },
     {
      "text": "18",
@@ -7873,12 +7863,12 @@
      "correct": false
     },
     {
-     "text": "144",
-     "correct": true
-    },
-    {
      "text": "169",
      "correct": false
+    },
+    {
+     "text": "144",
+     "correct": true
     }
    ],
    "standards": [
@@ -7904,12 +7894,12 @@
      "correct": false
     },
     {
-     "text": "15",
-     "correct": true
-    },
-    {
      "text": "18",
      "correct": false
+    },
+    {
+     "text": "15",
+     "correct": true
     },
     {
      "text": "24",
@@ -7939,16 +7929,16 @@
      "correct": false
     },
     {
-     "text": "360",
-     "correct": true
-    },
-    {
      "text": "390",
      "correct": false
     },
     {
      "text": "420",
      "correct": false
+    },
+    {
+     "text": "360",
+     "correct": true
     }
    ],
    "standards": [
@@ -7969,16 +7959,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strong_hypothesis). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Every integer j with 2 ≤ j ≤ k is a product of primes",
+     "correct": true
+    },
+    {
      "text": "Only k is a product of primes",
      "correct": false
     },
     {
      "text": "k + 1 is a product of primes",
      "correct": false
-    },
-    {
-     "text": "Every integer j with 2 ≤ j ≤ k is a product of primes",
-     "correct": true
     },
     {
      "text": "Every integer is prime",
@@ -8003,6 +7993,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_inequality). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "2ᵏ⁺¹ = 2·2ᵏ ≥ 2(k + 1) = 2k + 2 ≥ k + 2",
+     "correct": true
+    },
+    {
      "text": "2ᵏ⁺¹ = (k + 1)² ≥ k + 2",
      "correct": false
     },
@@ -8013,10 +8007,6 @@
     {
      "text": "2ᵏ⁺¹ ≥ k + 1 + 1, since 2ᵏ⁺¹ = 2ᵏ + 1",
      "correct": false
-    },
-    {
-     "text": "2ᵏ⁺¹ = 2·2ᵏ ≥ 2(k + 1) = 2k + 2 ≥ k + 2",
-     "correct": true
     }
    ],
    "standards": [
@@ -8041,16 +8031,16 @@
      "correct": false
     },
     {
+     "text": "8(8ᵏ − 1) + 7",
+     "correct": true
+    },
+    {
      "text": "7(8ᵏ − 1) + 1",
      "correct": false
     },
     {
      "text": "(8ᵏ − 1) + 8",
      "correct": false
-    },
-    {
-     "text": "8(8ᵏ − 1) + 7",
-     "correct": true
     }
    ],
    "standards": [

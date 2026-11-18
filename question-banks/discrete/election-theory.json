@@ -119,16 +119,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: first_place). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "13",
-     "correct": true
-    },
-    {
      "text": "14",
      "correct": false
     },
     {
      "text": "15",
      "correct": false
+    },
+    {
+     "text": "13",
+     "correct": true
     },
     {
      "text": "21",
@@ -154,12 +154,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: first_place). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "6",
-     "correct": true
-    },
-    {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
     },
     {
      "text": "8",
@@ -189,10 +189,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: first_place). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "7",
-     "correct": true
-    },
-    {
      "text": "8",
      "correct": false
     },
@@ -203,6 +199,10 @@
     {
      "text": "10",
      "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
     }
    ],
    "standards": [
@@ -249,11 +249,11 @@
    "skillId": "election-theory-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nIn a head‑to‑head comparison, how many voters prefer B to C?",
-   "answer": "21",
+   "prompt": "Preference schedule:\n7 voters: C > D > A > B\n13 voters: D > A > C > B\n3 voters: C > B > A > D\n11 voters: A > D > C > B\n10 voters: C > B > D > A\nIn a head‑to‑head comparison, how many voters prefer B to C?",
+   "answer": "0",
    "solutionSteps": [
-    "Add the rows where B is ranked above C.",
-    "21 prefer B; 10 prefer C."
+    "Rows ranking B above C: 0 = 0.",
+    "0 prefer B; 44 prefer C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: head_to_head). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -283,12 +283,12 @@
      "correct": false
     },
     {
-     "text": "A voter's ranking of all the candidates",
-     "correct": true
-    },
-    {
      "text": "The number of voters",
      "correct": false
+    },
+    {
+     "text": "A voter's ranking of all the candidates",
+     "correct": true
     }
    ],
    "standards": [
@@ -314,12 +314,12 @@
      "correct": false
     },
     {
-     "text": "21",
-     "correct": true
-    },
-    {
      "text": "20",
      "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
     },
     {
      "text": "20.5",
@@ -608,14 +608,19 @@
    "skillId": "election-theory-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n5 voters: A > B > C\n4 voters: B > C > A\n2 voters: C > A > B\nWho wins by plurality?",
+   "prompt": "Preference schedule:\n7 voters: A > C > B\n10 voters: B > A > C\n15 voters: A > B > C\nWho wins by plurality?",
    "answer": "A",
    "solutionSteps": [
-    "First‑place votes: A 5, B 4, C 2.",
+    "Count only first-place votes: A 22, B 10, C 0.",
+    "A has the most (22 of 32); plurality needs the most votes, not a majority.",
     "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "A",
+     "correct": true
+    },
     {
      "text": "C",
      "correct": false
@@ -623,10 +628,6 @@
     {
      "text": "There is a tie",
      "correct": false
-    },
-    {
-     "text": "A",
-     "correct": true
     },
     {
      "text": "B",
@@ -643,11 +644,12 @@
    "skillId": "election-theory-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nWho wins by plurality? Answer with the letter.",
-   "answer": "A",
+   "prompt": "Preference schedule:\n13 voters: A > B > C\n11 voters: B > A > C\n5 voters: C > A > B\n8 voters: B > C > A\nWho wins by plurality? Answer with the letter.",
+   "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 14, B 8, C 13.",
-    "Winner: A."
+    "Count only first-place votes: A 13, B 19, C 5.",
+    "B has the most (19 of 37); plurality needs the most votes, not a majority.",
+    "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -660,21 +662,23 @@
    "skillId": "election-theory-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n5 voters: A > B > C\n4 voters: B > C > A\n2 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
-   "answer": "B",
+   "prompt": "Preference schedule:\n3 voters: A > C > B\n14 voters: A > B > C\n9 voters: B > C > A\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
+   "answer": "A",
    "solutionSteps": [
-    "Borda points: A 23, B 24, C 19.",
-    "Winner: B."
+    "Points: 3 for 1st place down to 1 for last.",
+    "A: 3·3 + 14·3 + 9·1 = 60.",
+    "Borda totals: A 60, B 58, C 38.",
+    "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "B",
-     "correct": true
+     "correct": false
     },
     {
      "text": "A",
-     "correct": false
+     "correct": true
     },
     {
      "text": "C",
@@ -695,11 +699,13 @@
    "skillId": "election-theory-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
-   "answer": "B",
+   "prompt": "Preference schedule:\n11 voters: B > A > C\n13 voters: A > B > C\n5 voters: B > C > A\n10 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
+   "answer": "A",
    "solutionSteps": [
-    "Borda points: A 66, B 75, C 69.",
-    "Winner: B."
+    "Points: 3 for 1st place down to 1 for last.",
+    "A: 11·2 + 13·3 + 5·1 + 10·2 = 86.",
+    "Borda totals: A 86, B 84, C 64.",
+    "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -712,12 +718,13 @@
    "skillId": "election-theory-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nWho wins by plurality with elimination (instant runoff)?",
+   "prompt": "Preference schedule:\n11 voters: C > B > A\n4 voters: C > A > B\n15 voters: B > A > C\n8 voters: A > C > B\nWho wins by plurality with elimination (instant runoff)?",
    "answer": "C",
    "solutionSteps": [
-    "Round 1 first‑place votes: A 14, B 8, C 13",
-    "Round 2 first‑place votes: A 14, C 21",
-    "Winner: C (majority of 35 voters)."
+    "38 voters, so a majority is 20.",
+    "Round 1 first-place votes: A 8, B 15, C 15; eliminate A.",
+    "Round 2 first-place votes: B 15, C 23",
+    "Winner: C (a majority)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -726,12 +733,12 @@
      "correct": false
     },
     {
-     "text": "C",
-     "correct": true
-    },
-    {
      "text": "A",
      "correct": false
+    },
+    {
+     "text": "C",
+     "correct": true
     },
     {
      "text": "There is a tie",
@@ -748,11 +755,13 @@
    "skillId": "election-theory-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n8 voters: A > B > C > D\n6 voters: B > C > D > A\n5 voters: C > D > B > A\n3 voters: D > C > B > A\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
-   "answer": "B",
+   "prompt": "Preference schedule:\n3 voters: B > A > D > C\n13 voters: A > B > C > D\n11 voters: D > B > A > C\n5 voters: D > A > C > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
+   "answer": "A",
    "solutionSteps": [
-    "Borda points: A 46, B 64, C 63, D 47.",
-    "Winner: B."
+    "Points: 4 for 1st place down to 1 for last.",
+    "A: 3·3 + 13·4 + 11·2 + 5·3 = 98.",
+    "Borda totals: A 98, B 89, C 50, D 83.",
+    "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -765,13 +774,12 @@
    "skillId": "election-theory-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n8 voters: A > C > B\n6 voters: B > C > A\n5 voters: C > B > A\n2 voters: C > A > B\nWho wins by pairwise comparisons (1 point per head‑to‑head win, 1/2 per tie)?",
-   "answer": "C",
+   "prompt": "Preference schedule:\n6 voters: A > C > B\n15 voters: A > B > C\n8 voters: B > A > C\n3 voters: C > A > B\nWho wins by pairwise comparisons (1 point per head‑to‑head win, 1/2 per tie)?",
+   "answer": "A",
    "solutionSteps": [
-    "A vs B: 10–11",
-    "A vs C: 8–13",
-    "B vs C: 6–15",
-    "Points: A 0, B 1, C 2. Winner: C."
+    "A vs B: 24–8; A vs C: 29–3; B vs C: 23–9.",
+    "Points (1 per win, 1/2 per tie): A 2, B 1, C 0.",
+    "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -781,7 +789,7 @@
     },
     {
      "text": "C",
-     "correct": true
+     "correct": false
     },
     {
      "text": "B",
@@ -789,7 +797,7 @@
     },
     {
      "text": "A",
-     "correct": false
+     "correct": true
     }
    ],
    "standards": [
@@ -802,11 +810,12 @@
    "skillId": "election-theory-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n8 voters: A > B > C > D\n6 voters: B > C > D > A\n5 voters: C > D > B > A\n3 voters: D > C > B > A\nWho wins by plurality? Answer with the letter.",
-   "answer": "A",
+   "prompt": "Preference schedule:\n4 voters: B > C > D > A\n4 voters: D > C > B > A\n9 voters: A > D > C > B\n10 voters: B > D > A > C\nWho wins by plurality? Answer with the letter.",
+   "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 8, B 6, C 5, D 3.",
-    "Winner: A."
+    "Count only first-place votes: A 9, B 14, C 0, D 4.",
+    "B has the most (14 of 27); plurality needs the most votes, not a majority.",
+    "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -819,26 +828,25 @@
    "skillId": "election-theory-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nWho wins by plurality with elimination (instant runoff)?",
-   "answer": "B",
+   "prompt": "Preference schedule:\n4 voters: C > A > B > D\n12 voters: A > D > B > C\n3 voters: A > B > C > D\n15 voters: A > C > D > B\n13 voters: C > D > B > A\nWho wins by plurality with elimination (instant runoff)?",
+   "answer": "A",
    "solutionSteps": [
-    "Round 1 first‑place votes: A 10, B 8, C 6, D 7",
-    "Round 2 first‑place votes: A 10, B 14, D 7",
-    "Round 3 first‑place votes: A 10, B 21",
-    "Winner: B (majority of 31 voters)."
+    "47 voters, so a majority is 24.",
+    "Round 1 first-place votes: A 30, B 0, C 17, D 0",
+    "Winner: A (a majority)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "A",
+     "correct": true
+    },
     {
      "text": "C",
      "correct": false
     },
     {
      "text": "B",
-     "correct": true
-    },
-    {
-     "text": "A",
      "correct": false
     },
     {
@@ -856,11 +864,13 @@
    "skillId": "election-theory-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
-   "answer": "B",
+   "prompt": "Preference schedule:\n4 voters: C > D > A > B\n8 voters: D > B > C > A\n11 voters: D > A > C > B\n3 voters: D > A > B > C\n2 voters: A > D > B > C\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)? Answer with the letter.",
+   "answer": "D",
    "solutionSteps": [
-    "Borda points: A 61, B 97, C 86, D 66.",
-    "Winner: B."
+    "Points: 4 for 1st place down to 1 for last.",
+    "A: 4·2 + 8·1 + 11·3 + 3·3 + 2·4 = 66.",
+    "Borda totals: A 66, B 49, C 59, D 106.",
+    "Winner: D."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -884,12 +894,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Q",
-     "correct": true
-    },
-    {
      "text": "P",
      "correct": false
+    },
+    {
+     "text": "Q",
+     "correct": true
     },
     {
      "text": "R",
@@ -910,13 +920,14 @@
    "skillId": "election-theory-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n8 voters: A > B > C > D\n6 voters: B > C > D > A\n5 voters: C > D > B > A\n3 voters: D > C > B > A\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
-   "answer": "C",
+   "prompt": "Preference schedule:\n4 voters: C > D > A > B\n2 voters: B > D > A > C\n9 voters: A > C > D > B\n6 voters: D > B > A > C\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
+   "answer": "D",
    "solutionSteps": [
-    "Round 1 first‑place votes: A 8, B 6, C 5, D 3",
-    "Round 2 first‑place votes: A 8, B 6, C 8",
-    "Round 3 first‑place votes: A 8, C 14",
-    "Winner: C (majority of 22 voters)."
+    "21 voters, so a majority is 11.",
+    "Round 1 first-place votes: A 9, B 2, C 4, D 6; eliminate B.",
+    "Round 2 first-place votes: A 9, C 4, D 8; eliminate C.",
+    "Round 3 first-place votes: A 9, D 12",
+    "Winner: D (a majority)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -929,11 +940,12 @@
    "skillId": "election-theory-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n5 voters: A > B > C\n4 voters: B > C > A\n2 voters: C > A > B\nFind B's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
-   "answer": "24",
+   "prompt": "Preference schedule:\n8 voters: C > A > B\n10 voters: C > B > A\n5 voters: B > A > C\nFind B's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
+   "answer": "43",
    "solutionSteps": [
-    "Multiply each row's count by the points for B's position and add.",
-    "Borda points: {'A': 23, 'B': 24, 'C': 19}."
+    "Points: 3 for 1st place down to 1 for last.",
+    "B: 8·1 + 10·2 + 5·3 = 43.",
+    "All Borda totals: A 36, B 43, C 59."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: borda_points). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -946,11 +958,12 @@
    "skillId": "election-theory-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n8 voters: A > B > C > D\n6 voters: B > C > D > A\n5 voters: C > D > B > A\n3 voters: D > C > B > A\nFind C's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
-   "answer": "63",
+   "prompt": "Preference schedule:\n13 voters: C > B > D > A\n11 voters: A > C > B > D\n15 voters: D > A > C > B\n12 voters: D > C > B > A\nFind C's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
+   "answer": "151",
    "solutionSteps": [
-    "Multiply each row's count by the points for C's position and add.",
-    "Borda points: {'A': 46, 'B': 64, 'C': 63, 'D': 47}."
+    "Points: 4 for 1st place down to 1 for last.",
+    "C: 13·4 + 11·3 + 15·2 + 12·3 = 151.",
+    "All Borda totals: A 114, B 100, C 151, D 145."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: borda_points). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -963,11 +976,12 @@
    "skillId": "election-theory-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nFind B's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
-   "answer": "97",
+   "prompt": "Preference schedule:\n6 voters: C > A > B > D\n4 voters: B > C > D > A\n15 voters: A > D > B > C\n2 voters: C > B > D > A\n5 voters: D > B > A > C\nFind B's total using the Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last).",
+   "answer": "79",
    "solutionSteps": [
-    "Multiply each row's count by the points for B's position and add.",
-    "Borda points: {'A': 61, 'B': 97, 'C': 86, 'D': 66}."
+    "Points: 4 for 1st place down to 1 for last.",
+    "B: 6·2 + 4·4 + 15·2 + 2·3 + 5·3 = 79.",
+    "All Borda totals: A 94, B 79, C 64, D 83."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: borda_points). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1252,12 +1266,12 @@
      "correct": false
     },
     {
-     "text": "The candidate with the most first‑place votes should win",
-     "correct": false
-    },
-    {
      "text": "A candidate with a majority of first‑place votes should win",
      "correct": true
+    },
+    {
+     "text": "The candidate with the most first‑place votes should win",
+     "correct": false
     },
     {
      "text": "A candidate who beats every other head‑to‑head should win",
@@ -1291,12 +1305,12 @@
      "correct": false
     },
     {
-     "text": "Every voter should be a dictator",
-     "correct": false
-    },
-    {
      "text": "A candidate who wins every head‑to‑head comparison should win",
      "correct": true
+    },
+    {
+     "text": "Every voter should be a dictator",
+     "correct": false
     }
    ],
    "standards": [
@@ -1318,10 +1332,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_def). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If a winner gains support (and nothing else changes), the winner should still win",
-     "correct": true
-    },
-    {
      "text": "The winner must have a majority",
      "correct": false
     },
@@ -1332,6 +1342,10 @@
     {
      "text": "Each candidate gets equal points",
      "correct": false
+    },
+    {
+     "text": "If a winner gains support (and nothing else changes), the winner should still win",
+     "correct": true
     }
    ],
    "standards": [
@@ -1392,12 +1406,12 @@
      "correct": false
     },
     {
-     "text": "Borda count",
-     "correct": true
-    },
-    {
      "text": "Pairwise comparisons",
      "correct": false
+    },
+    {
+     "text": "Borda count",
+     "correct": true
     },
     {
      "text": "Plurality",
@@ -1423,12 +1437,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_method). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Plurality with elimination",
-     "correct": false
-    },
-    {
      "text": "Pairwise comparisons",
      "correct": true
+    },
+    {
+     "text": "Plurality with elimination",
+     "correct": false
     },
     {
      "text": "Borda count",
@@ -1466,12 +1480,12 @@
      "correct": false
     },
     {
-     "text": "Plurality",
-     "correct": false
-    },
-    {
      "text": "Plurality with elimination (instant runoff)",
      "correct": true
+    },
+    {
+     "text": "Plurality",
+     "correct": false
     }
    ],
    "standards": [
@@ -1484,13 +1498,13 @@
    "skillId": "election-theory-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nIs there a Condorcet winner? If so, who?",
+   "prompt": "Preference schedule:\n12 voters: A > B > C\n13 voters: B > A > C\n13 voters: B > C > A\n9 voters: A > C > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, B",
    "solutionSteps": [
-    "A vs B: 17–18",
-    "A vs C: 14–21",
-    "B vs C: 22–13",
-    "A Condorcet winner must beat every other candidate head‑to‑head."
+    "A vs B: 21–26",
+    "A vs C: 34–13",
+    "B vs C: 38–9",
+    "B beats every other candidate head-to-head."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1521,34 +1535,34 @@
    "skillId": "election-theory-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nIs there a Condorcet winner? If so, who?",
-   "answer": "Yes, B",
+   "prompt": "Preference schedule:\n2 voters: B > D > A > C\n6 voters: D > B > C > A\n7 voters: D > B > A > C\n7 voters: C > D > A > B\n9 voters: C > B > A > D\nIs there a Condorcet winner? If so, who?",
+   "answer": "Yes, C",
    "solutionSteps": [
-    "A vs B: 10–21",
-    "A vs C: 10–21",
-    "A vs D: 10–21",
-    "B vs C: 21–10",
-    "B vs D: 24–7",
-    "C vs D: 24–7",
-    "A Condorcet winner must beat every other candidate head‑to‑head."
+    "A vs B: 7–24",
+    "A vs C: 9–22",
+    "A vs D: 9–22",
+    "B vs C: 15–16",
+    "B vs D: 11–20",
+    "C vs D: 16–15",
+    "C beats every other candidate head-to-head."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "Yes, C",
-     "correct": false
-    },
     {
      "text": "No Condorcet winner",
      "correct": false
     },
     {
      "text": "Yes, B",
-     "correct": true
+     "correct": false
     },
     {
      "text": "Yes, A",
      "correct": false
+    },
+    {
+     "text": "Yes, C",
+     "correct": true
     }
    ],
    "standards": [
@@ -1561,19 +1575,19 @@
    "skillId": "election-theory-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Preference schedule:\n5 voters: A > B > C\n4 voters: B > C > A\n2 voters: C > A > B\nIs there a Condorcet winner? If so, who?",
-   "answer": "No Condorcet winner",
+   "prompt": "Preference schedule:\n3 voters: A > B > C\n14 voters: B > C > A\n11 voters: C > B > A\nIs there a Condorcet winner? If so, who?",
+   "answer": "Yes, B",
    "solutionSteps": [
-    "A vs B: 7–4",
-    "A vs C: 5–6",
-    "B vs C: 9–2",
-    "A Condorcet winner must beat every other candidate head‑to‑head."
+    "A vs B: 3–25",
+    "A vs C: 3–25",
+    "B vs C: 17–11",
+    "B beats every other candidate head-to-head."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "No Condorcet winner",
-     "correct": true
+     "correct": false
     },
     {
      "text": "Yes, C",
@@ -1585,7 +1599,7 @@
     },
     {
      "text": "Yes, B",
-     "correct": false
+     "correct": true
     }
    ],
    "standards": [
@@ -1607,12 +1621,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_violation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No criterion is violated",
-     "correct": false
-    },
-    {
      "text": "Majority criterion: A has a majority of first‑place votes but B wins",
      "correct": true
+    },
+    {
+     "text": "No criterion is violated",
+     "correct": false
     },
     {
      "text": "Monotonicity criterion",
@@ -1633,10 +1647,11 @@
    "skillId": "election-theory-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Preference schedule:\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nThe plurality winner is A. Does A also win the head‑to‑head comparisons against both B and C? Answer Yes or No.",
-   "answer": "No",
+   "prompt": "Preference schedule:\n9 voters: A > B > C\n14 voters: C > B > A\n15 voters: A > C > B\n9 voters: C > A > B\nThe plurality winner is A. Does A also win the head‑to‑head comparisons against both B and C? Answer Yes or No.",
+   "answer": "Yes",
    "solutionSteps": [
-    "A vs B: 17–18; A vs C: 14–21."
+    "A vs B: 33–14; A vs C: 24–23.",
+    "A wins every head-to-head comparison, so the answer is Yes."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2056,29 +2071,30 @@
    "skillId": "election-theory-skill-04",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "How many winning coalitions does [6: 4, 3, 2] have?",
-   "answer": "3",
+   "prompt": "How many winning coalitions does [11: 12, 5, 2] have?",
+   "answer": "4",
    "solutionSteps": [
-    "List coalitions with total weight ≥ quota.",
-    "3 winning coalitions"
+    "A coalition wins when its total weight is at least 11.",
+    "Winning coalitions: {P1} (12), {P1, P2} (17), {P1, P3} (14), {P1, P2, P3} (19).",
+    "4 winning coalitions."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_winning). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
-     "text": "4",
+     "text": "5",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     }
    ],
    "standards": [
@@ -2104,16 +2120,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "15",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -2135,12 +2151,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_winning). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3",
-     "correct": false
-    },
-    {
      "text": "4",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
     },
     {
      "text": "5",
@@ -2399,12 +2415,12 @@
    "skillId": "election-theory-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [6: 4, 3, 2]. Give a fraction in lowest terms.",
-   "answer": "3/5",
+   "prompt": "Find the Banzhaf power index of P1 in [5: 5, 2, 1]. Give a fraction in lowest terms.",
+   "answer": "1",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 3, P2 1, P3 1 (total 5).",
-    "Banzhaf indices: P1 3/5, P2 1/5, P3 1/5"
+    "Winning coalitions (critical players in brackets): {P1} [P1]; {P1, P2} [P1]; {P1, P3} [P1]; {P1, P2, P3} [P1].",
+    "Critical counts: P1 4, P2 0, P3 0 (total 4).",
+    "Banzhaf index of P1 = 4/4 = 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2417,12 +2433,12 @@
    "skillId": "election-theory-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [8: 5, 3, 2]. Give a fraction in lowest terms.",
-   "answer": "1/2",
+   "prompt": "Find the Banzhaf power index of P1 in [12: 11, 3, 1]. Give a fraction in lowest terms.",
+   "answer": "3/5",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 2, P2 2, P3 0 (total 4).",
-    "Banzhaf indices: P1 1/2, P2 1/2, P3 0"
+    "Winning coalitions (critical players in brackets): {P1, P2} [P1, P2]; {P1, P3} [P1, P3]; {P1, P2, P3} [P1].",
+    "Critical counts: P1 3, P2 1, P3 1 (total 5).",
+    "Banzhaf index of P1 = 3/5 = 3/5."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2435,12 +2451,12 @@
    "skillId": "election-theory-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [10: 6, 4, 3, 1]. Give a fraction in lowest terms.",
-   "answer": "1/2",
+   "prompt": "Find the Banzhaf power index of P1 in [11: 11, 7, 2, 1]. Give a fraction in lowest terms.",
+   "answer": "1",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 5, P2 3, P3 1, P4 1 (total 10).",
-    "Banzhaf indices: P1 1/2, P2 3/10, P3 1/10, P4 1/10"
+    "Winning coalitions (critical players in brackets): {P1} [P1]; {P1, P2} [P1]; {P1, P3} [P1]; {P1, P4} [P1]; {P1, P2, P3} [P1]; {P1, P2, P4} [P1]; {P1, P3, P4} [P1]; {P1, P2, P3, P4} [P1].",
+    "Critical counts: P1 8, P2 0, P3 0, P4 0 (total 8).",
+    "Banzhaf index of P1 = 8/8 = 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2453,12 +2469,12 @@
    "skillId": "election-theory-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [11: 5, 4, 3, 2]. Give a fraction in lowest terms.",
-   "answer": "3/8",
+   "prompt": "Find the Banzhaf power index of P1 in [21: 10, 9, 5, 1]. Give a fraction in lowest terms.",
+   "answer": "1/3",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 3, P2 3, P3 1, P4 1 (total 8).",
-    "Banzhaf indices: P1 3/8, P2 3/8, P3 1/8, P4 1/8"
+    "Winning coalitions (critical players in brackets): {P1, P2, P3} [P1, P2, P3]; {P1, P2, P3, P4} [P1, P2, P3].",
+    "Critical counts: P1 2, P2 2, P3 2, P4 0 (total 6).",
+    "Banzhaf index of P1 = 2/6 = 1/3."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2471,12 +2487,12 @@
    "skillId": "election-theory-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [12: 7, 5, 4, 2]. Give a fraction in lowest terms.",
+   "prompt": "Find the Banzhaf power index of P1 in [19: 10, 9, 6, 1]. Give a fraction in lowest terms.",
    "answer": "1/2",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 5, P2 3, P3 1, P4 1 (total 10).",
-    "Banzhaf indices: P1 1/2, P2 3/10, P3 1/10, P4 1/10"
+    "Winning coalitions (critical players in brackets): {P1, P2} [P1, P2]; {P1, P2, P3} [P1, P2]; {P1, P2, P4} [P1, P2]; {P1, P2, P3, P4} [P1, P2].",
+    "Critical counts: P1 4, P2 4, P3 0, P4 0 (total 8).",
+    "Banzhaf index of P1 = 4/8 = 1/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2489,12 +2505,12 @@
    "skillId": "election-theory-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the Banzhaf power index of P1 in [15: 8, 7, 3, 2]. Give a fraction in lowest terms.",
-   "answer": "1/2",
+   "prompt": "Find the Banzhaf power index of P1 in [14: 9, 7, 5, 2]. Give a fraction in lowest terms.",
+   "answer": "5/12",
    "solutionSteps": [
-    "List winning coalitions and count how often each player is critical (its removal makes the coalition lose).",
-    "Critical counts: P1 4, P2 4, P3 0, P4 0 (total 8).",
-    "Banzhaf indices: P1 1/2, P2 1/2, P3 0, P4 0"
+    "Winning coalitions (critical players in brackets): {P1, P2} [P1, P2]; {P1, P3} [P1, P3]; {P1, P2, P3} [P1]; {P1, P2, P4} [P1, P2]; {P1, P3, P4} [P1, P3]; {P2, P3, P4} [P2, P3, P4]; {P1, P2, P3, P4} [].",
+    "Critical counts: P1 5, P2 3, P3 3, P4 1 (total 12).",
+    "Banzhaf index of P1 = 5/12 = 5/12."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2507,11 +2523,12 @@
    "skillId": "election-theory-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the Shapley–Shubik power index of P1 in [6: 4, 3, 2] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
-   "answer": "2/3",
+   "prompt": "Find the Shapley–Shubik power index of P1 in [12: 10, 5, 1] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
+   "answer": "1/2",
    "solutionSteps": [
-    "List all 6 orderings and find the pivotal player in each.",
-    "Indices: P1 2/3, P2 1/6, P3 1/6"
+    "There are 3! = 6 orderings; in each, the pivotal player is the one whose weight first brings the total to 12 or more.",
+    "Pivotal counts: P1 3, P2 3, P3 0.",
+    "Shapley–Shubik index of P1 = 3/6 = 1/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2524,11 +2541,12 @@
    "skillId": "election-theory-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the Shapley–Shubik power index of P1 in [8: 5, 3, 2] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
+   "prompt": "Find the Shapley–Shubik power index of P1 in [17: 10, 7, 6] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
    "answer": "1/2",
    "solutionSteps": [
-    "List all 6 orderings and find the pivotal player in each.",
-    "Indices: P1 1/2, P2 1/2, P3 0"
+    "There are 3! = 6 orderings; in each, the pivotal player is the one whose weight first brings the total to 17 or more.",
+    "Pivotal counts: P1 3, P2 3, P3 0.",
+    "Shapley–Shubik index of P1 = 3/6 = 1/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2541,11 +2559,12 @@
    "skillId": "election-theory-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the Shapley–Shubik power index of P1 in [10: 6, 4, 3, 1] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
-   "answer": "7/12",
+   "prompt": "Find the Shapley–Shubik power index of P1 in [19: 12, 9, 7, 4] (fraction of orderings in which P1 is pivotal). Give a fraction in lowest terms.",
+   "answer": "5/12",
    "solutionSteps": [
-    "List all 24 orderings and find the pivotal player in each.",
-    "Indices: P1 7/12, P2 1/4, P3 1/12, P4 1/12"
+    "There are 4! = 24 orderings; in each, the pivotal player is the one whose weight first brings the total to 19 or more.",
+    "Pivotal counts: P1 10, P2 6, P3 6, P4 2.",
+    "Shapley–Shubik index of P1 = 10/24 = 5/12."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -2567,10 +2586,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: critical). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "P1 and P2",
-     "correct": true
-    },
-    {
      "text": "Every player in the coalition",
      "correct": false
     },
@@ -2581,6 +2596,10 @@
     {
      "text": "P1 and P3",
      "correct": false
+    },
+    {
+     "text": "P1 and P2",
+     "correct": true
     }
    ],
    "standards": [
@@ -2899,17 +2918,20 @@
    "skillId": "election-theory-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nAnn bids: house $300, car $120\nBen bids: house $240, car $180\nAfter the surplus is split equally, how much cash does Ann receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (use a fraction a/b if needed).",
+   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nAnn bids: house $300, car $120\nBen bids: house $240, car $180\nAfter the surplus is split equally, how much cash does Ann receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (round to the nearest cent if needed).",
    "answer": "-60",
    "solutionSteps": [
     "Each item goes to the highest bidder; each fair share = (sum of own bids)/2.",
     "Fair shares: Ann $210, Ben $210.",
     "First settlement (fair share − value of items won): Ann -90, Ben 30; surplus $60 split equally.",
-    "Final cash: Ann -60, Ben 60.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Final cash: Ann -60, Ben 60."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "-60",
+     "correct": true
+    },
     {
      "text": "-59",
      "correct": false
@@ -2921,10 +2943,6 @@
     {
      "text": "-61",
      "correct": false
-    },
-    {
-     "text": "-60",
-     "correct": true
     }
    ],
    "standards": [
@@ -2937,23 +2955,23 @@
    "skillId": "election-theory-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nAna bids: cabin $600, boat $200, piano $90\nBo bids: cabin $450, boat $300, piano $120\nCy bids: cabin $500, boat $240, piano $60\nAfter the surplus is split equally, how much cash does Ana receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (use a fraction a/b if needed).",
-   "answer": "-2230/9",
+   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nAna bids: cabin $600, boat $200, piano $90\nBo bids: cabin $450, boat $300, piano $120\nCy bids: cabin $500, boat $240, piano $60\nAfter the surplus is split equally, how much cash does Ana receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (round to the nearest cent if needed).",
+   "answer": "-247.78",
    "solutionSteps": [
     "Each item goes to the highest bidder; each fair share = (sum of own bids)/3.",
-    "Fair shares: Ana $890/3, Bo $290, Cy $800/3.",
-    "First settlement (fair share − value of items won): Ana -910/3, Bo -130, Cy 800/3; surplus $500/3 split equally.",
-    "Final cash: Ana -2230/9, Bo -670/9, Cy 2900/9.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Fair shares: Ana $296.67, Bo $290, Cy $266.67.",
+    "First settlement (fair share − value of items won): Ana -303.33, Bo -130, Cy 266.67; surplus $166.67 split equally.",
+    "Final cash: Ana -247.78, Bo -74.44, Cy 322.22.",
+    "Round only at the end: the exact amounts are thirds and ninths of a dollar."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "-2230/9",
+     "text": "-247.78",
      "correct": true
     },
     {
-     "text": "-4460/9",
+     "text": "-495.56",
      "correct": false
     },
     {
@@ -2961,7 +2979,7 @@
      "correct": false
     },
     {
-     "text": "-743/3",
+     "text": "-247.67",
      "correct": false
     }
    ],
@@ -2975,24 +2993,23 @@
    "skillId": "election-theory-skill-06",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nKim bids: bike $80\nLee bids: bike $60\nAfter the surplus is split equally, how much cash does Kim receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (use a fraction a/b if needed).",
+   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nKim bids: bike $80\nLee bids: bike $60\nAfter the surplus is split equally, how much cash does Kim receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (round to the nearest cent if needed).",
    "answer": "-35",
    "solutionSteps": [
     "Each item goes to the highest bidder; each fair share = (sum of own bids)/2.",
     "Fair shares: Kim $40, Lee $30.",
     "First settlement (fair share − value of items won): Kim -40, Lee 30; surplus $10 split equally.",
-    "Final cash: Kim -35, Lee 35.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Final cash: Kim -35, Lee 35."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "-34",
-     "correct": false
-    },
-    {
      "text": "-35",
      "correct": true
+    },
+    {
+     "text": "-34",
+     "correct": false
     },
     {
      "text": "-36",
@@ -3013,14 +3030,14 @@
    "skillId": "election-theory-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nP bids: car $12000, jewelry $3000\nQ bids: car $10000, jewelry $5000\nR bids: car $9000, jewelry $4500\nAfter the surplus is split equally, how much cash does P receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (use a fraction a/b if needed).",
-   "answer": "-18500/3",
+   "prompt": "Method of sealed bids (Knaster), heirs share equally:\nP bids: car $12000, jewelry $3000\nQ bids: car $10000, jewelry $5000\nR bids: car $9000, jewelry $4500\nAfter the surplus is split equally, how much cash does P receive (positive) or pay (negative) in total? Answer in dollars, e.g. 45 or -30 (round to the nearest cent if needed).",
+   "answer": "-6166.67",
    "solutionSteps": [
     "Each item goes to the highest bidder; each fair share = (sum of own bids)/3.",
     "Fair shares: P $5000, Q $5000, R $4500.",
     "First settlement (fair share − value of items won): P -7000, Q 0, R 4500; surplus $2500 split equally.",
-    "Final cash: P -18500/3, Q 2500/3, R 16000/3.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Final cash: P -6166.67, Q 833.33, R 5333.33.",
+    "Round only at the end: the exact amounts are thirds and ninths of a dollar."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3029,15 +3046,15 @@
      "correct": false
     },
     {
-     "text": "-18500/3",
+     "text": "-6166.67",
      "correct": true
     },
     {
-     "text": "-37000/3",
+     "text": "-12333.33",
      "correct": false
     },
     {
-     "text": "-18499/3",
+     "text": "-6166.33",
      "correct": false
     }
    ],
@@ -3134,16 +3151,16 @@
      "correct": false
     },
     {
+     "text": "Each piece is worth exactly 1/3 of the cake to the divider",
+     "correct": true
+    },
+    {
      "text": "The choosers approve every piece",
      "correct": false
     },
     {
      "text": "One piece is worth half",
      "correct": false
-    },
-    {
-     "text": "Each piece is worth exactly 1/3 of the cake to the divider",
-     "correct": true
     }
    ],
    "standards": [
@@ -3169,12 +3186,12 @@
      "correct": false
     },
     {
-     "text": "Discrete items that can be lined up in a row and not cut",
-     "correct": true
-    },
-    {
      "text": "Two players only",
      "correct": false
+    },
+    {
+     "text": "Discrete items that can be lined up in a row and not cut",
+     "correct": true
     },
     {
      "text": "A cake that can be cut anywhere",
@@ -3204,12 +3221,12 @@
      "correct": false
     },
     {
-     "text": "Each player receives a share worth at least 1/N of the total in their own opinion",
-     "correct": true
-    },
-    {
      "text": "No player envies another player's share",
      "correct": false
+    },
+    {
+     "text": "Each player receives a share worth at least 1/N of the total in their own opinion",
+     "correct": true
     },
     {
      "text": "Each player receives exactly the same physical amount",
@@ -3239,16 +3256,16 @@
      "correct": false
     },
     {
-     "text": "Method of sealed bids",
-     "correct": true
-    },
-    {
      "text": "Divider‑chooser",
      "correct": false
     },
     {
      "text": "Method of markers",
      "correct": false
+    },
+    {
+     "text": "Method of sealed bids",
+     "correct": true
     }
    ],
    "standards": [
@@ -3553,18 +3570,17 @@
    "solutionSteps": [
     "Standard divisor = 1000/10 = 100.",
     "Standard quotas: 4.500, 3.300, 2.200.",
-    "Apportionment: 5, 3, 2",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Apportionment: 5, 3, 2"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "5, 3, 2",
-     "correct": true
-    },
-    {
      "text": "6, 2, 2",
      "correct": false
+    },
+    {
+     "text": "5, 3, 2",
+     "correct": true
     },
     {
      "text": "4, 3, 3",
@@ -3590,8 +3606,7 @@
    "solutionSteps": [
     "Standard divisor = 3000/30 = 100.",
     "Standard quotas: 13.200, 10.550, 6.250.",
-    "Apportionment: 13, 11, 6",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Apportionment: 13, 11, 6"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3627,8 +3642,7 @@
    "solutionSteps": [
     "Standard divisor = 10000/20 = 500.",
     "Standard quotas: 10.400, 7.600, 2.000.",
-    "Apportionment: 10, 8, 2",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Apportionment: 10, 8, 2"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3641,12 +3655,12 @@
      "correct": false
     },
     {
-     "text": "11, 7, 2",
-     "correct": false
-    },
-    {
      "text": "10, 8, 2",
      "correct": true
+    },
+    {
+     "text": "11, 7, 2",
+     "correct": false
     }
    ],
    "standards": [
@@ -3664,18 +3678,17 @@
    "solutionSteps": [
     "Standard divisor = 8000/25 = 320.",
     "Standard quotas: 7.938, 11.188, 5.875.",
-    "Apportionment: 8, 11, 6",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Apportionment: 8, 11, 6"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "8, 11, 6",
-     "correct": true
-    },
-    {
      "text": "9, 10, 6",
      "correct": false
+    },
+    {
+     "text": "8, 11, 6",
+     "correct": true
     },
     {
      "text": "7, 11, 7",
@@ -3718,8 +3731,7 @@
    "answer": "13, 11, 6",
    "solutionSteps": [
     "Find a modified divisor so that the rounded quotas add to 30.",
-    "Apportionment (checked with the equivalent priority‑value method): 13, 11, 6",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Apportionment (checked with the equivalent priority‑value method): 13, 11, 6"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divisor_method). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3728,16 +3740,16 @@
      "correct": false
     },
     {
-     "text": "13, 11, 6",
-     "correct": true
-    },
-    {
      "text": "14, 10, 6",
      "correct": false
     },
     {
      "text": "12, 12, 6",
      "correct": false
+    },
+    {
+     "text": "13, 11, 6",
+     "correct": true
     }
    ],
    "standards": [
@@ -3822,8 +3834,7 @@
    "answer": "100",
    "solutionSteps": [
     "Standard divisor = 1000 ÷ 10.",
-    "100",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "100"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: standard_divisor). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3836,12 +3847,12 @@
      "correct": false
     },
     {
-     "text": "99",
-     "correct": false
-    },
-    {
      "text": "100",
      "correct": true
+    },
+    {
+     "text": "99",
+     "correct": false
     }
    ],
    "standards": [
@@ -4142,12 +4153,12 @@
      "correct": false
     },
     {
-     "text": "New‑states paradox",
-     "correct": false
-    },
-    {
      "text": "Alabama paradox",
      "correct": true
+    },
+    {
+     "text": "New‑states paradox",
+     "correct": false
     }
    ],
    "standards": [
@@ -4173,12 +4184,12 @@
      "correct": false
     },
     {
-     "text": "Population paradox",
-     "correct": true
-    },
-    {
      "text": "Alabama paradox",
      "correct": false
+    },
+    {
+     "text": "Population paradox",
+     "correct": true
     },
     {
      "text": "Condorcet paradox",
@@ -4204,10 +4215,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "New‑states paradox",
-     "correct": true
-    },
-    {
      "text": "Alabama paradox",
      "correct": false
     },
@@ -4218,6 +4225,10 @@
     {
      "text": "Majority paradox",
      "correct": false
+    },
+    {
+     "text": "New‑states paradox",
+     "correct": true
     }
    ],
    "standards": [
@@ -4239,16 +4250,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Quota rule",
-     "correct": true
-    },
-    {
      "text": "Majority criterion",
      "correct": false
     },
     {
      "text": "Alabama paradox",
      "correct": false
+    },
+    {
+     "text": "Quota rule",
+     "correct": true
     },
     {
      "text": "Monotonicity criterion",
@@ -4333,12 +4344,12 @@
      "correct": false
     },
     {
-     "text": "Hamilton's method",
-     "correct": true
-    },
-    {
      "text": "Adams's method",
      "correct": false
+    },
+    {
+     "text": "Hamilton's method",
+     "correct": true
     }
    ],
    "standards": [
@@ -4364,12 +4375,12 @@
      "correct": false
     },
     {
-     "text": "Hamilton's method only",
-     "correct": false
-    },
-    {
      "text": "All divisor methods (Jefferson, Adams, Webster)",
      "correct": true
+    },
+    {
+     "text": "Hamilton's method only",
+     "correct": false
     },
     {
      "text": "No method",
@@ -4403,12 +4414,12 @@
      "correct": false
     },
     {
-     "text": "No apportionment method both satisfies the quota rule and avoids all paradoxes",
-     "correct": true
-    },
-    {
      "text": "Every method has the Alabama paradox",
      "correct": false
+    },
+    {
+     "text": "No apportionment method both satisfies the quota rule and avoids all paradoxes",
+     "correct": true
     }
    ],
    "standards": [
@@ -4447,16 +4458,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: compare_outcomes). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Different reasonable methods can produce different winners",
+     "correct": true
+    },
+    {
      "text": "One of the counts must contain an error",
      "correct": false
     },
     {
      "text": "The election must be repeated",
      "correct": false
-    },
-    {
-     "text": "Different reasonable methods can produce different winners",
-     "correct": true
     },
     {
      "text": "B must have a majority",
@@ -4517,6 +4528,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: compare_outcomes). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No method satisfies all of a short list of fairness conditions at once",
+     "correct": true
+    },
+    {
      "text": "Every method is a dictatorship",
      "correct": false
     },
@@ -4527,10 +4542,6 @@
     {
      "text": "Plurality is the fairest method",
      "correct": false
-    },
-    {
-     "text": "No method satisfies all of a short list of fairness conditions at once",
-     "correct": true
     }
    ],
    "standards": [
@@ -4791,12 +4802,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "There is a tie",
-     "correct": false
-    },
-    {
      "text": "C",
      "correct": true
+    },
+    {
+     "text": "There is a tie",
+     "correct": false
     },
     {
      "text": "A",
@@ -4830,16 +4841,16 @@
      "correct": false
     },
     {
+     "text": "C",
+     "correct": true
+    },
+    {
      "text": "A",
      "correct": false
     },
     {
      "text": "B",
      "correct": false
-    },
-    {
-     "text": "C",
-     "correct": true
     }
    ],
    "standards": [
@@ -4900,16 +4911,16 @@
      "correct": false
     },
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "C",
      "correct": false
     },
     {
      "text": "There is a tie",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     }
    ],
    "standards": [
@@ -4931,12 +4942,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A",
-     "correct": false
-    },
-    {
      "text": "B",
      "correct": true
+    },
+    {
+     "text": "A",
+     "correct": false
     },
     {
      "text": "C",
@@ -5005,12 +5016,12 @@
      "correct": false
     },
     {
-     "text": "C",
-     "correct": false
-    },
-    {
      "text": "B",
      "correct": true
+    },
+    {
+     "text": "C",
+     "correct": false
     },
     {
      "text": "A",
@@ -5044,12 +5055,12 @@
      "correct": false
     },
     {
-     "text": "There is a tie",
-     "correct": false
-    },
-    {
      "text": "A",
      "correct": true
+    },
+    {
+     "text": "There is a tie",
+     "correct": false
     }
    ],
    "standards": [
@@ -5079,12 +5090,12 @@
      "correct": false
     },
     {
-     "text": "B",
-     "correct": true
-    },
-    {
      "text": "There is a tie",
      "correct": false
+    },
+    {
+     "text": "B",
+     "correct": true
     }
    ],
    "standards": [
@@ -5114,12 +5125,12 @@
      "correct": false
     },
     {
-     "text": "There is a tie",
-     "correct": false
-    },
-    {
      "text": "C",
      "correct": true
+    },
+    {
+     "text": "There is a tie",
+     "correct": false
     }
    ],
    "standards": [
@@ -5143,10 +5154,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "B",
      "correct": false
     },
@@ -5157,6 +5164,10 @@
     {
      "text": "C",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     }
    ],
    "standards": [
@@ -5178,16 +5189,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A",
+     "correct": true
+    },
+    {
      "text": "B",
      "correct": false
     },
     {
      "text": "There is a tie",
      "correct": false
-    },
-    {
-     "text": "A",
-     "correct": true
     },
     {
      "text": "C",
@@ -5252,16 +5263,16 @@
      "correct": false
     },
     {
+     "text": "A",
+     "correct": true
+    },
+    {
      "text": "C",
      "correct": false
     },
     {
      "text": "B",
      "correct": false
-    },
-    {
-     "text": "A",
-     "correct": true
     }
    ],
    "standards": [
@@ -5283,16 +5294,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "C",
-     "correct": true
-    },
-    {
      "text": "B",
      "correct": false
     },
     {
      "text": "There is a tie",
      "correct": false
+    },
+    {
+     "text": "C",
+     "correct": true
     },
     {
      "text": "A",
@@ -5322,12 +5333,12 @@
      "correct": false
     },
     {
-     "text": "C",
-     "correct": true
-    },
-    {
      "text": "A",
      "correct": false
+    },
+    {
+     "text": "C",
+     "correct": true
     },
     {
      "text": "B",
@@ -5355,10 +5366,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "C",
      "correct": false
     },
@@ -5369,6 +5376,10 @@
     {
      "text": "There is a tie",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     }
    ],
    "standards": [
@@ -5426,6 +5437,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, C",
+     "correct": true
+    },
+    {
      "text": "Yes, B",
      "correct": false
     },
@@ -5436,10 +5451,6 @@
     {
      "text": "Yes, A",
      "correct": false
-    },
-    {
-     "text": "Yes, C",
-     "correct": true
     }
    ],
    "standards": [
@@ -5502,12 +5513,12 @@
      "correct": false
     },
     {
-     "text": "Yes, B",
-     "correct": true
-    },
-    {
      "text": "Yes, A",
      "correct": false
+    },
+    {
+     "text": "Yes, B",
+     "correct": true
     },
     {
      "text": "Yes, C",
@@ -5570,16 +5581,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, A",
+     "correct": true
+    },
+    {
      "text": "Yes, C",
      "correct": false
     },
     {
      "text": "Yes, B",
      "correct": false
-    },
-    {
-     "text": "Yes, A",
-     "correct": true
     },
     {
      "text": "No Condorcet winner",
@@ -5610,12 +5621,12 @@
      "correct": false
     },
     {
-     "text": "Yes, A",
-     "correct": true
-    },
-    {
      "text": "Yes, C",
      "correct": false
+    },
+    {
+     "text": "Yes, A",
+     "correct": true
     },
     {
      "text": "Yes, B",
@@ -5646,16 +5657,16 @@
      "correct": false
     },
     {
-     "text": "Yes, A",
-     "correct": true
-    },
-    {
      "text": "Yes, C",
      "correct": false
     },
     {
      "text": "No Condorcet winner",
      "correct": false
+    },
+    {
+     "text": "Yes, A",
+     "correct": true
     }
    ],
    "standards": [
@@ -5678,6 +5689,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, C",
+     "correct": true
+    },
+    {
      "text": "Yes, B",
      "correct": false
     },
@@ -5688,10 +5703,6 @@
     {
      "text": "Yes, A",
      "correct": false
-    },
-    {
-     "text": "Yes, C",
-     "correct": true
     }
    ],
    "standards": [
@@ -5718,12 +5729,12 @@
      "correct": false
     },
     {
-     "text": "Yes, B",
-     "correct": false
-    },
-    {
      "text": "Yes, C",
      "correct": true
+    },
+    {
+     "text": "Yes, B",
+     "correct": false
     },
     {
      "text": "Yes, A",
@@ -5758,12 +5769,12 @@
      "correct": false
     },
     {
-     "text": "Yes, C",
-     "correct": false
-    },
-    {
      "text": "Yes, A",
      "correct": true
+    },
+    {
+     "text": "Yes, C",
+     "correct": false
     }
    ],
    "standards": [
@@ -5786,10 +5797,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes, A",
-     "correct": true
-    },
-    {
      "text": "Yes, C",
      "correct": false
     },
@@ -5800,6 +5807,10 @@
     {
      "text": "Yes, B",
      "correct": false
+    },
+    {
+     "text": "Yes, A",
+     "correct": true
     }
    ],
    "standards": [
@@ -5822,16 +5833,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes, C",
+     "correct": true
+    },
+    {
      "text": "Yes, B",
      "correct": false
     },
     {
      "text": "No Condorcet winner",
      "correct": false
-    },
-    {
-     "text": "Yes, C",
-     "correct": true
     },
     {
      "text": "Yes, A",
@@ -5857,12 +5868,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_winning). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "6",
-     "correct": false
-    },
-    {
      "text": "7",
      "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
     },
     {
      "text": "8",
@@ -5931,12 +5942,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "7",
@@ -5966,16 +5977,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -5997,12 +6008,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_winning). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "3",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "4",
@@ -6071,12 +6082,12 @@
      "correct": false
     },
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     },
     {
      "text": "7",
@@ -6141,12 +6152,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
     },
     {
      "text": "7",
@@ -6176,16 +6187,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -6207,12 +6218,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_winning). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3",
-     "correct": false
-    },
-    {
      "text": "4",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
     },
     {
      "text": "5",
@@ -6242,12 +6253,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "9/22",
-     "correct": false
-    },
-    {
      "text": "1/2",
      "correct": true
+    },
+    {
+     "text": "9/22",
+     "correct": false
     },
     {
      "text": "6/11",
@@ -6281,12 +6292,12 @@
      "correct": false
     },
     {
-     "text": "1/4",
-     "correct": false
-    },
-    {
      "text": "1/3",
      "correct": true
+    },
+    {
+     "text": "1/4",
+     "correct": false
     },
     {
      "text": "8/23",
@@ -6347,10 +6358,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "5/12",
-     "correct": true
-    },
-    {
      "text": "1/4",
      "correct": false
     },
@@ -6361,6 +6368,10 @@
     {
      "text": "7/20",
      "correct": false
+    },
+    {
+     "text": "5/12",
+     "correct": true
     }
    ],
    "standards": [
@@ -6382,16 +6393,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "1/3",
+     "correct": true
+    },
+    {
      "text": "5/13",
      "correct": false
     },
     {
      "text": "4/11",
      "correct": false
-    },
-    {
-     "text": "1/3",
-     "correct": true
     },
     {
      "text": "1/4",
@@ -6425,12 +6436,12 @@
      "correct": false
     },
     {
-     "text": "7/10",
-     "correct": true
-    },
-    {
      "text": "8/11",
      "correct": false
+    },
+    {
+     "text": "7/10",
+     "correct": true
     }
    ],
    "standards": [
@@ -6452,6 +6463,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "1/3",
+     "correct": true
+    },
+    {
      "text": "5/13",
      "correct": false
     },
@@ -6462,10 +6477,6 @@
     {
      "text": "9/25",
      "correct": false
-    },
-    {
-     "text": "1/3",
-     "correct": true
     }
    ],
    "standards": [
@@ -6491,12 +6502,12 @@
      "correct": false
     },
     {
-     "text": "9/19",
-     "correct": false
-    },
-    {
      "text": "1/2",
      "correct": true
+    },
+    {
+     "text": "9/19",
+     "correct": false
     },
     {
      "text": "1/4",
@@ -6522,16 +6533,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1",
-     "correct": true
-    },
-    {
      "text": "2/3",
      "correct": false
     },
     {
      "text": "1/3",
      "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
     },
     {
      "text": "2",
@@ -6596,16 +6607,16 @@
      "correct": false
     },
     {
+     "text": "1/2",
+     "correct": true
+    },
+    {
      "text": "1/4",
      "correct": false
     },
     {
      "text": "7/13",
      "correct": false
-    },
-    {
-     "text": "1/2",
-     "correct": true
     }
    ],
    "standards": [
@@ -6627,16 +6638,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1/3",
-     "correct": true
-    },
-    {
      "text": "5/13",
      "correct": false
     },
     {
      "text": "8/25",
      "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": true
     },
     {
      "text": "1/4",
@@ -6653,13 +6664,12 @@
    "skillId": "election-theory-skill-06",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $20, Lee bids $80. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $20, Lee bids $80. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "25",
    "solutionSteps": [
     "The higher bidder (Lee) gets the bike. Fair shares: Kim $10, Lee $40.",
     "First settlement: the winner owes the other person that person's fair share, $10. Surplus = $30, split equally.",
-    "Payment = $10 + $15 = $25.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Payment = $10 + $15 = $25."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6690,7 +6700,7 @@
    "skillId": "election-theory-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $50, Lee bids $30. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $50, Lee bids $30. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "20",
    "solutionSteps": [
     "The higher bidder (Kim) gets the bike. Fair shares: Kim $25, Lee $15.",
@@ -6708,7 +6718,7 @@
    "skillId": "election-theory-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $90, Lee bids $30. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $90, Lee bids $30. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "30",
    "solutionSteps": [
     "The higher bidder (Kim) gets the bike. Fair shares: Kim $45, Lee $15.",
@@ -6726,7 +6736,7 @@
    "skillId": "election-theory-skill-06",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $20. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $20. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "25",
    "solutionSteps": [
     "The higher bidder (Kim) gets the bike. Fair shares: Kim $40, Lee $10.",
@@ -6744,31 +6754,31 @@
    "skillId": "election-theory-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $70, Lee bids $40. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
-   "answer": "55/2",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $70, Lee bids $40. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
+   "answer": "27.50",
    "solutionSteps": [
-    "The higher bidder (Kim) gets the bike. Fair shares: Kim $35, Lee $20.",
-    "First settlement: the winner owes the other person that person's fair share, $20. Surplus = $15, split equally.",
-    "Payment = $20 + $15/2 = $55/2.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "The higher bidder (Kim) gets the bike. Each heir's fair share is half of his or her own bid: Kim $35, Lee $20.",
+    "Kim keeps a bike worth $70 to Kim but is entitled to only $35, so Kim first pays Lee that fair share, $20.",
+    "Surplus = $35 − $20 = $15; each heir gets half of it, $7.50.",
+    "Kim pays Lee $20 + $7.50 = $27.50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "55",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "55/2",
+     "text": "35",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "27.50",
      "correct": true
-    },
-    {
-     "text": "28",
-     "correct": false
-    },
-    {
-     "text": "55/3",
-     "correct": false
     }
    ],
    "standards": [
@@ -6781,17 +6791,36 @@
    "skillId": "election-theory-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $90. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
-   "answer": "85/2",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $90. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
+   "answer": "42.50",
    "solutionSteps": [
-    "The higher bidder (Lee) gets the bike. Fair shares: Kim $40, Lee $45.",
-    "First settlement: the winner owes the other person that person's fair share, $40. Surplus = $5, split equally.",
-    "Payment = $40 + $5/2 = $85/2."
+    "The higher bidder (Lee) gets the bike. Each heir's fair share is half of his or her own bid: Lee $45, Kim $40.",
+    "Lee keeps a bike worth $90 to Lee but is entitled to only $45, so Lee first pays Kim that fair share, $40.",
+    "Surplus = $45 − $40 = $5; each heir gets half of it, $2.50.",
+    "Lee pays Kim $40 + $2.50 = $42.50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "42.50",
+     "correct": true
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
    ]
   },
   {
@@ -6799,17 +6828,36 @@
    "skillId": "election-theory-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $70. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
-   "answer": "75/2",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $80, Lee bids $70. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
+   "answer": "37.50",
    "solutionSteps": [
-    "The higher bidder (Kim) gets the bike. Fair shares: Kim $40, Lee $35.",
-    "First settlement: the winner owes the other person that person's fair share, $35. Surplus = $5, split equally.",
-    "Payment = $35 + $5/2 = $75/2."
+    "The higher bidder (Kim) gets the bike. Each heir's fair share is half of his or her own bid: Kim $40, Lee $35.",
+    "Kim keeps a bike worth $80 to Kim but is entitled to only $40, so Kim first pays Lee that fair share, $35.",
+    "Surplus = $40 − $35 = $5; each heir gets half of it, $2.50.",
+    "Kim pays Lee $35 + $2.50 = $37.50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "37.50",
+     "correct": true
+    },
+    {
+     "text": "35",
+     "correct": false
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
    ]
   },
   {
@@ -6817,17 +6865,36 @@
    "skillId": "election-theory-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $90, Lee bids $60. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
-   "answer": "75/2",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $90, Lee bids $60. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
+   "answer": "37.50",
    "solutionSteps": [
-    "The higher bidder (Kim) gets the bike. Fair shares: Kim $45, Lee $30.",
-    "First settlement: the winner owes the other person that person's fair share, $30. Surplus = $15, split equally.",
-    "Payment = $30 + $15/2 = $75/2."
+    "The higher bidder (Kim) gets the bike. Each heir's fair share is half of his or her own bid: Kim $45, Lee $30.",
+    "Kim keeps a bike worth $90 to Kim but is entitled to only $45, so Kim first pays Lee that fair share, $30.",
+    "Surplus = $45 − $30 = $15; each heir gets half of it, $7.50.",
+    "Kim pays Lee $30 + $7.50 = $37.50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "37.50",
+     "correct": true
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    }
    ]
   },
   {
@@ -6835,7 +6902,7 @@
    "skillId": "election-theory-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $30, Lee bids $70. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $30, Lee bids $70. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "25",
    "solutionSteps": [
     "The higher bidder (Lee) gets the bike. Fair shares: Kim $15, Lee $35.",
@@ -6853,17 +6920,36 @@
    "skillId": "election-theory-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $20, Lee bids $90. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars.",
-   "answer": "55/2",
+   "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $20, Lee bids $90. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
+   "answer": "27.50",
    "solutionSteps": [
-    "The higher bidder (Lee) gets the bike. Fair shares: Kim $10, Lee $45.",
-    "First settlement: the winner owes the other person that person's fair share, $10. Surplus = $35, split equally.",
-    "Payment = $10 + $35/2 = $55/2."
+    "The higher bidder (Lee) gets the bike. Each heir's fair share is half of his or her own bid: Lee $45, Kim $10.",
+    "Lee keeps a bike worth $90 to Lee but is entitled to only $45, so Lee first pays Kim that fair share, $10.",
+    "Surplus = $45 − $10 = $35; each heir gets half of it, $17.50.",
+    "Lee pays Kim $10 + $17.50 = $27.50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "27.50",
+     "correct": true
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "35",
+     "correct": false
+    }
    ]
   },
   {
@@ -7071,12 +7157,12 @@
      "correct": false
     },
     {
-     "text": "There is a tie",
-     "correct": false
-    },
-    {
      "text": "A",
      "correct": true
+    },
+    {
+     "text": "There is a tie",
+     "correct": false
     },
     {
      "text": "C",
@@ -7145,12 +7231,12 @@
      "correct": false
     },
     {
-     "text": "B",
-     "correct": true
-    },
-    {
      "text": "C",
      "correct": false
+    },
+    {
+     "text": "B",
+     "correct": true
     }
    ],
    "standards": [
@@ -7172,12 +7258,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "B",
-     "correct": false
-    },
-    {
      "text": "C",
      "correct": true
+    },
+    {
+     "text": "B",
+     "correct": false
     },
     {
      "text": "There is a tie",
@@ -7211,12 +7297,12 @@
      "correct": false
     },
     {
-     "text": "C",
-     "correct": false
-    },
-    {
      "text": "B",
      "correct": true
+    },
+    {
+     "text": "C",
+     "correct": false
     },
     {
      "text": "A",
@@ -7242,10 +7328,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "C",
      "correct": false
     },
@@ -7256,6 +7338,10 @@
     {
      "text": "B",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     }
    ],
    "standards": [
@@ -7277,16 +7363,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A",
+     "correct": true
+    },
+    {
      "text": "There is a tie",
      "correct": false
     },
     {
      "text": "B",
      "correct": false
-    },
-    {
-     "text": "A",
-     "correct": true
     },
     {
      "text": "C",
@@ -7312,12 +7398,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "C",
-     "correct": true
-    },
-    {
      "text": "A",
      "correct": false
+    },
+    {
+     "text": "C",
+     "correct": true
     },
     {
      "text": "B",
@@ -7347,12 +7433,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "C",
-     "correct": true
-    },
-    {
      "text": "A",
      "correct": false
+    },
+    {
+     "text": "C",
+     "correct": true
     },
     {
      "text": "B",
@@ -7390,12 +7476,12 @@
      "correct": false
     },
     {
-     "text": "There is a tie",
-     "correct": false
-    },
-    {
      "text": "C",
      "correct": true
+    },
+    {
+     "text": "There is a tie",
+     "correct": false
     }
    ],
    "standards": [
@@ -7421,16 +7507,16 @@
      "correct": false
     },
     {
-     "text": "A",
-     "correct": true
-    },
-    {
      "text": "C",
      "correct": false
     },
     {
      "text": "B",
      "correct": false
+    },
+    {
+     "text": "A",
+     "correct": true
     }
    ],
    "standards": [
@@ -7834,16 +7920,16 @@
      "correct": false
     },
     {
-     "text": "400",
-     "correct": true
-    },
-    {
      "text": "401",
      "correct": false
     },
     {
      "text": "402",
      "correct": false
+    },
+    {
+     "text": "400",
+     "correct": true
     }
    ],
    "standards": [
@@ -7938,12 +8024,12 @@
      "correct": false
     },
     {
-     "text": "5",
-     "correct": true
-    },
-    {
      "text": "6",
      "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
     },
     {
      "text": "7",
@@ -7986,12 +8072,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "419",
-     "correct": false
-    },
-    {
      "text": "420",
      "correct": true
+    },
+    {
+     "text": "419",
+     "correct": false
     },
     {
      "text": "421",
@@ -8025,12 +8111,12 @@
      "correct": false
     },
     {
-     "text": "63",
-     "correct": true
-    },
-    {
      "text": "64",
      "correct": false
+    },
+    {
+     "text": "63",
+     "correct": true
     },
     {
      "text": "65",
@@ -8077,16 +8163,16 @@
      "correct": false
     },
     {
-     "text": "6",
-     "correct": true
-    },
-    {
      "text": "7",
      "correct": false
     },
     {
      "text": "8",
      "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
     }
    ],
    "standards": [
@@ -8312,12 +8398,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "424",
-     "correct": false
-    },
-    {
      "text": "425",
      "correct": true
+    },
+    {
+     "text": "424",
+     "correct": false
     },
     {
      "text": "426",
@@ -8470,16 +8556,16 @@
      "correct": false
     },
     {
-     "text": "7",
-     "correct": true
-    },
-    {
      "text": "8",
      "correct": false
     },
     {
      "text": "9",
      "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
     }
    ],
    "standards": [
@@ -8607,12 +8693,12 @@
      "correct": false
     },
     {
-     "text": "440",
-     "correct": true
-    },
-    {
      "text": "441",
      "correct": false
+    },
+    {
+     "text": "440",
+     "correct": true
     },
     {
      "text": "442",
@@ -8812,16 +8898,16 @@
      "correct": false
     },
     {
-     "text": "464",
-     "correct": true
-    },
-    {
      "text": "465",
      "correct": false
     },
     {
      "text": "466",
      "correct": false
+    },
+    {
+     "text": "464",
+     "correct": true
     }
    ],
    "standards": [
@@ -8911,12 +8997,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "474",
-     "correct": false
-    },
-    {
      "text": "475",
      "correct": true
+    },
+    {
+     "text": "474",
+     "correct": false
     },
     {
      "text": "476",

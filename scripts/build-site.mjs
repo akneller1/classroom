@@ -370,7 +370,7 @@ ${c.planned ? `<h2>Explore ${htmlEsc(c.title)} units</h2>
 <ul class="mk-items">
 ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(curriculum outline)</span></li>`).join("\n")}
 </ul>` : courseBody({ id: c.id, title: c.title, blurb: c.blurb, units: c.units.filter((u) => u.items.length) })}
-${planningCourses.includes(c.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../${planningPage(c.id)}">${htmlEsc(c.id === "algebra" ? "Algebra 1" : c.title)} pacing guide and standards coverage</a>: full-year and block plans, and which skills practice each Common Core standard</li></ul>` : ""}
+${planningCourses.includes(c.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../${planningPage(c.id)}">${htmlEsc(c.id === "algebra" ? "Algebra 1" : c.title)} pacing guide and standards coverage</a>: full-year and block plans, and which skills practice each ${c.id === "discrete" ? "standard" : "Common Core standard"}</li></ul>` : ""}
 <a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
@@ -421,7 +421,7 @@ ${planningCourses.includes(c.id) ? geoUnitGuide(u.title, c.id) : ""}
   }
   if (planningCourses.includes(c.id)) {   // pacing guide and standards coverage (Geometry, Algebra 1 and Algebra 2, 2026-11-17; Precalculus, 2026-11-18)
     const cName = c.id === "algebra" ? "Algebra 1" : c.title, pPage = planningPage(c.id), pUrl = SITE_URL + pPage, pDir = path.join(OUT, pPage);
-    const pDesc = "A 180-day " + cName + " pacing guide, a one-semester block plan, and " + (c.id === "algebra2" ? "Massachusetts Algebra II standards coverage for every question-bank skill." : c.id === "precalculus" ? "Common Core (+) standards coverage for every question-bank skill." : "Common Core standards coverage for every worksheet-generator skill.");
+    const pDesc = "A 180-day " + cName + " pacing guide, a one-semester block plan, and " + (c.id === "algebra2" ? "Massachusetts Algebra II standards coverage for every question-bank skill." : c.id === "precalculus" ? "Common Core (+) standards coverage for every question-bank skill." : c.id === "discrete" ? "Discrete Mathematics strand and Common Core coverage for every question-bank skill." : "Common Core standards coverage for every worksheet-generator skill.");
     fs.mkdirSync(pDir, { recursive: true });
     fs.writeFileSync(path.join(pDir, "index.html"), `<!doctype html>
 <html lang="en">

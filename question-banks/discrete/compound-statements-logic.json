@@ -56,12 +56,12 @@
      "correct": false
     },
     {
-     "text": "¬p ∧ q",
-     "correct": false
-    },
-    {
      "text": "¬p ∧ ¬q",
      "correct": true
+    },
+    {
+     "text": "¬p ∧ q",
+     "correct": false
     },
     {
      "text": "¬p ∨ ¬q",
@@ -91,12 +91,12 @@
      "correct": false
     },
     {
-     "text": "p ∧ ¬q",
-     "correct": true
-    },
-    {
      "text": "p ∨ ¬q",
      "correct": false
+    },
+    {
+     "text": "p ∧ ¬q",
+     "correct": true
     },
     {
      "text": "¬(p ∨ q)",
@@ -122,10 +122,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_compound). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "Cannot be determined without r",
      "correct": false
     },
@@ -136,6 +132,10 @@
     {
      "text": "True",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     }
    ],
    "standards": [
@@ -157,16 +157,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_compound). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "False",
+     "correct": true
+    },
+    {
      "text": "Cannot be determined without r",
      "correct": false
     },
     {
      "text": "True",
      "correct": false
-    },
-    {
-     "text": "False",
-     "correct": true
     },
     {
      "text": "Both true and false",
@@ -261,16 +261,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: translate_connectives). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(p ∨ q) ∧ ¬(p ∧ q)",
-     "correct": true
-    },
-    {
      "text": "¬p ∨ ¬q",
      "correct": false
     },
     {
      "text": "p ∧ q",
      "correct": false
+    },
+    {
+     "text": "(p ∨ q) ∧ ¬(p ∧ q)",
+     "correct": true
     },
     {
      "text": "p ∨ q",
@@ -304,12 +304,12 @@
      "correct": false
     },
     {
-     "text": "p ∨ q",
-     "correct": true
-    },
-    {
      "text": "p ∧ ¬q",
      "correct": false
+    },
+    {
+     "text": "p ∨ q",
+     "correct": true
     }
    ],
    "standards": [
@@ -331,16 +331,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: translate_connectives). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "¬(p ∧ q)",
+     "correct": true
+    },
+    {
      "text": "¬p ∧ ¬q",
      "correct": false
     },
     {
      "text": "p ∧ ¬q",
      "correct": false
-    },
-    {
-     "text": "¬(p ∧ q)",
-     "correct": true
     },
     {
      "text": "¬p ∧ q",
@@ -370,12 +370,12 @@
      "correct": false
     },
     {
-     "text": "Both true and false",
-     "correct": false
-    },
-    {
      "text": "False",
      "correct": true
+    },
+    {
+     "text": "Both true and false",
+     "correct": false
     },
     {
      "text": "True",
@@ -405,12 +405,12 @@
      "correct": false
     },
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "True",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     },
     {
      "text": "Cannot be determined without r",
@@ -436,10 +436,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_compound). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "True",
      "correct": false
     },
@@ -450,6 +446,10 @@
     {
      "text": "Cannot be determined without r",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     }
    ],
    "standards": [
@@ -540,10 +540,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: translate_connectives). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(p ∧ q) ∧ ¬r",
-     "correct": true
-    },
-    {
      "text": "¬(p ∧ q ∧ r)",
      "correct": false
     },
@@ -554,6 +550,10 @@
     {
      "text": "p ∧ (q ∨ ¬r)",
      "correct": false
+    },
+    {
+     "text": "(p ∧ q) ∧ ¬r",
+     "correct": true
     }
    ],
    "standards": [
@@ -575,12 +575,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: translate_connectives). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "p ∧ q ∧ r",
-     "correct": false
-    },
-    {
      "text": "p ∧ (q ∨ r)",
      "correct": true
+    },
+    {
+     "text": "p ∧ q ∧ r",
+     "correct": false
     },
     {
      "text": "p ∨ (q ∧ r)",
@@ -649,12 +649,12 @@
      "correct": false
     },
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "Both true and false",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     },
     {
      "text": "Cannot be determined without r",
@@ -680,10 +680,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_compound). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "True",
-     "correct": true
-    },
-    {
      "text": "False",
      "correct": false
     },
@@ -694,6 +690,10 @@
     {
      "text": "Cannot be determined without r",
      "correct": false
+    },
+    {
+     "text": "True",
+     "correct": true
     }
    ],
    "standards": [
@@ -1087,12 +1087,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "¬p ∧ ¬q",
-     "correct": false
-    },
-    {
      "text": "p ∧ q",
      "correct": true
+    },
+    {
+     "text": "¬p ∧ ¬q",
+     "correct": false
     },
     {
      "text": "p ∧ ¬q",
@@ -1130,12 +1130,12 @@
      "correct": false
     },
     {
-     "text": "TFTF",
-     "correct": false
-    },
-    {
      "text": "FFTF",
      "correct": true
+    },
+    {
+     "text": "TFTF",
+     "correct": false
     }
    ],
    "standards": [
@@ -1157,10 +1157,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_column). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "FFTF",
-     "correct": true
-    },
-    {
      "text": "TFTF",
      "correct": false
     },
@@ -1171,6 +1167,10 @@
     {
      "text": "FTFF",
      "correct": false
+    },
+    {
+     "text": "FFTF",
+     "correct": true
     }
    ],
    "standards": [
@@ -1192,12 +1192,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_column). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "FFTF",
-     "correct": false
-    },
-    {
      "text": "TTFT",
      "correct": true
+    },
+    {
+     "text": "FFTF",
+     "correct": false
     },
     {
      "text": "FTFT",
@@ -1296,16 +1296,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(p ∨ q) ∧ ¬(p ∧ q)",
-     "correct": true
-    },
-    {
      "text": "¬(p ∧ q)",
      "correct": false
     },
     {
      "text": "¬p ∨ ¬q",
      "correct": false
+    },
+    {
+     "text": "(p ∨ q) ∧ ¬(p ∧ q)",
+     "correct": true
     },
     {
      "text": "p ∨ q",
@@ -1370,16 +1370,16 @@
      "correct": false
     },
     {
-     "text": "TTTFFFFF",
-     "correct": true
-    },
-    {
      "text": "FFFTTTTT",
      "correct": false
     },
     {
      "text": "FFFFFTTT",
      "correct": false
+    },
+    {
+     "text": "TTTFFFFF",
+     "correct": true
     }
    ],
    "standards": [
@@ -1401,16 +1401,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_column). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "TFFFTFTT",
+     "correct": true
+    },
+    {
      "text": "FFFFTFTT",
      "correct": false
     },
     {
      "text": "TTFTFFFT",
      "correct": false
-    },
-    {
-     "text": "TFFFTFTT",
-     "correct": true
     },
     {
      "text": "FTTTFTFF",
@@ -1440,16 +1440,16 @@
      "correct": false
     },
     {
+     "text": "TTFFTTFT",
+     "correct": true
+    },
+    {
      "text": "TFTTFFTT",
      "correct": false
     },
     {
      "text": "FTFFTTFT",
      "correct": false
-    },
-    {
-     "text": "TTFFTTFT",
-     "correct": true
     }
    ],
    "standards": [
@@ -1509,12 +1509,12 @@
      "correct": false
     },
     {
-     "text": "q ∨ ¬p",
-     "correct": true
-    },
-    {
      "text": "¬p ∧ q",
      "correct": false
+    },
+    {
+     "text": "q ∨ ¬p",
+     "correct": true
     },
     {
      "text": "p ∨ ¬q",
@@ -1774,10 +1774,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: their truth columns are identical",
-     "correct": true
-    },
-    {
      "text": "No: they use different connectives",
      "correct": false
     },
@@ -1788,6 +1784,10 @@
     {
      "text": "No: their truth columns differ in at least one row",
      "correct": false
+    },
+    {
+     "text": "Yes: their truth columns are identical",
+     "correct": true
     }
    ],
    "standards": [
@@ -1844,12 +1844,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: their truth columns are identical",
-     "correct": true
-    },
-    {
      "text": "No: they use different connectives",
      "correct": false
+    },
+    {
+     "text": "Yes: their truth columns are identical",
+     "correct": true
     },
     {
      "text": "Yes: they use the same variables",
@@ -1914,10 +1914,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: their truth columns are identical",
-     "correct": true
-    },
-    {
      "text": "Yes: they use the same variables",
      "correct": false
     },
@@ -1928,6 +1924,10 @@
     {
      "text": "No: they use different connectives",
      "correct": false
+    },
+    {
+     "text": "Yes: their truth columns are identical",
+     "correct": true
     }
    ],
    "standards": [
@@ -1949,6 +1949,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "No: their truth columns differ in at least one row",
+     "correct": true
+    },
+    {
      "text": "Yes: they use the same variables",
      "correct": false
     },
@@ -1959,10 +1963,6 @@
     {
      "text": "No: they use different connectives",
      "correct": false
-    },
-    {
-     "text": "No: their truth columns differ in at least one row",
-     "correct": true
     }
    ],
    "standards": [
@@ -1988,16 +1988,16 @@
      "correct": false
     },
     {
+     "text": "No: their truth columns differ in at least one row",
+     "correct": true
+    },
+    {
      "text": "Yes: their truth columns are identical",
      "correct": false
     },
     {
      "text": "No: they use different connectives",
      "correct": false
-    },
-    {
-     "text": "No: their truth columns differ in at least one row",
-     "correct": true
     }
    ],
    "standards": [
@@ -2054,10 +2054,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes: their truth columns are identical",
-     "correct": true
-    },
-    {
      "text": "No: their truth columns differ in at least one row",
      "correct": false
     },
@@ -2068,6 +2064,10 @@
     {
      "text": "No: they use different connectives",
      "correct": false
+    },
+    {
+     "text": "Yes: their truth columns are identical",
+     "correct": true
     }
    ],
    "standards": [
@@ -2194,10 +2194,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A tautology (always true)",
-     "correct": true
-    },
-    {
      "text": "Not a statement form",
      "correct": false
     },
@@ -2208,6 +2204,10 @@
     {
      "text": "A contradiction (always false)",
      "correct": false
+    },
+    {
+     "text": "A tautology (always true)",
+     "correct": true
     }
    ],
    "standards": [
@@ -2229,16 +2229,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A contradiction (always false)",
+     "correct": true
+    },
+    {
      "text": "A tautology (always true)",
      "correct": false
     },
     {
      "text": "Neither (true in some rows, false in others)",
      "correct": false
-    },
-    {
-     "text": "A contradiction (always false)",
-     "correct": true
     },
     {
      "text": "Not a statement form",
@@ -2264,12 +2264,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Neither (true in some rows, false in others)",
-     "correct": true
-    },
-    {
      "text": "Not a statement form",
      "correct": false
+    },
+    {
+     "text": "Neither (true in some rows, false in others)",
+     "correct": true
     },
     {
      "text": "A tautology (always true)",
@@ -2303,16 +2303,16 @@
      "correct": false
     },
     {
-     "text": "A tautology (always true)",
-     "correct": true
-    },
-    {
      "text": "Neither (true in some rows, false in others)",
      "correct": false
     },
     {
      "text": "Not a statement form",
      "correct": false
+    },
+    {
+     "text": "A tautology (always true)",
+     "correct": true
     }
    ],
    "standards": [
@@ -2334,6 +2334,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A contradiction (always false)",
+     "correct": true
+    },
+    {
      "text": "Not a statement form",
      "correct": false
     },
@@ -2344,10 +2348,6 @@
     {
      "text": "Neither (true in some rows, false in others)",
      "correct": false
-    },
-    {
-     "text": "A contradiction (always false)",
-     "correct": true
     }
    ],
    "standards": [
@@ -2373,12 +2373,12 @@
      "correct": false
     },
     {
-     "text": "A tautology (always true)",
-     "correct": false
-    },
-    {
      "text": "Neither (true in some rows, false in others)",
      "correct": true
+    },
+    {
+     "text": "A tautology (always true)",
+     "correct": false
     },
     {
      "text": "Not a statement form",
@@ -2439,6 +2439,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A contradiction (always false)",
+     "correct": true
+    },
+    {
      "text": "Neither (true in some rows, false in others)",
      "correct": false
     },
@@ -2449,10 +2453,6 @@
     {
      "text": "A tautology (always true)",
      "correct": false
-    },
-    {
-     "text": "A contradiction (always false)",
-     "correct": true
     }
    ],
    "standards": [
@@ -2474,12 +2474,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tautology_classify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A tautology (always true)",
-     "correct": true
-    },
-    {
      "text": "Neither (true in some rows, false in others)",
      "correct": false
+    },
+    {
+     "text": "A tautology (always true)",
+     "correct": true
     },
     {
      "text": "A contradiction (always false)",
@@ -2548,12 +2548,12 @@
      "correct": false
     },
     {
-     "text": "The number is not positive or it is not even.",
-     "correct": true
-    },
-    {
      "text": "The number is not positive and not even.",
      "correct": false
+    },
+    {
+     "text": "The number is not positive or it is not even.",
+     "correct": true
     },
     {
      "text": "The number is positive or even.",
@@ -2583,12 +2583,12 @@
      "correct": false
     },
     {
-     "text": "x ≤ −1 or x > 4",
-     "correct": true
-    },
-    {
      "text": "−1 ≥ x ≥ 4",
      "correct": false
+    },
+    {
+     "text": "x ≤ −1 or x > 4",
+     "correct": true
     },
     {
      "text": "x ≤ −1 and x > 4",
@@ -2937,12 +2937,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_column). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "FFTF",
-     "correct": false
-    },
-    {
      "text": "TTFT",
      "correct": true
+    },
+    {
+     "text": "FFTF",
+     "correct": false
     },
     {
      "text": "FTFT",
@@ -3011,16 +3011,16 @@
      "correct": false
     },
     {
+     "text": "TFFT",
+     "correct": true
+    },
+    {
      "text": "TTFT",
      "correct": false
     },
     {
      "text": "FTTF",
      "correct": false
-    },
-    {
-     "text": "TFFT",
-     "correct": true
     }
    ],
    "standards": [
@@ -3046,12 +3046,12 @@
      "correct": false
     },
     {
-     "text": "TTFT",
-     "correct": true
-    },
-    {
      "text": "FTFT",
      "correct": false
+    },
+    {
+     "text": "TTFT",
+     "correct": true
     },
     {
      "text": "FFTF",
@@ -3081,16 +3081,16 @@
      "correct": false
     },
     {
-     "text": "TFFT",
-     "correct": true
-    },
-    {
      "text": "FFFT",
      "correct": false
     },
     {
      "text": "FTTF",
      "correct": false
+    },
+    {
+     "text": "TFFT",
+     "correct": true
     }
    ],
    "standards": [
@@ -3116,12 +3116,12 @@
      "correct": false
     },
     {
-     "text": "TFTTTFTF",
-     "correct": true
-    },
-    {
      "text": "FTFFFTFT",
      "correct": false
+    },
+    {
+     "text": "TFTTTFTF",
+     "correct": true
     },
     {
      "text": "FFTTTFTF",
@@ -3155,12 +3155,12 @@
      "correct": false
     },
     {
-     "text": "TFTTTTTT",
-     "correct": true
-    },
-    {
      "text": "FFTTTTTT",
      "correct": false
+    },
+    {
+     "text": "TFTTTTTT",
+     "correct": true
     }
    ],
    "standards": [
@@ -3182,16 +3182,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_column). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "TFTTTTTT",
+     "correct": true
+    },
+    {
      "text": "FFTTTTTT",
      "correct": false
     },
     {
      "text": "FTFFFFFF",
      "correct": false
-    },
-    {
-     "text": "TFTTTTTT",
-     "correct": true
     },
     {
      "text": "TTTTTTFT",
@@ -3221,12 +3221,12 @@
      "correct": false
     },
     {
-     "text": "¬p ∨ q",
-     "correct": true
-    },
-    {
      "text": "q → p",
      "correct": false
+    },
+    {
+     "text": "¬p ∨ q",
+     "correct": true
     },
     {
      "text": "p ∨ ¬q",
@@ -3326,12 +3326,12 @@
      "correct": false
     },
     {
-     "text": "p ∧ ¬q",
-     "correct": false
-    },
-    {
      "text": "¬(p ∧ q)",
      "correct": true
+    },
+    {
+     "text": "p ∧ ¬q",
+     "correct": false
     },
     {
      "text": "¬p → q",
@@ -3361,16 +3361,16 @@
      "correct": false
     },
     {
+     "text": "p → (q → r)",
+     "correct": true
+    },
+    {
      "text": "(p → q) → r",
      "correct": false
     },
     {
      "text": "p ∧ (q → r)",
      "correct": false
-    },
-    {
-     "text": "p → (q → r)",
-     "correct": true
     }
    ],
    "standards": [
@@ -3392,16 +3392,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_equivalent). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(p → r) ∧ (q → r)",
-     "correct": true
-    },
-    {
      "text": "p ∨ (q → r)",
      "correct": false
     },
     {
      "text": "(p → r) ∨ (q → r)",
      "correct": false
+    },
+    {
+     "text": "(p → r) ∧ (q → r)",
+     "correct": true
     },
     {
      "text": "(p ∧ q) → r",
@@ -3427,12 +3427,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_words). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "It snows and school closes.",
-     "correct": false
-    },
-    {
      "text": "It does not snow, or school closes.",
      "correct": true
+    },
+    {
+     "text": "It snows and school closes.",
+     "correct": false
     },
     {
      "text": "If school closes, then it snows.",
@@ -3462,16 +3462,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_words). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If you return the item within 30 days you get a refund, and if you get a refund you returned it within 30 days.",
-     "correct": true
-    },
-    {
      "text": "You get a refund or you return the item within 30 days.",
      "correct": false
     },
     {
      "text": "If you get a refund, you returned the item within 30 days.",
      "correct": false
+    },
+    {
+     "text": "If you return the item within 30 days you get a refund, and if you get a refund you returned it within 30 days.",
+     "correct": true
     },
     {
      "text": "If you return the item within 30 days, you get a refund.",
@@ -3497,10 +3497,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_words). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "A triangle is not equilateral or it is isosceles.",
-     "correct": true
-    },
-    {
      "text": "A triangle is equilateral if and only if it is isosceles.",
      "correct": false
     },
@@ -3511,6 +3507,10 @@
     {
      "text": "A triangle is equilateral or it is not isosceles.",
      "correct": false
+    },
+    {
+     "text": "A triangle is not equilateral or it is isosceles.",
+     "correct": true
     }
    ],
    "standards": [
@@ -3861,12 +3861,12 @@
      "correct": false
     },
     {
-     "text": "The shape is not a square and has four sides.",
-     "correct": false
-    },
-    {
      "text": "The shape is a square and it does not have four sides.",
      "correct": true
+    },
+    {
+     "text": "The shape is not a square and has four sides.",
+     "correct": false
     }
    ],
    "standards": [
@@ -3896,12 +3896,12 @@
      "correct": false
     },
     {
-     "text": "n is prime and n is not odd.",
-     "correct": true
-    },
-    {
      "text": "n is not prime or n is odd.",
      "correct": false
+    },
+    {
+     "text": "n is prime and n is not odd.",
+     "correct": true
     }
    ],
    "standards": [
@@ -3958,16 +3958,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Pat studies, and Pat does not pass and is not lucky.",
-     "correct": true
-    },
-    {
      "text": "Pat does not study, and Pat passes or is lucky.",
      "correct": false
     },
     {
      "text": "If Pat studies, Pat fails and is unlucky.",
      "correct": false
+    },
+    {
+     "text": "Pat studies, and Pat does not pass and is not lucky.",
+     "correct": true
     },
     {
      "text": "Pat studies, and Pat does not pass or is not lucky.",
@@ -3993,12 +3993,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "There is an integer n such that n² is even and n is odd.",
-     "correct": true
-    },
-    {
      "text": "For every integer n, if n² is even then n is odd.",
      "correct": false
+    },
+    {
+     "text": "There is an integer n such that n² is even and n is odd.",
+     "correct": true
     },
     {
      "text": "There is an integer n such that if n² is even then n is odd.",
@@ -4130,16 +4130,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "False",
+     "correct": true
+    },
+    {
      "text": "Cannot be determined",
      "correct": false
     },
     {
      "text": "True",
      "correct": false
-    },
-    {
-     "text": "False",
-     "correct": true
     },
     {
      "text": "Same truth value as the original",
@@ -4173,12 +4173,12 @@
      "correct": false
     },
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "True",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     }
    ],
    "standards": [
@@ -4200,16 +4200,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "True",
-     "correct": true
-    },
-    {
      "text": "Same truth value as the original",
      "correct": false
     },
     {
      "text": "False",
      "correct": false
+    },
+    {
+     "text": "True",
+     "correct": true
     },
     {
      "text": "Cannot be determined",
@@ -4473,16 +4473,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "If the ground is wet, then it is raining.",
+     "correct": true
+    },
+    {
      "text": "If the ground is not wet, then it is not raining.",
      "correct": false
     },
     {
      "text": "If it is raining, then the ground is not wet.",
      "correct": false
-    },
-    {
-     "text": "If the ground is wet, then it is raining.",
-     "correct": true
     },
     {
      "text": "If it is not raining, then the ground is not wet.",
@@ -4508,12 +4508,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If you are not in Massachusetts, then you are not in Boston.",
-     "correct": true
-    },
-    {
      "text": "If you are not in Boston, then you are not in Massachusetts.",
      "correct": false
+    },
+    {
+     "text": "If you are not in Massachusetts, then you are not in Boston.",
+     "correct": true
     },
     {
      "text": "If you are in Boston, then you are not in Massachusetts.",
@@ -4543,16 +4543,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If a number is not a multiple of 10, then it does not end in 0.",
-     "correct": true
-    },
-    {
      "text": "If it does not end in 0, then a number is not a multiple of 10.",
      "correct": false
     },
     {
      "text": "If it ends in 0, then a number is a multiple of 10.",
      "correct": false
+    },
+    {
+     "text": "If a number is not a multiple of 10, then it does not end in 0.",
+     "correct": true
     },
     {
      "text": "If a number is a multiple of 10, then it does not end in 0.",
@@ -4586,12 +4586,12 @@
      "correct": false
     },
     {
-     "text": "If x² ≠ 4, then x ≠ 2.",
-     "correct": true
-    },
-    {
      "text": "If x ≠ 2, then x² ≠ 4.",
      "correct": false
+    },
+    {
+     "text": "If x² ≠ 4, then x ≠ 2.",
+     "correct": true
     }
    ],
    "standards": [
@@ -4613,16 +4613,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "If its diagonals are perpendicular, then a quadrilateral is a rhombus.",
+     "correct": true
+    },
+    {
      "text": "If a quadrilateral is a rhombus, then its diagonals are not perpendicular.",
      "correct": false
     },
     {
      "text": "If a quadrilateral is not a rhombus, then its diagonals are not perpendicular.",
      "correct": false
-    },
-    {
-     "text": "If its diagonals are perpendicular, then a quadrilateral is a rhombus.",
-     "correct": true
     },
     {
      "text": "If its diagonals are not perpendicular, then a quadrilateral is not a rhombus.",
@@ -4718,16 +4718,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_identify). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If a quadrilateral is not a rhombus, then its diagonals are not perpendicular.",
-     "correct": true
-    },
-    {
      "text": "If a quadrilateral is a rhombus, then its diagonals are not perpendicular.",
      "correct": false
     },
     {
      "text": "If its diagonals are not perpendicular, then a quadrilateral is not a rhombus.",
      "correct": false
+    },
+    {
+     "text": "If a quadrilateral is not a rhombus, then its diagonals are not perpendicular.",
+     "correct": true
     },
     {
      "text": "If its diagonals are perpendicular, then a quadrilateral is a rhombus.",
@@ -5060,10 +5060,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_equivalent). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Its contrapositive",
-     "correct": true
-    },
-    {
      "text": "Its negation",
      "correct": false
     },
@@ -5074,6 +5070,10 @@
     {
      "text": "Its inverse",
      "correct": false
+    },
+    {
+     "text": "Its contrapositive",
+     "correct": true
     }
    ],
    "standards": [
@@ -5129,12 +5129,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_bicond). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "It depends on p",
-     "correct": false
-    },
-    {
      "text": "False",
      "correct": true
+    },
+    {
+     "text": "It depends on p",
+     "correct": false
     },
     {
      "text": "True whenever S is true",
@@ -5275,12 +5275,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_rule). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Transitivity (hypothetical syllogism)",
-     "correct": false
-    },
-    {
      "text": "Modus ponens",
      "correct": true
+    },
+    {
+     "text": "Transitivity (hypothetical syllogism)",
+     "correct": false
     },
     {
      "text": "Elimination (disjunctive syllogism)",
@@ -5314,16 +5314,16 @@
      "correct": false
     },
     {
+     "text": "Modus tollens",
+     "correct": true
+    },
+    {
      "text": "Transitivity (hypothetical syllogism)",
      "correct": false
     },
     {
      "text": "Modus ponens",
      "correct": false
-    },
-    {
-     "text": "Modus tollens",
-     "correct": true
     }
    ],
    "standards": [
@@ -5345,16 +5345,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_rule). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Specialization",
-     "correct": true
-    },
-    {
      "text": "Transitivity (hypothetical syllogism)",
      "correct": false
     },
     {
      "text": "Modus tollens",
      "correct": false
+    },
+    {
+     "text": "Specialization",
+     "correct": true
     },
     {
      "text": "Modus ponens",
@@ -5380,12 +5380,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_rule). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Transitivity (hypothetical syllogism)",
-     "correct": true
-    },
-    {
      "text": "Modus ponens",
      "correct": false
+    },
+    {
+     "text": "Transitivity (hypothetical syllogism)",
+     "correct": true
     },
     {
      "text": "Elimination (disjunctive syllogism)",
@@ -5419,12 +5419,12 @@
      "correct": false
     },
     {
-     "text": "Elimination (disjunctive syllogism)",
-     "correct": true
-    },
-    {
      "text": "Transitivity (hypothetical syllogism)",
      "correct": false
+    },
+    {
+     "text": "Elimination (disjunctive syllogism)",
+     "correct": true
     },
     {
      "text": "Modus ponens",
@@ -5454,16 +5454,16 @@
      "correct": false
     },
     {
-     "text": "Generalization",
-     "correct": true
-    },
-    {
      "text": "Transitivity (hypothetical syllogism)",
      "correct": false
     },
     {
      "text": "Modus ponens",
      "correct": false
+    },
+    {
+     "text": "Generalization",
+     "correct": true
     }
    ],
    "standards": [
@@ -5489,16 +5489,16 @@
      "correct": false
     },
     {
-     "text": "Proof by division into cases",
-     "correct": true
-    },
-    {
      "text": "Modus tollens",
      "correct": false
     },
     {
      "text": "Transitivity (hypothetical syllogism)",
      "correct": false
+    },
+    {
+     "text": "Proof by division into cases",
+     "correct": true
     }
    ],
    "standards": [
@@ -5520,16 +5520,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: name_rule). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Contradiction rule",
+     "correct": true
+    },
+    {
      "text": "Modus ponens",
      "correct": false
     },
     {
      "text": "Modus tollens",
      "correct": false
-    },
-    {
-     "text": "Contradiction rule",
-     "correct": true
     },
     {
      "text": "Transitivity (hypothetical syllogism)",
@@ -5555,10 +5555,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Valid",
-     "correct": true
-    },
-    {
      "text": "Invalid, because one premise could be false",
      "correct": false
     },
@@ -5569,6 +5565,10 @@
     {
      "text": "Valid, because the conclusion is true",
      "correct": false
+    },
+    {
+     "text": "Valid",
+     "correct": true
     }
    ],
    "standards": [
@@ -5590,12 +5590,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Invalid, because one premise could be false",
-     "correct": false
-    },
-    {
      "text": "Invalid",
      "correct": true
+    },
+    {
+     "text": "Invalid, because one premise could be false",
+     "correct": false
     },
     {
      "text": "Valid, because the conclusion is true",
@@ -5629,12 +5629,12 @@
      "correct": false
     },
     {
-     "text": "Invalid, because one premise could be false",
-     "correct": false
-    },
-    {
      "text": "Valid",
      "correct": true
+    },
+    {
+     "text": "Invalid, because one premise could be false",
+     "correct": false
     },
     {
      "text": "Valid, because the conclusion is true",
@@ -5660,6 +5660,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Valid",
+     "correct": true
+    },
+    {
      "text": "Invalid",
      "correct": false
     },
@@ -5670,10 +5674,6 @@
     {
      "text": "Valid, because the conclusion is true",
      "correct": false
-    },
-    {
-     "text": "Valid",
-     "correct": true
     }
    ],
    "standards": [
@@ -5695,12 +5695,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Invalid",
-     "correct": true
-    },
-    {
      "text": "Valid",
      "correct": false
+    },
+    {
+     "text": "Invalid",
+     "correct": true
     },
     {
      "text": "Valid, because the conclusion is true",
@@ -5730,16 +5730,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Valid",
-     "correct": true
-    },
-    {
      "text": "Invalid, because one premise could be false",
      "correct": false
     },
     {
      "text": "Valid, because the conclusion is true",
      "correct": false
+    },
+    {
+     "text": "Valid",
+     "correct": true
     },
     {
      "text": "Invalid",
@@ -5800,16 +5800,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: english_valid). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Valid",
-     "correct": true
-    },
-    {
      "text": "Invalid",
      "correct": false
     },
     {
      "text": "Invalid, because one premise could be false",
      "correct": false
+    },
+    {
+     "text": "Valid",
+     "correct": true
     },
     {
      "text": "Valid, because the conclusion is true",
@@ -6127,12 +6127,12 @@
      "correct": false
     },
     {
-     "text": "Valid (modus tollens)",
-     "correct": false
-    },
-    {
      "text": "Converse error (affirming the conclusion)",
      "correct": true
+    },
+    {
+     "text": "Valid (modus tollens)",
+     "correct": false
     },
     {
      "text": "Valid (modus ponens)",
@@ -6162,12 +6162,12 @@
      "correct": false
     },
     {
-     "text": "Inverse error (denying the hypothesis)",
-     "correct": true
-    },
-    {
      "text": "Converse error (affirming the conclusion)",
      "correct": false
+    },
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": true
     },
     {
      "text": "Valid (modus tollens)",
@@ -6201,12 +6201,12 @@
      "correct": false
     },
     {
-     "text": "Valid (modus ponens)",
-     "correct": true
-    },
-    {
      "text": "Converse error (affirming the conclusion)",
      "correct": false
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6267,12 +6267,12 @@
      "correct": false
     },
     {
-     "text": "Valid (modus ponens)",
-     "correct": false
-    },
-    {
      "text": "Converse error (affirming the conclusion)",
      "correct": true
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": false
     },
     {
      "text": "Valid (modus tollens)",
@@ -6298,16 +6298,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_fallacy). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Inverse error (denying the hypothesis)",
-     "correct": true
-    },
-    {
      "text": "Valid (modus tollens)",
      "correct": false
     },
     {
      "text": "Converse error (affirming the conclusion)",
      "correct": false
+    },
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": true
     },
     {
      "text": "Valid (modus ponens)",
@@ -6333,16 +6333,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_fallacy). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Invalid: \"or\" is inclusive, so both could be true",
-     "correct": true
-    },
-    {
      "text": "Inverse error (denying the hypothesis)",
      "correct": false
     },
     {
      "text": "Converse error (affirming the conclusion)",
      "correct": false
+    },
+    {
+     "text": "Invalid: \"or\" is inclusive, so both could be true",
+     "correct": true
     },
     {
      "text": "Valid (modus ponens)",
@@ -6372,16 +6372,16 @@
      "correct": false
     },
     {
-     "text": "Converse error (affirming the conclusion)",
-     "correct": true
-    },
-    {
      "text": "Valid (modus ponens)",
      "correct": false
     },
     {
      "text": "Inverse error (denying the hypothesis)",
      "correct": false
+    },
+    {
+     "text": "Converse error (affirming the conclusion)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6403,12 +6403,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contradiction_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No, it is a tautology",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No, it is a tautology",
+     "correct": false
     },
     {
      "text": "No, it is true in exactly one row",
@@ -6442,16 +6442,16 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No, it is a tautology",
      "correct": false
     },
     {
      "text": "No, it is true in exactly one row",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     }
    ],
    "standards": [
@@ -6473,6 +6473,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contradiction_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "No, it is true in exactly one row",
      "correct": false
     },
@@ -6483,10 +6487,6 @@
     {
      "text": "No, it is a tautology",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -6508,16 +6508,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contradiction_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "No, it is a tautology",
      "correct": false
     },
     {
      "text": "No, it is true in exactly one row",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     },
     {
      "text": "No, it is true in exactly two rows",
@@ -6547,12 +6547,12 @@
      "correct": false
     },
     {
-     "text": "No, it is true in exactly two rows",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No, it is true in exactly two rows",
+     "correct": false
     },
     {
      "text": "No, it is true in exactly one row",
@@ -6582,16 +6582,16 @@
      "correct": false
     },
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "No, it is true in exactly one row",
      "correct": false
     },
     {
      "text": "No, it is true in exactly two rows",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -6934,12 +6934,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: bicond_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "True",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     },
     {
      "text": "Cannot be determined",
@@ -7089,16 +7089,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_name). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Its contrapositive",
+     "correct": true
+    },
+    {
      "text": "Its negation",
      "correct": false
     },
     {
      "text": "Its inverse",
      "correct": false
-    },
-    {
-     "text": "Its contrapositive",
-     "correct": true
     },
     {
      "text": "Its converse",
@@ -7128,12 +7128,12 @@
      "correct": false
     },
     {
-     "text": "Its contrapositive",
-     "correct": false
-    },
-    {
      "text": "Its inverse",
      "correct": true
+    },
+    {
+     "text": "Its contrapositive",
+     "correct": false
     },
     {
      "text": "Its converse",
@@ -7163,16 +7163,16 @@
      "correct": false
     },
     {
-     "text": "Its converse",
-     "correct": true
-    },
-    {
      "text": "Its negation",
      "correct": false
     },
     {
      "text": "Its inverse",
      "correct": false
+    },
+    {
+     "text": "Its converse",
+     "correct": true
     }
    ],
    "standards": [
@@ -7198,12 +7198,12 @@
      "correct": false
     },
     {
-     "text": "Valid",
-     "correct": true
-    },
-    {
      "text": "It depends on the meaning of p, q and r",
      "correct": false
+    },
+    {
+     "text": "Valid",
+     "correct": true
     },
     {
      "text": "Valid only if the premises are true",
@@ -7237,12 +7237,12 @@
      "correct": false
     },
     {
-     "text": "Invalid",
-     "correct": true
-    },
-    {
      "text": "It depends on the meaning of p, q and r",
      "correct": false
+    },
+    {
+     "text": "Invalid",
+     "correct": true
     }
    ],
    "standards": [
@@ -7350,12 +7350,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If the bus is late, then I do not take a taxi.",
-     "correct": false
-    },
-    {
      "text": "The bus is late and I do not take a taxi.",
      "correct": true
+    },
+    {
+     "text": "If the bus is late, then I do not take a taxi.",
+     "correct": false
     },
     {
      "text": "If the bus is not late, then I take a taxi.",
@@ -7420,6 +7420,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "There is an integer n such that n² is divisible by 4 and n is not divisible by 4 (for example n = 2).",
+     "correct": true
+    },
+    {
      "text": "For all integers n, if n² is divisible by 4, then n is not divisible by 4.",
      "correct": false
     },
@@ -7430,10 +7434,6 @@
     {
      "text": "For all integers n, n² is divisible by 4 and n is not divisible by 4.",
      "correct": false
-    },
-    {
-     "text": "There is an integer n such that n² is divisible by 4 and n is not divisible by 4 (for example n = 2).",
-     "correct": true
     }
    ],
    "standards": [
@@ -7463,12 +7463,12 @@
      "correct": false
     },
     {
-     "text": "Inverse error (denying the hypothesis)",
-     "correct": false
-    },
-    {
      "text": "Converse error (affirming the conclusion)",
      "correct": true
+    },
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": false
     }
    ],
    "standards": [
@@ -7493,12 +7493,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": false
-    },
-    {
      "text": "4",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
     },
     {
      "text": "8",
@@ -7924,12 +7924,12 @@
      "correct": false
     },
     {
-     "text": "7",
-     "correct": true
-    },
-    {
      "text": "8",
      "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
     },
     {
      "text": "9",
@@ -7993,16 +7993,16 @@
      "correct": false
     },
     {
-     "text": "15",
-     "correct": true
-    },
-    {
      "text": "16",
      "correct": false
     },
     {
      "text": "17",
      "correct": false
+    },
+    {
+     "text": "15",
+     "correct": true
     }
    ],
    "standards": [
@@ -8058,12 +8058,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "30",
-     "correct": false
-    },
-    {
      "text": "31",
      "correct": true
+    },
+    {
+     "text": "30",
+     "correct": false
     },
     {
      "text": "32",
@@ -8183,16 +8183,16 @@
      "correct": false
     },
     {
-     "text": "16",
-     "correct": true
-    },
-    {
      "text": "17",
      "correct": false
     },
     {
      "text": "18",
      "correct": false
+    },
+    {
+     "text": "16",
+     "correct": true
     }
    ],
    "standards": [
@@ -8214,12 +8214,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "31",
-     "correct": false
-    },
-    {
      "text": "32",
      "correct": true
+    },
+    {
+     "text": "31",
+     "correct": false
     },
     {
      "text": "33",
@@ -8305,12 +8305,12 @@
      "correct": false
     },
     {
-     "text": "127",
-     "correct": true
-    },
-    {
      "text": "128",
      "correct": false
+    },
+    {
+     "text": "127",
+     "correct": true
     },
     {
      "text": "129",
@@ -8374,16 +8374,16 @@
      "correct": false
     },
     {
-     "text": "255",
-     "correct": true
-    },
-    {
      "text": "256",
      "correct": false
     },
     {
      "text": "257",
      "correct": false
+    },
+    {
+     "text": "255",
+     "correct": true
     }
    ],
    "standards": [
@@ -8409,16 +8409,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -8440,12 +8440,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "7",
-     "correct": false
-    },
-    {
      "text": "8",
      "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
     },
     {
      "text": "9",
@@ -8548,12 +8548,12 @@
      "correct": false
     },
     {
-     "text": "256",
-     "correct": true
-    },
-    {
      "text": "257",
      "correct": false
+    },
+    {
+     "text": "256",
+     "correct": true
     },
     {
      "text": "258",
@@ -8617,16 +8617,16 @@
      "correct": false
     },
     {
-     "text": "511",
-     "correct": true
-    },
-    {
      "text": "512",
      "correct": false
     },
     {
      "text": "513",
      "correct": false
+    },
+    {
+     "text": "511",
+     "correct": true
     }
    ],
    "standards": [

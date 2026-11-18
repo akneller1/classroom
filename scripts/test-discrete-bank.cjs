@@ -15,7 +15,7 @@ assert(course, 'discrete course missing');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'question-banks/manifest.json'), 'utf8'));
 let total = 0, recomputed = 0, fails = [];
 const fail = (q, msg) => fails.push(q.id + ': ' + msg);
-const fam = q => (/family: ([a-z0-9_]+)\)/.exec(q.sourceNotes || '') || [])[1] || '';
+const fam = q => (/family: ([a-z0-9_-]+)\)/.exec(q.sourceNotes || '') || [])[1] || '';
 const fracStr = (n, d) => { const gg = gcd(Math.abs(n), Math.abs(d)) || 1; n /= gg; d /= gg; if (d < 0) { n = -n; d = -d; } return d === 1 ? String(n) : n + '/' + d; };
 function gcd(a, b) { while (b) [a, b] = [b, a % b]; return a; }
 const norm = s => String(s).replace(/−/g, '-').replace(/‑/g, '-');

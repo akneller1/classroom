@@ -17,16 +17,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: definition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "if and only if n = 2k for some integer k",
+     "correct": true
+    },
+    {
      "text": "if and only if n = 2k + 1 for some integer k",
      "correct": false
     },
     {
      "text": "if and only if n = k + 2 for some integer k",
      "correct": false
-    },
-    {
-     "text": "if and only if n = 2k for some integer k",
-     "correct": true
     },
     {
      "text": "if and only if n/2 is a whole number greater than 0",
@@ -56,16 +56,16 @@
      "correct": false
     },
     {
+     "text": "if and only if n = 2k + 1 for some integer k",
+     "correct": true
+    },
+    {
      "text": "if and only if n = 2k + 1 for every integer k",
      "correct": false
     },
     {
      "text": "if and only if n is not divisible by 3",
      "correct": false
-    },
-    {
-     "text": "if and only if n = 2k + 1 for some integer k",
-     "correct": true
     }
    ],
    "standards": [
@@ -95,12 +95,12 @@
      "correct": false
     },
     {
-     "text": "if and only if r = a/b for some integers a and b with b ≠ 0",
-     "correct": true
-    },
-    {
      "text": "if and only if r has a finite decimal expansion",
      "correct": false
+    },
+    {
+     "text": "if and only if r = a/b for some integers a and b with b ≠ 0",
+     "correct": true
     }
    ],
    "standards": [
@@ -122,6 +122,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: definition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "if and only if n = dk for some integer k",
+     "correct": true
+    },
+    {
      "text": "if and only if d = nk for some integer k",
      "correct": false
     },
@@ -132,10 +136,6 @@
     {
      "text": "if and only if n/d < 1",
      "correct": false
-    },
-    {
-     "text": "if and only if n = dk for some integer k",
-     "correct": true
     }
    ],
    "standards": [
@@ -157,6 +157,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: definition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "if and only if its only positive divisors are 1 and n",
+     "correct": true
+    },
+    {
      "text": "if and only if it is not divisible by 2, 3 or 5",
      "correct": false
     },
@@ -167,10 +171,6 @@
     {
      "text": "if and only if it is odd",
      "correct": false
-    },
-    {
-     "text": "if and only if its only positive divisors are 1 and n",
-     "correct": true
     }
    ],
    "standards": [
@@ -192,12 +192,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: definition). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "if and only if n = rs for some integers r and s with 1 < r < n and 1 < s < n",
-     "correct": true
-    },
-    {
      "text": "if and only if n is even",
      "correct": false
+    },
+    {
+     "text": "if and only if n = rs for some integers r and s with 1 < r < n and 1 < s < n",
+     "correct": true
     },
     {
      "text": "if and only if n = rs for some integers r and s",
@@ -328,16 +328,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Even",
-     "correct": true
-    },
-    {
      "text": "Odd",
      "correct": false
     },
     {
      "text": "Neither even nor odd",
      "correct": false
+    },
+    {
+     "text": "Even",
+     "correct": true
     },
     {
      "text": "Both even and odd",
@@ -366,16 +366,16 @@
      "correct": false
     },
     {
-     "text": "Odd",
-     "correct": true
-    },
-    {
      "text": "Neither even nor odd",
      "correct": false
     },
     {
      "text": "Even",
      "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": true
     }
    ],
    "standards": [
@@ -430,16 +430,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Composite",
-     "correct": true
-    },
-    {
      "text": "Neither prime nor composite",
      "correct": false
     },
     {
      "text": "Both prime and composite",
      "correct": false
+    },
+    {
+     "text": "Composite",
+     "correct": true
     },
     {
      "text": "Prime",
@@ -464,12 +464,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Both prime and composite",
-     "correct": false
-    },
-    {
      "text": "Prime",
      "correct": true
+    },
+    {
+     "text": "Both prime and composite",
+     "correct": false
     },
     {
      "text": "Composite",
@@ -536,16 +536,16 @@
      "correct": false
     },
     {
-     "text": "Composite",
-     "correct": true
-    },
-    {
      "text": "Both prime and composite",
      "correct": false
     },
     {
      "text": "Neither prime nor composite",
      "correct": false
+    },
+    {
+     "text": "Composite",
+     "correct": true
     }
    ],
    "standards": [
@@ -815,12 +815,12 @@
      "correct": false
     },
     {
-     "text": "2(ab), which is even because ab is an integer",
-     "correct": false
-    },
-    {
      "text": "2(a + b), which is even because a + b is an integer",
      "correct": true
+    },
+    {
+     "text": "2(ab), which is even because ab is an integer",
+     "correct": false
     },
     {
      "text": "4ab, which is even",
@@ -881,16 +881,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_step). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2(2ab + a + b) + 1, which is odd",
-     "correct": true
-    },
-    {
      "text": "2(2ab + a + b), which is even",
      "correct": false
     },
     {
      "text": "4ab + 1, which is odd",
      "correct": false
+    },
+    {
+     "text": "2(2ab + a + b) + 1, which is odd",
+     "correct": true
     },
     {
      "text": "2(a + b) + 1, which is odd",
@@ -916,10 +916,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_step). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(a + nb)/b, a quotient of integers with b ≠ 0",
-     "correct": true
-    },
-    {
      "text": "a/b + n/1, which is a sum of fractions",
      "correct": false
     },
@@ -930,6 +926,10 @@
     {
      "text": "(a + n)/b",
      "correct": false
+    },
+    {
+     "text": "(a + nb)/b, a quotient of integers with b ≠ 0",
+     "correct": true
     }
    ],
    "standards": [
@@ -951,10 +951,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_step). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "a(rs), so a | c because rs is an integer",
-     "correct": true
-    },
-    {
      "text": "a + rs, so a | c",
      "correct": false
     },
@@ -965,6 +961,10 @@
     {
      "text": "r(as), so r | c",
      "correct": false
+    },
+    {
+     "text": "a(rs), so a | c because rs is an integer",
+     "correct": true
     }
    ],
    "standards": [
@@ -986,16 +986,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_step). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "n(n + 1), a product of consecutive integers, one of which is even",
+     "correct": true
+    },
+    {
      "text": "n² + n, which is even because n² is even",
      "correct": false
     },
     {
      "text": "2n, which is even",
      "correct": false
-    },
-    {
-     "text": "n(n + 1), a product of consecutive integers, one of which is even",
-     "correct": true
     },
     {
      "text": "n(n + 1), which is even because n is even",
@@ -1107,6 +1107,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_start). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Let a and b be any even integers.",
+     "correct": true
+    },
+    {
      "text": "Suppose ab is even.",
      "correct": false
     },
@@ -1117,10 +1121,6 @@
     {
      "text": "Let a = 2 and b = 4.",
      "correct": false
-    },
-    {
-     "text": "Let a and b be any even integers.",
-     "correct": true
     }
    ],
    "standards": [
@@ -1142,12 +1142,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_start). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Let r be any rational number, so r = a/b with integers a, b and b ≠ 0.",
-     "correct": true
-    },
-    {
      "text": "Suppose r² is rational.",
      "correct": false
+    },
+    {
+     "text": "Let r be any rational number, so r = a/b with integers a, b and b ≠ 0.",
+     "correct": true
     },
     {
      "text": "Let r = 1/2.",
@@ -1419,16 +1419,16 @@
      "correct": false
     },
     {
+     "text": "16",
+     "correct": true
+    },
+    {
      "text": "9",
      "correct": false
     },
     {
      "text": "25",
      "correct": false
-    },
-    {
-     "text": "16",
-     "correct": true
     }
    ],
    "standards": [
@@ -1450,16 +1450,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: witness). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "23",
-     "correct": true
-    },
-    {
      "text": "25",
      "correct": false
     },
     {
      "text": "21",
      "correct": false
+    },
+    {
+     "text": "23",
+     "correct": true
     },
     {
      "text": "22",
@@ -1489,12 +1489,12 @@
      "correct": false
     },
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "−1",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "0",
@@ -1524,12 +1524,12 @@
      "correct": false
     },
     {
-     "text": "a = 3, b = 4",
-     "correct": true
-    },
-    {
      "text": "a = 1, b = 5",
      "correct": false
+    },
+    {
+     "text": "a = 3, b = 4",
+     "correct": true
     },
     {
      "text": "a = 2, b = 3",
@@ -1555,12 +1555,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: witness). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1729 = 1³ + 12³ = 9³ + 10³",
-     "correct": true
-    },
-    {
      "text": "91 = 3³ + 4³",
      "correct": false
+    },
+    {
+     "text": "1729 = 1³ + 12³ = 9³ + 10³",
+     "correct": true
     },
     {
      "text": "1729 = 12³ + 1³ only",
@@ -1696,16 +1696,16 @@
      "correct": false
     },
     {
-     "text": "One counterexample: 2",
-     "correct": true
-    },
-    {
      "text": "A general argument that primes are odd",
      "correct": false
     },
     {
      "text": "Show that 9 is odd and not prime",
      "correct": false
+    },
+    {
+     "text": "One counterexample: 2",
+     "correct": true
     }
    ],
    "standards": [
@@ -1726,16 +1726,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "A general argument that no integer works",
+     "correct": true
+    },
+    {
      "text": "One example such as n = 1",
      "correct": false
     },
     {
      "text": "A counterexample n = 3",
      "correct": false
-    },
-    {
-     "text": "A general argument that no integer works",
-     "correct": true
     },
     {
      "text": "Checking n = 1, 2, 3",
@@ -1768,12 +1768,12 @@
      "correct": false
     },
     {
-     "text": "The method of exhaustion: check all four values, or give a general proof",
-     "correct": true
-    },
-    {
      "text": "A counterexample",
      "correct": false
+    },
+    {
+     "text": "The method of exhaustion: check all four values, or give a general proof",
+     "correct": true
     }
    ],
    "standards": [
@@ -1794,12 +1794,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "An example x = 4 with y = 2",
-     "correct": false
-    },
-    {
      "text": "One counterexample: x = −1",
      "correct": true
+    },
+    {
+     "text": "An example x = 4 with y = 2",
+     "correct": false
     },
     {
      "text": "Show that y = √x for every x",
@@ -2236,16 +2236,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: closure). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "always rational",
-     "correct": true
-    },
-    {
      "text": "always an integer",
      "correct": false
     },
     {
      "text": "sometimes rational",
      "correct": false
+    },
+    {
+     "text": "always rational",
+     "correct": true
     },
     {
      "text": "always irrational",
@@ -2271,6 +2271,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: closure). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "always irrational",
+     "correct": true
+    },
+    {
      "text": "sometimes rational",
      "correct": false
     },
@@ -2281,10 +2285,6 @@
     {
      "text": "always rational",
      "correct": false
-    },
-    {
-     "text": "always irrational",
-     "correct": true
     }
    ],
    "standards": [
@@ -2341,16 +2341,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: closure). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "always irrational",
-     "correct": true
-    },
-    {
      "text": "sometimes rational",
      "correct": false
     },
     {
      "text": "irrational only if the rational number is an integer",
      "correct": false
+    },
+    {
+     "text": "always irrational",
+     "correct": true
     },
     {
      "text": "always rational",
@@ -2384,12 +2384,12 @@
      "correct": false
     },
     {
-     "text": "always rational",
-     "correct": true
-    },
-    {
      "text": "sometimes irrational",
      "correct": false
+    },
+    {
+     "text": "always rational",
+     "correct": true
     }
    ],
    "standards": [
@@ -2823,12 +2823,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "True",
-     "correct": true
-    },
-    {
      "text": "True only if 6 < 84",
      "correct": false
+    },
+    {
+     "text": "True",
+     "correct": true
     },
     {
      "text": "Undefined",
@@ -2901,12 +2901,12 @@
      "correct": false
     },
     {
-     "text": "True only if 12 < 144",
-     "correct": false
-    },
-    {
      "text": "True",
      "correct": true
+    },
+    {
+     "text": "True only if 12 < 144",
+     "correct": false
     }
    ],
    "standards": [
@@ -2967,16 +2967,16 @@
      "correct": false
     },
     {
+     "text": "True",
+     "correct": true
+    },
+    {
      "text": "Undefined",
      "correct": false
     },
     {
      "text": "False",
      "correct": false
-    },
-    {
-     "text": "True",
-     "correct": true
     }
    ],
    "standards": [
@@ -2998,16 +2998,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "Undefined",
      "correct": false
     },
     {
      "text": "True only if 4 < 2026",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     },
     {
      "text": "True",
@@ -3494,12 +3494,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_start). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Suppose some integer n is both even and odd.",
-     "correct": true
-    },
-    {
      "text": "Suppose n is neither even nor odd.",
      "correct": false
+    },
+    {
+     "text": "Suppose some integer n is both even and odd.",
+     "correct": true
     },
     {
      "text": "Suppose every integer is even.",
@@ -3568,12 +3568,12 @@
      "correct": false
     },
     {
-     "text": "Let r = 1 and x = √2.",
-     "correct": false
-    },
-    {
      "text": "Suppose r is rational, x is irrational, and r + x is rational.",
      "correct": true
+    },
+    {
+     "text": "Let r = 1 and x = √2.",
+     "correct": false
     },
     {
      "text": "Suppose r + x is irrational.",
@@ -3599,12 +3599,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_start). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Suppose a² = 2b² for all integers a, b.",
-     "correct": false
-    },
-    {
      "text": "Suppose √2 is rational, so √2 = a/b in lowest terms.",
      "correct": true
+    },
+    {
+     "text": "Suppose a² = 2b² for all integers a, b.",
+     "correct": false
     },
     {
      "text": "Suppose √2 = 1.414.",
@@ -3638,16 +3638,16 @@
      "correct": false
     },
     {
+     "text": "Suppose there are only finitely many primes p₁, p₂, ..., pₙ.",
+     "correct": true
+    },
+    {
      "text": "Suppose there are infinitely many primes.",
      "correct": false
     },
     {
      "text": "Suppose 2, 3, 5 are the only primes.",
      "correct": false
-    },
-    {
-     "text": "Suppose there are only finitely many primes p₁, p₂, ..., pₙ.",
-     "correct": true
     }
    ],
    "standards": [
@@ -3712,12 +3712,12 @@
      "correct": false
     },
     {
-     "text": "a² = 2b² has no solutions",
-     "correct": false
-    },
-    {
      "text": "a and b are both even, so a/b was not in lowest terms",
      "correct": true
+    },
+    {
+     "text": "a² = 2b² has no solutions",
+     "correct": false
     }
    ],
    "standards": [
@@ -3778,16 +3778,16 @@
      "correct": false
     },
     {
-     "text": "r/2 < r, so r was not the least positive rational",
-     "correct": true
-    },
-    {
      "text": "r/2 > r",
      "correct": false
     },
     {
      "text": "r is negative",
      "correct": false
+    },
+    {
+     "text": "r/2 < r, so r was not the least positive rational",
+     "correct": true
     }
    ],
    "standards": [
@@ -4149,10 +4149,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_statement). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If n is odd, then n² is odd.",
-     "correct": true
-    },
-    {
      "text": "If n² is odd, then n is odd.",
      "correct": false
     },
@@ -4163,6 +4159,10 @@
     {
      "text": "If n is even, then n² is even.",
      "correct": false
+    },
+    {
+     "text": "If n is odd, then n² is odd.",
+     "correct": true
     }
    ],
    "standards": [
@@ -4184,6 +4184,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_statement). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "If n is even, then n² is even.",
+     "correct": true
+    },
+    {
      "text": "It is false that if n² is odd, then n is odd.",
      "correct": false
     },
@@ -4194,10 +4198,6 @@
     {
      "text": "If n² is even, then n is even.",
      "correct": false
-    },
-    {
-     "text": "If n is even, then n² is even.",
-     "correct": true
     }
    ],
    "standards": [
@@ -4219,10 +4219,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_statement). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "If n is even, then 3n + 1 is odd.",
-     "correct": true
-    },
-    {
      "text": "If n is odd, then 3n + 1 is even.",
      "correct": false
     },
@@ -4233,6 +4229,10 @@
     {
      "text": "It is false that if 3n + 1 is even, then n is odd.",
      "correct": false
+    },
+    {
+     "text": "If n is even, then 3n + 1 is odd.",
+     "correct": true
     }
    ],
    "standards": [
@@ -4254,16 +4254,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_statement). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "If x and y are both rational, then xy is rational.",
+     "correct": true
+    },
+    {
      "text": "It is false that if xy is irrational, then x or y is irrational.",
      "correct": false
     },
     {
      "text": "If x or y is irrational, then xy is irrational.",
      "correct": false
-    },
-    {
-     "text": "If x and y are both rational, then xy is rational.",
-     "correct": true
     },
     {
      "text": "If xy is rational, then x and y are both rational.",
@@ -4293,16 +4293,16 @@
      "correct": false
     },
     {
-     "text": "If a < 10 and b < 10, then a + b < 20.",
-     "correct": true
-    },
-    {
      "text": "If a ≥ 10 or b ≥ 10, then a + b ≥ 20.",
      "correct": false
     },
     {
      "text": "It is false that if a + b ≥ 20, then a ≥ 10 or b ≥ 10.",
      "correct": false
+    },
+    {
+     "text": "If a < 10 and b < 10, then a + b < 20.",
+     "correct": true
     }
    ],
    "standards": [
@@ -4324,16 +4324,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_statement). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "If n is even, then n² − 6n + 5 is odd.",
+     "correct": true
+    },
+    {
      "text": "If n is odd, then n² − 6n + 5 is even.",
      "correct": false
     },
     {
      "text": "If n² − 6n + 5 is odd, then n is even.",
      "correct": false
-    },
-    {
-     "text": "If n is even, then n² − 6n + 5 is odd.",
-     "correct": true
     },
     {
      "text": "It is false that if n² − 6n + 5 is even, then n is odd.",
@@ -4363,12 +4363,12 @@
      "correct": false
     },
     {
-     "text": "They are converses, so they are equivalent",
-     "correct": false
-    },
-    {
      "text": "They are contrapositives, so they are logically equivalent",
      "correct": true
+    },
+    {
+     "text": "They are converses, so they are equivalent",
+     "correct": false
     },
     {
      "text": "It does not; the second needs its own proof",
@@ -4433,12 +4433,12 @@
      "correct": false
     },
     {
-     "text": "When a counterexample exists",
-     "correct": false
-    },
-    {
      "text": "When the negated conclusion gives a usable equation (such as n = 2k + 1) and the hypothesis does not",
      "correct": true
+    },
+    {
+     "text": "When a counterexample exists",
+     "correct": false
     },
     {
      "text": "When the statement is existential",
@@ -4803,12 +4803,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
    "options": [
     {
-     "text": "Constructive proof (give a witness)",
-     "correct": true
-    },
-    {
      "text": "Proof by contraposition",
      "correct": false
+    },
+    {
+     "text": "Constructive proof (give a witness)",
+     "correct": true
     },
     {
      "text": "Proof by contradiction",
@@ -4871,10 +4871,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
    "options": [
     {
-     "text": "Method of exhaustion",
-     "correct": true
-    },
-    {
      "text": "Proof by contraposition",
      "correct": false
     },
@@ -4885,6 +4881,10 @@
     {
      "text": "Proof by contradiction",
      "correct": false
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": true
     }
    ],
    "standards": [
@@ -4905,16 +4905,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
    "options": [
     {
-     "text": "Direct proof (possibly with cases n even, n odd)",
-     "correct": true
-    },
-    {
      "text": "Proof by contraposition",
      "correct": false
     },
     {
      "text": "Counterexample (it is false)",
      "correct": false
+    },
+    {
+     "text": "Direct proof (possibly with cases n even, n odd)",
+     "correct": true
     },
     {
      "text": "Proof by contradiction",
@@ -4943,16 +4943,16 @@
      "correct": false
     },
     {
-     "text": "Proof by contraposition",
-     "correct": true
-    },
-    {
      "text": "Direct proof",
      "correct": false
     },
     {
      "text": "Counterexample (it is false)",
      "correct": false
+    },
+    {
+     "text": "Proof by contraposition",
+     "correct": true
     }
    ],
    "standards": [
@@ -4973,6 +4973,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
    "options": [
     {
+     "text": "Direct proof",
+     "correct": true
+    },
+    {
      "text": "Counterexample (it is false)",
      "correct": false
     },
@@ -4983,10 +4987,6 @@
     {
      "text": "Proof by contradiction",
      "correct": false
-    },
-    {
-     "text": "Direct proof",
-     "correct": true
     }
    ],
    "standards": [
@@ -5011,16 +5011,16 @@
      "correct": false
     },
     {
+     "text": "Proof by contradiction",
+     "correct": true
+    },
+    {
      "text": "Direct proof",
      "correct": false
     },
     {
      "text": "Proof by contraposition",
      "correct": false
-    },
-    {
-     "text": "Proof by contradiction",
-     "correct": true
     }
    ],
    "standards": [
@@ -5045,12 +5045,12 @@
      "correct": false
     },
     {
-     "text": "Proof by contradiction",
-     "correct": true
-    },
-    {
      "text": "Counterexample (it is false)",
      "correct": false
+    },
+    {
+     "text": "Proof by contradiction",
+     "correct": true
     },
     {
      "text": "Direct proof",
@@ -5075,16 +5075,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "True",
+     "correct": true
+    },
+    {
      "text": "Only when the statement is existential",
      "correct": false
     },
     {
      "text": "False",
      "correct": false
-    },
-    {
-     "text": "True",
-     "correct": true
     },
     {
      "text": "Only for statements about primes",
@@ -5109,12 +5109,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "True",
-     "correct": true
-    },
-    {
      "text": "False",
      "correct": false
+    },
+    {
+     "text": "True",
+     "correct": true
     },
     {
      "text": "Only when the statement is existential",
@@ -5147,16 +5147,16 @@
      "correct": false
     },
     {
-     "text": "False",
-     "correct": true
-    },
-    {
      "text": "Only when the statement is existential",
      "correct": false
     },
     {
      "text": "True",
      "correct": false
+    },
+    {
+     "text": "False",
+     "correct": true
     }
    ],
    "standards": [
@@ -5181,12 +5181,12 @@
      "correct": false
     },
     {
-     "text": "Prove every square is odd",
-     "correct": false
-    },
-    {
      "text": "Show 9 = 3² is odd",
      "correct": true
+    },
+    {
+     "text": "Prove every square is odd",
+     "correct": false
     },
     {
      "text": "Assume no square is odd and find a contradiction using 4",
@@ -5585,12 +5585,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Prime",
-     "correct": false
-    },
-    {
      "text": "Composite",
      "correct": true
+    },
+    {
+     "text": "Prime",
+     "correct": false
     },
     {
      "text": "Neither prime nor composite",
@@ -5657,16 +5657,16 @@
      "correct": false
     },
     {
+     "text": "Prime",
+     "correct": true
+    },
+    {
      "text": "Composite",
      "correct": false
     },
     {
      "text": "Both prime and composite",
      "correct": false
-    },
-    {
-     "text": "Prime",
-     "correct": true
     }
    ],
    "standards": [
@@ -5688,12 +5688,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_parity). The rewritten form was checked equal to the expression for k = −6..6 by the authoring script.",
    "options": [
     {
-     "text": "n + 6 = 2(k + 3), so it is odd",
-     "correct": false
-    },
-    {
      "text": "n + 6 = 2(k + 3), so it is even",
      "correct": true
+    },
+    {
+     "text": "n + 6 = 2(k + 3), so it is odd",
+     "correct": false
     },
     {
      "text": "It cannot be decided without a value of k",
@@ -5758,16 +5758,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_parity). The rewritten form was checked equal to the expression for k = −6..6 by the authoring script.",
    "options": [
     {
-     "text": "3n = 2(3k + 1) + 1, so it is odd",
-     "correct": true
-    },
-    {
      "text": "3n is even because n is odd",
      "correct": false
     },
     {
      "text": "3n = 2(3k + 1) + 1, so it is even",
      "correct": false
+    },
+    {
+     "text": "3n = 2(3k + 1) + 1, so it is odd",
+     "correct": true
     },
     {
      "text": "It cannot be decided without a value of k",
@@ -5797,16 +5797,16 @@
      "correct": false
     },
     {
+     "text": "n² + n = 2(2k² + 3k + 1), so it is even",
+     "correct": true
+    },
+    {
      "text": "n² + n = 2(2k² + 3k + 1), so it is odd",
      "correct": false
     },
     {
      "text": "n² + n is odd because n is odd",
      "correct": false
-    },
-    {
-     "text": "n² + n = 2(2k² + 3k + 1), so it is even",
-     "correct": true
     }
    ],
    "standards": [
@@ -5871,12 +5871,12 @@
      "correct": false
     },
     {
-     "text": "5n + 3 = 2(5k + 4), so it is even",
-     "correct": true
-    },
-    {
      "text": "5n + 3 = 2(5k + 4), so it is odd",
      "correct": false
+    },
+    {
+     "text": "5n + 3 = 2(5k + 4), so it is even",
+     "correct": true
     }
    ],
    "standards": [
@@ -5898,16 +5898,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_parity). The rewritten form was checked equal to the expression for k = −6..6 by the authoring script.",
    "options": [
     {
-     "text": "n³ = 2(4k³ + 6k² + 3k) + 1, so it is odd",
-     "correct": true
-    },
-    {
      "text": "n³ = 2(4k³ + 6k² + 3k) + 1, so it is even",
      "correct": false
     },
     {
      "text": "n³ is even because n is odd",
      "correct": false
+    },
+    {
+     "text": "n³ = 2(4k³ + 6k² + 3k) + 1, so it is odd",
+     "correct": true
     },
     {
      "text": "It cannot be decided without a value of k",
@@ -5941,12 +5941,12 @@
      "correct": false
     },
     {
-     "text": "m² + n² = 2(2a² + 2a + 2b²) + 1, so it is odd",
-     "correct": true
-    },
-    {
      "text": "It cannot be decided without a value of k",
      "correct": false
+    },
+    {
+     "text": "m² + n² = 2(2a² + 2a + 2b²) + 1, so it is odd",
+     "correct": true
     }
    ],
    "standards": [
@@ -5968,6 +5968,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_parity). The rewritten form was checked equal to the expression for k = −6..6 by the authoring script.",
    "options": [
     {
+     "text": "n² − 1 = 4k(k + 1) = 8·[k(k + 1)/2], so it is divisible by 8",
+     "correct": true
+    },
+    {
      "text": "n² − 1 = 4k(k + 1) = 8·[k(k + 1)/2], so it is even",
      "correct": false
     },
@@ -5978,10 +5982,6 @@
     {
      "text": "n² − 1 is even because n is odd",
      "correct": false
-    },
-    {
-     "text": "n² − 1 = 4k(k + 1) = 8·[k(k + 1)/2], so it is divisible by 8",
-     "correct": true
     }
    ],
    "standards": [
@@ -6003,16 +6003,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_parity). The rewritten form was checked equal to the expression for k = −6..6 by the authoring script.",
    "options": [
     {
+     "text": "n² − n = 2(2k² − k), so it is even",
+     "correct": true
+    },
+    {
      "text": "n² − n = 2(2k² − k), so it is odd",
      "correct": false
     },
     {
      "text": "n² − n is odd because n is even",
      "correct": false
-    },
-    {
-     "text": "n² − n = 2(2k² − k), so it is even",
-     "correct": true
     },
     {
      "text": "It cannot be decided without a value of k",
@@ -6496,10 +6496,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
    "options": [
     {
-     "text": "Method of exhaustion",
-     "correct": true
-    },
-    {
      "text": "Direct proof",
      "correct": false
     },
@@ -6510,6 +6506,10 @@
     {
      "text": "Proof by contradiction",
      "correct": false
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": true
     }
    ],
    "standards": [
@@ -6538,12 +6538,12 @@
      "correct": false
     },
     {
-     "text": "Direct proof (possibly with cases n even, n odd)",
-     "correct": true
-    },
-    {
      "text": "Proof by contradiction",
      "correct": false
+    },
+    {
+     "text": "Direct proof (possibly with cases n even, n odd)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6598,12 +6598,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
    "options": [
     {
-     "text": "Proof by contradiction",
-     "correct": true
-    },
-    {
      "text": "Proof by contraposition",
      "correct": false
+    },
+    {
+     "text": "Proof by contradiction",
+     "correct": true
     },
     {
      "text": "Direct proof",
@@ -6632,6 +6632,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
    "options": [
     {
+     "text": "Counterexample (it is false)",
+     "correct": true
+    },
+    {
      "text": "Proof by contraposition",
      "correct": false
     },
@@ -6642,10 +6646,6 @@
     {
      "text": "Proof by contradiction",
      "correct": false
-    },
-    {
-     "text": "Counterexample (it is false)",
-     "correct": true
     }
    ],
    "standards": [
@@ -6667,12 +6667,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_step). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "bc = (ar)(as) = a²(rs), and rs is an integer",
-     "correct": true
-    },
-    {
      "text": "bc = a(r + s), so a² | bc",
      "correct": false
+    },
+    {
+     "text": "bc = (ar)(as) = a²(rs), and rs is an integer",
+     "correct": true
     },
     {
      "text": "bc = ar + as = a(r + s)",
@@ -6757,12 +6757,12 @@
      "correct": false
     },
     {
-     "text": "Direct proof (possibly with cases n even, n odd)",
-     "correct": true
-    },
-    {
      "text": "Constructive proof (give a witness)",
      "correct": false
+    },
+    {
+     "text": "Direct proof (possibly with cases n even, n odd)",
+     "correct": true
     },
     {
      "text": "Method of exhaustion",
@@ -6795,12 +6795,12 @@
      "correct": false
     },
     {
-     "text": "Direct proof (possibly with cases n even, n odd)",
-     "correct": true
-    },
-    {
      "text": "Counterexample (it is false)",
      "correct": false
+    },
+    {
+     "text": "Direct proof (possibly with cases n even, n odd)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6822,10 +6822,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_mc). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "It contradicts the assumption that a/b is in lowest terms",
-     "correct": true
-    },
-    {
      "text": "It is a counterexample",
      "correct": false
     },
@@ -6836,6 +6832,10 @@
     {
      "text": "It shows √5 = 5",
      "correct": false
+    },
+    {
+     "text": "It contradicts the assumption that a/b is in lowest terms",
+     "correct": true
     }
    ],
    "standards": [
@@ -6865,12 +6865,12 @@
      "correct": false
     },
     {
-     "text": "Suppose some integer n satisfies n² = 4n + 2",
-     "correct": true
-    },
-    {
      "text": "Suppose n² = 4n + 2 for every integer n",
      "correct": false
+    },
+    {
+     "text": "Suppose some integer n satisfies n² = 4n + 2",
+     "correct": true
     }
    ],
    "standards": [
@@ -6896,12 +6896,12 @@
      "correct": false
     },
     {
-     "text": "If n is not even, then n is not a multiple of 10",
-     "correct": true
-    },
-    {
      "text": "If n is not a multiple of 10, then n is not even",
      "correct": false
+    },
+    {
+     "text": "If n is not even, then n is not a multiple of 10",
+     "correct": true
     },
     {
      "text": "n is a multiple of 10 and n is not even",
@@ -6931,12 +6931,12 @@
      "correct": false
     },
     {
-     "text": "If x = 3, then x² = 9",
-     "correct": true
-    },
-    {
      "text": "If x = 3, then x² ≠ 9",
      "correct": false
+    },
+    {
+     "text": "If x = 3, then x² = 9",
+     "correct": true
     },
     {
      "text": "If x ≠ 3, then x² ≠ 9",
@@ -6966,12 +6966,12 @@
      "correct": false
     },
     {
-     "text": "If a is even or b is even, then ab is even",
-     "correct": true
-    },
-    {
      "text": "If ab is even, then a or b is even",
      "correct": false
+    },
+    {
+     "text": "If a is even or b is even, then ab is even",
+     "correct": true
     },
     {
      "text": "If a and b are both even, then ab is even",
@@ -7375,12 +7375,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "62",
-     "correct": false
-    },
-    {
      "text": "63",
      "correct": true
+    },
+    {
+     "text": "62",
+     "correct": false
     },
     {
      "text": "64",
@@ -7431,12 +7431,12 @@
      "correct": false
     },
     {
-     "text": "337",
-     "correct": true
-    },
-    {
      "text": "338",
      "correct": false
+    },
+    {
+     "text": "337",
+     "correct": true
     },
     {
      "text": "339",
@@ -7483,16 +7483,16 @@
      "correct": false
     },
     {
-     "text": "52",
-     "correct": true
-    },
-    {
      "text": "53",
      "correct": false
     },
     {
      "text": "54",
      "correct": false
+    },
+    {
+     "text": "52",
+     "correct": true
     }
    ],
    "standards": [
@@ -7570,16 +7570,16 @@
      "correct": false
     },
     {
-     "text": "293",
-     "correct": true
-    },
-    {
      "text": "294",
      "correct": false
     },
     {
      "text": "295",
      "correct": false
+    },
+    {
+     "text": "293",
+     "correct": true
     }
    ],
    "standards": [
@@ -7601,12 +7601,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "119",
-     "correct": false
-    },
-    {
      "text": "120",
      "correct": true
+    },
+    {
+     "text": "119",
+     "correct": false
     },
     {
      "text": "121",
@@ -7670,12 +7670,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "23",
-     "correct": false
-    },
-    {
      "text": "24",
      "correct": true
+    },
+    {
+     "text": "23",
+     "correct": false
     },
     {
      "text": "25",
@@ -7726,12 +7726,12 @@
      "correct": false
     },
     {
-     "text": "49",
-     "correct": true
-    },
-    {
      "text": "50",
      "correct": false
+    },
+    {
+     "text": "49",
+     "correct": true
     },
     {
      "text": "51",
@@ -7882,16 +7882,16 @@
      "correct": false
     },
     {
-     "text": "25",
-     "correct": true
-    },
-    {
      "text": "26",
      "correct": false
     },
     {
      "text": "27",
      "correct": false
+    },
+    {
+     "text": "25",
+     "correct": true
     }
    ],
    "standards": [
@@ -7917,12 +7917,12 @@
      "correct": false
     },
     {
-     "text": "149",
-     "correct": true
-    },
-    {
      "text": "150",
      "correct": false
+    },
+    {
+     "text": "149",
+     "correct": true
     },
     {
      "text": "151",
@@ -7952,12 +7952,12 @@
      "correct": false
     },
     {
-     "text": "312",
-     "correct": true
-    },
-    {
      "text": "313",
      "correct": false
+    },
+    {
+     "text": "312",
+     "correct": true
     },
     {
      "text": "314",
@@ -7983,12 +7983,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "122",
-     "correct": false
-    },
-    {
      "text": "123",
      "correct": true
+    },
+    {
+     "text": "122",
+     "correct": false
     },
     {
      "text": "124",
@@ -8022,16 +8022,16 @@
      "correct": false
     },
     {
-     "text": "401",
-     "correct": true
-    },
-    {
      "text": "402",
      "correct": false
     },
     {
      "text": "403",
      "correct": false
+    },
+    {
+     "text": "401",
+     "correct": true
     }
    ],
    "standards": [
@@ -8057,16 +8057,16 @@
      "correct": false
     },
     {
-     "text": "360",
-     "correct": true
-    },
-    {
      "text": "361",
      "correct": false
     },
     {
      "text": "362",
      "correct": false
+    },
+    {
+     "text": "360",
+     "correct": true
     }
    ],
    "standards": [
@@ -8178,16 +8178,16 @@
      "correct": false
     },
     {
-     "text": "660",
-     "correct": true
-    },
-    {
      "text": "661",
      "correct": false
     },
     {
      "text": "662",
      "correct": false
+    },
+    {
+     "text": "660",
+     "correct": true
     }
    ],
    "standards": [
@@ -8226,12 +8226,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "65",
-     "correct": false
-    },
-    {
      "text": "66",
      "correct": true
+    },
+    {
+     "text": "65",
+     "correct": false
     },
     {
      "text": "67",
@@ -8282,12 +8282,12 @@
      "correct": false
     },
     {
-     "text": "379",
-     "correct": true
-    },
-    {
      "text": "380",
      "correct": false
+    },
+    {
+     "text": "379",
+     "correct": true
     },
     {
      "text": "381",
@@ -8330,12 +8330,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "263",
-     "correct": false
-    },
-    {
      "text": "264",
      "correct": true
+    },
+    {
+     "text": "263",
+     "correct": false
     },
     {
      "text": "265",
@@ -8421,16 +8421,16 @@
      "correct": false
     },
     {
-     "text": "277",
-     "correct": true
-    },
-    {
      "text": "278",
      "correct": false
     },
     {
      "text": "279",
      "correct": false
+    },
+    {
+     "text": "277",
+     "correct": true
     }
    ],
    "standards": [
@@ -8452,12 +8452,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "72",
-     "correct": false
-    },
-    {
      "text": "73",
      "correct": true
+    },
+    {
+     "text": "72",
+     "correct": false
     },
     {
      "text": "74",
@@ -8526,12 +8526,12 @@
      "correct": false
     },
     {
-     "text": "90",
-     "correct": true
-    },
-    {
      "text": "91",
      "correct": false
+    },
+    {
+     "text": "90",
+     "correct": true
     },
     {
      "text": "92",
@@ -8596,12 +8596,12 @@
      "correct": false
     },
     {
-     "text": "32",
-     "correct": true
-    },
-    {
      "text": "33",
      "correct": false
+    },
+    {
+     "text": "32",
+     "correct": true
     },
     {
      "text": "34",
