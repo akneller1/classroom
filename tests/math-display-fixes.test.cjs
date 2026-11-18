@@ -44,3 +44,11 @@ test('piecewise branches share columns and inline math in other prompts stays in
  assert.match(M.layout('f(x) = -2x² for x ≤ 3 and f(x) = mx + b for x > 3. Find m and b.'),/class="mk-piecewise"/);
  for(const prompt of ['Solve 1 ≤ x ≤ 3.', 'Evaluate x²y when x = 6 and y = 5.', 'Write y = 2x/3 - 5/3 in standard form Ax + By = C.'])assert.equal(M.layout(prompt),null,prompt);
 });
+
+test('TeX inequalities are recognized without an ASCII comparison symbol',()=>{
+ context.katex=require('../worksheet-generator/vendor/katex/katex.min.js');
+ const html=M.layout(String.raw`Does the point ⟨(-1,\ 4)⟩ satisfy BOTH inequalities: ⟨y\ge -2x⟩ and ⟨y\le 3x + 2⟩?`);
+ assert.equal((html.match(/class="mk-given-relation"/g)||[]).length,2);
+ assert.match(html,/inequalities<\/span>\?/);
+ assert.doesNotMatch(html,/katex-error/);
+});

@@ -253,7 +253,7 @@ const ROW_SEQUENCE = new RegExp(String.raw`(?:^${ROW}|${SEPARATOR}(${ROW}))`, 'g
 const ROW_LIST = new RegExp(String.raw`(?<![\w⟨])${ROW}(?:${SEPARATOR}${ROW})+`, 'g');
 const BRACED_CASES = /\b([a-z]\([a-z]\)\s*=)\s*\{([^{}\n]+)\}/g;
 const REPEATED_CASES = new RegExp(String.raw`\b([a-z]\([a-z]\)\s*=)\s*(${EXPRESSION})[ \t]+(?:if|for)[ \t]+(${PLAIN_ROW})(?:;|,|[ \t]+and)[ \t]*\1\s*(${EXPRESSION})[ \t]+(?:if|for)[ \t]+(${PLAIN_ROW})`);
-const SYSTEM_CONTEXT = /\b(?:systems?|feasible region|subject to|constraints?|solve|substitution|elimination|graph shows|which points? satisfy|(?:the|two) lines|compare)\b/i;
+const SYSTEM_CONTEXT = /\b(?:systems?|feasible region|subject to|constraints?|inequalities|solve|substitution|elimination|graph shows|which points? satisfy|(?:the|two) lines|compare)\b/i;
 
 // A cell ends at its variable, so x, y and z align even with different-width coefficients.
 function variableCells(expressions, allowConstant) {
@@ -323,7 +323,7 @@ function layoutLine(line){
   const intro=before.trimEnd();
   const question=!suffix||suffix==='.'
    ? intro.replace(/:?$/,':')
-   : (intro.replace(/:$/,suffix.startsWith('.')?'':':')+(/^[.?!,:;]/.test(suffix)?suffix:' '+suffix)).trim();
+   : (intro.replace(/:$/,/^[.?!,:;]/.test(suffix)?'':':')+(/^[.?!,:;]/.test(suffix)?suffix:' '+suffix)).trim();
   if(/\bsubject to$/i.test(intro)&&/^\.\s+/.test(suffix)&&suffix!=='.'){
    return inlineHtml(intro+':')+given+inlineHtml(suffix.slice(1).trim());
   }
@@ -338,7 +338,7 @@ function piecewise(line,match,rows){
 }
 function layout(value){
  const source=String(value??'');
- if(!/[=≤≥<>]/.test(source))return null;
+ if(!RELATION.test(source))return null;
  const lines=source.split('\n'),changed=lines.map(layoutLine);
  if(changed.every(line=>line===null))return null;
  return changed.map((line,i)=>line===null?inlineHtml(lines[i]):line).join('<br>');
