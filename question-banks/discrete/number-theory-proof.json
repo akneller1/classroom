@@ -323,6 +323,7 @@
    "prompt": "Classify the integer 0.",
    "answer": "Even",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "0 = 2·0."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -357,6 +358,7 @@
    "prompt": "Classify the integer −7.",
    "answer": "Odd",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "−7 = 2(−4) + 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -391,6 +393,7 @@
    "prompt": "Classify the integer 1.",
    "answer": "Neither prime nor composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "Primes and composites are integers greater than 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -425,6 +428,7 @@
    "prompt": "Classify the integer 91.",
    "answer": "Composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "91 = 7 · 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -459,6 +463,7 @@
    "prompt": "Classify the integer 97.",
    "answer": "Prime",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "No prime up to √97 ≈ 9.8 divides 97."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -486,16 +491,17 @@
    ]
   },
   {
-   "id": "dm-np-s01-honors-005",
+   "id": "dm-np-s01-cp1-h005",
    "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Classify the integer 2.",
    "answer": "Prime",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "2 is the only even prime; its positive divisors are 1 and 2."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Both prime and composite",
@@ -520,16 +526,17 @@
    ]
   },
   {
-   "id": "dm-np-s01-honors-006",
+   "id": "dm-np-s01-cp1-h006",
    "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Classify the integer 221.",
    "answer": "Composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "221 = 13 · 17."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Prime",
@@ -566,7 +573,8 @@
    ],
    "solutionSteps": [
     "A counterexample must be odd AND not prime: 9, 15, 21.",
-    "7 is prime; 2 is not odd."
+    "7 is prime; 2 is not odd.",
+    "Option by option: ✗ 7 (not correct). ✗ 2 (not correct). ✓ 21 (correct). ✓ 15 (correct). ✓ 9 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: counterexample_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -609,7 +617,8 @@
    ],
    "solutionSteps": [
     "Need x² ≤ x: 0 ≤ 0, 1 ≤ 1, 1/4 ≤ 1/2.",
-    "4 > 2 and 1 > −1, so 2 and −1 are not counterexamples."
+    "4 > 2 and 1 > −1, so 2 and −1 are not counterexamples.",
+    "Option by option: ✓ 1/2 (correct). ✗ −1 (not correct). ✓ 0 (correct). ✗ 2 (not correct). ✓ 1 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: counterexample_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -656,7 +665,8 @@
     "a = 9, b = 3: 9 | 18 is True; counterexample",
     "a = 4, b = 10: 4 | 60 is True; counterexample",
     "a = 3, b = 5: 3 | 30 is True; not a counterexample",
-    "a = 5, b = 10: 5 | 60 is True; not a counterexample"
+    "a = 5, b = 10: 5 | 60 is True; not a counterexample",
+    "Option by option: ✗ a = 5, b = 10 (not correct). ✓ a = 4, b = 2 (correct). ✓ a = 9, b = 3 (correct). ✗ a = 3, b = 5 (not correct). ✓ a = 4, b = 10 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: counterexample_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1175,7 +1185,8 @@
     "You assume P is true."
    ],
    "solutionSteps": [
-    "Assume the hypothesis, reason forward, conclude Q."
+    "Assume the hypothesis, reason forward, conclude Q.",
+    "Option by option: ✓ You show Q follows by definitions and algebra. (correct). ✓ You end by stating Q. (correct). ✓ You assume P is true. (correct). ✗ You assume Q is true. (not correct). ✗ You test a few examples. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1217,7 +1228,8 @@
     "n² = 4k² = 2(2k²), so n² is even."
    ],
    "solutionSteps": [
-    "2k + 1 is odd, not 2(k + 1); k need not be even."
+    "2k + 1 is odd, not 2(k + 1); k need not be even.",
+    "Option by option: ✓ n + 2 = 2(k + 1), so n + 2 is even. (correct). ✗ n + 1 = 2k + 1 = 2(k + 1), so n + 1 is even. (not correct). ✓ 3n = 2(3k), so 3n is even. (correct). ✓ n² = 4k² = 2(2k²), so n² is even. (correct). ✗ n/2 = k, so n/2 is even. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1260,7 +1272,8 @@
    ],
    "solutionSteps": [
     "Expand each expression carefully.",
-    "m + n = 2a + 2b + 2 = 2(a + b + 1), which is even; m² = 4a² + 4a + 1, which is odd."
+    "m + n = 2a + 2b + 2 = 2(a + b + 1), which is even; m² = 4a² + 4a + 1, which is odd.",
+    "Option by option: ✓ mn = 2(2ab + a + b) + 1, so mn is odd. (correct). ✗ m + n = 2(a + b + 1) + 1, so m + n is odd. (not correct). ✓ m + n + 1 = 2(a + b + 1) + 1, so m + n + 1 is odd. (correct). ✓ m − n = 2(a − b), so m − n is even. (correct). ✗ m² = 2(2a² + 2a), so m² is even. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: direct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1619,7 +1632,8 @@
    "prompt": "What kind of argument is needed? \"Every multiple of 4 is even.\"",
    "answer": "A general proof for an arbitrary multiple of 4",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: A general proof for an arbitrary multiple of 4."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1653,7 +1667,8 @@
    "prompt": "What kind of argument is needed? \"Some multiple of 4 is greater than 100.\"",
    "answer": "One example, such as 104",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: One example, such as 104."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1687,7 +1702,8 @@
    "prompt": "What kind of argument is needed? Disprove: \"Every prime is odd.\"",
    "answer": "One counterexample: 2",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: One counterexample: 2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1721,7 +1737,8 @@
    "prompt": "What kind of argument is needed? Disprove: \"There is an integer n with n² = 2.\"",
    "answer": "A general argument that no integer works",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: A general argument that no integer works."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1755,7 +1772,8 @@
    "prompt": "What kind of argument is needed? \"For every integer n, n² − n is even\" over the finite domain {1, 2, 3, 4}.",
    "answer": "The method of exhaustion: check all four values, or give a general proof",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: The method of exhaustion: check all four values, or give a general proof."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1789,7 +1807,8 @@
    "prompt": "What kind of argument is needed? Disprove: \"For every real x, there is a real y with y² = x.\"",
    "answer": "One counterexample: x = −1",
    "solutionSteps": [
-    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument."
+    "Prove ∀ with a general argument (or exhaustion on a finite domain); prove ∃ with an example. Disprove ∀ with a counterexample; disprove ∃ with a general argument.",
+    "Answer: One counterexample: x = −1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_choice). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1823,6 +1842,7 @@
    "prompt": "Use the method of exhaustion. Is the statement true? If false, give the first counterexample; if true, write \"true\".\nFor every n in {1, 2, 3, 4, 5}, n² + n is even.",
    "answer": "true",
    "solutionSteps": [
+    "Proof by exhaustion checks every case in a finite domain.",
     "Check every element: 1→T, 2→T, 3→T, 4→T, 5→T.",
     "true"
    ],
@@ -1874,6 +1894,7 @@
    "prompt": "Use the method of exhaustion. Is the statement true? If false, give the first counterexample; if true, write \"true\".\nFor every n in {1, 2, 3, 4, 5, 6}, n³ + 2n is divisible by 3.",
    "answer": "true",
    "solutionSteps": [
+    "Proof by exhaustion checks every case in a finite domain.",
     "Check every element: 1→T, 2→T, 3→T, 4→T, 5→T, 6→T.",
     "true"
    ],
@@ -1895,7 +1916,8 @@
     "Some prime is even."
    ],
    "solutionSteps": [
-    "Existential statements are proved by one example."
+    "Existential statements are proved by one example.",
+    "Option by option: ✓ There is an odd perfect square. (correct). ✓ There is a number equal to its own square. (correct). ✗ All primes are odd. (not correct). ✗ Every square is even. (not correct). ✓ Some prime is even. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1937,7 +1959,8 @@
     "Every prime is less than 100."
    ],
    "solutionSteps": [
-    "Only false universal statements are disproved by a counterexample; \"All squares are rectangles\" is true."
+    "Only false universal statements are disproved by a counterexample; \"All squares are rectangles\" is true.",
+    "Option by option: ✗ There is an integer n with 2n = 5. (not correct). ✓ For all real x, x² ≥ x. (correct). ✓ Every integer is positive. (correct). ✓ Every prime is less than 100. (correct). ✗ All squares are rectangles. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1979,7 +2002,8 @@
     "3k is an integer"
    ],
    "solutionSteps": [
-    "Generalizing from the generic particular: an arbitrary k makes the argument cover every case."
+    "Generalizing from the generic particular: an arbitrary k makes the argument cover every case.",
+    "Option by option: ✓ k is an arbitrary integer, not a specific value (correct). ✓ 6k = 2(3k) holds for every integer k (correct). ✓ 3k is an integer (correct). ✗ The proof checked n = 6 and n = 12 (not correct). ✗ The converse was also proved (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2440,6 +2464,7 @@
    "prompt": "Use the quotient‑remainder theorem: find q and r with 17 = 5·q + r and 0 ≤ r < 5. Answer as \"q = __, r = __\".",
    "answer": "q = 3, r = 2",
    "solutionSteps": [
+    "The quotient–remainder theorem needs 0 ≤ r < d, so for negative n the quotient rounds down.",
     "17 = 5·3 + 2.",
     "The remainder must satisfy 0 ≤ r < 5."
    ],
@@ -2457,6 +2482,7 @@
    "prompt": "Use the quotient‑remainder theorem: find q and r with 100 = 7·q + r and 0 ≤ r < 7. Answer as \"q = __, r = __\".",
    "answer": "q = 14, r = 2",
    "solutionSteps": [
+    "The quotient–remainder theorem needs 0 ≤ r < d, so for negative n the quotient rounds down.",
     "100 = 7·14 + 2.",
     "The remainder must satisfy 0 ≤ r < 7."
    ],
@@ -2491,6 +2517,7 @@
    "prompt": "Use the quotient‑remainder theorem: find q and r with 54 = 4·q + r and 0 ≤ r < 4. Answer as \"q = __, r = __\".",
    "answer": "q = 13, r = 2",
    "solutionSteps": [
+    "The quotient–remainder theorem needs 0 ≤ r < d, so for negative n the quotient rounds down.",
     "54 = 4·13 + 2.",
     "The remainder must satisfy 0 ≤ r < 4."
    ],
@@ -2518,17 +2545,18 @@
    ]
   },
   {
-   "id": "dm-np-s04-honors-006",
+   "id": "dm-np-s04-cp1-h006",
    "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Use the quotient‑remainder theorem: find q and r with 2026 = 9·q + r and 0 ≤ r < 9. Answer as \"q = __, r = __\".",
    "answer": "q = 225, r = 1",
    "solutionSteps": [
+    "The quotient–remainder theorem needs 0 ≤ r < d, so for negative n the quotient rounds down.",
     "2026 = 9·225 + 1.",
     "The remainder must satisfy 0 ≤ r < 9."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quotient_remainder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quotient_remainder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -2547,7 +2575,8 @@
    ],
    "solutionSteps": [
     "0.25 = 1/4, −3 = −3/1, √9 = 3.",
-    "√2 and π are irrational."
+    "√2 and π are irrational.",
+    "Option by option: ✓ 0.25 (correct). ✗ π (not correct). ✓ √9 (correct). ✗ √2 (not correct). ✓ −3 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rational_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2590,7 +2619,8 @@
    ],
    "solutionSteps": [
     "A repeating decimal is rational; √16 = 4.",
-    "2 + √3 and 3π are irrational (rational plus/times irrational)."
+    "2 + √3 and 3π are irrational (rational plus/times irrational).",
+    "Option by option: ✗ √16 (not correct). ✗ 0.121212... (not correct). ✓ 2 + √3 (correct). ✓ 3π (correct). ✓ √5 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rational_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2633,7 +2663,8 @@
    ],
    "solutionSteps": [
     "Rationals are closed under +, ×, ÷ by nonzero.",
-    "x² may be rational (√2) or not (∛2·∛2)."
+    "x² may be rational (√2) or not (∛2·∛2).",
+    "Option by option: ✗ r + x (not correct). ✓ r/s (correct). ✓ rs + 1 (correct). ✗ x² (not correct). ✓ r + s (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: rational_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2782,6 +2813,7 @@
    "prompt": "True or false: 7 | 91 (that is, 7 divides 91).",
    "answer": "True",
    "solutionSteps": [
+    "a | b means b = a·k for some integer k; divide and check whether the quotient is a whole number.",
     "d | n means n = dk for some integer k.",
     "91 = 7 · 13"
    ],
@@ -2817,6 +2849,7 @@
    "prompt": "True or false: 6 | 84 (that is, 6 divides 84).",
    "answer": "True",
    "solutionSteps": [
+    "a | b means b = a·k for some integer k; divide and check whether the quotient is a whole number.",
     "d | n means n = dk for some integer k.",
     "84 = 6 · 14"
    ],
@@ -2887,6 +2920,7 @@
    "prompt": "True or false: 12 | 144 (that is, 12 divides 144).",
    "answer": "True",
    "solutionSteps": [
+    "a | b means b = a·k for some integer k; divide and check whether the quotient is a whole number.",
     "d | n means n = dk for some integer k.",
     "144 = 12 · 12"
    ],
@@ -2922,6 +2956,7 @@
    "prompt": "True or false: -3 | 21 (that is, -3 divides 21).",
    "answer": "True",
    "solutionSteps": [
+    "a | b means b = a·k for some integer k; divide and check whether the quotient is a whole number.",
     "d | n means n = dk for some integer k.",
     "21 = -3 · -7"
    ],
@@ -2950,17 +2985,18 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-001",
+   "id": "dm-np-s05-cp1-h001",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "True or false: 15 | 0 (that is, 15 divides 0).",
    "answer": "True",
    "solutionSteps": [
+    "a | b means b = a·k for some integer k; divide and check whether the quotient is a whole number.",
     "d | n means n = dk for some integer k.",
     "0 = 15 · 0"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "True only if 15 < 0",
@@ -2985,9 +3021,9 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-002",
+   "id": "dm-np-s05-cp1-h002",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "True or false: 4 | 2026 (that is, 4 divides 2026).",
    "answer": "False",
@@ -2995,7 +3031,7 @@
     "d | n means n = dk for some integer k.",
     "2026 / 4 is not an integer."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Undefined",
@@ -3054,9 +3090,9 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-003",
+   "id": "dm-np-s05-cp1-h003",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find gcd(391, 299).",
    "answer": "23",
@@ -3064,7 +3100,7 @@
     "Use prime factorizations or the Euclidean algorithm.",
     "gcd = 23"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: gcd). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gcd). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -3088,9 +3124,9 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-004",
+   "id": "dm-np-s05-cp1-h004",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find gcd(210, 462).",
    "answer": "42",
@@ -3098,7 +3134,7 @@
     "Use prime factorizations or the Euclidean algorithm.",
     "gcd = 42"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: gcd). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gcd). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -3139,9 +3175,9 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-005",
+   "id": "dm-np-s05-cp1-h005",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Write the prime factorization of 1001 in standard form (primes in increasing order, exponents with ^, factors separated by \" · \").",
    "answer": "7 · 11 · 13",
@@ -3149,7 +3185,7 @@
     "Divide by the smallest prime repeatedly.",
     "1001 = 7 · 11 · 13"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_factor). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_factor). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -3190,9 +3226,9 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-006",
+   "id": "dm-np-s05-cp1-h006",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many positive divisors does 360 have?",
    "answer": "24",
@@ -3200,7 +3236,7 @@
     "From n = p₁^a₁ ··· p_k^a_k, the count is (a₁ + 1)···(a_k + 1).",
     "24 positive divisors."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_divisors). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_divisors). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -3218,7 +3254,8 @@
     "15"
    ],
    "solutionSteps": [
-    "60 = 4·15 = 12·5 = 15·4; 60/8 and 60/9 are not integers."
+    "60 = 4·15 = 12·5 = 15·4; 60/8 and 60/9 are not integers.",
+    "Option by option: ✓ 4 (correct). ✓ 12 (correct). ✗ 9 (not correct). ✓ 15 (correct). ✗ 8 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3261,7 +3298,8 @@
    ],
    "solutionSteps": [
     "Linear combinations: a | (xb + yc).",
-    "b | c need not hold (a = 1, b = 2, c = 3)."
+    "b | c need not hold (a = 1, b = 2, c = 3).",
+    "Option by option: ✓ a | bc (correct). ✓ a | (b + c) (correct). ✗ b | c (not correct). ✓ a | (3b − c) (correct). ✗ a | (b + 1) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3304,7 +3342,8 @@
    ],
    "solutionSteps": [
     "Among k consecutive integers one is divisible by k; n³ − n = (n − 1)n(n + 1).",
-    "n² + 2 is never divisible by 4; n = 5 shows 5 ∤ n⁵ − 1."
+    "n² + 2 is never divisible by 4; n = 5 shows 5 ∤ n⁵ − 1.",
+    "Option by option: ✓ 3 | n(n + 1)(n + 2) (correct). ✗ 5 | n⁵ − 1 (not correct). ✗ 4 | n² + 2 (not correct). ✓ 6 | n³ − n (correct). ✓ 2 | n(n + 1) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3909,7 +3948,8 @@
     "A fraction in lowest terms whose numerator and denominator are both even"
    ],
    "solutionSteps": [
-    "A contradiction must be logically impossible (or conflict with an assumption)."
+    "A contradiction must be logically impossible (or conflict with an assumption).",
+    "Option by option: ✓ An integer that is both even and odd (correct). ✓ A number that is greater than the greatest number (correct). ✓ A fraction in lowest terms whose numerator and denominator are both even (correct). ✗ A large number (not correct). ✗ An example that does not work (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3951,7 +3991,8 @@
     "You assume the statement is false."
    ],
    "solutionSteps": [
-    "Assume ¬S, derive c, conclude S."
+    "Assume ¬S, derive c, conclude S.",
+    "Option by option: ✓ You reason until you reach something impossible. (correct). ✗ You assume the conclusion is true. (not correct). ✓ The impossibility shows the assumption was wrong. (correct). ✓ You assume the statement is false. (correct). ✗ You test several examples. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3994,7 +4035,8 @@
    ],
    "solutionSteps": [
     "Because 3 is prime, 3 | a² implies 3 | a.",
-    "Then 3 divides both a and b, contradicting lowest terms."
+    "Then 3 divides both a and b, contradicting lowest terms.",
+    "Option by option: ✓ a² = 3b² (correct). ✗ a² = 3b² means a is even (not correct). ✗ 3 | a² does not imply 3 | a (not correct). ✓ a = 3k gives 3k² = b², so 3 | b (correct). ✓ 3 | a², so 3 | a (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contra_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4564,7 +4606,8 @@
     "It is a fish only if it swims."
    ],
    "solutionSteps": [
-    "Contrapositive, ¬p ∨ q and \"only if\" are equivalent; converse and inverse are not."
+    "Contrapositive, ¬p ∨ q and \"only if\" are equivalent; converse and inverse are not.",
+    "Option by option: ✗ If it is not a fish, then it does not swim. (not correct). ✗ If it swims, then it is a fish. (not correct). ✓ If it does not swim, then it is not a fish. (correct). ✓ It is not a fish, or it swims. (correct). ✓ It is a fish only if it swims. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4606,7 +4649,8 @@
     "Show n² = 3(3k² + 2k) + 1 or 3(3k² + 4k + 1) + 1."
    ],
    "solutionSteps": [
-    "Assume ¬q, derive ¬p: n² leaves remainder 1, so it is not a multiple of 3."
+    "Assume ¬q, derive ¬p: n² leaves remainder 1, so it is not a multiple of 3.",
+    "Option by option: ✓ Assume n is not a multiple of 3. (correct). ✗ Assume n² is a multiple of 3. (not correct). ✗ Check n = 3, 6, 9. (not correct). ✓ Write n = 3k + 1 or n = 3k + 2. (correct). ✓ Show n² = 3(3k² + 2k) + 1 or 3(3k² + 4k + 1) + 1. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4649,7 +4693,8 @@
    ],
    "solutionSteps": [
     "Contraposition fits statements whose negated conclusion gives an easy equation.",
-    "The last two are best proved by example and directly."
+    "The last two are best proved by example and directly.",
+    "Option by option: ✓ If x + y is irrational, then x or y is irrational. (correct). ✗ There is an even prime. (not correct). ✗ The sum of two even integers is even. (not correct). ✓ If n² is odd, then n is odd. (correct). ✓ If a·b is not divisible by 5, then neither a nor b is divisible by 5. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapos_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4798,6 +4843,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"There is an integer n with n² = n + 6.\"",
    "answer": "Constructive proof (give a witness)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "n = 3 works."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -4832,6 +4878,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"Every prime is odd.\"",
    "answer": "Counterexample (it is false)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "2 is prime and even."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -4866,6 +4913,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"For every n in {1, 2, 3}, n³ < 3ⁿ⁺¹.\"",
    "answer": "Method of exhaustion",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Check the three values."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -4900,6 +4948,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"For every integer n, n² + n is even.\"",
    "answer": "Direct proof (possibly with cases n even, n odd)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "n(n + 1) is a product of consecutive integers."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -4934,6 +4983,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"If n² is even, then n is even.\"",
    "answer": "Proof by contraposition",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "The contrapositive \"if n is odd, then n² is odd\" has an easy direct proof."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -4968,6 +5018,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"If a | b and b | c, then a | c.\"",
    "answer": "Direct proof",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Substitute b = ar and c = bs."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -5002,6 +5053,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"√5 is irrational.\"",
    "answer": "Proof by contradiction",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Assume √5 = a/b in lowest terms and show 5 divides both a and b."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -5036,6 +5088,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"There are infinitely many primes.\"",
    "answer": "Proof by contradiction",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Assume finitely many and build p₁···pₙ + 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard textbook approach; other valid approaches are mentioned in the solution where relevant.",
@@ -5070,7 +5123,8 @@
    "prompt": "True or false: A proof by contradiction assumes the conclusion is false and the hypothesis is true.",
    "answer": "True",
    "solutionSteps": [
-    "For p → q, contradiction assumes p ∧ ¬q."
+    "For p → q, contradiction assumes p ∧ ¬q.",
+    "Answer: True."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5104,7 +5158,8 @@
    "prompt": "True or false: Every statement that can be proved by contraposition can also be proved by contradiction.",
    "answer": "True",
    "solutionSteps": [
-    "Assume p and ¬q, then run the contrapositive argument to get ¬p, contradicting p."
+    "Assume p and ¬q, then run the contrapositive argument to get ¬p, contradicting p.",
+    "Answer: True."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5138,7 +5193,8 @@
    "prompt": "True or false: A universal statement over an infinite domain can be proved by checking enough examples.",
    "answer": "False",
    "solutionSteps": [
-    "Examples never cover every element of an infinite domain."
+    "Examples never cover every element of an infinite domain.",
+    "Answer: False."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_fact). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5172,7 +5228,8 @@
    "prompt": "A student wants to show \"Some perfect squares are odd.\" What is enough?",
    "answer": "Show 9 = 3² is odd",
    "solutionSteps": [
-    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument."
+    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument.",
+    "Answer: Show 9 = 3² is odd."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_piece). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5206,7 +5263,8 @@
    "prompt": "To DISPROVE \"For all integers a, b, if a² = b² then a = b\", what is enough?",
    "answer": "One pair such as a = 2, b = −2",
    "solutionSteps": [
-    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument."
+    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument.",
+    "Answer: One pair such as a = 2, b = −2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_piece). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5240,7 +5298,8 @@
    "prompt": "To disprove \"There is a largest prime\", what is needed?",
    "answer": "A general argument (for example Euclid's proof) that for every prime there is a larger one",
    "solutionSteps": [
-    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument."
+    "Prove ∃ by example; disprove ∀ by counterexample; disprove ∃ by a general argument.",
+    "Answer: A general argument (for example Euclid's proof) that for every prime there is a larger one."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_piece). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5278,7 +5337,8 @@
     "\"There is an even prime\" (prove)"
    ],
    "solutionSteps": [
-    "Existential claims and false universal claims need one example."
+    "Existential claims and false universal claims need one example.",
+    "Option by option: ✓ \"Every odd number is greater than 1\" (disprove) (correct). ✗ \"All even numbers are divisible by 2\" (prove) (not correct). ✓ \"All rectangles are squares\" (disprove) (correct). ✗ \"No integer is both even and odd\" (prove) (not correct). ✓ \"There is an even prime\" (prove) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5320,7 +5380,8 @@
     "Direct proof by cases on whether n is even or odd"
    ],
    "solutionSteps": [
-    "Contraposition and contradiction are standard; a case split (if n were even, n² would be even) also works."
+    "Contraposition and contradiction are standard; a case split (if n were even, n² would be even) also works.",
+    "Option by option: ✓ Contraposition (correct). ✗ Checking n = 1, 3, 5 (not correct). ✓ Contradiction (correct). ✓ Direct proof by cases on whether n is even or odd (correct). ✗ One counterexample (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5363,7 +5424,8 @@
    ],
    "solutionSteps": [
     "Negative statements (\"there is no ...\") and infinitude statements suit contradiction.",
-    "7 is prime by exhaustion; 2 + 3 = 5 by computation."
+    "7 is prime by exhaustion; 2 + 3 = 5 by computation.",
+    "Option by option: ✗ \"2 + 3 = 5\" (not correct). ✗ \"7 is prime\" (not correct). ✓ \"There is no largest real number less than 1\" (correct). ✓ \"There is no rational r with r² = 3\" (correct). ✓ \"The set of primes is infinite\" (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: strategy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5512,6 +5574,7 @@
    "prompt": "Classify the integer 51.",
    "answer": "Composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "51 = 3 · 17."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5546,6 +5609,7 @@
    "prompt": "Classify the integer 53.",
    "answer": "Prime",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "No prime up to √53 divides it."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5580,6 +5644,7 @@
    "prompt": "Classify the integer 87.",
    "answer": "Composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "87 = 3 · 29."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5607,16 +5672,17 @@
    ]
   },
   {
-   "id": "dm-np-s01-honors-009",
+   "id": "dm-np-s01-cp1-h009",
    "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Classify the integer 143.",
    "answer": "Composite",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "143 = 11 · 13."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Composite",
@@ -5641,16 +5707,17 @@
    ]
   },
   {
-   "id": "dm-np-s01-honors-010",
+   "id": "dm-np-s01-cp1-h010",
    "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Classify the integer 199.",
    "answer": "Prime",
    "solutionSteps": [
+    "Use the definitions: even means 2k, odd means 2k + 1, prime means exactly two positive divisors.",
     "No prime up to √199 divides it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_integer). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Neither prime nor composite",
@@ -6202,6 +6269,7 @@
    "prompt": "Find lcm(6, 8).",
    "answer": "24",
    "solutionSteps": [
+    "lcm(a, b) = a·b/gcd(a, b).",
     "lcm(a, b) = ab / gcd(a, b).",
     "6·8 / 2 = 24"
    ],
@@ -6219,6 +6287,7 @@
    "prompt": "Find lcm(18, 30).",
    "answer": "90",
    "solutionSteps": [
+    "lcm(a, b) = a·b/gcd(a, b).",
     "lcm(a, b) = ab / gcd(a, b).",
     "18·30 / 6 = 90"
    ],
@@ -6229,17 +6298,18 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-009",
+   "id": "dm-np-s05-cp1-h009",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find lcm(84, 90).",
    "answer": "1260",
    "solutionSteps": [
+    "lcm(a, b) = a·b/gcd(a, b).",
     "lcm(a, b) = ab / gcd(a, b).",
     "84·90 / 6 = 1260"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: lcm). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lcm). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -6253,6 +6323,7 @@
    "prompt": "Find lcm(9, 12).",
    "answer": "36",
    "solutionSteps": [
+    "lcm(a, b) = a·b/gcd(a, b).",
     "lcm(a, b) = ab / gcd(a, b).",
     "9·12 / 3 = 36"
    ],
@@ -6440,6 +6511,7 @@
    "prompt": "Write the contrapositive of: \"If 4 ∤ n², then n is odd.\"",
    "answer": "If n is even, then 4 | n².",
    "solutionSteps": [
+    "The contrapositive of \"if p then q\" is \"if not q then not p\", and it is logically equivalent to the original.",
     "Swap and negate both parts.",
     "If n is even, then 4 | n²."
    ],
@@ -6457,6 +6529,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"There is a multiple of 7 between 50 and 60.\"",
    "answer": "Constructive proof (give a witness)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "56 = 7·8."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6491,6 +6564,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"For every n in {2, 4, 6}, n² is even.\"",
    "answer": "Method of exhaustion",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Check 4, 16, 36."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6525,6 +6599,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"Every square number is either a multiple of 3 or one more than a multiple of 3.\"",
    "answer": "Direct proof (possibly with cases n even, n odd)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Cases n = 3k, 3k + 1, 3k + 2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6559,6 +6634,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"If n³ is odd, then n is odd.\"",
    "answer": "Proof by contraposition",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "If n is even, n³ = 8k³ is even."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6593,6 +6669,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"There is no integer solution to x² − y² = 10.\"",
    "answer": "Proof by contradiction",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "(x − y)(x + y) = 10 forces factors of equal parity, but 10 = 2·5 has one even and one odd factor in every factorization."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6627,6 +6704,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"All prime numbers are less than 1000.\"",
    "answer": "Counterexample (it is false)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "1009 is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item: the key names the standard approach.",
@@ -6713,6 +6791,7 @@
    "prompt": "Find q and r with 7 = (−3)q + r and 0 ≤ r < 3 (the divisor is −3, so the remainder rule is 0 ≤ r < |−3|). Answer as \"q = __, r = __\".",
    "answer": "q = -2, r = 1",
    "solutionSteps": [
+    "The quotient–remainder theorem needs 0 ≤ r < d, so for negative n the quotient rounds down.",
     "7 = (−3)(−2) + 1.",
     "The remainder 1 satisfies 0 ≤ r < 3."
    ],
@@ -6782,6 +6861,7 @@
    "prompt": "Which method is the most natural way to handle this statement?\n\"There is no integer n such that n² ≡ 2 (mod 3).\"",
    "answer": "Direct proof (possibly with cases n even, n odd)",
    "solutionSteps": [
+    "Existence needs one example, a false universal statement needs one counterexample, and a true universal statement needs a general proof.",
     "Check the three cases n ≡ 0, 1, 2 (mod 3): n² ≡ 0, 1, 1. A finite case split on remainders covers every integer (the statement is about infinitely many n, so plain exhaustion of examples does not work)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_method). Hand-authored strategy item; the case split is on remainders mod 3.",
@@ -7335,8 +7415,8 @@
    "prompt": "Find gcd(14, 14).",
    "answer": "14",
    "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 14"
+    "Euclidean algorithm: 14 = 14·1 + 0.",
+    "The last nonzero remainder is gcd(14, 14) = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7352,8 +7432,8 @@
    "prompt": "Find the remainder when 223 is divided by 4.",
    "answer": "3",
    "solutionSteps": [
-    "223 = 4·55 + 3.",
-    "Answer: 3"
+    "223 = 4·55 + 3, with 0 ≤ 3 < 4.",
+    "The remainder is 3."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7369,8 +7449,8 @@
    "prompt": "Find the quotient q when 317 = 5·q + r with 0 ≤ r < 5.",
    "answer": "63",
    "solutionSteps": [
-    "317 = 5·63 + 2.",
-    "Answer: 63"
+    "317 ÷ 5 = 63.4; take the whole-number part.",
+    "317 = 5·63 + 2, so q = 63 (and r = 2)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7404,8 +7484,8 @@
    "prompt": "How many positive divisors does 122 have?",
    "answer": "4",
    "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 4"
+    "Prime factorization: 122 = 2 · 61.",
+    "A divisor picks each prime's exponent from 0 up to its power: (1 + 1)·(1 + 1) = 4."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7421,8 +7501,8 @@
    "prompt": "What is the smallest prime greater than 332?",
    "answer": "337",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 337"
+    "Rule out 333 = 3·111, 334 = 2·167, 335 = 5·67, 336 = 2·168.",
+    "337 has no divisor from 2 to √337, so it is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7456,8 +7536,8 @@
    "prompt": "Find gcd(18, 4).",
    "answer": "2",
    "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 2"
+    "Euclidean algorithm: 18 = 4·4 + 2; 4 = 2·2 + 0.",
+    "The last nonzero remainder is gcd(18, 4) = 2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7473,8 +7553,8 @@
    "prompt": "Find lcm(26, 4).",
    "answer": "52",
    "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 52"
+    "gcd(26, 4) = 2.",
+    "lcm = 26·4/gcd = 104/2 = 52."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7508,8 +7588,8 @@
    "prompt": "Find the quotient q when 44 = 4·q + r with 0 ≤ r < 4.",
    "answer": "11",
    "solutionSteps": [
-    "44 = 4·11 + 0.",
-    "Answer: 11"
+    "44 ÷ 4 = 11; take the whole-number part.",
+    "44 = 4·11 + 0, so q = 11 (and r = 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7536,23 +7616,6 @@
    ]
   },
   {
-   "id": "dm-np-s05-cp2-016",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many positive divisors does 232 have?",
-   "answer": "8",
-   "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 8"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
    "id": "dm-np-s01-cp2-013",
    "skillId": "number-theory-proof-skill-01",
    "level": "cp2",
@@ -7560,8 +7623,8 @@
    "prompt": "What is the smallest prime greater than 290?",
    "answer": "293",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 293"
+    "Rule out 291 = 3·97, 292 = 2·146.",
+    "293 has no divisor from 2 to √293, so it is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7588,41 +7651,6 @@
    ]
   },
   {
-   "id": "dm-np-s05-cp2-017",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(30, 24).",
-   "answer": "120",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 120"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "120",
-     "correct": true
-    },
-    {
-     "text": "119",
-     "correct": false
-    },
-    {
-     "text": "121",
-     "correct": false
-    },
-    {
-     "text": "122",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
    "id": "dm-np-s04-cp2-014",
    "skillId": "number-theory-proof-skill-04",
    "level": "cp2",
@@ -7630,8 +7658,8 @@
    "prompt": "Find the remainder when 137 is divided by 2.",
    "answer": "1",
    "solutionSteps": [
-    "137 = 2·68 + 1.",
-    "Answer: 1"
+    "137 = 2·68 + 1, with 0 ≤ 1 < 2.",
+    "The remainder is 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7647,8 +7675,8 @@
    "prompt": "Find gcd(9, 30).",
    "answer": "3",
    "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 3"
+    "Euclidean algorithm: 9 = 30·0 + 9; 30 = 9·3 + 3; 9 = 3·3 + 0.",
+    "The last nonzero remainder is gcd(9, 30) = 3."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7664,8 +7692,8 @@
    "prompt": "Find lcm(24, 6).",
    "answer": "24",
    "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 24"
+    "gcd(24, 6) = 6.",
+    "lcm = 24·6/gcd = 144/6 = 24."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7699,8 +7727,8 @@
    "prompt": "Find the remainder when 332 is divided by 4.",
    "answer": "0",
    "solutionSteps": [
-    "332 = 4·83 + 0.",
-    "Answer: 0"
+    "332 = 4·83 + 0, with 0 ≤ 0 < 4.",
+    "The remainder is 0."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7716,8 +7744,8 @@
    "prompt": "Find the quotient q when 249 = 5·q + r with 0 ≤ r < 5.",
    "answer": "49",
    "solutionSteps": [
-    "249 = 5·49 + 4.",
-    "Answer: 49"
+    "249 ÷ 5 = 49.8; take the whole-number part.",
+    "249 = 5·49 + 4, so q = 49 (and r = 4)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7751,8 +7779,8 @@
    "prompt": "How many positive divisors does 366 have?",
    "answer": "8",
    "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 8"
+    "Prime factorization: 366 = 2 · 3 · 61.",
+    "A divisor picks each prime's exponent from 0 up to its power: (1 + 1)·(1 + 1)·(1 + 1) = 8."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7768,8 +7796,8 @@
    "prompt": "What is the smallest prime greater than 239?",
    "answer": "241",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 241"
+    "Rule out 240 = 2·120.",
+    "241 has no divisor from 2 to √241, so it is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7803,45 +7831,10 @@
    "prompt": "Find gcd(18, 12).",
    "answer": "6",
    "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 6"
+    "Euclidean algorithm: 18 = 12·1 + 6; 12 = 6·2 + 0.",
+    "The last nonzero remainder is gcd(18, 12) = 6."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-cp1-015",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(12, 30).",
-   "answer": "60",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 60"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "59",
-     "correct": false
-    },
-    {
-     "text": "60",
-     "correct": true
-    },
-    {
-     "text": "61",
-     "correct": false
-    },
-    {
-     "text": "62",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.3",
     "DM.PROOF"
@@ -7855,8 +7848,8 @@
    "prompt": "Find the remainder when 127 is divided by 3.",
    "answer": "1",
    "solutionSteps": [
-    "127 = 3·42 + 1.",
-    "Answer: 1"
+    "127 = 3·42 + 1, with 0 ≤ 1 < 3.",
+    "The remainder is 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7872,8 +7865,8 @@
    "prompt": "Find the quotient q when 101 = 4·q + r with 0 ≤ r < 4.",
    "answer": "25",
    "solutionSteps": [
-    "101 = 4·25 + 1.",
-    "Answer: 25"
+    "101 ÷ 4 = 25.25; take the whole-number part.",
+    "101 = 4·25 + 1, so q = 25 (and r = 1)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7907,8 +7900,8 @@
    "prompt": "What is the smallest prime greater than 148?",
    "answer": "149",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 149"
+    "Start with 149.",
+    "149 has no divisor from 2 to √149, so it is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7935,76 +7928,6 @@
    ]
   },
   {
-   "id": "dm-np-s05-cp1-016",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(39, 24).",
-   "answer": "312",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 312"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "311",
-     "correct": false
-    },
-    {
-     "text": "313",
-     "correct": false
-    },
-    {
-     "text": "312",
-     "correct": true
-    },
-    {
-     "text": "314",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-cp1-016",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 370 = 3·q + r with 0 ≤ r < 3.",
-   "answer": "123",
-   "solutionSteps": [
-    "370 = 3·123 + 1.",
-    "Answer: 123"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "123",
-     "correct": true
-    },
-    {
-     "text": "122",
-     "correct": false
-    },
-    {
-     "text": "124",
-     "correct": false
-    },
-    {
-     "text": "125",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
    "id": "dm-np-s01-cp1-013",
    "skillId": "number-theory-proof-skill-01",
    "level": "cp1",
@@ -8012,8 +7935,8 @@
    "prompt": "What is the smallest prime greater than 397?",
    "answer": "401",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 401"
+    "Rule out 398 = 2·199, 399 = 3·133, 400 = 2·200.",
+    "401 has no divisor from 2 to √401, so it is prime."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8040,242 +7963,17 @@
    ]
   },
   {
-   "id": "dm-np-s05-cp1-017",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(45, 24).",
-   "answer": "360",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 360"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "359",
-     "correct": false
-    },
-    {
-     "text": "361",
-     "correct": false
-    },
-    {
-     "text": "362",
-     "correct": false
-    },
-    {
-     "text": "360",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-cp1-017",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 399 = 2·q + r with 0 ≤ r < 2.",
-   "answer": "199",
-   "solutionSteps": [
-    "399 = 2·199 + 1.",
-    "Answer: 199"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "198",
-     "correct": false
-    },
-    {
-     "text": "199",
-     "correct": true
-    },
-    {
-     "text": "200",
-     "correct": false
-    },
-    {
-     "text": "201",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-cp1-018",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many positive divisors does 227 have?",
-   "answer": "2",
-   "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 2"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-cp1-019",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Find gcd(30, 30).",
-   "answer": "30",
-   "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 30"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-011",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Find gcd(16, 56).",
-   "answer": "8",
-   "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 8"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-012",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(44, 60).",
-   "answer": "660",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 660"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "659",
-     "correct": false
-    },
-    {
-     "text": "661",
-     "correct": false
-    },
-    {
-     "text": "662",
-     "correct": false
-    },
-    {
-     "text": "660",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-011",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Find the remainder when 75 is divided by 4.",
-   "answer": "3",
-   "solutionSteps": [
-    "75 = 4·18 + 3.",
-    "Answer: 3"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-012",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 333 = 5·q + r with 0 ≤ r < 5.",
-   "answer": "66",
-   "solutionSteps": [
-    "333 = 5·66 + 3.",
-    "Answer: 66"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "66",
-     "correct": true
-    },
-    {
-     "text": "65",
-     "correct": false
-    },
-    {
-     "text": "67",
-     "correct": false
-    },
-    {
-     "text": "68",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-013",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many positive divisors does 254 have?",
-   "answer": "4",
-   "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 4"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s01-honors-012",
+   "id": "dm-np-s01-cp1-h012",
    "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "What is the smallest prime greater than 378?",
    "answer": "379",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 379"
+    "Start with 379.",
+    "379 has no divisor from 2 to √379, so it is prime."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "378",
@@ -8300,348 +7998,167 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-014",
+   "id": "dm-np-s05-honors-a01",
    "skillId": "number-theory-proof-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find gcd(12, 24).",
-   "answer": "12",
+   "prompt": "How many integers from 1 to 500 are divisible by 6 but NOT by 4?",
+   "answer": "42",
    "solutionSteps": [
-    "Euclidean algorithm.",
-    "Answer: 12"
+    "Multiples of 6 up to 500: ⌊500/6⌋ = 83.",
+    "A multiple of 6 that is also a multiple of 4 is a multiple of lcm(6, 4) = 6·4/gcd(6, 4) = 24/2 = 12.",
+    "Multiples of 12 up to 500: ⌊500/12⌋ = 41.",
+    "Divisible by 6 but not 4: 83 − 41 = 42."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisible_not). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s05-honors-015",
+   "id": "dm-np-s05-honors-a02",
    "skillId": "number-theory-proof-skill-05",
    "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(44, 24).",
-   "answer": "264",
+   "format": "short-answer",
+   "prompt": "How many integers from 1 to 1000 are divisible by 12 but NOT by 18?",
+   "answer": "56",
    "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 264"
+    "Multiples of 12 up to 1000: ⌊1000/12⌋ = 83.",
+    "A multiple of 12 that is also a multiple of 18 is a multiple of lcm(12, 18) = 12·18/gcd(12, 18) = 216/6 = 36.",
+    "Multiples of 36 up to 1000: ⌊1000/36⌋ = 27.",
+    "Divisible by 12 but not 18: 83 − 27 = 56."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "264",
-     "correct": true
-    },
-    {
-     "text": "263",
-     "correct": false
-    },
-    {
-     "text": "265",
-     "correct": false
-    },
-    {
-     "text": "266",
-     "correct": false
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisible_not). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s04-honors-013",
-   "skillId": "number-theory-proof-skill-04",
+   "id": "dm-np-s05-honors-a03",
+   "skillId": "number-theory-proof-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the remainder when 123 is divided by 3.",
-   "answer": "0",
+   "prompt": "How many integers from 1 to 600 are divisible by 8 but NOT by 6?",
+   "answer": "50",
    "solutionSteps": [
-    "123 = 3·41 + 0.",
-    "Answer: 0"
+    "Multiples of 8 up to 600: ⌊600/8⌋ = 75.",
+    "A multiple of 8 that is also a multiple of 6 is a multiple of lcm(8, 6) = 8·6/gcd(8, 6) = 48/2 = 24.",
+    "Multiples of 24 up to 600: ⌊600/24⌋ = 25.",
+    "Divisible by 8 but not 6: 75 − 25 = 50."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisible_not). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s04-honors-014",
-   "skillId": "number-theory-proof-skill-04",
+   "id": "dm-np-s05-honors-a04",
+   "skillId": "number-theory-proof-skill-05",
    "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 192 = 4·q + r with 0 ≤ r < 4.",
-   "answer": "48",
+   "format": "short-answer",
+   "prompt": "How many integers from 1 to 900 are divisible by 15 but NOT by 10?",
+   "answer": "30",
    "solutionSteps": [
-    "192 = 4·48 + 0.",
-    "Answer: 48"
+    "Multiples of 15 up to 900: ⌊900/15⌋ = 60.",
+    "A multiple of 15 that is also a multiple of 10 is a multiple of lcm(15, 10) = 15·10/gcd(15, 10) = 150/5 = 30.",
+    "Multiples of 30 up to 900: ⌊900/30⌋ = 30.",
+    "Divisible by 15 but not 10: 60 − 30 = 30."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "47",
-     "correct": false
-    },
-    {
-     "text": "48",
-     "correct": true
-    },
-    {
-     "text": "49",
-     "correct": false
-    },
-    {
-     "text": "50",
-     "correct": false
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisible_not). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s01-honors-013",
+   "id": "dm-np-s05-honors-a05",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many integers from 1 to 2026 are divisible by 14 but NOT by 21?",
+   "answer": "96",
+   "solutionSteps": [
+    "Multiples of 14 up to 2026: ⌊2026/14⌋ = 144.",
+    "A multiple of 14 that is also a multiple of 21 is a multiple of lcm(14, 21) = 14·21/gcd(14, 21) = 294/7 = 42.",
+    "Multiples of 42 up to 2026: ⌊2026/42⌋ = 48.",
+    "Divisible by 14 but not 21: 144 − 48 = 96."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisible_not). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.3",
+    "DM.PROOF"
+   ]
+  },
+  {
+   "id": "dm-np-s01-honors-a01",
    "skillId": "number-theory-proof-skill-01",
    "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 274?",
-   "answer": "277",
+   "format": "short-answer",
+   "prompt": "Conjecture: \"n² + n + 41 is prime for every integer n ≥ 0.\" Find the smallest counterexample n.",
+   "answer": "40",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 277"
+    "Test n = 0, 1, 2, … in order; every value below n = 40 gives a prime.",
+    "At n = 40: n² + n + 41 = 1681 = 41·41, which is composite.",
+    "One counterexample is enough to disprove a universal statement, however many cases worked before it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "276",
-     "correct": false
-    },
-    {
-     "text": "278",
-     "correct": false
-    },
-    {
-     "text": "279",
-     "correct": false
-    },
-    {
-     "text": "277",
-     "correct": true
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_poly_counterexample). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s01-honors-014",
+   "id": "dm-np-s01-honors-a02",
    "skillId": "number-theory-proof-skill-01",
    "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 72?",
-   "answer": "73",
+   "format": "short-answer",
+   "prompt": "Conjecture: \"n² + n + 17 is prime for every integer n ≥ 0.\" Find the smallest counterexample n.",
+   "answer": "16",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 73"
+    "Test n = 0, 1, 2, … in order; every value below n = 16 gives a prime.",
+    "At n = 16: n² + n + 17 = 289 = 17·17, which is composite.",
+    "One counterexample is enough to disprove a universal statement, however many cases worked before it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "73",
-     "correct": true
-    },
-    {
-     "text": "72",
-     "correct": false
-    },
-    {
-     "text": "74",
-     "correct": false
-    },
-    {
-     "text": "75",
-     "correct": false
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_poly_counterexample). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s05-honors-016",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(32, 40).",
-   "answer": "160",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 160"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "159",
-     "correct": false
-    },
-    {
-     "text": "160",
-     "correct": true
-    },
-    {
-     "text": "161",
-     "correct": false
-    },
-    {
-     "text": "162",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-015",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 180 = 2·q + r with 0 ≤ r < 2.",
-   "answer": "90",
-   "solutionSteps": [
-    "180 = 2·90 + 0.",
-    "Answer: 90"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "89",
-     "correct": false
-    },
-    {
-     "text": "91",
-     "correct": false
-    },
-    {
-     "text": "90",
-     "correct": true
-    },
-    {
-     "text": "92",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s01-honors-015",
+   "id": "dm-np-s01-honors-a03",
    "skillId": "number-theory-proof-skill-01",
    "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 86?",
-   "answer": "89",
+   "format": "short-answer",
+   "prompt": "Conjecture: \"n² − n + 41 is prime for every integer n ≥ 0.\" Find the smallest counterexample n.",
+   "answer": "41",
    "solutionSteps": [
-    "Test successive integers.",
-    "Answer: 89"
+    "Test n = 0, 1, 2, … in order; every value below n = 41 gives a prime.",
+    "At n = 41: n² − n + 41 = 1681 = 41·41, which is composite.",
+    "One counterexample is enough to disprove a universal statement, however many cases worked before it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "88",
-     "correct": false
-    },
-    {
-     "text": "89",
-     "correct": true
-    },
-    {
-     "text": "90",
-     "correct": false
-    },
-    {
-     "text": "91",
-     "correct": false
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_poly_counterexample). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"
    ]
   },
   {
-   "id": "dm-np-s05-honors-017",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(32, 16).",
-   "answer": "32",
-   "solutionSteps": [
-    "ab / gcd(a, b).",
-    "Answer: 32"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "31",
-     "correct": false
-    },
-    {
-     "text": "33",
-     "correct": false
-    },
-    {
-     "text": "32",
-     "correct": true
-    },
-    {
-     "text": "34",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-016",
-   "skillId": "number-theory-proof-skill-04",
+   "id": "dm-np-s01-honors-a04",
+   "skillId": "number-theory-proof-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the remainder when 307 is divided by 7.",
-   "answer": "6",
+   "prompt": "Conjecture: \"n² + n + 11 is prime for every integer n ≥ 0.\" Find the smallest counterexample n.",
+   "answer": "10",
    "solutionSteps": [
-    "307 = 7·43 + 6.",
-    "Answer: 6"
+    "Test n = 0, 1, 2, … in order; every value below n = 10 gives a prime.",
+    "At n = 10: n² + n + 11 = 121 = 11·11, which is composite.",
+    "One counterexample is enough to disprove a universal statement, however many cases worked before it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.PROOF"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-018",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many positive divisors does 113 have?",
-   "answer": "2",
-   "solutionSteps": [
-    "Count the divisors.",
-    "Answer: 2"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: prime_poly_counterexample). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.3",
     "DM.PROOF"

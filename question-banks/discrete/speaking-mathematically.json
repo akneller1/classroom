@@ -11,6 +11,7 @@
    "prompt": "Classify the sentence. (A statement is a sentence that is true or false, but not both.)\n\"17 is a prime number.\"",
    "answer": "A statement that is true",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "It is a declarative sentence that is true."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -45,6 +46,7 @@
    "prompt": "Classify the sentence. (A statement is a sentence that is true or false, but not both.)\n\"Is 91 prime?\"",
    "answer": "Not a statement: it is a question or a command",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "A question is neither true nor false."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -79,6 +81,7 @@
    "prompt": "Classify the sentence. (A statement is a sentence that is true or false, but not both.)\n\"x + 5 = 9\"",
    "answer": "Not a statement: its truth depends on the value of a variable",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "Its truth depends on the value of x, so it is an open sentence (a predicate), not a statement."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -242,7 +245,8 @@
     "12 is an odd number. → statement. It is a declarative sentence that is false; false sentences are still statements.",
     "Is 91 prime? → not a statement. A question is neither true nor false.",
     "x + 5 = 9 → not a statement. Its truth depends on the value of x, so it is an open sentence (a predicate), not a statement.",
-    "There is an integer n with 2n = 7. → statement. The variable is quantified; the sentence is false because 7/2 is not an integer."
+    "There is an integer n with 2n = 7. → statement. The variable is quantified; the sentence is false because 7/2 is not an integer.",
+    "Option by option: ✗ Is 91 prime? (not correct). ✗ x + 5 = 9 (not correct). ✓ 12 is an odd number. (correct). ✓ 17 is a prime number. (correct). ✓ There is an integer n with 2n = 7. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -353,6 +357,7 @@
    "prompt": "Classify the sentence.\n\"For every real number x, x + 0 = x.\"",
    "answer": "A statement that is true",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "The variable is quantified, so the sentence has a definite truth value (true)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -387,6 +392,7 @@
    "prompt": "Classify the sentence.\n\"n is divisible by 4\"",
    "answer": "Not a statement: its truth depends on the value of a variable",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "Its truth depends on n."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -421,6 +427,7 @@
    "prompt": "Classify the sentence.\n\"12 is an odd number.\"",
    "answer": "A statement that is false",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "It is a declarative sentence that is false; false sentences are still statements."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -685,6 +692,7 @@
    "prompt": "Classify the sentence.\n\"This sentence is false.\"",
    "answer": "Not a statement: it cannot be consistently true or false",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "It cannot consistently be true or false (the liar paradox)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -719,6 +727,7 @@
    "prompt": "Classify the sentence.\n\"There is an integer n with 2n = 7.\"",
    "answer": "A statement that is false",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "The variable is quantified; the sentence is false because 7/2 is not an integer."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -753,6 +762,7 @@
    "prompt": "Classify the sentence.\n\"The sum of two even integers is even.\"",
    "answer": "A statement that is true",
    "solutionSteps": [
+    "A statement is a declarative sentence that is true or false; questions, commands and open sentences are not statements.",
     "It is a true declarative sentence (a theorem)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_or_not). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -1052,6 +1062,7 @@
    "prompt": "True or false? There is an integer n such that n² = 2n.",
    "answer": "True",
    "solutionSteps": [
+    "A universal statement needs a general argument to be true and one counterexample to be false.",
     "n = 0 or n = 2 works.",
     "So the statement is true."
    ],
@@ -1157,6 +1168,7 @@
    "prompt": "True or false? There is a positive integer that is less than every other positive integer.",
    "answer": "True",
    "solutionSteps": [
+    "A universal statement needs a general argument to be true and one counterexample to be false.",
     "1 is the least positive integer.",
     "So the statement is true."
    ],
@@ -1192,6 +1204,7 @@
    "prompt": "True or false? For every real number x, if x > 2 then x² > 4.",
    "answer": "True",
    "solutionSteps": [
+    "A universal statement needs a general argument to be true and one counterexample to be false.",
     "If x > 2 > 0 then x² > 2x > 4.",
     "So the statement is true."
    ],
@@ -1297,6 +1310,7 @@
    "prompt": "True or false? There is an integer that is both even and prime.",
    "answer": "True",
    "solutionSteps": [
+    "A universal statement needs a general argument to be true and one counterexample to be false.",
     "2 is even and prime.",
     "So the statement is true."
    ],
@@ -1828,7 +1842,8 @@
     "Every student is in the math club. → true.",
     "Some student is in exactly one club. → true.",
     "Every student in the chess club is in the art club. → false.",
-    "For every club, there is a student not in that club. → false."
+    "For every club, there is a student not in that club. → false.",
+    "Option by option: ✗ Every student in the chess club is in the art club. (not correct). ✓ Every student is in the math club. (correct). ✗ For every club, there is a student not in that club. (not correct). ✓ Some student is in exactly one club. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: world_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2678,7 +2693,8 @@
     "You finished the review, and the teacher gave the pass to someone else instead of you."
    ],
    "solutionSteps": [
-    "A conditional is broken (false) only when the hypothesis happens and the conclusion does not."
+    "A conditional is broken (false) only when the hypothesis happens and the conclusion does not.",
+    "Option by option: ✗ You did not finish the review and did not get a pass. (not correct). ✗ You did not finish the review and got a pass. (not correct). ✓ You finished the review and did not get a pass. (correct). ✓ You finished the review, and the teacher gave the pass to someone else instead of you. (correct). ✗ You finished the review and got a pass. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: promise_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2721,7 +2737,8 @@
    ],
    "solutionSteps": [
     "\"p only if q\", \"q is necessary for p\" and \"p is sufficient for q\" all mean p → q.",
-    "The other two state the converse."
+    "The other two state the converse.",
+    "Option by option: ✓ A shape is a square only if it is a rectangle. (correct). ✓ Being a rectangle is necessary for being a square. (correct). ✓ Being a square is sufficient for being a rectangle. (correct). ✗ If a shape is a rectangle, then it is a square. (not correct). ✗ A shape is a rectangle only if it is a square. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: necessary_sufficient_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2764,7 +2781,8 @@
    ],
    "solutionSteps": [
     "Every multiple of 4 is even, so p → q and its contrapositive ¬q → ¬p are true.",
-    "n = 2 is even but not divisible by 4, so q → p fails and p is not necessary for q."
+    "n = 2 is even but not divisible by 4, so q → p fails and p is not necessary for q.",
+    "Option by option: ✓ ¬q → ¬p (correct). ✗ q → p (not correct). ✗ p is necessary for q (not correct). ✓ p is sufficient for q (correct). ✓ p → q (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: divisibility_conditional_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3355,9 +3373,9 @@
    ]
   },
   {
-   "id": "dm-sm-s04-honors-005",
+   "id": "dm-sm-s04-cp1-h005",
    "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which set‑builder description equals {3, 7, 11, 15}?",
    "answer": "{4k − 1 | k ∈ ℤ and 1 ≤ k ≤ 4}",
@@ -3365,7 +3383,7 @@
     "List a few elements of each choice and compare with the roster.",
     "Only {4k − 1 | k ∈ ℤ and 1 ≤ k ≤ 4} produces exactly {3, 7, 11, 15}."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: roster_to_builder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: roster_to_builder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "{3k + 4 | k ∈ ℤ and 0 ≤ k ≤ 3}",
@@ -3390,9 +3408,9 @@
    ]
   },
   {
-   "id": "dm-sm-s04-honors-006",
+   "id": "dm-sm-s04-cp1-h006",
    "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which set‑builder description equals {…, −4, −2, 0, 2, 4, …}?",
    "answer": "{2k | k ∈ ℤ}",
@@ -3400,7 +3418,7 @@
     "List a few elements of each choice and compare with the roster.",
     "Only {2k | k ∈ ℤ} produces exactly {…, −4, −2, 0, 2, 4, …}."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: roster_to_builder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: roster_to_builder). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "{2k | k ∈ ℤ⁺}",
@@ -3432,6 +3450,7 @@
    "prompt": "How many elements does the set {1, 2, 2, 3, 3, 3} have?",
    "answer": "3",
    "solutionSteps": [
+    "The cardinality |S| counts distinct elements only; repeated listings count once.",
     "Repeated elements count once.",
     "Number of elements: 3."
    ],
@@ -3667,7 +3686,8 @@
    ],
    "solutionSteps": [
     "Order and repetition do not matter in a set.",
-    "{(1, 2, 3)} has one element (an ordered triple)."
+    "{(1, 2, 3)} has one element (an ordered triple).",
+    "Option by option: ✓ {1, 1, 2, 3} (correct). ✓ {n ∈ ℤ | 1 ≤ n ≤ 3} (correct). ✗ {(1, 2, 3)} (not correct). ✗ {1, 2, 3, 4} (not correct). ✓ {3, 2, 1} (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equal_rosters_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3710,7 +3730,8 @@
    ],
    "solutionSteps": [
     "No real square is negative; no integer lies strictly between 2 and 3; x + 1 = x has no solution.",
-    "{0} and {∅} each have one element."
+    "{0} and {∅} each have one element.",
+    "Option by option: ✗ {0} (not correct). ✗ {∅} (not correct). ✓ {x ∈ ℝ | x² = −4} (correct). ✓ {x ∈ ℝ | x + 1 = x} (correct). ✓ {n ∈ ℤ | 2 < n < 3} (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: empty_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3753,7 +3774,8 @@
    ],
    "solutionSteps": [
     "n ∈ A exactly when n − 1 is divisible by 4.",
-    "−3 − 1 = −4, 1 − 1 = 0, 13 − 1 = 12 are divisible by 4; 6 and −2 are not."
+    "−3 − 1 = −4, 1 − 1 = 0, 13 − 1 = 12 are divisible by 4; 6 and −2 are not.",
+    "Option by option: ✓ 13 (correct). ✗ 7 (not correct). ✓ 1 (correct). ✓ −3 (correct). ✗ −1 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: member_builder_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4279,9 +4301,9 @@
    ]
   },
   {
-   "id": "dm-sm-s05-honors-004",
+   "id": "dm-sm-s05-cp1-h004",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many subsets does {1, 2, 3, 4, 5, 6} have (include ∅ and the set itself)?",
    "answer": "64",
@@ -4289,7 +4311,7 @@
     "Each of the 6 elements is either in or out of a subset.",
     "2^6 = 64 subsets."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_subsets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_subsets). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.6",
     "DM.LANG"
@@ -4376,7 +4398,8 @@
    ],
    "solutionSteps": [
     "Check that every element of the candidate is in A.",
-    "5 and 0 are not in A."
+    "5 and 0 are not in A.",
+    "Option by option: ✓ {1, 2, 3, 4} (correct). ✓ ∅ (correct). ✗ {2, 5} (not correct). ✗ {0} (not correct). ✓ {1, 4} (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: subset_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4419,7 +4442,8 @@
    ],
    "solutionSteps": [
     "The elements of B are 0, {0} and {1, 2}.",
-    "{0} ⊆ B because 0 ∈ B; {1, 2} ⊆ B is false because 1 ∉ B."
+    "{0} ⊆ B because 0 ∈ B; {1, 2} ⊆ B is false because 1 ∉ B.",
+    "Option by option: ✓ 0 ∈ B (correct). ✓ {0} ∈ B (correct). ✗ 1 ∈ B (not correct). ✓ {0} ⊆ B (correct). ✗ {1, 2} ⊆ B (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: nested_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4462,7 +4486,8 @@
    ],
    "solutionSteps": [
     "Subset is transitive, so A ⊆ C and 1, 2 ∈ B, C.",
-    "Nothing forces C ⊆ A or B = C."
+    "Nothing forces C ⊆ A or B = C.",
+    "Option by option: ✓ 1 ∈ C (correct). ✓ A ⊆ C (correct). ✓ {2} ⊆ B (correct). ✗ B = C (not correct). ✗ C ⊆ A (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: transitive_subset_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4747,7 +4772,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\n(1, 2) = (2, 1)",
    "answer": "False: ordered pairs are equal only when corresponding coordinates are equal",
    "solutionSteps": [
-    "Ordered pairs are equal only when corresponding coordinates are equal."
+    "Ordered pairs are equal only when corresponding coordinates are equal.",
+    "Answer: False: ordered pairs are equal only when corresponding coordinates are equal."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4781,7 +4807,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\n{1, 2} = {2, 1}",
    "answer": "True: sets ignore order",
    "solutionSteps": [
-    "Sets ignore order."
+    "Sets ignore order.",
+    "Answer: True: sets ignore order."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4815,7 +4842,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\nIf A = {1} and B = {2}, then A × B = B × A.",
    "answer": "False: A × B = {(1, 2)} but B × A = {(2, 1)}",
    "solutionSteps": [
-    "A × B = {(1, 2)} but B × A = {(2, 1)}."
+    "A × B = {(1, 2)} but B × A = {(2, 1)}.",
+    "Answer: False: A × B = {(1, 2)} but B × A = {(2, 1)}."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4849,7 +4877,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\nA × ∅ = ∅ for every set A.",
    "answer": "True: there is no second coordinate to choose, so there are no ordered pairs",
    "solutionSteps": [
-    "There is no second coordinate to choose, so there are no ordered pairs."
+    "There is no second coordinate to choose, so there are no ordered pairs.",
+    "Answer: True: there is no second coordinate to choose, so there are no ordered pairs."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4883,7 +4912,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\n(a, b) = (c, d) exactly when a = c and b = d.",
    "answer": "True: this is the definition of equality of ordered pairs",
    "solutionSteps": [
-    "This is the definition of equality of ordered pairs."
+    "This is the definition of equality of ordered pairs.",
+    "Answer: True: this is the definition of equality of ordered pairs."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4917,7 +4947,8 @@
    "prompt": "Is this statement true or false? Choose the answer with the correct reason.\nIf A × B = B × A, then A = B.",
    "answer": "False: A = ∅ and B = {1} give A × B = B × A = ∅, but A ≠ B",
    "solutionSteps": [
-    "A = ∅ and B = {1} give A × B = B × A = ∅, but A ≠ B."
+    "A = ∅ and B = {1} give A × B = B × A = ∅, but A ≠ B.",
+    "Answer: False: A = ∅ and B = {1} give A × B = B × A = ∅, but A ≠ B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: ordered_pair_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4989,7 +5020,8 @@
     "(2, 6)"
    ],
    "solutionSteps": [
-    "The first coordinate must come from A and the second from B."
+    "The first coordinate must come from A and the second from B.",
+    "Option by option: ✓ (2, 5) (correct). ✗ (5, 1) (not correct). ✓ (1, 5) (correct). ✓ (2, 6) (correct). ✗ (1, 2) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: product_member_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5031,7 +5063,8 @@
     "(1, 1, 1)"
    ],
    "solutionSteps": [
-    "Elements are ordered triples with every coordinate in A."
+    "Elements are ordered triples with every coordinate in A.",
+    "Option by option: ✗ (1, 0, 2) (not correct). ✓ (1, 0, 0) (correct). ✓ (0, 0, 1) (correct). ✓ (1, 1, 1) (correct). ✗ (0, 1) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: triple_member_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5074,7 +5107,8 @@
    ],
    "solutionSteps": [
     "The pairs are (1, 2), (1, 3), (2, 3).",
-    "Any relation on A is a subset of A × A."
+    "Any relation on A is a subset of A × A.",
+    "Option by option: ✓ It contains (1, 3). (correct). ✓ It contains exactly 3 ordered pairs. (correct). ✗ It contains (2, 2). (not correct). ✗ It contains (3, 1). (not correct). ✓ It is a subset of A × A. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: product_subset_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5223,6 +5257,7 @@
    "prompt": "How many strings of length 3 can be formed over the alphabet {0, 1}? (Characters may repeat.)",
    "answer": "8",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "Each of the 3 positions has 2 choices.",
     "2^3 = 8"
    ],
@@ -5240,6 +5275,7 @@
    "prompt": "How many strings of length 4 can be formed over the alphabet {0, 1}? (Characters may repeat.)",
    "answer": "16",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "Each of the 4 positions has 2 choices.",
     "2^4 = 16"
    ],
@@ -5257,6 +5293,7 @@
    "prompt": "How many strings of length 2 can be formed over the alphabet {a, b, c}? (Characters may repeat.)",
    "answer": "9",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "Each of the 2 positions has 3 choices.",
     "3^2 = 9"
    ],
@@ -5292,6 +5329,7 @@
    "prompt": "How many strings of length 3 can be formed over the alphabet {A, C, G, T}? (Characters may repeat.)",
    "answer": "64",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "Each of the 3 positions has 4 choices.",
     "4^3 = 64"
    ],
@@ -5302,17 +5340,18 @@
    ]
   },
   {
-   "id": "dm-sm-s07-honors-001",
+   "id": "dm-sm-s07-cp1-h001",
    "skillId": "speaking-mathematically-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many strings of length 2 can be formed over the alphabet {a, b, ..., z}? (Characters may repeat.)",
    "answer": "676",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "Each of the 2 positions has 26 choices.",
     "26^2 = 676"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_strings). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_strings). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.6",
     "DM.LANG"
@@ -5428,7 +5467,8 @@
    "prompt": "Which statement about strings is true?",
    "answer": "\"ab\" and \"ba\" are different strings",
    "solutionSteps": [
-    "Order matters in a string; repetition is allowed; the empty string has length 0."
+    "Order matters in a string; repetition is allowed; the empty string has length 0.",
+    "Answer: \"ab\" and \"ba\" are different strings."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: string_facts). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5571,7 +5611,8 @@
     "0101"
    ],
    "solutionSteps": [
-    "Count the characters in each string."
+    "Count the characters in each string.",
+    "Option by option: ✓ 1111 (correct). ✗ 00000 (not correct). ✗ 101 (not correct). ✓ 0000 (correct). ✓ 0101 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: length_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5613,7 +5654,8 @@
     "0000"
    ],
    "solutionSteps": [
-    "Reverse each string and compare."
+    "Reverse each string and compare.",
+    "Option by option: ✗ 1100 (not correct). ✓ 0110 (correct). ✓ 1001 (correct). ✗ 0100 (not correct). ✓ 0000 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: palindrome_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5656,7 +5698,8 @@
    ],
    "solutionSteps": [
     "Check the first character and count the 0s.",
-    "1 has zero 0s (even); 100 has two; 1010 has two; 0110 starts with 0; 10 has one 0."
+    "1 has zero 0s (even); 100 has two; 1010 has two; 0110 starts with 0; 10 has one 0.",
+    "Option by option: ✓ 1 (correct). ✓ 1010 (correct). ✗ 10 (not correct). ✗ 0110 (not correct). ✓ 100 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: language_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5942,9 +5985,9 @@
    ]
   },
   {
-   "id": "dm-sm-s05-honors-009",
+   "id": "dm-sm-s05-cp1-h009",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which symbol makes this statement true?  {2, 4, 6} ☐ {2, 4, 6}  (⊊ means \"is a proper subset of\", ⊄ means \"is not a subset of\")",
    "answer": "=",
@@ -5953,7 +5996,7 @@
     "Elements use ∈ or ∉; sets use ⊆, ⊊ or =.",
     "Answer: {2, 4, 6} = {2, 4, 6}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_symbol). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_symbol). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "=",
@@ -5985,7 +6028,8 @@
    "prompt": "Let A = {n ∈ ℤ | n is a multiple of 6} and B = {n ∈ ℤ | n is a multiple of 3}. Is A ⊆ B?",
    "answer": "Yes",
    "solutionSteps": [
-    "Every multiple of 6 is 6k = 3(2k), a multiple of 3."
+    "Every multiple of 6 is 6k = 3(2k), a multiple of 3.",
+    "Answer: Yes."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6019,7 +6063,8 @@
    "prompt": "Let A = {n ∈ ℤ | n is a multiple of 3} and B = {n ∈ ℤ | n is a multiple of 6}. Is A ⊆ B?",
    "answer": "No",
    "solutionSteps": [
-    "3 is in A but not in B."
+    "3 is in A but not in B.",
+    "Answer: No."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6046,16 +6091,17 @@
    ]
   },
   {
-   "id": "dm-sm-s05-honors-010",
+   "id": "dm-sm-s05-cp1-h010",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Let A = {x ∈ ℤ | x² < 9} and B = {x ∈ ℤ | |x| ≤ 2}. Is A ⊆ B?",
    "answer": "Yes",
    "solutionSteps": [
-    "x² < 9 for an integer x means x ∈ {−2, −1, 0, 1, 2}, so A = B and A ⊆ B."
+    "x² < 9 for an integer x means x ∈ {−2, −1, 0, 1, 2}, so A = B and A ⊆ B.",
+    "Answer: Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Cannot be decided",
@@ -6104,7 +6150,8 @@
    "prompt": "Which ordered pair is in {1, 2, 3} × {a, b}?",
    "answer": "(3, b)",
    "solutionSteps": [
-    "The first coordinate must be 1, 2 or 3 and the second must be a or b."
+    "The first coordinate must be 1, 2 or 3 and the second must be a or b.",
+    "Answer: (3, b)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: product_member). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6225,6 +6272,7 @@
    "prompt": "Using only the letters A and B, how many 2‑letter strings can be made? (Letters may repeat.)",
    "answer": "4",
    "solutionSteps": [
+    "Each position of a string is filled independently, so multiply the number of choices per position.",
     "AA, AB, BA, BB.",
     "2² = 4"
    ],
@@ -6762,8 +6810,8 @@
    "prompt": "If |A| = 3 and |B| = 5, find |A × B|.",
    "answer": "15",
    "solutionSteps": [
-    "3 · 5.",
-    "Answer: 15"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 3·5 = 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6797,8 +6845,8 @@
    "prompt": "How many strings of length 2 use an alphabet of 6 letters (repeats allowed)?",
    "answer": "36",
    "solutionSteps": [
-    "6².",
-    "Answer: 36"
+    "Each of the 2 positions can be any of the 6 letters (repeats allowed).",
+    "6·6 = 36 strings."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6832,8 +6880,8 @@
    "prompt": "If |A| = 4 and |B| = 6, find |A × B|.",
    "answer": "24",
    "solutionSteps": [
-    "4 · 6.",
-    "Answer: 24"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 4·6 = 24."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6867,8 +6915,8 @@
    "prompt": "How many strings of length 2 use an alphabet of 7 letters (repeats allowed)?",
    "answer": "49",
    "solutionSteps": [
-    "7².",
-    "Answer: 49"
+    "Each of the 2 positions can be any of the 7 letters (repeats allowed).",
+    "7·7 = 49 strings."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6902,8 +6950,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -4 ≤ n ≤ 4}?",
    "answer": "9",
    "solutionSteps": [
-    "Count the integers from -4 to 4.",
-    "Answer: 9"
+    "The integers from -4 to 4 inclusive.",
+    "Count = last − first + 1 = 4 − (-4) + 1 = 9."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6937,8 +6985,8 @@
    "prompt": "How many subsets does a set with 5 elements have?",
    "answer": "32",
    "solutionSteps": [
-    "2^5.",
-    "Answer: 32"
+    "Each of the 5 elements is either in a subset or not: 2 choices each.",
+    "2^5 = 32 subsets (including ∅ and the set itself)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -6954,8 +7002,8 @@
    "prompt": "If |A| = 5 and |B| = 7, find |A × B|.",
    "answer": "35",
    "solutionSteps": [
-    "5 · 7.",
-    "Answer: 35"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 5·7 = 35."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6989,8 +7037,8 @@
    "prompt": "How many strings of length 2 use an alphabet of 8 letters (repeats allowed)?",
    "answer": "64",
    "solutionSteps": [
-    "8².",
-    "Answer: 64"
+    "Each of the 2 positions can be any of the 8 letters (repeats allowed).",
+    "8·8 = 64 strings."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7024,8 +7072,8 @@
    "prompt": "How many proper subsets does a set with 5 elements have?",
    "answer": "31",
    "solutionSteps": [
-    "2^5 − 1.",
-    "Answer: 31"
+    "There are 2^5 = 32 subsets in all.",
+    "A proper subset is any subset except the set itself: 32 − 1 = 31."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7041,8 +7089,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -5 ≤ n ≤ 5}?",
    "answer": "11",
    "solutionSteps": [
-    "Count the integers from -5 to 5.",
-    "Answer: 11"
+    "The integers from -5 to 5 inclusive.",
+    "Count = last − first + 1 = 5 − (-5) + 1 = 11."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7076,8 +7124,8 @@
    "prompt": "If |A| = 6 and |B| = 8, find |A × B|.",
    "answer": "48",
    "solutionSteps": [
-    "6 · 8.",
-    "Answer: 48"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 6·8 = 48."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7111,8 +7159,8 @@
    "prompt": "How many strings of length 2 use an alphabet of 9 letters (repeats allowed)?",
    "answer": "81",
    "solutionSteps": [
-    "9².",
-    "Answer: 81"
+    "Each of the 2 positions can be any of the 9 letters (repeats allowed).",
+    "9·9 = 81 strings."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7146,8 +7194,8 @@
    "prompt": "How many proper subsets does a set with 6 elements have?",
    "answer": "63",
    "solutionSteps": [
-    "2^6 − 1.",
-    "Answer: 63"
+    "There are 2^6 = 64 subsets in all.",
+    "A proper subset is any subset except the set itself: 64 − 1 = 63."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7163,8 +7211,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -6 ≤ n ≤ 6}?",
    "answer": "13",
    "solutionSteps": [
-    "Count the integers from -6 to 6.",
-    "Answer: 13"
+    "The integers from -6 to 6 inclusive.",
+    "Count = last − first + 1 = 6 − (-6) + 1 = 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7198,149 +7246,10 @@
    "prompt": "How many subsets does a set with 7 elements have?",
    "answer": "128",
    "solutionSteps": [
-    "2^7.",
-    "Answer: 128"
+    "Each of the 7 elements is either in a subset or not: 2 choices each.",
+    "2^7 = 128 subsets (including ∅ and the set itself)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s07-cp2-015",
-   "skillId": "speaking-mathematically-skill-07",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many strings of length 2 use an alphabet of 10 letters (repeats allowed)?",
-   "answer": "100",
-   "solutionSteps": [
-    "10².",
-    "Answer: 100"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "99",
-     "correct": false
-    },
-    {
-     "text": "100",
-     "correct": true
-    },
-    {
-     "text": "101",
-     "correct": false
-    },
-    {
-     "text": "102",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s05-cp2-017",
-   "skillId": "speaking-mathematically-skill-05",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many proper subsets does a set with 7 elements have?",
-   "answer": "127",
-   "solutionSteps": [
-    "2^7 − 1.",
-    "Answer: 127"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s05-cp2-018",
-   "skillId": "speaking-mathematically-skill-05",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many subsets does a set with 8 elements have?",
-   "answer": "256",
-   "solutionSteps": [
-    "2^8.",
-    "Answer: 256"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-cp2-015",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 8 and |B| = 10, find |A × B|.",
-   "answer": "80",
-   "solutionSteps": [
-    "8 · 10.",
-    "Answer: 80"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "79",
-     "correct": false
-    },
-    {
-     "text": "81",
-     "correct": false
-    },
-    {
-     "text": "80",
-     "correct": true
-    },
-    {
-     "text": "82",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s07-cp2-016",
-   "skillId": "speaking-mathematically-skill-07",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many strings of length 2 use an alphabet of 11 letters (repeats allowed)?",
-   "answer": "121",
-   "solutionSteps": [
-    "11².",
-    "Answer: 121"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "120",
-     "correct": false
-    },
-    {
-     "text": "122",
-     "correct": false
-    },
-    {
-     "text": "121",
-     "correct": true
-    },
-    {
-     "text": "123",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.6",
     "DM.LANG"
@@ -7354,8 +7263,8 @@
    "prompt": "If |A| = 4 and |B| = 7, find |A × B|.",
    "answer": "28",
    "solutionSteps": [
-    "4 · 7.",
-    "Answer: 28"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 4·7 = 28."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7389,8 +7298,8 @@
    "prompt": "If |A| = 5 and |B| = 8, find |A × B|.",
    "answer": "40",
    "solutionSteps": [
-    "5 · 8.",
-    "Answer: 40"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 5·8 = 40."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7424,8 +7333,8 @@
    "prompt": "How many bit strings have length 5?",
    "answer": "32",
    "solutionSteps": [
-    "Two choices per position.",
-    "Answer: 32"
+    "Each of the 5 positions is 0 or 1.",
+    "Multiplication rule: 2^5 = 32."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7441,8 +7350,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -5 ≤ n ≤ 6}?",
    "answer": "12",
    "solutionSteps": [
-    "Count the integers from -5 to 6.",
-    "Answer: 12"
+    "The integers from -5 to 6 inclusive.",
+    "Count = last − first + 1 = 6 − (-5) + 1 = 12."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7476,8 +7385,8 @@
    "prompt": "If |A| = 6 and |B| = 9, find |A × B|.",
    "answer": "54",
    "solutionSteps": [
-    "6 · 9.",
-    "Answer: 54"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 6·9 = 54."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7511,8 +7420,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -6 ≤ n ≤ 7}?",
    "answer": "14",
    "solutionSteps": [
-    "Count the integers from -6 to 7.",
-    "Answer: 14"
+    "The integers from -6 to 7 inclusive.",
+    "Count = last − first + 1 = 7 − (-6) + 1 = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7546,8 +7455,8 @@
    "prompt": "If |A| = 7 and |B| = 10, find |A × B|.",
    "answer": "70",
    "solutionSteps": [
-    "7 · 10.",
-    "Answer: 70"
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 7·10 = 70."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7581,45 +7490,10 @@
    "prompt": "How many bit strings have length 7?",
    "answer": "128",
    "solutionSteps": [
-    "Two choices per position.",
-    "Answer: 128"
+    "Each of the 7 positions is 0 or 1.",
+    "Multiplication rule: 2^7 = 128."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-cp1-015",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 8 and |B| = 11, find |A × B|.",
-   "answer": "88",
-   "solutionSteps": [
-    "8 · 11.",
-    "Answer: 88"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "87",
-     "correct": false
-    },
-    {
-     "text": "88",
-     "correct": true
-    },
-    {
-     "text": "89",
-     "correct": false
-    },
-    {
-     "text": "90",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.6",
     "DM.LANG"
@@ -7633,8 +7507,8 @@
    "prompt": "How many bit strings have length 8?",
    "answer": "256",
    "solutionSteps": [
-    "Two choices per position.",
-    "Answer: 256"
+    "Each of the 8 positions is 0 or 1.",
+    "Multiplication rule: 2^8 = 256."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7650,8 +7524,8 @@
    "prompt": "How many proper subsets does a set with 8 elements have?",
    "answer": "255",
    "solutionSteps": [
-    "2^8 − 1.",
-    "Answer: 255"
+    "There are 2^8 = 256 subsets in all.",
+    "A proper subset is any subset except the set itself: 256 − 1 = 255."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7667,8 +7541,8 @@
    "prompt": "How many elements are in {n ∈ ℤ | -8 ≤ n ≤ 9}?",
    "answer": "18",
    "solutionSteps": [
-    "Count the integers from -8 to 9.",
-    "Answer: 18"
+    "The integers from -8 to 9 inclusive.",
+    "Count = last − first + 1 = 9 − (-8) + 1 = 18."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7702,8 +7576,8 @@
    "prompt": "How many subsets does a set with 9 elements have?",
    "answer": "512",
    "solutionSteps": [
-    "2^9.",
-    "Answer: 512"
+    "Each of the 9 elements is either in a subset or not: 2 choices each.",
+    "2^9 = 512 subsets (including ∅ and the set itself)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7712,122 +7586,17 @@
    ]
   },
   {
-   "id": "dm-sm-s06-cp1-016",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 9 and |B| = 12, find |A × B|.",
-   "answer": "108",
-   "solutionSteps": [
-    "9 · 12.",
-    "Answer: 108"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "107",
-     "correct": false
-    },
-    {
-     "text": "109",
-     "correct": false
-    },
-    {
-     "text": "108",
-     "correct": true
-    },
-    {
-     "text": "110",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-honors-011",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 5 and |B| = 9, find |A × B|.",
-   "answer": "45",
-   "solutionSteps": [
-    "5 · 9.",
-    "Answer: 45"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "44",
-     "correct": false
-    },
-    {
-     "text": "46",
-     "correct": false
-    },
-    {
-     "text": "47",
-     "correct": false
-    },
-    {
-     "text": "45",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-honors-012",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 6 and |B| = 10, find |A × B|.",
-   "answer": "60",
-   "solutionSteps": [
-    "6 · 10.",
-    "Answer: 60"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "60",
-     "correct": true
-    },
-    {
-     "text": "59",
-     "correct": false
-    },
-    {
-     "text": "61",
-     "correct": false
-    },
-    {
-     "text": "62",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s04-honors-011",
+   "id": "dm-sm-s04-cp1-h011",
    "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "How many elements are in {n ∈ ℤ | -6 ≤ n ≤ 8}?",
    "answer": "15",
    "solutionSteps": [
-    "Count the integers from -6 to 8.",
-    "Answer: 15"
+    "The integers from -6 to 8 inclusive.",
+    "Count = last − first + 1 = 8 − (-6) + 1 = 15."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "14",
@@ -7852,181 +7621,6 @@
    ]
   },
   {
-   "id": "dm-sm-s06-honors-013",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 7 and |B| = 11, find |A × B|.",
-   "answer": "77",
-   "solutionSteps": [
-    "7 · 11.",
-    "Answer: 77"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "76",
-     "correct": false
-    },
-    {
-     "text": "77",
-     "correct": true
-    },
-    {
-     "text": "78",
-     "correct": false
-    },
-    {
-     "text": "79",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s04-honors-012",
-   "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many elements are in {n ∈ ℤ | -7 ≤ n ≤ 9}?",
-   "answer": "17",
-   "solutionSteps": [
-    "Count the integers from -7 to 9.",
-    "Answer: 17"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "16",
-     "correct": false
-    },
-    {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "19",
-     "correct": false
-    },
-    {
-     "text": "17",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-honors-014",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 8 and |B| = 12, find |A × B|.",
-   "answer": "96",
-   "solutionSteps": [
-    "8 · 12.",
-    "Answer: 96"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "95",
-     "correct": false
-    },
-    {
-     "text": "97",
-     "correct": false
-    },
-    {
-     "text": "96",
-     "correct": true
-    },
-    {
-     "text": "98",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s04-honors-013",
-   "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many elements are in {n ∈ ℤ | -8 ≤ n ≤ 10}?",
-   "answer": "19",
-   "solutionSteps": [
-    "Count the integers from -8 to 10.",
-    "Answer: 19"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "19",
-     "correct": true
-    },
-    {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "20",
-     "correct": false
-    },
-    {
-     "text": "21",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s06-honors-015",
-   "skillId": "speaking-mathematically-skill-06",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "If |A| = 9 and |B| = 13, find |A × B|.",
-   "answer": "117",
-   "solutionSteps": [
-    "9 · 13.",
-    "Answer: 117"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "116",
-     "correct": false
-    },
-    {
-     "text": "118",
-     "correct": false
-    },
-    {
-     "text": "119",
-     "correct": false
-    },
-    {
-     "text": "117",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
    "id": "dm-sm-s07-honors-011",
    "skillId": "speaking-mathematically-skill-07",
    "level": "honors",
@@ -8034,8 +7628,8 @@
    "prompt": "How many bit strings have length 9?",
    "answer": "512",
    "solutionSteps": [
-    "Two choices per position.",
-    "Answer: 512"
+    "Each of the 9 positions is 0 or 1.",
+    "Multiplication rule: 2^9 = 512."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8044,17 +7638,17 @@
    ]
   },
   {
-   "id": "dm-sm-s07-honors-012",
+   "id": "dm-sm-s07-cp1-h012",
    "skillId": "speaking-mathematically-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "How many strings of length 2 use an alphabet of 12 letters (repeats allowed)?",
    "answer": "144",
    "solutionSteps": [
-    "12².",
-    "Answer: 144"
+    "Each of the 2 positions can be any of the 12 letters (repeats allowed).",
+    "12·12 = 144 strings."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "143",
@@ -8079,52 +7673,17 @@
    ]
   },
   {
-   "id": "dm-sm-s05-honors-012",
+   "id": "dm-sm-s05-cp1-h012",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many proper subsets does a set with 9 elements have?",
    "answer": "511",
    "solutionSteps": [
-    "2^9 − 1.",
-    "Answer: 511"
+    "There are 2^9 = 512 subsets in all.",
+    "A proper subset is any subset except the set itself: 512 − 1 = 511."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.6",
-    "DM.LANG"
-   ]
-  },
-  {
-   "id": "dm-sm-s04-honors-014",
-   "skillId": "speaking-mathematically-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many elements are in {n ∈ ℤ | -9 ≤ n ≤ 11}?",
-   "answer": "21",
-   "solutionSteps": [
-    "Count the integers from -9 to 11.",
-    "Answer: 21"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "20",
-     "correct": false
-    },
-    {
-     "text": "21",
-     "correct": true
-    },
-    {
-     "text": "22",
-     "correct": false
-    },
-    {
-     "text": "23",
-     "correct": false
-    }
-   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.6",
     "DM.LANG"

@@ -747,7 +747,8 @@
     "¬q"
    ],
    "solutionSteps": [
-    "p ∨ q: T. p ∧ q: F. ¬q: T. ¬p ∨ q: F ∨ F = F. p ∧ ¬q: T ∧ T = T."
+    "p ∨ q: T. p ∧ q: F. ¬q: T. ¬p ∨ q: F ∨ F = F. p ∧ ¬q: T ∧ T = T.",
+    "Option by option: ✗ ¬p ∨ q (not correct). ✓ p ∧ ¬q (correct). ✓ p ∨ q (correct). ✗ p ∧ q (not correct). ✓ ¬q (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: select_true). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -793,7 +794,8 @@
     "¬p ∧ ¬q → F",
     "(p ∨ q) ∧ r → F",
     "¬(p ∧ r) → T",
-    "q ∧ ¬(p ∨ r) → T"
+    "q ∧ ¬(p ∨ r) → T",
+    "Option by option: ✗ ¬p ∧ ¬q (not correct). ✓ q ∧ ¬(p ∨ r) (correct). ✓ p ∨ (q ∧ ¬r) (correct). ✓ ¬(p ∧ r) (correct). ✗ (p ∨ q) ∧ r (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: select_true). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -834,7 +836,8 @@
     "(T, F)"
    ],
    "solutionSteps": [
-    "This is exclusive or: true when exactly one of p, q is true."
+    "This is exclusive or: true when exactly one of p, q is true.",
+    "Option by option: ✗ (T, T) (not correct). ✓ (F, T) (correct). ✗ (F, F) (not correct). ✓ (T, F) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: select_assignment). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -979,6 +982,7 @@
    "prompt": "Complete the truth table for ¬p ∨ q. Give the final column as a string of T and F in the standard row order (p, q) = TT, TF, FT, FF.\nHint: first find ¬p or ¬q, then combine.",
    "answer": "TFTT",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → T; TF → F; FT → T; FF → T.",
     "Column: TFTT"
    ],
@@ -996,6 +1000,7 @@
    "prompt": "Complete the truth table for p ∧ ¬q. Give the final column as a string of T and F in the standard row order (p, q) = TT, TF, FT, FF.\nHint: first find ¬p or ¬q, then combine.",
    "answer": "FTFF",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → F; TF → T; FT → F; FF → F.",
     "Column: FTFF"
    ],
@@ -1013,6 +1018,7 @@
    "prompt": "Complete the truth table for ¬(p ∨ q). Give the final column as a string of T and F in the standard row order (p, q) = TT, TF, FT, FF.\nHint: first find ¬p or ¬q, then combine.",
    "answer": "FFFT",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → F; TF → F; FT → F; FF → T.",
     "Column: FFFT"
    ],
@@ -1030,6 +1036,7 @@
    "prompt": "Complete the truth table for p ∨ ¬q. Give the final column as a string of T and F in the standard row order (p, q) = TT, TF, FT, FF.\nHint: first find ¬p or ¬q, then combine.",
    "answer": "TTFT",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → T; TF → T; FT → F; FF → T.",
     "Column: TTFT"
    ],
@@ -1047,6 +1054,7 @@
    "prompt": "How many rows does a truth table need for a statement with 2 different variables?",
    "answer": "4",
    "solutionSteps": [
+    "Each variable doubles the number of rows: n variables need 2ⁿ rows.",
     "Each variable can be T or F, independently.",
     "2^2 = 4 rows."
    ],
@@ -1116,6 +1124,7 @@
    "prompt": "Which is the truth column of (p ∨ q) ∧ ¬p in the standard row order (p, q) = TT, TF, FT, FF?",
    "answer": "FFTF",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → F; TF → F; FT → T; FF → F.",
     "Column: FFTF"
    ],
@@ -1151,6 +1160,7 @@
    "prompt": "Which is the truth column of ¬p ∧ (p ∨ q) in the standard row order (p, q) = TT, TF, FT, FF?",
    "answer": "FFTF",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → F; TF → F; FT → T; FF → F.",
     "Column: FFTF"
    ],
@@ -1186,6 +1196,7 @@
    "prompt": "Which is the truth column of (p ∧ q) ∨ ¬q in the standard row order (p, q) = TT, TF, FT, FF?",
    "answer": "TTFT",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → T; TF → T; FT → F; FF → T.",
     "Column: TTFT"
    ],
@@ -1221,6 +1232,7 @@
    "prompt": "Which is the truth column of ¬(p ∧ q) ∨ p in the standard row order (p, q) = TT, TF, FT, FF?",
    "answer": "TTTT",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Rows: TT → T; TF → T; FT → T; FF → T.",
     "Column: TTTT"
    ],
@@ -1256,6 +1268,7 @@
    "prompt": "How many rows does a truth table need for a statement with 3 different variables?",
    "answer": "8",
    "solutionSteps": [
+    "Each variable doubles the number of rows: n variables need 2ⁿ rows.",
     "Each variable can be T or F, independently.",
     "2^3 = 8 rows."
    ],
@@ -1458,17 +1471,18 @@
    ]
   },
   {
-   "id": "dm-lg-s02-honors-005",
+   "id": "dm-lg-s02-cp1-h005",
    "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many rows does a truth table need for a statement with 5 different variables?",
    "answer": "32",
    "solutionSteps": [
+    "Each variable doubles the number of rows: n variables need 2ⁿ rows.",
     "Each variable can be T or F, independently.",
     "2^5 = 32 rows."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_rows). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_rows). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.LOGIC"
@@ -1538,7 +1552,8 @@
     "¬p ∨ ¬q"
    ],
    "solutionSteps": [
-    "¬p ∨ ¬q, ¬(p ∧ q) and q → ¬p are all false only when p and q are both true."
+    "¬p ∨ ¬q, ¬(p ∧ q) and q → ¬p are all false only when p and q are both true.",
+    "Option by option: ✓ q → ¬p (correct). ✓ ¬(p ∧ q) (correct). ✗ p ∨ q (not correct). ✗ ¬p ∧ ¬q (not correct). ✓ ¬p ∨ ¬q (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1579,7 +1594,8 @@
     "¬q ↔ r"
    ],
    "solutionSteps": [
-    "Evaluate each form at p = T, q = F, r = T."
+    "Evaluate each form at p = T, q = F, r = T.",
+    "Option by option: ✓ q → r (correct). ✓ ¬q ↔ r (correct). ✗ p ⊕ r (not correct). ✗ p → q (not correct). ✗ (p ∧ r) → q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1620,7 +1636,8 @@
     "Exactly one row"
    ],
    "solutionSteps": [
-    "p ∧ ¬q needs p true and q false: only the row (T, F)."
+    "p ∧ ¬q needs p true and q false: only the row (T, F).",
+    "Option by option: ✗ (T, T) (not correct). ✗ (F, T) (not correct). ✗ (F, F) (not correct). ✓ (T, F) (correct). ✓ Exactly one row (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2188,6 +2205,7 @@
    "prompt": "Classify the statement form p ∨ ¬p.",
    "answer": "A tautology (always true)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p): TT.",
     "A tautology (always true)."
    ],
@@ -2223,6 +2241,7 @@
    "prompt": "Classify the statement form p ∧ ¬p.",
    "answer": "A contradiction (always false)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p): FF.",
     "A contradiction (always false)."
    ],
@@ -2293,6 +2312,7 @@
    "prompt": "Classify the statement form (p ∧ q) → p.",
    "answer": "A tautology (always true)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p, q): TTTT.",
     "A tautology (always true)."
    ],
@@ -2328,6 +2348,7 @@
    "prompt": "Classify the statement form (p → q) ∧ (p ∧ ¬q).",
    "answer": "A contradiction (always false)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p, q): FFFF.",
     "A contradiction (always false)."
    ],
@@ -2398,6 +2419,7 @@
    "prompt": "Classify the statement form (p ∧ (p → q)) → q.",
    "answer": "A tautology (always true)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p, q): TTTT.",
     "A tautology (always true)."
    ],
@@ -2433,6 +2455,7 @@
    "prompt": "Classify the statement form ¬(p ∨ ¬p).",
    "answer": "A contradiction (always false)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p): FF.",
     "A contradiction (always false)."
    ],
@@ -2468,6 +2491,7 @@
    "prompt": "Classify the statement form ((p → q) ∧ (q → r)) → (p → r).",
    "answer": "A tautology (always true)",
    "solutionSteps": [
+    "A tautology is true in every row, a contradiction is false in every row; anything else is neither.",
     "Column over (p, q, r): TTTTTTTT.",
     "A tautology (always true)."
    ],
@@ -2612,7 +2636,8 @@
     "¬q ∧ ¬p"
    ],
    "solutionSteps": [
-    "Compare truth columns; ¬(p ∨ q) has column FFFT."
+    "Compare truth columns; ¬(p ∨ q) has column FFFT.",
+    "Option by option: ✓ ¬p ∧ ¬q (correct). ✓ ¬(q ∨ p) (correct). ✗ ¬p ∨ q (not correct). ✓ ¬q ∧ ¬p (correct). ✗ ¬p ∨ ¬q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2654,7 +2679,8 @@
     "¬¬p"
    ],
    "solutionSteps": [
-    "Absorption: p ∨ (p ∧ q) ≡ p and p ∧ (p ∨ q) ≡ p; double negation ¬¬p ≡ p."
+    "Absorption: p ∨ (p ∧ q) ≡ p and p ∧ (p ∨ q) ≡ p; double negation ¬¬p ≡ p.",
+    "Option by option: ✓ p ∨ (p ∧ q) (correct). ✗ (p ∧ q) ∨ ¬q (not correct). ✓ p ∧ (p ∨ q) (correct). ✓ ¬¬p (correct). ✗ p ∨ q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2696,7 +2722,8 @@
     "(p ∧ q) ∨ (p ∧ r)"
    ],
    "solutionSteps": [
-    "Distributive law, commutative law and De Morgan give the three equivalent forms; (p ∧ q) ∨ r is true when p is F and r is T."
+    "Distributive law, commutative law and De Morgan give the three equivalent forms; (p ∧ q) ∨ r is true when p is F and r is T.",
+    "Option by option: ✗ p ∧ q ∨ p (not correct). ✓ (q ∨ r) ∧ p (correct). ✓ ¬(¬p ∨ (¬q ∧ ¬r)) (correct). ✗ (p ∧ q) ∨ r (not correct). ✓ (p ∧ q) ∨ (p ∧ r) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3526,7 +3553,8 @@
    "prompt": "Rewrite p → q using only ¬ and ∨.",
    "answer": "¬p ∨ q",
    "solutionSteps": [
-    "A conditional is false only when p is T and q is F, exactly like ¬p ∨ q."
+    "A conditional is false only when p is T and q is F, exactly like ¬p ∨ q.",
+    "Answer: ¬p ∨ q."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_rewrite). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -3580,7 +3608,8 @@
     "¬p ∨ q"
    ],
    "solutionSteps": [
-    "¬p ∨ q, the contrapositive ¬q → ¬p and ¬(p ∧ ¬q) match; the converse and inverse do not."
+    "¬p ∨ q, the contrapositive ¬q → ¬p and ¬(p ∧ ¬q) match; the converse and inverse do not.",
+    "Option by option: ✗ q → p (not correct). ✗ ¬p → ¬q (not correct). ✓ ¬(p ∧ ¬q) (correct). ✓ ¬q → ¬p (correct). ✓ ¬p ∨ q (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3621,7 +3650,8 @@
     "p = T, q = F"
    ],
    "solutionSteps": [
-    "p → q is false only when p is T and q is F: exactly one row."
+    "p → q is false only when p is T and q is F: exactly one row.",
+    "Option by option: ✗ Every row with q false (not correct). ✗ p = F, q = F (not correct). ✗ p = F, q = T (not correct). ✓ Exactly one row (correct). ✓ p = T, q = F (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cond_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3663,7 +3693,8 @@
     "p → q"
    ],
    "solutionSteps": [
-    "6 | n exactly when 2 | n and 3 | n (2 and 3 are relatively prime), so p ↔ q holds for every n."
+    "6 | n exactly when 2 | n and 3 | n (2 and 3 are relatively prime), so p ↔ q holds for every n.",
+    "Option by option: ✓ p ↔ q (correct). ✓ q → p (correct). ✓ p → q (correct). ✗ p ↔ ¬q (not correct). ✗ p ⊕ q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: bicond_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4187,9 +4218,9 @@
    ]
   },
   {
-   "id": "dm-lg-s05-honors-006",
+   "id": "dm-lg-s05-cp1-h006",
    "skillId": "compound-statements-logic-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Determine the truth value of the NEGATION of \"If 9 is odd, then 9 is prime.\"",
    "answer": "True",
@@ -4197,7 +4228,7 @@
     "The original is false.",
     "A negation always has the opposite truth value, so the negation is true."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Same truth value as the original",
@@ -4234,7 +4265,8 @@
    ],
    "solutionSteps": [
     "¬(p → q) ≡ p ∧ ¬q; order of a conjunction does not matter.",
-    "\"not charged or turns on\" is the original itself."
+    "\"not charged or turns on\" is the original itself.",
+    "Option by option: ✗ If the battery is charged, the phone does not turn on. (not correct). ✗ The battery is not charged or the phone turns on. (not correct). ✓ The phone does not turn on, but the battery is charged. (correct). ✓ The battery is charged and the phone does not turn on. (correct). ✓ It is false that the battery being charged guarantees the phone turns on. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4276,7 +4308,8 @@
     "¬q ∧ p"
    ],
    "solutionSteps": [
-    "¬(p → q) ≡ ¬(¬p ∨ q) ≡ p ∧ ¬q."
+    "¬(p → q) ≡ ¬(¬p ∨ q) ≡ p ∧ ¬q.",
+    "Option by option: ✗ p → ¬q (not correct). ✗ ¬p → ¬q (not correct). ✓ ¬(¬p ∨ q) (correct). ✓ p ∧ ¬q (correct). ✓ ¬q ∧ p (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4318,7 +4351,8 @@
    ],
    "solutionSteps": [
     "Negate ∀x (P(x) → ∃y Q) as ∃x (P(x) ∧ ∀y ¬Q).",
-    "The last choice is equivalent to the original statement."
+    "The last choice is equivalent to the original statement.",
+    "Option by option: ✗ For every real x, if x > 0 then no real y has y² = x. (not correct). ✗ For every real x, x ≤ 0 or some y has y² = x. (not correct). ✗ There is a real x such that if x > 0 then y² ≠ x for every y. (not correct). ✓ There is a real x such that x > 0 and no real y has y² = x. (correct). ✓ There is a real x with x > 0 such that for every real y, y² ≠ x. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4786,7 +4820,8 @@
    ],
    "solutionSteps": [
     "A statement and its contrapositive always share a truth value; the converse and inverse always share one with each other.",
-    "Statement T, converse F, inverse F, contrapositive T."
+    "Statement T, converse F, inverse F, contrapositive T.",
+    "Option by option: ✓ The statement (correct). ✓ Its contrapositive (correct). ✗ The statement and its converse have the same truth value (not correct). ✗ Its converse (not correct). ✗ Its inverse (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_truth_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4828,7 +4863,8 @@
    ],
    "solutionSteps": [
     "A statement and its contrapositive always share a truth value; the converse and inverse always share one with each other.",
-    "Statement T, converse F, inverse F, contrapositive T."
+    "Statement T, converse F, inverse F, contrapositive T.",
+    "Option by option: ✓ Its contrapositive (correct). ✗ Its converse (not correct). ✗ Its inverse (not correct). ✓ The statement (correct). ✗ The statement and its converse have the same truth value (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_truth_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4870,7 +4906,8 @@
    ],
    "solutionSteps": [
     "A statement and its contrapositive always share a truth value; the converse and inverse always share one with each other.",
-    "Statement F, converse T, inverse T, contrapositive F."
+    "Statement F, converse T, inverse T, contrapositive F.",
+    "Option by option: ✓ Its inverse (correct). ✗ The statement and its converse have the same truth value (not correct). ✓ Its converse (correct). ✗ The statement (not correct). ✗ Its contrapositive (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_truth_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4914,7 +4951,8 @@
    ],
    "solutionSteps": [
     "A statement and its contrapositive always share a truth value; the converse and inverse always share one with each other.",
-    "Statement T, converse T, inverse T, contrapositive T."
+    "Statement T, converse T, inverse T, contrapositive T.",
+    "Option by option: ✓ Its contrapositive (correct). ✓ Its converse (correct). ✗ The inverse is false (not correct). ✓ Its inverse (correct). ✓ The statement (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_truth_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5089,7 +5127,8 @@
    "prompt": "The converse of a statement is false. Which other form must also be false?",
    "answer": "The inverse",
    "solutionSteps": [
-    "The inverse ¬p → ¬q is the contrapositive of the converse q → p, so they have the same truth value."
+    "The inverse ¬p → ¬q is the contrapositive of the converse q → p, so they have the same truth value.",
+    "Answer: The inverse."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: cic_equivalent). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5884,7 +5923,8 @@
     "p ∧ q ∴ q"
    ],
    "solutionSteps": [
-    "Check each with a truth table: valid forms never have all premises T and the conclusion F."
+    "Check each with a truth table: valid forms never have all premises T and the conclusion F.",
+    "Option by option: ✓ p → q ; ¬q ∴ ¬p (correct). ✓ p → q ; p ∴ q (correct). ✓ p ∧ q ∴ q (correct). ✗ p → q ; q ∴ p (not correct). ✗ p ∨ q ; p ∴ ¬q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: valid_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5926,7 +5966,8 @@
     "¬p"
    ],
    "solutionSteps": [
-    "From ¬r → ¬q and ¬r: ¬q (modus ponens). From p → q and ¬q: ¬p (modus tollens). p → r also follows (q → r is the contrapositive of ¬r → ¬q)."
+    "From ¬r → ¬q and ¬r: ¬q (modus ponens). From p → q and ¬q: ¬p (modus tollens). p → r also follows (q → r is the contrapositive of ¬r → ¬q).",
+    "Option by option: ✗ r (not correct). ✓ ¬q (correct). ✓ p → r (correct). ✓ ¬p (correct). ✗ q (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: valid_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5968,7 +6009,8 @@
     "Ada passes."
    ],
    "solutionSteps": [
-    "Modus ponens gives \"Ada passes\"; generalization gives \"Ada studies or ...\"; conjunction gives \"Ada studies and passes\". The last choice is the converse."
+    "Modus ponens gives \"Ada passes\"; generalization gives \"Ada studies or ...\"; conjunction gives \"Ada studies and passes\". The last choice is the converse.",
+    "Option by option: ✓ Ada studies or Ada is tired. (correct). ✓ Ada studies and passes. (correct). ✓ Ada passes. (correct). ✗ If Ada passes, Ada studied. (not correct). ✗ Ada does not pass. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: valid_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6187,6 +6229,7 @@
    "prompt": "Classify the argument:\nIf it snows, school closes. It snowed. So school closed.",
    "answer": "Valid (modus ponens)",
    "solutionSteps": [
+    "Converse error: p → q, q ∴ p. Inverse error: p → q, ¬p ∴ ¬q. Both are invalid because a row makes the premises true and the conclusion false.",
     "Symbolic form: p → q, p ∴ q.",
     "Valid (modus ponens)."
    ],
@@ -6222,6 +6265,7 @@
    "prompt": "Classify the argument:\nIf it snows, school closes. School did not close. So it did not snow.",
    "answer": "Valid (modus tollens)",
    "solutionSteps": [
+    "Converse error: p → q, q ∴ p. Inverse error: p → q, ¬p ∴ ¬q. Both are invalid because a row makes the premises true and the conclusion false.",
     "Symbolic form: p → q, ¬q ∴ ¬p.",
     "Valid (modus tollens)."
    ],
@@ -6397,6 +6441,7 @@
    "prompt": "Is p ∧ ¬p a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6432,6 +6477,7 @@
    "prompt": "Is (p → q) ∧ p ∧ ¬q a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FFFF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6467,6 +6513,7 @@
    "prompt": "Is (p ∨ q) ∧ ¬p ∧ ¬q a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FFFF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6502,6 +6549,7 @@
    "prompt": "Is ¬(p → p) a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6537,6 +6585,7 @@
    "prompt": "Is (p ↔ q) ∧ (p ⊕ q) a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FFFF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6572,6 +6621,7 @@
    "prompt": "Is q ∧ ¬q a contradiction (false in every row)?",
    "answer": "Yes",
    "solutionSteps": [
+    "A contradiction is false in every row of its truth table.",
     "Column: FF.",
     "Every entry is F, so it is a contradiction."
    ],
@@ -6624,7 +6674,8 @@
    "prompt": "An argument has premises p → q and ¬p and concludes ¬q. Give the row (p, q) that shows it is invalid, written like (T, F).",
    "answer": "(F, T)",
    "solutionSteps": [
-    "Premises true, conclusion false: p = F (so ¬p = T and p → q = T) and q = T (so ¬q = F)."
+    "Premises true, conclusion false: p = F (so ¬p = T and p → q = T) and q = T (so ¬q = F).",
+    "Answer: (F, T)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: counter_row). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -6661,7 +6712,8 @@
     "If a number is divisible by 4, it is even. 10 is even. So 10 is divisible by 4."
    ],
    "solutionSteps": [
-    "The converse error has the form p → q, q ∴ p."
+    "The converse error has the form p → q, q ∴ p.",
+    "Option by option: ✓ If it snows, school closes. School closed. So it snowed. (correct). ✗ If it snows, school closes. It did not snow. So school did not close. (not correct). ✓ If Kai is late, Kai misses the bus. Kai missed the bus. So Kai was late. (correct). ✗ If it snows, school closes. School did not close. So it did not snow. (not correct). ✓ If a number is divisible by 4, it is even. 10 is even. So 10 is divisible by 4. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6702,7 +6754,8 @@
     "If it snows, school closes. School did not close. So it did not snow."
    ],
    "solutionSteps": [
-    "Modus ponens and modus tollens are valid; the converse and inverse errors are not."
+    "Modus ponens and modus tollens are valid; the converse and inverse errors are not.",
+    "Option by option: ✓ If it snows, school closes. It snowed. So school closed. (correct). ✗ If it snows, school closes. School closed. So it snowed. (not correct). ✗ If a shape is a square, it is a rectangle. This shape is not a square. So it is not a rectangle. (not correct). ✓ If it snows, school closes. School did not close. So it did not snow. (correct). ✗ If it snows, school closes. It did not snow. So school did not close. (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6745,7 +6798,8 @@
    ],
    "solutionSteps": [
     "Validity is about form: it guarantees a true conclusion only when all premises are true.",
-    "Converse‑error arguments often have true conclusions by luck."
+    "Converse‑error arguments often have true conclusions by luck.",
+    "Option by option: ✓ An invalid argument can have all true premises and a true conclusion. (correct). ✓ A valid argument with true premises has a true conclusion. (correct). ✗ If the conclusion is true, the argument is valid. (not correct). ✗ A valid argument always has true premises. (not correct). ✓ An invalid argument can have a true conclusion. (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6911,6 +6965,7 @@
    "prompt": "Give the truth column of p ∨ (p ∧ q) as a string of T and F in the standard row order (p, q) = TT, TF, FT, FF.",
    "answer": "TTFF",
    "solutionSteps": [
+    "Build intermediate columns (negations first), then combine them row by row in the order TT, TF, FT, FF.",
     "Evaluate the inner parts first in each row.",
     "Column: TTFF"
    ],
@@ -7484,6 +7539,7 @@
    "prompt": "How many rows are in the truth table for p ∧ q?",
    "answer": "4",
    "solutionSteps": [
+    "Each variable doubles the number of rows: n variables need 2ⁿ rows.",
     "Two variables: 2² = 4 rows (TT, TF, FT, FF)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tt_rows). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7863,8 +7919,8 @@
    "prompt": "In a truth table with 3 variables, in how many rows is p → q false?",
    "answer": "2",
    "solutionSteps": [
-    "Only when p is T and q is F; the other variables are free.",
-    "Answer: 2"
+    "p → q is false only when p = T and q = F.",
+    "The other 1 variable(s) are free: 2^1 = 2 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7880,8 +7936,8 @@
    "prompt": "In a truth table with 3 variables, in how many rows is p ∨ q true?",
    "answer": "6",
    "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 6"
+    "p ∨ q is true in 3 of the 4 (p, q) combinations.",
+    "Times 2^1 for the other variables: 3·2 = 6."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7897,8 +7953,8 @@
    "prompt": "How many rows does a truth table with 3 variables have?",
    "answer": "8",
    "solutionSteps": [
-    "2^3.",
-    "Answer: 8"
+    "Each variable is T or F.",
+    "2^3 = 8 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7914,8 +7970,8 @@
    "prompt": "In a 3‑variable truth table, in how many rows is p ∨ q ∨ ... (all 3 variables) true?",
    "answer": "7",
    "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 7"
+    "The disjunction is false only when every variable is F: 1 row of 2^3 = 8.",
+    "8 − 1 = 7 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7949,8 +8005,8 @@
    "prompt": "In a truth table with 4 variables, in how many rows is p ∨ q true?",
    "answer": "12",
    "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 12"
+    "p ∨ q is true in 3 of the 4 (p, q) combinations.",
+    "Times 2^2 for the other variables: 3·4 = 12."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7966,60 +8022,8 @@
    "prompt": "How many rows does a truth table with 4 variables have?",
    "answer": "16",
    "solutionSteps": [
-    "2^4.",
-    "Answer: 16"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-017",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "In a 4‑variable truth table, in how many rows is p ∨ q ∨ ... (all 4 variables) true?",
-   "answer": "15",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 15"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "14",
-     "correct": false
-    },
-    {
-     "text": "16",
-     "correct": false
-    },
-    {
-     "text": "17",
-     "correct": false
-    },
-    {
-     "text": "15",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-018",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "In a truth table with 5 variables, in how many rows is p ∨ q true?",
-   "answer": "24",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 24"
+    "Each variable is T or F.",
+    "2^4 = 16 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8035,60 +8039,8 @@
    "prompt": "How many rows does a truth table with 5 variables have?",
    "answer": "32",
    "solutionSteps": [
-    "2^5.",
-    "Answer: 32"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-019",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "In a 5‑variable truth table, in how many rows is p ∨ q ∨ ... (all 5 variables) true?",
-   "answer": "31",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 31"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "31",
-     "correct": true
-    },
-    {
-     "text": "30",
-     "correct": false
-    },
-    {
-     "text": "32",
-     "correct": false
-    },
-    {
-     "text": "33",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-020",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "In a truth table with 6 variables, in how many rows is p ∨ q true?",
-   "answer": "48",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 48"
+    "Each variable is T or F.",
+    "2^5 = 32 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8104,60 +8056,8 @@
    "prompt": "How many rows does a truth table with 6 variables have?",
    "answer": "64",
    "solutionSteps": [
-    "2^6.",
-    "Answer: 64"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-021",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "In a 6‑variable truth table, in how many rows is p ∨ q ∨ ... (all 6 variables) true?",
-   "answer": "63",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 63"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "62",
-     "correct": false
-    },
-    {
-     "text": "63",
-     "correct": true
-    },
-    {
-     "text": "64",
-     "correct": false
-    },
-    {
-     "text": "65",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp2-022",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "In a truth table with 7 variables, in how many rows is p ∨ q true?",
-   "answer": "96",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 96"
+    "Each variable is T or F.",
+    "2^6 = 64 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8173,8 +8073,8 @@
    "prompt": "In a truth table with 5 variables, in how many rows is p ↔ q true?",
    "answer": "16",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 16"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^3 for the other variables: 2·8 = 16."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8208,8 +8108,8 @@
    "prompt": "In a truth table with 6 variables, in how many rows is p ↔ q true?",
    "answer": "32",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 32"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^4 for the other variables: 2·16 = 32."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8243,8 +8143,8 @@
    "prompt": "In a truth table with 7 variables, in how many rows is p ↔ q true?",
    "answer": "64",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 64"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^5 for the other variables: 2·32 = 64."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8278,8 +8178,8 @@
    "prompt": "How many rows does a truth table with 7 variables have?",
    "answer": "128",
    "solutionSteps": [
-    "2^7.",
-    "Answer: 128"
+    "Each variable is T or F.",
+    "2^7 = 128 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8295,8 +8195,8 @@
    "prompt": "In a 7‑variable truth table, in how many rows is p ∨ q ∨ ... (all 7 variables) true?",
    "answer": "127",
    "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 127"
+    "The disjunction is false only when every variable is F: 1 row of 2^7 = 128.",
+    "128 − 1 = 127 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8323,23 +8223,6 @@
    ]
   },
   {
-   "id": "dm-lg-s02-cp1-019",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "In a truth table with 8 variables, in how many rows is p ∨ q true?",
-   "answer": "192",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 192"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
    "id": "dm-lg-s01-cp1-012",
    "skillId": "compound-statements-logic-skill-01",
    "level": "cp1",
@@ -8347,80 +8230,10 @@
    "prompt": "How many rows does a truth table with 8 variables have?",
    "answer": "256",
    "solutionSteps": [
-    "2^8.",
-    "Answer: 256"
+    "Each variable is T or F.",
+    "2^8 = 256 rows."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-cp1-020",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "In a 8‑variable truth table, in how many rows is p ∨ q ∨ ... (all 8 variables) true?",
-   "answer": "255",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 255"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "254",
-     "correct": false
-    },
-    {
-     "text": "256",
-     "correct": false
-    },
-    {
-     "text": "257",
-     "correct": false
-    },
-    {
-     "text": "255",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-honors-011",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "In a 2‑variable truth table, in how many rows is p ∨ q ∨ ... (all 2 variables) true?",
-   "answer": "3",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 3"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "5",
-     "correct": false
-    },
-    {
-     "text": "3",
-     "correct": true
-    }
-   ],
    "standards": [
     "MP.3",
     "DM.LOGIC"
@@ -8434,8 +8247,8 @@
    "prompt": "In a truth table with 4 variables, in how many rows is p ↔ q true?",
    "answer": "8",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 8"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^2 for the other variables: 2·4 = 8."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8462,40 +8275,6 @@
    ]
   },
   {
-   "id": "dm-lg-s02-honors-016",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In a truth table with 6 variables, in how many rows is p → q false?",
-   "answer": "16",
-   "solutionSteps": [
-    "Only when p is T and q is F; the other variables are free.",
-    "Answer: 16"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-honors-019",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In a truth table with 8 variables, in how many rows is p → q false?",
-   "answer": "64",
-   "solutionSteps": [
-    "Only when p is T and q is F; the other variables are free.",
-    "Answer: 64"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
    "id": "dm-lg-s02-honors-020",
    "skillId": "compound-statements-logic-skill-02",
    "level": "honors",
@@ -8503,8 +8282,8 @@
    "prompt": "In a truth table with 8 variables, in how many rows is p ↔ q true?",
    "answer": "128",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 128"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^6 for the other variables: 2·64 = 128."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8538,8 +8317,8 @@
    "prompt": "In a truth table with 9 variables, in how many rows is p ↔ q true?",
    "answer": "256",
    "solutionSteps": [
-    "Half of the rows.",
-    "Answer: 256"
+    "p ↔ q is true when p and q agree: 2 of the 4 (p, q) combinations.",
+    "Times 2^7 for the other variables: 2·128 = 256."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8566,86 +8345,17 @@
    ]
   },
   {
-   "id": "dm-lg-s02-honors-023",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In a truth table with 9 variables, in how many rows is p ∨ q true?",
-   "answer": "384",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 384"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s01-honors-012",
+   "id": "dm-lg-s01-cp1-h012",
    "skillId": "compound-statements-logic-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "How many rows does a truth table with 9 variables have?",
    "answer": "512",
    "solutionSteps": [
-    "2^9.",
-    "Answer: 512"
+    "Each variable is T or F.",
+    "2^9 = 512 rows."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-honors-024",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "In a 9‑variable truth table, in how many rows is p ∨ q ∨ ... (all 9 variables) true?",
-   "answer": "511",
-   "solutionSteps": [
-    "Only the all‑false row fails.",
-    "Answer: 511"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "510",
-     "correct": false
-    },
-    {
-     "text": "512",
-     "correct": false
-    },
-    {
-     "text": "513",
-     "correct": false
-    },
-    {
-     "text": "511",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.3",
-    "DM.LOGIC"
-   ]
-  },
-  {
-   "id": "dm-lg-s02-honors-025",
-   "skillId": "compound-statements-logic-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In a truth table with 10 variables, in how many rows is p ∨ q true?",
-   "answer": "768",
-   "solutionSteps": [
-    "Three of every four rows.",
-    "Answer: 768"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.3",
     "DM.LOGIC"

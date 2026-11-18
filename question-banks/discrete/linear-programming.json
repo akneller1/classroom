@@ -299,7 +299,8 @@
     "x ≥ 0 and y ≥ 0"
    ],
    "solutionSteps": [
-    "Budget is a maximum; item count is a minimum; amounts cannot be negative."
+    "Budget is a maximum; item count is a minimum; amounts cannot be negative.",
+    "Option by option: ✓ x + y ≥ 5 (correct). ✓ 2x + 3y ≤ 30 (correct). ✗ x + y ≤ 5 (not correct). ✓ x ≥ 0 and y ≥ 0 (correct). ✗ 2x + 3y ≥ 30 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: constraint_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -340,7 +341,8 @@
     "x + 2y ≤ 70"
    ],
    "solutionSteps": [
-    "Each row of the resource table gives one constraint."
+    "Each row of the resource table gives one constraint.",
+    "Option by option: ✓ x ≥ 0, y ≥ 0 (correct). ✓ 2x + 3y ≤ 120 (correct). ✓ x + 2y ≤ 70 (correct). ✗ 2x + y ≤ 120 (not correct). ✗ 3x + 2y ≤ 70 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: constraint_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -381,7 +383,8 @@
     "15x + 40y ≤ 480"
    ],
    "solutionSteps": [
-    "Convert 8 hours to 480 minutes."
+    "Convert 8 hours to 480 minutes.",
+    "Option by option: ✓ y ≤ 6 (correct). ✗ x + y ≤ 480 (not correct). ✓ x ≥ 10 (correct). ✓ 15x + 40y ≤ 480 (correct). ✗ 15x + 40y ≤ 8 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: constraint_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -526,6 +529,7 @@
    "prompt": "Is the point (2, 3) a solution of the system x + y ≤ 6; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute the point into every inequality.",
     "x + y ≤ 6: true"
    ],
@@ -875,7 +879,8 @@
     "(2, 3)"
    ],
    "solutionSteps": [
-    "Test each point in all four inequalities."
+    "Test each point in all four inequalities.",
+    "Option by option: ✗ (5, 1) (not correct). ✓ (0, 0) (correct). ✗ (3, 4) (not correct). ✓ (4, 2) (correct). ✓ (2, 3) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: point_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -916,7 +921,8 @@
     "2x + y ≥ 5"
    ],
    "solutionSteps": [
-    "Inclusive inequalities (≤, ≥) have solid boundaries."
+    "Inclusive inequalities (≤, ≥) have solid boundaries.",
+    "Option by option: ✓ x ≥ 0 (correct). ✗ y < 3x (not correct). ✗ x + y > 1 (not correct). ✓ y ≤ x + 2 (correct). ✓ 2x + y ≥ 5 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: point_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -957,7 +963,8 @@
     "(3, 2) is a solution"
    ],
    "solutionSteps": [
-    "(0, 8): 8 ≥ 8 and 24 ≥ 9; (3, 2): 8 ≥ 8 and 9 ≥ 9; \"≥\" constraints in the first quadrant leave the region open upward and rightward."
+    "(0, 8): 8 ≥ 8 and 24 ≥ 9; (3, 2): 8 ≥ 8 and 9 ≥ 9; \"≥\" constraints in the first quadrant leave the region open upward and rightward.",
+    "Option by option: ✗ The origin is a solution (not correct). ✓ (0, 8) is a solution (correct). ✓ The region is unbounded (correct). ✓ (3, 2) is a solution (correct). ✗ (1, 1) is a solution (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: point_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1033,9 +1040,9 @@
    ]
   },
   {
-   "id": "dm-lp-s02-honors-005",
+   "id": "dm-lp-s02-cp1-h005",
    "skillId": "linear-programming-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The graph shows the solution region of a system with x ≥ 0 and y ≥ 0. How many corner points does the region have?",
    "answer": "3",
@@ -1043,7 +1050,7 @@
     "Count the marked corner points of the shaded region.",
     "Corners: (0, 6), (4, 2), (8, 0)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: read_region). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: read_region). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "diagram": {
     "type": "image",
     "spec": {
@@ -1441,7 +1448,8 @@
     "Every point in the region satisfies all constraints"
    ],
    "solutionSteps": [
-    "Feasible regions are intersections of half‑planes: convex, possibly empty or unbounded."
+    "Feasible regions are intersections of half‑planes: convex, possibly empty or unbounded.",
+    "Option by option: ✗ The region is always bounded (not correct). ✓ The region can be empty (correct). ✓ The region is convex (correct). ✗ Only corner points are feasible (not correct). ✓ Every point in the region satisfies all constraints (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: region_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1482,7 +1490,8 @@
     "(2, 2)"
    ],
    "solutionSteps": [
-    "Check x + y ≤ 4 and nonnegativity."
+    "Check x + y ≤ 4 and nonnegativity.",
+    "Option by option: ✓ (0, 0) (correct). ✓ (1, 3) (correct). ✗ (5, 0) (not correct). ✓ (2, 2) (correct). ✗ (3, 2) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: region_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1523,7 +1532,8 @@
     "x ≤ 2 and x ≥ 4"
    ],
    "solutionSteps": [
-    "Contradictory constraints, or a constraint impossible in the first quadrant, give an empty region."
+    "Contradictory constraints, or a constraint impossible in the first quadrant, give an empty region.",
+    "Option by option: ✓ x + y ≤ 3 and x + y ≥ 5 (correct). ✓ 2x + y ≤ −1 (correct). ✗ x + y ≥ 3 and x ≤ 5 (not correct). ✗ x + y ≤ 10 (not correct). ✓ x ≤ 2 and x ≥ 4 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: region_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1770,8 +1780,8 @@
    "prompt": "Evaluate P = 3x + 2y at the point (4, 1).",
    "answer": "14",
    "solutionSteps": [
-    "Substitute x = 4 and y = 1.",
-    "P = 14"
+    "Substitute x = 4 and y = 1 into P.",
+    "P = 3·4 + 2·1 = 12 + 2 = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1786,8 +1796,8 @@
    "prompt": "Evaluate P = 5x + 3y at the point (0, 6).",
    "answer": "18",
    "solutionSteps": [
-    "Substitute x = 0 and y = 6.",
-    "P = 18"
+    "Substitute x = 0 and y = 6 into P.",
+    "P = 5·0 + 3·6 = 0 + 18 = 18."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1802,8 +1812,8 @@
    "prompt": "Evaluate P = 5/2x + 4y at the point (6, 3).",
    "answer": "27",
    "solutionSteps": [
-    "Substitute x = 6 and y = 3.",
-    "P = 27"
+    "Substitute x = 6 and y = 3 into P.",
+    "P = 5/2·6 + 4·3 = 15 + 12 = 27."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1818,8 +1828,8 @@
    "prompt": "Evaluate P = 30x + 20y at the point (20, 20).",
    "answer": "1000",
    "solutionSteps": [
-    "Substitute x = 20 and y = 20.",
-    "P = 1000"
+    "Substitute x = 20 and y = 20 into P.",
+    "P = 30·20 + 20·20 = 600 + 400 = 1000."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1834,8 +1844,8 @@
    "prompt": "Evaluate P = 3/4x + 1/2y at the point (8, 6).",
    "answer": "9",
    "solutionSteps": [
-    "Substitute x = 8 and y = 6.",
-    "P = 9"
+    "Substitute x = 8 and y = 6 into P.",
+    "P = 3/4·8 + 1/2·6 = 6 + 3 = 9."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -1938,7 +1948,8 @@
     "(0, 8)"
    ],
    "solutionSteps": [
-    "Substitute each point."
+    "Substitute each point.",
+    "Option by option: ✗ (2, 5) (not correct). ✗ (4, 3) (not correct). ✓ (3, 4) (correct). ✓ (6, 0) (correct). ✓ (0, 8) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: objective_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1979,7 +1990,8 @@
     "Profit P = 6x + 4y"
    ],
    "solutionSteps": [
-    "Inequalities are constraints, not objectives."
+    "Inequalities are constraints, not objectives.",
+    "Option by option: ✓ Cost C = 2x + 5y (correct). ✗ x + y ≤ 10 (not correct). ✓ Time T = 3x + y (correct). ✗ x ≥ 0 (not correct). ✓ Profit P = 6x + 4y (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: objective_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2020,7 +2032,8 @@
     "P is the same at (3, 0) and (0, 2)"
    ],
    "solutionSteps": [
-    "2x + 3y = k gives y = −(2/3)x + k/3."
+    "2x + 3y = k gives y = −(2/3)x + k/3.",
+    "Option by option: ✓ Moving the level line up and to the right increases P (correct). ✗ P is largest at the origin (not correct). ✓ Level lines have slope −2/3 (correct). ✗ Level lines have slope 2/3 (not correct). ✓ P is the same at (3, 0) and (0, 2) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: objective_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2367,7 +2380,8 @@
     "(0, 8)"
    ],
    "solutionSteps": [
-    "Corner points: (0, 0), (0, 8), (5, 0), (5, 3)"
+    "Corner points: (0, 0), (0, 8), (5, 0), (5, 3)",
+    "Option by option: ✓ (5, 0) (correct). ✗ (1, 1) (not correct). ✗ (7, 0) (not correct). ✓ (0, 0) (correct). ✓ (0, 8) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: vertex_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2415,7 +2429,8 @@
     "(4, 2)"
    ],
    "solutionSteps": [
-    "Corner points: (0, 0), (0, 4), (4, 2), (5, 0)"
+    "Corner points: (0, 0), (0, 4), (4, 2), (5, 0)",
+    "Option by option: ✗ (1, 1) (not correct). ✓ (0, 0) (correct). ✓ (0, 4) (correct). ✗ (7, 0) (not correct). ✓ (4, 2) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: vertex_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2463,7 +2478,8 @@
     "(10, 30)"
    ],
    "solutionSteps": [
-    "Corner points: (0, 0), (0, 30), (10, 30), (20, 20), (30, 0)"
+    "Corner points: (0, 0), (0, 30), (10, 30), (20, 20), (30, 0)",
+    "Option by option: ✓ (0, 30) (correct). ✓ (0, 0) (correct). ✗ (1, 1) (not correct). ✗ (32, 0) (not correct). ✓ (10, 30) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: vertex_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2852,7 +2868,8 @@
     "Infinitely many optimal points along an edge"
    ],
    "solutionSteps": [
-    "Linear objectives on convex regions attain optima on the boundary (at a corner, possibly along an edge)."
+    "Linear objectives on convex regions attain optima on the boundary (at a corner, possibly along an edge).",
+    "Option by option: ✓ A unique optimal corner (correct). ✓ An unbounded objective (correct). ✓ No feasible point (correct). ✓ Infinitely many optimal points along an edge (correct). ✗ An optimum only at an interior point (and nowhere on the boundary) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_cases_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2894,7 +2911,8 @@
     "Choose the largest value"
    ],
    "solutionSteps": [
-    "Corner‑point method."
+    "Corner‑point method.",
+    "Option by option: ✓ Graph the constraints (correct). ✓ Find the corner points (correct). ✓ Evaluate P at each corner (correct). ✗ Average all the corner values (not correct). ✓ Choose the largest value (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_cases_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2935,7 +2953,8 @@
     "A minimum exists"
    ],
    "solutionSteps": [
-    "Corners: (0, 9), (2, 3), (8, 0); C = 9, 5, 8; minimum 5 at (2, 3)."
+    "Corners: (0, 9), (2, 3), (8, 0); C = 9, 5, 8; minimum 5 at (2, 3).",
+    "Option by option: ✗ Corner (0, 0) is feasible (not correct). ✓ The maximum does not exist (correct). ✗ The minimum is 0 (not correct). ✓ The minimum is at the corner (2, 3) (correct). ✓ A minimum exists (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_cases_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3439,7 +3458,8 @@
     "Substitute (10, 20) into each constraint.",
     "x + y = 30: equal to its limit, so it is binding (slack 0).",
     "2x + y = 40: 10 below its limit of 50, so its slack is 10.",
-    "x = 10: 5 below its limit of 15, so its slack is 5."
+    "x = 10: 5 below its limit of 15, so its slack is 5.",
+    "Option by option: ✓ x + y ≤ 30 is binding (it uses 30 of 30) (correct). ✗ 2x + y ≤ 50 is binding (not correct). ✗ x ≤ 15 is binding (not correct). ✓ 2x + y ≤ 50 has slack 10 (it uses 40 of 50) (correct). ✓ x ≤ 15 has slack 5 (it uses 10 of 15) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binding_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3481,7 +3501,8 @@
     "The numbers are whole"
    ],
    "solutionSteps": [
-    "Interpret and verify against the model."
+    "Interpret and verify against the model.",
+    "Option by option: ✗ The profit must be the largest number in the problem (not correct). ✓ The profit matches the objective at (8, 12) (correct). ✓ Every constraint is satisfied (correct). ✓ The numbers are whole (correct). ✗ The answer must be (0, 0) (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binding_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3523,7 +3544,8 @@
     "The integer optimum is never better than the LP optimum (for a maximum)"
    ],
    "solutionSteps": [
-    "Integer programming: check feasible integer points; the LP value is an upper bound for a maximum."
+    "Integer programming: check feasible integer points; the LP value is an upper bound for a maximum.",
+    "Option by option: ✓ Rounding may make the point infeasible (correct). ✗ Integer answers make constraints unnecessary (not correct). ✓ The best integer point may not be the rounded point (correct). ✓ The integer optimum is never better than the LP optimum (for a maximum) (correct). ✗ The rounded point is always optimal (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binding_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4006,9 +4028,9 @@
    ]
   },
   {
-   "id": "dm-lp-s01-honors-009",
+   "id": "dm-lp-s01-cp1-h009",
    "skillId": "linear-programming-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A business makes x units of product A and y units of product B. A needs 3 hours of machine time and B needs 3 hours; at most 13 machine hours are available. Which constraint models this?",
    "answer": "3x + 3y ≤ 13",
@@ -4016,7 +4038,7 @@
     "Hours per unit times units, at most the hours available.",
     "3x + 3y ≤ 13"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "x + y ≤ 13",
@@ -4081,6 +4103,7 @@
    "prompt": "Is (4, 2) a solution of the system 3x + 4y ≤ 24; x + y ≤ 9; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 3·4 + 4·2 = 20 vs 24; 1·4 + 1·2 = 6 vs 9."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4114,6 +4137,7 @@
    "prompt": "Is (6, 4) a solution of the system x + 2y ≤ 22; 2x + y ≤ 13; x ≥ 0; y ≥ 0?",
    "answer": "No",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 1·6 + 2·4 = 14 vs 22; 2·6 + 1·4 = 16 vs 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4147,6 +4171,7 @@
    "prompt": "Is (2, 2) a solution of the system 4x + 2y ≤ 21; 2x + 4y ≤ 20; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 4·2 + 2·2 = 12 vs 21; 2·2 + 4·2 = 12 vs 20."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4180,6 +4205,7 @@
    "prompt": "Is (5, 2) a solution of the system 3x + y ≤ 22; 2x + 2y ≤ 20; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 3·5 + 1·2 = 17 vs 22; 2·5 + 2·2 = 14 vs 20."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4213,6 +4239,7 @@
    "prompt": "Is (6, 5) a solution of the system x + y ≤ 17; 4x + 3y ≤ 17; x ≥ 0; y ≥ 0?",
    "answer": "No",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 1·6 + 1·5 = 11 vs 17; 4·6 + 3·5 = 39 vs 17."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4246,6 +4273,7 @@
    "prompt": "Is (4, 5) a solution of the system x + 2y ≤ 21; 3x + y ≤ 20; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 1·4 + 2·5 = 14 vs 21; 3·4 + 1·5 = 17 vs 20."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4279,6 +4307,7 @@
    "prompt": "Is (0, 4) a solution of the system 2x + y ≤ 11; 2x + 4y ≤ 13; x ≥ 0; y ≥ 0?",
    "answer": "No",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 2·0 + 1·4 = 4 vs 11; 2·0 + 4·4 = 16 vs 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4312,6 +4341,7 @@
    "prompt": "Is (6, 1) a solution of the system 2x + y ≤ 24; 4x + 4y ≤ 11; x ≥ 0; y ≥ 0?",
    "answer": "No",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 2·6 + 1·1 = 13 vs 24; 4·6 + 4·1 = 28 vs 11."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4345,6 +4375,7 @@
    "prompt": "Is (0, 2) a solution of the system 2x + 4y ≤ 13; x + 3y ≤ 15; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 2·0 + 4·2 = 8 vs 13; 1·0 + 3·2 = 6 vs 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4378,6 +4409,7 @@
    "prompt": "Is (3, 4) a solution of the system 3x + 3y ≤ 7; x + 3y ≤ 24; x ≥ 0; y ≥ 0?",
    "answer": "No",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 3·3 + 3·4 = 21 vs 7; 1·3 + 3·4 = 15 vs 24."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4404,16 +4436,17 @@
    ]
   },
   {
-   "id": "dm-lp-s02-honors-010",
+   "id": "dm-lp-s02-cp1-h010",
    "skillId": "linear-programming-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Is (2, 2) a solution of the system 4x + 3y ≤ 24; x + y ≤ 21; x ≥ 0; y ≥ 0?",
    "answer": "Yes",
    "solutionSteps": [
+    "A point is a solution of a system only if it satisfies every inequality; one failure is enough to rule it out.",
     "Substitute into each inequality: 4·2 + 3·2 = 14 vs 24; 1·2 + 1·2 = 4 vs 21."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Yes",
@@ -4444,6 +4477,7 @@
    "prompt": "How many corner points does the feasible region of x + 2y ≤ 15; 4x + 3y ≤ 19; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 19/3), (19/4, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4477,6 +4511,7 @@
    "prompt": "How many corner points does the feasible region of 2x + 4y ≤ 12; x + 4y ≤ 23; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 3), (6, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4510,6 +4545,7 @@
    "prompt": "How many corner points does the feasible region of x + y ≤ 22; 4x + 2y ≤ 19; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 19/2), (19/4, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4543,6 +4579,7 @@
    "prompt": "How many corner points does the feasible region of 3x + 4y ≤ 11; 3x + y ≤ 14; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 11/4), (11/3, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4576,6 +4613,7 @@
    "prompt": "How many corner points does the feasible region of x + 3y ≤ 23; 3x + 3y ≤ 19; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 19/3), (19/3, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4609,6 +4647,7 @@
    "prompt": "How many corner points does the feasible region of 4x + 2y ≤ 23; 2x + 4y ≤ 13; x ≥ 0; y ≥ 0 have?",
    "answer": "4",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 13/4), (11/2, 1/2), (23/4, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4642,6 +4681,7 @@
    "prompt": "How many corner points does the feasible region of x + 2y ≤ 7; 2x + 3y ≤ 11; x ≥ 0; y ≥ 0 have?",
    "answer": "4",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 7/2), (1, 3), (11/2, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4675,6 +4715,7 @@
    "prompt": "How many corner points does the feasible region of 4x + 2y ≤ 16; 3x + 2y ≤ 14; x ≥ 0; y ≥ 0 have?",
    "answer": "4",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 7), (2, 4), (4, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4708,6 +4749,7 @@
    "prompt": "How many corner points does the feasible region of 3x + 2y ≤ 17; 4x + 4y ≤ 17; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 17/4), (17/4, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4734,16 +4776,17 @@
    ]
   },
   {
-   "id": "dm-lp-s03-honors-008",
+   "id": "dm-lp-s03-cp1-h008",
    "skillId": "linear-programming-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "How many corner points does the feasible region of x + 4y ≤ 21; 3x + 3y ≤ 12; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 4), (4, 0)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "2",
@@ -4774,6 +4817,7 @@
    "prompt": "How many corner points does the feasible region of 2x + y ≤ 20; 3x + 4y ≤ 15; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 15/4), (5, 0)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4800,16 +4844,17 @@
    ]
   },
   {
-   "id": "dm-lp-s03-honors-010",
+   "id": "dm-lp-s03-cp1-h010",
    "skillId": "linear-programming-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "How many corner points does the feasible region of 3x + 4y ≤ 8; x + 2y ≤ 19; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 2), (8/3, 0)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "2",
@@ -4840,8 +4885,8 @@
    "prompt": "Evaluate P = 8x + 8y at the corner (12, 0) of the region x + 4y ≤ 14; 2x + 4y ≤ 24; x ≥ 0; y ≥ 0.",
    "answer": "96",
    "solutionSteps": [
-    "Substitute.",
-    "P = 96"
+    "Substitute x = 12 and y = 0 into P.",
+    "P = 8·12 + 8·0 = 96 + 0 = 96."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4874,8 +4919,8 @@
    "prompt": "Evaluate P = 3x + 2y at the corner (0, 13/4) of the region 2x + 4y ≤ 13; 2x + y ≤ 10; x ≥ 0; y ≥ 0.",
    "answer": "13/2",
    "solutionSteps": [
-    "Substitute.",
-    "P = 13/2"
+    "Substitute x = 0 and y = 13/4 into P.",
+    "P = 3·0 + 2·13/4 = 0 + 13/2 = 13/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4912,8 +4957,8 @@
    "prompt": "Evaluate P = x + y at the corner (0, 8) of the region x + y ≤ 8; 3x + y ≤ 8; x ≥ 0; y ≥ 0.",
    "answer": "8",
    "solutionSteps": [
-    "Substitute.",
-    "P = 8"
+    "Substitute x = 0 and y = 8 into P.",
+    "P = 1·0 + 1·8 = 0 + 8 = 8."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4946,8 +4991,8 @@
    "prompt": "Evaluate P = 6x + 7y at the corner (0, 7/4) of the region 4x + 4y ≤ 12; 2x + 4y ≤ 7; x ≥ 0; y ≥ 0.",
    "answer": "49/4",
    "solutionSteps": [
-    "Substitute.",
-    "P = 49/4"
+    "Substitute x = 0 and y = 7/4 into P.",
+    "P = 6·0 + 7·7/4 = 0 + 49/4 = 49/4."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4984,8 +5029,8 @@
    "prompt": "Evaluate P = 6x + 4y at the corner (9/4, 0) of the region x + 4y ≤ 17; 4x + 4y ≤ 9; x ≥ 0; y ≥ 0.",
    "answer": "27/2",
    "solutionSteps": [
-    "Substitute.",
-    "P = 27/2"
+    "Substitute x = 9/4 and y = 0 into P.",
+    "P = 6·9/4 + 4·0 = 27/2 + 0 = 27/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5022,8 +5067,8 @@
    "prompt": "Evaluate P = 4x + 5y at the corner (0, 23/3) of the region 2x + y ≤ 23; 4x + 3y ≤ 23; x ≥ 0; y ≥ 0.",
    "answer": "115/3",
    "solutionSteps": [
-    "Substitute.",
-    "P = 115/3"
+    "Substitute x = 0 and y = 23/3 into P.",
+    "P = 4·0 + 5·23/3 = 0 + 115/3 = 115/3."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5060,8 +5105,8 @@
    "prompt": "Evaluate P = 8x + 2y at the corner (0, 5) of the region 3x + y ≤ 19; x + 3y ≤ 15; x ≥ 0; y ≥ 0.",
    "answer": "10",
    "solutionSteps": [
-    "Substitute.",
-    "P = 10"
+    "Substitute x = 0 and y = 5 into P.",
+    "P = 8·0 + 2·5 = 0 + 10 = 10."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5094,8 +5139,8 @@
    "prompt": "Evaluate P = 7x + 9y at the corner (0, 0) of the region 3x + y ≤ 12; 2x + 3y ≤ 8; x ≥ 0; y ≥ 0.",
    "answer": "0",
    "solutionSteps": [
-    "Substitute.",
-    "P = 0"
+    "Substitute x = 0 and y = 0 into P.",
+    "P = 7·0 + 9·0 = 0 + 0 = 0."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5128,8 +5173,8 @@
    "prompt": "Evaluate P = 7x + 2y at the corner (0, 0) of the region 4x + 4y ≤ 17; x + 3y ≤ 10; x ≥ 0; y ≥ 0.",
    "answer": "0",
    "solutionSteps": [
-    "Substitute.",
-    "P = 0"
+    "Substitute x = 0 and y = 0 into P.",
+    "P = 7·0 + 2·0 = 0 + 0 = 0."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5162,8 +5207,8 @@
    "prompt": "Evaluate P = 7x + 9y at the corner (7/4, 0) of the region 3x + 3y ≤ 17; 4x + y ≤ 7; x ≥ 0; y ≥ 0.",
    "answer": "49/4",
    "solutionSteps": [
-    "Substitute.",
-    "P = 49/4"
+    "Substitute x = 7/4 and y = 0 into P.",
+    "P = 7·7/4 + 9·0 = 49/4 + 0 = 49/4."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5200,8 +5245,8 @@
    "prompt": "Evaluate P = 7x + 9y at the corner (7/2, 0) of the region 2x + 3y ≤ 7; 2x + 2y ≤ 18; x ≥ 0; y ≥ 0.",
    "answer": "49/2",
    "solutionSteps": [
-    "Substitute.",
-    "P = 49/2"
+    "Substitute x = 7/2 and y = 0 into P.",
+    "P = 7·7/2 + 9·0 = 49/2 + 0 = 49/2."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5234,8 +5279,8 @@
    "prompt": "Evaluate P = x + 7y at the corner (19, 0) of the region x + y ≤ 19; x + 3y ≤ 21; x ≥ 0; y ≥ 0.",
    "answer": "19",
    "solutionSteps": [
-    "Substitute.",
-    "P = 19"
+    "Substitute x = 19 and y = 0 into P.",
+    "P = 1·19 + 7·0 = 19 + 0 = 19."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5261,17 +5306,17 @@
    ]
   },
   {
-   "id": "dm-lp-s04-honors-010",
+   "id": "dm-lp-s04-cp1-h010",
    "skillId": "linear-programming-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Evaluate P = 2x + 5y at the corner (0, 3) of the region x + 4y ≤ 12; 2x + 4y ≤ 14; x ≥ 0; y ≥ 0.",
    "answer": "15",
    "solutionSteps": [
-    "Substitute.",
-    "P = 15"
+    "Substitute x = 0 and y = 3 into P.",
+    "P = 2·0 + 5·3 = 0 + 15 = 15."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "6",
@@ -5306,8 +5351,9 @@
    "prompt": "Find the corner point of 4x + y ≤ 22; 3x + 2y ≤ 23; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(21/5, 26/5)",
    "solutionSteps": [
-    "Solve 4x + y = 22 and 3x + 2y = 23 together.",
-    "(21/5, 26/5)"
+    "Eliminate y: multiply 4x + y = 22 by 2 and 3x + 2y = 23 by 1, then subtract: 5x = 21, so x = 21/5.",
+    "Substitute x = 21/5 into 4x + y = 22: y = 22 − 84/5 = 26/5, so y = 26/5.",
+    "Check in the other line: 3·21/5 + 2·26/5 = 23. Corner: (21/5, 26/5)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5322,8 +5368,9 @@
    "prompt": "Find the corner point of 3x + y ≤ 6; 2x + 4y ≤ 7; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(17/10, 9/10)",
    "solutionSteps": [
-    "Solve 3x + y = 6 and 2x + 4y = 7 together.",
-    "(17/10, 9/10)"
+    "Eliminate y: multiply 3x + y = 6 by 4 and 2x + 4y = 7 by 1, then subtract: 10x = 17, so x = 17/10.",
+    "Substitute x = 17/10 into 3x + y = 6: y = 6 − 51/10 = 9/10, so y = 9/10.",
+    "Check in the other line: 2·17/10 + 4·9/10 = 7. Corner: (17/10, 9/10)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5338,8 +5385,9 @@
    "prompt": "Find the corner point of 3x + y ≤ 13; 4x + 2y ≤ 21; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(5/2, 11/2)",
    "solutionSteps": [
-    "Solve 3x + y = 13 and 4x + 2y = 21 together.",
-    "(5/2, 11/2)"
+    "Eliminate y: multiply 3x + y = 13 by 2 and 4x + 2y = 21 by 1, then subtract: 2x = 5, so x = 5/2.",
+    "Substitute x = 5/2 into 3x + y = 13: y = 13 − 15/2 = 11/2, so y = 11/2.",
+    "Check in the other line: 4·5/2 + 2·11/2 = 21. Corner: (5/2, 11/2)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5354,8 +5402,9 @@
    "prompt": "Find the corner point of x + 3y ≤ 7; 4x + 3y ≤ 14; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(7/3, 14/9)",
    "solutionSteps": [
-    "Solve x + 3y = 7 and 4x + 3y = 14 together.",
-    "(7/3, 14/9)"
+    "Eliminate y: multiply x + 3y = 7 by 3 and 4x + 3y = 14 by 3, then subtract: -9x = -21, so x = 7/3.",
+    "Substitute x = 7/3 into x + 3y = 7: 3y = 7 − 7/3 = 14/3, so y = 14/9.",
+    "Check in the other line: 4·7/3 + 3·14/9 = 14. Corner: (7/3, 14/9)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5370,8 +5419,9 @@
    "prompt": "Find the corner point of x + 4y ≤ 23; 3x + 2y ≤ 23; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(23/5, 23/5)",
    "solutionSteps": [
-    "Solve x + 4y = 23 and 3x + 2y = 23 together.",
-    "(23/5, 23/5)"
+    "Eliminate y: multiply x + 4y = 23 by 2 and 3x + 2y = 23 by 4, then subtract: -10x = -46, so x = 23/5.",
+    "Substitute x = 23/5 into x + 4y = 23: 4y = 23 − 23/5 = 92/5, so y = 23/5.",
+    "Check in the other line: 3·23/5 + 2·23/5 = 23. Corner: (23/5, 23/5)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5386,8 +5436,9 @@
    "prompt": "Find the corner point of x + 2y ≤ 7; 3x + y ≤ 18; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(29/5, 3/5)",
    "solutionSteps": [
-    "Solve x + 2y = 7 and 3x + y = 18 together.",
-    "(29/5, 3/5)"
+    "Eliminate y: multiply x + 2y = 7 by 1 and 3x + y = 18 by 2, then subtract: -5x = -29, so x = 29/5.",
+    "Substitute x = 29/5 into x + 2y = 7: 2y = 7 − 29/5 = 6/5, so y = 3/5.",
+    "Check in the other line: 3·29/5 + 1·3/5 = 18. Corner: (29/5, 3/5)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5402,8 +5453,9 @@
    "prompt": "Find the corner point of 2x + 4y ≤ 15; 3x + y ≤ 8; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(17/10, 29/10)",
    "solutionSteps": [
-    "Solve 2x + 4y = 15 and 3x + y = 8 together.",
-    "(17/10, 29/10)"
+    "Eliminate y: multiply 2x + 4y = 15 by 1 and 3x + y = 8 by 4, then subtract: -10x = -17, so x = 17/10.",
+    "Substitute x = 17/10 into 2x + 4y = 15: 4y = 15 − 17/5 = 58/5, so y = 29/10.",
+    "Check in the other line: 3·17/10 + 1·29/10 = 8. Corner: (17/10, 29/10)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5418,8 +5470,9 @@
    "prompt": "Find the corner point of 3x + 3y ≤ 16; 2x + 3y ≤ 14; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(2, 10/3)",
    "solutionSteps": [
-    "Solve 3x + 3y = 16 and 2x + 3y = 14 together.",
-    "(2, 10/3)"
+    "Eliminate y: multiply 3x + 3y = 16 by 3 and 2x + 3y = 14 by 3, then subtract: 3x = 6, so x = 2.",
+    "Substitute x = 2 into 3x + 3y = 16: 3y = 16 − 6 = 10, so y = 10/3.",
+    "Check in the other line: 2·2 + 3·10/3 = 14. Corner: (2, 10/3)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5434,8 +5487,9 @@
    "prompt": "Find the corner point of x + 2y ≤ 13; 3x + 2y ≤ 24; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(11/2, 15/4)",
    "solutionSteps": [
-    "Solve x + 2y = 13 and 3x + 2y = 24 together.",
-    "(11/2, 15/4)"
+    "Eliminate y: multiply x + 2y = 13 by 2 and 3x + 2y = 24 by 2, then subtract: -4x = -22, so x = 11/2.",
+    "Substitute x = 11/2 into x + 2y = 13: 2y = 13 − 11/2 = 15/2, so y = 15/4.",
+    "Check in the other line: 3·11/2 + 2·15/4 = 24. Corner: (11/2, 15/4)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5450,8 +5504,9 @@
    "prompt": "Find the corner point of 2x + 2y ≤ 10; x + 4y ≤ 14; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(2, 3)",
    "solutionSteps": [
-    "Solve 2x + 2y = 10 and x + 4y = 14 together.",
-    "(2, 3)"
+    "Eliminate y: multiply 2x + 2y = 10 by 4 and x + 4y = 14 by 2, then subtract: 6x = 12, so x = 2.",
+    "Substitute x = 2 into 2x + 2y = 10: 2y = 10 − 4 = 6, so y = 3.",
+    "Check in the other line: 1·2 + 4·3 = 14. Corner: (2, 3)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5459,17 +5514,18 @@
    ]
   },
   {
-   "id": "dm-lp-s05-honors-006",
+   "id": "dm-lp-s05-cp1-h006",
    "skillId": "linear-programming-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the corner point of x + 3y ≤ 15; 2x + 2y ≤ 13; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(9/4, 17/4)",
    "solutionSteps": [
-    "Solve x + 3y = 15 and 2x + 2y = 13 together.",
-    "(9/4, 17/4)"
+    "Eliminate y: multiply x + 3y = 15 by 2 and 2x + 2y = 13 by 3, then subtract: -4x = -9, so x = 9/4.",
+    "Substitute x = 9/4 into x + 3y = 15: 3y = 15 − 9/4 = 51/4, so y = 17/4.",
+    "Check in the other line: 2·9/4 + 2·17/4 = 13. Corner: (9/4, 17/4)."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "A-REI.C.6"
    ]
@@ -5482,8 +5538,9 @@
    "prompt": "Find the corner point of 4x + y ≤ 21; x + 2y ≤ 9; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(33/7, 15/7)",
    "solutionSteps": [
-    "Solve 4x + y = 21 and x + 2y = 9 together.",
-    "(33/7, 15/7)"
+    "Eliminate y: multiply 4x + y = 21 by 2 and x + 2y = 9 by 1, then subtract: 7x = 33, so x = 33/7.",
+    "Substitute x = 33/7 into 4x + y = 21: y = 21 − 132/7 = 15/7, so y = 15/7.",
+    "Check in the other line: 1·33/7 + 2·15/7 = 9. Corner: (33/7, 15/7)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5498,8 +5555,9 @@
    "prompt": "Find the corner point of 4x + 2y ≤ 19; 2x + 2y ≤ 11; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(4, 3/2)",
    "solutionSteps": [
-    "Solve 4x + 2y = 19 and 2x + 2y = 11 together.",
-    "(4, 3/2)"
+    "Eliminate y: multiply 4x + 2y = 19 by 2 and 2x + 2y = 11 by 2, then subtract: 4x = 16, so x = 4.",
+    "Substitute x = 4 into 4x + 2y = 19: 2y = 19 − 16 = 3, so y = 3/2.",
+    "Check in the other line: 2·4 + 2·3/2 = 11. Corner: (4, 3/2)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5514,8 +5572,9 @@
    "prompt": "Find the corner point of 2x + 3y ≤ 10; 3x + 3y ≤ 12; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(2, 2)",
    "solutionSteps": [
-    "Solve 2x + 3y = 10 and 3x + 3y = 12 together.",
-    "(2, 2)"
+    "Eliminate y: multiply 2x + 3y = 10 by 3 and 3x + 3y = 12 by 3, then subtract: -3x = -6, so x = 2.",
+    "Substitute x = 2 into 2x + 3y = 10: 3y = 10 − 4 = 6, so y = 2.",
+    "Check in the other line: 3·2 + 3·2 = 12. Corner: (2, 2)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5530,8 +5589,9 @@
    "prompt": "Find the corner point of 4x + y ≤ 15; x + y ≤ 7; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(8/3, 13/3)",
    "solutionSteps": [
-    "Solve 4x + y = 15 and x + y = 7 together.",
-    "(8/3, 13/3)"
+    "Eliminate y: multiply 4x + y = 15 by 1 and x + y = 7 by 1, then subtract: 3x = 8, so x = 8/3.",
+    "Substitute x = 8/3 into 4x + y = 15: y = 15 − 32/3 = 13/3, so y = 13/3.",
+    "Check in the other line: 1·8/3 + 1·13/3 = 7. Corner: (8/3, 13/3)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -5898,6 +5958,7 @@
    "prompt": "Maximize P = 7x + 3y subject to x + y ≤ 21; x + 3y ≤ 20; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "1",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (20, 0).",
     "Slack = 21 − (1·20 + 1·0) = 1."
    ],
@@ -5933,6 +5994,7 @@
    "prompt": "Maximize P = 6x + 8y subject to 3x + 3y ≤ 12; 2x + 4y ≤ 22; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "0",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 4).",
     "Slack = 12 − (3·0 + 3·4) = 0."
    ],
@@ -5985,6 +6047,7 @@
    "prompt": "Maximize P = 8x + y subject to 3x + 4y ≤ 14; 3x + 2y ≤ 6; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "8",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (2, 0).",
     "Slack = 14 − (3·2 + 4·0) = 8."
    ],
@@ -6002,6 +6065,7 @@
    "prompt": "Maximize P = x + 4y subject to 2x + 4y ≤ 8; 3x + 3y ≤ 10; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "0",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 2).",
     "Slack = 8 − (2·0 + 4·2) = 0."
    ],
@@ -6019,6 +6083,7 @@
    "prompt": "Maximize P = 3x + 6y subject to 2x + 2y ≤ 10; 3x + y ≤ 17; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "0",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 5).",
     "Slack = 10 − (2·0 + 2·5) = 0."
    ],
@@ -6036,6 +6101,7 @@
    "prompt": "Maximize P = 4x + 2y subject to 4x + y ≤ 23; 2x + 4y ≤ 9; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "5",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (9/2, 0).",
     "Slack = 23 − (4·9/2 + 1·0) = 5."
    ],
@@ -6053,6 +6119,7 @@
    "prompt": "Maximize P = x + 5y subject to 4x + 3y ≤ 16; 2x + y ≤ 11; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "0",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 16/3).",
     "Slack = 16 − (4·0 + 3·16/3) = 0."
    ],
@@ -6070,6 +6137,7 @@
    "prompt": "Maximize P = x + 8y subject to 4x + y ≤ 16; 3x + y ≤ 11; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "5",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 11).",
     "Slack = 16 − (4·0 + 1·11) = 5."
    ],
@@ -6087,6 +6155,7 @@
    "prompt": "Maximize P = 2x + 9y subject to 4x + 3y ≤ 24; 3x + 2y ≤ 16; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "0",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 8).",
     "Slack = 24 − (4·0 + 3·8) = 0."
    ],
@@ -6097,17 +6166,18 @@
    ]
   },
   {
-   "id": "dm-lp-s07-honors-007",
+   "id": "dm-lp-s07-cp1-h007",
    "skillId": "linear-programming-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Maximize P = 3x + 4y subject to 2x + 3y ≤ 13; 4x + 4y ≤ 8; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "7",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 2).",
     "Slack = 13 − (2·0 + 3·2) = 7."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "A-CED.A.3",
     "MP.4"
@@ -6121,6 +6191,7 @@
    "prompt": "Maximize P = 6x + 6y subject to x + 4y ≤ 24; 2x + 4y ≤ 22; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "13",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (11, 0).",
     "Slack = 24 − (1·11 + 4·0) = 13."
    ],
@@ -6138,6 +6209,7 @@
    "prompt": "Maximize P = x + 9y subject to 2x + y ≤ 7; 3x + 2y ≤ 13; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "1/2",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (0, 13/2).",
     "Slack = 7 − (2·0 + 1·13/2) = 1/2."
    ],
@@ -6155,6 +6227,7 @@
    "prompt": "Maximize P = 5x + 8y subject to x + 4y ≤ 23; x + 3y ≤ 13; x ≥ 0; y ≥ 0. At the optimal point, how much slack does the first constraint have? (Give a number or fraction.)",
    "answer": "10",
    "solutionSteps": [
+    "Translate the optimal corner and the objective value back into the situation, with units.",
     "Optimal point (13, 0).",
     "Slack = 23 − (1·13 + 4·0) = 10."
    ],
@@ -6172,6 +6245,7 @@
    "prompt": "How many corner points does the feasible region x + y ≤ 7, y ≤ 5, x ≥ 0, y ≥ 0 have?",
    "answer": "4",
    "solutionSteps": [
+    "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 5), (2, 5), (7, 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -6839,8 +6913,8 @@
    "prompt": "Evaluate P = 3x + 2y at the corner (1, 2).",
    "answer": "7",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 7"
+    "Substitute x = 1, y = 2.",
+    "3·1 + 2·2 = 3 + 4 = 7."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -6871,8 +6945,8 @@
    "prompt": "Where does 4x + 5y = 60 cross the x‑axis? Give x.",
    "answer": "15",
    "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 15"
+    "On the x-axis y = 0.",
+    "4x = 60, so x = 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -6887,8 +6961,8 @@
    "prompt": "Evaluate C = 9x + 7y at the corner (5, 4).",
    "answer": "73",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 73"
+    "Substitute x = 5, y = 4.",
+    "9·5 + 7·4 = 45 + 28 = 73."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6921,8 +6995,8 @@
    "prompt": "Where does 7x + 2y = 84 cross the y‑axis? Give y.",
    "answer": "42",
    "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 42"
+    "On the y-axis x = 0.",
+    "2y = 84, so y = 42."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -6937,8 +7011,8 @@
    "prompt": "Evaluate P = 8x + 3y at the corner (6, 2).",
    "answer": "54",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 54"
+    "Substitute x = 6, y = 2.",
+    "8·6 + 3·2 = 48 + 6 = 54."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -6987,8 +7061,8 @@
    "prompt": "Where does 6x + 3y = 108 cross the y‑axis? Give y.",
    "answer": "36",
    "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 36"
+    "On the y-axis x = 0.",
+    "3y = 108, so y = 36."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7037,8 +7111,8 @@
    "prompt": "Evaluate C = 7x + 5y at the corner (5, 7).",
    "answer": "70",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 70"
+    "Substitute x = 5, y = 7.",
+    "7·5 + 5·7 = 35 + 35 = 70."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7071,8 +7145,8 @@
    "prompt": "Where does 5x + 4y = 120 cross the y‑axis? Give y.",
    "answer": "30",
    "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 30"
+    "On the y-axis x = 0.",
+    "4y = 120, so y = 30."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7103,8 +7177,8 @@
    "prompt": "Where does 4x + 6y = 72 cross the x‑axis? Give x.",
    "answer": "18",
    "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 18"
+    "On the x-axis y = 0.",
+    "4x = 72, so x = 18."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7119,8 +7193,8 @@
    "prompt": "Evaluate C = 9x + 8y at the corner (6, 4).",
    "answer": "86",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 86"
+    "Substitute x = 6, y = 4.",
+    "9·6 + 8·4 = 54 + 32 = 86."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7153,8 +7227,8 @@
    "prompt": "Where does 8x + 2y = 112 cross the y‑axis? Give y.",
    "answer": "56",
    "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 56"
+    "On the y-axis x = 0.",
+    "2y = 112, so y = 56."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7169,8 +7243,8 @@
    "prompt": "Evaluate P = 9x + 3y at the corner (6, 3).",
    "answer": "63",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 63"
+    "Substitute x = 6, y = 3.",
+    "9·6 + 3·3 = 54 + 9 = 63."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7219,8 +7293,8 @@
    "prompt": "Where does 5x + 5y = 25 cross the x‑axis? Give x.",
    "answer": "5",
    "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 5"
+    "On the x-axis y = 0.",
+    "5x = 25, so x = 5."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7253,8 +7327,8 @@
    "prompt": "Evaluate C = 6x + 7y at the corner (6, 2).",
    "answer": "50",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 50"
+    "Substitute x = 6, y = 2.",
+    "6·6 + 7·2 = 36 + 14 = 50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7269,8 +7343,8 @@
    "prompt": "Where does 7x + 3y = 147 cross the y‑axis? Give y.",
    "answer": "49",
    "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 49"
+    "On the y-axis x = 0.",
+    "3y = 147, so y = 49."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7303,8 +7377,8 @@
    "prompt": "Evaluate P = 8x + 4y at the corner (4, 3).",
    "answer": "44",
    "solutionSteps": [
-    "Substitute.",
-    "Answer: 44"
+    "Substitute x = 4, y = 3.",
+    "8·4 + 4·3 = 32 + 12 = 44."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7328,41 +7402,9 @@
    ]
   },
   {
-   "id": "dm-lp-s02-cp1-016",
-   "skillId": "linear-programming-skill-02",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Where does 2x + 4y = 48 cross the x‑axis? Give x.",
-   "answer": "24",
-   "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 24"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-012",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Evaluate P = 5x + 2y at the corner (1, 4).",
-   "answer": "13",
-   "solutionSteps": [
-    "Substitute.",
-    "Answer: 13"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s03-honors-012",
+   "id": "dm-lp-s03-cp1-h012",
    "skillId": "linear-programming-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve x + y = 7 and x − y = -3. Give the corner as (x, y).",
    "answer": "(2, 5)",
@@ -7370,255 +7412,7 @@
     "Add the equations.",
     "Answer: (2, 5)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-011",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 4x + 7y = 84 cross the x‑axis? Give x.",
-   "answer": "21",
-   "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 21"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-013",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Evaluate C = 9x + 9y at the corner (7, 4).",
-   "answer": "99",
-   "solutionSteps": [
-    "Substitute.",
-    "Answer: 99"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "98",
-     "correct": false
-    },
-    {
-     "text": "99",
-     "correct": true
-    },
-    {
-     "text": "100",
-     "correct": false
-    },
-    {
-     "text": "101",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-012",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 9x + 2y = 144 cross the y‑axis? Give y.",
-   "answer": "72",
-   "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 72"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s03-honors-013",
-   "skillId": "linear-programming-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Solve x + y = 12 and x − y = 2. Give the corner as (x, y).",
-   "answer": "(7, 5)",
-   "solutionSteps": [
-    "Add the equations.",
-    "Answer: (7, 5)"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-013",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Where does 5x + 6y = 30 cross the x‑axis? Give x.",
-   "answer": "6",
-   "solutionSteps": [
-    "Set y = 0.",
-    "Answer: 6"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "5",
-     "correct": false
-    },
-    {
-     "text": "6",
-     "correct": true
-    },
-    {
-     "text": "7",
-     "correct": false
-    },
-    {
-     "text": "8",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-014",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Evaluate C = 6x + 8y at the corner (7, 2).",
-   "answer": "58",
-   "solutionSteps": [
-    "Substitute.",
-    "Answer: 58"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-014",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Where does 8x + 3y = 192 cross the y‑axis? Give y.",
-   "answer": "64",
-   "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 64"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "63",
-     "correct": false
-    },
-    {
-     "text": "65",
-     "correct": false
-    },
-    {
-     "text": "64",
-     "correct": true
-    },
-    {
-     "text": "66",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-015",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Evaluate P = 9x + 4y at the corner (4, 4).",
-   "answer": "52",
-   "solutionSteps": [
-    "Substitute.",
-    "Answer: 52"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s03-honors-014",
-   "skillId": "linear-programming-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Solve x + y = 10 and x − y = 0. Give the corner as (x, y).",
-   "answer": "(5, 5)",
-   "solutionSteps": [
-    "Add the equations.",
-    "Answer: (5, 5)"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-016",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Evaluate C = 7x + 7y at the corner (7, 7).",
-   "answer": "98",
-   "solutionSteps": [
-    "Substitute.",
-    "Answer: 98"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "97",
-     "correct": false
-    },
-    {
-     "text": "99",
-     "correct": false
-    },
-    {
-     "text": "98",
-     "correct": true
-    },
-    {
-     "text": "100",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-015",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 7x + 4y = 224 cross the y‑axis? Give y.",
-   "answer": "56",
-   "solutionSteps": [
-    "Set x = 0.",
-    "Answer: 56"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "A-REI.D.12"
    ]

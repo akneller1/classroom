@@ -48,6 +48,44 @@ for (const q of Q) check(q, !!fam(q), 'no family tag');
   }
 }
 
+/* #1 solutions show the work: at least 2 steps everywhere, an option-by-option line on every select-all, and short
+   solutions (under 60 characters) are rare. */
+{
+  let short = 0;
+  for (const q of Q.filter(q => q.format !== 'open-response')) {
+    check(q, q.solutionSteps.length >= 2, 'fewer than 2 solution steps');
+    if (q.solutionSteps.join(' ').length < 60) short++;
+    if (q.format === 'select-all') check(q, q.solutionSteps.some(x => /^Option by option: /.test(x) && q.options.every(o => x.includes(o.text))), 'select-all without a line per option');
+  }
+  assert(short / Q.length <= 0.05, 'short solutions: ' + short);
+}
+/* #2 at most 4 one-line quick checks per skill and level. */
+{
+  const n = {};
+  for (const q of Q.filter(q => fam(q) === 'quick_check')) { const k = q.skillId + '/' + q.level; n[k] = (n[k] || 0) + 1; }
+  for (const [k, v] of Object.entries(n)) assert(v <= 4, 'quick checks in ' + k + ': ' + v);
+}
+/* #4 no Advanced item is a Support template with new numbers. */
+{
+  const tmpl = s => s.replace(/\{[^}]*\}/g, '{S}').replace(/\[[^\]]*\]/g, '[W]').replace(/\b(Kim|Lee|Ann|Ben|Ana|Bo|Cy|Sam|Jordan|Riley|Casey|Avery|Morgan|Taylor|Jamie|Quinn|Alex)\b/g, 'Nm').replace(/[A-Z](?: > [A-Z])+/g, 'R').replace(/\d+(\.\d+)?/g, '#');
+  const cp2 = new Set(Q.filter(q => q.level === 'cp2').map(q => q.skillId + '|' + tmpl(q.prompt)));
+  for (const q of Q.filter(q => q.level === 'honors')) check(q, !cp2.has(q.skillId + '|' + tmpl(q.prompt)), 'Advanced item reuses a Support template');
+}
+/* #3 the practice test grades sets, truth columns, lists, statement forms and one-word answers. */
+{
+  const vm = require('vm'), c = {}; c.window = c; vm.createContext(c);
+  for (const f of ['worksheet-generator/menu/mathcheck.js', 'worksheet-generator/practice/radical-grading.js', 'worksheet-generator/practice/exact-grading.js', 'worksheet-generator/practice/discrete-grading.js', 'worksheet-generator/practice/grading.js'])
+    vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), c, { filename: f });
+  const P = c.MKPRACTICE, sa = Q.filter(q => q.format === 'short-answer'), auto = sa.filter(q => P.bankAnswer(String(q.answer)) !== null);
+  assert(auto.length / sa.length >= 0.8, 'auto-graded short answers ' + auto.length + '/' + sa.length);
+  for (const q of auto) check(q, P.gradeBank(String(q.answer), String(q.answer)).status === 'correct', 'key does not grade itself correct');
+  for (const [k, t, want] of [['{2, 4, 6}', '{6,4,2}', 'correct'], ['{2, 4, 6}', '{2, 4}', 'incorrect'], ['∅', '{}', 'correct'], ['{(1, 2), (2, 3)}', '{(2,3),(1,2)}', 'correct'],
+    ['TFTT', 't f t t', 'correct'], ['TFTT', 'TFTF', 'incorrect'], ['(F, T)', 'F,T', 'correct'], ['13, 11, 6', '13,11,6', 'correct'], ['13, 11, 6', '6, 11, 13', 'incorrect'],
+    ['P1, P2', 'P2, P1', 'correct'], ['p ∧ ¬q', '~q ^ p', 'correct'], ['p ∧ ¬q', 'p ∨ q', 'incorrect'], ['p ∧ ¬q', '¬(¬p ∨ q)', 'self'], ['Yes', 'yes', 'correct'], ['Yes', 'no', 'incorrect'],
+    ['q = 3, r = 2', 'r=2, q=3', 'correct'], ['A', 'a', 'correct'], ['27.50', '27.5', 'correct']])
+    assert.equal(P.gradeBank(k, t).status, want, k + ' ← ' + t);
+}
+
 /* ---------- independent recomputation ---------- */
 const sched = P => [...P.matchAll(/(\d+) voters: ([A-Z](?: > [A-Z])+)/g)].map(m => [+m[1], m[2].split(' > ')]);
 const h2h = (R, a, b) => R.reduce((s, [n, r]) => s + (r.indexOf(a) < r.indexOf(b) ? n : 0), 0);

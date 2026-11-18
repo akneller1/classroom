@@ -11,6 +11,7 @@
    "prompt": "Find the degree of vertex A in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at A.",
     "deg(A) = 3"
    ],
@@ -53,6 +54,7 @@
    "prompt": "Find the degree of vertex C in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at C.",
     "deg(C) = 2"
    ],
@@ -95,6 +97,7 @@
    "prompt": "Find the degree of vertex C in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "4",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at C.",
     "deg(C) = 4"
    ],
@@ -137,6 +140,7 @@
    "prompt": "Find the degree of vertex A in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "4",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at A.",
     "deg(A) = 4"
    ],
@@ -172,17 +176,18 @@
    ]
   },
   {
-   "id": "dm-gr-s01-honors-001",
+   "id": "dm-gr-s01-cp1-h001",
    "skillId": "graphs-trees-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Find the degree of vertex A in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "4",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at A.",
     "deg(A) = 4"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: degree). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: degree). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "3",
@@ -221,6 +226,7 @@
    "prompt": "Find the degree of vertex B in the graph shown (a loop adds 2 to the degree; parallel edges each count).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edge‑ends at B.",
     "deg(B) = 3"
    ],
@@ -304,9 +310,9 @@
    ]
   },
   {
-   "id": "dm-gr-s01-honors-003",
+   "id": "dm-gr-s01-cp1-h003",
    "skillId": "graphs-trees-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the SUM of the degrees of all vertices in the graph shown.",
    "answer": "10",
@@ -314,7 +320,7 @@
     "Handshake theorem: the degree sum is 2·(number of edges).",
     "2·5 = 10"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: degree_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: degree_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "diagram": {
     "type": "image",
     "spec": {
@@ -407,7 +413,8 @@
     "A and B are joined by parallel edges"
    ],
    "solutionSteps": [
-    "Degrees: A 2, B 3, C 4 (loop counts 2), D 1; there are 5 edges."
+    "Degrees: A 2, B 3, C 4 (loop counts 2), D 1; there are 5 edges.",
+    "Option by option: ✗ C has degree 3 (not correct). ✗ The graph has 4 edges (not correct). ✓ There is a loop at C (correct). ✓ D has degree 1 (correct). ✓ A and B are joined by parallel edges (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: graph_terms_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -449,7 +456,8 @@
     "3, 3, 1, 1"
    ],
    "solutionSteps": [
-    "A list is possible exactly when its sum is even (with loops and parallel edges allowed)."
+    "A list is possible exactly when its sum is even (with loops and parallel edges allowed).",
+    "Option by option: ✓ 4, 1, 1 (correct). ✓ 2, 2, 2 (correct). ✓ 3, 3, 1, 1 (correct). ✗ 3, 2, 2 (not correct). ✗ 1, 1, 1 (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: graph_terms_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -491,7 +499,8 @@
     "|E| = Σ deg(v) / 2"
    ],
    "solutionSteps": [
-    "Handshake theorem and its corollary; isolated vertices have degree 0."
+    "Handshake theorem and its corollary; isolated vertices have degree 0.",
+    "Option by option: ✗ Every vertex has positive degree (not correct). ✗ Σ deg(v) = |E| (not correct). ✓ The number of odd‑degree vertices is even (correct). ✓ Σ deg(v) is even (correct). ✓ |E| = Σ deg(v) / 2 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: graph_terms_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -974,7 +983,8 @@
     "Σ in‑degrees = Σ out‑degrees"
    ],
    "solutionSteps": [
-    "Each arrow has one tail and one head."
+    "Each arrow has one tail and one head.",
+    "Option by option: ✓ Σ in‑degrees = number of edges (correct). ✓ Σ out‑degrees = number of edges (correct). ✗ Σ in‑degrees = 2·edges (not correct). ✓ Σ in‑degrees = Σ out‑degrees (correct). ✗ Every vertex has in‑degree = out‑degree (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: directed_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1016,7 +1026,8 @@
     "Edges have arrows"
    ],
    "solutionSteps": [
-    "Directed edges are ordered pairs; loops are allowed."
+    "Directed edges are ordered pairs; loops are allowed.",
+    "Option by option: ✗ Edges never have a direction (not correct). ✓ Each edge has a start and an end (correct). ✗ It cannot have loops (not correct). ✓ (A, B) and (B, A) can be different edges (correct). ✓ Edges have arrows (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: directed_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1058,7 +1069,8 @@
     "There is a directed path from A to C"
    ],
    "solutionSteps": [
-    "D has only its loop going out, so nothing else is reachable from D."
+    "D has only its loop going out, so nothing else is reachable from D.",
+    "Option by option: ✗ Every vertex can reach every other vertex (not correct). ✓ There is no directed path from D to A (correct). ✓ A→B→C→A is a directed cycle (correct). ✓ There is a directed path from A to C (correct). ✗ There is a directed path from D to B (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: directed_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1628,7 +1640,8 @@
     "Any tree"
    ],
    "solutionSteps": [
-    "A graph is bipartite exactly when it has no odd cycle."
+    "A graph is bipartite exactly when it has no odd cycle.",
+    "Option by option: ✗ K₃ (a triangle) (not correct). ✓ C₄ (a 4‑cycle) (correct). ✓ K₂,₃ (correct). ✓ Any tree (correct). ✗ C₅ (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: construct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1670,7 +1683,8 @@
     "No loops"
    ],
    "solutionSteps": [
-    "Simple means no loops and no multiple edges; it need not be connected."
+    "Simple means no loops and no multiple edges; it need not be connected.",
+    "Option by option: ✓ Edges join two different vertices (correct). ✓ No parallel edges (correct). ✗ It must be connected (not correct). ✗ Every vertex has degree 1 (not correct). ✓ No loops (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: construct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1714,7 +1728,8 @@
    ],
    "solutionSteps": [
     "Apply Havel–Hakimi to each.",
-    "4, 4, 1, 1, 0 fails: two vertices adjacent to all four others would give every other vertex degree ≥ 2. 3, 3, 3, 3, 0 is K₄ plus an isolated vertex."
+    "4, 4, 1, 1, 0 fails: two vertices adjacent to all four others would give every other vertex degree ≥ 2. 3, 3, 3, 3, 0 is K₄ plus an isolated vertex.",
+    "Option by option: ✓ Degrees 3, 3, 3, 3, 0 (correct). ✓ Degrees 2, 2, 2, 2, 2 (correct). ✓ Degrees 1, 1, 1, 1, 0 (correct). ✗ Degrees 4, 4, 1, 1, 0 (not correct). ✓ Degrees 4, 3, 3, 2, 2 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: construct_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2024,9 +2039,9 @@
    ]
   },
   {
-   "id": "dm-gr-s04-honors-001",
+   "id": "dm-gr-s04-cp1-h001",
    "skillId": "graphs-trees-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "What is the chromatic number of the graph shown (fewest colors so that adjacent vertices differ)?",
    "answer": "5",
@@ -2034,7 +2049,7 @@
     "Find a coloring with k colors and a reason that k − 1 colors fail (for example, an odd cycle needs 3, a K₄ needs 4).",
     "χ = 5"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "4",
@@ -2066,9 +2081,9 @@
    ]
   },
   {
-   "id": "dm-gr-s04-honors-002",
+   "id": "dm-gr-s04-cp1-h002",
    "skillId": "graphs-trees-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "What is the chromatic number of the graph shown (fewest colors so that adjacent vertices differ)?",
    "answer": "2",
@@ -2076,7 +2091,7 @@
     "Find a coloring with k colors and a reason that k − 1 colors fail (for example, an odd cycle needs 3, a K₄ needs 4).",
     "χ = 2"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "2",
@@ -2272,7 +2287,8 @@
     "K₂,₅"
    ],
    "solutionSteps": [
-    "Exactly the bipartite graphs (no odd cycles)."
+    "Exactly the bipartite graphs (no odd cycles).",
+    "Option by option: ✗ C₉ (not correct). ✓ A tree with 10 vertices (correct). ✓ C₈ (correct). ✓ K₂,₅ (correct). ✗ K₃ (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: coloring_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2314,7 +2330,8 @@
     "A triangle needs 3 colors"
    ],
    "solutionSteps": [
-    "Definition of proper coloring."
+    "Definition of proper coloring.",
+    "Option by option: ✗ Every graph needs 4 colors (not correct). ✓ Non‑adjacent vertices may share a color (correct). ✓ Adjacent vertices get different colors (correct). ✗ Each color can be used only once (not correct). ✓ A triangle needs 3 colors (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: coloring_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2356,7 +2373,8 @@
     "χ(G) ≤ Δ + 1"
    ],
    "solutionSteps": [
-    "Greedy coloring uses at most Δ + 1 colors; subgraphs force lower bounds."
+    "Greedy coloring uses at most Δ + 1 colors; subgraphs force lower bounds.",
+    "Option by option: ✗ χ(G) = Δ always (not correct). ✗ χ(G) ≤ 2 always (not correct). ✓ If G has an odd cycle, then χ(G) ≥ 3 (correct). ✓ If G contains K₄, then χ(G) ≥ 4 (correct). ✓ χ(G) ≤ Δ + 1 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: coloring_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2879,9 +2897,9 @@
    ]
   },
   {
-   "id": "dm-gr-s05-honors-003",
+   "id": "dm-gr-s05-cp1-h003",
    "skillId": "graphs-trees-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Does the graph shown have an Euler circuit, an Euler trail (using every edge exactly once, not closed), or neither?",
    "answer": "An Euler trail from C to D, but no Euler circuit",
@@ -2890,7 +2908,7 @@
     "Connected with 0 odd vertices → Euler circuit; exactly 2 odd vertices → Euler trail between them; otherwise neither.",
     "An Euler trail from C to D, but no Euler circuit"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_trail). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_trail). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "An Euler circuit (every vertex has even degree)",
@@ -2922,9 +2940,9 @@
    ]
   },
   {
-   "id": "dm-gr-s05-honors-004",
+   "id": "dm-gr-s05-cp1-h004",
    "skillId": "graphs-trees-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Does the graph shown have an Euler circuit, an Euler trail (using every edge exactly once, not closed), or neither?",
    "answer": "An Euler trail from B to D, but no Euler circuit",
@@ -2933,7 +2951,7 @@
     "Connected with 0 odd vertices → Euler circuit; exactly 2 odd vertices → Euler trail between them; otherwise neither.",
     "An Euler trail from B to D, but no Euler circuit"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_trail). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_trail). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "An Euler circuit (every vertex has even degree)",
@@ -2976,7 +2994,8 @@
     "Every path is a trail"
    ],
    "solutionSteps": [
-    "Path ⊂ trail ⊂ walk."
+    "Path ⊂ trail ⊂ walk.",
+    "Option by option: ✗ A path may repeat an edge (not correct). ✗ Every trail is a path (not correct). ✓ A trail may repeat a vertex (correct). ✓ Every trail is a walk (correct). ✓ Every path is a trail (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: trail_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3018,7 +3037,8 @@
     "It has an Euler trail"
    ],
    "solutionSteps": [
-    "Exactly two odd vertices: an Euler trail starts at one and ends at the other."
+    "Exactly two odd vertices: an Euler trail starts at one and ends at the other.",
+    "Option by option: ✓ It has no Euler circuit (correct). ✗ It has an Euler circuit (not correct). ✓ The trail must start at an odd vertex (correct). ✓ It has an Euler trail (correct). ✗ Any vertex can start the Euler trail (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: trail_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3060,7 +3080,8 @@
     "K₃"
    ],
    "solutionSteps": [
-    "K_n has degree n − 1 at all n vertices: odd n → all even (circuit); n = 2 → two odd vertices (trail); even n ≥ 4 → more than 2 odd vertices."
+    "K_n has degree n − 1 at all n vertices: odd n → all even (circuit); n = 2 → two odd vertices (trail); even n ≥ 4 → more than 2 odd vertices.",
+    "Option by option: ✓ K₅ (correct). ✗ K₆ (not correct). ✓ K₂ (correct). ✗ K₄ (not correct). ✓ K₃ (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: trail_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3286,9 +3307,9 @@
    ]
   },
   {
-   "id": "dm-gr-s06-honors-001",
+   "id": "dm-gr-s06-cp1-h001",
    "skillId": "graphs-trees-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Does the graph shown have a Hamiltonian circuit (a cycle through every vertex exactly once)?",
    "answer": "Yes, for example A–B–C–D–E–F–A",
@@ -3296,7 +3317,7 @@
     "Search for a cycle visiting each vertex once (degree conditions alone do not decide this).",
     "Yes, for example A–B–C–D–E–F–A"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "No, because some vertex has odd degree",
@@ -3328,9 +3349,9 @@
    ]
   },
   {
-   "id": "dm-gr-s06-honors-002",
+   "id": "dm-gr-s06-cp1-h002",
    "skillId": "graphs-trees-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Does the graph shown have a Hamiltonian circuit (a cycle through every vertex exactly once)?",
    "answer": "Yes, for example A–B–C–D–A",
@@ -3338,7 +3359,7 @@
     "Search for a cycle visiting each vertex once (degree conditions alone do not decide this).",
     "Yes, for example A–B–C–D–A"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "No, because some vertex has odd degree",
@@ -3588,7 +3609,8 @@
     "K₂,₂"
    ],
    "solutionSteps": [
-    "All degrees even and connected."
+    "All degrees even and connected.",
+    "Option by option: ✗ K₄ (not correct). ✓ C₆ (correct). ✓ K₅ (correct). ✓ K₂,₂ (correct). ✗ A path with 3 vertices (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: circuit_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3630,7 +3652,8 @@
     "They start and end at the same vertex"
    ],
    "solutionSteps": [
-    "Visiting every vertex once is the Hamiltonian idea."
+    "Visiting every vertex once is the Hamiltonian idea.",
+    "Option by option: ✗ They visit every vertex exactly once (not correct). ✓ They need every degree to be even (connected graph) (correct). ✓ They use every edge exactly once (correct). ✗ They exist in every graph (not correct). ✓ They start and end at the same vertex (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: circuit_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3672,7 +3695,8 @@
     "K₄"
    ],
    "solutionSteps": [
-    "K₂,₃ would need the cycle to alternate sides equally (2 ≠ 3); trees have no cycles."
+    "K₂,₃ would need the cycle to alternate sides equally (2 ≠ 3); trees have no cycles.",
+    "Option by option: ✓ K₃,₃ (correct). ✓ C₇ (correct). ✓ K₄ (correct). ✗ A tree with 4 vertices (not correct). ✗ K₂,₃ (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: circuit_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3947,7 +3971,8 @@
    "prompt": "In the tree shown, which edge could be removed to leave exactly two components, one containing only F?",
    "answer": "EF",
    "solutionSteps": [
-    "Every edge of a tree is a bridge; removing EF isolates F."
+    "Every edge of a tree is a bridge; removing EF isolates F.",
+    "Answer: EF."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_read). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4076,7 +4101,8 @@
     "It has n − 1 edges"
    ],
    "solutionSteps": [
-    "Trees are connected and acyclic, with n − 1 edges and at least two leaves."
+    "Trees are connected and acyclic, with n − 1 edges and at least two leaves.",
+    "Option by option: ✗ Every vertex has degree at most 2 (not correct). ✓ It has at least two leaves (correct). ✓ It is connected (correct). ✓ It has n − 1 edges (correct). ✗ It contains a cycle (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4118,7 +4144,8 @@
     "A single vertex"
    ],
    "solutionSteps": [
-    "A tree is connected with no cycles; a single vertex counts."
+    "A tree is connected with no cycles; a single vertex counts.",
+    "Option by option: ✓ A star with one center and 4 leaves (correct). ✗ Two separate edges (not correct). ✓ A path with 5 vertices (correct). ✓ A single vertex (correct). ✗ A triangle (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4160,7 +4187,8 @@
     "G has n − 1 edges"
    ],
    "solutionSteps": [
-    "For connected graphs, each of n − 1 edges, acyclic, or minimally connected characterizes trees."
+    "For connected graphs, each of n − 1 edges, acyclic, or minimally connected characterizes trees.",
+    "Option by option: ✓ G has no cycles (correct). ✗ G has n edges (not correct). ✓ Removing any edge disconnects G (correct). ✓ G has n − 1 edges (correct). ✗ Every vertex has even degree (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4309,6 +4337,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AC, AF, BD, BF, DF, EF. Find deg(A).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing A.",
     "deg(A) = 2"
    ],
@@ -4344,6 +4373,7 @@
    "prompt": "A simple graph has vertices A, B, C, D and edges AB, AC, AD, BD. Find deg(D).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing D.",
     "deg(D) = 2"
    ],
@@ -4379,6 +4409,7 @@
    "prompt": "A simple graph has vertices A, B, C, D and edges AB, AC, AD, BC, BD, CD. Find deg(B).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing B.",
     "deg(B) = 3"
    ],
@@ -4414,6 +4445,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, BC, BD, DE. Find deg(E).",
    "answer": "1",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing E.",
     "deg(E) = 1"
    ],
@@ -4449,6 +4481,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AC, AD, AE, AF, AG, BC, BE, CG, DE, DF. Find deg(G).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing G.",
     "deg(G) = 2"
    ],
@@ -4484,6 +4517,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, AD, BC, BD, BE, CD, CE, DE. Find deg(E).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing E.",
     "deg(E) = 3"
    ],
@@ -4519,6 +4553,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AD, AE, BC, BD, CD, CF, DF. Find deg(A).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing A.",
     "deg(A) = 2"
    ],
@@ -4554,6 +4589,7 @@
    "prompt": "A simple graph has vertices A, B, C, D and edges AB, AC, AD, BD, CD. Find deg(A).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing A.",
     "deg(A) = 3"
    ],
@@ -4589,6 +4625,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AE, BC, BD, CD, CE, DE. Find deg(A).",
    "answer": "1",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing A.",
     "deg(A) = 1"
    ],
@@ -4624,6 +4661,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AC, AD, AF, BC, BD, BE, BG, DE, DF, DG. Find deg(G).",
    "answer": "2",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing G.",
     "deg(G) = 2"
    ],
@@ -4659,6 +4697,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, AD, AE, BD, BE, CD, CE. Find deg(D).",
    "answer": "3",
    "solutionSteps": [
+    "Each edge adds 1 to the degree of each endpoint, and a loop adds 2.",
     "Count edges containing D.",
     "deg(D) = 3"
    ],
@@ -5149,6 +5188,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, AE, BC, BE, DE. How many edges must be added to make it the complete graph K_5?",
    "answer": "4",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_5 has C(5, 2) = 10 edges.",
     "10 − 6 = 4"
    ],
@@ -5184,6 +5224,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AB, AC, AD, AG, CE, CG, DE, DF, DG. How many edges must be added to make it the complete graph K_7?",
    "answer": "12",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_7 has C(7, 2) = 21 edges.",
     "21 − 9 = 12"
    ],
@@ -5219,6 +5260,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AE, CD, CE, CF, DE, EF. How many edges must be added to make it the complete graph K_6?",
    "answer": "9",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_6 has C(6, 2) = 15 edges.",
     "15 − 6 = 9"
    ],
@@ -5254,6 +5296,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, BC, BE, CD. How many edges must be added to make it the complete graph K_5?",
    "answer": "5",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_5 has C(5, 2) = 10 edges.",
     "10 − 5 = 5"
    ],
@@ -5289,6 +5332,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AD, AE, BD, BF, BG, CG, DE, DF. How many edges must be added to make it the complete graph K_7?",
    "answer": "13",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_7 has C(7, 2) = 21 edges.",
     "21 − 8 = 13"
    ],
@@ -5324,6 +5368,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AB, AC, AD, CE, DE. How many edges must be added to make it the complete graph K_5?",
    "answer": "5",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_5 has C(5, 2) = 10 edges.",
     "10 − 5 = 5"
    ],
@@ -5359,6 +5404,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AC, AF, BC, BE, DE. How many edges must be added to make it the complete graph K_6?",
    "answer": "10",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_6 has C(6, 2) = 15 edges.",
     "15 − 5 = 10"
    ],
@@ -5394,6 +5440,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AB, AC, AF, CD, CE, CG, DG, FG. How many edges must be added to make it the complete graph K_7?",
    "answer": "13",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_7 has C(7, 2) = 21 edges.",
     "21 − 8 = 13"
    ],
@@ -5429,6 +5476,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AE, AF, BC, BD, BE, BF, CD, DF, DG, EG. How many edges must be added to make it the complete graph K_7?",
    "answer": "11",
    "solutionSteps": [
+    "K_n joins every pair of n vertices, K_m,n joins every vertex on one side to every vertex on the other, and C_n is a single cycle.",
     "K_7 has C(7, 2) = 21 edges.",
     "21 − 10 = 11"
    ],
@@ -6619,6 +6667,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AB, AC, AD, AE, BC, BD, BE, BF, BG, CD, CE, CF, DE, DF, DG, EF, EG. How many edges must be removed to leave a spanning tree?",
    "answer": "11",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 7 vertices has 6 edges.",
     "17 − 6 = 11"
    ],
@@ -6654,6 +6703,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AF, BC, CD, CE, CF, DE, DF. How many edges must be removed to leave a spanning tree?",
    "answer": "2",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 6 vertices has 5 edges.",
     "7 − 5 = 2"
    ],
@@ -6689,6 +6739,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AC, AD, BE, CE. How many edges must be removed to leave a spanning tree?",
    "answer": "0",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 5 vertices has 4 edges.",
     "4 − 4 = 0"
    ],
@@ -6724,6 +6775,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AC, AD, AF, BF, CD, CE, DE, DF, EF, EG, FG. How many edges must be removed to leave a spanning tree?",
    "answer": "5",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 7 vertices has 6 edges.",
     "11 − 6 = 5"
    ],
@@ -6759,6 +6811,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AC, AD, AE, AF, BC, BF, CD, CE, DE, DF, EF. How many edges must be removed to leave a spanning tree?",
    "answer": "6",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 6 vertices has 5 edges.",
     "11 − 5 = 6"
    ],
@@ -6794,6 +6847,7 @@
    "prompt": "A simple graph has vertices A, B, C, D and edges AB, BC, CD. How many edges must be removed to leave a spanning tree?",
    "answer": "0",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 4 vertices has 3 edges.",
     "3 − 3 = 0"
    ],
@@ -6829,6 +6883,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AB, AC, BD, CF, EF. How many edges must be removed to leave a spanning tree?",
    "answer": "0",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 6 vertices has 5 edges.",
     "5 − 5 = 0"
    ],
@@ -6864,6 +6919,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AC, BC, BD, CD, CE. How many edges must be removed to leave a spanning tree?",
    "answer": "1",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 5 vertices has 4 edges.",
     "5 − 4 = 1"
    ],
@@ -6899,6 +6955,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AE, BC, BE, BF, DE, DF, EF. How many edges must be removed to leave a spanning tree?",
    "answer": "2",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 6 vertices has 5 edges.",
     "7 − 5 = 2"
    ],
@@ -6934,6 +6991,7 @@
    "prompt": "A simple graph has vertices A, B, C, D and edges AB, BD, CD. How many edges must be removed to leave a spanning tree?",
    "answer": "0",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 4 vertices has 3 edges.",
     "3 − 3 = 0"
    ],
@@ -6969,6 +7027,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F and edges AC, AE, AF, BF, CD, CF, DE. How many edges must be removed to leave a spanning tree?",
    "answer": "2",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 6 vertices has 5 edges.",
     "7 − 5 = 2"
    ],
@@ -7004,6 +7063,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E, F, G and edges AC, AG, BF, BG, CG, DF, DG, EF, FG. How many edges must be removed to leave a spanning tree?",
    "answer": "3",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 7 vertices has 6 edges.",
     "9 − 6 = 3"
    ],
@@ -7039,6 +7099,7 @@
    "prompt": "A simple graph has vertices A, B, C, D, E and edges AC, AD, BC, BE, CD. How many edges must be removed to leave a spanning tree?",
    "answer": "1",
    "solutionSteps": [
+    "Trees have n − 1 edges, and the degree sum 2(n − 1) ties degrees, edges and leaves together.",
     "A spanning tree on 5 vertices has 4 edges.",
     "5 − 4 = 1"
    ],
@@ -7416,8 +7477,8 @@
    "prompt": "A graph has 11 edges. What is the sum of its degrees?",
    "answer": "22",
    "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 22"
+    "Handshake theorem: each edge adds 1 to the degree of each endpoint, so Σ deg = 2|E|.",
+    "2·11 = 22."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7433,8 +7494,8 @@
    "prompt": "How many edges does K_2,4 have?",
    "answer": "8",
    "solutionSteps": [
-    "mn.",
-    "Answer: 8"
+    "K_2,4 joins each of the 2 vertices on one side to each of the 4 on the other.",
+    "2·4 = 8 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7468,8 +7529,8 @@
    "prompt": "In K_8, what is the degree of each vertex?",
    "answer": "7",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 7"
+    "Each vertex is joined to every other vertex.",
+    "Degree = 8 − 1 = 7."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7503,8 +7564,8 @@
    "prompt": "A graph has 12 edges. What is the sum of its degrees?",
    "answer": "24",
    "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 24"
+    "Handshake theorem: each edge adds 1 to the degree of each endpoint, so Σ deg = 2|E|.",
+    "2·12 = 24."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7538,8 +7599,8 @@
    "prompt": "How many edges does K_3,5 have?",
    "answer": "15",
    "solutionSteps": [
-    "mn.",
-    "Answer: 15"
+    "K_3,5 joins each of the 3 vertices on one side to each of the 5 on the other.",
+    "3·5 = 15 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7555,8 +7616,8 @@
    "prompt": "A forest has 15 vertices and 3 trees. How many edges?",
    "answer": "12",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 12"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "15 − 3 = 12."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7590,45 +7651,10 @@
    "prompt": "A graph has 13 edges. What is the sum of its degrees?",
    "answer": "26",
    "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 26"
+    "Handshake theorem: each edge adds 1 to the degree of each endpoint, so Σ deg = 2|E|.",
+    "2·13 = 26."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-cp2-017",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "In K_10, what is the degree of each vertex?",
-   "answer": "9",
-   "solutionSteps": [
-    "n − 1.",
-    "Answer: 9"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "9",
-     "correct": true
-    },
-    {
-     "text": "8",
-     "correct": false
-    },
-    {
-     "text": "10",
-     "correct": false
-    },
-    {
-     "text": "11",
-     "correct": false
-    }
-   ],
    "standards": [
     "MP.4",
     "DM.GRAPHS"
@@ -7642,8 +7668,8 @@
    "prompt": "A forest has 16 vertices and 3 trees. How many edges?",
    "answer": "13",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 13"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "16 − 3 = 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7659,8 +7685,8 @@
    "prompt": "How many edges does K_5,7 have?",
    "answer": "35",
    "solutionSteps": [
-    "mn.",
-    "Answer: 35"
+    "K_5,7 joins each of the 5 vertices on one side to each of the 7 on the other.",
+    "5·7 = 35 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7676,8 +7702,8 @@
    "prompt": "A forest has 17 vertices and 3 trees. How many edges?",
    "answer": "14",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 14"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "17 − 3 = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7704,58 +7730,6 @@
    ]
   },
   {
-   "id": "dm-gr-s01-cp2-018",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "A graph has 14 edges. What is the sum of its degrees?",
-   "answer": "28",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 28"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-cp2-019",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "A graph has 15 edges. What is the sum of its degrees?",
-   "answer": "30",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 30"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "29",
-     "correct": false
-    },
-    {
-     "text": "30",
-     "correct": true
-    },
-    {
-     "text": "31",
-     "correct": false
-    },
-    {
-     "text": "32",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
    "id": "dm-gr-s03-cp2-014",
    "skillId": "graphs-trees-skill-03",
    "level": "cp2",
@@ -7763,8 +7737,8 @@
    "prompt": "How many edges does K_6,8 have?",
    "answer": "48",
    "solutionSteps": [
-    "mn.",
-    "Answer: 48"
+    "K_6,8 joins each of the 6 vertices on one side to each of the 8 on the other.",
+    "6·8 = 48 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7780,8 +7754,8 @@
    "prompt": "A forest has 19 vertices and 3 trees. How many edges?",
    "answer": "16",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 16"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "19 − 3 = 16."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7808,75 +7782,6 @@
    ]
   },
   {
-   "id": "dm-gr-s03-cp2-015",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many edges does the complete graph K_9 have?",
-   "answer": "36",
-   "solutionSteps": [
-    "C(9, 2).",
-    "Answer: 36"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-cp2-020",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "A graph has 16 edges. What is the sum of its degrees?",
-   "answer": "32",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 32"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-cp2-016",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp2",
-   "format": "multiple-choice",
-   "prompt": "How many edges does K_7,9 have?",
-   "answer": "63",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 63"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "62",
-     "correct": false
-    },
-    {
-     "text": "63",
-     "correct": true
-    },
-    {
-     "text": "64",
-     "correct": false
-    },
-    {
-     "text": "65",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
    "id": "dm-gr-s03-cp1-012",
    "skillId": "graphs-trees-skill-03",
    "level": "cp1",
@@ -7884,8 +7789,8 @@
    "prompt": "How many edges does the complete graph K_6 have?",
    "answer": "15",
    "solutionSteps": [
-    "C(6, 2).",
-    "Answer: 15"
+    "Every pair of the 6 vertices is joined by one edge.",
+    "C(6, 2) = 6·5/2 = 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7901,8 +7806,8 @@
    "prompt": "How many edges does a tree with 9 vertices have?",
    "answer": "8",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 8"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "9 − 1 = 8."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7936,8 +7841,8 @@
    "prompt": "How many edges does K_4,6 have?",
    "answer": "24",
    "solutionSteps": [
-    "mn.",
-    "Answer: 24"
+    "K_4,6 joins each of the 4 vertices on one side to each of the 6 on the other.",
+    "4·6 = 24 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7971,8 +7876,8 @@
    "prompt": "How many edges does a Hamiltonian cycle in a graph with 7 vertices use?",
    "answer": "7",
    "solutionSteps": [
-    "One edge per vertex.",
-    "Answer: 7"
+    "A Hamiltonian cycle visits each vertex once and returns to the start.",
+    "With 7 vertices it uses 7 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7988,8 +7893,8 @@
    "prompt": "How many edges does a tree with 10 vertices have?",
    "answer": "9",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 9"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "10 − 1 = 9."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8005,8 +7910,8 @@
    "prompt": "How many edges does the complete graph K_7 have?",
    "answer": "21",
    "solutionSteps": [
-    "C(7, 2).",
-    "Answer: 21"
+    "Every pair of the 7 vertices is joined by one edge.",
+    "C(7, 2) = 7·6/2 = 21."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8022,8 +7927,8 @@
    "prompt": "In K_12, what is the degree of each vertex?",
    "answer": "11",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 11"
+    "Each vertex is joined to every other vertex.",
+    "Degree = 12 − 1 = 11."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8057,8 +7962,8 @@
    "prompt": "In K_14, what is the degree of each vertex?",
    "answer": "13",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 13"
+    "Each vertex is joined to every other vertex.",
+    "Degree = 14 − 1 = 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8092,8 +7997,8 @@
    "prompt": "A forest has 20 vertices and 3 trees. How many edges?",
    "answer": "17",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 17"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "20 − 3 = 17."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8109,8 +8014,8 @@
    "prompt": "How many edges does the complete graph K_10 have?",
    "answer": "45",
    "solutionSteps": [
-    "C(10, 2).",
-    "Answer: 45"
+    "Every pair of the 10 vertices is joined by one edge.",
+    "C(10, 2) = 10·9/2 = 45."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8144,8 +8049,8 @@
    "prompt": "A graph has 17 edges. What is the sum of its degrees?",
    "answer": "34",
    "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 34"
+    "Handshake theorem: each edge adds 1 to the degree of each endpoint, so Σ deg = 2|E|.",
+    "2·17 = 34."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8172,23 +8077,6 @@
    ]
   },
   {
-   "id": "dm-gr-s03-cp1-016",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many edges does K_8,10 have?",
-   "answer": "80",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 80"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
    "id": "dm-gr-s01-cp1-014",
    "skillId": "graphs-trees-skill-01",
    "level": "cp1",
@@ -8196,8 +8084,8 @@
    "prompt": "In K_15, what is the degree of each vertex?",
    "answer": "14",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 14"
+    "Each vertex is joined to every other vertex.",
+    "Degree = 15 − 1 = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8213,8 +8101,8 @@
    "prompt": "A forest has 21 vertices and 3 trees. How many edges?",
    "answer": "18",
    "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 18"
+    "A tree with k vertices has k − 1 edges, so a forest with c trees has n − c edges.",
+    "21 − 3 = 18."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8241,196 +8129,6 @@
    ]
   },
   {
-   "id": "dm-gr-s03-cp1-017",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many edges does the complete graph K_11 have?",
-   "answer": "55",
-   "solutionSteps": [
-    "C(11, 2).",
-    "Answer: 55"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-cp1-015",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "A graph has 18 edges. What is the sum of its degrees?",
-   "answer": "36",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 36"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-cp1-018",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many edges does K_9,11 have?",
-   "answer": "99",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 99"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "99",
-     "correct": true
-    },
-    {
-     "text": "98",
-     "correct": false
-    },
-    {
-     "text": "100",
-     "correct": false
-    },
-    {
-     "text": "101",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s07-cp1-016",
-   "skillId": "graphs-trees-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "A forest has 22 vertices and 3 trees. How many edges?",
-   "answer": "19",
-   "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 19"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-cp1-019",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "How many edges does the complete graph K_12 have?",
-   "answer": "66",
-   "solutionSteps": [
-    "C(12, 2).",
-    "Answer: 66"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "65",
-     "correct": false
-    },
-    {
-     "text": "66",
-     "correct": true
-    },
-    {
-     "text": "67",
-     "correct": false
-    },
-    {
-     "text": "68",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-cp1-016",
-   "skillId": "graphs-trees-skill-01",
-   "level": "cp1",
-   "format": "multiple-choice",
-   "prompt": "A graph has 19 edges. What is the sum of its degrees?",
-   "answer": "38",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 38"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "37",
-     "correct": false
-    },
-    {
-     "text": "39",
-     "correct": false
-    },
-    {
-     "text": "40",
-     "correct": false
-    },
-    {
-     "text": "38",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-cp1-020",
-   "skillId": "graphs-trees-skill-03",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many edges does K_10,12 have?",
-   "answer": "120",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 120"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-012",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many edges does the complete graph K_8 have?",
-   "answer": "28",
-   "solutionSteps": [
-    "C(8, 2).",
-    "Answer: 28"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
    "id": "dm-gr-s07-honors-012",
    "skillId": "graphs-trees-skill-07",
    "level": "honors",
@@ -8438,8 +8136,8 @@
    "prompt": "How many edges does a tree with 11 vertices have?",
    "answer": "10",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 10"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "11 − 1 = 10."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8473,25 +8171,8 @@
    "prompt": "How many edges does a Hamiltonian cycle in a graph with 9 vertices use?",
    "answer": "9",
    "solutionSteps": [
-    "One edge per vertex.",
-    "Answer: 9"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s07-honors-013",
-   "skillId": "graphs-trees-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "A forest has 18 vertices and 3 trees. How many edges?",
-   "answer": "15",
-   "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 15"
+    "A Hamiltonian cycle visits each vertex once and returns to the start.",
+    "With 9 vertices it uses 9 edges."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8507,8 +8188,8 @@
    "prompt": "How many edges does a tree with 12 vertices have?",
    "answer": "11",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 11"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "12 − 1 = 11."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8524,8 +8205,8 @@
    "prompt": "How many edges does a tree with 14 vertices have?",
    "answer": "13",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 13"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "14 − 1 = 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8559,267 +8240,8 @@
    "prompt": "How many edges does a tree with 15 vertices have?",
    "answer": "14",
    "solutionSteps": [
-    "n − 1.",
-    "Answer: 14"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-honors-012",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In K_17, what is the degree of each vertex?",
-   "answer": "16",
-   "solutionSteps": [
-    "n − 1.",
-    "Answer: 16"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s07-honors-017",
-   "skillId": "graphs-trees-skill-07",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "A forest has 23 vertices and 3 trees. How many edges?",
-   "answer": "20",
-   "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 20"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "20",
-     "correct": true
-    },
-    {
-     "text": "19",
-     "correct": false
-    },
-    {
-     "text": "21",
-     "correct": false
-    },
-    {
-     "text": "22",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-013",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many edges does the complete graph K_13 have?",
-   "answer": "78",
-   "solutionSteps": [
-    "C(13, 2).",
-    "Answer: 78"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-honors-013",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "A graph has 20 edges. What is the sum of its degrees?",
-   "answer": "40",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 40"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-014",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many edges does K_11,13 have?",
-   "answer": "143",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 143"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "143",
-     "correct": true
-    },
-    {
-     "text": "142",
-     "correct": false
-    },
-    {
-     "text": "144",
-     "correct": false
-    },
-    {
-     "text": "145",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s07-honors-018",
-   "skillId": "graphs-trees-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "A forest has 24 vertices and 3 trees. How many edges?",
-   "answer": "21",
-   "solutionSteps": [
-    "n − (number of trees).",
-    "Answer: 21"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-015",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "How many edges does the complete graph K_14 have?",
-   "answer": "91",
-   "solutionSteps": [
-    "C(14, 2).",
-    "Answer: 91"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "90",
-     "correct": false
-    },
-    {
-     "text": "91",
-     "correct": true
-    },
-    {
-     "text": "92",
-     "correct": false
-    },
-    {
-     "text": "93",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-honors-014",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "A graph has 21 edges. What is the sum of its degrees?",
-   "answer": "42",
-   "solutionSteps": [
-    "Handshake theorem.",
-    "Answer: 42"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "41",
-     "correct": false
-    },
-    {
-     "text": "43",
-     "correct": false
-    },
-    {
-     "text": "44",
-     "correct": false
-    },
-    {
-     "text": "42",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-016",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many edges does K_12,14 have?",
-   "answer": "168",
-   "solutionSteps": [
-    "mn.",
-    "Answer: 168"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-honors-015",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In K_18, what is the degree of each vertex?",
-   "answer": "17",
-   "solutionSteps": [
-    "n − 1.",
-    "Answer: 17"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.GRAPHS"
-   ]
-  },
-  {
-   "id": "dm-gr-s03-honors-017",
-   "skillId": "graphs-trees-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many edges does the complete graph K_15 have?",
-   "answer": "105",
-   "solutionSteps": [
-    "C(15, 2).",
-    "Answer: 105"
+    "A tree with n vertices always has n − 1 edges (connected, no cycles).",
+    "15 − 1 = 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
