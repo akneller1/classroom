@@ -3910,27 +3910,27 @@
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Which function could match the graph?",
-   "answer": "f(x) = 1/2x(x + 3)(x - 2)",
+   "answer": "f(x) = (1/2)x(x + 3)(x - 2)",
    "solutionSteps": [
     "Read the x-intercepts and whether the graph crosses (odd multiplicity) or touches (even).",
     "Check end behavior and the y-intercept to fix the leading coefficient.",
-    "f(x) = 1/2x(x + 3)(x - 2); f(0) = 0."
+    "f(x) = (1/2)x(x + 3)(x - 2); f(0) = 0."
    ],
    "options": [
     {
-     "text": "f(x) = 1/2x(x + 3)(x - 2)",
+     "text": "f(x) = (1/2)x(x + 3)(x - 2)",
      "correct": true
     },
     {
-     "text": "f(x) = -1/2x(x + 3)(x - 2)",
+     "text": "f(x) = -(1/2)x(x + 3)(x - 2)",
      "correct": false
     },
     {
-     "text": "f(x) = 1/2x(x + 2)(x - 3)",
+     "text": "f(x) = (1/2)x(x + 2)(x - 3)",
      "correct": false
     },
     {
-     "text": "f(x) = 1/2x(x + 3)²(x - 2)",
+     "text": "f(x) = (1/2)x(x + 3)²(x - 2)",
      "correct": false
     }
    ],
@@ -4000,23 +4000,23 @@
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Which function could match the graph?",
-   "answer": "f(x) = 1/4(x + 2)²(x - 2)²",
+   "answer": "f(x) = (1/4)(x + 2)²(x - 2)²",
    "solutionSteps": [
     "Read the x-intercepts and whether the graph crosses (odd multiplicity) or touches (even).",
     "Check end behavior and the y-intercept to fix the leading coefficient.",
-    "f(x) = 1/4(x + 2)²(x - 2)²; f(0) = 4."
+    "f(x) = (1/4)(x + 2)²(x - 2)²; f(0) = 4."
    ],
    "options": [
     {
-     "text": "f(x) = -1/4(x + 2)²(x - 2)²",
+     "text": "f(x) = -(1/4)(x + 2)²(x - 2)²",
      "correct": false
     },
     {
-     "text": "f(x) = 1/4(x + 2)(x - 2)",
+     "text": "f(x) = (1/4)(x + 2)(x - 2)",
      "correct": false
     },
     {
-     "text": "f(x) = 1/4(x + 2)²(x - 2)²",
+     "text": "f(x) = (1/4)(x + 2)²(x - 2)²",
      "correct": true
     }
    ],
@@ -4252,16 +4252,13 @@
     "f(-x) = x³ - 4x = -f(x).",
     "Odd degree, negative lead: up on the left, down on the right.",
     "-x(x - 2)(x + 2).",
-    "Degree 3 → ≤ 2 turning points."
+    "Degree 3 → ≤ 2 turning points.",
+    "Every choice is correct, so select all four."
    ],
    "options": [
     {
      "text": "f is an odd function",
      "correct": true
-    },
-    {
-     "text": "f is an even function",
-     "correct": false
     },
     {
      "text": "f has zeros at -2, 0, and 2",
@@ -4274,10 +4271,6 @@
     {
      "text": "f rises to the left",
      "correct": true
-    },
-    {
-     "text": "f rises to the right",
-     "correct": false
     }
    ],
    "standards": [
@@ -8102,7 +8095,7 @@
    "skillId": "polynomial-functions-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Polynomial operations): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Multiply and simplify: (2x - 1)(5x² + 3x + 2).",
@@ -8366,7 +8359,7 @@
    "skillId": "polynomial-functions-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Special products and factoring): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Expand: (x - 3)²",
@@ -8494,13 +8487,14 @@
    "skillId": "polynomial-functions-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Carmen answered this problem incorrectly.\nFactor completely: x³ + 8\nCarmen's answer: x³ + 8\nIdentify the mistake and give the correct answer.",
+   "prompt": "Carmen answered this problem incorrectly.\nFactor completely: x³ + 8\nCarmen's answer: (x + 2)(x² + 2x + 4)\nIdentify the mistake and give the correct answer.",
    "answer": "(x + 2)(x² - 2x + 4)",
    "solutionSteps": [
-    "Mistake: Did not factor.",
-    "Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping).",
+    "Mistake: The middle term of the trinomial factor has the wrong sign.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²) and a³ - b³ = (a - b)(a² + ab + b²): the middle sign is the opposite of the sign in the binomial.",
     "x³ + 8 = (x + 2)(x² - 2x + 4).",
-    "The correct answer is (x + 2)(x² - 2x + 4), not x³ + 8."
+    "Check by multiplying: the x² and x terms cancel and only x³ + 8 is left.",
+    "The correct answer is (x + 2)(x² - 2x + 4), not (x + 2)(x² + 2x + 4)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -8776,7 +8770,7 @@
    "skillId": "polynomial-functions-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Long division and synthetic division): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Divide (-3x² - 8x + 3) ÷ (x + 3). Give the quotient and the remainder.",
@@ -9179,7 +9173,7 @@
    "skillId": "polynomial-functions-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Remainder and factor theorems): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Use the Remainder Theorem to find the remainder when P(x) = 3x² + 6x + 1 is divided by x - 2.",
@@ -9722,7 +9716,7 @@
    "skillId": "polynomial-functions-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Zeros and multiplicities): answer each part and show your work.",
    "parts": [
     {
      "prompt": "x = -2 is a zero of P(x) = x³ - 3x² - 10x. Find the other two zeros.",
@@ -9955,7 +9949,7 @@
    "skillId": "polynomial-functions-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Zeros and multiplicities): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Find all real zeros of P(x) = x³ - 2x² - 13x - 10.",
@@ -10251,7 +10245,7 @@
    "skillId": "polynomial-functions-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphing polynomial functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Describe the end behavior of f(x) = 3x⁵ - 6x - 5.",
@@ -10534,7 +10528,7 @@
    "skillId": "polynomial-functions-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Graphing polynomial functions): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Describe the end behavior of f(x) = 5x⁵ - 9x⁴ + 3x³ + 5x² - 6x + 6.",
@@ -10786,7 +10780,7 @@
    "skillId": "polynomial-functions-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Fundamental theorem of algebra): answer each part and show your work.",
    "parts": [
     {
      "prompt": "How many complex zeros (counting multiplicity) does f(x) = 5x² + 5x - 6 have?",
@@ -11170,7 +11164,7 @@
    "skillId": "polynomial-functions-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Polynomial equations and applications): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve x³ - 6x² - 4x + 24 = 0.",
@@ -11466,7 +11460,7 @@
    "skillId": "polynomial-functions-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Polynomial equations and applications): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Solve x³ + 2x² - 16x - 32 = 0.",
@@ -16470,7 +16464,7 @@
    "skillId": "polynomial-functions-skill-09",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Binomial Theorem and Pascal's Triangle): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Write row 5 of Pascal's triangle (the row that begins 1, 5).",
@@ -16863,7 +16857,7 @@
    "skillId": "polynomial-functions-skill-09",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Binomial Theorem and Pascal's Triangle): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Evaluate the binomial coefficient ₁₀C₉.",
@@ -17257,7 +17251,7 @@
    "skillId": "polynomial-functions-skill-09",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Answer each part. Show your work.",
+   "prompt": "Practice set (Binomial Theorem and Pascal's Triangle): answer each part and show your work.",
    "parts": [
     {
      "prompt": "Evaluate the binomial coefficient ₈C₇.",

@@ -35,4 +35,4 @@ const functionAdditions=require('../tests/fixtures/function-graph-items.json').f
 const auditGapItems=48; // 2026-11-16: Binomial Theorem and Pascal's Triangle
 assert.equal(total,4667+additions+functionAdditions+auditGapItems); // Original bank plus reviewed November 15 additions
 assert.equal(skills.size,88);
-console.log('PASS 11 Algebra 2 banks, '+total+' questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');
+console.log('PASS 11 Algebra 2 banks, '+total+' questions, '+skills.size+' skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');

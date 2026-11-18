@@ -24,10 +24,11 @@ course.units.forEach(function(unit,ui){
  records.forEach(function(skill,si){
   var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):((G.MKPLAN_TEACH||{})[courseId]||{})[skill.id];
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
+  if(meta&&meta.enrich)title+=' (enrichment)';
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,
    day_type:'Lesson',lesson_id:id,title:title,standards:std(skill.id),
-   content_objective:'Students will be able to '+verb+'.',
+   content_objective:'Students will be able to '+verb+'.'+(meta&&meta.enrich?' Enrichment: beyond the Massachusetts Algebra II standards; optional for Support and Standard classes.':''),
    language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
    key_vocabulary:meta&&meta.voc?meta.voc.map(function(w){return w[0];}).join(', '):'',common_misconception:meta&&meta.watch?meta.watch:'',notes_style:'Guided notes',
