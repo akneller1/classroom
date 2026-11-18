@@ -247,8 +247,9 @@
    "prompt": "A student simplifies (x + 6)/(x + 2) to 3 by canceling the x's and dividing 6 by 2. What is correct?",
    "answer": "It is already simplified; you can only cancel common FACTORS",
    "solutionSteps": [
-    "x is a term, not a factor, of x + 6.",
-    "Check x = 1: 7/3 ≠ 3."
+    "Only common factors cancel. In x + 6 and x + 2, the x is a term being added, not a factor of the whole numerator or denominator.",
+    "Test a value: x = 1 gives 7/3, not 3, so the student's result is wrong.",
+    "x + 6 and x + 2 share no factor, so (x + 6)/(x + 2) is already simplified; you can only cancel common FACTORS."
    ],
    "options": [
     {
@@ -281,7 +282,9 @@
    "prompt": "Which expression equals (x - 5)/(5 - x) for x ≠ 5?",
    "answer": "-1",
    "solutionSteps": [
-    "5 - x = -(x - 5)."
+    "Factor -1 out of the denominator: 5 - x = -(x - 5).",
+    "(x - 5)/(5 - x) = (x - 5)/(-(x - 5)).",
+    "For x ≠ 5 the common factor cancels, leaving -1."
    ],
    "options": [
     {
@@ -480,7 +483,9 @@
    "prompt": "Simplify 12x³/(18x).",
    "answer": "2x²/3, x ≠ 0",
    "solutionSteps": [
-    "Divide coefficients 12/18 = 2/3 and x³/x = x²."
+    "Simplify the coefficients: 12/18 = 2/3.",
+    "Simplify the powers: x³/x = x².",
+    "12x³/(18x) = 2x²/3, x ≠ 0 (x = 0 made the original denominator 0)."
    ],
    "standards": [
     "A-APR.D.6"
@@ -495,7 +500,9 @@
    "prompt": "Simplify (4x + 8)/(x + 2).",
    "answer": "4, x ≠ -2",
    "solutionSteps": [
-    "4(x + 2)/(x + 2)."
+    "Factor the numerator: 4x + 8 = 4(x + 2).",
+    "Cancel the common factor (x + 2): 4(x + 2)/(x + 2) = 4.",
+    "The result is 4, x ≠ -2 (x = -2 made the original denominator 0)."
    ],
    "standards": [
     "A-APR.D.6"
@@ -510,7 +517,9 @@
    "prompt": "What value is excluded from the domain of 5/(x - 7)?",
    "answer": "7",
    "solutionSteps": [
-    "The denominator cannot be 0."
+    "A rational expression is undefined when its denominator is 0.",
+    "x - 7 = 0 when x = 7.",
+    "So 7 is excluded from the domain."
    ],
    "options": [
     {
@@ -713,7 +722,9 @@
    "prompt": "What is the first step to divide ((x + 1)/x) ÷ ((x² - 1)/x²)?",
    "answer": "Multiply by the reciprocal: (x + 1)/x · x²/(x² - 1)",
    "solutionSteps": [
-    "Division by a fraction = multiplication by its reciprocal."
+    "Dividing by a fraction is the same as multiplying by its reciprocal.",
+    "The reciprocal of (x² - 1)/x² is x²/(x² - 1).",
+    "First step: multiply by the reciprocal: (x + 1)/x · x²/(x² - 1)."
    ],
    "options": [
     {
@@ -746,7 +757,9 @@
    "prompt": "A student simplifies (x/3)·(6/x²) and writes 2x. What is the correct result?",
    "answer": "2/x",
    "solutionSteps": [
-    "6x/(3x²) = 2/x."
+    "Multiply numerators and denominators: (x·6)/(3·x²) = 6x/(3x²).",
+    "Simplify: 6/3 = 2 and x/x² = 1/x.",
+    "The product is 2/x, not 2x."
    ],
    "options": [
     {
@@ -783,7 +796,10 @@
     "(x² - 1)/(x - 1)"
    ],
    "solutionSteps": [
-    "(x - 1)(x + 1)(x + 2)/((x + 2)(x - 1)) = x + 1."
+    "Factor x² - 1 = (x - 1)(x + 1): the product is (x - 1)(x + 1)(x + 2)/((x + 2)(x - 1)).",
+    "Cancel (x + 2) and (x - 1): the product equals x + 1 (for allowed x).",
+    "(x + 1)(x - 1)/(x - 1) and (x² - 1)/(x - 1) also simplify to x + 1; the other choices do not.",
+    "Equal: x + 1, (x + 1)(x - 1)/(x - 1) and (x² - 1)/(x - 1)."
    ],
    "options": [
     {
@@ -991,7 +1007,9 @@
    "prompt": "Multiply (3/x)·(x²/9).",
    "answer": "x/3, x ≠ 0",
    "solutionSteps": [
-    "3x²/(9x) = x/3."
+    "Multiply numerators and denominators: 3x²/(9x).",
+    "Simplify: 3/9 = 1/3 and x²/x = x.",
+    "The product is x/3, x ≠ 0."
    ],
    "standards": [
     "A-APR.D.7"
@@ -1006,7 +1024,9 @@
    "prompt": "Divide (5/x) ÷ (10/x³).",
    "answer": "x²/2, x ≠ 0",
    "solutionSteps": [
-    "5/x · x³/10 = x²/2."
+    "Multiply by the reciprocal: 5/x · x³/10.",
+    "= 5x³/(10x); simplify 5/10 = 1/2 and x³/x = x².",
+    "The quotient is x²/2, x ≠ 0."
    ],
    "standards": [
     "A-APR.D.7"
@@ -1021,7 +1041,9 @@
    "prompt": "What is the reciprocal of (x - 2)/(x + 5)?",
    "answer": "(x + 5)/(x - 2)",
    "solutionSteps": [
-    "Swap numerator and denominator."
+    "The reciprocal of a fraction swaps its numerator and denominator.",
+    "The reciprocal of (x - 2)/(x + 5) is (x + 5)/(x - 2).",
+    "Check: their product is 1 (for x ≠ 2, -5)."
    ],
    "options": [
     {
@@ -1241,7 +1263,9 @@
    "prompt": "A student writes 1/x + 1/y = 2/(x + y). What is correct?",
    "answer": "(x + y)/(xy)",
    "solutionSteps": [
-    "LCD xy: y/(xy) + x/(xy)."
+    "To add fractions you need a common denominator; you cannot add the denominators. The LCD of x and y is xy.",
+    "1/x = y/(xy) and 1/y = x/(xy).",
+    "1/x + 1/y = (x + y)/(xy)."
    ],
    "options": [
     {
@@ -1346,7 +1370,10 @@
     "(2x + 2 + 3x)/(x² + x)"
    ],
    "solutionSteps": [
-    "LCD x(x + 1): (2(x + 1) + 3x)/(x(x + 1)) = (5x + 2)/(x² + x)."
+    "The LCD of x and x + 1 is x(x + 1).",
+    "2/x = 2(x + 1)/(x(x + 1)) and 3/(x + 1) = 3x/(x(x + 1)), so the sum is (2x + 2 + 3x)/(x(x + 1)) = (5x + 2)/(x(x + 1)).",
+    "x(x + 1) = x² + x, so (5x + 2)/(x² + x) and (2x + 2 + 3x)/(x² + x) are the same expression.",
+    "Equal: (5x + 2)/(x(x + 1)), (5x + 2)/(x² + x) and (2x + 2 + 3x)/(x² + x)."
    ],
    "options": [
     {
@@ -1492,7 +1519,9 @@
    "prompt": "Simplify 4/x + 7/x.",
    "answer": "11/x",
    "solutionSteps": [
-    "Same denominator: add numerators."
+    "The fractions already have the same denominator x.",
+    "Add the numerators: 4 + 7 = 11.",
+    "4/x + 7/x = 11/x."
    ],
    "standards": [
     "A-APR.D.7"
@@ -1507,7 +1536,9 @@
    "prompt": "Simplify 9/(2x) - 3/(2x).",
    "answer": "3/x",
    "solutionSteps": [
-    "6/(2x) = 3/x."
+    "Same denominator 2x: subtract the numerators, 9 - 3 = 6.",
+    "6/(2x) = 3/x.",
+    "9/(2x) - 3/(2x) = 3/x."
    ],
    "standards": [
     "A-APR.D.7"
@@ -1709,8 +1740,9 @@
    "prompt": "Solve 3/x = 6/(x + 4).",
    "answer": "x = 4",
    "solutionSteps": [
-    "Cross-multiply: 3x + 12 = 6x.",
-    "x = 4."
+    "Cross-multiply: 3(x + 4) = 6x, so 3x + 12 = 6x.",
+    "Subtract 3x: 12 = 3x, so x = 4.",
+    "Check: 3/4 = 6/8 ✓, and x = 4 makes no denominator 0. So x = 4."
    ],
    "standards": [
     "A-REI.A.2"
@@ -1725,7 +1757,9 @@
    "prompt": "Solve x/(x - 2) = 3/5.",
    "answer": "x = -3",
    "solutionSteps": [
-    "5x = 3x - 6 → x = -3."
+    "Cross-multiply: 5x = 3(x - 2) = 3x - 6.",
+    "2x = -6, so x = -3.",
+    "Check: -3/(-5) = 3/5 ✓. So x = -3."
    ],
    "standards": [
     "A-REI.A.2"
@@ -1740,7 +1774,9 @@
    "prompt": "Solve 2/(x + 1) = (x - 1)/4.",
    "answer": "x = 3 or x = -3",
    "solutionSteps": [
-    "x² - 1 = 8 → x² = 9."
+    "Cross-multiply: 2·4 = (x - 1)(x + 1), so 8 = x² - 1.",
+    "x² = 9, so x = 3 or x = -3.",
+    "Neither makes x + 1 = 0. Check x = 3: 2/4 = 2/4 ✓; x = -3: 2/(-2) = -4/4 ✓. So x = 3 or x = -3."
    ],
    "standards": [
     "A-REI.A.2"
@@ -1755,7 +1791,9 @@
    "prompt": "Solve 1/x + 1/(2x) = 1/4.",
    "answer": "x = 6",
    "solutionSteps": [
-    "LCD 4x: 4 + 2 = x."
+    "The LCD is 4x. Multiply every term by 4x: 4 + 2 = x.",
+    "So x = 6.",
+    "Check: 1/6 + 1/12 = 3/12 = 1/4 ✓. So x = 6."
    ],
    "standards": [
     "A-REI.A.2"
@@ -1770,7 +1808,9 @@
    "prompt": "Solve x/3 - 4/x = 1/3.",
    "answer": "x = 4 or x = -3",
    "solutionSteps": [
-    "Multiply by 3x: x² - 12 = x → x² - x - 12 = 0."
+    "Multiply every term by 3x: x² - 12 = x.",
+    "x² - x - 12 = 0, so (x - 4)(x + 3) = 0.",
+    "x = 4 or x = -3; neither is 0, so both are valid: x = 4 or x = -3."
    ],
    "standards": [
     "A-REI.A.2"
@@ -1801,7 +1841,9 @@
    "prompt": "What should you multiply both sides of 2/x + 1/(x - 3) = 4 by?",
    "answer": "x(x - 3)",
    "solutionSteps": [
-    "Use the LCD of all denominators."
+    "To clear all fractions, multiply both sides by the least common denominator of every term.",
+    "The denominators are x and x - 3, which share no factor.",
+    "So multiply by x(x - 3)."
    ],
    "options": [
     {
@@ -1837,7 +1879,9 @@
     "3"
    ],
    "solutionSteps": [
-    "x² - 5x + 6 = 0 → x = 2 or 3."
+    "Multiply every term by x (x ≠ 0): x² + 6 = 5x.",
+    "x² - 5x + 6 = 0, so (x - 2)(x - 3) = 0.",
+    "x = 2 or x = 3; check: 2 + 3 = 5 ✓ and 3 + 2 = 5 ✓. The solutions are 2 and 3."
    ],
    "options": [
     {
@@ -1881,8 +1925,9 @@
     "-3"
    ],
    "solutionSteps": [
-    "x² - 1 = 8 → x² = 9.",
-    "±1 are excluded."
+    "The denominator x² - 1 is 0 at x = ±1, so those values are excluded.",
+    "Multiply by x² - 1: 8 = x² - 1, so x² = 9 and x = 3 or x = -3.",
+    "Neither is excluded, so the solutions are 3 and -3."
    ],
    "options": [
     {
@@ -2076,8 +2121,9 @@
    "prompt": "Solve x/(x - 4) = 4/(x - 4) + 3. Identify any extraneous solutions.",
    "answer": "no solution (x = 4 is extraneous)",
    "solutionSteps": [
-    "x = 4 + 3(x - 4) → x = 4.",
-    "x = 4 makes the denominator 0."
+    "Excluded value: x = 4. Multiply every term by (x - 4): x = 4 + 3(x - 4).",
+    "x = 4 + 3x - 12, so -2x = -8 and x = 4.",
+    "x = 4 makes the denominator 0, so it is extraneous: no solution (x = 4 is extraneous)."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2092,8 +2138,9 @@
    "prompt": "Solve x²/(x - 1) = 1/(x - 1). Identify any extraneous solutions.",
    "answer": "x = -1 (x = 1 is extraneous)",
    "solutionSteps": [
-    "x² = 1 → x = ±1.",
-    "x = 1 is excluded."
+    "Excluded value: x = 1. Multiply both sides by (x - 1): x² = 1.",
+    "x = 1 or x = -1.",
+    "x = 1 is excluded (extraneous); check x = -1: 1/(-2) = 1/(-2) ✓. So x = -1 (x = 1 is extraneous)."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2108,8 +2155,9 @@
    "prompt": "Solve 6/(x² - 9) = 1/(x - 3). Identify any extraneous solutions.",
    "answer": "no solution (x = 3 is extraneous)",
    "solutionSteps": [
-    "6 = x + 3 → x = 3.",
-    "x = 3 is excluded."
+    "x² - 9 = (x - 3)(x + 3), so x = ±3 are excluded. Multiply by (x - 3)(x + 3): 6 = x + 3.",
+    "x = 3.",
+    "x = 3 is excluded, so it is extraneous: no solution (x = 3 is extraneous)."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2156,8 +2204,9 @@
    "prompt": "Solve 1/(x - 5) + 1/(x + 5) = 10/(x² - 25). Identify any extraneous solutions.",
    "answer": "no solution (x = 5 is extraneous)",
    "solutionSteps": [
-    "(x + 5) + (x - 5) = 10 → x = 5.",
-    "x = 5 is excluded."
+    "x² - 25 = (x - 5)(x + 5), so x = ±5 are excluded. Multiply by (x - 5)(x + 5): (x + 5) + (x - 5) = 10.",
+    "2x = 10, so x = 5.",
+    "x = 5 is excluded: no solution (x = 5 is extraneous)."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2172,7 +2221,9 @@
    "prompt": "Why must you check solutions of rational equations?",
    "answer": "Multiplying by an expression containing x can introduce values that make a denominator 0",
    "solutionSteps": [
-    "Clearing denominators can add solutions that are excluded values."
+    "To clear denominators we multiply both sides by an expression containing x.",
+    "If that expression is 0 for some x, the new equation can be true there even though the original is undefined.",
+    "So multiplying by an expression containing x can introduce values that make a denominator 0, and every solution must be checked."
    ],
    "options": [
     {
@@ -2205,7 +2256,9 @@
    "prompt": "A student solving an equation with denominators x - 2 and x + 1 obtains x = 2 after clearing denominators. What should the student conclude?",
    "answer": "x = 2 is extraneous; check the original equation",
    "solutionSteps": [
-    "x = 2 makes a denominator 0."
+    "The original equation has the denominator x - 2, which is 0 at x = 2, so x = 2 is excluded from the start.",
+    "A value that comes from the cleared equation but makes the original undefined is extraneous.",
+    "So x = 2 is extraneous; check the original equation (it has no solution if 2 was the only candidate)."
    ],
    "options": [
     {
@@ -2367,7 +2420,9 @@
    "prompt": "Find the excluded value of 4/(2x + 6).",
    "answer": "x = -3",
    "solutionSteps": [
-    "2x + 6 = 0."
+    "The expression is undefined when the denominator is 0: 2x + 6 = 0.",
+    "2x = -6.",
+    "The excluded value is x = -3."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2382,7 +2437,9 @@
    "prompt": "Solve 3/(x - 1) = 3/(x - 1) + 2 and explain.",
    "answer": "no solution",
    "solutionSteps": [
-    "Subtracting gives 0 = 2, a false statement."
+    "Subtract 3/(x - 1) from both sides: 0 = 2.",
+    "The variable is gone and the statement is false.",
+    "No value of x makes it true: no solution."
    ],
    "standards": [
     "A-REI.A.2"
@@ -2559,7 +2616,9 @@
    "prompt": "If the numerator has degree 1 and the denominator has degree 2, what is the horizontal asymptote?",
    "answer": "y = 0",
    "solutionSteps": [
-    "Bottom-heavy → y = 0; equal → ratio; top-heavy → none."
+    "For large |x|, a rational function behaves like the ratio of its leading terms.",
+    "Degree 1 over degree 2 is like a/(bx), which approaches 0 as |x| grows.",
+    "So the horizontal asymptote is y = 0."
    ],
    "options": [
     {
@@ -2592,7 +2651,9 @@
    "prompt": "If the numerator has degree 2 and the denominator has degree 2, what is the horizontal asymptote?",
    "answer": "y = ratio of leading coefficients",
    "solutionSteps": [
-    "Bottom-heavy → y = 0; equal → ratio; top-heavy → none."
+    "For large |x| the function behaves like ax²/(bx²) = a/b.",
+    "So it approaches the constant a/b.",
+    "The horizontal asymptote is y = ratio of leading coefficients."
    ],
    "options": [
     {
@@ -2625,7 +2686,9 @@
    "prompt": "If the numerator has degree 3 and the denominator has degree 2, what is the horizontal asymptote?",
    "answer": "no horizontal asymptote",
    "solutionSteps": [
-    "Bottom-heavy → y = 0; equal → ratio; top-heavy → none."
+    "For large |x| the function behaves like ax³/(bx²) = (a/b)x, which grows without bound.",
+    "So y does not level off at any constant.",
+    "There is no horizontal asymptote (there is a slant asymptote instead)."
    ],
    "options": [
     {
@@ -2658,7 +2721,9 @@
    "prompt": "A student says f(x) = (x - 2)/((x - 2)(x + 5)) has vertical asymptotes x = 2 and x = -5. What is correct?",
    "answer": "Only x = -5; x = 2 is a hole",
    "solutionSteps": [
-    "Common factors give holes, not asymptotes."
+    "The factor (x - 2) appears in both numerator and denominator, so it cancels: f(x) = 1/(x + 5) for x ≠ 2.",
+    "A canceled factor gives a hole, not an asymptote; the hole is at x = 2.",
+    "The remaining denominator x + 5 is 0 at x = -5, so only x = -5 is a vertical asymptote; x = 2 is a hole."
    ],
    "options": [
     {
@@ -2691,7 +2756,9 @@
    "prompt": "Can a graph cross its horizontal asymptote?",
    "answer": "Yes; a horizontal asymptote describes end behavior only",
    "solutionSteps": [
-    "Example: y = x/(x² + 1) crosses y = 0 at x = 0."
+    "A horizontal asymptote describes what happens as x → ±∞, not for every x.",
+    "Example: y = x/(x² + 1) has horizontal asymptote y = 0, but y = 0 at x = 0, so the graph crosses it.",
+    "Yes; a horizontal asymptote describes end behavior only."
    ],
    "options": [
     {
@@ -2948,8 +3015,9 @@
    "prompt": "Which equation matches the graph?",
    "answer": "y = 1/(x - 2) + 1",
    "solutionSteps": [
-    "Asymptotes give h and k.",
-    "The point (3, 2) gives a = 1."
+    "Read the asymptotes from the graph: vertical x = 2 and horizontal y = 1, so y = a/(x - 2) + 1.",
+    "Use a point on the graph, (3, 2): 2 = a/(3 - 2) + 1, so a = 1.",
+    "The equation is y = 1/(x - 2) + 1."
    ],
    "options": [
     {
@@ -3032,8 +3100,9 @@
    "prompt": "Which equation matches the graph?",
    "answer": "y = -2/(x + 1)",
    "solutionSteps": [
-    "Asymptotes give h and k.",
-    "The point (0, -2) gives a = -2."
+    "The asymptotes are x = -1 and y = 0, so y = a/(x + 1).",
+    "Use the point (0, -2): -2 = a/(0 + 1), so a = -2.",
+    "The equation is y = -2/(x + 1)."
    ],
    "options": [
     {
@@ -3116,8 +3185,9 @@
    "prompt": "Which equation matches the graph?",
    "answer": "y = 3/x - 2",
    "solutionSteps": [
-    "Asymptotes give h and k.",
-    "The point (1, 1) gives a = 3."
+    "The asymptotes are x = 0 and y = -2, so y = a/x - 2.",
+    "Use the point (1, 1): 1 = a/1 - 2, so a = 3.",
+    "The equation is y = 3/x - 2."
    ],
    "options": [
     {
@@ -3200,8 +3270,9 @@
    "prompt": "Which equation matches the graph?",
    "answer": "y = 1/(x + 3) + 2",
    "solutionSteps": [
-    "Asymptotes give h and k.",
-    "The point (-2, 3) gives a = 1."
+    "The asymptotes are x = -3 and y = 2, so y = a/(x + 3) + 2.",
+    "Use the point (-2, 3): 3 = a/1 + 2, so a = 1.",
+    "The equation is y = 1/(x + 3) + 2."
    ],
    "options": [
     {
@@ -3284,8 +3355,9 @@
    "prompt": "Which equation matches the graph?",
    "answer": "y = -1/(x - 1) - 1",
    "solutionSteps": [
-    "Asymptotes give h and k.",
-    "The point (2, -2) gives a = -1."
+    "The asymptotes are x = 1 and y = -1, so y = a/(x - 1) - 1.",
+    "Use the point (2, -2): -2 = a/1 - 1, so a = -1.",
+    "The equation is y = -1/(x - 1) - 1."
    ],
    "options": [
     {
@@ -3540,7 +3612,9 @@
    "prompt": "How is y = 1/(x + 4) - 3 related to y = 1/x?",
    "answer": "Shifted left 4 and down 3",
    "solutionSteps": [
-    "(x + 4) → left 4; -3 → down 3."
+    "Replacing x with x + 4 inside moves the graph left 4 (the asymptote x = 0 becomes x = -4).",
+    "Subtracting 3 outside moves it down 3 (the asymptote y = 0 becomes y = -3).",
+    "y = 1/(x + 4) - 3 is y = 1/x shifted left 4 and down 3."
    ],
    "options": [
     {
@@ -3573,7 +3647,9 @@
    "prompt": "Describe the end behavior of y = (2x² - 1)/(x² + 3).",
    "answer": "y → 2 as x → ±∞",
    "solutionSteps": [
-    "Equal degrees: ratio 2/1."
+    "The numerator and denominator both have degree 2.",
+    "For large |x| the function behaves like 2x²/x² = 2.",
+    "End behavior: y → 2 as x → ±∞ (horizontal asymptote y = 2)."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -3588,7 +3664,9 @@
    "prompt": "For y = 1/(x - 3)², describe the behavior near x = 3.",
    "answer": "y → +∞ from both sides",
    "solutionSteps": [
-    "The squared denominator is positive on both sides of 3."
+    "Near x = 3 the denominator (x - 3)² is a small positive number on both sides.",
+    "1 divided by a small positive number is a large positive number.",
+    "So y → +∞ from both sides of x = 3."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -3603,8 +3681,9 @@
    "prompt": "y varies inversely with x, and y = 9 when x = 4. Write the equation and find y when x = 6.",
    "answer": "y = 36/x; y = 6",
    "solutionSteps": [
-    "Find k: k = xy = 36.",
-    "y = 6."
+    "Inverse variation: y = k/x, so k = xy = 4 · 9 = 36.",
+    "The equation is y = 36/x.",
+    "At x = 6: y = 36/6 = 6. So y = 36/x; y = 6."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3620,8 +3699,9 @@
    "prompt": "y varies inversely with x, and y = 3 when x = 10. Write the equation and find y when x = 5.",
    "answer": "y = 30/x; y = 6",
    "solutionSteps": [
-    "Find k: k = xy = 30.",
-    "y = 6."
+    "Inverse variation: k = xy = 10 · 3 = 30, so y = 30/x.",
+    "At x = 5: y = 30/5.",
+    "y = 30/x; y = 6."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3637,8 +3717,9 @@
    "prompt": "y varies directly with x, and y = 12 when x = 3. Write the equation and find y when x = 7.",
    "answer": "y = 4x; y = 28",
    "solutionSteps": [
-    "Find k: k = y/x = 4.",
-    "y = 28."
+    "Direct variation: y = kx, so k = y/x = 12/3 = 4.",
+    "The equation is y = 4x.",
+    "At x = 7: y = 4 · 7 = 28. So y = 4x; y = 28."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3654,8 +3735,9 @@
    "prompt": "y varies inversely with x, and y = 8 when x = 1/2. Write the equation and find y when x = 2.",
    "answer": "y = 4/x; y = 2",
    "solutionSteps": [
-    "Find k: k = xy = 4.",
-    "y = 2."
+    "Inverse variation: k = xy = (1/2) · 8 = 4, so y = 4/x.",
+    "At x = 2: y = 4/2.",
+    "y = 4/x; y = 2."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3671,8 +3753,9 @@
    "prompt": "y varies jointly with x and z. y = 30 when x = 2 and z = 3. Find y when x = 5 and z = 4.",
    "answer": "y = 5xz; y = 100",
    "solutionSteps": [
-    "Find k: k = y/(xz) = 5.",
-    "y = 100."
+    "Joint variation: y = kxz, so k = y/(xz) = 30/(2 · 3) = 5.",
+    "The equation is y = 5xz.",
+    "At x = 5, z = 4: y = 5 · 5 · 4 = 100. So y = 5xz; y = 100."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3693,7 +3776,10 @@
     "x = 3/y"
    ],
    "solutionSteps": [
-    "Inverse variation: xy = k (k ≠ 0)."
+    "Inverse variation means xy = k for a nonzero constant k, i.e. y = k/x.",
+    "y = 5/x (xy = 5), xy = 12, y = 0.4/x (xy = 0.4) and x = 3/y (xy = 3) all have a constant product.",
+    "y = 5 - x is linear, and y = x/5 and y = 5x are direct variation.",
+    "Inverse variation: y = 5/x, xy = 12, y = 0.4/x and x = 3/y."
    ],
    "options": [
     {
@@ -3739,7 +3825,9 @@
    "prompt": "Which table shows inverse variation?",
    "answer": "x: 1, 2, 4; y: 12, 6, 3",
    "solutionSteps": [
-    "The product xy is constant (12)."
+    "In inverse variation the product xy is the same for every pair.",
+    "For x: 1, 2, 4 and y: 12, 6, 3 the products are 12, 12, 12.",
+    "So the table x: 1, 2, 4; y: 12, 6, 3 shows inverse variation."
    ],
    "options": [
     {
@@ -3773,7 +3861,9 @@
    "prompt": "If y varies inversely with x and x is tripled, what happens to y?",
    "answer": "y is divided by 3",
    "solutionSteps": [
-    "xy = k: tripling x forces y to one-third."
+    "Inverse variation: xy = k, a constant.",
+    "If x becomes 3x, then (3x)·y_new = k = xy, so y_new = y/3.",
+    "y is divided by 3."
    ],
    "options": [
     {
@@ -3807,8 +3897,9 @@
    "prompt": "Two pipes fill a tank in 6 h and 3 h. How long together?",
    "answer": "2 hours",
    "solutionSteps": [
-    "1/6 + 1/3 = 1/2 tank per hour.",
-    "Time = 2 hours."
+    "Rates add: the first pipe fills 1/6 of the tank per hour and the second 1/3.",
+    "Together: 1/6 + 1/3 = 1/6 + 2/6 = 1/2 tank per hour.",
+    "Time = 1 ÷ (1/2) = 2 hours."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3824,8 +3915,9 @@
    "prompt": "One printer takes 4 h and together with a second they take 1.5 h. How long does the second take alone?",
    "answer": "2.4 hours",
    "solutionSteps": [
-    "1/4 + 1/t = 2/3 → 1/t = 5/12.",
-    "t = 12/5."
+    "Together they finish in 1.5 h, so their combined rate is 1/1.5 = 2/3 job per hour; the first printer's rate is 1/4.",
+    "1/4 + 1/t = 2/3, so 1/t = 2/3 - 1/4 = 8/12 - 3/12 = 5/12.",
+    "t = 12/5 = 2.4 hours."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3841,8 +3933,9 @@
    "prompt": "A boat goes 24 mi upstream and 24 mi back in 5 h total. Its speed in still water is 10 mph. Find the current's speed.",
    "answer": "2 mph",
    "solutionSteps": [
-    "24/(10 - c) + 24/(10 + c) = 5.",
-    "480 = 5(100 - c²) → c² = 4."
+    "Upstream speed is 10 - c and downstream speed is 10 + c; time = distance ÷ speed: 24/(10 - c) + 24/(10 + c) = 5.",
+    "Multiply by (10 - c)(10 + c): 24(10 + c) + 24(10 - c) = 5(100 - c²), so 480 = 500 - 5c².",
+    "5c² = 20, so c² = 4 and c = 2 (a speed is positive). The current is 2 mph."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3858,8 +3951,9 @@
    "prompt": "How many liters of pure acid must be added to 10 L of a 20% solution to make a 50% solution?",
    "answer": "6 L",
    "solutionSteps": [
-    "(2 + x)/(10 + x) = 0.5.",
-    "2 + x = 5 + 0.5x → x = 6."
+    "10 L of 20% solution contains 2 L of acid. Adding x L of pure acid gives 2 + x L of acid in 10 + x L.",
+    "Set the concentration to 50%: (2 + x)/(10 + x) = 0.5.",
+    "2 + x = 5 + 0.5x, so 0.5x = 3 and x = 6. Add 6 L."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3875,8 +3969,9 @@
    "prompt": "The average cost of producing x items is C(x) = (500 + 4x)/x. Find C(100) and the horizontal asymptote, and interpret it.",
    "answer": "$9; y = 4: average cost approaches $4 per item",
    "solutionSteps": [
-    "C(100) = 900/100.",
-    "Degrees equal: 4/1."
+    "C(100) = (500 + 4·100)/100 = 900/100 = $9 per item.",
+    "Numerator and denominator have degree 1, so the horizontal asymptote is the ratio of leading coefficients: y = 4/1 = 4.",
+    "$9; y = 4: as production grows, the fixed $500 is spread over more items, so the average cost approaches $4 per item."
    ],
    "standards": [
     "A-CED.A.1",
@@ -3892,10 +3987,10 @@
    "prompt": "The intensity of light varies inversely with the square of the distance: I = k/d². I = 40 lux at d = 3 m.",
    "answer": "(a) 360; (b) 10 lux; (c) It is divided by 4; (d) 2 m",
    "solutionSteps": [
-    "k = 40·9.",
-    "360/36.",
-    "(2d)² = 4d².",
-    "d² = 4."
+    "(a) k = I·d² = 40 · 3² = 360.",
+    "(b) I = 360/6² = 360/36 = 10 lux.",
+    "(c) Doubling d makes d² four times as large, so I is divided by 4.",
+    "(d) 90 = 360/d², so d² = 4 and d = 2 m."
    ],
    "parts": [
     {
@@ -3966,10 +4061,10 @@
    "prompt": "Working together, Ana and Ben clean a garage in 3 hours. Ana alone takes 5 hours.",
    "answer": "(a) 1/5 garage per hour; (b) 1/5 + 1/t = 1/3; (c) 7.5 hours; (d) 1/5 + 2/15 = 3/15 + 2/15 = 1/3",
    "solutionSteps": [
-    "Rate = 1/time.",
-    "Rates add.",
-    "1/t = 2/15.",
-    "Substitute."
+    "(a) Ana does the job in 5 hours, so her rate is 1/5 garage per hour.",
+    "(b) Rates add to the combined rate 1/3: 1/5 + 1/t = 1/3.",
+    "(c) 1/t = 1/3 - 1/5 = 5/15 - 3/15 = 2/15, so t = 15/2 = 7.5 hours.",
+    "(d) 1/5 + 2/15 = 3/15 + 2/15 = 5/15 = 1/3 ✓."
    ],
    "parts": [
     {
@@ -4003,7 +4098,9 @@
    "prompt": "y varies inversely with x; y = 2 when x = 15. Find k.",
    "answer": "k = 30",
    "solutionSteps": [
-    "k = xy."
+    "Inverse variation: y = k/x, so k = xy.",
+    "k = 15 · 2.",
+    "k = 30."
    ],
    "standards": [
     "A-CED.A.1",
@@ -4019,7 +4116,9 @@
    "prompt": "Which equation models 'y varies directly with x²'?",
    "answer": "y = kx²",
    "solutionSteps": [
-    "Direct variation with x²."
+    "'y varies directly with x²' means y is a constant multiple of x².",
+    "So y = k·x² for some nonzero constant k.",
+    "The model is y = kx²."
    ],
    "options": [
     {
@@ -4285,7 +4384,9 @@
    "prompt": "Simplify (x² + 2x - 15)/(x² - 9) and state the excluded values.",
    "answer": "(x + 5)/(x + 3); x ≠ ±3",
    "solutionSteps": [
-    "(x + 5)(x - 3)/((x - 3)(x + 3))."
+    "Factor: x² + 2x - 15 = (x + 5)(x - 3) and x² - 9 = (x - 3)(x + 3).",
+    "The original denominator is 0 at x = 3 and x = -3, so both are excluded.",
+    "Cancel (x - 3): (x + 5)/(x + 3); x ≠ ±3."
    ],
    "standards": [
     "A-APR.D.6"
@@ -4441,7 +4542,10 @@
     "(x² - 4)/x · x²/(x + 2)"
    ],
    "solutionSteps": [
-    "(x - 2)(x + 2)/x · x²/(x + 2) = x(x - 2)."
+    "Multiply by the reciprocal: (x² - 4)/x · x²/(x + 2), which is itself one of the choices.",
+    "Factor x² - 4 = (x - 2)(x + 2) and cancel (x + 2) and one x: x(x - 2).",
+    "x(x - 2) = x² - 2x.",
+    "Equal: x(x - 2), x² - 2x and (x² - 4)/x · x²/(x + 2)."
    ],
    "options": [
     {
@@ -4518,7 +4622,9 @@
    "prompt": "Multiply (x + 4)/(x - 3) · (x² - 9)/(x² + 4x).",
    "answer": "(x + 3)/x",
    "solutionSteps": [
-    "(x + 4)/(x - 3) · (x - 3)(x + 3)/(x(x + 4))."
+    "Factor: x² - 9 = (x - 3)(x + 3) and x² + 4x = x(x + 4).",
+    "The product is (x + 4)(x - 3)(x + 3)/((x - 3)·x(x + 4)).",
+    "Cancel (x + 4) and (x - 3): (x + 3)/x."
    ],
    "standards": [
     "A-APR.D.7"
@@ -4533,7 +4639,9 @@
    "prompt": "Simplify ((x³ - 1)/(x² - 1)) ÷ ((x² + x + 1)/(x + 1)).",
    "answer": "1",
    "solutionSteps": [
-    "(x - 1)(x² + x + 1)/((x - 1)(x + 1)) · (x + 1)/(x² + x + 1)."
+    "Factor: x³ - 1 = (x - 1)(x² + x + 1) and x² - 1 = (x - 1)(x + 1).",
+    "Multiply by the reciprocal: (x - 1)(x² + x + 1)/((x - 1)(x + 1)) · (x + 1)/(x² + x + 1).",
+    "Every factor cancels, leaving 1 (for allowed x)."
    ],
    "standards": [
     "A-APR.D.7"
@@ -4657,7 +4765,10 @@
     "(x + 2 - x + 2)/(x² - 4)"
    ],
    "solutionSteps": [
-    "LCD (x - 2)(x + 2): ((x + 2) - (x - 2))/(x² - 4) = 4/(x² - 4)."
+    "The LCD is (x - 2)(x + 2) = x² - 4.",
+    "1/(x - 2) - 1/(x + 2) = ((x + 2) - (x - 2))/(x² - 4) = (x + 2 - x + 2)/(x² - 4) = 4/(x² - 4).",
+    "4/((x - 2)(x + 2)) is the same expression with the denominator factored.",
+    "Equal: 4/(x² - 4), 4/((x - 2)(x + 2)) and (x + 2 - x + 2)/(x² - 4)."
    ],
    "options": [
     {
@@ -4734,8 +4845,9 @@
    "prompt": "Simplify 1/(x + h) - 1/x and then divide the result by h.",
    "answer": "-1/(x(x + h))",
    "solutionSteps": [
-    "(x - (x + h))/(x(x + h)) = -h/(x(x + h)).",
-    "Divide by h."
+    "Subtract with the LCD x(x + h): 1/(x + h) - 1/x = (x - (x + h))/(x(x + h)).",
+    "The numerator is x - x - h = -h, so the difference is -h/(x(x + h)).",
+    "Divide by h: -1/(x(x + h))."
    ],
    "standards": [
     "A-APR.D.7"
@@ -4750,7 +4862,9 @@
    "prompt": "Simplify 2/(3x) + 5/(6x²).",
    "answer": "(4x + 5)/(6x²)",
    "solutionSteps": [
-    "LCD 6x²: 4x/(6x²) + 5/(6x²)."
+    "The LCD of 3x and 6x² is 6x².",
+    "2/(3x) = 2·2x/(6x²) = 4x/(6x²).",
+    "Add: 4x/(6x²) + 5/(6x²) = (4x + 5)/(6x²)."
    ],
    "standards": [
     "A-APR.D.7"
@@ -4765,7 +4879,9 @@
    "prompt": "What is the LCD of 1/(4x) and 1/(6x²)?",
    "answer": "12x²",
    "solutionSteps": [
-    "LCM of 4 and 6 is 12; highest power x²."
+    "The LCD uses the least common multiple of the coefficients and the highest power of each variable.",
+    "LCM of 4 and 6 is 12; the highest power of x is x².",
+    "The LCD is 12x²."
    ],
    "options": [
     {
@@ -4798,7 +4914,9 @@
    "prompt": "Solve 4/(x + 1) = 2/(x - 3).",
    "answer": "x = 7",
    "solutionSteps": [
-    "4(x - 3) = 2(x + 1) → 2x = 14."
+    "Cross-multiply: 4(x - 3) = 2(x + 1), so 4x - 12 = 2x + 2.",
+    "2x = 14, so x = 7.",
+    "Check: 4/8 = 2/4 ✓. So x = 7."
    ],
    "options": [
     {
@@ -4831,7 +4949,9 @@
    "prompt": "Solve x - 8/x = 2.",
    "answer": "x = 4 or x = -2",
    "solutionSteps": [
-    "x² - 2x - 8 = 0 → (x - 4)(x + 2) = 0."
+    "Multiply every term by x (x ≠ 0): x² - 8 = 2x.",
+    "x² - 2x - 8 = 0, so (x - 4)(x + 2) = 0.",
+    "x = 4 or x = -2; both check (4 - 2 = 2 and -2 + 4 = 2)."
    ],
    "options": [
     {
@@ -4943,10 +5063,10 @@
    "prompt": "Solve x/(x + 2) + 1/x = 1.",
    "answer": "(a) x(x + 2); (b) x² + x + 2 = x² + 2x; (c) x = 2; (d) 2/4 + 1/2 = 1 ✓",
    "solutionSteps": [
-    "Product.",
-    "Multiply each term.",
-    "x = 2.",
-    "Substitute."
+    "(a) The denominators are x + 2 and x, so the LCD is x(x + 2).",
+    "(b) Multiply every term by x(x + 2): x·x + (x + 2) = x(x + 2), so x² + x + 2 = x² + 2x.",
+    "(c) Subtract x² + x: 2 = x, so x = 2.",
+    "(d) 2/4 + 1/2 = 1 ✓."
    ],
    "parts": [
     {
@@ -4979,7 +5099,9 @@
    "prompt": "Solve 6/x = 3/4.",
    "answer": "x = 8",
    "solutionSteps": [
-    "Cross-multiply: 3x = 24."
+    "Cross-multiply: 3x = 6 · 4 = 24.",
+    "Divide by 3: x = 8.",
+    "Check: 6/8 = 3/4 ✓. So x = 8."
    ],
    "standards": [
     "A-REI.A.2"
@@ -4994,8 +5116,9 @@
    "prompt": "Solve (x + 1)/5 = 3/x. Give exact solutions.",
    "answer": "x = (-1 ± √61)/2",
    "solutionSteps": [
-    "x² + x = 15 → x² + x - 15 = 0.",
-    "Quadratic formula."
+    "Cross-multiply: x(x + 1) = 15, so x² + x - 15 = 0.",
+    "Quadratic formula with a = 1, b = 1, c = -15: x = (-1 ± √(1 + 60))/2.",
+    "x = (-1 ± √61)/2; neither is 0, so both are solutions."
    ],
    "standards": [
     "A-REI.A.2"
@@ -5168,8 +5291,9 @@
    "prompt": "Solve (x + 3)/(x - 3) = 6/(x - 3) + 2.",
    "answer": "x = 3 is extraneous; no solution",
    "solutionSteps": [
-    "x + 3 = 6 + 2x - 6 → x = 3.",
-    "x = 3 is excluded."
+    "Excluded value: x = 3. Multiply every term by (x - 3): x + 3 = 6 + 2(x - 3) = 2x.",
+    "So x = 3.",
+    "x = 3 makes the denominator 0, so it is extraneous; no solution."
    ],
    "options": [
     {
@@ -5202,7 +5326,9 @@
    "prompt": "Which equation has an extraneous solution?",
    "answer": "x/(x + 2) = -2/(x + 2)",
    "solutionSteps": [
-    "x = -2 makes the denominator 0."
+    "Solve x/(x + 2) = -2/(x + 2): multiply by (x + 2) to get x = -2.",
+    "But x = -2 makes the denominator 0, so it is excluded.",
+    "So x/(x + 2) = -2/(x + 2) has an extraneous solution (and no actual solution)."
    ],
    "options": [
     {
@@ -5235,10 +5361,10 @@
    "prompt": "Solve 1 + 4/(x - 2) = x/(x - 2).",
    "answer": "(a) x = 2; (b) x - 2 + 4 = x; (c) 2 = 0; (d) no solution",
    "solutionSteps": [
-    "x - 2 ≠ 0.",
-    "Multiply by x - 2.",
-    "False statement.",
-    "No x works."
+    "(a) x - 2 ≠ 0, so x = 2 is excluded.",
+    "(b) Multiply every term by x - 2: x - 2 + 4 = x.",
+    "(c) Simplify: x + 2 = x, so 2 = 0, a false statement.",
+    "(d) No value of x works: no solution."
    ],
    "parts": [
     {
@@ -5307,7 +5433,9 @@
    "prompt": "State the domain of f(x) = (x + 5)/(x² - 25).",
    "answer": "all real numbers except x = 5 and x = -5",
    "solutionSteps": [
-    "x² - 25 = 0 → x = ±5."
+    "The function is undefined where the denominator is 0: x² - 25 = 0.",
+    "x² = 25, so x = 5 or x = -5.",
+    "Domain: all real numbers except x = 5 and x = -5."
    ],
    "standards": [
     "A-REI.A.2"
@@ -5322,8 +5450,9 @@
    "prompt": "Solve x/(x + 1) = 2 - 1/(x + 1).",
    "answer": "no solution (x = -1 is extraneous)",
    "solutionSteps": [
-    "x = 2(x + 1) - 1 → x = -1.",
-    "x = -1 is excluded."
+    "Excluded value: x = -1. Multiply every term by (x + 1): x = 2(x + 1) - 1 = 2x + 1.",
+    "So x = -1.",
+    "x = -1 is excluded: no solution (x = -1 is extraneous)."
    ],
    "standards": [
     "A-REI.A.2"
@@ -5551,10 +5680,10 @@
    "prompt": "f(x) = (2x - 1)/(x + 3).",
    "answer": "(a) x = -3; (b) y = 2; (c) (1/2, 0); (d) (0, -1/3)",
    "solutionSteps": [
-    "x + 3 = 0.",
-    "2/1.",
-    "2x - 1 = 0.",
-    "f(0)."
+    "(a) The denominator x + 3 is 0 at x = -3 and the numerator is not 0 there: vertical asymptote x = -3.",
+    "(b) Equal degrees: y = 2/1, so y = 2.",
+    "(c) The numerator is 0 when 2x - 1 = 0, x = 1/2: x-intercept (1/2, 0).",
+    "(d) f(0) = -1/3: y-intercept (0, -1/3)."
    ],
    "parts": [
     {
@@ -5587,7 +5716,9 @@
    "prompt": "Find the vertical asymptote of y = 5/(x + 7).",
    "answer": "x = -7",
    "solutionSteps": [
-    "x + 7 = 0."
+    "A vertical asymptote occurs where the denominator is 0 (and the numerator is not).",
+    "x + 7 = 0 when x = -7.",
+    "The vertical asymptote is x = -7."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5602,8 +5733,9 @@
    "prompt": "Find the intercepts of y = 2/(x - 1) - 1.",
    "answer": "x-intercept (3, 0); y-intercept (0, -3)",
    "solutionSteps": [
-    "Set y = 0 and solve for x.",
-    "Set x = 0."
+    "x-intercept: set y = 0, so 2/(x - 1) = 1 and x - 1 = 2, giving x = 3.",
+    "y-intercept: set x = 0, so y = 2/(-1) - 1 = -3.",
+    "x-intercept (3, 0); y-intercept (0, -3)."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5622,8 +5754,10 @@
     "The y-intercept is (0, -3)"
    ],
    "solutionSteps": [
-    "Asymptotes x = h, y = k.",
-    "Evaluate at x = 0."
+    "y = a/(x - h) + k has asymptotes x = h and y = k: here x = 1 and y = -1 (not y = 2 or x = -1).",
+    "x = 1 is excluded, so the domain is not all real numbers.",
+    "At x = 0: y = 2/(-1) - 1 = -3, so the y-intercept is (0, -3).",
+    "True: x = 1 is a vertical asymptote, y = -1 is a horizontal asymptote, and the y-intercept is (0, -3)."
    ],
    "options": [
     {
@@ -5664,8 +5798,9 @@
    "prompt": "Find the intercepts of y = -3/(x + 2) + 1.",
    "answer": "x-intercept (1, 0); y-intercept (0, -1/2)",
    "solutionSteps": [
-    "Set y = 0 and solve for x.",
-    "Set x = 0."
+    "x-intercept: set y = 0, so 3/(x + 2) = 1 and x + 2 = 3, giving x = 1.",
+    "y-intercept: x = 0 gives y = -3/2 + 1 = -1/2.",
+    "x-intercept (1, 0); y-intercept (0, -1/2)."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5684,8 +5819,10 @@
     "The y-intercept is (0, -1/2)"
    ],
    "solutionSteps": [
-    "Asymptotes x = h, y = k.",
-    "Evaluate at x = 0."
+    "The asymptotes are x = h = -2 and y = k = 1.",
+    "x = -2 is excluded, so the domain is not all real numbers.",
+    "At x = 0: y = -3/2 + 1 = -1/2.",
+    "True: x = -2 is a vertical asymptote, y = 1 is a horizontal asymptote, and the y-intercept is (0, -1/2)."
    ],
    "options": [
     {
@@ -5726,8 +5863,9 @@
    "prompt": "Find the intercepts of y = 1/(x - 4).",
    "answer": "x-intercept none; y-intercept (0, -1/4)",
    "solutionSteps": [
-    "Set y = 0 and solve for x.",
-    "Set x = 0."
+    "x-intercept: y = 0 would need 1/(x - 4) = 0, but a fraction with numerator 1 is never 0, so there is none.",
+    "y-intercept: x = 0 gives y = 1/(-4) = -1/4.",
+    "x-intercept none; y-intercept (0, -1/4)."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5746,8 +5884,10 @@
     "The y-intercept is (0, -1/4)"
    ],
    "solutionSteps": [
-    "Asymptotes x = h, y = k.",
-    "Evaluate at x = 0."
+    "y = 1/(x - 4) has vertical asymptote x = 4 and horizontal asymptote y = 0 (no vertical shift).",
+    "x = 4 is excluded, so the domain is not all real numbers.",
+    "At x = 0: y = -1/4.",
+    "True: x = 4 is a vertical asymptote, y = 0 is a horizontal asymptote, and the y-intercept is (0, -1/4)."
    ],
    "options": [
     {
@@ -5788,7 +5928,9 @@
    "prompt": "Which function's graph has a hole at x = 1 and a vertical asymptote at x = -1?",
    "answer": "y = (x - 1)/(x² - 1)",
    "solutionSteps": [
-    "(x - 1)/((x - 1)(x + 1)) cancels (x - 1)."
+    "A hole at x = 1 needs a factor (x - 1) that cancels; a vertical asymptote at x = -1 needs a factor (x + 1) left in the denominator.",
+    "y = (x - 1)/(x² - 1) = (x - 1)/((x - 1)(x + 1)) = 1/(x + 1) for x ≠ 1.",
+    "So y = (x - 1)/(x² - 1) has a hole at x = 1 and a vertical asymptote at x = -1."
    ],
    "options": [
     {
@@ -5821,7 +5963,9 @@
    "prompt": "In which quadrants does the graph of y = -4/x lie?",
    "answer": "II and IV",
    "solutionSteps": [
-    "Negative a: x > 0 gives y < 0; x < 0 gives y > 0."
+    "For x > 0, -4/x is negative, so that branch is in Quadrant IV.",
+    "For x < 0, -4/x is positive, so that branch is in Quadrant II.",
+    "The graph lies in Quadrants II and IV."
    ],
    "options": [
     {
@@ -5854,7 +5998,9 @@
    "prompt": "Name the asymptotes of y = 1/x + 5.",
    "answer": "x = 0 and y = 5",
    "solutionSteps": [
-    "Shifted up 5."
+    "y = 1/x has asymptotes x = 0 and y = 0.",
+    "Adding 5 shifts the graph up 5, so the horizontal asymptote moves to y = 5; there is no horizontal shift.",
+    "The asymptotes are x = 0 and y = 5."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5869,7 +6015,9 @@
    "prompt": "Write a rational function whose graph has VA x = 3, HA y = -2, and passes through (4, 0).",
    "answer": "y = 2/(x - 3) - 2",
    "solutionSteps": [
-    "y = a/(x - 3) - 2; 0 = a - 2 → a = 2."
+    "A vertical asymptote x = 3 and horizontal asymptote y = -2 suggest y = a/(x - 3) - 2.",
+    "Use (4, 0): 0 = a/(4 - 3) - 2, so a = 2.",
+    "y = 2/(x - 3) - 2."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -5884,8 +6032,9 @@
    "prompt": "The time t to travel a fixed distance varies inversely with speed s. At 15 mph the trip takes 8 h. How long at 30 mph?",
    "answer": "4 h",
    "solutionSteps": [
-    "t = k/s with k = st.",
-    "k = 120; t = 120/30."
+    "t varies inversely with s: t = k/s, so k = s·t = 15 · 8 = 120 (the distance in miles).",
+    "At 30 mph: t = 120/30.",
+    "t = 4 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -5901,8 +6050,9 @@
    "prompt": "The time t to travel a fixed distance varies inversely with speed s. At 25 mph the trip takes 3 h. How long at 50 mph?",
    "answer": "3/2 h",
    "solutionSteps": [
-    "t = k/s with k = st.",
-    "k = 75; t = 75/50."
+    "t = k/s with k = s·t = 25 · 3 = 75.",
+    "At 50 mph: t = 75/50.",
+    "t = 3/2 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -5918,8 +6068,9 @@
    "prompt": "The time t to travel a fixed distance varies inversely with speed s. At 9 mph the trip takes 4 h. How long at 18 mph?",
    "answer": "2 h",
    "solutionSteps": [
-    "t = k/s with k = st.",
-    "k = 36; t = 36/18."
+    "t = k/s with k = s·t = 9 · 4 = 36.",
+    "At 18 mph: t = 36/18.",
+    "t = 2 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -5940,9 +6091,10 @@
     "xy is constant"
    ],
    "solutionSteps": [
-    "k = 24.",
-    "24/8 = 3, 24/2 = 12.",
-    "x = 0 is not allowed."
+    "k = xy = 4 · 6 = 24, so y = 24/x and xy is constant (k is not 1.5).",
+    "x = 8: y = 24/8 = 3. x = 2: y = 24/2 = 12.",
+    "x = 0 is not allowed (24/0 is undefined), and y = (6/4)x is direct variation.",
+    "True: k = 24, y = 3 when x = 8, y = 12 when x = 2, and xy is constant."
    ],
    "options": [
     {
@@ -5988,7 +6140,9 @@
    "prompt": "A team mixes 20% and 50% solutions to get 12 L of 30% solution. How many liters of 50% solution?",
    "answer": "4 L",
    "solutionSteps": [
-    "0.2(12 - x) + 0.5x = 3.6 → 0.3x = 1.2."
+    "Let x be the liters of 50% solution; then 12 - x liters are 20%.",
+    "Acid: 0.2(12 - x) + 0.5x = 0.3(12) = 3.6, so 2.4 + 0.3x = 3.6.",
+    "0.3x = 1.2, so x = 4 L of the 50% solution."
    ],
    "options": [
     {
@@ -6057,7 +6211,9 @@
    "prompt": "Average cost: C(x) = (2000 + 15x)/x. How many items make the average cost $25?",
    "answer": "200 items",
    "solutionSteps": [
-    "2000 + 15x = 25x → x = 200."
+    "Set C(x) = 25: (2000 + 15x)/x = 25.",
+    "Multiply by x: 2000 + 15x = 25x, so 10x = 2000.",
+    "x = 200 items."
    ],
    "standards": [
     "A-CED.A.1",
@@ -6073,10 +6229,10 @@
    "prompt": "Pipe A fills a pool in 10 h; drain B empties it in 15 h.",
    "answer": "(a) 1/10 and -1/15; (b) 1/30 pool per hour; (c) 30 hours; (d) Never fills (net rate 0)",
    "solutionSteps": [
-    "Rate = 1/time.",
-    "1/10 - 1/15.",
-    "Reciprocal.",
-    "1/10 - 1/10 = 0."
+    "(a) Pipe A: 1/10 pool per hour; drain B removes 1/15 per hour, so its rate is -1/15.",
+    "(b) Net rate: 1/10 - 1/15 = 3/30 - 2/30 = 1/30 pool per hour.",
+    "(c) Time = 1 ÷ (1/30) = 30 hours.",
+    "(d) If B emptied it in 10 h, the net rate would be 1/10 - 1/10 = 0: it never fills (net rate 0)."
    ],
    "parts": [
     {
@@ -6110,7 +6266,9 @@
    "prompt": "z varies jointly with x and y; z = 24 when x = 2 and y = 3. Find k.",
    "answer": "k = 4",
    "solutionSteps": [
-    "k = z/(xy) = 24/6."
+    "Joint variation: z = kxy, so k = z/(xy).",
+    "k = 24/(2 · 3) = 24/6.",
+    "k = 4."
    ],
    "standards": [
     "A-CED.A.1",
@@ -6172,7 +6330,10 @@
     "x/(x + 2) + 5/x"
    ],
    "solutionSteps": [
-    "The LCD uses each distinct factor to its highest power."
+    "The LCD uses each distinct factor of the denominators to its highest power.",
+    "1/x + 1/(x + 2) and x/(x + 2) + 5/x have denominators x and x + 2, so the LCD is x(x + 2). For 3/(x² + 2x) - 1/x, x² + 2x = x(x + 2) already contains x.",
+    "1/x² + 1/(x + 2) needs x²(x + 2), and 2/(x - 2) + 1/x needs x(x - 2).",
+    "LCD x(x + 2): 1/x + 1/(x + 2), 3/(x² + 2x) - 1/x and x/(x + 2) + 5/x."
    ],
    "options": [
     {
@@ -6209,7 +6370,9 @@
    "prompt": "Which value is NOT a possible solution of 3/(x - 4) + 1/x = 2 before checking?",
    "answer": "4",
    "solutionSteps": [
-    "x = 4 and x = 0 make denominators 0, so they can never be solutions."
+    "A value that makes any denominator 0 can never be a solution.",
+    "The denominators x - 4 and x are 0 at x = 4 and x = 0.",
+    "So 4 is not a possible solution."
    ],
    "options": [
     {
@@ -6246,7 +6409,9 @@
     "0"
    ],
    "solutionSteps": [
-    "Excluded values: zeros of every denominator."
+    "Excluded values are the zeros of every denominator.",
+    "x + 3 = 0 → x = -3; x - 1 = 0 → x = 1; x = 0.",
+    "So -3, 1 and 0 can never be solutions."
    ],
    "options": [
     {
@@ -6287,7 +6452,9 @@
    "prompt": "Which value is excluded from the domain of x/(x + 9)?",
    "answer": "-9",
    "solutionSteps": [
-    "x + 9 = 0."
+    "The expression is undefined when x + 9 = 0.",
+    "x = -9.",
+    "So -9 is excluded from the domain."
    ],
    "options": [
     {
@@ -6368,7 +6535,9 @@
    "prompt": "What is the slant asymptote of y = (2x² + 3x - 1)/(x + 1)?",
    "answer": "y = 2x + 1",
    "solutionSteps": [
-    "Divide: 2x² + 3x - 1 = (x + 1)(2x + 1) - 2."
+    "The numerator's degree is one more than the denominator's, so there is a slant asymptote given by the quotient.",
+    "Divide: 2x² + 3x - 1 = (x + 1)(2x + 1) - 2, so y = 2x + 1 - 2/(x + 1).",
+    "As |x| grows, -2/(x + 1) → 0, so the slant asymptote is y = 2x + 1."
    ],
    "options": [
     {
@@ -6401,7 +6570,9 @@
    "prompt": "Find the horizontal asymptote of y = (4x - 7)/(2x + 1).",
    "answer": "y = 2",
    "solutionSteps": [
-    "Equal degrees: 4/2."
+    "Numerator and denominator have the same degree (1).",
+    "The horizontal asymptote is the ratio of leading coefficients: 4/2.",
+    "y = 2."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -6416,7 +6587,9 @@
    "prompt": "Which graph feature does the factor (x - 3) produce in y = (x - 3)/((x - 3)(x + 1))?",
    "answer": "A hole at x = 3",
    "solutionSteps": [
-    "Canceled factor → hole."
+    "(x - 3) appears in both numerator and denominator, so it cancels: y = 1/(x + 1) for x ≠ 3.",
+    "The original is still undefined at x = 3, but the graph does not blow up there.",
+    "So the factor (x - 3) produces a hole at x = 3."
    ],
    "options": [
     {
@@ -6449,7 +6622,9 @@
    "prompt": "Find the hole of y = (x² - 4)/(x - 2).",
    "answer": "(2, 4)",
    "solutionSteps": [
-    "Simplifies to x + 2; at x = 2, y = 4."
+    "Factor: (x² - 4)/(x - 2) = (x - 2)(x + 2)/(x - 2) = x + 2 for x ≠ 2.",
+    "The canceled factor (x - 2) gives a hole at x = 2.",
+    "Its y-value comes from the simplified form: 2 + 2 = 4. The hole is at (2, 4)."
    ],
    "standards": [
     "F-IF.C.7d"
@@ -6464,7 +6639,9 @@
    "prompt": "y varies inversely with x. When x = 5, y = 8. Which is y when x = 10?",
    "answer": "4",
    "solutionSteps": [
-    "k = 40; 40/10."
+    "Inverse variation: k = xy = 5 · 8 = 40, so y = 40/x.",
+    "At x = 10: y = 40/10.",
+    "y = 4."
    ],
    "options": [
     {
@@ -6498,7 +6675,9 @@
    "prompt": "A car travels 300 mi. Write the time t as a function of speed r and find t at 60 mph.",
    "answer": "t = 300/r; 5 h",
    "solutionSteps": [
-    "Distance = rate × time."
+    "Distance = rate × time, so 300 = r·t.",
+    "Solve for t: t = 300/r.",
+    "At r = 60: t = 300/60 = 5 h. So t = 300/r; 5 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -6514,7 +6693,9 @@
    "prompt": "Jen can paint a fence in 6 h. With Max she takes 4 h. How long would Max take alone?",
    "answer": "12 h",
    "solutionSteps": [
-    "1/6 + 1/m = 1/4 → 1/m = 1/12."
+    "Jen's rate is 1/6 fence per hour; together their rate is 1/4. Let Max take m hours.",
+    "1/6 + 1/m = 1/4, so 1/m = 1/4 - 1/6 = 3/12 - 2/12 = 1/12.",
+    "m = 12 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -8123,9 +8304,9 @@
    "prompt": "Solve 2/(x - 3) = 1/8.",
    "answer": "x = 19",
    "solutionSteps": [
-    "Cross-multiply.",
-    "1(x - 3) = 16.",
-    "x = 19."
+    "Cross-multiply: 2 · 8 = 1 · (x - 3), so 16 = x - 3.",
+    "Add 3: x = 19.",
+    "Check: 2/16 = 1/8 ✓. So x = 19."
    ],
    "standards": [
     "A-REI.A.2"
@@ -8331,9 +8512,9 @@
    "prompt": "Solve 14/(x - 6) = 7/2.",
    "answer": "x = 10",
    "solutionSteps": [
-    "Cross-multiply.",
-    "7(x - 6) = 28.",
-    "x = 10."
+    "Cross-multiply: 14 · 2 = 7(x - 6), so 28 = 7x - 42.",
+    "7x = 70, so x = 10.",
+    "Check: 14/4 = 7/2 ✓. So x = 10."
    ],
    "standards": [
     "A-REI.A.2"
@@ -8633,9 +8814,9 @@
    "prompt": "Solve -2/(x - 3) = 1/7.",
    "answer": "x = -11",
    "solutionSteps": [
-    "Cross-multiply.",
-    "1(x - 3) = -14.",
-    "x = -11."
+    "Cross-multiply: -2 · 7 = 1 · (x - 3), so -14 = x - 3.",
+    "Add 3: x = -11.",
+    "Check: -2/(-14) = 1/7 ✓. So x = -11."
    ],
    "standards": [
     "A-REI.A.2"
@@ -10896,9 +11077,9 @@
    "prompt": "Solve x/(x - 3) = 2.",
    "answer": "x = 6",
    "solutionSteps": [
-    "x = 2(x - 3), x ≠ 3.",
-    "x = 2x - 6.",
-    "x = 6."
+    "Multiply both sides by x - 3 (x ≠ 3): x = 2(x - 3).",
+    "x = 2x - 6, so x = 6.",
+    "Check: 6/3 = 2 ✓. So x = 6."
    ],
    "standards": [
     "A-REI.A.2"
@@ -10931,9 +11112,9 @@
    "prompt": "The time to finish a job varies inversely with the number of workers. Six workers take 10 h. How long do 15 workers take?",
    "answer": "4 h",
    "solutionSteps": [
-    "t = k/n with k = 6 · 10 = 60.",
-    "t = 60/15.",
-    "4 h."
+    "Time varies inversely with the number of workers: t = k/n, so k = 6 · 10 = 60 worker-hours.",
+    "With 15 workers: t = 60/15.",
+    "t = 4 h."
    ],
    "standards": [
     "A-CED.A.1",
@@ -11000,9 +11181,9 @@
    "prompt": "Solve x/(x - 2) + 1/(x - 2) = 4.",
    "answer": "x = 3",
    "solutionSteps": [
-    "(x + 1)/(x - 2) = 4, x ≠ 2.",
-    "x + 1 = 4x - 8.",
-    "x = 3."
+    "Combine the left side (same denominator): (x + 1)/(x - 2) = 4, with x ≠ 2.",
+    "Multiply by x - 2: x + 1 = 4x - 8, so 3x = 9.",
+    "x = 3. Check: 4/1 = 4 ✓."
    ],
    "standards": [
     "A-REI.A.2"
@@ -11034,8 +11215,8 @@
    "prompt": "Pipe A fills a tank in 4 h. With pipe B also open, the tank fills in 3 h. How long would pipe B take alone?",
    "answer": "12 h",
    "solutionSteps": [
-    "1/4 + 1/b = 1/3.",
-    "1/b = 1/3 - 1/4 = 1/12.",
+    "Pipe A fills 1/4 tank per hour; together they fill 1/3. Let pipe B take b hours.",
+    "1/4 + 1/b = 1/3, so 1/b = 1/3 - 1/4 = 1/12.",
     "b = 12 h."
    ],
    "standards": [
@@ -11052,9 +11233,9 @@
    "prompt": "y varies inversely with x, and y = 8 when x = 6. Find y when x = 3.",
    "answer": "16",
    "solutionSteps": [
-    "y = k/x with k = 48.",
-    "y = 48/3.",
-    "16."
+    "Inverse variation: k = xy = 6 · 8 = 48, so y = 48/x.",
+    "At x = 3: y = 48/3.",
+    "y = 16."
    ],
    "standards": [
     "A-CED.A.1",
