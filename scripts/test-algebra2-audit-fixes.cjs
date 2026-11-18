@@ -14,7 +14,7 @@ const texts = q => [q.prompt, ...(Array.isArray(q.answer) ? q.answer : [q.answer
 // #8 a fraction written right before a variable, i, √ or ( reads two ways (1/2√x, 7/10i, 3/4x).
 const ambiguous = [];
 for (const q of items) for (const s of texts(q)) {
-  const m = /(?<![\w)\]/(])\d+\/\d+(?=\s?[√∛]|i\b|[a-zπθ](?![a-z])|\()/.exec(s);
+  const m = /(?<![\w)\]/(])\d+\/\d+(?=\s?[√∛]|i\b|[a-zπθ](?![a-z])|\(|sin|cos|tan|sec|csc|cot|log|ln)/.exec(s);
   if (m) ambiguous.push(q.id + ': ' + s.slice(Math.max(0, m.index - 12), m.index + 14));
 }
 assert.deepEqual(ambiguous, [], 'parenthesize fraction coefficients');
@@ -41,6 +41,10 @@ const counts = multi.map(q => q.options.filter(o => o.correct).length);
 assert(counts.every(n => n >= 2), 'select-all keeps at least two correct choices (bank schema)');
 assert(multi.filter((q, i) => counts[i] === q.options.length).length >= 15, 'some select-all items have every choice correct');
 for (const q of multi) assert.deepEqual([...q.answer].sort(), q.options.filter(o => o.correct).map(o => o.text).sort(), q.id + ' key matches flags');
+
+// #2 every solution shows its work in at least two steps.
+const thin = items.filter(q => !Array.isArray(q.solutionSteps) || q.solutionSteps.length < 2);
+assert.equal(thin.length, 0, 'single-step solutions: ' + thin.slice(0, 5).map(q => q.id).join(', '));
 
 // #15 open-response stems say what the set is about.
 assert(!items.some(q => q.prompt.trim() === 'Answer each part. Show your work.'), 'no generic open-response stem');

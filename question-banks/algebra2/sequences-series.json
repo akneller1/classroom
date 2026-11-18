@@ -11,8 +11,9 @@
    "prompt": "Find the 20th term of the arithmetic sequence 5, 8, 11, 14, …",
    "answer": "62",
    "solutionSteps": [
-    "d = 3.",
-    "aₙ = a₁ + (n - 1)d = 5 + 19(3) = 62."
+    "Find the common difference: 8 - 5 = 3, so d = 3 and a₁ = 5.",
+    "Use aₙ = a₁ + (n - 1)d with n = 20: a₂₀ = 5 + 19(3).",
+    "a₂₀ = 5 + 57 = 62."
    ],
    "standards": [
     "F-IF.A.3",
@@ -28,8 +29,9 @@
    "prompt": "Find the 15th term of the arithmetic sequence -4, 2, 8, 14, …",
    "answer": "80",
    "solutionSteps": [
-    "d = 6.",
-    "aₙ = a₁ + (n - 1)d = -4 + 14(6) = 80."
+    "d = 2 - (-4) = 6 and a₁ = -4.",
+    "a₁₅ = -4 + 14(6) = -4 + 84.",
+    "a₁₅ = 80."
    ],
    "standards": [
     "F-IF.A.3",
@@ -45,8 +47,9 @@
    "prompt": "Find the 12th term of the arithmetic sequence 40, 33, 26, 19, …",
    "answer": "-37",
    "solutionSteps": [
-    "d = -7.",
-    "aₙ = a₁ + (n - 1)d = 40 + 11(-7) = -37."
+    "d = 33 - 40 = -7 and a₁ = 40.",
+    "a₁₂ = 40 + 11(-7) = 40 - 77.",
+    "a₁₂ = -37."
    ],
    "standards": [
     "F-IF.A.3",
@@ -62,8 +65,9 @@
    "prompt": "Find the 30th term of the arithmetic sequence 1/2, 2, 7/2, 5, …",
    "answer": "44",
    "solutionSteps": [
-    "d = 3/2.",
-    "aₙ = a₁ + (n - 1)d = 1/2 + 29(3/2) = 44."
+    "d = 2 - 1/2 = 3/2 and a₁ = 1/2.",
+    "a₃₀ = 1/2 + 29(3/2) = 1/2 + 87/2 = 88/2.",
+    "a₃₀ = 44."
    ],
    "standards": [
     "F-IF.A.3",
@@ -79,8 +83,9 @@
    "prompt": "Find the 41st term of the arithmetic sequence 100, 195/2, 95, 185/2, …",
    "answer": "0",
    "solutionSteps": [
-    "d = -5/2.",
-    "aₙ = a₁ + (n - 1)d = 100 + 40(-5/2) = 0."
+    "d = 195/2 - 100 = -5/2 and a₁ = 100.",
+    "a₄₁ = 100 + 40(-5/2) = 100 - 100.",
+    "a₄₁ = 0."
    ],
    "standards": [
     "F-IF.A.3",
@@ -96,8 +101,9 @@
    "prompt": "Find the 50th term of the arithmetic sequence -11, -7, -3, 1, …",
    "answer": "185",
    "solutionSteps": [
-    "d = 4.",
-    "aₙ = a₁ + (n - 1)d = -11 + 49(4) = 185."
+    "d = -7 - (-11) = 4 and a₁ = -11.",
+    "a₅₀ = -11 + 49(4) = -11 + 196.",
+    "a₅₀ = 185."
    ],
    "standards": [
     "F-IF.A.3",
@@ -113,8 +119,9 @@
    "prompt": "Write an explicit formula for the arithmetic sequence 7, 11, 15, 19, …",
    "answer": "aₙ = 4n + 3",
    "solutionSteps": [
-    "a₁ = 7, d = 4.",
-    "aₙ = 7 + (n - 1)(4) = 4n + 3."
+    "a₁ = 7 and d = 11 - 7 = 4.",
+    "aₙ = a₁ + (n - 1)d = 7 + 4(n - 1) = 7 + 4n - 4.",
+    "aₙ = 4n + 3. Check: n = 1 gives 7."
    ],
    "standards": [
     "F-IF.A.3",
@@ -130,8 +137,9 @@
    "prompt": "Write an explicit formula for the arithmetic sequence -3, -8, -13, -18, …",
    "answer": "aₙ = -5n + 2",
    "solutionSteps": [
-    "a₁ = -3, d = -5.",
-    "aₙ = -3 + (n - 1)(-5) = -5n + 2."
+    "a₁ = -3 and d = -8 - (-3) = -5.",
+    "aₙ = -3 + (n - 1)(-5) = -3 - 5n + 5.",
+    "aₙ = -5n + 2. Check: n = 2 gives -8."
    ],
    "standards": [
     "F-IF.A.3",
@@ -147,8 +155,9 @@
    "prompt": "Write an explicit formula for the arithmetic sequence 12, 25/2, 13, 27/2, …",
    "answer": "aₙ = (1/2)n + 23/2",
    "solutionSteps": [
-    "a₁ = 12, d = 1/2.",
-    "aₙ = 12 + (n - 1)(1/2) = (1/2)n + 23/2."
+    "a₁ = 12 and d = 25/2 - 12 = 1/2.",
+    "aₙ = 12 + (n - 1)(1/2) = 12 + (1/2)n - 1/2.",
+    "aₙ = (1/2)n + 23/2. Check: n = 1 gives 24/2 = 12."
    ],
    "standards": [
     "F-IF.A.3",
@@ -164,8 +173,9 @@
    "prompt": "Write an explicit formula for the arithmetic sequence 0, 9, 18, 27, …",
    "answer": "aₙ = 9n - 9",
    "solutionSteps": [
-    "a₁ = 0, d = 9.",
-    "aₙ = 0 + (n - 1)(9) = 9n - 9."
+    "a₁ = 0 and d = 9.",
+    "aₙ = 0 + (n - 1)(9) = 9n - 9.",
+    "aₙ = 9n - 9. Check: n = 4 gives 27."
    ],
    "standards": [
     "F-IF.A.3",
@@ -181,8 +191,9 @@
    "prompt": "In an arithmetic sequence, a₄ = 19 and a₁₀ = 43. Find a₁ and d, then write the explicit formula.",
    "answer": "a₁ = 7, d = 4; aₙ = 4n + 3",
    "solutionSteps": [
-    "d = (43 - (19))/(10 - 4) = 4.",
-    "a₁ = 19 - 3(4) = 7."
+    "From a₄ to a₁₀ is 6 steps of d: 6d = 43 - 19 = 24, so d = 4.",
+    "Go back 3 steps from a₄: a₁ = 19 - 3(4) = 7.",
+    "aₙ = 7 + (n - 1)4 = 4n + 3. So a₁ = 7, d = 4; aₙ = 4n + 3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -198,8 +209,9 @@
    "prompt": "In an arithmetic sequence, a₃ = -2 and a₈ = -27. Find a₁ and d, then write the explicit formula.",
    "answer": "a₁ = 8, d = -5; aₙ = -5n + 13",
    "solutionSteps": [
-    "d = (-27 - (-2))/(8 - 3) = -5.",
-    "a₁ = -2 - 2(-5) = 8."
+    "From a₃ to a₈ is 5 steps: 5d = -27 - (-2) = -25, so d = -5.",
+    "Go back 2 steps from a₃: a₁ = -2 - 2(-5) = 8.",
+    "aₙ = 8 + (n - 1)(-5) = -5n + 13. So a₁ = 8, d = -5; aₙ = -5n + 13."
    ],
    "standards": [
     "F-IF.A.3",
@@ -215,8 +227,9 @@
    "prompt": "In an arithmetic sequence, a₅ = 12 and a₁₂ = 33. Find a₁ and d, then write the explicit formula.",
    "answer": "a₁ = 0, d = 3; aₙ = 3n - 3",
    "solutionSteps": [
-    "d = (33 - (12))/(12 - 5) = 3.",
-    "a₁ = 12 - 4(3) = 0."
+    "From a₅ to a₁₂ is 7 steps: 7d = 33 - 12 = 21, so d = 3.",
+    "Go back 4 steps from a₅: a₁ = 12 - 4(3) = 0.",
+    "aₙ = 0 + (n - 1)3 = 3n - 3. So a₁ = 0, d = 3; aₙ = 3n - 3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -232,8 +245,9 @@
    "prompt": "In an arithmetic sequence, a₂ = 7 and a₂₀ = -2. Find a₁ and d, then write the explicit formula.",
    "answer": "a₁ = 15/2, d = -1/2; aₙ = -(1/2)n + 8",
    "solutionSteps": [
-    "d = (-2 - (7))/(20 - 2) = -1/2.",
-    "a₁ = 7 - 1(-1/2) = 15/2."
+    "From a₂ to a₂₀ is 18 steps: 18d = -2 - 7 = -9, so d = -1/2.",
+    "Go back 1 step from a₂: a₁ = 7 - (-1/2) = 15/2.",
+    "aₙ = 15/2 + (n - 1)(-1/2) = -(1/2)n + 8. So a₁ = 15/2, d = -1/2; aₙ = -(1/2)n + 8."
    ],
    "standards": [
     "F-IF.A.3",
@@ -249,7 +263,9 @@
    "prompt": "Is 3, 7, 11, 15, … an arithmetic sequence?",
    "answer": "Yes, d = 4",
    "solutionSteps": [
-    "Check differences between consecutive terms."
+    "An arithmetic sequence has the same difference between consecutive terms.",
+    "7 - 3 = 4, 11 - 7 = 4, 15 - 11 = 4.",
+    "The difference is constant: Yes, d = 4."
    ],
    "options": [
     {
@@ -283,7 +299,9 @@
    "prompt": "Is 2, 4, 8, 16, … an arithmetic sequence?",
    "answer": "No, the differences are not constant",
    "solutionSteps": [
-    "Check differences between consecutive terms."
+    "Find the differences: 4 - 2 = 2, 8 - 4 = 4, 16 - 8 = 8.",
+    "The differences change, so there is no common difference (this is geometric, ratio 2).",
+    "No, the differences are not constant."
    ],
    "options": [
     {
@@ -317,7 +335,9 @@
    "prompt": "Is 10, 6, 2, -2, … an arithmetic sequence?",
    "answer": "Yes, d = -4",
    "solutionSteps": [
-    "Check differences between consecutive terms."
+    "Differences: 6 - 10 = -4, 2 - 6 = -4, -2 - 2 = -4.",
+    "The difference is the same each time.",
+    "Yes, d = -4."
    ],
    "options": [
     {
@@ -351,7 +371,9 @@
    "prompt": "Is 1, 4, 9, 16, … an arithmetic sequence?",
    "answer": "No, the differences are not constant",
    "solutionSteps": [
-    "Check differences between consecutive terms."
+    "Differences: 4 - 1 = 3, 9 - 4 = 5, 16 - 9 = 7.",
+    "The differences grow (these are perfect squares).",
+    "No, the differences are not constant."
    ],
    "options": [
     {
@@ -385,7 +407,9 @@
    "prompt": "Is -5, -5, -5, … an arithmetic sequence?",
    "answer": "Yes, d = 0",
    "solutionSteps": [
-    "Check differences between consecutive terms."
+    "Each difference is -5 - (-5) = 0.",
+    "A constant difference of 0 still counts.",
+    "Yes, d = 0."
    ],
    "options": [
     {
@@ -419,7 +443,9 @@
    "prompt": "Which term of 4, 11, 18, … equals 186?",
    "answer": "n = 27",
    "solutionSteps": [
-    "aₙ = 7n - 3 = 186 → n = 27."
+    "a₁ = 4 and d = 7, so aₙ = 4 + 7(n - 1) = 7n - 3.",
+    "Set 7n - 3 = 186: 7n = 189.",
+    "n = 27, so it is the 27th term: n = 27."
    ],
    "standards": [
     "F-IF.A.3",
@@ -435,7 +461,9 @@
    "prompt": "Is 500 a term of 3, 10, 17, …? Explain.",
    "answer": "Yes, it is the 72nd term",
    "solutionSteps": [
-    "aₙ = 7n - 4; 7n - 4 = 500 → n = 72, a whole number."
+    "a₁ = 3 and d = 7, so aₙ = 3 + 7(n - 1) = 7n - 4.",
+    "Set 7n - 4 = 500: 7n = 504, n = 72.",
+    "n is a positive whole number, so yes, it is the 72nd term."
    ],
    "standards": [
     "F-IF.A.3",
@@ -451,8 +479,9 @@
    "prompt": "Is 250 a term of 3, 10, 17, …? Explain.",
    "answer": "No: 7n - 4 = 250 gives n = 254/7, not a whole number",
    "solutionSteps": [
-    "Solve 7n - 4 = 250.",
-    "n must be a positive integer."
+    "aₙ = 7n - 4 (a₁ = 3, d = 7).",
+    "Set 7n - 4 = 250: 7n = 254, so n = 254/7 ≈ 36.3.",
+    "The term number must be a positive whole number, so No: 7n - 4 = 250 gives n = 254/7, not a whole number."
    ],
    "standards": [
     "F-IF.A.3",
@@ -468,7 +497,9 @@
    "prompt": "The graph of an arithmetic sequence is…",
    "answer": "a set of points on a line",
    "solutionSteps": [
-    "aₙ is a linear function of n with domain the positive integers."
+    "aₙ = a₁ + (n - 1)d is a linear expression in n with slope d.",
+    "But n only takes the values 1, 2, 3, …, so the graph is separate points, not a solid line.",
+    "The graph is a set of points on a line."
    ],
    "options": [
     {
@@ -507,7 +538,10 @@
     "7, 7, 7, 7"
    ],
    "solutionSteps": [
-    "Constant difference between consecutive terms."
+    "Check for a constant difference between consecutive terms.",
+    "2, 5, 8, 11 (d = 3); 9, 4, -1, -6 (d = -5); 1/2, 1, 3/2, 2 (d = 1/2); 7, 7, 7, 7 (d = 0) are arithmetic.",
+    "3, 6, 12, 24 is geometric; 1, 1, 2, 3, 5 is Fibonacci; 1, 3, 6, 10 has differences 2, 3, 4.",
+    "Arithmetic: 2, 5, 8, 11; 9, 4, -1, -6; 1/2, 1, 3/2, 2; and 7, 7, 7, 7."
    ],
    "options": [
     {
@@ -594,10 +628,10 @@
    "prompt": "A theater has 18 seats in the first row and 3 more in each row after.",
    "answer": "(a) aₙ = 3n + 15; (b) 51; (c) row 15; (d) linear: constant difference 3",
    "solutionSteps": [
-    "a₁ = 18, d = 3.",
-    "3(12) + 15.",
-    "3n + 15 = 60.",
-    "Arithmetic."
+    "(a) a₁ = 18, d = 3: aₙ = 18 + 3(n - 1) = 3n + 15.",
+    "(b) a₁₂ = 3(12) + 15 = 51.",
+    "(c) 3n + 15 = 60, so 3n = 45 and n = 15: row 15.",
+    "(d) Linear: each row adds the same 3 seats, a constant difference."
    ],
    "parts": [
     {
@@ -631,10 +665,10 @@
    "prompt": "Three numbers form an arithmetic sequence with sum 27 and product 504.",
    "answer": "(a) 9; (b) 9(81 - d²) = 504; (c) ±5; (d) 4, 9, 14",
    "solutionSteps": [
-    "3a = 27.",
-    "(9 - d)(9)(9 + d).",
-    "81 - d² = 56.",
-    "Either order."
+    "(a) The sum is (a - d) + a + (a + d) = 3a = 27, so a = 9.",
+    "(b) The product is (9 - d)(9)(9 + d) = 9(81 - d²) = 504.",
+    "(c) 81 - d² = 56, so d² = 25 and d = ±5.",
+    "(d) With either sign the numbers are 4, 9, 14 (in some order). Check: 4 + 9 + 14 = 27 and 4 · 9 · 14 = 504."
    ],
    "parts": [
     {
@@ -668,7 +702,9 @@
    "prompt": "Find the common difference of 12, 9, 6, 3, …",
    "answer": "d = -3",
    "solutionSteps": [
-    "9 - 12."
+    "The common difference is any term minus the one before it.",
+    "9 - 12 = -3 (and 6 - 9 = -3, 3 - 6 = -3).",
+    "d = -3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -684,8 +720,9 @@
    "prompt": "Find the 8th term of the geometric sequence 3, 6, 12, 24, …",
    "answer": "384",
    "solutionSteps": [
-    "r = 2.",
-    "aₙ = a₁·r^(n - 1) = 3(2)^7 = 384."
+    "Ratio: 6/3 = 2, so r = 2 and a₁ = 3.",
+    "aₙ = a₁·r^(n - 1): a₈ = 3(2)^7 = 3 · 128.",
+    "a₈ = 384."
    ],
    "standards": [
     "F-IF.A.3",
@@ -701,8 +738,9 @@
    "prompt": "Find the 6th term of the geometric sequence 81, 27, 9, 3, …",
    "answer": "1/3",
    "solutionSteps": [
-    "r = 1/3.",
-    "aₙ = a₁·r^(n - 1) = 81(1/3)^5 = 1/3."
+    "Ratio: 27/81 = 1/3, so r = 1/3 and a₁ = 81.",
+    "a₆ = 81(1/3)^5 = 81/243.",
+    "a₆ = 1/3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -718,8 +756,9 @@
    "prompt": "Find the 7th term of the geometric sequence 5, -10, 20, -40, …",
    "answer": "320",
    "solutionSteps": [
-    "r = -2.",
-    "aₙ = a₁·r^(n - 1) = 5(-2)^6 = 320."
+    "Ratio: -10/5 = -2, so r = -2.",
+    "a₇ = 5(-2)^6 = 5 · 64 (an even power, so positive).",
+    "a₇ = 320."
    ],
    "standards": [
     "F-IF.A.3",
@@ -735,8 +774,9 @@
    "prompt": "Find the 5th term of the geometric sequence 1000, 100, 10, 1, …",
    "answer": "1/10",
    "solutionSteps": [
-    "r = 1/10.",
-    "aₙ = a₁·r^(n - 1) = 1000(1/10)^4 = 1/10."
+    "Ratio: 100/1000 = 1/10.",
+    "a₅ = 1000(1/10)^4 = 1000/10000.",
+    "a₅ = 1/10."
    ],
    "standards": [
     "F-IF.A.3",
@@ -752,8 +792,9 @@
    "prompt": "Find the 6th term of the geometric sequence -2, -6, -18, -54, …",
    "answer": "-486",
    "solutionSteps": [
-    "r = 3.",
-    "aₙ = a₁·r^(n - 1) = -2(3)^5 = -486."
+    "Ratio: -6/(-2) = 3.",
+    "a₆ = -2(3)^5 = -2 · 243.",
+    "a₆ = -486."
    ],
    "standards": [
     "F-IF.A.3",
@@ -769,8 +810,9 @@
    "prompt": "Find the 9th term of the geometric sequence 64, -32, 16, -8, …",
    "answer": "1/4",
    "solutionSteps": [
-    "r = -1/2.",
-    "aₙ = a₁·r^(n - 1) = 64(-1/2)^8 = 1/4."
+    "Ratio: -32/64 = -1/2.",
+    "a₉ = 64(-1/2)^8 = 64 · (1/256) (an even power, so positive).",
+    "a₉ = 1/4."
    ],
    "standards": [
     "F-IF.A.3",
@@ -786,8 +828,9 @@
    "prompt": "Write an explicit formula for the geometric sequence 4, 12, 36, 108, …",
    "answer": "aₙ = 4(3)^(n - 1)",
    "solutionSteps": [
-    "a₁ = 4, r = 3.",
-    "aₙ = a₁·r^(n - 1)."
+    "a₁ = 4 and r = 12/4 = 3.",
+    "Use aₙ = a₁·r^(n - 1).",
+    "aₙ = 4(3)^(n - 1). Check: n = 4 gives 4 · 27 = 108."
    ],
    "standards": [
     "F-IF.A.3",
@@ -803,8 +846,9 @@
    "prompt": "Write an explicit formula for the geometric sequence 200, 100, 50, 25, …",
    "answer": "aₙ = 200(1/2)^(n - 1)",
    "solutionSteps": [
-    "a₁ = 200, r = 1/2.",
-    "aₙ = a₁·r^(n - 1)."
+    "a₁ = 200 and r = 100/200 = 1/2.",
+    "Use aₙ = a₁·r^(n - 1).",
+    "aₙ = 200(1/2)^(n - 1). Check: n = 4 gives 25."
    ],
    "standards": [
     "F-IF.A.3",
@@ -820,8 +864,9 @@
    "prompt": "Write an explicit formula for the geometric sequence -1, -5, -25, -125, …",
    "answer": "aₙ = -1(5)^(n - 1)",
    "solutionSteps": [
-    "a₁ = -1, r = 5.",
-    "aₙ = a₁·r^(n - 1)."
+    "a₁ = -1 and r = -5/(-1) = 5.",
+    "Use aₙ = a₁·r^(n - 1).",
+    "aₙ = -1(5)^(n - 1). Check: n = 3 gives -25."
    ],
    "standards": [
     "F-IF.A.3",
@@ -837,8 +882,9 @@
    "prompt": "Write an explicit formula for the geometric sequence 6, -2, 2/3, -2/9, …",
    "answer": "aₙ = 6(-1/3)^(n - 1)",
    "solutionSteps": [
-    "a₁ = 6, r = -1/3.",
-    "aₙ = a₁·r^(n - 1)."
+    "a₁ = 6 and r = -2/6 = -1/3.",
+    "Use aₙ = a₁·r^(n - 1).",
+    "aₙ = 6(-1/3)^(n - 1). Check: n = 3 gives 6 · 1/9 = 2/3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -854,8 +900,9 @@
    "prompt": "A geometric sequence has a₂ = 12 and a₅ = 324. Find r and a₁.",
    "answer": "r = 3, a₁ = 4",
    "solutionSteps": [
-    "r^3 = 324/12 = 27 → r = 3.",
-    "a₁ = 12/r^1 = 4."
+    "From a₂ to a₅ is 3 multiplications by r: r³ = 324/12 = 27, so r = 3.",
+    "Go back one step from a₂: a₁ = 12/3 = 4.",
+    "r = 3, a₁ = 4."
    ],
    "standards": [
     "F-IF.A.3",
@@ -871,8 +918,9 @@
    "prompt": "A geometric sequence has a₃ = 20 and a₆ = 5/2. Find r and a₁.",
    "answer": "r = 1/2, a₁ = 80",
    "solutionSteps": [
-    "r^3 = 5/2/20 = 1/8 → r = 1/2.",
-    "a₁ = 20/r^2 = 80."
+    "From a₃ to a₆ is 3 steps: r³ = (5/2)/20 = 1/8, so r = 1/2.",
+    "Go back two steps from a₃: a₁ = 20/(1/2)² = 20 · 4 = 80.",
+    "r = 1/2, a₁ = 80."
    ],
    "standards": [
     "F-IF.A.3",
@@ -888,8 +936,9 @@
    "prompt": "A geometric sequence has a₁ = 5 and a₄ = -40. Find r and a₁.",
    "answer": "r = -2, a₁ = 5",
    "solutionSteps": [
-    "r^3 = -40/5 = -8 → r = -2.",
-    "a₁ = 5/r^0 = 5."
+    "From a₁ to a₄ is 3 steps: r³ = -40/5 = -8, so r = -2.",
+    "a₁ is given: 5.",
+    "r = -2, a₁ = 5. Check: 5(-2)³ = -40."
    ],
    "standards": [
     "F-IF.A.3",
@@ -905,7 +954,9 @@
    "prompt": "Find the geometric mean of 4 and 49, and the two possible geometric sequences 4, x, 49.",
    "answer": "x = ±14",
    "solutionSteps": [
-    "x² = 4·49 = 196."
+    "In 4, x, 49 the ratio is constant: x/4 = 49/x, so x² = 4 · 49 = 196.",
+    "x = ±14 (the geometric mean of 4 and 49 is 14).",
+    "The sequences are 4, 14, 49 (r = 7/2) and 4, -14, 49 (r = -7/2): x = ±14."
    ],
    "standards": [
     "F-IF.A.3",
@@ -921,7 +972,9 @@
    "prompt": "Classify the sequence 2, 6, 18, 54, …",
    "answer": "geometric",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: 4, 12, 36, not constant, so it is not arithmetic.",
+    "Ratios: 6/2 = 18/6 = 54/18 = 3, constant.",
+    "So the sequence is geometric (r = 3)."
    ],
    "options": [
     {
@@ -955,7 +1008,9 @@
    "prompt": "Classify the sequence 5, 10, 15, 20, …",
    "answer": "arithmetic",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: 5, 5, 5, constant, so it is arithmetic (d = 5).",
+    "Ratios: 2, 1.5, 1.33…, not constant.",
+    "So the sequence is arithmetic."
    ],
    "options": [
     {
@@ -989,7 +1044,9 @@
    "prompt": "Classify the sequence 1, -1, 1, -1, …",
    "answer": "geometric",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: -2, 2, -2, not constant.",
+    "Ratios: -1, -1, -1, constant.",
+    "So the sequence is geometric (r = -1)."
    ],
    "options": [
     {
@@ -1023,7 +1080,9 @@
    "prompt": "Classify the sequence 1, 2, 4, 7, …",
    "answer": "neither",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: 1, 2, 3, not constant.",
+    "Ratios: 2, 2, 1.75, not constant.",
+    "So the sequence is neither."
    ],
    "options": [
     {
@@ -1057,7 +1116,9 @@
    "prompt": "Classify the sequence 16, 8, 4, 2, …",
    "answer": "geometric",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: -8, -4, -2, not constant.",
+    "Ratios: 1/2, 1/2, 1/2, constant.",
+    "So the sequence is geometric (r = 1/2)."
    ],
    "options": [
     {
@@ -1091,7 +1152,9 @@
    "prompt": "Classify the sequence 3, 3, 3, 3, …",
    "answer": "both",
    "solutionSteps": [
-    "Check for a constant difference (arithmetic) and a constant ratio (geometric)."
+    "Differences: 0, 0, 0, constant (d = 0).",
+    "Ratios: 1, 1, 1, constant (r = 1).",
+    "So the sequence is both arithmetic and geometric."
    ],
    "options": [
     {
@@ -1125,7 +1188,9 @@
    "prompt": "A student says 2, 6, 18, … has r = 4 because 6 - 2 = 4. What is correct?",
    "answer": "r = 3 (divide consecutive terms)",
    "solutionSteps": [
-    "The ratio is 6/2 = 3; 4 is the first difference."
+    "The common ratio comes from dividing a term by the one before it, not subtracting.",
+    "6/2 = 3 and 18/6 = 3; 6 - 2 = 4 is the first difference.",
+    "So r = 3 (divide consecutive terms)."
    ],
    "options": [
     {
@@ -1164,7 +1229,10 @@
     "1/3, 1, 3, 9"
    ],
    "solutionSteps": [
-    "Constant ratio between consecutive terms."
+    "Look for a constant ratio between consecutive terms.",
+    "3, 12, 48, 192 (r = 4); 100, 50, 25, 12.5 (r = 1/2); 2, -4, 8, -16 (r = -2); 1/3, 1, 3, 9 (r = 3).",
+    "1, 4, 9, 16 are squares; 2, 4, 6, 8 and 5, 10, 15, 20 are arithmetic.",
+    "Geometric: 3, 12, 48, 192; 100, 50, 25, 12.5; 2, -4, 8, -16; and 1/3, 1, 3, 9."
    ],
    "options": [
     {
@@ -1215,8 +1283,10 @@
     "The terms alternate in sign"
    ],
    "solutionSteps": [
-    "6, -3, 3/2, -3/4, …",
-    "|r| < 1 → magnitudes shrink."
+    "The terms are 6, -3, 3/2, -3/4, …: a₁ = 6, a₂ = -3 (not 3) and a₄ = 6(-1/2)³ = -3/4.",
+    "The ratio is r = -1/2, so the signs alternate.",
+    "|r| = 1/2 < 1, so |aₙ| decreases, not increases.",
+    "True: a₁ = 6, r = -1/2, a₄ = -3/4, and the terms alternate in sign."
    ],
    "options": [
     {
@@ -1258,10 +1328,10 @@
    "prompt": "A ball is dropped from 81 ft and rebounds to 2/3 of its previous height each bounce.",
    "answer": "(a) hₙ = 54(2/3)^(n - 1); (b) 16 ft; (c) the 7th; (d) Yes, constant ratio 2/3",
    "solutionSteps": [
-    "First rebound 81·2/3 = 54.",
-    "54(8/27).",
-    "Test values.",
-    "Ratio."
+    "(a) The first rebound is 81 · 2/3 = 54 ft and each rebound is 2/3 of the one before: hₙ = 54(2/3)^(n - 1).",
+    "(b) h₄ = 54(2/3)³ = 54 · 8/27 = 16 ft.",
+    "(c) h₅ ≈ 10.7, h₆ ≈ 7.1, h₇ ≈ 4.7: the first rebound below 5 ft is the 7th.",
+    "(d) Yes: each term is the previous one times the constant ratio 2/3."
    ],
    "parts": [
     {
@@ -1295,7 +1365,9 @@
    "prompt": "The graph of a geometric sequence with r > 1 looks like…",
    "answer": "points on an exponential curve",
    "solutionSteps": [
-    "aₙ = a₁rⁿ⁻¹ is exponential in n."
+    "aₙ = a₁·r^(n - 1) is an exponential function of n.",
+    "With r > 1 the terms grow faster and faster, but n only takes whole-number values.",
+    "So the graph is points on an exponential curve."
    ],
    "options": [
     {
@@ -1329,7 +1401,9 @@
    "prompt": "Find the common ratio of 5, -15, 45, …",
    "answer": "r = -3",
    "solutionSteps": [
-    "-15/5."
+    "The common ratio is any term divided by the one before it.",
+    "-15/5 = -3 (and 45/(-15) = -3).",
+    "r = -3."
    ],
    "standards": [
     "F-IF.A.3",
@@ -1345,7 +1419,9 @@
    "prompt": "Write the first five terms: a₁ = 4, aₙ = aₙ₋₁ + 5.",
    "answer": "4, 9, 14, 19, 24",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = 4 and add 5 each time.",
+    "a₂ = 9, a₃ = 14, a₄ = 19, a₅ = 24.",
+    "The terms are 4, 9, 14, 19, 24."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1361,7 +1437,9 @@
    "prompt": "Write the first five terms: a₁ = 2, aₙ = 3aₙ₋₁.",
    "answer": "2, 6, 18, 54, 162",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = 2 and multiply by 3 each time.",
+    "a₂ = 6, a₃ = 18, a₄ = 54, a₅ = 162.",
+    "The terms are 2, 6, 18, 54, 162."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1377,7 +1455,9 @@
    "prompt": "Write the first five terms: a₁ = -1, aₙ = aₙ₋₁ - 4.",
    "answer": "-1, -5, -9, -13, -17",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = -1 and subtract 4 each time.",
+    "a₂ = -5, a₃ = -9, a₄ = -13, a₅ = -17.",
+    "The terms are -1, -5, -9, -13, -17."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1393,7 +1473,9 @@
    "prompt": "Write the first five terms: a₁ = 100, aₙ = 0.5aₙ₋₁.",
    "answer": "100, 50, 25, 25/2, 25/4",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = 100 and multiply by 0.5 each time.",
+    "a₂ = 50, a₃ = 25, a₄ = 12.5 = 25/2, a₅ = 6.25 = 25/4.",
+    "The terms are 100, 50, 25, 25/2, 25/4."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1409,7 +1491,9 @@
    "prompt": "Write the first five terms: a₁ = 1, aₙ = 2aₙ₋₁ + 1.",
    "answer": "1, 3, 7, 15, 31",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = 1; each term is double the previous plus 1.",
+    "a₂ = 2(1) + 1 = 3, a₃ = 2(3) + 1 = 7, a₄ = 2(7) + 1 = 15, a₅ = 2(15) + 1 = 31.",
+    "The terms are 1, 3, 7, 15, 31."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1425,7 +1509,9 @@
    "prompt": "Write the first five terms: a₁ = 3, aₙ = (aₙ₋₁)² - 2.",
    "answer": "3, 7, 47, 2207, 4870847",
    "solutionSteps": [
-    "Apply the rule repeatedly starting from a₁."
+    "Start with a₁ = 3; each term is the previous squared, minus 2.",
+    "a₂ = 9 - 2 = 7, a₃ = 49 - 2 = 47, a₄ = 2209 - 2 = 2207, a₅ = 2207² - 2 = 4870849 - 2.",
+    "The terms are 3, 7, 47, 2207, 4870847."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1441,8 +1527,9 @@
    "prompt": "Which explicit formula matches a₁ = 6, aₙ = aₙ₋₁ + 4?",
    "answer": "aₙ = 4n + 2",
    "solutionSteps": [
-    "Arithmetic with d = 4.",
-    "aₙ = 6 + (n - 1)(4)."
+    "Adding 4 each time makes it arithmetic with a₁ = 6 and d = 4.",
+    "aₙ = 6 + (n - 1)(4) = 4n + 2.",
+    "Check: n = 2 gives 10 = 6 + 4. So aₙ = 4n + 2."
    ],
    "options": [
     {
@@ -1476,8 +1563,9 @@
    "prompt": "Which explicit formula matches a₁ = -2, aₙ = aₙ₋₁ + 7?",
    "answer": "aₙ = 7n - 9",
    "solutionSteps": [
-    "Arithmetic with d = 7.",
-    "aₙ = -2 + (n - 1)(7)."
+    "Arithmetic with a₁ = -2 and d = 7.",
+    "aₙ = -2 + (n - 1)(7) = 7n - 9.",
+    "Check: n = 1 gives -2. So aₙ = 7n - 9."
    ],
    "options": [
     {
@@ -1511,8 +1599,9 @@
    "prompt": "Which explicit formula matches a₁ = 10, aₙ = aₙ₋₁ - 3?",
    "answer": "aₙ = -3n + 13",
    "solutionSteps": [
-    "Arithmetic with d = -3.",
-    "aₙ = 10 + (n - 1)(-3)."
+    "Arithmetic with a₁ = 10 and d = -3.",
+    "aₙ = 10 + (n - 1)(-3) = -3n + 13.",
+    "Check: n = 1 gives 10. So aₙ = -3n + 13."
    ],
    "options": [
     {
@@ -1546,7 +1635,9 @@
    "prompt": "Which explicit formula matches a₁ = 5, aₙ = 2·aₙ₋₁?",
    "answer": "aₙ = 5(2)^(n - 1)",
    "solutionSteps": [
-    "Geometric with r = 2."
+    "Multiplying by 2 each time makes it geometric with a₁ = 5 and r = 2.",
+    "aₙ = a₁·r^(n - 1).",
+    "aₙ = 5(2)^(n - 1)."
    ],
    "options": [
     {
@@ -1580,7 +1671,9 @@
    "prompt": "Which explicit formula matches a₁ = 48, aₙ = 1/4·aₙ₋₁?",
    "answer": "aₙ = 48(1/4)^(n - 1)",
    "solutionSteps": [
-    "Geometric with r = 1/4."
+    "Multiplying by 1/4 each time: geometric with a₁ = 48 and r = 1/4.",
+    "aₙ = a₁·r^(n - 1).",
+    "aₙ = 48(1/4)^(n - 1)."
    ],
    "options": [
     {
@@ -1614,7 +1707,9 @@
    "prompt": "Which explicit formula matches a₁ = -3, aₙ = -2·aₙ₋₁?",
    "answer": "aₙ = -3(-2)^(n - 1)",
    "solutionSteps": [
-    "Geometric with r = -2."
+    "Multiplying by -2 each time: geometric with a₁ = -3 and r = -2.",
+    "aₙ = a₁·r^(n - 1).",
+    "aₙ = -3(-2)^(n - 1)."
    ],
    "options": [
     {
@@ -1716,7 +1811,9 @@
    "prompt": "The Fibonacci sequence: a₁ = 1, a₂ = 1, aₙ = aₙ₋₁ + aₙ₋₂. Find a₁₀.",
    "answer": "55",
    "solutionSteps": [
-    "1, 1, 2, 3, 5, 8, 13, 21, 34, 55."
+    "Each term after the first two is the sum of the two before it.",
+    "1, 1, 2, 3, 5, 8, 13, 21, 34, then 21 + 34 = 55.",
+    "a₁₀ = 55."
    ],
    "standards": [
     "F-BF.A.2",
@@ -1732,7 +1829,9 @@
    "prompt": "Which is an advantage of an explicit formula over a recursive one?",
    "answer": "It finds any term directly without computing previous terms",
    "solutionSteps": [
-    "Explicit: aₙ in terms of n."
+    "A recursive formula gives each term from the one before, so finding a₁₀₀ needs all 99 earlier terms.",
+    "An explicit formula gives aₙ directly from n.",
+    "So an explicit formula finds any term directly without computing previous terms."
    ],
    "options": [
     {
@@ -1898,10 +1997,10 @@
    "prompt": "aₙ = 3aₙ₋₁ - 4 with a₁ = 3.",
    "answer": "(a) 5, 11, 29; (b) 1, 3, 9; (c) geometric with r = 3; (d) aₙ = 3^(n - 1) + 2",
    "solutionSteps": [
-    "Iterate.",
-    "Subtract 2.",
-    "Ratio 3.",
-    "aₙ = bₙ + 2."
+    "(a) a₂ = 3(3) - 4 = 5, a₃ = 3(5) - 4 = 11, a₄ = 3(11) - 4 = 29.",
+    "(b) bₙ = aₙ - 2: b₁ = 1, b₂ = 3, b₃ = 9.",
+    "(c) Each b is 3 times the last: bₙ is geometric with r = 3, so bₙ = 3^(n - 1).",
+    "(d) aₙ = bₙ + 2 = 3^(n - 1) + 2. Check: n = 4 gives 27 + 2 = 29."
    ],
    "parts": [
     {
@@ -1935,8 +2034,9 @@
    "prompt": "Find the sum of the first 20 terms of the arithmetic series 2, 5, 8, …",
    "answer": "610",
    "solutionSteps": [
-    "aₙ = 2 + 19(3) = 59.",
-    "Sₙ = n(a₁ + aₙ)/2 = 20(2 + 59)/2 = 610."
+    "a₁ = 2 and d = 3, so a₂₀ = 2 + 19(3) = 59.",
+    "Arithmetic series: Sₙ = n(a₁ + aₙ)/2.",
+    "S₂₀ = 20(2 + 59)/2 = 10 · 61 = 610."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2095,7 +2195,9 @@
    "prompt": "What is the sum of the first 50 positive odd numbers?",
    "answer": "2500",
    "solutionSteps": [
-    "1 + 3 + … + 99: 50 terms, sum = 50(1 + 99)/2 = 2500 = 50²."
+    "The first 50 odd numbers are 1, 3, 5, …, 99 (the 50th odd number is 2(50) - 1 = 99).",
+    "Sₙ = n(a₁ + aₙ)/2 = 50(1 + 99)/2 = 50 · 50.",
+    "The sum is 2500 (= 50²)."
    ],
    "options": [
     {
@@ -2128,7 +2230,9 @@
    "prompt": "A student finds 2 + 5 + 8 + … + 62 using 62 terms. How many terms are there?",
    "answer": "21",
    "solutionSteps": [
-    "(62 - 2)/3 + 1 = 21."
+    "The number of terms is (last - first)/d + 1, not the value of the last term.",
+    "Here d = 3: (62 - 2)/3 + 1 = 20 + 1.",
+    "There are 21 terms."
    ],
    "options": [
     {
@@ -2177,8 +2281,9 @@
    "prompt": "Find the sum of all multiples of 7 between 100 and 500.",
    "answer": "17157",
    "solutionSteps": [
-    "First 105, last 497: 57 terms.",
-    "S = 57(105 + 497)/2."
+    "The first multiple of 7 above 100 is 105 and the last below 500 is 497.",
+    "Number of terms: (497 - 105)/7 + 1 = 56 + 1 = 57.",
+    "Sum: 57(105 + 497)/2 = 57 · 301 = 17157."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2198,7 +2303,10 @@
     "(1 + 40)·20"
    ],
    "solutionSteps": [
-    "Sₙ = n(n + 1)/2 = 820."
+    "1 + 2 + … + 40 = n(n + 1)/2 with n = 40: 40·41/2.",
+    "40·41/2 = 20·41 = 820, and (1 + 40)·20 is the same pairing.",
+    "40²/2 = 800 and 40·40 = 1600 are not equal.",
+    "Equal: 40·41/2, 820, 20·41 and (1 + 40)·20."
    ],
    "options": [
     {
@@ -2239,10 +2347,10 @@
    "prompt": "A stack of logs has 24 logs on the bottom row and one fewer in each row above, ending with 10 logs on top.",
    "answer": "(a) 15; (b) 24 + 23 + … + 10; (c) 255; (d) 24",
    "solutionSteps": [
-    "24 - 10 + 1.",
-    "Arithmetic, d = -1.",
-    "15(24 + 10)/2.",
-    "24 down to 1."
+    "(a) Rows go 24, 23, …, 10: 24 - 10 + 1 = 15 rows.",
+    "(b) The series is 24 + 23 + … + 10 (arithmetic, d = -1).",
+    "(c) Total = 15(24 + 10)/2 = 15 · 17 = 255 logs.",
+    "(d) Going all the way down to 1 log gives rows 24, 23, …, 1: 24 rows."
    ],
    "parts": [
     {
@@ -2311,7 +2419,9 @@
    "prompt": "Find the sum 4 + 8 + 12 + … + 40.",
    "answer": "220",
    "solutionSteps": [
-    "10 terms; 10(4 + 40)/2."
+    "The terms are 4, 8, …, 40 with d = 4, so there are (40 - 4)/4 + 1 = 10 terms.",
+    "Sₙ = n(a₁ + aₙ)/2 = 10(4 + 40)/2.",
+    "= 5 · 44 = 220."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2326,8 +2436,9 @@
    "prompt": "Find the sum of the first 8 terms of the geometric series 3, 6, 12, …",
    "answer": "765",
    "solutionSteps": [
-    "r = 2.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (2)^8)/(1 - 2) = 765."
+    "a₁ = 3 and r = 6/3 = 2.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - 2⁸)/(1 - 2) = 3(1 - 256)/(-1).",
+    "= 3 · 255 = 765."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2342,8 +2453,9 @@
    "prompt": "Find the sum of the first 6 terms of the geometric series 1, 3, 9, …",
    "answer": "364",
    "solutionSteps": [
-    "r = 3.",
-    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 1(1 - (3)^6)/(1 - 3) = 364."
+    "a₁ = 1 and r = 3.",
+    "S₆ = 1(1 - 3⁶)/(1 - 3) = (1 - 729)/(-2).",
+    "= 728/2 = 364."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2422,8 +2534,9 @@
    "prompt": "Find the sum 2 + 6 + 18 + … + 486.",
    "answer": "728",
    "solutionSteps": [
-    "r = 3; 486 is term 6.",
-    "S = 2(1 - (3)^6)/(1 - 3) = 728."
+    "a₁ = 2 and r = 3. 486 = 2 · 3⁵, so 486 is the 6th term.",
+    "S₆ = 2(1 - 3⁶)/(1 - 3) = 2(-728)/(-2).",
+    "= 728."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2438,8 +2551,9 @@
    "prompt": "Find the sum 1 + 2 + 4 + … + 512.",
    "answer": "1023",
    "solutionSteps": [
-    "r = 2; 512 is term 10.",
-    "S = 1(1 - (2)^10)/(1 - 2) = 1023."
+    "a₁ = 1 and r = 2. 512 = 2⁹, so 512 is the 10th term.",
+    "S₁₀ = 1(1 - 2¹⁰)/(1 - 2) = (1 - 1024)/(-1).",
+    "= 1023."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2470,8 +2584,9 @@
    "prompt": "Find the sum 3 - 6 + 12 + … + 192.",
    "answer": "129",
    "solutionSteps": [
-    "r = -2; 192 is term 7.",
-    "S = 3(1 - (-2)^7)/(1 - (-2)) = 129."
+    "a₁ = 3 and r = -2. 192 = 3 · (-2)⁶, so 192 is the 7th term.",
+    "S₇ = 3(1 - (-2)⁷)/(1 - (-2)) = 3(1 + 128)/3.",
+    "= 129."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2486,7 +2601,9 @@
    "prompt": "A student uses Sₙ = a₁(1 - rⁿ)/(1 - r) with r = 1. What happens?",
    "answer": "Division by zero; when r = 1 the sum is n·a₁",
    "solutionSteps": [
-    "Every term equals a₁."
+    "With r = 1 the denominator 1 - r is 0, so the formula divides by zero.",
+    "But r = 1 means every term equals a₁, so the sum of n terms is just a₁ added n times.",
+    "Division by zero; when r = 1 the sum is n·a₁."
    ],
    "options": [
     {
@@ -2519,7 +2636,9 @@
    "prompt": "Find 1 + 2 + 4 + … + 2⁹.",
    "answer": "1023",
    "solutionSteps": [
-    "S₁₀ = (2¹⁰ - 1)/(2 - 1)."
+    "The terms 1, 2, 4, …, 2⁹ are geometric with a₁ = 1, r = 2 and 10 terms (2⁰ to 2⁹).",
+    "S₁₀ = (2¹⁰ - 1)/(2 - 1) = 1024 - 1.",
+    "= 1023."
    ],
    "options": [
     {
@@ -2568,8 +2687,9 @@
    "prompt": "A geometric series has a₁ = 4 and S₃ = 52. Find all possible r.",
    "answer": "r = 3 or r = -4",
    "solutionSteps": [
-    "4(1 + r + r²) = 52 → r² + r - 12 = 0.",
-    "(r + 4)(r - 3) = 0."
+    "S₃ = a₁ + a₁r + a₁r² = 4(1 + r + r²) = 52, so 1 + r + r² = 13.",
+    "r² + r - 12 = 0, so (r + 4)(r - 3) = 0.",
+    "r = 3 or r = -4. Check: 4 + 12 + 36 = 52 and 4 - 16 + 64 = 52."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2623,10 +2743,10 @@
    "prompt": "You save $1 the first day and double the amount each day.",
    "answer": "(a) $512; (b) $1023; (c) $1,048,575; (d) day 20",
    "solutionSteps": [
-    "2⁹.",
-    "2¹⁰ - 1.",
-    "2²⁰ - 1.",
-    "2¹⁹ - 1 = 524,287 < 1,000,000."
+    "(a) The amount saved on day n is 2^(n - 1), so day 10 is 2⁹ = $512.",
+    "(b) Total after 10 days: 1 + 2 + … + 2⁹ = 2¹⁰ - 1 = $1023.",
+    "(c) Total after 20 days: 2²⁰ - 1 = $1,048,575.",
+    "(d) After 19 days the total is 2¹⁹ - 1 = 524,287 < 1,000,000; after 20 days it is 1,048,575, so day 20."
    ],
    "parts": [
     {
@@ -2659,10 +2779,10 @@
    "prompt": "Derive Sₙ for a geometric series.",
    "answer": "(a) Sₙ = a₁ + a₁r + … + a₁rⁿ⁻¹; rSₙ = a₁r + … + a₁rⁿ; (b) Sₙ - rSₙ = a₁ - a₁rⁿ; (c) Sₙ = a₁(1 - rⁿ)/(1 - r); (d) 1820",
    "solutionSteps": [
-    "Multiply by r.",
-    "Middle terms cancel.",
-    "Factor.",
-    "5(3⁶ - 1)/2."
+    "(a) Sₙ = a₁ + a₁r + … + a₁rⁿ⁻¹; multiply every term by r: rSₙ = a₁r + … + a₁rⁿ.",
+    "(b) Subtract: all middle terms cancel, leaving Sₙ - rSₙ = a₁ - a₁rⁿ.",
+    "(c) Factor: Sₙ(1 - r) = a₁(1 - rⁿ), so Sₙ = a₁(1 - rⁿ)/(1 - r) (r ≠ 1).",
+    "(d) 5 + 15 + …: a₁ = 5, r = 3, n = 6: 5(1 - 729)/(1 - 3) = 5 · 364 = 1820."
    ],
    "parts": [
     {
@@ -2695,7 +2815,9 @@
    "prompt": "Find 1 + 3 + 9 + 27.",
    "answer": "40",
    "solutionSteps": [
-    "Add, or 1(3⁴ - 1)/2."
+    "Add directly: 1 + 3 + 9 + 27.",
+    "Or use the formula with a₁ = 1, r = 3, n = 4: (3⁴ - 1)/(3 - 1) = 80/2.",
+    "The sum is 40."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2710,6 +2832,7 @@
    "prompt": "Evaluate Σ from k = 1 to 5 of (2k + 1).",
    "answer": "35",
    "solutionSteps": [
+    "Substitute k = 1, 2, 3, 4, 5 into 2k + 1.",
     "Terms: 3, 5, 7, 9, 11.",
     "Sum = 35."
    ],
@@ -2726,6 +2849,7 @@
    "prompt": "Evaluate Σ from k = 1 to 4 of k².",
    "answer": "30",
    "solutionSteps": [
+    "Substitute k = 1, 2, 3, 4 into k².",
     "Terms: 1, 4, 9, 16.",
     "Sum = 30."
    ],
@@ -2742,6 +2866,7 @@
    "prompt": "Evaluate Σ from k = 0 to 4 of 3(2)^k.",
    "answer": "93",
    "solutionSteps": [
+    "Substitute k = 0, 1, 2, 3, 4 into 3(2)^k (k starts at 0).",
     "Terms: 3, 6, 12, 24, 48.",
     "Sum = 93."
    ],
@@ -2758,6 +2883,7 @@
    "prompt": "Evaluate Σ from k = 3 to 7 of (10 - k).",
    "answer": "25",
    "solutionSteps": [
+    "Substitute k = 3, 4, 5, 6, 7 into 10 - k.",
     "Terms: 7, 6, 5, 4, 3.",
     "Sum = 25."
    ],
@@ -2774,8 +2900,9 @@
    "prompt": "Evaluate Σ from k = 1 to 6 of (-1)^k·k.",
    "answer": "3",
    "solutionSteps": [
+    "Substitute k = 1 to 6 into (-1)^k·k: odd k give negative terms, even k positive.",
     "Terms: -1, 2, -3, 4, -5, 6.",
-    "Sum = 3."
+    "Sum = (-1 + 2) + (-3 + 4) + (-5 + 6) = 3."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -2790,7 +2917,8 @@
    "prompt": "Evaluate Σ from k = 2 to 5 of 1/k.",
    "answer": "77/60",
    "solutionSteps": [
-    "Terms: 1/2, 1/3, 1/4, 1/5.",
+    "Substitute k = 2, 3, 4, 5 into 1/k: 1/2, 1/3, 1/4, 1/5.",
+    "Common denominator 60: 30/60 + 20/60 + 15/60 + 12/60.",
     "Sum = 77/60."
    ],
    "standards": [
@@ -2870,8 +2998,8 @@
    "prompt": "Evaluate Σ from k = 1 to 8 of 2(3)^(k - 1).",
    "answer": "6560",
    "solutionSteps": [
-    "This is a geometric series.",
-    "a₁ = 2, r = 3, n = 8.",
+    "The terms 2, 6, 18, … form a geometric series with a₁ = 2 (k = 1), r = 3 and n = 8 terms.",
+    "S₈ = 2(3⁸ - 1)/(3 - 1) = (6561 - 1).",
     "S = 6560."
    ],
    "standards": [
@@ -2904,8 +3032,8 @@
    "prompt": "Evaluate Σ from k = 0 to 9 of 2^k.",
    "answer": "1023",
    "solutionSteps": [
-    "This is a geometric series.",
-    "a₁ = 1, r = 2, n = 10.",
+    "The terms 2⁰, 2¹, …, 2⁹ form a geometric series with a₁ = 1, r = 2 and n = 10 terms (k = 0 to 9).",
+    "S₁₀ = (2¹⁰ - 1)/(2 - 1).",
     "S = 1023."
    ],
    "standards": [
@@ -3001,7 +3129,9 @@
    "prompt": "How many terms are in Σ from k = 4 to 15 of (k + 2)?",
    "answer": "12",
    "solutionSteps": [
-    "15 - 4 + 1 = 12."
+    "The number of terms from k = 4 to k = 15 is 15 - 4 + 1 (both ends count).",
+    "15 - 4 + 1 = 12.",
+    "There are 12 terms."
    ],
    "options": [
     {
@@ -3034,7 +3164,9 @@
    "prompt": "Which equals Σ from k = 1 to 10 of 5?",
    "answer": "50",
    "solutionSteps": [
-    "Ten terms, each 5."
+    "k runs from 1 to 10, so there are 10 terms.",
+    "The expression does not depend on k, so every term is 5.",
+    "Σ = 10 · 5 = 50."
    ],
    "options": [
     {
@@ -3072,8 +3204,10 @@
     "Σ from j = 2 to 6 of 2(j - 1)"
    ],
    "solutionSteps": [
-    "2(1 + 2 + 3 + 4 + 5) = 30.",
-    "Shifting the index: j = k + 1."
+    "Write out the terms: 2 + 4 + 6 + 8 + 10 = 30.",
+    "Factor out 2: 2(1 + 2 + 3 + 4 + 5) = 2·Σk. Shifting the index with j = k + 1 gives Σ from j = 2 to 6 of 2(j - 1), the same terms.",
+    "Σk² = 55 and 2·5 = 10 are different.",
+    "Equal: 2 + 4 + 6 + 8 + 10, 30, 2·Σ from k = 1 to 5 of k, and Σ from j = 2 to 6 of 2(j - 1)."
    ],
    "options": [
     {
@@ -3160,10 +3294,10 @@
    "prompt": "Evaluate Σ from k = 1 to 20 of (k² + 3k) using Σk = n(n + 1)/2 and Σk² = n(n + 1)(2n + 1)/6.",
    "answer": "(a) 2870; (b) 210; (c) 2870 + 630 = 3500; (d) 4 + 10 + 18 = 32",
    "solutionSteps": [
-    "20·21·41/6.",
-    "20·21/2.",
-    "Σk² + 3Σk.",
-    "Direct."
+    "(a) Σk² = n(n + 1)(2n + 1)/6 = 20·21·41/6 = 2870.",
+    "(b) Σk = n(n + 1)/2 = 20·21/2 = 210.",
+    "(c) Σ(k² + 3k) = Σk² + 3Σk = 2870 + 630 = 3500.",
+    "(d) The first 3 terms are 1 + 3 = 4, 4 + 6 = 10, 9 + 9 = 18, and 4 + 10 + 18 = 32 matches the formulas with n = 3 (14 + 18 = 32)."
    ],
    "parts": [
     {
@@ -3328,7 +3462,9 @@
    "prompt": "Does the infinite geometric series with a₁ = 3 and r = 2 converge? If so, find its sum.",
    "answer": "Diverges",
    "solutionSteps": [
-    "Converges only when |r| < 1; then S = a₁/(1 - r)."
+    "An infinite geometric series converges only when |r| < 1.",
+    "Here r = 2, so the terms 3, 6, 12, … grow without bound.",
+    "The series Diverges."
    ],
    "options": [
     {
@@ -3361,7 +3497,9 @@
    "prompt": "Does the infinite geometric series with a₁ = 10 and r = 9/10 converge? If so, find its sum.",
    "answer": "Converges to 100",
    "solutionSteps": [
-    "Converges only when |r| < 1; then S = a₁/(1 - r)."
+    "|r| = 9/10 < 1, so the series converges.",
+    "S = a₁/(1 - r) = 10/(1 - 9/10) = 10/(1/10).",
+    "It Converges to 100."
    ],
    "options": [
     {
@@ -3394,7 +3532,9 @@
    "prompt": "Does the infinite geometric series with a₁ = 1 and r = -1 converge? If so, find its sum.",
    "answer": "Diverges",
    "solutionSteps": [
-    "Converges only when |r| < 1; then S = a₁/(1 - r)."
+    "|r| = |-1| = 1, which is not less than 1.",
+    "The partial sums alternate 1, 0, 1, 0, … and never settle.",
+    "The series Diverges."
    ],
    "options": [
     {
@@ -3427,7 +3567,9 @@
    "prompt": "Does the infinite geometric series with a₁ = 7 and r = -5/4 converge? If so, find its sum.",
    "answer": "Diverges",
    "solutionSteps": [
-    "Converges only when |r| < 1; then S = a₁/(1 - r)."
+    "|r| = 5/4 > 1.",
+    "The terms grow in size while alternating sign, so the partial sums do not settle.",
+    "The series Diverges."
    ],
    "options": [
     {
@@ -3460,7 +3602,9 @@
    "prompt": "Does the infinite geometric series with a₁ = 2 and r = -1/3 converge? If so, find its sum.",
    "answer": "Converges to 3/2",
    "solutionSteps": [
-    "Converges only when |r| < 1; then S = a₁/(1 - r)."
+    "|r| = 1/3 < 1, so it converges.",
+    "S = a₁/(1 - r) = 2/(1 - (-1/3)) = 2/(4/3).",
+    "It Converges to 3/2."
    ],
    "options": [
     {
@@ -3557,7 +3701,9 @@
    "prompt": "A student says 1 + 1/2 + 1/4 + … never ends, so its sum is infinite. What is correct?",
    "answer": "The sum is 2 because |r| = 1/2 < 1",
    "solutionSteps": [
-    "Partial sums 1, 1.5, 1.75, … approach 2."
+    "An infinite series can have a finite sum when its terms shrink fast enough; a geometric series does when |r| < 1.",
+    "Here r = 1/2, and the partial sums 1, 1.5, 1.75, 1.875, … approach 2.",
+    "S = 1/(1 - 1/2) = 2: the sum is 2 because |r| = 1/2 < 1."
    ],
    "options": [
     {
@@ -3590,7 +3736,9 @@
    "prompt": "For which x does Σ from n = 0 to ∞ of xⁿ converge?",
    "answer": "-1 < x < 1",
    "solutionSteps": [
-    "Geometric with r = x; need |x| < 1."
+    "Σ xⁿ = 1 + x + x² + … is geometric with r = x.",
+    "A geometric series converges exactly when |r| < 1.",
+    "So it converges for -1 < x < 1 (to 1/(1 - x))."
    ],
    "options": [
     {
@@ -3627,7 +3775,10 @@
     "0.9 + 0.81 + 0.729 + …"
    ],
    "solutionSteps": [
-    "Check |r| < 1: 1/2, 1/3, 0.9 converge; 2, 1, 1 do not."
+    "An infinite geometric series converges only when |r| < 1.",
+    "4 + 2 + 1 + … (r = 1/2), 1 - 1/3 + 1/9 - … (r = -1/3) and 0.9 + 0.81 + … (r = 0.9) converge.",
+    "5 + 5 + … (r = 1), 1 - 1 + 1 - … (r = -1) and 2 + 4 + 8 + … (r = 2) do not.",
+    "Converge: 4 + 2 + 1 + …, 1 - 1/3 + 1/9 - … and 0.9 + 0.81 + 0.729 + …"
    ],
    "options": [
     {
@@ -3668,7 +3819,9 @@
    "prompt": "An infinite geometric series has sum 12 and first term 4. Find r.",
    "answer": "r = 2/3",
    "solutionSteps": [
-    "12 = 4/(1 - r) → 1 - r = 1/3."
+    "S = a₁/(1 - r), so 12 = 4/(1 - r).",
+    "1 - r = 4/12 = 1/3.",
+    "r = 2/3 (|r| < 1, so the series does converge)."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -3683,7 +3836,9 @@
    "prompt": "Find x if 1 + x + x² + … = 4.",
    "answer": "x = 3/4",
    "solutionSteps": [
-    "1/(1 - x) = 4 with |x| < 1."
+    "1 + x + x² + … is geometric with a₁ = 1 and r = x, so its sum is 1/(1 - x) when |x| < 1.",
+    "1/(1 - x) = 4, so 1 - x = 1/4.",
+    "x = 3/4, which satisfies |x| < 1."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -3698,10 +3853,10 @@
    "prompt": "Consider 6 + 3 + 3/2 + 3/4 + …",
    "answer": "(a) 1/2; (b) 93/8; (c) 12; (d) 3/8",
    "solutionSteps": [
-    "3/6.",
-    "6(1 - (1/2)⁵)/(1/2).",
-    "6/(1/2).",
-    "Subtract."
+    "(a) r = 3/6 = 1/2.",
+    "(b) S₅ = 6(1 - (1/2)⁵)/(1 - 1/2) = 12(31/32) = 93/8.",
+    "(c) The infinite sum is 6/(1 - 1/2) = 12.",
+    "(d) 12 - 93/8 = 96/8 - 93/8 = 3/8."
    ],
    "parts": [
     {
@@ -3734,10 +3889,10 @@
    "prompt": "A ball dropped from 10 m rebounds to 60% of its previous height each time.",
    "answer": "(a) 10 m; (b) 6 + 3.6 + 2.16 + …; (c) 15 m; (d) 40 m",
    "solutionSteps": [
-    "Given.",
-    "a₁ = 6, r = 0.6.",
-    "6/0.4.",
-    "10 + 2(15)."
+    "(a) The first fall is the drop height: 10 m.",
+    "(b) The rebounds are 60% of 10, then 60% of that, …: 6 + 3.6 + 2.16 + …",
+    "(c) Geometric with a₁ = 6, r = 0.6: 6/(1 - 0.6) = 6/0.4 = 15 m.",
+    "(d) The ball falls the first 10 m, then goes up and down each rebound: 10 + 2(15) = 40 m."
    ],
    "parts": [
     {
@@ -3770,7 +3925,9 @@
    "prompt": "Find the sum 1 + 1/3 + 1/9 + …",
    "answer": "3/2",
    "solutionSteps": [
-    "1/(1 - 1/3)."
+    "The series is geometric with a₁ = 1 and r = 1/3; |r| < 1 so it converges.",
+    "S = a₁/(1 - r) = 1/(1 - 1/3) = 1/(2/3).",
+    "S = 3/2."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -3785,8 +3942,9 @@
    "prompt": "A salary starts at $42,000 and rises $1,500 per year. What is the salary in year 10, and the total earned over 10 years?",
    "answer": "$55,500; $487,500",
    "solutionSteps": [
-    "a₁₀ = 42000 + 9(1500) = 55,500.",
-    "S₁₀ = 10(42000 + 55500)/2."
+    "The salary is arithmetic: a₁ = 42,000 and d = 1,500.",
+    "Year 10: a₁₀ = 42,000 + 9(1,500) = 55,500.",
+    "Total: S₁₀ = 10(42,000 + 55,500)/2 = 487,500. So $55,500; $487,500."
    ],
    "standards": [
     "F-LE.A.2",
@@ -3802,8 +3960,9 @@
    "prompt": "A salary starts at $42,000 and rises 3% per year. What is the salary in year 10 (nearest dollar), and the total over 10 years?",
    "answer": "$54,800; $481,483",
    "solutionSteps": [
-    "a₁₀ = 42000(1.03)⁹.",
-    "S₁₀ = 42000(1.03¹⁰ - 1)/0.03."
+    "A 3% raise multiplies the salary by 1.03 each year: geometric with a₁ = 42,000 and r = 1.03.",
+    "Year 10: 42,000(1.03)⁹ ≈ 42,000(1.304773) ≈ 54,800.",
+    "Total: S₁₀ = 42,000(1.03¹⁰ - 1)/0.03 ≈ 481,483. So $54,800; $481,483."
    ],
    "standards": [
     "F-LE.A.2",
@@ -3819,7 +3978,9 @@
    "prompt": "Which salary plan pays more over 10 years: $42,000 + $1,500/yr or $42,000 with 3% raises?",
    "answer": "$1,500 raises",
    "solutionSteps": [
-    "Arithmetic total $487,500; geometric total ≈ $481,483."
+    "Plan with $1,500 raises (arithmetic): S₁₀ = 10(42,000 + 55,500)/2 = $487,500.",
+    "Plan with 3% raises (geometric): S₁₀ = 42,000(1.03¹⁰ - 1)/0.03 ≈ $481,483.",
+    "Over 10 years the $1,500 raises pay more (the percent raises catch up only later)."
    ],
    "options": [
     {
@@ -3853,7 +4014,9 @@
    "prompt": "A pyramid display has 1 can on top, 3 in the next row, 5 in the next, and so on for 12 rows. How many cans?",
    "answer": "144",
    "solutionSteps": [
-    "Odd numbers: 12² = 144."
+    "The rows hold 1, 3, 5, …: the first 12 odd numbers, so the last row has 2(12) - 1 = 23 cans.",
+    "Total = 12(1 + 23)/2.",
+    "= 144 cans (= 12²)."
    ],
    "standards": [
     "F-LE.A.2",
@@ -3869,7 +4032,9 @@
    "prompt": "A car worth $28,000 loses 15% each year. Find its value after 6 years (nearest dollar).",
    "answer": "$10,560",
    "solutionSteps": [
-    "a₇ = 28000(0.85)⁶ (value after 6 years)."
+    "Losing 15% each year leaves 85%, so the value is multiplied by 0.85 each year.",
+    "After 6 years: 28,000(0.85)⁶ ≈ 28,000(0.377150).",
+    "≈ $10,560."
    ],
    "standards": [
     "F-LE.A.2",
@@ -3919,7 +4084,9 @@
    "prompt": "In the long run, how much of the drug (50 mg daily, 30% remains) is in the body right after a dose? Round to the nearest hundredth of a milligram.",
    "answer": "71.43 mg",
    "solutionSteps": [
-    "Infinite geometric series: 50/(1 - 0.3)."
+    "Right after each dose the amount is 50 + 50(0.3) + 50(0.3)² + …, the new dose plus what remains of earlier doses.",
+    "In the long run this is an infinite geometric series with a₁ = 50 and r = 0.3.",
+    "S = 50/(1 - 0.3) = 50/0.7 ≈ 71.43 mg."
    ],
    "standards": [
     "F-LE.A.2",
@@ -3935,7 +4102,9 @@
    "prompt": "A pattern adds 4 tiles each step, starting with 6 tiles. Which model fits?",
    "answer": "Arithmetic: tₙ = 4n + 2",
    "solutionSteps": [
-    "Constant addition → arithmetic; t₁ = 6, d = 4."
+    "Adding the same 4 tiles each step is a constant difference, so the pattern is arithmetic.",
+    "t₁ = 6 and d = 4: tₙ = 6 + 4(n - 1) = 4n + 2.",
+    "Arithmetic: tₙ = 4n + 2."
    ],
    "options": [
     {
@@ -3969,7 +4138,9 @@
    "prompt": "A chain email: 1 person sends it in week 1, 4 people in week 2, 16 in week 3, and so on. How many people send it in week 5?",
    "answer": "256",
    "solutionSteps": [
-    "Geometric: aₙ = 4ⁿ⁻¹; a₅ = 4⁴ = 256."
+    "1, 4, 16, … multiplies by 4 each week: geometric with a₁ = 1 and r = 4.",
+    "aₙ = 4^(n - 1), so a₅ = 4⁴.",
+    "a₅ = 256 people."
    ],
    "options": [
     {
@@ -4007,7 +4178,10 @@
     "Temperature drops 3°F each hour"
    ],
    "solutionSteps": [
-    "Constant change → arithmetic; constant percent change → geometric."
+    "A constant amount of change each step is arithmetic; a constant percent change is geometric.",
+    "Seats +2 per row, temperature -3°F each hour and the gym total ($30, then +$10 each month) change by constant amounts.",
+    "5% interest, losing 12% yearly and doubling bacteria change by a percent (geometric).",
+    "Arithmetic: seats increase by 2 per row, the gym charges $30 plus $10 per month (total paid), and temperature drops 3°F each hour."
    ],
    "options": [
     {
@@ -4053,7 +4227,10 @@
     "The total distance is 84 ft"
    ],
    "solutionSteps": [
-    "Down 12, then up and down 9, 6.75, …: 12 + 2(9/(1 - 3/4)) = 12 + 72 = 84."
+    "The first rebound is 3/4 of 12 = 9 ft.",
+    "After the first 12 ft fall the ball goes up and down each rebound: 12 + 2(9 + 6.75 + …).",
+    "The rebounds form a geometric series with r = 3/4 < 1, so their total is 9/(1 - 3/4) = 36 and the distance is finite: 12 + 2(36) = 84 ft (not 48 ft).",
+    "True: the total distance is finite, the first rebound is 9 ft, and the total distance is 84 ft."
    ],
    "options": [
     {
@@ -4091,10 +4268,10 @@
    "prompt": "An auditorium has 20 seats in row 1, and each row has 2 more seats than the previous one. There are 25 rows.",
    "answer": "(a) 68; (b) 2200; (c) row 16; (d) 290",
    "solutionSteps": [
-    "20 + 24(2).",
-    "25(20 + 68)/2.",
-    "20 + 2(n - 1) = 50.",
-    "10(20 + 38)/2."
+    "(a) Arithmetic with a₁ = 20, d = 2: a₂₅ = 20 + 24(2) = 68.",
+    "(b) Total = 25(20 + 68)/2 = 25 · 44 = 2200.",
+    "(c) 20 + 2(n - 1) = 50 gives n - 1 = 15, so row 16.",
+    "(d) a₁₀ = 20 + 9(2) = 38, so rows 1–10 hold 10(20 + 38)/2 = 290."
    ],
    "parts": [
     {
@@ -4202,7 +4379,9 @@
    "prompt": "A runner adds 0.5 mi each week, starting at 3 mi. How far in week 6?",
    "answer": "5.5 mi",
    "solutionSteps": [
-    "3 + 5(0.5)."
+    "The distance is arithmetic: a₁ = 3 and d = 0.5.",
+    "Week 6 is 5 increases after week 1: a₆ = 3 + 5(0.5).",
+    "a₆ = 5.5 mi."
    ],
    "standards": [
     "F-LE.A.2",
@@ -4223,8 +4402,10 @@
     "148 is a term"
    ],
    "solutionSteps": [
-    "aₙ = a₁ + (n - 1)d.",
-    "Differences of terms are multiples of d."
+    "d = 10 - 4 = 6, so aₙ = 4 + 6(n - 1) = 6n - 2 (not 6n + 4).",
+    "a₁₀ = 6(10) - 2 = 58 (not 64), and a₂₀ - a₁₀ = 10d = 60.",
+    "6n - 2 = 148 gives n = 25 (a term); 6n - 2 = 151 gives n = 25.5 (not a term).",
+    "True: a₁₀ = 58, d = 6, a₂₀ - a₁₀ = 60, and 148 is a term."
    ],
    "options": [
     {
@@ -4275,8 +4456,10 @@
     "51 is a term"
    ],
    "solutionSteps": [
-    "aₙ = a₁ + (n - 1)d.",
-    "Differences of terms are multiples of d."
+    "d = -13/2 - (-9) = 5/2, so aₙ = -9 + (5/2)(n - 1) = (5/2)n - 23/2 (not (5/2)n - 9).",
+    "a₁₀ = -9 + 9(5/2) = 27/2 (not 16), and a₂₀ - a₁₀ = 10d = 25.",
+    "-9 + (5/2)(n - 1) = 51 gives n - 1 = 24, a term; for 209/4, n - 1 = 24.5, not a term.",
+    "True: a₁₀ = 27/2, d = 5/2, a₂₀ - a₁₀ = 25, and 51 is a term."
    ],
    "options": [
     {
@@ -4684,7 +4867,10 @@
     "2, 5, 11, 23"
    ],
    "solutionSteps": [
-    "Neither differences nor ratios are constant for the first three."
+    "A sequence fits aₙ = aₙ₋₁ + d if its differences are constant, or aₙ = r·aₙ₋₁ if its ratios are constant.",
+    "3, 3, 3, 3 (d = 0), 1, -2, 4, -8 (r = -2) and 10, 7, 4, 1 (d = -3) fit one of these.",
+    "1, 1, 2, 3, 5, 8 (Fibonacci), 1, 4, 9, 16 (differences 3, 5, 7) and 2, 5, 11, 23 (differences 3, 6, 12; ratios not constant) fit neither.",
+    "Cannot: 1, 1, 2, 3, 5, 8; 1, 4, 9, 16; and 2, 5, 11, 23."
    ],
    "options": [
     {
@@ -4726,7 +4912,9 @@
    "prompt": "a₁ = 10, aₙ = aₙ₋₁ - 3. Find a₄.",
    "answer": "1",
    "solutionSteps": [
-    "10, 7, 4, 1."
+    "Start at a₁ = 10 and subtract 3 each time.",
+    "a₂ = 7, a₃ = 4, a₄ = 1.",
+    "a₄ = 1."
    ],
    "standards": [
     "F-BF.A.2",
@@ -4921,8 +5109,10 @@
     "The average term is 69/2"
    ],
    "solutionSteps": [
-    "Last term a₁ + (n - 1)d.",
-    "S = n·(average of first and last)."
+    "a₁₀ = 3 + 9(7) = 66.",
+    "The average of the first and last terms is (3 + 66)/2 = 69/2 (not 70).",
+    "S₁₀ = 10 · 69/2 = 345 (not 690).",
+    "True: S₁₀ = 345, a₁₀ = 66, and the average term is 69/2."
    ],
    "options": [
     {
@@ -4963,8 +5153,10 @@
     "The average term is 56"
    ],
    "solutionSteps": [
-    "Last term a₁ + (n - 1)d.",
-    "S = n·(average of first and last)."
+    "d = -8, so a₁₂ = 100 + 11(-8) = 12.",
+    "The average term is (100 + 12)/2 = 56.",
+    "S₁₂ = 12 · 56 = 672 (not 1344).",
+    "True: S₁₂ = 672, a₁₂ = 12, and the average term is 56."
    ],
    "options": [
     {
@@ -5005,8 +5197,10 @@
     "The average term is 35/2"
    ],
    "solutionSteps": [
-    "Last term a₁ + (n - 1)d.",
-    "S = n·(average of first and last)."
+    "d = 3, so a₁₆ = -5 + 15(3) = 40.",
+    "The average term is (-5 + 40)/2 = 35/2.",
+    "S₁₆ = 16 · 35/2 = 280 (not 560).",
+    "True: S₁₆ = 280, a₁₆ = 40, and the average term is 35/2."
    ],
    "options": [
     {
@@ -5115,8 +5309,9 @@
    "prompt": "The sum of the first n terms of an arithmetic series is Sₙ = 3n² + 2n. Find a₁ and d.",
    "answer": "a₁ = 5, d = 6",
    "solutionSteps": [
-    "a₁ = S₁ = 5.",
-    "a₂ = S₂ - S₁ = 16 - 5 = 11, so d = 6."
+    "The first term is the sum of one term: a₁ = S₁ = 3 + 2 = 5.",
+    "S₂ = 12 + 4 = 16, so a₂ = S₂ - S₁ = 16 - 5 = 11.",
+    "d = a₂ - a₁ = 6. So a₁ = 5, d = 6."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5131,8 +5326,9 @@
    "prompt": "Find the sum of the integers from 1 to 200 that are divisible by 4.",
    "answer": "5100",
    "solutionSteps": [
-    "4 + 8 + … + 200: 50 terms.",
-    "50(4 + 200)/2."
+    "The multiples of 4 from 1 to 200 are 4, 8, …, 200: 200/4 = 50 terms.",
+    "Sum = 50(4 + 200)/2.",
+    "= 50 · 102 = 5100."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5147,7 +5343,8 @@
    "prompt": "Find the sum of the first 6 terms of 4, 12, 36, …",
    "answer": "1456",
    "solutionSteps": [
-    "Sₙ = a₁(1 - rⁿ)/(1 - r).",
+    "a₁ = 4 and r = 12/4 = 3.",
+    "S₆ = 4(3⁶ - 1)/(3 - 1) = 4 · 728/2.",
     "= 1456."
    ],
    "options": [
@@ -5181,7 +5378,8 @@
    "prompt": "Find the sum of the first 12 terms of 1, 2, 4, …",
    "answer": "4095",
    "solutionSteps": [
-    "Sₙ = a₁(1 - rⁿ)/(1 - r).",
+    "a₁ = 1 and r = 2.",
+    "S₁₂ = (2¹² - 1)/(2 - 1) = 4096 - 1.",
     "= 4095."
    ],
    "options": [
@@ -5215,8 +5413,9 @@
    "prompt": "Find the sum of the first 5 terms of 81, 27, 9, …",
    "answer": "121",
    "solutionSteps": [
-    "Sₙ = a₁(1 - rⁿ)/(1 - r).",
-    "= 121."
+    "a₁ = 81 and r = 1/3.",
+    "S₅ = 81(1 - (1/3)⁵)/(1 - 1/3) = 81(242/243)(3/2).",
+    "= 121 (check: 81 + 27 + 9 + 3 + 1 = 121)."
    ],
    "options": [
     {
@@ -5249,8 +5448,9 @@
    "prompt": "Find the sum of the first 7 terms of 6, -12, 24, …",
    "answer": "258",
    "solutionSteps": [
-    "Sₙ = a₁(1 - rⁿ)/(1 - r).",
-    "= 258."
+    "a₁ = 6 and r = -2.",
+    "S₇ = 6(1 - (-2)⁷)/(1 - (-2)) = 6(1 + 128)/3.",
+    "= 2 · 129 = 258."
    ],
    "options": [
     {
@@ -5283,7 +5483,8 @@
    "prompt": "Find the sum of the first 6 terms of 10, 5, 5/2, …",
    "answer": "315/16",
    "solutionSteps": [
-    "Sₙ = a₁(1 - rⁿ)/(1 - r).",
+    "a₁ = 10 and r = 1/2.",
+    "S₆ = 10(1 - (1/2)⁶)/(1/2) = 20(63/64).",
     "= 315/16."
    ],
    "options": [
@@ -5393,8 +5594,10 @@
     "S = 765"
    ],
    "solutionSteps": [
-    "384 = 3·2⁷ → 8 terms.",
-    "3(2⁸ - 1) = 765."
+    "r = 6/3 = 2 (not 3).",
+    "384 = 3 · 2⁷, so 384 is term 8: there are 8 terms (not 7).",
+    "S = 3(2⁸ - 1)/(2 - 1) = 3 · 255 = 765 (not 768).",
+    "True: r = 2, there are 8 terms, and S = 765."
    ],
    "options": [
     {
@@ -5439,7 +5642,10 @@
     "Σ from k = 0 to 9 of rᵏ"
    ],
    "solutionSteps": [
-    "10 terms starting at r⁰."
+    "1 + r + … + r⁹ has 10 terms, r⁰ through r⁹, so it is Σ from k = 0 to 9 of rᵏ.",
+    "Its sum is (1 - r¹⁰)/(1 - r); multiplying top and bottom by -1 gives (r¹⁰ - 1)/(r - 1).",
+    "Using r⁹ instead of r¹⁰ counts only 9 terms, and 10r is not equal.",
+    "Equal: (1 - r¹⁰)/(1 - r), (r¹⁰ - 1)/(r - 1) and Σ from k = 0 to 9 of rᵏ."
    ],
    "options": [
     {
@@ -5480,7 +5686,9 @@
    "prompt": "Find 2 - 4 + 8 - 16 + 32 - 64.",
    "answer": "-42",
    "solutionSteps": [
-    "a₁ = 2, r = -2, n = 6: 2(1 - 64)/3."
+    "The terms form a geometric series with a₁ = 2, r = -2 and n = 6.",
+    "S₆ = 2(1 - (-2)⁶)/(1 - (-2)) = 2(1 - 64)/3 = 2(-63)/3.",
+    "= -42."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5495,7 +5703,9 @@
    "prompt": "A geometric series has r = 2 and S₆ = 189. Find a₁.",
    "answer": "3",
    "solutionSteps": [
-    "a₁(2⁶ - 1) = 189 → 63a₁ = 189."
+    "S₆ = a₁(2⁶ - 1)/(2 - 1) = 63a₁.",
+    "63a₁ = 189.",
+    "a₁ = 3."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5510,7 +5720,9 @@
    "prompt": "Find the sum of the first 8 terms of 1000, 1100, 1210, … (nearest whole).",
    "answer": "11,436",
    "solutionSteps": [
-    "r = 1.1; S₈ = 1000(1.1⁸ - 1)/0.1."
+    "The terms grow by 10% each time: a₁ = 1000, r = 1.1.",
+    "S₈ = 1000(1.1⁸ - 1)/(1.1 - 1) ≈ 1000(2.143589 - 1)/0.1.",
+    "≈ 11,435.89, which is 11,436 to the nearest whole."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5631,7 +5843,10 @@
     "Σ from k = 2 to 6 of (3k - 2)"
    ],
    "solutionSteps": [
-    "Check the first and last terms and the count."
+    "The target has 5 terms, from 4 to 16, increasing by 3.",
+    "Σ from 1 to 5 of (3k + 1): 4, …, 16 ✓. Σ from 0 to 4 of (3k + 4): 4, …, 16 ✓. Σ from 2 to 6 of (3k - 2): 4, …, 16 ✓.",
+    "Σ from 1 to 5 of (3k + 4) gives 7 to 19; the other two have the wrong terms.",
+    "Equal: Σ from k = 1 to 5 of (3k + 1), Σ from k = 0 to 4 of (3k + 4) and Σ from k = 2 to 6 of (3k - 2)."
    ],
    "options": [
     {
@@ -5672,8 +5887,9 @@
    "prompt": "Find n if Σ from k = 1 to n of (2k - 1) = 225.",
    "answer": "n = 15",
    "solutionSteps": [
-    "Sum of the first n odd numbers is n².",
-    "n² = 225."
+    "Σ(2k - 1) adds the first n odd numbers: 1 + 3 + … + (2n - 1) = n(1 + 2n - 1)/2 = n².",
+    "n² = 225.",
+    "n = 15."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5688,7 +5904,9 @@
    "prompt": "Write out the terms of Σ from k = 1 to 4 of 5k.",
    "answer": "5 + 10 + 15 + 20",
    "solutionSteps": [
-    "k = 1, 2, 3, 4."
+    "Substitute k = 1, 2, 3, 4 into 5k.",
+    "5(1) = 5, 5(2) = 10, 5(3) = 15, 5(4) = 20.",
+    "5 + 10 + 15 + 20."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -5843,8 +6061,10 @@
     "S₅ = 1705/64"
    ],
    "solutionSteps": [
-    "|r| = 1/4 < 1.",
-    "S = 20/(1 - (1/4)) = 80/3."
+    "r = 5/20 = 1/4 and |r| < 1, so the series converges (it does not diverge).",
+    "S = 20/(1 - 1/4) = 20/(3/4) = 80/3 (not 16).",
+    "S₅ = 20(1 - (1/4)⁵)/(3/4) = (80/3)(1023/1024) = 1705/64.",
+    "True: the series converges, the sum is 80/3, and S₅ = 1705/64."
    ],
    "options": [
     {
@@ -5885,8 +6105,10 @@
     "S₅ = 165/16"
    ],
    "solutionSteps": [
-    "|r| = 1/2 < 1.",
-    "S = 15/(1 - (-1/2)) = 10."
+    "r = (-15/2)/15 = -1/2 and |r| < 1, so it converges.",
+    "S = 15/(1 - (-1/2)) = 15/(3/2) = 10 (not 30).",
+    "S₅ = 15(1 - (-1/2)⁵)/(3/2) = 10(33/32) = 165/16.",
+    "True: the series converges, the sum is 10, and S₅ = 165/16."
    ],
    "options": [
     {
@@ -5927,8 +6149,10 @@
     "S₅ = 1477/81"
    ],
    "solutionSteps": [
-    "|r| = 2/3 < 1.",
-    "S = 7/(1 - (2/3)) = 21."
+    "r = (14/3)/7 = 2/3 and |r| < 1, so it converges.",
+    "S = 7/(1 - 2/3) = 7/(1/3) = 21 (not 21/5).",
+    "S₅ = 7(1 - (2/3)⁵)/(1/3) = 21(211/243) = 1477/81.",
+    "True: the series converges, the sum is 21, and S₅ = 1477/81."
    ],
    "options": [
     {
@@ -5965,7 +6189,9 @@
    "prompt": "Evaluate Σ from k = 1 to ∞ of 5(0.2)^(k - 1).",
    "answer": "25/4",
    "solutionSteps": [
-    "a₁ = 5, r = 0.2: 5/0.8."
+    "The series is geometric with a₁ = 5 (k = 1) and r = 0.2; |r| < 1.",
+    "S = 5/(1 - 0.2) = 5/0.8.",
+    "S = 25/4."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -6031,7 +6257,9 @@
    "prompt": "A job pays $48,000 the first year with a 4% raise each year. About how much is earned in 8 years?",
    "answer": "$442,283",
    "solutionSteps": [
-    "Geometric series a₁ = base, r = 1 + rate, n = 8."
+    "Each year's pay is 1.04 times the last: geometric with a₁ = 48,000, r = 1.04, n = 8.",
+    "S₈ = 48,000(1.04⁸ - 1)/0.04 ≈ 48,000(9.214226).",
+    "≈ $442,283."
    ],
    "options": [
     {
@@ -6065,7 +6293,9 @@
    "prompt": "A job pays $36,000 the first year with a 5% raise each year. About how much is earned in 8 years?",
    "answer": "$343,768",
    "solutionSteps": [
-    "Geometric series a₁ = base, r = 1 + rate, n = 8."
+    "Geometric with a₁ = 36,000, r = 1.05, n = 8.",
+    "S₈ = 36,000(1.05⁸ - 1)/0.05 ≈ 36,000(9.549109).",
+    "≈ $343,768."
    ],
    "options": [
     {
@@ -6177,8 +6407,10 @@
     "The sequence is arithmetic"
    ],
    "solutionSteps": [
-    "Constant monthly increase.",
-    "25(12) + 50 = 350."
+    "The total goes up by the same $25 each month, so it is arithmetic (not geometric).",
+    "Tₙ = 50 + 25n = 25n + 50 (not 50(25)^n).",
+    "T₁₂ = 25(12) + 50 = 350 (not 300).",
+    "True: Tₙ = 25n + 50, T₁₂ = $350, and the sequence is arithmetic."
    ],
    "options": [
     {
@@ -6255,8 +6487,9 @@
    "prompt": "A store stacks boxes: 15 on the bottom row, 13 in the next, decreasing by 2, until 1 on top. How many boxes in total?",
    "answer": "64",
    "solutionSteps": [
-    "15, 13, …, 1: 8 terms.",
-    "8(15 + 1)/2."
+    "The rows are 15, 13, …, 1 with d = -2: (15 - 1)/2 + 1 = 8 rows.",
+    "Total = 8(15 + 1)/2.",
+    "= 64 boxes."
    ],
    "standards": [
     "F-LE.A.2",
@@ -6272,8 +6505,9 @@
    "prompt": "A company's sales were $2.0 million in year 1 and grow 6% per year. In which year do cumulative sales first exceed $30 million?",
    "answer": "year 12",
    "solutionSteps": [
-    "Sₙ = 2(1.06ⁿ - 1)/0.06 > 30.",
-    "Test n."
+    "Cumulative sales after n years: Sₙ = 2(1.06ⁿ - 1)/0.06 (millions).",
+    "Sₙ > 30 means 1.06ⁿ > 1.9, so n > log 1.9/log 1.06 ≈ 11.01.",
+    "Check: S₁₁ ≈ 29.94 and S₁₂ ≈ 33.74, so the first year is year 12."
    ],
    "standards": [
     "F-LE.A.2",
@@ -6289,7 +6523,9 @@
    "prompt": "Seats: row 1 has 12, each row adds 3. How many seats in row 8?",
    "answer": "33",
    "solutionSteps": [
-    "12 + 7(3)."
+    "Arithmetic: a₁ = 12, d = 3.",
+    "Row 8 is 7 increases after row 1: a₈ = 12 + 7(3).",
+    "a₈ = 33."
    ],
    "standards": [
     "F-LE.A.2",
@@ -6305,10 +6541,10 @@
    "prompt": "Option A pays $1,000 per day for 30 days. Option B pays 1¢ on day 1 and doubles daily for 30 days.",
    "answer": "(a) $30,000; (b) 0.01 + 0.02 + 0.04 + … + 0.01(2²⁹); (c) $10,737,418.23; (d) day 18",
    "solutionSteps": [
-    "30·1000.",
-    "Geometric, r = 2.",
-    "0.01(2³⁰ - 1).",
-    "0.01·2ⁿ⁻¹ > 1000."
+    "(a) Option A: 30 × $1,000 = $30,000.",
+    "(b) Option B doubles from 1¢: 0.01 + 0.02 + 0.04 + … + 0.01(2²⁹), 30 terms.",
+    "(c) Geometric sum: 0.01(2³⁰ - 1)/(2 - 1) = 0.01(1,073,741,823) = $10,737,418.23.",
+    "(d) Day n pays 0.01·2^(n - 1) > 1000, so 2^(n - 1) > 100,000; 2¹⁷ = 131,072 is the first, so day 18."
    ],
    "parts": [
     {
@@ -6783,8 +7019,8 @@
    "prompt": "Find the 6th term of the geometric sequence 1, -2, 4, -8, …",
    "answer": "-32",
    "solutionSteps": [
-    "a₁ = 1, r = -2.",
-    "aₙ = a₁·r^(n - 1), so a₆ = 1(-2)^5.",
+    "a₁ = 1 and r = -2/1 = -2.",
+    "a₆ = 1(-2)⁵ = -32 (an odd power keeps the minus sign).",
     "a₆ = -32."
    ],
    "standards": [
@@ -6801,8 +7037,9 @@
    "prompt": "Find the next term of the geometric sequence -4, 12, -36, 108, …",
    "answer": "-324",
    "solutionSteps": [
-    "r = 12 ÷ -4 = -3.",
-    "Next term = 108 · -3 = -324."
+    "r = 12 ÷ (-4) = -3.",
+    "The next term is the last term times r: 108 · (-3).",
+    "Next term = -324."
    ],
    "standards": [
     "F-IF.A.3",
@@ -6896,8 +7133,8 @@
    "prompt": "Find the 5th term of the geometric sequence 8, -24, 72, -216, …",
    "answer": "648",
    "solutionSteps": [
-    "a₁ = 8, r = -3.",
-    "aₙ = a₁·r^(n - 1), so a₅ = 8(-3)^4.",
+    "a₁ = 8 and r = -24/8 = -3.",
+    "a₅ = 8(-3)⁴ = 8 · 81.",
     "a₅ = 648."
    ],
    "standards": [
@@ -6914,8 +7151,9 @@
    "prompt": "Find the next term of the geometric sequence -9, -18, -36, -72, …",
    "answer": "-144",
    "solutionSteps": [
-    "r = -18 ÷ -9 = 2.",
-    "Next term = -72 · 2 = -144."
+    "r = -18 ÷ (-9) = 2.",
+    "Next term = -72 · 2.",
+    "= -144."
    ],
    "standards": [
     "F-IF.A.3",
@@ -6986,7 +7224,8 @@
    ],
    "solutionSteps": [
     "r = 16 ÷ 32 = 1/2.",
-    "Next term = 4 · 1/2 = 2."
+    "Next term = 4 · 1/2.",
+    "= 2."
    ],
    "standards": [
     "F-IF.A.3",
@@ -7020,8 +7259,9 @@
    "prompt": "Find the next term of the geometric sequence -16, -8, -4, -2, …",
    "answer": "-1",
    "solutionSteps": [
-    "r = -8 ÷ -16 = 1/2.",
-    "Next term = -2 · 1/2 = -1."
+    "r = -8 ÷ (-16) = 1/2.",
+    "Next term = -2 · 1/2.",
+    "= -1."
    ],
    "standards": [
     "F-IF.A.3",
@@ -7091,7 +7331,8 @@
     }
    ],
    "solutionSteps": [
-    "r = a₂ ÷ a₁ = -20 ÷ -40.",
+    "The common ratio is a term divided by the one before it: r = -20 ÷ (-40).",
+    "Check: -10 ÷ (-20) = 1/2 as well.",
     "r = 1/2."
    ],
    "standards": [
@@ -7108,8 +7349,8 @@
    "prompt": "Find the 5th term of the geometric sequence -3, -6, -12, -24, …",
    "answer": "-48",
    "solutionSteps": [
-    "a₁ = -3, r = 2.",
-    "aₙ = a₁·r^(n - 1), so a₅ = -3(2)^4.",
+    "a₁ = -3 and r = -6/(-3) = 2.",
+    "a₅ = -3(2)⁴ = -3 · 16.",
     "a₅ = -48."
    ],
    "standards": [
@@ -7127,7 +7368,8 @@
    "answer": "567",
    "solutionSteps": [
     "r = -21 ÷ 7 = -3.",
-    "Next term = -189 · -3 = 567."
+    "Next term = -189 · (-3).",
+    "= 567."
    ],
    "standards": [
     "F-IF.A.3",
@@ -10341,7 +10583,8 @@
    "answer": "63 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 17, d = 2.",
-    "a₂₄ = 17 + (24 - 1)(2) = 63."
+    "a₂₄ = 17 + (24 - 1)(2) = 17 + 46.",
+    "a₂₄ = 63 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10376,7 +10619,8 @@
    ],
    "solutionSteps": [
     "Arithmetic: a₁ = 27, d = 4.",
-    "a₂₀ = 27 + (20 - 1)(4) = 103."
+    "a₂₀ = 27 + (20 - 1)(4) = 27 + 76.",
+    "a₂₀ = 103 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10445,7 +10689,8 @@
    "answer": "75 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 15, d = 4.",
-    "a₁₆ = 15 + (16 - 1)(4) = 75."
+    "a₁₆ = 15 + (16 - 1)(4) = 15 + 60.",
+    "a₁₆ = 75 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10480,7 +10725,8 @@
    ],
    "solutionSteps": [
     "Arithmetic: a₁ = 22, d = 4.",
-    "a₂₅ = 22 + (25 - 1)(4) = 118."
+    "a₂₅ = 22 + (25 - 1)(4) = 22 + 96.",
+    "a₂₅ = 118 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10497,7 +10743,8 @@
    "answer": "136 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 28, d = 4.",
-    "a₂₈ = 28 + (28 - 1)(4) = 136."
+    "a₂₈ = 28 + (28 - 1)(4) = 28 + 108.",
+    "a₂₈ = 136 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10601,7 +10848,8 @@
    "answer": "81 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 25, d = 2.",
-    "a₂₉ = 25 + (29 - 1)(2) = 81."
+    "a₂₉ = 25 + (29 - 1)(2) = 25 + 56.",
+    "a₂₉ = 81 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10731,7 +10979,8 @@
    "answer": "107 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 19, d = 4.",
-    "a₂₃ = 19 + (23 - 1)(4) = 107."
+    "a₂₃ = 19 + (23 - 1)(4) = 19 + 88.",
+    "a₂₃ = 107 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10835,7 +11084,8 @@
    "answer": "65 seats",
    "solutionSteps": [
     "Arithmetic: a₁ = 27, d = 2.",
-    "a₂₀ = 27 + (20 - 1)(2) = 65."
+    "a₂₀ = 27 + (20 - 1)(2) = 27 + 38.",
+    "a₂₀ = 65 seats."
    ],
    "standards": [
     "F-LE.A.2",
@@ -10926,9 +11176,9 @@
    "prompt": "An arithmetic sequence has a₁ = 5 and d = 6. Find a₃₁.",
    "answer": "185",
    "solutionSteps": [
-    "aₙ = a₁ + (n - 1)d.",
-    "a₃₁ = 5 + 30 · 6.",
-    "185."
+    "Use aₙ = a₁ + (n - 1)d.",
+    "a₃₁ = 5 + 30 · 6 = 5 + 180.",
+    "a₃₁ = 185."
    ],
    "standards": [
     "F-IF.A.3",
@@ -10944,9 +11194,9 @@
    "prompt": "A geometric sequence has a₁ = 10 and r = 2. Find a₆.",
    "answer": "320",
    "solutionSteps": [
-    "aₙ = a₁rⁿ⁻¹.",
-    "a₆ = 10 · 2⁵.",
-    "320."
+    "Use aₙ = a₁·r^(n - 1).",
+    "a₆ = 10 · 2⁵ = 10 · 32.",
+    "a₆ = 320."
    ],
    "standards": [
     "F-IF.A.3",
@@ -10962,9 +11212,9 @@
    "prompt": "Find the sum of the first 50 positive integers.",
    "answer": "1275",
    "solutionSteps": [
-    "Sₙ = n(a₁ + aₙ)/2.",
-    "S₅₀ = 50(1 + 50)/2.",
-    "1275."
+    "1 + 2 + … + 50 is arithmetic with a₁ = 1 and a₅₀ = 50.",
+    "S₅₀ = 50(1 + 50)/2 = 25 · 51.",
+    "= 1275."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -10979,9 +11229,9 @@
    "prompt": "Find the sum of the first 7 terms of the geometric series 1, 2, 4, …",
    "answer": "127",
    "solutionSteps": [
-    "Sₙ = a₁(rⁿ - 1)/(r - 1).",
-    "S₇ = (2⁷ - 1)/(2 - 1).",
-    "127."
+    "a₁ = 1 and r = 2.",
+    "S₇ = (2⁷ - 1)/(2 - 1) = 128 - 1.",
+    "= 127."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -10996,9 +11246,9 @@
    "prompt": "Find the sum of the infinite geometric series 18, 9/2, 9/8, …",
    "answer": "24",
    "solutionSteps": [
-    "r = (9/2)/18 = 1/4, and |r| < 1.",
-    "S = 18/(1 - 1/4).",
-    "24."
+    "r = (9/2)/18 = 1/4, and |r| < 1, so the sum exists.",
+    "S = 18/(1 - 1/4) = 18/(3/4) = 18 · 4/3.",
+    "S = 24."
    ],
    "standards": [
     "A-SSE.B.4"
@@ -11048,7 +11298,7 @@
    "prompt": "A geometric series has r = 3 and S₅ = 363. Find a₁.",
    "answer": "3",
    "solutionSteps": [
-    "S₅ = a₁(3⁵ - 1)/(3 - 1) = 121a₁.",
+    "S₅ = a₁(3⁵ - 1)/(3 - 1) = a₁ · 242/2 = 121a₁.",
     "121a₁ = 363.",
     "a₁ = 3."
    ],
@@ -11099,9 +11349,9 @@
    "prompt": "In an arithmetic sequence, a₅ = 42 and a₁₂ = 98. Find a₂₀.",
    "answer": "162",
    "solutionSteps": [
-    "7d = 98 - 42 = 56, so d = 8.",
-    "a₂₀ = a₁₂ + 8d = 98 + 64.",
-    "162."
+    "From a₅ to a₁₂ is 7 steps: 7d = 98 - 42 = 56, so d = 8.",
+    "From a₁₂ to a₂₀ is 8 more steps: a₂₀ = 98 + 8(8) = 98 + 64.",
+    "a₂₀ = 162."
    ],
    "standards": [
     "F-IF.A.3",

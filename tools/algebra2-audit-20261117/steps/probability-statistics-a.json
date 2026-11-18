@@ -1,0 +1,618 @@
+{
+"a2-ps-s01-cp2-001": [
+"A meal is made of three independent choices: an appetizer, an entrée and a dessert.",
+"Fundamental counting principle: multiply the number of choices at each stage: 4 · 6 · 3.",
+"4 · 6 = 24 and 24 · 3 = 72 meals."
+],
+"a2-ps-s01-cp2-002": [
+"A PIN has 4 positions, and each can be any of the 10 digits because repeats are allowed.",
+"Multiply the choices for each position: 10 · 10 · 10 · 10 = 10⁴.",
+"10⁴ = 10,000 PINs."
+],
+"a2-ps-s01-cp1-001": [
+"There are 26 choices for each letter and 10 for each digit, with repetition allowed.",
+"Multiply: 26 · 26 · 26 · 10 · 10 · 10 = 26³ · 10³ = 17,576 · 1,000.",
+"17,576,000 license plates."
+],
+"a2-ps-s01-cp1-002": [
+"Distinct letters means each letter used cannot be used again.",
+"There are 26 choices for the first letter, 25 for the second and 24 for the third.",
+"26 · 25 · 24 = 15,600 codes."
+],
+"a2-ps-s01-cp2-003": [
+"Each of the 8 questions has 2 possible answers, T or F.",
+"Multiply: 2 · 2 · … · 2 (8 times) = 2⁸.",
+"2⁸ = 256 answer keys."
+],
+"a2-ps-s01-honors-001": [
+"Start with the restricted place: the last digit must be even, so it is 2, 4 or 6 (3 choices).",
+"Then the first digit can be any of the 5 remaining digits, and the middle digit any of the 4 left.",
+"3 · 5 · 4 = 60 even numbers."
+],
+"a2-ps-s01-cp2-004": [
+"ₙPᵣ = n!/(n - r)!, so ₅P₅ = 5!/0!.",
+"0! = 1, so this is 5! = 5 · 4 · 3 · 2 · 1.",
+"₅P₅ = 120."
+],
+"a2-ps-s01-cp1-003": [
+"₇P₃ = 7!/(7 - 3)! = 7!/4!.",
+"The factors 4! cancel, leaving 7 · 6 · 5.",
+"₇P₃ = 210."
+],
+"a2-ps-s01-cp1-004": [
+"₁₀P₄ = 10!/6!.",
+"That is 10 · 9 · 8 · 7.",
+"₁₀P₄ = 5,040."
+],
+"a2-ps-s01-cp1-005": [
+"₈P₂ = 8!/6!.",
+"That is 8 · 7.",
+"₈P₂ = 56."
+],
+"a2-ps-s01-cp2-005": [
+"₆P₆ = 6!/0! = 6!.",
+"6! = 6 · 5 · 4 · 3 · 2 · 1.",
+"₆P₆ = 720."
+],
+"a2-ps-s01-cp1-006": [
+"₁₂P₃ = 12!/9!.",
+"That is 12 · 11 · 10.",
+"₁₂P₃ = 1,320."
+],
+"a2-ps-s01-cp1-011": [
+"Gold, silver and bronze are different prizes, so the order of the 3 winners matters: a permutation.",
+"₁₀P₃ = 10 · 9 · 8.",
+"= 720 ways."
+],
+"a2-ps-s01-cp1-012": [
+"A line-up is an ordered arrangement of all 8 students.",
+"₈P₈ = 8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+"= 40,320 ways."
+],
+"a2-ps-s01-cp1-013": [
+"The four offices are different, so order matters: a permutation of 4 from 12.",
+"₁₂P₄ = 12 · 11 · 10 · 9.",
+"= 11,880 ways."
+],
+"a2-ps-s01-cp1-014": [
+"Around a circle, rotating everyone gives the same seating, so fix one person's seat.",
+"The other 5 people can then be arranged in the remaining seats in 5! ways.",
+"(6 - 1)! = 5! = 120 ways."
+],
+"a2-ps-s01-cp1-015": [
+"₇P₃ = 7!/(7 - 3)! = 7!/4! = 7 · 6 · 5 = 210.",
+"Also ₙPᵣ = C(n, r)·r!, so C(7, 3)·3! = 35 · 6 = 210.",
+"7!/3! = 840 and 7³ = 343 are different.",
+"Equal: 7·6·5, 210, 7!/4! and C(7, 3)·3!."
+],
+"a2-ps-s01-honors-003": [
+"Order matters when rearranging the same items gives a different outcome.",
+"Books on a shelf, 1st/2nd/3rd place and a password (ABC ≠ CBA) all change when reordered.",
+"A card hand, pizza toppings and a committee are the same group in any order.",
+"Order matters: arranging books on a shelf, assigning 1st, 2nd, 3rd place, and creating a password."
+],
+"a2-ps-s01-honors-004": [
+"(a) All arrangements of 7 people: 7! = 5040.",
+"(b) Ana fixed in front, the other 6 in any order: 6! = 720.",
+"(c) Glue Ana and Ben into one block: 6 units give 6! = 720 orders, and the block can be AB or BA: 720 · 2 = 1440.",
+"(d) Not together = all - together = 5040 - 1440 = 3600."
+],
+"a2-ps-s01-cp2-006": [
+"5! means the product of the whole numbers from 5 down to 1.",
+"5 · 4 · 3 · 2 · 1 = 20 · 6.",
+"5! = 120."
+],
+"a2-ps-s02-cp2-001": [
+"C(n, r) = n!/(r!(n - r)!), so C(6, 2) = 6!/(2! · 4!).",
+"Cancel 4!: (6 · 5)/(2 · 1) = 30/2.",
+"C(6, 2) = 15."
+],
+"a2-ps-s02-cp2-002": [
+"C(10, 3) = 10!/(3! · 7!).",
+"Cancel 7!: (10 · 9 · 8)/(3 · 2 · 1) = 720/6.",
+"C(10, 3) = 120."
+],
+"a2-ps-s02-cp2-003": [
+"C(8, 5) = 8!/(5! · 3!).",
+"Cancel 5!: (8 · 7 · 6)/(3 · 2 · 1) = 336/6.",
+"C(8, 5) = 56."
+],
+"a2-ps-s02-cp1-001": [
+"C(12, 6) = 12!/(6! · 6!).",
+"(12 · 11 · 10 · 9 · 8 · 7)/720 = 665,280/720.",
+"C(12, 6) = 924."
+],
+"a2-ps-s02-cp1-002": [
+"C(52, 5) = 52!/(5! · 47!).",
+"(52 · 51 · 50 · 49 · 48)/120 = 311,875,200/120.",
+"C(52, 5) = 2,598,960."
+],
+"a2-ps-s02-cp1-003": [
+"C(20, 1) = 20!/(1! · 19!).",
+"Cancel 19!: 20/1.",
+"C(20, 1) = 20 (there are 20 ways to choose one item)."
+],
+"a2-ps-s02-cp1-004": [
+"Choosing 13 of 15 is the same as leaving out 2, so C(15, 13) = C(15, 2).",
+"C(15, 2) = (15 · 14)/2 = 210/2.",
+"C(15, 13) = 105."
+],
+"a2-ps-s02-cp1-005": [
+"A committee is a group: order does not matter, so use a combination.",
+"C(15, 4) = (15 · 14 · 13 · 12)/(4 · 3 · 2 · 1) = 32,760/24.",
+"= 1,365 ways."
+],
+"a2-ps-s02-cp1-006": [
+"Toppings are a set: order does not matter.",
+"C(10, 3) = (10 · 9 · 8)/6.",
+"= 120 ways."
+],
+"a2-ps-s02-cp1-007": [
+"A hand of cards is the same in any order: a combination.",
+"C(52, 5) = (52 · 51 · 50 · 49 · 48)/120.",
+"= 2,598,960 ways."
+],
+"a2-ps-s02-cp1-008": [
+"Co-captains have the same role, so order does not matter.",
+"C(18, 2) = (18 · 17)/2.",
+"= 153 ways."
+],
+"a2-ps-s02-cp1-009": [
+"Exactly 3 teachers means 3 teachers and 2 students (5 people in all).",
+"Choose the teachers: C(7, 3) = 35. Choose the students: C(6, 2) = 15.",
+"Multiply: 35 · 15 = 525 committees."
+],
+"a2-ps-s02-honors-001": [
+"Exactly 2 aces: choose 2 of the 4 aces and 3 of the 48 non-aces.",
+"C(4, 2) = 6 and C(48, 3) = (48 · 47 · 46)/6 = 17,296.",
+"6 · 17,296 = 103,776 hands."
+],
+"a2-ps-s02-honors-002": [
+"'At most 2 toppings' means 0, 1 or 2 toppings.",
+"C(8, 0) = 1, C(8, 1) = 8 and C(8, 2) = 28.",
+"Add: 1 + 8 + 28 = 37 pizzas."
+],
+"a2-ps-s02-cp1-010": [
+"All hearts: choose 5 of the 13 hearts.",
+"C(13, 5) = (13 · 12 · 11 · 10 · 9)/120 = 154,440/120.",
+"= 1,287 hands."
+],
+"a2-ps-s02-honors-003": [
+"The specific person is already on the committee, so only 3 more seats remain.",
+"Choose those 3 from the other 9 people: C(9, 3) = (9 · 8 · 7)/6.",
+"= 84 committees."
+],
+"a2-ps-s02-cp1-011": [
+"C(5, 2) = (5 · 4)/2 = 10 and C(5, 3) = (5 · 4 · 3)/6 = 10.",
+"Each choice of 2 people to include matches exactly one choice of the 3 people left out.",
+"Both equal 10; choosing 2 to include is the same as choosing 3 to leave out."
+],
+"a2-ps-s02-cp1-012": [
+"C(7, 3) = (7 · 6 · 5)/6 = 35 and C(7, 4) = (7 · 6 · 5 · 4)/24 = 35.",
+"Picking 3 to include is the same as picking the 4 to leave out.",
+"Both equal 35; choosing 3 to include is the same as choosing 4 to leave out."
+],
+"a2-ps-s02-cp1-013": [
+"A team of 3 is the same team in any order, so order does not matter.",
+"₉P₃ = 504 counts each team 3! = 6 times (once for each order).",
+"C(9, 3) = 504/6 = 84, because order does not matter: C(9, 3)."
+],
+"a2-ps-s02-cp1-015": [
+"(a) Any 4 of the 22 students: C(22, 4) = 7,315.",
+"(b) All girls: C(10, 4) = 210.",
+"(c) 2 boys and 2 girls: C(12, 2) · C(10, 2) = 66 · 45 = 2,970.",
+"(d) At least 1 boy = all teams - all-girl teams = 7,315 - 210 = 7,105."
+],
+"a2-ps-s02-honors-004": [
+"(a) Row 5 lists C(5, 0) to C(5, 5): 1, 5, 10, 10, 5, 1.",
+"(b) C(5, 2) is the third entry (counting from C(5, 0)): 10.",
+"(c) In (x + y)⁴ the x²y² term has coefficient C(4, 2) = 6.",
+"(d) Row n sums to 2ⁿ, so row 6 sums to 2⁶ = 64."
+],
+"a2-ps-s02-cp2-004": [
+"C(9, 0) = 9!/(0! · 9!) = 1/0! = 1, since 0! = 1.",
+"In words: there is exactly one way to choose nothing.",
+"C(9, 0) = 1."
+],
+"a2-ps-s03-cp2-001": [
+"For independent events, P(A and B) = P(A) · P(B).",
+"(1/2)(1/6).",
+"P(A and B) = 1/12."
+],
+"a2-ps-s03-cp2-002": [
+"Independent: P(A and B) = P(A) · P(B).",
+"(3/10)(2/5) = 6/50.",
+"P(A and B) = 3/25."
+],
+"a2-ps-s03-cp2-003": [
+"Independent: multiply.",
+"(1/4)(1/4).",
+"P(A and B) = 1/16."
+],
+"a2-ps-s03-cp2-004": [
+"Independent: multiply.",
+"(7/10)(9/10).",
+"P(A and B) = 63/100."
+],
+"a2-ps-s03-cp2-005": [
+"The two dice are independent, and each shows 6 with probability 1/6.",
+"Multiply: (1/6)(1/6).",
+"P(both 6) = 1/36."
+],
+"a2-ps-s03-cp2-006": [
+"The flips are independent, each heads with probability 1/2.",
+"Multiply 5 times: (1/2)⁵.",
+"P(all heads) = 1/32."
+],
+"a2-ps-s03-cp1-005": [
+"First card an ace: 4/52. Without replacement, 3 aces remain among 51 cards: 3/51.",
+"Multiply: (4/52)(3/51) = 12/2652.",
+"P(both aces) = 1/221."
+],
+"a2-ps-s03-cp1-006": [
+"With replacement the draws are independent: each is a heart with probability 13/52 = 1/4.",
+"Multiply: (1/4)(1/4).",
+"P(both hearts) = 1/16."
+],
+"a2-ps-s03-cp1-007": [
+"'At least one head' is the complement of 'no heads'.",
+"P(no heads) = (1/2)⁴ = 1/16.",
+"P(at least one head) = 1 - 1/16 = 15/16."
+],
+"a2-ps-s03-honors-001": [
+"Use the complement: P(at least one 6) = 1 - P(no 6s).",
+"P(no 6 in 3 rolls) = (5/6)³ = 125/216.",
+"1 - 125/216 = 91/216."
+],
+"a2-ps-s03-cp1-008": [
+"A and B are independent exactly when P(A and B) = P(A) · P(B).",
+"P(A) · P(B) = 0.4 · 0.5 = 0.2, which equals P(A and B) = 0.2.",
+"Yes, because 0.4·0.5 = 0.2."
+],
+"a2-ps-s03-cp1-009": [
+"Independent exactly when P(A and B) = P(A) · P(B).",
+"P(A) · P(B) = 0.3 · 0.6 = 0.18, but P(A and B) = 0.1.",
+"No, because 0.3·0.6 = 0.18 ≠ 0.1."
+],
+"a2-ps-s03-cp1-010": [
+"Mutually exclusive means A and B cannot both happen: P(A and B) = 0.",
+"With nonzero probabilities, P(A) · P(B) > 0, so P(A and B) ≠ P(A)P(B).",
+"They are dependent: if one occurs, the other cannot."
+],
+"a2-ps-s03-cp1-011": [
+"Events are independent when one happening does not change the probability of the other.",
+"A die and a coin; drawing with replacement; and two different students' birthday months do not affect each other.",
+"Rain and umbrellas, oversleeping and being late, and drawing without replacement are connected.",
+"Independent: rolling a 4 on a die and flipping heads; drawing a red card, replacing it, then drawing a red card; and two different students' birthdays being in May."
+],
+"a2-ps-s03-honors-002": [
+"(a) P(both defective) = (3/12)(2/11) = 6/132 = 1/22.",
+"(b) P(both good) = (9/12)(8/11) = 72/132 = 6/11.",
+"(c) Exactly one: defective then good or good then defective: 2 · (3/12)(9/11) = 54/132 = 9/22.",
+"(d) 1/22 + 12/22 + 9/22 = 22/22 = 1 ✓."
+],
+"a2-ps-s04-cp1-001": [
+"Given 'senior', restrict to the seniors: 25 + 45 = 70.",
+"Of those, 25 play a sport.",
+"P(sport | senior) = 25/70 = 5/14."
+],
+"a2-ps-s04-cp1-002": [
+"Given 'plays a sport', restrict to sport players: 30 + 25 = 55.",
+"Of those, 25 are seniors.",
+"P(senior | sport) = 25/55 = 5/11."
+],
+"a2-ps-s04-cp1-003": [
+"The total is 30 + 20 + 25 + 45 = 120 students.",
+"Juniors who do not play: 20.",
+"P(junior and does not play) = 20/120 = 1/6."
+],
+"a2-ps-s04-honors-001": [
+"Independent would mean P(sport | senior) = P(sport).",
+"P(sport) = 55/120 = 11/24 ≈ 0.458, while P(sport | senior) = 25/70 = 5/14 ≈ 0.357.",
+"No: P(sport | senior) = 5/14 ≠ P(sport) = 11/24."
+],
+"a2-ps-s04-cp2-001": [
+"P(A | B) = P(A and B)/P(B).",
+"(1/5) ÷ (1/2) = (1/5) · 2.",
+"P(A | B) = 2/5."
+],
+"a2-ps-s04-cp2-002": [
+"P(A | B) = P(A and B)/P(B).",
+"(3/20) ÷ (3/5) = (3/20)(5/3) = 15/60.",
+"P(A | B) = 1/4."
+],
+"a2-ps-s04-cp2-003": [
+"P(A | B) = P(A and B)/P(B).",
+"(1/8) ÷ (1/4) = 4/8.",
+"P(A | B) = 1/2."
+],
+"a2-ps-s04-cp2-004": [
+"P(A | B) = P(A and B)/P(B).",
+"(2/9) ÷ (2/3) = (2/9)(3/2) = 6/18.",
+"P(A | B) = 1/3."
+],
+"a2-ps-s04-cp1-004": [
+"Given 'at least one 5', the sample space is the 11 outcomes with a 5: (5, 1)…(5, 6) and (1, 5)…(6, 5), with (5, 5) counted once.",
+"Of these, the sum is 8 for (3, 5) and (5, 3).",
+"P(sum 8 | a 5) = 2/11."
+],
+"a2-ps-s04-cp1-005": [
+"After a king is drawn and not replaced, 51 cards remain, 3 of them kings.",
+"So P(second king | first king) = 3/51.",
+"= 1/17."
+],
+"a2-ps-s04-cp1-006": [
+"P(A | B) and P(B | A) use different sample spaces, so they are usually different.",
+"Among the 12 face cards, 4 are kings: P(king | face card) = 4/12 = 1/3.",
+"Every king is a face card: P(face card | king) = 1. So P(king | face card) = 1/3 but P(face card | king) = 1."
+],
+"a2-ps-s04-cp1-009": [
+"(a) P(math or science) = (120 + 80 - 50)/200 = 150/200 = 3/4.",
+"(b) P(science | math) = 50/120 = 5/12.",
+"(c) P(math | science) = 50/80 = 5/8.",
+"(d) P(neither) = 1 - 3/4 = 1/4."
+],
+"a2-ps-s04-honors-005": [
+"(a) P(card and over $50) = 0.6 · 0.3 = 0.18.",
+"(b) P(over $50) = 0.18 + P(no card and over $50) = 0.18 + 0.4 · 0.1 = 0.22.",
+"(c) P(card | over $50) = 0.18/0.22 ≈ 0.82.",
+"(d) No: P(over $50 | card) = 0.3 is not equal to P(over $50) = 0.22."
+],
+"a2-ps-s04-cp2-005": [
+"P(B | A) = P(A and B)/P(A).",
+"0.12/0.3.",
+"P(B | A) = 0.4."
+],
+"a2-ps-s05-cp2-001": [
+"The probabilities of a distribution must add to 1.",
+"0.1 + 0.3 + k + 0.2 = 1, so 0.6 + k = 1.",
+"k = 0.4."
+],
+"a2-ps-s05-cp2-002": [
+"The probabilities add to 1: 0.05 + 0.15 + 0.4 + k + 0.1 = 1.",
+"0.7 + k = 1.",
+"k = 0.3."
+],
+"a2-ps-s05-cp2-003": [
+"The probabilities add to 1: 1/4 + k + 1/3 = 1.",
+"1/4 + 1/3 = 3/12 + 4/12 = 7/12, so k = 1 - 7/12.",
+"k = 5/12."
+],
+"a2-ps-s05-cp1-001": [
+"Binomial: P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ with n = 5, k = 3, p = 1/2.",
+"C(5, 3)(1/2)³(1/2)² = 10 · (1/32).",
+"= 10/32 = 5/16 ≈ 0.3125."
+],
+"a2-ps-s05-cp1-002": [
+"Binomial with n = 6, k = 1, p = 1/6: C(6, 1)(1/6)¹(5/6)⁵.",
+"C(6, 1)(1/6) = 6 · 1/6 = 1, so the probability is (5/6)⁵ = 3125/7776.",
+"3125/7776 ≈ 0.4019."
+],
+"a2-ps-s05-honors-001": [
+"n = 10, k = 2, p = 1/4: C(10, 2)(1/4)²(3/4)⁸.",
+"= 45 · (1/16) · (6561/65536) = 295245/1048576.",
+"≈ 0.2816."
+],
+"a2-ps-s05-honors-002": [
+"n = 8, k = 6, p = 3/5: C(8, 6)(3/5)⁶(2/5)².",
+"= 28 · (729/15625) · (4/25) = 81648/390625.",
+"≈ 0.2090."
+],
+"a2-ps-s05-cp1-003": [
+"n = 4, k = 0, p = 1/3: C(4, 0)(1/3)⁰(2/3)⁴.",
+"= 1 · 1 · 16/81.",
+"= 16/81 ≈ 0.1975."
+],
+"a2-ps-s05-cp1-004": [
+"Binomial with n = 3, p = 1/2: P(k) = C(3, k)(1/2)³ = C(3, k)/8.",
+"C(3, 0) = 1, C(3, 1) = 3, C(3, 2) = 3, C(3, 3) = 1.",
+"P(0) = 1/8, P(1) = 3/8, P(2) = 3/8, P(3) = 1/8 (they add to 1)."
+],
+"a2-ps-s05-cp1-005": [
+"Binomial with n = 4, p = 1/4: P(k) = C(4, k)(1/4)ᵏ(3/4)^(4 - k).",
+"P(0) = 81/256, P(1) = 4 · 27/256 = 27/64, P(2) = 6 · 9/256 = 27/128.",
+"P(3) = 4 · 3/256 = 3/64, P(4) = 1/256.",
+"So P(0) = 81/256, P(1) = 27/64, P(2) = 27/128, P(3) = 3/64, P(4) = 1/256."
+],
+"a2-ps-s05-cp1-006": [
+"A probability distribution needs every probability between 0 and 1 and a total of exactly 1.",
+"P(0) = 0.2, P(1) = 0.5, P(2) = 0.3: each is between 0 and 1, and 0.2 + 0.5 + 0.3 = 1.",
+"So P(0) = 0.2, P(1) = 0.5, P(2) = 0.3 could be a probability distribution."
+],
+"a2-ps-s05-cp1-007": [
+"A binomial setting has a fixed number of trials, two outcomes per trial, independent trials and a constant success probability.",
+"10 coin flips: n = 10 fixed, heads or tails, independent, p = 1/2 every time.",
+"So the number of heads in 10 coin flips is binomial."
+],
+"a2-ps-s05-cp1-009": [
+"(a) 5 independent guesses, each right with probability 1/4: n = 5, p = 1/4.",
+"(b) All wrong: (3/4)⁵ = 243/1024.",
+"(c) Exactly 2 right: C(5, 2)(1/4)²(3/4)³ = 10 · 27/1024 = 270/1024 = 135/512.",
+"(d) At least 1 right = 1 - P(all wrong) = 1 - 243/1024 = 781/1024."
+],
+"a2-ps-s05-honors-003": [
+"(a) P(X ≥ 2) = 0.5 + 0.3 = 0.8.",
+"(b) Mean = Σ x·P = 1(0.2) + 2(0.5) + 3(0.3) = 2.1.",
+"(c) E(X²) = 1(0.2) + 4(0.5) + 9(0.3) = 4.9.",
+"(d) Variance = E(X²) - μ² = 4.9 - 4.41 = 0.49."
+],
+"a2-ps-s05-cp2-004": [
+"There are 2⁴ = 16 equally likely outcomes.",
+"Exactly 2 heads can occur in C(4, 2) = 6 of them.",
+"P(exactly 2 heads) = 6/16 = 3/8."
+],
+"a2-ps-s06-cp1-001": [
+"E(X) = Σ x·P(x).",
+"0(1/8) + 1(3/8) + 2(3/8) + 3(1/8) = (0 + 3 + 6 + 3)/8 = 12/8.",
+"E(X) = 3/2."
+],
+"a2-ps-s06-cp1-002": [
+"E(X) = Σ x·P(x).",
+"10(1/2) + 20(3/10) + 50(1/5) = 5 + 6 + 10.",
+"E(X) = 21."
+],
+"a2-ps-s06-cp1-003": [
+"E(X) = Σ x·P(x).",
+"-5(1/2) + 0(1/4) + 15(1/4) = -5/2 + 15/4 = -10/4 + 15/4.",
+"E(X) = 5/4."
+],
+"a2-ps-s06-cp2-001": [
+"Each face has probability 1/6, so E(X) = (1 + 2 + 3 + 4 + 5 + 6)/6.",
+"1 + 2 + … + 6 = 21.",
+"E(X) = 21/6 = 7/2."
+],
+"a2-ps-s06-cp1-004": [
+"Expected winnings = 100(1/200) + 10(1/20) = 0.5 + 0.5 = $1.",
+"Net gain = expected winnings - cost = 1 - 2.",
+"Expected net gain = -$1 per ticket."
+],
+"a2-ps-s06-cp1-005": [
+"Expected winnings = 500(1/1000) + 20(1/50) = 0.5 + 0.4 = $0.90.",
+"Net gain = 0.90 - 5 = -4.10.",
+"Expected net gain = -$41/10 (that is, -$4.10)."
+],
+"a2-ps-s06-cp1-006": [
+"Expected winnings = 50(1/100) = $0.50.",
+"Net gain = 0.50 - 1.",
+"Expected net gain = -$1/2."
+],
+"a2-ps-s06-cp1-007": [
+"A game is fair when the expected value is 0.",
+"E = 6(1/6) - 1(5/6) = 6/6 - 5/6 = 1/6.",
+"No: E = 6(1/6) - 1(5/6) = 1/6 > 0, so the game favors the player."
+],
+"a2-ps-s06-cp1-008": [
+"The expected value is a weighted average: E(X) = Σ x·P(x).",
+"Averaging 0, 10 and 100 equally treats the rare $100 as if it happened a third of the time.",
+"So the values must be weighted by their probabilities."
+],
+"a2-ps-s06-cp1-009": [
+"The company collects $300 and pays $50,000 with probability 0.004.",
+"Expected payout = 50,000 · 0.004 = $200.",
+"Expected profit = 300 - 200 = $100 per policy."
+],
+"a2-ps-s06-cp1-010": [
+"The number of heads is binomial with n = 20 and p = 1/2.",
+"The mean of a binomial distribution is np.",
+"E = 20 · 1/2 = 10 heads."
+],
+"a2-ps-s06-honors-002": [
+"A sum of 7 comes from 6 of the 36 outcomes, so P(7) = 1/6.",
+"Expected winnings = 10 · 1/6 = 10/6 = 5/3 dollars.",
+"Fair means expected net gain 0: x = 5/3, so the fair price is $5/3 ≈ $1.67."
+],
+"a2-ps-s06-cp1-012": [
+"(a) Expected winnings = 10(0.1) + 5(0.2) + 0(0.7) = 1 + 1 = $2.",
+"(b) Expected net gain = 2 - 3 = -$1 per play.",
+"(c) Over 50 plays: 50(-1) = -$50.",
+"(d) Fair needs expected winnings $3: 0.1x + 1 = 3, so x = 20, a $20 prize."
+],
+"a2-ps-s06-honors-003": [
+"(a) E(A) = 0.6(80,000) - 0.4(30,000) = 48,000 - 12,000 = $36,000.",
+"(b) E(B) = 0.9(40,000) - 0.1(10,000) = 36,000 - 1,000 = $35,000.",
+"(c) A has the higher expected value.",
+"(d) B is much less risky: it rarely loses money and its worst case is only -$10k, versus -$30k 40% of the time for A."
+],
+"a2-ps-s06-cp2-002": [
+"E(X) = Σ x·P(x).",
+"1(1/2) + 0(1/2) = 1/2.",
+"E(X) = 1/2."
+],
+"a2-ps-s07-cp2-001": [
+"z = (x - μ)/σ tells how many standard deviations x is from the mean.",
+"(85 - 70)/10 = 15/10.",
+"z = 1.5."
+],
+"a2-ps-s07-cp2-002": [
+"z = (x - μ)/σ.",
+"(52 - 60)/4 = -8/4.",
+"z = -2 (two standard deviations below the mean)."
+],
+"a2-ps-s07-cp2-003": [
+"z = (x - μ)/σ.",
+"(180 - 150)/20 = 30/20.",
+"z = 1.5."
+],
+"a2-ps-s07-cp2-004": [
+"z = (x - μ)/σ.",
+"(3.2 - 3)/0.4 = 0.2/0.4.",
+"z = 0.5."
+],
+"a2-ps-s07-cp2-005": [
+"z = (x - μ)/σ.",
+"(61 - 70)/6 = -9/6.",
+"z = -1.5."
+],
+"a2-ps-s07-cp1-005": [
+"Convert to z-scores: (85 - 100)/15 = -1 and (115 - 100)/15 = 1.",
+"P(-1 < Z < 1) with normalcdf(-1, 1) (or a z-table: 0.8413 - 0.1587).",
+"≈ 0.6827."
+],
+"a2-ps-s07-cp1-006": [
+"z = (650 - 500)/100 = 1.5.",
+"P(Z > 1.5) = 1 - 0.9332.",
+"≈ 0.0668."
+],
+"a2-ps-s07-cp1-007": [
+"z = (58 - 64)/3 = -2.",
+"P(Z < -2) from normalcdf or a z-table.",
+"≈ 0.0228."
+],
+"a2-ps-s07-cp1-008": [
+"z-scores: (17 - 20)/2 = -1.5 and (25 - 20)/2 = 2.5.",
+"P(-1.5 < Z < 2.5) = 0.9938 - 0.0668.",
+"≈ 0.9270."
+],
+"a2-ps-s07-cp1-009": [
+"Compare relative standing with z-scores.",
+"Test A: (82 - 75)/5 = 1.4. Test B: (88 - 80)/8 = 1.0.",
+"Test A (z = 1.4 vs z = 1.0): the student did relatively better on Test A."
+],
+"a2-ps-s07-cp1-010": [
+"Every normal curve is bell-shaped, symmetric about the mean, with mean = median.",
+"A skewed distribution has a longer tail on one side, which a normal curve never has.",
+"So 'It is skewed right' is NOT a property of normal distributions."
+],
+"a2-ps-s07-cp1-011": [
+"μ ± σ = 63 to 69 in holds about 68%; μ + 2σ = 72, and about 2.5% lie above μ + 2σ.",
+"z for 60 in: (60 - 66)/3 = -2. z for 69 in: (69 - 66)/3 = 1, not 3.",
+"About 50% lie below the mean 66; 60 to 69 in is μ - 2σ to μ + σ, about 81.5%, not 95%.",
+"True: about 68% are 63–69 in, about 2.5% are over 72 in, 60 in has z = -2, and about 50% are under 66 in."
+],
+"a2-ps-s07-honors-001": [
+"The 90th percentile has z ≈ 1.2816 (90% of the standard normal lies below it).",
+"x = μ + zσ = 520 + 1.2816 · 115 ≈ 520 + 147.4.",
+"≈ 667."
+],
+"a2-ps-s07-cp1-012": [
+"(a) 35–45 h is μ ± σ, about 68%.",
+"(b) 50 h is μ + 2σ; about 95% lie within 2σ, so about 2.5% lie above: 2.5%.",
+"(c) z = (32 - 40)/5 = -1.6.",
+"(d) normalcdf for X < 32 (z < -1.6) ≈ 0.0548."
+],
+"a2-ps-s07-cp2-009": [
+"z = (x - μ)/σ; here x = μ.",
+"(μ - μ)/σ = 0/σ.",
+"z = 0."
+],
+"a2-ps-s08-cp2-001": [
+"A systematic sample picks every kth member from an ordered list or stream.",
+"Surveying every 10th customer is choosing every kth (k = 10).",
+"The method is Systematic."
+],
+"a2-ps-s08-cp2-002": [
+"In a simple random sample every member, and every group of members, has the same chance of being chosen.",
+"Drawing names from a hat with every student's name does that.",
+"The method is Simple random."
+],
+"a2-ps-s08-cp2-003": [
+"A stratified sample splits the population into groups (strata) and samples randomly within each.",
+"Each grade level is a stratum, sampled in proportion to its size.",
+"The method is Stratified."
+],
+"a2-ps-s08-cp2-004": [
+"A cluster sample randomly chooses whole groups and surveys everyone in them.",
+"Three homerooms (clusters) are chosen and every student in them is surveyed.",
+"The method is Cluster."
+]
+}

@@ -384,7 +384,9 @@
    "prompt": "A parabola has x-intercepts -3 and 5. What is its axis of symmetry?",
    "answer": "x = 1",
    "solutionSteps": [
-    "The axis lies midway between the zeros: (-3 + 5)/2 = 1."
+    "A parabola is symmetric about its axis, so the axis is halfway between the two x-intercepts.",
+    "Midpoint of -3 and 5: (-3 + 5)/2 = 2/2 = 1.",
+    "The axis of symmetry is x = 1."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -415,7 +417,9 @@
    "prompt": "Which change makes the graph of y = ax² narrower?",
    "answer": "Increasing |a|",
    "solutionSteps": [
-    "Larger |a| stretches vertically, making the parabola narrower."
+    "In y = ax², a multiplies every y-value: a larger |a| makes the graph rise faster as x moves away from 0.",
+    "Rising faster means the parabola is stretched vertically, so it looks narrower.",
+    "So increasing |a| makes the graph narrower (a smaller |a| makes it wider)."
    ],
    "options": [
     {
@@ -464,8 +468,9 @@
    "prompt": "For what values of c does y = x² - 6x + c have its vertex below the x-axis?",
    "answer": "c < 9",
    "solutionSteps": [
-    "Vertex at x = 3: k = 9 - 18 + c = c - 9.",
-    "c - 9 < 0 → c < 9."
+    "The vertex is at x = -b/(2a) = 6/2 = 3.",
+    "Its y-value is k = 3² - 6(3) + c = 9 - 18 + c = c - 9.",
+    "The vertex is below the x-axis when k < 0: c - 9 < 0, so c < 9."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -903,8 +908,9 @@
    "prompt": "Write the quadratic in intercept form with zeros -2 and 6 that passes through (2, -32).",
    "answer": "y = 2(x + 2)(x - 6)",
    "solutionSteps": [
-    "y = a(x + 2)(x - 6).",
-    "-32 = a(4)(-4) → a = 2."
+    "Zeros -2 and 6 give the factors (x + 2) and (x - 6): y = a(x + 2)(x - 6).",
+    "Substitute (2, -32): -32 = a(2 + 2)(2 - 6) = a(4)(-4) = -16a.",
+    "a = -32/(-16) = 2, so y = 2(x + 2)(x - 6)."
    ],
    "standards": [
     "F-IF.C.8a",
@@ -1649,8 +1655,9 @@
    "prompt": "Solve (x - 3)² = 16.",
    "answer": "x = -1 or x = 7",
    "solutionSteps": [
-    "Take square roots: x - h = ±√k.",
-    "Solutions: x = -1 or x = 7."
+    "Take the square root of both sides, remembering both signs: x - 3 = ±4.",
+    "x - 3 = 4 gives x = 7; x - 3 = -4 gives x = -1.",
+    "The solutions are x = -1 or x = 7."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -1666,8 +1673,9 @@
    "prompt": "Solve (x + 2)² = 5.",
    "answer": "x = -2 ± √5",
    "solutionSteps": [
-    "Take square roots: x - h = ±√k.",
-    "Solutions: x = -2 ± √5."
+    "Take the square root of both sides: x + 2 = ±√5.",
+    "Subtract 2 from both sides: x = -2 ± √5.",
+    "√5 is not a whole number, so leave the exact answer x = -2 ± √5."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -1683,8 +1691,9 @@
    "prompt": "Solve (x - 1)² = 18.",
    "answer": "x = 1 ± 3√2",
    "solutionSteps": [
-    "Take square roots: x - h = ±√k.",
-    "Solutions: x = 1 ± 3√2."
+    "Take the square root of both sides: x - 1 = ±√18.",
+    "Simplify the radical: √18 = √9·√2 = 3√2.",
+    "Add 1 to both sides: x = 1 ± 3√2."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -1700,8 +1709,9 @@
    "prompt": "Solve (x + 5)² = 0.",
    "answer": "x = -5",
    "solutionSteps": [
-    "Take square roots: x - h = ±√k.",
-    "Solutions: x = -5."
+    "Take the square root of both sides: x + 5 = ±√0 = 0.",
+    "There is only one value because +0 and -0 are the same.",
+    "x = -5 (a double root)."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -1896,7 +1906,9 @@
    "prompt": "What number completes the square for x² - 14x?",
    "answer": "49",
    "solutionSteps": [
-    "(b/2)² = (-14/2)² = 49."
+    "To complete the square for x² + bx, add (b/2)².",
+    "Here b = -14, so b/2 = -7 and (b/2)² = 49.",
+    "Check: x² - 14x + 49 = (x - 7)²."
    ],
    "options": [
     {
@@ -2291,7 +2303,9 @@
    "prompt": "A student applies the formula to 2x² - 5x + 1 = 0 and writes x = (-5 ± √17)/4. What is the error?",
    "answer": "The sign of b: it should be (5 ± √17)/4",
    "solutionSteps": [
-    "-b = -(-5) = 5."
+    "For 2x² - 5x + 1 = 0: a = 2, b = -5, c = 1.",
+    "The formula starts with -b, and -b = -(-5) = 5, not -5.",
+    "The discriminant is (-5)² - 4(2)(1) = 25 - 8 = 17, so x = (5 ± √17)/4. The student's error is the sign of b."
    ],
    "options": [
     {
@@ -2324,9 +2338,9 @@
    "prompt": "Find all k such that x² + kx + 9 = 0 has exactly one real solution.",
    "answer": "k = ±6",
    "solutionSteps": [
-    "Use the discriminant b² - 4ac.",
-    "k² - 36 = 0.",
-    "k = ±6."
+    "A quadratic has exactly one real solution when its discriminant b² - 4ac equals 0.",
+    "Here a = 1, b = k, c = 9: k² - 4(1)(9) = k² - 36 = 0.",
+    "k² = 36, so k = ±6."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -2341,9 +2355,9 @@
    "prompt": "Find all k such that x² - 4x + k = 0 has two real solutions.",
    "answer": "k < 4",
    "solutionSteps": [
-    "Use the discriminant b² - 4ac.",
-    "16 - 4k > 0.",
-    "k < 4."
+    "Two real solutions means the discriminant is positive.",
+    "Here a = 1, b = -4, c = k: (-4)² - 4(1)(k) = 16 - 4k > 0.",
+    "16 > 4k, so k < 4."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -2453,8 +2467,9 @@
    "prompt": "The solutions of x² + bx + c = 0 are 3 + √2 and 3 - √2. Find b and c.",
    "answer": "b = -6, c = 7",
    "solutionSteps": [
-    "Sum of roots = -b = 6 → b = -6.",
-    "Product = c = 9 - 2 = 7."
+    "For x² + bx + c = 0 the sum of the roots is -b and the product is c.",
+    "Sum: (3 + √2) + (3 - √2) = 6, so -b = 6 and b = -6.",
+    "Product: (3 + √2)(3 - √2) = 9 - 2 = 7, so c = 7."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -2539,8 +2554,9 @@
    "prompt": "Simplify (2 + 3i)(4 - i).",
    "answer": "11 + 10i",
    "solutionSteps": [
-    "Use FOIL, then replace i² with -1.",
-    "Result: 11 + 10i."
+    "Multiply every term: 2·4 + 2(-i) + 3i·4 + 3i(-i) = 8 - 2i + 12i - 3i².",
+    "Replace i² with -1: -3i² = 3.",
+    "Combine: (8 + 3) + (-2i + 12i) = 11 + 10i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -2556,8 +2572,9 @@
    "prompt": "Simplify (1 - 2i)(3 + 4i).",
    "answer": "11 - 2i",
    "solutionSteps": [
-    "Use FOIL, then replace i² with -1.",
-    "Result: 11 - 2i."
+    "Multiply every term: 1·3 + 1·4i - 2i·3 - 2i·4i = 3 + 4i - 6i - 8i².",
+    "Replace i² with -1: -8i² = 8.",
+    "Combine: (3 + 8) + (4i - 6i) = 11 - 2i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -2590,8 +2607,9 @@
    "prompt": "Simplify (2 + i)(2 - i).",
    "answer": "5",
    "solutionSteps": [
-    "Use FOIL, then replace i² with -1.",
-    "Result: 5."
+    "These are conjugates, so the product is a² - (bi)² = a² + b².",
+    "(2 + i)(2 - i) = 4 - 2i + 2i - i² = 4 - i².",
+    "Replace i² with -1: 4 + 1 = 5."
    ],
    "standards": [
     "N-CN.A.1",
@@ -2817,7 +2835,9 @@
    "prompt": "Write √(-25) in terms of i.",
    "answer": "5i",
    "solutionSteps": [
-    "√(-25) = √25·√(-1) = 5i."
+    "Split off -1: √(-25) = √25 · √(-1).",
+    "√25 = 5 and √(-1) = i.",
+    "√(-25) = 5i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -2833,7 +2853,9 @@
    "prompt": "Write √(-12) in terms of i.",
    "answer": "2√3·i",
    "solutionSteps": [
-    "√(-12) = 2·√(-1) = 2√3i."
+    "Split off -1: √(-12) = √12 · √(-1) = √12 · i.",
+    "Simplify √12 = √4 · √3 = 2√3.",
+    "√(-12) = 2√3·i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -2849,7 +2871,9 @@
    "prompt": "Write √(-50) in terms of i.",
    "answer": "5√2·i",
    "solutionSteps": [
-    "√(-50) = √50·√(-1) = 5√2i."
+    "Split off -1: √(-50) = √50 · √(-1) = √50 · i.",
+    "Simplify √50 = √25 · √2 = 5√2.",
+    "√(-50) = 5√2·i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -3019,8 +3043,9 @@
    "prompt": "Compute (1 + i)⁸.",
    "answer": "16",
    "solutionSteps": [
-    "(1 + i)² = 2i.",
-    "(2i)⁴ = 16i⁴ = 16."
+    "Square first: (1 + i)² = 1 + 2i + i² = 1 + 2i - 1 = 2i.",
+    "(1 + i)⁸ = ((1 + i)²)⁴ = (2i)⁴ = 2⁴ · i⁴.",
+    "i⁴ = 1, so (1 + i)⁸ = 16 · 1 = 16."
    ],
    "standards": [
     "N-CN.A.1",
@@ -3226,7 +3251,9 @@
    "prompt": "One solution of a quadratic with real coefficients is 4 - 3i. What is the other?",
    "answer": "4 + 3i",
    "solutionSteps": [
-    "Non-real solutions of real-coefficient quadratics come in conjugate pairs."
+    "The quadratic formula gives x = (-b ± √(b² - 4ac))/(2a); when the discriminant is negative the ± produces a + bi and a - bi.",
+    "So non-real solutions of a quadratic with real coefficients come in conjugate pairs.",
+    "The other solution is the conjugate of 4 - 3i: 4 + 3i."
    ],
    "options": [
     {
@@ -3310,8 +3337,9 @@
    "prompt": "Which quadratic graph has no x-intercepts?",
    "answer": "y = x² + 4x + 7",
    "solutionSteps": [
-    "No x-intercepts ↔ negative discriminant.",
-    "16 - 28 = -12 < 0."
+    "A graph has no x-intercepts when y = 0 has no real solutions, that is, when b² - 4ac < 0.",
+    "For y = x² + 4x + 7: 4² - 4(1)(7) = 16 - 28 = -12 < 0.",
+    "So y = x² + 4x + 7 has no x-intercepts."
    ],
    "options": [
     {
@@ -3371,8 +3399,10 @@
     "2x² + x + 1 = 0"
    ],
    "solutionSteps": [
-    "Check b² - 4ac < 0: -36, -4, -7.",
-    "The others give 36, 0, 5."
+    "An equation has non-real solutions when b² - 4ac < 0.",
+    "x² + 9 = 0: 0 - 36 = -36. x² - 2x + 2 = 0: 4 - 8 = -4. 2x² + x + 1 = 0: 1 - 8 = -7. All negative.",
+    "x² - 2x + 1: 4 - 4 = 0. x² + x - 1: 1 + 4 = 5. x² - 9: 0 + 36 = 36. None negative.",
+    "Non-real solutions: x² + 9 = 0, x² - 2x + 2 = 0 and 2x² + x + 1 = 0."
    ],
    "options": [
     {
@@ -3483,8 +3513,9 @@
    "prompt": "A ball is launched with h(t) = -16t² + 64t feet. Find the maximum height and when it occurs.",
    "answer": "64 ft at t = 2 s",
    "solutionSteps": [
-    "t = -b/(2a) = 64/32 = 2.",
-    "h(2) = 64."
+    "The maximum is at the vertex: t = -b/(2a) = -64/(2(-16)) = 64/32 = 2.",
+    "h(2) = -16(4) + 64(2) = -64 + 128 = 64.",
+    "The maximum height is 64 ft at t = 2 s."
    ],
    "standards": [
     "F-IF.B.4",
@@ -3500,8 +3531,9 @@
    "prompt": "A ball is launched with h(t) = -16t² + 48t + 6 feet. Find the maximum height and when it occurs.",
    "answer": "42 ft at t = 3/2 s",
    "solutionSteps": [
-    "t = -b/(2a) = 48/32 = 3/2.",
-    "h(3/2) = 42."
+    "Vertex time: t = -b/(2a) = -48/(2(-16)) = 48/32 = 3/2.",
+    "h(3/2) = -16(9/4) + 48(3/2) + 6 = -36 + 72 + 6 = 42.",
+    "The maximum height is 42 ft at t = 3/2 s."
    ],
    "standards": [
     "F-IF.B.4",
@@ -3517,8 +3549,9 @@
    "prompt": "A ball is launched with h(t) = -16t² + 80t + 4 feet. Find the maximum height and when it occurs.",
    "answer": "104 ft at t = 5/2 s",
    "solutionSteps": [
-    "t = -b/(2a) = 80/32 = 5/2.",
-    "h(5/2) = 104."
+    "Vertex time: t = -b/(2a) = -80/(2(-16)) = 80/32 = 5/2.",
+    "h(5/2) = -16(25/4) + 80(5/2) + 4 = -100 + 200 + 4 = 104.",
+    "The maximum height is 104 ft at t = 5/2 s."
    ],
    "standards": [
     "F-IF.B.4",
@@ -3534,7 +3567,9 @@
    "prompt": "In h(t) = -16t² + 32t + 5, what does 5 represent?",
    "answer": "The initial height (5 ft)",
    "solutionSteps": [
-    "h(0) = 5."
+    "The constant term is the value of h when t = 0: h(0) = -16(0) + 32(0) + 5 = 5.",
+    "t = 0 is the moment the object is launched.",
+    "So 5 is the initial height (5 ft)."
    ],
    "options": [
     {
@@ -3568,7 +3603,9 @@
    "prompt": "A rectangle's length is 3 more than its width, and its area is 40 m². Which equation finds the width w?",
    "answer": "w(w + 3) = 40",
    "solutionSteps": [
-    "Area = length × width."
+    "Let the width be w; the length is 3 more, so it is w + 3.",
+    "Area of a rectangle = length × width.",
+    "w(w + 3) = 40."
    ],
    "options": [
     {
@@ -4140,8 +4177,9 @@
    "prompt": "A parabola has vertex (3, -8) and one x-intercept at 5. Find the other x-intercept and the equation.",
    "answer": "x = 1; y = 2(x - 3)² - 8",
    "solutionSteps": [
-    "Symmetric about x = 3: 3 - 2 = 1.",
-    "0 = 4a - 8 → a = 2."
+    "The axis of symmetry is x = 3 (through the vertex). The intercept 5 is 2 units to the right, so the other is 2 units to the left: x = 3 - 2 = 1.",
+    "Vertex form: y = a(x - 3)² - 8. Substitute (5, 0): 0 = a(2)² - 8 = 4a - 8.",
+    "a = 2, so the other x-intercept is x = 1 and y = 2(x - 3)² - 8."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -4156,7 +4194,9 @@
    "prompt": "Does y = -3x² + 2 have a maximum or minimum? What is it?",
    "answer": "maximum 2",
    "solutionSteps": [
-    "a < 0 → maximum at the vertex (0, 2)."
+    "y = -3x² + 2 has a = -3 < 0, so the parabola opens down and has a maximum.",
+    "There is no x-term, so the vertex is at x = 0, and y = -3(0)² + 2 = 2.",
+    "The function has a maximum of 2 (at x = 0)."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -4171,7 +4211,9 @@
    "prompt": "For y = ax² + bx + c with a > 0 and b > 0, where is the vertex?",
    "answer": "left of the y-axis (x < 0)",
    "solutionSteps": [
-    "h = -b/(2a) < 0."
+    "The vertex is at x = -b/(2a).",
+    "With a > 0 and b > 0, b/(2a) is positive, so -b/(2a) is negative.",
+    "The vertex is left of the y-axis (x < 0)."
    ],
    "options": [
     {
@@ -4333,10 +4375,10 @@
    "prompt": "Rewrite y = x² + 10x + 21 three ways.",
    "answer": "(a) y = (x + 3)(x + 7); (b) y = (x + 5)² - 4; (c) (-5, -4); -3 and -7; (d) standard form; 21",
    "solutionSteps": [
-    "Factor pairs of 21.",
-    "(10/2)² = 25.",
-    "Read from each form.",
-    "c = 21."
+    "(a) Find two numbers with product 21 and sum 10: 3 and 7, so y = (x + 3)(x + 7).",
+    "(b) Half of 10 is 5 and 5² = 25: y = (x² + 10x + 25) - 25 + 21 = (x + 5)² - 4.",
+    "(c) Vertex form gives the vertex (-5, -4); intercept form gives the zeros -3 and -7.",
+    "(d) Standard form shows the y-intercept directly: it is c = 21."
    ],
    "parts": [
     {
@@ -4370,10 +4412,10 @@
    "prompt": "y = a(x - h)² + k passes through (0, 5), (1, 0), and (5, 0).",
    "answer": "(a) 3; (b) a = 1; (c) -4; (d) y = (x - 3)² - 4",
    "solutionSteps": [
-    "Midpoint of the zeros.",
-    "5 = a(-1)(-5).",
-    "f(3) = (2)(-2).",
-    "Combine."
+    "(a) The zeros are 1 and 5, and the vertex is halfway between them: h = (1 + 5)/2 = 3.",
+    "(b) y = a(x - 1)(x - 5); substitute (0, 5): 5 = a(-1)(-5) = 5a, so a = 1.",
+    "(c) k is the value at the vertex: (3 - 1)(3 - 5) = (2)(-2) = -4.",
+    "(d) Vertex form: y = (x - 3)² - 4."
    ],
    "parts": [
     {
@@ -4407,7 +4449,9 @@
    "prompt": "Which equation is in vertex form?",
    "answer": "y = 2(x - 1)² + 3",
    "solutionSteps": [
-    "Vertex form: a(x - h)² + k."
+    "Vertex form is y = a(x - h)² + k, a squared binomial times a, plus a constant.",
+    "y = 2(x - 1)² + 3 matches with a = 2, h = 1 and k = 3.",
+    "So y = 2(x - 1)² + 3 is in vertex form (vertex (1, 3))."
    ],
    "options": [
     {
@@ -4441,7 +4485,9 @@
    "prompt": "Write y = (x - 4)(x + 2) in standard form.",
    "answer": "y = x² - 2x - 8",
    "solutionSteps": [
-    "FOIL."
+    "Multiply each term: (x - 4)(x + 2) = x·x + x·2 - 4·x - 4·2.",
+    "= x² + 2x - 4x - 8.",
+    "Combine like terms: y = x² - 2x - 8."
    ],
    "standards": [
     "F-IF.C.8a",
@@ -4457,7 +4503,9 @@
    "prompt": "Find the vertex of y = -(x - 6)(x + 2).",
    "answer": "(2, 16)",
    "solutionSteps": [
-    "h = (6 - 2)/2 = 2; y = -(−4)(4) = 16."
+    "The zeros are 6 and -2, so the vertex is halfway between them: h = (6 + (-2))/2 = 2.",
+    "y at x = 2: -(2 - 6)(2 + 2) = -(-4)(4) = 16.",
+    "The vertex is (2, 16)."
    ],
    "standards": [
     "F-IF.C.8a",
@@ -4631,7 +4679,9 @@
    "prompt": "What is the GCF of 6x² - 18x?",
    "answer": "6x",
    "solutionSteps": [
-    "6x(x - 3)."
+    "The greatest common factor of the coefficients 6 and 18 is 6.",
+    "Both terms contain at least one x (x² and x), so x is also common.",
+    "The GCF is 6x: 6x² - 18x = 6x(x - 3)."
    ],
    "options": [
     {
@@ -4664,7 +4714,9 @@
    "prompt": "A student factors x² - 5x - 14 as (x - 2)(x + 7). What is correct?",
    "answer": "(x - 7)(x + 2)",
    "solutionSteps": [
-    "Need product -14 and sum -5: -7 and 2."
+    "For x² - 5x - 14 = (x + p)(x + q) we need pq = -14 and p + q = -5.",
+    "-7 and 2 work: (-7)(2) = -14 and -7 + 2 = -5. The student's -2 and 7 add to +5.",
+    "Correct factoring: (x - 7)(x + 2)."
    ],
    "options": [
     {
@@ -4697,7 +4749,9 @@
    "prompt": "Factor x² + 9x + 20.",
    "answer": "(x + 4)(x + 5)",
    "solutionSteps": [
-    "4·5 = 20, 4 + 5 = 9."
+    "Find two numbers with product 20 and sum 9.",
+    "4 · 5 = 20 and 4 + 5 = 9.",
+    "x² + 9x + 20 = (x + 4)(x + 5)."
    ],
    "standards": [
     "A-SSE.A.2"
@@ -4712,7 +4766,9 @@
    "prompt": "Factor x² - 81.",
    "answer": "(x - 9)(x + 9)",
    "solutionSteps": [
-    "Difference of squares."
+    "x² - 81 is a difference of squares: x² - 9².",
+    "Use a² - b² = (a - b)(a + b) with a = x and b = 9.",
+    "x² - 81 = (x - 9)(x + 9)."
    ],
    "standards": [
     "A-SSE.A.2"
@@ -4727,10 +4783,10 @@
    "prompt": "Solve x² + 4x - 12 = 0 by completing the square.",
    "answer": "(a) x² + 4x = 12; (b) (x + 2)² = 16; (c) x + 2 = ±4; (d) x = -6 or x = 2",
    "solutionSteps": [
-    "Isolate x-terms.",
-    "(b/2)² = 4.",
-    "± root.",
-    "Isolate x."
+    "(a) Subtract -12 from both sides (add 12): x² + 4x = 12.",
+    "(b) (b/2)² = (4/2)² = 4; add 4 to both sides: x² + 4x + 4 = 16, so (x + 2)² = 16.",
+    "(c) Take square roots: x + 2 = ±4.",
+    "(d) x = -2 + 4 = 2 or x = -2 - 4 = -6, so x = -6 or x = 2."
    ],
    "parts": [
     {
@@ -4764,10 +4820,10 @@
    "prompt": "Solve x² - 6x + 2 = 0 by completing the square.",
    "answer": "(a) x² - 6x = -2; (b) (x - 3)² = 7; (c) x - 3 = ±√7; (d) x = 3 ± √7",
    "solutionSteps": [
-    "Isolate x-terms.",
-    "(b/2)² = 9.",
-    "± root.",
-    "Isolate x."
+    "(a) Subtract 2 from both sides: x² - 6x = -2.",
+    "(b) (b/2)² = (-6/2)² = 9; add 9: x² - 6x + 9 = 7, so (x - 3)² = 7.",
+    "(c) Take square roots: x - 3 = ±√7.",
+    "(d) Add 3: x = 3 ± √7."
    ],
    "parts": [
     {
@@ -4801,10 +4857,10 @@
    "prompt": "Solve x² + 8x + 11 = 0 by completing the square.",
    "answer": "(a) x² + 8x = -11; (b) (x + 4)² = 5; (c) x + 4 = ±√5; (d) x = -4 ± √5",
    "solutionSteps": [
-    "Isolate x-terms.",
-    "(b/2)² = 16.",
-    "± root.",
-    "Isolate x."
+    "(a) Subtract 11 from both sides: x² + 8x = -11.",
+    "(b) (b/2)² = (8/2)² = 16; add 16: x² + 8x + 16 = 5, so (x + 4)² = 5.",
+    "(c) Take square roots: x + 4 = ±√5.",
+    "(d) Subtract 4: x = -4 ± √5."
    ],
    "parts": [
     {
@@ -4838,10 +4894,10 @@
    "prompt": "Solve x² - 10x + 18 = 0 by completing the square.",
    "answer": "(a) x² - 10x = -18; (b) (x - 5)² = 7; (c) x - 5 = ±√7; (d) x = 5 ± √7",
    "solutionSteps": [
-    "Isolate x-terms.",
-    "(b/2)² = 25.",
-    "± root.",
-    "Isolate x."
+    "(a) Subtract 18 from both sides: x² - 10x = -18.",
+    "(b) (b/2)² = (-10/2)² = 25; add 25: x² - 10x + 25 = 7, so (x - 5)² = 7.",
+    "(c) Take square roots: x - 5 = ±√7.",
+    "(d) Add 5: x = 5 ± √7."
    ],
    "parts": [
     {
@@ -4878,7 +4934,9 @@
     "-2"
    ],
    "solutionSteps": [
-    "x - 3 = ±5."
+    "Take square roots: x - 3 = ±5.",
+    "x - 3 = 5 gives x = 8; x - 3 = -5 gives x = -2.",
+    "The solutions among the choices are 8 and -2."
    ],
    "options": [
     {
@@ -4925,7 +4983,9 @@
     "-1 - 3"
    ],
    "solutionSteps": [
-    "(x + 1)² = 9 → x = -1 ± 3."
+    "Add 7: 2(x + 1)² = 18. Divide by 2: (x + 1)² = 9.",
+    "Take square roots: x + 1 = ±3, so x = -1 + 3 or x = -1 - 3.",
+    "-1 + 3 = 2 and -1 - 3 = -4, so the choices 2, -4, -1 + 3 and -1 - 3 are all solutions."
    ],
    "options": [
     {
@@ -4967,7 +5027,9 @@
    "prompt": "Which value of c makes x² - 7x + c a perfect square trinomial?",
    "answer": "49/4",
    "solutionSteps": [
-    "c = (b/2)² = (7/2)²."
+    "x² + bx + c is a perfect square when c = (b/2)².",
+    "Here b = -7, so b/2 = -7/2 and (b/2)² = 49/4.",
+    "c = 49/4: x² - 7x + 49/4 = (x - 7/2)²."
    ],
    "options": [
     {
@@ -5001,7 +5063,9 @@
    "prompt": "Solve x² - 64 = 0.",
    "answer": "x = ±8",
    "solutionSteps": [
-    "x² = 64."
+    "Add 64 to both sides: x² = 64.",
+    "Take square roots, both signs: x = ±√64.",
+    "x = ±8."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -5258,10 +5322,10 @@
    "prompt": "Solve 2x² - 6x + 3 = 0 with the quadratic formula.",
    "answer": "(a) a = 2, b = -6, c = 3; (b) 12; (c) x = (3 ± √3)/2; (d) 0.63 and 2.37",
    "solutionSteps": [
-    "Read coefficients.",
-    "36 - 24.",
-    "(6 ± 2√3)/4.",
-    "Calculator."
+    "(a) a = 2, b = -6, c = 3.",
+    "(b) b² - 4ac = 36 - 4(2)(3) = 36 - 24 = 12.",
+    "(c) x = (6 ± √12)/4 = (6 ± 2√3)/4 = (3 ± √3)/2.",
+    "(d) √3 ≈ 1.732, so x ≈ (3 - 1.732)/2 ≈ 0.63 and x ≈ (3 + 1.732)/2 ≈ 2.37."
    ],
    "parts": [
     {
@@ -5294,10 +5358,10 @@
    "prompt": "For x² + kx + 4 = 0:",
    "answer": "(a) k² - 16; (b) k = ±4; (c) k < -4 or k > 4; (d) x = -1 ± i√3",
    "solutionSteps": [
-    "b² - 4ac.",
-    "= 0.",
-    "> 0.",
-    "(-2 ± √(-12))/2."
+    "(a) a = 1, b = k, c = 4: b² - 4ac = k² - 16.",
+    "(b) Exactly one real solution when k² - 16 = 0: k = ±4.",
+    "(c) Two real solutions when k² - 16 > 0: k < -4 or k > 4.",
+    "(d) k = 2: x = (-2 ± √(4 - 16))/2 = (-2 ± √(-12))/2 = (-2 ± 2i√3)/2 = -1 ± i√3."
    ],
    "parts": [
     {
@@ -5330,7 +5394,9 @@
    "prompt": "Which expression is the quadratic formula?",
    "answer": "x = (-b ± √(b² - 4ac))/(2a)",
    "solutionSteps": [
-    "The whole numerator is divided by 2a."
+    "Completing the square on ax² + bx + c = 0 gives x = (-b ± √(b² - 4ac))/(2a).",
+    "The whole numerator, -b ± √(b² - 4ac), is divided by 2a, and the radical contains b² - 4ac.",
+    "So the quadratic formula is x = (-b ± √(b² - 4ac))/(2a)."
    ],
    "options": [
     {
@@ -5363,7 +5429,9 @@
    "prompt": "Find the discriminant of x² + 6x + 9.",
    "answer": "0",
    "solutionSteps": [
-    "36 - 36."
+    "For x² + 6x + 9: a = 1, b = 6, c = 9.",
+    "b² - 4ac = 6² - 4(1)(9) = 36 - 36.",
+    "The discriminant is 0 (one repeated real root)."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -5378,7 +5446,9 @@
    "prompt": "How many real solutions does x² + 1 = 0 have?",
    "answer": "0",
    "solutionSteps": [
-    "Discriminant -4 < 0."
+    "For x² + 1 = 0: a = 1, b = 0, c = 1, so b² - 4ac = 0 - 4 = -4.",
+    "A negative discriminant means no real solutions (x² = -1 has no real square root).",
+    "The number of real solutions is 0."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -5393,7 +5463,9 @@
    "prompt": "Solve x² - 2x - 4 = 0 exactly.",
    "answer": "x = 1 ± √5",
    "solutionSteps": [
-    "(2 ± √20)/2."
+    "a = 1, b = -2, c = -4: x = (2 ± √(4 + 16))/2 = (2 ± √20)/2.",
+    "Simplify √20 = 2√5: x = (2 ± 2√5)/2.",
+    "Divide each term by 2: x = 1 ± √5."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -5408,8 +5480,9 @@
    "prompt": "The sum of the roots of 3x² + bx + 12 = 0 is 5. Find b and the product of the roots.",
    "answer": "b = -15; product 4",
    "solutionSteps": [
-    "Sum = -b/a = 5 → b = -15.",
-    "Product = c/a = 4."
+    "For ax² + bx + c = 0 the sum of the roots is -b/a and the product is c/a.",
+    "Sum: -b/3 = 5, so b = -15.",
+    "Product: c/a = 12/3 = 4. So b = -15; product 4."
    ],
    "standards": [
     "A-REI.B.4b"
@@ -5540,7 +5613,10 @@
     "(-i)²"
    ],
    "solutionSteps": [
-    "Powers of i cycle i, -1, -i, 1."
+    "Powers of i repeat every 4: i¹ = i, i² = -1, i³ = -i, i⁴ = 1. Use the remainder of the exponent divided by 4.",
+    "i² = -1; i⁶: 6 = 4 + 2, so -1; i¹⁰: 10 = 8 + 2, so -1; (-i)² = i² = -1.",
+    "i³ = -i, i⁴ = 1 and i¹⁰⁰ = 1 (100 is a multiple of 4).",
+    "The expressions equal to -1 are i², i⁶, i¹⁰ and (-i)²."
    ],
    "options": [
     {
@@ -5586,7 +5662,9 @@
    "prompt": "What is the conjugate of -5 + 2i?",
    "answer": "-5 - 2i",
    "solutionSteps": [
-    "Change the sign of the imaginary part."
+    "The conjugate of a + bi is a - bi: keep the real part, change the sign of the imaginary part.",
+    "Here a = -5 and b = 2.",
+    "The conjugate is -5 - 2i."
    ],
    "options": [
     {
@@ -5620,8 +5698,9 @@
    "prompt": "Find |6 - 8i| and the distance between 1 + 2i and 4 - 2i in the complex plane.",
    "answer": "10; 5",
    "solutionSteps": [
-    "√(36 + 64).",
-    "|3 - 4i| = 5."
+    "|a + bi| = √(a² + b²), so |6 - 8i| = √(36 + 64) = √100 = 10.",
+    "The distance between two complex numbers is the absolute value of their difference: (4 - 2i) - (1 + 2i) = 3 - 4i.",
+    "|3 - 4i| = √(9 + 16) = 5. Answers: 10; 5."
    ],
    "standards": [
     "N-CN.A.1",
@@ -5637,7 +5716,9 @@
    "prompt": "Simplify (5 - 2i) - (3 - 7i).",
    "answer": "2 + 5i",
    "solutionSteps": [
-    "5 - 3 = 2; -2 + 7 = 5."
+    "Distribute the minus sign: 5 - 2i - 3 + 7i.",
+    "Real parts: 5 - 3 = 2. Imaginary parts: -2i + 7i = 5i.",
+    "The result is 2 + 5i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -5850,7 +5931,9 @@
    "prompt": "Which quadratic has solutions 3i and -3i?",
    "answer": "x² + 9 = 0",
    "solutionSteps": [
-    "(x - z)(x - z̄) = x² - 2Re(z)x + |z|²."
+    "A quadratic with solutions z and z̄ is (x - z)(x - z̄) = x² - (z + z̄)x + z·z̄.",
+    "z = 3i: z + z̄ = 3i - 3i = 0 and z·z̄ = (3i)(-3i) = -9i² = 9.",
+    "The quadratic is x² + 9 = 0."
    ],
    "options": [
     {
@@ -5883,7 +5966,9 @@
    "prompt": "Which quadratic has solutions 1 + i and 1 - i?",
    "answer": "x² - 2x + 2 = 0",
    "solutionSteps": [
-    "(x - z)(x - z̄) = x² - 2Re(z)x + |z|²."
+    "A quadratic with solutions z and z̄ is x² - (z + z̄)x + z·z̄.",
+    "z = 1 + i: z + z̄ = 2 and z·z̄ = 1² + 1² = 2.",
+    "The quadratic is x² - 2x + 2 = 0."
    ],
    "options": [
     {
@@ -5916,7 +6001,9 @@
    "prompt": "Which quadratic has solutions -2 + 5i and -2 - 5i?",
    "answer": "x² + 4x + 29 = 0",
    "solutionSteps": [
-    "(x - z)(x - z̄) = x² - 2Re(z)x + |z|²."
+    "A quadratic with solutions z and z̄ is x² - (z + z̄)x + z·z̄.",
+    "z = -2 + 5i: z + z̄ = -4 and z·z̄ = (-2)² + 5² = 4 + 25 = 29.",
+    "The quadratic is x² + 4x + 29 = 0."
    ],
    "options": [
     {
@@ -5985,10 +6072,10 @@
    "prompt": "Solve 4x² + 25 = 0.",
    "answer": "(a) x² = -25/4; (b) x = ±√(-25/4); (c) x = ±(5/2)i; (d) 4(-25/4) + 25 = 0",
    "solutionSteps": [
-    "Subtract, divide.",
-    "±.",
-    "√(-1) = i.",
-    "Substitute."
+    "(a) Subtract 25 and divide by 4: x² = -25/4.",
+    "(b) Take square roots: x = ±√(-25/4).",
+    "(c) √(-25/4) = √(25/4)·√(-1) = (5/2)i, so x = ±(5/2)i.",
+    "(d) Check x = (5/2)i: x² = (25/4)i² = -25/4, and 4(-25/4) + 25 = -25 + 25 = 0."
    ],
    "parts": [
     {
@@ -6021,7 +6108,9 @@
    "prompt": "How many complex solutions does every quadratic equation have (counting repeats)?",
    "answer": "2",
    "solutionSteps": [
-    "Degree 2 → 2 solutions counting multiplicity."
+    "The Fundamental Theorem of Algebra says a polynomial equation of degree n has n complex solutions, counting repeated ones.",
+    "A quadratic has degree 2.",
+    "So every quadratic equation has 2 complex solutions (they may be equal, or a conjugate pair)."
    ],
    "options": [
     {
@@ -6054,7 +6143,9 @@
    "prompt": "Solve x² = -36.",
    "answer": "x = ±6i",
    "solutionSteps": [
-    "√(-36) = 6i."
+    "Take square roots of both sides: x = ±√(-36).",
+    "√(-36) = √36·√(-1) = 6i.",
+    "x = ±6i."
    ],
    "standards": [
     "N-CN.C.7"
@@ -6069,7 +6160,9 @@
    "prompt": "Solve x² + 2x + 10 = 0.",
    "answer": "x = -1 ± 3i",
    "solutionSteps": [
-    "(-2 ± √(-36))/2."
+    "a = 1, b = 2, c = 10: discriminant 4 - 40 = -36.",
+    "x = (-2 ± √(-36))/2 = (-2 ± 6i)/2.",
+    "Divide each term by 2: x = -1 ± 3i."
    ],
    "standards": [
     "N-CN.C.7"
@@ -6084,7 +6177,9 @@
    "prompt": "Solve x² + (1 - i)x - i = 0 by factoring.",
    "answer": "x = -1 or x = i",
    "solutionSteps": [
-    "(x + 1)(x - i) = x² + (1 - i)x - i."
+    "Look for numbers with sum (1 - i) and product -i: 1 and -i, since 1 + (-i) = 1 - i and 1·(-i) = -i.",
+    "So x² + (1 - i)x - i = (x + 1)(x - i).",
+    "Set each factor to 0: x = -1 or x = i."
    ],
    "standards": [
     "N-CN.C.7"
@@ -6210,8 +6305,10 @@
    "prompt": "A rectangle has perimeter 40 m and area 96 m². Find its dimensions.",
    "answer": "8 m by 12 m",
    "solutionSteps": [
-    "l + w = 20, lw = 96.",
-    "w² - 20w + 96 = 0."
+    "Perimeter 40 means 2(l + w) = 40, so l + w = 20; area gives lw = 96.",
+    "Substitute l = 20 - w: w(20 - w) = 96, so w² - 20w + 96 = 0.",
+    "Factor: (w - 8)(w - 12) = 0, so w = 8 or 12; the other side is 12 or 8.",
+    "The rectangle is 8 m by 12 m."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6227,8 +6324,10 @@
    "prompt": "A rectangle has perimeter 34 m and area 60 m². Find its dimensions.",
    "answer": "5 m by 12 m",
    "solutionSteps": [
-    "l + w = 17, lw = 60.",
-    "w² - 17w + 60 = 0."
+    "Perimeter 34 gives l + w = 17; area gives lw = 60.",
+    "Substitute l = 17 - w: w² - 17w + 60 = 0.",
+    "Factor: (w - 5)(w - 12) = 0, so the sides are 5 and 12.",
+    "The rectangle is 5 m by 12 m."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6244,8 +6343,10 @@
    "prompt": "A rectangle has perimeter 26 m and area 40 m². Find its dimensions.",
    "answer": "5 m by 8 m",
    "solutionSteps": [
-    "l + w = 13, lw = 40.",
-    "w² - 13w + 40 = 0."
+    "Perimeter 26 gives l + w = 13; area gives lw = 40.",
+    "Substitute l = 13 - w: w² - 13w + 40 = 0.",
+    "Factor: (w - 5)(w - 8) = 0, so the sides are 5 and 8.",
+    "The rectangle is 5 m by 8 m."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6261,7 +6362,9 @@
    "prompt": "Revenue R(p) = p(200 - 4p) for price p dollars. What price maximizes revenue?",
    "answer": "$25",
    "solutionSteps": [
-    "Zeros 0 and 50; vertex at p = 25."
+    "R(p) = p(200 - 4p) is zero when p = 0 or 200 - 4p = 0, that is p = 50.",
+    "The parabola opens down (R = -4p² + 200p), so its maximum is at the vertex, halfway between the zeros.",
+    "p = (0 + 50)/2 = 25: a price of $25 maximizes revenue."
    ],
    "options": [
     {
@@ -6295,7 +6398,9 @@
    "prompt": "In h(t) = -4.9t² + 14.7t + 2, what does -4.9 represent?",
    "answer": "Half the acceleration due to gravity (m/s²)",
    "solutionSteps": [
-    "-½g with g = 9.8 m/s²."
+    "The height of a falling object is h(t) = -½gt² + v₀t + h₀.",
+    "In metres, g = 9.8 m/s², so -½g = -4.9.",
+    "So -4.9 is half the acceleration due to gravity (m/s²), with a minus sign because gravity pulls down."
    ],
    "options": [
     {
@@ -6333,8 +6438,10 @@
     "The object lands at t = 3 s"
    ],
    "solutionSteps": [
-    "Vertex t = 1: h = 64.",
-    "-16(t² - 2t - 3) = -16(t - 3)(t + 1)."
+    "Initial height: h(0) = 48 ft.",
+    "Vertex: t = -32/(2(-16)) = 1, and h(1) = -16 + 32 + 48 = 64, so the maximum is 64 ft at t = 1 s (not 2 s).",
+    "Landing: -16t² + 32t + 48 = -16(t² - 2t - 3) = -16(t - 3)(t + 1) = 0, so t = 3 s (t = 1 s is the peak, not the landing).",
+    "True: the initial height is 48 ft, the maximum height is 64 ft, and it lands at t = 3 s."
    ],
    "options": [
     {
@@ -6376,7 +6483,10 @@
     "Revenue when each price increase loses customers"
    ],
    "solutionSteps": [
-    "Quadratic: product of two linear quantities or constant acceleration."
+    "A quadratic model fits when the quantity is a product of two linear quantities or has constant acceleration.",
+    "Ball height (gravity is constant acceleration), area of a square (side × side) and revenue when each price increase loses customers (price × number sold, both linear in the number of increases) are quadratic.",
+    "Interest at 4% is exponential, and distance at constant speed is linear.",
+    "The quadratic situations are the thrown ball, the area of a square, and the revenue."
    ],
    "options": [
     {
@@ -6488,7 +6598,9 @@
    "prompt": "The product of two consecutive positive even integers is 168. Find them.",
    "answer": "12 and 14",
    "solutionSteps": [
-    "n(n + 2) = 168 → n² + 2n - 168 = 0 → (n + 14)(n - 12) = 0."
+    "Let the integers be n and n + 2: n(n + 2) = 168.",
+    "n² + 2n - 168 = 0 factors as (n + 14)(n - 12) = 0, so n = 12 or n = -14.",
+    "The integers must be positive, so n = 12 and the integers are 12 and 14 (12 · 14 = 168)."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6521,7 +6633,9 @@
    "prompt": "A ball's height is h(t) = -16t² + 64. When does it hit the ground?",
    "answer": "t = 2 s",
    "solutionSteps": [
-    "16t² = 64."
+    "The ball hits the ground when h(t) = 0: -16t² + 64 = 0.",
+    "16t² = 64, so t² = 4 and t = ±2.",
+    "Time cannot be negative, so it hits the ground at t = 2 s."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6537,7 +6651,9 @@
    "prompt": "A square has area 81 cm². What is its side length?",
    "answer": "9 cm",
    "solutionSteps": [
-    "√81; length is positive."
+    "Area of a square = s², so s² = 81.",
+    "s = ±9, but a length must be positive.",
+    "The side length is 9 cm."
    ],
    "standards": [
     "F-IF.B.4",
@@ -6557,8 +6673,10 @@
     "The original area was 36 m²"
    ],
    "solutionSteps": [
-    "(s + 2)² = 64 → s + 2 = 8.",
-    "64 - 36 = 28."
+    "Let s be the original side: (s + 2)² = 64, so s + 2 = 8 (a length is positive).",
+    "The new side is 8 m and the original side is s = 6 m.",
+    "The original area is 6² = 36 m², so the area increased by 64 - 36 = 28 m², not 4 m².",
+    "True: the new side is 8 m, the original side was 6 m and the original area was 36 m²."
    ],
    "options": [
     {
@@ -6686,8 +6804,9 @@
     }
    ],
    "solutionSteps": [
-    "x = -b/(2a) = 0.",
-    "The axis of symmetry is x = 0."
+    "For y = ax² + bx + c the axis of symmetry is x = -b/(2a).",
+    "Here a = -2 and b = 0 (there is no x-term), so x = -0/(2(-2)) = 0.",
+    "The axis of symmetry is x = 0 (the y-axis)."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -6792,8 +6911,8 @@
     }
    ],
    "solutionSteps": [
-    "Set x = 0.",
-    "y = 21.",
+    "The y-intercept is where x = 0.",
+    "y = 2(0)² + 12(0) + 21 = 21.",
     "The y-intercept is (0, 21)."
    ],
    "standards": [
@@ -6844,8 +6963,8 @@
    "prompt": "Find the y-intercept of y = -x² - 6x - 3.",
    "answer": "(0, -3)",
    "solutionSteps": [
-    "Set x = 0.",
-    "y = -3.",
+    "The y-intercept is where x = 0.",
+    "y = -(0)² - 6(0) - 3 = -3.",
     "The y-intercept is (0, -3)."
    ],
    "standards": [
@@ -6896,7 +7015,8 @@
     }
    ],
    "solutionSteps": [
-    "x = -b/(2a) = 6.",
+    "For y = ax² + bx + c the axis of symmetry is x = -b/(2a).",
+    "Here a = -1 and b = 12: x = -12/(2(-1)) = -12/(-2) = 6.",
     "The axis of symmetry is x = 6."
    ],
    "standards": [
@@ -8669,8 +8789,9 @@
    "prompt": "Simplify (4 - 2i) + (-6 + i). Write the answer in the form a + bi.",
    "answer": "-2 - i",
    "solutionSteps": [
-    "Combine real parts and imaginary parts.",
-    "= -2 - i."
+    "Add the real parts: 4 + (-6) = -2.",
+    "Add the imaginary parts: -2i + i = -i.",
+    "The sum is -2 - i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -8722,8 +8843,9 @@
    "prompt": "Simplify √-9.",
    "answer": "3i",
    "solutionSteps": [
-    "√-a = i√a for a > 0.",
-    "√-9 = i√9 = 3i."
+    "For a > 0, √(-a) = i√a.",
+    "√(-9) = i√9.",
+    "√9 = 3, so √(-9) = 3i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -8778,8 +8900,9 @@
    "prompt": "Simplify (-5 + 6i) · (5 - 6i). Write the answer in the form a + bi.",
    "answer": "11 + 60i",
    "solutionSteps": [
-    "Use FOIL and i² = -1.",
-    "= 11 + 60i."
+    "Multiply every term: (-5)(5) + (-5)(-6i) + 6i(5) + 6i(-6i) = -25 + 30i + 30i - 36i².",
+    "Replace i² with -1: -36i² = 36.",
+    "Combine: (-25 + 36) + 60i = 11 + 60i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -8888,8 +9011,9 @@
    "prompt": "Simplify √-8 · √-18.",
    "answer": "-12",
    "solutionSteps": [
-    "√-8 = i√8 and √-18 = i√18.",
-    "(i√8)(i√18) = i²√144 = -12."
+    "Write each root with i first: √(-8) = i√8 and √(-18) = i√18. (√(-8)·√(-18) is not √144, because √a·√b = √(ab) needs a, b ≥ 0.)",
+    "(i√8)(i√18) = i²·√(8·18) = i²·√144.",
+    "i² = -1 and √144 = 12, so the product is -12."
    ],
    "standards": [
     "N-CN.A.1",
@@ -8977,8 +9101,9 @@
     }
    ],
    "solutionSteps": [
-    "√-27 = i√27 and √-3 = i√3.",
-    "(i√27)(i√3) = i²√81 = -9."
+    "Write each root with i first: √(-27) = i√27 and √(-3) = i√3.",
+    "(i√27)(i√3) = i²·√81.",
+    "i² = -1 and √81 = 9, so the product is -9."
    ],
    "standards": [
     "N-CN.A.1",
@@ -8994,8 +9119,9 @@
    "prompt": "Simplify (5 + 3i)³. Write the answer in the form a + bi.",
    "answer": "-10 + 198i",
    "solutionSteps": [
-    "Expand: (5 + 3i)³ using i² = -1.",
-    "= -10 + 198i."
+    "Square first: (5 + 3i)² = 25 + 30i + 9i² = 25 + 30i - 9 = 16 + 30i.",
+    "Multiply by (5 + 3i): (16 + 30i)(5 + 3i) = 80 + 48i + 150i + 90i².",
+    "90i² = -90, so the result is (80 - 90) + 198i = -10 + 198i."
    ],
    "standards": [
     "N-CN.A.1",
@@ -10056,8 +10182,9 @@
    "prompt": "Find the axis of symmetry of y = 3x² - 6x + 4.",
    "answer": "x = 1",
    "solutionSteps": [
-    "x = -b/(2a) = 6/6 = 1.",
-    "Axis of symmetry: x = 1."
+    "For y = ax² + bx + c the axis of symmetry is x = -b/(2a).",
+    "Here a = 3 and b = -6: x = -(-6)/(2·3) = 6/6 = 1.",
+    "The axis of symmetry is x = 1."
    ],
    "standards": [
     "F-IF.C.7a"
@@ -10090,8 +10217,9 @@
    "prompt": "Solve (x + 3)² = 16 by taking square roots.",
    "answer": "x = -7 or x = 1",
    "solutionSteps": [
-    "x + 3 = ±4.",
-    "x = -3 + 4 = 1 or x = -3 - 4 = -7."
+    "Take square roots of both sides: x + 3 = ±4.",
+    "x + 3 = 4 gives x = 1; x + 3 = -4 gives x = -7.",
+    "The solutions are x = -7 or x = 1."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -10107,9 +10235,9 @@
    "prompt": "Solve 2(x + 2)² = 10 by taking square roots.",
    "answer": "x = -2 ± √5",
    "solutionSteps": [
-    "Divide by 2: (x + 2)² = 5.",
-    "x + 2 = ±√5.",
-    "x = -2 ± √5."
+    "Divide both sides by 2: (x + 2)² = 5.",
+    "Take square roots: x + 2 = ±√5.",
+    "Subtract 2: x = -2 ± √5."
    ],
    "standards": [
     "A-REI.B.4a",
@@ -10159,9 +10287,9 @@
    "prompt": "Solve (x - 2)² + 9 = 0 over the complex numbers.",
    "answer": "x = 2 ± 3i",
    "solutionSteps": [
-    "(x - 2)² = -9.",
-    "x - 2 = ±3i.",
-    "x = 2 ± 3i."
+    "Subtract 9: (x - 2)² = -9.",
+    "Take square roots: x - 2 = ±√(-9) = ±3i.",
+    "Add 2: x = 2 ± 3i."
    ],
    "standards": [
     "N-CN.C.7"
@@ -10300,8 +10428,9 @@
    "prompt": "Simplify √-6 · √-24.",
    "answer": "-12",
    "solutionSteps": [
-    "√-6 = i√6 and √-24 = i√24.",
-    "i² · √144 = -12."
+    "Write each root with i first: √(-6) = i√6 and √(-24) = i√24.",
+    "(i√6)(i√24) = i²·√144.",
+    "i² = -1 and √144 = 12, so the product is -12."
    ],
    "standards": [
     "N-CN.A.1",

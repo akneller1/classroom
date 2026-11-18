@@ -11,7 +11,9 @@
    "prompt": "A menu has 4 appetizers, 6 entrées, and 3 desserts. How many 3-course meals are possible?",
    "answer": "72",
    "solutionSteps": [
-    "Fundamental counting principle: 4·6·3."
+    "A meal is made of three independent choices: an appetizer, an entrée and a dessert.",
+    "Fundamental counting principle: multiply the number of choices at each stage: 4 · 6 · 3.",
+    "4 · 6 = 24 and 24 · 3 = 72 meals."
    ],
    "standards": [
     "S-CP.B.9"
@@ -26,7 +28,9 @@
    "prompt": "How many 4-digit PINs are possible if digits may repeat?",
    "answer": "10,000",
    "solutionSteps": [
-    "10⁴."
+    "A PIN has 4 positions, and each can be any of the 10 digits because repeats are allowed.",
+    "Multiply the choices for each position: 10 · 10 · 10 · 10 = 10⁴.",
+    "10⁴ = 10,000 PINs."
    ],
    "standards": [
     "S-CP.B.9"
@@ -41,7 +45,9 @@
    "prompt": "How many license plates have 3 letters followed by 3 digits (repetition allowed)?",
    "answer": "17,576,000",
    "solutionSteps": [
-    "26³·10³."
+    "There are 26 choices for each letter and 10 for each digit, with repetition allowed.",
+    "Multiply: 26 · 26 · 26 · 10 · 10 · 10 = 26³ · 10³ = 17,576 · 1,000.",
+    "17,576,000 license plates."
    ],
    "standards": [
     "S-CP.B.9"
@@ -56,7 +62,9 @@
    "prompt": "How many 3-letter codes use distinct letters?",
    "answer": "15,600",
    "solutionSteps": [
-    "26·25·24."
+    "Distinct letters means each letter used cannot be used again.",
+    "There are 26 choices for the first letter, 25 for the second and 24 for the third.",
+    "26 · 25 · 24 = 15,600 codes."
    ],
    "standards": [
     "S-CP.B.9"
@@ -71,7 +79,9 @@
    "prompt": "A quiz has 8 true/false questions. How many answer keys are possible?",
    "answer": "256",
    "solutionSteps": [
-    "2⁸."
+    "Each of the 8 questions has 2 possible answers, T or F.",
+    "Multiply: 2 · 2 · … · 2 (8 times) = 2⁸.",
+    "2⁸ = 256 answer keys."
    ],
    "standards": [
     "S-CP.B.9"
@@ -86,7 +96,9 @@
    "prompt": "How many even 3-digit numbers can be formed from the digits 1–6 without repetition?",
    "answer": "60",
    "solutionSteps": [
-    "Last digit even: 3 choices; then 5 and 4."
+    "Start with the restricted place: the last digit must be even, so it is 2, 4 or 6 (3 choices).",
+    "Then the first digit can be any of the 5 remaining digits, and the middle digit any of the 4 left.",
+    "3 · 5 · 4 = 60 even numbers."
    ],
    "standards": [
     "S-CP.B.9"
@@ -101,8 +113,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 5, r = 5.",
    "answer": "120",
    "solutionSteps": [
-    "5!/(5 - 5)!.",
-    "= 120."
+    "ₙPᵣ = n!/(n - r)!, so ₅P₅ = 5!/0!.",
+    "0! = 1, so this is 5! = 5 · 4 · 3 · 2 · 1.",
+    "₅P₅ = 120."
    ],
    "standards": [
     "S-CP.B.9"
@@ -117,8 +130,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 7, r = 3.",
    "answer": "210",
    "solutionSteps": [
-    "7!/(7 - 3)!.",
-    "= 210."
+    "₇P₃ = 7!/(7 - 3)! = 7!/4!.",
+    "The factors 4! cancel, leaving 7 · 6 · 5.",
+    "₇P₃ = 210."
    ],
    "standards": [
     "S-CP.B.9"
@@ -133,8 +147,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 10, r = 4.",
    "answer": "5,040",
    "solutionSteps": [
-    "10!/(10 - 4)!.",
-    "= 5,040."
+    "₁₀P₄ = 10!/6!.",
+    "That is 10 · 9 · 8 · 7.",
+    "₁₀P₄ = 5,040."
    ],
    "standards": [
     "S-CP.B.9"
@@ -149,8 +164,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 8, r = 2.",
    "answer": "56",
    "solutionSteps": [
-    "8!/(8 - 2)!.",
-    "= 56."
+    "₈P₂ = 8!/6!.",
+    "That is 8 · 7.",
+    "₈P₂ = 56."
    ],
    "standards": [
     "S-CP.B.9"
@@ -165,8 +181,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 6, r = 6.",
    "answer": "720",
    "solutionSteps": [
-    "6!/(6 - 6)!.",
-    "= 720."
+    "₆P₆ = 6!/0! = 6!.",
+    "6! = 6 · 5 · 4 · 3 · 2 · 1.",
+    "₆P₆ = 720."
    ],
    "standards": [
     "S-CP.B.9"
@@ -181,8 +198,9 @@
    "prompt": "Evaluate ₙPᵣ for n = 12, r = 3.",
    "answer": "1,320",
    "solutionSteps": [
-    "12!/(12 - 3)!.",
-    "= 1,320."
+    "₁₂P₃ = 12!/9!.",
+    "That is 12 · 11 · 10.",
+    "₁₂P₃ = 1,320."
    ],
    "standards": [
     "S-CP.B.9"
@@ -277,8 +295,9 @@
    "prompt": "In how many ways can gold, silver, and bronze medals are awarded among 10 runners?",
    "answer": "720",
    "solutionSteps": [
-    "Order matters → permutation.",
-    "10P3 = 720."
+    "Gold, silver and bronze are different prizes, so the order of the 3 winners matters: a permutation.",
+    "₁₀P₃ = 10 · 9 · 8.",
+    "= 720 ways."
    ],
    "options": [
     {
@@ -311,8 +330,9 @@
    "prompt": "In how many ways can 8 students line up for a photo?",
    "answer": "40,320",
    "solutionSteps": [
-    "Order matters → permutation.",
-    "8P8 = 40,320."
+    "A line-up is an ordered arrangement of all 8 students.",
+    "₈P₈ = 8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "= 40,320 ways."
    ],
    "options": [
     {
@@ -345,8 +365,9 @@
    "prompt": "In how many ways can a president, VP, secretary, and treasurer are chosen from 12 members?",
    "answer": "11,880",
    "solutionSteps": [
-    "Order matters → permutation.",
-    "12P4 = 11,880."
+    "The four offices are different, so order matters: a permutation of 4 from 12.",
+    "₁₂P₄ = 12 · 11 · 10 · 9.",
+    "= 11,880 ways."
    ],
    "options": [
     {
@@ -379,7 +400,9 @@
    "prompt": "In how many ways can 6 people sit around a circular table (rotations are the same)?",
    "answer": "120",
    "solutionSteps": [
-    "Fix one person: (6 - 1)! = 120."
+    "Around a circle, rotating everyone gives the same seating, so fix one person's seat.",
+    "The other 5 people can then be arranged in the remaining seats in 5! ways.",
+    "(6 - 1)! = 5! = 120 ways."
    ],
    "options": [
     {
@@ -417,7 +440,10 @@
     "C(7, 3)·3!"
    ],
    "solutionSteps": [
-    "ₙPᵣ = n!/(n - r)! = C(n, r)·r!."
+    "₇P₃ = 7!/(7 - 3)! = 7!/4! = 7 · 6 · 5 = 210.",
+    "Also ₙPᵣ = C(n, r)·r!, so C(7, 3)·3! = 35 · 6 = 210.",
+    "7!/3! = 840 and 7³ = 343 are different.",
+    "Equal: 7·6·5, 210, 7!/4! and C(7, 3)·3!."
    ],
    "options": [
     {
@@ -462,7 +488,10 @@
     "Creating a password"
    ],
    "solutionSteps": [
-    "Different orders give different outcomes → permutation."
+    "Order matters when rearranging the same items gives a different outcome.",
+    "Books on a shelf, 1st/2nd/3rd place and a password (ABC ≠ CBA) all change when reordered.",
+    "A card hand, pizza toppings and a committee are the same group in any order.",
+    "Order matters: arranging books on a shelf, assigning 1st, 2nd, 3rd place, and creating a password."
    ],
    "options": [
     {
@@ -539,10 +568,10 @@
    "prompt": "Seven people (including Ana and Ben) line up.",
    "answer": "(a) 5040; (b) 720; (c) 1440; (d) 3600",
    "solutionSteps": [
-    "7!.",
-    "6!.",
-    "Treat as a block: 6!·2.",
-    "5040 - 1440."
+    "(a) All arrangements of 7 people: 7! = 5040.",
+    "(b) Ana fixed in front, the other 6 in any order: 6! = 720.",
+    "(c) Glue Ana and Ben into one block: 6 units give 6! = 720 orders, and the block can be AB or BA: 720 · 2 = 1440.",
+    "(d) Not together = all - together = 5040 - 1440 = 3600."
    ],
    "parts": [
     {
@@ -575,7 +604,9 @@
    "prompt": "Evaluate 5!.",
    "answer": "120",
    "solutionSteps": [
-    "5·4·3·2·1."
+    "5! means the product of the whole numbers from 5 down to 1.",
+    "5 · 4 · 3 · 2 · 1 = 20 · 6.",
+    "5! = 120."
    ],
    "standards": [
     "S-CP.B.9"
@@ -590,8 +621,9 @@
    "prompt": "Evaluate C(6, 2).",
    "answer": "15",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 15."
+    "C(n, r) = n!/(r!(n - r)!), so C(6, 2) = 6!/(2! · 4!).",
+    "Cancel 4!: (6 · 5)/(2 · 1) = 30/2.",
+    "C(6, 2) = 15."
    ],
    "standards": [
     "S-CP.B.9"
@@ -606,8 +638,9 @@
    "prompt": "Evaluate C(10, 3).",
    "answer": "120",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 120."
+    "C(10, 3) = 10!/(3! · 7!).",
+    "Cancel 7!: (10 · 9 · 8)/(3 · 2 · 1) = 720/6.",
+    "C(10, 3) = 120."
    ],
    "standards": [
     "S-CP.B.9"
@@ -622,8 +655,9 @@
    "prompt": "Evaluate C(8, 5).",
    "answer": "56",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 56."
+    "C(8, 5) = 8!/(5! · 3!).",
+    "Cancel 5!: (8 · 7 · 6)/(3 · 2 · 1) = 336/6.",
+    "C(8, 5) = 56."
    ],
    "standards": [
     "S-CP.B.9"
@@ -638,8 +672,9 @@
    "prompt": "Evaluate C(12, 6).",
    "answer": "924",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 924."
+    "C(12, 6) = 12!/(6! · 6!).",
+    "(12 · 11 · 10 · 9 · 8 · 7)/720 = 665,280/720.",
+    "C(12, 6) = 924."
    ],
    "standards": [
     "S-CP.B.9"
@@ -654,8 +689,9 @@
    "prompt": "Evaluate C(52, 5).",
    "answer": "2,598,960",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 2,598,960."
+    "C(52, 5) = 52!/(5! · 47!).",
+    "(52 · 51 · 50 · 49 · 48)/120 = 311,875,200/120.",
+    "C(52, 5) = 2,598,960."
    ],
    "standards": [
     "S-CP.B.9"
@@ -670,8 +706,9 @@
    "prompt": "Evaluate C(20, 1).",
    "answer": "20",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 20."
+    "C(20, 1) = 20!/(1! · 19!).",
+    "Cancel 19!: 20/1.",
+    "C(20, 1) = 20 (there are 20 ways to choose one item)."
    ],
    "standards": [
     "S-CP.B.9"
@@ -686,8 +723,9 @@
    "prompt": "Evaluate C(15, 13).",
    "answer": "105",
    "solutionSteps": [
-    "C(n, r) = n!/(r!(n - r)!).",
-    "= 105."
+    "Choosing 13 of 15 is the same as leaving out 2, so C(15, 13) = C(15, 2).",
+    "C(15, 2) = (15 · 14)/2 = 210/2.",
+    "C(15, 13) = 105."
    ],
    "standards": [
     "S-CP.B.9"
@@ -702,8 +740,9 @@
    "prompt": "In how many ways can you choose 4 students from 15 for a committee?",
    "answer": "1,365",
    "solutionSteps": [
-    "Order does not matter → combination.",
-    "C(15, 4) = 1,365."
+    "A committee is a group: order does not matter, so use a combination.",
+    "C(15, 4) = (15 · 14 · 13 · 12)/(4 · 3 · 2 · 1) = 32,760/24.",
+    "= 1,365 ways."
    ],
    "options": [
     {
@@ -736,8 +775,9 @@
    "prompt": "In how many ways can you choose 3 toppings from 10?",
    "answer": "120",
    "solutionSteps": [
-    "Order does not matter → combination.",
-    "C(10, 3) = 120."
+    "Toppings are a set: order does not matter.",
+    "C(10, 3) = (10 · 9 · 8)/6.",
+    "= 120 ways."
    ],
    "options": [
     {
@@ -770,8 +810,9 @@
    "prompt": "In how many ways can you select 5 cards from a 52-card deck?",
    "answer": "2,598,960",
    "solutionSteps": [
-    "Order does not matter → combination.",
-    "C(52, 5) = 2,598,960."
+    "A hand of cards is the same in any order: a combination.",
+    "C(52, 5) = (52 · 51 · 50 · 49 · 48)/120.",
+    "= 2,598,960 ways."
    ],
    "options": [
     {
@@ -804,8 +845,9 @@
    "prompt": "In how many ways can you pick 2 co-captains from 18 players?",
    "answer": "153",
    "solutionSteps": [
-    "Order does not matter → combination.",
-    "C(18, 2) = 153."
+    "Co-captains have the same role, so order does not matter.",
+    "C(18, 2) = (18 · 17)/2.",
+    "= 153 ways."
    ],
    "options": [
     {
@@ -838,7 +880,9 @@
    "prompt": "A committee of 5 is chosen from 7 teachers and 6 students. How many committees have exactly 3 teachers?",
    "answer": "525",
    "solutionSteps": [
-    "C(7, 3)·C(6, 2) = 35·15."
+    "Exactly 3 teachers means 3 teachers and 2 students (5 people in all).",
+    "Choose the teachers: C(7, 3) = 35. Choose the students: C(6, 2) = 15.",
+    "Multiply: 35 · 15 = 525 committees."
    ],
    "standards": [
     "S-CP.B.9"
@@ -853,7 +897,9 @@
    "prompt": "How many 5-card hands contain exactly 2 aces?",
    "answer": "103,776",
    "solutionSteps": [
-    "C(4, 2)·C(48, 3)."
+    "Exactly 2 aces: choose 2 of the 4 aces and 3 of the 48 non-aces.",
+    "C(4, 2) = 6 and C(48, 3) = (48 · 47 · 46)/6 = 17,296.",
+    "6 · 17,296 = 103,776 hands."
    ],
    "standards": [
     "S-CP.B.9"
@@ -868,7 +914,9 @@
    "prompt": "A pizza place offers 8 toppings. How many pizzas have at most 2 toppings?",
    "answer": "37",
    "solutionSteps": [
-    "C(8, 0) + C(8, 1) + C(8, 2) = 1 + 8 + 28."
+    "'At most 2 toppings' means 0, 1 or 2 toppings.",
+    "C(8, 0) = 1, C(8, 1) = 8 and C(8, 2) = 28.",
+    "Add: 1 + 8 + 28 = 37 pizzas."
    ],
    "standards": [
     "S-CP.B.9"
@@ -883,7 +931,9 @@
    "prompt": "How many 5-card hands are all hearts?",
    "answer": "1,287",
    "solutionSteps": [
-    "C(13, 5)."
+    "All hearts: choose 5 of the 13 hearts.",
+    "C(13, 5) = (13 · 12 · 11 · 10 · 9)/120 = 154,440/120.",
+    "= 1,287 hands."
    ],
    "standards": [
     "S-CP.B.9"
@@ -898,7 +948,9 @@
    "prompt": "From 10 people, how many committees of 4 include a specific person?",
    "answer": "84",
    "solutionSteps": [
-    "Include that person; choose 3 more from 9."
+    "The specific person is already on the committee, so only 3 more seats remain.",
+    "Choose those 3 from the other 9 people: C(9, 3) = (9 · 8 · 7)/6.",
+    "= 84 committees."
    ],
    "standards": [
     "S-CP.B.9"
@@ -913,8 +965,9 @@
    "prompt": "Show that C(5, 2) = C(5, 3) and explain why.",
    "answer": "Both equal 10; choosing 2 to include is the same as choosing 3 to leave out",
    "solutionSteps": [
-    "Compute both.",
-    "Complement reasoning."
+    "C(5, 2) = (5 · 4)/2 = 10 and C(5, 3) = (5 · 4 · 3)/6 = 10.",
+    "Each choice of 2 people to include matches exactly one choice of the 3 people left out.",
+    "Both equal 10; choosing 2 to include is the same as choosing 3 to leave out."
    ],
    "standards": [
     "S-CP.B.9"
@@ -929,8 +982,9 @@
    "prompt": "Show that C(7, 3) = C(7, 4) and explain why.",
    "answer": "Both equal 35; choosing 3 to include is the same as choosing 4 to leave out",
    "solutionSteps": [
-    "Compute both.",
-    "Complement reasoning."
+    "C(7, 3) = (7 · 6 · 5)/6 = 35 and C(7, 4) = (7 · 6 · 5 · 4)/24 = 35.",
+    "Picking 3 to include is the same as picking the 4 to leave out.",
+    "Both equal 35; choosing 3 to include is the same as choosing 4 to leave out."
    ],
    "standards": [
     "S-CP.B.9"
@@ -945,7 +999,9 @@
    "prompt": "A student computes the number of 3-person teams from 9 people as ₉P₃ = 504. What is correct?",
    "answer": "84, because order does not matter: C(9, 3)",
    "solutionSteps": [
-    "C(9, 3) = 504/3! = 84."
+    "A team of 3 is the same team in any order, so order does not matter.",
+    "₉P₃ = 504 counts each team 3! = 6 times (once for each order).",
+    "C(9, 3) = 504/6 = 84, because order does not matter: C(9, 3)."
    ],
    "options": [
     {
@@ -1029,10 +1085,10 @@
    "prompt": "A class of 12 boys and 10 girls chooses a 4-person team.",
    "answer": "(a) 7,315; (b) 210; (c) 2,970; (d) 7,105",
    "solutionSteps": [
-    "C(22, 4).",
-    "C(10, 4).",
-    "C(12, 2)·C(10, 2).",
-    "Complement."
+    "(a) Any 4 of the 22 students: C(22, 4) = 7,315.",
+    "(b) All girls: C(10, 4) = 210.",
+    "(c) 2 boys and 2 girls: C(12, 2) · C(10, 2) = 66 · 45 = 2,970.",
+    "(d) At least 1 boy = all teams - all-girl teams = 7,315 - 210 = 7,105."
    ],
    "parts": [
     {
@@ -1065,10 +1121,10 @@
    "prompt": "Use Pascal's triangle and combinations.",
    "answer": "(a) 1, 5, 10, 10, 5, 1; (b) 10; (c) 6; (d) 64",
    "solutionSteps": [
-    "Each entry is C(5, k).",
-    "Third entry.",
-    "C(4, 2).",
-    "2⁶."
+    "(a) Row 5 lists C(5, 0) to C(5, 5): 1, 5, 10, 10, 5, 1.",
+    "(b) C(5, 2) is the third entry (counting from C(5, 0)): 10.",
+    "(c) In (x + y)⁴ the x²y² term has coefficient C(4, 2) = 6.",
+    "(d) Row n sums to 2ⁿ, so row 6 sums to 2⁶ = 64."
    ],
    "parts": [
     {
@@ -1101,7 +1157,9 @@
    "prompt": "Evaluate C(9, 0).",
    "answer": "1",
    "solutionSteps": [
-    "There is one way to choose nothing."
+    "C(9, 0) = 9!/(0! · 9!) = 1/0! = 1, since 0! = 1.",
+    "In words: there is exactly one way to choose nothing.",
+    "C(9, 0) = 1."
    ],
    "standards": [
     "S-CP.B.9"
@@ -1116,7 +1174,9 @@
    "prompt": "A and B are independent with P(A) = 1/2 and P(B) = 1/6. Find P(A and B).",
    "answer": "1/12",
    "solutionSteps": [
-    "Independent: P(A and B) = P(A)·P(B)."
+    "For independent events, P(A and B) = P(A) · P(B).",
+    "(1/2)(1/6).",
+    "P(A and B) = 1/12."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1132,7 +1192,9 @@
    "prompt": "A and B are independent with P(A) = 3/10 and P(B) = 2/5. Find P(A and B).",
    "answer": "3/25",
    "solutionSteps": [
-    "Independent: P(A and B) = P(A)·P(B)."
+    "Independent: P(A and B) = P(A) · P(B).",
+    "(3/10)(2/5) = 6/50.",
+    "P(A and B) = 3/25."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1148,7 +1210,9 @@
    "prompt": "A and B are independent with P(A) = 1/4 and P(B) = 1/4. Find P(A and B).",
    "answer": "1/16",
    "solutionSteps": [
-    "Independent: P(A and B) = P(A)·P(B)."
+    "Independent: multiply.",
+    "(1/4)(1/4).",
+    "P(A and B) = 1/16."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1164,7 +1228,9 @@
    "prompt": "A and B are independent with P(A) = 7/10 and P(B) = 9/10. Find P(A and B).",
    "answer": "63/100",
    "solutionSteps": [
-    "Independent: P(A and B) = P(A)·P(B)."
+    "Independent: multiply.",
+    "(7/10)(9/10).",
+    "P(A and B) = 63/100."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1248,7 +1314,9 @@
    "prompt": "Roll two dice. Find P(both show 6).",
    "answer": "1/36",
    "solutionSteps": [
-    "(1/6)(1/6)."
+    "The two dice are independent, and each shows 6 with probability 1/6.",
+    "Multiply: (1/6)(1/6).",
+    "P(both 6) = 1/36."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1264,7 +1332,9 @@
    "prompt": "Flip a coin 5 times. Find P(all heads).",
    "answer": "1/32",
    "solutionSteps": [
-    "(1/2)⁵."
+    "The flips are independent, each heads with probability 1/2.",
+    "Multiply 5 times: (1/2)⁵.",
+    "P(all heads) = 1/32."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1280,7 +1350,9 @@
    "prompt": "Draw 2 cards without replacement. Find P(both aces).",
    "answer": "1/221",
    "solutionSteps": [
-    "(4/52)(3/51)."
+    "First card an ace: 4/52. Without replacement, 3 aces remain among 51 cards: 3/51.",
+    "Multiply: (4/52)(3/51) = 12/2652.",
+    "P(both aces) = 1/221."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1296,7 +1368,9 @@
    "prompt": "Draw 2 cards with replacement. Find P(both hearts).",
    "answer": "1/16",
    "solutionSteps": [
-    "(13/52)²."
+    "With replacement the draws are independent: each is a heart with probability 13/52 = 1/4.",
+    "Multiply: (1/4)(1/4).",
+    "P(both hearts) = 1/16."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1312,7 +1386,9 @@
    "prompt": "Flip a coin 4 times. Find P(at least one head).",
    "answer": "15/16",
    "solutionSteps": [
-    "1 - P(no heads) = 1 - 1/16."
+    "'At least one head' is the complement of 'no heads'.",
+    "P(no heads) = (1/2)⁴ = 1/16.",
+    "P(at least one head) = 1 - 1/16 = 15/16."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1328,7 +1404,9 @@
    "prompt": "Roll a die 3 times. Find P(at least one 6).",
    "answer": "91/216",
    "solutionSteps": [
-    "1 - (5/6)³."
+    "Use the complement: P(at least one 6) = 1 - P(no 6s).",
+    "P(no 6 in 3 rolls) = (5/6)³ = 125/216.",
+    "1 - 125/216 = 91/216."
    ],
    "standards": [
     "S-CP.A.2",
@@ -1344,7 +1422,9 @@
    "prompt": "P(A) = 0.4, P(B) = 0.5, P(A and B) = 0.2. Are A and B independent?",
    "answer": "Yes, because 0.4·0.5 = 0.2",
    "solutionSteps": [
-    "Independent ⇔ P(A and B) = P(A)P(B)."
+    "A and B are independent exactly when P(A and B) = P(A) · P(B).",
+    "P(A) · P(B) = 0.4 · 0.5 = 0.2, which equals P(A and B) = 0.2.",
+    "Yes, because 0.4·0.5 = 0.2."
    ],
    "options": [
     {
@@ -1378,7 +1458,9 @@
    "prompt": "P(A) = 0.3, P(B) = 0.6, P(A and B) = 0.1. Are A and B independent?",
    "answer": "No, because 0.3·0.6 = 0.18 ≠ 0.1",
    "solutionSteps": [
-    "Compare P(A and B) with P(A)P(B)."
+    "Independent exactly when P(A and B) = P(A) · P(B).",
+    "P(A) · P(B) = 0.3 · 0.6 = 0.18, but P(A and B) = 0.1.",
+    "No, because 0.3·0.6 = 0.18 ≠ 0.1."
    ],
    "options": [
     {
@@ -1412,7 +1494,9 @@
    "prompt": "A student says mutually exclusive events with nonzero probabilities are independent. What is correct?",
    "answer": "They are dependent: if one occurs, the other cannot",
    "solutionSteps": [
-    "P(A and B) = 0 ≠ P(A)P(B) > 0."
+    "Mutually exclusive means A and B cannot both happen: P(A and B) = 0.",
+    "With nonzero probabilities, P(A) · P(B) > 0, so P(A and B) ≠ P(A)P(B).",
+    "They are dependent: if one occurs, the other cannot."
    ],
    "options": [
     {
@@ -1450,7 +1534,10 @@
     "Two different students' birthdays being in May"
    ],
    "solutionSteps": [
-    "Independent: one outcome does not change the other's probability."
+    "Events are independent when one happening does not change the probability of the other.",
+    "A die and a coin; drawing with replacement; and two different students' birthday months do not affect each other.",
+    "Rain and umbrellas, oversleeping and being late, and drawing without replacement are connected.",
+    "Independent: rolling a 4 on a die and flipping heads; drawing a red card, replacing it, then drawing a red card; and two different students' birthdays being in May."
    ],
    "options": [
     {
@@ -1529,10 +1616,10 @@
    "prompt": "A box has 3 defective and 9 good bulbs. Two are chosen without replacement.",
    "answer": "(a) 1/22; (b) 6/11; (c) 9/22; (d) 1/22 + 12/22 + 9/22 = 1",
    "solutionSteps": [
-    "(3/12)(2/11).",
-    "(9/12)(8/11).",
-    "2·(3/12)(9/11).",
-    "Sum."
+    "(a) P(both defective) = (3/12)(2/11) = 6/132 = 1/22.",
+    "(b) P(both good) = (9/12)(8/11) = 72/132 = 6/11.",
+    "(c) Exactly one: defective then good or good then defective: 2 · (3/12)(9/11) = 54/132 = 9/22.",
+    "(d) 1/22 + 12/22 + 9/22 = 22/22 = 1 ✓."
    ],
    "parts": [
     {
@@ -1566,8 +1653,9 @@
    "prompt": "Table — Juniors: 30 play a sport, 20 do not. Seniors: 25 play, 45 do not. Find P(plays a sport | senior).",
    "answer": "5/14",
    "solutionSteps": [
-    "Restrict to seniors: 70.",
-    "25/70 = 5/14."
+    "Given 'senior', restrict to the seniors: 25 + 45 = 70.",
+    "Of those, 25 play a sport.",
+    "P(sport | senior) = 25/70 = 5/14."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1584,8 +1672,9 @@
    "prompt": "Same table. Find P(senior | plays a sport).",
    "answer": "5/11",
    "solutionSteps": [
-    "Restrict to sport players: 55.",
-    "25/55."
+    "Given 'plays a sport', restrict to sport players: 30 + 25 = 55.",
+    "Of those, 25 are seniors.",
+    "P(senior | sport) = 25/55 = 5/11."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1602,7 +1691,9 @@
    "prompt": "Same table. Find P(junior and does not play).",
    "answer": "1/6",
    "solutionSteps": [
-    "20/120."
+    "The total is 30 + 20 + 25 + 45 = 120 students.",
+    "Juniors who do not play: 20.",
+    "P(junior and does not play) = 20/120 = 1/6."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1619,7 +1710,9 @@
    "prompt": "Same table. Are 'senior' and 'plays a sport' independent?",
    "answer": "No: P(sport | senior) = 5/14 ≠ P(sport) = 11/24",
    "solutionSteps": [
-    "Compare P(sport | senior) with P(sport) = 55/120."
+    "Independent would mean P(sport | senior) = P(sport).",
+    "P(sport) = 55/120 = 11/24 ≈ 0.458, while P(sport | senior) = 25/70 = 5/14 ≈ 0.357.",
+    "No: P(sport | senior) = 5/14 ≠ P(sport) = 11/24."
    ],
    "options": [
     {
@@ -1654,7 +1747,9 @@
    "prompt": "P(A and B) = 1/5 and P(B) = 1/2. Find P(A | B).",
    "answer": "2/5",
    "solutionSteps": [
-    "P(A | B) = P(A and B)/P(B)."
+    "P(A | B) = P(A and B)/P(B).",
+    "(1/5) ÷ (1/2) = (1/5) · 2.",
+    "P(A | B) = 2/5."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1671,7 +1766,9 @@
    "prompt": "P(A and B) = 3/20 and P(B) = 3/5. Find P(A | B).",
    "answer": "1/4",
    "solutionSteps": [
-    "P(A | B) = P(A and B)/P(B)."
+    "P(A | B) = P(A and B)/P(B).",
+    "(3/20) ÷ (3/5) = (3/20)(5/3) = 15/60.",
+    "P(A | B) = 1/4."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1688,7 +1785,9 @@
    "prompt": "P(A and B) = 1/8 and P(B) = 1/4. Find P(A | B).",
    "answer": "1/2",
    "solutionSteps": [
-    "P(A | B) = P(A and B)/P(B)."
+    "P(A | B) = P(A and B)/P(B).",
+    "(1/8) ÷ (1/4) = 4/8.",
+    "P(A | B) = 1/2."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1705,7 +1804,9 @@
    "prompt": "P(A and B) = 2/9 and P(B) = 2/3. Find P(A | B).",
    "answer": "1/3",
    "solutionSteps": [
-    "P(A | B) = P(A and B)/P(B)."
+    "P(A | B) = P(A and B)/P(B).",
+    "(2/9) ÷ (2/3) = (2/9)(3/2) = 6/18.",
+    "P(A | B) = 1/3."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1776,8 +1877,9 @@
    "prompt": "Roll two dice. Find P(sum is 8 | at least one die shows 5).",
    "answer": "2/11",
    "solutionSteps": [
-    "Outcomes with a 5: 11.",
-    "Sum 8 among them: (3, 5), (5, 3)."
+    "Given 'at least one 5', the sample space is the 11 outcomes with a 5: (5, 1)…(5, 6) and (1, 5)…(6, 5), with (5, 5) counted once.",
+    "Of these, the sum is 8 for (3, 5) and (5, 3).",
+    "P(sum 8 | a 5) = 2/11."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1794,7 +1896,9 @@
    "prompt": "Draw two cards without replacement. Find P(second is a king | first is a king).",
    "answer": "1/17",
    "solutionSteps": [
-    "3 kings left of 51."
+    "After a king is drawn and not replaced, 51 cards remain, 3 of them kings.",
+    "So P(second king | first king) = 3/51.",
+    "= 1/17."
    ],
    "standards": [
     "S-CP.A.3",
@@ -1811,7 +1915,9 @@
    "prompt": "A student says P(A | B) = P(B | A) always. Which example shows the error?",
    "answer": "P(king | face card) = 1/3 but P(face card | king) = 1",
    "solutionSteps": [
-    "Conditioning on different events changes the sample space."
+    "P(A | B) and P(B | A) use different sample spaces, so they are usually different.",
+    "Among the 12 face cards, 4 are kings: P(king | face card) = 4/12 = 1/3.",
+    "Every king is a face card: P(face card | king) = 1. So P(king | face card) = 1/3 but P(face card | king) = 1."
    ],
    "options": [
     {
@@ -1932,10 +2038,10 @@
    "prompt": "Survey of 200: 120 like math; 80 like science; 50 like both.",
    "answer": "(a) 3/4; (b) 5/12; (c) 5/8; (d) 1/4",
    "solutionSteps": [
-    "(120 + 80 - 50)/200.",
-    "50/120.",
-    "50/80.",
-    "1 - 3/4."
+    "(a) P(math or science) = (120 + 80 - 50)/200 = 150/200 = 3/4.",
+    "(b) P(science | math) = 50/120 = 5/12.",
+    "(c) P(math | science) = 50/80 = 5/8.",
+    "(d) P(neither) = 1 - 3/4 = 1/4."
    ],
    "parts": [
     {
@@ -1970,10 +2076,10 @@
    "prompt": "Use a tree: 60% of a store's customers use a card; 30% of card users and 10% of others buy over $50.",
    "answer": "(a) 0.18; (b) 0.22; (c) 0.82; (d) No",
    "solutionSteps": [
-    "0.6·0.3.",
-    "0.18 + 0.4·0.1.",
-    "0.18/0.22.",
-    "0.3 ≠ 0.22."
+    "(a) P(card and over $50) = 0.6 · 0.3 = 0.18.",
+    "(b) P(over $50) = 0.18 + P(no card and over $50) = 0.18 + 0.4 · 0.1 = 0.22.",
+    "(c) P(card | over $50) = 0.18/0.22 ≈ 0.82.",
+    "(d) No: P(over $50 | card) = 0.3 is not equal to P(over $50) = 0.22."
    ],
    "parts": [
     {
@@ -2008,7 +2114,9 @@
    "prompt": "P(A and B) = 0.12 and P(A) = 0.3. Find P(B | A).",
    "answer": "0.4",
    "solutionSteps": [
-    "0.12/0.3."
+    "P(B | A) = P(A and B)/P(A).",
+    "0.12/0.3.",
+    "P(B | A) = 0.4."
    ],
    "standards": [
     "S-CP.A.3",
@@ -2025,8 +2133,9 @@
    "prompt": "A distribution has X = 0, 1, 2, 3 with P = 0.1, 0.3, k, 0.2. Find k.",
    "answer": "0.4",
    "solutionSteps": [
-    "Probabilities sum to 1.",
-    "k = 1 - 0.6."
+    "The probabilities of a distribution must add to 1.",
+    "0.1 + 0.3 + k + 0.2 = 1, so 0.6 + k = 1.",
+    "k = 0.4."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2041,8 +2150,9 @@
    "prompt": "A distribution has X = 1, 2, 3, 4, 5 with P = 0.05, 0.15, 0.4, k, 0.1. Find k.",
    "answer": "0.3",
    "solutionSteps": [
-    "Probabilities sum to 1.",
-    "k = 1 - 0.7."
+    "The probabilities add to 1: 0.05 + 0.15 + 0.4 + k + 0.1 = 1.",
+    "0.7 + k = 1.",
+    "k = 0.3."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2057,8 +2167,9 @@
    "prompt": "A distribution has X = -1, 0, 2 with P = 1/4, k, 1/3. Find k.",
    "answer": "5/12",
    "solutionSteps": [
-    "Probabilities sum to 1.",
-    "k = 1 - 7/12."
+    "The probabilities add to 1: 1/4 + k + 1/3 = 1.",
+    "1/4 + 1/3 = 3/12 + 4/12 = 7/12, so k = 1 - 7/12.",
+    "k = 5/12."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2073,8 +2184,9 @@
    "prompt": "X is binomial with n = 5 and p = 1/2. Find P(X = 3) (exact, then to 4 decimals).",
    "answer": "5/16 ≈ 0.3125",
    "solutionSteps": [
-    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
-    "C(5, 3)(1/2)^3(1/2)^2."
+    "Binomial: P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ with n = 5, k = 3, p = 1/2.",
+    "C(5, 3)(1/2)³(1/2)² = 10 · (1/32).",
+    "= 10/32 = 5/16 ≈ 0.3125."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2089,8 +2201,9 @@
    "prompt": "X is binomial with n = 6 and p = 1/6. Find P(X = 1) (exact, then to 4 decimals).",
    "answer": "3125/7776 ≈ 0.4019",
    "solutionSteps": [
-    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
-    "C(6, 1)(1/6)^1(5/6)^5."
+    "Binomial with n = 6, k = 1, p = 1/6: C(6, 1)(1/6)¹(5/6)⁵.",
+    "C(6, 1)(1/6) = 6 · 1/6 = 1, so the probability is (5/6)⁵ = 3125/7776.",
+    "3125/7776 ≈ 0.4019."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2105,8 +2218,9 @@
    "prompt": "X is binomial with n = 10 and p = 1/4. Find P(X = 2) (exact, then to 4 decimals).",
    "answer": "295245/1048576 ≈ 0.2816",
    "solutionSteps": [
-    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
-    "C(10, 2)(1/4)^2(3/4)^8."
+    "n = 10, k = 2, p = 1/4: C(10, 2)(1/4)²(3/4)⁸.",
+    "= 45 · (1/16) · (6561/65536) = 295245/1048576.",
+    "≈ 0.2816."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2121,8 +2235,9 @@
    "prompt": "X is binomial with n = 8 and p = 3/5. Find P(X = 6) (exact, then to 4 decimals).",
    "answer": "81648/390625 ≈ 0.2090",
    "solutionSteps": [
-    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
-    "C(8, 6)(3/5)^6(2/5)^2."
+    "n = 8, k = 6, p = 3/5: C(8, 6)(3/5)⁶(2/5)².",
+    "= 28 · (729/15625) · (4/25) = 81648/390625.",
+    "≈ 0.2090."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2137,8 +2252,9 @@
    "prompt": "X is binomial with n = 4 and p = 1/3. Find P(X = 0) (exact, then to 4 decimals).",
    "answer": "16/81 ≈ 0.1975",
    "solutionSteps": [
-    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
-    "C(4, 0)(1/3)^0(2/3)^4."
+    "n = 4, k = 0, p = 1/3: C(4, 0)(1/3)⁰(2/3)⁴.",
+    "= 1 · 1 · 16/81.",
+    "= 16/81 ≈ 0.1975."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2153,7 +2269,9 @@
    "prompt": "Write the probability distribution of X = number of successes in 3 trials with p = 1/2.",
    "answer": "P(0) = 1/8, P(1) = 3/8, P(2) = 3/8, P(3) = 1/8",
    "solutionSteps": [
-    "Binomial: C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ for each k."
+    "Binomial with n = 3, p = 1/2: P(k) = C(3, k)(1/2)³ = C(3, k)/8.",
+    "C(3, 0) = 1, C(3, 1) = 3, C(3, 2) = 3, C(3, 3) = 1.",
+    "P(0) = 1/8, P(1) = 3/8, P(2) = 3/8, P(3) = 1/8 (they add to 1)."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2168,7 +2286,10 @@
    "prompt": "Write the probability distribution of X = number of successes in 4 trials with p = 1/4.",
    "answer": "P(0) = 81/256, P(1) = 27/64, P(2) = 27/128, P(3) = 3/64, P(4) = 1/256",
    "solutionSteps": [
-    "Binomial: C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ for each k."
+    "Binomial with n = 4, p = 1/4: P(k) = C(4, k)(1/4)ᵏ(3/4)^(4 - k).",
+    "P(0) = 81/256, P(1) = 4 · 27/256 = 27/64, P(2) = 6 · 9/256 = 27/128.",
+    "P(3) = 4 · 3/256 = 3/64, P(4) = 1/256.",
+    "So P(0) = 81/256, P(1) = 27/64, P(2) = 27/128, P(3) = 3/64, P(4) = 1/256."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2183,7 +2304,9 @@
    "prompt": "Which could be a probability distribution?",
    "answer": "P(0) = 0.2, P(1) = 0.5, P(2) = 0.3",
    "solutionSteps": [
-    "Each probability is between 0 and 1, and they sum to 1."
+    "A probability distribution needs every probability between 0 and 1 and a total of exactly 1.",
+    "P(0) = 0.2, P(1) = 0.5, P(2) = 0.3: each is between 0 and 1, and 0.2 + 0.5 + 0.3 = 1.",
+    "So P(0) = 0.2, P(1) = 0.5, P(2) = 0.3 could be a probability distribution."
    ],
    "options": [
     {
@@ -2216,7 +2339,9 @@
    "prompt": "Which situation is binomial?",
    "answer": "Number of heads in 10 coin flips",
    "solutionSteps": [
-    "Fixed n, two outcomes, independent trials, constant p."
+    "A binomial setting has a fixed number of trials, two outcomes per trial, independent trials and a constant success probability.",
+    "10 coin flips: n = 10 fixed, heads or tails, independent, p = 1/2 every time.",
+    "So the number of heads in 10 coin flips is binomial."
    ],
    "options": [
     {
@@ -2289,10 +2414,10 @@
    "prompt": "A quiz has 5 multiple-choice questions with 4 choices each. A student guesses on all.",
    "answer": "(a) n = 5, p = 1/4; (b) 243/1024; (c) 135/512; (d) 781/1024",
    "solutionSteps": [
-    "Binomial.",
-    "(3/4)⁵.",
-    "C(5, 2)(1/4)²(3/4)³.",
-    "Complement."
+    "(a) 5 independent guesses, each right with probability 1/4: n = 5, p = 1/4.",
+    "(b) All wrong: (3/4)⁵ = 243/1024.",
+    "(c) Exactly 2 right: C(5, 2)(1/4)²(3/4)³ = 10 · 27/1024 = 270/1024 = 135/512.",
+    "(d) At least 1 right = 1 - P(all wrong) = 1 - 243/1024 = 781/1024."
    ],
    "parts": [
     {
@@ -2325,10 +2450,10 @@
    "prompt": "X: P(X = 1) = 0.2, P(X = 2) = 0.5, P(X = 3) = 0.3.",
    "answer": "(a) 0.8; (b) 2.1; (c) 4.9; (d) 0.49",
    "solutionSteps": [
-    "0.5 + 0.3.",
-    "Σ x·P.",
-    "Σ x²·P.",
-    "E(X²) - μ²."
+    "(a) P(X ≥ 2) = 0.5 + 0.3 = 0.8.",
+    "(b) Mean = Σ x·P = 1(0.2) + 2(0.5) + 3(0.3) = 2.1.",
+    "(c) E(X²) = 1(0.2) + 4(0.5) + 9(0.3) = 4.9.",
+    "(d) Variance = E(X²) - μ² = 4.9 - 4.41 = 0.49."
    ],
    "parts": [
     {
@@ -2361,7 +2486,9 @@
    "prompt": "For a fair coin flipped 4 times, what is P(exactly 2 heads)?",
    "answer": "3/8",
    "solutionSteps": [
-    "C(4, 2)/16 = 6/16."
+    "There are 2⁴ = 16 equally likely outcomes.",
+    "Exactly 2 heads can occur in C(4, 2) = 6 of them.",
+    "P(exactly 2 heads) = 6/16 = 3/8."
    ],
    "standards": [
     "S-MD.A.1"
@@ -2377,7 +2504,8 @@
    "answer": "3/2",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "= 3/2."
+    "0(1/8) + 1(3/8) + 2(3/8) + 3(1/8) = (0 + 3 + 6 + 3)/8 = 12/8.",
+    "E(X) = 3/2."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2394,7 +2522,8 @@
    "answer": "21",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "= 21."
+    "10(1/2) + 20(3/10) + 50(1/5) = 5 + 6 + 10.",
+    "E(X) = 21."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2411,7 +2540,8 @@
    "answer": "5/4",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "= 5/4."
+    "-5(1/2) + 0(1/4) + 15(1/4) = -5/2 + 15/4 = -10/4 + 15/4.",
+    "E(X) = 5/4."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2427,8 +2557,9 @@
    "prompt": "Find E(X): X = 1, 2, 3, 4, 5, 6 with P = 1/6, 1/6, 1/6, 1/6, 1/6, 1/6.",
    "answer": "7/2",
    "solutionSteps": [
-    "E(X) = Σ x·P(x).",
-    "= 7/2."
+    "Each face has probability 1/6, so E(X) = (1 + 2 + 3 + 4 + 5 + 6)/6.",
+    "1 + 2 + … + 6 = 21.",
+    "E(X) = 21/6 = 7/2."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2444,8 +2575,9 @@
    "prompt": "A raffle ticket costs $2. Prizes: $100 with probability 1/200, $10 with probability 1/20. Find the expected net gain.",
    "answer": "-$1",
    "solutionSteps": [
-    "Expected winnings Σ prize·P.",
-    "Subtract the cost."
+    "Expected winnings = 100(1/200) + 10(1/20) = 0.5 + 0.5 = $1.",
+    "Net gain = expected winnings - cost = 1 - 2.",
+    "Expected net gain = -$1 per ticket."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2461,8 +2593,9 @@
    "prompt": "A raffle ticket costs $5. Prizes: $500 with probability 1/1000, $20 with probability 1/50. Find the expected net gain.",
    "answer": "-$41/10",
    "solutionSteps": [
-    "Expected winnings Σ prize·P.",
-    "Subtract the cost."
+    "Expected winnings = 500(1/1000) + 20(1/50) = 0.5 + 0.4 = $0.90.",
+    "Net gain = 0.90 - 5 = -4.10.",
+    "Expected net gain = -$41/10 (that is, -$4.10)."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2478,8 +2611,9 @@
    "prompt": "A raffle ticket costs $1. Prizes: $50 with probability 1/100. Find the expected net gain.",
    "answer": "-$1/2",
    "solutionSteps": [
-    "Expected winnings Σ prize·P.",
-    "Subtract the cost."
+    "Expected winnings = 50(1/100) = $0.50.",
+    "Net gain = 0.50 - 1.",
+    "Expected net gain = -$1/2."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2495,7 +2629,9 @@
    "prompt": "A game: roll a die; win $6 on a 6, lose $1 otherwise. Is it fair?",
    "answer": "No: E = 6(1/6) - 1(5/6) = 1/6 > 0, favoring the player",
    "solutionSteps": [
-    "Fair means E = 0."
+    "A game is fair when the expected value is 0.",
+    "E = 6(1/6) - 1(5/6) = 6/6 - 5/6 = 1/6.",
+    "No: E = 6(1/6) - 1(5/6) = 1/6 > 0, so the game favors the player."
    ],
    "options": [
     {
@@ -2529,7 +2665,9 @@
    "prompt": "A student computes E(X) by averaging the values 0, 10, 100 to get 36.7 though P(100) is tiny. What is wrong?",
    "answer": "Values must be weighted by their probabilities",
    "solutionSteps": [
-    "E(X) = Σ x·P(x)."
+    "The expected value is a weighted average: E(X) = Σ x·P(x).",
+    "Averaging 0, 10 and 100 equally treats the rare $100 as if it happened a third of the time.",
+    "So the values must be weighted by their probabilities."
    ],
    "options": [
     {
@@ -2563,7 +2701,9 @@
    "prompt": "An insurance company charges $300 per year. It pays $50,000 with probability 0.004. Find its expected profit per policy.",
    "answer": "$100",
    "solutionSteps": [
-    "300 - 50000(0.004) = 100."
+    "The company collects $300 and pays $50,000 with probability 0.004.",
+    "Expected payout = 50,000 · 0.004 = $200.",
+    "Expected profit = 300 - 200 = $100 per policy."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2579,7 +2719,9 @@
    "prompt": "Find the expected number of heads in 20 flips of a fair coin.",
    "answer": "10",
    "solutionSteps": [
-    "Binomial mean np."
+    "The number of heads is binomial with n = 20 and p = 1/2.",
+    "The mean of a binomial distribution is np.",
+    "E = 20 · 1/2 = 10 heads."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2612,8 +2754,9 @@
    "prompt": "Find the price x that makes this game fair: pay x, roll two dice, win $10 if the sum is 7. Give the exact value and the amount to the nearest cent.",
    "answer": "$5/3 ≈ $1.67",
    "solutionSteps": [
-    "P(7) = 1/6.",
-    "Fair: 10(1/6) - x = 0."
+    "A sum of 7 comes from 6 of the 36 outcomes, so P(7) = 1/6.",
+    "Expected winnings = 10 · 1/6 = 10/6 = 5/3 dollars.",
+    "Fair means expected net gain 0: x = 5/3, so the fair price is $5/3 ≈ $1.67."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2677,10 +2820,10 @@
    "prompt": "A carnival game costs $3. Spin a wheel: P($10) = 0.1, P($5) = 0.2, P($0) = 0.7.",
    "answer": "(a) $2; (b) -$1; (c) -$50; (d) $20",
    "solutionSteps": [
-    "10(0.1) + 5(0.2).",
-    "2 - 3.",
-    "50·(-1).",
-    "0.1x + 1 = 3."
+    "(a) Expected winnings = 10(0.1) + 5(0.2) + 0(0.7) = 1 + 1 = $2.",
+    "(b) Expected net gain = 2 - 3 = -$1 per play.",
+    "(c) Over 50 plays: 50(-1) = -$50.",
+    "(d) Fair needs expected winnings $3: 0.1x + 1 = 3, so x = 20, a $20 prize."
    ],
    "parts": [
     {
@@ -2714,10 +2857,10 @@
    "prompt": "A company can launch product A (60%: +$80k, 40%: -$30k) or B (90%: +$40k, 10%: -$10k).",
    "answer": "(a) $36,000; (b) $35,000; (c) A; (d) Lower risk: B rarely loses money",
    "solutionSteps": [
-    "48 - 12.",
-    "36 - 1.",
-    "Compare.",
-    "Variability matters."
+    "(a) E(A) = 0.6(80,000) - 0.4(30,000) = 48,000 - 12,000 = $36,000.",
+    "(b) E(B) = 0.9(40,000) - 0.1(10,000) = 36,000 - 1,000 = $35,000.",
+    "(c) A has the higher expected value.",
+    "(d) B is much less risky: it rarely loses money and its worst case is only -$10k, versus -$30k 40% of the time for A."
    ],
    "parts": [
     {
@@ -2751,7 +2894,9 @@
    "prompt": "Find E(X) for a fair coin with X = 1 for heads, 0 for tails.",
    "answer": "1/2",
    "solutionSteps": [
-    "1(1/2) + 0(1/2)."
+    "E(X) = Σ x·P(x).",
+    "1(1/2) + 0(1/2) = 1/2.",
+    "E(X) = 1/2."
    ],
    "standards": [
     "S-MD.A.2",
@@ -2767,8 +2912,9 @@
    "prompt": "Find the z-score of x = 85 when μ = 70 and σ = 10.",
    "answer": "1.5",
    "solutionSteps": [
-    "z = (x - μ)/σ.",
-    "(85 - 70)/10 = 1.5."
+    "z = (x - μ)/σ tells how many standard deviations x is from the mean.",
+    "(85 - 70)/10 = 15/10.",
+    "z = 1.5."
    ],
    "standards": [
     "S-ID.A.4"
@@ -2784,7 +2930,8 @@
    "answer": "-2",
    "solutionSteps": [
     "z = (x - μ)/σ.",
-    "(52 - 60)/4 = -2."
+    "(52 - 60)/4 = -8/4.",
+    "z = -2 (two standard deviations below the mean)."
    ],
    "standards": [
     "S-ID.A.4"
@@ -2800,7 +2947,8 @@
    "answer": "1.5",
    "solutionSteps": [
     "z = (x - μ)/σ.",
-    "(180 - 150)/20 = 1.5."
+    "(180 - 150)/20 = 30/20.",
+    "z = 1.5."
    ],
    "standards": [
     "S-ID.A.4"
@@ -2816,7 +2964,8 @@
    "answer": "0.5",
    "solutionSteps": [
     "z = (x - μ)/σ.",
-    "(3.2 - 3)/0.4 = 0.5."
+    "(3.2 - 3)/0.4 = 0.2/0.4.",
+    "z = 0.5."
    ],
    "standards": [
     "S-ID.A.4"
@@ -2832,7 +2981,8 @@
    "answer": "-1.5",
    "solutionSteps": [
     "z = (x - μ)/σ.",
-    "(61 - 70)/6 = -1.5."
+    "(61 - 70)/6 = -9/6.",
+    "z = -1.5."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3085,8 +3235,9 @@
    "prompt": "X is normal with μ = 100 and σ = 15. Use technology to find P(85 < X < 115) (4 decimals).",
    "answer": "0.6827",
    "solutionSteps": [
-    "Convert to z-scores.",
-    "Use normalcdf or a z-table."
+    "Convert to z-scores: (85 - 100)/15 = -1 and (115 - 100)/15 = 1.",
+    "P(-1 < Z < 1) with normalcdf(-1, 1) (or a z-table: 0.8413 - 0.1587).",
+    "≈ 0.6827."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3101,8 +3252,9 @@
    "prompt": "X is normal with μ = 500 and σ = 100. Use technology to find P(X > 650) (4 decimals).",
    "answer": "0.0668",
    "solutionSteps": [
-    "Convert to z-scores.",
-    "Use normalcdf or a z-table."
+    "z = (650 - 500)/100 = 1.5.",
+    "P(Z > 1.5) = 1 - 0.9332.",
+    "≈ 0.0668."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3117,8 +3269,9 @@
    "prompt": "X is normal with μ = 64 and σ = 3. Use technology to find P(X < 58) (4 decimals).",
    "answer": "0.0228",
    "solutionSteps": [
-    "Convert to z-scores.",
-    "Use normalcdf or a z-table."
+    "z = (58 - 64)/3 = -2.",
+    "P(Z < -2) from normalcdf or a z-table.",
+    "≈ 0.0228."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3133,8 +3286,9 @@
    "prompt": "X is normal with μ = 20 and σ = 2. Use technology to find P(17 < X < 25) (4 decimals).",
    "answer": "0.9270",
    "solutionSteps": [
-    "Convert to z-scores.",
-    "Use normalcdf or a z-table."
+    "z-scores: (17 - 20)/2 = -1.5 and (25 - 20)/2 = 2.5.",
+    "P(-1.5 < Z < 2.5) = 0.9938 - 0.0668.",
+    "≈ 0.9270."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3149,7 +3303,9 @@
    "prompt": "Test A: score 82 (μ = 75, σ = 5). Test B: score 88 (μ = 80, σ = 8). On which test did the student do relatively better?",
    "answer": "Test A (z = 1.4 vs z = 1.0)",
    "solutionSteps": [
-    "Compare z-scores."
+    "Compare relative standing with z-scores.",
+    "Test A: (82 - 75)/5 = 1.4. Test B: (88 - 80)/8 = 1.0.",
+    "Test A (z = 1.4 vs z = 1.0): the student did relatively better on Test A."
    ],
    "options": [
     {
@@ -3182,7 +3338,9 @@
    "prompt": "Which is NOT a property of every normal distribution?",
    "answer": "It is skewed right",
    "solutionSteps": [
-    "Normal curves are bell-shaped and symmetric."
+    "Every normal curve is bell-shaped, symmetric about the mean, with mean = median.",
+    "A skewed distribution has a longer tail on one side, which a normal curve never has.",
+    "So 'It is skewed right' is NOT a property of normal distributions."
    ],
    "options": [
     {
@@ -3220,8 +3378,10 @@
     "About 50% are shorter than 66 in"
    ],
    "solutionSteps": [
-    "μ ± σ = 63–69; μ + 2σ = 72.",
-    "z = (60 - 66)/3 = -2."
+    "μ ± σ = 63 to 69 in holds about 68%; μ + 2σ = 72, and about 2.5% lie above μ + 2σ.",
+    "z for 60 in: (60 - 66)/3 = -2. z for 69 in: (69 - 66)/3 = 1, not 3.",
+    "About 50% lie below the mean 66; 60 to 69 in is μ - 2σ to μ + σ, about 81.5%, not 95%.",
+    "True: about 68% are 63–69 in, about 2.5% are over 72 in, 60 in has z = -2, and about 50% are under 66 in."
    ],
    "options": [
     {
@@ -3262,8 +3422,9 @@
    "prompt": "SAT math: μ = 520, σ = 115. What score marks the 90th percentile (nearest whole)?",
    "answer": "667",
    "solutionSteps": [
-    "z ≈ 1.2816 for the 90th percentile.",
-    "x = μ + zσ."
+    "The 90th percentile has z ≈ 1.2816 (90% of the standard normal lies below it).",
+    "x = μ + zσ = 520 + 1.2816 · 115 ≈ 520 + 147.4.",
+    "≈ 667."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3278,10 +3439,10 @@
    "prompt": "Battery life is normal with μ = 40 h, σ = 5 h.",
    "answer": "(a) 68%; (b) 2.5%; (c) -1.6; (d) 0.0548",
    "solutionSteps": [
-    "±1σ.",
-    "Above +2σ.",
-    "(32 - 40)/5.",
-    "normalcdf."
+    "(a) 35–45 h is μ ± σ, about 68%.",
+    "(b) 50 h is μ + 2σ; about 95% lie within 2σ, so about 2.5% lie above: 2.5%.",
+    "(c) z = (32 - 40)/5 = -1.6.",
+    "(d) normalcdf for X < 32 (z < -1.6) ≈ 0.0548."
    ],
    "parts": [
     {
@@ -3350,7 +3511,9 @@
    "prompt": "What is the z-score of a value equal to the mean?",
    "answer": "0",
    "solutionSteps": [
-    "(μ - μ)/σ."
+    "z = (x - μ)/σ; here x = μ.",
+    "(μ - μ)/σ = 0/σ.",
+    "z = 0."
    ],
    "standards": [
     "S-ID.A.4"
@@ -3365,7 +3528,9 @@
    "prompt": "Name the sampling method: Every 10th customer entering a store is surveyed.",
    "answer": "Systematic",
    "solutionSteps": [
-    "Match the description to the method."
+    "A systematic sample picks every kth member from an ordered list or stream.",
+    "Surveying every 10th customer is choosing every kth (k = 10).",
+    "The method is Systematic."
    ],
    "options": [
     {
@@ -3400,7 +3565,9 @@
    "prompt": "Name the sampling method: Names are drawn from a hat containing every student's name.",
    "answer": "Simple random",
    "solutionSteps": [
-    "Match the description to the method."
+    "In a simple random sample every member, and every group of members, has the same chance of being chosen.",
+    "Drawing names from a hat with every student's name does that.",
+    "The method is Simple random."
    ],
    "options": [
     {
@@ -3435,7 +3602,9 @@
    "prompt": "Name the sampling method: Each grade level is sampled randomly in proportion to its size.",
    "answer": "Stratified",
    "solutionSteps": [
-    "Match the description to the method."
+    "A stratified sample splits the population into groups (strata) and samples randomly within each.",
+    "Each grade level is a stratum, sampled in proportion to its size.",
+    "The method is Stratified."
    ],
    "options": [
     {
@@ -3470,7 +3639,9 @@
    "prompt": "Name the sampling method: Three homerooms are randomly chosen and every student in them is surveyed.",
    "answer": "Cluster",
    "solutionSteps": [
-    "Match the description to the method."
+    "A cluster sample randomly chooses whole groups and surveys everyone in them.",
+    "Three homerooms (clusters) are chosen and every student in them is surveyed.",
+    "The method is Cluster."
    ],
    "options": [
     {
@@ -3505,7 +3676,9 @@
    "prompt": "Name the sampling method: A radio host asks listeners to call in.",
    "answer": "Voluntary response (biased)",
    "solutionSteps": [
-    "Match the description to the method."
+    "In a voluntary response sample, people choose themselves to take part.",
+    "Listeners who call in decide for themselves, and those with strong opinions are the most likely to call.",
+    "The method is Voluntary response (biased)."
    ],
    "options": [
     {
@@ -3540,7 +3713,9 @@
    "prompt": "Name the sampling method: A reporter interviews people walking by the library.",
    "answer": "Convenience (biased)",
    "solutionSteps": [
-    "Match the description to the method."
+    "A convenience sample uses whoever is easiest to reach.",
+    "People walking by the library are simply nearby, not chosen at random, and may not represent the population.",
+    "The method is Convenience (biased)."
    ],
    "options": [
     {
@@ -3575,7 +3750,9 @@
    "prompt": "Identify the study type: Researchers randomly assign patients to a new drug or a placebo.",
    "answer": "Experiment",
    "solutionSteps": [
-    "Experiments impose treatments; observational studies do not."
+    "An experiment imposes a treatment on the subjects; an observational study only records what happens.",
+    "The researchers assign each patient to the drug or the placebo, at random.",
+    "So this is an Experiment."
    ],
    "options": [
     {
@@ -3610,7 +3787,9 @@
    "prompt": "Identify the study type: A survey asks 500 adults about their exercise habits.",
    "answer": "Sample survey",
    "solutionSteps": [
-    "Experiments impose treatments; observational studies do not."
+    "A sample survey asks a sample of people questions and records their answers; no treatment is imposed.",
+    "Asking 500 adults about exercise collects their answers.",
+    "So this is a Sample survey."
    ],
    "options": [
     {
@@ -3645,7 +3824,9 @@
    "prompt": "Identify the study type: Researchers record whether past smokers developed heart disease.",
    "answer": "Observational study",
    "solutionSteps": [
-    "Experiments impose treatments; observational studies do not."
+    "The researchers did not assign anyone to smoke or not; they only record what happened.",
+    "Recording existing traits and outcomes without imposing a treatment is an observational study.",
+    "So this is an Observational study."
    ],
    "options": [
     {
@@ -3680,8 +3861,9 @@
    "prompt": "A survey of 400 finds p̂ = 0.52. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
    "answer": "±0.050; (0.470, 0.570)",
    "solutionSteps": [
-    "MOE ≈ 2√(p̂(1 - p̂)/n).",
-    "Interval p̂ ± MOE."
+    "MOE ≈ 2√(p̂(1 - p̂)/n) = 2√(0.52 · 0.48/400) = 2√0.000624.",
+    "√0.000624 ≈ 0.02498, so MOE ≈ 0.050.",
+    "Interval: 0.52 ± 0.050 = (0.470, 0.570). So ±0.050; (0.470, 0.570)."
    ],
    "standards": [
     "S-IC.A.1",
@@ -3698,8 +3880,9 @@
    "prompt": "A survey of 1,000 finds p̂ = 0.35. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
    "answer": "±0.030; (0.320, 0.380)",
    "solutionSteps": [
-    "MOE ≈ 2√(p̂(1 - p̂)/n).",
-    "Interval p̂ ± MOE."
+    "MOE ≈ 2√(0.35 · 0.65/1000) = 2√0.0002275.",
+    "≈ 2(0.01508) ≈ 0.030.",
+    "Interval: 0.35 ± 0.030 = (0.320, 0.380). So ±0.030; (0.320, 0.380)."
    ],
    "standards": [
     "S-IC.A.1",
@@ -3716,8 +3899,9 @@
    "prompt": "A survey of 150 finds p̂ = 0.6. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
    "answer": "±0.080; (0.520, 0.680)",
    "solutionSteps": [
-    "MOE ≈ 2√(p̂(1 - p̂)/n).",
-    "Interval p̂ ± MOE."
+    "MOE ≈ 2√(0.6 · 0.4/150) = 2√0.0016.",
+    "√0.0016 = 0.04, so MOE = 0.080.",
+    "Interval: 0.6 ± 0.080 = (0.520, 0.680). So ±0.080; (0.520, 0.680)."
    ],
    "standards": [
     "S-IC.A.1",
@@ -3734,8 +3918,9 @@
    "prompt": "A survey of 2,500 finds p̂ = 0.25. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
    "answer": "±0.017; (0.233, 0.267)",
    "solutionSteps": [
-    "MOE ≈ 2√(p̂(1 - p̂)/n).",
-    "Interval p̂ ± MOE."
+    "MOE ≈ 2√(0.25 · 0.75/2500) = 2√0.000075.",
+    "≈ 2(0.00866) ≈ 0.017.",
+    "Interval: 0.25 ± 0.017 = (0.233, 0.267). So ±0.017; (0.233, 0.267)."
    ],
    "standards": [
     "S-IC.A.1",
@@ -3752,7 +3937,9 @@
    "prompt": "To cut the margin of error in half, the sample size must be…",
    "answer": "multiplied by 4",
    "solutionSteps": [
-    "MOE ∝ 1/√n."
+    "The margin of error is proportional to 1/√n.",
+    "Halving it needs √n to double, which means n becomes 2² = 4 times as large.",
+    "The sample size must be multiplied by 4."
    ],
    "options": [
     {
@@ -3787,7 +3974,9 @@
    "prompt": "Why can an experiment (but not an observational study) show cause and effect?",
    "answer": "Random assignment balances other variables between groups",
    "solutionSteps": [
-    "Randomization controls for confounding variables."
+    "In an observational study, groups may differ in other ways (confounding variables) that explain the result.",
+    "Random assignment in an experiment spreads those other variables evenly between the groups.",
+    "So random assignment balances other variables between groups, leaving the treatment as the likely cause of a difference."
    ],
    "options": [
     {
@@ -3822,7 +4011,9 @@
    "prompt": "In 200 simulated samples, a sample mean difference of 4.5 or more occurred 3 times. What does this suggest about an observed difference of 4.5?",
    "answer": "It is unlikely by chance alone (≈1.5%), so it is statistically significant",
    "solutionSteps": [
-    "3/200 = 1.5% < 5%."
+    "The simulation shows what differences happen by chance alone: 4.5 or more occurred 3 times in 200.",
+    "3/200 = 0.015, about 1.5%, below the usual 5% cutoff.",
+    "It is unlikely by chance alone (≈1.5%), so it is statistically significant."
    ],
    "options": [
     {
@@ -3861,7 +4052,10 @@
     "Letting volunteers decide whether to respond"
    ],
    "solutionSteps": [
-    "Leading questions, undercoverage, and voluntary response bias results."
+    "Bias is a systematic error that pushes results one way.",
+    "Voluntary response, a leading question ('Don't you agree…?') and surveying only landline owners (undercoverage) are biased.",
+    "Random selection from a full list, large random samples and random assignment are ways to avoid bias.",
+    "Bias: asking 'Don't you agree the park needs repairs?', surveying only people with landlines, and letting volunteers decide whether to respond."
    ],
    "options": [
     {
@@ -3990,10 +4184,10 @@
    "prompt": "Design an experiment to test whether a new fertilizer increases tomato yield using 40 plants.",
    "answer": "(a) New fertilizer vs. standard (control); (b) Randomly, 20 to each group; (c) Tomato yield per plant; (d) To reduce the effect of natural variation",
    "solutionSteps": [
-    "Two groups.",
-    "Random assignment.",
-    "What is measured.",
-    "Replication."
+    "(a) The treatments are the new fertilizer versus the standard fertilizer (the control).",
+    "(b) Assign the 40 plants randomly, 20 to each group, so the groups are alike except for the fertilizer.",
+    "(c) The response variable is what we measure: tomato yield per plant.",
+    "(d) Using many plants (replication) reduces the effect of natural plant-to-plant variation on the comparison."
    ],
    "parts": [
     {
@@ -4028,7 +4222,9 @@
    "prompt": "What is a parameter?",
    "answer": "A numerical summary of a population",
    "solutionSteps": [
-    "Statistics describe samples; parameters describe populations."
+    "A population is the whole group of interest; a sample is part of it.",
+    "A number that describes a population (such as the true proportion p or mean μ) is a parameter.",
+    "A parameter is a numerical summary of a population (a statistic summarizes a sample)."
    ],
    "standards": [
     "S-IC.A.1",
@@ -4045,7 +4241,9 @@
    "prompt": "How many ways can 5 different books be arranged on a shelf?",
    "answer": "120",
    "solutionSteps": [
-    "Order matters; use the counting principle or ₙPᵣ."
+    "Arranging books on a shelf is an ordering, so order matters.",
+    "There are 5 choices for the first spot, 4 for the next, and so on: 5!.",
+    "5 · 4 · 3 · 2 · 1 = 120."
    ],
    "options": [
     {
@@ -4078,7 +4276,9 @@
    "prompt": "How many ways can a coach choose a batting order for 9 players?",
    "answer": "362,880",
    "solutionSteps": [
-    "Order matters; use the counting principle or ₙPᵣ."
+    "A batting order is an ordering of all 9 players.",
+    "9! = 9 · 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "= 362,880."
    ],
    "options": [
     {
@@ -4111,7 +4311,9 @@
    "prompt": "How many 4-character passwords use digits 0–9 without repetition?",
    "answer": "5,040",
    "solutionSteps": [
-    "Order matters; use the counting principle or ₙPᵣ."
+    "Order matters in a password, and no digit may repeat.",
+    "10 choices for the first character, then 9, 8 and 7: ₁₀P₄ = 10 · 9 · 8 · 7.",
+    "= 5,040."
    ],
    "options": [
     {
@@ -4144,7 +4346,9 @@
    "prompt": "How many ways can 3 of 8 runners finish 1st, 2nd, 3rd?",
    "answer": "336",
    "solutionSteps": [
-    "Order matters; use the counting principle or ₙPᵣ."
+    "1st, 2nd and 3rd are different places, so order matters.",
+    "₈P₃ = 8 · 7 · 6.",
+    "= 336."
    ],
    "options": [
     {
@@ -4211,8 +4415,9 @@
    "prompt": "A committee of 3 is chosen at random from 6 girls and 4 boys. Find P(all girls).",
    "answer": "1/6",
    "solutionSteps": [
-    "P = (favorable combinations)/(total combinations).",
-    "20/120."
+    "Total committees: C(10, 3) = 120. All-girl committees: C(6, 3) = 20.",
+    "P = favorable/total = 20/120.",
+    "P(all girls) = 1/6."
    ],
    "options": [
     {
@@ -4245,8 +4450,9 @@
    "prompt": "Choose 2 bulbs from 10, of which 3 are defective. Find P(both defective).",
    "answer": "1/15",
    "solutionSteps": [
-    "P = (favorable combinations)/(total combinations).",
-    "3/45."
+    "Total pairs: C(10, 2) = 45. Pairs of defective bulbs: C(3, 2) = 3.",
+    "P = 3/45.",
+    "P(both defective) = 1/15."
    ],
    "options": [
     {
@@ -4279,8 +4485,9 @@
    "prompt": "A 4-person team is chosen from 12 people including Ana and Ben. Find P(both are chosen).",
    "answer": "1/11",
    "solutionSteps": [
-    "P = (favorable combinations)/(total combinations).",
-    "45/495."
+    "Total teams: C(12, 4) = 495.",
+    "Teams with both Ana and Ben: they take 2 seats, and the other 2 come from the remaining 10: C(10, 2) = 45.",
+    "P = 45/495 = 1/11."
    ],
    "options": [
     {
@@ -4313,8 +4520,9 @@
    "prompt": "Choose 3 numbers from 1–10. Find P(all are even).",
    "answer": "1/12",
    "solutionSteps": [
-    "P = (favorable combinations)/(total combinations).",
-    "10/120."
+    "Total choices: C(10, 3) = 120. There are 5 even numbers (2, 4, 6, 8, 10), so all-even choices: C(5, 3) = 10.",
+    "P = 10/120.",
+    "P(all even) = 1/12."
    ],
    "options": [
     {
@@ -4351,7 +4559,10 @@
     "10·9/2"
    ],
    "solutionSteps": [
-    "Each handshake is an unordered pair."
+    "A handshake is an unordered pair of people, so count combinations: C(10, 2).",
+    "C(10, 2) = 10·9/2 = 45.",
+    "₁₀P₂ = 10·9 = 90 counts each handshake twice, and 20 is wrong.",
+    "Equal: C(10, 2), 45 and 10·9/2."
    ],
    "options": [
     {
@@ -4392,10 +4603,10 @@
    "prompt": "A lottery picks 6 numbers from 1–49 (order irrelevant).",
    "answer": "(a) 13,983,816; (b) 1/13,983,816; (c) 258; (d) 43/2330636",
    "solutionSteps": [
-    "C(49, 6).",
-    "Reciprocal.",
-    "C(6, 5)·C(43, 1).",
-    "Divide."
+    "(a) Tickets: C(49, 6) = 13,983,816.",
+    "(b) One ticket wins with probability 1/13,983,816.",
+    "(c) Exactly 5 matches: choose 5 of the 6 winning numbers and 1 of the 43 others: C(6, 5) · C(43, 1) = 6 · 43 = 258.",
+    "(d) P = 258/13,983,816 = 43/2330636."
    ],
    "parts": [
     {
@@ -4771,7 +4982,9 @@
    "prompt": "A family has 3 children. Find P(at least one girl), assuming P(girl) = 1/2.",
    "answer": "7/8",
    "solutionSteps": [
-    "1 - (1/2)³."
+    "Use the complement: P(at least one girl) = 1 - P(no girls).",
+    "P(no girls) = P(three boys) = (1/2)³ = 1/8.",
+    "1 - 1/8 = 7/8."
    ],
    "standards": [
     "S-CP.A.2",
@@ -4787,8 +5000,9 @@
    "prompt": "How many times must a fair coin be flipped so that P(at least one head) > 0.99?",
    "answer": "7",
    "solutionSteps": [
-    "1 - (1/2)ⁿ > 0.99 → (1/2)ⁿ < 0.01.",
-    "2⁷ = 128 > 100."
+    "P(at least one head in n flips) = 1 - (1/2)ⁿ, so we need (1/2)ⁿ < 0.01, that is 2ⁿ > 100.",
+    "2⁶ = 64 is not enough; 2⁷ = 128 > 100.",
+    "So the coin must be flipped 7 times."
    ],
    "standards": [
     "S-CP.A.2",
@@ -4842,7 +5056,9 @@
    "prompt": "Using the same table (Grade 9: 24, 16; Grade 10: 18, 22), find P(Owns pet | Grade 10).",
    "answer": "9/20",
    "solutionSteps": [
-    "Condition on the row: divide by the row total."
+    "Given Grade 10, use only that row: 18 own a pet and 22 do not, 40 in all.",
+    "P(owns pet | Grade 10) = 18/40.",
+    "= 9/20."
    ],
    "options": [
     {
@@ -4881,7 +5097,10 @@
     "P(Grade 9 and No pet) = 1/5"
    ],
    "solutionSteps": [
-    "Joint: cell/total; conditional: cell/(given row or column total)."
+    "The total is 24 + 16 + 18 + 22 = 80; Grade 9 has 40 and Grade 10 has 40, so P(Grade 9) = 1/2 and P(Grade 10) = 1/2 (not 3/10).",
+    "P(No pet | Grade 10) = 22/40 = 11/20, and P(Grade 9 and No pet) = 16/80 = 1/5.",
+    "P(Grade 9 | No pet) = 16/(16 + 22) = 8/19, not 2/5.",
+    "True: P(Grade 9) = 1/2, P(No pet | Grade 10) = 11/20 and P(Grade 9 and No pet) = 1/5."
    ],
    "options": [
     {
@@ -4958,7 +5177,9 @@
    "prompt": "Using the same table (Under 30: 45, 15; 30+: 20, 40), find P(Prefers online | 30+).",
    "answer": "1/3",
    "solutionSteps": [
-    "Condition on the row: divide by the row total."
+    "Given 30+, use only that row: 20 prefer online and 40 in-store, 60 in all.",
+    "P(prefers online | 30+) = 20/60.",
+    "= 1/3."
    ],
    "options": [
     {
@@ -4997,7 +5218,10 @@
     "P(Under 30 and Prefers in-store) = 1/8"
    ],
    "solutionSteps": [
-    "Joint: cell/total; conditional: cell/(given row or column total)."
+    "The total is 45 + 15 + 20 + 40 = 120, with 60 under 30 and 60 aged 30+: P(Under 30) = 1/2 and P(30+) = 1/2 (not 3/8).",
+    "P(in-store | 30+) = 40/60 = 2/3, and P(Under 30 and in-store) = 15/120 = 1/8.",
+    "P(Under 30 | in-store) = 15/55 = 3/11, not 1/4.",
+    "True: P(Under 30) = 1/2, P(Prefers in-store | 30+) = 2/3 and P(Under 30 and Prefers in-store) = 1/8."
    ],
    "options": [
     {
@@ -5074,7 +5298,9 @@
    "prompt": "Using the same table (Studied: 54, 6; Did not study: 21, 19), find P(Passed | Did not study).",
    "answer": "21/40",
    "solutionSteps": [
-    "Condition on the row: divide by the row total."
+    "Given 'did not study', use that row: 21 passed and 19 failed, 40 in all.",
+    "P(passed | did not study) = 21/40.",
+    "= 21/40."
    ],
    "options": [
     {
@@ -5113,7 +5339,10 @@
     "P(Studied and Failed) = 3/50"
    ],
    "solutionSteps": [
-    "Joint: cell/total; conditional: cell/(given row or column total)."
+    "The total is 54 + 6 + 21 + 19 = 100, with 60 who studied: P(Studied) = 60/100 = 3/5 and P(Did not study) = 2/5 (not 3/5).",
+    "P(Failed | Did not study) = 19/40, and P(Studied and Failed) = 6/100 = 3/50.",
+    "P(Studied | Failed) = 6/(6 + 19) = 6/25, not 1/10.",
+    "True: P(Studied) = 3/5, P(Failed | Did not study) = 19/40 and P(Studied and Failed) = 3/50."
    ],
    "options": [
     {
@@ -5152,7 +5381,9 @@
    "prompt": "P(rain) = 0.3; P(traffic | rain) = 0.8; P(traffic | no rain) = 0.4. Find P(traffic).",
    "answer": "0.52",
    "solutionSteps": [
-    "0.3(0.8) + 0.7(0.4)."
+    "Traffic can happen with rain or without rain, so add both branches of the tree.",
+    "P(rain and traffic) = 0.3(0.8) = 0.24; P(no rain and traffic) = 0.7(0.4) = 0.28.",
+    "P(traffic) = 0.24 + 0.28 = 0.52."
    ],
    "standards": [
     "S-CP.A.3",
@@ -5169,7 +5400,9 @@
    "prompt": "Using the previous data, find P(rain | traffic) (nearest hundredth).",
    "answer": "0.46",
    "solutionSteps": [
-    "0.24/0.52 ≈ 0.4615."
+    "P(rain | traffic) = P(rain and traffic)/P(traffic).",
+    "P(rain and traffic) = 0.24 and P(traffic) = 0.52, so 0.24/0.52 ≈ 0.4615.",
+    "To the nearest hundredth: 0.46."
    ],
    "standards": [
     "S-CP.A.3",
@@ -5353,7 +5586,10 @@
     "P(X = 4) = 1/16"
    ],
    "solutionSteps": [
-    "Binomial formula; mean np."
+    "With n = 4 and p = 1/2, each of the 16 outcomes is equally likely: P(X = k) = C(4, k)/16.",
+    "P(X = 0) = 1/16 and P(X = 4) = 1/16; P(X ≥ 1) = 1 - 1/16 = 15/16.",
+    "P(X = 1) = 4/16 = 1/4 (not 1/2), and the mean is np = 2 (not 1/2).",
+    "True: P(X = 0) = 1/16, P(X ≥ 1) = 15/16, the mean is 2, and P(X = 4) = 1/16."
    ],
    "options": [
     {
@@ -5433,10 +5669,10 @@
    "prompt": "X ~ Binomial(n = 3, p = 1/2).",
    "answer": "(a) 1/8; (b) 3/8; (c) 1/2; (d) 3/2",
    "solutionSteps": [
-    "(1 - p)ⁿ.",
-    "n·p(1 - p)ⁿ⁻¹.",
-    "Complement.",
-    "np."
+    "(a) P(X = 0) = (1/2)³ = 1/8.",
+    "(b) P(X = 1) = C(3, 1)(1/2)(1/2)² = 3/8.",
+    "(c) P(X ≥ 2) = 1 - 1/8 - 3/8 = 1/2.",
+    "(d) Mean = np = 3 · 1/2 = 3/2."
    ],
    "parts": [
     {
@@ -5469,10 +5705,10 @@
    "prompt": "X ~ Binomial(n = 4, p = 1/5).",
    "answer": "(a) 256/625; (b) 256/625; (c) 113/625; (d) 4/5",
    "solutionSteps": [
-    "(1 - p)ⁿ.",
-    "n·p(1 - p)ⁿ⁻¹.",
-    "Complement.",
-    "np."
+    "(a) P(X = 0) = (4/5)⁴ = 256/625.",
+    "(b) P(X = 1) = 4(1/5)(4/5)³ = 4 · 64/625 = 256/625.",
+    "(c) P(X ≥ 2) = 1 - 256/625 - 256/625 = 113/625.",
+    "(d) Mean = np = 4 · 1/5 = 4/5."
    ],
    "parts": [
     {
@@ -5505,10 +5741,10 @@
    "prompt": "X ~ Binomial(n = 5, p = 1/3).",
    "answer": "(a) 32/243; (b) 80/243; (c) 131/243; (d) 5/3",
    "solutionSteps": [
-    "(1 - p)ⁿ.",
-    "n·p(1 - p)ⁿ⁻¹.",
-    "Complement.",
-    "np."
+    "(a) P(X = 0) = (2/3)⁵ = 32/243.",
+    "(b) P(X = 1) = 5(1/3)(2/3)⁴ = 5 · 16/243 = 80/243.",
+    "(c) P(X ≥ 2) = 1 - 32/243 - 80/243 = 131/243.",
+    "(d) Mean = np = 5 · 1/3 = 5/3."
    ],
    "parts": [
     {
@@ -5541,8 +5777,9 @@
    "prompt": "X ~ Binomial(n = 5, p = 1/2). Find P(X ≥ 4). Give a fraction and a decimal to four decimal places.",
    "answer": "3/16 ≈ 0.1875",
    "solutionSteps": [
-    "Add P(X = 4) through P(X = 5).",
-    "Or use the complement."
+    "P(X ≥ 4) = P(X = 4) + P(X = 5).",
+    "With p = 1/2 each outcome has probability 1/32: C(5, 4)/32 + C(5, 5)/32 = 5/32 + 1/32 = 6/32.",
+    "6/32 = 3/16 ≈ 0.1875."
    ],
    "standards": [
     "S-MD.A.1"
@@ -5557,8 +5794,9 @@
    "prompt": "X ~ Binomial(n = 6, p = 1/6). Find P(X ≥ 2). Give a fraction and a decimal to four decimal places.",
    "answer": "12281/46656 ≈ 0.2632",
    "solutionSteps": [
-    "Add P(X = 2) through P(X = 6).",
-    "Or use the complement."
+    "Use the complement: P(X ≥ 2) = 1 - P(X = 0) - P(X = 1).",
+    "P(X = 0) = (5/6)⁶ = 15625/46656; P(X = 1) = 6(1/6)(5/6)⁵ = 18750/46656.",
+    "1 - 34375/46656 = 12281/46656 ≈ 0.2632."
    ],
    "standards": [
     "S-MD.A.1"
@@ -5573,8 +5811,9 @@
    "prompt": "X ~ Binomial(n = 10, p = 1/2). Find P(X ≥ 8). Give a fraction and a decimal to four decimal places.",
    "answer": "7/128 ≈ 0.0547",
    "solutionSteps": [
-    "Add P(X = 8) through P(X = 10).",
-    "Or use the complement."
+    "P(X ≥ 8) = P(8) + P(9) + P(10), and with p = 1/2 each outcome has probability 1/1024.",
+    "C(10, 8) + C(10, 9) + C(10, 10) = 45 + 10 + 1 = 56, so P = 56/1024.",
+    "56/1024 = 7/128 ≈ 0.0547."
    ],
    "standards": [
     "S-MD.A.1"
@@ -5589,8 +5828,9 @@
    "prompt": "X ~ Binomial(n = 4, p = 1/4). Find P(X ≥ 2). Give a fraction and a decimal to four decimal places.",
    "answer": "67/256 ≈ 0.2617",
    "solutionSteps": [
-    "Add P(X = 2) through P(X = 4).",
-    "Or use the complement."
+    "Use the complement: P(X ≥ 2) = 1 - P(0) - P(1).",
+    "P(0) = (3/4)⁴ = 81/256; P(1) = 4(1/4)(3/4)³ = 108/256.",
+    "1 - 189/256 = 67/256 ≈ 0.2617."
    ],
    "standards": [
     "S-MD.A.1"
@@ -5605,7 +5845,9 @@
    "prompt": "X = 0, 1, 2 with P = 1/4, 1/2, 1/4. Find E(X).",
    "answer": "1",
    "solutionSteps": [
-    "Weight each value by its probability."
+    "E(X) = Σ x·P(x).",
+    "0(1/4) + 1(1/2) + 2(1/4) = 0 + 1/2 + 1/2.",
+    "E(X) = 1."
    ],
    "options": [
     {
@@ -5639,7 +5881,9 @@
    "prompt": "X = 1, 3, 5 with P = 1/5, 2/5, 2/5. Find E(X).",
    "answer": "17/5",
    "solutionSteps": [
-    "Weight each value by its probability."
+    "E(X) = Σ x·P(x).",
+    "1(1/5) + 3(2/5) + 5(2/5) = 1/5 + 6/5 + 10/5.",
+    "E(X) = 17/5."
    ],
    "options": [
     {
@@ -5673,7 +5917,9 @@
    "prompt": "X = -2, 0, 4 with P = 1/2, 1/3, 1/6. Find E(X).",
    "answer": "-1/3",
    "solutionSteps": [
-    "Weight each value by its probability."
+    "E(X) = Σ x·P(x).",
+    "-2(1/2) + 0(1/3) + 4(1/6) = -1 + 2/3.",
+    "E(X) = -1/3."
    ],
    "options": [
     {
@@ -5707,7 +5953,9 @@
    "prompt": "X = 2, 4, 6, 8 with P = 1/10, 1/5, 3/10, 2/5. Find E(X).",
    "answer": "6",
    "solutionSteps": [
-    "Weight each value by its probability."
+    "E(X) = Σ x·P(x).",
+    "2(1/10) + 4(1/5) + 6(3/10) + 8(2/5) = 0.2 + 0.8 + 1.8 + 3.2.",
+    "E(X) = 6."
    ],
    "options": [
     {
@@ -5741,7 +5989,9 @@
    "prompt": "X = 100, 0 with P = 1/20, 19/20. Find E(X).",
    "answer": "5",
    "solutionSteps": [
-    "Weight each value by its probability."
+    "E(X) = Σ x·P(x).",
+    "100(1/20) + 0(19/20) = 5 + 0.",
+    "E(X) = 5."
    ],
    "options": [
     {
@@ -5775,10 +6025,10 @@
    "prompt": "A game costs $1. You win $5 with probability 1/6.",
    "answer": "(a) $5/6; (b) -$1/6; (c) No; (d) $6",
    "solutionSteps": [
-    "prize·p.",
-    "Subtract cost.",
-    "Fair ⇔ E = 0.",
-    "prize·p = cost."
+    "(a) Expected winnings = prize × probability = 5 · 1/6 = $5/6.",
+    "(b) Net gain = 5/6 - 1 = -$1/6.",
+    "(c) A fair game has expected net gain 0, so No.",
+    "(d) Fair when prize · 1/6 = 1, so the prize is $6."
    ],
    "parts": [
     {
@@ -5812,10 +6062,10 @@
    "prompt": "A game costs $2. You win $30 with probability 1/20.",
    "answer": "(a) $3/2; (b) -$1/2; (c) No; (d) $40",
    "solutionSteps": [
-    "prize·p.",
-    "Subtract cost.",
-    "Fair ⇔ E = 0.",
-    "prize·p = cost."
+    "(a) Expected winnings = 30 · 1/20 = $3/2.",
+    "(b) Net gain = 3/2 - 2 = -$1/2.",
+    "(c) Not 0, so No, it is not fair.",
+    "(d) Fair when prize · 1/20 = 2, so the prize is $40."
    ],
    "parts": [
     {
@@ -5849,10 +6099,10 @@
    "prompt": "A game costs $5. You win $12 with probability 1/3.",
    "answer": "(a) $4; (b) -$1; (c) No; (d) $15",
    "solutionSteps": [
-    "prize·p.",
-    "Subtract cost.",
-    "Fair ⇔ E = 0.",
-    "prize·p = cost."
+    "(a) Expected winnings = 12 · 1/3 = $4.",
+    "(b) Net gain = 4 - 5 = -$1.",
+    "(c) Not 0, so No.",
+    "(d) Fair when prize · 1/3 = 5, so the prize is $15."
    ],
    "parts": [
     {
@@ -5890,7 +6140,10 @@
     "Pay $5; win $20 with probability 1/5"
    ],
    "solutionSteps": [
-    "E = prize·p - cost: -1, -0.25, -1; +0.2, 0, +1."
+    "Expected net gain = prize × probability - cost.",
+    "Pay $2, win $10 w.p. 1/10: 1 - 2 = -1. Pay $1, win $3 w.p. 1/4: 0.75 - 1 = -0.25. Pay $5, win $20 w.p. 1/5: 4 - 5 = -1.",
+    "Pay $3, win $9 w.p. 1/3: 0 (fair). Pay $1, win $6 w.p. 1/5: +0.2. Pay $2, win $12 w.p. 1/4: +1.",
+    "Negative: pay $2 to win $10 w.p. 1/10, pay $1 to win $3 w.p. 1/4, and pay $5 to win $20 w.p. 1/5."
    ],
    "options": [
     {
@@ -5936,7 +6189,10 @@
     "E(X + Y) = E(X) + E(Y)"
    ],
    "solutionSteps": [
-    "Expected value is a weighted mean."
+    "Expected value is a probability-weighted mean: the long-run average of many trials.",
+    "Like any average it need not be a possible outcome (a die has E = 3.5), and expectations add: E(X + Y) = E(X) + E(Y).",
+    "It need not be a whole number, the median or the most likely outcome.",
+    "True: it is a long-run average, it need not be a possible outcome, and E(X + Y) = E(X) + E(Y)."
    ],
    "options": [
     {
@@ -5978,7 +6234,9 @@
    "prompt": "A multiple-choice test gives +4 for correct and -1 for incorrect, 5 choices each. What is the expected score from a random guess?",
    "answer": "0",
    "solutionSteps": [
-    "4(1/5) - 1(4/5) = 0."
+    "A random guess is right with probability 1/5 and wrong with probability 4/5.",
+    "E = 4(1/5) + (-1)(4/5) = 4/5 - 4/5.",
+    "The expected score is 0."
    ],
    "standards": [
     "S-MD.A.2",
@@ -5994,7 +6252,9 @@
    "prompt": "Find the expected number of 6s in 30 rolls of a die.",
    "answer": "5",
    "solutionSteps": [
-    "np = 30/6."
+    "The number of 6s is binomial with n = 30 and p = 1/6.",
+    "Mean = np = 30 · 1/6.",
+    "The expected number of 6s is 5."
    ],
    "standards": [
     "S-MD.A.2",
@@ -6010,8 +6270,9 @@
    "prompt": "Each box of cereal contains 1 of 4 equally likely prizes. Find the expected number of boxes to collect all 4. Give the exact value and a decimal to the nearest hundredth.",
    "answer": "25/3 ≈ 8.33",
    "solutionSteps": [
-    "Expected waits: 1 + 4/3 + 4/2 + 4/1.",
-    "= 1 + 1.333 + 2 + 4."
+    "Collect the prizes in stages: when k of 4 are still missing, each box gives a new prize with probability k/4, so the expected wait is 4/k boxes.",
+    "Total = 4/4 + 4/3 + 4/2 + 4/1 = 1 + 4/3 + 2 + 4.",
+    "= 25/3 ≈ 8.33 boxes."
    ],
    "standards": [
     "S-MD.A.2",
@@ -6027,8 +6288,9 @@
    "prompt": "X is normal with μ = 70, σ = 8. Using the empirical rule, about what value is the 84th percentile?",
    "answer": "78",
    "solutionSteps": [
-    "84th percentile ≈ z = 1.",
-    "x = μ + zσ."
+    "By the empirical rule, 50% + 34% = 84% lie below μ + σ, so the 84th percentile is at z ≈ 1.",
+    "x = μ + zσ = 70 + 1(8).",
+    "≈ 78."
    ],
    "options": [
     {
@@ -6061,8 +6323,9 @@
    "prompt": "X is normal with μ = 50, σ = 5. Using the empirical rule, about what value is the 16th percentile?",
    "answer": "45",
    "solutionSteps": [
-    "16th percentile ≈ z = -1.",
-    "x = μ + zσ."
+    "About 16% lie below μ - σ (50% - 34%), so the 16th percentile is at z ≈ -1.",
+    "x = 50 - 5.",
+    "≈ 45."
    ],
    "options": [
     {
@@ -6095,8 +6358,9 @@
    "prompt": "X is normal with μ = 200, σ = 25. Using the empirical rule, about what value is the 97.5th percentile?",
    "answer": "250",
    "solutionSteps": [
-    "97.5th percentile ≈ z = 2.",
-    "x = μ + zσ."
+    "About 2.5% lie above μ + 2σ, so 97.5% lie below it: z ≈ 2.",
+    "x = 200 + 2(25).",
+    "≈ 250."
    ],
    "options": [
     {
@@ -6129,8 +6393,9 @@
    "prompt": "X is normal with μ = 12, σ = 1.5. Using the empirical rule, about what value is the 2.5th percentile?",
    "answer": "9",
    "solutionSteps": [
-    "2.5th percentile ≈ z = -2.",
-    "x = μ + zσ."
+    "About 2.5% lie below μ - 2σ, so the 2.5th percentile is at z ≈ -2.",
+    "x = 12 - 2(1.5) = 12 - 3.",
+    "≈ 9."
    ],
    "options": [
     {
@@ -6167,7 +6432,9 @@
     "130"
    ],
    "solutionSteps": [
-    "Outside 80–120."
+    "Within 2 standard deviations means from 100 - 20 = 80 to 100 + 20 = 120.",
+    "75, 121 and 130 are outside that range; 85, 110 and 119 are inside.",
+    "More than 2 SD from the mean: 75, 121 and 130."
    ],
    "options": [
     {
@@ -6208,7 +6475,9 @@
    "prompt": "A z-score is 1.5 with μ = 40 and σ = 6. Find x.",
    "answer": "49",
    "solutionSteps": [
-    "x = μ + zσ = 40 + 9."
+    "Solve z = (x - μ)/σ for x: x = μ + zσ.",
+    "x = 40 + 1.5(6) = 40 + 9.",
+    "x = 49."
    ],
    "standards": [
     "S-ID.A.4"
@@ -6223,8 +6492,9 @@
    "prompt": "Weights are N(μ, σ). 2.5% weigh less than 140 lb and 2.5% weigh more than 200 lb. Find μ and σ.",
    "answer": "μ = 170, σ = 15",
    "solutionSteps": [
-    "Symmetric: μ = 170.",
-    "200 = μ + 2σ → σ = 15."
+    "A normal curve is symmetric, so the mean is halfway between 140 and 200: μ = 170.",
+    "2.5% above 200 means 200 is μ + 2σ: 200 = 170 + 2σ.",
+    "σ = 15. So μ = 170, σ = 15."
    ],
    "standards": [
     "S-ID.A.4"
@@ -6239,7 +6509,9 @@
    "prompt": "Identify the bias: Only customers who had a problem respond to the email survey.",
    "answer": "Voluntary response bias",
    "solutionSteps": [
-    "Match the flaw to the type of bias."
+    "Only the people who choose to respond are counted, and dissatisfied customers are the most motivated.",
+    "Bias from people selecting themselves is voluntary response bias.",
+    "Voluntary response bias."
    ],
    "options": [
     {
@@ -6274,7 +6546,9 @@
    "prompt": "Identify the bias: A phone poll misses people without phones.",
    "answer": "Undercoverage",
    "solutionSteps": [
-    "Match the flaw to the type of bias."
+    "Some of the population (people without phones) has no chance of being chosen.",
+    "Leaving part of the population out of the sampling frame is undercoverage.",
+    "Undercoverage."
    ],
    "options": [
     {
@@ -6309,7 +6583,9 @@
    "prompt": "Identify the bias: 'Most experts agree X is dangerous. Do you agree?'",
    "answer": "Response bias (leading question)",
    "solutionSteps": [
-    "Match the flaw to the type of bias."
+    "The question tells respondents what 'most experts' think before asking, pushing them toward 'yes'.",
+    "Wording that steers the answer is a leading question, a kind of response bias.",
+    "Response bias (leading question)."
    ],
    "options": [
     {
@@ -6344,7 +6620,9 @@
    "prompt": "Identify the bias: Many selected people never answer the survey.",
    "answer": "Nonresponse bias",
    "solutionSteps": [
-    "Match the flaw to the type of bias."
+    "The people were chosen but never answered.",
+    "If non-responders differ from responders, the results are biased: nonresponse bias.",
+    "Nonresponse bias."
    ],
    "options": [
     {
@@ -6383,7 +6661,10 @@
     "Replication"
    ],
    "solutionSteps": [
-    "Control, randomization, replication."
+    "The principles of experimental design are control, random assignment and replication.",
+    "A control group gives a comparison, random assignment balances other variables, and replication (many subjects) reduces chance variation.",
+    "Letting subjects choose, revealing the hypothesis or using one subject per treatment would undermine the study.",
+    "Well designed: random assignment, a control group and replication."
    ],
    "options": [
     {
@@ -6430,8 +6711,10 @@
     "The SD of p̂ is about √(0.4·0.6/50)"
    ],
    "solutionSteps": [
-    "0.55 is more than 2 SD above 0.40.",
-    "√(0.24/50) ≈ 0.069."
+    "The simulated p̂ values center at 0.40 with SD 0.07, which matches √(0.4·0.6/50) = √0.0048 ≈ 0.069.",
+    "About 95% lie within 2 SD: 0.40 ± 0.14, that is 0.26–0.54; 0.55 is more than 2 SD above, so it would be unusual.",
+    "A p̂ of 0.45 is well within normal variation, so it proves nothing, and samples vary, so not every p̂ is 0.40.",
+    "Valid: 0.55 would be unusual, about 95% lie within 0.26–0.54, and the SD of p̂ is about √(0.4·0.6/50)."
    ],
    "options": [
     {
@@ -6470,10 +6753,10 @@
    "prompt": "A poll of 900 voters finds 54% support a measure.",
    "answer": "(a) ±3.3%; (b) 50.7% to 57.3%; (c) Yes, the whole interval is above 50%; (d) It would be cut in half",
    "solutionSteps": [
-    "2√(p̂(1 - p̂)/n).",
-    "p̂ ± MOE.",
-    "Compare with 50%.",
-    "MOE ∝ 1/√n."
+    "(a) MOE ≈ 2√(0.54 · 0.46/900) = 2√0.000276 ≈ 2(0.0166) ≈ 0.033: ±3.3%.",
+    "(b) 54% ± 3.3% gives 50.7% to 57.3%.",
+    "(c) Yes, the whole interval is above 50%, so a majority is supported.",
+    "(d) 3,600 is 4 times 900, so √n doubles and the margin would be cut in half."
    ],
    "parts": [
     {
@@ -6508,7 +6791,9 @@
    "prompt": "What is the difference between a census and a sample?",
    "answer": "A census measures every member of the population; a sample measures part of it",
    "solutionSteps": [
-    "Definitions."
+    "A census collects data from every member of the population.",
+    "A sample collects data from only part of the population and uses it to draw conclusions about the whole.",
+    "A census measures every member of the population; a sample measures part of it."
    ],
    "standards": [
     "S-IC.A.1",
@@ -6525,7 +6810,9 @@
    "prompt": "What is a statistic?",
    "answer": "A numerical summary of a sample",
    "solutionSteps": [
-    "Statistics describe samples."
+    "A statistic is calculated from sample data, such as p̂ or the sample mean x̄.",
+    "It is used to estimate a population parameter.",
+    "A statistic is a numerical summary of a sample."
    ],
    "standards": [
     "S-IC.A.1",
@@ -6542,7 +6829,8 @@
    "prompt": "In how many different orders can 4 runners line up?",
    "answer": "24",
    "solutionSteps": [
-    "Use 4! = 4 · 3 · 2 · 1.",
+    "A line-up of 4 runners is an ordering of all 4.",
+    "4! = 4 · 3 · 2 · 1.",
     "= 24."
    ],
    "standards": [
@@ -6576,8 +6864,8 @@
     }
    ],
    "solutionSteps": [
-    "Order matters: use P(10, 3).",
-    "n! ÷ (n - k)!.",
+    "The three offices are different, so order matters: P(10, 3).",
+    "P(10, 3) = 10!/(10 - 3)! = 10 · 9 · 8.",
     "= 720."
    ],
    "standards": [
@@ -6627,8 +6915,8 @@
    "prompt": "How many ways can a club of 12 members choose a president, a vice president, a secretary, and a treasurer?",
    "answer": "11880",
    "solutionSteps": [
-    "Order matters: use P(12, 4).",
-    "n! ÷ (n - k)!.",
+    "The four offices are different, so order matters: P(12, 4).",
+    "P(12, 4) = 12 · 11 · 10 · 9.",
     "= 11880."
    ],
    "standards": [
@@ -6644,7 +6932,8 @@
    "prompt": "In how many different orders can 7 runners line up?",
    "answer": "5040",
    "solutionSteps": [
-    "Use 7! = 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "A line-up of 7 runners is an ordering of all 7.",
+    "7! = 7 · 6 · 5 · 4 · 3 · 2 · 1.",
     "= 5040."
    ],
    "standards": [
@@ -6678,8 +6967,8 @@
     }
    ],
    "solutionSteps": [
-    "Order does not matter: use C(9, 2).",
-    "n! ÷ (k!(n - k)!).",
+    "A pizza with toppings A and B is the same as with B and A, so order does not matter: C(9, 2).",
+    "C(9, 2) = 9!/(2! · 7!) = (9 · 8)/2.",
     "= 36."
    ],
    "standards": [
@@ -6695,7 +6984,8 @@
    "prompt": "In how many different orders can 4 students sit in a row?",
    "answer": "24",
    "solutionSteps": [
-    "Use 4! = 4 · 3 · 2 · 1.",
+    "Seating 4 students in a row is an ordering of all 4.",
+    "4! = 4 · 3 · 2 · 1.",
     "= 24."
    ],
    "standards": [
@@ -6923,7 +7213,8 @@
    "prompt": "In how many different orders can 8 runners line up?",
    "answer": "40320",
    "solutionSteps": [
-    "Use 8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "A line-up of 8 runners is an ordering of all 8.",
+    "8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
     "= 40320."
    ],
    "standards": [
@@ -6957,8 +7248,8 @@
     }
    ],
    "solutionSteps": [
-    "Order matters: use P(11, 4).",
-    "n! ÷ (n - k)!.",
+    "The four offices are different, so order matters: P(11, 4).",
+    "P(11, 4) = 11 · 10 · 9 · 8.",
     "= 7920."
    ],
    "standards": [
@@ -8312,8 +8603,9 @@
    "prompt": "P(it is cloudy) = 0.8 and P(it rains and it is cloudy) = 0.5. Find the probability that it rains, given that it is cloudy.",
    "answer": "5/8",
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.5 ÷ 0.8 = 5/8."
+    "P(rain | cloudy) = P(rain and cloudy)/P(cloudy).",
+    "= 0.5 ÷ 0.8 = 5/8.",
+    "P = 5/8."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8330,8 +8622,9 @@
    "prompt": "Survey results — 9th graders: 25 prefer cats, 36 prefer dogs; 10th graders: 16 prefer cats, 34 prefer dogs. One student is chosen at random. Find P(10th grader and prefers dogs).",
    "answer": "34/111",
    "solutionSteps": [
-    "Total = 111.",
-    "P = 34 ÷ 111 = 34/111."
+    "Total students: 25 + 36 + 16 + 34 = 111.",
+    "10th graders who prefer dogs: 34.",
+    "P = 34/111."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8403,8 +8696,9 @@
     }
    ],
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.5 ÷ 0.7 = 5/7."
+    "P(rain | cloudy) = P(rain and cloudy)/P(cloudy).",
+    "= 0.5 ÷ 0.7.",
+    "P = 5/7."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8439,8 +8733,9 @@
     }
    ],
    "solutionSteps": [
-    "Total = 89.",
-    "P = 39 ÷ 89 = 39/89."
+    "Total students: 10 + 24 + 39 + 16 = 89.",
+    "10th graders who prefer cats: 39.",
+    "P = 39/89."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8476,8 +8771,9 @@
    "prompt": "P(the customer buys a sandwich) = 0.9 and P(a customer buys a drink and the customer buys a sandwich) = 0.4. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
    "answer": "4/9",
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.4 ÷ 0.9 = 4/9."
+    "P(drink | sandwich) = P(drink and sandwich)/P(sandwich).",
+    "= 0.4 ÷ 0.9.",
+    "P = 4/9."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8494,8 +8790,9 @@
    "prompt": "Survey results — 9th graders: 21 prefer cats, 24 prefer dogs; 10th graders: 35 prefer cats, 18 prefer dogs. One student is chosen at random. Find P(10th grader and prefers cats).",
    "answer": "5/14",
    "solutionSteps": [
-    "Total = 98.",
-    "P = 35 ÷ 98 = 5/14."
+    "Total students: 21 + 24 + 35 + 18 = 98.",
+    "10th graders who prefer cats: 35, so P = 35/98.",
+    "Simplify by 7: P = 5/14."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8632,8 +8929,9 @@
    "prompt": "P(it is cloudy) = 0.5 and P(it rains and it is cloudy) = 0.2. Find the probability that it rains, given that it is cloudy.",
    "answer": "2/5",
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.2 ÷ 0.5 = 2/5."
+    "P(rain | cloudy) = P(rain and cloudy)/P(cloudy).",
+    "= 0.2 ÷ 0.5.",
+    "P = 2/5."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8723,8 +9021,9 @@
     }
    ],
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.4 ÷ 0.7 = 4/7."
+    "P(sport | art) = P(sport and art)/P(art).",
+    "= 0.4 ÷ 0.7.",
+    "P = 4/7."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8796,8 +9095,9 @@
    "prompt": "P(the student takes art) = 0.9 and P(a student plays a sport and the student takes art) = 0.1. Find the probability that a student plays a sport, given that the student takes art.",
    "answer": "1/9",
    "solutionSteps": [
-    "P(A | B) = P(A and B) ÷ P(B).",
-    "= 0.1 ÷ 0.9 = 1/9."
+    "P(sport | art) = P(sport and art)/P(art).",
+    "= 0.1 ÷ 0.9.",
+    "P = 1/9."
    ],
    "standards": [
     "S-CP.A.3",
@@ -8927,8 +9227,9 @@
     }
    ],
    "solutionSteps": [
-    "Total = 17.",
-    "P = 5 ÷ 17 = 5/17."
+    "Total marbles: 8 + 5 + 4 = 17, all equally likely.",
+    "Red marbles: 5.",
+    "P(red) = 5/17."
    ],
    "standards": [
     "S-MD.A.1"
@@ -8944,7 +9245,7 @@
    "answer": "24/5",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "1(2/5) + 7(2/5) + 8(1/5).",
+    "1(2/5) + 7(2/5) + 8(1/5) = 2/5 + 14/5 + 8/5.",
     "E(X) = 24/5."
    ],
    "standards": [
@@ -8994,7 +9295,8 @@
    "prompt": "A bag holds 2 yellow, 9 green, 7 black marbles. One is drawn at random. Find P(not green).",
    "answer": "1/2",
    "solutionSteps": [
-    "P(green) = 1/2.",
+    "Total marbles: 2 + 9 + 7 = 18, and 9 are green: P(green) = 9/18 = 1/2.",
+    "'Not green' is the complement.",
     "P(not green) = 1 - 1/2 = 1/2."
    ],
    "standards": [
@@ -9029,7 +9331,7 @@
    ],
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "1(1/5) + 4(2/5) + 8(2/5).",
+    "1(1/5) + 4(2/5) + 8(2/5) = 1/5 + 8/5 + 16/5 = 25/5.",
     "E(X) = 5."
    ],
    "standards": [
@@ -9079,7 +9381,8 @@
     }
    ],
    "solutionSteps": [
-    "P(green) = 7/20.",
+    "Total marbles: 4 + 9 + 7 = 20, so P(green) = 7/20.",
+    "Use the complement.",
     "P(not green) = 1 - 7/20 = 13/20."
    ],
    "standards": [
@@ -9096,7 +9399,7 @@
    "answer": "26/5",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "1(1/5) + 4(1/5) + 7(3/5).",
+    "1(1/5) + 4(1/5) + 7(3/5) = 1/5 + 4/5 + 21/5.",
     "E(X) = 26/5."
    ],
    "standards": [
@@ -9340,8 +9643,9 @@
     }
    ],
    "solutionSteps": [
-    "Total = 12.",
-    "P = 2 ÷ 12 = 1/6."
+    "Total marbles: 8 + 2 + 2 = 12.",
+    "Blue marbles: 2, so P = 2/12.",
+    "P(blue) = 1/6."
    ],
    "standards": [
     "S-MD.A.1"
@@ -9389,8 +9693,9 @@
    "prompt": "A bag holds 6 blue, 9 yellow, 4 red marbles. One is drawn at random. Find P(blue).",
    "answer": "6/19",
    "solutionSteps": [
-    "Total = 19.",
-    "P = 6 ÷ 19 = 6/19."
+    "Total marbles: 6 + 9 + 4 = 19.",
+    "Blue marbles: 6.",
+    "P(blue) = 6/19."
    ],
    "standards": [
     "S-MD.A.1"
@@ -9478,7 +9783,7 @@
    "answer": "24/5",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "0(1/5) + 5(3/5) + 9(1/5).",
+    "0(1/5) + 5(3/5) + 9(1/5) = 0 + 15/5 + 9/5.",
     "E(X) = 24/5."
    ],
    "standards": [
@@ -9549,7 +9854,7 @@
    ],
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "0(3/10) + 1(2/5) + 4(3/10).",
+    "0(3/10) + 1(2/5) + 4(3/10) = 4/10 + 12/10 = 16/10.",
     "E(X) = 8/5."
    ],
    "standards": [
@@ -9584,7 +9889,7 @@
    "answer": "11/5",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "0(2/5) + 3(1/5) + 4(2/5).",
+    "0(2/5) + 3(1/5) + 4(2/5) = 3/5 + 8/5.",
     "E(X) = 11/5."
    ],
    "standards": [
@@ -9655,7 +9960,7 @@
    ],
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "6(2/5) + 8(1/10) + 9(1/2).",
+    "6(2/5) + 8(1/10) + 9(1/2) = 24/10 + 8/10 + 45/10.",
     "E(X) = 77/10."
    ],
    "standards": [
@@ -9690,7 +9995,7 @@
    "answer": "53/8",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "4(1/4) + 7(3/8) + 8(3/8).",
+    "4(1/4) + 7(3/8) + 8(3/8) = 8/8 + 21/8 + 24/8.",
     "E(X) = 53/8."
    ],
    "standards": [
@@ -9743,7 +10048,7 @@
    "answer": "39/10",
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "0(1/2) + 7(1/10) + 8(2/5).",
+    "0(1/2) + 7(1/10) + 8(2/5) = 7/10 + 32/10.",
     "E(X) = 39/10."
    ],
    "standards": [
@@ -9928,7 +10233,7 @@
    ],
    "solutionSteps": [
     "E(X) = Σ x·P(x).",
-    "0(1/3) + 5(2/9) + 6(2/9) + 7(2/9).",
+    "0(1/3) + 5(2/9) + 6(2/9) + 7(2/9) = (10 + 12 + 14)/9 = 36/9.",
     "E(X) = 4."
    ],
    "standards": [
@@ -10179,8 +10484,8 @@
     }
    ],
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(65 - 53) ÷ 18.",
+    "z = (x - μ)/σ.",
+    "(65 - 53)/18 = 12/18 ≈ 0.667.",
     "z ≈ 0.67."
    ],
    "standards": [
@@ -10231,9 +10536,9 @@
    "prompt": "Scores are normally distributed with mean 59 and standard deviation 5. Find the z-score of 73. Round to the nearest hundredth.",
    "answer": "2.80",
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(73 - 59) ÷ 5.",
-    "z ≈ 2.80."
+    "z = (x - μ)/σ.",
+    "(73 - 59)/5 = 14/5.",
+    "z = 2.80."
    ],
    "standards": [
     "S-ID.A.4"
@@ -10358,9 +10663,9 @@
    "prompt": "Scores are normally distributed with mean 68 and standard deviation 4. Find the z-score of 63. Round to the nearest hundredth.",
    "answer": "-1.25",
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(63 - 68) ÷ 4.",
-    "z ≈ -1.25."
+    "z = (x - μ)/σ.",
+    "(63 - 68)/4 = -5/4.",
+    "z = -1.25."
    ],
    "standards": [
     "S-ID.A.4"
@@ -10428,9 +10733,9 @@
     }
    ],
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(144 - 117) ÷ 5.",
-    "z ≈ 5.40."
+    "z = (x - μ)/σ.",
+    "(144 - 117)/5 = 27/5.",
+    "z = 5.40 (extremely far above the mean)."
    ],
    "standards": [
     "S-ID.A.4"
@@ -10462,9 +10767,9 @@
    "prompt": "Scores are normally distributed with mean 87 and standard deviation 5. Find the z-score of 116. Round to the nearest hundredth.",
    "answer": "5.80",
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(116 - 87) ÷ 5.",
-    "z ≈ 5.80."
+    "z = (x - μ)/σ.",
+    "(116 - 87)/5 = 29/5.",
+    "z = 5.80."
    ],
    "standards": [
     "S-ID.A.4"
@@ -10532,8 +10837,8 @@
     }
    ],
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(52 - 74) ÷ 14.",
+    "z = (x - μ)/σ.",
+    "(52 - 74)/14 = -22/14 ≈ -1.571.",
     "z ≈ -1.57."
    ],
    "standards": [
@@ -10566,8 +10871,8 @@
    "prompt": "Scores are normally distributed with mean 110 and standard deviation 7. Find the z-score of 106. Round to the nearest hundredth.",
    "answer": "-0.57",
    "solutionSteps": [
-    "z = (x - μ) ÷ σ.",
-    "(106 - 110) ÷ 7.",
+    "z = (x - μ)/σ.",
+    "(106 - 110)/7 = -4/7 ≈ -0.571.",
     "z ≈ -0.57."
    ],
    "standards": [
@@ -10657,8 +10962,9 @@
    "prompt": "A random survey of 900 people finds 79% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "3.3%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√900) ≈ 0.0333 = 3.3%."
+    "The quick estimate of the 95% margin of error is 1/√n (it does not depend on the 79%).",
+    "1/√900 = 1/30 ≈ 0.0333.",
+    "As a percent: 3.3%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -10729,8 +11035,9 @@
     }
    ],
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√900) ≈ 0.0333 = 3.3%."
+    "Margin of error ≈ 1/√n.",
+    "1/√900 = 1/30 ≈ 0.0333.",
+    "As a percent: 3.3%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -10747,8 +11054,9 @@
    "prompt": "A random survey of 900 people finds 69% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "3.3%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√900) ≈ 0.0333 = 3.3%."
+    "Margin of error ≈ 1/√n.",
+    "1/√900 = 1/30 ≈ 0.0333.",
+    "As a percent: 3.3%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -10765,8 +11073,9 @@
    "prompt": "A random survey of 1600 people finds 36% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "2.5%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√1600) ≈ 0.0250 = 2.5%."
+    "Margin of error ≈ 1/√n.",
+    "1/√1600 = 1/40 = 0.025.",
+    "As a percent: 2.5%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -11027,8 +11336,9 @@
    "prompt": "A random survey of 2500 people finds 21% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "2.0%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√2500) ≈ 0.0200 = 2.0%."
+    "Margin of error ≈ 1/√n.",
+    "1/√2500 = 1/50 = 0.02.",
+    "As a percent: 2.0%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -11081,8 +11391,9 @@
    "prompt": "A random survey of 100 people finds 65% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "10.0%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√100) ≈ 0.1000 = 10.0%."
+    "Margin of error ≈ 1/√n.",
+    "1/√100 = 1/10 = 0.1.",
+    "As a percent: 10.0%."
    ],
    "standards": [
     "S-IC.A.1",
@@ -11117,8 +11428,9 @@
    "prompt": "A random survey of 1600 people finds 28% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
    "answer": "2.5%",
    "solutionSteps": [
-    "Margin of error ≈ 1/(√n).",
-    "1/(√1600) ≈ 0.0250 = 2.5%."
+    "Margin of error ≈ 1/√n.",
+    "1/√1600 = 1/40 = 0.025.",
+    "As a percent: 2.5%."
    ],
    "standards": [
     "S-IC.A.1",
