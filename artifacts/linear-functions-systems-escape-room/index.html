@@ -58,6 +58,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 <header><h1>❄️ Blizzard at Summit Lodge</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
+<script src="../../worksheet-generator/core/math-display.js?v=aligned-givens-20261117"></script>
 <script>
 const studentView=new URLSearchParams(location.search).get('student')==='1';
 const fr=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
@@ -108,7 +109,7 @@ const ROOM={
   story:'The vault’s three dials, each a digit from 0 to 9, are set to the numbers of skis x, boots y, and helmets z in the secret order. The manager left a system of three equations.',
   scene:{kind:'emoji',bg:'#10243d',floor:'#dfe9f2',items:[{e:'🔐',x:200,y:150,s:96,msg:'Three dials. Guessing would take all day.'},{e:'🎿',x:80,y:205,s:50,msg:'A pair of skis, stuck in the snow like a fence.'},{e:'🧤',x:320,y:200,s:46,msg:'One glove. Where is the other one?'}]},
   title:'The Vault',
-  prompt:`<div class="eq">x + y + z = 10<br>2x − y + z = 2<br>x + 2y − z = 9</div><p>Solve the system. Set the dials to x, y, z.</p>`,
+  prompt:'<p>Solve the system. Set the dials to x, y, z.</p>'+MK_MATH_DISPLAY.renderSystem(['x + y + z = 10','2x − y + z = 2','x + 2y − z = 9']),
   fields:[{label:'x',answer:2},{label:'y',answer:5},{label:'z',answer:3}],button:'Try the combination',
   hints:['Eliminate the same variable twice to get two equations in two variables. Adding equations 1 and 3 cancels z.',`Adding equation 1 and equation 3 gives 2x + 3y = 19. Adding equation 2 and equation 3 gives 3x + y = 11. Now solve this 2 by 2 system.`,'From 3x + y = 11, y = 11 − 3x. Substitute into 2x + 3y = 19 to find x, then back-substitute for y and z. Check in all three equations.'],
   key:`(1)+(3): 2x + 3y = 19. (2)+(3): 3x + y = 11. Then y = 11 − 3x gives 2x + 33 − 9x = 19, so x = 2, y = 5. z = 10 − 2 − 5 = 3. Check: 4 − 5 + 3 = 2 ✓, 2 + 10 − 3 = 9 ✓. Dials 2, 5, 3.`},

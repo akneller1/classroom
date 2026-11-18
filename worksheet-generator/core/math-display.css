@@ -56,3 +56,25 @@ svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-widt
 .ans-box.answer { width: var(--el-big-w, .6in); height: var(--el-big-h, .44in); border-width: 2.5px; }
 .el-g1, .el-g2 { --el-big-w: .9in; --el-big-h: .62in; }
 .el-g35 { --el-big-w: .65in; --el-big-h: .44in; }
+
+/* Keep the question above its givens and let each equation share the same columns. */
+.mk-givens, .mk-piecewise {
+  display: block;
+  margin: .3em 0;
+  max-width: 100%;
+  overflow-x: auto;
+  break-inside: avoid;
+}
+.mk-given-grid {
+  display: inline-grid;
+  column-gap: .32em;
+  row-gap: .2em;
+  align-items: baseline;
+  padding: .08em .08em .12em 0;
+  white-space: nowrap;
+}
+.mk-given-term { text-align: right; }
+.mk-given-relation { text-align: center; }
+.mk-given-break { display: none; }
+.mk-piecewise > .sys { margin-inline-start: .35em; }
+.mk-piecewise .mk-given-grid { column-gap: .75em; }

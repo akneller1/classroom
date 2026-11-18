@@ -85,6 +85,8 @@ function fm(s){
     if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
     if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
     if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      const aligned=systemRows(rows,fm);
+      if(aligned){out+=aligned;continue;}
       out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
     if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
       out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
@@ -237,12 +239,120 @@ function withMatrices(part){
  }
  return out+mini(part.slice(last));
 }
+/* Recognize authored comparison lists while leaving isolated equations in prose.
+   TeX rows use the same layout, with KaTeX still rendering each expression. */
+const NUMBER = String.raw`(?:\d+(?:\.\d+)?(?:/\d+)?|\(\d+/\d+\))`;
+const TERM = String.raw`(?:${NUMBER}?[a-z](?:[²³]|\^[23])?(?:/\d+)?|${NUMBER}|[a-z]{2}|\([a-z][ +−\-\d]+\)[²³])`;
+const EXPRESSION = String.raw`[+−-]?\s*${TERM}(?:[ \t]*[+−-][ \t]*${TERM})*`;
+const RELATION = /<=|>=|=|≤|≥|<|>|\\leq?|\\geq?/;
+const PLAIN_ROW = String.raw`${EXPRESSION}[ \t]*(?:${RELATION.source})[ \t]*${EXPRESSION}(?![\w/^²³]|\.\d)`;
+const TEX_ROW = String.raw`⟨[^⟩\n]*?(?:${RELATION.source})[^⟩\n]*⟩`;
+const ROW = String.raw`(?:${TEX_ROW}|${PLAIN_ROW})`;
+const SEPARATOR = String.raw`(?:[ \t]*(?:;|,)[ \t]*(?:and[ \t]+)?|[ \t]+and[ \t]+)`;
+const ROW_SEQUENCE = new RegExp(String.raw`(?:^${ROW}|${SEPARATOR}(${ROW}))`, 'gy');
+const ROW_LIST = new RegExp(String.raw`(?<![\w⟨])${ROW}(?:${SEPARATOR}${ROW})+`, 'g');
+const BRACED_CASES = /\b([a-z]\([a-z]\)\s*=)\s*\{([^{}\n]+)\}/g;
+const REPEATED_CASES = new RegExp(String.raw`\b([a-z]\([a-z]\)\s*=)\s*(${EXPRESSION})[ \t]+(?:if|for)[ \t]+(${PLAIN_ROW})(?:;|,|[ \t]+and)[ \t]*\1\s*(${EXPRESSION})[ \t]+(?:if|for)[ \t]+(${PLAIN_ROW})`);
+const SYSTEM_CONTEXT = /\b(?:systems?|feasible region|subject to|constraints?|solve|substitution|elimination|graph shows|which points? satisfy|(?:the|two) lines|compare)\b/i;
+
+// A cell ends at its variable, so x, y and z align even with different-width coefficients.
+function variableCells(expressions, allowConstant) {
+ const term = /\s*[+−-]?\s*(?:(?:\d+(?:\.\d+)?(?:\/\d+)?|\(\d+\/\d+\)|\\(?:d?frac)\{\d+\}\{\d+\}|[a-z])?([A-Za-z])(?:\/\d+)?|((?:\d+(?:\.\d+)?(?:\/\d+)?|\\(?:d?frac)\{\d+\}\{\d+\})))/y;
+ const slots = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',''];
+ const parsed = expressions.map(expr=>{
+  const cells = new Map();
+  let last=-1,offset=0;
+  while(offset<expr.length){
+   term.lastIndex=offset;
+   const match=term.exec(expr);
+   if(!match||offset>0&&!/^[+−-]/.test(match[0].trimStart())||match[2]&&!allowConstant)return null;
+   const slot=slots.indexOf(match[1]||'');
+   if(slot<=last)return null;
+   cells.set(slot,match[0].trim());last=slot;offset=term.lastIndex;
+  }
+  return cells;
+ });
+ if(parsed.some(row=>!row))return null;
+ const used=slots.map((_,i)=>i).filter(i=>parsed.some(row=>row.has(i)));
+ return parsed.map(row=>used.map(i=>row.get(i)||''));
+}
+function systemRows(rows,render){
+ const parts=rows.map(row=>row.replace(/^⟨|⟩$/g,'').split(RELATION_CAPTURE).map(s=>s.trim()));
+ if(!parts.length||parts.some(row=>row.length!==3||!row[0]||!row[2]))return '';
+ const lhs=parts.map(row=>row[0]),rhs=parts.map(row=>row[2]);
+ const numeric=/^[+−-]?(?:\d+(?:\.\d+)?(?:\/\d+)?|\\(?:d?frac)\{\d+\}\{\d+\})$/;
+ const standard=rhs.every(expr=>numeric.test(expr))&&variableCells(lhs,false);
+ const slope=lhs.every(expr=>/^[xy]$/.test(expr)&&expr===lhs[0])&&variableCells(rhs,true);
+ const grid=parts.map(([left,op,right],i)=>[
+  ...(standard?standard[i]:[left]),op,...(slope?slope[i]:[right])
+ ]);
+ return '<span class="mk-givens"><span class="sys">'+givenGrid(grid,render,standard?standard[0].length:1,Boolean(slope))+'</span></span>';
+}
+const RELATION_CAPTURE = new RegExp('('+RELATION.source+')');
+function givenGrid(rows,render,relationColumn,alignRightSide){
+ return '<span class="mk-given-grid" style="grid-template-columns:repeat('+rows[0].length+',auto)">'+
+  rows.map((row,i)=>row.map((cell,j)=>{
+   const cls=j===relationColumn?' class="mk-given-relation"':(relationColumn!==undefined&&(j<relationColumn||alignRightSide&&j===relationColumn+1)?' class="mk-given-term"':'');
+   return '<span'+cls+'>'+render(cell,i,j)+'</span>';
+  }).join('')+(i===rows.length-1?'':'<span class="mk-given-break"><br></span>')).join('')+'</span>';
+}
+function systemList(raw){
+ // The split only occurs between comparisons, so commas in TeX are kept intact.
+ return Array.from(raw.matchAll(ROW_SEQUENCE), match=>match[1]||match[0]);
+}
+function renderSystem(rows){
+ const tex=rows.map(row=>row.startsWith('⟨'));
+ return systemRows(rows,(cell,i)=>tex[i]&&cell&&G.katex?inlineHtml('⟨'+cell+'⟩'):mini(cell));
+}
+function layoutLine(line){
+ for(const m of line.matchAll(BRACED_CASES)){
+  const rows=m[2].split(';').map(row=>row.trim().split(/\s+(?:if|for)\s+/));
+  if(rows.length<2||rows.some(row=>row.length!==2))continue;
+  return piecewise(line,m,rows);
+ }
+ const repeatedCase=REPEATED_CASES.exec(line);
+ if(repeatedCase)return piecewise(line,repeatedCase,[[repeatedCase[2],repeatedCase[3]],[repeatedCase[4],repeatedCase[5]]]);
+ for(const m of line.matchAll(ROW_LIST)){
+  const before=line.slice(0,m.index),after=line.slice(m.index+m[0].length);
+  if(!SYSTEM_CONTEXT.test(before)&&!/\bby (?:graphing|substitution|elimination)\b|solution of the system/.test(after))continue;
+  // Reject partial matches of expressions outside the supported authored notation.
+  if(/(?:[+−*/^=<≥≤>-]|\b(?:let|if|when))\s*$/i.test(before)||/^\s*[+−*/^=<≥≤>²³−-]/.test(after))continue;
+  const rows=systemList(m[0]),given=renderSystem(rows);
+  if(!given)continue;
+  const suffix=after.trimStart();
+  const intro=before.trimEnd();
+  const question=!suffix||suffix==='.'
+   ? intro.replace(/:?$/,':')
+   : (intro.replace(/:$/,suffix.startsWith('.')?'':':')+(/^[.?!,:;]/.test(suffix)?suffix:' '+suffix)).trim();
+  if(/\bsubject to$/i.test(intro)&&/^\.\s+/.test(suffix)&&suffix!=='.'){
+   return inlineHtml(intro+':')+given+inlineHtml(suffix.slice(1).trim());
+  }
+  return inlineHtml(question)+given;
+ }
+ return null;
+}
+function piecewise(line,match,rows){
+ const body=givenGrid(rows,(cell,_i,j)=>j?'if '+mini(cell):mini(cell));
+ return inlineHtml(line.slice(0,match.index))+'<span class="mk-piecewise">'+mini(match[1])+
+  '<span class="sys">'+body+'</span></span>'+inlineHtml(line.slice(match.index+match[0].length));
+}
+function layout(value){
+ const source=String(value??'');
+ if(!/[=≤≥<>]/.test(source))return null;
+ const lines=source.split('\n'),changed=lines.map(layoutLine);
+ if(changed.every(line=>line===null))return null;
+ return changed.map((line,i)=>line===null?inlineHtml(lines[i]):line).join('<br>');
+}
 function html(value,options){
+ const rendered=layout(value)??inlineHtml(value);
+ return options&&options.prose?'<span class="mk-prose">'+rendered+'</span>':rendered;
+}
+function inlineHtml(value){
  const rendered=money(value==null?'':value).split(/(⟨[^⟩]*⟩)/).map(part=>{
   if(/^⟨/.test(part)&&G.katex){return G.katex.renderToString(part.slice(1,-1).replace(/\\frac/g,'\\dfrac'),{throwOnError:false,output:'htmlAndMathml',trust:false})}
   return withMatrices(part).replace(/\n/g,'<br>');
  }).join('');
- return options&&options.prose?'<span class="mk-prose">'+rendered+'</span>':rendered;
+ return rendered;
 }
 function decorate(root){
  if(!root||!G.document)return;
@@ -250,14 +360,14 @@ function decorate(root){
  while((node=walk.nextNode())){
   if(!node.parentElement||node.parentElement.closest('script,style,textarea,select,option,.katex,.mk-math,.fr'))continue;
   let tidy=money(node.nodeValue);if(!/\//.test(tidy))tidy=trigSquares(tidy);if(tidy!==node.nodeValue)node.nodeValue=tidy;
-  if((/\/(?!\/)/.test(node.nodeValue)&&fractions(node.nodeValue)!==node.nodeValue)||hasMatrix(node.nodeValue))nodes.push(node);
+  if((/\/(?!\/)/.test(node.nodeValue)&&fractions(node.nodeValue)!==node.nodeValue)||hasMatrix(node.nodeValue)||layout(node.nodeValue)!==null)nodes.push(node);
  }
  nodes.forEach(n=>{const span=G.document.createElement('span');span.className='mk-math';span.innerHTML=html(n.nodeValue);n.replaceWith(span)});
 }
-G.MK_MATH_DISPLAY={html,fractions,decorate,money,hasMatrix,trigSquares};
+G.MK_MATH_DISPLAY={html,layout,renderSystem,fractions,decorate,money,hasMatrix,trigSquares};
 if(G.document){
- const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=elementary-blanks-20261115',script.src).href;G.document.head.appendChild(link);
- const selector='.af-prompt,.gm-q,.gm-opt,.gm-sol,.prompt,.statement,.choices,.problem,.display,.eq,.q,.solution,.steps,.st,.item,.ord,.pm-text,.pm-big,#prPreview .page';
+ const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=aligned-givens-20261117',script.src).href;G.document.head.appendChild(link);
+ const selector='#agPrompt,.af-prompt,.gm-q,.gm-opt,.gm-sol,.prompt,.statement,.choices,.problem,.display,.eq,.q,.solution,.steps,.st,.item,.ord,.pm-text,.pm-big,#prPreview .page';
  let pending=false;function scan(){pending=false;G.document.querySelectorAll(selector).forEach(decorate)}
  function schedule(){if(!pending){pending=true;queueMicrotask(scan)}}
  new MutationObserver(schedule).observe(G.document.body,{childList:true,subtree:true,characterData:true});schedule();

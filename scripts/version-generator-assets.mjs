@@ -4,6 +4,9 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 const out=path.resolve(process.argv[2]||'_site');
 const targets=new Set([
+ 'worksheet-generator/core/math-display.js',
+ 'worksheet-generator/core/render.js',
+ 'worksheet-generator/plot-practice.js',
  'worksheet-generator/menu/app.js','worksheet-generator/menu/engine.js',
  'worksheet-generator/menu/render.js','worksheet-generator/menu/verify.js',
  'worksheet-generator/menu/skills/algebra1-expressions-equations.js',

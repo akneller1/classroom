@@ -10,7 +10,15 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function math(markup) {
-    return String(markup).replace(/⟨([^⟩]*)⟩/g, function (m, tex) {
+    var value = String(markup);
+    if (G.MK_MATH_DISPLAY) {
+      // The older worksheet generators emit trusted divs containing only an equation.
+      value = value.replace(/(?:<div>⟨[^⟩]*⟩<\/div>){2,}/g, function (block) {
+        var rows = block.match(/⟨[^⟩]*⟩/g);
+        return G.MK_MATH_DISPLAY.renderSystem(rows) || block;
+      });
+    }
+    return value.replace(/⟨([^⟩]*)⟩/g, function (m, tex) {
       try { return G.katex.renderToString(tex.replace(/\\frac/g, '\\dfrac'), { throwOnError: false, output: 'htmlAndMathml' }); }
       catch (e) { return esc(tex); }
     });

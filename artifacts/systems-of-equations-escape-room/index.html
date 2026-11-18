@@ -56,6 +56,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 <header><h1>🏛️ Locked In: Night at the Museum</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
+<script src="../../worksheet-generator/core/math-display.js?v=aligned-givens-20261117"></script>
 <script>
 const studentView=new URLSearchParams(location.search).get('student')==='1';
 const fr=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
@@ -82,7 +83,7 @@ const ROOM={
   story:'Three alarm panels each show a pair of wires. Each panel only accepts a verdict: do the two lines cross once, never, or are they the same line?',
   scene:{kind:'emoji',bg:'#0b0e20',items:[{e:'🚨',x:80,y:150,s:60},{e:'📟',x:200,y:150,s:60},{e:'🔔',x:320,y:150,s:60}],caption:'three panels, three verdicts'},
   title:'Panels',prompt:'<p style="color:var(--dim)">Choose one verdict for each panel.</p>',
-  items:['y = 3x + 2<br>y = 3x − 4','2x + y = 4<br>x − y = 2','2x + 4y = 8<br>x + 2y = 4'],options:['ONE solution','NO solution','INFINITELY many'],answer:[1,0,2],
+  items:[['y = 3x + 2','y = 3x − 4'],['2x + y = 4','x − y = 2'],['2x + 4y = 8','x + 2y = 4']].map(MK_MATH_DISPLAY.renderSystem),options:['ONE solution','NO solution','INFINITELY many'],answer:[1,0,2],
   hints:['Compare slopes first. Different slopes cross exactly once.','Same slope: compare the y-intercepts.','Panel 3: is the first equation just the second one multiplied by 2?'],key:'Panel 1 none, panel 2 one (2, 0), panel 3 infinitely many.'},
  {name:'The Gift Shop Safe',type:'fields',stamp:31,letter:'U',
   story:'The cash safe opens with prices from the guard’s coffee receipts. Two orders survive. Set up two equations and eliminate.',
@@ -92,7 +93,7 @@ const ROOM={
  {name:'The Vault Door',type:'fields',stamp:58,letter:'E',ui:'dial',
   story:'The last door is a vault with two dials, A and B. A brass plate gives the clue. Elimination will crack it fast.',
   scene:{kind:'emoji',bg:'#0b0e20',items:[{e:'🚪',x:200,y:180,s:120,msg:'A heavy vault door.'}],caption:'dial A, then dial B'},
-  title:'The Brass Plate',prompt:'<div class="eq">4A − 2B = 4</div><br><div class="eq">3A + 2B = 31</div><p>Set the dials to the values of A and B.</p>',fields:[{label:'A',answer:5},{label:'B',answer:8}],button:'Turn the handle',
+  title:'The Brass Plate',prompt:'<p>Set the dials to the values of A and B.</p>'+MK_MATH_DISPLAY.renderSystem(['4A − 2B = 4','3A + 2B = 31']),fields:[{label:'A',answer:5},{label:'B',answer:8}],button:'Turn the handle',
   hints:['Notice −2B and +2B. Add the equations.','7A = 35.','Put A back into either equation to find B.'],key:'A = 5, B = 8.'}
  ]};
 

@@ -16,7 +16,10 @@
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function math(m) { return WS.render.math(m); }                       // trusted markup (reference page)
   /* Untrusted text (teacher edits, loaded files): escape everything outside ⟨…⟩; KaTeX renders the math safely. */
-  function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part,{prose:true}) : esc(part)); }).join(''); }
+  function mathSafe(m) {
+    var layout = G.MK_MATH_DISPLAY?.layout(m);
+    if (layout != null) return '<span class="mk-prose">' + layout + '</span>';
+    return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part,{prose:true}) : esc(part)); }).join(''); }
   NS.mathSafe = mathSafe;
   // Skill authors supply either raw TeX or an already delimited expression.
   NS.stepMath = function (value) {

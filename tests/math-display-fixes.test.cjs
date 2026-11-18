@@ -22,3 +22,25 @@ test('rectangular matrices render as grids while fractions and malformed rows st
  assert.ok(M.html('[[1 ; 2]]').includes('class="fr"'));
  assert.ok(!M.html('<script>alert(1)</script>').includes('<script>'));
 });
+test('standard-form systems align variable columns below the directions',()=>{
+ const prompt='Solve by elimination: 2x + 3y = 7 and -14x - y = 5.';
+ const html=M.layout(prompt);
+ assert.ok(html.indexOf('elimination')<html.indexOf('mk-givens'));
+ assert.match(html,/repeat\(4,auto\)/);
+ assert.match(html,/>2<i>x<\/i><\/span><span[^>]*>\+ 3<i>y<\/i>/);
+ assert.match(html,/>−14<i>x<\/i><\/span><span[^>]*>− <i>y<\/i>/);
+});
+test('three-variable systems and inequalities keep empty variable columns',()=>{
+ const system=M.layout('Solve the system: x + y + z = 11; x + 2z = 8; y + 3z = 11. Give the answer as (x, y, z).');
+ assert.match(system,/repeat\(5,auto\)/);
+ assert.match(system,/2<i>z<\/i>/);
+ assert.match(system,/<span class="mk-given-term"><\/span>/);
+ const region=M.layout('Find the maximum of P = 7x + 9y subject to x ≥ 0, y ≥ 0, x + y ≤ 5.');
+ assert.equal((region.match(/class="mk-given-relation"/g)||[]).length,3);
+ assert.match(region,/subject<\/span> <span class="tx">to<\/span>:/);
+});
+test('piecewise branches share columns and inline math in other prompts stays inline',()=>{
+ assert.match(M.layout('f(x) = { x² - 1 if x < 2; 3x - 4 if x ≥ 2 }. Find f(-3).'),/class="mk-piecewise".*repeat\(2,auto\).*if.*if.*Find/);
+ assert.match(M.layout('f(x) = -2x² for x ≤ 3 and f(x) = mx + b for x > 3. Find m and b.'),/class="mk-piecewise"/);
+ for(const prompt of ['Solve 1 ≤ x ≤ 3.', 'Evaluate x²y when x = 6 and y = 5.', 'Write y = 2x/3 - 5/3 in standard form Ax + By = C.'])assert.equal(M.layout(prompt),null,prompt);
+});
