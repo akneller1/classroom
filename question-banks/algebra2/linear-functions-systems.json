@@ -292,8 +292,9 @@
    "prompt": "Find the x- and y-intercepts of 3x - 4y = 12.",
    "answer": "x-intercept (4, 0), y-intercept (0, -3)",
    "solutionSteps": [
-    "Set y = 0: 3x = 12 → x = 4.",
-    "Set x = 0: -4y = 12 → y = -3."
+    "The x-intercept is where the line crosses the x-axis, so y = 0 there: 3x - 4(0) = 12, so 3x = 12 and x = 4.",
+    "The y-intercept is where the line crosses the y-axis, so x = 0 there: 3(0) - 4y = 12, so -4y = 12 and y = -3.",
+    "Write each intercept as a point: x-intercept (4, 0), y-intercept (0, -3)."
    ],
    "standards": [
     "F-LE.A.2",
@@ -309,8 +310,9 @@
    "prompt": "Find the x- and y-intercepts of 5x + 2y = -20.",
    "answer": "x-intercept (-4, 0), y-intercept (0, -10)",
    "solutionSteps": [
-    "Set y = 0: 5x = -20 → x = -4.",
-    "Set x = 0: 2y = -20 → y = -10."
+    "Set y = 0 for the x-intercept: 5x + 2(0) = -20, so 5x = -20 and x = -4.",
+    "Set x = 0 for the y-intercept: 5(0) + 2y = -20, so 2y = -20 and y = -10.",
+    "Write each intercept as a point: x-intercept (-4, 0), y-intercept (0, -10)."
    ],
    "standards": [
     "F-LE.A.2",
@@ -326,8 +328,9 @@
    "prompt": "Find the x- and y-intercepts of -2x + 6y = 18.",
    "answer": "x-intercept (-9, 0), y-intercept (0, 3)",
    "solutionSteps": [
-    "Set y = 0: -2x = 18 → x = -9.",
-    "Set x = 0: 6y = 18 → y = 3."
+    "Set y = 0 for the x-intercept: -2x + 6(0) = 18, so -2x = 18 and x = -9.",
+    "Set x = 0 for the y-intercept: -2(0) + 6y = 18, so 6y = 18 and y = 3.",
+    "Write each intercept as a point: x-intercept (-9, 0), y-intercept (0, 3)."
    ],
    "standards": [
     "F-LE.A.2",
@@ -773,8 +776,9 @@
    "prompt": "What is the slope of the line through (1, 2) and (5, 10)?",
    "answer": "2",
    "solutionSteps": [
-    "m = (y₂ - y₁)/(x₂ - x₁) = (10 - 2)/(5 - 1).",
-    "m = 2."
+    "Use m = (y₂ - y₁)/(x₂ - x₁) with (x₁, y₁) = (1, 2) and (x₂, y₂) = (5, 10).",
+    "Change in y: 10 - 2 = 8. Change in x: 5 - 1 = 4.",
+    "m = 8/4 = 2."
    ],
    "options": [
     {
@@ -807,8 +811,9 @@
    "prompt": "What is the slope of the line through (-3, 4) and (1, -4)?",
    "answer": "-2",
    "solutionSteps": [
-    "m = (y₂ - y₁)/(x₂ - x₁) = (-4 - 4)/(1 - (-3)).",
-    "m = -2."
+    "Use m = (y₂ - y₁)/(x₂ - x₁) with (x₁, y₁) = (-3, 4) and (x₂, y₂) = (1, -4).",
+    "Change in y: -4 - 4 = -8. Change in x: 1 - (-3) = 4.",
+    "m = -8/4 = -2."
    ],
    "options": [
     {
@@ -875,8 +880,9 @@
    "prompt": "What is the slope of the line through (0, 3) and (7, 3)?",
    "answer": "0",
    "solutionSteps": [
-    "m = (y₂ - y₁)/(x₂ - x₁) = (3 - 3)/(7 - 0).",
-    "m = 0."
+    "Use m = (y₂ - y₁)/(x₂ - x₁) with (0, 3) and (7, 3).",
+    "Change in y: 3 - 3 = 0. Change in x: 7 - 0 = 7.",
+    "m = 0/7 = 0, so the line is horizontal."
    ],
    "options": [
     {
@@ -909,8 +915,9 @@
    "prompt": "What is the slope of the line through (-5, -2) and (5, 2)?",
    "answer": "2/5",
    "solutionSteps": [
-    "m = (y₂ - y₁)/(x₂ - x₁) = (2 - (-2))/(5 - (-5)).",
-    "m = 2/5."
+    "Use m = (y₂ - y₁)/(x₂ - x₁) with (-5, -2) and (5, 2).",
+    "Change in y: 2 - (-2) = 4. Change in x: 5 - (-5) = 10.",
+    "m = 4/10 = 2/5."
    ],
    "options": [
     {
@@ -943,8 +950,9 @@
    "prompt": "Find the average rate of change of f(x) = x² from x = 1 to x = 4.",
    "answer": "5",
    "solutionSteps": [
-    "f(4) = 16 and f(1) = 1.",
-    "(f(4) - f(1))/(4 - (1)) = 5."
+    "Evaluate the endpoints: f(1) = 1² = 1 and f(4) = 4² = 16.",
+    "Average rate of change = (f(4) - f(1))/(4 - 1) = (16 - 1)/3.",
+    "= 15/3 = 5."
    ],
    "standards": [
     "F-IF.B.6"
@@ -959,8 +967,9 @@
    "prompt": "Find the average rate of change of f(x) = x² - 3x from x = -1 to x = 2.",
    "answer": "-2",
    "solutionSteps": [
-    "f(2) = -2 and f(-1) = 4.",
-    "(f(2) - f(-1))/(2 - (-1)) = -2."
+    "Evaluate the endpoints: f(-1) = (-1)² - 3(-1) = 1 + 3 = 4 and f(2) = 2² - 3(2) = 4 - 6 = -2.",
+    "Average rate of change = (f(2) - f(-1))/(2 - (-1)) = (-2 - 4)/3.",
+    "= -6/3 = -2."
    ],
    "standards": [
     "F-IF.B.6"
@@ -975,8 +984,9 @@
    "prompt": "Find the average rate of change of f(x) = 2^x from x = 0 to x = 3.",
    "answer": "7/3",
    "solutionSteps": [
-    "f(3) = 8 and f(0) = 1.",
-    "(f(3) - f(0))/(3 - (0)) = 7/3."
+    "Evaluate the endpoints: f(0) = 2⁰ = 1 and f(3) = 2³ = 8.",
+    "Average rate of change = (f(3) - f(0))/(3 - 0) = (8 - 1)/3.",
+    "= 7/3."
    ],
    "standards": [
     "F-IF.B.6"
@@ -991,8 +1001,9 @@
    "prompt": "Find the average rate of change of f(x) = x³ from x = -2 to x = 1.",
    "answer": "3",
    "solutionSteps": [
-    "f(1) = 1 and f(-2) = -8.",
-    "(f(1) - f(-2))/(1 - (-2)) = 3."
+    "Evaluate the endpoints: f(-2) = (-2)³ = -8 and f(1) = 1³ = 1.",
+    "Average rate of change = (f(1) - f(-2))/(1 - (-2)) = (1 - (-8))/3.",
+    "= 9/3 = 3."
    ],
    "standards": [
     "F-IF.B.6"
@@ -1267,7 +1278,9 @@
    "prompt": "For f(x) = x², find the average rate of change on [a, a + h] in terms of a and h.",
    "answer": "2a + h",
    "solutionSteps": [
-    "((a + h)² - a²)/h = (2ah + h²)/h = 2a + h."
+    "Average rate of change on [a, a + h] = (f(a + h) - f(a))/((a + h) - a) = ((a + h)² - a²)/h.",
+    "Expand: (a + h)² - a² = a² + 2ah + h² - a² = 2ah + h².",
+    "Divide by h (h ≠ 0): (2ah + h²)/h = 2a + h."
    ],
    "standards": [
     "F-IF.B.6"
@@ -1439,8 +1452,9 @@
    "prompt": "A gym charges a $50 sign-up fee and $25 per month. Which equation models total cost C after m months?",
    "answer": "C = 25m + 50",
    "solutionSteps": [
-    "One-time fee → intercept 50.",
-    "Monthly charge → slope 25."
+    "The $50 sign-up fee is paid once, so it is the starting value (the intercept).",
+    "The $25 is added every month, so it is the rate of change (the slope) per month m.",
+    "Total cost: C = 25m + 50."
    ],
    "options": [
     {
@@ -1474,7 +1488,9 @@
    "prompt": "In the model h = -0.6t + 48 for the height (cm) of a burning candle after t hours, what does 48 represent?",
    "answer": "The candle's initial height",
    "solutionSteps": [
-    "48 is the value of h when t = 0."
+    "In h = -0.6t + 48, the constant 48 is the value of h when t = 0.",
+    "t = 0 is the moment the candle is lit, before any time has passed.",
+    "So 48 cm is the candle's initial height."
    ],
    "options": [
     {
@@ -1508,8 +1524,9 @@
    "prompt": "Using h = -0.6t + 48 for a candle's height (cm) after t hours, when does the candle burn out?",
    "answer": "80 hours",
    "solutionSteps": [
-    "Set h = 0: -0.6t + 48 = 0.",
-    "t = 48/0.6 = 80."
+    "The candle burns out when its height is 0, so set h = 0: -0.6t + 48 = 0.",
+    "Add 0.6t to both sides: 0.6t = 48.",
+    "Divide by 0.6: t = 48/0.6 = 80, so it burns out after 80 hours."
    ],
    "standards": [
     "F-LE.A.2",
@@ -1626,8 +1643,9 @@
    "prompt": "Celsius and Kelvin: 0°C = 273.15 K and 100°C = 373.15 K. Which statement is true?",
    "answer": "K = C + 273.15, so the slope is 1",
    "solutionSteps": [
-    "Slope: (373.15 - 273.15)/100 = 1.",
-    "Intercept 273.15."
+    "Treat the two facts as points (C, K): (0, 273.15) and (100, 373.15).",
+    "Slope = (373.15 - 273.15)/(100 - 0) = 100/100 = 1.",
+    "At C = 0, K = 273.15, so the intercept is 273.15 and K = C + 273.15, with slope 1."
    ],
    "options": [
     {
@@ -1870,7 +1888,9 @@
    "prompt": "How many solutions does the system y = 3x - 2 and 6x - 2y = 4 have?",
    "answer": "Infinitely many solutions",
    "solutionSteps": [
-    "Substituting gives 6x - 6x + 4 = 4, a true statement: the lines coincide."
+    "Substitute y = 3x - 2 into 6x - 2y = 4: 6x - 2(3x - 2) = 4.",
+    "Simplify: 6x - 6x + 4 = 4, so 4 = 4.",
+    "The variable drops out and the statement is always true, so the equations describe the same line: infinitely many solutions."
    ],
    "options": [
     {
@@ -1904,7 +1924,9 @@
    "prompt": "How many solutions does the system y = -2x + 1 and 4x + 2y = 7 have?",
    "answer": "No solution",
    "solutionSteps": [
-    "Substituting gives 4x - 4x + 2 = 7 → 2 = 7, false: parallel lines."
+    "Substitute y = -2x + 1 into 4x + 2y = 7: 4x + 2(-2x + 1) = 7.",
+    "Simplify: 4x - 4x + 2 = 7, so 2 = 7.",
+    "The statement is false for every x, so the lines are parallel: no solution."
    ],
    "options": [
     {
@@ -1938,7 +1960,9 @@
    "prompt": "How many solutions does the system x = 2y + 1 and 3x - 6y = 3 have?",
    "answer": "Infinitely many solutions",
    "solutionSteps": [
-    "3(2y + 1) - 6y = 3 → 3 = 3."
+    "Substitute x = 2y + 1 into 3x - 6y = 3: 3(2y + 1) - 6y = 3.",
+    "Simplify: 6y + 3 - 6y = 3, so 3 = 3.",
+    "The statement is always true, so the two equations are the same line: infinitely many solutions."
    ],
    "options": [
     {
@@ -2332,7 +2356,9 @@
    "prompt": "When eliminating, a student gets 0 = 0. What does this mean?",
    "answer": "The equations describe the same line: infinitely many solutions",
    "solutionSteps": [
-    "0 = 0 is always true, so every point on one line satisfies both."
+    "When both variables cancel, what is left is a statement about numbers only.",
+    "0 = 0 is true no matter what x and y are.",
+    "So every point on one line is also on the other: the equations describe the same line and there are infinitely many solutions."
    ],
    "options": [
     {
@@ -2508,8 +2534,10 @@
    "prompt": "A boat goes 36 km downstream in 2 h and returns upstream in 3 h. Find the boat's speed in still water and the current's speed.",
    "answer": "15 km/h boat, 3 km/h current",
    "solutionSteps": [
-    "b + c = 18 and b - c = 12.",
-    "Add: 2b = 30 → b = 15; c = 3."
+    "Downstream the current helps: speed = 36 ÷ 2 = 18 km/h, so b + c = 18.",
+    "Upstream the current slows the boat: speed = 36 ÷ 3 = 12 km/h, so b - c = 12.",
+    "Add the equations: 2b = 30, so b = 15. Then c = 18 - 15 = 3.",
+    "The boat goes 15 km/h in still water and the current is 3 km/h."
    ],
    "standards": [
     "A-REI.C.5",
@@ -3018,7 +3046,9 @@
    "prompt": "A student rewrites -2y > 6x - 4 as y > -3x + 2. What is the error?",
    "answer": "The sign should reverse: y < -3x + 2",
    "solutionSteps": [
-    "Dividing by -2 reverses the inequality."
+    "To isolate y in -2y > 6x - 4, divide every term by -2.",
+    "Dividing (or multiplying) an inequality by a negative number reverses the inequality sign.",
+    "So y < -3x + 2, not y > -3x + 2."
    ],
    "options": [
     {
@@ -3306,7 +3336,9 @@
    "prompt": "In linear programming, where does the maximum of a linear objective over a bounded feasible region occur?",
    "answer": "At a vertex of the region",
    "solutionSteps": [
-    "Level lines of a linear objective slide across the region and leave it last at a corner (vertex)."
+    "For a linear objective, the lines where it has a fixed value are parallel; increasing the value slides the line across the region.",
+    "The last point of the region the line touches as it slides is a corner of the region.",
+    "So the maximum (and the minimum) of a bounded region occurs at a vertex."
    ],
    "options": [
     {
@@ -3339,8 +3371,9 @@
    "prompt": "A bakery makes muffins (x) and cakes (y). Each muffin needs 1 cup of flour, each cake 3 cups, and 30 cups are available. Which is the flour constraint?",
    "answer": "x + 3y ≤ 30",
    "solutionSteps": [
-    "Flour used = 1·x + 3·y.",
-    "Available limits usage: ≤ 30."
+    "Each muffin uses 1 cup and each cake uses 3 cups, so x muffins and y cakes use 1·x + 3·y cups.",
+    "The flour used cannot be more than the 30 cups available.",
+    "Constraint: x + 3y ≤ 30."
    ],
    "options": [
     {
@@ -3851,7 +3884,9 @@
     "y = 0.25x - 3"
    ],
    "solutionSteps": [
-    "Perpendicular slopes are negative reciprocals: 1/4."
+    "The slope of y = -4x + 1 is -4, so a perpendicular line has slope -1/(-4) = 1/4 (the negative reciprocal).",
+    "Find each slope: y = 4x → 4; x - 4y = 8 → y = (1/4)x - 2 → 1/4; y = -(1/4)x → -1/4; y = (1/4)x → 1/4; y = 0.25x - 3 → 0.25 = 1/4; 4x + y = 2 → -4.",
+    "The lines with slope 1/4 are y = (1/4)x, x - 4y = 8 and y = 0.25x - 3."
    ],
    "options": [
     {
@@ -4036,7 +4071,9 @@
    "prompt": "A student computes the slope through (2, 5) and (6, 1) as (6 - 2)/(1 - 5) = -1. What is wrong?",
    "answer": "The ratio is upside down; the slope is (1 - 5)/(6 - 2) = -1 — the answer is right by coincidence",
    "solutionSteps": [
-    "Slope is Δy/Δx; here both give -1 only because |Δy| = |Δx|."
+    "Slope is change in y over change in x: m = (1 - 5)/(6 - 2) = -4/4 = -1.",
+    "The student divided change in x by change in y: (6 - 2)/(1 - 5) = 4/(-4) = -1.",
+    "Both happen to equal -1 only because |Δy| = |Δx| here; the method is upside down and would give the wrong slope for other points."
    ],
    "options": [
     {
@@ -4069,7 +4106,9 @@
    "prompt": "What is the slope of y = 7?",
    "answer": "0",
    "solutionSteps": [
-    "Horizontal line."
+    "y = 7 has the same y-value, 7, for every x, so its graph is a horizontal line.",
+    "Between any two points the change in y is 0.",
+    "Slope = 0/(change in x) = 0."
    ],
    "standards": [
     "F-IF.B.6"
@@ -4084,7 +4123,9 @@
    "prompt": "Find k so the line through (1, k) and (4, 10) has slope 2.",
    "answer": "k = 4",
    "solutionSteps": [
-    "(10 - k)/3 = 2."
+    "Slope through (1, k) and (4, 10): m = (10 - k)/(4 - 1) = (10 - k)/3.",
+    "Set it equal to 2: (10 - k)/3 = 2, so 10 - k = 6.",
+    "k = 4."
    ],
    "standards": [
     "F-IF.B.6"
@@ -4284,7 +4325,9 @@
    "prompt": "A linear model passes through (2, 50) and (6, 90). Which equation is it?",
    "answer": "y = 10x + 30",
    "solutionSteps": [
-    "Slope from the two points; then solve for b."
+    "Slope: m = (90 - 50)/(6 - 2) = 40/4 = 10.",
+    "Use (2, 50) in y = 10x + b: 50 = 10(2) + b, so b = 30.",
+    "The model is y = 10x + 30. Check (6, 90): 10(6) + 30 = 90."
    ],
    "options": [
     {
@@ -4318,7 +4361,9 @@
    "prompt": "A linear model passes through (0, 18) and (5, 3). Which equation is it?",
    "answer": "y = -3x + 18",
    "solutionSteps": [
-    "Slope from the two points; then solve for b."
+    "Slope: m = (3 - 18)/(5 - 0) = -15/5 = -3.",
+    "(0, 18) is the y-intercept, so b = 18.",
+    "The model is y = -3x + 18. Check (5, 3): -3(5) + 18 = 3."
    ],
    "options": [
     {
@@ -4348,7 +4393,9 @@
    "prompt": "A linear model passes through (10, 4) and (30, 9). Which equation is it?",
    "answer": "y = 0.25x + 1.5",
    "solutionSteps": [
-    "Slope from the two points; then solve for b."
+    "Slope: m = (9 - 4)/(30 - 10) = 5/20 = 0.25.",
+    "Use (10, 4): 4 = 0.25(10) + b = 2.5 + b, so b = 1.5.",
+    "The model is y = 0.25x + 1.5. Check (30, 9): 0.25(30) + 1.5 = 9."
    ],
    "options": [
     {
@@ -4382,7 +4429,9 @@
    "prompt": "A linear model passes through (1, 2.5) and (4, 7). Which equation is it?",
    "answer": "y = 1.5x + 1",
    "solutionSteps": [
-    "Slope from the two points; then solve for b."
+    "Slope: m = (7 - 2.5)/(4 - 1) = 4.5/3 = 1.5.",
+    "Use (1, 2.5): 2.5 = 1.5(1) + b, so b = 1.",
+    "The model is y = 1.5x + 1. Check (4, 7): 1.5(4) + 1 = 7."
    ],
    "options": [
     {
@@ -4421,8 +4470,10 @@
     "After 6 months the cost is $200"
    ],
    "solutionSteps": [
-    "Intercept 50, slope 25.",
-    "25·12 + 50 = 350; 25·6 + 50 = 200."
+    "In C = 25m + 50 the intercept 50 is the one-time sign-up fee and the slope 25 is the monthly rate, so C is linear, not exponential.",
+    "C(12) = 25(12) + 50 = 300 + 50 = 350.",
+    "C(6) = 25(6) + 50 = 150 + 50 = 200.",
+    "True: the sign-up fee is $50, the monthly rate is $25, C(12) = 350 and after 6 months the cost is $200."
    ],
    "options": [
     {
@@ -4501,7 +4552,9 @@
    "prompt": "Which situation is NOT well modeled by a linear function?",
    "answer": "A bacteria population that doubles every hour",
    "solutionSteps": [
-    "Doubling is a constant ratio (exponential)."
+    "A linear model adds the same amount in each equal time step (constant difference).",
+    "A population that doubles every hour multiplies by 2 each hour (constant ratio), so its increases keep growing.",
+    "That is exponential growth, so the bacteria population is not well modeled by a linear function."
    ],
    "options": [
     {
@@ -4535,7 +4588,9 @@
    "prompt": "A movie streaming service costs $11 per month. Write the total cost after m months.",
    "answer": "C = 11m",
    "solutionSteps": [
-    "Rate × months."
+    "The cost goes up by $11 for every month, so the rate is 11 dollars per month.",
+    "There is no starting fee, so the cost is 0 when m = 0.",
+    "Total cost: C = 11m."
    ],
    "standards": [
     "F-LE.A.2",
@@ -4551,7 +4606,9 @@
    "prompt": "Two plans: A charges $40 + $0.10/min; B charges $0.25/min. For how many minutes do they cost the same? Round to the nearest tenth of a minute.",
    "answer": "≈ 266.7 minutes (about 267)",
    "solutionSteps": [
-    "40 + 0.1m = 0.25m → 0.15m = 40."
+    "Plan A costs 40 + 0.10m and plan B costs 0.25m for m minutes.",
+    "Set them equal: 40 + 0.1m = 0.25m, so 40 = 0.15m.",
+    "m = 40/0.15 ≈ 266.67, so the plans cost the same at about 266.7 minutes (about 267)."
    ],
    "standards": [
     "F-LE.A.2",
@@ -4835,7 +4892,9 @@
    "prompt": "A student solves y = 3x - 2 and 2x + y = 8 and gets x = 2, then reports the solution as x = 2. What is missing?",
    "answer": "The y-value: the solution is (2, 4)",
    "solutionSteps": [
-    "A solution of a system is an ordered pair."
+    "x = 2 is only half of the answer: a solution of a system in two variables is an ordered pair (x, y).",
+    "Substitute x = 2 into y = 3x - 2: y = 3(2) - 2 = 4.",
+    "Check in 2x + y = 8: 2(2) + 4 = 8. The solution is (2, 4)."
    ],
    "options": [
     {
@@ -4869,7 +4928,10 @@
    "prompt": "Solve by substitution: x = 2y + 1 and 3x - 4y = 9.",
    "answer": "(7, 3)",
    "solutionSteps": [
-    "3(2y + 1) - 4y = 9 → 2y = 6."
+    "Substitute x = 2y + 1 into 3x - 4y = 9: 3(2y + 1) - 4y = 9.",
+    "Simplify: 6y + 3 - 4y = 9, so 2y = 6 and y = 3.",
+    "Back-substitute: x = 2(3) + 1 = 7.",
+    "The solution is (7, 3). Check: 3(7) - 4(3) = 21 - 12 = 9."
    ],
    "standards": [
     "A-REI.C.6",
@@ -4885,7 +4947,9 @@
    "prompt": "For what k does y = kx + 2 and y = 3x - 5 have no solution?",
    "answer": "k = 3",
    "solutionSteps": [
-    "Same slope, different intercepts."
+    "A linear system has no solution when the lines are parallel: same slope, different y-intercepts.",
+    "The slopes are k and 3, so the lines are parallel when k = 3.",
+    "The intercepts are 2 and -5, which are different, so k = 3 gives no solution."
    ],
    "standards": [
     "A-REI.C.6",
@@ -4901,7 +4965,9 @@
    "prompt": "Is (1, 4) a solution of y = 2x + 2 and y = -x + 5?",
    "answer": "Yes",
    "solutionSteps": [
-    "4 = 4 and 4 = 4."
+    "Substitute (1, 4) into y = 2x + 2: 4 = 2(1) + 2 = 4, true.",
+    "Substitute (1, 4) into y = -x + 5: 4 = -1 + 5 = 4, true.",
+    "The point satisfies both equations, so yes, it is a solution."
    ],
    "standards": [
     "A-REI.C.6",
@@ -5157,10 +5223,10 @@
    "prompt": "Tickets: adult $9, child $6. 300 tickets sold for $2,250.",
    "answer": "(a) a + c = 300; 9a + 6c = 2250; (b) Multiply the first by 6 and subtract: 3a = 450; (c) a = 150, c = 150; (d) 9(150) + 6(150) = 2250",
    "solutionSteps": [
-    "Count and value.",
-    "6a + 6c = 1800.",
-    "Back-substitute.",
-    "Substitute."
+    "(a) Count: a + c = 300 tickets. Value: 9a + 6c = 2250 dollars.",
+    "(b) Multiply the count equation by 6: 6a + 6c = 1800. Subtract it from 9a + 6c = 2250: 3a = 450.",
+    "(c) a = 450 ÷ 3 = 150, then c = 300 - 150 = 150.",
+    "(d) Check the value: 9(150) + 6(150) = 1350 + 900 = 2250."
    ],
    "parts": [
     {
@@ -5231,7 +5297,9 @@
    "prompt": "Eliminating gives 0 = 5. What does this mean?",
    "answer": "The system has no solution (parallel lines)",
    "solutionSteps": [
-    "A false statement means inconsistent."
+    "When both variables cancel, the result is a statement about numbers only.",
+    "0 = 5 is false no matter what x and y are.",
+    "So no point satisfies both equations: the lines are parallel and the system has no solution."
    ],
    "options": [
     {
@@ -5265,7 +5333,9 @@
    "prompt": "Eliminating gives 0 = 0. What does this mean?",
    "answer": "Infinitely many solutions (same line)",
    "solutionSteps": [
-    "A true statement with no variables means the equations are equivalent."
+    "When both variables cancel, the result is a statement about numbers only.",
+    "0 = 0 is true no matter what x and y are.",
+    "So the two equations are equivalent (the same line), and the system has infinitely many solutions."
    ],
    "options": [
     {
@@ -5299,8 +5369,10 @@
    "prompt": "A boat travels 36 mi downstream in 2 h and returns upstream in 3 h. Find the boat's speed and the current.",
    "answer": "boat 15 mph, current 3 mph",
    "solutionSteps": [
-    "b + c = 18, b - c = 12.",
-    "Add: 2b = 30."
+    "Downstream: 36 ÷ 2 = 18 mph, so b + c = 18. Upstream: 36 ÷ 3 = 12 mph, so b - c = 12.",
+    "Add the equations: 2b = 30, so b = 15.",
+    "Then c = 18 - 15 = 3.",
+    "The boat's speed is 15 mph and the current is 3 mph."
    ],
    "standards": [
     "A-REI.C.5",
@@ -5320,7 +5392,10 @@
     "(5, -1)"
    ],
    "solutionSteps": [
-    "Substitute; boundary points count only for ≤ or ≥."
+    "Substitute each point into y ≤ -x + 4 and check whether the left side is at most the right side.",
+    "(0, 0): 0 ≤ 4 true. (2, 2): 2 ≤ 2 true (on the boundary, allowed by ≤). (5, -1): -1 ≤ -1 true.",
+    "(-1, 6): 6 ≤ 5 false. (3, 2): 2 ≤ 1 false. (4, 1): 1 ≤ 0 false.",
+    "The solutions are (0, 0), (2, 2) and (5, -1)."
    ],
    "options": [
     {
@@ -5366,7 +5441,10 @@
     "(1, -2)"
    ],
    "solutionSteps": [
-    "Substitute; boundary points count only for ≤ or ≥."
+    "Substitute each point into 2x - 3y > 6; boundary points (where 2x - 3y = 6) do not count because > is strict.",
+    "(4, 0): 8 > 6 true. (0, -3): 9 > 6 true. (6, 1): 12 - 3 = 9 > 6 true. (1, -2): 2 + 6 = 8 > 6 true.",
+    "(3, 0): 6 > 6 false (on the boundary). (0, 0): 0 > 6 false.",
+    "The solutions are (4, 0), (0, -3), (6, 1) and (1, -2)."
    ],
    "options": [
     {
@@ -5450,7 +5528,10 @@
     "(1, 3)"
    ],
    "solutionSteps": [
-    "A solution must satisfy every inequality."
+    "A point is a solution only if it satisfies x + y < 5, x ≥ 0 and y ≥ 1.",
+    "(0, 1): 1 < 5, 0 ≥ 0, 1 ≥ 1, all true. (2, 2): 4 < 5 true. (1, 3): 4 < 5 true.",
+    "(-1, 2) fails x ≥ 0. (3, 0) fails y ≥ 1. (4, 1) fails x + y < 5 because 5 < 5 is false.",
+    "The solutions are (0, 1), (2, 2) and (1, 3)."
    ],
    "options": [
     {
@@ -5491,8 +5572,9 @@
    "prompt": "Which inequality is graphed?",
    "answer": "y > 2x - 1",
    "solutionSteps": [
-    "Dashed boundary → strict inequality.",
-    "Shading above → y >."
+    "The boundary line has y-intercept -1 and rises 2 for every 1 to the right, so it is y = 2x - 1.",
+    "The boundary is dashed, so points on the line are not included: the symbol is strict (< or >).",
+    "The region above the line is shaded, so y > 2x - 1."
    ],
    "options": [
     {
@@ -5532,8 +5614,9 @@
    "prompt": "Which inequality is graphed?",
    "answer": "y ≤ -(1/2)x + 3",
    "solutionSteps": [
-    "Solid boundary → ≤ or ≥.",
-    "Shading below → y ≤."
+    "The boundary has y-intercept 3 and falls 1 for every 2 to the right, so it is y = -(1/2)x + 3.",
+    "The boundary is solid, so points on the line are included: ≤ or ≥.",
+    "The region below the line is shaded, so y ≤ -(1/2)x + 3."
    ],
    "options": [
     {
@@ -5609,10 +5692,10 @@
    "prompt": "A student budget: x hours tutoring ($15/h) and y hours retail ($12/h), with x + y ≤ 20 and earnings at least $270.",
    "answer": "(a) 15x + 12y ≥ 270; (b) Yes: 20 ≤ 20 and 270 ≥ 270; (c) No: 219 < 270; (d) 18",
    "solutionSteps": [
-    "Rate × hours.",
-    "Check both.",
-    "75 + 144 = 219.",
-    "15x ≥ 270."
+    "(a) Earnings are $15 per tutoring hour and $12 per retail hour, and must be at least $270: 15x + 12y ≥ 270.",
+    "(b) (10, 10): hours 10 + 10 = 20 ≤ 20, earnings 150 + 120 = 270 ≥ 270, so yes.",
+    "(c) (5, 12): hours 17 ≤ 20, but earnings 75 + 144 = 219 < 270, so no.",
+    "(d) With y = 0: 15x ≥ 270, so x ≥ 18; the minimum is 18 hours (and 18 ≤ 20)."
    ],
    "parts": [
     {
@@ -5645,7 +5728,9 @@
    "prompt": "When solving -3x + 6 > 12, a student gets x > -2. What is correct?",
    "answer": "x < -2 (flip the inequality when dividing by a negative)",
    "solutionSteps": [
-    "-3x > 6 → x < -2."
+    "Subtract 6 from both sides: -3x > 6.",
+    "Divide both sides by -3. Dividing by a negative number reverses the inequality: x < -2.",
+    "The student kept the > sign; the correct solution is x < -2."
    ],
    "options": [
     {
@@ -5678,7 +5763,9 @@
    "prompt": "Is (2, 1) a solution of y < x?",
    "answer": "Yes",
    "solutionSteps": [
-    "1 < 2."
+    "Substitute x = 2 and y = 1 into y < x.",
+    "1 < 2 is true.",
+    "So (2, 1) is a solution: yes."
    ],
    "standards": [
     "A-REI.D.12"
@@ -5693,7 +5780,9 @@
    "prompt": "Write the inequality for the region above the solid line through (0, -2) with slope 3.",
    "answer": "y ≥ 3x - 2",
    "solutionSteps": [
-    "Solid → ≥; above → y ≥."
+    "The line through (0, -2) with slope 3 is y = 3x - 2.",
+    "A solid line means points on the line are included, so use ≥ or ≤.",
+    "The region above the line has larger y-values: y ≥ 3x - 2."
    ],
    "standards": [
     "A-REI.D.12"
@@ -5780,7 +5869,9 @@
    "prompt": "A feasible region has vertices (0, 0), (0, 5), (4, 3), (6, 0). Find the maximum of P = 5x + 2y.",
    "answer": "30 at (6, 0)",
    "solutionSteps": [
-    "Evaluate the objective at every vertex and compare."
+    "The maximum of a linear objective over a bounded region occurs at a vertex, so evaluate P = 5x + 2y at each vertex.",
+    "(0, 0) → 0; (0, 5) → 10; (4, 3) → 20 + 6 = 26; (6, 0) → 30.",
+    "The largest value is 30, at (6, 0)."
    ],
    "options": [
     {
@@ -5813,7 +5904,9 @@
    "prompt": "A feasible region has vertices (0, 0), (0, 5), (4, 3), (6, 0). Find the maximum of P = x + 4y.",
    "answer": "20 at (0, 5)",
    "solutionSteps": [
-    "Evaluate the objective at every vertex and compare."
+    "Evaluate P = x + 4y at each vertex of the region.",
+    "(0, 0) → 0; (0, 5) → 20; (4, 3) → 4 + 12 = 16; (6, 0) → 6.",
+    "The largest value is 20, at (0, 5)."
    ],
    "options": [
     {
@@ -5846,7 +5939,9 @@
    "prompt": "A feasible region has vertices (1, 6), (3, 2), (7, 1). Find the minimum of C = 3x + y.",
    "answer": "9 at (1, 6)",
    "solutionSteps": [
-    "Evaluate the objective at every vertex and compare."
+    "The minimum of a linear objective over the region occurs at a vertex, so evaluate C = 3x + y at each one.",
+    "(1, 6) → 3 + 6 = 9; (3, 2) → 9 + 2 = 11; (7, 1) → 21 + 1 = 22.",
+    "The smallest value is 9, at (1, 6)."
    ],
    "options": [
     {
@@ -5880,7 +5975,10 @@
     "(8, 0)"
    ],
    "solutionSteps": [
-    "Check 2x + y ≤ 16 and x + y ≤ 10."
+    "The constraints are 2x + y ≤ 16 (hours) and x + y ≤ 10 (items), with x, y ≥ 0.",
+    "(4, 6): 14 ≤ 16, 10 ≤ 10 ✓. (6, 4): 16 ≤ 16, 10 ≤ 10 ✓. (0, 10): 10 ≤ 16, 10 ≤ 10 ✓. (8, 0): 16 ≤ 16, 8 ≤ 10 ✓.",
+    "(7, 3): 17 > 16 ✗. (5, 7): 12 items > 10 ✗.",
+    "The feasible plans are (4, 6), (6, 4), (0, 10) and (8, 0)."
    ],
    "options": [
     {
@@ -5957,7 +6055,9 @@
    "prompt": "In a linear programming problem, the constraints describe…",
    "answer": "the feasible region",
    "solutionSteps": [
-    "Constraints are inequalities limiting the choices."
+    "The constraints are the inequalities that limit the possible choices (time, materials, budget, nonnegativity).",
+    "The set of points that satisfies every constraint at once is the feasible region.",
+    "So the constraints describe the feasible region."
    ],
    "options": [
     {
@@ -5990,7 +6090,9 @@
    "prompt": "A company needs at least 30 units from machine A (5 units/h, $40/h) and machine B (3 units/h, $20/h), each running at most 6 h. Which vertex of the feasible region is (6, 0)? Is it feasible?",
    "answer": "Yes: 5(6) = 30 units",
    "solutionSteps": [
-    "30 ≥ 30 and 6 ≤ 6."
+    "Let x = hours on machine A and y = hours on machine B; the units constraint is 5x + 3y ≥ 30, with x ≤ 6 and y ≤ 6.",
+    "At (6, 0): 5(6) + 3(0) = 30, and 30 ≥ 30 is true.",
+    "Also 6 ≤ 6 and 0 ≤ 6 are true, so yes, (6, 0) is feasible: it produces exactly 5(6) = 30 units."
    ],
    "standards": [
     "A-CED.A.3"
@@ -6005,7 +6107,9 @@
    "prompt": "Explain why an unbounded feasible region may have a minimum but no maximum for P = x + y with x, y ≥ 0.",
    "answer": "P grows without bound as x or y increases, but its least value occurs at a vertex",
    "solutionSteps": [
-    "Objective increases in the unbounded direction."
+    "With x, y ≥ 0 the region extends without end to the right and upward, so x or y can be as large as we like.",
+    "P = x + y keeps increasing in that direction, so it has no largest value: no maximum.",
+    "P cannot decrease forever, though: its least value on the region occurs at a vertex, so a minimum can exist."
    ],
    "standards": [
     "A-CED.A.3"
@@ -6024,8 +6128,10 @@
     "The slope is -2.5 cm/h"
    ],
    "solutionSteps": [
-    "30 - 2.5t = 0 → t = 12.",
-    "30 - 10 = 20."
+    "In h = 30 - 2.5t the slope is -2.5 cm/h (it loses 2.5 cm each hour) and the intercept is 30 cm, not 2.5.",
+    "After 4 hours: h = 30 - 2.5(4) = 30 - 10 = 20 cm.",
+    "Burns out when h = 0: 30 - 2.5t = 0, so t = 30/2.5 = 12 hours.",
+    "True: it burns out after 12 hours, after 4 hours it is 20 cm tall, and the slope is -2.5 cm/h."
    ],
    "options": [
     {
@@ -6088,7 +6194,10 @@
     "x ≥ 4 and x < 2"
    ],
    "solutionSteps": [
-    "Parallel boundaries with shading facing away from each other; contradictory bounds."
+    "y > x + 2 and y < x - 1 have parallel boundaries (both slope 1); one asks for points above the higher line, the other for points below the lower line, so no point does both.",
+    "x ≥ 4 and x < 2 contradict each other: no number is both at least 4 and less than 2.",
+    "The other systems have points in common: (0, 0) satisfies y < 3 and y > -3; (1, 1) satisfies y ≥ 0 and x ≥ 0; (-2, 0) satisfies y > x and y < -x.",
+    "The empty systems are y > x + 2 and y < x - 1, and x ≥ 4 and x < 2."
    ],
    "options": [
     {
@@ -6125,7 +6234,9 @@
    "prompt": "Vertices of a feasible region: (0, 0), (0, 4), (3, 3), (5, 0). Find the maximum of P = 2x + 3y and where it occurs.",
    "answer": "15 at (3, 3)",
    "solutionSteps": [
-    "Evaluate the objective at each vertex: (0, 0) → 0; (0, 4) → 12; (3, 3) → 15; (5, 0) → 10."
+    "The maximum of P = 2x + 3y occurs at a vertex, so evaluate it at each one.",
+    "(0, 0) → 0; (0, 4) → 12; (3, 3) → 6 + 9 = 15; (5, 0) → 10.",
+    "The maximum is 15, at (3, 3)."
    ],
    "standards": [
     "A-CED.A.3"
@@ -6140,7 +6251,9 @@
    "prompt": "Vertices of a feasible region: (0, 10), (2, 4), (8, 0). Find the minimum of C = 4x + 3y and where it occurs.",
    "answer": "20 at (2, 4)",
    "solutionSteps": [
-    "Evaluate the objective at each vertex: (0, 10) → 30; (2, 4) → 20; (8, 0) → 32."
+    "The minimum of C = 4x + 3y occurs at a vertex, so evaluate it at each one.",
+    "(0, 10) → 30; (2, 4) → 8 + 12 = 20; (8, 0) → 32.",
+    "The minimum is 20, at (2, 4)."
    ],
    "standards": [
     "A-CED.A.3"
@@ -6155,7 +6268,9 @@
    "prompt": "Vertices of a feasible region: (0, 0), (0, 7), (2, 6), (4, 2), (5, 0). Find the maximum of P = 6x + y and where it occurs.",
    "answer": "30 at (5, 0)",
    "solutionSteps": [
-    "Evaluate the objective at each vertex: (0, 0) → 0; (0, 7) → 7; (2, 6) → 18; (4, 2) → 26; (5, 0) → 30."
+    "The maximum of P = 6x + y occurs at a vertex, so evaluate it at each one.",
+    "(0, 0) → 0; (0, 7) → 7; (2, 6) → 18; (4, 2) → 26; (5, 0) → 30.",
+    "The maximum is 30, at (5, 0)."
    ],
    "standards": [
     "A-CED.A.3"
@@ -6431,8 +6546,9 @@
    "prompt": "Find the slope of the line -x - 7y = -8.",
    "answer": "-1/7",
    "solutionSteps": [
-    "Solve for y: y = -(1/7)x + 8/7.",
-    "The slope is -1/7."
+    "Solve for y: add x to both sides, -7y = x - 8.",
+    "Divide by -7: y = -(1/7)x + 8/7.",
+    "The coefficient of x is the slope: -1/7."
    ],
    "standards": [
     "F-LE.A.2",
@@ -6503,8 +6619,9 @@
    "prompt": "Find the slope of the line 3x + y = 3.",
    "answer": "-3",
    "solutionSteps": [
-    "Solve for y: y = -3x + 3.",
-    "The slope is -3."
+    "Solve for y: subtract 3x from both sides, y = -3x + 3.",
+    "The equation is now in slope-intercept form y = mx + b.",
+    "The slope is the coefficient of x: -3."
    ],
    "standards": [
     "F-LE.A.2",
@@ -6687,8 +6804,9 @@
    "prompt": "Find the average rate of change of f(x) = 3x² - 5x - 1 on [6, 7].",
    "answer": "34",
    "solutionSteps": [
-    "f(7) = 111, f(6) = 77.",
-    "(111 - 77) ÷ (7 - 6) = 34."
+    "f(7) = 3(49) - 5(7) - 1 = 147 - 35 - 1 = 111.",
+    "f(6) = 3(36) - 5(6) - 1 = 108 - 30 - 1 = 77.",
+    "Average rate of change = (111 - 77)/(7 - 6) = 34/1 = 34."
    ],
    "standards": [
     "F-IF.B.6"
@@ -6831,8 +6949,9 @@
    "prompt": "Find the average rate of change of f(x) = 2ˣ on [3, 7].",
    "answer": "30",
    "solutionSteps": [
-    "f(7) = 128, f(3) = 8.",
-    "(128 - 8) ÷ (7 - 3) = 30."
+    "f(7) = 2⁷ = 128 and f(3) = 2³ = 8.",
+    "Average rate of change = (f(7) - f(3))/(7 - 3) = (128 - 8)/4.",
+    "= 120/4 = 30."
    ],
    "standards": [
     "F-IF.B.6"
@@ -8667,9 +8786,9 @@
    "prompt": "Is (-1, -1) a solution of y ≥ -x + 1?",
    "answer": "No",
    "solutionSteps": [
-    "Substitute: -1 ≥ -1(-1) + 1.",
-    "-1 ≥ 2 is false.",
-    "No"
+    "Substitute x = -1 and y = -1 into y ≥ -x + 1.",
+    "Right side: -(-1) + 1 = 1 + 1 = 2, so the inequality reads -1 ≥ 2.",
+    "-1 ≥ 2 is false, so (-1, -1) is not a solution: No."
    ],
    "standards": [
     "A-REI.D.12"
@@ -8779,9 +8898,9 @@
    "prompt": "Is (2, 0) a solution of y ≤ 2x - 1?",
    "answer": "Yes",
    "solutionSteps": [
-    "Substitute: 0 ≤ 2(2) - 1.",
-    "0 ≤ 3 is true.",
-    "Yes"
+    "Substitute x = 2 and y = 0 into y ≤ 2x - 1.",
+    "Right side: 2(2) - 1 = 3, so the inequality reads 0 ≤ 3.",
+    "0 ≤ 3 is true, so (2, 0) is a solution: Yes."
    ],
    "standards": [
     "A-REI.D.12"
@@ -8908,9 +9027,9 @@
    "prompt": "Is (3, 4) a solution of y ≥ x + 1?",
    "answer": "Yes",
    "solutionSteps": [
-    "Substitute: 4 ≥ 1(3) + 1.",
-    "4 ≥ 4 is true.",
-    "Yes"
+    "Substitute x = 3 and y = 4 into y ≥ x + 1.",
+    "Right side: 3 + 1 = 4, so the inequality reads 4 ≥ 4.",
+    "4 ≥ 4 is true (the point is on the solid boundary), so (3, 4) is a solution: Yes."
    ],
    "standards": [
     "A-REI.D.12"
@@ -9020,9 +9139,9 @@
    "prompt": "Is (0, 0) a solution of y ≤ -2x + 3?",
    "answer": "Yes",
    "solutionSteps": [
-    "Substitute: 0 ≤ -2(0) + 3.",
-    "0 ≤ 3 is true.",
-    "Yes"
+    "Substitute x = 0 and y = 0 into y ≤ -2x + 3.",
+    "Right side: -2(0) + 3 = 3, so the inequality reads 0 ≤ 3.",
+    "0 ≤ 3 is true, so (0, 0) is a solution: Yes."
    ],
    "standards": [
     "A-REI.D.12"
@@ -9733,9 +9852,10 @@
    "prompt": "Solve by elimination: x + y = 3 and x - y = 5.",
    "answer": "(4, -1)",
    "solutionSteps": [
-    "Add the equations: 2x = 8, so x = 4.",
-    "y = 3 - 4 = -1.",
-    "(4, -1)."
+    "The y-terms have opposite coefficients, so add the equations: (x + y) + (x - y) = 3 + 5, giving 2x = 8.",
+    "x = 4.",
+    "Substitute into x + y = 3: 4 + y = 3, so y = -1.",
+    "The solution is (4, -1). Check: 4 - (-1) = 5."
    ],
    "standards": [
     "A-REI.C.5",
@@ -9769,8 +9889,9 @@
    "prompt": "Find the slope of the line through (-1, -3) and (2, 12).",
    "answer": "5",
    "solutionSteps": [
-    "m = (12 - (-3))/(2 - (-1)).",
-    "= 15/3 = 5."
+    "Use m = (y₂ - y₁)/(x₂ - x₁) with (-1, -3) and (2, 12).",
+    "Change in y: 12 - (-3) = 15. Change in x: 2 - (-1) = 3.",
+    "m = 15/3 = 5."
    ],
    "standards": [
     "F-IF.B.6"
