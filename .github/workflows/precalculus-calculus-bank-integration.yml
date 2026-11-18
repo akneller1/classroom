@@ -56,3 +56,9 @@ jobs:
       - name: Precalculus audit regression checks
         if: matrix.course == 'precalculus'
         run: node scripts/test-precalculus-audit.cjs
+      - name: Precalculus teaching notes cover every skill
+        if: matrix.course == 'precalculus'
+        run: |
+          python3 tools/precalculus-audit-20261118/build_notes.py
+          git diff --exit-code -- worksheet-generator/planner/notes-teach-precalculus.js
+          node scripts/test-precalculus-notes.cjs
