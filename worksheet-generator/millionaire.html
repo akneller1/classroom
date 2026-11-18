@@ -180,6 +180,14 @@ select,input[type=text],textarea{background:#060a35;color:var(--ink);border:1px 
 .ans.sel .txt,.ans.right .txt{color:inherit}
 .figure{align-self:center;background:#fff;color:#172d53;border-radius:12px;padding:10px;max-width:min(560px,100%);box-sizing:border-box;box-shadow:0 0 0 3px var(--silver),0 0 30px rgba(90,120,255,.35)}
 .figure svg,.figure img{display:block;max-width:100%;height:auto;max-height:min(30vh,280px);margin:0 auto}
+.figure .enlarge-figure{display:block;margin:10px auto 0;color:#172d53;background:#eef2ff;border-color:#bcc9ea}
+.image-viewer{inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:clamp(8px,2vw,24px);box-sizing:border-box;border:0;background:#10163a;color:#fff}
+.image-viewer[open]{display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px}
+.image-viewer::backdrop{background:#10163a}
+.image-toolbar{display:flex;justify-content:flex-end}
+.image-stage{display:grid;min-width:0;min-height:0;background:#fff;color:#172d53;border-radius:10px;overflow:hidden}
+.image-stage .figure-media{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
+.image-stage :is(svg,img){display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
 .loading{display:grid;gap:10px;justify-items:center;color:var(--muted);font-size:1.05rem}
 .spinner{width:42px;height:42px;border-radius:50%;border:4px solid rgba(197,207,240,.25);border-top-color:var(--amber);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -249,7 +257,10 @@ select,input[type=text],textarea{background:#060a35;color:var(--ink);border:1px 
 
     <div class="qwrap">
       <div class="qmeta"><span id="qNum">Question 1</span><span class="lvl" id="qFor">for $100</span><span class="tier" id="qTier">Warm-up</span><span id="pracTag" hidden class="practice-tag">Practice round</span></div>
-      <div class="figure" id="qFig" hidden></div>
+      <div class="figure" id="qFig" hidden>
+        <div id="figureMedia" class="figure-media"></div>
+        <button type="button" class="ctl enlarge-figure" id="enlargeFigure" aria-haspopup="dialog" hidden>Full-screen image</button>
+      </div>
       <div class="rail"><div class="lz qbox"><div class="in" id="qText"></div></div></div>
       <div class="answers" id="answers"></div>
       <div id="banner" class="banner" aria-live="polite"></div>
@@ -273,6 +284,11 @@ select,input[type=text],textarea{background:#060a35;color:var(--ink);border:1px 
     </div>
   </div>
 </section>
+
+<dialog id="imageViewer" class="image-viewer" aria-label="Enlarged question image">
+  <div class="image-toolbar"><form method="dialog"><button type="submit" class="ctl primary" autofocus>Back to question</button></form></div>
+  <div class="image-stage" id="imageStage"></div>
+</dialog>
 
 <!-- ASK THE CLASS -->
 <div class="modal" id="askModal" hidden role="dialog" aria-modal="true" aria-labelledby="askTitle">
@@ -452,7 +468,10 @@ function renderQ(){
     if(q.diagram&&q.diagram.type==='image'&&q.diagram.spec)fig='<img src="../'+String(q.diagram.spec.src).replace(/"/g,'')+'" alt="'+String(q.diagram.spec.alt||'Diagram').replace(/"/g,'&quot;')+'">';
     else if(q._figure)fig=MKMENU.figHtml(q._figure);
   }catch(e){fig=''}
-  F.innerHTML=fig;F.hidden=!fig;
+  const media=$("figureMedia");
+  media.innerHTML=fig;
+  F.hidden=!fig;
+  $("enlargeFigure").hidden=!media.querySelector("img, svg");
   const A=$("answers");A.innerHTML="";
   it.opts.forEach((o,i)=>{
     const b=document.createElement("button");b.className="ans";b.id="ans"+i;
@@ -492,6 +511,33 @@ function renderControls(){
 }
 function toggleFull(){try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}}
 document.addEventListener("fullscreenchange",()=>{if(G&&!$("game").hidden)renderControls()});
+
+/* ---------- full-screen question image ---------- */
+const imageViewer=$("imageViewer"), figureMedia=$("figureMedia"), enlargeFigure=$("enlargeFigure");
+let imageFullscreen=false, openingImage=false;
+enlargeFigure.addEventListener("click",async ()=>{
+  if(openingImage||imageViewer.open)return;
+  openingImage=true;
+  // Preserve fullscreen if the teacher already enabled it for the whole game.
+  if(!document.fullscreenElement&&document.fullscreenEnabled){
+    try{
+      await document.documentElement.requestFullscreen();
+      imageFullscreen=Boolean(document.fullscreenElement);
+    }catch(e){} // The full-viewport dialog also works in an embedded game.
+  }
+  $("imageStage").append(figureMedia);
+  imageViewer.showModal();
+  openingImage=false;
+});
+imageViewer.addEventListener("close",()=>{
+  $("qFig").prepend(figureMedia);
+  if(imageFullscreen&&document.fullscreenElement)document.exitFullscreen().catch(()=>{});
+  imageFullscreen=false;
+  enlargeFigure.focus({preventScroll:true});
+});
+document.addEventListener("fullscreenchange",()=>{
+  if(imageFullscreen&&!document.fullscreenElement&&imageViewer.open)imageViewer.close();
+});
 
 /* ---------- actions ---------- */
 function pick(i){if(G.locked||G.removed.has(i))return;G.sel=i;paintAnswers();renderControls()}
@@ -570,6 +616,7 @@ document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if
 
 /* keyboard */
 document.addEventListener("keydown",e=>{
+  if(openingImage||imageViewer.open||(e.key==="Enter"&&e.target===enlargeFigure))return;
   if(e.key==="Escape"){closeModals();return}
   if(!G||$("game").hidden||document.querySelector(".modal:not([hidden])"))return;
   if(/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))return;
