@@ -63,4 +63,17 @@ assert(/meta&&meta\.enrich\)title\+=' \(enrichment\)'/.test(scope), 'scope label
 const practice = fs.readFileSync(path.join(ROOT, 'worksheet-generator/practice/practice.js'), 'utf8');
 assert(/get\('course'\)/.test(practice) && /indexOf\(prefix\)===0/.test(practice), 'practice test reads ?course=');
 
-console.log('PASS Algebra 2 audit fixes: notation, giveaways, rounding, select-all counts, stems, planner notes, course default (' + items.length + ' items)');
+// #15 multi-part self-check items get one response box per part.
+assert(/data-authored-part="'\+i\+':'\+j\+'"/.test(practice) && /function partResponses\(q\)/.test(practice), 'one box per part');
+
+// #3 Algebra 2 unit briefings and a 180-day pacing guide come from the planner.
+(async () => {
+  const plan = await import(path.join(ROOT, 'scripts/geo-planning.mjs'));
+  assert(plan.planningCourses.includes('algebra2') && plan.planningPage('algebra2') === 'algebra-2-pacing/');
+  const pacing = plan.geoPacingMain('algebra2');
+  assert(/Full year \(180 days, 36 weeks\)/.test(pacing) && /Semester 1 review and exam/.test(pacing) && /Final review and exam<\/strong> \(days \d+–180\)/.test(pacing), 'pacing covers 180 days');
+  assert(/Massachusetts Model Algebra II/.test(pacing) && /\d+ of 47 standards have question-bank practice/.test(pacing), 'standards coverage table');
+  const titles = ['Functions & Transformations', 'Conic Sections', 'Probability & Statistics'];
+  for (const t of titles) assert(/Teaching Unit \d+/.test(plan.geoUnitGuide(t, 'algebra2')), 'briefing for ' + t);
+  console.log('PASS Algebra 2 audit fixes: notation, giveaways, rounding, select-all counts, stems, planner notes, course default (' + items.length + ' items)');
+})().catch(e => { console.error(e); process.exit(1); });

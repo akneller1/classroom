@@ -419,9 +419,9 @@ ${planningCourses.includes(c.id) ? geoUnitGuide(u.title, c.id) : ""}
     fs.writeFileSync(path.join(dir, "index.html"), page);
     sitemapUrls.push(url);
   }
-  if (planningCourses.includes(c.id)) {   // pacing guide and standards coverage (Geometry and Algebra 1, 2026-11-17)
+  if (planningCourses.includes(c.id)) {   // pacing guide and standards coverage (Geometry, Algebra 1 and Algebra 2, 2026-11-17)
     const cName = c.id === "algebra" ? "Algebra 1" : c.title, pPage = planningPage(c.id), pUrl = SITE_URL + pPage, pDir = path.join(OUT, pPage);
-    const pDesc = "A 180-day " + cName + " pacing guide, a one-semester block plan, and Common Core standards coverage for every worksheet-generator skill.";
+    const pDesc = "A 180-day " + cName + " pacing guide, a one-semester block plan, and " + (c.id === "algebra2" ? "Massachusetts Algebra II standards coverage for every question-bank skill." : "Common Core standards coverage for every worksheet-generator skill.");
     fs.mkdirSync(pDir, { recursive: true });
     fs.writeFileSync(path.join(pDir, "index.html"), `<!doctype html>
 <html lang="en">

@@ -280,6 +280,7 @@
     'F-IF.C.8a': 'Factor and complete the square in a quadratic to show zeros, extreme values and symmetry.',
     'F-IF.C.8b': 'Use the properties of exponents to interpret exponential expressions as growth or decay.',
     'F-IF.C.9': 'Compare properties of two functions each represented in a different way.',
+    'F-IF.C.10': 'Demonstrate an understanding of functions and equations defined parametrically and graph them (MA).',
     'F-BF.A.1': 'Write a function that describes a relationship between two quantities.',
     'F-BF.A.1a': 'Determine an explicit expression, a recursive process or steps for calculation from a context.',
     'F-BF.A.1b': 'Combine standard function types using arithmetic operations.',
@@ -369,7 +370,10 @@
     'S-ID.C.9': 'Distinguish between correlation and causation.',
     'S-IC.A.1': 'Understand statistics as a process for making inferences about a population from a random sample.',
     'S-IC.B.3': 'Recognize the purposes of and differences among sample surveys, experiments and observational studies.',
+    'S-IC.A.2': 'Decide if a specified model is consistent with results from a given data-generating process, e.g., using simulation.',
     'S-IC.B.4': 'Use data from a sample survey to estimate a population mean or proportion; develop a margin of error.',
+    'S-IC.B.5': 'Use data from a randomized experiment to compare two treatments; use simulations to decide if differences between parameters are significant.',
+    'S-IC.B.6': 'Evaluate reports based on data.',
     'S-CP.A.1': 'Describe events as subsets of a sample space using unions, intersections and complements.',
     'S-CP.A.2': 'Understand that A and B are independent if P(A and B) = P(A)·P(B).',
     'S-CP.A.3': 'Understand conditional probability P(A | B) as P(A and B) / P(B).',
@@ -382,6 +386,7 @@
     'S-MD.A.2': 'Calculate the expected value of a random variable; interpret it as the mean of the distribution.',
     'S-MD.A.3': 'Develop a probability distribution from theoretical probabilities and find the expected value.',
     'S-MD.B.5': 'Weigh the possible outcomes of a decision by assigning probabilities and finding expected values.',
+    'S-MD.B.6': 'Use probabilities to make fair decisions (e.g., drawing by lots, using a random number generator).',
     'S-MD.B.7': 'Analyze decisions and strategies using probability concepts.'
   };
   /* AP framework codes (Calculus, Statistics banks): summarize by big idea / topic outline area. */
