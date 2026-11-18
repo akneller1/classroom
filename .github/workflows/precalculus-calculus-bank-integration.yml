@@ -46,6 +46,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Validate every published question bank and its images
         run: node scripts/test-published-question-banks.cjs
       - name: Verify all units, skills, games, printables, flashcards and lesson plans
@@ -70,3 +73,8 @@ jobs:
       - name: Precalculus Graphing Practice items (graded by core/plot.js, recomputed from prompts)
         if: matrix.course == 'precalculus'
         run: node scripts/test-precalculus-plot-items.cjs
+      - name: Precalculus independent answer check (audit checker, 2,000+ items)
+        if: matrix.course == 'precalculus'
+        run: |
+          python -m pip install --quiet numpy
+          python3 tools/precalculus-audit-20261118/checker/pc_verify.py --min 2000
