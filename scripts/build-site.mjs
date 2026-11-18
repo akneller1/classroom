@@ -598,8 +598,14 @@ ${c.units.map((u) => u.items.length
 </ul>`).join("\n")}
 </div>`;
     const mainRe = /(<main\b[^>]*\bid=["']main["'][^>]*>)\s*(<\/main>)/i;
+    // Calm redesign (2026-11-18): main already holds the instant home page; the catalog goes after it,
+    // with an h2 so the page keeps one h1.
+    const filledMainRe = /(<main\b[^>]*\bid=["']main["'][^>]*>[\s\S]*?class="calm-home"[\s\S]*?)(<\/main>)/i;
     const appRe = /<script\b[^>]*\bsrc=["']app\.js[^"']*["'][^>]*>\s*<\/script>/i;
-    if (mainRe.test(html) && appRe.test(html)) {
+    if (filledMainRe.test(html) && appRe.test(html)) {
+      html = html.replace(filledMainRe, (m, open, close) => `${open}\n${staticHtml.replace("<h1>Free math activities for teachers</h1>", "<h2>All courses and units</h2>")}\n${close}`);
+      html = html.replace(appRe, (m) => `<script>(function(){var m=document.getElementById("main");if(m)m.innerHTML="";})();</script>\n${m}`);
+    } else if (mainRe.test(html) && appRe.test(html)) {
       html = html.replace(mainRe, `$1\n${staticHtml}\n$2`);
       html = html.replace(appRe, (m) => `<script>(function(){var m=document.getElementById("main");if(m)m.innerHTML="";})();</script>\n${m}`);
     } else {
