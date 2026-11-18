@@ -17950,6 +17950,2410 @@
      "alt": "Two-piece graph: y = (3/2)x + 5/2 left of x = −1 and y = (2/3)x + 14/3 right of it; endpoints (−1, 1) open and (−1, 4) closed."
     }
    }
+  },
+  {
+   "id": "a2-ft-s09-cp2-001",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two phone plan options. Option A costs C = 27 + 11n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 99, 105, 111, 117\nFor how many gigabytes do the two options cost the same?",
+   "answer": "9",
+   "solutionSteps": [
+    "From the table, Option B starts at $99 and rises $3 per gigabyte: C = 99 + 3n.",
+    "Set them equal: 27 + 11n = 99 + 3n, so 8n = 72.",
+    "n = 9 gigabytes."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-002",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is the linear function whose graph passes through (1, -4) and (3, -6). g(x) = x - 3. For what value of x is f(x) = g(x)?",
+   "answer": "0",
+   "options": [
+    {
+     "text": "0",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Slope of f: (-6 - (-4))/(3 - (1)) = -1; using (1, -4), f(x) = -x - 3.",
+    "Set f(x) = g(x): -x - 3 = x - 3, so -2x = 0.",
+    "x = 0."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_cross). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-003",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -4x - 4. The table gives values of g.\nx: -1, 0, 1, 2\ng(x): 2, 9, 16, 23\nFind the average rate of change of each function from x = -1 to x = 1. How much greater is the larger rate than the smaller one?",
+   "answer": "11",
+   "solutionSteps": [
+    "f: [f(1) - f(-1)]/(1 - (-1)) = (-8 - (0))/2 = -4.",
+    "g: from the table, [g(1) - g(-1)]/2 = (16 - (2))/2 = 7.",
+    "Difference: |-4 - (7)| = 11."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-004",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 2x - 3. The table gives values of g.\nx: -1, 0, 1, 2\ng(x): -5, 2, 9, 16\nFind the average rate of change of each function from x = -1 to x = 2. How much greater is the larger rate than the smaller one?",
+   "answer": "5",
+   "options": [
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f: [f(2) - f(-1)]/(2 - (-1)) = (1 - (-5))/3 = 2.",
+    "g: from the table, [g(2) - g(-1)]/3 = (16 - (-5))/3 = 7.",
+    "Difference: |2 - (7)| = 5."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-005",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two phone plan options. Option A costs C = 13 + 9n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 55, 61, 67, 73\nFor how many gigabytes do the two options cost the same?",
+   "answer": "7",
+   "solutionSteps": [
+    "From the table, Option B starts at $55 and rises $3 per gigabyte: C = 55 + 3n.",
+    "Set them equal: 13 + 9n = 55 + 3n, so 6n = 42.",
+    "n = 7 gigabytes."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-006",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x + 3. The table gives values of g.\nx: -1, 0, 1, 2\ng(x): -10, -2, 6, 14\nFind the average rate of change of each function from x = -1 to x = 2. How much greater is the larger rate than the smaller one?",
+   "answer": "10",
+   "options": [
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "f: [f(2) - f(-1)]/(2 - (-1)) = (-1 - (5))/3 = -2.",
+    "g: from the table, [g(2) - g(-1)]/3 = (14 - (-10))/3 = 8.",
+    "Difference: |-2 - (8)| = 10."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-007",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two gym options. Option A costs C = 28 + 12n dollars for n visits. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 58, 62, 66, 70\nFor how many visits do the two options cost the same?",
+   "answer": "3",
+   "solutionSteps": [
+    "From the table, Option B starts at $58 and rises $2 per visit: C = 58 + 2n.",
+    "Set them equal: 28 + 12n = 58 + 2n, so 10n = 30.",
+    "n = 3 visits."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-008",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is the linear function whose graph passes through (-3, 2) and (-1, 4). g(x) = -3x - 11. For what value of x is f(x) = g(x)?",
+   "answer": "-4",
+   "options": [
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Slope of f: (4 - (2))/(-1 - (-3)) = 1; using (-3, 2), f(x) = x + 5.",
+    "Set f(x) = g(x): x + 5 = -3x - 11, so 4x = -16.",
+    "x = -4."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_cross). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-009",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -(x + 2)² + 5. The quadratic function g has these values:\nx: 1, 2, 3, 4, 5\ng(x): -16, -7, -4, -7, -16\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "5",
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = 5 (at x = -2).",
+    "The table for g is symmetric about x = 3, so g's maximum is g(3) = -4.",
+    "The greater maximum is 5."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-010",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is the linear function whose graph passes through (0, 1) and (2, -7). g(x) = -2x + 3. For what value of x is f(x) = g(x)?",
+   "answer": "-1",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Slope of f: (-7 - (1))/(2 - (0)) = -4; using (0, 1), f(x) = -4x + 1.",
+    "Set f(x) = g(x): -4x + 1 = -2x + 3, so -2x = 2.",
+    "x = -1."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_cross). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-011",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = 4x + 1. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): 4, 9, 14, 19\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "1",
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (13 - (5))/2 = 4.",
+    "g: from the table, [g(3) - g(1)]/2 = (14 - (4))/2 = 5.",
+    "Difference: |4 - (5)| = 1."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-012",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is the linear function whose graph passes through (4, -4) and (6, -10). g(x) = x - 4. For what value of x is f(x) = g(x)?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Slope of f: (-10 - (-4))/(6 - (4)) = -3; using (4, -4), f(x) = -3x + 8.",
+    "Set f(x) = g(x): -3x + 8 = x - 4, so -4x = -12.",
+    "x = 3."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_cross). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-013",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two gym options. Option A costs C = 28 + 11n dollars for n visits. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 76, 82, 88, 94\nFor how many visits do the two options cost the same?",
+   "answer": "6",
+   "solutionSteps": [
+    "From the table, Option B starts at $76 and rises $3 per visit: C = 76 + 3n.",
+    "Set them equal: 28 + 11n = 76 + 3n, so 8n = 48.",
+    "n = 6 visits."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-014",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nTwo phone plan options. Option A costs C = 10 + 11n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 70, 80, 90, 100\nFor how many gigabytes do the two options cost the same?\nNia's answer: 120\nIdentify the mistake and give the correct answer.",
+   "answer": "10",
+   "solutionSteps": [
+    "Mistake: Nia gave the cost instead of the number of gigabytes.",
+    "From the table, Option B starts at $70 and rises $5 per gigabyte: C = 70 + 5n.",
+    "Set them equal: 10 + 11n = 70 + 5n, so 6n = 60.",
+    "n = 10 gigabytes.",
+    "The correct answer is 10, not 120."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-015",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Comparing functions in different representations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = 2x - 3. The table gives values of g.\nx: 0, 1, 2, 3\ng(x): -6, -1, 4, 9\nFind the average rate of change of each function from x = 0 to x = 3. How much greater is the larger rate than the smaller one?",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = 4x + 1. The table gives values of g.\nx: 0, 1, 2, 3\ng(x): -6, -9, -12, -15\nFind the average rate of change of each function from x = 0 to x = 2. How much greater is the larger rate than the smaller one?",
+     "answer": "7"
+    },
+    {
+     "prompt": "f(x) = -4x - 5. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): -3, 0, 3, 6\nFind the average rate of change of each function from x = 1 to x = 4. How much greater is the larger rate than the smaller one?",
+     "answer": "7"
+    },
+    {
+     "prompt": "f is the linear function whose graph passes through (-2, -3) and (0, 1). g(x) = -2x - 11. For what value of x is f(x) = g(x)?",
+     "answer": "-3"
+    }
+   ],
+   "answer": "(a) 3; (b) 7; (c) 7; (d) -3",
+   "solutionSteps": [
+    "(a) f: [f(3) - f(0)]/(3 - (0)) = (3 - (-3))/3 = 2. g: from the table, [g(3) - g(0)]/3 = (9 - (-6))/3 = 5. Difference: |2 - (5)| = 3.",
+    "(b) f: [f(2) - f(0)]/(2 - (0)) = (9 - (1))/2 = 4. g: from the table, [g(2) - g(0)]/2 = (-12 - (-6))/2 = -3. Difference: |4 - (-3)| = 7.",
+    "(c) f: [f(4) - f(1)]/(4 - (1)) = (-21 - (-9))/3 = -4. g: from the table, [g(4) - g(1)]/3 = (6 - (-3))/3 = 3. Difference: |-4 - (3)| = 7.",
+    "(d) Slope of f: (1 - (-3))/(0 - (-2)) = 2; using (-2, -3), f(x) = 2x + 1. Set f(x) = g(x): 2x + 1 = -2x - 11, so 4x = -12. x = -3."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp2-016",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nf(x) = -(x + 3)² - 3. The quadratic function g has these values:\nx: -3, -2, -1, 0, 1\ng(x): 0, 6, 8, 6, 0\nEach function has a maximum value. What is the greater of the two maximum values?\nEmma's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "8",
+   "solutionSteps": [
+    "Mistake: Emma gave the smaller maximum.",
+    "f is in vertex form with a < 0, so its maximum is k = -3 (at x = -3).",
+    "The table for g is symmetric about x = -1, so g's maximum is g(-1) = 8.",
+    "The greater maximum is 8.",
+    "The correct answer is 8, not -3."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-001",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = 2(x + 2)² - 3. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): -2, -2, -2, -2\nFind the average rate of change of each function from x = 1 to x = 4. How much greater is the larger rate than the smaller one?",
+   "answer": "18",
+   "solutionSteps": [
+    "f: [f(4) - f(1)]/(4 - (1)) = (69 - (15))/3 = 18.",
+    "g: from the table, [g(4) - g(1)]/3 = (-2 - (-2))/3 = 0.",
+    "Difference: |18 - (0)| = 18."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-002",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -(x - 1)² + 8. The quadratic function g has these values:\nx: -2, -1, 0, 1, 2\ng(x): -5, 4, 7, 4, -5\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "8",
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = 8 (at x = 1).",
+    "The table for g is symmetric about x = 0, so g's maximum is g(0) = 7.",
+    "The greater maximum is 8."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-003",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 3)(x - 7). The linear function g has these values:\nx: 4, 5, 6, 7, 8\ng(x): 4, 2, 0, -2, -4\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "7",
+   "solutionSteps": [
+    "f(x) = 0 when x = -3 or x = 7.",
+    "From the table, g(x) = 0 at x = 6.",
+    "The greatest x-intercept is 7."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-004",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2(x - 1)² - 4. The quadratic function g has these values:\nx: -3, -2, -1, 0, 1\ng(x): 0, 3, 4, 3, 0\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "4",
+   "options": [
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = -4 (at x = 1).",
+    "The table for g is symmetric about x = -1, so g's maximum is g(-1) = 4.",
+    "The greater maximum is 4."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-005",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two bike rental options. Option A costs C = 29 + 9n dollars for n hours. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 57, 61, 65, 69\nFor how many hours do the two options cost the same?",
+   "answer": "4",
+   "solutionSteps": [
+    "From the table, Option B starts at $57 and rises $2 per hour: C = 57 + 2n.",
+    "Set them equal: 29 + 9n = 57 + 2n, so 7n = 28.",
+    "n = 4 hours."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-006",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3(x + 3)² + 2. The quadratic function g has these values:\nx: 1, 2, 3, 4, 5\ng(x): -2, 4, 6, 4, -2\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = 2 (at x = -3).",
+    "The table for g is symmetric about x = 3, so g's maximum is g(3) = 6.",
+    "The greater maximum is 6."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-007",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 4)(x - 7). The linear function g has these values:\nx: -8, -7, -6, -5, -4\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "7",
+   "solutionSteps": [
+    "f(x) = 0 when x = -4 or x = 7.",
+    "From the table, g(x) = 0 at x = -6.",
+    "The greatest x-intercept is 7."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-008",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two phone plan options. Option A costs C = 21 + 6n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 65, 69, 73, 77\nFor how many gigabytes do the two options cost the same?",
+   "answer": "11",
+   "options": [
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "87",
+     "correct": false
+    },
+    {
+     "text": "44",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "From the table, Option B starts at $65 and rises $2 per gigabyte: C = 65 + 2n.",
+    "Set them equal: 21 + 6n = 65 + 2n, so 4n = 44.",
+    "n = 11 gigabytes."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-009",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = -3(x + 3)² + 4. The quadratic function g has these values:\nx: 0, 1, 2, 3, 4\ng(x): -13, -4, -1, -4, -13\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "4",
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = 4 (at x = -3).",
+    "The table for g is symmetric about x = 2, so g's maximum is g(2) = -1.",
+    "The greater maximum is 4."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-010",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -(x - 1)² + 4. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): 14, 22, 30, 38\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "10",
+   "options": [
+    {
+     "text": "10",
+     "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "20",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (0 - (4))/2 = -2.",
+    "g: from the table, [g(3) - g(1)]/2 = (30 - (14))/2 = 8.",
+    "Difference: |-2 - (8)| = 10."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-011",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 3)(x - 7). The linear function g has these values:\nx: -1, 0, 1, 2, 3\ng(x): -4, -2, 0, 2, 4\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "7",
+   "solutionSteps": [
+    "f(x) = 0 when x = -3 or x = 7.",
+    "From the table, g(x) = 0 at x = 1.",
+    "The greatest x-intercept is 7."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-012",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x + 1)(x - 3). The linear function g has these values:\nx: 5, 6, 7, 8, 9\ng(x): -4, -2, 0, 2, 4\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "7",
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "f(x) = 0 when x = -1 or x = 3.",
+    "From the table, g(x) = 0 at x = 7.",
+    "The greatest x-intercept is 7."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-013",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = -2(x - 3)² - 4. The quadratic function g has these values:\nx: -4, -3, -2, -1, 0\ng(x): -13, -4, -1, -4, -13\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "-1",
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = -4 (at x = 3).",
+    "The table for g is symmetric about x = -2, so g's maximum is g(-2) = -1.",
+    "The greater maximum is -1."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-014",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nTwo bike rental options. Option A costs C = 11 + 9n dollars for n hours. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 29, 35, 41, 47\nFor how many hours do the two options cost the same?\nFarah's answer: 38\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Farah gave the cost instead of the number of hours.",
+    "From the table, Option B starts at $29 and rises $3 per hour: C = 29 + 3n.",
+    "Set them equal: 11 + 9n = 29 + 3n, so 6n = 18.",
+    "n = 3 hours.",
+    "The correct answer is 3, not 38."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-015",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Comparing functions in different representations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = -(x)² - 4. The table gives values of g.\nx: 0, 1, 2, 3\ng(x): 2, 10, 18, 26\nFind the average rate of change of each function from x = 0 to x = 3. How much greater is the larger rate than the smaller one?",
+     "answer": "11"
+    },
+    {
+     "prompt": "Two phone plan options. Option A costs C = 10 + 11n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 73, 77, 81, 85\nFor how many gigabytes do the two options cost the same?",
+     "answer": "7"
+    },
+    {
+     "prompt": "f is the linear function whose graph passes through (4, 2) and (6, -2). g(x) = 2x - 2. For what value of x is f(x) = g(x)?",
+     "answer": "3"
+    },
+    {
+     "prompt": "f is the linear function whose graph passes through (0, 6) and (2, 2). g(x) = -3x + 5. For what value of x is f(x) = g(x)?",
+     "answer": "-1"
+    }
+   ],
+   "answer": "(a) 11; (b) 7; (c) 3; (d) -1",
+   "solutionSteps": [
+    "(a) f: [f(3) - f(0)]/(3 - (0)) = (-13 - (-4))/3 = -3. g: from the table, [g(3) - g(0)]/3 = (26 - (2))/3 = 8. Difference: |-3 - (8)| = 11.",
+    "(b) From the table, Option B starts at $73 and rises $2 per gigabyte: C = 73 + 2n. Set them equal: 10 + 11n = 73 + 2n, so 9n = 63. n = 7 gigabytes.",
+    "(c) Slope of f: (-2 - (2))/(6 - (4)) = -2; using (4, 2), f(x) = -2x + 10. Set f(x) = g(x): -2x + 10 = 2x - 2, so -4x = -12. x = 3.",
+    "(d) Slope of f: (2 - (6))/(2 - (0)) = -2; using (0, 6), f(x) = -2x + 6. Set f(x) = g(x): -2x + 6 = -3x + 5, so x = -1. x = -1."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-cp1-016",
+   "skillId": "functions-transformations-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nf(x) = (x + 2)(x - 4). The linear function g has these values:\nx: 0, 1, 2, 3, 4\ng(x): 4, 2, 0, -2, -4\nConsider every x-intercept of f and of g. What is the greatest of them?\nMateo's answer: -2\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Mateo gave the least x-intercept.",
+    "f(x) = 0 when x = -2 or x = 4.",
+    "From the table, g(x) = 0 at x = 2.",
+    "The greatest x-intercept is 4.",
+    "The correct answer is 4, not -2."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-001",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 5)(x - 3). The linear function g has these values:\nx: -4, -3, -2, -1, 0\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "3",
+   "solutionSteps": [
+    "f(x) = 0 when x = -5 or x = 3.",
+    "From the table, g(x) = 0 at x = -2.",
+    "The greatest x-intercept is 3."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-002",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x(x - 3). The linear function g has these values:\nx: 6, 7, 8, 9, 10\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "8",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "-6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(x) = 0 when x = 0 or x = 3.",
+    "From the table, g(x) = 0 at x = 8.",
+    "The greatest x-intercept is 8."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-003",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 2·3^x. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): -6, -9, -12, -15\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "27",
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (54 - (6))/2 = 24.",
+    "g: from the table, [g(3) - g(1)]/2 = (-12 - (-6))/2 = -3.",
+    "Difference: |24 - (-3)| = 27."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-004",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two gym options. Option A costs C = 24 + 7n dollars for n visits. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 60, 68, 76, 84\nFor how many visits do the two options cost the same?",
+   "answer": "12",
+   "options": [
+    {
+     "text": "108",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
+    },
+    {
+     "text": "13",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "From the table, Option B starts at $60 and rises $4 per visit: C = 60 + 4n.",
+    "Set them equal: 24 + 7n = 60 + 4n, so 3n = 36.",
+    "n = 12 visits."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-005",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 2·2^x. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): 3, 3, 3, 3\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "6",
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (16 - (4))/2 = 6.",
+    "g: from the table, [g(3) - g(1)]/2 = (3 - (3))/2 = 0.",
+    "Difference: |6 - (0)| = 6."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-006",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 1·2^x. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): 14, 19, 24, 29\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (8 - (2))/2 = 3.",
+    "g: from the table, [g(3) - g(1)]/2 = (24 - (14))/2 = 5.",
+    "Difference: |3 - (5)| = 2."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-007",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two phone plan options. Option A costs C = 12 + 10n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 84, 88, 92, 96\nFor how many gigabytes do the two options cost the same?",
+   "answer": "9",
+   "solutionSteps": [
+    "From the table, Option B starts at $84 and rises $2 per gigabyte: C = 84 + 2n.",
+    "Set them equal: 12 + 10n = 84 + 2n, so 8n = 72.",
+    "n = 9 gigabytes."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-008",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f is the linear function whose graph passes through (2, 7) and (4, 11). g(x) = x + 4. For what value of x is f(x) = g(x)?",
+   "answer": "1",
+   "options": [
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Slope of f: (11 - (7))/(4 - (2)) = 2; using (2, 7), f(x) = 2x + 3.",
+    "Set f(x) = g(x): 2x + 3 = x + 4, so x = 1.",
+    "x = 1."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_cross). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-009",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 1)(x - 7). The linear function g has these values:\nx: 2, 3, 4, 5, 6\ng(x): 4, 2, 0, -2, -4\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "7",
+   "solutionSteps": [
+    "f(x) = 0 when x = -1 or x = 7.",
+    "From the table, g(x) = 0 at x = 4.",
+    "The greatest x-intercept is 7."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-010",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x + 2)(x - 6). The linear function g has these values:\nx: -1, 0, 1, 2, 3\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "-6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(x) = 0 when x = -2 or x = 6.",
+    "From the table, g(x) = 0 at x = 1.",
+    "The greatest x-intercept is 6."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-011",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 3·3^x. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): -1, -1, -1, -1\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+   "answer": "36",
+   "solutionSteps": [
+    "f: [f(3) - f(1)]/(3 - (1)) = (81 - (9))/2 = 36.",
+    "g: from the table, [g(3) - g(1)]/2 = (-1 - (-1))/2 = 0.",
+    "Difference: |36 - (0)| = 36."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_rate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-012",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x - 2)(x - 4). The linear function g has these values:\nx: -2, -1, 0, 1, 2\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+   "answer": "4",
+   "options": [
+    {
+     "text": "-6",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(x) = 0 when x = 2 or x = 4.",
+    "From the table, g(x) = 0 at x = 0.",
+    "The greatest x-intercept is 4."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-013",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -(x - 1)² + 9. The quadratic function g has these values:\nx: -3, -2, -1, 0, 1\ng(x): -9, 0, 3, 0, -9\nEach function has a maximum value. What is the greater of the two maximum values?",
+   "answer": "9",
+   "solutionSteps": [
+    "f is in vertex form with a < 0, so its maximum is k = 9 (at x = 1).",
+    "The table for g is symmetric about x = -1, so g's maximum is g(-1) = 3.",
+    "The greater maximum is 9."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-014",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nf(x) = -(x + 3)² + 4. The quadratic function g has these values:\nx: -2, -1, 0, 1, 2\ng(x): -11, -5, -3, -5, -11\nEach function has a maximum value. What is the greater of the two maximum values?\nHana's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Hana gave the smaller maximum.",
+    "f is in vertex form with a < 0, so its maximum is k = 4 (at x = -3).",
+    "The table for g is symmetric about x = 0, so g's maximum is g(0) = -3.",
+    "The greater maximum is 4.",
+    "The correct answer is 4, not -3."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_max_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-015",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Comparing functions in different representations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Two phone plan options. Option A costs C = 22 + 9n dollars for n gigabytes. Option B's cost is shown in the table.\nx: 0, 2, 4, 6\nOption B cost ($): 43, 47, 51, 55\nFor how many gigabytes do the two options cost the same?",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = 2·2^x. The table gives values of g.\nx: 1, 2, 3, 4\ng(x): 8, 16, 24, 32\nFind the average rate of change of each function from x = 1 to x = 3. How much greater is the larger rate than the smaller one?",
+     "answer": "2"
+    },
+    {
+     "prompt": "f(x) = (x + 2)(x - 7). The linear function g has these values:\nx: -5, -4, -3, -2, -1\ng(x): -6, -3, 0, 3, 6\nConsider every x-intercept of f and of g. What is the greatest of them?",
+     "answer": "7"
+    },
+    {
+     "prompt": "f is the linear function whose graph passes through (6, -7) and (8, -11). g(x) = -x. For what value of x is f(x) = g(x)?",
+     "answer": "5"
+    }
+   ],
+   "answer": "(a) 3; (b) 2; (c) 7; (d) 5",
+   "solutionSteps": [
+    "(a) From the table, Option B starts at $43 and rises $2 per gigabyte: C = 43 + 2n. Set them equal: 22 + 9n = 43 + 2n, so 7n = 21. n = 3 gigabytes.",
+    "(b) f: [f(3) - f(1)]/(3 - (1)) = (16 - (4))/2 = 6. g: from the table, [g(3) - g(1)]/2 = (24 - (8))/2 = 8. Difference: |6 - (8)| = 2.",
+    "(c) f(x) = 0 when x = -2 or x = 7. From the table, g(x) = 0 at x = -3. The greatest x-intercept is 7.",
+    "(d) Slope of f: (-11 - (-7))/(8 - (6)) = -2; using (6, -7), f(x) = -2x + 5. Set f(x) = g(x): -2x + 5 = -x, so -x = -5. x = 5."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_plans_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s09-honors-016",
+   "skillId": "functions-transformations-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nf(x) = x(x - 7). The linear function g has these values:\nx: 1, 2, 3, 4, 5\ng(x): -4, -2, 0, 2, 4\nConsider every x-intercept of f and of g. What is the greatest of them?\nPriya's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "7",
+   "solutionSteps": [
+    "Mistake: Priya gave the least x-intercept.",
+    "f(x) = 0 when x = 0 or x = 7.",
+    "From the table, g(x) = 0 at x = 3.",
+    "The greatest x-intercept is 7.",
+    "The correct answer is 7, not 0."
+   ],
+   "standards": [
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: compare_zero_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-001",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 5t + 6 and y = 4t - 2. What is y when x = -4?",
+   "answer": "-10",
+   "solutionSteps": [
+    "Find t: 5t + 6 = -4, so t = -2.",
+    "Substitute t = -2 into y: y = -10."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-002",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A curve is defined parametrically by x = 4t - 5 and y = -2t - 1. Find the point (x, y) when t = 1.",
+   "answer": "(-1, -3)",
+   "options": [
+    {
+     "text": "(1, -3)",
+     "correct": false
+    },
+    {
+     "text": "(-1, -3)",
+     "correct": true
+    },
+    {
+     "text": "(-1, -2)",
+     "correct": false
+    },
+    {
+     "text": "(-3, -1)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "x = 4(1) - 5 = -1.",
+    "y = -2(1) - 1 = -3.",
+    "The point is (-1, -3)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-003",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from the ground. After t seconds its position in feet is x = 20t (horizontal distance) and y = -16t² + 96t (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "120",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 96t = 0.",
+    "Factor: -16t(t - 6) = 0.",
+    "The landing time is t = 6 s, so x = 20·6 = 120 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-004",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A curve is defined by x = 3t + 2 and y = -4t - 1. What is y when x = 14?",
+   "answer": "-17",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "-17",
+     "correct": true
+    },
+    {
+     "text": "-57",
+     "correct": false
+    },
+    {
+     "text": "-21",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Find t: 3t + 2 = 14, so t = 4.",
+    "Substitute t = 4 into y: y = -17."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-005",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 5t + 6 and y = 3t - 2. What is y when x = 11?",
+   "answer": "1",
+   "solutionSteps": [
+    "Find t: 5t + 6 = 11, so t = 1.",
+    "Substitute t = 1 into y: y = 1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-006",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A drone's position after t seconds is given in meters by x = -3t + 6 and y = -3t - 2. Find the point (x, y) when t = -1.",
+   "answer": "(9, 1)",
+   "options": [
+    {
+     "text": "(9, 3)",
+     "correct": false
+    },
+    {
+     "text": "(1, 9)",
+     "correct": false
+    },
+    {
+     "text": "(3, 1)",
+     "correct": false
+    },
+    {
+     "text": "(9, 1)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "x = -3(-1) + 6 = 9.",
+    "y = -3(-1) - 2 = 1.",
+    "The point is (9, 1)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-007",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A point moves so that at time t, x = -3t + 1 and y = 2t + 4. Find the point (x, y) when t = -3.",
+   "answer": "(10, -2)",
+   "solutionSteps": [
+    "x = -3(-3) + 1 = 10.",
+    "y = 2(-3) + 4 = -2.",
+    "The point is (10, -2)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-008",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A point moves so that at time t, x = 5t - 6 and y = -3t - 6. Find the point (x, y) when t = 0.",
+   "answer": "(-6, -6)",
+   "options": [
+    {
+     "text": "(-6, 0)",
+     "correct": false
+    },
+    {
+     "text": "(0, -6)",
+     "correct": false
+    },
+    {
+     "text": "(-1, -6)",
+     "correct": false
+    },
+    {
+     "text": "(-6, -6)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "x = 5(0) - 6 = -6.",
+    "y = -3(0) - 6 = -6.",
+    "The point is (-6, -6)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-009",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "x = t + 4 and y = -t - 2. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "2",
+   "solutionSteps": [
+    "Solve x = t + 4 for t: t = x - 4.",
+    "Substitute into y = -t - 2: y = -1·x - 4 - 2 = -x + 2.",
+    "b = 2."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-010",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "x = t + 1 and y = -t + 6. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "7",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Solve x = t + 1 for t: t = x - 1.",
+    "Substitute into y = -t + 6: y = -1·x - 1 + 6 = -x + 7.",
+    "b = 7."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-011",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 4t and y = 3t - 4. What is y when x = 20?",
+   "answer": "11",
+   "solutionSteps": [
+    "Find t: 4t = 20, so t = 5.",
+    "Substitute t = 5 into y: y = 11."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-012",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from the ground. After t seconds its position in feet is x = 30t (horizontal distance) and y = -16t² + 32t (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "60",
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "60",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 32t = 0.",
+    "Factor: -16t(t - 2) = 0.",
+    "The landing time is t = 2 s, so x = 30·2 = 60 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-013",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 5t and y = -4t + 3. What is y when x = 5?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Find t: 5t = 5, so t = 1.",
+    "Substitute t = 1 into y: y = -1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-014",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA curve is defined by x = 4t + 2 and y = -t - 5. What is y when x = 14?\nTariq's answer: -19\nIdentify the mistake and give the correct answer.",
+   "answer": "-8",
+   "solutionSteps": [
+    "Mistake: Tariq substituted x in place of t.",
+    "Find t: 4t + 2 = 14, so t = 3.",
+    "Substitute t = 3 into y: y = -8.",
+    "The correct answer is -8, not -19."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-015",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Parametric equations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A ball is thrown from the ground. After t seconds its position in feet is x = 50t (horizontal distance) and y = -16t² + 128t (height). How far does the ball travel horizontally before it hits the ground?",
+     "answer": "400"
+    },
+    {
+     "prompt": "x = t + 1 and y = 2t - 2. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+     "answer": "-4"
+    },
+    {
+     "prompt": "x = t + 5 and y = 4t + 2. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+     "answer": "-18"
+    },
+    {
+     "prompt": "A ball is thrown from the ground. After t seconds its position in feet is x = 25t (horizontal distance) and y = -16t² + 96t (height). How far does the ball travel horizontally before it hits the ground?",
+     "answer": "150"
+    }
+   ],
+   "answer": "(a) 400; (b) -4; (c) -18; (d) 150",
+   "solutionSteps": [
+    "(a) The ball lands when y = 0: -16t² + 128t = 0. Factor: -16t(t - 8) = 0. The landing time is t = 8 s, so x = 50·8 = 400 ft.",
+    "(b) Solve x = t + 1 for t: t = x - 1. Substitute into y = 2t - 2: y = 2·x - 1 - 2 = 2x - 4. b = -4.",
+    "(c) Solve x = t + 5 for t: t = x - 5. Substitute into y = 4t + 2: y = 4·x - 5 + 2 = 4x - 18. b = -18.",
+    "(d) The ball lands when y = 0: -16t² + 96t = 0. Factor: -16t(t - 6) = 0. The landing time is t = 6 s, so x = 25·6 = 150 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp2-016",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nx = t + 1 and y = -3t - 4. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?\nJada's answer: -4\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Jada used the constant from y(t) without substituting.",
+    "Solve x = t + 1 for t: t = x - 1.",
+    "Substitute into y = -3t - 4: y = -3·x - 1 - 4 = -3x - 1.",
+    "b = -1.",
+    "The correct answer is -1, not -4."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-001",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 128-foot platform. After t seconds its position in feet is x = 40t (horizontal distance) and y = -16t² + 32t + 128 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "160",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 32t + 128 = 0.",
+    "Factor: -16(t - 4)(t + 2) = 0.",
+    "The landing time is t = 4 s, so x = 40·4 = 160 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-002",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from a 96-foot platform. After t seconds its position in feet is x = 30t (horizontal distance) and y = -16t² + 80t + 96 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "180",
+   "options": [
+    {
+     "text": "180",
+     "correct": true
+    },
+    {
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "150",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 80t + 96 = 0.",
+    "Factor: -16(t - 6)(t + 1) = 0.",
+    "The landing time is t = 6 s, so x = 30·6 = 180 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-003",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A rocket's position after t seconds is x = 15t and y = -16t² + 96t + 4, in feet. What is its maximum height?",
+   "answer": "148",
+   "solutionSteps": [
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -96/(2·(-16)) = 3.",
+    "y(3) = -16(3)² + 96(3) + 4 = 148.",
+    "Maximum height: 148 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-004",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "x = t + 4 and y = 5t + 3. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "-17",
+   "options": [
+    {
+     "text": "-17",
+     "correct": true
+    },
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve x = t + 4 for t: t = x - 4.",
+    "Substitute into y = 5t + 3: y = 5·x - 4 + 3 = 5x - 17.",
+    "b = -17."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-005",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = -2t - 5 and y = t - 1. What is y when x = -13?",
+   "answer": "3",
+   "solutionSteps": [
+    "Find t: -2t - 5 = -13, so t = 4.",
+    "Substitute t = 4 into y: y = 3."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-006",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from a 160-foot platform. After t seconds its position in feet is x = 50t (horizontal distance) and y = -16t² + 48t + 160 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "250",
+   "options": [
+    {
+     "text": "150",
+     "correct": false
+    },
+    {
+     "text": "250",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "125",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 48t + 160 = 0.",
+    "Factor: -16(t - 5)(t + 2) = 0.",
+    "The landing time is t = 5 s, so x = 50·5 = 250 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-007",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = -2t - 6 and y = -3t + 4. What is y when x = -10?",
+   "answer": "-2",
+   "solutionSteps": [
+    "Find t: -2t - 6 = -10, so t = 2.",
+    "Substitute t = 2 into y: y = -2."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-008",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A rocket's position after t seconds is x = 30t and y = -16t² + 96t + 4, in feet. What is its maximum height?",
+   "answer": "148",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "148",
+     "correct": true
+    },
+    {
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "144",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -96/(2·(-16)) = 3.",
+    "y(3) = -16(3)² + 96(3) + 4 = 148.",
+    "Maximum height: 148 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-009",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 64-foot platform. After t seconds its position in feet is x = 50t (horizontal distance) and y = -16t² + 48t + 64 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "200",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 48t + 64 = 0.",
+    "Factor: -16(t - 4)(t + 1) = 0.",
+    "The landing time is t = 4 s, so x = 50·4 = 200 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-010",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from an 80-foot platform. After t seconds its position in feet is x = 20t (horizontal distance) and y = -16t² + 64t + 80 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "100",
+   "options": [
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "80",
+     "correct": false
+    },
+    {
+     "text": "100",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 64t + 80 = 0.",
+    "Factor: -16(t - 5)(t + 1) = 0.",
+    "The landing time is t = 5 s, so x = 20·5 = 100 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-011",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "x = 2t + 4 and y = -8t - 5. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "11",
+   "solutionSteps": [
+    "Solve x = 2t + 4 for t: t = (x - 4)/2.",
+    "Substitute into y = -8t - 5: y = -8·(x - 4)/2 - 5 = -4x + 11.",
+    "b = 11."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-012",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A drone's position after t seconds is given in meters by x = 4t + 2 and y = 4t² + 2. Find the point (x, y) when t = -3.",
+   "answer": "(-10, 38)",
+   "options": [
+    {
+     "text": "(-10, -10)",
+     "correct": false
+    },
+    {
+     "text": "(38, -10)",
+     "correct": false
+    },
+    {
+     "text": "(6, 38)",
+     "correct": false
+    },
+    {
+     "text": "(-10, 38)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "x = 4(-3) + 2 = -10.",
+    "y = 4(-3)² + 2 = 38.",
+    "The point is (-10, 38)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-013",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 64-foot platform. After t seconds its position in feet is x = 30t (horizontal distance) and y = -16t² + 48t + 64 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "120",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 48t + 64 = 0.",
+    "Factor: -16(t - 4)(t + 1) = 0.",
+    "The landing time is t = 4 s, so x = 30·4 = 120 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-014",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nA rocket's position after t seconds is x = 20t and y = -16t² + 32t + 5, in feet. What is its maximum height?\nKenji's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "21",
+   "solutionSteps": [
+    "Mistake: Kenji gave the time of the maximum.",
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -32/(2·(-16)) = 1.",
+    "y(1) = -16(1)² + 32(1) + 5 = 21.",
+    "Maximum height: 21 ft.",
+    "The correct answer is 21, not 1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-015",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Parametric equations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A curve is defined parametrically by x = t - 3 and y = 2t² + 1. Find the point (x, y) when t = -3.",
+     "answer": "(-6, 19)"
+    },
+    {
+     "prompt": "A curve is defined parametrically by x = 2t + 4 and y = -3t² + 2. Find the point (x, y) when t = -3.",
+     "answer": "(-2, -25)"
+    },
+    {
+     "prompt": "A rocket's position after t seconds is x = 15t and y = -16t² + 32t + 8, in feet. What is its maximum height?",
+     "answer": "24"
+    },
+    {
+     "prompt": "A ball is thrown from a 96-foot platform. After t seconds its position in feet is x = 50t (horizontal distance) and y = -16t² + 80t + 96 (height). How far does the ball travel horizontally before it hits the ground?",
+     "answer": "300"
+    }
+   ],
+   "answer": "(a) (-6, 19); (b) (-2, -25); (c) 24; (d) 300",
+   "solutionSteps": [
+    "(a) x = (-3) - 3 = -6. y = 2(-3)² + 1 = 19. The point is (-6, 19).",
+    "(b) x = 2(-3) + 4 = -2. y = -3(-3)² + 2 = -25. The point is (-2, -25).",
+    "(c) y is a downward parabola in t; its vertex is at t = -b/(2a) = -32/(2·(-16)) = 1. y(1) = -16(1)² + 32(1) + 8 = 24. Maximum height: 24 ft.",
+    "(d) The ball lands when y = 0: -16t² + 80t + 96 = 0. Factor: -16(t - 6)(t + 1) = 0. The landing time is t = 6 s, so x = 50·6 = 300 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-cp1-016",
+   "skillId": "functions-transformations-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nA point moves so that at time t, x = 5t + 5 and y = 3t² + 2. Find the point (x, y) when t = 3.\nMateo's answer: (29, 20)\nIdentify the mistake and give the correct answer.",
+   "answer": "(20, 29)",
+   "solutionSteps": [
+    "Mistake: Mateo switched x and y.",
+    "x = 5(3) + 5 = 20.",
+    "y = 3(3)² + 2 = 29.",
+    "The point is (20, 29).",
+    "The correct answer is (20, 29), not (29, 20)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-001",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 128-foot platform. After t seconds its position in feet is x = 20t (horizontal distance) and y = -16t² + 32t + 128 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "80",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 32t + 128 = 0.",
+    "Factor: -16(t - 4)(t + 2) = 0.",
+    "The landing time is t = 4 s, so x = 20·4 = 80 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-002",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "x = t - 5 and y = -3t + 6. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "-9",
+   "options": [
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "-9",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve x = t - 5 for t: t = x + 5.",
+    "Substitute into y = -3t + 6: y = -3·x + 5 + 6 = -3x - 9.",
+    "b = -9."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-003",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 5t - 2 and y = 3t² - 6. What is y when x = -12?",
+   "answer": "6",
+   "solutionSteps": [
+    "Find t: 5t - 2 = -12, so t = -2.",
+    "Substitute t = -2 into y: y = 6."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-004",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A curve is defined by x = -2t + 1 and y = -t² - 2. What is y when x = 3?",
+   "answer": "-3",
+   "options": [
+    {
+     "text": "-3",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Find t: -2t + 1 = 3, so t = -1.",
+    "Substitute t = -1 into y: y = -3."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-005",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 2t + 1 and y = 2t² + 3. What is y when x = 3?",
+   "answer": "5",
+   "solutionSteps": [
+    "Find t: 2t + 1 = 3, so t = 1.",
+    "Substitute t = 1 into y: y = 5."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-006",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A curve is defined by x = -2t - 6 and y = 4t² + 2. What is y when x = -6?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-22",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Find t: -2t - 6 = -6, so t = 0.",
+    "Substitute t = 0 into y: y = 2."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-007",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 96-foot platform. After t seconds its position in feet is x = 25t (horizontal distance) and y = -16t² + 80t + 96 (height). How far does the ball travel horizontally before it hits the ground?",
+   "answer": "150",
+   "solutionSteps": [
+    "The ball lands when y = 0: -16t² + 80t + 96 = 0.",
+    "Factor: -16(t - 6)(t + 1) = 0.",
+    "The landing time is t = 6 s, so x = 25·6 = 150 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_projectile). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-008",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A drone's position after t seconds is given in meters by x = 5t + 5 and y = -3t² + 4. Find the point (x, y) when t = -1.",
+   "answer": "(0, 1)",
+   "options": [
+    {
+     "text": "(0, 7)",
+     "correct": false
+    },
+    {
+     "text": "(0, 1)",
+     "correct": true
+    },
+    {
+     "text": "(10, 1)",
+     "correct": false
+    },
+    {
+     "text": "(1, 0)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "x = 5(-1) + 5 = 0.",
+    "y = -3(-1)² + 4 = 1.",
+    "The point is (0, 1)."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_point). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-009",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "x = t - 4 and y = -3t + 5. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "-7",
+   "solutionSteps": [
+    "Solve x = t - 4 for t: t = x + 4.",
+    "Substitute into y = -3t + 5: y = -3·x + 4 + 5 = -3x - 7.",
+    "b = -7."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-010",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A rocket's position after t seconds is x = 15t and y = -16t² + 64t + 5, in feet. What is its maximum height?",
+   "answer": "69",
+   "options": [
+    {
+     "text": "69",
+     "correct": true
+    },
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -64/(2·(-16)) = 2.",
+    "y(2) = -16(2)² + 64(2) + 5 = 69.",
+    "Maximum height: 69 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-011",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "x = t + 2 and y = -2t - 5. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Solve x = t + 2 for t: t = x - 2.",
+    "Substitute into y = -2t - 5: y = -2·x - 2 - 5 = -2x - 1.",
+    "b = -1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-012",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A rocket's position after t seconds is x = 30t and y = -16t² + 96t + 8, in feet. What is its maximum height?",
+   "answer": "152",
+   "options": [
+    {
+     "text": "152",
+     "correct": true
+    },
+    {
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "144",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -96/(2·(-16)) = 3.",
+    "y(3) = -16(3)² + 96(3) + 8 = 152.",
+    "Maximum height: 152 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-013",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A curve is defined by x = 4t - 1 and y = 3t² - 4. What is y when x = -5?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Find t: 4t - 1 = -5, so t = -1.",
+    "Substitute t = -1 into y: y = -1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-014",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nA rocket's position after t seconds is x = 30t and y = -16t² + 32t + 8, in feet. What is its maximum height?\nJada's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "24",
+   "solutionSteps": [
+    "Mistake: Jada gave the time of the maximum.",
+    "y is a downward parabola in t; its vertex is at t = -b/(2a) = -32/(2·(-16)) = 1.",
+    "y(1) = -16(1)² + 32(1) + 8 = 24.",
+    "Maximum height: 24 ft.",
+    "The correct answer is 24, not 1."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_max_height_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-015",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Parametric equations): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "x = t - 2 and y = 5t. Eliminate the parameter t and write y as a function of x in the form y = mx + b. What is b?",
+     "answer": "10"
+    },
+    {
+     "prompt": "A ball is thrown from a 96-foot platform. After t seconds its position in feet is x = 25t (horizontal distance) and y = -16t² + 16t + 96 (height). How far does the ball travel horizontally before it hits the ground?",
+     "answer": "75"
+    },
+    {
+     "prompt": "A curve is defined by x = -2t - 1 and y = 3t² - 1. What is y when x = -5?",
+     "answer": "11"
+    },
+    {
+     "prompt": "A rocket's position after t seconds is x = 15t and y = -16t² + 32t, in feet. What is its maximum height?",
+     "answer": "16"
+    }
+   ],
+   "answer": "(a) 10; (b) 75; (c) 11; (d) 16",
+   "solutionSteps": [
+    "(a) Solve x = t - 2 for t: t = x + 2. Substitute into y = 5t: y = 5·x + 2 + 0 = 5x + 10. b = 10.",
+    "(b) The ball lands when y = 0: -16t² + 16t + 96 = 0. Factor: -16(t - 3)(t + 2) = 0. The landing time is t = 3 s, so x = 25·3 = 75 ft.",
+    "(c) Find t: -2t - 1 = -5, so t = 2. Substitute t = 2 into y: y = 11.",
+    "(d) y is a downward parabola in t; its vertex is at t = -b/(2a) = -32/(2·(-16)) = 1. y(1) = -16(1)² + 32(1) + 0 = 16. Maximum height: 16 ft."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_eliminate_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s10-honors-016",
+   "skillId": "functions-transformations-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nA curve is defined by x = 5t - 2 and y = -3t² - 3. What is y when x = 23?\nIsaac's answer: -72\nIdentify the mistake and give the correct answer.",
+   "answer": "-78",
+   "solutionSteps": [
+    "Mistake: Isaac substituted x in place of t.",
+    "Find t: 5t - 2 = 23, so t = 5.",
+    "Substitute t = 5 into y: y = -78.",
+    "The correct answer is -78, not -72."
+   ],
+   "standards": [
+    "F-IF.C.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: parametric_t_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
   }
  ]
 }

@@ -1168,5 +1168,13 @@
   skills["statistics"]["statistical-inference"].push("Significance Tests for the Slope of a Regression Line");
   skills["geometry"]["right-triangles-trigonometry"].push("Law of Sines and Law of Cosines");
   skills["geometry"]["foundations-geometry"].push("Conditional Statements, Converses, and Biconditionals");
+  // Algebra 2 audit additions, November 17, 2026 (standards gaps). Existing skill IDs stay stable.
+  skills["algebra2"]["functions-transformations"].push("Comparing functions in different representations");
+  skills["algebra2"]["functions-transformations"].push("Parametric equations");
+  skills["algebra2"]["linear-functions-systems"].push("Solving f(x) = g(x) with graphs and tables");
+  skills["algebra2"]["exponential-logarithmic-functions"].push("Interpreting the structure of expressions");
+  skills["algebra2"]["probability-statistics"].push("Simulation and evaluating models");
+  skills["algebra2"]["probability-statistics"].push("Randomized experiments and comparing treatments");
+  skills["algebra2"]["probability-statistics"].push("Evaluating reports based on data");
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);

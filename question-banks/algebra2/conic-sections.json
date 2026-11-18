@@ -10439,6 +10439,615 @@
     "A-SSE.B.3b"
    ],
    "sourceNotes": "Partner-check companion to a2-cs-s06-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w001",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A park gateway has a parabolic arch 9 meters high at the center and 6 meters wide at the base. How high is the arch 2 meters from the center?",
+   "answer": "5",
+   "solutionSteps": [
+    "With the top at (0, 9) and base points (±3, 0): y = 9 - ax², and 0 = 9 - a(3)², so a = 1.",
+    "y(2) = 9 - 1·4 = 5 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w002",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A tunnel entrance has a parabolic arch 24 meters high at the center and 12 meters wide at the base. How high is the arch 3 meters from the center?",
+   "answer": "18",
+   "options": [
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 24) and base points (±6, 0): y = 24 - ax², and 0 = 24 - a(6)², so a = 2/3.",
+    "y(3) = 24 - 2/3·9 = 18 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w003",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A flashlight reflector is a parabola in cross-section. It is 24 centimeters wide and 2 centimeters deep. How far from the bottom (vertex) should the bulb be placed, at the focus, in centimeters?",
+   "answer": "18",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (12, 2).",
+    "(12)² = 4p(2), so 144 = 8p.",
+    "p = 18 centimeters."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w004",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A solar cooker is a parabola in cross-section. It is 4 inches wide and 1 inches deep. How far from the bottom (vertex) should the pot be placed, at the focus, in inches?",
+   "answer": "1",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (2, 1).",
+    "(2)² = 4p(1), so 4 = 4p.",
+    "p = 1 inches."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w005",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A tunnel entrance has a parabolic arch 27 meters high at the center and 24 meters wide at the base. How high is the arch 4 meters from the center?",
+   "answer": "24",
+   "options": [
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 27) and base points (±12, 0): y = 27 - ax², and 0 = 27 - a(12)², so a = 3/16.",
+    "y(4) = 27 - 3/16·16 = 24 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-w006",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA satellite dish is a parabola in cross-section. It is 16 feet wide and 4 feet deep. How far from the bottom (vertex) should the receiver be placed, at the focus, in feet?\nTariq's answer: 16\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Tariq used the full width instead of half.",
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (8, 4).",
+    "(8)² = 4p(4), so 64 = 16p.",
+    "p = 4 feet.",
+    "The correct answer is 4, not 16."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w001",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A flashlight reflector is a parabola in cross-section. It is 16 centimeters wide and 2 centimeters deep. How far from the bottom (vertex) should the bulb be placed, at the focus, in centimeters?",
+   "answer": "8",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (8, 2).",
+    "(8)² = 4p(2), so 64 = 8p.",
+    "p = 8 centimeters."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w002",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A tunnel entrance has a parabolic arch 24 meters high at the center and 16 meters wide at the base. How high is the arch 4 meters from the center?",
+   "answer": "18",
+   "options": [
+    {
+     "text": "18",
+     "correct": true
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 24) and base points (±8, 0): y = 24 - ax², and 0 = 24 - a(8)², so a = 3/8.",
+    "y(4) = 24 - 3/8·16 = 18 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w003",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A solar cooker is a parabola in cross-section. It is 24 inches wide and 9 inches deep. How far from the bottom (vertex) should the pot be placed, at the focus, in inches?",
+   "answer": "4",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (12, 9).",
+    "(12)² = 4p(9), so 144 = 36p.",
+    "p = 4 inches."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w004",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A flashlight reflector is a parabola in cross-section. It is 32 centimeters wide and 8 centimeters deep. How far from the bottom (vertex) should the bulb be placed, at the focus, in centimeters?",
+   "answer": "8",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (16, 8).",
+    "(16)² = 4p(8), so 256 = 32p.",
+    "p = 8 centimeters."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w005",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A park gateway has a parabolic arch 9 meters high at the center and 30 meters wide at the base. How high is the arch 5 meters from the center?",
+   "answer": "8",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "-16",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 9) and base points (±15, 0): y = 9 - ax², and 0 = 9 - a(15)², so a = 1/25.",
+    "y(5) = 9 - 1/25·25 = 8 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp1-w006",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA tunnel entrance has a parabolic arch 27 meters high at the center and 6 meters wide at the base. How high is the arch 1 meter from the center?\nFarah's answer: 26\nIdentify the mistake and give the correct answer.",
+   "answer": "24",
+   "solutionSteps": [
+    "Mistake: Farah subtracted the distance.",
+    "With the top at (0, 27) and base points (±3, 0): y = 27 - ax², and 0 = 27 - a(3)², so a = 3.",
+    "y(1) = 27 - 3·1 = 24 m.",
+    "The correct answer is 24, not 26."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w001",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A satellite dish is a parabola in cross-section. It is 8 feet wide and 1 feet deep. How far from the bottom (vertex) should the receiver be placed, at the focus, in feet?",
+   "answer": "4",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (4, 1).",
+    "(4)² = 4p(1), so 16 = 4p.",
+    "p = 4 feet."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w002",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bridge has a parabolic arch 27 meters high at the center and 12 meters wide at the base. How high is the arch 4 meters from the center?",
+   "answer": "15",
+   "options": [
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 27) and base points (±6, 0): y = 27 - ax², and 0 = 27 - a(6)², so a = 3/4.",
+    "y(4) = 27 - 3/4·16 = 15 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w003",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A flashlight reflector is a parabola in cross-section. It is 36 centimeters wide and 9 centimeters deep. How far from the bottom (vertex) should the bulb be placed, at the focus, in centimeters?",
+   "answer": "9",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (18, 9).",
+    "(18)² = 4p(9), so 324 = 36p.",
+    "p = 9 centimeters."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w004",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A flashlight reflector is a parabola in cross-section. It is 8 centimeters wide and 2 centimeters deep. How far from the bottom (vertex) should the bulb be placed, at the focus, in centimeters?",
+   "answer": "2",
+   "solutionSteps": [
+    "Put the vertex at (0, 0): x² = 4py. The rim is at (4, 2).",
+    "(4)² = 4p(2), so 16 = 8p.",
+    "p = 2 centimeters."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_dish). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w005",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A park gateway has a parabolic arch 16 meters high at the center and 24 meters wide at the base. How high is the arch 6 meters from the center?",
+   "answer": "12",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "-20",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "With the top at (0, 16) and base points (±12, 0): y = 16 - ax², and 0 = 16 - a(12)², so a = 1/9.",
+    "y(6) = 16 - 1/9·36 = 12 m."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-honors-w006",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA tunnel entrance has a parabolic arch 25 meters high at the center and 10 meters wide at the base. How high is the arch 1 meter from the center?\nTariq's answer: 20\nIdentify the mistake and give the correct answer.",
+   "answer": "24",
+   "solutionSteps": [
+    "Mistake: Tariq treated the arch as two straight lines.",
+    "With the top at (0, 25) and base points (±5, 0): y = 25 - ax², and 0 = 25 - a(5)², so a = 1.",
+    "y(1) = 25 - 1·1 = 24 m.",
+    "The correct answer is 24, not 20."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_arch_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp2-w001",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A cell tower is at (0, -4) on a town map (units in miles). A house is at (24, 3). How far is the house from the tower?",
+   "answer": "25",
+   "solutionSteps": [
+    "d = √((24 - (0))² + (3 - (-4))²) = √(576 + 49).",
+    "= √625 = 25 miles."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp2-w002",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A cell tower is at (2, 3) on a town map (units in miles). A house is at (-7, 15). How far is the house from the tower?",
+   "answer": "15",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "225",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "d = √((-7 - (2))² + (15 - (3))²) = √(81 + 144).",
+    "= √225 = 15 miles."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp2-w003",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A cell tower is at (3, -4) on a town map (units in miles). A house is at (-9, -9). How far is the house from the tower?",
+   "answer": "13",
+   "solutionSteps": [
+    "d = √((-9 - (3))² + (-9 - (-4))²) = √(144 + 25).",
+    "= √169 = 13 miles."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp1-w001",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cell tower at (4, -5) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (-5, 7) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "225",
+   "solutionSteps": [
+    "r = distance from (4, -5) to (-5, 7) = √(9² + 12²) = 15.",
+    "(x - h)² + (y - k)² = r² with r² = 225."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp1-w002",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A cell tower at (5, -1) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (-4, -13) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "225",
+   "options": [
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "441",
+     "correct": false
+    },
+    {
+     "text": "225",
+     "correct": true
+    },
+    {
+     "text": "26",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = distance from (5, -1) to (-4, -13) = √(9² + 12²) = 15.",
+    "(x - h)² + (y - k)² = r² with r² = 225."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-cp1-w003",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A cell tower at (-4, -1) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (-12, 14) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "289",
+   "solutionSteps": [
+    "r = distance from (-4, -1) to (-12, 14) = √(8² + 15²) = 17.",
+    "(x - h)² + (y - k)² = r² with r² = 289."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-honors-w001",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cell tower at (2, -1) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (-10, 8) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "225",
+   "solutionSteps": [
+    "r = distance from (2, -1) to (-10, 8) = √(12² + 9²) = 15.",
+    "(x - h)² + (y - k)² = r² with r² = 225."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-honors-w002",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A cell tower at (1, -3) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (13, 2) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "169",
+   "options": [
+    {
+     "text": "169",
+     "correct": true
+    },
+    {
+     "text": "13",
+     "correct": false
+    },
+    {
+     "text": "289",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = distance from (1, -3) to (13, 2) = √(12² + 5²) = 13.",
+    "(x - h)² + (y - k)² = r² with r² = 169."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s01-honors-w003",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cell tower at (-3, -1) on a map (units in miles) reaches every point inside the circle where its signal ends. The house at (9, -17) is exactly on that edge. Write the equation of the circle; what is r²?",
+   "answer": "400",
+   "solutionSteps": [
+    "r = distance from (-3, -1) to (9, -17) = √(12² + 16²) = 20.",
+    "(x - h)² + (y - k)² = r² with r² = 400."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
   }
  ]
 }

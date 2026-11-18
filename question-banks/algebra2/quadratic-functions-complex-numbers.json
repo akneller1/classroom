@@ -12291,6 +12291,660 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "a2-qc-s08-cp2-w001",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A rectangle has a perimeter of 24 meters. What is the largest possible area, in square meters?",
+   "answer": "36",
+   "solutionSteps": [
+    "If one side is x, the other is 12 - x, so A = x(12 - x).",
+    "The vertex is at x = 6, so the rectangle is a 6 by 6 square.",
+    "A = 36 m²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w002",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown upward from the ground; its height after t seconds is h(t) = -16t² + 32t feet. After how many seconds does it hit the ground?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve -16t² + 32t = 0.",
+    "Factor: -16t(t - 2) = 0.",
+    "The positive nonzero solution is t = 2 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w003",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is thrown upward from the ground; its height after t seconds is h(t) = -16t² + 48t feet. After how many seconds does it hit the ground?",
+   "answer": "3",
+   "solutionSteps": [
+    "Solve -16t² + 48t = 0.",
+    "Factor: -16t(t - 3) = 0.",
+    "The positive nonzero solution is t = 3 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w004",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A model rocket is launched so that its height after t seconds is h(t) = -16t² + 64t feet. What is its maximum height, in feet?",
+   "answer": "64",
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -64/(2·(-16)) = 2 s.",
+    "h(2) = -16(2)² + 64(2) = 64.",
+    "Maximum height: 64 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w005",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A soccer ball is kicked so that its height after t seconds is h(t) = -16t² + 64t + 4 feet. What is its maximum height, in feet?",
+   "answer": "68",
+   "options": [
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "68",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "84",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -64/(2·(-16)) = 2 s.",
+    "h(2) = -16(2)² + 64(2) + 4 = 68.",
+    "Maximum height: 68 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w006",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A ball is thrown upward from the ground; its height after t seconds is h(t) = -16t² + 64t feet. After how many seconds does it hit the ground?",
+   "answer": "4",
+   "solutionSteps": [
+    "Solve -16t² + 64t = 0.",
+    "Factor: -16t(t - 4) = 0.",
+    "The positive nonzero solution is t = 4 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w007",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA rectangle has a perimeter of 36 meters. What is the largest possible area, in square meters?\nFarah's answer: 9\nIdentify the mistake and give the correct answer.",
+   "answer": "81",
+   "solutionSteps": [
+    "Mistake: Farah gave the side length.",
+    "If one side is x, the other is 18 - x, so A = x(18 - x).",
+    "The vertex is at x = 9, so the rectangle is a 9 by 9 square.",
+    "A = 81 m².",
+    "The correct answer is 81, not 9."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w008",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A volleyball is served so that its height after t seconds is h(t) = -16t² + 64t feet. What is its maximum height, in feet?",
+   "answer": "64",
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -64/(2·(-16)) = 2 s.",
+    "h(2) = -16(2)² + 64(2) = 64.",
+    "Maximum height: 64 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp2-w009",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A rectangle has a perimeter of 76 meters. What is the largest possible area, in square meters?",
+   "answer": "361",
+   "options": [
+    {
+     "text": "1444",
+     "correct": false
+    },
+    {
+     "text": "76",
+     "correct": false
+    },
+    {
+     "text": "19",
+     "correct": false
+    },
+    {
+     "text": "361",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "If one side is x, the other is 38 - x, so A = x(38 - x).",
+    "The vertex is at x = 19, so the rectangle is a 19 by 19 square.",
+    "A = 361 m²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w001",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A rectangle has a perimeter of 72 meters. What is the largest possible area, in square meters?",
+   "answer": "324",
+   "solutionSteps": [
+    "If one side is x, the other is 36 - x, so A = x(36 - x).",
+    "The vertex is at x = 18, so the rectangle is a 18 by 18 square.",
+    "A = 324 m²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w002",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A soccer ball is kicked so that its height after t seconds is h(t) = -16t² + 96t + 5 feet. What is its maximum height, in feet?",
+   "answer": "149",
+   "options": [
+    {
+     "text": "149",
+     "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "144",
+     "correct": false
+    },
+    {
+     "text": "165",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -96/(2·(-16)) = 3 s.",
+    "h(3) = -16(3)² + 96(3) + 5 = 149.",
+    "Maximum height: 149 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w003",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A ball is thrown from a 96-foot rooftop; its height after t seconds is h(t) = -16t² + 80t + 96 feet. After how many seconds does it hit the ground?",
+   "answer": "6",
+   "solutionSteps": [
+    "Solve -16t² + 80t + 96 = 0.",
+    "Factor: -16(t - 6)(t + 1) = 0.",
+    "The positive solution is t = 6 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w004",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A theater sells 400 tickets at $10 each. For each $1 increase in price, it sells 20 fewer tickets, so revenue is R(x) = (10 + x)(400 - 20x) after x one-dollar increases. What ticket price gives the greatest revenue?",
+   "answer": "$15",
+   "solutionSteps": [
+    "R is zero at x = -10 and x = 20; the vertex is halfway: x = (-10 + 20)/2 = 5.",
+    "Best price: $10 + $5 = $15.",
+    "Revenue: 15 · 300 = $4,500."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_revenue). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w005",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A farmer has 64 feet of fence to make a rectangular pen against a barn wall (the wall is one side, so fence is needed on only three sides). What is the largest possible area, in square feet?",
+   "answer": "512",
+   "options": [
+    {
+     "text": "512",
+     "correct": true
+    },
+    {
+     "text": "1024",
+     "correct": false
+    },
+    {
+     "text": "256",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let x be each side perpendicular to the wall; the side parallel is 64 - 2x.",
+    "A = x(64 - 2x) is greatest at x = 16.",
+    "A = 16 · 32 = 512 ft²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w006",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A rectangle has a perimeter of 68 meters. What is the largest possible area, in square meters?",
+   "answer": "289",
+   "solutionSteps": [
+    "If one side is x, the other is 34 - x, so A = x(34 - x).",
+    "The vertex is at x = 17, so the rectangle is a 17 by 17 square.",
+    "A = 289 m²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w007",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA ball is thrown from an 80-foot rooftop; its height after t seconds is h(t) = -16t² + 64t + 80 feet. After how many seconds does it hit the ground?\nAva's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Ava gave the time of the highest point.",
+    "Solve -16t² + 64t + 80 = 0.",
+    "Factor: -16(t - 5)(t + 1) = 0.",
+    "The positive solution is t = 5 s.",
+    "The correct answer is 5, not 2."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w008",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A theater sells 600 tickets at $10 each. For each $1 increase in price, it sells 20 fewer tickets, so revenue is R(x) = (10 + x)(600 - 20x) after x one-dollar increases. What ticket price gives the greatest revenue?",
+   "answer": "$20",
+   "solutionSteps": [
+    "R is zero at x = -10 and x = 30; the vertex is halfway: x = (-10 + 30)/2 = 10.",
+    "Best price: $10 + $10 = $20.",
+    "Revenue: 20 · 400 = $8,000."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_revenue). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-w009",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from a 48-foot rooftop; its height after t seconds is h(t) = -16t² + 32t + 48 feet. After how many seconds does it hit the ground?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve -16t² + 32t + 48 = 0.",
+    "Factor: -16(t - 3)(t + 1) = 0.",
+    "The positive solution is t = 3 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w001",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A farmer has 80 feet of fence to make a rectangular pen against a barn wall (the wall is one side, so fence is needed on only three sides). What is the largest possible area, in square feet?",
+   "answer": "800",
+   "solutionSteps": [
+    "Let x be each side perpendicular to the wall; the side parallel is 80 - 2x.",
+    "A = x(80 - 2x) is greatest at x = 20.",
+    "A = 20 · 40 = 800 ft²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w002",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A model rocket is launched so that its height after t seconds is h(t) = -16t² + 64t + 4 feet. What is its maximum height, in feet?",
+   "answer": "68",
+   "options": [
+    {
+     "text": "68",
+     "correct": true
+    },
+    {
+     "text": "84",
+     "correct": false
+    },
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -64/(2·(-16)) = 2 s.",
+    "h(2) = -16(2)² + 64(2) + 4 = 68.",
+    "Maximum height: 68 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w003",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rectangle has a perimeter of 64 meters. What is the largest possible area, in square meters?",
+   "answer": "256",
+   "solutionSteps": [
+    "If one side is x, the other is 32 - x, so A = x(32 - x).",
+    "The vertex is at x = 16, so the rectangle is a 16 by 16 square.",
+    "A = 256 m²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w004",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A theater sells 300 tickets at $10 each. For each $1 increase in price, it sells 25 fewer tickets, so revenue is R(x) = (10 + x)(300 - 25x) after x one-dollar increases. What ticket price gives the greatest revenue?",
+   "answer": "$11",
+   "solutionSteps": [
+    "R is zero at x = -10 and x = 12; the vertex is halfway: x = (-10 + 12)/2 = 1.",
+    "Best price: $10 + $1 = $11.",
+    "Revenue: 11 · 275 = $3,025."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_revenue). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w005",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A ball is thrown from a 192-foot rooftop; its height after t seconds is h(t) = -16t² + 64t + 192 feet. After how many seconds does it hit the ground?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve -16t² + 64t + 192 = 0.",
+    "Factor: -16(t - 6)(t + 2) = 0.",
+    "The positive solution is t = 6 s."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_landing). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w006",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A volleyball is served so that its height after t seconds is h(t) = -16t² + 96t + 4 feet. What is its maximum height, in feet?",
+   "answer": "148",
+   "solutionSteps": [
+    "The vertex is at t = -b/(2a) = -96/(2·(-16)) = 3 s.",
+    "h(3) = -16(3)² + 96(3) + 4 = 148.",
+    "Maximum height: 148 ft."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_height). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w007",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nA farmer has 32 feet of fence to make a rectangular pen against a barn wall (the wall is one side, so fence is needed on only three sides). What is the largest possible area, in square feet?\nEmma's answer: 64\nIdentify the mistake and give the correct answer.",
+   "answer": "128",
+   "solutionSteps": [
+    "Mistake: Emma fenced all four sides.",
+    "Let x be each side perpendicular to the wall; the side parallel is 32 - 2x.",
+    "A = x(32 - 2x) is greatest at x = 8.",
+    "A = 8 · 16 = 128 ft².",
+    "The correct answer is 128, not 64."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w008",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A farmer has 40 feet of fence to make a rectangular pen against a barn wall (the wall is one side, so fence is needed on only three sides). What is the largest possible area, in square feet?",
+   "answer": "200",
+   "solutionSteps": [
+    "Let x be each side perpendicular to the wall; the side parallel is 40 - 2x.",
+    "A = x(40 - 2x) is greatest at x = 10.",
+    "A = 10 · 20 = 200 ft²."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_fence). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-w009",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A theater sells 500 tickets at $12 each. For each $1 increase in price, it sells 10 fewer tickets, so revenue is R(x) = (12 + x)(500 - 10x) after x one-dollar increases. What ticket price gives the greatest revenue?",
+   "answer": "$31",
+   "options": [
+    {
+     "text": "$31",
+     "correct": true
+    },
+    {
+     "text": "$50",
+     "correct": false
+    },
+    {
+     "text": "$12",
+     "correct": false
+    },
+    {
+     "text": "$19",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "R is zero at x = -12 and x = 50; the vertex is halfway: x = (-12 + 50)/2 = 19.",
+    "Best price: $12 + $19 = $31.",
+    "Revenue: 31 · 310 = $9,610."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_quadratic_revenue). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
   }
  ]
 }
