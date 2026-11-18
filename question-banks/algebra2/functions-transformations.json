@@ -774,7 +774,8 @@
    "prompt": "State the domain of f(x) = √(x - 4).",
    "answer": "x ≥ 4",
    "solutionSteps": [
-    "The radicand must be nonnegative: x - 4 ≥ 0.",
+    "A square root of a negative number is not real, so the radicand must be nonnegative: x - 4 ≥ 0.",
+    "Add 4 to both sides: x ≥ 4.",
     "Domain: x ≥ 4."
    ],
    "standards": [
@@ -808,7 +809,8 @@
    "prompt": "State the domain of f(x) = √(10 - 2x).",
    "answer": "x ≤ 5",
    "solutionSteps": [
-    "10 - 2x ≥ 0 gives x ≤ 5.",
+    "The radicand must be nonnegative: 10 - 2x ≥ 0.",
+    "Subtract 10: -2x ≥ -10. Divide by -2 and reverse the inequality: x ≤ 5.",
     "Domain: x ≤ 5."
    ],
    "standards": [
@@ -859,7 +861,8 @@
    "prompt": "What is the range of f(x) = x² + 3?",
    "answer": "y ≥ 3",
    "solutionSteps": [
-    "x² ≥ 0, so x² + 3 ≥ 3.",
+    "x² is never negative, and it equals 0 at x = 0.",
+    "So x² + 3 is never less than 3, and it equals 3 at x = 0; larger x² gives every larger value.",
     "Range: y ≥ 3."
    ],
    "options": [
@@ -894,7 +897,8 @@
    "prompt": "What is the range of f(x) = -2(x - 1)² + 5?",
    "answer": "y ≤ 5",
    "solutionSteps": [
-    "The parabola opens down with vertex (1, 5).",
+    "In vertex form the vertex is (1, 5), and a = -2 < 0, so the parabola opens down.",
+    "The vertex is the highest point, so the largest output is 5 and every smaller value is reached.",
     "Range: y ≤ 5."
    ],
    "options": [
@@ -929,7 +933,8 @@
    "prompt": "What is the range of f(x) = √x - 4?",
    "answer": "y ≥ -4",
    "solutionSteps": [
-    "√x ≥ 0, so √x - 4 ≥ -4.",
+    "√x is never negative and equals 0 at x = 0.",
+    "Subtracting 4 shifts every output down 4, so √x - 4 ≥ -4, with -4 reached at x = 0.",
     "Range: y ≥ -4."
    ],
    "options": [
@@ -964,7 +969,8 @@
    "prompt": "What is the range of f(x) = |x + 2| - 1?",
    "answer": "y ≥ -1",
    "solutionSteps": [
-    "|x + 2| ≥ 0, so the output is at least -1.",
+    "|x + 2| is never negative and equals 0 at x = -2.",
+    "Subtracting 1 shifts the outputs down 1, so |x + 2| - 1 ≥ -1, with -1 reached at x = -2.",
     "Range: y ≥ -1."
    ],
    "options": [
@@ -1169,8 +1175,9 @@
    "prompt": "Find the range of h(x) = 2^x - 3.",
    "answer": "y > -3",
    "solutionSteps": [
-    "2^x > 0 for every x.",
-    "So 2^x - 3 > -3."
+    "2^x is positive for every x and gets as close to 0 as we like, but never equals 0.",
+    "Subtracting 3 shifts the outputs down 3, so 2^x - 3 is always greater than -3.",
+    "Range: y > -3 (the horizontal asymptote y = -3 is not reached)."
    ],
    "standards": [
     "F-IF.A.1",
@@ -1186,8 +1193,9 @@
    "prompt": "Find the range of h(x) = -√(x + 1) + 6.",
    "answer": "y ≤ 6",
    "solutionSteps": [
-    "√(x + 1) ≥ 0, so -√(x + 1) ≤ 0.",
-    "Add 6: y ≤ 6."
+    "√(x + 1) ≥ 0, so -√(x + 1) ≤ 0, with 0 reached at x = -1.",
+    "Adding 6 shifts the outputs up 6: -√(x + 1) + 6 ≤ 6.",
+    "Range: y ≤ 6."
    ],
    "standards": [
     "F-IF.A.1",
@@ -1339,8 +1347,9 @@
    "prompt": "Determine the range of f(x) = x² - 6x + 11. Justify algebraically.",
    "answer": "y ≥ 2",
    "solutionSteps": [
-    "Complete the square: (x - 3)² + 2.",
-    "Minimum value 2 at x = 3."
+    "Complete the square: x² - 6x + 11 = (x² - 6x + 9) + 2 = (x - 3)² + 2.",
+    "(x - 3)² ≥ 0 for every x and equals 0 at x = 3, so f(x) ≥ 2 with f(3) = 2.",
+    "As |x - 3| grows, (x - 3)² + 2 takes every value above 2, so the range is y ≥ 2."
    ],
    "standards": [
     "F-IF.A.1",
@@ -1476,8 +1485,9 @@
    "prompt": "Let f(x) = x² - 1 and g(x) = 2x + 3. Find (f + g)(x).",
    "answer": "x² + 2x + 2",
    "solutionSteps": [
-    "(f + g)(x) = (x² - 1) + (2x + 3).",
-    "Simplify: x² + 2x + 2."
+    "(f + g)(x) = f(x) + g(x) = (x² - 1) + (2x + 3).",
+    "Combine like terms: x² + 2x + (-1 + 3).",
+    "(f + g)(x) = x² + 2x + 2."
    ],
    "standards": [
     "F-BF.A.1b",
@@ -1511,8 +1521,9 @@
    "prompt": "Let f(x) = x² - 1 and g(x) = 2x + 3. Find (fg)(x).",
    "answer": "2x³ + 3x² - 2x - 3",
    "solutionSteps": [
-    "(fg)(x) = (x² - 1) · (2x + 3).",
-    "Simplify: 2x³ + 3x² - 2x - 3."
+    "(fg)(x) = f(x)·g(x) = (x² - 1)(2x + 3).",
+    "Distribute: x²(2x + 3) - 1(2x + 3) = 2x³ + 3x² - 2x - 3.",
+    "(fg)(x) = 2x³ + 3x² - 2x - 3."
    ],
    "standards": [
     "F-BF.A.1b",
@@ -2677,8 +2688,9 @@
    "prompt": "A taxi charges C(m) = 2.5m + 4 dollars for m miles. What does C⁻¹(19) represent?",
    "answer": "The number of miles you can ride for $19 (6 miles)",
    "solutionSteps": [
-    "C⁻¹ takes a cost and returns miles.",
-    "2.5m + 4 = 19 → m = 6."
+    "C takes miles and returns a cost, so C⁻¹ takes a cost and returns miles.",
+    "C⁻¹(19) is the number of miles m with C(m) = 19: 2.5m + 4 = 19, so 2.5m = 15 and m = 6.",
+    "C⁻¹(19) is the number of miles you can ride for $19 (6 miles)."
    ],
    "options": [
     {
@@ -3529,7 +3541,8 @@
    "prompt": "f(x) = { x² - 1 if x < 2; 3x - 4 if x ≥ 2 }. Find f(-3).",
    "answer": 8,
    "solutionSteps": [
-    "-3 < 2, so use x² - 1.",
+    "Decide which piece applies: -3 < 2, so use x² - 1.",
+    "f(-3) = (-3)² - 1 = 9 - 1.",
     "f(-3) = 8."
    ],
    "standards": [
@@ -3545,7 +3558,8 @@
    "prompt": "f(x) = { x² - 1 if x < 2; 3x - 4 if x ≥ 2 }. Find f(2).",
    "answer": 2,
    "solutionSteps": [
-    "2 ≥ 2, so use 3x - 4.",
+    "Decide which piece applies: x = 2 satisfies x ≥ 2, so use 3x - 4.",
+    "f(2) = 3(2) - 4 = 6 - 4.",
     "f(2) = 2."
    ],
    "standards": [
@@ -3561,7 +3575,8 @@
    "prompt": "f(x) = { x² - 1 if x < 2; 3x - 4 if x ≥ 2 }. Find f(5).",
    "answer": 11,
    "solutionSteps": [
-    "5 ≥ 2, so use 3x - 4.",
+    "Decide which piece applies: 5 ≥ 2, so use 3x - 4.",
+    "f(5) = 3(5) - 4 = 15 - 4.",
     "f(5) = 11."
    ],
    "standards": [
@@ -3577,7 +3592,8 @@
    "prompt": "f(x) = { x² - 1 if x < 2; 3x - 4 if x ≥ 2 }. Find f(0).",
    "answer": -1,
    "solutionSteps": [
-    "0 < 2, so use x² - 1.",
+    "Decide which piece applies: 0 < 2, so use x² - 1.",
+    "f(0) = 0² - 1.",
     "f(0) = -1."
    ],
    "standards": [
@@ -3593,8 +3609,9 @@
    "prompt": "g(x) = { -x if x ≤ 0; x + 1 if x > 0 }. A student finds g(0) = 1. What was the error?",
    "answer": "x = 0 belongs to the first piece, so g(0) = 0",
    "solutionSteps": [
-    "The inequality x ≤ 0 includes 0.",
-    "g(0) = -0 = 0."
+    "The first piece covers x ≤ 0, which includes x = 0; the second piece covers only x > 0.",
+    "So g(0) uses -x: g(0) = -0 = 0.",
+    "The student used the second piece (0 + 1 = 1); x = 0 belongs to the first piece, so g(0) = 0."
    ],
    "options": [
     {
@@ -3669,8 +3686,9 @@
    "prompt": "Use the graph of the piecewise function. Find f(-1).",
    "answer": 1,
    "solutionSteps": [
-    "Use the closed (filled) point at that x-value.",
-    "f(-1) = 1."
+    "Find x = -1 on the horizontal axis and move straight up or down to the graph.",
+    "If two pieces meet there, use the filled (closed) dot; an open dot is not part of the graph.",
+    "The filled point is at height 1, so f(-1) = 1."
    ],
    "diagram": {
     "type": "image",
@@ -3692,8 +3710,9 @@
    "prompt": "Use the graph of the piecewise function. Find f(3).",
    "answer": 1,
    "solutionSteps": [
-    "Use the closed (filled) point at that x-value.",
-    "f(3) = 1."
+    "Find x = 3 on the horizontal axis and move straight up or down to the graph.",
+    "Use the filled (closed) dot at that x-value; an open dot is not part of the graph.",
+    "The filled point is at height 1, so f(3) = 1."
    ],
    "diagram": {
     "type": "image",
@@ -3715,8 +3734,9 @@
    "prompt": "Use the graph of the piecewise function. Find f(0).",
    "answer": 0,
    "solutionSteps": [
-    "Use the closed (filled) point at that x-value.",
-    "f(0) = 0."
+    "Find x = 0 on the horizontal axis and move straight up or down to the graph.",
+    "Use the filled (closed) dot at that x-value; an open dot is not part of the graph.",
+    "The filled point is at height 0, so f(0) = 0."
    ],
    "diagram": {
     "type": "image",
@@ -3807,8 +3827,9 @@
    "prompt": "Write |x - 3| as a piecewise function.",
    "answer": "{ -(x - 3) if x < 3; x - 3 if x ≥ 3 }",
    "solutionSteps": [
-    "|u| = u when u ≥ 0 and -u when u < 0.",
-    "x - 3 ≥ 0 when x ≥ 3."
+    "|u| = u when u ≥ 0 and |u| = -u when u < 0. Here u = x - 3.",
+    "x - 3 ≥ 0 when x ≥ 3, so |x - 3| = x - 3 there; x - 3 < 0 when x < 3, so |x - 3| = -(x - 3) there.",
+    "|x - 3| = { -(x - 3) if x < 3; x - 3 if x ≥ 3 }."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -4040,8 +4061,9 @@
    "prompt": "Is f(x) = 2x⁵ + x even, odd, or neither?",
    "answer": "Odd",
    "solutionSteps": [
-    "Compute f(-x) and compare.",
-    "f(-x) = -2x⁵ - x = -f(x)."
+    "Replace x with -x: f(-x) = 2(-x)⁵ + (-x).",
+    "(-x)⁵ = -x⁵, so f(-x) = -2x⁵ - x = -(2x⁵ + x).",
+    "f(-x) = -f(x), so f is odd."
    ],
    "options": [
     {
@@ -4108,7 +4130,9 @@
    "prompt": "A graph is symmetric about the y-axis. Which statement must be true for every x in its domain?",
    "answer": "f(-x) = f(x)",
    "solutionSteps": [
-    "Y-axis symmetry defines an even function."
+    "Symmetry about the y-axis means the point (x, y) is on the graph whenever (-x, y) is.",
+    "So the input -x gives the same output as x.",
+    "f(-x) = f(x) for every x: the function is even."
    ],
    "options": [
     {
@@ -4141,7 +4165,9 @@
    "prompt": "A graph is symmetric about the origin. Which statement must be true for every x in its domain?",
    "answer": "f(-x) = -f(x)",
    "solutionSteps": [
-    "Origin symmetry defines an odd function."
+    "Symmetry about the origin means (-x, -y) is on the graph whenever (x, y) is.",
+    "So the input -x gives the opposite output of x.",
+    "f(-x) = -f(x) for every x: the function is odd."
    ],
    "options": [
     {
@@ -4174,8 +4200,9 @@
    "prompt": "The graph shown passes through (2, -2) and is symmetric about the origin. What is f(-2)?",
    "answer": "2",
    "solutionSteps": [
-    "Origin symmetry: f(-x) = -f(x).",
-    "f(-2) = -f(2) = 2."
+    "Symmetry about the origin means f(-x) = -f(x).",
+    "(2, -2) is on the graph, so f(2) = -2.",
+    "f(-2) = -f(2) = -(-2) = 2."
    ],
    "options": [
     {
@@ -4215,8 +4242,9 @@
    "prompt": "Determine algebraically whether f(x) = |x| + x² is even, odd, or neither.",
    "answer": "even",
    "solutionSteps": [
-    "Substitute -x for x and simplify.",
-    "f(-x) = f(x)."
+    "Replace x with -x: f(-x) = |-x| + (-x)².",
+    "|-x| = |x| and (-x)² = x², so f(-x) = |x| + x² = f(x).",
+    "f(-x) = f(x), so f is even."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4231,8 +4259,9 @@
    "prompt": "Determine algebraically whether f(x) = x/(x² + 1) is even, odd, or neither.",
    "answer": "odd",
    "solutionSteps": [
-    "Substitute -x for x and simplify.",
-    "f(-x) = -f(x)."
+    "Replace x with -x: f(-x) = (-x)/((-x)² + 1).",
+    "(-x)² = x², so f(-x) = -x/(x² + 1) = -f(x).",
+    "f(-x) = -f(x), so f is odd."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4247,8 +4276,9 @@
    "prompt": "Determine algebraically whether f(x) = √(x² + 4) is even, odd, or neither.",
    "answer": "even",
    "solutionSteps": [
-    "Substitute -x for x and simplify.",
-    "f(-x) = f(x)."
+    "Replace x with -x: f(-x) = √((-x)² + 4).",
+    "(-x)² = x², so f(-x) = √(x² + 4) = f(x).",
+    "f(-x) = f(x), so f is even."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4279,8 +4309,9 @@
    "prompt": "Determine algebraically whether f(x) = x·|x| is even, odd, or neither.",
    "answer": "odd",
    "solutionSteps": [
-    "Substitute -x for x and simplify.",
-    "f(-x) = -f(x)."
+    "Replace x with -x: f(-x) = (-x)·|-x|.",
+    "|-x| = |x|, so f(-x) = -x·|x| = -f(x).",
+    "f(-x) = -f(x), so f is odd."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4375,8 +4406,9 @@
    "prompt": "f is even and g is odd. Is h(x) = f(x)·g(x) even, odd, or neither? Prove it.",
    "answer": "odd",
    "solutionSteps": [
-    "h(-x) = f(-x)g(-x) = f(x)·(-g(x)) = -h(x).",
-    "So h is odd."
+    "Evaluate h at -x: h(-x) = f(-x)·g(-x).",
+    "f is even, so f(-x) = f(x); g is odd, so g(-x) = -g(x).",
+    "h(-x) = f(x)·(-g(x)) = -f(x)g(x) = -h(x), so h is odd."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4391,8 +4423,9 @@
    "prompt": "If f is odd and defined at 0, what is f(0)? Explain.",
    "answer": "0",
    "solutionSteps": [
-    "f(-0) = -f(0) → f(0) = -f(0) → 2f(0) = 0.",
-    "So f(0) = 0."
+    "An odd function satisfies f(-x) = -f(x) for every x in its domain, including x = 0.",
+    "At x = 0: f(-0) = -f(0), and -0 = 0, so f(0) = -f(0).",
+    "Then 2f(0) = 0, so f(0) = 0."
    ],
    "standards": [
     "F-BF.B.3"
@@ -4538,7 +4571,9 @@
    "prompt": "Which type of function best models a population that doubles every 6 years?",
    "answer": "Exponential",
    "solutionSteps": [
-    "Constant multiplication over equal time intervals is exponential growth."
+    "Doubling every 6 years means the population is multiplied by the same factor (2) over equal time intervals.",
+    "A constant ratio over equal intervals is the signature of an exponential function; a linear function adds a constant amount instead.",
+    "Best model: exponential, P(t) = P₀·2^(t/6)."
    ],
    "options": [
     {
@@ -4923,7 +4958,10 @@
     "f(2) = -1"
    ],
    "solutionSteps": [
-    "Substitute each input."
+    "Substitute each input into f(x) = x² - 4x + 3.",
+    "f(0) = 3; f(1) = 1 - 4 + 3 = 0; f(-1) = 1 + 4 + 3 = 8; f(2) = 4 - 8 + 3 = -1.",
+    "f(3) = 9 - 12 + 3 = 0 (not 3) and f(4) = 16 - 16 + 3 = 3 (not 0).",
+    "True: f(0) = 3, f(1) = 0, f(-1) = 8 and f(2) = -1."
    ],
    "options": [
     {
@@ -5178,7 +5216,10 @@
     "y = √x"
    ],
    "solutionSteps": [
-    "x² + 1 has range y ≥ 1; -x² has y ≤ 0; 2^x has y > 0 (0 not included)."
+    "Range y ≥ 0 means every output is at least 0 and 0 itself is reached.",
+    "y = x², y = |x - 3| and y = √x are never negative and equal 0 at x = 0, 3 and 0, so each has range y ≥ 0.",
+    "y = x² + 1 has range y ≥ 1; y = -x² has y ≤ 0; y = 2^x has y > 0 (0 is never reached).",
+    "Range y ≥ 0: y = x², y = |x - 3| and y = √x."
    ],
    "options": [
     {
@@ -5257,7 +5298,9 @@
    "prompt": "Find the domain of f(x) = √(x² - 5x + 6).",
    "answer": "x ≤ 2 or x ≥ 3",
    "solutionSteps": [
-    "(x - 2)(x - 3) ≥ 0."
+    "The radicand must be nonnegative: x² - 5x + 6 ≥ 0, which factors as (x - 2)(x - 3) ≥ 0.",
+    "The product is zero at x = 2 and x = 3. Test the intervals: x = 0 gives (+), x = 2.5 gives (-), x = 4 gives (+).",
+    "So the product is nonnegative for x ≤ 2 or x ≥ 3: that is the domain."
    ],
    "standards": [
     "F-IF.A.1",
@@ -5432,7 +5475,9 @@
    "prompt": "h(x) = (2x + 1)³. Which f and g give h = f ∘ g?",
    "answer": "f(x) = x³, g(x) = 2x + 1",
    "solutionSteps": [
-    "The inner function is applied first."
+    "In (f ∘ g)(x) = f(g(x)), g is applied first (the inside) and f second (the outside).",
+    "In h(x) = (2x + 1)³, the first thing done to x is 2x + 1; then the result is cubed.",
+    "So g(x) = 2x + 1 and f(x) = x³."
    ],
    "options": [
     {
@@ -5469,8 +5514,10 @@
     "f(f⁻¹(x)) = x"
    ],
    "solutionSteps": [
-    "Swap x and y and solve.",
-    "f⁻¹ is not the reciprocal."
+    "Write y = (x + 3)/2, swap x and y: x = (y + 3)/2, so 2x = y + 3 and y = 2x - 3. So f⁻¹(x) = 2x - 3.",
+    "By definition f(f⁻¹(x)) = x; check: f(2x - 3) = (2x - 3 + 3)/2 = x.",
+    "f⁻¹ is not the reciprocal 1/f(x), and -(x + 3)/2 is not the inverse.",
+    "True: f⁻¹(x) = 2x - 3 and f(f⁻¹(x)) = x."
    ],
    "options": [
     {
@@ -5507,8 +5554,10 @@
     "f(f⁻¹(x)) = x"
    ],
    "solutionSteps": [
-    "Swap x and y and solve.",
-    "f⁻¹ is not the reciprocal."
+    "Write y = x³ - 1, swap: x = y³ - 1, so y³ = x + 1 and y = ∛(x + 1). So f⁻¹(x) = ∛(x + 1).",
+    "Check: f(∛(x + 1)) = (x + 1) - 1 = x, so f(f⁻¹(x)) = x.",
+    "The reciprocal 1/f(x) and -x³ - 1 are not inverses.",
+    "True: f⁻¹(x) = ∛(x + 1) and f(f⁻¹(x)) = x."
    ],
    "options": [
     {
@@ -5545,8 +5594,10 @@
     "f(f⁻¹(x)) = x"
    ],
    "solutionSteps": [
-    "Swap x and y and solve.",
-    "f⁻¹ is not the reciprocal."
+    "Write y = 4/(x - 1), swap: x = 4/(y - 1), so y - 1 = 4/x and y = 4/x + 1. So f⁻¹(x) = 4/x + 1.",
+    "Check: f(4/x + 1) = 4/((4/x + 1) - 1) = 4/(4/x) = x, so f(f⁻¹(x)) = x.",
+    "The reciprocal 1/f(x) and -4/(x - 1) are not inverses.",
+    "True: f⁻¹(x) = 4/x + 1 and f(f⁻¹(x)) = x."
    ],
    "options": [
     {
@@ -5617,10 +5668,10 @@
    "prompt": "Temperature conversion F = (9/5)C + 32.",
    "answer": "(a) C = (5/9)(F - 32); (b) 100°C; (c) Fahrenheit temperature; (d) -40°",
    "solutionSteps": [
-    "Solve for C.",
-    "(5/9)(180).",
-    "Roles swap.",
-    "x = (9/5)x + 32."
+    "(a) Solve F = (9/5)C + 32 for C: F - 32 = (9/5)C, so C = (5/9)(F - 32).",
+    "(b) C = (5/9)(212 - 32) = (5/9)(180) = 100, so 212°F is 100°C.",
+    "(c) The inverse takes a Fahrenheit temperature as input and gives the Celsius temperature as output.",
+    "(d) Set F = C = x: x = (9/5)x + 32, so -(4/5)x = 32 and x = -40. The scales agree at -40°."
    ],
    "parts": [
     {
@@ -5654,7 +5705,9 @@
    "prompt": "Which function does NOT have an inverse function on all real numbers?",
    "answer": "f(x) = x² + 1",
    "solutionSteps": [
-    "x² + 1 fails the horizontal line test."
+    "A function has an inverse function on all real numbers only if it is one-to-one: every horizontal line meets the graph at most once.",
+    "f(x) = x² + 1 gives the same output for x and -x (for example f(2) = f(-2) = 5), so a horizontal line meets it twice.",
+    "So f(x) = x² + 1 does not have an inverse function on all real numbers."
    ],
    "options": [
     {
@@ -5688,7 +5741,9 @@
    "prompt": "If f(3) = 8, what is f⁻¹(8)?",
    "answer": "3",
    "solutionSteps": [
-    "Inverses swap inputs and outputs."
+    "An inverse function swaps inputs and outputs: if f(a) = b, then f⁻¹(b) = a.",
+    "f(3) = 8 means f sends 3 to 8.",
+    "So f⁻¹ sends 8 back to 3: f⁻¹(8) = 3."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -5704,7 +5759,9 @@
    "prompt": "Find the inverse of f(x) = (2x + 1)/(x - 3).",
    "answer": "f⁻¹(x) = (3x + 1)/(x - 2)",
    "solutionSteps": [
-    "x(y - 3) = 2y + 1 → xy - 2y = 3x + 1."
+    "Write y = (2x + 1)/(x - 3) and swap x and y: x = (2y + 1)/(y - 3).",
+    "Multiply by (y - 3): xy - 3x = 2y + 1. Collect the y-terms: xy - 2y = 3x + 1, so y(x - 2) = 3x + 1.",
+    "y = (3x + 1)/(x - 2), so f⁻¹(x) = (3x + 1)/(x - 2)."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -6023,7 +6080,10 @@
     "The domains differ by a shift of 2"
    ],
    "solutionSteps": [
-    "(x, y) → (x + 2, y + 5)."
+    "In g(x) = f(x - 2) + 5, replacing x with x - 2 moves the graph right 2, and adding 5 moves it up 5: (x, y) → (x + 2, y + 5).",
+    "(1, 4) on f moves to (1 + 2, 4 + 5) = (3, 9) on g, not (-1, 9).",
+    "The horizontal shift moves the domain right 2, so the domains differ by a shift of 2; the graph does not move left.",
+    "True: f moves right 2 and up 5, (3, 9) is on g, and the domains differ by a shift of 2."
    ],
    "options": [
     {
@@ -6064,7 +6124,10 @@
     "Shift right 1"
    ],
    "solutionSteps": [
-    "y-intercept = f(0); even functions are unchanged by y-axis reflection and horizontal stretch at x = 0."
+    "The y-intercept is f(0) = 0² + 1 = 1. A transformation changes it only if the new function has a different value at x = 0.",
+    "Shift up 2: 0 + 1 + 2 = 3. Vertical stretch by 3: 3(1) = 3. Shift right 1: (0 - 1)² + 1 = 2. All change it.",
+    "Reflection over the y-axis: (-0)² + 1 = 1. Horizontal stretch by 2: (0/2)² + 1 = 1. Neither changes it.",
+    "The y-intercept changes for the shift up 2, the vertical stretch by 3 and the shift right 1."
    ],
    "options": [
     {
@@ -6101,8 +6164,9 @@
    "prompt": "The point (4, -2) is on y = f(x). Find the corresponding point on y = -3f(2x) + 1.",
    "answer": "(2, 7)",
    "solutionSteps": [
-    "x → x/2: 4 → 2.",
-    "y → -3y + 1: -2 → 7."
+    "In y = -3f(2x) + 1, the input 2x means x-values are divided by 2: x → x/2.",
+    "The outputs are multiplied by -3 and then 1 is added: y → -3y + 1.",
+    "(4, -2) → (4/2, -3(-2) + 1) = (2, 7)."
    ],
    "standards": [
     "F-BF.B.3"
@@ -6156,7 +6220,10 @@
     "f(5) = 4"
    ],
    "solutionSteps": [
-    "Check which piece applies."
+    "f(-3): -3 < 0, so use -x: f(-3) = 3 (not 4).",
+    "f(1): 0 ≤ 1 < 2, so use x²: f(1) = 1 (not 3).",
+    "f(5): 5 ≥ 2, so f(5) = 4.",
+    "True: f(-3) = 3 and f(5) = 4."
    ],
    "options": [
     {
@@ -6228,7 +6295,10 @@
     "f(2) = -4"
    ],
    "solutionSteps": [
-    "Check which piece applies."
+    "f(-4): -4 ≤ -1, so use x + 3: f(-4) = -1 (not 0).",
+    "f(2): 2 > -1, so use -2x: f(2) = -4.",
+    "f(0): 0 > -1, so f(0) = -2(0) = 0 (not 2).",
+    "True: f(-4) = -1 and f(2) = -4."
    ],
    "options": [
     {
@@ -6300,7 +6370,10 @@
     "f(4) = 3"
    ],
    "solutionSteps": [
-    "Check which piece applies."
+    "f(-5): -5 < 1, so f(-5) = 2 (not 3).",
+    "f(4): 4 ≥ 1, so use x - 1: f(4) = 3.",
+    "f(1): 1 ≥ 1, so f(1) = 1 - 1 = 0 (not 2).",
+    "True: f(-5) = 2 and f(4) = 3."
    ],
    "options": [
     {
@@ -6333,7 +6406,9 @@
    "prompt": "Which is the absolute value function written piecewise?",
    "answer": "|x| = { -x if x < 0; x if x ≥ 0 }",
    "solutionSteps": [
-    "For negative x, -x is positive."
+    "|x| is the distance from 0, so it is never negative.",
+    "For x ≥ 0 the distance is x itself; for x < 0 the distance is -x, which is positive.",
+    "So |x| = { -x if x < 0; x if x ≥ 0 }."
    ],
    "options": [
     {
@@ -6366,8 +6441,9 @@
    "prompt": "A phone plan costs $30 for up to 2 GB and $10 per extra GB (or part). Find the cost for 4.3 GB.",
    "answer": "$60",
    "solutionSteps": [
-    "Extra 2.3 GB rounds up to 3 GB.",
-    "30 + 3(10) = 60."
+    "4.3 GB is 4.3 - 2 = 2.3 GB over the 2 GB included.",
+    "Extra data is charged per GB or part of a GB, so 2.3 GB is charged as 3 GB: 3 × $10 = $30.",
+    "Total: $30 + $30 = $60."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -6382,7 +6458,9 @@
    "prompt": "Find k so f(x) = { kx + 1 if x < 2; x² - k if x ≥ 2 } is continuous.",
    "answer": "k = 1",
    "solutionSteps": [
-    "2k + 1 = 4 - k → 3k = 3."
+    "f is continuous at x = 2 when both pieces give the same value there.",
+    "Left piece at 2: 2k + 1. Right piece at 2: 2² - k = 4 - k.",
+    "2k + 1 = 4 - k, so 3k = 3 and k = 1."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -6397,7 +6475,9 @@
    "prompt": "f(x) = { 5 if x < 0; x² if x ≥ 0 }. Find f(-2) + f(3).",
    "answer": "14",
    "solutionSteps": [
-    "5 + 9."
+    "f(-2): -2 < 0, so f(-2) = 5.",
+    "f(3): 3 ≥ 0, so f(3) = 3² = 9.",
+    "f(-2) + f(3) = 5 + 9 = 14."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -6412,10 +6492,10 @@
    "prompt": "Shipping costs $6 for packages under 2 lb, $9 for 2 lb up to 5 lb, and $9 + $1.50 per lb over 5 lb.",
    "answer": "(a) C = 6 (0 < w < 2); 9 (2 ≤ w ≤ 5); 9 + 1.5(w - 5) (w > 5); (b) $6; (c) $13.50; (d) Yes: both sides give 9",
    "solutionSteps": [
-    "Three pieces.",
-    "First piece.",
-    "9 + 4.5.",
-    "Compare."
+    "(a) C = 6 for 0 < w < 2; C = 9 for 2 ≤ w ≤ 5; C = 9 + 1.5(w - 5) for w > 5.",
+    "(b) 1.5 lb is under 2 lb, so C(1.5) = $6.",
+    "(c) 8 lb is 3 lb over 5: C(8) = 9 + 1.5(3) = 9 + 4.5 = $13.50.",
+    "(d) At w = 5 the middle piece gives 9 and the last piece gives 9 + 1.5(0) = 9, so yes, C is continuous at w = 5: both sides give 9."
    ],
    "parts": [
     {
@@ -6448,7 +6528,9 @@
    "prompt": "Evaluate the greatest integer function ⌊-2.4⌋ + ⌊3.9⌋.",
    "answer": "0",
    "solutionSteps": [
-    "⌊-2.4⌋ = -3; ⌊3.9⌋ = 3."
+    "⌊x⌋ is the greatest integer less than or equal to x.",
+    "⌊-2.4⌋ = -3 (since -3 ≤ -2.4 < -2), and ⌊3.9⌋ = 3.",
+    "-3 + 3 = 0."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -6463,7 +6545,9 @@
    "prompt": "Is f(x) = x⁶ - 2x² even, odd, or neither?",
    "answer": "Even",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = (-x)⁶ - 2(-x)².",
+    "Even powers of -x equal the same powers of x, so f(-x) = x⁶ - 2x² = f(x).",
+    "f(-x) = f(x), so f is even."
    ],
    "options": [
     {
@@ -6496,7 +6580,9 @@
    "prompt": "Is f(x) = 4x³ + x even, odd, or neither?",
    "answer": "Odd",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = 4(-x)³ + (-x) = -4x³ - x.",
+    "-4x³ - x = -(4x³ + x) = -f(x).",
+    "f(-x) = -f(x), so f is odd."
    ],
    "options": [
     {
@@ -6529,7 +6615,9 @@
    "prompt": "Is f(x) = x² + 3x even, odd, or neither?",
    "answer": "Neither",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = (-x)² + 3(-x) = x² - 3x.",
+    "f(x) = x² + 3x and -f(x) = -x² - 3x; x² - 3x equals neither for every x (for example x = 1: f(-1) = -2, f(1) = 4).",
+    "So f is neither even nor odd."
    ],
    "options": [
     {
@@ -6562,7 +6650,9 @@
    "prompt": "Is f(x) = |x| + 5 even, odd, or neither?",
    "answer": "Even",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = |-x| + 5.",
+    "|-x| = |x|, so f(-x) = |x| + 5 = f(x).",
+    "f(-x) = f(x), so f is even."
    ],
    "options": [
     {
@@ -6595,7 +6685,9 @@
    "prompt": "Is f(x) = x/(x² + 1) even, odd, or neither?",
    "answer": "Odd",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = (-x)/((-x)² + 1) = -x/(x² + 1).",
+    "That is -f(x).",
+    "f(-x) = -f(x), so f is odd."
    ],
    "options": [
     {
@@ -6628,7 +6720,9 @@
    "prompt": "Is f(x) = (x - 1)² even, odd, or neither?",
    "answer": "Neither",
    "solutionSteps": [
-    "Compute f(-x) and compare with f(x) and -f(x)."
+    "Replace x with -x: f(-x) = (-x - 1)² = (x + 1)².",
+    "Compare at x = 1: f(1) = 0 but f(-1) = 4, so f(-x) ≠ f(x); and f(-1) ≠ -f(1) = 0, so f(-x) ≠ -f(x).",
+    "So f is neither even nor odd."
    ],
    "options": [
     {
@@ -6666,7 +6760,10 @@
     "y = x⁵ - x"
    ],
    "solutionSteps": [
-    "Odd: f(-x) = -f(x); symmetric about the origin."
+    "A graph is symmetric about the origin when the function is odd: f(-x) = -f(x).",
+    "x³, 1/x, sin x and x⁵ - x are odd: replacing x with -x changes the sign of every term.",
+    "x² and |x| are even, and x³ + 1 is neither (the constant 1 does not change sign).",
+    "Origin symmetry: y = x³, y = 1/x, y = sin x and y = x⁵ - x."
    ],
    "options": [
     {
@@ -6751,10 +6848,10 @@
    "prompt": "f(x) = x⁴ - 3x².",
    "answer": "(a) x⁴ - 3x²; (b) even; (c) symmetric about the y-axis; (d) 4",
    "solutionSteps": [
-    "Even powers.",
-    "f(-x) = f(x).",
-    "Even ↔ y-axis.",
-    "Same value."
+    "(a) f(-x) = (-x)⁴ - 3(-x)² = x⁴ - 3x², because even powers remove the sign.",
+    "(b) f(-x) = f(x), so f is even.",
+    "(c) Even functions are symmetric about the y-axis.",
+    "(d) f(-2) = f(2) = 4."
    ],
    "parts": [
     {
@@ -6787,10 +6884,10 @@
    "prompt": "Any function can be written as an even part plus an odd part: E(x) = (f(x) + f(-x))/2, O(x) = (f(x) - f(-x))/2. Let f(x) = x³ + 2x² - x + 5.",
    "answer": "(a) -x³ + 2x² + x + 5; (b) 2x² + 5; (c) x³ - x; (d) x³ + 2x² - x + 5",
    "solutionSteps": [
-    "Substitute -x.",
-    "Average.",
-    "Half the difference.",
-    "Sum."
+    "(a) f(-x) = -x³ + 2x² + x + 5 (odd powers change sign, even powers and constants do not).",
+    "(b) E(x) = (f(x) + f(-x))/2 = (4x² + 10)/2 = 2x² + 5.",
+    "(c) O(x) = (f(x) - f(-x))/2 = (2x³ - 2x)/2 = x³ - x.",
+    "(d) E + O = 2x² + 5 + x³ - x = x³ + 2x² - x + 5, which is f(x)."
    ],
    "parts": [
     {
@@ -6823,7 +6920,9 @@
    "prompt": "A graph is symmetric about the origin. Which point must be on it if (3, -5) is?",
    "answer": "(-3, 5)",
    "solutionSteps": [
-    "Origin symmetry: (x, y) → (-x, -y)."
+    "Symmetry about the origin sends each point (x, y) to (-x, -y).",
+    "(3, -5) → (-3, -(-5)).",
+    "So (-3, 5) must be on the graph."
    ],
    "options": [
     {
@@ -6856,7 +6955,9 @@
    "prompt": "f is even and f(4) = 7. Find f(-4).",
    "answer": "7",
    "solutionSteps": [
-    "f(-x) = f(x)."
+    "An even function satisfies f(-x) = f(x).",
+    "So f(-4) = f(4).",
+    "f(-4) = 7."
    ],
    "standards": [
     "F-BF.B.3"
@@ -6871,7 +6972,9 @@
    "prompt": "g is odd and g(2) = -6. Find g(-2).",
    "answer": "6",
    "solutionSteps": [
-    "g(-x) = -g(x)."
+    "An odd function satisfies g(-x) = -g(x).",
+    "So g(-2) = -g(2) = -(-6).",
+    "g(-2) = 6."
    ],
    "standards": [
     "F-BF.B.3"
@@ -6886,7 +6989,9 @@
    "prompt": "Can a nonzero function be both even and odd? Explain.",
    "answer": "No: f(x) = f(-x) = -f(x) forces f(x) = 0",
    "solutionSteps": [
-    "Even and odd together give 2f(x) = 0."
+    "If f is even, f(-x) = f(x); if f is also odd, f(-x) = -f(x).",
+    "Then f(x) = -f(x), so 2f(x) = 0 and f(x) = 0 for every x.",
+    "No: f(x) = f(-x) = -f(x) forces f(x) = 0, so only the zero function is both."
    ],
    "standards": [
     "F-BF.B.3"
@@ -7012,7 +7117,9 @@
    "prompt": "A gym charges $40 to join plus $25 per month. Total cost after m months: Which model is correct?",
    "answer": "C(m) = 25m + 40",
    "solutionSteps": [
-    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+    "The starting value is the $40 joining fee (cost at m = 0).",
+    "Each month adds the same $25, a constant difference, so the model is linear with slope 25.",
+    "C(m) = 25m + 40."
    ],
    "options": [
     {
@@ -7046,7 +7153,9 @@
    "prompt": "A population of 500 doubles every 3 years. Population after t years: Which model is correct?",
    "answer": "P(t) = 500·2^(t/3)",
    "solutionSteps": [
-    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+    "The starting value is 500 (at t = 0).",
+    "Doubling every 3 years is a constant ratio: after t years there have been t/3 doublings.",
+    "P(t) = 500·2^(t/3)."
    ],
    "options": [
     {
@@ -7080,7 +7189,9 @@
    "prompt": "A 2000-gallon tank drains at 40 gallons per minute. Gallons left after t minutes: Which model is correct?",
    "answer": "V(t) = 2000 - 40t",
    "solutionSteps": [
-    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+    "The starting value is 2000 gallons (at t = 0).",
+    "It loses the same 40 gallons each minute, a constant difference, so the model is linear with slope -40.",
+    "V(t) = 2000 - 40t."
    ],
    "options": [
     {
@@ -7118,8 +7229,10 @@
     "Each shirt adds $6 profit"
    ],
    "solutionSteps": [
-    "P = R - C.",
-    "6x = 150 → x = 25."
+    "Profit = revenue - cost: P(x) = 10x - (4x + 150) = 6x - 150, so each shirt adds $6 profit.",
+    "Break-even is where P(x) = 0: 6x = 150, so x = 25 shirts (not 15).",
+    "14x + 150 adds the cost instead of subtracting it.",
+    "True: P(x) = 6x - 150, break-even at 25 shirts, and each shirt adds $6 profit."
    ],
    "options": [
     {
@@ -7157,8 +7270,9 @@
    "prompt": "A box with a square base and no top has volume 32 ft³. Write the surface area S as a function of the base edge x.",
    "answer": "S(x) = x² + 128/x",
    "solutionSteps": [
-    "Height h = 32/x².",
-    "S = x² + 4x·h = x² + 128/x."
+    "Let the base be x by x and the height h. Volume: x²h = 32, so h = 32/x².",
+    "With no top, the surface is the base x² plus four sides of area x·h each: S = x² + 4xh.",
+    "Substitute h: S(x) = x² + 4x·(32/x²) = x² + 128/x."
    ],
    "standards": [
     "F-BF.A.1",
@@ -7174,7 +7288,9 @@
    "prompt": "A car travels at 55 mph. Write the distance d after t hours.",
    "answer": "d(t) = 55t",
    "solutionSteps": [
-    "Distance = rate × time."
+    "Distance = rate × time.",
+    "The rate is 55 miles per hour and the time is t hours.",
+    "d(t) = 55t."
    ],
    "standards": [
     "F-BF.A.1",
@@ -7190,7 +7306,9 @@
    "prompt": "Movie tickets cost $12 for adults and $8 for children. Write the total cost T(a, c) and find T(2, 3).",
    "answer": "T = 12a + 8c; $48",
    "solutionSteps": [
-    "24 + 24."
+    "Each adult ticket costs $12 and each child ticket $8, so a adults and c children cost T = 12a + 8c.",
+    "T(2, 3) = 12(2) + 8(3) = 24 + 24.",
+    "T = 12a + 8c; T(2, 3) = $48."
    ],
    "standards": [
     "F-BF.A.1",
@@ -7210,7 +7328,10 @@
     "f is continuous at x = 1"
    ],
    "solutionSteps": [
-    "Left value 3 - 1 = 2 equals right value 2(1) = 2."
+    "f(0): 0 < 1, so f(0) = 3 - 0 = 3. f(1): 1 ≥ 1, so f(1) = 2(1) = 2 (not 3). f(2) = 2(2) = 4 (not 1).",
+    "Continuity at x = 1: the left piece approaches 3 - 1 = 2 and the right piece gives 2(1) = 2.",
+    "The values match, so there is no jump: f is continuous at x = 1.",
+    "True: f(0) = 3, f(1) = 2, and f is continuous at x = 1."
    ],
    "options": [
     {
@@ -7251,7 +7372,9 @@
    "prompt": "Which piecewise function has range y ≥ 0?",
    "answer": "f(x) = { -x if x < 0; x² if x ≥ 0 }",
    "solutionSteps": [
-    "Check the outputs of each piece over its domain."
+    "Check the outputs of each piece on its own interval.",
+    "For f(x) = { -x if x < 0; x² if x ≥ 0 }: when x < 0, -x is positive; when x ≥ 0, x² is 0 or positive, and 0 is reached at x = 0.",
+    "Every output is at least 0 and every nonnegative value is reached, so this function has range y ≥ 0."
    ],
    "options": [
     {
@@ -7288,7 +7411,10 @@
     "Savings grow by $20 per week"
    ],
    "solutionSteps": [
-    "Constant rate of change → linear."
+    "A linear model fits when the quantity changes by the same amount in each equal time step.",
+    "The plumber ($60 plus $45 per hour), the candle (burns 0.5 in per hour) and the savings (grow by $20 per week) change by constant amounts.",
+    "Losing 15% or growing 3% per year is a constant ratio (exponential), and a thrown ball's height is quadratic.",
+    "Linear: the plumber, the candle and the savings."
    ],
    "options": [
     {
@@ -7367,7 +7493,9 @@
    "prompt": "A phone's battery drops from 100% to 40% in 5 hours at a constant rate. Which function gives the battery level?",
    "answer": "B(t) = 100 - 12t",
    "solutionSteps": [
-    "Rate = (40 - 100)/5 = -12 per hour."
+    "The rate is constant: (40 - 100)/(5 - 0) = -60/5 = -12 percentage points per hour.",
+    "The starting level at t = 0 is 100.",
+    "B(t) = 100 - 12t."
    ],
    "options": [
     {
@@ -7401,8 +7529,9 @@
    "prompt": "A rental company charges C(d) = 45d + 0.2(m - 100d) for m miles over d days when m > 100d. Find the cost of a 3-day rental driven 450 miles.",
    "answer": "$165",
    "solutionSteps": [
-    "Extra miles: 450 - 300 = 150.",
-    "45(3) + 0.2(150) = 165."
+    "d = 3 days and m = 450 miles; the formula applies because 450 > 100(3) = 300.",
+    "Extra miles: 450 - 300 = 150, charged at $0.20 each: 0.2(150) = 30.",
+    "C = 45(3) + 30 = 135 + 30 = $165."
    ],
    "standards": [
     "F-BF.A.1",
@@ -8111,9 +8240,9 @@
    "prompt": "Let f(x) = -x and g(x) = 3x - 7. Find (f + g)(x).",
    "answer": "2x - 7",
    "solutionSteps": [
-    "(f + g)(x) = (-x) + (3x - 7).",
-    "Combine like terms.",
-    "2x - 7."
+    "(f + g)(x) = f(x) + g(x) = (-x) + (3x - 7).",
+    "Combine the x-terms: -x + 3x = 2x.",
+    "(f + g)(x) = 2x - 7."
    ],
    "standards": [
     "F-BF.A.1b",
@@ -8219,9 +8348,9 @@
    "prompt": "Let f(x) = x + 3 and g(x) = 2x + 3. Find (f - g)(x).",
    "answer": "-x",
    "solutionSteps": [
-    "(f - g)(x) = (x + 3) - (2x + 3).",
-    "Combine like terms.",
-    "-x."
+    "(f - g)(x) = f(x) - g(x) = (x + 3) - (2x + 3).",
+    "Distribute the minus sign: x + 3 - 2x - 3.",
+    "Combine like terms: (f - g)(x) = -x."
    ],
    "standards": [
     "F-BF.A.1b",
@@ -8427,8 +8556,8 @@
    ],
    "solutionSteps": [
     "(f - g)(x) = (5x + 9) - (5x + 1).",
-    "Combine like terms.",
-    "8."
+    "Distribute the minus sign: 5x + 9 - 5x - 1.",
+    "The x-terms cancel: (f - g)(x) = 8."
    ],
    "standards": [
     "F-BF.A.1b",
@@ -8612,10 +8741,9 @@
    "prompt": "Find f⁻¹(x) for f(x) = -x - 8.",
    "answer": "f⁻¹(x) = -x - 8",
    "solutionSteps": [
-    "Write y = f(x).",
-    "Swap x and y.",
-    "Solve for y.",
-    "f⁻¹(x) = -x - 8."
+    "Write y = -x - 8 and swap x and y: x = -y - 8.",
+    "Solve for y: y = -x - 8.",
+    "f⁻¹(x) = -x - 8 (this function is its own inverse; it is symmetric about y = x)."
    ],
    "standards": [
     "F-BF.B.4a",
@@ -9335,8 +9463,8 @@
    "prompt": "f(x) = 4x if x < 0; f(x) = 3x - 5 if x ≥ 0. Find f(-2).",
    "answer": "-8",
    "solutionSteps": [
-    "Decide which piece applies: -2 < 0.",
-    "Use 4x.",
+    "Decide which piece applies: -2 < 0, so use 4x.",
+    "f(-2) = 4(-2).",
     "f(-2) = -8."
    ],
    "standards": [
@@ -9352,8 +9480,8 @@
    "prompt": "Evaluate f(6) for f(x) = -3|x| + 4.",
    "answer": "-14",
    "solutionSteps": [
-    "Substitute 6 for x.",
-    "|6| = 6.",
+    "Substitute 6 for x: f(6) = -3|6| + 4.",
+    "|6| = 6, so f(6) = -18 + 4.",
     "f(6) = -14."
    ],
    "standards": [
@@ -9387,8 +9515,8 @@
     }
    ],
    "solutionSteps": [
-    "Decide which piece applies: -1 < 3.",
-    "Use -3x - 5.",
+    "Decide which piece applies: -1 < 3, so use -3x - 5.",
+    "f(-1) = -3(-1) - 5 = 3 - 5.",
     "f(-1) = -2."
    ],
    "standards": [
@@ -9439,8 +9567,8 @@
     }
    ],
    "solutionSteps": [
-    "Decide which piece applies: -2 < 1.",
-    "Use -2x + 1.",
+    "Decide which piece applies: -2 < 1, so use -2x + 1.",
+    "f(-2) = -2(-2) + 1 = 4 + 1.",
     "f(-2) = 5."
    ],
    "standards": [
@@ -9491,8 +9619,8 @@
     }
    ],
    "solutionSteps": [
-    "Decide which piece applies: -1 < 3.",
-    "Use -x + 5.",
+    "Decide which piece applies: -1 < 3, so use -x + 5.",
+    "f(-1) = -(-1) + 5 = 1 + 5.",
     "f(-1) = 6."
    ],
    "standards": [
@@ -9620,8 +9748,8 @@
    "prompt": "f(x) = -6x - 2 if x < -2; f(x) = -4x - 4 if x ≥ -2. Find f(1).",
    "answer": "-8",
    "solutionSteps": [
-    "Decide which piece applies: 1 ≥ -2.",
-    "Use -4x - 4.",
+    "Decide which piece applies: 1 ≥ -2, so use -4x - 4.",
+    "f(1) = -4(1) - 4.",
     "f(1) = -8."
    ],
    "standards": [
@@ -9672,8 +9800,8 @@
     }
    ],
    "solutionSteps": [
-    "Decide which piece applies: -3 < -2.",
-    "Use -2x + 2.",
+    "Decide which piece applies: -3 < -2, so use -2x + 2.",
+    "f(-3) = -2(-3) + 2 = 6 + 2.",
     "f(-3) = 8."
    ],
    "standards": [
@@ -9724,8 +9852,8 @@
     }
    ],
    "solutionSteps": [
-    "Decide which piece applies: 1 ≥ 1.",
-    "Use -6x - 3.",
+    "Decide which piece applies: 1 ≥ 1, so use -6x - 3 (the first piece is only for x < 1).",
+    "f(1) = -6(1) - 3.",
     "f(1) = -9."
    ],
    "standards": [
@@ -9741,8 +9869,8 @@
    "prompt": "Evaluate f(4) for f(x) = -3|x + 4| + 5.",
    "answer": "-19",
    "solutionSteps": [
-    "Substitute 4 for x.",
-    "|8| = 8.",
+    "Substitute 4 for x: f(4) = -3|4 + 4| + 5.",
+    "|8| = 8, so f(4) = -24 + 5.",
     "f(4) = -19."
    ],
    "standards": [
@@ -10643,9 +10771,9 @@
    "prompt": "f(x) = √(x - 3) and g(x) = x/3. Find the domain of (f ∘ g)(x).",
    "answer": "x ≥ 9",
    "solutionSteps": [
-    "(f ∘ g)(x) = √(x/3 - 3).",
-    "Need x/3 - 3 ≥ 0.",
-    "x ≥ 9."
+    "(f ∘ g)(x) = f(g(x)) = √(x/3 - 3).",
+    "The radicand must be nonnegative: x/3 - 3 ≥ 0, so x/3 ≥ 3.",
+    "Multiply by 3: x ≥ 9. (g is defined for every x, so this is the whole restriction.)"
    ],
    "standards": [
     "F-BF.A.1b",
@@ -10695,9 +10823,9 @@
    "prompt": "Find k so that f(x) = { x² + k if x < 1; 3x - k if x ≥ 1 } is continuous.",
    "answer": "k = 1",
    "solutionSteps": [
-    "Match the pieces at x = 1: 1 + k = 3 - k.",
-    "2k = 2.",
-    "k = 1."
+    "f is continuous at x = 1 when both pieces give the same value there.",
+    "Left: 1² + k = 1 + k. Right: 3(1) - k = 3 - k.",
+    "1 + k = 3 - k, so 2k = 2 and k = 1."
    ],
    "standards": [
     "F-IF.C.7b"
@@ -10712,9 +10840,9 @@
    "prompt": "Let f(x) = 4x + 3 and g(x) = -3x + 4. Find (f ∘ g)(x) and simplify.",
    "answer": "-12x + 19",
    "solutionSteps": [
-    "(f ∘ g)(x) = 4(-3x + 4) + 3.",
-    "= -12x + 16 + 3.",
-    "= -12x + 19."
+    "(f ∘ g)(x) = f(g(x)): substitute g(x) for x in f: 4(-3x + 4) + 3.",
+    "Distribute: -12x + 16 + 3.",
+    "(f ∘ g)(x) = -12x + 19."
    ],
    "standards": [
     "F-BF.A.1b",
