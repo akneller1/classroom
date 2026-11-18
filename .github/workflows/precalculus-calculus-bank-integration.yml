@@ -62,3 +62,8 @@ jobs:
           python3 tools/precalculus-audit-20261118/build_notes.py
           git diff --exit-code -- worksheet-generator/planner/notes-teach-precalculus.js
           node scripts/test-precalculus-notes.cjs
+      - name: Precalculus standards-gap skills (independent answer check)
+        if: matrix.course == 'precalculus'
+        run: |
+          python3 tools/precalculus-audit-20261118/gaps/verify.py
+          node scripts/test-precalculus-gap-skills.cjs

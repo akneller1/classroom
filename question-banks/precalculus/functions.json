@@ -43418,6 +43418,2571 @@
     "F-BF.B.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: exp_quadratic_form_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+  },
+  {
+   "id": "pc-fun-s19-cp2-001",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Simplify (x² + 7x + 10)/(x² + 9x + 14). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x + 5)/(x + 7)",
+   "solutionSteps": [
+    "Factor: numerator (x + 2)(x + 5), denominator (x + 2)(x + 7).",
+    "Cancel the common factor (x + 2) (x ≠ -2).",
+    "= (x + 5)/(x + 7)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-002",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For what values of x is (x - 7)/(x² + x - 30) undefined?",
+   "answer": "x = -6 or x = 5",
+   "options": [
+    {
+     "text": "x = -6 or x = 5 or x = 7",
+     "correct": false
+    },
+    {
+     "text": "x = -6 or x = 5",
+     "correct": true
+    },
+    {
+     "text": "x = 7",
+     "correct": false
+    },
+    {
+     "text": "x = 6 or x = -5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The expression is undefined where the denominator is 0: x² + x - 30 = (x + 6)(x - 5) = 0.",
+    "x = -6 or x = 5."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_excluded). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-003",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the partial fraction decomposition (7x + 20)/((x)(x + 5)) = A/(x) + B/(x + 5). What is B?",
+   "answer": "3",
+   "solutionSteps": [
+    "Multiply through: 7x + 20 = A(x + 5) + B(x).",
+    "x = 0: 20 = A(5), so A = 4.",
+    "x = -5: -15 = B(-5), so B = 3.",
+    "B = 3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-004",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For what values of x is (x + 8)/(x² - 2x - 15) undefined?",
+   "answer": "x = -3 or x = 5",
+   "options": [
+    {
+     "text": "x = -3 or x = 5",
+     "correct": true
+    },
+    {
+     "text": "x = -3 or x = 5 or x = -8",
+     "correct": false
+    },
+    {
+     "text": "x = 3 or x = -5",
+     "correct": false
+    },
+    {
+     "text": "x = -8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The expression is undefined where the denominator is 0: x² - 2x - 15 = (x + 3)(x - 5) = 0.",
+    "x = -3 or x = 5."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_excluded). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-005",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 9)/(x - 2) ÷ (x + 3)/(x - 2), then evaluate the result at x = 4.",
+   "answer": "1",
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 9)/(x - 2) · (x - 2)/(x + 3).",
+    "x² - 9 = (x + 3)(x - 3); cancel (x + 3) and (x - 2): the result is x - 3.",
+    "At x = 4: 4 + (-3) = 1."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-006",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Simplify (x² + 4x - 5)/(x² + x - 20). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x - 1)/(x - 4)",
+   "options": [
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)/(x + 5)",
+     "correct": false
+    },
+    {
+     "text": "(x + 5)/(x - 4)",
+     "correct": false
+    },
+    {
+     "text": "(x - 1)/(x - 4)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator (x + 5)(x - 1), denominator (x + 5)(x - 4).",
+    "Cancel the common factor (x + 5) (x ≠ -5).",
+    "= (x - 1)/(x - 4)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-007",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write as a single fraction: -4/(x - 4) + (-5)/(x - 2). Leave the denominator in factored form.",
+   "answer": "(-9x + 28)/((x - 4)(x - 2))",
+   "solutionSteps": [
+    "Common denominator: (x - 4)(x - 2).",
+    "Numerator: -4(x - 2) + (-5)(x - 4) = -9x + 28.",
+    "= (-9x + 28)/((x - 4)(x - 2))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-008",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Write as a single fraction: -3/(x - 3) + (-5)/(x - 6). Leave the denominator in factored form.",
+   "answer": "(-8x + 33)/((x - 3)(x - 6))",
+   "options": [
+    {
+     "text": "(-8)/((x - 3)(x - 6))",
+     "correct": false
+    },
+    {
+     "text": "(-8)/(2x - 9)",
+     "correct": false
+    },
+    {
+     "text": "(-8x + 33)/((x - 3)(x - 6))",
+     "correct": true
+    },
+    {
+     "text": "(-8x + 39)/((x - 3)(x - 6))",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Common denominator: (x - 3)(x - 6).",
+    "Numerator: -3(x - 6) + (-5)(x - 3) = -8x + 33.",
+    "= (-8x + 33)/((x - 3)(x - 6))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-009",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 4)/(x - 1) ÷ (x + 2)/(x - 1), then evaluate the result at x = -3.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 4)/(x - 1) · (x - 1)/(x + 2).",
+    "x² - 4 = (x + 2)(x - 2); cancel (x + 2) and (x - 1): the result is x - 2.",
+    "At x = -3: -3 + (-2) = -5."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-010",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the partial fraction decomposition (-9x - 30)/((x + 3)(x + 4)) = A/(x + 3) + B/(x + 4). What is B?",
+   "answer": "-6",
+   "options": [
+    {
+     "text": "-6",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "-9",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply through: -9x - 30 = A(x + 4) + B(x + 3).",
+    "x = -3: -3 = A(1), so A = -3.",
+    "x = -4: 6 = B(-1), so B = -6.",
+    "B = -6."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-011",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write as a single fraction: -2/(x - 6) + 5/(x + 4). Leave the denominator in factored form.",
+   "answer": "(3x - 38)/((x - 6)(x + 4))",
+   "solutionSteps": [
+    "Common denominator: (x - 6)(x + 4).",
+    "Numerator: -2(x + 4) + 5(x - 6) = 3x - 38.",
+    "= (3x - 38)/((x - 6)(x + 4))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-012",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For what values of x is (x + 3)/(x² + 5x - 24) undefined?",
+   "answer": "x = -8 or x = 3",
+   "options": [
+    {
+     "text": "x = -8 or x = 3 or x = -3",
+     "correct": false
+    },
+    {
+     "text": "x = 8 or x = -3",
+     "correct": false
+    },
+    {
+     "text": "x = -3",
+     "correct": false
+    },
+    {
+     "text": "x = -8 or x = 3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The expression is undefined where the denominator is 0: x² + 5x - 24 = (x + 8)(x - 3) = 0.",
+    "x = -8 or x = 3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_excluded). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-013",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write as a single fraction: 3/(x - 4) + 5/(x + 2). Leave the denominator in factored form.",
+   "answer": "(8x - 14)/((x - 4)(x + 2))",
+   "solutionSteps": [
+    "Common denominator: (x - 4)(x + 2).",
+    "Numerator: 3(x + 2) + 5(x - 4) = 8x - 14.",
+    "= (8x - 14)/((x - 4)(x + 2))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-014",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nSimplify (x² + 4x + 3)/(x² + 6x + 5). State any restrictions separately; give only the simplified expression.\nAva's answer: (x + 1)/(x + 5)\nIdentify the mistake and give the correct answer.",
+   "answer": "(x + 3)/(x + 5)",
+   "solutionSteps": [
+    "Mistake: Ava cancelled the wrong factor.",
+    "Factor: numerator (x + 1)(x + 3), denominator (x + 1)(x + 5).",
+    "Cancel the common factor (x + 1) (x ≠ -1).",
+    "= (x + 3)/(x + 5).",
+    "The correct answer is (x + 3)/(x + 5), not (x + 1)/(x + 5)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-015",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Rational Expressions and Partial Fractions): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find the partial fraction decomposition (x - 2)/((x)(x + 2)) = A/(x) + B/(x + 2). What is A?",
+     "answer": "-1"
+    },
+    {
+     "prompt": "Simplify (x² - 5x + 4)/(x² + x - 2). State any restrictions separately; give only the simplified expression.",
+     "answer": "(x - 4)/(x + 2)"
+    },
+    {
+     "prompt": "Write as a single fraction: -1/(x + 2) + 3/(x - 1). Leave the denominator in factored form.",
+     "answer": "(2x + 7)/((x + 2)(x - 1))"
+    },
+    {
+     "prompt": "Simplify (x² + 5x + 6)/(x² - 5x - 14). State any restrictions separately; give only the simplified expression.",
+     "answer": "(x + 3)/(x - 7)"
+    }
+   ],
+   "answer": "(a) -1; (b) (x - 4)/(x + 2); (c) (2x + 7)/((x + 2)(x - 1)); (d) (x + 3)/(x - 7)",
+   "solutionSteps": [
+    "(a) Multiply through: x - 2 = A(x + 2) + B(x). x = 0: -2 = A(2), so A = -1. x = -2: -4 = B(-2), so B = 2. A = -1.",
+    "(b) Factor: numerator (x - 1)(x - 4), denominator (x - 1)(x + 2). Cancel the common factor (x - 1) (x ≠ 1). = (x - 4)/(x + 2).",
+    "(c) Common denominator: (x + 2)(x - 1). Numerator: -1(x - 1) + 3(x + 2) = 2x + 7. = (2x + 7)/((x + 2)(x - 1)).",
+    "(d) Factor: numerator (x + 2)(x + 3), denominator (x + 2)(x - 7). Cancel the common factor (x + 2) (x ≠ -2). = (x + 3)/(x - 7)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp2-016",
+   "skillId": "functions-skill-19",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nFind the partial fraction decomposition (-8x + 36)/((x - 5)(x - 4)) = A/(x - 5) + B/(x - 4). What is A?\nEmma's answer: 4\nIdentify the mistake and give the correct answer.",
+   "answer": "-4",
+   "solutionSteps": [
+    "Mistake: Emma made a sign error substituting the root.",
+    "Multiply through: -8x + 36 = A(x - 4) + B(x - 5).",
+    "x = 5: -4 = A(1), so A = -4.",
+    "x = 4: 4 = B(-1), so B = -4.",
+    "A = -4.",
+    "The correct answer is -4, not 4."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-001",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the partial fraction decomposition (-4x - 17)/(x² + 7x + 10) = A/(x + 5) + B/(x + 2). What is B?",
+   "answer": "-3",
+   "solutionSteps": [
+    "Factor the denominator: (x + 5)(x + 2).",
+    "Multiply through: -4x - 17 = A(x + 2) + B(x + 5).",
+    "x = -5: 3 = A(-3), so A = -1.",
+    "x = -2: -9 = B(3), so B = -3.",
+    "B = -3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-002",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the partial fraction decomposition (-2x + 8)/(x² + 4x) = A/(x + 4) + B/(x). What is B?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor the denominator: (x + 4)(x).",
+    "Multiply through: -2x + 8 = A(x) + B(x + 4).",
+    "x = -4: 16 = A(-4), so A = -4.",
+    "x = 0: 8 = B(4), so B = 2.",
+    "B = 2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-003",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 9x + 18)/(x² - 8x + 15). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x - 6)/(x - 5)",
+   "solutionSteps": [
+    "Factor: numerator (x - 3)(x - 6), denominator (x - 3)(x - 5).",
+    "Cancel the common factor (x - 3) (x ≠ 3).",
+    "= (x - 6)/(x - 5)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-004",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the partial fraction decomposition (-3x - 19)/(x² + x - 6) = A/(x + 3) + B/(x - 2). What is A?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor the denominator: (x + 3)(x - 2).",
+    "Multiply through: -3x - 19 = A(x - 2) + B(x + 3).",
+    "x = -3: -10 = A(-5), so A = 2.",
+    "x = 2: -25 = B(5), so B = -5.",
+    "A = 2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-005",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write as a single fraction: -1/(x - 6) + 6/(x + 2). Leave the denominator in factored form.",
+   "answer": "(5x - 38)/((x - 6)(x + 2))",
+   "solutionSteps": [
+    "Common denominator: (x - 6)(x + 2).",
+    "Numerator: -1(x + 2) + 6(x - 6) = 5x - 38.",
+    "= (5x - 38)/((x - 6)(x + 2))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-006",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Simplify (x² - 4)/(x - 5) ÷ (x + 2)/(x - 5), then evaluate the result at x = 4.",
+   "answer": "2",
+   "options": [
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "72",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 4)/(x - 5) · (x - 5)/(x + 2).",
+    "x² - 4 = (x + 2)(x - 2); cancel (x + 2) and (x - 5): the result is x - 2.",
+    "At x = 4: 4 + (-2) = 2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-007",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 1)/(x - 3) ÷ (x - 1)/(x - 3), then evaluate the result at x = -3.",
+   "answer": "-2",
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 1)/(x - 3) · (x - 3)/(x - 1).",
+    "x² - 1 = (x - 1)(x + 1); cancel (x - 1) and (x - 3): the result is x + 1.",
+    "At x = -3: -3 + (1) = -2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-008",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the partial fraction decomposition (-4x - 10)/(x² + 2x) = A/(x) + B/(x + 2). What is B?",
+   "answer": "1",
+   "options": [
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor the denominator: (x)(x + 2).",
+    "Multiply through: -4x - 10 = A(x + 2) + B(x).",
+    "x = 0: -10 = A(2), so A = -5.",
+    "x = -2: -2 = B(-2), so B = 1.",
+    "B = 1."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-009",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 25)/(x - 6) ÷ (x + 5)/(x - 6), then evaluate the result at x = -4.",
+   "answer": "-9",
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 25)/(x - 6) · (x - 6)/(x + 5).",
+    "x² - 25 = (x + 5)(x - 5); cancel (x + 5) and (x - 6): the result is x - 5.",
+    "At x = -4: -4 + (-5) = -9."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-010",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Simplify (x² - 49)/(x² + 8x + 7). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x - 7)/(x + 1)",
+   "options": [
+    {
+     "text": "(x - 7)/(x + 7)",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
+    {
+     "text": "(x + 7)/(x + 1)",
+     "correct": false
+    },
+    {
+     "text": "(x - 7)/(x + 1)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator (x + 7)(x - 7), denominator (x + 7)(x + 1).",
+    "Cancel the common factor (x + 7) (x ≠ -7).",
+    "= (x - 7)/(x + 1)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-011",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² + 3x - 18)/(x² + x - 12). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x + 6)/(x + 4)",
+   "solutionSteps": [
+    "Factor: numerator (x - 3)(x + 6), denominator (x - 3)(x + 4).",
+    "Cancel the common factor (x - 3) (x ≠ 3).",
+    "= (x + 6)/(x + 4)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-012",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the partial fraction decomposition (-3x + 18)/(x² - 3x) = A/(x) + B/(x - 3). What is A?",
+   "answer": "-6",
+   "options": [
+    {
+     "text": "-6",
+     "correct": true
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor the denominator: (x)(x - 3).",
+    "Multiply through: -3x + 18 = A(x - 3) + B(x).",
+    "x = 0: 18 = A(-3), so A = -6.",
+    "x = 3: 9 = B(3), so B = 3.",
+    "A = -6."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-013",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 5x - 14)/(x² + 8x + 12). State any restrictions separately; give only the simplified expression.",
+   "answer": "(x - 7)/(x + 6)",
+   "solutionSteps": [
+    "Factor: numerator (x + 2)(x - 7), denominator (x + 2)(x + 6).",
+    "Cancel the common factor (x + 2) (x ≠ -2).",
+    "= (x - 7)/(x + 6)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-014",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nSimplify (x² - 4)/(x - 3) ÷ (x + 2)/(x - 3), then evaluate the result at x = -4.\nAva's answer: -2\nIdentify the mistake and give the correct answer.",
+   "answer": "-6",
+   "solutionSteps": [
+    "Mistake: Ava factored the difference of squares with the wrong sign.",
+    "Multiply by the reciprocal: (x² - 4)/(x - 3) · (x - 3)/(x + 2).",
+    "x² - 4 = (x + 2)(x - 2); cancel (x + 2) and (x - 3): the result is x - 2.",
+    "At x = -4: -4 + (-2) = -6.",
+    "The correct answer is -6, not -2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-015",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Rational Expressions and Partial Fractions): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Simplify (x² + 3x - 4)/(x² + 11x + 28). State any restrictions separately; give only the simplified expression.",
+     "answer": "(x - 1)/(x + 7)"
+    },
+    {
+     "prompt": "Find the partial fraction decomposition (-4x + 8)/(x² - 1) = A/(x - 1) + B/(x + 1). What is B?",
+     "answer": "-6"
+    },
+    {
+     "prompt": "Simplify (x² - 1)/(x + 3) ÷ (x - 1)/(x + 3), then evaluate the result at x = 0.",
+     "answer": "1"
+    },
+    {
+     "prompt": "Write as a single fraction: -2/(x - 3) + 4/(x + 6). Leave the denominator in factored form.",
+     "answer": "(2x - 24)/((x - 3)(x + 6))"
+    }
+   ],
+   "answer": "(a) (x - 1)/(x + 7); (b) -6; (c) 1; (d) (2x - 24)/((x - 3)(x + 6))",
+   "solutionSteps": [
+    "(a) Factor: numerator (x + 4)(x - 1), denominator (x + 4)(x + 7). Cancel the common factor (x + 4) (x ≠ -4). = (x - 1)/(x + 7).",
+    "(b) Factor the denominator: (x - 1)(x + 1). Multiply through: -4x + 8 = A(x + 1) + B(x - 1). x = 1: 4 = A(2), so A = 2. x = -1: 12 = B(-2), so B = -6. B = -6.",
+    "(c) Multiply by the reciprocal: (x² - 1)/(x + 3) · (x + 3)/(x - 1). x² - 1 = (x - 1)(x + 1); cancel (x - 1) and (x + 3): the result is x + 1. At x = 0: 0 + (1) = 1.",
+    "(d) Common denominator: (x - 3)(x + 6). Numerator: -2(x + 6) + 4(x - 3) = 2x - 24. = (2x - 24)/((x - 3)(x + 6))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-cp1-016",
+   "skillId": "functions-skill-19",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nFind the partial fraction decomposition (x + 3)/(x² + 9x + 20) = A/(x + 4) + B/(x + 5). What is A?\nNia's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Nia gave the other constant.",
+    "Factor the denominator: (x + 4)(x + 5).",
+    "Multiply through: x + 3 = A(x + 5) + B(x + 4).",
+    "x = -4: -1 = A(1), so A = -1.",
+    "x = -5: -2 = B(-1), so B = 2.",
+    "A = -1.",
+    "The correct answer is -1, not 2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-001",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the partial fraction decomposition (5x - 1)/(x² - 4x - 5) = A/(x - 5) + B/(x + 1). What is A?",
+   "answer": "4",
+   "solutionSteps": [
+    "Factor the denominator: (x - 5)(x + 1).",
+    "Multiply through: 5x - 1 = A(x + 1) + B(x - 5).",
+    "x = 5: 24 = A(6), so A = 4.",
+    "x = -1: -6 = B(-6), so B = 1.",
+    "A = 4."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-002",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (3x² + 6x - 105)/(x² - 3x - 10). State any restrictions separately; give only the simplified expression.",
+   "answer": "3(x + 7)/(x + 2)",
+   "options": [
+    {
+     "text": "3(x - 5)/(x + 2)",
+     "correct": false
+    },
+    {
+     "text": "3(x + 7)/(x - 5)",
+     "correct": false
+    },
+    {
+     "text": "21/2",
+     "correct": false
+    },
+    {
+     "text": "3(x + 7)/(x + 2)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator 3(x - 5)(x + 7), denominator (x - 5)(x + 2).",
+    "Cancel the common factor (x - 5) (x ≠ 5).",
+    "= 3(x + 7)/(x + 2)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-003",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write as a single fraction: -5/(x + 3) - 4/(x - 3). Leave the denominator in factored form.",
+   "answer": "(-9x + 3)/((x + 3)(x - 3))",
+   "solutionSteps": [
+    "Common denominator: (x + 3)(x - 3).",
+    "Numerator: -5(x - 3) - 4(x + 3) = -9x + 3.",
+    "= (-9x + 3)/((x + 3)(x - 3))."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_add). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-004",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (3x² + 39x + 126)/(x² + 4x - 12). State any restrictions separately; give only the simplified expression.",
+   "answer": "3(x + 7)/(x - 2)",
+   "options": [
+    {
+     "text": "3(x + 7)/(x + 6)",
+     "correct": false
+    },
+    {
+     "text": "3(x + 6)/(x - 2)",
+     "correct": false
+    },
+    {
+     "text": "3(x + 7)/(x - 2)",
+     "correct": true
+    },
+    {
+     "text": "-21/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator 3(x + 6)(x + 7), denominator (x + 6)(x - 2).",
+    "Cancel the common factor (x + 6) (x ≠ -6).",
+    "= 3(x + 7)/(x - 2)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-005",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 9)/(x + 2) ÷ (x + 3)/(x + 2), then evaluate the result at x = 0.",
+   "answer": "-3",
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 9)/(x + 2) · (x + 2)/(x + 3).",
+    "x² - 9 = (x + 3)(x - 3); cancel (x + 3) and (x + 2): the result is x - 3.",
+    "At x = 0: 0 + (-3) = -3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-006",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (x² - 25)/(x - 4) ÷ (x + 5)/(x - 4), then evaluate the result at x = -4.",
+   "answer": "-9",
+   "options": [
+    {
+     "text": "-9/64",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-9",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 25)/(x - 4) · (x - 4)/(x + 5).",
+    "x² - 25 = (x + 5)(x - 5); cancel (x + 5) and (x - 4): the result is x - 5.",
+    "At x = -4: -4 + (-5) = -9."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-007",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what values of x is (x + 7)/(x² - 7x) undefined?",
+   "answer": "x = 0 or x = 7",
+   "solutionSteps": [
+    "The expression is undefined where the denominator is 0: x² - 7x = (x)(x - 7) = 0.",
+    "x = 0 or x = 7."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_excluded). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-008",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (3x² - 30x + 72)/(x² - x - 30). State any restrictions separately; give only the simplified expression.",
+   "answer": "3(x - 4)/(x + 5)",
+   "options": [
+    {
+     "text": "-12/5",
+     "correct": false
+    },
+    {
+     "text": "3(x - 4)/(x + 5)",
+     "correct": true
+    },
+    {
+     "text": "3(x - 6)/(x + 5)",
+     "correct": false
+    },
+    {
+     "text": "3(x - 4)/(x - 6)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator 3(x - 6)(x - 4), denominator (x - 6)(x + 5).",
+    "Cancel the common factor (x - 6) (x ≠ 6).",
+    "= 3(x - 4)/(x + 5)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-009",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the partial fraction decomposition (9x - 12)/(x² - 16) = A/(x - 4) + B/(x + 4). What is A?",
+   "answer": "3",
+   "solutionSteps": [
+    "Factor the denominator: (x - 4)(x + 4).",
+    "Multiply through: 9x - 12 = A(x + 4) + B(x - 4).",
+    "x = 4: 24 = A(8), so A = 3.",
+    "x = -4: -48 = B(-8), so B = 6.",
+    "A = 3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-010",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (3x² - 18x + 24)/(x² - 2x - 8). State any restrictions separately; give only the simplified expression.",
+   "answer": "3(x - 2)/(x + 2)",
+   "options": [
+    {
+     "text": "3(x - 4)/(x + 2)",
+     "correct": false
+    },
+    {
+     "text": "-3",
+     "correct": false
+    },
+    {
+     "text": "3(x - 2)/(x + 2)",
+     "correct": true
+    },
+    {
+     "text": "3(x - 2)/(x - 4)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Factor: numerator 3(x - 4)(x - 2), denominator (x - 4)(x + 2).",
+    "Cancel the common factor (x - 4) (x ≠ 4).",
+    "= 3(x - 2)/(x + 2)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-011",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Simplify (2x² + 16x + 30)/(x² + 9x + 20). State any restrictions separately; give only the simplified expression.",
+   "answer": "2(x + 3)/(x + 4)",
+   "solutionSteps": [
+    "Factor: numerator 2(x + 5)(x + 3), denominator (x + 5)(x + 4).",
+    "Cancel the common factor (x + 5) (x ≠ -5).",
+    "= 2(x + 3)/(x + 4)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-012",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Simplify (x² - 25)/(x + 6) ÷ (x + 5)/(x + 6), then evaluate the result at x = 0.",
+   "answer": "-5",
+   "options": [
+    {
+     "text": "-125/36",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "-25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Multiply by the reciprocal: (x² - 25)/(x + 6) · (x + 6)/(x + 5).",
+    "x² - 25 = (x + 5)(x - 5); cancel (x + 5) and (x + 6): the result is x - 5.",
+    "At x = 0: 0 + (-5) = -5."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-013",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the partial fraction decomposition (x + 2)/(x² + 9x + 20) = A/(x + 5) + B/(x + 4). What is B?",
+   "answer": "-2",
+   "solutionSteps": [
+    "Factor the denominator: (x + 5)(x + 4).",
+    "Multiply through: x + 2 = A(x + 4) + B(x + 5).",
+    "x = -5: -3 = A(-1), so A = 3.",
+    "x = -4: -2 = B(1), so B = -2.",
+    "B = -2."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-014",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nSimplify (2x² - 10x + 12)/(x² + 2x - 8). State any restrictions separately; give only the simplified expression.\nNia's answer: 2(x - 2)/(x + 4)\nIdentify the mistake and give the correct answer.",
+   "answer": "2(x - 3)/(x + 4)",
+   "solutionSteps": [
+    "Mistake: Nia cancelled the wrong factor.",
+    "Factor: numerator 2(x - 2)(x - 3), denominator (x - 2)(x + 4).",
+    "Cancel the common factor (x - 2) (x ≠ 2).",
+    "= 2(x - 3)/(x + 4).",
+    "The correct answer is 2(x - 3)/(x + 4), not 2(x - 2)/(x + 4)."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ra_simplify_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-015",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Rational Expressions and Partial Fractions): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find the partial fraction decomposition (-10x + 10)/(x² - 2x - 8) = A/(x + 2) + B/(x - 4). What is B?",
+     "answer": "-5"
+    },
+    {
+     "prompt": "Find the partial fraction decomposition (-9x - 31)/(x² + 7x + 12) = A/(x + 3) + B/(x + 4). What is A?",
+     "answer": "-4"
+    },
+    {
+     "prompt": "Find the partial fraction decomposition (2x - 26)/(x² + 4x - 5) = A/(x + 5) + B/(x - 1). What is B?",
+     "answer": "-4"
+    },
+    {
+     "prompt": "For what values of x is (x + 4)/(x² + 11x + 24) undefined?",
+     "answer": "x = -8 or x = -3"
+    }
+   ],
+   "answer": "(a) -5; (b) -4; (c) -4; (d) x = -8 or x = -3",
+   "solutionSteps": [
+    "(a) Factor the denominator: (x + 2)(x - 4). Multiply through: -10x + 10 = A(x - 4) + B(x + 2). x = -2: 30 = A(-6), so A = -5. x = 4: -30 = B(6), so B = -5. B = -5.",
+    "(b) Factor the denominator: (x + 3)(x + 4). Multiply through: -9x - 31 = A(x + 4) + B(x + 3). x = -3: -4 = A(1), so A = -4. x = -4: 5 = B(-1), so B = -5. A = -4.",
+    "(c) Factor the denominator: (x + 5)(x - 1). Multiply through: 2x - 26 = A(x - 1) + B(x + 5). x = -5: -36 = A(-6), so A = 6. x = 1: -24 = B(6), so B = -4. B = -4.",
+    "(d) The expression is undefined where the denominator is 0: x² + 11x + 24 = (x + 8)(x + 3) = 0. x = -8 or x = -3."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s19-honors-016",
+   "skillId": "functions-skill-19",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Gabe answered this problem incorrectly.\nFind the partial fraction decomposition (-9x + 22)/(x² - 5x + 6) = A/(x - 3) + B/(x - 2). What is A?\nGabe's answer: -4\nIdentify the mistake and give the correct answer.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Mistake: Gabe gave the other constant.",
+    "Factor the denominator: (x - 3)(x - 2).",
+    "Multiply through: -9x + 22 = A(x - 2) + B(x - 3).",
+    "x = 3: -5 = A(1), so A = -5.",
+    "x = 2: 4 = B(-1), so B = -4.",
+    "A = -5.",
+    "The correct answer is -5, not -4."
+   ],
+   "standards": [
+    "A-APR.D.7",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pf_coef_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-001",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -4x - 1 and g(x) = (x + 1)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "-4",
+   "solutionSteps": [
+    "f(g(x)) = -4·(x + 1)/k - 1.",
+    "For this to equal x, the -4/k must be 1 (then the constants cancel).",
+    "k = -4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-002",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x - 5)² - 1 with domain x ≥ 5 has an inverse function. Find f⁻¹(8).",
+   "answer": "8",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 8: (x - 5)² = 9.",
+    "x - 5 = ±3, so x = 8 or x = 2.",
+    "Only x = 8 is in the domain x ≥ 5, so f⁻¹(8) = 8."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-003",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -2, -1, 0, 1, 2\nf(x): -2, 1, 4, 7, 10\nFind f⁻¹(7).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(7) is the input of f whose output is 7.",
+    "From the table, f(1) = 7, so f⁻¹(7) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-004",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 2x + 6 and g(x) = (x - 6)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "2",
+   "options": [
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(g(x)) = 2·(x - 6)/k + 6.",
+    "For this to equal x, the 2/k must be 1 (then the constants cancel).",
+    "k = 2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-005",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -1, 0, 1, 2, 3\nf(x): -4, -1, 2, 5, 8\nFind f⁻¹(2).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(2) is the input of f whose output is 2.",
+    "From the table, f(1) = 2, so f⁻¹(2) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-006",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which domain restriction makes f(x) = (x - 6)² + 9 one-to-one, so that its inverse is a function?",
+   "answer": "x ≥ 6",
+   "options": [
+    {
+     "text": "x ≥ -6",
+     "correct": false
+    },
+    {
+     "text": "x ≥ 9",
+     "correct": false
+    },
+    {
+     "text": "x ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "x ≥ 6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The graph is a parabola with vertex (6, 9).",
+    "It is one-to-one on either side of the vertex, for example x ≥ 6."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_which_restrict). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-007",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -4x - 3 and g(x) = (x + 3)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "-4",
+   "solutionSteps": [
+    "f(g(x)) = -4·(x + 3)/k - 3.",
+    "For this to equal x, the -4/k must be 1 (then the constants cancel).",
+    "k = -4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-008",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -2, -1, 0, 1, 2\nf(x): 0, -4, -8, -12, -16\nFind f⁻¹(-16).",
+   "answer": "2",
+   "options": [
+    {
+     "text": "-1/16",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(-16) is the input of f whose output is -16.",
+    "From the table, f(2) = -16, so f⁻¹(-16) = 2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-009",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -3, -2, -1, 0, 1\nf(x): -17, -14, -11, -8, -5\nFind f⁻¹(-5).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(-5) is the input of f whose output is -5.",
+    "From the table, f(1) = -5, so f⁻¹(-5) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-010",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x - 8 and g(x) = (x + 8)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "-2",
+   "options": [
+    {
+     "text": "-2",
+     "correct": true
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "-1/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(g(x)) = -2·(x + 8)/k - 8.",
+    "For this to equal x, the -2/k must be 1 (then the constants cancel).",
+    "k = -2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-011",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -1, 0, 1, 2, 3\nf(x): -9, -4, 1, 6, 11\nFind f⁻¹(6).",
+   "answer": "2",
+   "solutionSteps": [
+    "f⁻¹(6) is the input of f whose output is 6.",
+    "From the table, f(2) = 6, so f⁻¹(6) = 2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-012",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x - 2 and g(x) = (x + 2)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "-3",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "-3",
+     "correct": true
+    },
+    {
+     "text": "-1/3",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f(g(x)) = -3·(x + 2)/k - 2.",
+    "For this to equal x, the -3/k must be 1 (then the constants cancel).",
+    "k = -3."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-013",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = 5x - 2 and g(x) = (x + 2)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "5",
+   "solutionSteps": [
+    "f(g(x)) = 5·(x + 2)/k - 2.",
+    "For this to equal x, the 5/k must be 1 (then the constants cancel).",
+    "k = 5."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-014",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nf(x) = 5x + 2 and g(x) = (x - 2)/k. Find k so that f(g(x)) = x for all x.\nLeah's answer: 1/5\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Leah used the reciprocal of the slope.",
+    "f(g(x)) = 5·(x - 2)/k + 2.",
+    "For this to equal x, the 5/k must be 1 (then the constants cancel).",
+    "k = 5.",
+    "The correct answer is 5, not 1/5."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-015",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Verifying Inverses and Restricting Domains): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = (x - 6)² + 0 with domain x ≥ 6 has an inverse function. Find f⁻¹(9).",
+     "answer": "9"
+    },
+    {
+     "prompt": "f(x) = (4x - 4)/(x - 3). Find f⁻¹(8).",
+     "answer": "5"
+    },
+    {
+     "prompt": "f(x) = 3x + 1 and g(x) = (x - 1)/k. Find k so that f(g(x)) = x for all x.",
+     "answer": "3"
+    },
+    {
+     "prompt": "The table shows values of the one-to-one function f.\nx: -3, -2, -1, 0, 1\nf(x): 11, 10, 9, 8, 7\nFind f⁻¹(11).",
+     "answer": "-3"
+    }
+   ],
+   "answer": "(a) 9; (b) 5; (c) 3; (d) -3",
+   "solutionSteps": [
+    "(a) Solve f(x) = 9: (x - 6)² = 9. x - 6 = ±3, so x = 9 or x = 3. Only x = 9 is in the domain x ≥ 6, so f⁻¹(9) = 9.",
+    "(b) Solve (4x - 4)/(x - 3) = 8: 4x - 4 = 8(x - 3). -4x = -20, so x = 5. f⁻¹(8) = 5.",
+    "(c) f(g(x)) = 3·(x - 1)/k + 1. For this to equal x, the 3/k must be 1 (then the constants cancel). k = 3.",
+    "(d) f⁻¹(11) is the input of f whose output is 11. From the table, f(-3) = 11, so f⁻¹(11) = -3."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp2-016",
+   "skillId": "functions-skill-20",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nf(x) = 5x - 9 and g(x) = (x + 9)/k. Find k so that f(g(x)) = x for all x.\nKenji's answer: 1/5\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Kenji used the reciprocal of the slope.",
+    "f(g(x)) = 5·(x + 9)/k - 9.",
+    "For this to equal x, the 5/k must be 1 (then the constants cancel).",
+    "k = 5.",
+    "The correct answer is 5, not 1/5."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-001",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): -3, -1, 1, 3, 5\nFind f⁻¹(5).",
+   "answer": "4",
+   "solutionSteps": [
+    "f⁻¹(5) is the input of f whose output is 5.",
+    "From the table, f(4) = 5, so f⁻¹(5) = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-002",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 7, 5, 3, 1, -1\nFind f⁻¹(-1).",
+   "answer": "4",
+   "options": [
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(-1) is the input of f whose output is -1.",
+    "From the table, f(4) = -1, so f⁻¹(-1) = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-003",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 5, 1, -3, -7, -11\nFind f⁻¹(-3).",
+   "answer": "2",
+   "solutionSteps": [
+    "f⁻¹(-3) is the input of f whose output is -3.",
+    "From the table, f(2) = -3, so f⁻¹(-3) = 2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-004",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -2, -1, 0, 1, 2\nf(x): -8, -7, -6, -5, -4\nFind f⁻¹(-7).",
+   "answer": "-1",
+   "options": [
+    {
+     "text": "-1/7",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(-7) is the input of f whose output is -7.",
+    "From the table, f(-1) = -7, so f⁻¹(-7) = -1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-005",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = -4x - 6 and g(x) = (x + 6)/k. Find k so that f(g(x)) = x for all x.",
+   "answer": "-4",
+   "solutionSteps": [
+    "f(g(x)) = -4·(x + 6)/k - 6.",
+    "For this to equal x, the -4/k must be 1 (then the constants cancel).",
+    "k = -4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-006",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x + 4)² + 1 with domain x ≥ -4 has an inverse function. Find f⁻¹(2).",
+   "answer": "-3",
+   "options": [
+    {
+     "text": "-3",
+     "correct": true
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "37",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 2: (x + 4)² = 1.",
+    "x + 4 = ±1, so x = -3 or x = -5.",
+    "Only x = -3 is in the domain x ≥ -4, so f⁻¹(2) = -3."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-007",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -2, -1, 0, 1, 2\nf(x): -1, -2, -3, -4, -5\nFind f⁻¹(-4).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(-4) is the input of f whose output is -4.",
+    "From the table, f(1) = -4, so f⁻¹(-4) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-008",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x + 3)² - 1 with domain x ≥ -3 has an inverse function. Find f⁻¹(15).",
+   "answer": "1",
+   "options": [
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
+    {
+     "text": "323",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 15: (x + 3)² = 16.",
+    "x + 3 = ±4, so x = 1 or x = -7.",
+    "Only x = 1 is in the domain x ≥ -3, so f⁻¹(15) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-009",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x + 2)² + 2 with domain x ≤ -2 has an inverse function. Find f⁻¹(6).",
+   "answer": "-4",
+   "solutionSteps": [
+    "Solve f(x) = 6: (x + 2)² = 4.",
+    "x + 2 = ±2, so x = 0 or x = -4.",
+    "Only x = -4 is in the domain x ≤ -2, so f⁻¹(6) = -4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-010",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x + 7)/(x - 3). Find f⁻¹(11).",
+   "answer": "4",
+   "options": [
+    {
+     "text": "1/11",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "9/4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve (x + 7)/(x - 3) = 11: x + 7 = 11(x - 3).",
+    "-10x = -40, so x = 4.",
+    "f⁻¹(11) = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_rational). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-011",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 2, 0, -2, -4, -6\nFind f⁻¹(0).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(0) is the input of f whose output is 0.",
+    "From the table, f(1) = 0, so f⁻¹(0) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-012",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x - 4)² + 3 with domain x ≥ 4 has an inverse function. Find f⁻¹(19).",
+   "answer": "8",
+   "options": [
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "228",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 19: (x - 4)² = 16.",
+    "x - 4 = ±4, so x = 8 or x = 0.",
+    "Only x = 8 is in the domain x ≥ 4, so f⁻¹(19) = 8."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-013",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): -4, -7, -10, -13, -16\nFind f⁻¹(-7).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(-7) is the input of f whose output is -7.",
+    "From the table, f(1) = -7, so f⁻¹(-7) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-014",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nf(x) = (x - 5)² + 5 with domain x ≤ 5 has an inverse function. Find f⁻¹(6).\nFarah's answer: 6\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Farah used the solution outside the restricted domain.",
+    "Solve f(x) = 6: (x - 5)² = 1.",
+    "x - 5 = ±1, so x = 6 or x = 4.",
+    "Only x = 4 is in the domain x ≤ 5, so f⁻¹(6) = 4.",
+    "The correct answer is 4, not 6."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-015",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Verifying Inverses and Restricting Domains): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 2, -1, -4, -7, -10\nFind f⁻¹(-7).",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = (x - 4)² + 3 with domain x ≥ 4 has an inverse function. Find f⁻¹(12).",
+     "answer": "7"
+    },
+    {
+     "prompt": "The table shows values of the one-to-one function f.\nx: -3, -2, -1, 0, 1\nf(x): 6, 5, 4, 3, 2\nFind f⁻¹(3).",
+     "answer": "0"
+    },
+    {
+     "prompt": "f(x) = (x + 5)² - 2 with domain x ≤ -5 has an inverse function. Find f⁻¹(2).",
+     "answer": "-7"
+    }
+   ],
+   "answer": "(a) 3; (b) 7; (c) 0; (d) -7",
+   "solutionSteps": [
+    "(a) f⁻¹(-7) is the input of f whose output is -7. From the table, f(3) = -7, so f⁻¹(-7) = 3.",
+    "(b) Solve f(x) = 12: (x - 4)² = 9. x - 4 = ±3, so x = 7 or x = 1. Only x = 7 is in the domain x ≥ 4, so f⁻¹(12) = 7.",
+    "(c) f⁻¹(3) is the input of f whose output is 3. From the table, f(0) = 3, so f⁻¹(3) = 0.",
+    "(d) Solve f(x) = 2: (x + 5)² = 4. x + 5 = ±2, so x = -3 or x = -7. Only x = -7 is in the domain x ≤ -5, so f⁻¹(2) = -7."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-cp1-016",
+   "skillId": "functions-skill-20",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nf(x) = -3x + 9 and g(x) = (x - 9)/k. Find k so that f(g(x)) = x for all x.\nHana's answer: -1/3\nIdentify the mistake and give the correct answer.",
+   "answer": "-3",
+   "solutionSteps": [
+    "Mistake: Hana used the reciprocal of the slope.",
+    "f(g(x)) = -3·(x - 9)/k + 9.",
+    "For this to equal x, the -3/k must be 1 (then the constants cancel).",
+    "k = -3.",
+    "The correct answer is -3, not -1/3."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-001",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -2x³ - 1 and g(x) = ∛((x + 1)/k). Find k so that f(g(x)) = x for all x.",
+   "answer": "-2",
+   "solutionSteps": [
+    "f(g(x)) = -2·(x + 1)/k - 1.",
+    "This equals x for all x only when -2/k = 1.",
+    "k = -2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-002",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 3(x + 2)² + 1 with domain x ≥ -2 has an inverse function. Find f⁻¹(28).",
+   "answer": "1",
+   "options": [
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2701",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 28: 3(x + 2)² = 27, so (x + 2)² = 9.",
+    "x + 2 = ±3, so x = 1 or x = -5.",
+    "Only x = 1 is in the domain x ≥ -2, so f⁻¹(28) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-003",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 2(x - 2)² + 6 with domain x ≥ 2 has an inverse function. Find f⁻¹(56).",
+   "answer": "7",
+   "solutionSteps": [
+    "Solve f(x) = 56: 2(x - 2)² = 50, so (x - 2)² = 25.",
+    "x - 2 = ±5, so x = 7 or x = -3.",
+    "Only x = 7 is in the domain x ≥ 2, so f⁻¹(56) = 7."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-004",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 3(x + 4)² + 3 with domain x ≥ -4 has an inverse function. Find f⁻¹(51).",
+   "answer": "0",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "9078",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
+    },
+    {
+     "text": "-8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 51: 3(x + 4)² = 48, so (x + 4)² = 16.",
+    "x + 4 = ±4, so x = 0 or x = -8.",
+    "Only x = 0 is in the domain x ≥ -4, so f⁻¹(51) = 0."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-005",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 1, 2, 9, 28, 65\nFind f⁻¹(65).",
+   "answer": "4",
+   "solutionSteps": [
+    "f⁻¹(65) is the input of f whose output is 65.",
+    "From the table, f(4) = 65, so f⁻¹(65) = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-006",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -2, -1, 0, 1, 2\nf(x): -9, 5, 7, 9, 23\nFind f⁻¹(-9).",
+   "answer": "-2",
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": true
+    },
+    {
+     "text": "-1/9",
+     "correct": false
+    },
+    {
+     "text": "-9",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(-9) is the input of f whose output is -9.",
+    "From the table, f(-2) = -9, so f⁻¹(-9) = -2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-007",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 5x³ + 7 and g(x) = ∛((x - 7)/k). Find k so that f(g(x)) = x for all x.",
+   "answer": "5",
+   "solutionSteps": [
+    "f(g(x)) = 5·(x - 7)/k + 7.",
+    "This equals x for all x only when 5/k = 1.",
+    "k = 5."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-008",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The table shows values of the one-to-one function f.\nx: -3, -2, -1, 0, 1\nf(x): -36, -17, -10, -9, -8\nFind f⁻¹(-8).",
+   "answer": "1",
+   "options": [
+    {
+     "text": "-36",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-1/8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(-8) is the input of f whose output is -8.",
+    "From the table, f(1) = -8, so f⁻¹(-8) = 1."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-009",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 4x³ - 9 and g(x) = ∛((x + 9)/k). Find k so that f(g(x)) = x for all x.",
+   "answer": "4",
+   "solutionSteps": [
+    "f(g(x)) = 4·(x + 9)/k - 9.",
+    "This equals x for all x only when 4/k = 1.",
+    "k = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-010",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 3(x - 3)² - 4 with domain x ≥ 3 has an inverse function. Find f⁻¹(23).",
+   "answer": "6",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "1196",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 23: 3(x - 3)² = 27, so (x - 3)² = 9.",
+    "x - 3 = ±3, so x = 6 or x = 0.",
+    "Only x = 6 is in the domain x ≥ 3, so f⁻¹(23) = 6."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-011",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -4x³ - 8 and g(x) = ∛((x + 8)/k). Find k so that f(g(x)) = x for all x.",
+   "answer": "-4",
+   "solutionSteps": [
+    "f(g(x)) = -4·(x + 8)/k - 8.",
+    "This equals x for all x only when -4/k = 1.",
+    "k = -4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-012",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 2(x + 4)² - 4 with domain x ≥ -4 has an inverse function. Find f⁻¹(28).",
+   "answer": "0",
+   "options": [
+    {
+     "text": "0",
+     "correct": true
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "2044",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Solve f(x) = 28: 2(x + 4)² = 32, so (x + 4)² = 16.",
+    "x + 4 = ±4, so x = 0 or x = -8.",
+    "Only x = 0 is in the domain x ≥ -4, so f⁻¹(28) = 0."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-013",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = 4x³ - 5 and g(x) = ∛((x + 5)/k). Find k so that f(g(x)) = x for all x.",
+   "answer": "4",
+   "solutionSteps": [
+    "f(g(x)) = 4·(x + 5)/k - 5.",
+    "This equals x for all x only when 4/k = 1.",
+    "k = 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_compose). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-014",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nf(x) = 2(x - 2)² + 8 with domain x ≤ 2 has an inverse function. Find f⁻¹(16).\nAva's answer: 4\nIdentify the mistake and give the correct answer.",
+   "answer": "0",
+   "solutionSteps": [
+    "Mistake: Ava used the solution outside the restricted domain.",
+    "Solve f(x) = 16: 2(x - 2)² = 8, so (x - 2)² = 4.",
+    "x - 2 = ±2, so x = 4 or x = 0.",
+    "Only x = 0 is in the domain x ≤ 2, so f⁻¹(16) = 0.",
+    "The correct answer is 0, not 4."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-015",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Verifying Inverses and Restricting Domains): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "The table shows values of the one-to-one function f.\nx: 0, 1, 2, 3, 4\nf(x): 8, 6, -8, -46, -120\nFind f⁻¹(8).",
+     "answer": "0"
+    },
+    {
+     "prompt": "f(x) = 2(x - 6)² - 5 with domain x ≤ 6 has an inverse function. Find f⁻¹(13).",
+     "answer": "3"
+    },
+    {
+     "prompt": "The table shows values of the one-to-one function f.\nx: -1, 0, 1, 2, 3\nf(x): 6, 7, 8, 15, 34\nFind f⁻¹(7).",
+     "answer": "0"
+    },
+    {
+     "prompt": "f(x) = -2x³ + 5 and g(x) = ∛((x - 5)/k). Find k so that f(g(x)) = x for all x.",
+     "answer": "-2"
+    }
+   ],
+   "answer": "(a) 0; (b) 3; (c) 0; (d) -2",
+   "solutionSteps": [
+    "(a) f⁻¹(8) is the input of f whose output is 8. From the table, f(0) = 8, so f⁻¹(8) = 0.",
+    "(b) Solve f(x) = 13: 2(x - 6)² = 18, so (x - 6)² = 9. x - 6 = ±3, so x = 9 or x = 3. Only x = 3 is in the domain x ≤ 6, so f⁻¹(13) = 3.",
+    "(c) f⁻¹(7) is the input of f whose output is 7. From the table, f(0) = 7, so f⁻¹(7) = 0.",
+    "(d) f(g(x)) = -2·(x - 5)/k + 5. This equals x for all x only when -2/k = 1. k = -2."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_table_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s20-honors-016",
+   "skillId": "functions-skill-20",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nf(x) = 2(x + 2)² + 2 with domain x ≤ -2 has an inverse function. Find f⁻¹(10).\nPriya's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "-4",
+   "solutionSteps": [
+    "Mistake: Priya used the solution outside the restricted domain.",
+    "Solve f(x) = 10: 2(x + 2)² = 8, so (x + 2)² = 4.",
+    "x + 2 = ±2, so x = 0 or x = -4.",
+    "Only x = -4 is in the domain x ≤ -2, so f⁻¹(10) = -4.",
+    "The correct answer is -4, not 0."
+   ],
+   "standards": [
+    "F-BF.B.4b",
+    "F-BF.B.4c",
+    "F-BF.B.4d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: inv_restrict_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

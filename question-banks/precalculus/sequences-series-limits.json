@@ -6475,6 +6475,2404 @@
     "F-LE.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 9 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^9. What is the coefficient of x⁶y³?",
+   "answer": "84",
+   "solutionSteps": [
+    "The coefficient is C(9, 3) = 9!/(3! · 6!).",
+    "= 84."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Row 11 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^11. What is the coefficient of x⁴y⁷?",
+   "answer": "330",
+   "options": [
+    {
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "330",
+     "correct": true
+    },
+    {
+     "text": "462",
+     "correct": false
+    },
+    {
+     "text": "77",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(11, 7) = 11!/(7! · 4!).",
+    "= 330."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x + 1)^7?",
+   "answer": "2187",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (1))^7.",
+    "= 3^7 = 2187."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the third term of the expansion of (2x + 1)^6, written in descending powers of x.",
+   "answer": "240x⁴",
+   "options": [
+    {
+     "text": "-240x⁴",
+     "correct": false
+    },
+    {
+     "text": "160x³",
+     "correct": false
+    },
+    {
+     "text": "15x⁴",
+     "correct": false
+    },
+    {
+     "text": "240x⁴",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The third term uses k = 2: C(6, 2)(2x)⁴(1)².",
+    "C(6, 2) = 15, so the term is 240x⁴."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Expand (x - 3)^3.",
+   "answer": "x³ - 9x² + 27x - 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-3), C(3, 1)(x)²(-3), C(3, 2)(x)(-3)², C(3, 3)(x)(-3)³.",
+    "= x³ - 9x² + 27x - 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x in the expansion of (x - 3)^3.",
+   "answer": "27",
+   "options": [
+    {
+     "text": "-9",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "-27",
+     "correct": false
+    },
+    {
+     "text": "27",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The term with x is C(3, 1)·(1x)·(-3)².",
+    "C(3, 1) = 3; 3 · 1 · 9 = 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the seventh term of the expansion of (x + 2)^7, written in descending powers of x.",
+   "answer": "448x",
+   "solutionSteps": [
+    "The seventh term uses k = 6: C(7, 6)(x)(2)⁶.",
+    "C(7, 6) = 7, so the term is 448x."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the second term of the expansion of (2x - 1)^5, written in descending powers of x.",
+   "answer": "-80x⁴",
+   "options": [
+    {
+     "text": "-80x⁴",
+     "correct": true
+    },
+    {
+     "text": "-5x⁴",
+     "correct": false
+    },
+    {
+     "text": "80x⁴",
+     "correct": false
+    },
+    {
+     "text": "80x³",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The second term uses k = 1: C(5, 1)(2x)⁴(-1).",
+    "C(5, 1) = 5, so the term is -80x⁴."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 5 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^5. What is the coefficient of x²y³?",
+   "answer": "10",
+   "solutionSteps": [
+    "The coefficient is C(5, 3) = 5!/(3! · 2!).",
+    "= 10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the fourth term of the expansion of (2x - 1)^6, written in descending powers of x.",
+   "answer": "-160x³",
+   "options": [
+    {
+     "text": "60x²",
+     "correct": false
+    },
+    {
+     "text": "-20x³",
+     "correct": false
+    },
+    {
+     "text": "-160x³",
+     "correct": true
+    },
+    {
+     "text": "160x³",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fourth term uses k = 3: C(6, 3)(2x)³(-1)³.",
+    "C(6, 3) = 20, so the term is -160x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (x + 2)^5.",
+   "answer": "80",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(1x)²·(2)³.",
+    "C(5, 2) = 10; 10 · 1 · 8 = 80."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Row 12 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^12. What is the coefficient of x⁵y⁷?",
+   "answer": "792",
+   "options": [
+    {
+     "text": "792",
+     "correct": true
+    },
+    {
+     "text": "84",
+     "correct": false
+    },
+    {
+     "text": "924",
+     "correct": false
+    },
+    {
+     "text": "330",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(12, 7) = 12!/(7! · 5!).",
+    "= 792."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Row 10 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^10. What is the coefficient of x⁸y²?",
+   "answer": "45",
+   "solutionSteps": [
+    "The coefficient is C(10, 2) = 10!/(2! · 8!).",
+    "= 45."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nWhat is the sum of the coefficients in the expansion of (3x + 2)^3?\nIsaac's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "125",
+   "solutionSteps": [
+    "Mistake: Isaac added the binomial coefficients only.",
+    "Substitute x = 1: the sum of the coefficients is (3 + (2))^3.",
+    "= 5^3 = 125.",
+    "The correct answer is 125, not 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "What is the sum of the coefficients in the expansion of (x + 1)^5?",
+     "answer": "32"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (x + 3)^4.",
+     "answer": "54"
+    },
+    {
+     "prompt": "Expand (x + 4)^3.",
+     "answer": "x³ + 12x² + 48x + 64"
+    },
+    {
+     "prompt": "Find the fourth term of the expansion of (3x + 1)^6, written in descending powers of x.",
+     "answer": "540x³"
+    }
+   ],
+   "answer": "(a) 32; (b) 54; (c) x³ + 12x² + 48x + 64; (d) 540x³",
+   "solutionSteps": [
+    "(a) Substitute x = 1: the sum of the coefficients is (1 + (1))^5. = 2^5 = 32.",
+    "(b) The term with x² is C(4, 2)·(1x)²·(3)². C(4, 2) = 6; 6 · 1 · 9 = 54.",
+    "(c) Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1. Terms: C(3, 0)(x)³(4), C(3, 1)(x)²(4), C(3, 2)(x)(4)², C(3, 3)(x)(4)³. = x³ + 12x² + 48x + 64.",
+    "(d) The fourth term uses k = 3: C(6, 3)(3x)³(1)³. C(6, 3) = 20, so the term is 540x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp2-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Diego answered this problem incorrectly.\nExpand (x - 1)^3.\nDiego's answer: x³ - 1\nIdentify the mistake and give the correct answer.",
+   "answer": "x³ - 3x² + 3x - 1",
+   "solutionSteps": [
+    "Mistake: Diego raised each term to the power.",
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-1), C(3, 1)(x)²(-1), C(3, 2)(x)(-1)², C(3, 3)(x)(-1)³.",
+    "= x³ - 3x² + 3x - 1.",
+    "The correct answer is x³ - 3x² + 3x - 1, not x³ - 1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the third term of the expansion of (3x + 1)^5, written in descending powers of x.",
+   "answer": "270x³",
+   "solutionSteps": [
+    "The third term uses k = 2: C(5, 2)(3x)³(1)².",
+    "C(5, 2) = 10, so the term is 270x³."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Expand (x - 4)^4.",
+   "answer": "x⁴ - 16x³ + 96x² - 256x + 256",
+   "options": [
+    {
+     "text": "x⁴ + 16x³ + 96x² + 256x + 256",
+     "correct": false
+    },
+    {
+     "text": "x⁴ - 16x³ + 96x² - 256x + 256",
+     "correct": true
+    },
+    {
+     "text": "x⁴ - 4x³ + 16x² - 64x + 256",
+     "correct": false
+    },
+    {
+     "text": "x⁴ + 256",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(x)⁴(-4), C(4, 1)(x)³(-4), C(4, 2)(x)²(-4)², C(4, 3)(x)(-4)³, C(4, 4)(x)(-4)⁴.",
+    "= x⁴ - 16x³ + 96x² - 256x + 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Row 7 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^7. What is the coefficient of x³y⁴?",
+   "answer": "35",
+   "solutionSteps": [
+    "The coefficient is C(7, 4) = 7!/(4! · 3!).",
+    "= 35."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Expand (x - 2)^3.",
+   "answer": "x³ - 6x² + 12x - 8",
+   "options": [
+    {
+     "text": "x³ - 8",
+     "correct": false
+    },
+    {
+     "text": "x³ + 6x² + 12x + 8",
+     "correct": false
+    },
+    {
+     "text": "x³ - 6x² + 12x - 8",
+     "correct": true
+    },
+    {
+     "text": "x³ - 2x² + 4x - 8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(-2), C(3, 1)(x)²(-2), C(3, 2)(x)(-2)², C(3, 3)(x)(-2)³.",
+    "= x³ - 6x² + 12x - 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Expand (x + 3)^3.",
+   "answer": "x³ + 9x² + 27x + 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(x)³(3), C(3, 1)(x)²(3), C(3, 2)(x)(3)², C(3, 3)(x)(3)³.",
+    "= x³ + 9x² + 27x + 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Row 6 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^6. What is the coefficient of x⁴y²?",
+   "answer": "15",
+   "options": [
+    {
+     "text": "15",
+     "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The coefficient is C(6, 2) = 6!/(2! · 4!).",
+    "= 15."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (x - 3)^6?",
+   "answer": "64",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (1 + (-3))^6.",
+    "= -2^6 = 64."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x + 2)^4?",
+   "answer": "256",
+   "options": [
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "256",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "32",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (2))^4.",
+    "= 4^4 = 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (x - 1)^5.",
+   "answer": "-10",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(1x)²·(-1)³.",
+    "C(5, 2) = 10; 10 · 1 · -1 = -10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (x + 2)^7?",
+   "answer": "2187",
+   "options": [
+    {
+     "text": "129",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "2187",
+     "correct": true
+    },
+    {
+     "text": "128",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (1 + (2))^7.",
+    "= 3^7 = 2187."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (2x - 1)^5.",
+   "answer": "-40",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(2x)²·(-1)³.",
+    "C(5, 2) = 10; 10 · 4 · -1 = -40."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the fifth term of the expansion of (2x + 2)^6, written in descending powers of x.",
+   "answer": "960x²",
+   "options": [
+    {
+     "text": "-960x²",
+     "correct": false
+    },
+    {
+     "text": "384x",
+     "correct": false
+    },
+    {
+     "text": "960x²",
+     "correct": true
+    },
+    {
+     "text": "240x²",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fifth term uses k = 4: C(6, 4)(2x)²(2)⁴.",
+    "C(6, 4) = 15, so the term is 960x²."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Row 5 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^5. What is the coefficient of x³y²?",
+   "answer": "10",
+   "solutionSteps": [
+    "The coefficient is C(5, 2) = 5!/(2! · 3!).",
+    "= 10."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nFind the second term of the expansion of (3x + 3)^4, written in descending powers of x.\nChloe's answer: 486x²\nIdentify the mistake and give the correct answer.",
+   "answer": "324x³",
+   "solutionSteps": [
+    "Mistake: Chloe used k equal to the term number (off by one).",
+    "The second term uses k = 1: C(4, 1)(3x)³(3).",
+    "C(4, 1) = 4, so the term is 324x³.",
+    "The correct answer is 324x³, not 486x²."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Find the third term of the expansion of (x - 3)^5, written in descending powers of x.",
+     "answer": "90x³"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (-2x - 2)^4.",
+     "answer": "96"
+    },
+    {
+     "prompt": "Row 7 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^7. What is the coefficient of x²y⁵?",
+     "answer": "21"
+    },
+    {
+     "prompt": "Find the second term of the expansion of (x - 3)^6, written in descending powers of x.",
+     "answer": "-18x⁵"
+    }
+   ],
+   "answer": "(a) 90x³; (b) 96; (c) 21; (d) -18x⁵",
+   "solutionSteps": [
+    "(a) The third term uses k = 2: C(5, 2)(x)³(-3)². C(5, 2) = 10, so the term is 90x³.",
+    "(b) The term with x² is C(4, 2)·(-2x)²·(-2)². C(4, 2) = 6; 6 · 4 · 4 = 96.",
+    "(c) The coefficient is C(7, 5) = 7!/(5! · 2!). = 21.",
+    "(d) The second term uses k = 1: C(6, 1)(x)⁵(-3). C(6, 1) = 6, so the term is -18x⁵."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-cp1-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nWhat is the sum of the coefficients in the expansion of (3x - 2)^3?\nPriya's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "1",
+   "solutionSteps": [
+    "Mistake: Priya added the binomial coefficients only.",
+    "Substitute x = 1: the sum of the coefficients is (3 + (-2))^3.",
+    "= 1^3 = 1.",
+    "The correct answer is 1, not 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-001",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x in the expansion of (2x + 2)^4.",
+   "answer": "64",
+   "solutionSteps": [
+    "The term with x is C(4, 1)·(2x)·(2)³.",
+    "C(4, 1) = 4; 4 · 2 · 8 = 64."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-002",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x³ in the expansion of (-x - 3)^4.",
+   "answer": "12",
+   "options": [
+    {
+     "text": "12",
+     "correct": true
+    },
+    {
+     "text": "108",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The term with x³ is C(4, 3)·(-1x)³·(-3).",
+    "C(4, 3) = 4; 4 · -1 · -3 = 12."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-003",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Expand (3x - 3)^3.",
+   "answer": "27x³ - 81x² + 81x - 27",
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(-3), C(3, 1)(3x)²(-3), C(3, 2)(3x)(-3)², C(3, 3)(3x)(-3)³.",
+    "= 27x³ - 81x² + 81x - 27."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-004",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Expand (3x + 2)^3.",
+   "answer": "27x³ + 54x² + 36x + 8",
+   "options": [
+    {
+     "text": "27x³ + 8",
+     "correct": false
+    },
+    {
+     "text": "3x³ + 18x² + 36x + 24",
+     "correct": false
+    },
+    {
+     "text": "27x³ + 54x² + 36x + 8",
+     "correct": true
+    },
+    {
+     "text": "27x³ + 18x² + 12x + 8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(2), C(3, 1)(3x)²(2), C(3, 2)(3x)(2)², C(3, 3)(3x)(2)³.",
+    "= 27x³ + 54x² + 36x + 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-005",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (2x + 3)^6.",
+   "answer": "4860",
+   "solutionSteps": [
+    "The term with x² is C(6, 2)·(2x)²·(3)⁴.",
+    "C(6, 2) = 15; 15 · 4 · 81 = 4860."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-006",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Expand (3x + 3)^4.",
+   "answer": "81x⁴ + 324x³ + 486x² + 324x + 81",
+   "options": [
+    {
+     "text": "3x⁴ + 36x³ + 162x² + 324x + 243",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 81x³ + 81x² + 81x + 81",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 81",
+     "correct": false
+    },
+    {
+     "text": "81x⁴ + 324x³ + 486x² + 324x + 81",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(3x)⁴(3), C(4, 1)(3x)³(3), C(4, 2)(3x)²(3)², C(4, 3)(3x)(3)³, C(4, 4)(3x)(3)⁴.",
+    "= 81x⁴ + 324x³ + 486x² + 324x + 81."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-007",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x² in the expansion of (3x - 2)^5.",
+   "answer": "-720",
+   "solutionSteps": [
+    "The term with x² is C(5, 2)·(3x)²·(-2)³.",
+    "C(5, 2) = 10; 10 · 9 · -8 = -720."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-008",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "What is the sum of the coefficients in the expansion of (3x - 2)^7?",
+   "answer": "1",
+   "options": [
+    {
+     "text": "128",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "2059",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (3 + (-2))^7.",
+    "= 1^7 = 1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-009",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the coefficient of x in the expansion of (2x - 1)^4.",
+   "answer": "-8",
+   "solutionSteps": [
+    "The term with x is C(4, 1)·(2x)·(-1)³.",
+    "C(4, 1) = 4; 4 · 2 · -1 = -8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-010",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the fourth term of the expansion of (x + 3)^4, written in descending powers of x.",
+   "answer": "108x",
+   "options": [
+    {
+     "text": "108x",
+     "correct": true
+    },
+    {
+     "text": "81",
+     "correct": false
+    },
+    {
+     "text": "4x",
+     "correct": false
+    },
+    {
+     "text": "-108x",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The fourth term uses k = 3: C(4, 3)(x)(3)³.",
+    "C(4, 3) = 4, so the term is 108x."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_term). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-011",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Row 10 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^10. What is the coefficient of x⁷y³?",
+   "answer": "120",
+   "solutionSteps": [
+    "The coefficient is C(10, 3) = 10!/(3! · 7!).",
+    "= 120."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-012",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the coefficient of x⁴ in the expansion of (2x - 2)^8.",
+   "answer": "17920",
+   "options": [
+    {
+     "text": "70",
+     "correct": false
+    },
+    {
+     "text": "17920",
+     "correct": true
+    },
+    {
+     "text": "1120",
+     "correct": false
+    },
+    {
+     "text": "-17920",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The term with x⁴ is C(8, 4)·(2x)⁴·(-2)⁴.",
+    "C(8, 4) = 70; 70 · 16 · 16 = 17920."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_coef). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-013",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "What is the sum of the coefficients in the expansion of (2x - 3)^7?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Substitute x = 1: the sum of the coefficients is (2 + (-3))^7.",
+    "= -1^7 = -1."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_sum). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-014",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nExpand (3x - 2)^3.\nBen's answer: 27x³ - 8\nIdentify the mistake and give the correct answer.",
+   "answer": "27x³ - 54x² + 36x - 8",
+   "solutionSteps": [
+    "Mistake: Ben raised each term to the power.",
+    "Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1.",
+    "Terms: C(3, 0)(3x)³(-2), C(3, 1)(3x)²(-2), C(3, 2)(3x)(-2)², C(3, 3)(3x)(-2)³.",
+    "= 27x³ - 54x² + 36x - 8.",
+    "The correct answer is 27x³ - 54x² + 36x - 8, not 27x³ - 8."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-015",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (The Binomial Theorem): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "Row 8 of Pascal's triangle (starting with row 0: 1) gives the coefficients of (x + y)^8. What is the coefficient of x⁴y⁴?",
+     "answer": "70"
+    },
+    {
+     "prompt": "Expand (3x + 1)^3.",
+     "answer": "27x³ + 27x² + 9x + 1"
+    },
+    {
+     "prompt": "Find the coefficient of x² in the expansion of (-2x - 3)^5.",
+     "answer": "-1080"
+    },
+    {
+     "prompt": "What is the sum of the coefficients in the expansion of (2x + 2)^5?",
+     "answer": "1024"
+    }
+   ],
+   "answer": "(a) 70; (b) 27x³ + 27x² + 9x + 1; (c) -1080; (d) 1024",
+   "solutionSteps": [
+    "(a) The coefficient is C(8, 4) = 8!/(4! · 4!). = 70.",
+    "(b) Use the coefficients from row 3 of Pascal's triangle: 1, 3, 3, 1. Terms: C(3, 0)(3x)³(1), C(3, 1)(3x)²(1), C(3, 2)(3x)(1)², C(3, 3)(3x)(1)³. = 27x³ + 27x² + 9x + 1.",
+    "(c) The term with x² is C(5, 2)·(-2x)²·(-3)³. C(5, 2) = 10; 10 · 4 · -27 = -1080.",
+    "(d) Substitute x = 1: the sum of the coefficients is (2 + (2))^5. = 4^5 = 1024."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_pascal_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s06-honors-016",
+   "skillId": "sequences-series-limits-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nExpand (2x - 4)^4.\nOmar's answer: 16x⁴ + 256\nIdentify the mistake and give the correct answer.",
+   "answer": "16x⁴ - 128x³ + 384x² - 512x + 256",
+   "solutionSteps": [
+    "Mistake: Omar raised each term to the power.",
+    "Use the coefficients from row 4 of Pascal's triangle: 1, 4, 6, 4, 1.",
+    "Terms: C(4, 0)(2x)⁴(-4), C(4, 1)(2x)³(-4), C(4, 2)(2x)²(-4)², C(4, 3)(2x)(-4)³, C(4, 4)(2x)(-4)⁴.",
+    "= 16x⁴ - 128x³ + 384x² - 512x + 256.",
+    "The correct answer is 16x⁴ - 128x³ + 384x² - 512x + 256, not 16x⁴ + 256."
+   ],
+   "standards": [
+    "A-APR.C.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: bn_expand_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 7 if x < -1; kx - 5 if x ≥ -1. Find the value of k that makes f continuous at x = -1.",
+   "answer": "-13",
+   "solutionSteps": [
+    "Left limit: -1² + (7) = 8. Right value: k(-1) + (-5).",
+    "Set them equal: -1k = 13, so k = -13."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x + 3 if x < 5; -3x + 10 if x ≥ 5. What is the limit of f(x) as x → 5?",
+   "answer": "The limit does not exist.",
+   "options": [
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "The limit does not exist.",
+     "correct": true
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: -7. Right: -5.",
+    "The one-sided limits differ, so the limit does not exist."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - x - 6)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+   "answer": "-5",
+   "solutionSteps": [
+    "Factor: (x² - x - 6) = (x + 2)(x - 3).",
+    "For x ≠ -2, f(x) = x - 3, so the limit as x → -2 is -2 - (3) = -5.",
+    "Define f(-2) = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -3/x as x → 0⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "∞",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 0⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -3, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = -3x - 4 if x < 2; x - 6 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+   "answer": "-10",
+   "solutionSteps": [
+    "As x → 2⁻, x < 2, so use the first piece.",
+    "Substitute x = 2: -10."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -4/(x - 4) as x → 4⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "As x → 4⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -4, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 10x + 21)/(x - 3) is undefined at x = 3. What value should f(3) be given to make f continuous there?",
+   "answer": "-4",
+   "solutionSteps": [
+    "Factor: (x² - 10x + 21) = (x - 3)(x - 7).",
+    "For x ≠ 3, f(x) = x - 7, so the limit as x → 3 is 3 - (7) = -4.",
+    "Define f(3) = -4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 9 if x < -4; kx - 3 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-7",
+   "options": [
+    {
+     "text": "-7",
+     "correct": true
+    },
+    {
+     "text": "-11/2",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -4² + (9) = 25. Right value: k(-4) + (-3).",
+    "Set them equal: -4k = 28, so k = -7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 9 if x < 1; kx - 9 if x ≥ 1. Find the value of k that makes f continuous at x = 1.",
+   "answer": "19",
+   "solutionSteps": [
+    "Left limit: 1² + (9) = 10. Right value: k(1) + (-9).",
+    "Set them equal: 1k = 19, so k = 19."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -5/(x - 4) as x → 4⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 4⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -5, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 8x + 12)/(x + 6) is undefined at x = -6. What value should f(-6) be given to make f continuous there?",
+   "answer": "-4",
+   "solutionSteps": [
+    "Factor: (x² + 8x + 12) = (x + 6)(x + 2).",
+    "For x ≠ -6, f(x) = x + 2, so the limit as x → -6 is -6 - (-2) = -4.",
+    "Define f(-6) = -4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -x + 4 if x < -4; -2x + 5 if x ≥ -4. Find the limit of f(x) as x → -4⁺ (from the right).",
+   "answer": "13",
+   "options": [
+    {
+     "text": "does not exist",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "13",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "As x → -4⁺, x > -4, so use the second piece.",
+    "Substitute x = -4: 13."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 5x + 6)/(x - 2) is undefined at x = 2. What value should f(2) be given to make f continuous there?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Factor: (x² - 5x + 6) = (x - 2)(x - 3).",
+    "For x ≠ 2, f(x) = x - 3, so the limit as x → 2 is 2 - (3) = -1.",
+    "Define f(2) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nf(x) = x if x < 3; -2x + 3 if x ≥ 3. Find the limit of f(x) as x → 3⁻ (from the left).\nJada's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Jada used the other piece.",
+    "As x → 3⁻, x < 3, so use the first piece.",
+    "Substitute x = 3: 3.",
+    "The correct answer is 3, not -3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = (x² - 2x - 3)/(x + 1) is undefined at x = -1. What value should f(-1) be given to make f continuous there?",
+     "answer": "-4"
+    },
+    {
+     "prompt": "f(x) = (x² - 4x - 5)/(x - 5) is undefined at x = 5. What value should f(5) be given to make f continuous there?",
+     "answer": "6"
+    },
+    {
+     "prompt": "f(x) = 4x + 8 if x < -3; 3x - 2 if x ≥ -3. Find the limit of f(x) as x → -3⁺ (from the right).",
+     "answer": "-11"
+    },
+    {
+     "prompt": "f(x) = (x² + 9x + 20)/(x + 5) is undefined at x = -5. What value should f(-5) be given to make f continuous there?",
+     "answer": "-1"
+    }
+   ],
+   "answer": "(a) -4; (b) 6; (c) -11; (d) -1",
+   "solutionSteps": [
+    "(a) Factor: (x² - 2x - 3) = (x + 1)(x - 3). For x ≠ -1, f(x) = x - 3, so the limit as x → -1 is -1 - (3) = -4. Define f(-1) = -4.",
+    "(b) Factor: (x² - 4x - 5) = (x - 5)(x + 1). For x ≠ 5, f(x) = x + 1, so the limit as x → 5 is 5 - (-1) = 6. Define f(5) = 6.",
+    "(c) As x → -3⁺, x > -3, so use the second piece. Substitute x = -3: -11.",
+    "(d) Factor: (x² + 9x + 20) = (x + 5)(x + 4). For x ≠ -5, f(x) = x + 4, so the limit as x → -5 is -5 - (-4) = -1. Define f(-5) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp2-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nf(x) = x² + 9 if x < 3; kx if x ≥ 3. Find the value of k that makes f continuous at x = 3.\nEmma's answer: 18\nIdentify the mistake and give the correct answer.",
+   "answer": "6",
+   "solutionSteps": [
+    "Mistake: Emma forgot to divide by x = c.",
+    "Left limit: 3² + (9) = 18. Right value: k(3) + (0).",
+    "Set them equal: 3k = 18, so k = 6.",
+    "The correct answer is 6, not 18."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = -2x - 3 if x < -4; -3x - 2 if x ≥ -4. Find the limit of f(x) as x → -4⁻ (from the left).",
+   "answer": "5",
+   "solutionSteps": [
+    "As x → -4⁻, x < -4, so use the first piece.",
+    "Substitute x = -4: 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of 5/(x - 1) as x → 1⁺.",
+   "answer": "∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": true
+    },
+    {
+     "text": "-∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 1⁺, the denominator approaches 0 through positive values.",
+    "The numerator is 5, so the quotient grows without bound: ∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 4x + 3)/(x - 1) is undefined at x = 1. What value should f(1) be given to make f continuous there?",
+   "answer": "-2",
+   "solutionSteps": [
+    "Factor: (x² - 4x + 3) = (x - 1)(x - 3).",
+    "For x ≠ 1, f(x) = x - 3, so the limit as x → 1 is 1 - (3) = -2.",
+    "Define f(1) = -2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -4/(x - 2)² as x → 2⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 2⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -4, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 3x - 28)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+   "answer": "-11",
+   "solutionSteps": [
+    "Factor: (x² + 3x - 28) = (x + 7)(x - 4).",
+    "For x ≠ -7, f(x) = x - 4, so the limit as x → -7 is -7 - (4) = -11.",
+    "Define f(-7) = -11."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -5/(x + 4)² as x → -4⁻.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -4⁻, the denominator approaches 0 through positive values.",
+    "The numerator is -5, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 7 if x < -1; kx + 6 if x ≥ -1. Find the value of k that makes f continuous at x = -1.",
+   "answer": "12",
+   "solutionSteps": [
+    "Left limit: -1² + (-7) = -6. Right value: k(-1) + (6).",
+    "Set them equal: -1k = -12, so k = 12."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -9/(x + 3)² as x → -3⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -3⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -9, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = 3x + 8 if x < 2; -4x - 6 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+   "answer": "14",
+   "solutionSteps": [
+    "As x → 2⁻, x < 2, so use the first piece.",
+    "Substitute x = 2: 14."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of -7/(x + 6) as x → -6⁺.",
+   "answer": "-∞",
+   "options": [
+    {
+     "text": "∞",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "-∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -6⁺, the denominator approaches 0 through positive values.",
+    "The numerator is -7, so the quotient grows without bound: -∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² - 7x)/(x - 7) is undefined at x = 7. What value should f(7) be given to make f continuous there?",
+   "answer": "7",
+   "solutionSteps": [
+    "Factor: (x² - 7x) = (x - 7)(x).",
+    "For x ≠ 7, f(x) = x, so the limit as x → 7 is 7 - (0) = 7.",
+    "Define f(7) = 7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 3x + 2 if x < 1; 2x + 8 if x ≥ 1. Find the limit of f(x) as x → 1⁺ (from the right).",
+   "answer": "10",
+   "options": [
+    {
+     "text": "10",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "does not exist",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → 1⁺, x > 1, so use the second piece.",
+    "Substitute x = 1: 10."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + x - 6)/(x - 2) is undefined at x = 2. What value should f(2) be given to make f continuous there?",
+   "answer": "5",
+   "solutionSteps": [
+    "Factor: (x² + x - 6) = (x - 2)(x + 3).",
+    "For x ≠ 2, f(x) = x + 3, so the limit as x → 2 is 2 - (-3) = 5.",
+    "Define f(2) = 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nf(x) = (x² + x - 6)/(x + 3) is undefined at x = -3. What value should f(-3) be given to make f continuous there?\nSam's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Mistake: Sam substituted into the numerator only.",
+    "Factor: (x² + x - 6) = (x + 3)(x - 2).",
+    "For x ≠ -3, f(x) = x - 2, so the limit as x → -3 is -3 - (2) = -5.",
+    "Define f(-3) = -5.",
+    "The correct answer is -5, not 0."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = (x² - 4x + 3)/(x - 3) is undefined at x = 3. What value should f(3) be given to make f continuous there?",
+     "answer": "2"
+    },
+    {
+     "prompt": "f(x) = 4x - 5 if x < 2; -3x + 5 if x ≥ 2. Find the limit of f(x) as x → 2⁻ (from the left).",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = (x² - 6x + 5)/(x - 5) is undefined at x = 5. What value should f(5) be given to make f continuous there?",
+     "answer": "4"
+    },
+    {
+     "prompt": "f(x) = (x² + 11x + 28)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+     "answer": "-3"
+    }
+   ],
+   "answer": "(a) 2; (b) 3; (c) 4; (d) -3",
+   "solutionSteps": [
+    "(a) Factor: (x² - 4x + 3) = (x - 3)(x - 1). For x ≠ 3, f(x) = x - 1, so the limit as x → 3 is 3 - (1) = 2. Define f(3) = 2.",
+    "(b) As x → 2⁻, x < 2, so use the first piece. Substitute x = 2: 3.",
+    "(c) Factor: (x² - 6x + 5) = (x - 5)(x - 1). For x ≠ 5, f(x) = x - 1, so the limit as x → 5 is 5 - (1) = 4. Define f(5) = 4.",
+    "(d) Factor: (x² + 11x + 28) = (x + 7)(x + 4). For x ≠ -7, f(x) = x + 4, so the limit as x → -7 is -7 - (-4) = -3. Define f(-7) = -3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-cp1-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nf(x) = x² + 7 if x < -4; kx - 5 if x ≥ -4. Find the value of k that makes f continuous at x = -4.\nMateo's answer: -9/2\nIdentify the mistake and give the correct answer.",
+   "answer": "-7",
+   "solutionSteps": [
+    "Mistake: Mateo moved b to the wrong side.",
+    "Left limit: -4² + (7) = 23. Right value: k(-4) + (-5).",
+    "Set them equal: -4k = 28, so k = -7.",
+    "The correct answer is -7, not -9/2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-001",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = (x² + 3x + 2)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+   "answer": "-1",
+   "solutionSteps": [
+    "Factor: (x² + 3x + 2) = (x + 2)(x + 1).",
+    "For x ≠ -2, f(x) = x + 1, so the limit as x → -2 is -2 - (-1) = -1.",
+    "Define f(-2) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-002",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 2 if x < -4; kx - 7 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-25/4",
+   "options": [
+    {
+     "text": "-25/4",
+     "correct": true
+    },
+    {
+     "text": "-11/4",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -4² + (2) = 18. Right value: k(-4) + (-7).",
+    "Set them equal: -4k = 25, so k = -25/4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-003",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x + 1 if x < 4; x - 1 if x ≥ 4. Find the limit of f(x) as x → 4⁺ (from the right).",
+   "answer": "3",
+   "solutionSteps": [
+    "As x → 4⁺, x > 4, so use the second piece.",
+    "Substitute x = 4: 3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-004",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x + 6 if x < -4; 2x + 26 if x ≥ -4. What is the limit of f(x) as x → -4?",
+   "answer": "18",
+   "options": [
+    {
+     "text": "The limit does not exist.",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    },
+    {
+     "text": "19",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: 18. Right: 18.",
+    "The one-sided limits agree, so the limit is 18."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-005",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² + 6 if x < 3; kx - 9 if x ≥ 3. Find the value of k that makes f continuous at x = 3.",
+   "answer": "8",
+   "solutionSteps": [
+    "Left limit: 3² + (6) = 15. Right value: k(3) + (-9).",
+    "Set them equal: 3k = 24, so k = 8."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-006",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the limit of 5/(x + 2)² as x → -2⁻.",
+   "answer": "∞",
+   "options": [
+    {
+     "text": "-∞",
+     "correct": false
+    },
+    {
+     "text": "does not exist (the one-sided limits differ)",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "As x → -2⁻, the denominator approaches 0 through positive values.",
+    "The numerator is 5, so the quotient grows without bound: ∞."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_infinite). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-007",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 2 if x < 1; kx + 7 if x ≥ 1. Find the value of k that makes f continuous at x = 1.",
+   "answer": "-8",
+   "solutionSteps": [
+    "Left limit: 1² + (-2) = -1. Right value: k(1) + (7).",
+    "Set them equal: 1k = -8, so k = -8."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-008",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x + 4 if x < 5; -4x + 12 if x ≥ 5. What is the limit of f(x) as x → 5?",
+   "answer": "The limit does not exist.",
+   "options": [
+    {
+     "text": "The limit does not exist.",
+     "correct": true
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-19",
+     "correct": false
+    },
+    {
+     "text": "-11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left: -11. Right: -8.",
+    "The one-sided limits differ, so the limit does not exist."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_exists). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-009",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -3x + 7 if x < 1; -4x + 3 if x ≥ 1. Find the limit of f(x) as x → 1⁻ (from the left).",
+   "answer": "4",
+   "solutionSteps": [
+    "As x → 1⁻, x < 1, so use the first piece.",
+    "Substitute x = 1: 4."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-010",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = x² + 3 if x < -2; kx - 3 if x ≥ -2. Find the value of k that makes f continuous at x = -2.",
+   "answer": "-5",
+   "options": [
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Left limit: -2² + (3) = 7. Right value: k(-2) + (-3).",
+    "Set them equal: -2k = 10, so k = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-011",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -2x - 7 if x < -1; -4x + 1 if x ≥ -1. Find the limit of f(x) as x → -1⁺ (from the right).",
+   "answer": "5",
+   "solutionSteps": [
+    "As x → -1⁺, x > -1, so use the second piece.",
+    "Substitute x = -1: 5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-012",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = (x² + 12x + 35)/(x + 7) is undefined at x = -7. What value should f(-7) be given to make f continuous there?",
+   "answer": "-2",
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "-12",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Factor: (x² + 12x + 35) = (x + 7)(x + 5).",
+    "For x ≠ -7, f(x) = x + 5, so the limit as x → -7 is -7 - (-5) = -2.",
+    "Define f(-7) = -2."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-013",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = x² - 2 if x < -4; kx - 6 if x ≥ -4. Find the value of k that makes f continuous at x = -4.",
+   "answer": "-5",
+   "solutionSteps": [
+    "Left limit: -4² + (-2) = 14. Right value: k(-4) + (-6).",
+    "Set them equal: -4k = 20, so k = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_param). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-014",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jada answered this problem incorrectly.\nf(x) = (x² + 5x + 4)/(x + 1) is undefined at x = -1. What value should f(-1) be given to make f continuous there?\nJada's answer: 0\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Jada substituted into the numerator only.",
+    "Factor: (x² + 5x + 4) = (x + 1)(x + 4).",
+    "For x ≠ -1, f(x) = x + 4, so the limit as x → -1 is -1 - (-4) = 3.",
+    "Define f(-1) = 3.",
+    "The correct answer is 3, not 0."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_removable_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-015",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Continuity and One-Sided Limits): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = 4x if x < 4; -x - 1 if x ≥ 4. Find the limit of f(x) as x → 4⁺ (from the right).",
+     "answer": "-5"
+    },
+    {
+     "prompt": "f(x) = (x² - 4x - 12)/(x + 2) is undefined at x = -2. What value should f(-2) be given to make f continuous there?",
+     "answer": "-8"
+    },
+    {
+     "prompt": "f(x) = -x - 1 if x < 1; 3x - 2 if x ≥ 1. Find the limit of f(x) as x → 1⁺ (from the right).",
+     "answer": "1"
+    },
+    {
+     "prompt": "f(x) = (x² - 11x + 28)/(x - 7) is undefined at x = 7. What value should f(7) be given to make f continuous there?",
+     "answer": "3"
+    }
+   ],
+   "answer": "(a) -5; (b) -8; (c) 1; (d) 3",
+   "solutionSteps": [
+    "(a) As x → 4⁺, x > 4, so use the second piece. Substitute x = 4: -5.",
+    "(b) Factor: (x² - 4x - 12) = (x + 2)(x - 6). For x ≠ -2, f(x) = x - 6, so the limit as x → -2 is -2 - (6) = -8. Define f(-2) = -8.",
+    "(c) As x → 1⁺, x > 1, so use the second piece. Substitute x = 1: 1.",
+    "(d) Factor: (x² - 11x + 28) = (x - 7)(x - 4). For x ≠ 7, f(x) = x - 4, so the limit as x → 7 is 7 - (4) = 3. Define f(7) = 3."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_open). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-ssl-s07-honors-016",
+   "skillId": "sequences-series-limits-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nf(x) = 2x + 5 if x < 0; x - 7 if x ≥ 0. Find the limit of f(x) as x → 0⁻ (from the left).\nAva's answer: -7\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Ava used the other piece.",
+    "As x → 0⁻, x < 0, so use the first piece.",
+    "Substitute x = 0: 5.",
+    "The correct answer is 5, not -7."
+   ],
+   "standards": [
+    "F-IF.C.7b",
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cn_onesided_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }
