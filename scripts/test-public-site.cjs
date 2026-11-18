@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const out=path.resolve('_site'),home=fs.readFileSync(path.join(out,'index.html'),'utf8');
 assert(home.includes('mk-static'),'Missing crawlable catalog');assert(home.includes('og:image'),'Missing link-preview metadata');
-assert(home.includes('assets/fonts/classroom-fonts.css'),'Homepage fonts must be local');
+assert(/href="[^"]*assets\/fonts\/[\w.-]+\.css"/.test(home)&&!/href="https:\/\/fonts\.googleapis\.com\/css/.test(home),'Homepage fonts must be local');
 for(const dir of ['.git','.github','scripts','audits','incoming','docs','tools','patches'])assert(!fs.existsSync(path.join(out,dir)),'Working files published: '+dir);
 assert(home.includes('u/math6/')&&home.includes('u/prealgebra7/'),'Grade 6/7 missing from catalog');
 const sitemap=fs.readFileSync(path.join(out,'sitemap.xml'),'utf8');

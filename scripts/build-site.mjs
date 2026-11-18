@@ -624,21 +624,27 @@ async function selfHostFonts() {
   }
   if (!urls.size) return;
   const local = new Map(); // google URL (as written) -> path under _site
+  // The site bundles its primary fonts (worksheet-generator/vendor/fonts); copy them once when needed.
+  const BUNDLED_FAMILIES = ["Bricolage Grotesque", "Atkinson Hyperlegible"];
+  const BUNDLED_FACES = [["Bricolage Grotesque","bricolage-grotesque-latin-wght-normal.woff2","100 900","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-400-normal.woff2","400","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-700-normal.woff2","700","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-400-italic.woff2","400","italic"]];
+  let bundledReady = null;
+  function useBundled() {
+    if (bundledReady !== null) return bundledReady;
+    const bundled = path.join(ROOT,"worksheet-generator/vendor/fonts");
+    const faces = BUNDLED_FACES;
+    bundledReady = faces.every(f=>fs.existsSync(path.join(bundled,f[1])));
+    if (bundledReady) {
+      fs.mkdirSync(fontsDir,{recursive:true});
+      for (const f of faces) fs.copyFileSync(path.join(bundled,f[1]),path.join(fontsDir,f[1]));
+      for (const name of ["LICENSE-atkinson.txt","LICENSE-bricolage.txt"]) fs.copyFileSync(path.join(bundled,name),path.join(fontsDir,name));
+      fs.writeFileSync(path.join(fontsDir,"classroom-fonts.css"),faces.map(f=>`@font-face{font-family:'${f[0]}';font-style:${f[3]};font-weight:${f[2]};font-display:swap;src:url('${f[1]}') format('woff2');}`).join("\n"));
+    }
+    return bundledReady;
+  }
   for (const raw of urls) {
     try {
       const real = raw.replace(/&amp;/g, "&");
-      if (real === GOOGLE_FONTS_HOME) {
-        // The site already bundles its primary fonts. Reuse them even in offline builds.
-        const bundled = path.join(ROOT,"worksheet-generator/vendor/fonts");
-        const faces = [["Bricolage Grotesque","bricolage-grotesque-latin-wght-normal.woff2","100 900","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-400-normal.woff2","400","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-700-normal.woff2","700","normal"],["Atkinson Hyperlegible","atkinson-hyperlegible-latin-400-italic.woff2","400","italic"]];
-        if (faces.every(f=>fs.existsSync(path.join(bundled,f[1])))) {
-          fs.mkdirSync(fontsDir,{recursive:true});
-          for (const f of faces) fs.copyFileSync(path.join(bundled,f[1]),path.join(fontsDir,f[1]));
-          for (const name of ["LICENSE-atkinson.txt","LICENSE-bricolage.txt"]) fs.copyFileSync(path.join(bundled,name),path.join(fontsDir,name));
-          fs.writeFileSync(path.join(fontsDir,"classroom-fonts.css"),faces.map(f=>`@font-face{font-family:'${f[0]}';font-style:${f[3]};font-weight:${f[2]};font-display:swap;src:url('${f[1]}') format('woff2');}`).join("\n"));
-          local.set(raw,"assets/fonts/classroom-fonts.css");continue;
-        }
-      }
+      if (real === GOOGLE_FONTS_HOME && useBundled()) { local.set(raw,"assets/fonts/classroom-fonts.css"); continue; }
       const res = await fetch(real, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(3000) });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       let css = await res.text();
@@ -659,6 +665,10 @@ async function selfHostFonts() {
       fs.writeFileSync(path.join(fontsDir, cssName), css);
       local.set(raw, "assets/fonts/" + cssName);
     } catch (e) {
+      // Offline build: a stylesheet that only asks for the bundled families (e.g. the homepage's logo subset of
+      // Bricolage Grotesque) is served from the bundled copies instead.
+      const fams = [...new URL(raw.replace(/&amp;/g, "&")).searchParams.getAll("family")].map(f => f.split(":")[0].replace(/\+/g, " "));
+      if (fams.length && fams.every(f => BUNDLED_FAMILIES.includes(f)) && useBundled()) { local.set(raw, "assets/fonts/classroom-fonts.css"); continue; }
       console.warn(`Kept Google Fonts link (download failed: ${e.message}): ${raw}`);
     }
   }
