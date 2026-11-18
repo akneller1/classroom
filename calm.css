@@ -1,0 +1,220 @@
+/* Calm theme (2026-11-18)
+   Loaded after styles.css on index.html only. It quiets the home, course and unit pages:
+   system fonts (only the logo keeps Bricolage, loaded as a tiny subset), one navy accent,
+   thin borders instead of offset shadows, no colour washes, and resource lists instead of
+   thumbnail cards on unit pages. Delete this file and its <link> to go back to the old look. */
+
+:root {
+  --paper: #ffffff; --wash: #f5f7fa; --card: #ffffff;
+  --ink: #0f172a; --ink-soft: #4b5563; --line: #e5e7eb; --edge: #d1d5db; --shadow: transparent;
+  --accent: #1e3a8a; --accent-hover: #172554; --accent-tint: #eef2ff;
+  --display: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --logo: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f172a; --wash: #162033; --card: #111c30;
+    --ink: #e5e7eb; --ink-soft: #a7b0c0; --line: #263247; --edge: #334155;
+    --accent: #9db4ff; --accent-hover: #c7d4ff; --accent-tint: #1b2747;
+  }
+}
+
+body { font-size: 1rem; line-height: 1.55; background: var(--paper); }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; box-shadow: none; }
+
+/* ---------- Header: the logo stays exactly as it was ---------- */
+.site-header, html body .site-header { background: var(--paper); box-shadow: none; border-bottom: 1px solid var(--line); }
+.site-header .brand { font-family: var(--logo); }
+.brand-tagline { font-family: var(--body); }
+.site-header .search input {
+  border: 1px solid #9ca3af; border-radius: 8px; box-shadow: none; background: var(--card);
+}
+.back-btn { border: 1px solid var(--edge) !important; box-shadow: none !important; border-radius: 8px; background: var(--card); }
+
+/* Courses menu (course and unit pages) */
+.course-menu .course-nav-grid .course-nav-card,
+.course-menu .course-nav-card {
+  background: var(--card); color: var(--ink); border: 1px solid var(--line); box-shadow: none; border-radius: 8px;
+}
+.course-menu .course-nav-card:hover { border-color: var(--accent); transform: none; }
+.course-menu .course-nav-card svg { display: none; }
+
+/* ---------- Shared pieces ---------- */
+.btn {
+  border: 1px solid var(--edge); box-shadow: none; border-radius: 8px; background: var(--card); color: var(--ink);
+  transition: border-color .15s, background .15s;
+}
+.btn:hover { transform: none; box-shadow: none; border-color: var(--accent); }
+.btn-open, .card .btn-open { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-open:hover { background: var(--accent-hover); }
+.btn[aria-pressed="true"] { background: var(--accent-tint); color: var(--ink); }
+
+.crumbs, .crumbs a { color: var(--ink-soft); }
+.band, .band[data-color], .unit-band, .course-band {
+  background: var(--paper); color: var(--ink); border-block: 0; border-bottom: 1px solid var(--line);
+  padding-block: 1.5rem 1.75rem;
+}
+.band h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.015em; color: var(--ink); }
+.band-blurb { font-size: 1.1rem; color: var(--ink-soft); }
+.band-meta { font-weight: 400; color: var(--ink-soft); }
+.band-art { display: none; }
+.band-grid { grid-template-columns: minmax(0, 1fr); }
+
+.pager-link, .pager-link:hover {
+  border: 1px solid var(--line); box-shadow: none; transform: none; border-radius: 8px; background: var(--card);
+}
+.pager-link:hover { border-color: var(--accent); }
+.pager-name { font-family: var(--body); font-weight: 600; font-size: 1rem; }
+
+.chip { box-shadow: none !important; border: 1px solid var(--edge); }
+
+/* Support banner and footer: plain */
+.support-banner { background: var(--wash); border: 0; }
+.support-button { box-shadow: none; border: 1px solid var(--edge); border-radius: 8px; background: var(--card); }
+.site-footer { border-top: 1px solid var(--line); background: var(--paper); }
+
+/* ---------- Home ---------- */
+.calm-home { padding-block: clamp(2rem, 5vw, 3.5rem) 3rem; }
+.calm-intro h1 { font-size: clamp(2rem, 4.5vw, 2.6rem); font-weight: 700; color: var(--ink); margin: 0 0 .5rem; }
+.calm-intro h1 .section-kicker {
+  display: block; margin-bottom: .6rem; font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.calm-intro .lede { font-size: 1.125rem; color: var(--ink-soft); margin: 0 0 2rem; }
+
+.calm-tasks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); gap: 1rem; }
+.calm-task {
+  display: flex; flex-direction: column; gap: .55rem; height: 100%; padding: 1.4rem;
+  border: 1px solid var(--edge); border-radius: 10px; background: var(--card);
+  color: var(--ink); text-decoration: none; transition: border-color .15s;
+}
+.calm-task:hover { border-color: var(--accent); }
+.calm-task .task-icon { width: 28px; height: 28px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.calm-task h2 { font-size: 1.15rem; font-weight: 650; color: var(--ink); }
+.calm-task p { font-size: .95rem; line-height: 1.5; color: var(--ink-soft); }
+.calm-task-action { margin-top: auto; padding-top: .35rem; font-size: .95rem; font-weight: 600; color: var(--accent); }
+
+.calm-more { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.25rem; margin: 1.5rem 0 0; font-size: .95rem; color: var(--ink-soft); }
+.calm-more a { color: var(--accent); text-underline-offset: 3px; }
+
+.calm-courses { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.calm-courses h2 { font-size: 1.3rem; font-weight: 650; margin: 0 0 1rem; }
+.calm-courses .course-sidebar, .calm-courses .main-nav { all: unset; display: block; }
+.course-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
+.course-pill, .course-pills .course-nav-card {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: 0 1rem;
+  border: 1px solid #cbd5e1; border-radius: 999px; background: var(--card); box-shadow: none;
+  color: var(--ink); font-size: .95rem; font-weight: 500; text-decoration: none; transform: none;
+}
+.course-pill:hover { border-color: var(--accent); color: var(--accent); }
+.course-pill-meta { color: var(--ink-soft); font-weight: 400; font-size: .88rem; }
+.course-pill.is-soon { border-style: dashed; color: var(--ink-soft); }
+
+/* ---------- Course page ---------- */
+.generator-banner, .generator-banner.compact {
+  background: transparent; border: 0; box-shadow: none; padding: 0; margin-block: .5rem 1.5rem;
+}
+.generator-banner-heading h2 { font-family: var(--body); font-size: 1rem; font-weight: 600; color: var(--ink-soft); margin-bottom: .6rem; }
+.generator-shortcuts { gap: .6rem; }
+.generator-shortcut, .generator-banner.compact .generator-shortcut {
+  border: 1px solid var(--edge); border-radius: 8px; box-shadow: none; background: var(--card);
+  min-height: 44px; transition: border-color .15s;
+}
+.generator-shortcut:hover { transform: none; box-shadow: none; border-color: var(--accent); }
+.generator-shortcut-icon, .generator-banner.compact .generator-shortcut-icon { background: transparent; color: var(--accent); }
+.generator-shortcut-copy strong, .generator-banner.compact .generator-shortcut-copy strong { font-family: var(--body); font-weight: 600; }
+
+.course-units-title { font-size: 1.3rem; font-weight: 650; }
+.units { grid-template-columns: repeat(auto-fill, minmax(min(26rem, 100%), 1fr)); gap: 0 2rem; justify-content: stretch; }
+.units > li { border-bottom: 1px solid var(--line); }
+.unit, .unit.algebra-unit-card, .algebra-unit-card[data-color] {
+  background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: .9rem .1rem; min-height: 0;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .1rem 1rem;
+}
+.unit:hover, a.unit:hover { transform: none; box-shadow: none; }
+.algebra-unit-card h3 { font-size: 1.05rem; font-weight: 600; grid-column: 1; }
+.algebra-unit-card .unit-title-link { color: var(--accent); }
+.algebra-unit-card .unit-num { display: inline; margin-right: .5rem; font-size: .9rem; font-weight: 600; color: var(--ink-soft); text-transform: none; letter-spacing: 0; }
+.algebra-unit-card .unit-num::after { content: " ·"; }
+.algebra-unit-card .unit-meta, .algebra-unit-card .unit-outline-fallback { grid-column: 1 / -1; }
+.algebra-unit-card .unit-open-link { display: none; }
+.algebra-unit-card .unit-lesson-details { margin-top: .1rem; }
+.algebra-unit-card .unit-lesson-details summary { font-size: .85rem; font-weight: 500; color: var(--ink-soft); }
+.algebra-unit-card .unit-skills { font-size: .9rem; color: var(--ink-soft); }
+
+/* ---------- Unit page: resource lists, no thumbnails ---------- */
+.algebra-unit-section > h2, .activity-group > h2 { font-family: var(--body); font-size: 1.2rem; font-weight: 650; margin: 2rem 0 .5rem; border: 0; }
+.algebra-unit-layout .grouped-cards, .activity-groups .grouped-cards {
+  display: block; border-top: 1px solid var(--line); margin: 0;
+}
+.algebra-unit-layout .card, .activity-groups .card {
+  display: block; position: relative; background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  border-radius: 0; box-shadow: none; transform: none; min-height: 0;
+}
+.algebra-unit-layout .card:hover, .activity-groups .card:hover { transform: none; box-shadow: none; background: var(--wash); }
+.algebra-unit-layout .card .thumb, .activity-groups .card .thumb { display: none; }
+.algebra-unit-layout .card-body, .activity-groups .card-body {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.25rem; row-gap: .15rem;
+  align-items: center; padding: .8rem .25rem;
+}
+.algebra-unit-layout .card-body > *, .activity-groups .card-body > * { grid-column: 1; margin: 0; }
+.algebra-unit-layout .card h3, .activity-groups .card h3 { font-family: var(--body); font-size: 1.02rem; font-weight: 600; letter-spacing: 0; }
+.algebra-unit-layout .card h3 a, .activity-groups .card h3 a { color: var(--accent); }
+.algebra-unit-layout .card .desc, .activity-groups .card .desc {
+  font-size: .9rem; color: var(--ink-soft); line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+.algebra-unit-layout .game-mode-tag, .activity-groups .game-mode-tag {
+  justify-self: start; padding: 0; background: none; border: 0; font-size: .8rem; font-weight: 500; color: var(--ink-soft);
+}
+.algebra-unit-layout .resource-info, .activity-groups .resource-info { font-size: .82rem; color: var(--ink-soft); }
+.algebra-unit-layout .card .actions, .activity-groups .card .actions {
+  grid-column: 2; grid-row: 1 / span 6; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; position: relative; z-index: 2;
+}
+.algebra-unit-layout .card .actions .btn, .activity-groups .card .actions .btn { min-height: 36px; padding: .3rem .8rem; font-size: .88rem; }
+.algebra-unit-layout .report-problem, .activity-groups .report-problem {
+  position: relative; z-index: 2; justify-self: start; font-size: .75rem; color: var(--ink-soft); opacity: .8;
+}
+.algebra-unit-layout .card:not(:hover):not(:focus-within) .report-problem,
+.activity-groups .card:not(:hover):not(:focus-within) .report-problem { opacity: 0; }
+
+@media (max-width: 640px) {
+  .algebra-unit-layout .card-body, .activity-groups .card-body { grid-template-columns: minmax(0, 1fr); }
+  .algebra-unit-layout .card .actions, .activity-groups .card .actions { grid-column: 1; grid-row: auto; justify-content: flex-start; margin-top: .4rem; }
+  .algebra-unit-layout .report-problem, .activity-groups .report-problem { opacity: .8 !important; }
+  .units { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .calm-task, .course-pill, .generator-shortcut { transition: border-color .15s, color .15s; }
+}
+
+/* ---------- Stronger overrides for the older layered rules in styles.css ---------- */
+html body .calm-courses .main-nav .course-pills .course-nav-card {
+  display: inline-flex !important; flex-direction: row !important; align-items: center; gap: .5rem;
+  width: auto !important; height: auto !important; min-height: 44px !important; padding: 0 1rem !important;
+  border: 1px solid #cbd5e1; border-radius: 999px; background: var(--card) !important; color: var(--ink) !important;
+  box-shadow: none !important; transform: none !important; overflow: visible; white-space: nowrap;
+}
+html body .calm-courses .main-nav .course-pills .course-nav-card:hover { border-color: var(--accent); color: var(--accent) !important; }
+html body .calm-courses .main-nav .course-pills .course-nav-card.is-soon { border-style: dashed; color: var(--ink-soft) !important; }
+
+html body .course-band ~ .section .units {
+  width: 100%; max-width: none; margin: 0; grid-template-columns: repeat(auto-fill, minmax(min(26rem, 100%), 1fr)); column-gap: 2rem; row-gap: 0;
+}
+html body .course-band ~ .section .unit,
+html body .unit[data-course] { background: transparent; padding: .9rem .1rem; border-radius: 0; gap: .15rem 1rem; }
+html body .unit[data-course] .unit-title-link { display: inline; color: var(--accent); }
+html body .unit[data-course] .unit-lesson-details summary { color: var(--ink-soft); font-weight: 500; }
+html body .course-band ~ .section .unit h3 { grid-column: 1 / -1; font-size: 1.05rem; }
+
+html body .unit-band ~ .section .cards.grouped-cards,
+html body .activity-group > .cards.grouped-cards { width: 100%; max-width: none; display: block; }
+html body .unit-band ~ .section .cards.grouped-cards > li.card,
+html body .activity-group > .cards.grouped-cards > li.card { aspect-ratio: auto; }
+
+html body .generator-shortcuts li .generator-shortcut-icon {
+  background: transparent !important; color: var(--accent) !important; width: 1.6rem; height: 1.6rem; font-size: 1.05rem; font-weight: 400;
+}
+html body .band h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 700; }

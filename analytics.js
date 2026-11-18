@@ -123,7 +123,7 @@
     }
     if (url.pathname === W.location.pathname && url.search === W.location.search) return;   // a #route on the same page: counted as Browse
     if (!HOME) return;                                                                     // resource opens are tracked from the home / course / unit pages
-    var box = a.closest('.card, .generator-shortcut, .task-card');
+    var box = a.closest('.card, .generator-shortcut, .task-card, .calm-task');
     var title = box ? (box.querySelector('h3, h2, strong') || box).textContent : a.textContent;
     (newTab ? send : later)('Open resource', { title: clip(title, 120), from: pageName() });
   }, true);

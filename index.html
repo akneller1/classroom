@@ -24,9 +24,11 @@
 <meta name="twitter:image" content="https://mrksclassroom.com/assets/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<!-- Only the logo uses a web font: a subset of Bricolage Grotesque with just the letters of the site name. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&display=swap&text=%20%27.CKMalmors%E2%80%99">
 <link rel="stylesheet" href="styles.css?v=course-pick-20261116">
-<script src="analytics.js?v=custom-domain-20261108" defer></script>
+<link rel="stylesheet" href="calm.css?v=calm-20261118">
+<script src="analytics.js?v=calm-20261118" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Mr. K\u0027s Classroom","url":"https://mrksclassroom.com/","description":"Free math activities, worksheets, games, lesson plans and assessments for teachers.","publisher":{"@type":"Person","name":"Andrey Kneller"}}</script>
 </head>
 <body>
@@ -50,7 +52,10 @@
     <nav class="main-nav" id="nav" aria-label="Main"></nav>
   </div>
 </header>
-<main id="main" tabindex="-1"></main>
+<main id="main" tabindex="-1"><!-- Shown at once while the scripts load; app.js redraws the same home page (keep in step with homeView in app.js). -->
+<section class="calm-home"><div class="wrap"><div class="calm-intro"><h1 tabindex="-1"><span class="section-kicker">Free math games, worksheets &amp; lesson plans</span> What do you need for class?</h1><p class="lede">Free math resources for teachers. No accounts, no logins, no subscriptions.</p></div><ul class="calm-tasks" aria-label="Teaching tasks"><li><a class="calm-task" href="worksheet-generator/lesson-planner.html"><svg class="task-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4M8 13h3M8 16h6"/></svg><h2>Plan a lesson</h2><p>Pick a unit and day. Get a Do Now, notes, examples, practice and an exit ticket.</p><span class="calm-task-action">Lesson Planner <span aria-hidden="true">→</span></span></a></li><li><a class="calm-task" href="worksheet-generator/worksheet.html"><svg class="task-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5"/></svg><h2>Make a worksheet</h2><p>Choose skills and difficulty, make versions, print with worked answer keys.</p><span class="calm-task-action">Worksheet Generator <span aria-hidden="true">→</span></span></a></li><li><a class="calm-task" href="worksheet-generator/menu-assessment.html"><svg class="task-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H6v16h12V5h-3M9 3h6v4H9zM9 12l2 2 4-4M9 17h6"/></svg><h2>Give a quiz or test</h2><p>A standard test or a choice menu. Edit any problem before you print.</p><span class="calm-task-action">Assessment Generator <span aria-hidden="true">→</span></span></a></li><li><a class="calm-task" href="#activities?category=games"><svg class="task-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12a3 3 0 0 1 3 3v3a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-3a3 3 0 0 1 3-3zM8 11v3M6.5 12.5h3M15 12h.01M17 13h.01"/></svg><h2>Run a review game</h2><p>Team review, escape rooms, mysteries and solo challenges, ready to project.</p><span class="calm-task-action">Find a game <span aria-hidden="true">→</span></span></a></li></ul><nav class="calm-more" aria-label="More tools"><span>More:</span> <a href="worksheet-generator/printables.html">Mazes, puzzles &amp; partner checks</a><a href="#activities?category=interactive">Interactive math</a><a href="#activities?category=study-guides">Flashcards &amp; study guides</a><a href="worksheet-generator/seating-chart.html">Seating chart</a><a href="guide.html">Teacher guide</a><a href="#activities">Browse all resources</a></nav><section class="calm-courses" aria-labelledby="calmCoursesTitle"><h2 id="calmCoursesTitle">Or browse by course</h2><div class="course-sidebar"></div></section></div></section>
+</main>
+<script>/* Another page was asked for: drop the instant home page until app.js draws it. */if(location.hash.length>1){document.getElementById('main').innerHTML='';}</script>
 <aside class="support-banner" aria-label="Support these resources"><div class="wrap"><div class="support-row"><div><p class="support-heading">Help keep math resources free.</p><p>Enjoy these activities? Your support helps me create more.</p></div><a class="support-button" href="https://buymeacoffee.com/akneller" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Support Mr. K’s Classroom<span class="sr"> (opens in a new tab)</span></a></div></div></aside>
 <footer class="site-footer"><div class="wrap">
   <p id="foot"></p>
@@ -93,7 +98,7 @@
 <script src="thumbs/resource-previews.js?v=previews-6cf4a90cb269b8a7d9bec604c50337bca58599b6"></script><script src="resource-standards.js?v=pa7-compare-20261114"></script>
 <script src="postit-games.js?v=20261114"></script>
 <script src="game-capabilities.js?v=solo-20261115"></script>
-<script src="app.js?v=reaudit-20261116"></script>
+<script src="app.js?v=calm-20261118"></script>
 <script>
 /* Fetch only the bank required by the currently opened unit, not every bank on the homepage. */
 (function(){
