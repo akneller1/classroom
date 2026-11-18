@@ -24,13 +24,20 @@ function win(rel) {
    course catalog (one lesson per skill, then practice, review, quiz and test days). The pacing guide pads that sequence
    to 180 days with a mid-unit practice day and a flex day per unit, extra practice in the longest units, a semester
    review and exam, and a final review and exam. Lesson titles, standards and notes are the planner's own. */
-function algebra2Scope() {
+/* Precalculus (2026-11-18, Precalculus audit #3) uses the same planner sequence and padding. */
+function bankScope(course, prefix) {
   const w = { console, Math, Date, JSON }; w.window = w; w.globalThis = w; vm.createContext(w);
   for (const rel of ["data.js", "course-catalog.js", "worksheet-generator/menu/standards.js", "worksheet-generator/menu/standards-map.js",
-    "worksheet-generator/planner/notes-teach-algebra2.js", "worksheet-generator/planner/scope-algebra2.js"])
-    vm.runInContext(fs.readFileSync(path.join(ROOT, rel), "utf8"), w, { filename: rel });
-  const base = w.MKPLAN_SCOPE_ALGEBRA2, lessonsMap = w.MKPLAN_SKILLS_ALGEBRA2.lessons, teach = (w.MKPLAN_TEACH || {}).algebra2 || {};
-  const extraPractice = base.units.map((u) => ({ u: u.unit, n: u.lesson_ids.length })).sort((a, b) => b.n - a.n || a.u - b.u).slice(0, 7).map((x) => x.u);
+    "worksheet-generator/planner/notes-teach-" + course + ".js", "worksheet-generator/planner/scope-algebra2.js"])
+    if (fs.existsSync(path.join(ROOT, rel))) vm.runInContext(fs.readFileSync(path.join(ROOT, rel), "utf8"), w, { filename: rel });
+  const KEY = course.toUpperCase();
+  const base = w["MKPLAN_SCOPE_" + KEY], lessonsMap = w["MKPLAN_SKILLS_" + KEY].lessons, teach = (w.MKPLAN_TEACH || {})[course] || {};
+  // Extra practice days: at least one in each of the 7 longest units, and more (longest units first) when the
+  // course has fewer lessons, so the plan reaches day 180 with about a week of final review rather than a long gap.
+  const bySize = base.units.map((u) => ({ u: u.unit, n: u.lesson_ids.length })).sort((a, b) => b.n - a.n || a.u - b.u).map((x) => x.u);
+  const planned = base.days.length + base.units.length * 2 + 3 + 3;   // + mid-unit practice and flex per unit, semester review/exam, final review/exam/flex
+  const spare = Math.max(7, 177 - planned - 3), extraCount = {};
+  for (let i = 0; i < spare; i++) extraCount[bySize[i % bySize.length]] = (extraCount[bySize[i % bySize.length]] || 0) + 1;
   const days = [], units = [];
   let day = 0, semesterDone = false;
   const push = (d) => { day += 1; days.push({ ...d, day }); };
@@ -41,28 +48,28 @@ function algebra2Scope() {
       push(d);
       if (i === half - 1) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Mid-unit practice", lesson_id: d.lesson_id.replace(/-S\d+$/, "-MIDPRACTICE"), standards: d.standards, content_objective: "Practice the first half of the unit." });
     });
-    if (extraPractice.includes(u.unit)) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Extra practice", lesson_id: "A2-U" + u.unit + "-EXTRA", standards: "", content_objective: "Mixed practice before review." });
+    for (let k = 1; k <= (extraCount[u.unit] || 0); k++) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Extra practice", lesson_id: prefix + "-U" + u.unit + "-EXTRA" + (k > 1 ? k : ""), standards: "", content_objective: "Mixed practice before review." });
     rest.forEach(push);
-    push({ unit: u.unit, unit_title: u.title, day_type: "Flex", title: u.title + " · Flex day", lesson_id: "A2-U" + u.unit + "-FLEX", standards: "", content_objective: "Corrections, reteaching and enrichment." });
+    push({ unit: u.unit, unit_title: u.title, day_type: "Flex", title: u.title + " · Flex day", lesson_id: prefix + "-U" + u.unit + "-FLEX", standards: "", content_objective: "Corrections, reteaching and enrichment." });
     units.push({ unit: u.unit, title: u.title, start_day: start, end_day: day, total_days: day - start + 1, lesson_ids: u.lesson_ids });
     if (!semesterDone && day >= 84) {
       semesterDone = true;
-      push({ unit: null, day_type: "Review", title: "Semester 1 Review", lesson_id: "A2-SEM-REVIEW-1", standards: "" });
-      push({ unit: null, day_type: "Review", title: "Semester 1 Review", lesson_id: "A2-SEM-REVIEW-2", standards: "" });
-      push({ unit: null, day_type: "Assessment", title: "Semester Exam", lesson_id: "A2-SEM-EXAM", standards: "" });
+      push({ unit: null, day_type: "Review", title: "Semester 1 Review", lesson_id: prefix + "-SEM-REVIEW-1", standards: "" });
+      push({ unit: null, day_type: "Review", title: "Semester 1 Review", lesson_id: prefix + "-SEM-REVIEW-2", standards: "" });
+      push({ unit: null, day_type: "Assessment", title: "Semester Exam", lesson_id: prefix + "-SEM-EXAM", standards: "" });
     }
   }
-  while (day < 177) push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: "A2-FINAL-REVIEW-" + (day + 1), standards: "" });
-  push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: "A2-FINAL-REVIEW-LAST", standards: "" });
-  push({ unit: null, day_type: "Assessment", title: "Final Exam", lesson_id: "A2-FINAL-EXAM", standards: "" });
-  push({ unit: null, day_type: "Flex", title: "Course reflection", lesson_id: "A2-FINAL-FLEX", standards: "" });
+  while (day < 177) push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: prefix + "-FINAL-REVIEW-" + (day + 1), standards: "" });
+  push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: prefix + "-FINAL-REVIEW-LAST", standards: "" });
+  push({ unit: null, day_type: "Assessment", title: "Final Exam", lesson_id: prefix + "-FINAL-EXAM", standards: "" });
+  push({ unit: null, day_type: "Flex", title: "Course reflection", lesson_id: prefix + "-FINAL-FLEX", standards: "" });
   const ideas = {}, names = {};
   for (const d of days) if (d.day_type === "Lesson") {
     const sk = lessonsMap[d.lesson_id] && lessonsMap[d.lesson_id].skills[0];
     if (sk && teach[sk[1]]) ideas[d.lesson_id] = teach[sk[1]].idea;
   }
   const C = w.MK_COURSE_CATALOG;
-  for (const u of w.LIBRARY.courses.find((c) => c.id === "algebra2").units) for (const sk of C.getSkillRecords("algebra2", u.id)) names["algebra2-" + u.id + "/" + sk.id] = { name: sk.name, unit: u.name };
+  for (const u of w.LIBRARY.courses.find((c) => c.id === course).units) for (const sk of C.getSkillRecords(course, u.id)) names[course + "-" + u.id + "/" + sk.id] = { name: sk.name, unit: u.name };
   return { scope: { meta: base.meta, units, days }, ideas, names };
 }
 
@@ -72,7 +79,8 @@ const COURSES = {
     ideas: () => (win("worksheet-generator/planner/notes-data-geometry.js").MKPLAN_GEOMETRY_NOTES || {}).ideas || {} },
   algebra: { name: "Algebra 1", scope: "worksheet-generator/planner/algebra1_scope_sequence.json", sets: /^algebra1-/, page: "algebra-1-pacing/",
     ideas: () => (win("worksheet-generator/planner/notes-content.js").MKPLAN || {}).KEY_IDEAS || {} },
-  algebra2: { name: "Algebra 2", load: algebra2Scope, sets: /^algebra2-/, page: "algebra-2-pacing/", framework: "Massachusetts Model Algebra II", bank: true }
+  algebra2: { name: "Algebra 2", load: () => bankScope("algebra2", "A2"), sets: /^algebra2-/, page: "algebra-2-pacing/", framework: "Massachusetts Model Algebra II", bank: true },
+  precalculus: { name: "Precalculus", load: () => bankScope("precalculus", "PC"), sets: /^precalculus-/, page: "precalculus-pacing/", framework: "Common Core (+) standards for precalculus", bank: true }
 };
 const cache = {};
 let names = null;
@@ -139,8 +147,16 @@ const ALL_ALGEBRA2 = [["N-CN.A.1"], ["N-CN.A.2"], ["N-CN.C.7"], ["N-CN.C.8", "+"
   ["A-REI.A.2"], ["A-REI.D.11"], ["F-IF.B.4"], ["F-IF.B.5"], ["F-IF.B.6"], ["F-IF.C.7b"], ["F-IF.C.7c"], ["F-IF.C.7e"], ["F-IF.C.8a"], ["F-IF.C.9"], ["F-IF.C.10"],
   ["F-BF.A.1b"], ["F-BF.B.3"], ["F-BF.B.4a"], ["F-LE.A.4"], ["F-TF.A.1"], ["F-TF.A.2"], ["F-TF.B.5"], ["F-TF.C.8"], ["S-ID.A.4"],
   ["S-IC.A.1"], ["S-IC.A.2"], ["S-IC.B.3"], ["S-IC.B.4"], ["S-IC.B.5"], ["S-IC.B.6"], ["S-MD.B.6", "+"], ["S-MD.B.7", "+"]];
+// Common Core (+) standards a precalculus course covers (Precalculus audit #3, 2026-11-18), with the non-(+) trigonometry and conics it extends.
+const ALL_PRECALCULUS = [["N-CN.A.3", "+"], ["N-CN.B.4", "+"], ["N-CN.B.5", "+"], ["N-CN.B.6", "+"], ["N-CN.C.8", "+"], ["N-CN.C.9", "+"],
+  ["N-VM.A.1", "+"], ["N-VM.A.2", "+"], ["N-VM.A.3", "+"], ["N-VM.B.4", "+"], ["N-VM.B.5", "+"], ["N-VM.C.6", "+"], ["N-VM.C.7", "+"], ["N-VM.C.8", "+"], ["N-VM.C.9", "+"],
+  ["N-VM.C.10", "+"], ["N-VM.C.11", "+"], ["N-VM.C.12", "+"], ["A-APR.C.5", "+"], ["A-APR.D.7", "+"], ["A-REI.C.8", "+"], ["A-REI.C.9", "+"],
+  ["F-IF.C.7d", "+"], ["F-BF.A.1c", "+"], ["F-BF.B.4b", "+"], ["F-BF.B.4c", "+"], ["F-BF.B.4d", "+"], ["F-BF.B.5", "+"],
+  ["F-TF.A.3", "+"], ["F-TF.A.4", "+"], ["F-TF.B.5"], ["F-TF.B.6", "+"], ["F-TF.B.7", "+"], ["F-TF.C.8"], ["F-TF.C.9", "+"],
+  ["G-SRT.D.9", "+"], ["G-SRT.D.10", "+"], ["G-SRT.D.11", "+"], ["G-GPE.A.2"], ["G-GPE.A.3", "+"],
+  ["S-MD.A.1", "+"], ["S-MD.A.2", "+"], ["S-MD.A.3", "+"], ["S-MD.A.4", "+"], ["S-MD.B.5", "+"], ["S-MD.B.6", "+"], ["S-MD.B.7", "+"], ["S-CP.B.8", "+"], ["S-CP.B.9", "+"]];
 export function geoPacingMain(course = "geometry", unitHref) {
-  const { scope, stdSkills, names, C } = data(course), ALL = course === "algebra2" ? ALL_ALGEBRA2 : course === "algebra" ? ALL_ALGEBRA : ALL_GEOMETRY;
+  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA }[course] || ALL_GEOMETRY;
   const framework = C.framework || "Common Core " + C.name, source = C.bank ? "question-bank skill" : "generator skill";
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const href = unitHref || ((t) => "../u/geometry/" + slug(t) + "/");

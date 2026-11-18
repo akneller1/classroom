@@ -12,6 +12,9 @@ on:
       - 'data.js'
       - 'app.js'
       - 'scripts/test-hs-bank-integration.cjs'
+      - 'scripts/test-precalculus-*.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'tools/precalculus-audit-20261118/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   pull_request:
     paths:
@@ -21,6 +24,9 @@ on:
       - 'data.js'
       - 'app.js'
       - 'scripts/test-hs-bank-integration.cjs'
+      - 'scripts/test-precalculus-*.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'tools/precalculus-audit-20261118/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   workflow_dispatch:
 jobs:
@@ -47,3 +53,6 @@ jobs:
         env:
           MG_COURSE: ${{ matrix.course }}
           MG_PREFIX: ${{ matrix.prefix }}
+      - name: Precalculus audit regression checks
+        if: matrix.course == 'precalculus'
+        run: node scripts/test-precalculus-audit.cjs

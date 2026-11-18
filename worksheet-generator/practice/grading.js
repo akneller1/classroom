@@ -84,11 +84,15 @@ function bankAnswer(answer){
  if(kind!=='number'&&core.unit)return null;
  return core.text;
 }
+/* Precalculus audit #2 (2026-11-18): keys the rational grader cannot read (exact values with √ and π, complex numbers,
+   vectors, matrices, intervals, exact solution lists and rounded "≈" answers) go to exact-grading.js, which also insists on
+   simplest form. Equations and expressions in x stay self-checked. */
+function exactKey(answer){return typeof answer==='string'&&G.MKEXACT&&G.MKEXACT.supports(answer)?answer:null;}
 function gradeBank(answer,typed){
  var key=bankAnswer(answer);
- if(key===null)return {status:'self'};
+ if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):{status:'self'};
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=bankAnswer;API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);return k!==null?k:exactKey(answer);};API.gradeBank=gradeBank;
 })(window);
