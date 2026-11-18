@@ -11516,6 +11516,3577 @@
     "S-IC.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_moe_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "a2-ps-s09-cp2-001",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 36 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 7, 3, 7, 2, 4, 9, 4, 0\nWhat fraction of the simulated results were 6 or more?",
+   "answer": "17/36",
+   "solutionSteps": [
+    "Add the frequencies for results 6 and up: 4 + 9 + 4 + 0 = 17.",
+    "Fraction = 17/36."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-002",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A simulation of a model was run 53 times. The table shows how often each result appeared.\nResult: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\nFrequency: 9, 7, 1, 3, 1, 8, 2, 0, 0, 6, 7, 9\nWhat fraction of the simulated results were 6 or more?",
+   "answer": "24/53",
+   "options": [
+    {
+     "text": "29/53",
+     "correct": false
+    },
+    {
+     "text": "22/53",
+     "correct": false
+    },
+    {
+     "text": "24/53",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Add the frequencies for results 6 and up: 2 + 0 + 0 + 6 + 7 + 9 = 24.",
+    "Fraction = 24/53."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-003",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "To test a model for a spinner, a class simulated 200 sets of trials under the model. In 39 of the 200 simulated sets, the number of red results was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.195",
+   "solutionSteps": [
+    "Proportion = 39/200.",
+    "= 0.195."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-004",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a coin, a class simulated 500 sets of trials under the model. In 39 of the 500 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.078",
+   "options": [
+    {
+     "text": "0.078",
+     "correct": true
+    },
+    {
+     "text": "0.39",
+     "correct": false
+    },
+    {
+     "text": "0.922",
+     "correct": false
+    },
+    {
+     "text": "39",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 39/500.",
+    "= 0.078."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-005",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 30%. Under this model, how many prizes would you expect in 50 boxes?",
+   "answer": "15",
+   "solutionSteps": [
+    "Expected count = n·p = 50 · 30%.",
+    "= 15."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-006",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A simulation of a model was run 27 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8\nFrequency: 5, 6, 8, 2, 5, 1, 0\nWhat fraction of the simulated results were 5 or more?",
+   "answer": "8/27",
+   "options": [
+    {
+     "text": "19/27",
+     "correct": false
+    },
+    {
+     "text": "2/9",
+     "correct": false
+    },
+    {
+     "text": "8/27",
+     "correct": true
+    },
+    {
+     "text": "8/7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Add the frequencies for results 5 and up: 2 + 5 + 1 + 0 = 8.",
+    "Fraction = 8/27."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-007",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "To test a model for a die, a class simulated 200 sets of trials under the model. In 12 of the 200 simulated sets, the number of sixes was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.06",
+   "solutionSteps": [
+    "Proportion = 12/200.",
+    "= 0.06."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-008",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a die, a class simulated 200 sets of trials under the model. In 29 of the 200 simulated sets, the number of sixes was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.145",
+   "options": [
+    {
+     "text": "0.145",
+     "correct": true
+    },
+    {
+     "text": "0.855",
+     "correct": false
+    },
+    {
+     "text": "0.29",
+     "correct": false
+    },
+    {
+     "text": "29",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 29/200.",
+    "= 0.145."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-009",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 50%. Under this model, how many prizes would you expect in 100 boxes?",
+   "answer": "50",
+   "solutionSteps": [
+    "Expected count = n·p = 100 · 50%.",
+    "= 50."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-010",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A student claims a coin is fair. In 50 flips it landed heads 32 times. A simulation of 100 sets of 50 fair flips gave 32 or more heads in 6 sets. Using a 5% cutoff, which conclusion is best?",
+   "answer": "The model is consistent with the data: a result like this is not unusual under the model.",
+   "options": [
+    {
+     "text": "The model is consistent with the data: a result like this is not unusual under the model.",
+     "correct": true
+    },
+    {
+     "text": "The coin is unfair because 32 is not exactly 25.",
+     "correct": false
+    },
+    {
+     "text": "The simulation proves the coin is fair.",
+     "correct": false
+    },
+    {
+     "text": "The model is doubtful: a result this extreme happened rarely (less than 5% of the time) under the model.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion of simulated sets at least as extreme: 6/100 = 0.06.",
+    "0.06 is at least 0.05, so: The model is consistent with the data: a result like this is not unusual under the model."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-011",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "To test a model for a basketball player, a class simulated 500 sets of trials under the model. In 12 of the 500 simulated sets, the number of made free throws was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.024",
+   "solutionSteps": [
+    "Proportion = 12/500.",
+    "= 0.024."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-012",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a coin, a class simulated 200 sets of trials under the model. In 6 of the 200 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.03",
+   "options": [
+    {
+     "text": "0.97",
+     "correct": false
+    },
+    {
+     "text": "0.06",
+     "correct": false
+    },
+    {
+     "text": "0.03",
+     "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 6/200.",
+    "= 0.03."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-013",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "To test a model for a coin, a class simulated 500 sets of trials under the model. In 13 of the 500 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.026",
+   "solutionSteps": [
+    "Proportion = 13/500.",
+    "= 0.026."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-014",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nA simulation of a model was run 39 times. The table shows how often each result appeared.\nResult: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 1, 0, 0, 1, 8, 4, 5, 9, 4, 7\nWhat fraction of the simulated results were 7 or more?\nEmma's answer: 11/39\nIdentify the mistake and give the correct answer.",
+   "answer": "20/39",
+   "solutionSteps": [
+    "Mistake: Emma left out the result 7 itself.",
+    "Add the frequencies for results 7 and up: 9 + 4 + 7 = 20.",
+    "Fraction = 20/39.",
+    "The correct answer is 20/39, not 11/39."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-015",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Simulation and evaluating models): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "To test a model for a die, a class simulated 250 sets of trials under the model. In 15 of the 250 simulated sets, the number of sixes was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+     "answer": "0.06"
+    },
+    {
+     "prompt": "A simulation of a model was run 32 times. The table shows how often each result appeared.\nResult: 3, 4, 5, 6, 7, 8, 9\nFrequency: 8, 1, 5, 5, 4, 4, 5\nWhat fraction of the simulated results were 8 or more?",
+     "answer": "9/32"
+    },
+    {
+     "prompt": "A model says a cereal box contains a prize with probability 2/5. Under this model, how many prizes would you expect in 60 boxes?",
+     "answer": "24"
+    },
+    {
+     "prompt": "To test a model for a die, a class simulated 200 sets of trials under the model. In 31 of the 200 simulated sets, the number of sixes was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+     "answer": "0.155"
+    }
+   ],
+   "answer": "(a) 0.06; (b) 9/32; (c) 24; (d) 0.155",
+   "solutionSteps": [
+    "(a) Proportion = 15/250. = 0.06.",
+    "(b) Add the frequencies for results 8 and up: 4 + 5 = 9. Fraction = 9/32.",
+    "(c) Expected count = n·p = 60 · 2/5. = 24.",
+    "(d) Proportion = 31/200. = 0.155."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp2-016",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA simulation of a model was run 41 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\nFrequency: 3, 3, 6, 4, 8, 6, 0, 6, 0, 5\nWhat fraction of the simulated results were 5 or more?\nAva's answer: 25/41\nIdentify the mistake and give the correct answer.",
+   "answer": "29/41",
+   "solutionSteps": [
+    "Mistake: Ava left out the result 5 itself.",
+    "Add the frequencies for results 5 and up: 4 + 8 + 6 + 0 + 6 + 0 + 5 = 29.",
+    "Fraction = 29/41.",
+    "The correct answer is 29/41, not 25/41."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-001",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 26 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 2, 4, 2, 2, 7, 5, 0, 4\nWhat fraction of the simulated results were 7 or more?",
+   "answer": "9/26",
+   "solutionSteps": [
+    "Add the frequencies for results 7 and up: 5 + 0 + 4 = 9.",
+    "Fraction = 9/26."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-002",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a basketball player, a class simulated 250 sets of trials under the model. In 18 of the 250 simulated sets, the number of made free throws was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.072",
+   "options": [
+    {
+     "text": "0.18",
+     "correct": false
+    },
+    {
+     "text": "0.928",
+     "correct": false
+    },
+    {
+     "text": "0.072",
+     "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 18/250.",
+    "= 0.072."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-003",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 29 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8, 9, 10\nFrequency: 2, 6, 0, 2, 7, 0, 0, 8, 4\nWhat fraction of the simulated results were 8 or more?",
+   "answer": "12/29",
+   "solutionSteps": [
+    "Add the frequencies for results 8 and up: 0 + 8 + 4 = 12.",
+    "Fraction = 12/29."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-004",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student claims a coin is fair. In 50 flips it landed heads 32 times. A simulation of 200 sets of 50 fair flips gave 32 or more heads in 30 sets. Using a 5% cutoff, which conclusion is best?",
+   "answer": "The model is consistent with the data: a result like this is not unusual under the model.",
+   "options": [
+    {
+     "text": "The model is consistent with the data: a result like this is not unusual under the model.",
+     "correct": true
+    },
+    {
+     "text": "The simulation proves the coin is fair.",
+     "correct": false
+    },
+    {
+     "text": "The model is doubtful: a result this extreme happened rarely (less than 5% of the time) under the model.",
+     "correct": false
+    },
+    {
+     "text": "The coin is unfair because 32 is not exactly 25.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion of simulated sets at least as extreme: 30/200 = 0.15.",
+    "0.15 is at least 0.05, so: The model is consistent with the data: a result like this is not unusual under the model."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-005",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 39 times. The table shows how often each result appeared.\nResult: 1, 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 2, 1, 9, 7, 0, 8, 5, 7, 0\nWhat fraction of the simulated results were 8 or more?",
+   "answer": "7/39",
+   "solutionSteps": [
+    "Add the frequencies for results 8 and up: 7 + 0 = 7.",
+    "Fraction = 7/39."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-006",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a die, a class simulated 200 sets of trials under the model. In 36 of the 200 simulated sets, the number of sixes was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.18",
+   "options": [
+    {
+     "text": "0.36",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "0.18",
+     "correct": true
+    },
+    {
+     "text": "0.82",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 36/200.",
+    "= 0.18."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-007",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "To test a model for a coin, a class simulated 200 sets of trials under the model. In 25 of the 200 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.125",
+   "solutionSteps": [
+    "Proportion = 25/200.",
+    "= 0.125."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-008",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student claims a coin is fair. In 50 flips it landed heads 32 times. A simulation of 500 sets of 50 fair flips gave 32 or more heads in 150 sets. Using a 5% cutoff, which conclusion is best?",
+   "answer": "The model is consistent with the data: a result like this is not unusual under the model.",
+   "options": [
+    {
+     "text": "The coin is unfair because 32 is not exactly 25.",
+     "correct": false
+    },
+    {
+     "text": "The model is consistent with the data: a result like this is not unusual under the model.",
+     "correct": true
+    },
+    {
+     "text": "The model is doubtful: a result this extreme happened rarely (less than 5% of the time) under the model.",
+     "correct": false
+    },
+    {
+     "text": "The simulation proves the coin is fair.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion of simulated sets at least as extreme: 150/500 = 0.3.",
+    "0.3 is at least 0.05, so: The model is consistent with the data: a result like this is not unusual under the model."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-009",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "To test a model for a spinner, a class simulated 500 sets of trials under the model. In 31 of the 500 simulated sets, the number of red results was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.062",
+   "solutionSteps": [
+    "Proportion = 31/500.",
+    "= 0.062."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-010",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A model says a cereal box contains a prize with probability 3/10. Under this model, how many prizes would you expect in 120 boxes?",
+   "answer": "36",
+   "options": [
+    {
+     "text": "36",
+     "correct": true
+    },
+    {
+     "text": "3/10",
+     "correct": false
+    },
+    {
+     "text": "84",
+     "correct": false
+    },
+    {
+     "text": "72",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = n·p = 120 · 3/10.",
+    "= 36."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-011",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "To test a model for a spinner, a class simulated 500 sets of trials under the model. In 39 of the 500 simulated sets, the number of red results was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.078",
+   "solutionSteps": [
+    "Proportion = 39/500.",
+    "= 0.078."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-012",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A model says a cereal box contains a prize with probability 2/5. Under this model, how many prizes would you expect in 40 boxes?",
+   "answer": "16",
+   "options": [
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": true
+    },
+    {
+     "text": "32",
+     "correct": false
+    },
+    {
+     "text": "2/5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected count = n·p = 40 · 2/5.",
+    "= 16."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-013",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 40%. Under this model, how many prizes would you expect in 40 boxes?",
+   "answer": "16",
+   "solutionSteps": [
+    "Expected count = n·p = 40 · 40%.",
+    "= 16."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-014",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA model says a cereal box contains a prize with probability 3/4. Under this model, how many prizes would you expect in 20 boxes?\nTariq's answer: 5\nIdentify the mistake and give the correct answer.",
+   "answer": "15",
+   "solutionSteps": [
+    "Mistake: Tariq counted boxes without prizes.",
+    "Expected count = n·p = 20 · 3/4.",
+    "= 15.",
+    "The correct answer is 15, not 5."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-015",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Simulation and evaluating models): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A model says a cereal box contains a prize with probability 25%. Under this model, how many prizes would you expect in 20 boxes?",
+     "answer": "5"
+    },
+    {
+     "prompt": "A model says a cereal box contains a prize with probability 3/10. Under this model, how many prizes would you expect in 100 boxes?",
+     "answer": "30"
+    },
+    {
+     "prompt": "A simulation of a model was run 55 times. The table shows how often each result appeared.\nResult: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\nFrequency: 2, 7, 7, 4, 2, 2, 7, 3, 7, 7, 7\nWhat fraction of the simulated results were 9 or more?",
+     "answer": "21/55"
+    },
+    {
+     "prompt": "To test a model for a basketball player, a class simulated 500 sets of trials under the model. In 27 of the 500 simulated sets, the number of made free throws was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+     "answer": "0.054"
+    }
+   ],
+   "answer": "(a) 5; (b) 30; (c) 21/55; (d) 0.054",
+   "solutionSteps": [
+    "(a) Expected count = n·p = 20 · 25%. = 5.",
+    "(b) Expected count = n·p = 100 · 3/10. = 30.",
+    "(c) Add the frequencies for results 9 and up: 7 + 7 + 7 = 21. Fraction = 21/55.",
+    "(d) Proportion = 27/500. = 0.054."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-cp1-016",
+   "skillId": "probability-statistics-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nA simulation of a model was run 41 times. The table shows how often each result appeared.\nResult: 3, 4, 5, 6, 7, 8, 9, 10, 11\nFrequency: 0, 7, 2, 4, 3, 9, 6, 4, 6\nWhat fraction of the simulated results were 9 or more?\nOmar's answer: 10/41\nIdentify the mistake and give the correct answer.",
+   "answer": "16/41",
+   "solutionSteps": [
+    "Mistake: Omar left out the result 9 itself.",
+    "Add the frequencies for results 9 and up: 6 + 4 + 6 = 16.",
+    "Fraction = 16/41.",
+    "The correct answer is 16/41, not 10/41."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-001",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "To test a model for a coin, a class simulated 500 sets of trials under the model. In 8 of the 500 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.016",
+   "solutionSteps": [
+    "Proportion = 8/500.",
+    "= 0.016."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-002",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a coin, a class simulated 200 sets of trials under the model. In 29 of the 200 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.145",
+   "options": [
+    {
+     "text": "29",
+     "correct": false
+    },
+    {
+     "text": "0.855",
+     "correct": false
+    },
+    {
+     "text": "0.145",
+     "correct": true
+    },
+    {
+     "text": "0.29",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 29/200.",
+    "= 0.145."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-003",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 1/5. Under this model, how many prizes would you expect in 100 boxes?",
+   "answer": "20",
+   "solutionSteps": [
+    "Expected count = n·p = 100 · 1/5.",
+    "= 20."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-004",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Under a model, each of 100 trials succeeds with probability 1/2. The number of successes in a simulated set has standard deviation √(np(1 - p)). Find it, rounded to the nearest hundredth.",
+   "answer": "5.00",
+   "options": [
+    {
+     "text": "50.00",
+     "correct": false
+    },
+    {
+     "text": "5.00",
+     "correct": true
+    },
+    {
+     "text": "7.07",
+     "correct": false
+    },
+    {
+     "text": "25.00",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "np(1 - p) = 100·1/2·1/2 = 25.",
+    "√25 ≈ 5.00."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_sd). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-005",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "To test a model for a coin, a class simulated 250 sets of trials under the model. In 23 of the 250 simulated sets, the number of heads was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.092",
+   "solutionSteps": [
+    "Proportion = 23/250.",
+    "= 0.092."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-006",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a spinner, a class simulated 250 sets of trials under the model. In 12 of the 250 simulated sets, the number of red results was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.048",
+   "options": [
+    {
+     "text": "0.952",
+     "correct": false
+    },
+    {
+     "text": "0.048",
+     "correct": true
+    },
+    {
+     "text": "0.12",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 12/250.",
+    "= 0.048."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-007",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 75%. Under this model, how many prizes would you expect in 20 boxes?",
+   "answer": "15",
+   "solutionSteps": [
+    "Expected count = n·p = 20 · 75%.",
+    "= 15."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-008",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A simulation of a model was run 29 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8\nFrequency: 1, 3, 7, 2, 7, 0, 9\nWhat fraction of the simulated results were 6 or more?",
+   "answer": "16/29",
+   "options": [
+    {
+     "text": "16/7",
+     "correct": false
+    },
+    {
+     "text": "13/29",
+     "correct": false
+    },
+    {
+     "text": "9/29",
+     "correct": false
+    },
+    {
+     "text": "16/29",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Add the frequencies for results 6 and up: 7 + 0 + 9 = 16.",
+    "Fraction = 16/29."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-009",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A model says a cereal box contains a prize with probability 1/4. Under this model, how many prizes would you expect in 120 boxes?",
+   "answer": "30",
+   "solutionSteps": [
+    "Expected count = n·p = 120 · 1/4.",
+    "= 30."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-010",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a spinner, a class simulated 200 sets of trials under the model. In 17 of the 200 simulated sets, the number of red results was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.085",
+   "options": [
+    {
+     "text": "0.915",
+     "correct": false
+    },
+    {
+     "text": "0.17",
+     "correct": false
+    },
+    {
+     "text": "0.085",
+     "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 17/200.",
+    "= 0.085."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-011",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 46 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8\nFrequency: 7, 1, 9, 8, 6, 7, 8\nWhat fraction of the simulated results were 7 or more?",
+   "answer": "15/46",
+   "solutionSteps": [
+    "Add the frequencies for results 7 and up: 7 + 8 = 15.",
+    "Fraction = 15/46."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-012",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To test a model for a basketball player, a class simulated 500 sets of trials under the model. In 3 of the 500 simulated sets, the number of made free throws was at least as extreme as the real result. What proportion of the simulated sets were at least as extreme? Give a decimal.",
+   "answer": "0.006",
+   "options": [
+    {
+     "text": "0.994",
+     "correct": false
+    },
+    {
+     "text": "0.006",
+     "correct": true
+    },
+    {
+     "text": "0.03",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Proportion = 3/500.",
+    "= 0.006."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_proportion). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-013",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A simulation of a model was run 37 times. The table shows how often each result appeared.\nResult: 1, 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 0, 0, 5, 9, 8, 3, 1, 9, 2\nWhat fraction of the simulated results were 7 or more?",
+   "answer": "12/37",
+   "solutionSteps": [
+    "Add the frequencies for results 7 and up: 1 + 9 + 2 = 12.",
+    "Fraction = 12/37."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-014",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nA simulation of a model was run 32 times. The table shows how often each result appeared.\nResult: 3, 4, 5, 6, 7, 8\nFrequency: 0, 4, 9, 9, 6, 4\nWhat fraction of the simulated results were 6 or more?\nKenji's answer: 5/16\nIdentify the mistake and give the correct answer.",
+   "answer": "19/32",
+   "solutionSteps": [
+    "Mistake: Kenji left out the result 6 itself.",
+    "Add the frequencies for results 6 and up: 9 + 6 + 4 = 19.",
+    "Fraction = 19/32.",
+    "The correct answer is 19/32, not 5/16."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_dotplot_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-015",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Simulation and evaluating models): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A model says a cereal box contains a prize with probability 1/2. Under this model, how many prizes would you expect in 120 boxes?",
+     "answer": "60"
+    },
+    {
+     "prompt": "A simulation of a model was run 44 times. The table shows how often each result appeared.\nResult: 2, 3, 4, 5, 6, 7, 8, 9\nFrequency: 6, 4, 3, 4, 8, 7, 4, 8\nWhat fraction of the simulated results were 8 or more?",
+     "answer": "3/11"
+    },
+    {
+     "prompt": "A model says a cereal box contains a prize with probability 20%. Under this model, how many prizes would you expect in 40 boxes?",
+     "answer": "8"
+    },
+    {
+     "prompt": "Under a model, each of 225 trials succeeds with probability 2/5. The number of successes in a simulated set has standard deviation √(np(1 - p)). Find it, rounded to the nearest hundredth.",
+     "answer": "7.35"
+    }
+   ],
+   "answer": "(a) 60; (b) 3/11; (c) 8; (d) 7.35",
+   "solutionSteps": [
+    "(a) Expected count = n·p = 120 · 1/2. = 60.",
+    "(b) Add the frequencies for results 8 and up: 4 + 8 = 12. Fraction = 12/44 = 3/11.",
+    "(c) Expected count = n·p = 40 · 20%. = 8.",
+    "(d) np(1 - p) = 225·2/5·3/5 = 54. √54 ≈ 7.35."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_expected_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s09-honors-016",
+   "skillId": "probability-statistics-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nUnder a model, each of 400 trials succeeds with probability 1/2. The number of successes in a simulated set has standard deviation √(np(1 - p)). Find it, rounded to the nearest hundredth.\nAva's answer: 100.00\nIdentify the mistake and give the correct answer.",
+   "answer": "10.00",
+   "solutionSteps": [
+    "Mistake: Ava forgot the square root.",
+    "np(1 - p) = 400·1/2·1/2 = 100.",
+    "√100 ≈ 10.00.",
+    "The correct answer is 10.00, not 100.00."
+   ],
+   "standards": [
+    "S-IC.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: simulation_sd_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-001",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 3 points. The results were re-randomized into two groups 100 times; 8 of the re-randomizations gave a difference of 3 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.08",
+   "solutionSteps": [
+    "Probability ≈ 8/100.",
+    "= 0.08."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-002",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "An experiment found a difference in means of 5 points. The results were re-randomized into two groups 200 times; 12 of the re-randomizations gave a difference of 5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.06",
+   "options": [
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "0.94",
+     "correct": false
+    },
+    {
+     "text": "0.06",
+     "correct": true
+    },
+    {
+     "text": "0.012",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Probability ≈ 12/200.",
+    "= 0.06."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-003",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "10 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 13, 16, 14, 19, 18\nOld shoe: 19, 13, 21, 21, 11\nFind the difference in means (new shoe minus old shoe).",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mean for new shoe: 80/5 = 16.",
+    "Mean for old shoe: 85/5 = 17.",
+    "Difference: 16 - 17 = -1."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-004",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Why might a placebo be given to the control group?",
+   "answer": "So both groups believe they are treated, and the placebo effect is the same in each",
+   "options": [
+    {
+     "text": "So both groups believe they are treated, and the placebo effect is the same in each",
+     "correct": true
+    },
+    {
+     "text": "Because placebos are a stronger treatment",
+     "correct": false
+    },
+    {
+     "text": "To save money on the treatment",
+     "correct": false
+    },
+    {
+     "text": "To make the control group improve more",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Random assignment, a control group and a placebo let researchers compare treatments fairly.",
+    "Answer: So both groups believe they are treated, and the placebo effect is the same in each."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_concept). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-005",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 6 points. The results were re-randomized into two groups 200 times; 62 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.31",
+   "solutionSteps": [
+    "Probability ≈ 62/200.",
+    "= 0.31."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-006",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "An experiment found a difference in means of 6 points. The results were re-randomized into two groups 200 times; 50 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.25",
+   "options": [
+    {
+     "text": "0.05",
+     "correct": false
+    },
+    {
+     "text": "0.75",
+     "correct": false
+    },
+    {
+     "text": "0.25",
+     "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Probability ≈ 50/200.",
+    "= 0.25."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-007",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "10 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 11, 12, 12, 12, 23\nNo app: 21, 21, 20, 24, 29\nFind the difference in means (new study app minus no app).",
+   "answer": "-9",
+   "solutionSteps": [
+    "Mean for new study app: 70/5 = 14.",
+    "Mean for no app: 115/5 = 23.",
+    "Difference: 14 - 23 = -9."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-008",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a randomized experiment, a new reading program raised mean scores by 6 points over the usual program. In 100 re-randomizations of the same scores, 3 gave a difference of 6 or more. Using a 5% cutoff, is the difference statistically significant?",
+   "answer": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+   "options": [
+    {
+     "text": "No: a difference this large happens often by chance alone, so the evidence is weak.",
+     "correct": false
+    },
+    {
+     "text": "Yes, because any positive difference is significant.",
+     "correct": false
+    },
+    {
+     "text": "No, because re-randomization cannot be used with experiments.",
+     "correct": false
+    },
+    {
+     "text": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Estimated probability by chance: 3/100 = 0.03.",
+    "0.03 is less than 0.05. Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-009",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 5 points. The results were re-randomized into two groups 100 times; 6 of the re-randomizations gave a difference of 5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.06",
+   "solutionSteps": [
+    "Probability ≈ 6/100.",
+    "= 0.06."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-010",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a randomized experiment, a new reading program raised mean scores by 6 points over the usual program. In 100 re-randomizations of the same scores, 4 gave a difference of 6 or more. Using a 5% cutoff, is the difference statistically significant?",
+   "answer": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+   "options": [
+    {
+     "text": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+     "correct": true
+    },
+    {
+     "text": "No, because re-randomization cannot be used with experiments.",
+     "correct": false
+    },
+    {
+     "text": "No: a difference this large happens often by chance alone, so the evidence is weak.",
+     "correct": false
+    },
+    {
+     "text": "Yes, because any positive difference is significant.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Estimated probability by chance: 4/100 = 0.04.",
+    "0.04 is less than 0.05. Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-011",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 4 points. The results were re-randomized into two groups 100 times; 8 of the re-randomizations gave a difference of 4 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.08",
+   "solutionSteps": [
+    "Probability ≈ 8/100.",
+    "= 0.08."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-012",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "An experiment found a difference in means of 4 points. The results were re-randomized into two groups 200 times; 12 of the re-randomizations gave a difference of 4 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.06",
+   "options": [
+    {
+     "text": "0.94",
+     "correct": false
+    },
+    {
+     "text": "0.06",
+     "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "0.012",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Probability ≈ 12/200.",
+    "= 0.06."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-013",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 2.5 points. The results were re-randomized into two groups 200 times; 12 of the re-randomizations gave a difference of 2.5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.06",
+   "solutionSteps": [
+    "Probability ≈ 12/200.",
+    "= 0.06."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-014",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nAn experiment found a difference in means of 6 points. The results were re-randomized into two groups 100 times; 4 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.\nMateo's answer: 0.96\nIdentify the mistake and give the correct answer.",
+   "answer": "0.04",
+   "solutionSteps": [
+    "Mistake: Mateo used the re-randomizations that were smaller.",
+    "Probability ≈ 4/100.",
+    "= 0.04.",
+    "The correct answer is 0.04, not 0.96."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-015",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Randomized experiments and comparing treatments): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "10 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 29, 31, 31, 25, 19\nNo app: 18, 19, 21, 20, 27\nFind the difference in means (new study app minus no app).",
+     "answer": "6"
+    },
+    {
+     "prompt": "An experiment found a difference in means of 2.5 points. The results were re-randomized into two groups 100 times; 12 of the re-randomizations gave a difference of 2.5 or more. Estimate the probability of a difference this large by chance alone.",
+     "answer": "0.12"
+    },
+    {
+     "prompt": "10 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 23, 20, 23, 28, 26\nStandard fertilizer: 10, 12, 12, 10, 6\nFind the difference in means (new fertilizer minus standard fertilizer).",
+     "answer": "14"
+    },
+    {
+     "prompt": "10 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 12, 18, 20, 13, 17\nNo app: 17, 9, 11, 12, 16\nFind the difference in means (new study app minus no app).",
+     "answer": "3"
+    }
+   ],
+   "answer": "(a) 6; (b) 0.12; (c) 14; (d) 3",
+   "solutionSteps": [
+    "(a) Mean for new study app: 135/5 = 27. Mean for no app: 105/5 = 21. Difference: 27 - 21 = 6.",
+    "(b) Probability ≈ 12/100. = 0.12.",
+    "(c) Mean for new fertilizer: 120/5 = 24. Mean for standard fertilizer: 50/5 = 10. Difference: 24 - 10 = 14.",
+    "(d) Mean for new study app: 80/5 = 16. Mean for no app: 65/5 = 13. Difference: 16 - 13 = 3."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp2-016",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nAn experiment found a difference in means of 2.5 points. The results were re-randomized into two groups 100 times; 6 of the re-randomizations gave a difference of 2.5 or more. Estimate the probability of a difference this large by chance alone.\nNia's answer: 0.94\nIdentify the mistake and give the correct answer.",
+   "answer": "0.06",
+   "solutionSteps": [
+    "Mistake: Nia used the re-randomizations that were smaller.",
+    "Probability ≈ 6/100.",
+    "= 0.06.",
+    "The correct answer is 0.06, not 0.94."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-001",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In a randomized experiment, 18 of 25 patients improved with a new treatment and 17 of 25 improved with a placebo. What is the difference in the proportions who improved (treatment minus placebo)? Give a decimal.",
+   "answer": "0.04",
+   "solutionSteps": [
+    "Treatment: 18/25 = 0.72. Placebo: 17/25 = 0.68.",
+    "Difference: 0.72 - 0.68 = 0.04."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_props). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-002",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Why do researchers randomly assign subjects to treatment groups?",
+   "answer": "To make the groups similar in every other way, so a difference in results can be blamed on the treatment",
+   "options": [
+    {
+     "text": "So the results can be applied to everyone in the country",
+     "correct": false
+    },
+    {
+     "text": "To make sure every subject gets the treatment",
+     "correct": false
+    },
+    {
+     "text": "To make the sample size larger",
+     "correct": false
+    },
+    {
+     "text": "To make the groups similar in every other way, so a difference in results can be blamed on the treatment",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Random assignment, a control group and a placebo let researchers compare treatments fairly.",
+    "Answer: To make the groups similar in every other way, so a difference in results can be blamed on the treatment."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_concept). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-003",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 18, 20, 19, 16, 14, 21\nNo app: 15, 14, 13, 11, 13, 6\nFind the difference in means (new study app minus no app).",
+   "answer": "6",
+   "solutionSteps": [
+    "Mean for new study app: 108/6 = 18.",
+    "Mean for no app: 72/6 = 12.",
+    "Difference: 18 - 12 = 6."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-004",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 34, 28, 26, 30, 33, 29\nNo app: 26, 26, 27, 23, 28, 26\nFind the difference in means (new study app minus no app).",
+   "answer": "4",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Mean for new study app: 180/6 = 30.",
+    "Mean for no app: 156/6 = 26.",
+    "Difference: 30 - 26 = 4."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-005",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "12 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 25, 21, 25, 26, 28, 19\nOld shoe: 11, 18, 12, 11, 14, 18\nFind the difference in means (new shoe minus old shoe).",
+   "answer": "10",
+   "solutionSteps": [
+    "Mean for new shoe: 144/6 = 24.",
+    "Mean for old shoe: 84/6 = 14.",
+    "Difference: 24 - 14 = 10."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-006",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "An experiment found a difference in means of 5 points. The results were re-randomized into two groups 100 times; 1 of the re-randomizations gave a difference of 5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.01",
+   "options": [
+    {
+     "text": "0.001",
+     "correct": false
+    },
+    {
+     "text": "0.01",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "0.99",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Probability ≈ 1/100.",
+    "= 0.01."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-007",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 4 points. The results were re-randomized into two groups 100 times; 25 of the re-randomizations gave a difference of 4 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.25",
+   "solutionSteps": [
+    "Probability ≈ 25/100.",
+    "= 0.25."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-008",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In a randomized experiment, a new reading program raised mean scores by 6 points over the usual program. In 100 re-randomizations of the same scores, 7 gave a difference of 6 or more. Using a 5% cutoff, is the difference statistically significant?",
+   "answer": "No: a difference this large happens often by chance alone, so the evidence is weak.",
+   "options": [
+    {
+     "text": "No, because re-randomization cannot be used with experiments.",
+     "correct": false
+    },
+    {
+     "text": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+     "correct": false
+    },
+    {
+     "text": "Yes, because any positive difference is significant.",
+     "correct": false
+    },
+    {
+     "text": "No: a difference this large happens often by chance alone, so the evidence is weak.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Estimated probability by chance: 7/100 = 0.07.",
+    "0.07 is not less than 0.05. No: a difference this large happens often by chance alone, so the evidence is weak."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-009",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 5 points. The results were re-randomized into two groups 100 times; 18 of the re-randomizations gave a difference of 5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.18",
+   "solutionSteps": [
+    "Probability ≈ 18/100.",
+    "= 0.18."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-010",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "12 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 23, 19, 22, 21, 23, 24\nStandard fertilizer: 16, 11, 11, 11, 12, 23\nFind the difference in means (new fertilizer minus standard fertilizer).",
+   "answer": "8",
+   "options": [
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "48",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Mean for new fertilizer: 132/6 = 22.",
+    "Mean for standard fertilizer: 84/6 = 14.",
+    "Difference: 22 - 14 = 8."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-011",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "12 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 23, 23, 25, 23, 22, 28\nStandard fertilizer: 13, 10, 12, 6, 10, 3\nFind the difference in means (new fertilizer minus standard fertilizer).",
+   "answer": "15",
+   "solutionSteps": [
+    "Mean for new fertilizer: 144/6 = 24.",
+    "Mean for standard fertilizer: 54/6 = 9.",
+    "Difference: 24 - 9 = 15."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-012",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "12 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 27, 30, 27, 30, 26, 28\nOld shoe: 17, 18, 23, 18, 20, 18\nFind the difference in means (new shoe minus old shoe).",
+   "answer": "9",
+   "options": [
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "-9",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": true
+    },
+    {
+     "text": "54",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Mean for new shoe: 168/6 = 28.",
+    "Mean for old shoe: 114/6 = 19.",
+    "Difference: 28 - 19 = 9."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-013",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 3 points. The results were re-randomized into two groups 100 times; 1 of the re-randomizations gave a difference of 3 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.01",
+   "solutionSteps": [
+    "Probability ≈ 1/100.",
+    "= 0.01."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-014",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nIn a randomized experiment, 17 of 20 patients improved with a new treatment and 15 of 20 improved with a placebo. What is the difference in the proportions who improved (treatment minus placebo)? Give a decimal.\nChloe's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "0.1",
+   "solutionSteps": [
+    "Mistake: Chloe subtracted the counts.",
+    "Treatment: 17/20 = 0.85. Placebo: 15/20 = 0.75.",
+    "Difference: 0.85 - 0.75 = 0.1.",
+    "The correct answer is 0.1, not 2."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_props_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-015",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Randomized experiments and comparing treatments): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 19, 19, 21, 20, 19, 40\nNo app: 21, 21, 24, 23, 20, 11\nFind the difference in means (new study app minus no app).",
+     "answer": "3"
+    },
+    {
+     "prompt": "An experiment found a difference in means of 3 points. The results were re-randomized into two groups 100 times; 25 of the re-randomizations gave a difference of 3 or more. Estimate the probability of a difference this large by chance alone.",
+     "answer": "0.25"
+    },
+    {
+     "prompt": "An experiment found a difference in means of 6 points. The results were re-randomized into two groups 200 times; 2 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.",
+     "answer": "0.01"
+    },
+    {
+     "prompt": "12 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 24, 25, 17, 22, 17, 21\nStandard fertilizer: 5, 9, 10, 11, 6, 7\nFind the difference in means (new fertilizer minus standard fertilizer).",
+     "answer": "13"
+    }
+   ],
+   "answer": "(a) 3; (b) 0.25; (c) 0.01; (d) 13",
+   "solutionSteps": [
+    "(a) Mean for new study app: 138/6 = 23. Mean for no app: 120/6 = 20. Difference: 23 - 20 = 3.",
+    "(b) Probability ≈ 25/100. = 0.25.",
+    "(c) Probability ≈ 2/200. = 0.01.",
+    "(d) Mean for new fertilizer: 126/6 = 21. Mean for standard fertilizer: 48/6 = 8. Difference: 21 - 8 = 13."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-cp1-016",
+   "skillId": "probability-statistics-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\n12 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 24, 22, 23, 27, 22, 38\nOld shoe: 24, 20, 21, 21, 21, 19\nFind the difference in means (new shoe minus old shoe).\nBen's answer: -5\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: Ben subtracted in the wrong order.",
+    "Mean for new shoe: 156/6 = 26.",
+    "Mean for old shoe: 126/6 = 21.",
+    "Difference: 26 - 21 = 5.",
+    "The correct answer is 5, not -5."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-001",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 32, 29, 29, 25, 24, 29\nNo app: 21, 25, 20, 22, 23, 27\nFind the difference in means (new study app minus no app).",
+   "answer": "5",
+   "solutionSteps": [
+    "Mean for new study app: 168/6 = 28.",
+    "Mean for no app: 138/6 = 23.",
+    "Difference: 28 - 23 = 5."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-002",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "What is the purpose of a control group in an experiment?",
+   "answer": "To give a baseline to compare the treatment group with",
+   "options": [
+    {
+     "text": "To check that the researchers measured correctly",
+     "correct": false
+    },
+    {
+     "text": "To make the experiment observational",
+     "correct": false
+    },
+    {
+     "text": "To receive a larger dose of the treatment",
+     "correct": false
+    },
+    {
+     "text": "To give a baseline to compare the treatment group with",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Random assignment, a control group and a placebo let researchers compare treatments fairly.",
+    "Answer: To give a baseline to compare the treatment group with."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_concept). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-003",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 19, 21, 22, 26, 21, 23\nNo app: 21, 24, 22, 22, 21, 10\nFind the difference in means (new study app minus no app).",
+   "answer": "2",
+   "solutionSteps": [
+    "Mean for new study app: 132/6 = 22.",
+    "Mean for no app: 120/6 = 20.",
+    "Difference: 22 - 20 = 2."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-004",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "12 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 16, 16, 19, 15, 18, 24\nStandard fertilizer: 7, 8, 7, 4, 7, 15\nFind the difference in means (new fertilizer minus standard fertilizer).",
+   "answer": "10",
+   "options": [
+    {
+     "text": "-10",
+     "correct": false
+    },
+    {
+     "text": "60",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
+    },
+    {
+     "text": "11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Mean for new fertilizer: 108/6 = 18.",
+    "Mean for standard fertilizer: 48/6 = 8.",
+    "Difference: 18 - 8 = 10."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-005",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 4 points. The results were re-randomized into two groups 100 times; 2 of the re-randomizations gave a difference of 4 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.02",
+   "solutionSteps": [
+    "Probability ≈ 2/100.",
+    "= 0.02."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-006",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a randomized experiment, a new reading program raised mean scores by 6 points over the usual program. In 100 re-randomizations of the same scores, 0 gave a difference of 6 or more. Using a 5% cutoff, is the difference statistically significant?",
+   "answer": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+   "options": [
+    {
+     "text": "Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it.",
+     "correct": true
+    },
+    {
+     "text": "Yes, because any positive difference is significant.",
+     "correct": false
+    },
+    {
+     "text": "No, because re-randomization cannot be used with experiments.",
+     "correct": false
+    },
+    {
+     "text": "No: a difference this large happens often by chance alone, so the evidence is weak.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Estimated probability by chance: 0/100 = 0.",
+    "0 is less than 0.05. Yes: a difference this large is unlikely by chance alone, so the treatment likely caused it."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_decide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-007",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 14, 10, 15, 10, 16, 19\nNo app: 29, 27, 25, 29, 24, 16\nFind the difference in means (new study app minus no app).",
+   "answer": "-11",
+   "solutionSteps": [
+    "Mean for new study app: 84/6 = 14.",
+    "Mean for no app: 150/6 = 25.",
+    "Difference: 14 - 25 = -11."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-008",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "12 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 32, 27, 30, 34, 33, 24\nOld shoe: 12, 10, 14, 12, 8, 16\nFind the difference in means (new shoe minus old shoe).",
+   "answer": "18",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "108",
+     "correct": false
+    },
+    {
+     "text": "-18",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Mean for new shoe: 180/6 = 30.",
+    "Mean for old shoe: 72/6 = 12.",
+    "Difference: 30 - 12 = 18."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-009",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "12 runners were randomly assigned to two groups. Seconds saved:\nNew shoe: 19, 25, 26, 19, 19, 24\nOld shoe: 8, 11, 6, 9, 11, 15\nFind the difference in means (new shoe minus old shoe).",
+   "answer": "12",
+   "solutionSteps": [
+    "Mean for new shoe: 132/6 = 22.",
+    "Mean for old shoe: 60/6 = 10.",
+    "Difference: 22 - 10 = 12."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-010",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "An experiment found a difference in means of 6 points. The results were re-randomized into two groups 100 times; 18 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.18",
+   "options": [
+    {
+     "text": "0.82",
+     "correct": false
+    },
+    {
+     "text": "0.018",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "0.18",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Probability ≈ 18/100.",
+    "= 0.18."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-011",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "12 plants were randomly assigned to two groups. Growth in cm:\nNew fertilizer: 14, 17, 13, 21, 16, 21\nStandard fertilizer: 18, 22, 26, 23, 19, 24\nFind the difference in means (new fertilizer minus standard fertilizer).",
+   "answer": "-5",
+   "solutionSteps": [
+    "Mean for new fertilizer: 102/6 = 17.",
+    "Mean for standard fertilizer: 132/6 = 22.",
+    "Difference: 17 - 22 = -5."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_means). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-012",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a randomized experiment, 20 of 25 patients improved with a new treatment and 6 of 25 improved with a placebo. What is the difference in the proportions who improved (treatment minus placebo)? Give a decimal.",
+   "answer": "0.56",
+   "options": [
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "0.28",
+     "correct": false
+    },
+    {
+     "text": "0.56",
+     "correct": true
+    },
+    {
+     "text": "0.8",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Treatment: 20/25 = 0.8. Placebo: 6/25 = 0.24.",
+    "Difference: 0.8 - 0.24 = 0.56."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_props). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-013",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An experiment found a difference in means of 5 points. The results were re-randomized into two groups 100 times; 4 of the re-randomizations gave a difference of 5 or more. Estimate the probability of a difference this large by chance alone.",
+   "answer": "0.04",
+   "solutionSteps": [
+    "Probability ≈ 4/100.",
+    "= 0.04."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-014",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nAn experiment found a difference in means of 6 points. The results were re-randomized into two groups 200 times; 24 of the re-randomizations gave a difference of 6 or more. Estimate the probability of a difference this large by chance alone.\nPriya's answer: 0.88\nIdentify the mistake and give the correct answer.",
+   "answer": "0.12",
+   "solutionSteps": [
+    "Mistake: Priya used the re-randomizations that were smaller.",
+    "Probability ≈ 24/200.",
+    "= 0.12.",
+    "The correct answer is 0.12, not 0.88."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-015",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Randomized experiments and comparing treatments): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "An experiment found a difference in means of 2.5 points. The results were re-randomized into two groups 100 times; 8 of the re-randomizations gave a difference of 2.5 or more. Estimate the probability of a difference this large by chance alone.",
+     "answer": "0.08"
+    },
+    {
+     "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 14, 18, 17, 14, 16, 5\nNo app: 4, 4, 7, 8, 9, 16\nFind the difference in means (new study app minus no app).",
+     "answer": "6"
+    },
+    {
+     "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 18, 18, 20, 24, 20, 32\nNo app: 21, 19, 16, 18, 19, 21\nFind the difference in means (new study app minus no app).",
+     "answer": "3"
+    },
+    {
+     "prompt": "12 students were randomly assigned to two groups. Quiz score gain:\nNew study app: 23, 16, 19, 15, 20, 21\nNo app: 17, 21, 20, 21, 21, 26\nFind the difference in means (new study app minus no app).",
+     "answer": "-2"
+    }
+   ],
+   "answer": "(a) 0.08; (b) 6; (c) 3; (d) -2",
+   "solutionSteps": [
+    "(a) Probability ≈ 8/100. = 0.08.",
+    "(b) Mean for new study app: 84/6 = 14. Mean for no app: 48/6 = 8. Difference: 14 - 8 = 6.",
+    "(c) Mean for new study app: 132/6 = 22. Mean for no app: 114/6 = 19. Difference: 22 - 19 = 3.",
+    "(d) Mean for new study app: 114/6 = 19. Mean for no app: 126/6 = 21. Difference: 19 - 21 = -2."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_rerandomize_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s10-honors-016",
+   "skillId": "probability-statistics-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nIn a randomized experiment, 18 of 25 patients improved with a new treatment and 15 of 25 improved with a placebo. What is the difference in the proportions who improved (treatment minus placebo)? Give a decimal.\nFarah's answer: 3\nIdentify the mistake and give the correct answer.",
+   "answer": "0.12",
+   "solutionSteps": [
+    "Mistake: Farah subtracted the counts.",
+    "Treatment: 18/25 = 0.72. Placebo: 15/25 = 0.6.",
+    "Difference: 0.72 - 0.6 = 0.12.",
+    "The correct answer is 0.12, not 3."
+   ],
+   "standards": [
+    "S-IC.B.5",
+    "S-IC.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: experiment_diff_props_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-001",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A news report says 38% of residents support a new park, with a margin of error of ±5%. What is the lowest plausible percent?",
+   "answer": "33%",
+   "solutionSteps": [
+    "The plausible interval is 38% ± 5%: 33% to 43%.",
+    "The lowest plausible value is 33%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-002",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bar graph shows Brand A at 49 and Brand B at 51, with the vertical axis starting at 46, so Brand B's bar looks 1.67 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "4.1%",
+   "options": [
+    {
+     "text": "4.1%",
+     "correct": true
+    },
+    {
+     "text": "2.0%",
+     "correct": false
+    },
+    {
+     "text": "66.7%",
+     "correct": false
+    },
+    {
+     "text": "3.9%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Actual difference: 51 - 49 = 2.",
+    "Percent greater: 2/49 ≈ 0.0408 ≈ 4.1%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-003",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A study reports that a side effect occurs in 2 of every 10,000 people who do not take a medicine and 6 of every 10,000 who do. A headline calls this a big increase in risk. By how many cases per 10,000 people does the risk actually increase?",
+   "answer": "4",
+   "solutionSteps": [
+    "Absolute increase = 6 - 2.",
+    "= 4 more case(s) per 10,000 people."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_risk). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-004",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A report says the number of reported bike thefts went from 40 to 20. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "-50%",
+   "options": [
+    {
+     "text": "-50%",
+     "correct": true
+    },
+    {
+     "text": "50%",
+     "correct": false
+    },
+    {
+     "text": "-20%",
+     "correct": false
+    },
+    {
+     "text": "-100%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Change = 20 - 40 = -20.",
+    "Percent change = -20/40 = -0.5 = -50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-005",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A report says the number of monthly complaints went from 120 to 132. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "10%",
+   "solutionSteps": [
+    "Change = 132 - 120 = 12.",
+    "Percent change = 12/120 = 0.1 = 10%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-006",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A report says the number of monthly complaints went from 250 to 225. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "-10%",
+   "options": [
+    {
+     "text": "-11.1111%",
+     "correct": false
+    },
+    {
+     "text": "10%",
+     "correct": false
+    },
+    {
+     "text": "-10%",
+     "correct": true
+    },
+    {
+     "text": "-25%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Change = 225 - 250 = -25.",
+    "Percent change = -25/250 = -0.1 = -10%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-007",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 59 and Brand B at 65, with the vertical axis starting at 58, so Brand B's bar looks 7 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "10.2%",
+   "solutionSteps": [
+    "Actual difference: 65 - 59 = 6.",
+    "Percent greater: 6/59 ≈ 0.1017 ≈ 10.2%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-008",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A website poll asked visitors to vote on a new law, and 80% of 2,000 voters opposed it. What is the main problem with reporting that 80% of residents oppose the law?",
+   "answer": "Voters chose to respond, so the sample is probably not representative",
+   "options": [
+    {
+     "text": "Voters chose to respond, so the sample is probably not representative",
+     "correct": true
+    },
+    {
+     "text": "80% is too high to be true",
+     "correct": false
+    },
+    {
+     "text": "2,000 is too small for any conclusion",
+     "correct": false
+    },
+    {
+     "text": "Online polls always have a 5% margin of error",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Ask how the data were collected: who was measured, how they were chosen, and whether a treatment was assigned.",
+    "Answer: Voters chose to respond, so the sample is probably not representative."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_concept). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-009",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A news report says 47% of residents use the city bus weekly, with a margin of error of ±4%. What is the highest plausible percent?",
+   "answer": "51%",
+   "solutionSteps": [
+    "The plausible interval is 47% ± 4%: 43% to 51%.",
+    "The highest plausible value is 51%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-010",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A report says the number of students in the robotics club went from 40 to 36. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "-10%",
+   "options": [
+    {
+     "text": "-10%",
+     "correct": true
+    },
+    {
+     "text": "-4%",
+     "correct": false
+    },
+    {
+     "text": "-11.1111%",
+     "correct": false
+    },
+    {
+     "text": "10%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Change = 36 - 40 = -4.",
+    "Percent change = -4/40 = -0.1 = -10%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-011",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 43 and Brand B at 47, with the vertical axis starting at 41, so Brand B's bar looks 3 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "9.3%",
+   "solutionSteps": [
+    "Actual difference: 47 - 43 = 4.",
+    "Percent greater: 4/43 ≈ 0.0930 ≈ 9.3%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-012",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A news report says 41% of residents support a new park, with a margin of error of ±5%. What is the lowest plausible percent?",
+   "answer": "36%",
+   "options": [
+    {
+     "text": "36%",
+     "correct": true
+    },
+    {
+     "text": "31%",
+     "correct": false
+    },
+    {
+     "text": "46%",
+     "correct": false
+    },
+    {
+     "text": "41%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The plausible interval is 41% ± 5%: 36% to 46%.",
+    "The lowest plausible value is 36%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-013",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 57 and Brand B at 62, with the vertical axis starting at 55, so Brand B's bar looks 3.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "8.8%",
+   "solutionSteps": [
+    "Actual difference: 62 - 57 = 5.",
+    "Percent greater: 5/57 ≈ 0.0877 ≈ 8.8%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-014",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nA bar graph shows Brand A at 90 and Brand B at 93, with the vertical axis starting at 87, so Brand B's bar looks 2 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.\nIsaac's answer: 100.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "3.3%",
+   "solutionSteps": [
+    "Mistake: Isaac used the bar heights from the truncated axis.",
+    "Actual difference: 93 - 90 = 3.",
+    "Percent greater: 3/90 ≈ 0.0333 ≈ 3.3%.",
+    "The truncated axis exaggerates the difference.",
+    "The correct answer is 3.3%, not 100.0%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-015",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Practice set (Evaluating reports based on data): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A news report says 58% of residents favor a later school start, with a margin of error of ±2%. What is the highest plausible percent?",
+     "answer": "60%"
+    },
+    {
+     "prompt": "A report says the number of students in the robotics club went from 80 to 96. What is the percent change? (Use a negative number for a decrease.)",
+     "answer": "20%"
+    },
+    {
+     "prompt": "A bar graph shows Brand A at 78 and Brand B at 83, with the vertical axis starting at 75, so Brand B's bar looks 2.67 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+     "answer": "6.4%"
+    },
+    {
+     "prompt": "A bar graph shows Brand A at 77 and Brand B at 83, with the vertical axis starting at 76, so Brand B's bar looks 7 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+     "answer": "7.8%"
+    }
+   ],
+   "answer": "(a) 60%; (b) 20%; (c) 6.4%; (d) 7.8%",
+   "solutionSteps": [
+    "(a) The plausible interval is 58% ± 2%: 56% to 60%. The highest plausible value is 60%.",
+    "(b) Change = 96 - 80 = 16. Percent change = 16/80 = 0.2 = 20%.",
+    "(c) Actual difference: 83 - 78 = 5. Percent greater: 5/78 ≈ 0.0641 ≈ 6.4%. The truncated axis exaggerates the difference.",
+    "(d) Actual difference: 83 - 77 = 6. Percent greater: 6/77 ≈ 0.0779 ≈ 7.8%. The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp2-016",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA report says the number of reported bike thefts went from 120 to 60. What is the percent change? (Use a negative number for a decrease.)\nFarah's answer: -100%\nIdentify the mistake and give the correct answer.",
+   "answer": "-50%",
+   "solutionSteps": [
+    "Mistake: Farah divided by the new value.",
+    "Change = 60 - 120 = -60.",
+    "Percent change = -60/120 = -0.5 = -50%.",
+    "The correct answer is -50%, not -100%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-001",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A news report says 42% of residents plan to vote yes on a bond, with a margin of error of ±3%. What is the highest plausible percent?",
+   "answer": "45%",
+   "solutionSteps": [
+    "The plausible interval is 42% ± 3%: 39% to 45%.",
+    "The highest plausible value is 45%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-002",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A news report says 40% of residents support a new park, with a margin of error of ±4%. What is the highest plausible percent?",
+   "answer": "44%",
+   "options": [
+    {
+     "text": "48%",
+     "correct": false
+    },
+    {
+     "text": "36%",
+     "correct": false
+    },
+    {
+     "text": "40%",
+     "correct": false
+    },
+    {
+     "text": "44%",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The plausible interval is 40% ± 4%: 36% to 44%.",
+    "The highest plausible value is 44%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-003",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A news report says 54% of residents favor a later school start, with a margin of error of ±3%. What is the highest plausible percent?",
+   "answer": "57%",
+   "solutionSteps": [
+    "The plausible interval is 54% ± 3%: 51% to 57%.",
+    "The highest plausible value is 57%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-004",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A news report says 55% of residents use the city bus weekly, with a margin of error of ±2%. What is the lowest plausible percent?",
+   "answer": "53%",
+   "options": [
+    {
+     "text": "57%",
+     "correct": false
+    },
+    {
+     "text": "51%",
+     "correct": false
+    },
+    {
+     "text": "53%",
+     "correct": true
+    },
+    {
+     "text": "55%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The plausible interval is 55% ± 2%: 53% to 57%.",
+    "The lowest plausible value is 53%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-005",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A report says the number of monthly complaints went from 250 to 275. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "10%",
+   "solutionSteps": [
+    "Change = 275 - 250 = 25.",
+    "Percent change = 25/250 = 0.1 = 10%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-006",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A report says the number of students in the robotics club went from 20 to 10. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "-50%",
+   "options": [
+    {
+     "text": "-50%",
+     "correct": true
+    },
+    {
+     "text": "-100%",
+     "correct": false
+    },
+    {
+     "text": "-10%",
+     "correct": false
+    },
+    {
+     "text": "50%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Change = 10 - 20 = -10.",
+    "Percent change = -10/20 = -0.5 = -50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-007",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 52 and Brand B at 53, with the vertical axis starting at 50, so Brand B's bar looks 1.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "1.9%",
+   "solutionSteps": [
+    "Actual difference: 53 - 52 = 1.",
+    "Percent greater: 1/52 ≈ 0.0192 ≈ 1.9%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-008",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A bar graph shows Brand A at 71 and Brand B at 75, with the vertical axis starting at 69, so Brand B's bar looks 3 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "5.6%",
+   "options": [
+    {
+     "text": "4.0%",
+     "correct": false
+    },
+    {
+     "text": "5.6%",
+     "correct": true
+    },
+    {
+     "text": "200.0%",
+     "correct": false
+    },
+    {
+     "text": "5.3%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Actual difference: 75 - 71 = 4.",
+    "Percent greater: 4/71 ≈ 0.0563 ≈ 5.6%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-009",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 56 and Brand B at 61, with the vertical axis starting at 54, so Brand B's bar looks 3.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "8.9%",
+   "solutionSteps": [
+    "Actual difference: 61 - 56 = 5.",
+    "Percent greater: 5/56 ≈ 0.0893 ≈ 8.9%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-010",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A news report says 58% of residents support a new park, with a margin of error of ±5%. What is the lowest plausible percent?",
+   "answer": "53%",
+   "options": [
+    {
+     "text": "48%",
+     "correct": false
+    },
+    {
+     "text": "63%",
+     "correct": false
+    },
+    {
+     "text": "53%",
+     "correct": true
+    },
+    {
+     "text": "58%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The plausible interval is 58% ± 5%: 53% to 63%.",
+    "The lowest plausible value is 53%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-011",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A report says the number of library visitors per day went from 250 to 400. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "60%",
+   "solutionSteps": [
+    "Change = 400 - 250 = 150.",
+    "Percent change = 150/250 = 0.6 = 60%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-012",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A poll finds 53% of voters support a candidate, with a margin of error of ±2%. A headline says \"Most voters support the candidate.\" Is the headline justified?",
+   "answer": "Yes: every plausible value is above 50%.",
+   "options": [
+    {
+     "text": "Yes: every plausible value is above 50%.",
+     "correct": true
+    },
+    {
+     "text": "No: polls can never support a claim.",
+     "correct": false
+    },
+    {
+     "text": "No: some plausible values are 50% or below.",
+     "correct": false
+    },
+    {
+     "text": "Yes: 53% is more than 50%.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Plausible interval: 51% to 55%.",
+    "The lower end is 51%, which is above 50%. Yes: every plausible value is above 50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_majority). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-013",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A news report says 53% of residents use the city bus weekly, with a margin of error of ±3%. What is the highest plausible percent?",
+   "answer": "56%",
+   "solutionSteps": [
+    "The plausible interval is 53% ± 3%: 50% to 56%.",
+    "The highest plausible value is 56%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-014",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA bar graph shows Brand A at 52 and Brand B at 54, with the vertical axis starting at 50, so Brand B's bar looks 2 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.\nQuinn's answer: 100.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "3.8%",
+   "solutionSteps": [
+    "Mistake: Quinn used the bar heights from the truncated axis.",
+    "Actual difference: 54 - 52 = 2.",
+    "Percent greater: 2/52 ≈ 0.0385 ≈ 3.8%.",
+    "The truncated axis exaggerates the difference.",
+    "The correct answer is 3.8%, not 100.0%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-015",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Practice set (Evaluating reports based on data): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A news report says 40% of residents support a new park, with a margin of error of ±2%. What is the lowest plausible percent?",
+     "answer": "38%"
+    },
+    {
+     "prompt": "A news report says 56% of residents favor a later school start, with a margin of error of ±3%. What is the highest plausible percent?",
+     "answer": "59%"
+    },
+    {
+     "prompt": "A study reports that a side effect occurs in 4 of every 1,000 people who do not take a medicine and 5 of every 1,000 who do. By what percent does the risk increase (relative increase)?",
+     "answer": "25%"
+    },
+    {
+     "prompt": "A study reports that a side effect occurs in 2 of every 1,000 people who do not take a medicine and 6 of every 1,000 who do. A headline calls this a big increase in risk. By how many cases per 1,000 people does the risk actually increase?",
+     "answer": "4"
+    }
+   ],
+   "answer": "(a) 38%; (b) 59%; (c) 25%; (d) 4",
+   "solutionSteps": [
+    "(a) The plausible interval is 40% ± 2%: 38% to 42%. The lowest plausible value is 38%.",
+    "(b) The plausible interval is 56% ± 3%: 53% to 59%. The highest plausible value is 59%.",
+    "(c) Relative increase = (5 - 4)/4 = 0.25. = 25%.",
+    "(d) Absolute increase = 6 - 2. = 4 more case(s) per 1,000 people."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-cp1-016",
+   "skillId": "probability-statistics-skill-11",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Farah answered this problem incorrectly.\nA bar graph shows Brand A at 54 and Brand B at 58, with the vertical axis starting at 53, so Brand B's bar looks 5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.\nFarah's answer: 400.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "7.4%",
+   "solutionSteps": [
+    "Mistake: Farah used the bar heights from the truncated axis.",
+    "Actual difference: 58 - 54 = 4.",
+    "Percent greater: 4/54 ≈ 0.0741 ≈ 7.4%.",
+    "The truncated axis exaggerates the difference.",
+    "The correct answer is 7.4%, not 400.0%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-001",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 44 and Brand B at 46, with the vertical axis starting at 41, so Brand B's bar looks 1.67 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "4.5%",
+   "solutionSteps": [
+    "Actual difference: 46 - 44 = 2.",
+    "Percent greater: 2/44 ≈ 0.0455 ≈ 4.5%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-002",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A study reports that a side effect occurs in 2 of every 10,000 people who do not take a medicine and 12 of every 10,000 who do. By what percent does the risk increase (relative increase)?",
+   "answer": "500%",
+   "options": [
+    {
+     "text": "10%",
+     "correct": false
+    },
+    {
+     "text": "83.3333%",
+     "correct": false
+    },
+    {
+     "text": "600%",
+     "correct": false
+    },
+    {
+     "text": "500%",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Relative increase = (12 - 2)/2 = 5.",
+    "= 500%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_risk). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-003",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A study reports that a side effect occurs in 5 of every 1,000 people who do not take a medicine and 6 of every 1,000 who do. By what percent does the risk increase (relative increase)?",
+   "answer": "20%",
+   "solutionSteps": [
+    "Relative increase = (6 - 5)/5 = 0.2.",
+    "= 20%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_risk). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-004",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A report says the number of students in the robotics club went from 120 to 60. What is the percent change? (Use a negative number for a decrease.)",
+   "answer": "-50%",
+   "options": [
+    {
+     "text": "-100%",
+     "correct": false
+    },
+    {
+     "text": "-50%",
+     "correct": true
+    },
+    {
+     "text": "-60%",
+     "correct": false
+    },
+    {
+     "text": "50%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Change = 60 - 120 = -60.",
+    "Percent change = -60/120 = -0.5 = -50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-005",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A study reports that a side effect occurs in 5 of every 10,000 people who do not take a medicine and 10 of every 10,000 who do. A headline calls this a big increase in risk. By how many cases per 10,000 people does the risk actually increase?",
+   "answer": "5",
+   "solutionSteps": [
+    "Absolute increase = 10 - 5.",
+    "= 5 more case(s) per 10,000 people."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_risk). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-006",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A poll finds 54% of voters support a candidate, with a margin of error of ±2%. A headline says \"Most voters support the candidate.\" Is the headline justified?",
+   "answer": "Yes: every plausible value is above 50%.",
+   "options": [
+    {
+     "text": "Yes: every plausible value is above 50%.",
+     "correct": true
+    },
+    {
+     "text": "No: polls can never support a claim.",
+     "correct": false
+    },
+    {
+     "text": "No: some plausible values are 50% or below.",
+     "correct": false
+    },
+    {
+     "text": "Yes: 54% is more than 50%.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Plausible interval: 52% to 56%.",
+    "The lower end is 52%, which is above 50%. Yes: every plausible value is above 50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_majority). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-007",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A study reports that a side effect occurs in 10 of every 10,000 people who do not take a medicine and 11 of every 10,000 who do. A headline calls this a big increase in risk. By how many cases per 10,000 people does the risk actually increase?",
+   "answer": "1",
+   "solutionSteps": [
+    "Absolute increase = 11 - 10.",
+    "= 1 more case(s) per 10,000 people."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_risk). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-008",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bar graph shows Brand A at 67 and Brand B at 72, with the vertical axis starting at 65, so Brand B's bar looks 3.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "7.5%",
+   "options": [
+    {
+     "text": "5.0%",
+     "correct": false
+    },
+    {
+     "text": "6.9%",
+     "correct": false
+    },
+    {
+     "text": "250.0%",
+     "correct": false
+    },
+    {
+     "text": "7.5%",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Actual difference: 72 - 67 = 5.",
+    "Percent greater: 5/67 ≈ 0.0746 ≈ 7.5%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-009",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 85 and Brand B at 88, with the vertical axis starting at 83, so Brand B's bar looks 2.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "3.5%",
+   "solutionSteps": [
+    "Actual difference: 88 - 85 = 3.",
+    "Percent greater: 3/85 ≈ 0.0353 ≈ 3.5%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-010",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A poll finds 54% of voters support a candidate, with a margin of error of ±3%. A headline says \"Most voters support the candidate.\" Is the headline justified?",
+   "answer": "Yes: every plausible value is above 50%.",
+   "options": [
+    {
+     "text": "Yes: every plausible value is above 50%.",
+     "correct": true
+    },
+    {
+     "text": "Yes: 54% is more than 50%.",
+     "correct": false
+    },
+    {
+     "text": "No: polls can never support a claim.",
+     "correct": false
+    },
+    {
+     "text": "No: some plausible values are 50% or below.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Plausible interval: 51% to 57%.",
+    "The lower end is 51%, which is above 50%. Yes: every plausible value is above 50%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_majority). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-011",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bar graph shows Brand A at 44 and Brand B at 49, with the vertical axis starting at 43, so Brand B's bar looks 6 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+   "answer": "11.4%",
+   "solutionSteps": [
+    "Actual difference: 49 - 44 = 5.",
+    "Percent greater: 5/44 ≈ 0.1136 ≈ 11.4%.",
+    "The truncated axis exaggerates the difference."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-012",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A poll finds 49% of voters support a candidate, with a margin of error of ±2%. A headline says \"Most voters support the candidate.\" Is the headline justified?",
+   "answer": "No: some plausible values are 50% or below.",
+   "options": [
+    {
+     "text": "No: polls can never support a claim.",
+     "correct": false
+    },
+    {
+     "text": "Yes: every plausible value is above 50%.",
+     "correct": false
+    },
+    {
+     "text": "Yes: 49% is more than 50%.",
+     "correct": false
+    },
+    {
+     "text": "No: some plausible values are 50% or below.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Plausible interval: 47% to 51%.",
+    "The lower end is 47%, which is not above 50%. No: some plausible values are 50% or below."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_majority). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-013",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A news report says 39% of residents favor a later school start, with a margin of error of ±4%. What is the lowest plausible percent?",
+   "answer": "35%",
+   "solutionSteps": [
+    "The plausible interval is 39% ± 4%: 35% to 43%.",
+    "The lowest plausible value is 35%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_margin). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-014",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nA bar graph shows Brand A at 57 and Brand B at 58, with the vertical axis starting at 54, so Brand B's bar looks 1.33 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.\nSam's answer: 33.3%\nIdentify the mistake and give the correct answer.",
+   "answer": "1.8%",
+   "solutionSteps": [
+    "Mistake: Sam used the bar heights from the truncated axis.",
+    "Actual difference: 58 - 57 = 1.",
+    "Percent greater: 1/57 ≈ 0.0175 ≈ 1.8%.",
+    "The truncated axis exaggerates the difference.",
+    "The correct answer is 1.8%, not 33.3%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-015",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Practice set (Evaluating reports based on data): answer each part and show your work.",
+   "parts": [
+    {
+     "prompt": "A bar graph shows Brand A at 84 and Brand B at 89, with the vertical axis starting at 82, so Brand B's bar looks 3.5 times as tall. By what percent is Brand B actually greater than Brand A? Round to the nearest tenth of a percent.",
+     "answer": "6.0%"
+    },
+    {
+     "prompt": "A study reports that a side effect occurs in 4 of every 10,000 people who do not take a medicine and 6 of every 10,000 who do. By what percent does the risk increase (relative increase)?",
+     "answer": "50%"
+    },
+    {
+     "prompt": "A news report says 55% of residents plan to vote yes on a bond, with a margin of error of ±4%. What is the lowest plausible percent?",
+     "answer": "51%"
+    },
+    {
+     "prompt": "A news report says 48% of residents plan to vote yes on a bond, with a margin of error of ±5%. What is the lowest plausible percent?",
+     "answer": "43%"
+    }
+   ],
+   "answer": "(a) 6.0%; (b) 50%; (c) 51%; (d) 43%",
+   "solutionSteps": [
+    "(a) Actual difference: 89 - 84 = 5. Percent greater: 5/84 ≈ 0.0595 ≈ 6.0%. The truncated axis exaggerates the difference.",
+    "(b) Relative increase = (6 - 4)/4 = 0.5. = 50%.",
+    "(c) The plausible interval is 55% ± 4%: 51% to 59%. The lowest plausible value is 51%.",
+    "(d) The plausible interval is 48% ± 5%: 43% to 53%. The lowest plausible value is 43%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_truncated_axis_open). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s11-honors-016",
+   "skillId": "probability-statistics-skill-11",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nA report says the number of reported bike thefts went from 120 to 180. What is the percent change? (Use a negative number for a decrease.)\nNia's answer: 33.3333%\nIdentify the mistake and give the correct answer.",
+   "answer": "50%",
+   "solutionSteps": [
+    "Mistake: Nia divided by the new value.",
+    "Change = 180 - 120 = 60.",
+    "Percent change = 60/120 = 0.5 = 50%.",
+    "The correct answer is 50%, not 33.3333%."
+   ],
+   "standards": [
+    "S-IC.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: report_percent_change_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
   }
  ]
 }

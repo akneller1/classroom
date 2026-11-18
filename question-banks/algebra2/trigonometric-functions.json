@@ -19009,6 +19009,637 @@
      "alt": "Graph of y = −3 sin(4(x − π/16)) − 1: midline y = −1, maximum at (7π/16, 2), next minimum at (11π/16, −4), period π/2."
     }
    }
+  },
+  {
+   "id": "a2-tf-s09-cp2-w001",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A rider's height on a Ferris wheel is h(t) = 42 - 40cos(2πt/4) feet, t minutes after boarding. How high is the rider at t = 2 minutes?",
+   "answer": "82",
+   "solutionSteps": [
+    "2πt/4 = 2π·2/4 = π.",
+    "cos(π) = -1.",
+    "h = 42 - 40·(-1) = 82 ft."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w002",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/6)t) + 12 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "12",
+   "options": [
+    {
+     "text": "12",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Period = 2π ÷ (π/6).",
+    "= 2·6 = 12 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w003",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/12)t) + 12 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "24",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/12).",
+    "= 2·12 = 24 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w004",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A rider's height on a Ferris wheel is h(t) = 55 - 50cos(2πt/6) feet, t minutes after boarding. How high is the rider at t = 4 minutes?",
+   "answer": "80",
+   "solutionSteps": [
+    "2πt/6 = 2π·4/6 = 4π/3.",
+    "cos(4π/3) = -0.5.",
+    "h = 55 - 50·(-0.5) = 80 ft."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w005",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 10sin((π/6)(m - 4)) + 65 °F. What is the highest average temperature?",
+   "answer": "75",
+   "options": [
+    {
+     "text": "55",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "75",
+     "correct": true
+    },
+    {
+     "text": "65",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 65 - 10 = 55 to 65 + 10 = 75.",
+    "Answer: 75 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w006",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The average high temperature in month m is T(m) = 20sin((π/6)(m - 4)) + 60 °F. What is the lowest average temperature?",
+   "answer": "40",
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 60 - 20 = 40 to 60 + 20 = 80.",
+    "Answer: 40 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w007",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isaac answered this problem incorrectly.\nThe water depth at a dock is d(t) = 3cos((π/4)t) + 12 feet, t hours after midnight. How many hours pass between one high tide and the next?\nIsaac's answer: 4\nIdentify the mistake and give the correct answer.",
+   "answer": "8",
+   "solutionSteps": [
+    "Mistake: Isaac used π/b instead of 2π/b.",
+    "Period = 2π ÷ (π/4).",
+    "= 2·4 = 8 hours.",
+    "The correct answer is 8, not 4."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w008",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The average high temperature in month m is T(m) = 8sin((π/6)(m - 4)) + 55 °F. What is the difference between the highest and lowest average temperatures?",
+   "answer": "16",
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 55 - 8 = 47 to 55 + 8 = 63.",
+    "Answer: 16 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp2-w009",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/6)t) + 10 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "12",
+   "options": [
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "13",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Period = 2π ÷ (π/6).",
+    "= 2·6 = 12 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w001",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 2cos((π/4)t) + 10 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "8",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/4).",
+    "= 2·4 = 8 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w002",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The water depth at a dock is d(t) = 2cos((π/12)t) + 12 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "24",
+   "options": [
+    {
+     "text": "24",
+     "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "48",
+     "correct": false
+    },
+    {
+     "text": "14",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Period = 2π ÷ (π/12).",
+    "= 2·12 = 24 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w003",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 4cos((π/3)t) + 8 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "6",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/3).",
+    "= 2·3 = 6 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w004",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 2cos((π/12)t) + 8 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "24",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/12).",
+    "= 2·12 = 24 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w005",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 10sin((π/6)(m - 4)) + 50 °F. What is the highest average temperature?",
+   "answer": "60",
+   "options": [
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "60",
+     "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 50 - 10 = 40 to 50 + 10 = 60.",
+    "Answer: 60 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w006",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A rider's height on a Ferris wheel is h(t) = 23 - 20cos(2πt/8) feet, t minutes after boarding. How high is the rider at t = 6 minutes?",
+   "answer": "23",
+   "solutionSteps": [
+    "2πt/8 = 2π·6/8 = 3π/2.",
+    "cos(3π/2) = 0.",
+    "h = 23 - 20·(0) = 23 ft."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w007",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nThe average high temperature in month m is T(m) = 18sin((π/6)(m - 4)) + 55 °F. What is the difference between the highest and lowest average temperatures?\nKenji's answer: 18\nIdentify the mistake and give the correct answer.",
+   "answer": "36",
+   "solutionSteps": [
+    "Mistake: Kenji gave the amplitude.",
+    "sin ranges from -1 to 1, so T ranges from 55 - 18 = 37 to 55 + 18 = 73.",
+    "Answer: 36 °F.",
+    "The correct answer is 36, not 18."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w008",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The average high temperature in month m is T(m) = 10sin((π/6)(m - 4)) + 55 °F. What is the highest average temperature?",
+   "answer": "65",
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 55 - 10 = 45 to 55 + 10 = 65.",
+    "Answer: 65 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-cp1-w009",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 18sin((π/6)(m - 4)) + 65 °F. What is the lowest average temperature?",
+   "answer": "47",
+   "options": [
+    {
+     "text": "47",
+     "correct": true
+    },
+    {
+     "text": "65",
+     "correct": false
+    },
+    {
+     "text": "83",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 65 - 18 = 47 to 65 + 18 = 83.",
+    "Answer: 47 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w001",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The average high temperature in month m is T(m) = 8sin((π/6)(m - 4)) + 50 °F. What is the lowest average temperature?",
+   "answer": "42",
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 50 - 8 = 42 to 50 + 8 = 58.",
+    "Answer: 42 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w002",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 20sin((π/6)(m - 4)) + 65 °F. What is the highest average temperature?",
+   "answer": "85",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "65",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "85",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 65 - 20 = 45 to 65 + 20 = 85.",
+    "Answer: 85 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w003",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/3)t) + 8 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "6",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/3).",
+    "= 2·3 = 6 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w004",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rider's height on a Ferris wheel is h(t) = 42 - 40cos(2πt/6) feet, t minutes after boarding. How high is the rider at t = 2 minutes?",
+   "answer": "62",
+   "solutionSteps": [
+    "2πt/6 = 2π·2/6 = 2π/3.",
+    "cos(2π/3) = -0.5.",
+    "h = 42 - 40·(-0.5) = 62 ft."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_ferris). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w005",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 8sin((π/6)(m - 4)) + 65 °F. What is the difference between the highest and lowest average temperatures?",
+   "answer": "16",
+   "options": [
+    {
+     "text": "16",
+     "correct": true
+    },
+    {
+     "text": "65",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "73",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 65 - 8 = 57 to 65 + 8 = 73.",
+    "Answer: 16 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w006",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/6)t) + 8 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "12",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/6).",
+    "= 2·6 = 12 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w007",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Emma answered this problem incorrectly.\nThe water depth at a dock is d(t) = 3cos((π/3)t) + 12 feet, t hours after midnight. How many hours pass between one high tide and the next?\nEmma's answer: 3\nIdentify the mistake and give the correct answer.",
+   "answer": "6",
+   "solutionSteps": [
+    "Mistake: Emma used π/b instead of 2π/b.",
+    "Period = 2π ÷ (π/3).",
+    "= 2·3 = 6 hours.",
+    "The correct answer is 6, not 3."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide_error). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w008",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The water depth at a dock is d(t) = 3cos((π/5)t) + 10 feet, t hours after midnight. How many hours pass between one high tide and the next?",
+   "answer": "10",
+   "solutionSteps": [
+    "Period = 2π ÷ (π/5).",
+    "= 2·5 = 10 hours."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_tide). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-tf-s09-honors-w009",
+   "skillId": "trigonometric-functions-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The average high temperature in month m is T(m) = 12sin((π/6)(m - 4)) + 50 °F. What is the lowest average temperature?",
+   "answer": "38",
+   "options": [
+    {
+     "text": "38",
+     "correct": true
+    },
+    {
+     "text": "62",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "sin ranges from -1 to 1, so T ranges from 50 - 12 = 38 to 50 + 12 = 62.",
+    "Answer: 38 °F."
+   ],
+   "standards": [
+    "F-TF.B.5",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: context_trig_temperature). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
   }
  ]
 }
