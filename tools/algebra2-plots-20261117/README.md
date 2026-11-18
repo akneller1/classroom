@@ -24,4 +24,4 @@ the seven units that had no station set, with a thumbnail.
     node scripts/build_standards_map.cjs
     node scripts/test-algebra2-plot-items.cjs
 
-Both scripts skip what already exists. New items are marked "Awaiting human review".
+Both scripts skip what already exists. The site owner accepted these items as reviewed on 2026-11-18; their `sourceNotes` say "Teacher reviewed 2026-11-18". Report any problem found later through the usual question fixes.

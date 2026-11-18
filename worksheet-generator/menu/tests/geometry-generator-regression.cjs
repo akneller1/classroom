@@ -64,19 +64,20 @@ for(const c of [1,3,5,7]){
     assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'Changed printed shadow measurement must be rejected');
   }
 }
-// Two-step transformations: the key is recomputed from the printed vertices and both printed steps, and the three drawn triangles must agree.
+// Two-step transformations: the key is recomputed from the printed vertices and both printed steps. Only the original
+// triangle is drawn (the images are what students calculate), so a figure that shows an extra triangle is rejected.
 for(const c of [1,3,5,7])for(let n=0;n<10;n++){
   const p=menu.generateProblem('geometry-transformations','compose-triangle-figure',c,{intOnly:true,level:'game'},'compose-regression:'+c+':'+n,{keys:new Set(),sigs:new Set()});
   assert.ok(!p.failed,'Composition must generate');
   okFig(p.fig,['geo-grid'],'Composition figure');
-  assert.equal(p.fig.shapes.length,3,'Composition shows the original, the middle and the final triangle');
+  assert.deepEqual(Array.from(p.fig.shapes,s=>s.id),['pre'],'Composition shows only the original triangle');
   for(const re of [/\((-?\d+), /,/translated (\d+)/,/(\d+) units? (?:up|down)/]){
     const t=JSON.parse(JSON.stringify(p));t.prompt=t.prompt.replace(re,(m0,d)=>m0.replace(d,String(Number(d)+1)));
     assert.notEqual(t.prompt,p.prompt);
     assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'Changed printed composition must be rejected');
   }
-  const t=JSON.parse(JSON.stringify(p));t.fig.shapes[2].pts[0][0]+=1;
-  assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'A drawn final triangle that disagrees with the steps must be rejected');
+  const t=JSON.parse(JSON.stringify(p));t.fig.shapes.push({id:'img',pts:t.fig.shapes[0].pts.map(([x,y])=>[x+1,y+1]),labels:['A″','B″','C″']});
+  assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'A figure that draws the answer triangle must be rejected');
 }
 // Symmetry: the side count is read from the drawing (never printed), and the key follows it.
 for(const id of ['symmetry-lines-regular','symmetry-rotation-regular'])for(const c of [1,3,5,7]){

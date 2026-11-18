@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '../..');
 const ctx = {}; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'worksheet-generator/core/plot.js'), 'utf8'), ctx);
 const P = ctx.MK_PLOT;
-const NOTE = fam => `Original Claude-authored item (family: ${fam}). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.`;
+const NOTE = fam => `Original Claude-authored item (family: ${fam}). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Teacher reviewed 2026-11-18.`;
 const LEVELS = ['cp2', 'cp1', 'honors'];
 const GRID = { xmin: -8, xmax: 8, ymin: -8, ymax: 8, step: 1, snap: 1 };
 

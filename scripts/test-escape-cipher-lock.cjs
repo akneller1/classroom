@@ -43,6 +43,16 @@ function run(source,filename,shared){
  }else{
   const {env,get}=sandbox();
   assert.match(source,/cipher\(s\)/,filename+': cipher renderer');
+  // Load the page's own local helper scripts (e.g. core/math-display.js) first, as the browser does.
+  for(const m of source.matchAll(/<script\b[^>]*\bsrc="([^"?]+)(?:\?[^"]*)?"[^>]*>/gi)){
+   if(/^https?:/.test(m[1]))continue;
+   const file=path.resolve(root,path.dirname(filename),m[1]);
+   if(!fs.existsSync(file))continue;
+   // Run it without a DOM (it only wires page styling when a document exists), then share the globals it defines.
+   const lib={};lib.window=lib;vm.createContext(lib);
+   vm.runInContext(fs.readFileSync(file,'utf8'),lib,{filename:path.relative(root,file),timeout:2000});
+   for(const k of Object.keys(lib))if(/^MK_/.test(k))env[k]=lib[k];
+  }
   const scripts=[...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
   scripts.forEach(m=>new vm.Script(m[1],{filename}));
   let code=scripts.map(m=>m[1]).find(x=>x.includes('const ROOM='));
