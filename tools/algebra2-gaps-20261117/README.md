@@ -36,4 +36,4 @@ circles), sequences and trigonometry. Contextual items in the new skills carry t
     node scripts/build_standards_map.cjs
     node scripts/test-algebra2-gap-skills.cjs
 
-New items are marked "Awaiting human review".
+The site owner accepted these items as reviewed on 2026-11-18; their `sourceNotes` say "Teacher reviewed 2026-11-18". Report any problem found later through the usual question fixes.

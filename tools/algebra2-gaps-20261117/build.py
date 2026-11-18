@@ -21,7 +21,7 @@ from core import Reject  # noqa: E402
 LEVELS = ["cp2", "cp1", "honors"]
 NAMES = ["Ava", "Ben", "Chloe", "Diego", "Emma", "Farah", "Gabe", "Hana", "Isaac", "Jada", "Kenji", "Leah", "Mateo", "Nia", "Omar", "Priya", "Quinn", "Rosa", "Sam", "Tariq"]
 NOTE = ("Original Claude-authored item (family: {fam}). Answer, every option and every student answer re-checked from the printed "
-        "problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review.")
+        "problem by tools/algebra2-gaps-20261117/verify.py. Teacher reviewed 2026-11-18.")
 CAT = os.path.join(ROOT, "course-catalog.js")
 CHECKS = os.path.join(HERE, "out", "checks.json")
 MARK = "  // Algebra 2 audit additions, November 17, 2026 (standards gaps). Existing skill IDs stay stable.\n"

@@ -6,6 +6,7 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
+const pageScriptGlobals=require('./page-script-globals.cjs');
 
 class FakeNode{
   constructor(){this.value='';this.hidden=true;this._text='';this.html='';this.children=[];
@@ -43,6 +44,8 @@ function run(source,filename,shared){
  }else{
   const {env,get}=sandbox();
   assert.match(source,/cipher\(s\)/,filename+': cipher renderer');
+  // The page's own helper scripts (e.g. core/math-display.js) load first, as in the browser.
+  Object.assign(env,pageScriptGlobals(source,filename));
   const scripts=[...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
   scripts.forEach(m=>new vm.Script(m[1],{filename}));
   let code=scripts.map(m=>m[1]).find(x=>x.includes('const ROOM='));
