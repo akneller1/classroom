@@ -17984,6 +17984,2618 @@
     "N-VM.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s09-cp2-p001",
+   "skillId": "vectors-skill-09",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(1, π), B(2, 3π/2), C(6, π).",
+   "answer": "(-1, 0), (0, -2), (-6, 0)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(1, π) → (-1, 0).",
+    "B(2, 3π/2) → (0, -2).",
+    "C(6, π) → (-6, 0).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -2
+      ],
+      [
+       -6,
+       0
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        0
+       ],
+       [
+        0,
+        -2
+       ],
+       [
+        -6,
+        0
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          -2,
+          0
+         ],
+         [
+          0,
+          -6
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          1
+         ],
+         [
+          0,
+          -1
+         ],
+         [
+          -6,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp2-p001.png",
+     "alt": "Coordinate grid with the points (-1, 0), (0, -2), (-6, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp2-p001",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and its conjugate z̄ for z = −5 + 3i.",
+   "answer": "(-5, 3), (-5, -3)",
+   "solutionSteps": [
+    "z = −5 + 3i is the point (-5, 3).",
+    "z̄ = a − bi reflects z over the real axis.",
+    "Plot (-5, 3), (-5, -3)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -5,
+       3
+      ],
+      [
+       -5,
+       -3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        3
+       ],
+       [
+        -5,
+        -3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -5
+         ],
+         [
+          -3,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          4
+         ],
+         [
+          -5,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp2-p001.png",
+     "alt": "Complex plane with the points (-5, 3), (-5, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp2-p002",
+   "skillId": "vectors-skill-09",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(3, π), B(2, 3π/2), C(4, 0).",
+   "answer": "(-3, 0), (0, -2), (4, 0)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(3, π) → (-3, 0).",
+    "B(2, 3π/2) → (0, -2).",
+    "C(4, 0) → (4, 0).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -3,
+       0
+      ],
+      [
+       0,
+       -2
+      ],
+      [
+       4,
+       0
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        0
+       ],
+       [
+        0,
+        -2
+       ],
+       [
+        4,
+        0
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          -2,
+          0
+         ],
+         [
+          0,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          1
+         ],
+         [
+          0,
+          -1
+         ],
+         [
+          4,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp2-p002.png",
+     "alt": "Coordinate grid with the points (-3, 0), (0, -2), (4, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp2-p002",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and its conjugate z̄ for z = 5 + 4i.",
+   "answer": "(5, 4), (5, -4)",
+   "solutionSteps": [
+    "z = 5 + 4i is the point (5, 4).",
+    "z̄ = a − bi reflects z over the real axis.",
+    "Plot (5, 4), (5, -4)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       5,
+       4
+      ],
+      [
+       5,
+       -4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        4
+       ],
+       [
+        5,
+        -4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          5
+         ],
+         [
+          -4,
+          5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          5
+         ],
+         [
+          5,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp2-p002.png",
+     "alt": "Complex plane with the points (5, 4), (5, -4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp2-p003",
+   "skillId": "vectors-skill-09",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(2, π/2), B(1, 0), C(2, 0).",
+   "answer": "(0, 2), (1, 0), (2, 0)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(2, π/2) → (0, 2).",
+    "B(1, 0) → (1, 0).",
+    "C(2, 0) → (2, 0).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       0
+      ],
+      [
+       2,
+       0
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        1,
+        0
+       ],
+       [
+        2,
+        0
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          0
+         ],
+         [
+          0,
+          1
+         ],
+         [
+          0,
+          2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          1
+         ],
+         [
+          2,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp2-p003.png",
+     "alt": "Coordinate grid with the points (0, 2), (1, 0), (2, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp2-p003",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and its conjugate z̄ for z = 3 + 4i.",
+   "answer": "(3, 4), (3, -4)",
+   "solutionSteps": [
+    "z = 3 + 4i is the point (3, 4).",
+    "z̄ = a − bi reflects z over the real axis.",
+    "Plot (3, 4), (3, -4)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       3,
+       4
+      ],
+      [
+       3,
+       -4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        4
+       ],
+       [
+        3,
+        -4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          3
+         ],
+         [
+          -4,
+          3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          5
+         ],
+         [
+          3,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp2-p003.png",
+     "alt": "Complex plane with the points (3, 4), (3, -4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp2-p004",
+   "skillId": "vectors-skill-09",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(1, π), B(3, 0), C(4, 3π/2).",
+   "answer": "(-1, 0), (3, 0), (0, -4)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(1, π) → (-1, 0).",
+    "B(3, 0) → (3, 0).",
+    "C(4, 3π/2) → (0, -4).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -1,
+       0
+      ],
+      [
+       3,
+       0
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        0
+       ],
+       [
+        3,
+        0
+       ],
+       [
+        0,
+        -4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          0,
+          3
+         ],
+         [
+          -4,
+          0
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          1
+         ],
+         [
+          3,
+          1
+         ],
+         [
+          0,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp2-p004.png",
+     "alt": "Coordinate grid with the points (-1, 0), (3, 0), (0, -4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp2-p004",
+   "skillId": "vectors-skill-12",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and its conjugate z̄ for z = −5 − 3i.",
+   "answer": "(-5, -3), (-5, 3)",
+   "solutionSteps": [
+    "z = −5 − 3i is the point (-5, -3).",
+    "z̄ = a − bi reflects z over the real axis.",
+    "Plot (-5, -3), (-5, 3)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -5,
+       -3
+      ],
+      [
+       -5,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        -3
+       ],
+       [
+        -5,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          -5
+         ],
+         [
+          3,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          -2
+         ],
+         [
+          -5,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp2-p004.png",
+     "alt": "Complex plane with the points (-5, -3), (-5, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp1-p001",
+   "skillId": "vectors-skill-09",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(7, π), B(4, π), C(4, π/2).",
+   "answer": "(-7, 0), (-4, 0), (0, 4)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(7, π) → (-7, 0).",
+    "B(4, π) → (-4, 0).",
+    "C(4, π/2) → (0, 4).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -7,
+       0
+      ],
+      [
+       -4,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -7,
+        0
+       ],
+       [
+        -4,
+        0
+       ],
+       [
+        0,
+        4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -7
+         ],
+         [
+          0,
+          -4
+         ],
+         [
+          4,
+          0
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -7,
+          1
+         ],
+         [
+          -4,
+          1
+         ],
+         [
+          0,
+          5
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp1-p001.png",
+     "alt": "Coordinate grid with the points (-7, 0), (-4, 0), (0, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp1-p001",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z, its conjugate z̄ and −z for z = −1 + 5i.",
+   "answer": "(-1, 5), (-1, -5), (1, -5)",
+   "solutionSteps": [
+    "z = −1 + 5i is the point (-1, 5).",
+    "z̄ reflects z over the real axis; −z = −a − bi is the point opposite z through the origin.",
+    "Plot (-1, 5), (-1, -5), (1, -5)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -1,
+       5
+      ],
+      [
+       -1,
+       -5
+      ],
+      [
+       1,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 3 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        5
+       ],
+       [
+        -1,
+        -5
+       ],
+       [
+        1,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          -1
+         ],
+         [
+          -5,
+          -1
+         ],
+         [
+          -5,
+          1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          6
+         ],
+         [
+          -1,
+          -4
+         ],
+         [
+          1,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp1-p001.png",
+     "alt": "Complex plane with the points (-1, 5), (-1, -5), (1, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp1-p002",
+   "skillId": "vectors-skill-09",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(5√2, π/4), B(5√2, 3π/4), C(1, 3π/2).",
+   "answer": "(5, 5), (-5, 5), (0, -1)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(5√2, π/4) → (5, 5).",
+    "B(5√2, 3π/4) → (-5, 5).",
+    "C(1, 3π/2) → (0, -1).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       5,
+       5
+      ],
+      [
+       -5,
+       5
+      ],
+      [
+       0,
+       -1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        5
+       ],
+       [
+        -5,
+        5
+       ],
+       [
+        0,
+        -1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          5
+         ],
+         [
+          5,
+          -5
+         ],
+         [
+          -1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          6
+         ],
+         [
+          -5,
+          6
+         ],
+         [
+          0,
+          0
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp1-p002.png",
+     "alt": "Coordinate grid with the points (5, 5), (-5, 5), (0, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp1-p002",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and iz for z = 6 + 3i.",
+   "answer": "(6, 3), (-3, 6)",
+   "solutionSteps": [
+    "z = 6 + 3i is the point (6, 3).",
+    "iz = i(a + bi) = −b + ai: a quarter turn counterclockwise.",
+    "Plot (6, 3), (-3, 6)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       6,
+       3
+      ],
+      [
+       -3,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        6,
+        3
+       ],
+       [
+        -3,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          6
+         ],
+         [
+          6,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          6,
+          4
+         ],
+         [
+          -3,
+          7
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp1-p002.png",
+     "alt": "Complex plane with the points (6, 3), (-3, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp1-p003",
+   "skillId": "vectors-skill-09",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(4, π/2), B(4√2, 5π/4), C(2√2, 3π/4).",
+   "answer": "(0, 4), (-4, -4), (-2, 2)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(4, π/2) → (0, 4).",
+    "B(4√2, 5π/4) → (-4, -4).",
+    "C(2√2, 3π/4) → (-2, 2).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       0,
+       4
+      ],
+      [
+       -4,
+       -4
+      ],
+      [
+       -2,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        4
+       ],
+       [
+        -4,
+        -4
+       ],
+       [
+        -2,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          0
+         ],
+         [
+          -4,
+          -4
+         ],
+         [
+          2,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          -4,
+          -3
+         ],
+         [
+          -2,
+          3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp1-p003.png",
+     "alt": "Coordinate grid with the points (0, 4), (-4, -4), (-2, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp1-p003",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z, its conjugate z̄ and −z for z = 4 + 2i.",
+   "answer": "(4, 2), (4, -2), (-4, -2)",
+   "solutionSteps": [
+    "z = 4 + 2i is the point (4, 2).",
+    "z̄ reflects z over the real axis; −z = −a − bi is the point opposite z through the origin.",
+    "Plot (4, 2), (4, -2), (-4, -2)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       4,
+       2
+      ],
+      [
+       4,
+       -2
+      ],
+      [
+       -4,
+       -2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 3 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        2
+       ],
+       [
+        4,
+        -2
+       ],
+       [
+        -4,
+        -2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          4
+         ],
+         [
+          -2,
+          4
+         ],
+         [
+          -2,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          3
+         ],
+         [
+          4,
+          -1
+         ],
+         [
+          -4,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp1-p003.png",
+     "alt": "Complex plane with the points (4, 2), (4, -2), (-4, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-cp1-p004",
+   "skillId": "vectors-skill-09",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(3√2, 3π/4), B(1, π/2), C(3√2, 7π/4).",
+   "answer": "(-3, 3), (0, 1), (3, -3)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(3√2, 3π/4) → (-3, 3).",
+    "B(1, π/2) → (0, 1).",
+    "C(3√2, 7π/4) → (3, -3).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -3,
+       3
+      ],
+      [
+       0,
+       1
+      ],
+      [
+       3,
+       -3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        3
+       ],
+       [
+        0,
+        1
+       ],
+       [
+        3,
+        -3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -3
+         ],
+         [
+          1,
+          0
+         ],
+         [
+          -3,
+          3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          4
+         ],
+         [
+          0,
+          2
+         ],
+         [
+          3,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-cp1-p004.png",
+     "alt": "Coordinate grid with the points (-3, 3), (0, 1), (3, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-cp1-p004",
+   "skillId": "vectors-skill-12",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and iz for z = −6 − 4i.",
+   "answer": "(-6, -4), (4, -6)",
+   "solutionSteps": [
+    "z = −6 − 4i is the point (-6, -4).",
+    "iz = i(a + bi) = −b + ai: a quarter turn counterclockwise.",
+    "Plot (-6, -4), (4, -6)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -6,
+       -4
+      ],
+      [
+       4,
+       -6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        -4
+       ],
+       [
+        4,
+        -6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          -6
+         ],
+         [
+          -6,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -6,
+          -3
+         ],
+         [
+          4,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-cp1-p004.png",
+     "alt": "Complex plane with the points (-6, -4), (4, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-honors-p001",
+   "skillId": "vectors-skill-09",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(2√2, π/4), B(−√2, 7π/4), C(−5, 0).",
+   "answer": "(2, 2), (-1, 1), (-5, 0)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(2√2, π/4) → (2, 2).",
+    "B(−√2, 7π/4) → (-1, 1).",
+    "C(−5, 0) → (-5, 0).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       2,
+       2
+      ],
+      [
+       -1,
+       1
+      ],
+      [
+       -5,
+       0
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        2,
+        2
+       ],
+       [
+        -1,
+        1
+       ],
+       [
+        -5,
+        0
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          2
+         ],
+         [
+          1,
+          -1
+         ],
+         [
+          0,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          3
+         ],
+         [
+          -1,
+          2
+         ],
+         [
+          -5,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-honors-p001.png",
+     "alt": "Coordinate grid with the points (2, 2), (-1, 1), (-5, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-honors-p001",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and iz for z = −1 + 5i.",
+   "answer": "(-1, 5), (-5, -1)",
+   "solutionSteps": [
+    "z = −1 + 5i is the point (-1, 5).",
+    "iz = i(a + bi) = −b + ai: a quarter turn counterclockwise.",
+    "Plot (-1, 5), (-5, -1)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -1,
+       5
+      ],
+      [
+       -5,
+       -1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        5
+       ],
+       [
+        -5,
+        -1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          -1
+         ],
+         [
+          -1,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          6
+         ],
+         [
+          -5,
+          0
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-honors-p001.png",
+     "alt": "Complex plane with the points (-1, 5), (-5, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-honors-p002",
+   "skillId": "vectors-skill-09",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(7, 0), B(5√2, 7π/4), C(−5√2, π/4).",
+   "answer": "(7, 0), (5, -5), (-5, -5)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(7, 0) → (7, 0).",
+    "B(5√2, 7π/4) → (5, -5).",
+    "C(−5√2, π/4) → (-5, -5).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       7,
+       0
+      ],
+      [
+       5,
+       -5
+      ],
+      [
+       -5,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        7,
+        0
+       ],
+       [
+        5,
+        -5
+       ],
+       [
+        -5,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          7
+         ],
+         [
+          -5,
+          5
+         ],
+         [
+          -5,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          7,
+          1
+         ],
+         [
+          5,
+          -4
+         ],
+         [
+          -5,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-honors-p002.png",
+     "alt": "Coordinate grid with the points (7, 0), (5, -5), (-5, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-honors-p002",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and iz for z = −6 + 3i.",
+   "answer": "(-6, 3), (-3, -6)",
+   "solutionSteps": [
+    "z = −6 + 3i is the point (-6, 3).",
+    "iz = i(a + bi) = −b + ai: a quarter turn counterclockwise.",
+    "Plot (-6, 3), (-3, -6)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -6,
+       3
+      ],
+      [
+       -3,
+       -6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        3
+       ],
+       [
+        -3,
+        -6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -6
+         ],
+         [
+          -6,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -6,
+          4
+         ],
+         [
+          -3,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-honors-p002.png",
+     "alt": "Complex plane with the points (-6, 3), (-3, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-honors-p003",
+   "skillId": "vectors-skill-09",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(5, π), B(4, 0), C(−√2, π/4).",
+   "answer": "(-5, 0), (4, 0), (-1, -1)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(5, π) → (-5, 0).",
+    "B(4, 0) → (4, 0).",
+    "C(−√2, π/4) → (-1, -1).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -5,
+       0
+      ],
+      [
+       4,
+       0
+      ],
+      [
+       -1,
+       -1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        0
+       ],
+       [
+        4,
+        0
+       ],
+       [
+        -1,
+        -1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -5
+         ],
+         [
+          0,
+          4
+         ],
+         [
+          -1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          1
+         ],
+         [
+          4,
+          1
+         ],
+         [
+          -1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-honors-p003.png",
+     "alt": "Coordinate grid with the points (-5, 0), (4, 0), (-1, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-honors-p003",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and its conjugate z̄ for z = 7 − 3i.",
+   "answer": "(7, -3), (7, 3)",
+   "solutionSteps": [
+    "z = 7 − 3i is the point (7, -3).",
+    "z̄ = a − bi reflects z over the real axis.",
+    "Plot (7, -3), (7, 3)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       7,
+       -3
+      ],
+      [
+       7,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        7,
+        -3
+       ],
+       [
+        7,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          7
+         ],
+         [
+          3,
+          7
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          7,
+          -2
+         ],
+         [
+          7,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-honors-p003.png",
+     "alt": "Complex plane with the points (7, -3), (7, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s09-honors-p004",
+   "skillId": "vectors-skill-09",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Convert each polar point to rectangular coordinates and plot it: A(−3√2, 7π/4), B(1, 0), C(−√2, 7π/4).",
+   "answer": "(-3, 3), (1, 0), (-1, 1)",
+   "solutionSteps": [
+    "x = r cos θ and y = r sin θ.",
+    "A(−3√2, 7π/4) → (-3, 3).",
+    "B(1, 0) → (1, 0).",
+    "C(−√2, 7π/4) → (-1, 1).",
+    "Plot the three rectangular points."
+   ],
+   "standards": [
+    "APPC.3.13"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-polar). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -3,
+       3
+      ],
+      [
+       1,
+       0
+      ],
+      [
+       -1,
+       1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Use x = r cos θ and y = r sin θ; a negative r points the opposite way.",
+     "swapped-coordinates": "You switched x and y. x = r cos θ goes across; y = r sin θ goes up or down.",
+     "count": "Plot exactly three points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        3
+       ],
+       [
+        1,
+        0
+       ],
+       [
+        -1,
+        1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -3
+         ],
+         [
+          0,
+          1
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          4
+         ],
+         [
+          1,
+          1
+         ],
+         [
+          -1,
+          2
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s09-honors-p004.png",
+     "alt": "Coordinate grid with the points (-3, 3), (1, 0), (-1, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-vec-s12-honors-p004",
+   "skillId": "vectors-skill-12",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "In the complex plane (real part across, imaginary part up), plot z and iz for z = −5 + 3i.",
+   "answer": "(-5, 3), (-3, -5)",
+   "solutionSteps": [
+    "z = −5 + 3i is the point (-5, 3).",
+    "iz = i(a + bi) = −b + ai: a quarter turn counterclockwise.",
+    "Plot (-5, 3), (-3, -5)."
+   ],
+   "standards": [
+    "N-CN.A.3",
+    "N-CN.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-complex). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -5,
+       3
+      ],
+      [
+       -3,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. a + bi is the point (a, b): the real part across, the imaginary part up.",
+     "swapped-coordinates": "You switched the parts. The real part goes across and the imaginary part goes up.",
+     "count": "Plot exactly 2 points."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        3
+       ],
+       [
+        -3,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -5
+         ],
+         [
+          -5,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          4
+         ],
+         [
+          -3,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-vec-s12-honors-p004.png",
+     "alt": "Complex plane with the points (-5, 3), (-3, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }
