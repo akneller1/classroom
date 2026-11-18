@@ -3890,7 +3890,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = ln(x) has domain (0, ∞) and passes through (1, 0)."
+    "ln(x) is defined only for x > 0, so its domain is (0, ∞).",
+    "ln(1) = 0, so the graph passes through (1, 0).",
+    "The other choices fail: eˣ and sin(x) are defined for all reals, and 1/x is defined for x < 0 too. So the function is f(x) = ln(x)."
    ],
    "standards": [
     "F-IF.A.1",
@@ -3960,7 +3962,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = |x| has range [0, ∞) and a V shape."
+    "|x| ≥ 0 for every x, and every nonnegative value is reached, so the range is [0, ∞).",
+    "The graph of |x| is two rays meeting at the origin: a V shape.",
+    "x² also has range [0, ∞) but is a U-shaped curve, so the function is f(x) = |x|."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4012,7 +4016,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = |x| has range [0, ∞) and a V shape."
+    "|x| ≥ 0 for every x, and every nonnegative value is reached, so the range is [0, ∞).",
+    "The graph of |x| is two rays meeting at the origin: a V shape.",
+    "x² also has range [0, ∞) but is a U-shaped curve, so the function is f(x) = |x|."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4082,7 +4088,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = eˣ has range (0, ∞) and passes through (0, 1)."
+    "e^x is always positive and takes every positive value, so its range is (0, ∞).",
+    "e⁰ = 1, so the graph passes through (0, 1).",
+    "The other choices fail: √x and x include 0 in their range, and the logistic 1/(1 + e^(-x)) passes through (0, 1/2). So the function is f(x) = eˣ."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4301,7 +4309,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = sin(x) is bounded between -1 and 1 and passes through the origin."
+    "sin(x) and cos(x) both stay between -1 and 1.",
+    "sin(0) = 0, so sin passes through the origin; cos(0) = 1, so cos does not.",
+    "The function is f(x) = sin(x)."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4371,7 +4381,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = ln(x) has domain (0, ∞) and passes through (1, 0)."
+    "ln(x) is defined only for x > 0, so its domain is (0, ∞).",
+    "ln(1) = 0, so the graph passes through (1, 0).",
+    "The function is f(x) = ln(x)."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4423,7 +4435,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = x³ is an odd function that is increasing on all reals and passes through (1, 1)."
+    "x³ is odd: (-x)³ = -x³, so its graph is symmetric about the origin.",
+    "Its graph rises from left to right everywhere, so it is increasing on all reals, and 1³ = 1 puts (1, 1) on it.",
+    "The other choices fail: x² and √x are not odd, and sin(x) is odd but not increasing on all reals. So the function is f(x) = x³."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4493,7 +4507,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = 1/x is its own inverse and has asymptotes at both axes."
+    "If y = 1/x, swapping x and y gives x = 1/y, so y = 1/x again: it is its own inverse.",
+    "1/x is undefined at x = 0 (vertical asymptote x = 0) and never equals 0 (horizontal asymptote y = 0).",
+    "The function is f(x) = 1/x."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4712,7 +4728,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = eˣ has range (0, ∞) and passes through (0, 1)."
+    "e^x is always positive and takes every positive value, so its range is (0, ∞).",
+    "e⁰ = 1, so the graph passes through (0, 1).",
+    "The function is f(x) = eˣ."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4782,7 +4800,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = eˣ has range (0, ∞) and passes through (0, 1)."
+    "e^x is always positive and takes every positive value, so its range is (0, ∞).",
+    "e⁰ = 1, so the graph passes through (0, 1).",
+    "The function is f(x) = eˣ."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4834,7 +4854,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = 1/x is its own inverse and has asymptotes at both axes."
+    "If y = 1/x, swapping x and y gives x = 1/y, so y = 1/x again: it is its own inverse.",
+    "1/x is undefined at x = 0 (vertical asymptote x = 0) and never equals 0 (horizontal asymptote y = 0).",
+    "The function is f(x) = 1/x."
    ],
    "standards": [
     "F-IF.A.1",
@@ -4904,7 +4926,9 @@
     }
    ],
    "solutionSteps": [
-    "f(x) = ⌊x⌋ is the greatest integer function (a step function)."
+    "The greatest integer function ⌊x⌋ gives the greatest integer less than or equal to x, for example ⌊2.7⌋ = 2 and ⌊-1.2⌋ = -2.",
+    "Its graph is a series of horizontal steps that jump by 1 at each integer.",
+    "The function is f(x) = ⌊x⌋."
    ],
    "standards": [
     "F-IF.A.1",
@@ -14976,8 +15000,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -2x² - 4x - 3 is divided by x - 1.",
    "answer": "-9",
    "solutionSteps": [
-    "The remainder is P(1).",
-    "P(1) = -9."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 1 is P(1).",
+    "P(1) = -2(1)² - 4(1) - 3.",
+    "= -9. The remainder is -9."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15010,8 +15035,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 4."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 2 is P(2).",
+    "P(2) = 3(2)² - (2) - 6.",
+    "= 4. The remainder is 4."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15026,8 +15052,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -2x² + 6x + 2 is divided by x - 2.",
    "answer": "6",
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 6."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 2 is P(2).",
+    "P(2) = -2(2)² + 6(2) + 2.",
+    "= 6. The remainder is 6."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15042,8 +15069,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -2x² - 4x - 4 is divided by x - 0.",
    "answer": "-4",
    "solutionSteps": [
-    "The remainder is P(0).",
-    "P(0) = -4."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 0 is P(0).",
+    "P(0) = -2(0)² - 4(0) - 4.",
+    "= -4. The remainder is -4."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15076,8 +15104,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(1).",
-    "P(1) = -13."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 1 is P(1).",
+    "P(1) = -3(1)² - 6(1) - 4.",
+    "= -13. The remainder is -13."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15092,8 +15121,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = x² - x - 2 is divided by x - 1.",
    "answer": "-2",
    "solutionSteps": [
-    "The remainder is P(1).",
-    "P(1) = -2."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 1 is P(1).",
+    "P(1) = (1)² - (1) - 2.",
+    "= -2. The remainder is -2."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15126,8 +15156,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-3).",
-    "P(-3) = 20."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x + 3 is P(-3).",
+    "P(-3) = 3(-3)² + 4(-3) + 5.",
+    "= 20. The remainder is 20."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15160,8 +15191,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(1).",
-    "P(1) = -1."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 1 is P(1).",
+    "P(1) = 2(1)² - (1) - 2.",
+    "= -1. The remainder is -1."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15176,8 +15208,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -3x² - 5x + 1 is divided by x - 2.",
    "answer": "-21",
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = -21."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 2 is P(2).",
+    "P(2) = -3(2)² - 5(2) + 1.",
+    "= -21. The remainder is -21."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15210,8 +15243,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-3).",
-    "P(-3) = -7."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x + 3 is P(-3).",
+    "P(-3) = (-3)² + 5(-3) - 1.",
+    "= -7. The remainder is -7."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15226,8 +15260,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -3x² - x + 1 is divided by x + 3.",
    "answer": "-23",
    "solutionSteps": [
-    "The remainder is P(-3).",
-    "P(-3) = -23."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x + 3 is P(-3).",
+    "P(-3) = -3(-3)² - (-3) + 1.",
+    "= -23. The remainder is -23."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15260,8 +15295,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 13."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 2 is P(2).",
+    "P(2) = 2(2)² + 2(2) + 1.",
+    "= 13. The remainder is 13."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15276,8 +15312,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = x² + 4x + 3 is divided by x - 0.",
    "answer": "3",
    "solutionSteps": [
-    "The remainder is P(0).",
-    "P(0) = 3."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 0 is P(0).",
+    "P(0) = (0)² + 4(0) + 3.",
+    "= 3. The remainder is 3."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15364,8 +15401,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = 3x³ + 6x² - 3 is divided by x - 3.",
    "answer": "132",
    "solutionSteps": [
-    "The remainder is P(3).",
-    "P(3) = 132."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 3 is P(3).",
+    "P(3) = 3(3)³ + 6(3)² - 3.",
+    "= 132. The remainder is 132."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15397,8 +15435,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = x³ + 6x² + 2x is divided by x - 0.",
    "answer": "0",
    "solutionSteps": [
-    "The remainder is P(0).",
-    "P(0) = 0."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 0 is P(0).",
+    "P(0) = (0)³ + 6(0)² + 2(0).",
+    "= 0. The remainder is 0."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15518,8 +15557,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(3).",
-    "P(3) = 73."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 3 is P(3).",
+    "P(3) = 3(3)³ - (3)² + 2(3) - 5.",
+    "= 73. The remainder is 73."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15673,8 +15713,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -x³ + 4x² + 6 is divided by x - 3.",
    "answer": "15",
    "solutionSteps": [
-    "The remainder is P(3).",
-    "P(3) = 15."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 3 is P(3).",
+    "P(3) = -(3)³ + 4(3)² + 6.",
+    "= 15. The remainder is 15."
    ],
    "standards": [
     "A-APR.B.2"
@@ -15935,8 +15976,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(3).",
-    "P(3) = -3."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x - 3 is P(3).",
+    "P(3) = -2(3)³ + 4(3)² + 3(3) + 6.",
+    "= -3. The remainder is -3."
    ],
    "standards": [
     "A-APR.B.2"
@@ -16004,8 +16046,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-1).",
-    "P(-1) = 2."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x + 1 is P(-1).",
+    "P(-1) = 2(-1)³ + 5(-1)² + 6(-1) + 5.",
+    "= 2. The remainder is 2."
    ],
    "standards": [
     "A-APR.B.2"
@@ -16073,8 +16116,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-1).",
-    "P(-1) = 8."
+    "By the Remainder Theorem, the remainder when P(x) is divided by x + 1 is P(-1).",
+    "P(-1) = -2(-1)³ + 5(-1)² - 2(-1) - 1.",
+    "= 8. The remainder is 8."
    ],
    "standards": [
     "A-APR.B.2"
@@ -17460,9 +17504,9 @@
    "prompt": "Evaluate f(4) for f(x) = 300(3)ˣ.",
    "answer": "24300",
    "solutionSteps": [
-    "f(4) = 300(3)⁴.",
-    "(3)⁴ = 81.",
-    "f(4) ≈ 24300.0."
+    "Substitute x = 4: f(4) = 300(3)^4.",
+    "(3)^4 = 81.",
+    "f(4) = 300 · 81 = 24300."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17496,9 +17540,9 @@
     }
    ],
    "solutionSteps": [
-    "f(4) = 280(0.75)⁴.",
-    "(0.75)⁴ = 0.31640625.",
-    "f(4) ≈ 88.6."
+    "Substitute x = 4: f(4) = 280(0.75)^4.",
+    "(0.75)^4 = 0.31640625.",
+    "f(4) = 280 · 0.31640625 = 88.59375."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17514,9 +17558,9 @@
    "prompt": "Evaluate f(4) for f(x) = 330(0.75)ˣ.",
    "answer": "104.4140625",
    "solutionSteps": [
-    "f(4) = 330(0.75)⁴.",
-    "(0.75)⁴ = 0.31640625.",
-    "f(4) ≈ 104.4."
+    "Substitute x = 4: f(4) = 330(0.75)^4.",
+    "(0.75)^4 = 0.31640625.",
+    "f(4) = 330 · 0.31640625 = 104.4140625."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17532,9 +17576,9 @@
    "prompt": "Evaluate f(2) for f(x) = 110(2)ˣ.",
    "answer": "440",
    "solutionSteps": [
-    "f(2) = 110(2)².",
-    "(2)² = 4.",
-    "f(2) ≈ 440.0."
+    "Substitute x = 2: f(2) = 110(2)^2.",
+    "(2)^2 = 4.",
+    "f(2) = 110 · 4 = 440."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17568,9 +17612,9 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 320(0.5)⁵.",
-    "(0.5)⁵ = 0.03125.",
-    "f(5) ≈ 10.0."
+    "Substitute x = 5: f(5) = 320(0.5)^5.",
+    "(0.5)^5 = 0.03125.",
+    "f(5) = 320 · 0.03125 = 10."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17604,9 +17648,9 @@
     }
    ],
    "solutionSteps": [
-    "f(3) = 420(0.75)³.",
-    "(0.75)³ = 0.421875.",
-    "f(3) ≈ 177.2."
+    "Substitute x = 3: f(3) = 420(0.75)^3.",
+    "(0.75)^3 = 0.421875.",
+    "f(3) = 420 · 0.421875 = 177.1875."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17622,9 +17666,9 @@
    "prompt": "Evaluate f(2) for f(x) = 350(3)ˣ.",
    "answer": "3150",
    "solutionSteps": [
-    "f(2) = 350(3)².",
-    "(3)² = 9.",
-    "f(2) ≈ 3150.0."
+    "Substitute x = 2: f(2) = 350(3)^2.",
+    "(3)^2 = 9.",
+    "f(2) = 350 · 9 = 3150."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17658,9 +17702,9 @@
     }
    ],
    "solutionSteps": [
-    "f(3) = 460(2)³.",
-    "(2)³ = 8.",
-    "f(3) ≈ 3680.0."
+    "Substitute x = 3: f(3) = 460(2)^3.",
+    "(2)^3 = 8.",
+    "f(3) = 460 · 8 = 3680."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17676,9 +17720,9 @@
    "prompt": "Evaluate f(5) for f(x) = 50(1.5)ˣ.",
    "answer": "379.6875",
    "solutionSteps": [
-    "f(5) = 50(1.5)⁵.",
-    "(1.5)⁵ = 7.59375.",
-    "f(5) ≈ 379.7."
+    "Substitute x = 5: f(5) = 50(1.5)^5.",
+    "(1.5)^5 = 7.59375.",
+    "f(5) = 50 · 7.59375 = 379.6875."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17712,9 +17756,10 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 330(0.75)⁵.",
-    "(0.75)⁵ = 0.2373046875.",
-    "f(5) ≈ 78.3."
+    "Substitute x = 5: f(5) = 330(0.75)^5.",
+    "(0.75)^5 = 0.23730469.",
+    "f(5) = 330 · 0.23730469 = 78.31054688.",
+    "Answer: 78.310546875."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17730,9 +17775,9 @@
    "prompt": "Evaluate f(4) for f(x) = 470(1.2)ˣ.",
    "answer": "974.592",
    "solutionSteps": [
-    "f(4) = 470(1.2)⁴.",
-    "(1.2)⁴ = 2.0736.",
-    "f(4) ≈ 974.6."
+    "Substitute x = 4: f(4) = 470(1.2)^4.",
+    "(1.2)^4 = 2.0736.",
+    "f(4) = 470 · 2.0736 = 974.592."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17766,9 +17811,9 @@
     }
    ],
    "solutionSteps": [
-    "f(3) = 350(1.2)³.",
-    "(1.2)³ = 1.728.",
-    "f(3) ≈ 604.8."
+    "Substitute x = 3: f(3) = 350(1.2)^3.",
+    "(1.2)^3 = 1.728.",
+    "f(3) = 350 · 1.728 = 604.8."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17784,9 +17829,9 @@
    "prompt": "Evaluate f(3) for f(x) = 440(0.75)ˣ.",
    "answer": "185.625",
    "solutionSteps": [
-    "f(3) = 440(0.75)³.",
-    "(0.75)³ = 0.421875.",
-    "f(3) ≈ 185.6."
+    "Substitute x = 3: f(3) = 440(0.75)^3.",
+    "(0.75)^3 = 0.421875.",
+    "f(3) = 440 · 0.421875 = 185.625."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17879,9 +17924,9 @@
    "prompt": "Evaluate f(3) for f(x) = 430(0.75)ˣ.",
    "answer": "181.40625",
    "solutionSteps": [
-    "f(3) = 430(0.75)³.",
-    "(0.75)³ = 0.421875.",
-    "f(3) ≈ 181.4."
+    "Substitute x = 3: f(3) = 430(0.75)^3.",
+    "(0.75)^3 = 0.421875.",
+    "f(3) = 430 · 0.421875 = 181.40625."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17915,9 +17960,9 @@
     }
    ],
    "solutionSteps": [
-    "f(2) = 180(0.75)².",
-    "(0.75)² = 0.5625.",
-    "f(2) ≈ 101.3."
+    "Substitute x = 2: f(2) = 180(0.75)^2.",
+    "(0.75)^2 = 0.5625.",
+    "f(2) = 180 · 0.5625 = 101.25."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17933,9 +17978,9 @@
    "prompt": "Evaluate f(4) for f(x) = 380(2)ˣ.",
    "answer": "6080",
    "solutionSteps": [
-    "f(4) = 380(2)⁴.",
-    "(2)⁴ = 16.",
-    "f(4) ≈ 6080.0."
+    "Substitute x = 4: f(4) = 380(2)^4.",
+    "(2)^4 = 16.",
+    "f(4) = 380 · 16 = 6080."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17969,9 +18014,9 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 260(2)⁵.",
-    "(2)⁵ = 32.",
-    "f(5) ≈ 8320.0."
+    "Substitute x = 5: f(5) = 260(2)^5.",
+    "(2)^5 = 32.",
+    "f(5) = 260 · 32 = 8320."
    ],
    "standards": [
     "F-LE.A.1",
@@ -17987,9 +18032,9 @@
    "prompt": "Evaluate f(2) for f(x) = 320(1.5)ˣ.",
    "answer": "720",
    "solutionSteps": [
-    "f(2) = 320(1.5)².",
-    "(1.5)² = 2.25.",
-    "f(2) ≈ 720.0."
+    "Substitute x = 2: f(2) = 320(1.5)^2.",
+    "(1.5)^2 = 2.25.",
+    "f(2) = 320 · 2.25 = 720."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18023,9 +18068,9 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 220(0.5)⁵.",
-    "(0.5)⁵ = 0.03125.",
-    "f(5) ≈ 6.9."
+    "Substitute x = 5: f(5) = 220(0.5)^5.",
+    "(0.5)^5 = 0.03125.",
+    "f(5) = 220 · 0.03125 = 6.875."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18041,9 +18086,9 @@
    "prompt": "Evaluate f(2) for f(x) = 400(1.2)ˣ.",
    "answer": "576",
    "solutionSteps": [
-    "f(2) = 400(1.2)².",
-    "(1.2)² = 1.44.",
-    "f(2) ≈ 576.0."
+    "Substitute x = 2: f(2) = 400(1.2)^2.",
+    "(1.2)^2 = 1.44.",
+    "f(2) = 400 · 1.44 = 576."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18077,9 +18122,9 @@
     }
    ],
    "solutionSteps": [
-    "f(4) = 260(1.5)⁴.",
-    "(1.5)⁴ = 5.0625.",
-    "f(4) ≈ 1316.3."
+    "Substitute x = 4: f(4) = 260(1.5)^4.",
+    "(1.5)^4 = 5.0625.",
+    "f(4) = 260 · 5.0625 = 1316.25."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18095,9 +18140,9 @@
    "prompt": "Evaluate f(4) for f(x) = 420(1.2)ˣ.",
    "answer": "870.912",
    "solutionSteps": [
-    "f(4) = 420(1.2)⁴.",
-    "(1.2)⁴ = 2.0736.",
-    "f(4) ≈ 870.9."
+    "Substitute x = 4: f(4) = 420(1.2)^4.",
+    "(1.2)^4 = 2.0736.",
+    "f(4) = 420 · 2.0736 = 870.912."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18131,9 +18176,9 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 190(0.5)⁵.",
-    "(0.5)⁵ = 0.03125.",
-    "f(5) ≈ 5.9."
+    "Substitute x = 5: f(5) = 190(0.5)^5.",
+    "(0.5)^5 = 0.03125.",
+    "f(5) = 190 · 0.03125 = 5.9375."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18149,9 +18194,9 @@
    "prompt": "Evaluate f(4) for f(x) = 330(0.5)ˣ.",
    "answer": "20.625",
    "solutionSteps": [
-    "f(4) = 330(0.5)⁴.",
-    "(0.5)⁴ = 0.0625.",
-    "f(4) ≈ 20.6."
+    "Substitute x = 4: f(4) = 330(0.5)^4.",
+    "(0.5)^4 = 0.0625.",
+    "f(4) = 330 · 0.0625 = 20.625."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18185,9 +18230,9 @@
     }
    ],
    "solutionSteps": [
-    "f(4) = 480(1.5)⁴.",
-    "(1.5)⁴ = 5.0625.",
-    "f(4) ≈ 2430.0."
+    "Substitute x = 4: f(4) = 480(1.5)^4.",
+    "(1.5)^4 = 5.0625.",
+    "f(4) = 480 · 5.0625 = 2430."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18203,9 +18248,9 @@
    "prompt": "Evaluate f(3) for f(x) = 240(3)ˣ.",
    "answer": "6480",
    "solutionSteps": [
-    "f(3) = 240(3)³.",
-    "(3)³ = 27.",
-    "f(3) ≈ 6480.0."
+    "Substitute x = 3: f(3) = 240(3)^3.",
+    "(3)^3 = 27.",
+    "f(3) = 240 · 27 = 6480."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18298,9 +18343,9 @@
    "prompt": "Evaluate f(2) for f(x) = 60(1.2)ˣ.",
    "answer": "86.4",
    "solutionSteps": [
-    "f(2) = 60(1.2)².",
-    "(1.2)² = 1.44.",
-    "f(2) ≈ 86.4."
+    "Substitute x = 2: f(2) = 60(1.2)^2.",
+    "(1.2)^2 = 1.44.",
+    "f(2) = 60 · 1.44 = 86.4."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18334,9 +18379,8 @@
     }
    ],
    "solutionSteps": [
-    "P(0) = 4200/(1 + 11·e⁰).",
-    "= 4200/12.",
-    "≈ 350."
+    "At t = 0, e⁰ = 1, so P(0) = 4200/(1 + 11).",
+    "= 4200/12 ≈ 350."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18352,9 +18396,9 @@
    "prompt": "Evaluate f(3) for f(x) = 410(3)ˣ.",
    "answer": "11070",
    "solutionSteps": [
-    "f(3) = 410(3)³.",
-    "(3)³ = 27.",
-    "f(3) ≈ 11070.0."
+    "Substitute x = 3: f(3) = 410(3)^3.",
+    "(3)^3 = 27.",
+    "f(3) = 410 · 27 = 11070."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18388,9 +18432,9 @@
     }
    ],
    "solutionSteps": [
-    "P(0) = 1900/(1 + 13·e⁰).",
-    "= 1900/14.",
-    "≈ 136."
+    "At t = 0, e⁰ = 1, so P(0) = 1900/(1 + 13).",
+    "= 1900/14 ≈ 135.7.",
+    "Answer: 136."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18406,8 +18450,8 @@
    "prompt": "A population follows P(t) = 1600/(1 + 19e^(-0.2t)). What is the carrying capacity?",
    "answer": "1600",
    "solutionSteps": [
-    "As t → ∞, e^(-bt) → 0.",
-    "P(t) → 1600/1 = 1600."
+    "As t grows, e^(-0.2t) → 0, so the denominator 1 + 19e^(-0.2t) → 1.",
+    "P(t) → 1600/1 = 1600: the carrying capacity is 1600."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18441,8 +18485,8 @@
     }
    ],
    "solutionSteps": [
-    "As t → ∞, e^(-bt) → 0.",
-    "P(t) → 2500/1 = 2500."
+    "As t grows, e^(-0.3t) → 0, so the denominator 1 + 13e^(-0.3t) → 1.",
+    "P(t) → 2500/1 = 2500: the carrying capacity is 2500."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18458,9 +18502,9 @@
    "prompt": "Evaluate f(3) for f(x) = 30(2)ˣ.",
    "answer": "240",
    "solutionSteps": [
-    "f(3) = 30(2)³.",
-    "(2)³ = 8.",
-    "f(3) ≈ 240.0."
+    "Substitute x = 3: f(3) = 30(2)^3.",
+    "(2)^3 = 8.",
+    "f(3) = 30 · 8 = 240."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18494,9 +18538,9 @@
     }
    ],
    "solutionSteps": [
-    "f(5) = 140(3)⁵.",
-    "(3)⁵ = 243.",
-    "f(5) ≈ 34020.0."
+    "Substitute x = 5: f(5) = 140(3)^5.",
+    "(3)^5 = 243.",
+    "f(5) = 140 · 243 = 34020."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18512,9 +18556,8 @@
    "prompt": "A population follows P(t) = 4500/(1 + 11e^(-0.5t)). What is the initial population P(0)? Round to the nearest whole number.",
    "answer": "375",
    "solutionSteps": [
-    "P(0) = 4500/(1 + 11·e⁰).",
-    "= 4500/12.",
-    "≈ 375."
+    "At t = 0, e⁰ = 1, so P(0) = 4500/(1 + 11).",
+    "= 4500/12 ≈ 375."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18548,8 +18591,8 @@
     }
    ],
    "solutionSteps": [
-    "As t → ∞, e^(-bt) → 0.",
-    "P(t) → 1800/1 = 1800."
+    "As t grows, e^(-0.2t) → 0, so the denominator 1 + 3e^(-0.2t) → 1.",
+    "P(t) → 1800/1 = 1800: the carrying capacity is 1800."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18565,9 +18608,8 @@
    "prompt": "A population follows P(t) = 3700/(1 + 8e^(-0.5t)). What is the initial population P(0)? Round to the nearest whole number.",
    "answer": "411",
    "solutionSteps": [
-    "P(0) = 3700/(1 + 8·e⁰).",
-    "= 3700/9.",
-    "≈ 411."
+    "At t = 0, e⁰ = 1, so P(0) = 3700/(1 + 8).",
+    "= 3700/9 ≈ 411.1."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18601,8 +18643,8 @@
     }
    ],
    "solutionSteps": [
-    "As t → ∞, e^(-bt) → 0.",
-    "P(t) → 4700/1 = 4700."
+    "As t grows, e^(-0.3t) → 0, so the denominator 1 + 6e^(-0.3t) → 1.",
+    "P(t) → 4700/1 = 4700: the carrying capacity is 4700."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18618,9 +18660,9 @@
    "prompt": "Evaluate f(5) for f(x) = 160(0.75)ˣ.",
    "answer": "37.96875",
    "solutionSteps": [
-    "f(5) = 160(0.75)⁵.",
-    "(0.75)⁵ = 0.2373046875.",
-    "f(5) ≈ 38.0."
+    "Substitute x = 5: f(5) = 160(0.75)^5.",
+    "(0.75)^5 = 0.23730469.",
+    "f(5) = 160 · 0.23730469 = 37.96875."
    ],
    "standards": [
     "F-LE.A.1",
@@ -18711,9 +18753,10 @@
    "prompt": "$2,400 is invested at 4% interest compounded continuously. Find the balance after 10 years, to the nearest cent.",
    "answer": "$3580.38",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 2400e^(0.04 × 10).",
-    "A ≈ $3580.38."
+    "A = Pe^(rt) with P = 2,400, r = 0.04 and t = 10.",
+    "rt = 0.04 · 10 = 0.4, and e^0.4 ≈ 1.491825.",
+    "A ≈ 2,400 · 1.491825 ≈ $3,580.38.",
+    "Answer: $3580.38."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18747,9 +18790,10 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4400e^(0.02 × 4).",
-    "A ≈ $4766.46."
+    "A = Pe^(rt) with P = 4,400, r = 0.02 and t = 4.",
+    "rt = 0.02 · 4 = 0.08, and e^0.08 ≈ 1.083287.",
+    "A ≈ 4,400 · 1.083287 ≈ $4,766.46.",
+    "Answer: $4766.46."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18817,9 +18861,10 @@
    "prompt": "$1,100 is invested at 5% interest compounded continuously. Find the balance after 14 years, to the nearest cent.",
    "answer": "$2215.13",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 1100e^(0.05 × 14).",
-    "A ≈ $2215.13."
+    "A = Pe^(rt) with P = 1,100, r = 0.05 and t = 14.",
+    "rt = 0.05 · 14 = 0.7, and e^0.7 ≈ 2.013753.",
+    "A ≈ 1,100 · 2.013753 ≈ $2,215.13.",
+    "Answer: $2215.13."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18853,9 +18898,10 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4000e^(0.04 × 9).",
-    "A ≈ $5733.32."
+    "A = Pe^(rt) with P = 4,000, r = 0.04 and t = 9.",
+    "rt = 0.04 · 9 = 0.36, and e^0.36 ≈ 1.433329.",
+    "A ≈ 4,000 · 1.433329 ≈ $5,733.32.",
+    "Answer: $5733.32."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18906,9 +18952,10 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4500e^(0.04 × 7).",
-    "A ≈ $5954.08."
+    "A = Pe^(rt) with P = 4,500, r = 0.04 and t = 7.",
+    "rt = 0.04 · 7 = 0.28, and e^0.28 ≈ 1.323130.",
+    "A ≈ 4,500 · 1.323130 ≈ $5,954.08.",
+    "Answer: $5954.08."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18959,8 +19006,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 4x = ln(10).",
-    "x = (1/4)ln(10)."
+    "Take the natural log of both sides: ln(e^(4x)) = ln(10).",
+    "4x = ln(10).",
+    "x = ln(10)/4.",
+    "Answer: x = (1/4)ln(10)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -18976,9 +19025,10 @@
    "prompt": "$2,200 is invested at 5% interest compounded continuously. Find the balance after 12 years, to the nearest cent.",
    "answer": "$4008.66",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 2200e^(0.05 × 12).",
-    "A ≈ $4008.66."
+    "A = Pe^(rt) with P = 2,200, r = 0.05 and t = 12.",
+    "rt = 0.05 · 12 = 0.6, and e^0.6 ≈ 1.822119.",
+    "A ≈ 2,200 · 1.822119 ≈ $4,008.66.",
+    "Answer: $4008.66."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19029,9 +19079,10 @@
    "prompt": "$4,200 is invested at 6% interest compounded continuously. Find the balance after 3 years, to the nearest cent.",
    "answer": "$5028.31",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4200e^(0.06 × 3).",
-    "A ≈ $5028.31."
+    "A = Pe^(rt) with P = 4,200, r = 0.06 and t = 3.",
+    "rt = 0.06 · 3 = 0.18, and e^0.18 ≈ 1.197217.",
+    "A ≈ 4,200 · 1.197217 ≈ $5,028.31.",
+    "Answer: $5028.31."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19123,9 +19174,10 @@
    "prompt": "$2,500 is invested at 3% interest compounded continuously. Find the balance after 2 years, to the nearest cent.",
    "answer": "$2654.59",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 2500e^(0.03 × 2).",
-    "A ≈ $2654.59."
+    "A = Pe^(rt) with P = 2,500, r = 0.03 and t = 2.",
+    "rt = 0.03 · 2 = 0.06, and e^0.06 ≈ 1.061837.",
+    "A ≈ 2,500 · 1.061837 ≈ $2,654.59.",
+    "Answer: $2654.59."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19159,8 +19211,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(19).",
-    "x = (1/2)ln(19)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(19).",
+    "2x = ln(19).",
+    "x = ln(19)/2.",
+    "Answer: x = (1/2)ln(19)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19176,8 +19230,10 @@
    "prompt": "Solve e^(3x) = 5. Give an exact answer.",
    "answer": "x = (1/3)ln(5)",
    "solutionSteps": [
-    "Take ln of both sides: 3x = ln(5).",
-    "x = (1/3)ln(5)."
+    "Take the natural log of both sides: ln(e^(3x)) = ln(5).",
+    "3x = ln(5).",
+    "x = ln(5)/3.",
+    "Answer: x = (1/3)ln(5)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19211,8 +19267,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(3).",
-    "x = (1/2)ln(3)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(3).",
+    "2x = ln(3).",
+    "x = ln(3)/2.",
+    "Answer: x = (1/2)ln(3)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19263,8 +19321,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 3x = ln(6).",
-    "x = (1/3)ln(6)."
+    "Take the natural log of both sides: ln(e^(3x)) = ln(6).",
+    "3x = ln(6).",
+    "x = ln(6)/3.",
+    "Answer: x = (1/3)ln(6)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19280,9 +19340,10 @@
    "prompt": "$1,600 is invested at 5% interest compounded continuously. Find the balance after 14 years, to the nearest cent.",
    "answer": "$3222.00",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 1600e^(0.05 × 14).",
-    "A ≈ $3222.00."
+    "A = Pe^(rt) with P = 1,600, r = 0.05 and t = 14.",
+    "rt = 0.05 · 14 = 0.7, and e^0.7 ≈ 2.013753.",
+    "A ≈ 1,600 · 2.013753 ≈ $3,222.00.",
+    "Answer: $3222.00."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19316,8 +19377,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(14).",
-    "x = (1/2)ln(14)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(14).",
+    "2x = ln(14).",
+    "x = ln(14)/2.",
+    "Answer: x = (1/2)ln(14)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19368,8 +19431,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 3x = ln(2).",
-    "x = (1/3)ln(2)."
+    "Take the natural log of both sides: ln(e^(3x)) = ln(2).",
+    "3x = ln(2).",
+    "x = ln(2)/3.",
+    "Answer: x = (1/3)ln(2)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19385,9 +19450,10 @@
    "prompt": "$4,700 is invested at 5% interest compounded continuously. Find the balance after 13 years, to the nearest cent.",
    "answer": "$9003.04",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4700e^(0.05 × 13).",
-    "A ≈ $9003.04."
+    "A = Pe^(rt) with P = 4,700, r = 0.05 and t = 13.",
+    "rt = 0.05 · 13 = 0.65, and e^0.65 ≈ 1.915541.",
+    "A ≈ 4,700 · 1.915541 ≈ $9,003.04.",
+    "Answer: $9003.04."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19421,8 +19487,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(28).",
-    "x = (1/2)ln(28)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(28).",
+    "2x = ln(28).",
+    "x = ln(28)/2.",
+    "Answer: x = (1/2)ln(28)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19531,8 +19599,10 @@
    "prompt": "Solve e^(2x) = 16. Give an exact answer.",
    "answer": "x = (1/2)ln(16)",
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(16).",
-    "x = (1/2)ln(16)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(16).",
+    "2x = ln(16).",
+    "x = ln(16)/2.",
+    "Answer: x = (1/2)ln(16)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19583,8 +19653,10 @@
    "prompt": "Solve e^(2x) = 15. Give an exact answer.",
    "answer": "x = (1/2)ln(15)",
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(15).",
-    "x = (1/2)ln(15)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(15).",
+    "2x = ln(15).",
+    "x = ln(15)/2.",
+    "Answer: x = (1/2)ln(15)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19635,9 +19707,9 @@
    "prompt": "$500 is invested at 2% interest compounded continuously. Find the balance after 11 years, to the nearest cent.",
    "answer": "$623.04",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 500e^(0.02 × 11).",
-    "A ≈ $623.04."
+    "A = Pe^(rt) with P = 500, r = 0.02 and t = 11.",
+    "rt = 0.02 · 11 = 0.22, and e^0.22 ≈ 1.246077.",
+    "A ≈ 500 · 1.246077 ≈ $623.04."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19671,9 +19743,10 @@
     }
    ],
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 3500e^(0.05 × 7).",
-    "A ≈ $4966.74."
+    "A = Pe^(rt) with P = 3,500, r = 0.05 and t = 7.",
+    "rt = 0.05 · 7 = 0.35, and e^0.35 ≈ 1.419068.",
+    "A ≈ 3,500 · 1.419068 ≈ $4,966.74.",
+    "Answer: $4966.74."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19689,9 +19762,10 @@
    "prompt": "$1,500 is invested at 4% interest compounded continuously. Find the balance after 7 years, to the nearest cent.",
    "answer": "$1984.69",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 1500e^(0.04 × 7).",
-    "A ≈ $1984.69."
+    "A = Pe^(rt) with P = 1,500, r = 0.04 and t = 7.",
+    "rt = 0.04 · 7 = 0.28, and e^0.28 ≈ 1.323130.",
+    "A ≈ 1,500 · 1.323130 ≈ $1,984.69.",
+    "Answer: $1984.69."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19725,8 +19799,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(4).",
-    "x = (1/2)ln(4)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(4).",
+    "2x = ln(4).",
+    "x = ln(4)/2.",
+    "Answer: x = (1/2)ln(4)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19742,9 +19818,10 @@
    "prompt": "$4,500 is invested at 4% interest compounded continuously. Find the balance after 8 years, to the nearest cent.",
    "answer": "$6197.07",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 4500e^(0.04 × 8).",
-    "A ≈ $6197.07."
+    "A = Pe^(rt) with P = 4,500, r = 0.04 and t = 8.",
+    "rt = 0.04 · 8 = 0.32, and e^0.32 ≈ 1.377128.",
+    "A ≈ 4,500 · 1.377128 ≈ $6,197.07.",
+    "Answer: $6197.07."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19795,9 +19872,10 @@
    "prompt": "$2,600 is invested at 4% interest compounded continuously. Find the balance after 2 years, to the nearest cent.",
    "answer": "$2816.55",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 2600e^(0.04 × 2).",
-    "A ≈ $2816.55."
+    "A = Pe^(rt) with P = 2,600, r = 0.04 and t = 2.",
+    "rt = 0.04 · 2 = 0.08, and e^0.08 ≈ 1.083287.",
+    "A ≈ 2,600 · 1.083287 ≈ $2,816.55.",
+    "Answer: $2816.55."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19831,8 +19909,10 @@
     }
    ],
    "solutionSteps": [
-    "Take ln of both sides: 2x = ln(26).",
-    "x = (1/2)ln(26)."
+    "Take the natural log of both sides: ln(e^(2x)) = ln(26).",
+    "2x = ln(26).",
+    "x = ln(26)/2.",
+    "Answer: x = (1/2)ln(26)."
    ],
    "standards": [
     "F-LE.A.4",
@@ -19848,9 +19928,10 @@
    "prompt": "$3,900 is invested at 2% interest compounded continuously. Find the balance after 8 years, to the nearest cent.",
    "answer": "$4576.69",
    "solutionSteps": [
-    "A = Pe^(rt).",
-    "A = 3900e^(0.02 × 8).",
-    "A ≈ $4576.69."
+    "A = Pe^(rt) with P = 3,900, r = 0.02 and t = 8.",
+    "rt = 0.02 · 8 = 0.16, and e^0.16 ≈ 1.173511.",
+    "A ≈ 3,900 · 1.173511 ≈ $4,576.69.",
+    "Answer: $4576.69."
    ],
    "standards": [
     "F-LE.A.4",
