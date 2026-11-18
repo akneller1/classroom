@@ -7791,35 +7791,34 @@
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "The point (1, -1) is on the graph of y = f(x). What point must be on the graph of y = f(x - 5) - 2?",
-   "answer": "(6, -3)",
+   "prompt": "If (-4, -7) is a point on the graph of y = f(x), which point is on the graph of y = -f(x)?",
+   "answer": "(-4, 7)",
    "options": [
     {
-     "text": "(6, 1)",
+     "text": "(4, -7)",
      "correct": false
     },
     {
-     "text": "(-3, 6)",
-     "correct": false
-    },
-    {
-     "text": "(6, -3)",
+     "text": "(-4, 7)",
      "correct": true
     },
     {
-     "text": "(-4, -3)",
+     "text": "(-4, -7)",
+     "correct": false
+    },
+    {
+     "text": "(4, 7)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (6, -3)."
+    "y = -f(x) reflects over the x-axis: (x, y) → (x, -y).",
+    "The point is (-4, 7)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-008",
@@ -7860,85 +7859,81 @@
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The point (-5, -4) is on the graph of y = f(x). What point must be on the graph of y = f(x - 4) + 4?",
-   "answer": "(-1, 0)",
+   "prompt": "The graph of y = f(2x) is a horizontal compression of y = f(x). Where does the point (6, -6) of y = f(x) move?",
+   "answer": "(3, -6)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-1, 0)."
+    "y = f(2x) changes x-coordinates by the factor 1/2: 6 ÷ 2 = 3.",
+    "The point is (3, -6)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-010",
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The point (-5, -6) is on the graph of y = f(x). What point must be on the graph of y = f(x + 3) + 2?",
-   "answer": "(-8, -4)",
+   "prompt": "If (-6, -5) is a point on the graph of y = f(x), which point is on the graph of y = f(-x)?",
+   "answer": "(6, -5)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-8, -4)."
+    "y = f(-x) reflects over the y-axis: (x, y) → (-x, y).",
+    "The point is (6, -5)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-011",
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The point (-1, -6) is on the graph of y = f(x). What point must be on the graph of y = f(x - 2) - 5?",
-   "answer": "(1, -11)",
+   "prompt": "The point (-9, 0) is on the graph of y = f(x + 4) + 4. What point must be on the graph of y = f(x)?",
+   "answer": "(-5, -4)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (1, -11)."
+    "Undo the horizontal shift: x = -9 - (-4) = -5.",
+    "Undo the vertical shift: y = 0 - (4) = -4.",
+    "The point is (-5, -4)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reverse), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-012",
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The point (-1, 4) is on the graph of y = f(x). What point must be on the graph of y = f(x + 5) + 1?",
-   "answer": "(-6, 5)",
+   "prompt": "If (-7, 7) is a point on the graph of y = f(x), which point is on the graph of y = f(-x)?",
+   "answer": "(7, 7)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-6, 5)."
+    "y = f(-x) reflects over the y-axis: (x, y) → (-x, y).",
+    "The point is (7, 7)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-013",
    "skillId": "functions-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "The point (-1, -1) is on the graph of y = f(x). What point must be on the graph of y = f(x + 4) + 1?",
-   "answer": "(-5, 0)",
+   "prompt": "The graph of y = f(2x) is a horizontal compression of y = f(x). Where does the point (-8, 2) of y = f(x) move?",
+   "answer": "(-4, 2)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-5, 0)."
+    "y = f(2x) changes x-coordinates by the factor 1/2: -8 ÷ 2 = -4.",
+    "The point is (-4, 2)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp2-014",
@@ -8190,35 +8185,34 @@
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The point (-6, 3) is on the graph of y = f(x). What point must be on the graph of y = -2f(x + 1) - 5?",
-   "answer": "(-7, -11)",
+   "prompt": "The graph of y = f((1/3)x) is a horizontal stretch of y = f(x). Where does the point (-4, 6) of y = f(x) move?",
+   "answer": "(-12, 6)",
    "options": [
     {
-     "text": "(-7, -2)",
+     "text": "(-4, 6)",
      "correct": false
     },
     {
-     "text": "(-5, -11)",
+     "text": "(-4, 2)",
      "correct": false
     },
     {
-     "text": "(-11, -7)",
+     "text": "(-4/3, 6)",
      "correct": false
     },
     {
-     "text": "(-7, -11)",
+     "text": "(-12, 6)",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-7, -11)."
+    "y = f((1/3)x) changes x-coordinates by the factor 1/(1/3): -4 ÷ 1/3 = -12.",
+    "The point is (-12, 6)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-008",
@@ -8259,85 +8253,81 @@
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The point (-5, -6) is on the graph of y = f(x). What point must be on the graph of y = -2f(x - 4) - 3?",
-   "answer": "(-1, 9)",
+   "prompt": "The graph of y = f(2x) is a horizontal compression of y = f(x). Where does the point (-4, 7) of y = f(x) move?",
+   "answer": "(-2, 7)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-1, 9)."
+    "y = f(2x) changes x-coordinates by the factor 1/2: -4 ÷ 2 = -2.",
+    "The point is (-2, 7)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-010",
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The point (0, 6) is on the graph of y = f(x). What point must be on the graph of y = -2f(x + 0) + 0?",
-   "answer": "(0, -12)",
+   "prompt": "If (5, -6) is a point on the graph of y = f(x), which point is on the graph of y = f(-x) - 3?",
+   "answer": "(-5, -9)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (0, -12)."
+    "y = f(-x) reflects over the y-axis: (x, y) → (-x, y). Then shift down 3.",
+    "The point is (-5, -9)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-011",
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The point (-6, 0) is on the graph of y = f(x). What point must be on the graph of y = -2f(x - 3) + 1?",
-   "answer": "(-3, 1)",
+   "prompt": "The graph of y = f(3x) is a horizontal compression of y = f(x). Where does the point (-3, 9) of y = f(x) move?",
+   "answer": "(-1, 9)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-3, 1)."
+    "y = f(3x) changes x-coordinates by the factor 1/3: -3 ÷ 3 = -1.",
+    "The point is (-1, 9)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-012",
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The point (1, 2) is on the graph of y = f(x). What point must be on the graph of y = -2f(x - 4) + 4?",
-   "answer": "(5, 0)",
+   "prompt": "The point (9, -8) is on the graph of y = -2f(x - 3) - 6. What point must be on the graph of y = f(x)?",
+   "answer": "(6, 1)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (5, 0)."
+    "Undo the horizontal shift: x = 9 - (3) = 6.",
+    "Undo the vertical change: y = (-8 - (-6))/-2 = 1.",
+    "The point is (6, 1)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reverse), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-013",
    "skillId": "functions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The point (-1, 0) is on the graph of y = f(x). What point must be on the graph of y = 3f(x - 3) + 0?",
-   "answer": "(2, 0)",
+   "prompt": "The graph of y = f(4x) is a horizontal compression of y = f(x). Where does the point (4, 7) of y = f(x) move?",
+   "answer": "(1, 7)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (2, 0)."
+    "y = f(4x) changes x-coordinates by the factor 1/4: 4 ÷ 4 = 1.",
+    "The point is (1, 7)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-cp1-014",
@@ -8589,35 +8579,35 @@
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The point (-6, -1) is on the graph of y = f(x). What point must be on the graph of y = -f(1/2(x - 1)) - 4?",
-   "answer": "(-11, -3)",
+   "prompt": "The point (-1, 9) is on the graph of y = -f(x + 3) + 5. What point must be on the graph of y = f(x)?",
+   "answer": "(2, -4)",
    "options": [
     {
-     "text": "(-11, -5)",
-     "correct": false
-    },
-    {
-     "text": "(-7, -3)",
-     "correct": false
-    },
-    {
-     "text": "(-11, -3)",
+     "text": "(2, -4)",
      "correct": true
     },
     {
-     "text": "(-2, -3)",
+     "text": "(-4, -4)",
+     "correct": false
+    },
+    {
+     "text": "(2, 14)",
+     "correct": false
+    },
+    {
+     "text": "(2, 4)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-11, -3)."
+    "Undo the horizontal shift: x = -1 - (-3) = 2.",
+    "Undo the vertical change: y = (9 - (5))/-1 = -4.",
+    "The point is (2, -4)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reverse), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-008",
@@ -8658,85 +8648,80 @@
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The point (-3, -4) is on the graph of y = f(x). What point must be on the graph of y = -2f(2(x - 1)) + 0?",
-   "answer": "(-1/2, 8)",
+   "prompt": "The graph of y = f((1/3)x) + 5 is a horizontal stretch of y = f(x) followed by a vertical shift. Where does the point (-3, 1) of y = f(x) move?",
+   "answer": "(-9, 6)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-1/2, 8)."
+    "y = f((1/3)x) changes x-coordinates by the factor 1/(1/3): -3 ÷ 1/3 = -9. Then add 5 to y.",
+    "The point is (-9, 6)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-010",
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The point (0, 4) is on the graph of y = f(x). What point must be on the graph of y = -f(2(x - 4)) + 2?",
-   "answer": "(4, -2)",
+   "prompt": "The graph of y = f(4x) is a horizontal compression of y = f(x). Where does the point (3, 1) of y = f(x) move?",
+   "answer": "(3/4, 1)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (4, -2)."
+    "y = f(4x) changes x-coordinates by the factor 1/4: 3 ÷ 4 = 3/4.",
+    "The point is (3/4, 1)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-011",
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The point (6, -4) is on the graph of y = f(x). What point must be on the graph of y = -2f(1/2(x - 4)) + 1?",
-   "answer": "(16, 9)",
+   "prompt": "If (3, -2) is a point on the graph of y = f(x), which point is on the graph of y = -f(x) - 2?",
+   "answer": "(3, 0)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (16, 9)."
+    "y = -f(x) reflects over the x-axis: (x, y) → (x, -y). Then shift down 2.",
+    "The point is (3, 0)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-012",
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The point (1, 2) is on the graph of y = f(x). What point must be on the graph of y = 2f(1/2(x + 4)) - 1?",
-   "answer": "(-2, 3)",
+   "prompt": "The graph of y = f(4x) is a horizontal compression of y = f(x). Where does the point (2, -5) of y = f(x) move?",
+   "answer": "(1/2, -5)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (-2, 3)."
+    "y = f(4x) changes x-coordinates by the factor 1/4: 2 ÷ 4 = 1/2.",
+    "The point is (1/2, -5)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_stretch), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-013",
    "skillId": "functions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The point (2, 2) is on the graph of y = f(x). What point must be on the graph of y = 3f(2(x - 1)) + 3?",
-   "answer": "(2, 9)",
+   "prompt": "If (8, -4) is a point on the graph of y = f(x), which point is on the graph of y = f(-x) + 4?",
+   "answer": "(-8, 0)",
    "solutionSteps": [
-    "Horizontal changes act on x in the opposite way: x → x/b + h.",
-    "Vertical changes act on y: y → a·y + k.",
-    "New point: (2, 9)."
+    "y = f(-x) reflects over the y-axis: (x, y) → (-x, y). Then shift up 4.",
+    "The point is (-8, 0)."
    ],
    "standards": [
     "F-BF.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: tr_reflect), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s07-honors-014",
@@ -11612,17 +11597,16 @@
    "skillId": "functions-skill-10",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "y varies directly with x, and y = 24 when x = 6. Find y when x = 4.",
-   "answer": "16",
+   "prompt": "y varies directly with x, and y = 4 when x = 6. Find the constant of variation k.",
+   "answer": "2/3",
    "solutionSteps": [
-    "Write the variation equation and find k = 4.",
-    "Use k with the new values.",
-    "y = 16."
+    "y = kx: 4 = k(6).",
+    "k = 2/3."
    ],
    "standards": [
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_variation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: var_k), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s10-cp2-012",
@@ -11664,17 +11648,16 @@
    "skillId": "functions-skill-10",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "y varies directly with x, and y = 28 when x = 7. Find y when x = 3.",
-   "answer": "12",
+   "prompt": "y varies directly with x and inversely with z. y = 8/3 when x = 3 and z = 9. Find y when x = 3 and z = 4.",
+   "answer": "6",
    "solutionSteps": [
-    "Write the variation equation and find k = 4.",
-    "Use k with the new values.",
-    "y = 12."
+    "y = kx/z: 8/3 = k(3)/9, so k = 8.",
+    "y = 8(3)/4 = 6."
    ],
    "standards": [
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_variation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: var_combined), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s10-cp2-014",
@@ -12032,35 +12015,34 @@
    "skillId": "functions-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "y varies directly with x, and y = 70 when x = 7. Find y when x = 9.",
-   "answer": "90",
+   "prompt": "y varies jointly with x and z, and y = 30 when x = 5 and z = 9. Find the constant of variation k.",
+   "answer": "2/3",
    "options": [
     {
-     "text": "490/9",
-     "correct": false
-    },
-    {
-     "text": "10",
-     "correct": false
-    },
-    {
-     "text": "90",
+     "text": "2/3",
      "correct": true
     },
     {
-     "text": "72",
+     "text": "1350",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "10/3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the variation equation and find k = 10.",
-    "Use k with the new values.",
-    "y = 90."
+    "y = kxz: 30 = k(5)(9).",
+    "k = 30/45 = 2/3."
    ],
    "standards": [
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_variation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: var_k), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s10-cp1-013",
@@ -12470,17 +12452,16 @@
    "skillId": "functions-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "y varies directly with x, and y = 21 when x = 14. Find y when x = 8.",
-   "answer": "12",
+   "prompt": "y varies jointly with x and z, and y = 100 when x = 4 and z = 5. Find the constant of variation k.",
+   "answer": "5",
    "solutionSteps": [
-    "Write the variation equation and find k = 3/2.",
-    "Use k with the new values.",
-    "y = 12."
+    "y = kxz: 100 = k(4)(5).",
+    "k = 100/20 = 5."
    ],
    "standards": [
     "A-CED.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_variation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: var_k), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-fun-s10-honors-014",
@@ -45983,6 +45964,633 @@
     "F-BF.B.4d"
    ],
    "sourceNotes": "Original Claude-authored item (family: inv_restrict_value_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w001",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "$10,000 is deposited in an account that earns 7% annual interest compounded annually. What is the balance after 13 years? Round to the nearest cent.",
+   "answer": "≈ $24,098.45",
+   "solutionSteps": [
+    "A = P(1 + r)^t = 10000(1.07)^13.",
+    "A ≈ $24,098.45."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w002",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "$8,500 is deposited in an account that earns 4% annual interest compounded annually. What is the balance after 10 years? Round to the nearest cent.",
+   "answer": "≈ $12,582.08",
+   "options": [
+    {
+     "text": "≈ $11,900.00",
+     "correct": false
+    },
+    {
+     "text": "≈ $12,582.08",
+     "correct": true
+    },
+    {
+     "text": "≈ $4,082.08",
+     "correct": false
+    },
+    {
+     "text": "≈ $12,098.15",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A = P(1 + r)^t = 8500(1.04)^10.",
+    "A ≈ $12,582.08."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w003",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "$8,000 is deposited in an account that earns 3% annual interest compounded annually. What is the balance after 3 years? Round to the nearest cent.",
+   "answer": "≈ $8,741.82",
+   "solutionSteps": [
+    "A = P(1 + r)^t = 8000(1.03)^3.",
+    "A ≈ $8,741.82."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w004",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "$6,000 is deposited in an account that earns 6% annual interest compounded annually. What is the balance after 12 years? Round to the nearest cent.",
+   "answer": "≈ $12,073.18",
+   "solutionSteps": [
+    "A = P(1 + r)^t = 6000(1.06)^12.",
+    "A ≈ $12,073.18."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w005",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "$8,500 is deposited in an account that earns 5% annual interest compounded annually. What is the balance after 10 years? Round to the nearest cent.",
+   "answer": "≈ $13,845.60",
+   "options": [
+    {
+     "text": "≈ $13,186.29",
+     "correct": false
+    },
+    {
+     "text": "≈ $12,750.00",
+     "correct": false
+    },
+    {
+     "text": "≈ $5,345.60",
+     "correct": false
+    },
+    {
+     "text": "≈ $13,845.60",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A = P(1 + r)^t = 8500(1.05)^10.",
+    "A ≈ $13,845.60."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w006",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "$5,000 is deposited in an account that earns 6% annual interest compounded annually. What is the balance after 12 years? Round to the nearest cent.",
+   "answer": "≈ $10,060.98",
+   "solutionSteps": [
+    "A = P(1 + r)^t = 5000(1.06)^12.",
+    "A ≈ $10,060.98."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w007",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nThe amount of caffeine in the body has a half-life of 15 hours. Starting with 512 mg, how much remains after 45 hours?\nQuinn's answer: 256/3 mg\nIdentify the mistake and give the correct answer.",
+   "answer": "64 mg",
+   "solutionSteps": [
+    "Mistake: Quinn divided by 2 × the number of half-lives.",
+    "45 hours is 3 half-lives.",
+    "A = 512(1/2)^3 = 512/8 = 64 mg.",
+    "The correct answer is 64 mg, not 256/3 mg."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w008",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The amount of a medicine in the bloodstream has a half-life of 20 hours. Starting with 400 mg, how much remains after 60 hours?",
+   "answer": "50 mg",
+   "solutionSteps": [
+    "60 hours is 3 half-lives.",
+    "A = 400(1/2)^3 = 400/8 = 50 mg."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp2-w009",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The amount of a medicine in the bloodstream has a half-life of 15 hours. Starting with 192 mg, how much remains after 60 hours?",
+   "answer": "12 mg",
+   "options": [
+    {
+     "text": "24 mg",
+     "correct": false
+    },
+    {
+     "text": "96 mg",
+     "correct": false
+    },
+    {
+     "text": "12 mg",
+     "correct": true
+    },
+    {
+     "text": "144 mg",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "60 hours is 4 half-lives.",
+    "A = 192(1/2)^4 = 192/16 = 12 mg."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w001",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The amount of a radioactive sample has a half-life of 12 days. Starting with 256 g, how much remains after 24 days?",
+   "answer": "64 g",
+   "solutionSteps": [
+    "24 days is 2 half-lives.",
+    "A = 256(1/2)^2 = 256/4 = 64 g."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w002",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A tractor bought for $23,000 loses 18% of its value each year. What is it worth after 4 years? Round to the nearest dollar.",
+   "answer": "≈ $10,399",
+   "options": [
+    {
+     "text": "≈ $6,440",
+     "correct": false
+    },
+    {
+     "text": "≈ $44,592",
+     "correct": false
+    },
+    {
+     "text": "≈ $10,399",
+     "correct": true
+    },
+    {
+     "text": "≈ $8,527",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "V = 23000(1 - 0.18)^4 = 23000(0.82)^4.",
+    "V ≈ $10,399."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w003",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "$5,000 is deposited in an account that earns 3% annual interest compounded quarterly. What is the balance after 8 years? Round to the nearest cent.",
+   "answer": "≈ $6,350.56",
+   "solutionSteps": [
+    "A = P(1 + r/n)^(nt) = 5000(1 + 0.03/4)^(4 · 8).",
+    "A ≈ $6,350.56."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w004",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A delivery van bought for $21,000 loses 10% of its value each year. What is it worth after 3 years? Round to the nearest dollar.",
+   "answer": "≈ $15,309",
+   "solutionSteps": [
+    "V = 21000(1 - 0.10)^3 = 21000(0.9)^3.",
+    "V ≈ $15,309."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w005",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "$9,000 is deposited in an account that earns 4% annual interest compounded monthly. What is the balance after 15 years? Round to the nearest cent.",
+   "answer": "≈ $16,382.71",
+   "options": [
+    {
+     "text": "≈ $14,400.00",
+     "correct": false
+    },
+    {
+     "text": "≈ $16,208.49",
+     "correct": false
+    },
+    {
+     "text": "≈ $7,382.71",
+     "correct": false
+    },
+    {
+     "text": "≈ $16,382.71",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A = P(1 + r/n)^(nt) = 9000(1 + 0.04/12)^(12 · 15).",
+    "A ≈ $16,382.71."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w006",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The amount of a medicine in the bloodstream has a half-life of 12 hours. Starting with 80 mg, how much remains after 36 hours?",
+   "answer": "10 mg",
+   "solutionSteps": [
+    "36 hours is 3 half-lives.",
+    "A = 80(1/2)^3 = 80/8 = 10 mg."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w007",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hana answered this problem incorrectly.\nA delivery van bought for $33,000 loses 15% of its value each year. What is it worth after 5 years? Round to the nearest dollar.\nHana's answer: ≈ $8,250\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ $14,642",
+   "solutionSteps": [
+    "Mistake: Hana subtracted the same amount each year.",
+    "V = 33000(1 - 0.15)^5 = 33000(0.85)^5.",
+    "V ≈ $14,642.",
+    "The correct answer is ≈ $14,642, not ≈ $8,250."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w008",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A delivery van bought for $40,000 loses 15% of its value each year. What is it worth after 5 years? Round to the nearest dollar.",
+   "answer": "≈ $17,748",
+   "solutionSteps": [
+    "V = 40000(1 - 0.15)^5 = 40000(0.85)^5.",
+    "V ≈ $17,748."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-cp1-w009",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A car bought for $23,000 loses 8% of its value each year. What is it worth after 2 years? Round to the nearest dollar.",
+   "answer": "≈ $19,467",
+   "options": [
+    {
+     "text": "≈ $17,910",
+     "correct": false
+    },
+    {
+     "text": "≈ $26,827",
+     "correct": false
+    },
+    {
+     "text": "≈ $19,467",
+     "correct": true
+    },
+    {
+     "text": "≈ $19,320",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "V = 23000(1 - 0.08)^2 = 23000(0.92)^2.",
+    "V ≈ $19,467."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w001",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "$7,000 is deposited in an account that earns 5% annual interest compounded quarterly. What is the balance after 12 years? Round to the nearest cent.",
+   "answer": "≈ $12,707.48",
+   "solutionSteps": [
+    "A = P(1 + r/n)^(nt) = 7000(1 + 0.05/4)^(4 · 12).",
+    "A ≈ $12,707.48."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w002",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "$7,000 is deposited in an account that earns 2% annual interest compounded monthly. What is the balance after 14 years? Round to the nearest cent.",
+   "answer": "≈ $9,259.75",
+   "options": [
+    {
+     "text": "≈ $8,960.00",
+     "correct": false
+    },
+    {
+     "text": "≈ $9,236.35",
+     "correct": false
+    },
+    {
+     "text": "≈ $9,259.75",
+     "correct": true
+    },
+    {
+     "text": "≈ $2,259.75",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A = P(1 + r/n)^(nt) = 7000(1 + 0.02/12)^(12 · 14).",
+    "A ≈ $9,259.75."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w003",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A boat bought for $44,000 loses 20% of its value each year. What is it worth after 4 years? Round to the nearest dollar.",
+   "answer": "≈ $18,022",
+   "solutionSteps": [
+    "V = 44000(1 - 0.20)^4 = 44000(0.8)^4.",
+    "V ≈ $18,022."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w004",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The amount of a radioactive sample has a half-life of 20 days. Starting with 96 g, how much remains after 60 days?",
+   "answer": "12 g",
+   "solutionSteps": [
+    "60 days is 3 half-lives.",
+    "A = 96(1/2)^3 = 96/8 = 12 g."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w005",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A boat bought for $25,000 loses 12% of its value each year. What is it worth after 4 years? Round to the nearest dollar.",
+   "answer": "≈ $14,992",
+   "options": [
+    {
+     "text": "≈ $13,193",
+     "correct": false
+    },
+    {
+     "text": "≈ $39,338",
+     "correct": false
+    },
+    {
+     "text": "≈ $13,000",
+     "correct": false
+    },
+    {
+     "text": "≈ $14,992",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "V = 25000(1 - 0.12)^4 = 25000(0.88)^4.",
+    "V ≈ $14,992."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w006",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "$5,000 is deposited in an account that earns 5% annual interest compounded annually. What is the balance after 14 years? Round to the nearest cent.",
+   "answer": "≈ $9,899.66",
+   "solutionSteps": [
+    "A = P(1 + r)^t = 5000(1.05)^14.",
+    "A ≈ $9,899.66."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_compound). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w007",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA boat bought for $24,000 loses 12% of its value each year. What is it worth after 5 years? Round to the nearest dollar.\nTariq's answer: ≈ $9,600\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ $12,666",
+   "solutionSteps": [
+    "Mistake: Tariq subtracted the same amount each year.",
+    "V = 24000(1 - 0.12)^5 = 24000(0.88)^5.",
+    "V ≈ $12,666.",
+    "The correct answer is ≈ $12,666, not ≈ $9,600."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w008",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The amount of caffeine in the body has a half-life of 10 hours. Starting with 64 mg, how much remains after 30 hours?",
+   "answer": "8 mg",
+   "solutionSteps": [
+    "30 hours is 3 half-lives.",
+    "A = 64(1/2)^3 = 64/8 = 8 mg."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_halflife). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-fun-s15-honors-w009",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A tractor bought for $34,000 loses 10% of its value each year. What is it worth after 2 years? Round to the nearest dollar.",
+   "answer": "≈ $27,540",
+   "options": [
+    {
+     "text": "≈ $24,786",
+     "correct": false
+    },
+    {
+     "text": "≈ $27,200",
+     "correct": false
+    },
+    {
+     "text": "≈ $41,140",
+     "correct": false
+    },
+    {
+     "text": "≈ $27,540",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "V = 34000(1 - 0.10)^2 = 34000(0.9)^2.",
+    "V ≈ $27,540."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_depreciate). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

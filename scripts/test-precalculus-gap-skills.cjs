@@ -44,4 +44,30 @@ assert.deepEqual(newIds.filter((id) => !checks[id]), [], 'every new item has ver
 // The standards map lists the new standards.
 const map = fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/standards-map.js'), 'utf8');
 for (const s of ['A-APR.D.7', 'F-BF.B.4b', 'F-BF.B.4c', 'F-BF.B.4d', 'N-CN.A.3', 'N-CN.B.5', 'A-APR.C.5']) assert(map.includes(s), 'standards map has ' + s);
-console.log('Precalculus gap skills: ' + NEW.length + ' skills, ' + newIds.length + ' items');
+// #5: every unit has at least 9 real-world context problems per level, tagged and verified.
+let ctxTotal = 0;
+for (const b of banks) {
+  const tags = JSON.parse(fs.readFileSync(path.join(dir, 'meta', b.unitId + '.tags.json'), 'utf8'));
+  const ctx = b.questions.filter((q) => (tags[q.id] || []).includes('context-problem'));
+  for (const lv of ['cp2', 'cp1', 'honors']) assert(ctx.filter((q) => q.level === lv).length >= 9, `${b.unitId} ${lv}: context problems`);
+  assert.deepEqual(ctx.filter((q) => /-w\d{3}$/.test(q.id) && !checks[q.id]).map((q) => q.id), [], b.unitId + ' context items verified');
+  ctxTotal += ctx.length;
+}
+// #6: no single question template makes up 40% or more of a skill's single-part items.
+function sig(p) {
+  const lines = p.split('\n');
+  let t = /answered this problem incorrectly/.test(lines[0]) && lines.length > 1 ? lines[1] : lines[0];
+  t = t.replace(/\d+(\.\d+)?/g, '#').replace(/(#\s*[+\-−]\s*)+#/g, '#').replace(/[−-]\s*#/g, '#');
+  return t.slice(0, 70);
+}
+const bySkill = {};
+for (const q of items) if (q.format !== 'open-response') (bySkill[q.skillId] = bySkill[q.skillId] || []).push(q);
+for (const [sk, qs] of Object.entries(bySkill)) {
+  const c = {};
+  for (const q of qs) c[sig(q.prompt)] = (c[sig(q.prompt)] || 0) + 1;
+  const top = Math.max(...Object.values(c));
+  assert(top / qs.length < 0.4, `${sk}: one template is ${top} of ${qs.length} items`);
+}
+const varied = items.filter((q) => /question variety/.test(q.sourceNotes));
+assert.deepEqual(varied.filter((q) => !checks[q.id]).map((q) => q.id), [], 'every variety item verified');
+console.log('Precalculus gap skills: ' + NEW.length + ' skills, ' + newIds.length + ' items; ' + ctxTotal + ' tagged context problems; ' + varied.length + ' variety items');

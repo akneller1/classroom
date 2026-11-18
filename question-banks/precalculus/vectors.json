@@ -7698,104 +7698,100 @@
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [1, 3; 2, 1] and v = ⟨2, -6⟩.",
-   "answer": "⟨-16, -2⟩",
+   "prompt": "Which matrix reflects vectors over the line y = x?",
+   "answer": "[0, 1; 1, 0]",
    "options": [
     {
-     "text": "⟨2, -6⟩",
+     "text": "[1, 0; 0, -1]",
      "correct": false
     },
     {
-     "text": "⟨-2, -16⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-10, 0⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-16, -2⟩",
+     "text": "[0, 1; 1, 0]",
      "correct": true
+    },
+    {
+     "text": "[2, 0; 0, 2]",
+     "correct": false
+    },
+    {
+     "text": "[0, -1; 1, 0]",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨1(2) + 3(-6), 2(2) + 1(-6)⟩.",
-    "⟨-16, -2⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [0, 1; 1, 0]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-011",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-1, 4; -3, 2] and v = ⟨3, -3⟩.",
-   "answer": "⟨-15, -15⟩",
+   "prompt": "A = [0, 3; 3, -1] and B = [2, -1; 3, 3]. The vector v = ⟨5, -5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨-50, 15⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-1(3) + 4(-3), -3(3) + 2(-3)⟩.",
-    "⟨-15, -15⟩."
+    "First Av = ⟨-15, 20⟩.",
+    "Then B(Av) = ⟨-50, 15⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-012",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [3, 0; -4, -4] and v = ⟨-6, -1⟩.",
-   "answer": "⟨-18, 28⟩",
+   "prompt": "A = [3, 2; 0, -2] and B = [2, 1; 1, 2]. The vector v = ⟨5, -4⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨22, 23⟩",
    "options": [
     {
-     "text": "⟨-18, 28⟩",
+     "text": "⟨7, 8⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨6, -3⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨12, 6⟩",
+     "correct": false
+    },
+    {
+     "text": "⟨22, 23⟩",
      "correct": true
-    },
-    {
-     "text": "⟨-14, 4⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨28, -18⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨-18, 4⟩",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨3(-6) + 0(-1), -4(-6) + -4(-1)⟩.",
-    "⟨-18, 28⟩."
+    "First Av = ⟨7, 8⟩.",
+    "Then B(Av) = ⟨22, 23⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-013",
    "skillId": "vectors-skill-07",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find Av for A = [3, 4; 0, -4] and v = ⟨-6, 3⟩.",
-   "answer": "⟨-6, -12⟩",
+   "prompt": "A = [-1, 0; -1, -2] and B = [-3, -3; 3, -1]. The vector v = ⟨4, 5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨54, 2⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨3(-6) + 4(3), 0(-6) + -4(3)⟩.",
-    "⟨-6, -12⟩."
+    "First Av = ⟨-4, -14⟩.",
+    "Then B(Av) = ⟨54, 2⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp2-014",
@@ -8101,104 +8097,100 @@
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [4, -3; 4, 0] and v = ⟨4, 5⟩.",
-   "answer": "⟨1, 16⟩",
+   "prompt": "Which matrix reflects vectors over the y-axis?",
+   "answer": "[-1, 0; 0, 1]",
    "options": [
     {
-     "text": "⟨16, 0⟩",
+     "text": "[2, 0; 0, 2]",
      "correct": false
     },
     {
-     "text": "⟨1, 16⟩",
+     "text": "[0, 1; 1, 0]",
+     "correct": false
+    },
+    {
+     "text": "[-1, 0; 0, -1]",
+     "correct": false
+    },
+    {
+     "text": "[-1, 0; 0, 1]",
      "correct": true
-    },
-    {
-     "text": "⟨36, -12⟩",
-     "correct": false
-    },
-    {
-     "text": "⟨16, 1⟩",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨4(4) + -3(5), 4(4) + 0(5)⟩.",
-    "⟨1, 16⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [-1, 0; 0, 1]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-011",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-3, -2; -3, -4] and v = ⟨6, 1⟩.",
-   "answer": "⟨-20, -22⟩",
+   "prompt": "A = [-3, -1; -3, 3] and B = [3, 2; -3, 2]. The vector v = ⟨-1, 0⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨15, -3⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-3(6) + -2(1), -3(6) + -4(1)⟩.",
-    "⟨-20, -22⟩."
+    "First Av = ⟨3, 3⟩.",
+    "Then B(Av) = ⟨15, -3⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-012",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find Av for A = [2, 3; 1, 3] and v = ⟨-5, 0⟩.",
-   "answer": "⟨-10, -5⟩",
+   "prompt": "Which matrix rotates vectors 180°?",
+   "answer": "[-1, 0; 0, -1]",
    "options": [
     {
-     "text": "⟨-10, 0⟩",
+     "text": "[2, 0; 0, 2]",
      "correct": false
     },
     {
-     "text": "⟨-10, -15⟩",
+     "text": "[-1, 0; 0, 1]",
      "correct": false
     },
     {
-     "text": "⟨-5, -10⟩",
+     "text": "[1, 0; 0, -1]",
      "correct": false
     },
     {
-     "text": "⟨-10, -5⟩",
+     "text": "[-1, 0; 0, -1]",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨2(-5) + 3(0), 1(-5) + 3(0)⟩.",
-    "⟨-10, -5⟩."
+    "Find where ⟨1, 0⟩ and ⟨0, 1⟩ go; those images are the columns of the matrix.",
+    "The matrix is [-1, 0; 0, -1]."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_which_matrix), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-013",
    "skillId": "vectors-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find Av for A = [-1, 2; -4, 1] and v = ⟨-5, 6⟩.",
-   "answer": "⟨17, 26⟩",
+   "prompt": "A = [-3, 1; 0, 1] and B = [-2, -2; 0, 3]. The vector v = ⟨-4, 5⟩ is transformed by A and then by B. Find the result.",
+   "answer": "⟨-44, 15⟩",
    "solutionSteps": [
-    "Each component is a row of A dotted with v.",
-    "⟨-1(-5) + 2(6), -4(-5) + 1(6)⟩.",
-    "⟨17, 26⟩."
+    "First Av = ⟨17, 5⟩.",
+    "Then B(Av) = ⟨-44, 15⟩."
    ],
    "standards": [
     "N-VM.C.11"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_matvec). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: vt_compose), added for question variety (Precalculus audit #6). Answer and every option re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-vec-s07-cp1-014",
@@ -17392,6 +17384,606 @@
     "APPC.3.13"
    ],
    "sourceNotes": "Original Claude-authored item (family: lim_max_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w001",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 195 N and 125 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 231.6 N",
+   "solutionSteps": [
+    "|R|² = 195² + 125² + 2(195)(125) cos 90°.",
+    "|R| ≈ 231.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w002",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 520 mi/h heading due east. A 65 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 524.0 mi/h",
+   "options": [
+    {
+     "text": "≈ 524.0 mi/h",
+     "correct": true
+    },
+    {
+     "text": "≈ 515.9 mi/h",
+     "correct": false
+    },
+    {
+     "text": "455 mi/h",
+     "correct": false
+    },
+    {
+     "text": "585 mi/h",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(520² + 65²).",
+    "≈ 524.0 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w003",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 35 N and 70 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 78.3 N",
+   "solutionSteps": [
+    "|R|² = 35² + 70² + 2(35)(70) cos 90°.",
+    "|R| ≈ 78.3 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w004",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 40 N and 140 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 145.6 N",
+   "solutionSteps": [
+    "|R|² = 40² + 140² + 2(40)(140) cos 90°.",
+    "|R| ≈ 145.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w005",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 430 mi/h heading due north. A 75 mi/h wind blows toward the east. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 436.5 mi/h",
+   "options": [
+    {
+     "text": "355 mi/h",
+     "correct": false
+    },
+    {
+     "text": "505 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 436.5 mi/h",
+     "correct": true
+    },
+    {
+     "text": "≈ 423.4 mi/h",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(430² + 75²).",
+    "≈ 436.5 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w006",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 350 mi/h heading due east. A 20 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 350.6 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(350² + 20²).",
+    "≈ 350.6 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w007",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nTwo tugboats pull a barge with forces of 90 N and 195 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.\nTariq's answer: 285 N\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 214.8 N",
+   "solutionSteps": [
+    "Mistake: Tariq added the magnitudes.",
+    "|R|² = 90² + 195² + 2(90)(195) cos 90°.",
+    "|R| ≈ 214.8 N.",
+    "The correct answer is ≈ 214.8 N, not 285 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w008",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 220 mi/h heading due north. A 80 mi/h wind blows toward the west. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 234.1 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(220² + 80²).",
+    "≈ 234.1 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp2-w009",
+   "skillId": "vectors-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 45 N and 75 N. The angle between the ropes is 90°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 87.5 N",
+   "options": [
+    {
+     "text": "≈ 87.5 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 82.5 N",
+     "correct": false
+    },
+    {
+     "text": "120 N",
+     "correct": false
+    },
+    {
+     "text": "30 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 45² + 75² + 2(45)(75) cos 90°.",
+    "|R| ≈ 87.5 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w001",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due north. A 60 mi/h wind blows toward the east. By how many degrees does the wind push the plane off its heading toward the east? Round to the nearest tenth.",
+   "answer": "≈ 9.0°",
+   "solutionSteps": [
+    "tan θ = 60/380.",
+    "θ = tan⁻¹(60/380) ≈ 9.0°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w002",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 135 N and 95 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 143.6 N",
+   "options": [
+    {
+     "text": "230 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 165.1 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 143.6 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 184.1 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 135² + 95² + 2(135)(95) cos 105°.",
+    "|R| ≈ 143.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w003",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 200 N and 115 N. The angle between the ropes is 135°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 143.9 N",
+   "solutionSteps": [
+    "|R|² = 200² + 115² + 2(200)(115) cos 135°.",
+    "|R| ≈ 143.9 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w004",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due east. A 60 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 384.7 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(380² + 60²).",
+    "≈ 384.7 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w005",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 80 N and 125 N. The angle between the ropes is 45°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 190.2 N",
+   "options": [
+    {
+     "text": "≈ 190.2 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 148.4 N",
+     "correct": false
+    },
+    {
+     "text": "205 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 88.8 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 80² + 125² + 2(80)(125) cos 45°.",
+    "|R| ≈ 190.2 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w006",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 130 N and 90 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 137.6 N",
+   "solutionSteps": [
+    "|R|² = 130² + 90² + 2(130)(90) cos 105°.",
+    "|R| ≈ 137.6 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w007",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Mateo answered this problem incorrectly.\nA plane flies with an airspeed of 140 mi/h heading due east. A 65 mi/h wind blows toward the south. By how many degrees does the wind push the plane off its heading toward the south? Round to the nearest tenth.\nMateo's answer: ≈ 65.1°\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 24.9°",
+   "solutionSteps": [
+    "Mistake: Mateo measured from the wind's direction.",
+    "tan θ = 65/140.",
+    "θ = tan⁻¹(65/140) ≈ 24.9°.",
+    "The correct answer is ≈ 24.9°, not ≈ 65.1°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w008",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 75 N and 45 N. The angle between the ropes is 60°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 105.0 N",
+   "solutionSteps": [
+    "|R|² = 75² + 45² + 2(75)(45) cos 60°.",
+    "|R| ≈ 105.0 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-cp1-w009",
+   "skillId": "vectors-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 180 N and 90 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 179.2 N",
+   "options": [
+    {
+     "text": "≈ 201.2 N",
+     "correct": false
+    },
+    {
+     "text": "270 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 179.2 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 221.1 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 180² + 90² + 2(180)(90) cos 105°.",
+    "|R| ≈ 179.2 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w001",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 380 mi/h heading due east. A 40 mi/h wind blows toward the south. By how many degrees does the wind push the plane off its heading toward the south? Round to the nearest tenth.",
+   "answer": "≈ 6.0°",
+   "solutionSteps": [
+    "tan θ = 40/380.",
+    "θ = tan⁻¹(40/380) ≈ 6.0°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w002",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 45 N and 60 N. The angle between the ropes is 120°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 54.1 N",
+   "options": [
+    {
+     "text": "≈ 75.0 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 54.1 N",
+     "correct": true
+    },
+    {
+     "text": "≈ 91.2 N",
+     "correct": false
+    },
+    {
+     "text": "105 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 45² + 60² + 2(45)(60) cos 120°.",
+    "|R| ≈ 54.1 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w003",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 30 N and 35 N. The angle between the ropes is 105°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 39.8 N",
+   "solutionSteps": [
+    "|R|² = 30² + 35² + 2(30)(35) cos 105°.",
+    "|R| ≈ 39.8 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w004",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two tugboats pull a barge with forces of 100 N and 165 N. The angle between the ropes is 75°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 213.9 N",
+   "solutionSteps": [
+    "|R|² = 100² + 165² + 2(100)(165) cos 75°.",
+    "|R| ≈ 213.9 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w005",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two tugboats pull a barge with forces of 150 N and 105 N. The angle between the ropes is 135°. What is the magnitude of the resultant force? Round to the nearest tenth.",
+   "answer": "≈ 106.1 N",
+   "options": [
+    {
+     "text": "≈ 106.1 N",
+     "correct": true
+    },
+    {
+     "text": "255 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 183.1 N",
+     "correct": false
+    },
+    {
+     "text": "≈ 236.2 N",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "|R|² = 150² + 105² + 2(150)(105) cos 135°.",
+    "|R| ≈ 106.1 N."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_forces). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w006",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 280 mi/h heading due east. A 25 mi/h wind blows toward the south. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 281.1 mi/h",
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(280² + 25²).",
+    "≈ 281.1 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w007",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA plane flies with an airspeed of 210 mi/h heading due south. A 80 mi/h wind blows toward the west. By how many degrees does the wind push the plane off its heading toward the west? Round to the nearest tenth.\nQuinn's answer: ≈ 69.1°\nIdentify the mistake and give the correct answer.",
+   "answer": "≈ 20.9°",
+   "solutionSteps": [
+    "Mistake: Quinn measured from the wind's direction.",
+    "tan θ = 80/210.",
+    "θ = tan⁻¹(80/210) ≈ 20.9°.",
+    "The correct answer is ≈ 20.9°, not ≈ 69.1°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane_error). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w008",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A plane flies with an airspeed of 190 mi/h heading due north. A 70 mi/h wind blows toward the east. By how many degrees does the wind push the plane off its heading toward the east? Round to the nearest tenth.",
+   "answer": "≈ 20.2°",
+   "solutionSteps": [
+    "tan θ = 70/190.",
+    "θ = tan⁻¹(70/190) ≈ 20.2°."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-vec-s06-honors-w009",
+   "skillId": "vectors-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A plane flies with an airspeed of 400 mi/h heading due north. A 55 mi/h wind blows toward the east. What is the plane's ground speed? Round to the nearest tenth.",
+   "answer": "≈ 403.8 mi/h",
+   "options": [
+    {
+     "text": "455 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 396.2 mi/h",
+     "correct": false
+    },
+    {
+     "text": "345 mi/h",
+     "correct": false
+    },
+    {
+     "text": "≈ 403.8 mi/h",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The velocities are perpendicular: ground speed = √(400² + 55²).",
+    "≈ 403.8 mi/h."
+   ],
+   "standards": [
+    "N-VM.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ctx_plane). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }

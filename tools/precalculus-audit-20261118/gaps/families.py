@@ -887,5 +887,4 @@ NEW_SKILLS = [
 ]
 
 
-CONTEXTUAL = set()
-CONTEXT = {}
+from contexts import CONTEXT, CONTEXTUAL  # noqa: E402,F401  (contexts imports helpers from this module)

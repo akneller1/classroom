@@ -170,7 +170,7 @@ def main():
         print(f"{sid} {name}: + {len(qs)} items")
     for key, (sidx, fns, stds, prefix) in FAM.CONTEXT.items():
         unit = key.split("#")[0]
-        per = 9
+        per = 6 if "#" in key else 9
         bank, _ = load_json(os.path.join(ROOT, "question-banks", "precalculus", unit + ".json"))
         sid = f"{unit}-skill-{sidx:02d}"
         if any(q["skillId"] == sid and re.search(r"-w\d{3}$", q["id"]) for q in bank["questions"]):
