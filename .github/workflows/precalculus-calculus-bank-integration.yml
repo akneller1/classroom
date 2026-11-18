@@ -15,6 +15,7 @@ on:
       - 'scripts/test-precalculus-*.cjs'
       - 'scripts/geo-planning.mjs'
       - 'tools/precalculus-audit-20261118/**'
+      - 'artifacts/interactive-math/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   pull_request:
     paths:
@@ -27,6 +28,7 @@ on:
       - 'scripts/test-precalculus-*.cjs'
       - 'scripts/geo-planning.mjs'
       - 'tools/precalculus-audit-20261118/**'
+      - 'artifacts/interactive-math/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   workflow_dispatch:
 jobs:
@@ -78,3 +80,6 @@ jobs:
         run: |
           python -m pip install --quiet numpy
           python3 tools/precalculus-audit-20261118/checker/pc_verify.py --min 2000
+      - name: Precalculus audit items 12-20 (levels, select-all, notation, rounding, option order, labs)
+        if: matrix.course == 'precalculus'
+        run: node scripts/test-precalculus-audit-next10.cjs

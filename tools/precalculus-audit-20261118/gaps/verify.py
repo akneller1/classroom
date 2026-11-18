@@ -287,7 +287,7 @@ def expect_context(c):
         return approx_is(c["D"] * math.sin(B) / math.sin(math.pi - A - B), 0)
     if k == "ctx_dish":
         w, d = c["w"], float(Fraction(c["d"]))
-        return exact_is((w / 2) ** 2 / (4 * d), "inches")
+        return exact_is((w / 2) ** 2 / (4 * d), "inch") if (w / 2) ** 2 / (4 * d) == 1 else exact_is((w / 2) ** 2 / (4 * d), "inches")
     if k == "ctx_cable":
         D, h0, H, x = c["D"], c["h0"], c["H"], c["x"]
         return exact_is(h0 + (H - h0) * x * x / (D * D), "m")
@@ -557,6 +557,100 @@ def expect_variety(c):
     if k == "mt_dilate":
         kk = float(Fraction(c["kk"]))
         return matrix_is([[kk * v for v in row] for row in c["V"]])
+    if k.startswith("adv_"):
+        return expect_advanced(c)
+    return expect_selectall(c)
+
+
+def expect_advanced(c):
+    k = c["k"]
+    if k == "adv_lp_area":
+        (a1, b1, c1), (a2, b2, c2) = c["l1"], c["l2"]
+        # area of {x, y ≥ 0, both constraints} by a fine grid of trapezoids in x
+        def top(x):
+            return max(0.0, min((c1 - a1 * x) / b1, (c2 - a2 * x) / b2))
+        xs = min(c1 / a1, c2 / a2)
+        n = 20000
+        area = sum((top(xs * i / n) + top(xs * (i + 1) / n)) / 2 * xs / n for i in range(n))
+        return lambda t: abs(ev(t).real - area) < 1e-3
+    if k == "adv_amb_range":
+        h = c["b"] * math.sin(math.radians(c["A"]))
+        def ok(t):
+            m = re.fullmatch(r"(.+) < a < (\d+)", t)
+            return bool(m) and abs(ev(m.group(1)).real - h) < 1e-9 and int(m.group(2)) == c["b"]
+        return ok
+    if k == "adv_heron_consec":
+        x = (c["P"] - 3) / 3
+        a, b, cc = x, x + 1, x + 2
+        s_ = (a + b + cc) / 2
+        return approx_is(math.sqrt(s_ * (s_ - a) * (s_ - b) * (s_ - cc)), 1)
+    if k == "adv_norm_between":
+        # empirical-rule areas between whole standard deviations, from 68-95-99.7
+        band = {0: 34, 1: 13.5, 2: 2.35}
+        lo, hi = c["k1"], c["k2"]
+        p = sum(band[abs(z) if z >= 0 else abs(z) - 1] for z in range(lo, hi))
+        return lambda t: t.endswith("%") and abs(float(t[:-1]) - p) < 1e-9
+    if k == "adv_two_angles":
+        d, a, b = c["d"], math.radians(c["a"]), math.radians(c["b"])
+        # solve h = x tan b = (x + d) tan a
+        x = d * math.tan(a) / (math.tan(b) - math.tan(a))
+        return approx_is(x * math.tan(b), 0)
+    raise KeyError(k)
+
+
+def expect_selectall(c):
+    """Predicate: is this select-all choice a correct one?"""
+    k = c["k"]
+    if k == "sa_even":
+        def even(t):
+            f = t.split("=", 1)[1]
+            return all(abs(ev(f, x=x) - ev(f, x=-x)) < 1e-9 for x in (0.7, 1.3, 2.9))
+        return even
+    if k == "sa_coterminal":
+        return lambda t: (int(t.rstrip("°")) - c["d"]) % 360 == 0
+    if k == "sa_orthogonal":
+        a, b = c["v"]
+        return lambda t: (lambda u: a * u[0] + b * u[1] == 0)([int(x) for x in t.strip("⟨⟩").split(",")])
+    if k == "sa_invertible":
+        def inv(t):
+            (p_, q_), (r_, s_) = [[int(x) for x in row.split(",")] for row in t.strip("[]").split(";")]
+            return p_ * s_ - q_ * r_ != 0
+        return inv
+    if k == "sa_ellipse":
+        def ell(t):
+            def co(v):
+                m = re.search(r"(^|[+-] |-)(\d*)" + v, t)
+                if not m:
+                    return 0
+                sign = -1 if m.group(1).strip().startswith("-") else 1
+                return sign * (int(m.group(2)) if m.group(2) else 1)
+            A, C = co("x²"), co("y²")
+            return A * C > 0 and A != C
+        return ell
+    if k == "sa_ineq":
+        m, b, op = c["m"], c["b"], c["op"]
+        def ok(t):
+            x, y = (int(v) for v in t.strip("()").split(","))
+            rhs = m * x + b
+            return {"<": y < rhs, ">": y > rhs, "≤": y <= rhs, "≥": y >= rhs}[op]
+        return ok
+    if k == "sa_acute":
+        def acute(t):
+            a, b, cc = sorted(int(v) for v in t.split(","))
+            return a + b > cc and a * a + b * b > cc * cc
+        return acute
+    if k == "sa_mutex":
+        E = {"an even number": {2, 4, 6}, "an odd number": {1, 3, 5}, "a number greater than 4": {5, 6}, "a number less than 3": {1, 2}, "a 6": {6},
+             "a prime number": {2, 3, 5}, "a multiple of 3": {3, 6}, "a 1": {1}, "a number greater than 3": {4, 5, 6}}
+        def mx(t):
+            m = re.fullmatch(r"rolling (.+) and rolling (.+)", t)
+            return not (E[m.group(1)] & E[m.group(2)])
+        return mx
+    if k == "sa_geometric":
+        def geo(t):
+            terms = [Fraction(x.strip()) for x in t.rstrip(", …").split(",")]
+            return all(terms) and len({terms[i + 1] / terms[i] for i in range(len(terms) - 1)}) == 1
+        return geo
     raise KeyError(k)
 
 
@@ -581,6 +675,14 @@ def main():
             errors.append(f"{qid}: not in the banks")
             continue
         n += 1
+        if q["format"] == "select-all":
+            pred = expect(c)
+            for o in q["options"]:
+                if right(pred, o["text"]) != o["correct"]:
+                    errors.append(f"{qid}: choice {o['text']!r} is marked {o['correct']}")
+            if q["answer"] != [o["text"] for o in q["options"] if o["correct"]] or len(q["answer"]) < 2 or len(q["options"]) != 6:
+                errors.append(f"{qid}: answer list, at least 2 correct and 6 choices")
+            continue
         if q["format"] == "open-response":
             for i, (part, pc) in enumerate(zip(q["parts"], c["parts"])):
                 for s in pc.get("show", []):

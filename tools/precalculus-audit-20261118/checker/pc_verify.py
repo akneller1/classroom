@@ -357,7 +357,7 @@ def _(m, p):
 @fam(r'Evaluate f\((-?\d+)\) for f\(x\) = ([\d.]+)\(([\d.]+)\)ˣ\.')
 def _(m, p):
     v = float(m[2]) * float(m[3]) ** int(m[1])
-    return lambda a: close(N(a), v)
+    return lambda a: rclose(v, a) if '≈' in str(a) else close(N(a), v)
 
 
 @fam(r'\$([\d,]+) is invested at ([\d.]+)% interest compounded continuously\. Find the balance after (\d+) years')
