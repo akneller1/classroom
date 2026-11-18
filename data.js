@@ -4578,6 +4578,24 @@ window.LIBRARY = {
                 "Unit 4"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-polynomial-functions.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Polynomial Functions"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -4635,6 +4653,24 @@ window.LIBRARY = {
                 "Unit 5"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-radicals-rational-exponents.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Radicals & Rational Exponents"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -4942,6 +4978,24 @@ window.LIBRARY = {
                 "Unit 7"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-rational-functions.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Rational Functions"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -4999,6 +5053,24 @@ window.LIBRARY = {
                 "Unit 8"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-sequences-series.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Sequences & Series"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -5056,6 +5128,24 @@ window.LIBRARY = {
                 "Unit 9"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-conic-sections.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Conic Sections"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -5113,6 +5203,24 @@ window.LIBRARY = {
                 "Unit 10"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-trigonometric-functions.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Trigonometric Functions"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         },
@@ -5157,6 +5265,24 @@ window.LIBRARY = {
                 "Unit 11"
               ],
               "added": "2026-10-31"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=stations",
+              "thumb": "thumbs/stations-generator-algebra2-probability-statistics.svg",
+              "description": "Make station pages for this unit from the Algebra 2 question bank: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Probability & Statistics"
+              ],
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "added": "2026-11-17"
             }
           ]
         }
@@ -8308,7 +8434,7 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
 })(window);
 
 /* Reviewed graphing practice, available only where a plotted question bank exists. */
-(function(G){var units={"geometry":["foundations-geometry","transformations","quadrilaterals-polygons","circles"],"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["statistics-data-modeling", "exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:/^grade[1-5]$/.test(c.id)?'Build picture graphs, bar graphs and line plots; get feedback and worked solutions.':'Plot points, lines and curves on a coordinate grid; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
+(function(G){var units={"geometry":["foundations-geometry","transformations","quadrilaterals-polygons","circles"],"statistics":["exploring-data"],"grade1":["data"],"grade4":["data-line-plots-word-problems"],"grade5": ["data-line-plots-problem-solving","coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["graphs-measurement-data","understanding-fractions"], "algebra": ["statistics-data-modeling", "exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["graphs-data","length-number-line"], "precalculus":["functions","trigonometric-functions"],"algebra2": ["polynomial-functions","exponential-logarithmic-functions","rational-functions","trigonometric-functions","functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents", "linear-functions-systems", "conic-sections", "sequences-series", "probability-statistics"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:/^grade[1-5]$/.test(c.id)?'Build picture graphs, bar graphs and line plots; get feedback and worked solutions.':'Plot points, lines and curves on a coordinate grid; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
 
 (function(G){var c=G.LIBRARY.courses.find(c=>c.id==="algebra"),u=c.units.find(u=>u.id==="relations-functions");u.artifacts.push({title:"Function Families Teaching Notes and Card Sort",type:"Teacher Guide",path:"artifacts/content-algebra1-teaching-notes/index.html",level:["CP2","CP1","Honors"],added:"2026-11-15"});})(window);
 
