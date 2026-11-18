@@ -11,9 +11,11 @@ on:
       - 'resource-details.js'
       - 'artifacts/discrete-*/**'
       - 'scripts/test-discrete-bank.cjs'
+      - 'scripts/test-discrete-audit.cjs'
       - 'scripts/test-hs-bank-integration.cjs'
       - 'scripts/cheat-sheets/content/discrete-*.cjs'
       - 'tools/discrete-math/**'
+      - 'tools/discrete-audit-20261118/**'
       - 'tools/interactive-math-discrete/**'
       - '.github/workflows/discrete-math.yml'
   workflow_dispatch:
@@ -33,6 +35,8 @@ jobs:
         run: npm install --no-save playwright@1.58.2 && npx playwright install --with-deps chromium
       - name: Validate banks, coverage, structure and independently recomputed answers
         run: node scripts/test-discrete-bank.cjs
+      - name: Discrete Math audit fixes (2026-11-18) and independent recomputation
+        run: node scripts/test-discrete-audit.cjs
       - name: Exercise Discrete Math generators, games, vocabulary and lesson plans
         run: node scripts/test-hs-bank-integration.cjs
         env:

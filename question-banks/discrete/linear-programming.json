@@ -21,12 +21,12 @@
      "correct": false
     },
     {
-     "text": "x ≤ 60 and y ≤ 60 only",
-     "correct": false
-    },
-    {
      "text": "x + y ≤ 60",
      "correct": true
+    },
+    {
+     "text": "x ≤ 60 and y ≤ 60 only",
+     "correct": false
     },
     {
      "text": "x + y ≥ 60",
@@ -51,16 +51,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "8x + 5y ≥ 400",
-     "correct": true
-    },
-    {
      "text": "8x + 5y ≤ 400",
      "correct": false
     },
     {
      "text": "x + y ≥ 400",
      "correct": false
+    },
+    {
+     "text": "8x + 5y ≥ 400",
+     "correct": true
     },
     {
      "text": "5x + 8y ≥ 400",
@@ -85,10 +85,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3x + y ≤ 48",
-     "correct": true
-    },
-    {
      "text": "x + 3y ≤ 48",
      "correct": false
     },
@@ -99,6 +95,10 @@
     {
      "text": "3x ≤ 48 and y ≤ 48",
      "correct": false
+    },
+    {
+     "text": "3x + y ≤ 48",
+     "correct": true
     }
    ],
    "standards": [
@@ -157,16 +157,16 @@
      "correct": false
     },
     {
-     "text": "y ≥ 4x",
-     "correct": true
-    },
-    {
      "text": "y + 4 ≥ x",
      "correct": false
     },
     {
      "text": "x ≥ 4y",
      "correct": false
+    },
+    {
+     "text": "y ≥ 4x",
+     "correct": true
     }
    ],
    "standards": [
@@ -187,12 +187,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "0.3x ≤ x + y",
-     "correct": false
-    },
-    {
      "text": "x ≤ 0.3(x + y)",
      "correct": true
+    },
+    {
+     "text": "0.3x ≤ x + y",
+     "correct": false
     },
     {
      "text": "x ≤ 0.3y",
@@ -540,12 +540,12 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "No",
+     "correct": false
     }
    ],
    "standards": [
@@ -570,16 +570,16 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
     },
     {
      "text": "Only if it is a vertex",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -601,12 +601,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "No",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "Only if it lies on a boundary line",
@@ -636,16 +636,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only if it lies on a boundary line",
      "correct": false
     },
     {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if it is a vertex",
@@ -672,16 +672,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only if it is a vertex",
      "correct": false
     },
     {
      "text": "Only if it lies on a boundary line",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "No",
@@ -779,12 +779,12 @@
      "correct": false
     },
     {
-     "text": "Below the line, with a solid boundary",
-     "correct": false
-    },
-    {
      "text": "Above the line, with a dashed boundary",
      "correct": true
+    },
+    {
+     "text": "Below the line, with a solid boundary",
+     "correct": false
     },
     {
      "text": "Above the line, with a solid boundary",
@@ -817,12 +817,12 @@
      "correct": false
     },
     {
-     "text": "Above the line (away from the origin), with a solid boundary",
-     "correct": true
-    },
-    {
      "text": "Below the line, with a dashed boundary",
      "correct": false
+    },
+    {
+     "text": "Above the line (away from the origin), with a solid boundary",
+     "correct": true
     }
    ],
    "standards": [
@@ -843,6 +843,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: shade_side). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Above the line y = x/2 − 2 (containing the origin), with a dashed boundary",
+     "correct": true
+    },
+    {
      "text": "Below the line, with a dashed boundary",
      "correct": false
     },
@@ -853,10 +857,6 @@
     {
      "text": "Below the line, with a solid boundary",
      "correct": false
-    },
-    {
-     "text": "Above the line y = x/2 − 2 (containing the origin), with a dashed boundary",
-     "correct": true
     }
    ],
    "standards": [
@@ -1281,12 +1281,12 @@
      "correct": false
     },
     {
-     "text": "A single point",
-     "correct": false
-    },
-    {
      "text": "Bounded",
      "correct": true
+    },
+    {
+     "text": "A single point",
+     "correct": false
     }
    ],
    "standards": [
@@ -1341,12 +1341,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: region_type). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Empty (infeasible)",
-     "correct": true
-    },
-    {
      "text": "A single point",
      "correct": false
+    },
+    {
+     "text": "Empty (infeasible)",
+     "correct": true
     },
     {
      "text": "Bounded",
@@ -1413,12 +1413,12 @@
      "correct": false
     },
     {
-     "text": "A single point",
-     "correct": false
-    },
-    {
      "text": "Bounded",
      "correct": true
+    },
+    {
+     "text": "A single point",
+     "correct": false
     },
     {
      "text": "Empty (infeasible)",
@@ -1678,12 +1678,12 @@
      "correct": false
     },
     {
-     "text": "P = 5x + 3y",
-     "correct": true
-    },
-    {
      "text": "P = 5x − 3y",
      "correct": false
+    },
+    {
+     "text": "P = 5x + 3y",
+     "correct": true
     },
     {
      "text": "P = 3x + 5y",
@@ -1746,16 +1746,16 @@
      "correct": false
     },
     {
-     "text": "Maximize P = 50x + 25y",
-     "correct": true
-    },
-    {
      "text": "Maximize P = 190x + 65y",
      "correct": false
     },
     {
      "text": "Maximize P = 120x + 45y",
      "correct": false
+    },
+    {
+     "text": "Maximize P = 50x + 25y",
+     "correct": true
     }
    ],
    "standards": [
@@ -1906,16 +1906,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: level_line). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "The line 3x + 5y = 30",
+     "correct": true
+    },
+    {
      "text": "The region above the line 3x + 5y = 30",
      "correct": false
     },
     {
      "text": "Only the point (0, 0)",
      "correct": false
-    },
-    {
-     "text": "The line 3x + 5y = 30",
-     "correct": true
     },
     {
      "text": "Only the corner points",
@@ -2271,16 +2271,16 @@
      "correct": false
     },
     {
+     "text": "At a corner point (vertex) of the region",
+     "correct": true
+    },
+    {
      "text": "At the center of the region",
      "correct": false
     },
     {
      "text": "On the x‑axis",
      "correct": false
-    },
-    {
-     "text": "At a corner point (vertex) of the region",
-     "correct": true
     }
    ],
    "standards": [
@@ -2717,16 +2717,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: special_case). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Infinitely many optimal points (the maximum is attained along an edge)",
+     "correct": true
+    },
+    {
      "text": "No maximum: the objective is unbounded on the region",
      "correct": false
     },
     {
      "text": "A unique optimal corner point",
      "correct": false
-    },
-    {
-     "text": "Infinitely many optimal points (the maximum is attained along an edge)",
-     "correct": true
     },
     {
      "text": "No solution: the feasible region is empty",
@@ -2819,12 +2819,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: special_case). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No maximum: the objective is unbounded on the region",
-     "correct": true
-    },
-    {
      "text": "No solution: the feasible region is empty",
      "correct": false
+    },
+    {
+     "text": "No maximum: the objective is unbounded on the region",
+     "correct": true
     },
     {
      "text": "A unique optimal corner point",
@@ -3086,16 +3086,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Make 20 of the first item and 15 of the second for a maximum profit of $90",
+     "correct": true
+    },
+    {
      "text": "Make 90 items in total",
      "correct": false
     },
     {
      "text": "The profit is $20 per item",
      "correct": false
-    },
-    {
-     "text": "Make 20 of the first item and 15 of the second for a maximum profit of $90",
-     "correct": true
     },
     {
      "text": "Make 15 of the first item and 20 of the second",
@@ -3121,16 +3121,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Check nearby feasible integer points such as (12, 30) and compare their objective values",
+     "correct": true
+    },
+    {
      "text": "Report 12.5 items",
      "correct": false
     },
     {
      "text": "Round both values up to (13, 30) without checking",
      "correct": false
-    },
-    {
-     "text": "Check nearby feasible integer points such as (12, 30) and compare their objective values",
-     "correct": true
     },
     {
      "text": "Choose (0, 0)",
@@ -3160,12 +3160,12 @@
      "correct": false
     },
     {
-     "text": "The solution is infeasible",
-     "correct": false
-    },
-    {
      "text": "There are 10 unused labor hours (slack)",
      "correct": true
+    },
+    {
+     "text": "The solution is infeasible",
+     "correct": false
     },
     {
      "text": "Labor should be increased by 110",
@@ -3230,12 +3230,12 @@
      "correct": false
     },
     {
-     "text": "Use no food at all",
-     "correct": false
-    },
-    {
      "text": "Use only the second food, 6 units, to meet every requirement at least cost",
      "correct": true
+    },
+    {
+     "text": "Use no food at all",
+     "correct": false
     },
     {
      "text": "Use 6 units of each food",
@@ -3256,18 +3256,17 @@
    "answer": "10",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 20) → 60, (10, 10) → 70, (15, 0) → 60.",
-    "Optimum (10, 10) with value 70; answer 10.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Optimum (10, 10) with value 70; answer 10."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "10",
-     "correct": true
-    },
-    {
      "text": "11",
      "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
     },
     {
      "text": "20",
@@ -3288,19 +3287,15 @@
    "skillId": "linear-programming-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Same problem: what is the maximum profit (dollars)?",
+   "prompt": "A student makes bracelets (x, $4 profit each) and keychains (y, $3 profit each) with constraints x + y ≤ 20, 2x + y ≤ 30, x ≥ 0, y ≥ 0. What is the maximum profit (dollars)?",
    "answer": "70",
    "solutionSteps": [
-    "Corners and values: (0, 0) → 0, (0, 20) → 60, (10, 10) → 70, (15, 0) → 60.",
-    "Optimum (10, 10) with value 70; answer 70.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Corners: (0, 0), (0, 20), (15, 0) and the intersection of x + y = 20 with 2x + y = 30: subtract to get x = 10, y = 10.",
+    "Profit P = 4x + 3y at each corner: (0, 0) → 0, (0, 20) → 60, (10, 10) → 70, (15, 0) → 60.",
+    "The largest value is 70 at (10, 10): 10 bracelets and 10 keychains earn $70."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "70",
-     "correct": true
-    },
     {
      "text": "140",
      "correct": false
@@ -3308,6 +3303,10 @@
     {
      "text": "69",
      "correct": false
+    },
+    {
+     "text": "70",
+     "correct": true
     },
     {
      "text": "71",
@@ -3328,8 +3327,7 @@
    "answer": "50",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 100) → 20000, (50, 50) → 25000, (75, 0) → 22500.",
-    "Optimum (50, 50) with value 25000; answer 50.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Optimum (50, 50) with value 25000; answer 50."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3360,12 +3358,12 @@
    "skillId": "linear-programming-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Same farm: by how much is the labor constraint 2x + y ≤ 150 slack at the optimum?",
+   "prompt": "A farm grows x acres of corn ($300 profit/acre) and y acres of soy ($200/acre) with x + y ≤ 100 (land) and 2x + y ≤ 150 (labor), x ≥ 0, y ≥ 0. By how much is the labor constraint 2x + y ≤ 150 slack at the optimum?",
    "answer": "0",
    "solutionSteps": [
-    "Corners and values: (0, 0) → 0, (0, 100) → 20000, (50, 50) → 25000, (75, 0) → 22500.",
-    "Optimum (50, 50) with value 25000; answer 0.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Corners: (0, 0), (0, 100), (75, 0) and x + y = 100 ∩ 2x + y = 150, which gives x = 50, y = 50.",
+    "P = 300x + 200y: (0, 0) → 0, (0, 100) → 20000, (50, 50) → 25000, (75, 0) → 22500, so the optimum is (50, 50).",
+    "Labor used: 2·50 + 50 = 150 of 150, so the slack is 150 − 150 = 0 (the constraint is binding)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3374,12 +3372,12 @@
      "correct": false
     },
     {
-     "text": "0",
-     "correct": true
-    },
-    {
      "text": "2",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     },
     {
      "text": "1",
@@ -3400,8 +3398,7 @@
    "answer": "84",
    "solutionSteps": [
     "Corners and values: (0, 12) → 96, (4, 8) → 84, (20, 0) → 100.",
-    "Optimum (4, 8) with value 84; answer 84.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Optimum (4, 8) with value 84; answer 84."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3410,16 +3407,16 @@
      "correct": false
     },
     {
-     "text": "84",
-     "correct": true
-    },
-    {
      "text": "168",
      "correct": false
     },
     {
      "text": "83",
      "correct": false
+    },
+    {
+     "text": "84",
+     "correct": true
     }
    ],
    "standards": [
@@ -3432,35 +3429,38 @@
    "skillId": "linear-programming-skill-07",
    "level": "cp1",
    "format": "select-all",
-   "prompt": "At the optimal point (10, 20) of a problem with constraints x + y ≤ 30, x ≤ 15, 2x + y ≤ 50, which constraints are binding (used exactly)? Select ALL that apply.",
+   "prompt": "At the optimal point (10, 20) of a problem with constraints x + y ≤ 30, x ≤ 15, 2x + y ≤ 50, which statements are true? Select ALL that apply.",
    "answer": [
-    "2x + y uses 40 of 50 (slack 10)",
-    "x + y ≤ 30",
-    "x uses 10 of 15 (slack 5)"
+    "x + y ≤ 30 is binding (it uses 30 of 30)",
+    "2x + y ≤ 50 has slack 10 (it uses 40 of 50)",
+    "x ≤ 15 has slack 5 (it uses 10 of 15)"
    ],
    "solutionSteps": [
-    "10 + 20 = 30 (binding); 10 < 15; 2·10 + 20 = 40 < 50."
+    "Substitute (10, 20) into each constraint.",
+    "x + y = 30: equal to its limit, so it is binding (slack 0).",
+    "2x + y = 40: 10 below its limit of 50, so its slack is 10.",
+    "x = 10: 5 below its limit of 15, so its slack is 5."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: binding_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2x + y ≤ 50",
-     "correct": false
-    },
-    {
-     "text": "x ≤ 15",
-     "correct": false
-    },
-    {
-     "text": "2x + y uses 40 of 50 (slack 10)",
+     "text": "x + y ≤ 30 is binding (it uses 30 of 30)",
      "correct": true
     },
     {
-     "text": "x + y ≤ 30",
+     "text": "2x + y ≤ 50 is binding",
+     "correct": false
+    },
+    {
+     "text": "x ≤ 15 is binding",
+     "correct": false
+    },
+    {
+     "text": "2x + y ≤ 50 has slack 10 (it uses 40 of 50)",
      "correct": true
     },
     {
-     "text": "x uses 10 of 15 (slack 5)",
+     "text": "x ≤ 15 has slack 5 (it uses 10 of 15)",
      "correct": true
     }
    ],
@@ -3669,29 +3669,29 @@
    "skillId": "linear-programming-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A business makes x units of product A and y units of product B. A needs 2 hours of machine time and B needs 1 hours; at most 10 machine hours are available. Which constraint models this?",
-   "answer": "2x + 1y ≤ 10",
+   "prompt": "A business makes x units of product A and y units of product B. A needs 2 hours of machine time and B needs 1 hour; at most 10 machine hours are available. Which constraint models this?",
+   "answer": "2x + y ≤ 10",
    "solutionSteps": [
     "Hours per unit times units, at most the hours available.",
-    "2x + 1y ≤ 10"
+    "2x + y ≤ 10"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1x + 2y ≤ 10",
+     "text": "x + 2y ≤ 10",
      "correct": false
     },
     {
-     "text": "2x + 1y ≥ 10",
+     "text": "2x + y ≥ 10",
      "correct": false
-    },
-    {
-     "text": "2x + 1y ≤ 10",
-     "correct": true
     },
     {
      "text": "x + y ≤ 10",
      "correct": false
+    },
+    {
+     "text": "2x + y ≤ 10",
+     "correct": true
     }
    ],
    "standards": [
@@ -3712,12 +3712,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "4x + 3y ≤ 9",
-     "correct": false
-    },
-    {
      "text": "3x + 4y ≤ 9",
      "correct": true
+    },
+    {
+     "text": "4x + 3y ≤ 9",
+     "correct": false
     },
     {
      "text": "x + y ≤ 9",
@@ -3750,12 +3750,12 @@
      "correct": false
     },
     {
-     "text": "x + y ≤ 22",
-     "correct": false
-    },
-    {
      "text": "3x + 3y ≤ 22",
      "correct": true
+    },
+    {
+     "text": "x + y ≤ 22",
+     "correct": false
     },
     {
      "text": "3x + 3y ≥ 23",
@@ -3780,16 +3780,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "4x + 4y ≤ 15",
-     "correct": true
-    },
-    {
      "text": "4x + 4y ≥ 15",
      "correct": false
     },
     {
      "text": "4x + 4y ≥ 16",
      "correct": false
+    },
+    {
+     "text": "4x + 4y ≤ 15",
+     "correct": true
     },
     {
      "text": "x + y ≤ 15",
@@ -3818,12 +3818,12 @@
      "correct": false
     },
     {
-     "text": "x + y ≤ 12",
-     "correct": false
-    },
-    {
      "text": "2x + 3y ≤ 12",
      "correct": true
+    },
+    {
+     "text": "x + y ≤ 12",
+     "correct": false
     },
     {
      "text": "2x + 3y ≥ 12",
@@ -3852,12 +3852,12 @@
      "correct": false
     },
     {
-     "text": "3x + 3y ≤ 14",
-     "correct": true
-    },
-    {
      "text": "x + y ≤ 14",
      "correct": false
+    },
+    {
+     "text": "3x + 3y ≤ 14",
+     "correct": true
     },
     {
      "text": "3x + 3y ≥ 14",
@@ -3873,20 +3873,16 @@
    "skillId": "linear-programming-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A business makes x units of product A and y units of product B. A needs 4 hours of machine time and B needs 1 hours; at most 21 machine hours are available. Which constraint models this?",
-   "answer": "4x + 1y ≤ 21",
+   "prompt": "A business makes x units of product A and y units of product B. A needs 4 hours of machine time and B needs 1 hour; at most 21 machine hours are available. Which constraint models this?",
+   "answer": "4x + y ≤ 21",
    "solutionSteps": [
     "Hours per unit times units, at most the hours available.",
-    "4x + 1y ≤ 21"
+    "4x + y ≤ 21"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "4x + 1y ≤ 21",
-     "correct": true
-    },
-    {
-     "text": "4x + 1y ≥ 21",
+     "text": "4x + y ≥ 21",
      "correct": false
     },
     {
@@ -3894,8 +3890,12 @@
      "correct": false
     },
     {
-     "text": "1x + 4y ≤ 21",
+     "text": "x + 4y ≤ 21",
      "correct": false
+    },
+    {
+     "text": "4x + y ≤ 21",
+     "correct": true
     }
    ],
    "standards": [
@@ -3941,28 +3941,29 @@
    "skillId": "linear-programming-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hours of machine time and B needs 1 hours; at most 15 machine hours are available. Which constraint models this?",
-   "answer": "1x + 1y ≤ 15",
+   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hour of machine time and B needs 1 hour; at most 15 machine hours are available. Which constraint models this?",
+   "answer": "x + y ≤ 15",
    "solutionSteps": [
-    "Hours per unit times units, at most the hours available.",
-    "1x + 1y ≤ 15"
+    "Machine hours used = (hours per unit of A)·x + (hours per unit of B)·y = 1·x + 1·y.",
+    "Both products share the same 15 hours, so the total must be at most 15: x + y ≤ 15.",
+    "Separate limits (x ≤ 15 and y ≤ 15) would allow 15 + 15 = 30 hours."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1x + 1y ≤ 15",
-     "correct": true
-    },
-    {
-     "text": "1x + 1y ≥ 16",
-     "correct": false
-    },
-    {
-     "text": "1x + 1y ≥ 15",
+     "text": "x + y ≥ 16",
      "correct": false
     },
     {
      "text": "x + y ≤ 15",
+     "correct": true
+    },
+    {
+     "text": "x + y ≥ 15",
+     "correct": false
+    },
+    {
+     "text": "x ≤ 15 and y ≤ 15",
      "correct": false
     }
    ],
@@ -3975,11 +3976,11 @@
    "skillId": "linear-programming-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hours of machine time and B needs 3 hours; at most 9 machine hours are available. Which constraint models this?",
-   "answer": "1x + 3y ≤ 9",
+   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hour of machine time and B needs 3 hours; at most 9 machine hours are available. Which constraint models this?",
+   "answer": "x + 3y ≤ 9",
    "solutionSteps": [
     "Hours per unit times units, at most the hours available.",
-    "1x + 3y ≤ 9"
+    "x + 3y ≤ 9"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3988,15 +3989,15 @@
      "correct": false
     },
     {
-     "text": "1x + 3y ≥ 9",
+     "text": "x + 3y ≥ 9",
      "correct": false
     },
     {
-     "text": "1x + 3y ≤ 9",
+     "text": "x + 3y ≤ 9",
      "correct": true
     },
     {
-     "text": "3x + 1y ≤ 9",
+     "text": "3x + y ≤ 9",
      "correct": false
     }
    ],
@@ -4018,10 +4019,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "3x + 3y ≤ 13",
-     "correct": true
-    },
-    {
      "text": "x + y ≤ 13",
      "correct": false
     },
@@ -4032,6 +4029,10 @@
     {
      "text": "3x + 3y ≥ 14",
      "correct": false
+    },
+    {
+     "text": "3x + 3y ≤ 13",
+     "correct": true
     }
    ],
    "standards": [
@@ -4043,16 +4044,16 @@
    "skillId": "linear-programming-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hours of machine time and B needs 3 hours; at most 17 machine hours are available. Which constraint models this?",
-   "answer": "1x + 3y ≤ 17",
+   "prompt": "A business makes x units of product A and y units of product B. A needs 1 hour of machine time and B needs 3 hours; at most 17 machine hours are available. Which constraint models this?",
+   "answer": "x + 3y ≤ 17",
    "solutionSteps": [
     "Hours per unit times units, at most the hours available.",
-    "1x + 3y ≤ 17"
+    "x + 3y ≤ 17"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "1x + 3y ≤ 17",
+     "text": "x + 3y ≤ 17",
      "correct": true
     },
     {
@@ -4060,11 +4061,11 @@
      "correct": false
     },
     {
-     "text": "3x + 1y ≤ 17",
+     "text": "3x + y ≤ 17",
      "correct": false
     },
     {
-     "text": "1x + 3y ≥ 17",
+     "text": "x + 3y ≥ 17",
      "correct": false
     }
    ],
@@ -4089,12 +4090,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only if it is a vertex",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "No",
@@ -4118,10 +4119,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only if it lies on a boundary line",
      "correct": false
     },
@@ -4132,6 +4129,10 @@
     {
      "text": "Only if it is a vertex",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -4151,6 +4152,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "Only if it is a vertex",
      "correct": false
     },
@@ -4161,10 +4166,6 @@
     {
      "text": "No",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -4217,12 +4218,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     },
     {
      "text": "Only if it is a vertex",
@@ -4250,16 +4251,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "Yes",
-     "correct": true
-    },
-    {
      "text": "Only if it is a vertex",
      "correct": false
     },
     {
      "text": "No",
      "correct": false
+    },
+    {
+     "text": "Yes",
+     "correct": true
     },
     {
      "text": "Only if it lies on a boundary line",
@@ -4287,16 +4288,16 @@
      "correct": false
     },
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Only if it lies on a boundary line",
      "correct": false
     },
     {
      "text": "Only if it is a vertex",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -4320,12 +4321,12 @@
      "correct": false
     },
     {
-     "text": "Yes",
-     "correct": false
-    },
-    {
      "text": "No",
      "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
     },
     {
      "text": "Only if it lies on a boundary line",
@@ -4357,12 +4358,12 @@
      "correct": false
     },
     {
-     "text": "Only if it is a vertex",
-     "correct": false
-    },
-    {
      "text": "Yes",
      "correct": true
+    },
+    {
+     "text": "Only if it is a vertex",
+     "correct": false
     }
    ],
    "standards": [
@@ -4382,10 +4383,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "No",
-     "correct": true
-    },
-    {
      "text": "Yes",
      "correct": false
     },
@@ -4396,6 +4393,10 @@
     {
      "text": "Only if it lies on a boundary line",
      "correct": false
+    },
+    {
+     "text": "No",
+     "correct": true
     }
    ],
    "standards": [
@@ -4415,6 +4416,10 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: test_point). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "Yes",
+     "correct": true
+    },
+    {
      "text": "Only if it lies on a boundary line",
      "correct": false
     },
@@ -4425,10 +4430,6 @@
     {
      "text": "Only if it is a vertex",
      "correct": false
-    },
-    {
-     "text": "Yes",
-     "correct": true
     }
    ],
    "standards": [
@@ -4452,16 +4453,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -4481,12 +4482,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "3",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "4",
@@ -4551,12 +4552,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "5",
@@ -4584,12 +4585,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "5",
@@ -4621,12 +4622,12 @@
      "correct": false
     },
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     }
    ],
    "standards": [
@@ -4646,16 +4647,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
+     "text": "4",
+     "correct": true
+    },
+    {
      "text": "2",
      "correct": false
     },
     {
      "text": "3",
      "correct": false
-    },
-    {
-     "text": "4",
-     "correct": true
     },
     {
      "text": "5",
@@ -4683,12 +4684,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": false
-    },
-    {
      "text": "4",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
     },
     {
      "text": "5",
@@ -4716,12 +4717,12 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     },
     {
      "text": "5",
@@ -4749,16 +4750,16 @@
      "correct": false
     },
     {
-     "text": "3",
-     "correct": true
-    },
-    {
      "text": "4",
      "correct": false
     },
     {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
     }
    ],
    "standards": [
@@ -4778,12 +4779,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "2",
-     "correct": false
-    },
-    {
      "text": "3",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     },
     {
      "text": "4",
@@ -4849,16 +4850,16 @@
      "correct": false
     },
     {
-     "text": "96",
-     "correct": true
-    },
-    {
      "text": "97",
      "correct": false
     },
     {
      "text": "104",
      "correct": false
+    },
+    {
+     "text": "96",
+     "correct": true
     }
    ],
    "standards": [
@@ -4879,12 +4880,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "5",
-     "correct": false
-    },
-    {
      "text": "13/2",
      "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
     },
     {
      "text": "15/2",
@@ -4921,12 +4922,12 @@
      "correct": false
     },
     {
-     "text": "7",
-     "correct": false
-    },
-    {
      "text": "8",
      "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
     },
     {
      "text": "9",
@@ -4997,12 +4998,12 @@
      "correct": false
     },
     {
-     "text": "27/2",
-     "correct": true
-    },
-    {
      "text": "29/2",
      "correct": false
+    },
+    {
+     "text": "27/2",
+     "correct": true
     },
     {
      "text": "39/2",
@@ -5031,12 +5032,12 @@
      "correct": false
     },
     {
-     "text": "115/3",
-     "correct": true
-    },
-    {
      "text": "118/3",
      "correct": false
+    },
+    {
+     "text": "115/3",
+     "correct": true
     },
     {
      "text": "127/3",
@@ -5065,12 +5066,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "10",
-     "correct": true
-    },
-    {
      "text": "11",
      "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
     },
     {
      "text": "18",
@@ -5099,16 +5100,16 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "0",
-     "correct": true
-    },
-    {
      "text": "1",
      "correct": false
     },
     {
      "text": "7",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     },
     {
      "text": "16",
@@ -5133,10 +5134,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: evaluate_objective). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "0",
-     "correct": true
-    },
-    {
      "text": "1",
      "correct": false
     },
@@ -5147,6 +5144,10 @@
     {
      "text": "9",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     }
    ],
    "standards": [
@@ -5171,10 +5172,6 @@
      "correct": false
     },
     {
-     "text": "49/4",
-     "correct": true
-    },
-    {
      "text": "53/4",
      "correct": false
     },
@@ -5185,6 +5182,10 @@
     {
      "text": "77/4",
      "correct": false
+    },
+    {
+     "text": "49/4",
+     "correct": true
     }
    ],
    "standards": [
@@ -5209,12 +5210,12 @@
      "correct": false
     },
     {
-     "text": "49/2",
-     "correct": true
-    },
-    {
      "text": "51/2",
      "correct": false
+    },
+    {
+     "text": "49/2",
+     "correct": true
     },
     {
      "text": "63/2",
@@ -5243,16 +5244,16 @@
      "correct": false
     },
     {
-     "text": "19",
-     "correct": true
-    },
-    {
      "text": "20",
      "correct": false
     },
     {
      "text": "133",
      "correct": false
+    },
+    {
+     "text": "19",
+     "correct": true
     }
    ],
    "standards": [
@@ -5305,7 +5306,7 @@
    "prompt": "Find the corner point of 4x + y ≤ 22; 3x + 2y ≤ 23; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(21/5, 26/5)",
    "solutionSteps": [
-    "Solve 4x + 1y = 22 and 3x + 2y = 23 together.",
+    "Solve 4x + y = 22 and 3x + 2y = 23 together.",
     "(21/5, 26/5)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5321,7 +5322,7 @@
    "prompt": "Find the corner point of 3x + y ≤ 6; 2x + 4y ≤ 7; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(17/10, 9/10)",
    "solutionSteps": [
-    "Solve 3x + 1y = 6 and 2x + 4y = 7 together.",
+    "Solve 3x + y = 6 and 2x + 4y = 7 together.",
     "(17/10, 9/10)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5337,7 +5338,7 @@
    "prompt": "Find the corner point of 3x + y ≤ 13; 4x + 2y ≤ 21; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(5/2, 11/2)",
    "solutionSteps": [
-    "Solve 3x + 1y = 13 and 4x + 2y = 21 together.",
+    "Solve 3x + y = 13 and 4x + 2y = 21 together.",
     "(5/2, 11/2)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5353,7 +5354,7 @@
    "prompt": "Find the corner point of x + 3y ≤ 7; 4x + 3y ≤ 14; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(7/3, 14/9)",
    "solutionSteps": [
-    "Solve 1x + 3y = 7 and 4x + 3y = 14 together.",
+    "Solve x + 3y = 7 and 4x + 3y = 14 together.",
     "(7/3, 14/9)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5369,7 +5370,7 @@
    "prompt": "Find the corner point of x + 4y ≤ 23; 3x + 2y ≤ 23; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(23/5, 23/5)",
    "solutionSteps": [
-    "Solve 1x + 4y = 23 and 3x + 2y = 23 together.",
+    "Solve x + 4y = 23 and 3x + 2y = 23 together.",
     "(23/5, 23/5)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5385,7 +5386,7 @@
    "prompt": "Find the corner point of x + 2y ≤ 7; 3x + y ≤ 18; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(29/5, 3/5)",
    "solutionSteps": [
-    "Solve 1x + 2y = 7 and 3x + 1y = 18 together.",
+    "Solve x + 2y = 7 and 3x + y = 18 together.",
     "(29/5, 3/5)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5401,7 +5402,7 @@
    "prompt": "Find the corner point of 2x + 4y ≤ 15; 3x + y ≤ 8; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(17/10, 29/10)",
    "solutionSteps": [
-    "Solve 2x + 4y = 15 and 3x + 1y = 8 together.",
+    "Solve 2x + 4y = 15 and 3x + y = 8 together.",
     "(17/10, 29/10)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5433,7 +5434,7 @@
    "prompt": "Find the corner point of x + 2y ≤ 13; 3x + 2y ≤ 24; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(11/2, 15/4)",
    "solutionSteps": [
-    "Solve 1x + 2y = 13 and 3x + 2y = 24 together.",
+    "Solve x + 2y = 13 and 3x + 2y = 24 together.",
     "(11/2, 15/4)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5449,7 +5450,7 @@
    "prompt": "Find the corner point of 2x + 2y ≤ 10; x + 4y ≤ 14; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(2, 3)",
    "solutionSteps": [
-    "Solve 2x + 2y = 10 and 1x + 4y = 14 together.",
+    "Solve 2x + 2y = 10 and x + 4y = 14 together.",
     "(2, 3)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5465,7 +5466,7 @@
    "prompt": "Find the corner point of x + 3y ≤ 15; 2x + 2y ≤ 13; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(9/4, 17/4)",
    "solutionSteps": [
-    "Solve 1x + 3y = 15 and 2x + 2y = 13 together.",
+    "Solve x + 3y = 15 and 2x + 2y = 13 together.",
     "(9/4, 17/4)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5481,7 +5482,7 @@
    "prompt": "Find the corner point of 4x + y ≤ 21; x + 2y ≤ 9; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(33/7, 15/7)",
    "solutionSteps": [
-    "Solve 4x + 1y = 21 and 1x + 2y = 9 together.",
+    "Solve 4x + y = 21 and x + 2y = 9 together.",
     "(33/7, 15/7)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5529,7 +5530,7 @@
    "prompt": "Find the corner point of 4x + y ≤ 15; x + y ≤ 7; x ≥ 0; y ≥ 0 that is not on either axis. Answer as an ordered pair (fractions as a/b).",
    "answer": "(8/3, 13/3)",
    "solutionSteps": [
-    "Solve 4x + 1y = 15 and 1x + 1y = 7 together.",
+    "Solve 4x + y = 15 and x + y = 7 together.",
     "(8/3, 13/3)"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5546,11 +5547,14 @@
    "answer": "139/3",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 9/2) → 81/2, (14/3, 1) → 139/3, (16/3, 0) → 128/3.",
-    "Maximum 139/3 at (14/3, 1).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 139/3 at (14/3, 1)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
+    {
+     "text": "139/3",
+     "correct": true
+    },
     {
      "text": "278/3",
      "correct": false
@@ -5562,10 +5566,6 @@
     {
      "text": "140/3",
      "correct": false
-    },
-    {
-     "text": "139/3",
-     "correct": true
     }
    ],
    "standards": [
@@ -5581,8 +5581,7 @@
    "answer": "24",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 3) → 24, (48/11, 21/11) → 216/11, (5, 0) → 5.",
-    "Maximum 24 at (0, 3).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 24 at (0, 3)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5591,16 +5590,16 @@
      "correct": false
     },
     {
+     "text": "24",
+     "correct": true
+    },
+    {
      "text": "48",
      "correct": false
     },
     {
      "text": "23",
      "correct": false
-    },
-    {
-     "text": "24",
-     "correct": true
     }
    ],
    "standards": [
@@ -5616,15 +5615,10 @@
    "answer": "12",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 2) → 12, (3/2, 0) → 9.",
-    "Maximum 12 at (0, 2).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 12 at (0, 2)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "12",
-     "correct": true
-    },
     {
      "text": "24",
      "correct": false
@@ -5632,6 +5626,10 @@
     {
      "text": "11",
      "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
     },
     {
      "text": "13",
@@ -5651,8 +5649,7 @@
    "answer": "154/3",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 9/2) → 9, (17/3, 5/3) → 43, (22/3, 0) → 154/3.",
-    "Maximum 154/3 at (22/3, 0).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 154/3 at (22/3, 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5661,16 +5658,16 @@
      "correct": false
     },
     {
-     "text": "154/3",
-     "correct": true
-    },
-    {
      "text": "155/3",
      "correct": false
     },
     {
      "text": "77/2",
      "correct": false
+    },
+    {
+     "text": "154/3",
+     "correct": true
     }
    ],
    "standards": [
@@ -5702,8 +5699,7 @@
    "answer": "104/3",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 13/4) → 117/4, (13/3, 0) → 104/3.",
-    "Maximum 104/3 at (13/3, 0).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 104/3 at (13/3, 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5712,12 +5708,12 @@
      "correct": false
     },
     {
-     "text": "104/3",
-     "correct": true
-    },
-    {
      "text": "208/3",
      "correct": false
+    },
+    {
+     "text": "104/3",
+     "correct": true
     },
     {
      "text": "26",
@@ -5737,15 +5733,10 @@
    "answer": "54",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 6) → 36, (9, 0) → 54.",
-    "Maximum 54 at (9, 0).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 54 at (9, 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "54",
-     "correct": true
-    },
     {
      "text": "108",
      "correct": false
@@ -5757,6 +5748,10 @@
     {
      "text": "55",
      "correct": false
+    },
+    {
+     "text": "54",
+     "correct": true
     }
    ],
    "standards": [
@@ -5804,8 +5799,7 @@
    "answer": "14",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 7/4) → 7/4, (7/3, 0) → 14.",
-    "Maximum 14 at (7/3, 0).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 14 at (7/3, 0)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5839,8 +5833,7 @@
    "answer": "30",
    "solutionSteps": [
     "Corners and values: (0, 0) → 0, (0, 6) → 30, (2, 0) → 2.",
-    "Maximum 30 at (0, 6).",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Maximum 30 at (0, 6)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: optimize). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5906,8 +5899,7 @@
    "answer": "1",
    "solutionSteps": [
     "Optimal point (20, 0).",
-    "Slack = 21 − (1·20 + 1·0) = 1.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Slack = 21 − (1·20 + 1·0) = 1."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5942,15 +5934,10 @@
    "answer": "0",
    "solutionSteps": [
     "Optimal point (0, 4).",
-    "Slack = 12 − (3·0 + 3·4) = 0.",
-    "The other choices are near misses (an off-by-one count, one changed element or one moved seat)."
+    "Slack = 12 − (3·0 + 3·4) = 0."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
-    {
-     "text": "0",
-     "correct": true
-    },
     {
      "text": "2",
      "correct": false
@@ -5962,6 +5949,10 @@
     {
      "text": "-1",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     }
    ],
    "standards": [
@@ -6194,12 +6185,12 @@
      "correct": false
     },
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     }
    ],
    "standards": [
@@ -6228,12 +6219,12 @@
      "correct": false
     },
     {
-     "text": "(9, 0)",
-     "correct": false
-    },
-    {
      "text": "(3, 6)",
      "correct": true
+    },
+    {
+     "text": "(9, 0)",
+     "correct": false
     }
    ],
    "standards": [
@@ -6262,12 +6253,12 @@
      "correct": false
     },
     {
-     "text": "(5, 7)",
-     "correct": true
-    },
-    {
      "text": "(7, 5)",
      "correct": false
+    },
+    {
+     "text": "(5, 7)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6288,12 +6279,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(7, 0)",
-     "correct": false
-    },
-    {
      "text": "(5, 4)",
      "correct": true
+    },
+    {
+     "text": "(7, 0)",
+     "correct": false
     },
     {
      "text": "(4, 5)",
@@ -6326,12 +6317,12 @@
      "correct": false
     },
     {
-     "text": "(4, 3)",
-     "correct": true
-    },
-    {
      "text": "(3, 4)",
      "correct": false
+    },
+    {
+     "text": "(4, 3)",
+     "correct": true
     },
     {
      "text": "(5, 0)",
@@ -6360,16 +6351,16 @@
      "correct": false
     },
     {
-     "text": "(4, 5)",
-     "correct": true
-    },
-    {
      "text": "(5, 4)",
      "correct": false
     },
     {
      "text": "(0, 11)",
      "correct": false
+    },
+    {
+     "text": "(4, 5)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6428,12 +6419,12 @@
      "correct": false
     },
     {
-     "text": "(6, 5)",
-     "correct": true
-    },
-    {
      "text": "(7, 4)",
      "correct": false
+    },
+    {
+     "text": "(6, 5)",
+     "correct": true
     },
     {
      "text": "(5, 6)",
@@ -6466,12 +6457,12 @@
      "correct": false
     },
     {
-     "text": "(4, 6)",
-     "correct": true
-    },
-    {
      "text": "(6, 4)",
      "correct": false
+    },
+    {
+     "text": "(4, 6)",
+     "correct": true
     }
    ],
    "standards": [
@@ -6492,12 +6483,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: intersect_lines). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "(11/2, 3)",
-     "correct": false
-    },
-    {
      "text": "(9/2, 4)",
      "correct": true
+    },
+    {
+     "text": "(11/2, 3)",
+     "correct": false
     },
     {
      "text": "(4, 9/2)",
@@ -6902,12 +6893,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "72",
-     "correct": false
-    },
-    {
      "text": "73",
      "correct": true
+    },
+    {
+     "text": "72",
+     "correct": false
     },
     {
      "text": "74",
@@ -7056,12 +7047,12 @@
      "correct": false
     },
     {
-     "text": "70",
-     "correct": true
-    },
-    {
      "text": "71",
      "correct": false
+    },
+    {
+     "text": "70",
+     "correct": true
     },
     {
      "text": "72",
@@ -7134,12 +7125,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "85",
-     "correct": false
-    },
-    {
      "text": "86",
      "correct": true
+    },
+    {
+     "text": "85",
+     "correct": false
     },
     {
      "text": "87",
@@ -7234,12 +7225,12 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
-     "text": "4",
-     "correct": false
-    },
-    {
      "text": "5",
      "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
     },
     {
      "text": "6",
@@ -7534,12 +7525,12 @@
      "correct": false
     },
     {
-     "text": "64",
-     "correct": true
-    },
-    {
      "text": "65",
      "correct": false
+    },
+    {
+     "text": "64",
+     "correct": true
     },
     {
      "text": "66",
@@ -7600,12 +7591,12 @@
      "correct": false
     },
     {
-     "text": "98",
-     "correct": true
-    },
-    {
      "text": "99",
      "correct": false
+    },
+    {
+     "text": "98",
+     "correct": true
     },
     {
      "text": "100",
