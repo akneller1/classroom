@@ -75,8 +75,9 @@
    "prompt": "Add: (-4x² + x + 9) + (4x² - 6x - 9).",
    "answer": "-5x",
    "solutionSteps": [
-    "Group like terms (same exponent).",
-    "Combine coefficients: -5x."
+    "Remove the parentheses and group like terms: (-4x² + 4x²) + (x - 6x) + (9 - 9).",
+    "x² terms: -4 + 4 = 0. x terms: 1 - 6 = -5. Constants: 9 - 9 = 0.",
+    "The sum is -5x."
    ],
    "standards": [
     "A-APR.A.1"
@@ -516,7 +517,9 @@
    "prompt": "If f has degree 4 and g has degree 3, what is the degree of f·g?",
    "answer": "7",
    "solutionSteps": [
-    "Leading terms multiply: x⁴·x³ = x⁷."
+    "The degree of a product comes from multiplying the leading terms.",
+    "A degree-4 leading term times a degree-3 leading term is a multiple of x⁴·x³ = x⁷ (and it cannot cancel).",
+    "So deg(f·g) = 4 + 3 = 7."
    ],
    "options": [
     {
@@ -549,8 +552,9 @@
    "prompt": "Find the area of a rectangle with length 2x + 5 and width x - 3 as a polynomial.",
    "answer": "2x² - x - 15",
    "solutionSteps": [
-    "A = (2x + 5)(x - 3).",
-    "= 2x² - 6x + 5x - 15 = 2x² - x - 15."
+    "Area = length × width = (2x + 5)(x - 3).",
+    "Distribute: 2x·x + 2x(-3) + 5·x + 5(-3) = 2x² - 6x + 5x - 15.",
+    "Combine like terms: 2x² - x - 15."
    ],
    "standards": [
     "A-APR.A.1"
@@ -565,8 +569,9 @@
    "prompt": "Find k so that (x² + kx + 3)(x - 2) has no x² term.",
    "answer": "k = 2",
    "solutionSteps": [
-    "x² coefficient: -2 + k.",
-    "-2 + k = 0 → k = 2."
+    "The x² term of (x² + kx + 3)(x - 2) comes from x²·(-2) and kx·x.",
+    "So the x² coefficient is -2 + k.",
+    "No x² term means -2 + k = 0, so k = 2."
    ],
    "standards": [
     "A-APR.A.1"
@@ -719,8 +724,9 @@
    "prompt": "Factor the sum of cubes x³ + 27.",
    "answer": "(x + 3)(x² - 3x + 9)",
    "solutionSteps": [
-    "a³ + b³ = (a + b)(a² - ab + b²).",
-    "Here a = x, b = 3."
+    "x³ + 27 = x³ + 3³ is a sum of cubes with a = x and b = 3.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²).",
+    "x³ + 27 = (x + 3)(x² - 3x + 9)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -736,8 +742,9 @@
    "prompt": "Factor the difference of cubes x³ - 27.",
    "answer": "(x - 3)(x² + 3x + 9)",
    "solutionSteps": [
-    "a³ - b³ = (a - b)(a² + ab + b²).",
-    "Here a = x, b = 3."
+    "x³ - 27 = x³ - 3³ is a difference of cubes with a = x and b = 3.",
+    "Use a³ - b³ = (a - b)(a² + ab + b²).",
+    "x³ - 27 = (x - 3)(x² + 3x + 9)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -753,8 +760,9 @@
    "prompt": "Factor the sum of cubes 8x³ + 1.",
    "answer": "(2x + 1)(4x² - 2x + 1)",
    "solutionSteps": [
-    "a³ + b³ = (a + b)(a² - ab + b²).",
-    "Here a = 2x, b = 1."
+    "8x³ + 1 = (2x)³ + 1³ is a sum of cubes with a = 2x and b = 1.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²): a² = 4x², ab = 2x, b² = 1.",
+    "8x³ + 1 = (2x + 1)(4x² - 2x + 1)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -770,8 +778,9 @@
    "prompt": "Factor the difference of cubes 8x³ - 1.",
    "answer": "(2x - 1)(4x² + 2x + 1)",
    "solutionSteps": [
-    "a³ - b³ = (a - b)(a² + ab + b²).",
-    "Here a = 2x, b = 1."
+    "8x³ - 1 = (2x)³ - 1³ is a difference of cubes with a = 2x and b = 1.",
+    "Use a³ - b³ = (a - b)(a² + ab + b²): a² = 4x², ab = 2x, b² = 1.",
+    "8x³ - 1 = (2x - 1)(4x² + 2x + 1)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -787,8 +796,9 @@
    "prompt": "Factor the sum of cubes x³ + 125.",
    "answer": "(x + 5)(x² - 5x + 25)",
    "solutionSteps": [
-    "a³ + b³ = (a + b)(a² - ab + b²).",
-    "Here a = x, b = 5."
+    "x³ + 125 = x³ + 5³ is a sum of cubes with a = x and b = 5.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²): ab = 5x, b² = 25.",
+    "x³ + 125 = (x + 5)(x² - 5x + 25)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -804,8 +814,9 @@
    "prompt": "Factor the difference of cubes x³ - 125.",
    "answer": "(x - 5)(x² + 5x + 25)",
    "solutionSteps": [
-    "a³ - b³ = (a - b)(a² + ab + b²).",
-    "Here a = x, b = 5."
+    "x³ - 125 = x³ - 5³ is a difference of cubes with a = x and b = 5.",
+    "Use a³ - b³ = (a - b)(a² + ab + b²): ab = 5x, b² = 25.",
+    "x³ - 125 = (x - 5)(x² + 5x + 25)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -821,8 +832,9 @@
    "prompt": "Factor the sum of cubes 27x³ + 8.",
    "answer": "(3x + 2)(9x² - 6x + 4)",
    "solutionSteps": [
-    "a³ + b³ = (a + b)(a² - ab + b²).",
-    "Here a = 3x, b = 2."
+    "27x³ + 8 = (3x)³ + 2³ is a sum of cubes with a = 3x and b = 2.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²): a² = 9x², ab = 6x, b² = 4.",
+    "27x³ + 8 = (3x + 2)(9x² - 6x + 4)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -838,8 +850,9 @@
    "prompt": "Factor the difference of cubes 27x³ - 8.",
    "answer": "(3x - 2)(9x² + 6x + 4)",
    "solutionSteps": [
-    "a³ - b³ = (a - b)(a² + ab + b²).",
-    "Here a = 3x, b = 2."
+    "27x³ - 8 = (3x)³ - 2³ is a difference of cubes with a = 3x and b = 2.",
+    "Use a³ - b³ = (a - b)(a² + ab + b²): a² = 9x², ab = 6x, b² = 4.",
+    "27x³ - 8 = (3x - 2)(9x² + 6x + 4)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -855,8 +868,9 @@
    "prompt": "Factor the sum of cubes 64x³ + 1.",
    "answer": "(4x + 1)(16x² - 4x + 1)",
    "solutionSteps": [
-    "a³ + b³ = (a + b)(a² - ab + b²).",
-    "Here a = 4x, b = 1."
+    "64x³ + 1 = (4x)³ + 1³ is a sum of cubes with a = 4x and b = 1.",
+    "Use a³ + b³ = (a + b)(a² - ab + b²): a² = 16x², ab = 4x, b² = 1.",
+    "64x³ + 1 = (4x + 1)(16x² - 4x + 1)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -872,8 +886,9 @@
    "prompt": "Factor the difference of cubes 64x³ - 1.",
    "answer": "(4x - 1)(16x² + 4x + 1)",
    "solutionSteps": [
-    "a³ - b³ = (a - b)(a² + ab + b²).",
-    "Here a = 4x, b = 1."
+    "64x³ - 1 = (4x)³ - 1³ is a difference of cubes with a = 4x and b = 1.",
+    "Use a³ - b³ = (a - b)(a² + ab + b²): a² = 16x², ab = 4x, b² = 1.",
+    "64x³ - 1 = (4x - 1)(16x² + 4x + 1)."
    ],
    "standards": [
     "A-SSE.A.2",
@@ -1771,7 +1786,9 @@
    "prompt": "To divide x³ - 5x + 2 by x - 3 with synthetic division, which row of coefficients should you use?",
    "answer": "1, 0, -5, 2",
    "solutionSteps": [
-    "Include a 0 placeholder for the missing x² term."
+    "Synthetic division needs a coefficient for every power from the highest down to the constant.",
+    "x³ - 5x + 2 has no x² term, so write it as 1x³ + 0x² - 5x + 2.",
+    "The row of coefficients is 1, 0, -5, 2."
    ],
    "options": [
     {
@@ -1804,7 +1821,9 @@
    "prompt": "Which number do you use in synthetic division when dividing by x + 4?",
    "answer": "-4",
    "solutionSteps": [
-    "x + 4 = x - (-4)."
+    "Synthetic division by x - c uses the number c.",
+    "Rewrite x + 4 as x - (-4).",
+    "So use c = -4."
    ],
    "options": [
     {
@@ -1913,7 +1932,9 @@
    "prompt": "A student divides 2x³ - 7x² + 5 by x - 3 and gets 2x² - x - 3 remainder -4. Is the student right?",
    "answer": "Yes: (x - 3)(2x² - x - 3) - 4 = 2x³ - 7x² + 5",
    "solutionSteps": [
-    "Check by multiplying back: 2x³ - x² - 3x - 6x² + 3x + 9 - 4."
+    "Check with dividend = divisor × quotient + remainder.",
+    "(x - 3)(2x² - x - 3) = 2x³ - x² - 3x - 6x² + 3x + 9 = 2x³ - 7x² + 9.",
+    "Add the remainder: 2x³ - 7x² + 9 - 4 = 2x³ - 7x² + 5, the original dividend. Yes, the student is right."
    ],
    "options": [
     {
@@ -2120,7 +2141,9 @@
    "prompt": "Divide (6x³ - 9x² + 12x) by 3x.",
    "answer": "2x² - 3x + 4",
    "solutionSteps": [
-    "Divide each term by 3x."
+    "Divide each term by 3x: 6x³/(3x) - 9x²/(3x) + 12x/(3x).",
+    "6x³/(3x) = 2x², 9x²/(3x) = 3x, 12x/(3x) = 4.",
+    "The quotient is 2x² - 3x + 4."
    ],
    "standards": [
     "A-APR.D.6"
@@ -2135,7 +2158,9 @@
    "prompt": "Divide (8x⁴ + 4x³ - 2x²) by 2x².",
    "answer": "4x² + 2x - 1",
    "solutionSteps": [
-    "Divide each term by 2x²."
+    "Divide each term by 2x²: 8x⁴/(2x²) + 4x³/(2x²) - 2x²/(2x²).",
+    "8x⁴/(2x²) = 4x², 4x³/(2x²) = 2x, 2x²/(2x²) = 1.",
+    "The quotient is 4x² + 2x - 1."
    ],
    "standards": [
     "A-APR.D.6"
@@ -2150,8 +2175,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = x³ - 3x² + 5 is divided by x - 2.",
    "answer": "1",
    "solutionSteps": [
-    "The remainder equals f(2).",
-    "f(2) = 1."
+    "Remainder Theorem: the remainder on division by x - 2 is f(2).",
+    "f(2) = 2³ - 3(2²) + 5 = 8 - 12 + 5.",
+    "The remainder is 1."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2166,8 +2192,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = 2x³ + x² - 4x + 7 is divided by x + 1.",
    "answer": "10",
    "solutionSteps": [
-    "The remainder equals f(-1).",
-    "f(-1) = 10."
+    "x + 1 = x - (-1), so the remainder is f(-1).",
+    "f(-1) = 2(-1)³ + (-1)² - 4(-1) + 7 = -2 + 1 + 4 + 7.",
+    "The remainder is 10."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2182,8 +2209,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = x⁴ - 6x² + 2x + 1 is divided by x - 3.",
    "answer": "34",
    "solutionSteps": [
-    "The remainder equals f(3).",
-    "f(3) = 34."
+    "The remainder on division by x - 3 is f(3).",
+    "f(3) = 3⁴ - 6(3²) + 2(3) + 1 = 81 - 54 + 6 + 1.",
+    "The remainder is 34."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2198,8 +2226,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = 3x² - 5x + 2 is divided by x + 2.",
    "answer": "24",
    "solutionSteps": [
-    "The remainder equals f(-2).",
-    "f(-2) = 24."
+    "x + 2 = x - (-2), so the remainder is f(-2).",
+    "f(-2) = 3(4) - 5(-2) + 2 = 12 + 10 + 2.",
+    "The remainder is 24."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2214,8 +2243,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = x⁴ + x³ + x² + x + 1 is divided by x + 2.",
    "answer": "11",
    "solutionSteps": [
-    "The remainder equals f(-2).",
-    "f(-2) = 11."
+    "x + 2 = x - (-2), so the remainder is f(-2).",
+    "f(-2) = 16 - 8 + 4 - 2 + 1.",
+    "The remainder is 11."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2230,8 +2260,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when f(x) = 4x³ - 3x + 1 is divided by 2x - 1.",
    "answer": "0",
    "solutionSteps": [
-    "The remainder equals f(1/2).",
-    "f(1/2) = 0."
+    "2x - 1 = 0 when x = 1/2, so the remainder (a constant) is f(1/2).",
+    "f(1/2) = 4(1/8) - 3(1/2) + 1 = 1/2 - 3/2 + 1.",
+    "The remainder is 0, so 2x - 1 is a factor."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2573,8 +2604,9 @@
    "prompt": "When p(x) is divided by x - 4, the quotient is x² + 1 and the remainder is 3. What is p(4)?",
    "answer": "3",
    "solutionSteps": [
-    "p(x) = (x - 4)(x² + 1) + 3.",
-    "p(4) = 0 + 3."
+    "Division algorithm: p(x) = (x - 4)(x² + 1) + 3.",
+    "At x = 4 the first term is (0)(17) = 0.",
+    "p(4) = 0 + 3 = 3, the remainder (as the Remainder Theorem says)."
    ],
    "options": [
     {
@@ -2747,7 +2779,9 @@
    "prompt": "If f(5) = 0, name one factor of f(x).",
    "answer": "x - 5",
    "solutionSteps": [
-    "Factor Theorem: f(c) = 0 means x - c is a factor."
+    "Factor Theorem: f(c) = 0 exactly when x - c is a factor of f(x).",
+    "Here c = 5.",
+    "So x - 5 is a factor of f(x)."
    ],
    "standards": [
     "A-APR.B.2"
@@ -2762,7 +2796,9 @@
    "prompt": "The remainder when f(x) is divided by x + 3 equals which value?",
    "answer": "f(-3)",
    "solutionSteps": [
-    "x + 3 = x - (-3), so the remainder is f(-3)."
+    "The Remainder Theorem says the remainder on division by x - c is f(c).",
+    "x + 3 = x - (-3), so c = -3.",
+    "The remainder equals f(-3)."
    ],
    "options": [
     {
@@ -3325,8 +3361,9 @@
    "prompt": "Write a polynomial in standard form with leading coefficient 1, zero -2 of multiplicity 2, and zero 1 of multiplicity 1.",
    "answer": "x³ + 3x² - 4",
    "solutionSteps": [
-    "f(x) = (x + 2)²(x - 1).",
-    "(x² + 4x + 4)(x - 1) = x³ + 3x² - 4."
+    "A zero -2 of multiplicity 2 gives (x + 2)²; a zero 1 gives (x - 1). Leading coefficient 1: f(x) = (x + 2)²(x - 1).",
+    "(x + 2)² = x² + 4x + 4. Multiply by (x - 1): x³ - x² + 4x² - 4x + 4x - 4.",
+    "Combine: x³ + 3x² - 4."
    ],
    "standards": [
     "A-APR.B.3"
@@ -3413,7 +3450,9 @@
    "prompt": "What are the zeros of f(x) = (x - 4)(x + 7)?",
    "answer": "4 and -7",
    "solutionSteps": [
-    "x - 4 = 0 → x = 4; x + 7 = 0 → x = -7."
+    "Zero-product property: the product is 0 when a factor is 0.",
+    "x - 4 = 0 gives x = 4; x + 7 = 0 gives x = -7.",
+    "The zeros are 4 and -7."
    ],
    "options": [
     {
@@ -3688,7 +3727,10 @@
     "y-intercept 6"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "The x-intercepts are where the graph crosses or touches the x-axis; read their x-values.",
+    "The graph meets the x-axis at x = -2 and x = 1.",
+    "The y-intercept is where the graph meets the y-axis (x = 0): there y = 6.",
+    "Shown: x-intercept at -2, x-intercept at 1 and y-intercept 6."
    ],
    "options": [
     {
@@ -3778,7 +3820,9 @@
     "y-intercept -2"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "Read where the graph meets the x-axis: x = -1 and x = 2.",
+    "Read where it meets the y-axis (x = 0): y = -2.",
+    "Shown: x-intercept at -1, x-intercept at 2 and y-intercept -2."
    ],
    "options": [
     {
@@ -3868,7 +3912,9 @@
     "y-intercept 0"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "Read where the graph meets the x-axis: x = 0 and x = 3.",
+    "The graph passes through the origin, so the y-intercept is 0 as well.",
+    "Shown: x-intercept at 0, x-intercept at 3 and y-intercept 0."
    ],
    "options": [
     {
@@ -3958,7 +4004,9 @@
     "y-intercept 0"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "Read where the graph meets the x-axis: x = -3 and x = 0.",
+    "The graph passes through the origin, so the y-intercept is 0.",
+    "Shown: x-intercept at -3, x-intercept at 0 and y-intercept 0."
    ],
    "options": [
     {
@@ -4044,7 +4092,9 @@
     "y-intercept 4"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "Read where the graph meets the x-axis: x = -2 and x = 2.",
+    "Read where it meets the y-axis (x = 0): y = 4.",
+    "Shown: x-intercept at -2, x-intercept at 2 and y-intercept 4."
    ],
    "options": [
     {
@@ -4134,7 +4184,9 @@
     "y-intercept -3"
    ],
    "solutionSteps": [
-    "Read where the graph meets each axis."
+    "Read where the graph meets the x-axis: x = -1 and x = 1.",
+    "Read where it meets the y-axis (x = 0): y = -3.",
+    "Shown: x-intercept at -1, x-intercept at 1 and y-intercept -3."
    ],
    "options": [
     {
@@ -4178,7 +4230,9 @@
    "prompt": "What is the maximum number of turning points of a degree-5 polynomial?",
    "answer": "4",
    "solutionSteps": [
-    "A degree-n polynomial has at most n - 1 turning points."
+    "A polynomial of degree n has at most n - 1 turning points (its graph can change direction at most n - 1 times).",
+    "Here n = 5.",
+    "The maximum number of turning points is 5 - 1 = 4."
    ],
    "options": [
     {
@@ -4211,7 +4265,9 @@
    "prompt": "A polynomial graph has 3 turning points. What is the least possible degree?",
    "answer": "4",
    "solutionSteps": [
-    "Turning points ≤ n - 1, so n ≥ 4."
+    "A degree-n polynomial has at most n - 1 turning points, so 3 turning points needs n - 1 ≥ 3.",
+    "So n ≥ 4.",
+    "The least possible degree is 4."
    ],
    "options": [
     {
@@ -4443,7 +4499,9 @@
    "prompt": "Which polynomial rises on both ends?",
    "answer": "y = 2x⁴ - x",
    "solutionSteps": [
-    "Even degree with positive leading coefficient: both ends up."
+    "End behavior is set by the leading term: even degree means both ends go the same way; a positive leading coefficient makes them go up.",
+    "y = 2x⁴ - x has leading term 2x⁴: even degree, positive coefficient.",
+    "So y = 2x⁴ - x rises on both ends."
    ],
    "options": [
     {
@@ -4819,7 +4877,9 @@
    "prompt": "A polynomial with real coefficients has zeros 4 and 2 - 5i. Which must also be a zero?",
    "answer": "2 + 5i",
    "solutionSteps": [
-    "Complex Conjugate Root Theorem."
+    "Complex Conjugate Root Theorem: for a polynomial with real coefficients, non-real zeros come in conjugate pairs a ± bi.",
+    "2 - 5i is a zero, so its conjugate must be too.",
+    "2 + 5i must also be a zero."
    ],
    "options": [
     {
@@ -4957,7 +5017,10 @@
     "1 real zero with multiplicity 3"
    ],
    "solutionSteps": [
-    "Non-real zeros come in pairs, so the number of non-real zeros is even (0 or 2)."
+    "A cubic has exactly 3 zeros counting multiplicity, and non-real zeros come in conjugate pairs, so the number of non-real zeros is 0 or 2.",
+    "So the possibilities are 3 real zeros (one may be repeated three times) or 1 real and 2 non-real zeros.",
+    "0 real and 3 non-real, or 2 real and 1 non-real, would leave a non-real zero without its conjugate.",
+    "Possible: 3 real zeros, 1 real and 2 non-real zeros, and 1 real zero with multiplicity 3."
    ],
    "options": [
     {
@@ -5030,7 +5093,9 @@
    "prompt": "A student says x² + 9 = 0 has no solutions, so the Fundamental Theorem of Algebra is false. What is wrong?",
    "answer": "It has two complex solutions, ±3i",
    "solutionSteps": [
-    "The theorem counts complex zeros, not only real ones."
+    "x² + 9 = 0 gives x² = -9, which has no real solutions but does have complex ones: x = ±3i.",
+    "The Fundamental Theorem of Algebra counts complex zeros: a degree-2 polynomial has 2 of them.",
+    "So the theorem holds: it has two complex solutions, ±3i."
    ],
    "options": [
     {
@@ -5101,10 +5166,10 @@
    "prompt": "g(x) = x³ - 8.",
    "answer": "(a) 3; (b) 2; (c) x² + 2x + 4; (d) -1 ± i√3",
    "solutionSteps": [
-    "Degree 3.",
-    "2³ = 8.",
-    "Difference of cubes.",
-    "x = (-2 ± √(4 - 16))/2."
+    "(a) g has degree 3, so it has 3 complex zeros counting multiplicity.",
+    "(b) x³ = 8 gives the real zero x = 2.",
+    "(c) Difference of cubes: x³ - 8 = (x - 2)(x² + 2x + 4), so the quadratic factor is x² + 2x + 4.",
+    "(d) x = (-2 ± √(4 - 16))/2 = (-2 ± 2i√3)/2 = -1 ± i√3."
    ],
    "parts": [
     {
@@ -5138,7 +5203,9 @@
    "prompt": "According to the Fundamental Theorem of Algebra, every polynomial of degree n ≥ 1 has…",
    "answer": "at least one complex zero (exactly n counting multiplicity)",
    "solutionSteps": [
-    "The guarantee is about complex zeros."
+    "The Fundamental Theorem of Algebra guarantees a zero in the complex numbers (which include the real numbers).",
+    "Factoring out that zero again and again shows the polynomial has n zeros counting multiplicity.",
+    "So every polynomial of degree n ≥ 1 has at least one complex zero (exactly n counting multiplicity)."
    ],
    "options": [
     {
@@ -5207,9 +5274,9 @@
    "prompt": "Solve 2x² - 8x = 0.",
    "answer": "x = 0, x = 4",
    "solutionSteps": [
-    "Factor completely.",
-    "2x(x - 4) = 0.",
-    "Set each factor equal to 0."
+    "Factor out the GCF 2x: 2x(x - 4) = 0.",
+    "Set each factor to 0: 2x = 0 or x - 4 = 0.",
+    "x = 0, x = 4."
    ],
    "standards": [
     "A-CED.A.1",
@@ -5538,7 +5605,9 @@
    "prompt": "A student solves x³ = 4x by dividing both sides by x and gets x = ±2. What was lost?",
    "answer": "x = 0",
    "solutionSteps": [
-    "x³ - 4x = x(x - 2)(x + 2) = 0."
+    "Dividing both sides by x is only allowed when x ≠ 0, so it can throw away the solution x = 0.",
+    "Instead move everything to one side and factor: x³ - 4x = x(x² - 4) = x(x - 2)(x + 2) = 0.",
+    "The solutions are x = 0, 2, -2; the student lost x = 0."
    ],
    "options": [
     {
@@ -5577,7 +5646,9 @@
     "2"
    ],
    "solutionSteps": [
-    "Quadratic in form: (x² - 1)(x² - 4) = 0."
+    "x⁴ - 5x² + 4 is quadratic in form: let u = x², so u² - 5u + 4 = (u - 1)(u - 4).",
+    "So (x² - 1)(x² - 4) = 0, giving x² = 1 or x² = 4.",
+    "x = ±1 or x = ±2: the solutions are -2, -1, 1 and 2."
    ],
    "options": [
     {
@@ -5627,7 +5698,9 @@
     "-√2"
    ],
    "solutionSteps": [
-    "Group: x²(x + 1) - 2(x + 1) = (x + 1)(x² - 2)."
+    "Group the terms: x²(x + 1) - 2(x + 1) = (x + 1)(x² - 2).",
+    "Set each factor to 0: x + 1 = 0 gives x = -1; x² - 2 = 0 gives x = ±√2.",
+    "The real solutions are -1, √2 and -√2."
    ],
    "options": [
     {
@@ -5669,7 +5742,9 @@
    "prompt": "Revenue is R(x) = -x³ + 12x² for x hundred units (0 ≤ x ≤ 12). Which x gives revenue of 0?",
    "answer": "x = 0 and x = 12",
    "solutionSteps": [
-    "-x²(x - 12) = 0."
+    "Set R(x) = 0 and factor out -x²: -x²(x - 12) = 0.",
+    "-x² = 0 gives x = 0; x - 12 = 0 gives x = 12.",
+    "Revenue is 0 at x = 0 and x = 12 (no units sold, or 1,200 units)."
    ],
    "options": [
     {
@@ -5814,7 +5889,9 @@
    "prompt": "Solve (x - 6)(x + 1)(2x - 5) = 0.",
    "answer": "x = 6, x = -1, x = 5/2",
    "solutionSteps": [
-    "Zero-product property: set each factor to 0."
+    "Zero-product property: set each factor to 0.",
+    "x - 6 = 0 → x = 6; x + 1 = 0 → x = -1; 2x - 5 = 0 → x = 5/2.",
+    "x = 6, x = -1, x = 5/2."
    ],
    "standards": [
     "A-CED.A.1",
@@ -5830,7 +5907,9 @@
    "prompt": "Solve x³ - 49x = 0.",
    "answer": "x = 0, x = 7, x = -7",
    "solutionSteps": [
-    "x(x² - 49) = x(x - 7)(x + 7) = 0."
+    "Factor out x: x(x² - 49) = 0, and x² - 49 = (x - 7)(x + 7).",
+    "So x(x - 7)(x + 7) = 0.",
+    "x = 0, x = 7, x = -7."
    ],
    "standards": [
     "A-CED.A.1",
@@ -6609,7 +6688,9 @@
    "prompt": "P(x) ÷ (x - 3) gives quotient Q(x) and remainder 7. Which equation is true?",
    "answer": "P(x) = (x - 3)Q(x) + 7",
    "solutionSteps": [
-    "Division algorithm: dividend = divisor × quotient + remainder."
+    "The division algorithm says dividend = divisor × quotient + remainder.",
+    "Here the dividend is P(x), the divisor is x - 3, the quotient is Q(x) and the remainder is 7.",
+    "So P(x) = (x - 3)Q(x) + 7."
    ],
    "options": [
     {
@@ -6642,7 +6723,9 @@
    "prompt": "Find the quotient when x⁵ - 1 is divided by x - 1.",
    "answer": "x⁴ + x³ + x² + x + 1",
    "solutionSteps": [
-    "Synthetic division with 1: 1, 1, 1, 1, 1, 0."
+    "Synthetic division by x - 1 uses 1; write x⁵ - 1 with every power: 1, 0, 0, 0, 0, -1.",
+    "Bring down 1, then multiply by 1 and add each time: 1, 1, 1, 1, 1, and the last sum is -1 + 1 = 0.",
+    "The remainder is 0 and the quotient is x⁴ + x³ + x² + x + 1."
    ],
    "standards": [
     "A-APR.D.6"
@@ -6989,7 +7072,10 @@
     "(x - 2) is a factor of p(x)"
    ],
    "solutionSteps": [
-    "Remainder Theorem: remainder on division by x - c is p(c)."
+    "Remainder Theorem: the remainder on division by x - c is p(c).",
+    "Remainder 0 on division by x - 2 means p(2) = 0, so (x - 2) is a factor (Factor Theorem).",
+    "Remainder 3 on division by x + 1 = x - (-1) means p(-1) = 3, so (x + 1) is not a factor. Nothing is known about p(1) or p(-2).",
+    "True: p(2) = 0, p(-1) = 3 and (x - 2) is a factor of p(x)."
    ],
    "options": [
     {
@@ -7030,7 +7116,9 @@
    "prompt": "Without dividing, find the remainder when x¹⁰⁰ - 3x⁵⁰ + 2 is divided by x + 1.",
    "answer": "0",
    "solutionSteps": [
-    "Remainder = f(-1) = 1 - 3 + 2 = 0."
+    "The remainder on division by x + 1 is f(-1).",
+    "f(-1) = (-1)¹⁰⁰ - 3(-1)⁵⁰ + 2 = 1 - 3 + 2, because even powers of -1 equal 1.",
+    "The remainder is 0."
    ],
    "options": [
     {
@@ -7067,8 +7155,9 @@
     "3"
    ],
    "solutionSteps": [
-    "Test each value, or factor.",
-    "f(x) = (x + 2)(x - 1)(x - 3)."
+    "Test x = 1: 1 - 2 - 5 + 6 = 0, so x - 1 is a factor.",
+    "Divide: x³ - 2x² - 5x + 6 = (x - 1)(x² - x - 6) = (x - 1)(x + 2)(x - 3).",
+    "The zeros are -2, 1 and 3."
    ],
    "options": [
     {
@@ -7113,8 +7202,9 @@
     "4"
    ],
    "solutionSteps": [
-    "Test each value, or factor.",
-    "f(x) = (x + 1)(2x - 1)(x - 4)."
+    "Test x = -1: -2 - 7 + 5 + 4 = 0, so x + 1 is a factor.",
+    "Divide: 2x³ - 7x² - 5x + 4 = (x + 1)(2x² - 9x + 4) = (x + 1)(2x - 1)(x - 4).",
+    "The zeros are -1, 1/2 and 4."
    ],
    "options": [
     {
@@ -7158,8 +7248,9 @@
     "0"
    ],
    "solutionSteps": [
-    "Test each value, or factor.",
-    "f(x) = x(x + 3)²."
+    "Factor out x: x(x² + 6x + 9).",
+    "x² + 6x + 9 = (x + 3)², so f(x) = x(x + 3)².",
+    "The zeros are -3 (multiplicity 2) and 0."
    ],
    "options": [
     {
@@ -7384,7 +7475,9 @@
    "prompt": "f(x) = (x - 2)³. Near x = 2, the graph…",
    "answer": "crosses the axis and flattens like a cubic",
    "solutionSteps": [
-    "Odd multiplicity greater than 1 → crosses with a flattened (inflection) shape."
+    "(x - 2)³ has the zero 2 with multiplicity 3, an odd number, so the sign of f changes there and the graph crosses the axis.",
+    "Because the multiplicity is more than 1, the graph is flat at x = 2, like y = x³ at the origin.",
+    "So near x = 2 the graph crosses the axis and flattens like a cubic."
    ],
    "options": [
     {
@@ -7595,8 +7688,9 @@
    "prompt": "How many non-real zeros does x⁴ - 1 have?",
    "answer": "2",
    "solutionSteps": [
-    "x⁴ - 1 = (x - 1)(x + 1)(x² + 1).",
-    "Zeros 1, -1, i, -i."
+    "Factor: x⁴ - 1 = (x² - 1)(x² + 1) = (x - 1)(x + 1)(x² + 1).",
+    "The zeros are 1, -1 and, from x² = -1, i and -i.",
+    "Two of the zeros (i and -i) are non-real: 2."
    ],
    "options": [
     {
@@ -7634,8 +7728,9 @@
     "3"
    ],
    "solutionSteps": [
-    "Factor completely.",
-    "x(x + 2)(x - 3) = 0."
+    "Factor out x: x(x² - x - 6) = 0, and x² - x - 6 = (x + 2)(x - 3).",
+    "So x(x + 2)(x - 3) = 0.",
+    "The solutions are -2, 0 and 3."
    ],
    "options": [
     {
@@ -7682,8 +7777,9 @@
     "3"
    ],
    "solutionSteps": [
-    "Factor completely.",
-    "(x + 3)(x + 2)(x - 2)(x - 3) = 0."
+    "Let u = x²: u² - 13u + 36 = (u - 4)(u - 9) = 0, so x² = 4 or x² = 9.",
+    "x² = 4 gives x = ±2; x² = 9 gives x = ±3.",
+    "The solutions are -3, -2, 2 and 3."
    ],
    "options": [
     {
@@ -7729,8 +7825,9 @@
     "2"
    ],
    "solutionSteps": [
-    "Factor completely.",
-    "(x + 2)(2x + 1)(x - 2) = 0."
+    "Group: x²(2x + 1) - 4(2x + 1) = (2x + 1)(x² - 4) = (2x + 1)(x + 2)(x - 2).",
+    "Set each factor to 0: x = -1/2, x = -2, x = 2.",
+    "The solutions are -2, -1/2 and 2."
    ],
    "options": [
     {
@@ -7846,9 +7943,9 @@
    "prompt": "Simplify (4x² + 9x - 9) + (-2x² - 4x - 6).",
    "answer": "2x² + 5x - 15",
    "solutionSteps": [
-    "Remove the parentheses.",
-    "Combine like terms.",
-    "2x² + 5x - 15."
+    "Remove the parentheses: 4x² + 9x - 9 - 2x² - 4x - 6.",
+    "Combine like terms: (4 - 2)x² + (9 - 4)x + (-9 - 6).",
+    "The sum is 2x² + 5x - 15."
    ],
    "standards": [
     "A-APR.A.1"
@@ -8954,8 +9051,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = 3x² - x + 5 is divided by x - 2.",
    "answer": "15",
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 15."
+    "The remainder on division by x - 2 is P(2).",
+    "P(2) = 3(4) - 2 + 5 = 12 - 2 + 5.",
+    "The remainder is 15."
    ],
    "standards": [
     "A-APR.B.2"
@@ -8970,9 +9068,9 @@
    "prompt": "Find k so that x - 2 is a factor of P(x) = 2x³ - 3x² + kx + 28.",
    "answer": "k = -16",
    "solutionSteps": [
-    "Factor Theorem: P(2) = 0.",
-    "4 + 2k + 28 = 0.",
-    "k = -16."
+    "Factor Theorem: x - 2 is a factor exactly when P(2) = 0.",
+    "P(2) = 2(8) - 3(4) + 2k + 28 = 16 - 12 + 2k + 28 = 32 + 2k.",
+    "32 + 2k = 0, so k = -16."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9005,8 +9103,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 1."
+    "The remainder on division by x - 2 is P(2).",
+    "P(2) = -3(4) + 5(2) + 3 = -12 + 10 + 3.",
+    "The remainder is 1."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9021,9 +9120,9 @@
    "prompt": "Find k so that x - 1 is a factor of P(x) = -4x³ + 4x² + kx + 12.",
    "answer": "k = -12",
    "solutionSteps": [
-    "Factor Theorem: P(1) = 0.",
-    "0 + 1k + 12 = 0.",
-    "k = -12."
+    "Factor Theorem: x - 1 is a factor exactly when P(1) = 0.",
+    "P(1) = -4 + 4 + k + 12 = k + 12.",
+    "k + 12 = 0, so k = -12."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9056,8 +9155,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-3).",
-    "P(-3) = -6."
+    "x + 3 = x - (-3), so the remainder is P(-3).",
+    "P(-3) = -(-3)² - (-3) = -9 + 3.",
+    "The remainder is -6."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9090,9 +9190,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor Theorem: P(-3) = 0.",
-    "-9 - 3k + 3 = 0.",
-    "k = -2."
+    "Factor Theorem: x + 3 is a factor exactly when P(-3) = 0.",
+    "P(-3) = 2(-27) + 5(9) - 3k + 3 = -54 + 45 - 3k + 3 = -6 - 3k.",
+    "-6 - 3k = 0, so k = -2."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9107,8 +9207,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when P(x) = -x² + 2x + 5 is divided by x - 2.",
    "answer": "5",
    "solutionSteps": [
-    "The remainder is P(2).",
-    "P(2) = 5."
+    "The remainder on division by x - 2 is P(2).",
+    "P(2) = -4 + 4 + 5.",
+    "The remainder is 5."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9123,9 +9224,9 @@
    "prompt": "Find k so that x + 3 is a factor of P(x) = -x³ + 3x² + kx - 9.",
    "answer": "k = 15",
    "solutionSteps": [
-    "Factor Theorem: P(-3) = 0.",
-    "54 - 3k - 9 = 0.",
-    "k = 15."
+    "Factor Theorem: x + 3 is a factor exactly when P(-3) = 0.",
+    "P(-3) = -(-27) + 3(9) - 3k - 9 = 27 + 27 - 3k - 9 = 45 - 3k.",
+    "45 - 3k = 0, so k = 15."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9248,9 +9349,9 @@
    "prompt": "Is (x + 3) a factor of P(x) = -2x³ - x² - x - 48?",
    "answer": "Yes",
    "solutionSteps": [
-    "By the Factor Theorem, check P(-3).",
-    "P(-3) = 0.",
-    "Yes: P(a) = 0."
+    "Factor Theorem: x + 3 is a factor exactly when P(-3) = 0.",
+    "P(-3) = -2(-27) - 9 - (-3) - 48 = 54 - 9 + 3 - 48 = 0.",
+    "P(-3) = 0, so yes, (x + 3) is a factor."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9265,9 +9366,9 @@
    "prompt": "Find k so that x + 1 is a factor of P(x) = 4x³ + 4x² + kx - 16.",
    "answer": "k = -16",
    "solutionSteps": [
-    "Factor Theorem: P(-1) = 0.",
-    "0 - 1k - 16 = 0.",
-    "k = -16."
+    "Factor Theorem: x + 1 is a factor exactly when P(-1) = 0.",
+    "P(-1) = -4 + 4 - k - 16 = -k - 16.",
+    "-k - 16 = 0, so k = -16."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9300,8 +9401,9 @@
     }
    ],
    "solutionSteps": [
-    "The remainder is P(-1).",
-    "P(-1) = -6."
+    "x + 1 = x - (-1), so the remainder is P(-1).",
+    "P(-1) = -2(-1) - 5(1) + 5(-1) + 2 = 2 - 5 - 5 + 2.",
+    "The remainder is -6."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9334,9 +9436,9 @@
     }
    ],
    "solutionSteps": [
-    "Factor Theorem: P(-2) = 0.",
-    "-16 - 2k + 50 = 0.",
-    "k = 17."
+    "Factor Theorem: x + 2 is a factor exactly when P(-2) = 0.",
+    "P(-2) = 4(-8) + 4(4) - 2k + 50 = -32 + 16 - 2k + 50 = 34 - 2k.",
+    "34 - 2k = 0, so k = 17."
    ],
    "standards": [
     "A-APR.B.2"
@@ -9351,9 +9453,9 @@
    "prompt": "Is (x + 1) a factor of P(x) = -2x³ - x² - 3x - 4?",
    "answer": "Yes",
    "solutionSteps": [
-    "By the Factor Theorem, check P(-1).",
-    "P(-1) = 0.",
-    "Yes: P(a) = 0."
+    "Factor Theorem: x + 1 is a factor exactly when P(-1) = 0.",
+    "P(-1) = -2(-1) - 1 - 3(-1) - 4 = 2 - 1 + 3 - 4 = 0.",
+    "P(-1) = 0, so yes, (x + 1) is a factor."
    ],
    "standards": [
     "A-APR.B.2"
@@ -10987,8 +11089,9 @@
     }
    ],
    "solutionSteps": [
-    "V(4) = 4(18 - 8)(14 - 8).",
-    "= 4(10)(6) = 240."
+    "Substitute x = 4: V(4) = 4(18 - 8)(14 - 8).",
+    "= 4(10)(6).",
+    "V(4) = 240 cubic inches."
    ],
    "standards": [
     "A-CED.A.1",
@@ -11040,8 +11143,9 @@
    "prompt": "An open box is made from a 20-inch by 16-inch sheet by cutting x-inch squares from each corner, so V(x) = x(20 - 2x)(16 - 2x). Find the volume when x = 2.",
    "answer": "384 cubic inches",
    "solutionSteps": [
-    "V(2) = 2(20 - 4)(16 - 4).",
-    "= 2(16)(12) = 384."
+    "Substitute x = 2: V(2) = 2(20 - 4)(16 - 4).",
+    "= 2(16)(12).",
+    "V(2) = 384 cubic inches."
    ],
    "standards": [
     "A-CED.A.1",
@@ -11093,8 +11197,9 @@
     }
    ],
    "solutionSteps": [
-    "V(6) = 6(20 - 12)(16 - 12).",
-    "= 6(8)(4) = 192."
+    "Substitute x = 6: V(6) = 6(20 - 12)(16 - 12).",
+    "= 6(8)(4).",
+    "V(6) = 192 cubic inches."
    ],
    "standards": [
     "A-CED.A.1",
@@ -11517,9 +11622,9 @@
    "prompt": "Use the Remainder Theorem to find the remainder when g(x) = 2x³ - 3x² + x + 5 is divided by x - 2.",
    "answer": "11",
    "solutionSteps": [
-    "The remainder is g(2).",
-    "g(2) = 16 - 12 + 2 + 5.",
-    "Remainder 11."
+    "The remainder on division by x - 2 is g(2).",
+    "g(2) = 2(8) - 3(4) + 2 + 5 = 16 - 12 + 2 + 5.",
+    "The remainder is 11."
    ],
    "standards": [
     "A-APR.B.2"
@@ -11534,9 +11639,9 @@
    "prompt": "Find k so that x + 1 is a factor of 2x³ + kx² - 4x + 1.",
    "answer": "k = -3",
    "solutionSteps": [
-    "x + 1 is a factor when f(-1) = 0.",
-    "-2 + k + 4 + 1 = 0.",
-    "k = -3."
+    "x + 1 is a factor exactly when f(-1) = 0.",
+    "f(-1) = 2(-1) + k(1) - 4(-1) + 1 = -2 + k + 4 + 1 = k + 3.",
+    "k + 3 = 0, so k = -3."
    ],
    "standards": [
     "A-APR.B.2"
@@ -11551,8 +11656,9 @@
    "prompt": "Find the zeros of f(x) = x⁵ - 4x³.",
    "answer": "-2, 0, 2",
    "solutionSteps": [
-    "Factor: x³(x² - 4) = x³(x - 2)(x + 2).",
-    "Zeros: -2, 0, 2."
+    "Factor out x³: x³(x² - 4) = x³(x - 2)(x + 2).",
+    "Set each factor to 0: x³ = 0 gives 0 (multiplicity 3); x - 2 = 0 gives 2; x + 2 = 0 gives -2.",
+    "The zeros are -2, 0, 2."
    ],
    "standards": [
     "A-APR.B.3"
@@ -16179,8 +16285,9 @@
    "prompt": "Evaluate the binomial coefficient ₅C₄.",
    "answer": "5",
    "solutionSteps": [
-    "₅C₄ = 5! ÷ (4! · 1!).",
-    "= 5 ÷ 1 = 5."
+    "ₙCₖ = n!/(k!(n - k)!), so ₅C₄ = 5!/(4!·1!).",
+    "5!/4! = 5 and 1! = 1.",
+    "₅C₄ = 5."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16230,8 +16337,9 @@
    "prompt": "Evaluate the binomial coefficient ₄C₁.",
    "answer": "4",
    "solutionSteps": [
-    "₄C₁ = 4! ÷ (1! · 3!).",
-    "= 4 ÷ 1 = 4."
+    "₄C₁ = 4!/(1!·3!).",
+    "4!/3! = 4 and 1! = 1.",
+    "₄C₁ = 4."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16280,8 +16388,9 @@
    "prompt": "Find the coefficient of x in the expansion of (x + 2)³.",
    "answer": "12",
    "solutionSteps": [
-    "The x term is ₃C₂ · (x)¹ · (2)².",
-    "3 · 1 · 4 = 12."
+    "In (x + 2)³ the term with x¹ has the 2 raised to the power 2: ₃C₂·x¹·2².",
+    "₃C₂ = 3 and 2² = 4.",
+    "The coefficient of x is 3 · 4 = 12."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16365,8 +16474,9 @@
     }
    ],
    "solutionSteps": [
-    "The x² term is ₃C₁ · (x)² · (-2)¹.",
-    "3 · 1 · -2 = -6."
+    "In (x - 2)³ the x² term has (-2) to the power 1: ₃C₁·x²·(-2)¹.",
+    "₃C₁ = 3.",
+    "The coefficient of x² is 3 · (-2) = -6."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16416,8 +16526,9 @@
     }
    ],
    "solutionSteps": [
-    "₄C₃ = 4! ÷ (3! · 1!).",
-    "= 4 ÷ 1 = 4."
+    "₄C₃ = 4!/(3!·1!).",
+    "4!/3! = 4 and 1! = 1.",
+    "₄C₃ = 4."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16432,8 +16543,9 @@
    "prompt": "Evaluate the binomial coefficient ₇C₆.",
    "answer": "7",
    "solutionSteps": [
-    "₇C₆ = 7! ÷ (6! · 1!).",
-    "= 7 ÷ 1 = 7."
+    "₇C₆ = 7!/(6!·1!).",
+    "7!/6! = 7 and 1! = 1.",
+    "₇C₆ = 7."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16659,8 +16771,9 @@
     }
    ],
    "solutionSteps": [
-    "The x⁴ term is ₅C₁ · (x)⁴ · (5)¹.",
-    "5 · 1 · 5 = 25."
+    "In (x + 5)⁵ the x⁴ term has 5 to the power 1: ₅C₁·x⁴·5¹.",
+    "₅C₁ = 5.",
+    "The coefficient of x⁴ is 5 · 5 = 25."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16675,8 +16788,9 @@
    "prompt": "Find the coefficient of x³ in the expansion of (x + 1)⁴.",
    "answer": "4",
    "solutionSteps": [
-    "The x³ term is ₄C₁ · (x)³ · (1)¹.",
-    "4 · 1 · 1 = 4."
+    "In (x + 1)⁴ the x³ term has 1 to the power 1: ₄C₁·x³·1¹.",
+    "₄C₁ = 4.",
+    "The coefficient of x³ is 4 · 1 = 4."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16709,8 +16823,9 @@
     }
    ],
    "solutionSteps": [
-    "The x⁴ term is ₆C₂ · (x)⁴ · (-3)².",
-    "15 · 1 · 9 = 135."
+    "In (x - 3)⁶ the x⁴ term has (-3) to the power 6 - 4 = 2: ₆C₂·x⁴·(-3)².",
+    "₆C₂ = 15 and (-3)² = 9.",
+    "The coefficient of x⁴ is 15 · 9 = 135."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16775,8 +16890,9 @@
    "prompt": "Evaluate the binomial coefficient ₅C₃.",
    "answer": "10",
    "solutionSteps": [
-    "₅C₃ = 5! ÷ (3! · 2!).",
-    "= 20 ÷ 2 = 10."
+    "₅C₃ = 5!/(3!·2!).",
+    "5!/3! = 5 · 4 = 20, and 2! = 2.",
+    "₅C₃ = 20/2 = 10."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16809,8 +16925,9 @@
     }
    ],
    "solutionSteps": [
-    "The x² term is ₃C₁ · (x)² · (5)¹.",
-    "3 · 1 · 5 = 15."
+    "In (x + 5)³ the x² term has 5 to the power 1: ₃C₁·x²·5¹.",
+    "₃C₁ = 3.",
+    "The coefficient of x² is 3 · 5 = 15."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16825,8 +16942,9 @@
    "prompt": "Evaluate the binomial coefficient ₈C₅.",
    "answer": "56",
    "solutionSteps": [
-    "₈C₅ = 8! ÷ (5! · 3!).",
-    "= 336 ÷ 6 = 56."
+    "₈C₅ = 8!/(5!·3!).",
+    "8!/5! = 8 · 7 · 6 = 336, and 3! = 6.",
+    "₈C₅ = 336/6 = 56."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16915,8 +17033,9 @@
    "prompt": "Find the coefficient of x⁴ in the expansion of (x - 3)⁸.",
    "answer": "5670",
    "solutionSteps": [
-    "The x⁴ term is ₈C₄ · (x)⁴ · (-3)⁴.",
-    "70 · 1 · 81 = 5670."
+    "In (x - 3)⁸ the x⁴ term has (-3) to the power 8 - 4 = 4: ₈C₄·x⁴·(-3)⁴.",
+    "₈C₄ = 70 and (-3)⁴ = 81.",
+    "The coefficient of x⁴ is 70 · 81 = 5670."
    ],
    "standards": [
     "A-APR.C.5"
@@ -16966,8 +17085,9 @@
    "prompt": "Find the coefficient of x³ in the expansion of (4x + 3)⁶.",
    "answer": "34560",
    "solutionSteps": [
-    "The x³ term is ₆C₃ · (4x)³ · (3)³.",
-    "20 · 64 · 27 = 34560."
+    "In (4x + 3)⁶ the x³ term is ₆C₃·(4x)³·3³ (powers 3 and 6 - 3 = 3).",
+    "₆C₃ = 20, 4³ = 64 and 3³ = 27.",
+    "The coefficient of x³ is 20 · 64 · 27 = 34560."
    ],
    "standards": [
     "A-APR.C.5"
@@ -17051,8 +17171,9 @@
     }
    ],
    "solutionSteps": [
-    "₁₁C₅ = 11! ÷ (5! · 6!).",
-    "= 55440 ÷ 120 = 462."
+    "₁₁C₅ = 11!/(5!·6!).",
+    "11!/6! = 11 · 10 · 9 · 8 · 7 = 55440, and 5! = 120.",
+    "₁₁C₅ = 55440/120 = 462."
    ],
    "standards": [
     "A-APR.C.5"
@@ -17067,8 +17188,9 @@
    "prompt": "Evaluate the binomial coefficient ₁₃C₉.",
    "answer": "715",
    "solutionSteps": [
-    "₁₃C₉ = 13! ÷ (9! · 4!).",
-    "= 17160 ÷ 24 = 715."
+    "₁₃C₉ = 13!/(9!·4!).",
+    "13!/9! = 13 · 12 · 11 · 10 = 17160, and 4! = 24.",
+    "₁₃C₉ = 17160/24 = 715."
    ],
    "standards": [
     "A-APR.C.5"
@@ -17203,8 +17325,9 @@
     }
    ],
    "solutionSteps": [
-    "₁₂C₂ = 12! ÷ (2! · 10!).",
-    "= 132 ÷ 2 = 66."
+    "₁₂C₂ = 12!/(2!·10!).",
+    "12!/10! = 12 · 11 = 132, and 2! = 2.",
+    "₁₂C₂ = 132/2 = 66."
    ],
    "standards": [
     "A-APR.C.5"
