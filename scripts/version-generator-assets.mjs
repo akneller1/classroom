@@ -10,7 +10,8 @@ const targets=new Set([
  'worksheet-generator/menu/app.js','worksheet-generator/menu/engine.js',
  'worksheet-generator/menu/render.js','worksheet-generator/menu/verify.js',
  'worksheet-generator/menu/skills/algebra1-expressions-equations.js',
- 'worksheet-generator/menu/skills/geometry-right-triangles-trigonometry.js'
+ 'worksheet-generator/menu/skills/geometry-right-triangles-trigonometry.js',
+ 'worksheet-generator/menu/skills/geometry-transformations.js'
 ].map(p=>path.join(out,p)));
 const hashes=new Map();
 for(const file of targets)if(fs.existsSync(file))hashes.set(file,crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,16));

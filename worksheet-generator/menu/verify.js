@@ -1295,6 +1295,9 @@
       var T = function (phrase, q) {
         var t;
         if ((t = /^reflected across the (x|y)-axis$/.exec(phrase))) return t[1] === 'x' ? [q[0], -q[1]] : [-q[0], q[1]];
+        if ((t = /^translated (\d+) units? (left|right) and (\d+) units? (up|down)$/.exec(phrase))) {
+          return [q[0] + (t[2] === 'right' ? 1 : -1) * +t[1], q[1] + (t[4] === 'up' ? 1 : -1) * +t[3]];
+        }
         if ((t = /^translated (\d+) units? (left|right|up|down)$/.exec(phrase))) { var d = +t[1]; return t[2] === 'right' ? [q[0] + d, q[1]] : t[2] === 'left' ? [q[0] - d, q[1]] : t[2] === 'up' ? [q[0], q[1] + d] : [q[0], q[1] - d]; }
         if ((t = /^rotated 90° (clockwise|counterclockwise) about the origin$/.exec(phrase))) return t[1] === 'clockwise' ? [q[1], -q[0]] : [-q[1], q[0]];
         if (/^rotated 180° about the origin$/.test(phrase)) return [-q[0], -q[1]];
@@ -1314,13 +1317,21 @@
           var dx = img.pts[0][0] - pre.pts[0][0], dy = img.pts[0][1] - pre.pts[0][1];
           for (var i = 1; i < 3; i++) need(img.pts[i][0] - pre.pts[i][0] === dx && img.pts[i][1] - pre.pts[i][1] === dy, 'one translation');
           want = [q[0] + dx, q[1] + dy];
+        } else if ((m = /It is (translated [^.]+) to form triangle A′B′C′\. Find/.exec(txt))) {
+          need(shp.length <= 1, 'only the original triangle is shown');
+          want = T(m[1], q);
         } else if (/It is reflected across the dashed line shown on the grid\./.test(txt)) {
           var ln = need(p.fig && p.fig.lines && p.fig.lines[0], 'the mirror line');
           want = ln.x !== undefined ? [2 * ln.x - q[0], q[1]] : [q[0], 2 * ln.y - q[1]];
-        } else if ((m = /It is first ([^.]+?) to form triangle A′B′C′ \(dashed\), and then translated (\d+) units? (left|right) and (\d+) units? (up|down) to form triangle A″B″C″\./.exec(txt))) {
-          var sx = (m[3] === 'right' ? 1 : -1) * +m[2], sy = (m[5] === 'up' ? 1 : -1) * +m[4], mid = T(m[1], q); want = [mid[0] + sx, mid[1] + sy];
-          var dm = byId('mid'), di = byId('img');   // the dashed middle triangle and the final one must follow the printed steps
-          if (dm || di) ['A', 'B', 'C'].forEach(function (L, i) { var mm = T(m[1], pts[L]); need(dm && di && dm.pts[i][0] === mm[0] && dm.pts[i][1] === mm[1] && di.pts[i][0] === mm[0] + sx && di.pts[i][1] === mm[1] + sy, 'the drawn steps match the printed steps'); });
+        } else if ((m = /It is first ([^.]+?) to form triangle A′B′C′( \(dashed\))?, and then (translated [^.]+) to form triangle A″B″C″\./.exec(txt))) {
+          want = T(m[3], T(m[1], q));
+          if (m[2]) {
+            var dm = byId('mid'), di = byId('img');
+            if (dm || di) ['A', 'B', 'C'].forEach(function (L, i) {
+              var mid = T(m[1], pts[L]), end = T(m[3], mid);
+              need(dm && di && dm.pts[i][0] === mid[0] && dm.pts[i][1] === mid[1] && di.pts[i][0] === end[0] && di.pts[i][1] === end[1], 'the drawn steps match the printed steps');
+            });
+          } else need(shp.length <= 1, 'only the original triangle is shown');
         } else if ((m = /It is ((?:rotated|dilated) [^.]+)\. Find/.exec(txt))) want = T(m[1], q);
         else throw new C.CheckError('cannot read the transformation');
       }

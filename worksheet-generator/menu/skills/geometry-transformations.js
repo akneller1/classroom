@@ -27,10 +27,15 @@ function triPts(r,lim){for(var t=0;t<200;t++){var p=[];for(var i=0;i<3;i++)p.pus
 function triText(p){return 'Triangle ABC has vertices A('+p[0][0]+', '+p[0][1]+'), B('+p[1][0]+', '+p[1][1]+'), and C('+p[2][0]+', '+p[2][1]+').';}
 function triFig(p,extra,lines,alt){var sh=[{id:'pre',pts:p,labels:['A','B','C']}];if(extra)sh.push(extra);return {kind:'geo-grid',shapes:sh,lines:lines||[],alt:alt};}
 function ask(r){var v=r.int(0,2),co=r.int(0,1);return {v:v,co:co,L:'ABC'[v],cn:co?'y':'x'};}
+function translationText(dx,dy){
+ function shift(n,positive,negative){return Math.abs(n)+(Math.abs(n)===1?' unit ':' units ')+(n>0?positive:negative);}
+ return 'translated '+shift(dx,'right','left')+' and '+shift(dy,'up','down');
+}
 function translateTri(ctx){var r=ctx.rng,p=triPts(r,ctx.c>=5?6:5),dx=nz(r),dy=nz(r);if(ctx.c<5){dx=r.int(1,6)*(r.int(0,1)?1:-1);}
- var img=p.map(function(q){return [q[0]+dx,q[1]+dy];}),a=ask(r),u=p[a.v][a.co],d=a.co?dy:dx,x=u+d;
- return makeP('geo-transform-fig-translate-'+ctx.c,triText(p)+' It is translated to triangle A\u2032B\u2032C\u2032, shown on the grid. Find the coordinates of '+a.L+'\u2032.',img[a.v],'Compare a vertex with its image: the shift is '+dx+' in x and '+dy+' in y. Add it to '+a.L+'('+p[a.v][0]+', '+p[a.v][1]+').',
-  triFig(p,{id:'img',pts:img,labels:['A\u2032','B\u2032','C\u2032'],of:'pre',tx:{type:'translate',dx:dx,dy:dy}},[],'Triangle ABC and its translated image'),[[p[a.v][0]-dx,p[a.v][1]-dy],[p[a.v][0]+dy,p[a.v][1]+dx],[img[a.v][1],img[a.v][0]]]);}
+ var a=ask(r),P=p[a.v],Q=[P[0]+dx,P[1]+dy];
+ return makeP('geo-transform-fig-translate-'+ctx.c,triText(p)+' It is '+translationText(dx,dy)+' to form triangle A′B′C′. Find the coordinates of '+a.L+'′.',Q,
+  'Apply the shift to '+a.L+': add '+dx+' to its x-coordinate and '+dy+' to its y-coordinate.',
+  triFig(p,null,[],'Triangle ABC on the coordinate plane'),[[P[0]-dx,P[1]-dy],[P[0]+dy,P[1]+dx],[Q[1],Q[0]]]);}
 function reflectTri(ctx){var r=ctx.rng,p=triPts(r,5),c=ctx.c>=3?r.int(-3,3):0,vert=r.int(0,1)===1,ln=vert?{x:c}:{y:c},a=ask(r);a.co=vert?0:1;a.cn=vert?'x':'y';var u=p[a.v][a.co],x=2*c-u;
  ln.text=(vert?'x':'y')+' = '+mn(c);
  var P0=p[a.v],img=vert?[2*c-P0[0],P0[1]]:[P0[0],2*c-P0[1]];
@@ -42,17 +47,15 @@ function rotateTri(ctx){var r=ctx.rng,p=triPts(r,5),types=ctx.c>=5?['cw','ccw','
  var eq='x'+addTerm(sgn===1?-u:u)+'=0';
  var P1=p[a.v];return makeP('geo-transform-fig-rotate-'+ctx.c,triText(p)+' It is rotated '+(t==='half'?'180\u00b0':'90\u00b0 '+(t==='cw'?'clockwise':'counterclockwise'))+' about the origin. Find the coordinates of '+a.L+'\u2032.',q,t==='half'?'A 180\u00b0 rotation about the origin changes the sign of both coordinates.':t==='cw'?'A 90\u00b0 clockwise rotation maps (a, b) to (b, \u2212a).':'A 90\u00b0 counterclockwise rotation maps (a, b) to (\u2212b, a).',
   triFig(p,null,[],'Triangle ABC on the coordinate plane'),[[-q[0],-q[1]],[P1[1],P1[0]],[-P1[0],P1[1]]]);}
-/* Composition: a reflection or rotation followed by a translation. The middle triangle is drawn dashed so the two steps can be seen. */
+/* Composition: apply both transformations to a vertex of the original triangle. */
 function composeTri(ctx){var r=ctx.rng,c=ctx.c,p=triPts(r,3),types=c>=5?['rx','ry','cw','ccw']:['rx','ry'],t=types[r.int(0,types.length-1)],a=ask(r);
  var f=t==='rx'?function(q){return [q[0],-q[1]];}:t==='ry'?function(q){return [-q[0],q[1]];}:t==='cw'?function(q){return [q[1],-q[0]];}:function(q){return [-q[1],q[0]];};
- var tx=t==='rx'?{type:'reflect-x'}:t==='ry'?{type:'reflect-y'}:t==='cw'?{type:'rotate-cw'}:{type:'rotate-ccw'};
  var words=t==='rx'?'reflected across the x-axis':t==='ry'?'reflected across the y-axis':t==='cw'?'rotated 90° clockwise about the origin':'rotated 90° counterclockwise about the origin';
  var dx=r.int(2,4)*(r.int(0,1)?1:-1),dy=r.int(2,4)*(r.int(0,1)?1:-1);
- var mid=p.map(f),img=mid.map(function(q){return [q[0]+dx,q[1]+dy];}),m=mid[a.v][a.co],d=a.co?dy:dx,x=m+d;
- var move='translated '+Math.abs(dx)+' unit'+(Math.abs(dx)===1?'':'s')+' '+(dx>0?'right':'left')+' and '+Math.abs(dy)+' unit'+(Math.abs(dy)===1?'':'s')+' '+(dy>0?'up':'down');
- var fig=triFig(p,{id:'mid',pts:mid,labels:['A′','B′','C′'],of:'pre',tx:tx,dash:true},[],'Triangle ABC, its dashed intermediate image, and its final image');
- fig.shapes.push({id:'img',pts:img,labels:['A″','B″','C″'],of:'mid',tx:{type:'translate',dx:dx,dy:dy}});
- var Q=img[a.v],Md=mid[a.v];return makeP('geo-transform-fig-compose-'+c,triText(p)+' It is first '+words+' to form triangle A′B′C′ (dashed), and then '+move+' to form triangle A″B″C″. Find the coordinates of '+a.L+'″.',Q,'First '+words+': '+a.L+' goes to '+a.L+'′('+Md[0]+', '+Md[1]+'). Then shift '+dx+' in x and '+dy+' in y.',fig,[[p[a.v][0]+dx,p[a.v][1]+dy],[Md[0]-dx,Md[1]-dy],[Q[1],Q[0]]]);}
+ var Md=f(p[a.v]),Q=[Md[0]+dx,Md[1]+dy],fig=triFig(p,null,[],'Triangle ABC on the coordinate plane');
+ return makeP('geo-transform-fig-compose-'+c,triText(p)+' It is first '+words+' to form triangle A′B′C′, and then '+translationText(dx,dy)+' to form triangle A″B″C″. Find the coordinates of '+a.L+'″.',Q,
+  'First '+words+': '+a.L+' goes to '+a.L+'′('+Md[0]+', '+Md[1]+'). Then shift '+dx+' in x and '+dy+' in y.',fig,
+  [[p[a.v][0]+dx,p[a.v][1]+dy],[Md[0]-dx,Md[1]-dy],[Q[1],Q[0]]]);}
 /* Symmetry of regular polygons: the polygon is only drawn (n is not printed), so the number of sides is read from the figure. */
 function symLines(ctx){var r=ctx.rng,ns=ctx.c>=5?[3,4,5,6,7,8,9,10,12]:[3,4,5,6,8],n=ns[r.int(0,ns.length-1)];
  return {variant:'geo-symmetry-lines-'+ctx.c,fig:{kind:'geo-regular',n:n,plain:true},prompt:['The regular polygon shown has x lines of symmetry.','A designer draws the regular polygon shown, which has x lines of symmetry.','The tile shown is a regular polygon with x lines of symmetry.','Folding the regular polygon shown onto itself can be done along x different lines of symmetry.','A logo is shaped like the regular polygon shown, and it has x lines of symmetry.','The regular polygon in the figure has exactly x lines of symmetry.'][r.int(0,5)]+' Count its sides in the figure and find x. Write and solve an equation for x.',
@@ -138,7 +141,7 @@ skills:[
 {id:'rotate-90-clockwise',tag:'ROTATION',name:'90° clockwise rotation',best:[0,1],generate:ctx=>rotate(ctx,'cw')},
 {id:'rotate-90-counterclockwise',tag:'ROTATION',name:'90° counterclockwise rotation',best:[0,1],generate:ctx=>rotate(ctx,'ccw')},
 {id:'dilate-origin',tag:'DILATION',name:'Dilation about origin',best:[0,1],generate:dilate},
-{id:'translate-triangle-figure',tag:'TRANSLATION',name:'Translate a triangle (read from the grid)',best:[0,1],generate:translateTri},
+{id:'translate-triangle-figure',tag:'TRANSLATION',name:'Translate a triangle on the coordinate plane',best:[0,1],generate:translateTri},
 {id:'reflect-triangle-figure',tag:'REFLECTION',name:'Reflect a triangle across a mirror line',best:[0,1],generate:reflectTri},
 {id:'rotate-triangle-figure',tag:'ROTATION',name:'Rotate a triangle about the origin',best:[0,1],generate:rotateTri},
 {id:'compose-triangle-figure',tag:'COMPOSITION',name:'Transform a triangle in two steps',best:[1,2],generate:composeTri},

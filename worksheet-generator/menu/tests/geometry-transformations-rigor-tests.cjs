@@ -41,3 +41,30 @@ run('symmetry', (p, k, t, q) => {
   assert.strictEqual(k[3], k[0] * Number(/is (\d+) units long/.exec(q[3])[1]));
 });
 console.log('Transformations investigations: ' + n + ' problems re-derived from their printed text; every key and figure agrees.');
+
+for (const id of ['compose-triangle-figure', 'translate-triangle-figure']) {
+  for (const level of ['cp2', 'cp1', 'honors']) {
+    const policy = { level, intOnly: level !== 'honors' };
+    for (const tier of M.LEVELS[level].tiers) for (let i = 0; i < 20; i++) {
+      const p = M.generateProblem(SET, id, tier, policy, 'image-hidden:' + i, null);
+      assert(!p.failed, id + ' failed: ' + p.reason);
+      assert.deepStrictEqual(Array.from(p.fig.shapes, shape => shape.id), ['pre']);
+      assert(!/dashed|shown on the grid/.test(p.prompt));
+      const text = plain(p.prompt);
+      const given = pts(text);
+      const vertex = /Find the coordinates of ([ABC])/.exec(text)[1];
+      let [x, y] = given['ABC'.indexOf(vertex)];
+      const first = /It is first (.+?) to form/.exec(text)?.[1];
+      if (first?.includes('x-axis')) y *= -1;
+      if (first?.includes('y-axis')) x *= -1;
+      if (first?.includes('90°')) [x, y] = first.includes('counterclockwise') ? [-y, x] : [y, -x];
+      const [, dx, h, dy, v] = /translated (\d+) units? (right|left) and (\d+) units? (up|down)/.exec(text);
+      const answer = [x + (h === 'right' ? +dx : -dx), y + (v === 'up' ? +dy : -dy)];
+      assert.deepStrictEqual(pts(p.parts[0].answer)[0], answer);
+      assert(M.verifyProblem(p, policy).ok);
+      p.parts[0].answer = '(' + (answer[0] + 1) + ', ' + answer[1] + ')';
+      assert(!M.verifyProblem(p, policy).ok);
+    }
+  }
+}
+console.log('Triangle translation and composition questions show only the original triangle.');
