@@ -149,7 +149,8 @@ def ctx_ferris(r, L):
     prompt = (f"A Ferris wheel {d} feet in diameter turns once every {T} minutes; its center is {c} feet above the ground. A rider boards at the bottom. "
               f"The height is h(t) = {c} - {rr} cos(2πt/{T}). How high is the rider after {t} minutes?")
     ang = 2 * frac
-    steps = [f"2π({t})/{T} = {num(ang)}π" if ang != 1 else f"2π({t})/{T} = π", f"h = {c} - {rr} cos({num(ang) if ang != 1 else ''}π) = {num(hv)} feet."]
+    at = "π" if ang == 1 else (f"{num(ang)}π" if ang.denominator == 1 else f"({num(ang)})π")
+    steps = [f"2π({t})/{T} = {at}", f"h = {c} - {rr} cos({at}) = {num(hv)} feet."]
     steps[0] += "."
     wr = [(f"{num(F(c) + rr * {F(1, 4): 0, F(1, 2): -1, F(1, 6): F(1, 2), F(1, 3): F(-1, 2), F(3, 4): 0, F(2, 3): F(-1, 2)}[frac])} feet", "added instead of subtracting the cosine term"),
           (f"{c + rr} feet" if hv != c + rr else f"{c - rr} feet", "gave the top or bottom of the wheel"), (f"{c} feet" if hv != c else f"{c + rr} feet", "used the center height"),
@@ -271,7 +272,7 @@ def ctx_dish(r, L):
              f"The receiver is {g(p)} inches from the vertex."]
     wr = [(f"{g(F(w * w, 4) / d)} inches", "forgot the 4 in x² = 4py"), (f"{g(F(w * w, 16) / d * 2)} inches", "used the full width instead of half"),
           (f"{g(d)} inches", "used the depth"), (f"{g(4 * p)} inches", "gave 4p")]
-    return I(prompt, f"{g(p)} inches", steps, wr, dict(k="ctx_dish", w=w, d=str(d), show=[f"{w} inches", f"{g(d)} inches"]), "ctx_dish")
+    return I(prompt, f"{g(p)} inch" if p == 1 else f"{g(p)} inches", steps, wr, dict(k="ctx_dish", w=w, d=str(d), show=[f"{w} inches", f"{g(d)} inches"]), "ctx_dish")
 
 
 def ctx_cable(r, L):

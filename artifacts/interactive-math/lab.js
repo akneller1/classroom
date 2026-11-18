@@ -72,6 +72,12 @@ function shift(vname, hval) {
 
 /* ---------- page frame ---------- */
 function layout(o) {
+  // A shared lab opened from another course says so: ?course=Precalculus&unit=Conics overrides the eyebrow.
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get('course')) o.course = q.get('course');
+    if (q.get('unit')) o.unit = q.get('unit');
+  } catch (e) { /* no URL */ }
   document.title = o.title + ' · Mr. K\'s Classroom';
   var root = document.getElementById('app') || h('main', { id: 'app' }, document.body);
   root.className = 'lab-page';

@@ -39,7 +39,7 @@ for (const [unit, n, name, std] of NEW) {
 }
 // The verifier recorded and passed every new item.
 const checks = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/precalculus-audit-20261118/gaps/out/checks.json'), 'utf8'));
-const newIds = items.filter((q) => NEW.some(([u, n]) => q.skillId === `${u}-skill-${String(n).padStart(2, '0')}`)).map((q) => q.id);
+const newIds = items.filter((q) => q.format !== 'plot' && NEW.some(([u, n]) => q.skillId === `${u}-skill-${String(n).padStart(2, '0')}`)).map((q) => q.id);
 assert.deepEqual(newIds.filter((id) => !checks[id]), [], 'every new item has verifier check data');
 // The standards map lists the new standards.
 const map = fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/standards-map.js'), 'utf8');

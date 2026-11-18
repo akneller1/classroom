@@ -39,12 +39,12 @@
      "correct": false
     },
     {
-     "text": "y = -(4/5)x + 9/5",
-     "correct": false
-    },
-    {
      "text": "y = (4/5)x + 9/5",
      "correct": true
+    },
+    {
+     "text": "y = -(4/5)x + 9/5",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -149,12 +149,12 @@
      "correct": false
     },
     {
-     "text": "y = (1/7)x - 8/7",
-     "correct": true
-    },
-    {
      "text": "y = -(1/7)x - 8/7",
      "correct": false
+    },
+    {
+     "text": "y = (1/7)x - 8/7",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -177,16 +177,16 @@
    "answer": "y = 4x + 5",
    "options": [
     {
-     "text": "y = 4x + 5",
-     "correct": true
-    },
-    {
      "text": "y = -4x + 5",
      "correct": false
     },
     {
      "text": "y = (1/4)x + 5",
      "correct": false
+    },
+    {
+     "text": "y = 4x + 5",
+     "correct": true
     },
     {
      "text": "y = 4x + 29",
@@ -249,16 +249,16 @@
    "answer": "y = (7/9)x + 7/9",
    "options": [
     {
-     "text": "y = (7/9)x + 7/9",
-     "correct": true
-    },
-    {
      "text": "y = (7/9)x - 7",
      "correct": false
     },
     {
      "text": "y = -(7/9)x + 7/9",
      "correct": false
+    },
+    {
+     "text": "y = (7/9)x + 7/9",
+     "correct": true
     },
     {
      "text": "y = 7x + 7/9",
@@ -289,12 +289,12 @@
      "correct": false
     },
     {
-     "text": "y = -(9/5)x - 9",
-     "correct": false
-    },
-    {
      "text": "y = (9/5)x - 9",
      "correct": true
+    },
+    {
+     "text": "y = -(9/5)x - 9",
+     "correct": false
     },
     {
      "text": "y = (5/9)x - 9",
@@ -449,7 +449,7 @@
    "answer": "y = -(1/3)x + 3",
    "solutionSteps": [
     "m = (1 - (2)) ÷ (6 - (3)) = -1/3.",
-    "Substitute (3, 2): 2 = -1/3(3) + b.",
+    "Substitute (3, 2): 2 = -(1/3)(3) + b.",
     "b = 3.",
     "y = -(1/3)x + 3."
    ],
@@ -472,12 +472,12 @@
      "correct": false
     },
     {
-     "text": "-7x + 3y = -19",
-     "correct": false
-    },
-    {
      "text": "3x - 7y = -19",
      "correct": true
+    },
+    {
+     "text": "-7x + 3y = -19",
+     "correct": false
     },
     {
      "text": "3x + 7y = -19",
@@ -522,6 +522,10 @@
    "answer": "y = x + 6",
    "options": [
     {
+     "text": "y = x + 6",
+     "correct": true
+    },
+    {
      "text": "y = -x + 6",
      "correct": false
     },
@@ -532,10 +536,6 @@
     {
      "text": "y = x - 6",
      "correct": false
-    },
-    {
-     "text": "y = x + 6",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -577,10 +577,6 @@
    "answer": "y = 8x + 37",
    "options": [
     {
-     "text": "y = 8x + 37",
-     "correct": true
-    },
-    {
      "text": "y = 37x + 8",
      "correct": false
     },
@@ -591,6 +587,10 @@
     {
      "text": "y = (101/8)x",
      "correct": false
+    },
+    {
+     "text": "y = 8x + 37",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -686,12 +686,12 @@
    "answer": "y = -3x + 8",
    "options": [
     {
-     "text": "y = -3x + 8",
-     "correct": true
-    },
-    {
      "text": "y = 3x + 8",
      "correct": false
+    },
+    {
+     "text": "y = -3x + 8",
+     "correct": true
     },
     {
      "text": "y = -6x + 8",
@@ -851,7 +851,7 @@
    "solutionSteps": [
     "Mistake: Used run over rise for the slope.",
     "m = (-5 - (1)) ÷ (0 - (4)) = 3/2.",
-    "Substitute (4, 1): 1 = 3/2(4) + b.",
+    "Substitute (4, 1): 1 = (3/2)(4) + b.",
     "b = -5.",
     "y = (3/2)x - 5.",
     "The correct answer is y = (3/2)x - 5, not y = (2/3)x - 5."
@@ -871,7 +871,7 @@
    "answer": "y = -(3/2)x + 5",
    "solutionSteps": [
     "m = (8 - (14)) ÷ (-2 - (-6)) = -3/2.",
-    "Substitute (-6, 14): 14 = -3/2(-6) + b.",
+    "Substitute (-6, 14): 14 = -(3/2)(-6) + b.",
     "b = 5.",
     "y = -(3/2)x + 5."
    ],
@@ -922,7 +922,7 @@
    "skillId": "equations-inequalities-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Jamal's savings grow linearly. After 3 weeks there is $110; after 1 weeks there is $98. Write an equation for the savings y after x weeks.",
+   "prompt": "Jamal's savings grow linearly. After 3 weeks there is $110; after 1 week there is $98. Write an equation for the savings y after x weeks.",
    "answer": "y = 6x + 92",
    "solutionSteps": [
     "Rate: (98 - 110) ÷ (1 - 3) = 6.",
@@ -1003,12 +1003,12 @@
      "correct": false
     },
     {
-     "text": "y = 198x + 17",
-     "correct": false
-    },
-    {
      "text": "y = 17x + 198",
      "correct": true
+    },
+    {
+     "text": "y = 198x + 17",
+     "correct": false
     },
     {
      "text": "y = (317/7)x",
@@ -1058,16 +1058,16 @@
      "correct": false
     },
     {
+     "text": "y = -(4/9)x - 11/9",
+     "correct": true
+    },
+    {
      "text": "y = -(4/9)x - 11",
      "correct": false
     },
     {
      "text": "y = 4x - 11/9",
      "correct": false
-    },
-    {
-     "text": "y = -(4/9)x - 11/9",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -1116,12 +1116,12 @@
      "correct": false
     },
     {
-     "text": "y = (1/6)x + 3",
-     "correct": false
-    },
-    {
      "text": "y = 6x + 3",
      "correct": true
+    },
+    {
+     "text": "y = (1/6)x + 3",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -1215,7 +1215,7 @@
    "solutionSteps": [
     "Mistake: Subtracted the coordinates in different orders.",
     "m = (-7 - (-5)) ÷ (-5 - (0)) = 2/5.",
-    "Substitute (0, -5): -5 = 2/5(0) + b.",
+    "Substitute (0, -5): -5 = (2/5)(0) + b.",
     "b = -5.",
     "y = (2/5)x - 5.",
     "The correct answer is y = (2/5)x - 5, not y = -(2/5)x - 5."
@@ -1288,7 +1288,7 @@
    "solutionSteps": [
     "Mistake: Made a sign error finding b.",
     "m = (7 - (6)) ÷ (2 - (0)) = 1/2.",
-    "Substitute (0, 6): 6 = 1/2(0) + b.",
+    "Substitute (0, 6): 6 = (1/2)(0) + b.",
     "b = 6.",
     "y = (1/2)x + 6.",
     "The correct answer is y = (1/2)x + 6, not y = (1/2)x - 6."
@@ -1326,16 +1326,16 @@
    "answer": "parallel",
    "options": [
     {
-     "text": "parallel",
-     "correct": true
-    },
-    {
      "text": "perpendicular",
      "correct": false
     },
     {
      "text": "neither",
      "correct": false
+    },
+    {
+     "text": "parallel",
+     "correct": true
     },
     {
      "text": "the same line",
@@ -1405,12 +1405,12 @@
      "correct": false
     },
     {
-     "text": "neither",
-     "correct": true
-    },
-    {
      "text": "the same line",
      "correct": false
+    },
+    {
+     "text": "neither",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -1450,12 +1450,12 @@
    "answer": "parallel",
    "options": [
     {
-     "text": "parallel",
-     "correct": true
-    },
-    {
      "text": "perpendicular",
      "correct": false
+    },
+    {
+     "text": "parallel",
+     "correct": true
     },
     {
      "text": "neither",
@@ -1493,17 +1493,17 @@
      "correct": false
     },
     {
-     "text": "y = (1/2)x + 5/2",
-     "correct": true
-    },
-    {
      "text": "y = (1/2)x - 7",
      "correct": false
+    },
+    {
+     "text": "y = (1/2)x + 5/2",
+     "correct": true
     }
    ],
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = 1/2.",
-    "Substitute (-3, 1): 1 = 1/2(-3) + b.",
+    "Substitute (-3, 1): 1 = (1/2)(-3) + b.",
     "b = 5/2.",
     "y = (1/2)x + 5/2."
    ],
@@ -1525,12 +1525,12 @@
      "correct": false
     },
     {
-     "text": "perpendicular",
-     "correct": false
-    },
-    {
      "text": "neither",
      "correct": true
+    },
+    {
+     "text": "perpendicular",
+     "correct": false
     },
     {
      "text": "the same line",
@@ -1610,7 +1610,7 @@
    "answer": "y = -(1/2)x + 7/2",
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = -1/2.",
-    "Substitute (-5, 6): 6 = -1/2(-5) + b.",
+    "Substitute (-5, 6): 6 = -(1/2)(-5) + b.",
     "b = 7/2.",
     "y = -(1/2)x + 7/2."
    ],
@@ -1703,7 +1703,7 @@
    "solutionSteps": [
     "Mistake: Used the opposite but not the reciprocal.",
     "Perpendicular slopes are opposite reciprocals: m = -1/5.",
-    "Substitute (-6, -6): -6 = -1/5(-6) + b.",
+    "Substitute (-6, -6): -6 = -(1/5)(-6) + b.",
     "b = -36/5.",
     "y = -(1/5)x - 36/5.",
     "The correct answer is y = -(1/5)x - 36/5, not y = (1/5)x - 24/5."
@@ -1899,7 +1899,7 @@
    "answer": "y = -(1/4)x + 1",
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = -1/4.",
-    "Substitute (4, 0): 0 = -1/4(4) + b.",
+    "Substitute (4, 0): 0 = -(1/4)(4) + b.",
     "b = 1.",
     "y = -(1/4)x + 1."
    ],
@@ -1952,10 +1952,6 @@
    "answer": "y = (4/5)x - 31/5",
    "options": [
     {
-     "text": "y = (4/5)x - 31/5",
-     "correct": true
-    },
-    {
      "text": "y = (4/5)x - 3",
      "correct": false
     },
@@ -1966,11 +1962,15 @@
     {
      "text": "y = -(4/5)x + 1/5",
      "correct": false
+    },
+    {
+     "text": "y = (4/5)x - 31/5",
+     "correct": true
     }
    ],
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = 4/5.",
-    "Substitute (4, -3): -3 = 4/5(4) + b.",
+    "Substitute (4, -3): -3 = (4/5)(4) + b.",
     "b = -31/5.",
     "y = (4/5)x - 31/5."
    ],
@@ -1988,7 +1988,7 @@
    "answer": "y = -(1/2)x - 5/2",
    "solutionSteps": [
     "Parallel lines have equal slopes: m = -1/2.",
-    "Substitute (3, -4): -4 = -1/2(3) + b.",
+    "Substitute (3, -4): -4 = -(1/2)(3) + b.",
     "b = -5/2.",
     "y = -(1/2)x - 5/2."
    ],
@@ -2006,7 +2006,7 @@
    "answer": "y = -(2/3)x - 8/3",
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = -2/3.",
-    "Substitute (-1, -2): -2 = -2/3(-1) + b.",
+    "Substitute (-1, -2): -2 = -(2/3)(-1) + b.",
     "b = -8/3.",
     "y = -(2/3)x - 8/3."
    ],
@@ -2024,7 +2024,7 @@
    "answer": "y = (3/2)x + 5/2",
    "solutionSteps": [
     "Parallel lines have equal slopes: m = 3/2.",
-    "Substitute (-1, 1): 1 = 3/2(-1) + b.",
+    "Substitute (-1, 1): 1 = (3/2)(-1) + b.",
     "b = 5/2.",
     "y = (3/2)x + 5/2."
    ],
@@ -2042,7 +2042,7 @@
    "answer": "y = -(1/4)x + 15/2",
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = -1/4.",
-    "Substitute (6, 6): 6 = -1/4(6) + b.",
+    "Substitute (6, 6): 6 = -(1/4)(6) + b.",
     "b = 15/2.",
     "y = -(1/4)x + 15/2."
    ],
@@ -2136,7 +2136,7 @@
    "answer": "y = (4/3)x - 1",
    "solutionSteps": [
     "Parallel lines have equal slopes: m = 4/3.",
-    "Substitute (3, 3): 3 = 4/3(3) + b.",
+    "Substitute (3, 3): 3 = (4/3)(3) + b.",
     "b = -1.",
     "y = (4/3)x - 1."
    ],
@@ -2154,10 +2154,6 @@
    "answer": "parallel",
    "options": [
     {
-     "text": "parallel",
-     "correct": true
-    },
-    {
      "text": "perpendicular",
      "correct": false
     },
@@ -2168,6 +2164,10 @@
     {
      "text": "the same line",
      "correct": false
+    },
+    {
+     "text": "parallel",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -2207,7 +2207,7 @@
    ],
    "solutionSteps": [
     "Parallel lines have equal slopes: m = -5/2.",
-    "Substitute (6, -2): -2 = -5/2(6) + b.",
+    "Substitute (6, -2): -2 = -(5/2)(6) + b.",
     "b = 13.",
     "y = -(5/2)x + 13."
    ],
@@ -2225,12 +2225,12 @@
    "answer": "perpendicular",
    "options": [
     {
-     "text": "parallel",
-     "correct": false
-    },
-    {
      "text": "perpendicular",
      "correct": true
+    },
+    {
+     "text": "parallel",
+     "correct": false
     },
     {
      "text": "neither",
@@ -2260,7 +2260,7 @@
    "answer": "y = (1/4)x - 11/2",
    "solutionSteps": [
     "Parallel lines have equal slopes: m = 1/4.",
-    "Substitute (-2, -6): -6 = 1/4(-2) + b.",
+    "Substitute (-2, -6): -6 = (1/4)(-2) + b.",
     "b = -11/2.",
     "y = (1/4)x - 11/2."
    ],
@@ -2282,12 +2282,12 @@
      "correct": false
     },
     {
-     "text": "perpendicular",
-     "correct": true
-    },
-    {
      "text": "neither",
      "correct": false
+    },
+    {
+     "text": "perpendicular",
+     "correct": true
     },
     {
      "text": "the same line",
@@ -2313,16 +2313,16 @@
    "answer": "y = -3x - 4",
    "options": [
     {
-     "text": "y = -3x - 4",
-     "correct": true
-    },
-    {
      "text": "y = -3x - 1",
      "correct": false
     },
     {
      "text": "y = -3x - 5",
      "correct": false
+    },
+    {
+     "text": "y = -3x - 4",
+     "correct": true
     },
     {
      "text": "y = 3x + 2",
@@ -2349,12 +2349,12 @@
    "answer": "parallel",
    "options": [
     {
-     "text": "parallel",
-     "correct": true
-    },
-    {
      "text": "perpendicular",
      "correct": false
+    },
+    {
+     "text": "parallel",
+     "correct": true
     },
     {
      "text": "neither",
@@ -2420,7 +2420,7 @@
    "answer": "y = -(2/5)x - 37/5",
    "solutionSteps": [
     "Perpendicular slopes are opposite reciprocals: m = -2/5.",
-    "Substitute (-6, -5): -5 = -2/5(-6) + b.",
+    "Substitute (-6, -5): -5 = -(2/5)(-6) + b.",
     "b = -37/5.",
     "y = -(2/5)x - 37/5."
    ],
@@ -2475,7 +2475,7 @@
    "solutionSteps": [
     "Mistake: Used a perpendicular slope.",
     "Parallel lines have equal slopes: m = 1/3.",
-    "Substitute (1, -5): -5 = 1/3(1) + b.",
+    "Substitute (1, -5): -5 = (1/3)(1) + b.",
     "b = -16/3.",
     "y = (1/3)x - 16/3.",
     "The correct answer is y = (1/3)x - 16/3, not y = -3x - 2."
@@ -2578,16 +2578,16 @@
      "correct": false
     },
     {
-     "text": "x = -4",
-     "correct": true
-    },
-    {
      "text": "x = 2",
      "correct": false
     },
     {
      "text": "x = 4",
      "correct": false
+    },
+    {
+     "text": "x = -4",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -2640,12 +2640,12 @@
    "answer": "x = -4",
    "options": [
     {
-     "text": "x = -4",
-     "correct": true
-    },
-    {
      "text": "x = 4",
      "correct": false
+    },
+    {
+     "text": "x = -4",
+     "correct": true
     },
     {
      "text": "x = -11",
@@ -2706,6 +2706,10 @@
    "answer": "x = 2",
    "options": [
     {
+     "text": "x = 2",
+     "correct": true
+    },
+    {
      "text": "x = 0",
      "correct": false
     },
@@ -2716,10 +2720,6 @@
     {
      "text": "x = 4",
      "correct": false
-    },
-    {
-     "text": "x = 2",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -2772,12 +2772,12 @@
    "answer": "x = 3",
    "options": [
     {
-     "text": "x = 3",
-     "correct": true
-    },
-    {
      "text": "x = 11",
      "correct": false
+    },
+    {
+     "text": "x = 3",
+     "correct": true
     },
     {
      "text": "x = 2",
@@ -2838,12 +2838,12 @@
    "answer": "x = -1",
    "options": [
     {
-     "text": "x = 3",
-     "correct": false
-    },
-    {
      "text": "x = -1",
      "correct": true
+    },
+    {
+     "text": "x = 3",
+     "correct": false
     },
     {
      "text": "x = 5",
@@ -3107,16 +3107,16 @@
    "answer": "x = 3 or x = 4",
    "options": [
     {
-     "text": "x = 3 or x = 4",
-     "correct": true
-    },
-    {
      "text": "x = -3 or x = -4",
      "correct": false
     },
     {
      "text": "x = 0 or x = 0",
      "correct": false
+    },
+    {
+     "text": "x = 3 or x = 4",
+     "correct": true
     },
     {
      "text": "x = 12",
@@ -3229,16 +3229,16 @@
      "correct": false
     },
     {
+     "text": "x = 0 or x = 4",
+     "correct": true
+    },
+    {
      "text": "x = 0",
      "correct": false
     },
     {
      "text": "x = 0 or x = -4",
      "correct": false
-    },
-    {
-     "text": "x = 0 or x = 4",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -3312,12 +3312,12 @@
      "correct": false
     },
     {
-     "text": "x = -4 or x = 0",
-     "correct": true
-    },
-    {
      "text": "x = 4 or x = 0",
      "correct": false
+    },
+    {
+     "text": "x = -4 or x = 0",
+     "correct": true
     },
     {
      "text": "x = -4 or x = 5",
@@ -3343,10 +3343,6 @@
    "answer": "x = 0 or x = 3",
    "options": [
     {
-     "text": "x = 0 or x = 3",
-     "correct": true
-    },
-    {
      "text": "x = 0 or x = -3",
      "correct": false
     },
@@ -3357,6 +3353,10 @@
     {
      "text": "x = 0 or x = 0",
      "correct": false
+    },
+    {
+     "text": "x = 0 or x = 3",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -3538,12 +3538,12 @@
    "answer": "x = -4 or x = -3",
    "options": [
     {
-     "text": "x = -4 or x = -3",
-     "correct": true
-    },
-    {
      "text": "x = -3 or x = -1",
      "correct": false
+    },
+    {
+     "text": "x = -4 or x = -3",
+     "correct": true
     },
     {
      "text": "x = -4",
@@ -3660,12 +3660,12 @@
      "correct": false
     },
     {
-     "text": "x = -6 or x = 1",
-     "correct": true
-    },
-    {
      "text": "x = -6",
      "correct": false
+    },
+    {
+     "text": "x = -6 or x = 1",
+     "correct": true
     },
     {
      "text": "x = 0 or x = 1",
@@ -3699,12 +3699,12 @@
      "correct": false
     },
     {
-     "text": "x = 0 or x = 0",
-     "correct": false
-    },
-    {
      "text": "x = -4 or x = 3",
      "correct": true
+    },
+    {
+     "text": "x = 0 or x = 0",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -3817,12 +3817,12 @@
      "correct": false
     },
     {
-     "text": "x = 1 or x = 2",
-     "correct": true
-    },
-    {
      "text": "x = -1 or x = -2",
      "correct": false
+    },
+    {
+     "text": "x = 1 or x = 2",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -4076,16 +4076,16 @@
      "correct": false
     },
     {
+     "text": "2 hours",
+     "correct": true
+    },
+    {
      "text": "10/3 hours",
      "correct": false
     },
     {
      "text": "5/66 hours",
      "correct": false
-    },
-    {
-     "text": "2 hours",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -4108,16 +4108,16 @@
    "answer": "48 L",
    "options": [
     {
-     "text": "48 L",
-     "correct": true
-    },
-    {
      "text": "3 L",
      "correct": false
     },
     {
      "text": "192/35 L",
      "correct": false
+    },
+    {
+     "text": "48 L",
+     "correct": true
     },
     {
      "text": "12 L",
@@ -4167,12 +4167,12 @@
      "correct": false
     },
     {
-     "text": "291/65 hours",
-     "correct": false
-    },
-    {
      "text": "3 hours",
      "correct": true
+    },
+    {
+     "text": "291/65 hours",
+     "correct": false
     },
     {
      "text": "97/11 hours",
@@ -4482,12 +4482,12 @@
      "correct": false
     },
     {
-     "text": "40/9 hours",
-     "correct": true
-    },
-    {
      "text": "2 hours",
      "correct": false
+    },
+    {
+     "text": "40/9 hours",
+     "correct": true
     },
     {
      "text": "18 hours",
@@ -4604,6 +4604,10 @@
    "answer": "117/2 L",
    "options": [
     {
+     "text": "117/2 L",
+     "correct": true
+    },
+    {
      "text": "117/20 L",
      "correct": false
     },
@@ -4614,10 +4618,6 @@
     {
      "text": "18/13 L",
      "correct": false
-    },
-    {
-     "text": "117/2 L",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -4645,16 +4645,16 @@
      "correct": false
     },
     {
-     "text": "32",
-     "correct": true
-    },
-    {
      "text": "33",
      "correct": false
     },
     {
      "text": "35",
      "correct": false
+    },
+    {
+     "text": "32",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -4695,16 +4695,16 @@
    "answer": "4",
    "options": [
     {
-     "text": "4",
-     "correct": true
-    },
-    {
      "text": "7",
      "correct": false
     },
     {
      "text": "5",
      "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
     },
     {
      "text": "3",
@@ -4904,12 +4904,12 @@
      "correct": false
     },
     {
-     "text": "15/8 hours",
-     "correct": true
-    },
-    {
      "text": "8 hours",
      "correct": false
+    },
+    {
+     "text": "15/8 hours",
+     "correct": true
     },
     {
      "text": "2 hours",
@@ -4954,10 +4954,6 @@
    "answer": "20/9 hours",
    "options": [
     {
-     "text": "20/9 hours",
-     "correct": true
-    },
-    {
      "text": "9 hours",
      "correct": false
     },
@@ -4968,6 +4964,10 @@
     {
      "text": "9/2 hours",
      "correct": false
+    },
+    {
+     "text": "20/9 hours",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5008,12 +5008,12 @@
    "answer": "6",
    "options": [
     {
-     "text": "6",
-     "correct": true
-    },
-    {
      "text": "14",
      "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
     },
     {
      "text": "8",
@@ -5062,16 +5062,16 @@
    "answer": "28",
    "options": [
     {
+     "text": "28",
+     "correct": true
+    },
+    {
      "text": "36",
      "correct": false
     },
     {
      "text": "32",
      "correct": false
-    },
-    {
-     "text": "28",
-     "correct": true
     },
     {
      "text": "30",
@@ -5116,10 +5116,6 @@
    "answer": "33/4 L",
    "options": [
     {
-     "text": "33/4 L",
-     "correct": true
-    },
-    {
      "text": "12/11 L",
      "correct": false
     },
@@ -5130,6 +5126,10 @@
     {
      "text": "33/20 L",
      "correct": false
+    },
+    {
+     "text": "33/4 L",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5267,12 +5267,12 @@
    "answer": "(-∞, -13)",
    "options": [
     {
-     "text": "(-∞, -13]",
-     "correct": false
-    },
-    {
      "text": "(-∞, -13)",
      "correct": true
+    },
+    {
+     "text": "(-∞, -13]",
+     "correct": false
     },
     {
      "text": "(-13, ∞)",
@@ -5323,16 +5323,16 @@
    "answer": "[-1, 1)",
    "options": [
     {
-     "text": "[-1, 1)",
-     "correct": true
-    },
-    {
      "text": "(-∞, -1] ∪ (1, ∞)",
      "correct": false
     },
     {
      "text": "(-1, 1]",
      "correct": false
+    },
+    {
+     "text": "[-1, 1)",
+     "correct": true
     },
     {
      "text": "[-4, 4)",
@@ -5379,6 +5379,10 @@
    "answer": "(-8/5, ∞)",
    "options": [
     {
+     "text": "(-8/5, ∞)",
+     "correct": true
+    },
+    {
      "text": "[-8/5, ∞)",
      "correct": false
     },
@@ -5389,10 +5393,6 @@
     {
      "text": "(-∞, -8/5)",
      "correct": false
-    },
-    {
-     "text": "(-8/5, ∞)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5439,16 +5439,16 @@
      "correct": false
     },
     {
+     "text": "(-∞, 0]",
+     "correct": true
+    },
+    {
      "text": "(-∞, 0)",
      "correct": false
     },
     {
      "text": "(-∞, 1]",
      "correct": false
-    },
-    {
-     "text": "(-∞, 0]",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5499,12 +5499,12 @@
      "correct": false
     },
     {
-     "text": "[-2, 2]",
-     "correct": true
-    },
-    {
      "text": "[-4, 4]",
      "correct": false
+    },
+    {
+     "text": "[-2, 2]",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5547,16 +5547,16 @@
    "answer": "[0, 2)",
    "options": [
     {
-     "text": "[0, 2)",
-     "correct": true
-    },
-    {
      "text": "(-∞, 0] ∪ (2, ∞)",
      "correct": false
     },
     {
      "text": "[0, 8)",
      "correct": false
+    },
+    {
+     "text": "[0, 2)",
+     "correct": true
     },
     {
      "text": "(0, 2]",
@@ -5705,16 +5705,16 @@
      "correct": false
     },
     {
+     "text": "(3, 6)",
+     "correct": true
+    },
+    {
      "text": "(-∞, 3) ∪ (6, ∞)",
      "correct": false
     },
     {
      "text": "[3, 6]",
      "correct": false
-    },
-    {
-     "text": "(3, 6)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -5757,16 +5757,16 @@
    "answer": "(-∞, 0) ∪ (6, ∞)",
    "options": [
     {
-     "text": "(-∞, 0) ∪ (6, ∞)",
-     "correct": true
-    },
-    {
      "text": "(-∞, 0] ∪ [6, ∞)",
      "correct": false
     },
     {
      "text": "(-∞, -6) ∪ (0, ∞)",
      "correct": false
+    },
+    {
+     "text": "(-∞, 0) ∪ (6, ∞)",
+     "correct": true
     },
     {
      "text": "(0, 6)",
@@ -5817,16 +5817,16 @@
      "correct": false
     },
     {
-     "text": "(1, 10)",
-     "correct": true
-    },
-    {
      "text": "[1, 10]",
      "correct": false
     },
     {
      "text": "(-∞, 1) ∪ (10, ∞)",
      "correct": false
+    },
+    {
+     "text": "(1, 10)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -6139,12 +6139,12 @@
      "correct": false
     },
     {
-     "text": "(-5, -2)",
-     "correct": true
-    },
-    {
      "text": "(-∞, -5) ∪ (-2, ∞)",
      "correct": false
+    },
+    {
+     "text": "(-5, -2)",
+     "correct": true
     },
     {
      "text": "(2, 5)",
@@ -6195,12 +6195,12 @@
      "correct": false
     },
     {
-     "text": "(-∞, 2) ∪ (5, ∞)",
-     "correct": false
-    },
-    {
      "text": "(-∞, 2] ∪ [5, ∞)",
      "correct": true
+    },
+    {
+     "text": "(-∞, 2) ∪ (5, ∞)",
+     "correct": false
     },
     {
      "text": "[2, 5]",
@@ -6255,12 +6255,12 @@
      "correct": false
     },
     {
-     "text": "[-4, -3] ∪ [6, ∞)",
-     "correct": true
-    },
-    {
      "text": "[6, ∞)",
      "correct": false
+    },
+    {
+     "text": "[-4, -3] ∪ [6, ∞)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -6307,16 +6307,16 @@
      "correct": false
     },
     {
+     "text": "[-3, 1] ∪ [4, ∞)",
+     "correct": true
+    },
+    {
      "text": "[-3, 4]",
      "correct": false
     },
     {
      "text": "(-∞, -3] ∪ [1, 4]",
      "correct": false
-    },
-    {
-     "text": "[-3, 1] ∪ [4, ∞)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -6359,16 +6359,16 @@
    "answer": "(-∞, -3) ∪ (-1, ∞)",
    "options": [
     {
-     "text": "(-∞, -3) ∪ (-1, ∞)",
-     "correct": true
-    },
-    {
      "text": "(-∞, 1) ∪ (3, ∞)",
      "correct": false
     },
     {
      "text": "(-3, -1)",
      "correct": false
+    },
+    {
+     "text": "(-∞, -3) ∪ (-1, ∞)",
+     "correct": true
     },
     {
      "text": "(-∞, -3] ∪ [-1, ∞)",
@@ -6571,12 +6571,12 @@
      "correct": false
     },
     {
-     "text": "(-9, ∞)",
-     "correct": false
-    },
-    {
      "text": "[-9, ∞)",
      "correct": true
+    },
+    {
+     "text": "(-9, ∞)",
+     "correct": false
     },
     {
      "text": "[-9, ∞]",
@@ -6623,16 +6623,16 @@
      "correct": false
     },
     {
+     "text": "(-4, 7]",
+     "correct": true
+    },
+    {
      "text": "(-∞, -4) ∪ [7, ∞)",
      "correct": false
     },
     {
      "text": "[-4, 7)",
      "correct": false
-    },
-    {
-     "text": "(-4, 7]",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -6671,12 +6671,12 @@
    "answer": "(-∞, -8]",
    "options": [
     {
-     "text": "(-∞, -8]",
-     "correct": true
-    },
-    {
      "text": "[-8, ∞)",
      "correct": false
+    },
+    {
+     "text": "(-∞, -8]",
+     "correct": true
     },
     {
      "text": "[-∞, -8]",
@@ -6723,12 +6723,12 @@
    "answer": "(-∞, 6]",
    "options": [
     {
-     "text": "(-∞, 6]",
-     "correct": true
-    },
-    {
      "text": "(-∞, 6)",
      "correct": false
+    },
+    {
+     "text": "(-∞, 6]",
+     "correct": true
     },
     {
      "text": "[-∞, 6]",
@@ -6775,16 +6775,16 @@
    "answer": "(-11, ∞)",
    "options": [
     {
+     "text": "(-11, ∞)",
+     "correct": true
+    },
+    {
      "text": "(-∞, -11)",
      "correct": false
     },
     {
      "text": "[-11, ∞]",
      "correct": false
-    },
-    {
-     "text": "(-11, ∞)",
-     "correct": true
     },
     {
      "text": "[-11, ∞)",
@@ -6827,12 +6827,12 @@
    "answer": "[-1, 2)",
    "options": [
     {
-     "text": "(-1, 2]",
-     "correct": false
-    },
-    {
      "text": "[-1, 2)",
      "correct": true
+    },
+    {
+     "text": "(-1, 2]",
+     "correct": false
     },
     {
      "text": "(-∞, -1] ∪ (2, ∞)",
@@ -7030,16 +7030,16 @@
      "correct": false
     },
     {
-     "text": "[-3, 0)",
-     "correct": true
-    },
-    {
      "text": "(-∞, -3] ∪ (0, ∞)",
      "correct": false
     },
     {
      "text": "(-3, 0]",
      "correct": false
+    },
+    {
+     "text": "[-3, 0)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -7105,16 +7105,16 @@
      "correct": false
     },
     {
-     "text": "(4, 5]",
-     "correct": true
-    },
-    {
      "text": "[5, 4)",
      "correct": false
     },
     {
      "text": "(-∞, 4) ∪ [5, ∞)",
      "correct": false
+    },
+    {
+     "text": "(4, 5]",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -7142,12 +7142,12 @@
    "answer": "[-11, 2]",
    "options": [
     {
-     "text": "[-11, 2]",
-     "correct": true
-    },
-    {
      "text": "[2, -11]",
      "correct": false
+    },
+    {
+     "text": "[-11, 2]",
+     "correct": true
     },
     {
      "text": "(-11, 2)",
@@ -7225,12 +7225,12 @@
      "correct": false
     },
     {
-     "text": "[-6, 1)",
-     "correct": true
-    },
-    {
      "text": "(-∞, -6] ∪ (1, ∞)",
      "correct": false
+    },
+    {
+     "text": "[-6, 1)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -7258,16 +7258,16 @@
    "answer": "(-∞, -1]",
    "options": [
     {
-     "text": "(-∞, -1]",
-     "correct": true
-    },
-    {
      "text": "[-∞, -1]",
      "correct": false
     },
     {
      "text": "[-1, ∞)",
      "correct": false
+    },
+    {
+     "text": "(-∞, -1]",
+     "correct": true
     },
     {
      "text": "(-∞, -1)",
@@ -7488,12 +7488,12 @@
      "correct": false
     },
     {
-     "text": "(-12, ∞)",
-     "correct": false
-    },
-    {
      "text": "[-12, ∞)",
      "correct": true
+    },
+    {
+     "text": "(-12, ∞)",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -7559,12 +7559,12 @@
      "correct": false
     },
     {
-     "text": "(-2, 6]",
-     "correct": true
-    },
-    {
      "text": "[6, -2)",
      "correct": false
+    },
+    {
+     "text": "(-2, 6]",
+     "correct": true
     },
     {
      "text": "[-2, 6)",
@@ -7596,12 +7596,12 @@
    "answer": "(-∞, -7) ∪ [0, ∞)",
    "options": [
     {
-     "text": "(-7, 0]",
-     "correct": false
-    },
-    {
      "text": "(-∞, -7) ∪ [0, ∞)",
      "correct": true
+    },
+    {
+     "text": "(-7, 0]",
+     "correct": false
     },
     {
      "text": "(-∞, -7) ∩ [0, ∞)",
@@ -7675,16 +7675,16 @@
      "correct": false
     },
     {
+     "text": "(0, 6)",
+     "correct": true
+    },
+    {
      "text": "(6, 0)",
      "correct": false
     },
     {
      "text": "[0, 6]",
      "correct": false
-    },
-    {
-     "text": "(0, 6)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -7716,12 +7716,12 @@
      "correct": false
     },
     {
-     "text": "(-∞, 6]",
-     "correct": false
-    },
-    {
      "text": "(-∞, 6)",
      "correct": true
+    },
+    {
+     "text": "(-∞, 6]",
+     "correct": false
     },
     {
      "text": "[-∞, 6]",
@@ -7897,16 +7897,16 @@
      "correct": false
     },
     {
-     "text": "y ≥ -2x + 2",
-     "correct": true
-    },
-    {
      "text": "y ≥ 2x + 2",
      "correct": false
     },
     {
      "text": "y ≤ -2x + 2",
      "correct": false
+    },
+    {
+     "text": "y ≥ -2x + 2",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -8031,12 +8031,12 @@
    "answer": "solid line, shade above",
    "options": [
     {
-     "text": "solid line, shade above",
-     "correct": true
-    },
-    {
      "text": "solid line, shade below",
      "correct": false
+    },
+    {
+     "text": "solid line, shade above",
+     "correct": true
     },
     {
      "text": "dashed line, shade above",
@@ -8126,10 +8126,6 @@
    "answer": "solid line, shade above",
    "options": [
     {
-     "text": "solid line, shade above",
-     "correct": true
-    },
-    {
      "text": "solid line, shade below",
      "correct": false
     },
@@ -8140,6 +8136,10 @@
     {
      "text": "dashed line, shade below",
      "correct": false
+    },
+    {
+     "text": "solid line, shade above",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -8320,12 +8320,12 @@
    "answer": "y > -2x + 4",
    "options": [
     {
-     "text": "y ≥ -2x + 4",
-     "correct": false
-    },
-    {
      "text": "y > -2x + 4",
      "correct": true
+    },
+    {
+     "text": "y ≥ -2x + 4",
+     "correct": false
     },
     {
      "text": "y > 2x + 4",
@@ -8367,16 +8367,16 @@
      "correct": false
     },
     {
+     "text": "dashed line, shade below",
+     "correct": true
+    },
+    {
      "text": "solid line, shade below",
      "correct": false
     },
     {
      "text": "dashed line, shade above",
      "correct": false
-    },
-    {
-     "text": "dashed line, shade below",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -8514,12 +8514,12 @@
      "correct": false
     },
     {
-     "text": "y ≤ -3x + 1",
-     "correct": false
-    },
-    {
      "text": "y ≥ -3x + 1",
      "correct": true
+    },
+    {
+     "text": "y ≤ -3x + 1",
+     "correct": false
     },
     {
      "text": "y ≥ 3x + 1",
@@ -8553,16 +8553,16 @@
    "answer": "dashed line, shade above",
    "options": [
     {
+     "text": "dashed line, shade above",
+     "correct": true
+    },
+    {
      "text": "solid line, shade above",
      "correct": false
     },
     {
      "text": "solid line, shade below",
      "correct": false
-    },
-    {
-     "text": "dashed line, shade above",
-     "correct": true
     },
     {
      "text": "dashed line, shade below",
@@ -8794,16 +8794,16 @@
      "correct": false
     },
     {
-     "text": "solid line, shade below",
-     "correct": true
-    },
-    {
      "text": "dashed line, shade above",
      "correct": false
     },
     {
      "text": "dashed line, shade below",
      "correct": false
+    },
+    {
+     "text": "solid line, shade below",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -8937,16 +8937,16 @@
    "answer": "y ≤ -x + 4",
    "options": [
     {
-     "text": "y ≤ -x + 4",
-     "correct": true
-    },
-    {
      "text": "y < -x + 4",
      "correct": false
     },
     {
      "text": "y ≤ x + 4",
      "correct": false
+    },
+    {
+     "text": "y ≤ -x + 4",
+     "correct": true
     },
     {
      "text": "y ≥ -x + 4",
@@ -8980,10 +8980,6 @@
    "answer": "solid line, shade above",
    "options": [
     {
-     "text": "solid line, shade above",
-     "correct": true
-    },
-    {
      "text": "solid line, shade below",
      "correct": false
     },
@@ -8994,6 +8990,10 @@
     {
      "text": "dashed line, shade below",
      "correct": false
+    },
+    {
+     "text": "solid line, shade above",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9183,12 +9183,12 @@
      "correct": false
     },
     {
-     "text": "(-6, -1)",
-     "correct": true
-    },
-    {
      "text": "(-6, 1)",
      "correct": false
+    },
+    {
+     "text": "(-6, -1)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9229,6 +9229,10 @@
    "answer": "(6, -7)",
    "options": [
     {
+     "text": "(6, -7)",
+     "correct": true
+    },
+    {
      "text": "(-6, -7)",
      "correct": false
     },
@@ -9239,10 +9243,6 @@
     {
      "text": "(6, 7)",
      "correct": false
-    },
-    {
-     "text": "(6, -7)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9287,12 +9287,12 @@
      "correct": false
     },
     {
-     "text": "(-7, -1)",
-     "correct": false
-    },
-    {
      "text": "(-1, -7)",
      "correct": true
+    },
+    {
+     "text": "(-7, -1)",
+     "correct": false
     },
     {
      "text": "(1, -7)",
@@ -9337,6 +9337,10 @@
    "answer": "(-4, -5)",
    "options": [
     {
+     "text": "(-4, -5)",
+     "correct": true
+    },
+    {
      "text": "(-4, 5)",
      "correct": false
     },
@@ -9347,10 +9351,6 @@
     {
      "text": "(-5, -4)",
      "correct": false
-    },
-    {
-     "text": "(-4, -5)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9391,6 +9391,10 @@
    "answer": "(6, 0)",
    "options": [
     {
+     "text": "(6, 0)",
+     "correct": true
+    },
+    {
      "text": "(0, 6)",
      "correct": false
     },
@@ -9401,10 +9405,6 @@
     {
      "text": "(6, 1)",
      "correct": false
-    },
-    {
-     "text": "(6, 0)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9445,12 +9445,12 @@
    "answer": "(2, -3)",
    "options": [
     {
-     "text": "(2, -3)",
-     "correct": true
-    },
-    {
      "text": "(-3, 2)",
      "correct": false
+    },
+    {
+     "text": "(2, -3)",
+     "correct": true
     },
     {
      "text": "(2, 3)",
@@ -9630,12 +9630,12 @@
      "correct": false
     },
     {
-     "text": "(-3, -2)",
-     "correct": true
-    },
-    {
      "text": "(3, -2)",
      "correct": false
+    },
+    {
+     "text": "(-3, -2)",
+     "correct": true
     },
     {
      "text": "(-2, -3)",
@@ -9662,12 +9662,12 @@
    "answer": "16",
    "options": [
     {
-     "text": "26",
-     "correct": false
-    },
-    {
      "text": "16",
      "correct": true
+    },
+    {
+     "text": "26",
+     "correct": false
     },
     {
      "text": "29",
@@ -9724,12 +9724,12 @@
      "correct": false
     },
     {
-     "text": "39",
-     "correct": true
-    },
-    {
      "text": "31",
      "correct": false
+    },
+    {
+     "text": "39",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9752,10 +9752,6 @@
    "answer": "(4, -3)",
    "options": [
     {
-     "text": "(4, -3)",
-     "correct": true
-    },
-    {
      "text": "(-3, 4)",
      "correct": false
     },
@@ -9766,6 +9762,10 @@
     {
      "text": "(4, 3)",
      "correct": false
+    },
+    {
+     "text": "(4, -3)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -9868,12 +9868,12 @@
      "correct": false
     },
     {
-     "text": "(8, -1)",
-     "correct": true
-    },
-    {
      "text": "(-8, -1)",
      "correct": false
+    },
+    {
+     "text": "(8, -1)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -10045,16 +10045,16 @@
      "correct": false
     },
     {
+     "text": "23",
+     "correct": true
+    },
+    {
      "text": "16",
      "correct": false
     },
     {
      "text": "9",
      "correct": false
-    },
-    {
-     "text": "23",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -10077,12 +10077,12 @@
    "answer": "(-5/2, 8/3)",
    "options": [
     {
-     "text": "(-5/2, -8/3)",
-     "correct": false
-    },
-    {
      "text": "(-5/2, 8/3)",
      "correct": true
+    },
+    {
+     "text": "(-5/2, -8/3)",
+     "correct": false
     },
     {
      "text": "(8/3, -5/2)",
@@ -10265,12 +10265,12 @@
      "correct": false
     },
     {
-     "text": "7",
-     "correct": true
-    },
-    {
      "text": "38",
      "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -10293,10 +10293,6 @@
    "answer": "(9/2, 8/3)",
    "options": [
     {
-     "text": "(9/2, 8/3)",
-     "correct": true
-    },
-    {
      "text": "(8/3, 9/2)",
      "correct": false
     },
@@ -10307,6 +10303,10 @@
     {
      "text": "(-9/2, 8/3)",
      "correct": false
+    },
+    {
+     "text": "(9/2, 8/3)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -10475,12 +10475,12 @@
    "answer": "(-5, 1, 1)",
    "options": [
     {
-     "text": "(-5, 1, 1)",
-     "correct": true
-    },
-    {
      "text": "(1, -5, 1)",
      "correct": false
+    },
+    {
+     "text": "(-5, 1, 1)",
+     "correct": true
     },
     {
      "text": "(5, 1, 1)",
@@ -10531,12 +10531,12 @@
    "answer": "(-4, -2, -1)",
    "options": [
     {
-     "text": "(-4, -2, 1)",
-     "correct": false
-    },
-    {
      "text": "(-4, -2, -1)",
      "correct": true
+    },
+    {
+     "text": "(-4, -2, 1)",
+     "correct": false
     },
     {
      "text": "(-2, -4, -1)",
@@ -10643,16 +10643,16 @@
    "answer": "(-5, 4, 1)",
    "options": [
     {
+     "text": "(-5, 4, 1)",
+     "correct": true
+    },
+    {
      "text": "(4, -5, 1)",
      "correct": false
     },
     {
      "text": "(-5, 4, -1)",
      "correct": false
-    },
-    {
-     "text": "(-5, 4, 1)",
-     "correct": true
     },
     {
      "text": "(5, 4, 1)",
@@ -11044,12 +11044,12 @@
      "correct": false
     },
     {
-     "text": "(-5, 4, -1)",
-     "correct": false
-    },
-    {
      "text": "(4, -5, -1)",
      "correct": true
+    },
+    {
+     "text": "(-5, 4, -1)",
+     "correct": false
     },
     {
      "text": "(-4, -5, -1)",
@@ -11133,12 +11133,12 @@
    "answer": "(-5, -1, 5)",
    "options": [
     {
-     "text": "(-5, -1, 5)",
-     "correct": true
-    },
-    {
      "text": "(-5, -1, -5)",
      "correct": false
+    },
+    {
+     "text": "(-5, -1, 5)",
+     "correct": true
     },
     {
      "text": "(-1, -5, 5)",
@@ -11197,12 +11197,12 @@
      "correct": false
     },
     {
-     "text": "(5, 5, -3)",
-     "correct": false
-    },
-    {
      "text": "(-5, 5, -3)",
      "correct": true
+    },
+    {
+     "text": "(5, 5, -3)",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -11343,10 +11343,6 @@
    "answer": "(-4, 1, -1)",
    "options": [
     {
-     "text": "(-4, 1, -1)",
-     "correct": true
-    },
-    {
      "text": "(1, -4, -1)",
      "correct": false
     },
@@ -11357,6 +11353,10 @@
     {
      "text": "(-4, 1, 1)",
      "correct": false
+    },
+    {
+     "text": "(-4, 1, -1)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -11403,16 +11403,16 @@
      "correct": false
     },
     {
+     "text": "(3, 1, -4)",
+     "correct": true
+    },
+    {
      "text": "(-3, 1, -4)",
      "correct": false
     },
     {
      "text": "(3, 1, 4)",
      "correct": false
-    },
-    {
-     "text": "(3, 1, -4)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -11463,12 +11463,12 @@
      "correct": false
     },
     {
-     "text": "(-4, -5, -4)",
-     "correct": true
-    },
-    {
      "text": "(4, -5, -4)",
      "correct": false
+    },
+    {
+     "text": "(-4, -5, -4)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -11511,16 +11511,16 @@
    "answer": "(3, 1, 0)",
    "options": [
     {
+     "text": "(3, 1, 0)",
+     "correct": true
+    },
+    {
      "text": "(1, 3, 0)",
      "correct": false
     },
     {
      "text": "(3, 1, 1)",
      "correct": false
-    },
-    {
-     "text": "(3, 1, 0)",
-     "correct": true
     },
     {
      "text": "(-3, 1, 0)",
@@ -11575,12 +11575,12 @@
      "correct": false
     },
     {
-     "text": "(2, 3, 1)",
-     "correct": false
-    },
-    {
      "text": "(3, 2, 1)",
      "correct": true
+    },
+    {
+     "text": "(2, 3, 1)",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -11827,16 +11827,16 @@
    "answer": "(4, 1)",
    "options": [
     {
-     "text": "(4, 1)",
-     "correct": true
-    },
-    {
      "text": "(0, 3)",
      "correct": false
     },
     {
      "text": "(1, 4)",
      "correct": false
+    },
+    {
+     "text": "(4, 1)",
+     "correct": true
     },
     {
      "text": "(8, 0)",
@@ -11883,12 +11883,12 @@
      "correct": false
     },
     {
-     "text": "(4, 4)",
-     "correct": false
-    },
-    {
      "text": "(4, 0)",
      "correct": true
+    },
+    {
+     "text": "(4, 4)",
+     "correct": false
     },
     {
      "text": "(7, 3)",
@@ -11930,16 +11930,16 @@
    "answer": "(3, 1)",
    "options": [
     {
+     "text": "(3, 1)",
+     "correct": true
+    },
+    {
      "text": "(5, 2)",
      "correct": false
     },
     {
      "text": "(4, 3)",
      "correct": false
-    },
-    {
-     "text": "(3, 1)",
-     "correct": true
     },
     {
      "text": "(1, -1)",
@@ -11989,12 +11989,12 @@
      "correct": false
     },
     {
-     "text": "(3, 0)",
-     "correct": true
-    },
-    {
      "text": "(7, 7)",
      "correct": false
+    },
+    {
+     "text": "(3, 0)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -12035,16 +12035,16 @@
      "correct": false
     },
     {
+     "text": "(1, 3)",
+     "correct": true
+    },
+    {
      "text": "(6, 4)",
      "correct": false
     },
     {
      "text": "(3, 7)",
      "correct": false
-    },
-    {
-     "text": "(1, 3)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -12180,12 +12180,12 @@
      "correct": false
     },
     {
-     "text": "(6, 1)",
-     "correct": false
-    },
-    {
      "text": "(1, 6)",
      "correct": true
+    },
+    {
+     "text": "(6, 1)",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -12224,12 +12224,12 @@
    "answer": "(6, 1)",
    "options": [
     {
-     "text": "(0, 3)",
-     "correct": false
-    },
-    {
      "text": "(6, 1)",
      "correct": true
+    },
+    {
+     "text": "(0, 3)",
+     "correct": false
     },
     {
      "text": "(1, 6)",
@@ -12328,10 +12328,6 @@
    "answer": "(1, 1)",
    "options": [
     {
-     "text": "(1, 1)",
-     "correct": true
-    },
-    {
      "text": "(8, 1)",
      "correct": false
     },
@@ -12342,6 +12338,10 @@
     {
      "text": "(-1, 2)",
      "correct": false
+    },
+    {
+     "text": "(1, 1)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -12379,12 +12379,12 @@
    "answer": "(0, 7)",
    "options": [
     {
-     "text": "(0, 7)",
-     "correct": true
-    },
-    {
      "text": "(2, 5)",
      "correct": false
+    },
+    {
+     "text": "(0, 7)",
+     "correct": true
     },
     {
      "text": "(0, 8)",
@@ -12433,16 +12433,16 @@
      "correct": false
     },
     {
-     "text": "(3, 2)",
-     "correct": true
-    },
-    {
      "text": "(6, 2)",
      "correct": false
     },
     {
      "text": "(4, 4)",
      "correct": false
+    },
+    {
+     "text": "(3, 2)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -12618,35 +12618,34 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 6x + 8y ≤ 48, 9x + 6y ≤ 54 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(4, 3)",
+   "prompt": "Find the area of the feasible region x ≥ 0, y ≥ 0, x + 2y ≤ 14, 6x + 3y ≤ 30.",
+   "answer": "22",
    "options": [
     {
-     "text": "(4, 3)",
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "35/2",
+     "correct": false
+    },
+    {
+     "text": "35",
+     "correct": false
+    },
+    {
+     "text": "22",
      "correct": true
-    },
-    {
-     "text": "(8, 0)",
-     "correct": false
-    },
-    {
-     "text": "(0, 9)",
-     "correct": false
-    },
-    {
-     "text": "(3, 4)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 6x + 8y = 48 and 9x + 6y = 54 together.",
-    "Use elimination.",
-    "Vertex: (4, 3)."
+    "Corners: (0, 0), (5, 0), (2, 6), (0, 7).",
+    "Split along the segment from (0, 0) to (2, 6): ½·5·6 + ½·7·2 = 22."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored Advanced item (family: adv_lp_area), added so Advanced differs in kind (Precalculus audit #12). Answer and every option re-checked by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-005",
@@ -12670,35 +12669,34 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The region x ≥ 0, y ≥ 0, 6x + 2y ≤ 12, 4x + 4y ≤ 16 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(1, 3)",
+   "prompt": "Find the area of the feasible region x ≥ 0, y ≥ 0, 2x + 6y ≤ 12, 2x + 4y ≤ 10.",
+   "answer": "11/2",
    "options": [
     {
-     "text": "(0, 4)",
-     "correct": false
-    },
-    {
-     "text": "(1, 3)",
+     "text": "11/2",
      "correct": true
     },
     {
-     "text": "(2, 0)",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "(3, 1)",
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Solve 6x + 2y = 12 and 4x + 4y = 16 together.",
-    "Use elimination.",
-    "Vertex: (1, 3)."
+    "Corners: (0, 0), (5, 0), (3, 1), (0, 2).",
+    "Split along the segment from (0, 0) to (3, 1): ½·5·1 + ½·2·3 = 11/2."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored Advanced item (family: adv_lp_area), added so Advanced differs in kind (Precalculus audit #12). Answer and every option re-checked by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-007",
@@ -12722,17 +12720,16 @@
    "skillId": "equations-inequalities-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The region x ≥ 0, y ≥ 0, 6x + 3y ≤ 18, 3x + 6y ≤ 18 has a corner where the two slanted boundary lines meet. Find that vertex.",
-   "answer": "(2, 2)",
+   "prompt": "Find the area of the feasible region x ≥ 0, y ≥ 0, x + 3y ≤ 21, 2x + 4y ≤ 30.",
+   "answer": "111/2",
    "solutionSteps": [
-    "Solve 6x + 3y = 18 and 3x + 6y = 18 together.",
-    "Use elimination.",
-    "Vertex: (2, 2)."
+    "Corners: (0, 0), (15, 0), (3, 6), (0, 7).",
+    "Split along the segment from (0, 0) to (3, 6): ½·15·6 + ½·7·3 = 111/2."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored Advanced item (family: adv_lp_area), added so Advanced differs in kind (Precalculus audit #12). Answer and every option re-checked by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   },
   {
    "id": "pc-eqi-s10-honors-009",
@@ -12760,12 +12757,12 @@
    "answer": "(2, 0)",
    "options": [
     {
-     "text": "(2, 0)",
-     "correct": true
-    },
-    {
      "text": "(7/3, 0)",
      "correct": false
+    },
+    {
+     "text": "(2, 0)",
+     "correct": true
     },
     {
      "text": "(1, 1)",
@@ -13005,10 +13002,6 @@
    "answer": "24",
    "options": [
     {
-     "text": "24",
-     "correct": true
-    },
-    {
      "text": "14",
      "correct": false
     },
@@ -13019,6 +13012,10 @@
     {
      "text": "8",
      "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -13084,12 +13081,12 @@
      "correct": false
     },
     {
-     "text": "(6, 2)",
-     "correct": true
-    },
-    {
      "text": "(2, 6)",
      "correct": false
+    },
+    {
+     "text": "(6, 2)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -13111,16 +13108,16 @@
    "answer": "32",
    "options": [
     {
+     "text": "32",
+     "correct": true
+    },
+    {
      "text": "10",
      "correct": false
     },
     {
      "text": "29",
      "correct": false
-    },
-    {
-     "text": "32",
-     "correct": true
     },
     {
      "text": "0",
@@ -13182,12 +13179,12 @@
    "answer": "(2, 3)",
    "options": [
     {
-     "text": "(3, 2)",
-     "correct": false
-    },
-    {
      "text": "(2, 3)",
      "correct": true
+    },
+    {
+     "text": "(3, 2)",
+     "correct": false
     },
     {
      "text": "(5, 0)",
@@ -13217,12 +13214,12 @@
    "answer": "24",
    "options": [
     {
-     "text": "24",
-     "correct": true
-    },
-    {
      "text": "19",
      "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
     },
     {
      "text": "0",
@@ -13379,16 +13376,16 @@
    "answer": "(3, 4)",
    "options": [
     {
+     "text": "(3, 4)",
+     "correct": true
+    },
+    {
      "text": "(4, 3)",
      "correct": false
     },
     {
      "text": "(9, 0)",
      "correct": false
-    },
-    {
-     "text": "(3, 4)",
-     "correct": true
     },
     {
      "text": "(0, 8)",
@@ -13485,10 +13482,6 @@
    "answer": "(4, 2)",
    "options": [
     {
-     "text": "(4, 2)",
-     "correct": true
-    },
-    {
      "text": "(2, 4)",
      "correct": false
     },
@@ -13499,6 +13492,10 @@
     {
      "text": "(8, 0)",
      "correct": false
+    },
+    {
+     "text": "(4, 2)",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -13595,16 +13592,16 @@
      "correct": false
     },
     {
+     "text": "(4, 3)",
+     "correct": true
+    },
+    {
      "text": "(0, 6)",
      "correct": false
     },
     {
      "text": "(3, 4)",
      "correct": false
-    },
-    {
-     "text": "(4, 3)",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -13626,12 +13623,12 @@
    "answer": "28",
    "options": [
     {
-     "text": "35",
-     "correct": false
-    },
-    {
      "text": "28",
      "correct": true
+    },
+    {
+     "text": "35",
+     "correct": false
     },
     {
      "text": "21",
@@ -13792,12 +13789,12 @@
      "correct": false
     },
     {
-     "text": "(3, 2)",
-     "correct": true
-    },
-    {
      "text": "(2, 3)",
      "correct": false
+    },
+    {
+     "text": "(3, 2)",
+     "correct": true
     },
     {
      "text": "(5, 0)",
@@ -13827,16 +13824,16 @@
      "correct": false
     },
     {
+     "text": "0",
+     "correct": true
+    },
+    {
      "text": "4",
      "correct": false
     },
     {
      "text": "20",
      "correct": false
-    },
-    {
-     "text": "0",
-     "correct": true
     }
    ],
    "solutionSteps": [
@@ -13894,16 +13891,16 @@
    "answer": "(2, 1)",
    "options": [
     {
-     "text": "(2, 1)",
-     "correct": true
-    },
-    {
      "text": "(3, 0)",
      "correct": false
     },
     {
      "text": "(0, 2)",
      "correct": false
+    },
+    {
+     "text": "(2, 1)",
+     "correct": true
     },
     {
      "text": "(1, 2)",
@@ -13937,12 +13934,12 @@
      "correct": false
     },
     {
-     "text": "0",
-     "correct": true
-    },
-    {
      "text": "15",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -14000,16 +13997,16 @@
    "answer": "(2, 3)",
    "options": [
     {
+     "text": "(2, 3)",
+     "correct": true
+    },
+    {
      "text": "(0, 6)",
      "correct": false
     },
     {
      "text": "(8, 0)",
      "correct": false
-    },
-    {
-     "text": "(2, 3)",
-     "correct": true
     },
     {
      "text": "(3, 2)",
@@ -14035,12 +14032,12 @@
    "answer": "0",
    "options": [
     {
-     "text": "0",
-     "correct": true
-    },
-    {
      "text": "18",
      "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
     },
     {
      "text": "16",
@@ -14207,12 +14204,12 @@
      "correct": false
     },
     {
-     "text": "220",
-     "correct": true
-    },
-    {
      "text": "254",
      "correct": false
+    },
+    {
+     "text": "220",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -14271,12 +14268,12 @@
    "answer": "$6,100",
    "options": [
     {
-     "text": "$5,500",
-     "correct": false
-    },
-    {
      "text": "$6,100",
      "correct": true
+    },
+    {
+     "text": "$5,500",
+     "correct": false
     },
     {
      "text": "$16,000",
@@ -14367,12 +14364,12 @@
      "correct": false
     },
     {
-     "text": "137",
-     "correct": true
-    },
-    {
      "text": "299",
      "correct": false
+    },
+    {
+     "text": "137",
+     "correct": true
     },
     {
      "text": "218",
@@ -14421,12 +14418,12 @@
      "correct": false
     },
     {
-     "text": "135",
-     "correct": false
-    },
-    {
      "text": "279",
      "correct": true
+    },
+    {
+     "text": "135",
+     "correct": false
     },
     {
      "text": "340",
@@ -14497,12 +14494,12 @@
      "correct": false
     },
     {
-     "text": "281",
-     "correct": false
-    },
-    {
      "text": "69",
      "correct": true
+    },
+    {
+     "text": "281",
+     "correct": false
     }
    ],
    "solutionSteps": [
@@ -14635,16 +14632,16 @@
    "answer": "227",
    "options": [
     {
-     "text": "227",
-     "correct": true
-    },
-    {
      "text": "99",
      "correct": false
     },
     {
      "text": "163",
      "correct": false
+    },
+    {
+     "text": "227",
+     "correct": true
     },
     {
      "text": "255",
@@ -14711,16 +14708,16 @@
      "correct": false
     },
     {
-     "text": "36 liters",
-     "correct": true
-    },
-    {
      "text": "20 liters",
      "correct": false
     },
     {
      "text": "52 liters",
      "correct": false
+    },
+    {
+     "text": "36 liters",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -14803,16 +14800,16 @@
      "correct": false
     },
     {
-     "text": "92",
-     "correct": true
-    },
-    {
      "text": "140",
      "correct": false
     },
     {
      "text": "132",
      "correct": false
+    },
+    {
+     "text": "92",
+     "correct": true
     }
    ],
    "solutionSteps": [
@@ -14825,6 +14822,3203 @@
     "A-CED.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: ctx_tickets). Answer, every option and every student answer re-checked from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s08-cp2-p001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −3x − 6 and y = −2x − 5. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, -3)",
+   "solutionSteps": [
+    "Line 1: slope −3, y-intercept −6.",
+    "Line 2: slope −2, y-intercept −5.",
+    "The lines cross at (-1, -3).",
+    "Check: −3 = −3·(−1) − 6 and −3 = −2·(−1) − 5 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-3",
+       "b": "-6"
+      },
+      {
+       "m": "-2",
+       "b": "-5"
+      }
+     ],
+     "solution": [
+      -1,
+      -3
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -4,
+         6
+        ],
+        [
+         0,
+         -6
+        ]
+       ],
+       [
+        [
+         -6,
+         7
+        ],
+        [
+         1,
+         -7
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       -3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           6
+          ],
+          [
+           0,
+           -6
+          ]
+         ],
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           1,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         -3,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           7
+          ],
+          [
+           1,
+           -8
+          ]
+         ],
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           1,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         -3
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp2-p001.png",
+     "alt": "Two lines y = −3x − 6 and y = −2x − 5 crossing at (-1, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp2-p001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y ≥ x − 1.",
+   "answer": "Solid boundary line y = x − 1, shaded above",
+   "solutionSteps": [
+    "Graph the boundary y = x − 1 (slope 1, y-intercept −1).",
+    "Use a solid line because the symbol is ≥.",
+    "Test (0, 0): 0 ≥ -1 is true, so shade the side containing (0, 0): above the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "-1",
+     "op": "≥"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -7,
+        -8
+       ],
+       [
+        8,
+        7
+       ]
+      ],
+      "dashed": false,
+      "shade": "above"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -7,
+          -8
+         ],
+         [
+          8,
+          7
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -7,
+          -8
+         ],
+         [
+          8,
+          7
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp2-p001.png",
+     "alt": "Coordinate grid with a solid line y = x − 1 and the region above it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp2-p002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = x − 1 and y = 2x − 1. Graph both lines, then mark the intersection point.",
+   "answer": "(0, -1)",
+   "solutionSteps": [
+    "Line 1: slope 1, y-intercept −1.",
+    "Line 2: slope 2, y-intercept −1.",
+    "The lines cross at (0, -1).",
+    "Check: −1 = 1·(0) − 1 and −1 = 2·(0) − 1 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "1",
+       "b": "-1"
+      },
+      {
+       "m": "2",
+       "b": "-1"
+      }
+     ],
+     "solution": [
+      0,
+      -1
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -7,
+         -8
+        ],
+        [
+         8,
+         7
+        ]
+       ],
+       [
+        [
+         -3,
+         -7
+        ],
+        [
+         4,
+         7
+        ]
+       ]
+      ],
+      "solution": [
+       0,
+       -1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -7,
+           -8
+          ],
+          [
+           8,
+           7
+          ]
+         ],
+         [
+          [
+           -3,
+           -7
+          ],
+          [
+           4,
+           7
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         0
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -8,
+           -8
+          ],
+          [
+           8,
+           8
+          ]
+         ],
+         [
+          [
+           -3,
+           -7
+          ],
+          [
+           4,
+           7
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -1
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp2-p002.png",
+     "alt": "Two lines y = x − 1 and y = 2x − 1 crossing at (0, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp2-p002",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y ≥ −2x − 2.",
+   "answer": "Solid boundary line y = −2x − 2, shaded above",
+   "solutionSteps": [
+    "Graph the boundary y = −2x − 2 (slope −2, y-intercept −2).",
+    "Use a solid line because the symbol is ≥.",
+    "Test (0, 0): 0 ≥ -2 is true, so shade the side containing (0, 0): above the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "-2",
+     "op": "≥"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        8
+       ],
+       [
+        3,
+        -8
+       ]
+      ],
+      "dashed": false,
+      "shade": "above"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          8
+         ],
+         [
+          3,
+          -8
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          8
+         ],
+         [
+          3,
+          -8
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp2-p002.png",
+     "alt": "Coordinate grid with a solid line y = −2x − 2 and the region above it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp2-p003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −3x − 8 and y = −2x − 5. Graph both lines, then mark the intersection point.",
+   "answer": "(-3, 1)",
+   "solutionSteps": [
+    "Line 1: slope −3, y-intercept −8.",
+    "Line 2: slope −2, y-intercept −5.",
+    "The lines cross at (-3, 1).",
+    "Check: 1 = −3·(−3) − 8 and 1 = −2·(−3) − 5 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-3",
+       "b": "-8"
+      },
+      {
+       "m": "-2",
+       "b": "-5"
+      }
+     ],
+     "solution": [
+      -3,
+      1
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -5,
+         7
+        ],
+        [
+         0,
+         -8
+        ]
+       ],
+       [
+        [
+         -6,
+         7
+        ],
+        [
+         1,
+         -7
+        ]
+       ]
+      ],
+      "solution": [
+       -3,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -5,
+           7
+          ],
+          [
+           0,
+           -8
+          ]
+         ],
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           1,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         1,
+         -3
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -5,
+           8
+          ],
+          [
+           0,
+           -7
+          ]
+         ],
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           1,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         -3,
+         1
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp2-p003.png",
+     "alt": "Two lines y = −3x − 8 and y = −2x − 5 crossing at (-3, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp2-p003",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y > 2x + 3.",
+   "answer": "Dashed boundary line y = 2x + 3, shaded above",
+   "solutionSteps": [
+    "Graph the boundary y = 2x + 3 (slope 2, y-intercept 3).",
+    "Use a dashed line because the symbol is >.",
+    "Test (0, 0): 0 > 3 is false, so shade the side not containing (0, 0): above the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "3",
+     "op": ">"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -5,
+        -7
+       ],
+       [
+        2,
+        7
+       ]
+      ],
+      "dashed": true,
+      "shade": "above"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          -7
+         ],
+         [
+          2,
+          7
+         ]
+        ],
+        "dashed": false,
+        "shade": "above"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          -7
+         ],
+         [
+          2,
+          7
+         ]
+        ],
+        "dashed": true,
+        "shade": "below"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp2-p003.png",
+     "alt": "Coordinate grid with a dashed line y = 2x + 3 and the region above it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp2-p004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 3x + 5 and y = −2x. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, 2)",
+   "solutionSteps": [
+    "Line 1: slope 3, y-intercept 5.",
+    "Line 2: slope −2, y-intercept 0.",
+    "The lines cross at (-1, 2).",
+    "Check: 2 = 3·(−1) + 5 and 2 = −2·(−1) + 0 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "3",
+       "b": "5"
+      },
+      {
+       "m": "-2",
+       "b": "0"
+      }
+     ],
+     "solution": [
+      -1,
+      2
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -4,
+         -7
+        ],
+        [
+         1,
+         8
+        ]
+       ],
+       [
+        [
+         -4,
+         8
+        ],
+        [
+         4,
+         -8
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           -7
+          ],
+          [
+           1,
+           8
+          ]
+         ],
+         [
+          [
+           -4,
+           8
+          ],
+          [
+           4,
+           -8
+          ]
+         ]
+        ],
+        "solution": [
+         2,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           -6
+          ],
+          [
+           0,
+           6
+          ]
+         ],
+         [
+          [
+           -4,
+           8
+          ],
+          [
+           4,
+           -8
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         2
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp2-p004.png",
+     "alt": "Two lines y = 3x + 5 and y = −2x crossing at (-1, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp2-p004",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y ≥ −2x + 3.",
+   "answer": "Solid boundary line y = −2x + 3, shaded above",
+   "solutionSteps": [
+    "Graph the boundary y = −2x + 3 (slope −2, y-intercept 3).",
+    "Use a solid line because the symbol is ≥.",
+    "Test (0, 0): 0 ≥ 3 is false, so shade the side not containing (0, 0): above the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "3",
+     "op": "≥"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        7
+       ],
+       [
+        5,
+        -7
+       ]
+      ],
+      "dashed": false,
+      "shade": "above"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          7
+         ],
+         [
+          5,
+          -7
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          7
+         ],
+         [
+          5,
+          -7
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp2-p004.png",
+     "alt": "Coordinate grid with a solid line y = −2x + 3 and the region above it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp1-p001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −2x − 2 and y = 3x + 3. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, 0)",
+   "solutionSteps": [
+    "Line 1: slope −2, y-intercept −2.",
+    "Line 2: slope 3, y-intercept 3.",
+    "The lines cross at (-1, 0).",
+    "Check: 0 = −2·(−1) − 2 and 0 = 3·(−1) + 3 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2",
+       "b": "-2"
+      },
+      {
+       "m": "3",
+       "b": "3"
+      }
+     ],
+     "solution": [
+      -1,
+      0
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -5,
+         8
+        ],
+        [
+         3,
+         -8
+        ]
+       ],
+       [
+        [
+         -3,
+         -6
+        ],
+        [
+         1,
+         6
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       0
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -5,
+           8
+          ],
+          [
+           3,
+           -8
+          ]
+         ],
+         [
+          [
+           -3,
+           -6
+          ],
+          [
+           1,
+           6
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           7
+          ],
+          [
+           3,
+           -7
+          ]
+         ],
+         [
+          [
+           -3,
+           -6
+          ],
+          [
+           1,
+           6
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         0
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp1-p001.png",
+     "alt": "Two lines y = −2x − 2 and y = 3x + 3 crossing at (-1, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp1-p001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y < x − 4.",
+   "answer": "Dashed boundary line y = x − 4, shaded below",
+   "solutionSteps": [
+    "Graph the boundary y = x − 4 (slope 1, y-intercept −4).",
+    "Use a dashed line because the symbol is <.",
+    "Test (0, 0): 0 < -4 is false, so shade the side not containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "-4",
+     "op": "<"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -4,
+        -8
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "dashed": true,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          -8
+         ],
+         [
+          8,
+          4
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          -8
+         ],
+         [
+          8,
+          4
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp1-p001.png",
+     "alt": "Coordinate grid with a dashed line y = x − 4 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp1-p002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −2x and y = (1/2)x − 5. Graph both lines, then mark the intersection point.",
+   "answer": "(2, -4)",
+   "solutionSteps": [
+    "Line 1: slope −2, y-intercept 0.",
+    "Line 2: slope 1/2, y-intercept −5.",
+    "The lines cross at (2, -4).",
+    "Check: −4 = −2·(2) + 0 and −4 = 1/2·(2) − 5 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2",
+       "b": "0"
+      },
+      {
+       "m": "1/2",
+       "b": "-5"
+      }
+     ],
+     "solution": [
+      2,
+      -4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -4,
+         8
+        ],
+        [
+         4,
+         -8
+        ]
+       ],
+       [
+        [
+         -6,
+         -8
+        ],
+        [
+         8,
+         -1
+        ]
+       ]
+      ],
+      "solution": [
+       2,
+       -4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -4,
+           8
+          ],
+          [
+           4,
+           -8
+          ]
+         ],
+         [
+          [
+           -6,
+           -8
+          ],
+          [
+           8,
+           -1
+          ]
+         ]
+        ],
+        "solution": [
+         -4,
+         2
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -3,
+           7
+          ],
+          [
+           4,
+           -7
+          ]
+         ],
+         [
+          [
+           -6,
+           -8
+          ],
+          [
+           8,
+           -1
+          ]
+         ]
+        ],
+        "solution": [
+         2,
+         -4
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp1-p002.png",
+     "alt": "Two lines y = −2x and y = (1/2)x − 5 crossing at (2, -4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp1-p002",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph −2x + y < −2.",
+   "answer": "Dashed boundary line y = 2x − 2, shaded below",
+   "solutionSteps": [
+    "Solve for y: y < 2x − 2.",
+    "Graph the boundary y = 2x − 2 (slope 2, y-intercept −2).",
+    "Use a dashed line because the symbol is <.",
+    "Test (0, 0): 0 < -2 is false, so shade the side not containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "-2",
+     "op": "<"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        -8
+       ],
+       [
+        5,
+        8
+       ]
+      ],
+      "dashed": true,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          -8
+         ],
+         [
+          5,
+          8
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          -8
+         ],
+         [
+          5,
+          8
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp1-p002.png",
+     "alt": "Coordinate grid with a dashed line y = 2x − 2 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp1-p003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = x + 5 and y = −2x + 5. Graph both lines, then mark the intersection point.",
+   "answer": "(0, 5)",
+   "solutionSteps": [
+    "Line 1: slope 1, y-intercept 5.",
+    "Line 2: slope −2, y-intercept 5.",
+    "The lines cross at (0, 5).",
+    "Check: 5 = 1·(0) + 5 and 5 = −2·(0) + 5 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "1",
+       "b": "5"
+      },
+      {
+       "m": "-2",
+       "b": "5"
+      }
+     ],
+     "solution": [
+      0,
+      5
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -8,
+         -3
+        ],
+        [
+         3,
+         8
+        ]
+       ],
+       [
+        [
+         -1,
+         7
+        ],
+        [
+         6,
+         -7
+        ]
+       ]
+      ],
+      "solution": [
+       0,
+       5
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -8,
+           -3
+          ],
+          [
+           3,
+           8
+          ]
+         ],
+         [
+          [
+           -1,
+           7
+          ],
+          [
+           6,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         5,
+         0
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -8,
+           -2
+          ],
+          [
+           2,
+           8
+          ]
+         ],
+         [
+          [
+           -1,
+           7
+          ],
+          [
+           6,
+           -7
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         5
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp1-p003.png",
+     "alt": "Two lines y = x + 5 and y = −2x + 5 crossing at (0, 5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp1-p003",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y < −(1/2)x + 2.",
+   "answer": "Dashed boundary line y = −(1/2)x + 2, shaded below",
+   "solutionSteps": [
+    "Graph the boundary y = −(1/2)x + 2 (slope −1/2, y-intercept 2).",
+    "Use a dashed line because the symbol is <.",
+    "Test (0, 0): 0 < 2 is true, so shade the side containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "2",
+     "op": "<"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -8,
+        6
+       ],
+       [
+        8,
+        -2
+       ]
+      ],
+      "dashed": true,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          6
+         ],
+         [
+          8,
+          -2
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          6
+         ],
+         [
+          8,
+          -2
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp1-p003.png",
+     "alt": "Coordinate grid with a dashed line y = −(1/2)x + 2 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-cp1-p004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −(2/3)x + 2 and y = −x + 3. Graph both lines, then mark the intersection point.",
+   "answer": "(3, 0)",
+   "solutionSteps": [
+    "Line 1: slope −2/3, y-intercept 2.",
+    "Line 2: slope −1, y-intercept 3.",
+    "The lines cross at (3, 0).",
+    "Check: 0 = −2/3·(3) + 2 and 0 = −1·(3) + 3 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2/3",
+       "b": "2"
+      },
+      {
+       "m": "-1",
+       "b": "3"
+      }
+     ],
+     "solution": [
+      3,
+      0
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -6,
+         6
+        ],
+        [
+         6,
+         -2
+        ]
+       ],
+       [
+        [
+         -5,
+         8
+        ],
+        [
+         8,
+         -5
+        ]
+       ]
+      ],
+      "solution": [
+       3,
+       0
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -6,
+           6
+          ],
+          [
+           6,
+           -2
+          ]
+         ],
+         [
+          [
+           -5,
+           8
+          ],
+          [
+           8,
+           -5
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         3
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           6,
+           -1
+          ]
+         ],
+         [
+          [
+           -5,
+           8
+          ],
+          [
+           8,
+           -5
+          ]
+         ]
+        ],
+        "solution": [
+         3,
+         0
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-cp1-p004.png",
+     "alt": "Two lines y = −(2/3)x + 2 and y = −x + 3 crossing at (3, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp1-p004",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y > −x + 5.",
+   "answer": "Dashed boundary line y = −x + 5, shaded above",
+   "solutionSteps": [
+    "Graph the boundary y = −x + 5 (slope −1, y-intercept 5).",
+    "Use a dashed line because the symbol is >.",
+    "Test (0, 0): 0 > 5 is false, so shade the side not containing (0, 0): above the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "5",
+     "op": ">"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        8
+       ],
+       [
+        8,
+        -3
+       ]
+      ],
+      "dashed": true,
+      "shade": "above"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          8
+         ],
+         [
+          8,
+          -3
+         ]
+        ],
+        "dashed": false,
+        "shade": "above"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          8
+         ],
+         [
+          8,
+          -3
+         ]
+        ],
+        "dashed": true,
+        "shade": "below"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-cp1-p004.png",
+     "alt": "Coordinate grid with a dashed line y = −x + 5 and the region above it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-honors-p001",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −2x − 3 and y = (3/2)x − 3. Graph both lines, then mark the intersection point.",
+   "answer": "(0, -3)",
+   "solutionSteps": [
+    "Line 1: slope −2, y-intercept −3.",
+    "Line 2: slope 3/2, y-intercept −3.",
+    "The lines cross at (0, -3).",
+    "Check: −3 = −2·(0) − 3 and −3 = 3/2·(0) − 3 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2",
+       "b": "-3"
+      },
+      {
+       "m": "3/2",
+       "b": "-3"
+      }
+     ],
+     "solution": [
+      0,
+      -3
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -5,
+         7
+        ],
+        [
+         2,
+         -7
+        ]
+       ],
+       [
+        [
+         -2,
+         -6
+        ],
+        [
+         6,
+         6
+        ]
+       ]
+      ],
+      "solution": [
+       0,
+       -3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -5,
+           7
+          ],
+          [
+           2,
+           -7
+          ]
+         ],
+         [
+          [
+           -2,
+           -6
+          ],
+          [
+           6,
+           6
+          ]
+         ]
+        ],
+        "solution": [
+         -3,
+         0
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -5,
+           8
+          ],
+          [
+           3,
+           -8
+          ]
+         ],
+         [
+          [
+           -2,
+           -6
+          ],
+          [
+           6,
+           6
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -3
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-honors-p001.png",
+     "alt": "Two lines y = −2x − 3 and y = (3/2)x − 3 crossing at (0, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-honors-p001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y < (3/4)x.",
+   "answer": "Dashed boundary line y = (3/4)x, shaded below",
+   "solutionSteps": [
+    "Graph the boundary y = (3/4)x (slope 3/4, y-intercept 0).",
+    "Use a dashed line because the symbol is <.",
+    "Test (0, 1): 1 < 0 is false, so shade below."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3/4",
+     "b": "0",
+     "op": "<"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -8,
+        -6
+       ],
+       [
+        8,
+        6
+       ]
+      ],
+      "dashed": true,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          -6
+         ],
+         [
+          8,
+          6
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          -6
+         ],
+         [
+          8,
+          6
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-honors-p001.png",
+     "alt": "Coordinate grid with a dashed line y = (3/4)x and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-honors-p002",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = x + 2 and −2x + y = 3. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, 1)",
+   "solutionSteps": [
+    "Line 1: slope 1, y-intercept 2.",
+    "Line 2: solve −2x + y = 3 for y: y = 2x + 3 (slope 2, y-intercept 3).",
+    "The lines cross at (-1, 1).",
+    "Check: 1 = 1·(−1) + 2 and 1 = 2·(−1) + 3 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "1",
+       "b": "2"
+      },
+      {
+       "m": "2",
+       "b": "3"
+      }
+     ],
+     "solution": [
+      -1,
+      1
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -8,
+         -6
+        ],
+        [
+         6,
+         8
+        ]
+       ],
+       [
+        [
+         -5,
+         -7
+        ],
+        [
+         2,
+         7
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -8,
+           -6
+          ],
+          [
+           6,
+           8
+          ]
+         ],
+         [
+          [
+           -5,
+           -7
+          ],
+          [
+           2,
+           7
+          ]
+         ]
+        ],
+        "solution": [
+         1,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -8,
+           -5
+          ],
+          [
+           5,
+           8
+          ]
+         ],
+         [
+          [
+           -5,
+           -7
+          ],
+          [
+           2,
+           7
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         1
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-honors-p002.png",
+     "alt": "Two lines y = x + 2 and −2x + y = 3 crossing at (-1, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-honors-p002",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x + y ≤ −4.",
+   "answer": "Solid boundary line y = −x − 4, shaded below",
+   "solutionSteps": [
+    "Solve for y: y ≤ −x − 4.",
+    "Graph the boundary y = −x − 4 (slope −1, y-intercept −4).",
+    "Use a solid line because the symbol is ≤.",
+    "Test (0, 0): 0 ≤ -4 is false, so shade the side not containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "-4",
+     "op": "≤"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -8,
+        4
+       ],
+       [
+        4,
+        -8
+       ]
+      ],
+      "dashed": false,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          4
+         ],
+         [
+          4,
+          -8
+         ]
+        ],
+        "dashed": true,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          4
+         ],
+         [
+          4,
+          -8
+         ]
+        ],
+        "dashed": false,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-honors-p002.png",
+     "alt": "Coordinate grid with a solid line y = −x − 4 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-honors-p003",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −(3/2)x − 3 and 2x + 2y = −4. Graph both lines, then mark the intersection point.",
+   "answer": "(-2, 0)",
+   "solutionSteps": [
+    "Line 1: slope −3/2, y-intercept −3.",
+    "Line 2: solve 2x + 2y = −4 for y: y = −x − 2 (slope −1, y-intercept −2).",
+    "The lines cross at (-2, 0).",
+    "Check: 0 = −3/2·(−2) − 3 and 0 = −1·(−2) − 2 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-3/2",
+       "b": "-3"
+      },
+      {
+       "m": "-1",
+       "b": "-2"
+      }
+     ],
+     "solution": [
+      -2,
+      0
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -6,
+         6
+        ],
+        [
+         2,
+         -6
+        ]
+       ],
+       [
+        [
+         -8,
+         6
+        ],
+        [
+         6,
+         -8
+        ]
+       ]
+      ],
+      "solution": [
+       -2,
+       0
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -6,
+           6
+          ],
+          [
+           2,
+           -6
+          ]
+         ],
+         [
+          [
+           -8,
+           6
+          ],
+          [
+           6,
+           -8
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -2
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -6,
+           7
+          ],
+          [
+           4,
+           -8
+          ]
+         ],
+         [
+          [
+           -8,
+           6
+          ],
+          [
+           6,
+           -8
+          ]
+         ]
+        ],
+        "solution": [
+         -2,
+         0
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-honors-p003.png",
+     "alt": "Two lines y = −(3/2)x − 3 and 2x + 2y = −4 crossing at (-2, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-honors-p003",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y ≤ −2x + 5.",
+   "answer": "Solid boundary line y = −2x + 5, shaded below",
+   "solutionSteps": [
+    "Graph the boundary y = −2x + 5 (slope −2, y-intercept 5).",
+    "Use a solid line because the symbol is ≤.",
+    "Test (0, 0): 0 ≤ 5 is true, so shade the side containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "5",
+     "op": "≤"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        7
+       ],
+       [
+        6,
+        -7
+       ]
+      ],
+      "dashed": false,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          7
+         ],
+         [
+          6,
+          -7
+         ]
+        ],
+        "dashed": true,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          7
+         ],
+         [
+          6,
+          -7
+         ]
+        ],
+        "dashed": false,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-honors-p003.png",
+     "alt": "Coordinate grid with a solid line y = −2x + 5 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s08-honors-p004",
+   "skillId": "equations-inequalities-skill-08",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −2x + 4 and −9x + 3y = −3. Graph both lines, then mark the intersection point.",
+   "answer": "(1, 2)",
+   "solutionSteps": [
+    "Line 1: slope −2, y-intercept 4.",
+    "Line 2: solve −9x + 3y = −3 for y: y = 3x − 1 (slope 3, y-intercept −1).",
+    "The lines cross at (1, 2).",
+    "Check: 2 = −2·(1) + 4 and 2 = 3·(1) − 1 ✓."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-system). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2",
+       "b": "4"
+      },
+      {
+       "m": "3",
+       "b": "-1"
+      }
+     ],
+     "solution": [
+      1,
+      2
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         -2,
+         8
+        ],
+        [
+         6,
+         -8
+        ]
+       ],
+       [
+        [
+         -2,
+         -7
+        ],
+        [
+         3,
+         8
+        ]
+       ]
+      ],
+      "solution": [
+       1,
+       2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -2,
+           8
+          ],
+          [
+           6,
+           -8
+          ]
+         ],
+         [
+          [
+           -2,
+           -7
+          ],
+          [
+           3,
+           8
+          ]
+         ]
+        ],
+        "solution": [
+         2,
+         1
+        ]
+       },
+       "expectCode": "solution"
+      },
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           -1,
+           7
+          ],
+          [
+           6,
+           -7
+          ]
+         ],
+         [
+          [
+           -2,
+           -7
+          ],
+          [
+           3,
+           8
+          ]
+         ]
+        ],
+        "solution": [
+         1,
+         2
+        ]
+       },
+       "expectCode": "line-intercept"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s08-honors-p004.png",
+     "alt": "Two lines y = −2x + 4 and −9x + 3y = −3 crossing at (1, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-honors-p004",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y < −(1/2)x + 4.",
+   "answer": "Dashed boundary line y = −(1/2)x + 4, shaded below",
+   "solutionSteps": [
+    "Graph the boundary y = −(1/2)x + 4 (slope −1/2, y-intercept 4).",
+    "Use a dashed line because the symbol is <.",
+    "Test (0, 0): 0 < 4 is true, so shade the side containing (0, 0): below the line."
+   ],
+   "standards": [
+    "A-REI.D.12",
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: pc-plot-region). Target and feedback vectors checked against core/plot.js by tools/precalculus-audit-20261118/plots/build.cjs; answer recomputed from the printed problem by scripts/test-precalculus-plot-items.cjs. Teacher reviewed 2026-11-18.",
+   "plot": {
+    "tool": "region",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "4",
+     "op": "<"
+    },
+    "feedback": {
+     "boundary-line": "Your boundary line is not the line in the inequality. Solve for y and graph it like y = mx + b.",
+     "dashed-solid": "Use a dashed line for < or > and a solid line for ≤ or ≥.",
+     "shade-side": "Shade the other side. Test (0, 0) or another point in the inequality."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -8,
+        8
+       ],
+       [
+        8,
+        0
+       ]
+      ],
+      "dashed": true,
+      "shade": "below"
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          8
+         ],
+         [
+          8,
+          0
+         ]
+        ],
+        "dashed": false,
+        "shade": "below"
+       },
+       "expectCode": "dashed-solid"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -8,
+          8
+         ],
+         [
+          8,
+          0
+         ]
+        ],
+        "dashed": true,
+        "shade": "above"
+       },
+       "expectCode": "shade-side"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pc-eqi-s07-honors-p004.png",
+     "alt": "Coordinate grid with a dashed line y = −(1/2)x + 4 and the region below it shaded."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pc-eqi-s07-cp2-x001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL points that are solutions of y ≥ x + 3.",
+   "options": [
+    {
+     "text": "(2, 6)",
+     "correct": true
+    },
+    {
+     "text": "(-3, 0)",
+     "correct": true
+    },
+    {
+     "text": "(1, -4)",
+     "correct": false
+    },
+    {
+     "text": "(4, 4)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 4)",
+     "correct": true
+    },
+    {
+     "text": "(-4, 0)",
+     "correct": true
+    }
+   ],
+   "answer": [
+    "(2, 6)",
+    "(-3, 0)",
+    "(-1, 4)",
+    "(-4, 0)"
+   ],
+   "solutionSteps": [
+    "Check each choice.",
+    "(2, 6): yes.",
+    "(-3, 0): yes.",
+    "(1, -4): no.",
+    "(4, 4): no.",
+    "(-1, 4): yes.",
+    "(-4, 0): yes.",
+    "4 of the 6 choices are correct."
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored select-all item (family: sa_ineq). Every choice re-decided from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s07-cp1-x001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL points that are solutions of y < 2x + 3.",
+   "options": [
+    {
+     "text": "(-4, 3)",
+     "correct": false
+    },
+    {
+     "text": "(1, -4)",
+     "correct": true
+    },
+    {
+     "text": "(-1, 4)",
+     "correct": false
+    },
+    {
+     "text": "(1, 1)",
+     "correct": true
+    },
+    {
+     "text": "(-2, 2)",
+     "correct": false
+    },
+    {
+     "text": "(4, 5)",
+     "correct": true
+    }
+   ],
+   "answer": [
+    "(1, -4)",
+    "(1, 1)",
+    "(4, 5)"
+   ],
+   "solutionSteps": [
+    "Check each choice.",
+    "(-4, 3): no.",
+    "(1, -4): yes.",
+    "(-1, 4): no.",
+    "(1, 1): yes.",
+    "(-2, 2): no.",
+    "(4, 5): yes.",
+    "3 of the 6 choices are correct."
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored select-all item (family: sa_ineq). Every choice re-decided from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-eqi-s07-honors-x001",
+   "skillId": "equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL points that are solutions of y ≥ -2x + 3.",
+   "options": [
+    {
+     "text": "(3, -1)",
+     "correct": true
+    },
+    {
+     "text": "(-3, 4)",
+     "correct": false
+    },
+    {
+     "text": "(0, 3)",
+     "correct": true
+    },
+    {
+     "text": "(2, 5)",
+     "correct": true
+    },
+    {
+     "text": "(4, 4)",
+     "correct": true
+    },
+    {
+     "text": "(3, -2)",
+     "correct": true
+    }
+   ],
+   "answer": [
+    "(3, -1)",
+    "(0, 3)",
+    "(2, 5)",
+    "(4, 4)",
+    "(3, -2)"
+   ],
+   "solutionSteps": [
+    "Check each choice.",
+    "(3, -1): yes.",
+    "(-3, 4): no.",
+    "(0, 3): yes.",
+    "(2, 5): yes.",
+    "(4, 4): yes.",
+    "(3, -2): yes.",
+    "5 of the 6 choices are correct."
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored select-all item (family: sa_ineq). Every choice re-decided from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
   }
  ]
 }
