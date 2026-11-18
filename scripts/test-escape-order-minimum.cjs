@@ -5,6 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
+const pageScriptGlobals=require('./page-script-globals.cjs');
 const base=path.join(root,'artifacts');
 let standalone=0,sorted=0;
 for(const folder of fs.readdirSync(base).filter(x=>x.endsWith('-escape-room'))){
@@ -17,7 +18,8 @@ for(const folder of fs.readdirSync(base).filter(x=>x.endsWith('-escape-room'))){
  const marker=code.indexOf('const TOTAL=');
  assert.ok(marker>0,folder+': missing game initialization');
  const room=vm.runInNewContext(code.slice(0,marker)+'\nROOM;',{
-  URLSearchParams,location:{search:''},Math
+  URLSearchParams,location:{search:''},Math,
+  ...pageScriptGlobals(source,path.relative(root,file))
  },{timeout:3000});
  standalone++;
  for(const stage of room.stages.filter(s=>s.type==='order')){

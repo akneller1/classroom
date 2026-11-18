@@ -10,6 +10,7 @@ on:
       - 'scripts/test-escape-cipher-lock.cjs'
       - 'scripts/test-escape-unit-ciphers.cjs'
       - 'scripts/test-escape-order-minimum.cjs'
+      - 'scripts/page-script-globals.cjs'
       - '.github/workflows/escape-cipher-lock.yml'
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - 'scripts/test-escape-cipher-lock.cjs'
       - 'scripts/test-escape-unit-ciphers.cjs'
       - 'scripts/test-escape-order-minimum.cjs'
+      - 'scripts/page-script-globals.cjs'
 jobs:
   verify:
     runs-on: ubuntu-latest
