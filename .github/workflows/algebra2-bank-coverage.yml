@@ -8,6 +8,9 @@ on:
       - 'scripts/*algebra2*.cjs'
       - 'tools/algebra2-audit-20261117/**'
       - 'tools/algebra2-gaps-20261117/**'
+      - 'tools/algebra2-plots-20261117/**'
+      - 'question-banks/assets/plot-keys/a2-*'
+      - 'worksheet-generator/core/plot.js'
       - 'worksheet-generator/practice/**'
       - 'scripts/test-published-question-banks.cjs'
       - 'scripts/test-question-bank-loader.cjs'
@@ -59,6 +62,7 @@ jobs:
       - name: Independent recomputation of Algebra 2 answers
         run: python3 tools/algebra2-audit-20261117/verify_answers.py --min 650
       - run: node scripts/test-algebra2-gap-skills.cjs
+      - run: node scripts/test-algebra2-plot-items.cjs
       - name: Independent check of the standards-gap skills and context problems
         run: python3 tools/algebra2-gaps-20261117/verify.py
       - run: node scripts/test-algebra2-native.cjs

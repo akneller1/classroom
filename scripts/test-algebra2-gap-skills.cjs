@@ -34,7 +34,8 @@ for (const [unit, n, name, std] of NEW) {
   assert(w.MKPLAN_TEACH_ALGEBRA2_META(id), id + ' teaching notes');
 }
 // #5: A-REI.D.11 only on the graph/table skill; the algebraic systems keep A-REI.C.6.
-assert.deepEqual([...new Set(items.filter(q => q.standards.includes('A-REI.D.11')).map(q => q.skillId))], ['linear-functions-systems-skill-08']);
+// (Graphing Practice items that solve a system by graphing keep it too: that is what A-REI.D.11 describes.)
+assert.deepEqual([...new Set(items.filter(q => q.standards.includes('A-REI.D.11') && q.format !== 'plot').map(q => q.skillId))], ['linear-functions-systems-skill-08']);
 assert(items.filter(q => q.skillId === 'linear-functions-systems-skill-04').every(q => q.standards.includes('A-REI.C.6')));
 // #7: every unit has at least 8 real-world context problems per level.
 const tags = Object.assign({}, ...fs.readdirSync(path.join(dir, 'meta')).map(f => JSON.parse(fs.readFileSync(path.join(dir, 'meta', f), 'utf8'))));

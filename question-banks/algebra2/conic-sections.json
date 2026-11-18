@@ -11048,6 +11048,2871 @@
     "G-GPE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: context_conic_tower). Answer, every option and every student answer re-checked from the printed problem by tools/algebra2-gaps-20261117/verify.py. Awaiting human review."
+  },
+  {
+   "id": "a2-cs-s02-cp2-p001",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph (x + 1)² = 4(y − 2). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (-1, 2); passes through (1, 3) and (-3, 3)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (-1, 2) and 4p = 4, so p = 1.",
+    "Solve for y: y = (1/4)(x + 1)² + 2, so a = 1/4 and the parabola opens up.",
+    "Two units right of the vertex: y = 2 + 2²/4 = 3, so (1, 3) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/4",
+     "h": -1,
+     "k": 2
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -1,
+       2
+      ],
+      "point": [
+       1,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         1,
+         2
+        ],
+        "point": [
+         3,
+         3
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -2
+        ],
+        "point": [
+         1,
+         -1
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         2
+        ],
+        "point": [
+         1,
+         1
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp2-p001.png",
+     "alt": "Coordinate grid with the parabola (x + 1)² = 4(y − 2); vertex (-1, 2) and the point (1, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp2-p001",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "For the circle (x − 4)² + (y − 3)² = 9, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (4, 3); points (4, 6), (4, 0), (7, 3), (1, 3)",
+   "solutionSteps": [
+    "Center (h, k) = (4, 3); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (4, 6), (4, 0), (7, 3), (1, 3)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       4,
+       3
+      ],
+      [
+       4,
+       6
+      ],
+      [
+       4,
+       0
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       1,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        3
+       ],
+       [
+        4,
+        6
+       ],
+       [
+        4,
+        0
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        1,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          4
+         ],
+         [
+          6,
+          4
+         ],
+         [
+          0,
+          4
+         ],
+         [
+          3,
+          7
+         ],
+         [
+          3,
+          1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          4
+         ],
+         [
+          4,
+          7
+         ],
+         [
+          4,
+          1
+         ],
+         [
+          7,
+          4
+         ],
+         [
+          1,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp2-p001.png",
+     "alt": "Coordinate grid with the center (4, 3) of the circle (x − 4)² + (y − 3)² = 9 and the points (4, 6), (4, 0), (7, 3), (1, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp2-p002",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x² = −4(y + 3). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (0, -3); passes through (2, -4) and (-2, -4)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (0, -3) and 4p = −4, so p = −1.",
+    "Solve for y: y = (1/(−4))x² − 3, so a = −1/4 and the parabola opens down.",
+    "Two units right of the vertex: y = -3 + 2²/−4 = -4, so (2, -4) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/4",
+     "h": 0,
+     "k": -3
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       -3
+      ],
+      "point": [
+       2,
+       -4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         3
+        ],
+        "point": [
+         2,
+         2
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         0,
+         -3
+        ],
+        "point": [
+         2,
+         -2
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp2-p002.png",
+     "alt": "Coordinate grid with the parabola x² = −4(y + 3); vertex (0, -3) and the point (2, -4) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp2-p002",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "For the circle (x + 4)² + (y − 3)² = 16, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-4, 3); points (-4, 7), (-4, -1), (0, 3), (-8, 3)",
+   "solutionSteps": [
+    "Center (h, k) = (-4, 3); r² = 16, so r = 4.",
+    "Move 4 up, down, right and left from the center: (-4, 7), (-4, -1), (0, 3), (-8, 3)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -4,
+       3
+      ],
+      [
+       -4,
+       7
+      ],
+      [
+       -4,
+       -1
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       -8,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -4,
+        3
+       ],
+       [
+        -4,
+        7
+       ],
+       [
+        -4,
+        -1
+       ],
+       [
+        0,
+        3
+       ],
+       [
+        -8,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -4
+         ],
+         [
+          7,
+          -4
+         ],
+         [
+          -1,
+          -4
+         ],
+         [
+          3,
+          0
+         ],
+         [
+          3,
+          -8
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          4
+         ],
+         [
+          -4,
+          8
+         ],
+         [
+          -4,
+          0
+         ],
+         [
+          0,
+          4
+         ],
+         [
+          -8,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp2-p002.png",
+     "alt": "Coordinate grid with the center (-4, 3) of the circle (x + 4)² + (y − 3)² = 16 and the points (-4, 7), (-4, -1), (0, 3), (-8, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp2-p003",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph (x + 2)² = (y + 3). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (-2, -3); passes through (0, 1) and (-4, 1)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (-2, -3) and 4p = 1, so p = 1/4.",
+    "Solve for y: y = (1/1)(x + 2)² − 3, so a = 1 and the parabola opens up.",
+    "Two units right of the vertex: y = -3 + 2²/1 = 1, so (0, 1) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -2,
+     "k": -3
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       -3
+      ],
+      "point": [
+       0,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         -3
+        ],
+        "point": [
+         4,
+         1
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         3
+        ],
+        "point": [
+         0,
+         7
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         -3
+        ],
+        "point": [
+         0,
+         -7
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp2-p003.png",
+     "alt": "Coordinate grid with the parabola (x + 2)² = (y + 3); vertex (-2, -3) and the point (0, 1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp2-p003",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "For the circle (x + 2)² + (y + 2)² = 9, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-2, -2); points (-2, 1), (-2, -5), (1, -2), (-5, -2)",
+   "solutionSteps": [
+    "Center (h, k) = (-2, -2); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (-2, 1), (-2, -5), (1, -2), (-5, -2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -2,
+       1
+      ],
+      [
+       -2,
+       -5
+      ],
+      [
+       1,
+       -2
+      ],
+      [
+       -5,
+       -2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        -2
+       ],
+       [
+        -2,
+        1
+       ],
+       [
+        -2,
+        -5
+       ],
+       [
+        1,
+        -2
+       ],
+       [
+        -5,
+        -2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          -1
+         ],
+         [
+          -2,
+          2
+         ],
+         [
+          -2,
+          -4
+         ],
+         [
+          1,
+          -1
+         ],
+         [
+          -5,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp2-p003.png",
+     "alt": "Coordinate grid with the center (-2, -2) of the circle (x + 2)² + (y + 2)² = 9 and the points (-2, 1), (-2, -5), (1, -2), (-5, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp2-p004",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph (x − 4)² = (y + 1). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (4, -1); passes through (6, 3) and (2, 3)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (4, -1) and 4p = 1, so p = 1/4.",
+    "Solve for y: y = (1/1)(x − 4)² − 1, so a = 1 and the parabola opens up.",
+    "Two units right of the vertex: y = -1 + 2²/1 = 3, so (6, 3) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": 4,
+     "k": -1
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       4,
+       -1
+      ],
+      "point": [
+       6,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -4,
+         -1
+        ],
+        "point": [
+         -2,
+         3
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         1
+        ],
+        "point": [
+         6,
+         5
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         -1
+        ],
+        "point": [
+         6,
+         -5
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp2-p004.png",
+     "alt": "Coordinate grid with the parabola (x − 4)² = (y + 1); vertex (4, -1) and the point (6, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp2-p004",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "For the circle (x − 3)² + (y − 2)² = 4, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (3, 2); points (3, 4), (3, 0), (5, 2), (1, 2)",
+   "solutionSteps": [
+    "Center (h, k) = (3, 2); r² = 4, so r = 2.",
+    "Move 2 up, down, right and left from the center: (3, 4), (3, 0), (5, 2), (1, 2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       3,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       3,
+       0
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        3,
+        0
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        1,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          3
+         ],
+         [
+          4,
+          3
+         ],
+         [
+          0,
+          3
+         ],
+         [
+          2,
+          5
+         ],
+         [
+          2,
+          1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          3
+         ],
+         [
+          3,
+          5
+         ],
+         [
+          3,
+          1
+         ],
+         [
+          5,
+          3
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp2-p004.png",
+     "alt": "Coordinate grid with the center (3, 2) of the circle (x − 3)² + (y − 2)² = 4 and the points (3, 4), (3, 0), (5, 2), (1, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp1-p001",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x² = 4y. Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (0, 0); passes through (2, 1) and (-2, 1)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (0, 0) and 4p = 4, so p = 1.",
+    "Solve for y: y = (1/4)x², so a = 1/4 and the parabola opens up.",
+    "Two units right of the vertex: y = 0 + 2²/4 = 1, so (2, 1) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/4",
+     "h": 0,
+     "k": 0
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       0
+      ],
+      "point": [
+       2,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         0
+        ],
+        "point": [
+         2,
+         -1
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp1-p001.png",
+     "alt": "Coordinate grid with the parabola x² = 4y; vertex (0, 0) and the point (2, 1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp1-p001",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "For the circle (x + 1)² + (y − 3)² = 9, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-1, 3); points (-1, 6), (-1, 0), (2, 3), (-4, 3)",
+   "solutionSteps": [
+    "Center (h, k) = (-1, 3); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (-1, 6), (-1, 0), (2, 3), (-4, 3)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -1,
+       3
+      ],
+      [
+       -1,
+       6
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       -4,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        3
+       ],
+       [
+        -1,
+        6
+       ],
+       [
+        -1,
+        0
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        -4,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          -1
+         ],
+         [
+          6,
+          -1
+         ],
+         [
+          0,
+          -1
+         ],
+         [
+          3,
+          2
+         ],
+         [
+          3,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -1,
+          4
+         ],
+         [
+          -1,
+          7
+         ],
+         [
+          -1,
+          1
+         ],
+         [
+          2,
+          4
+         ],
+         [
+          -4,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp1-p001.png",
+     "alt": "Coordinate grid with the center (-1, 3) of the circle (x + 1)² + (y − 3)² = 9 and the points (-1, 6), (-1, 0), (2, 3), (-4, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp1-p002",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph (x − 1)² = −4(y + 4). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (1, -4); passes through (3, -5) and (-1, -5)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (1, -4) and 4p = −4, so p = −1.",
+    "Solve for y: y = (1/(−4))(x − 1)² − 4, so a = −1/4 and the parabola opens down.",
+    "Two units right of the vertex: y = -4 + 2²/−4 = -5, so (3, -5) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/4",
+     "h": 1,
+     "k": -4
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       1,
+       -4
+      ],
+      "point": [
+       3,
+       -5
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -4
+        ],
+        "point": [
+         1,
+         -5
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         1,
+         4
+        ],
+        "point": [
+         3,
+         3
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         1,
+         -4
+        ],
+        "point": [
+         3,
+         -3
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp1-p002.png",
+     "alt": "Coordinate grid with the parabola (x − 1)² = −4(y + 4); vertex (1, -4) and the point (3, -5) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp1-p002",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "For the circle (x + 4)² + (y − 4)² = 9, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-4, 4); points (-4, 7), (-4, 1), (-1, 4), (-7, 4)",
+   "solutionSteps": [
+    "Center (h, k) = (-4, 4); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (-4, 7), (-4, 1), (-1, 4), (-7, 4)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -4,
+       4
+      ],
+      [
+       -4,
+       7
+      ],
+      [
+       -4,
+       1
+      ],
+      [
+       -1,
+       4
+      ],
+      [
+       -7,
+       4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -4,
+        4
+       ],
+       [
+        -4,
+        7
+       ],
+       [
+        -4,
+        1
+       ],
+       [
+        -1,
+        4
+       ],
+       [
+        -7,
+        4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          -4
+         ],
+         [
+          7,
+          -4
+         ],
+         [
+          1,
+          -4
+         ],
+         [
+          4,
+          -1
+         ],
+         [
+          4,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          5
+         ],
+         [
+          -4,
+          8
+         ],
+         [
+          -4,
+          2
+         ],
+         [
+          -1,
+          5
+         ],
+         [
+          -7,
+          5
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp1-p002.png",
+     "alt": "Coordinate grid with the center (-4, 4) of the circle (x + 4)² + (y − 4)² = 9 and the points (-4, 7), (-4, 1), (-1, 4), (-7, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp1-p003",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph (x + 1)² = 4(y − 4). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (-1, 4); passes through (1, 5) and (-3, 5)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (-1, 4) and 4p = 4, so p = 1.",
+    "Solve for y: y = (1/4)(x + 1)² + 4, so a = 1/4 and the parabola opens up.",
+    "Two units right of the vertex: y = 4 + 2²/4 = 5, so (1, 5) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/4",
+     "h": -1,
+     "k": 4
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -1,
+       4
+      ],
+      "point": [
+       1,
+       5
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         1,
+         4
+        ],
+        "point": [
+         3,
+         5
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -4
+        ],
+        "point": [
+         1,
+         -3
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         4
+        ],
+        "point": [
+         1,
+         3
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp1-p003.png",
+     "alt": "Coordinate grid with the parabola (x + 1)² = 4(y − 4); vertex (-1, 4) and the point (1, 5) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp1-p003",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "For the circle (x − 2)² + (y − 1)² = 16, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (2, 1); points (2, 5), (2, -3), (6, 1), (-2, 1)",
+   "solutionSteps": [
+    "Center (h, k) = (2, 1); r² = 16, so r = 4.",
+    "Move 4 up, down, right and left from the center: (2, 5), (2, -3), (6, 1), (-2, 1)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       2,
+       1
+      ],
+      [
+       2,
+       5
+      ],
+      [
+       2,
+       -3
+      ],
+      [
+       6,
+       1
+      ],
+      [
+       -2,
+       1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        2,
+        1
+       ],
+       [
+        2,
+        5
+       ],
+       [
+        2,
+        -3
+       ],
+       [
+        6,
+        1
+       ],
+       [
+        -2,
+        1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          2
+         ],
+         [
+          5,
+          2
+         ],
+         [
+          -3,
+          2
+         ],
+         [
+          1,
+          6
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          2
+         ],
+         [
+          2,
+          6
+         ],
+         [
+          2,
+          -2
+         ],
+         [
+          6,
+          2
+         ],
+         [
+          -2,
+          2
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp1-p003.png",
+     "alt": "Coordinate grid with the center (2, 1) of the circle (x − 2)² + (y − 1)² = 16 and the points (2, 5), (2, -3), (6, 1), (-2, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-cp1-p004",
+   "skillId": "conic-sections-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph (x + 2)² = −4(y + 2). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (-2, -2); passes through (0, -3) and (-4, -3)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (-2, -2) and 4p = −4, so p = −1.",
+    "Solve for y: y = (1/(−4))(x + 2)² − 2, so a = −1/4 and the parabola opens down.",
+    "Two units right of the vertex: y = -2 + 2²/−4 = -3, so (0, -3) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/4",
+     "h": -2,
+     "k": -2
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       -2
+      ],
+      "point": [
+       0,
+       -3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         -2
+        ],
+        "point": [
+         4,
+         -3
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         2
+        ],
+        "point": [
+         0,
+         1
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         -2
+        ],
+        "point": [
+         0,
+         -1
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-cp1-p004.png",
+     "alt": "Coordinate grid with the parabola (x + 2)² = −4(y + 2); vertex (-2, -2) and the point (0, -3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-cp1-p004",
+   "skillId": "conic-sections-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "For the circle (x + 2)² + y² = 16, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-2, 0); points (-2, 4), (-2, -4), (2, 0), (-6, 0)",
+   "solutionSteps": [
+    "Center (h, k) = (-2, 0); r² = 16, so r = 4.",
+    "Move 4 up, down, right and left from the center: (-2, 4), (-2, -4), (2, 0), (-6, 0)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -2,
+       0
+      ],
+      [
+       -2,
+       4
+      ],
+      [
+       -2,
+       -4
+      ],
+      [
+       2,
+       0
+      ],
+      [
+       -6,
+       0
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        0
+       ],
+       [
+        -2,
+        4
+       ],
+       [
+        -2,
+        -4
+       ],
+       [
+        2,
+        0
+       ],
+       [
+        -6,
+        0
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          4,
+          -2
+         ],
+         [
+          -4,
+          -2
+         ],
+         [
+          0,
+          2
+         ],
+         [
+          0,
+          -6
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          1
+         ],
+         [
+          -2,
+          5
+         ],
+         [
+          -2,
+          -3
+         ],
+         [
+          2,
+          1
+         ],
+         [
+          -6,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-cp1-p004.png",
+     "alt": "Coordinate grid with the center (-2, 0) of the circle (x + 2)² + y² = 16 and the points (-2, 4), (-2, -4), (2, 0), (-6, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-honors-p001",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph (x − 4)² = 4y. Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (4, 0); passes through (6, 1) and (2, 1)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (4, 0) and 4p = 4, so p = 1.",
+    "Solve for y: y = (1/4)(x − 4)², so a = 1/4 and the parabola opens up.",
+    "Two units right of the vertex: y = 0 + 2²/4 = 1, so (6, 1) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/4",
+     "h": 4,
+     "k": 0
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       4,
+       0
+      ],
+      "point": [
+       6,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -4,
+         0
+        ],
+        "point": [
+         -2,
+         1
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         0
+        ],
+        "point": [
+         6,
+         -1
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-honors-p001.png",
+     "alt": "Coordinate grid with the parabola (x − 4)² = 4y; vertex (4, 0) and the point (6, 1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-honors-p001",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "For the circle x² + y² + 4x − 4y − 17 = 0, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (-2, 2); points (-2, 7), (-2, -3), (3, 2), (-7, 2)",
+   "solutionSteps": [
+    "Complete the square: (x + 2)² + (y − 2)² = 25.",
+    "Center (h, k) = (-2, 2); r² = 25, so r = 5.",
+    "Move 5 up, down, right and left from the center: (-2, 7), (-2, -3), (3, 2), (-7, 2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       -2,
+       2
+      ],
+      [
+       -2,
+       7
+      ],
+      [
+       -2,
+       -3
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       -7,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        2
+       ],
+       [
+        -2,
+        7
+       ],
+       [
+        -2,
+        -3
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        -7,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          -2
+         ],
+         [
+          7,
+          -2
+         ],
+         [
+          -3,
+          -2
+         ],
+         [
+          2,
+          3
+         ],
+         [
+          2,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          3
+         ],
+         [
+          -2,
+          8
+         ],
+         [
+          -2,
+          -2
+         ],
+         [
+          3,
+          3
+         ],
+         [
+          -7,
+          3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-honors-p001.png",
+     "alt": "Coordinate grid with the center (-2, 2) of the circle x² + y² + 4x − 4y − 17 = 0 and the points (-2, 7), (-2, -3), (3, 2), (-7, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-honors-p002",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x² = 2(y − 1). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (0, 1); passes through (2, 3) and (-2, 3)",
+   "solutionSteps": [
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (0, 1) and 4p = 2, so p = 1/2.",
+    "Solve for y: y = (1/2)x² + 1, so a = 1/2 and the parabola opens up.",
+    "Two units right of the vertex: y = 1 + 2²/2 = 3, so (2, 3) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/2",
+     "h": 0,
+     "k": 1
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       1
+      ],
+      "point": [
+       2,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         -1
+        ],
+        "point": [
+         2,
+         1
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         0,
+         1
+        ],
+        "point": [
+         2,
+         -1
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-honors-p002.png",
+     "alt": "Coordinate grid with the parabola x² = 2(y − 1); vertex (0, 1) and the point (2, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-honors-p002",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "For the circle x² + y² + 4y − 5 = 0, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (0, -2); points (0, 1), (0, -5), (3, -2), (-3, -2)",
+   "solutionSteps": [
+    "Complete the square: x² + (y + 2)² = 9.",
+    "Center (h, k) = (0, -2); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (0, 1), (0, -5), (3, -2), (-3, -2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       0,
+       -2
+      ],
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       -5
+      ],
+      [
+       3,
+       -2
+      ],
+      [
+       -3,
+       -2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        -2
+       ],
+       [
+        0,
+        1
+       ],
+       [
+        0,
+        -5
+       ],
+       [
+        3,
+        -2
+       ],
+       [
+        -3,
+        -2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          0
+         ],
+         [
+          1,
+          0
+         ],
+         [
+          -5,
+          0
+         ],
+         [
+          -2,
+          3
+         ],
+         [
+          -2,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          0,
+          2
+         ],
+         [
+          0,
+          -4
+         ],
+         [
+          3,
+          -1
+         ],
+         [
+          -3,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-honors-p002.png",
+     "alt": "Coordinate grid with the center (0, -2) of the circle x² + y² + 4y − 5 = 0 and the points (0, 1), (0, -5), (3, -2), (-3, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-honors-p003",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the parabola with vertex (0, -2) and focus (0, -5/2). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (0, -2); passes through (2, -4) and (-2, -4)",
+   "solutionSteps": [
+    "The focus is |p| = 1/2 below the vertex, so 4p = −2 and the equation is x² = −2(y + 2).",
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (0, -2) and 4p = −2, so p = −1/2.",
+    "Solve for y: y = (1/(−2))x² − 2, so a = −1/2 and the parabola opens down.",
+    "Two units right of the vertex: y = -2 + 2²/−2 = -4, so (2, -4) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/2",
+     "h": 0,
+     "k": -2
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       -2
+      ],
+      "point": [
+       2,
+       -4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         2
+        ],
+        "point": [
+         2,
+         0
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         0,
+         -2
+        ],
+        "point": [
+         2,
+         0
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-honors-p003.png",
+     "alt": "Coordinate grid with the parabola the parabola with vertex (0, -2) and focus (0, -5/2); vertex (0, -2) and the point (2, -4) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-honors-p003",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "For the circle x² + y² − 8x + 4y + 16 = 0, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (4, -2); points (4, 0), (4, -4), (6, -2), (2, -2)",
+   "solutionSteps": [
+    "Complete the square: (x − 4)² + (y + 2)² = 4.",
+    "Center (h, k) = (4, -2); r² = 4, so r = 2.",
+    "Move 2 up, down, right and left from the center: (4, 0), (4, -4), (6, -2), (2, -2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       4,
+       -2
+      ],
+      [
+       4,
+       0
+      ],
+      [
+       4,
+       -4
+      ],
+      [
+       6,
+       -2
+      ],
+      [
+       2,
+       -2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        -2
+       ],
+       [
+        4,
+        0
+       ],
+       [
+        4,
+        -4
+       ],
+       [
+        6,
+        -2
+       ],
+       [
+        2,
+        -2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          4
+         ],
+         [
+          0,
+          4
+         ],
+         [
+          -4,
+          4
+         ],
+         [
+          -2,
+          6
+         ],
+         [
+          -2,
+          2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          -1
+         ],
+         [
+          4,
+          1
+         ],
+         [
+          4,
+          -3
+         ],
+         [
+          6,
+          -1
+         ],
+         [
+          2,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-honors-p003.png",
+     "alt": "Coordinate grid with the center (4, -2) of the circle x² + y² − 8x + 4y + 16 = 0 and the points (4, 0), (4, -4), (6, -2), (2, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s02-honors-p004",
+   "skillId": "conic-sections-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the parabola with vertex (2, 3) and focus (2, 5/2). Drag the vertex first, then drag a second point on the parabola.",
+   "answer": "vertex (2, 3); passes through (4, 1) and (0, 1)",
+   "solutionSteps": [
+    "The focus is |p| = 1/2 below the vertex, so 4p = −2 and the equation is (x − 2)² = −2(y − 3).",
+    "Compare with (x − h)² = 4p(y − k): vertex (h, k) = (2, 3) and 4p = −2, so p = −1/2.",
+    "Solve for y: y = (1/(−2))(x − 2)² + 3, so a = −1/2 and the parabola opens down.",
+    "Two units right of the vertex: y = 3 + 2²/−2 = 1, so (4, 1) is on the parabola."
+   ],
+   "standards": [
+    "G-GPE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-parabola). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1/2",
+     "h": 2,
+     "k": 3
+    },
+    "feedback": {
+     "anchor": "Place the vertex first. In (x − h)² = 4p(y − k) the vertex is (h, k).",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: (y − k) moves the vertex k units up.",
+     "swapped-hk": "You switched h and k. The vertex is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your parabola opens the wrong way. When 4p is negative it opens down.",
+     "stretch": "Check the width: y − k = (x − h)²/(4p)."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       2,
+       3
+      ],
+      "point": [
+       4,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -2,
+         3
+        ],
+        "point": [
+         0,
+         1
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         2,
+         -3
+        ],
+        "point": [
+         4,
+         -5
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         2,
+         3
+        ],
+        "point": [
+         4,
+         5
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s02-honors-p004.png",
+     "alt": "Coordinate grid with the parabola the parabola with vertex (2, 3) and focus (2, 5/2); vertex (2, 3) and the point (4, 1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-cs-s01-honors-p004",
+   "skillId": "conic-sections-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "For the circle x² + y² − 2x − 4y − 4 = 0, plot the center and the four points on the circle directly above, below, right and left of the center.",
+   "answer": "center (1, 2); points (1, 5), (1, -1), (4, 2), (-2, 2)",
+   "solutionSteps": [
+    "Complete the square: (x − 1)² + (y − 2)² = 9.",
+    "Center (h, k) = (1, 2); r² = 9, so r = 3.",
+    "Move 3 up, down, right and left from the center: (1, 5), (1, -1), (4, 2), (-2, 2)."
+   ],
+   "standards": [
+    "G-GPE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: a2-plot-circle). Target and feedback vectors checked against core/plot.js by tools/algebra2-plots-20261117/build.cjs; answer recomputed from the printed problem by scripts/test-algebra2-plot-items.cjs. Awaiting human review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       5
+      ],
+      [
+       1,
+       -1
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       -2,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. The center is (h, k) — watch the signs — and each point is r units from it.",
+     "swapped-coordinates": "You switched x and y. Move across the x-axis first, then up or down.",
+     "count": "Plot five points: the center and four points on the circle."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        2
+       ],
+       [
+        1,
+        5
+       ],
+       [
+        1,
+        -1
+       ],
+       [
+        4,
+        2
+       ],
+       [
+        -2,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          1
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          -1,
+          1
+         ],
+         [
+          2,
+          4
+         ],
+         [
+          2,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          3
+         ],
+         [
+          1,
+          6
+         ],
+         [
+          1,
+          0
+         ],
+         [
+          4,
+          3
+         ],
+         [
+          -2,
+          3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/a2-cs-s01-honors-p004.png",
+     "alt": "Coordinate grid with the center (1, 2) of the circle x² + y² − 2x − 4y − 4 = 0 and the points (1, 5), (1, -1), (4, 2), (-2, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }
