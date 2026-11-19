@@ -4386,6 +4386,42 @@
    "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-biv-s02-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Data for 6 students: hours studied 1, 2, 3, 4, 5, 6; quiz score 60, 65, 72, 76, 40, 88.",
+   "parts": [
+    {
+     "prompt": "Which point does not follow the pattern?",
+     "answer": "(5, 40)"
+    },
+    {
+     "prompt": "What is this kind of point called?",
+     "answer": "an outlier"
+    },
+    {
+     "prompt": "Without that point, do scores tend to increase or decrease as hours increase?",
+     "answer": "increase"
+    },
+    {
+     "prompt": "Predict a score for 7 hours.",
+     "answer": "about 93 (90 to 96 is reasonable)"
+    }
+   ],
+   "answer": "(a) (5, 40); (b) an outlier; (c) increase; (d) about 93 (90 to 96 is reasonable)",
+   "solutionSteps": [
+    "The other scores rise with hours; 40 is far below.",
+    "It lies far from the other points.",
+    "60, 65, 72, 76, 88.",
+    "Scores rise about 5 to 6 points per hour after 88."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-biv-s02-cp1-001",
    "skillId": "patterns-bivariate-data-skill-02",
    "level": "cp1",
@@ -5104,15 +5140,16 @@
    "skillId": "patterns-bivariate-data-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: hours studied: 0, 1, 2, 3, 5, 6, 7, 8, 9, 10; test score: 45, 49, 61, 58, 70, 72, 81, 86, 92, 89. As hours studied increases, does test score tend to increase or decrease?",
-   "answer": "increase",
+   "prompt": "Data: hours studied: 10, 9, 2, 10, 6, 7, 7, 2; test score: 68, 65, 54, 52, 80, 60, 83, 75. How many students studied more than 5 hours and scored above 80?",
+   "answer": "1",
    "solutionSteps": [
-    "Look at the pattern from left to right: y tends to increase."
+    "Students who studied more than 5 hours: (10, 68), (9, 65), (10, 52), (6, 80), (7, 60), (7, 83).",
+    "Of those, 1 scored above 80."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trend_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s2_count_two_conditions). Rewritten from a Support template (was s2_trend_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s02-honors-005",
@@ -5223,15 +5260,16 @@
    "skillId": "patterns-bivariate-data-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: hours studied: 0, 1, 2, 3, 4, 5, 6, 8, 9, 10; test score: 53, 50, 55, 56, 68, 66, 68, 85, 86, 91. As hours studied increases, does test score tend to increase or decrease?",
-   "answer": "increase",
+   "prompt": "Data: hours studied: 9, 0, 2, 2, 5, 10, 7, 8; test score: 64, 63, 69, 64, 56, 81, 57, 57. How many students studied more than 4 hours and scored above 70?",
+   "answer": "1",
    "solutionSteps": [
-    "Look at the pattern from left to right: y tends to increase."
+    "Students who studied more than 4 hours: (9, 64), (5, 56), (10, 81), (7, 57), (8, 57).",
+    "Of those, 1 scored above 70."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trend_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s2_count_two_conditions). Rewritten from a Support template (was s2_trend_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s02-honors-009",
@@ -5342,15 +5380,16 @@
    "skillId": "patterns-bivariate-data-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: hours studied: 0, 2, 3, 4, 5, 6, 7, 8, 9, 10; test score: 52, 57, 58, 67, 73, 74, 80, 85, 83, 93. As hours studied increases, does test score tend to increase or decrease?",
-   "answer": "increase",
+   "prompt": "Data: hours studied: 4, 10, 5, 5, 3, 3, 7, 2; test score: 99, 91, 97, 60, 56, 87, 66, 97. How many students studied more than 5 hours and scored above 80?",
+   "answer": "1",
    "solutionSteps": [
-    "Look at the pattern from left to right: y tends to increase."
+    "Students who studied more than 5 hours: (10, 91), (7, 66).",
+    "Of those, 1 scored above 80."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trend_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s2_count_two_conditions). Rewritten from a Support template (was s2_trend_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s02-honors-013",
@@ -5461,15 +5500,16 @@
    "skillId": "patterns-bivariate-data-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: age of car (years): 0, 3, 4, 5, 6, 7, 8, 9, 10, 11; value ($1,000s): 25, 19, 19, 14, 13, 12, 9, 7, 4, 1. As age of car (years) increases, does value ($1,000s) tend to increase or decrease?",
-   "answer": "decrease",
+   "prompt": "Data: hours studied: 6, 3, 7, 1, 4, 2, 0, 2; test score: 51, 65, 81, 93, 70, 52, 95, 79. How many students studied more than 4 hours and scored above 80?",
+   "answer": "1",
    "solutionSteps": [
-    "Look at the pattern from left to right: y tends to decrease."
+    "Students who studied more than 4 hours: (6, 51), (7, 81).",
+    "Of those, 1 scored above 80."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trend_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s2_count_two_conditions). Rewritten from a Support template (was s2_trend_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s02-honors-017",
@@ -6402,16 +6442,17 @@
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 1, 2, 3, 5, 8, 10, 11, 12; y: 5, 7, 10, 13, 19, 29, 29, 33. Is the association positive, negative, or none?",
-   "answer": "positive",
+   "prompt": "Data: x: 2, 6, 8, 10, 11, 13; y: 34, 28, 24, 18, 16, 15. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "-19, negative",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "positive."
+    "y goes from 34 to 15: a change of -19.",
+    "y tends to decrease as x increases, so the association is negative.",
+    "So the answer is -19, negative."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-004",
@@ -6516,16 +6557,17 @@
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 1, 2, 3, 5, 6, 7, 11, 12; y: 31, 29, 26, 22, 21, 17, 2, 0. Is the association positive, negative, or none?",
-   "answer": "negative",
+   "prompt": "Data: x: 3, 4, 6, 7, 8, 9; y: 34, 32, 28, 26, 24, 22. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "-12, negative",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "negative."
+    "y goes from 34 to 22: a change of -12.",
+    "y tends to decrease as x increases, so the association is negative.",
+    "So the answer is -12, negative."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-008",
@@ -6630,16 +6672,17 @@
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 1, 2, 3, 4, 7, 8, 11, 12; y: 32, 33, 31, 26, 17, 16, 8, 10. Is the association positive, negative, or none?",
-   "answer": "negative",
+   "prompt": "Data: x: 2, 4, 5, 6, 11, 13; y: 46, 52, 56, 56, 71, 77. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "31, positive",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "negative."
+    "y goes from 46 to 77: a change of 31.",
+    "y tends to increase as x increases, so the association is positive.",
+    "So the answer is 31, positive."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-012",
@@ -6728,16 +6771,17 @@
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 1, 2, 3, 5, 6, 7, 9, 10; y: 35, 11, 27, 37, 25, 5, 22, 30. Is the association positive, negative, or none?",
-   "answer": "no association",
+   "prompt": "Data: x: 1, 2, 3, 5, 6, 13; y: 40, 44, 44, 48, 50, 66. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "26, positive",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "no association."
+    "y goes from 40 to 66: a change of 26.",
+    "y tends to increase as x increases, so the association is positive.",
+    "So the answer is 26, positive."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-015",
@@ -6785,48 +6829,51 @@
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 1, 2, 3, 5, 6, 8, 9, 10; y: 29, 7, 35, 36, 27, 28, 23, 28. Is the association positive, negative, or none?",
-   "answer": "no association",
+   "prompt": "Data: x: 2, 3, 5, 7, 11, 14; y: 32, 29, 26, 19, 7, -4. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "-36, negative",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "no association."
+    "y goes from 32 to -4: a change of -36.",
+    "y tends to decrease as x increases, so the association is negative.",
+    "So the answer is -36, negative."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-017",
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 2, 3, 4, 5, 7, 10, 11, 12; y: 28, 37, 5, 38, 4, 9, 24, 32. Is the association positive, negative, or none?",
-   "answer": "no association",
+   "prompt": "Data: x: 1, 6, 8, 9, 12, 14; y: 36, 26, 24, 23, 17, 13. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "-23, negative",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "no association."
+    "y goes from 36 to 13: a change of -23.",
+    "y tends to decrease as x increases, so the association is negative.",
+    "So the answer is -23, negative."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-018",
    "skillId": "patterns-bivariate-data-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: x: 2, 3, 4, 5, 6, 9, 11, 12; y: 21, 25, 26, 20, 28, 13, 3, 36. Is the association positive, negative, or none?",
-   "answer": "no association",
+   "prompt": "Data: x: 1, 2, 8, 9, 13, 14; y: 42, 42, 56, 59, 64, 66. By how much does y change from the point with the least x to the point with the greatest x, and is the association positive or negative?",
+   "answer": "24, positive",
    "solutionSteps": [
-    "Look at how y changes as x increases.",
-    "no association."
+    "y goes from 42 to 66: a change of 24.",
+    "y tends to increase as x increases, so the association is positive.",
+    "So the answer is 24, positive."
    ],
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_change_and_direction). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-019",
@@ -6950,7 +6997,7 @@
   {
    "id": "pa8-biv-s03-honors-001",
    "skillId": "patterns-bivariate-data-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which best describes the association shown in the scatter plot?",
    "answer": "no association",
@@ -6986,7 +7033,7 @@
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_classify_plot). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_classify_plot). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s03-honors-002",
@@ -7007,7 +7054,7 @@
   {
    "id": "pa8-biv-s03-honors-003",
    "skillId": "patterns-bivariate-data-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Both scatter plots show a positive association. Which plot shows the stronger linear association?",
    "answer": "Plot B",
@@ -7043,12 +7090,12 @@
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_strength). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_strength). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s03-honors-004",
    "skillId": "patterns-bivariate-data-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which best describes the association shown in the scatter plot?",
    "answer": "negative linear association",
@@ -7084,7 +7131,7 @@
    "standards": [
     "8.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_classify_plot). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_classify_plot). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s03-honors-005",
@@ -7559,6 +7606,134 @@
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h01",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 1, 2, 3, 4, 5, 6, 7; y: 34, 37, 41, 47, 51, 54, 57. Is the association positive, negative or none?",
+   "answer": "positive",
+   "solutionSteps": [
+    "From x = 1 to x = 7, y goes from 34 to 57.",
+    "y tends to increase as x increases, so the association is positive."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_direction_from_data). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h02",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 2, 4, 5, 6, 7, 10; y: 12, 9, 12, 19, 18, 25. The overall association is positive. Between how many pairs of neighboring points (in order of x) does y go down?",
+   "answer": "2",
+   "solutionSteps": [
+    "Compare each y with the next one, in order of x.",
+    "y goes down 2 times; the trend is still positive overall."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_count_reversals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h03",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 1, 2, 3, 4, 5, 6, 7; y: 33, 33, 37, 39, 40, 41, 45. Is the association positive, negative or none?",
+   "answer": "positive",
+   "solutionSteps": [
+    "From x = 1 to x = 7, y goes from 33 to 45.",
+    "y tends to increase as x increases, so the association is positive."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_direction_from_data). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h04",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 5, 6, 7, 8, 9, 10; y: 12, 15, 16, 19, 18, 27. The overall association is positive. Between how many pairs of neighboring points (in order of x) does y go down?",
+   "answer": "1",
+   "solutionSteps": [
+    "Compare each y with the next one, in order of x.",
+    "y goes down 1 time; the trend is still positive overall."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_count_reversals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h05",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 1, 2, 3, 4, 5, 6, 7; y: 26, 21, 17, 14, 10, 7, 2. Is the association positive, negative or none?",
+   "answer": "negative",
+   "solutionSteps": [
+    "From x = 1 to x = 7, y goes from 26 to 2.",
+    "y tends to decrease as x increases, so the association is negative."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_direction_from_data). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h06",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 2, 3, 5, 8, 9, 11; y: 12, 9, 18, 21, 22, 21. The overall association is positive. Between how many pairs of neighboring points (in order of x) does y go down?",
+   "answer": "2",
+   "solutionSteps": [
+    "Compare each y with the next one, in order of x.",
+    "y goes down 2 times; the trend is still positive overall."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_count_reversals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h07",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 1, 2, 3, 4, 5, 6, 7; y: 27, 27, 24, 21, 19, 17, 15. Is the association positive, negative or none?",
+   "answer": "negative",
+   "solutionSteps": [
+    "From x = 1 to x = 7, y goes from 27 to 15.",
+    "y tends to decrease as x increases, so the association is negative."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_direction_from_data). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s03-honors-h08",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Data: x: 1, 2, 3, 4, 5, 6, 7; y: 34, 38, 42, 47, 51, 54, 57. Is the association positive, negative or none?",
+   "answer": "positive",
+   "solutionSteps": [
+    "From x = 1 to x = 7, y goes from 34 to 57.",
+    "y tends to increase as x increases, so the association is positive."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_direction_from_data). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp2-001",
@@ -8148,52 +8323,52 @@
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A line of best fit for test score (y) versus hours studied (x) is y = 11x + 58. Predict the test score when x = 5.",
-   "answer": "113",
+   "prompt": "A line of fit passes through (0, 13) and (4, 15). Write its equation.",
+   "answer": "y = (1/2)x + 13",
    "solutionSteps": [
-    "Substitute x = 5: y = 11(5) + 58 = 113."
+    "Slope: (15 - 13) ÷ 4 = 1/2.",
+    "The y-intercept is 13: y = (1/2)x + 13."
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_fit_line_equation). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-002",
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The line of best fit y = 9x + 26 models test score (y) from hours studied (x). What does the slope mean?",
-   "answer": "The test score changes by 9 for each 1 increase in hours studied.",
+   "prompt": "A line of fit passes through (0, 10) and (6, 13). Write its equation.",
+   "answer": "y = (1/2)x + 10",
    "options": [
     {
-     "text": "The test score changes by 9 for each 1 increase in hours studied.",
+     "text": "y = 2x + 10",
+     "correct": false
+    },
+    {
+     "text": "y = (1/2)x + 10",
      "correct": true
     },
     {
-     "text": "The test score is 9 when hours studied is 0.",
+     "text": "y = (1/2)x + 13",
      "correct": false
     },
     {
-     "text": "The test score changes by 26 for each 1 increase in hours studied.",
-     "correct": false
-    },
-    {
-     "text": "The hours studied changes by 9 for each 1 increase in test score.",
+     "text": "y = (-1/2)x + 10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here the slope is 9: the predicted test score changes by 9 for each 1 more hours studied.",
-    "So the answer is: The test score changes by 9 for each 1 increase in hours studied."
+    "Slope: (13 - 10) ÷ 6 = 1/2.",
+    "The y-intercept is 10: y = (1/2)x + 10."
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_fit_line_equation). Rewritten from a Support template (was s4_interpret) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-003",
@@ -8284,53 +8459,52 @@
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A line of best fit for tree height (cm) (y) versus months since planting (x) is y = 4x + 56. Predict the tree height (cm) when x = 3.",
-   "answer": "68",
+   "prompt": "A line of best fit is y = 2x + 36. How much greater is the prediction for x = 5 than the prediction for x = 2?",
+   "answer": "6",
    "options": [
     {
-     "text": "72",
+     "text": "46",
      "correct": false
     },
     {
-     "text": "68",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "6",
      "correct": true
     },
     {
-     "text": "12",
-     "correct": false
-    },
-    {
-     "text": "60",
+     "text": "42",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = 3: y = 4(3) + 56 = 68."
+    "Predictions: 2(2) + 36 = 40 and 2(5) + 36 = 46.",
+    "46 - 40 = 6. (It is the slope times 3.)"
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_predictions). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-007",
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The line of best fit y = 12x + 23 models calories burned (y) from minutes of exercise (x). What does the y-intercept mean?",
-   "answer": "The predicted calories burned is 23 when minutes of exercise is 0.",
+   "prompt": "A line of best fit is y = 9x + 30. How much greater is the prediction for x = 8 than the prediction for x = 2?",
+   "answer": "54",
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The predicted calories burned is 23 when minutes of exercise is 0.",
-    "Here the y-intercept is 23: the predicted calories burned when minutes of exercise is 0.",
-    "So the answer is: The predicted calories burned is 23 when minutes of exercise is 0."
+    "Predictions: 9(2) + 30 = 48 and 9(8) + 30 = 102.",
+    "102 - 48 = 54. (It is the slope times 6.)"
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_predictions). Rewritten from a Support template (was s4_interpret) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-008",
@@ -8457,16 +8631,17 @@
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A line of best fit for value ($1,000s) (y) versus age of car (years) (x) is y = -5x + 33. Predict the value ($1,000s) when x = 15.",
-   "answer": "-42",
+   "prompt": "A line of best fit is y = 4x + 12. How much greater is the prediction for x = 6 than the prediction for x = 4?",
+   "answer": "8",
    "solutionSteps": [
-    "Substitute x = 15: y = -5(15) + 33 = -42."
+    "Predictions: 4(4) + 12 = 28 and 4(6) + 12 = 36.",
+    "36 - 28 = 8. (It is the slope times 2.)"
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_predictions). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-012",
@@ -8551,34 +8726,35 @@
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A line of best fit for test score (y) versus hours studied (x) is y = 3x + 60. Predict the test score when x = 7.",
-   "answer": "81",
+   "prompt": "A line of fit passes through (0, 13) and (8, 29). Write its equation.",
+   "answer": "y = 2x + 13",
    "options": [
     {
-     "text": "81",
+     "text": "y = (1/2)x + 13",
+     "correct": false
+    },
+    {
+     "text": "y = 2x + 29",
+     "correct": false
+    },
+    {
+     "text": "y = -2x + 13",
+     "correct": false
+    },
+    {
+     "text": "y = 2x + 13",
      "correct": true
-    },
-    {
-     "text": "63",
-     "correct": false
-    },
-    {
-     "text": "21",
-     "correct": false
-    },
-    {
-     "text": "84",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = 7: y = 3(7) + 60 = 81."
+    "Slope: (29 - 13) ÷ 8 = 2.",
+    "The y-intercept is 13: y = 2x + 13."
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_fit_line_equation). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-016",
@@ -8621,16 +8797,17 @@
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A line of best fit for test score (y) versus hours studied (x) is y = 12x + 43. Predict the test score when x = 3.",
-   "answer": "79",
+   "prompt": "A line of best fit is y = 5x + 10. How much greater is the prediction for x = 10 than the prediction for x = 5?",
+   "answer": "25",
    "solutionSteps": [
-    "Substitute x = 3: y = 12(3) + 43 = 79."
+    "Predictions: 5(5) + 10 = 35 and 5(10) + 10 = 60.",
+    "60 - 35 = 25. (It is the slope times 5.)"
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_predictions). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp1-019",
@@ -8728,43 +8905,42 @@
   {
    "id": "pa8-biv-s04-honors-002",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The line of best fit y = 2x + 31 models test score (y) from hours studied (x). What does the y-intercept mean?",
-   "answer": "The predicted test score is 31 when hours studied is 0.",
+   "prompt": "A line of fit passes through (0, 12) and (4, 28). Write its equation.",
+   "answer": "y = 4x + 12",
    "options": [
     {
-     "text": "The predicted hours studied is 31 when test score is 0.",
-     "correct": false
-    },
-    {
-     "text": "The predicted test score is 2 when hours studied is 0.",
-     "correct": false
-    },
-    {
-     "text": "The predicted test score is 31 when hours studied is 0.",
+     "text": "y = 4x + 12",
      "correct": true
     },
     {
-     "text": "The test score changes by 31 for each 1 increase in hours studied.",
+     "text": "y = (1/4)x + 12",
+     "correct": false
+    },
+    {
+     "text": "y = 4x + 28",
+     "correct": false
+    },
+    {
+     "text": "y = -4x + 12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here the y-intercept is 31: the predicted test score when hours studied is 0.",
-    "So the answer is: The predicted test score is 31 when hours studied is 0."
+    "Slope: (28 - 12) ÷ 4 = 4.",
+    "The y-intercept is 12: y = 4x + 12."
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_fit_line_equation). Rewritten from a Support template (was s4_interpret) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-honors-003",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which equation is the best line of fit for the scatter plot?",
    "answer": "y = x + 1/2",
@@ -8801,12 +8977,12 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_best_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_best_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-004",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A line of best fit predicts y = 6x + 23. A data point is (7, 60). How far is the actual y-value above (+) or below (-) the predicted value?",
    "answer": "-5",
@@ -8818,7 +8994,7 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-005",
@@ -8857,26 +9033,24 @@
   {
    "id": "pa8-biv-s04-honors-006",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "The line of best fit y = 5x + 46 models tree height (cm) (y) from months since planting (x). What does the y-intercept mean?",
-   "answer": "The predicted tree height (cm) is 46 when months since planting is 0.",
+   "prompt": "A line of best fit is y = 4x + 17. How much greater is the prediction for x = 10 than the prediction for x = 5?",
+   "answer": "20",
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The predicted tree height (cm) is 46 when months since planting is 0.",
-    "Here the y-intercept is 46: the predicted tree height (cm) when months since planting is 0.",
-    "So the answer is: The predicted tree height (cm) is 46 when months since planting is 0."
+    "Predictions: 4(5) + 17 = 37 and 4(10) + 17 = 57.",
+    "57 - 37 = 20. (It is the slope times 5.)"
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_predictions). Rewritten from a Support template (was s4_interpret) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-honors-007",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which equation is the best line of fit for the scatter plot?",
    "answer": "y = (1/2)x + 5/2",
@@ -8913,7 +9087,7 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_best_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_best_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-008",
@@ -8969,7 +9143,7 @@
   {
    "id": "pa8-biv-s04-honors-010",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The line of best fit y = 5x + 44 models calories burned (y) from minutes of exercise (x). What does the slope mean?",
    "answer": "The calories burned changes by 5 for each 1 increase in minutes of exercise.",
@@ -8983,7 +9157,7 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-011",
@@ -9030,7 +9204,7 @@
   {
    "id": "pa8-biv-s04-honors-012",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A line of best fit predicts y = 2x + 14. A data point is (5, 27). How far is the actual y-value above (+) or below (-) the predicted value?",
    "answer": "3",
@@ -9042,7 +9216,7 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-013",
@@ -9117,7 +9291,7 @@
   {
    "id": "pa8-biv-s04-honors-015",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A line of best fit predicts y = 4x + 10. A data point is (3, 19). How far is the actual y-value above (+) or below (-) the predicted value?",
    "answer": "-3",
@@ -9129,28 +9303,29 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-016",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "A line of best fit for value ($1,000s) (y) versus age of car (years) (x) is y = -2x + 24. Predict the value ($1,000s) when x = 4.",
-   "answer": "16",
+   "prompt": "A line of fit passes through (0, 30) and (4, 46). Write its equation.",
+   "answer": "y = 4x + 30",
    "solutionSteps": [
-    "Substitute x = 4: y = -2(4) + 24 = 16."
+    "Slope: (46 - 30) ÷ 4 = 4.",
+    "The y-intercept is 30: y = 4x + 30."
    ],
    "standards": [
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_fit_line_equation). Rewritten from a Support template (was s4_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-honors-017",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The line of best fit y = 7x + 48 models calories burned (y) from minutes of exercise (x). What does the slope mean?",
    "answer": "The calories burned changes by 7 for each 1 increase in minutes of exercise.",
@@ -9164,12 +9339,12 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_interpret). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-018",
    "skillId": "patterns-bivariate-data-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A line of best fit predicts y = 3x + 18. A data point is (2, 30). How far is the actual y-value above (+) or below (-) the predicted value?",
    "answer": "6",
@@ -9181,7 +9356,7 @@
     "8.SP.A.2",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_residual). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s04-honors-019",
@@ -9945,16 +10120,16 @@
    "skillId": "patterns-bivariate-data-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Survey results — Grade 7 students: 13 play a sport, 39 do not play a sport. Grade 8 students: 12 play a sport, 34 do not play a sport. How many people were surveyed in all?",
-   "answer": "98",
+   "prompt": "Grade 7: 23 students play a sport and 30 do not. Grade 8 has 33 students, and 5 of them play a sport. How many students in all do not play a sport?",
+   "answer": "58",
    "solutionSteps": [
-    "Row totals add across; column totals add down; the grand total is the sum of all cells.",
-    "Answer: 98."
+    "Grade 8 students who do not play: 33 - 5 = 28.",
+    "Total who do not play: 30 + 28 = 58."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_column_total_from_rows). Rewritten from a Support template (was s5_fill_cell) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s05-cp1-008",
@@ -10282,23 +10457,23 @@
   {
    "id": "pa8-biv-s05-honors-001",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "In a survey of 101 people, 50 were juniors and the rest were seniors. Of the juniors, 17 have a job. In all, 38 people have a job. How many seniors have no job?",
-   "answer": "30",
+   "prompt": "Grade 7: 17 students play a sport and 21 do not. Grade 8 has 21 students, and 8 of them play a sport. How many students in all do not play a sport?",
+   "answer": "34",
    "solutionSteps": [
-    "Row totals add across; column totals add down; the grand total is the sum of all cells.",
-    "Answer: 30."
+    "Grade 8 students who do not play: 21 - 8 = 13.",
+    "Total who do not play: 21 + 13 = 34."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_column_total_from_rows). Rewritten from a Support template (was s5_fill_cell) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s05-honors-002",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "47 students were surveyed. 11 are adults; the rest are teens. 30 prefer movies; the rest prefer games. 5 of the adults prefer movies. Complete the two-way table: how many teens prefer games?",
    "answer": "11",
@@ -10327,7 +10502,7 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-003",
@@ -10366,41 +10541,41 @@
   {
    "id": "pa8-biv-s05-honors-004",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "In a survey of 72 people, 23 were juniors and the rest were seniors. Of the juniors, 8 have a job. In all, 37 people have a job. How many seniors have no job?",
-   "answer": "20",
+   "prompt": "Grade 7: 25 students play a sport and 22 do not. Grade 8 has 44 students, and 24 of them play a sport. How many students in all do not play a sport?",
+   "answer": "42",
    "options": [
     {
-     "text": "15",
-     "correct": false
-    },
-    {
-     "text": "35",
-     "correct": false
-    },
-    {
      "text": "20",
+     "correct": false
+    },
+    {
+     "text": "49",
+     "correct": false
+    },
+    {
+     "text": "42",
      "correct": true
     },
     {
-     "text": "29",
+     "text": "66",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Row totals add across; column totals add down; the grand total is the sum of all cells.",
-    "Answer: 20."
+    "Grade 8 students who do not play: 44 - 24 = 20.",
+    "Total who do not play: 22 + 20 = 42."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_column_total_from_rows). Rewritten from a Support template (was s5_fill_cell) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s05-honors-005",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "78 students were surveyed. 38 are boys; the rest are girls. 39 have a pet; the rest have no pet. 19 of the boys have a pet. Complete the two-way table: how many girls have no pet?",
    "answer": "20",
@@ -10411,7 +10586,7 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-006",
@@ -10450,23 +10625,23 @@
   {
    "id": "pa8-biv-s05-honors-007",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Survey results — morning-shift workers: 30 bought lunch, 33 brought lunch. How many morning-shift workers were surveyed in all (row total)?",
-   "answer": "63",
+   "prompt": "Grade 7: 18 students play a sport and 17 do not. Grade 8 has 29 students, and 7 of them play a sport. How many students in all do not play a sport?",
+   "answer": "39",
    "solutionSteps": [
-    "Row totals add across; column totals add down; the grand total is the sum of all cells.",
-    "Answer: 63."
+    "Grade 8 students who do not play: 29 - 7 = 22.",
+    "Total who do not play: 17 + 22 = 39."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_column_total_from_rows). Rewritten from a Support template (was s5_fill_cell) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s05-honors-008",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "53 students were surveyed. 27 are adults; the rest are teens. 31 prefer movies; the rest prefer games. 22 of the adults prefer movies. Complete the two-way table: how many teens prefer games?",
    "answer": "17",
@@ -10477,12 +10652,12 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-009",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Survey: 16 Grade 7 students play a sport and 24 Grade 7 students do not play a sport; 5 Grade 8 students play a sport and 18 Grade 8 students do not play a sport. Which table is correct?",
    "answer": "Grade 7 students: 16, 24 | Grade 8 students: 5, 18 (columns: play a sport, do not play a sport)",
@@ -10511,7 +10686,7 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_which_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_which_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-010",
@@ -10618,7 +10793,7 @@
   {
    "id": "pa8-biv-s05-honors-013",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In a survey of 106 people, 59 were Grade 7 students and the rest were Grade 8 students. Of the Grade 7 students, 29 play a sport. In all, 64 people play a sport. How many Grade 8 students do not play a sport?",
    "answer": "12",
@@ -10629,12 +10804,12 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-014",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "62 students were surveyed. 29 are boys; the rest are girls. 25 have a pet; the rest have no pet. 13 of the boys have a pet. Complete the two-way table: how many girls have no pet?",
    "answer": "21",
@@ -10645,7 +10820,7 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-015",
@@ -10666,7 +10841,7 @@
   {
    "id": "pa8-biv-s05-honors-016",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "49 students were surveyed. 22 are morning-shift workers; the rest are evening-shift workers. 39 bought lunch; the rest brought lunch. 17 of the morning-shift workers bought lunch. Complete the two-way table: how many evening-shift workers brought lunch?",
    "answer": "5",
@@ -10677,23 +10852,23 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_build). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s05-honors-017",
    "skillId": "patterns-bivariate-data-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Survey results — morning-shift workers: 17 bought lunch, 8 brought lunch. How many morning-shift workers were surveyed in all (row total)?",
-   "answer": "25",
+   "prompt": "Grade 7: 9 students play a sport and 30 do not. Grade 8 has 48 students, and 23 of them play a sport. How many students in all do not play a sport?",
+   "answer": "55",
    "solutionSteps": [
-    "Row totals add across; column totals add down; the grand total is the sum of all cells.",
-    "Answer: 25."
+    "Grade 8 students who do not play: 48 - 23 = 25.",
+    "Total who do not play: 30 + 25 = 55."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_fill_cell). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_column_total_from_rows). Rewritten from a Support template (was s5_fill_cell) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s05-honors-018",
@@ -11344,49 +11519,50 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — boys: 35 have a pet, 6 have no pet. girls: 27 have a pet, 39 have no pet. Which group has the greater relative frequency of people who have a pet: boys or girls?",
-   "answer": "boys",
+   "prompt": "Two-way table — boys: 35 have a pet, 15 have no pet. girls: 39 have a pet, 24 have no pet. What percent of the boys have a pet?",
+   "answer": "70%",
    "solutionSteps": [
-    "boys: 35 ÷ 41 ≈ 0.854; girls: 27 ÷ 66 ≈ 0.409.",
-    "boys is greater."
+    "Boys in all: 35 + 15 = 50.",
+    "35 ÷ 50 = 7/10 = 70%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-004",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Two-way table — morning-shift workers: 25 bought lunch, 21 brought lunch. evening-shift workers: 19 bought lunch, 14 brought lunch. What fraction of the morning-shift workers bought lunch? Write the fraction in simplest form.",
-   "answer": "25/46",
+   "prompt": "Two-way table — boys: 6 have a pet, 14 have no pet. girls: 40 have a pet, 38 have no pet. What percent of the boys have a pet?",
+   "answer": "30%",
    "options": [
     {
-     "text": "21/46",
-     "correct": false
-    },
-    {
-     "text": "25/79",
-     "correct": false
-    },
-    {
-     "text": "25/46",
+     "text": "30%",
      "correct": true
     },
     {
-     "text": "25/44",
+     "text": "70%",
+     "correct": false
+    },
+    {
+     "text": "13%",
+     "correct": false
+    },
+    {
+     "text": "6%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "25 ÷ (25 + 21) = 25/46."
+    "Boys in all: 6 + 14 = 20.",
+    "6 ÷ 20 = 3/10 = 30%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_relfreq). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_relfreq) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-005",
@@ -11428,31 +11604,32 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — morning-shift workers: 19 bought lunch, 28 brought lunch. evening-shift workers: 36 bought lunch, 33 brought lunch. Which group has the greater relative frequency of people who bought lunch: morning-shift workers or evening-shift workers?",
-   "answer": "evening-shift workers",
+   "prompt": "Two-way table — boys: 14 have a pet, 6 have no pet. girls: 32 have a pet, 35 have no pet. What percent of the boys have a pet?",
+   "answer": "70%",
    "solutionSteps": [
-    "morning-shift workers: 19 ÷ 47 ≈ 0.404; evening-shift workers: 36 ÷ 69 ≈ 0.522.",
-    "evening-shift workers is greater."
+    "Boys in all: 14 + 6 = 20.",
+    "14 ÷ 20 = 7/10 = 70%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-007",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — juniors: 5 have a job, 20 have no job. seniors: 33 have a job, 24 have no job. What fraction of all people surveyed are juniors who have a job? Write the fraction in simplest form.",
-   "answer": "5/82",
+   "prompt": "Two-way table — boys: 14 have a pet, 6 have no pet. girls: 13 have a pet, 26 have no pet. What percent of the boys have a pet?",
+   "answer": "70%",
    "solutionSteps": [
-    "5 ÷ 82 = 5/82."
+    "Boys in all: 14 + 6 = 20.",
+    "14 ÷ 20 = 7/10 = 70%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_relfreq). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_relfreq) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-008",
@@ -11494,49 +11671,50 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — Grade 7 students: 19 play a sport, 7 do not play a sport. Grade 8 students: 21 play a sport, 38 do not play a sport. Which group has the greater relative frequency of people who play a sport: Grade 7 students or Grade 8 students?",
-   "answer": "Grade 7 students",
+   "prompt": "Two-way table — boys: 6 have a pet, 14 have no pet. girls: 34 have a pet, 38 have no pet. What percent of the boys have a pet?",
+   "answer": "30%",
    "solutionSteps": [
-    "Grade 7 students: 19 ÷ 26 ≈ 0.731; Grade 8 students: 21 ÷ 59 ≈ 0.356.",
-    "Grade 7 students is greater."
+    "Boys in all: 6 + 14 = 20.",
+    "6 ÷ 20 = 3/10 = 30%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-010",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Two-way table — morning-shift workers: 25 bought lunch, 39 brought lunch. evening-shift workers: 21 bought lunch, 19 brought lunch. What fraction of the morning-shift workers bought lunch? Write the fraction in simplest form.",
-   "answer": "25/64",
+   "prompt": "Two-way table — boys: 10 have a pet, 15 have no pet. girls: 33 have a pet, 35 have no pet. What percent of the boys have a pet?",
+   "answer": "40%",
    "options": [
     {
-     "text": "25/104",
+     "text": "60%",
      "correct": false
     },
     {
-     "text": "25/46",
-     "correct": false
-    },
-    {
-     "text": "25/64",
+     "text": "40%",
      "correct": true
     },
     {
-     "text": "39/64",
+     "text": "23%",
+     "correct": false
+    },
+    {
+     "text": "10%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "25 ÷ (25 + 39) = 25/64."
+    "Boys in all: 10 + 15 = 25.",
+    "10 ÷ 25 = 2/5 = 40%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_relfreq). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_relfreq) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-011",
@@ -11578,31 +11756,32 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — boys: 29 have a pet, 27 have no pet. girls: 30 have a pet, 40 have no pet. Which group has the greater relative frequency of people who have a pet: boys or girls?",
-   "answer": "boys",
+   "prompt": "Two-way table — boys: 15 have a pet, 35 have no pet. girls: 38 have a pet, 10 have no pet. What percent of the boys have a pet?",
+   "answer": "30%",
    "solutionSteps": [
-    "boys: 29 ÷ 56 ≈ 0.518; girls: 30 ÷ 70 ≈ 0.429.",
-    "boys is greater."
+    "Boys in all: 15 + 35 = 50.",
+    "15 ÷ 50 = 3/10 = 30%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-013",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — juniors: 27 have a job, 36 have no job. seniors: 16 have a job, 33 have no job. What fraction of the juniors have a job? Write the fraction in simplest form.",
-   "answer": "3/7",
+   "prompt": "Two-way table — boys: 16 have a pet, 24 have no pet. girls: 35 have a pet, 31 have no pet. What percent of the boys have a pet?",
+   "answer": "40%",
    "solutionSteps": [
-    "27 ÷ (27 + 36) = 3/7."
+    "Boys in all: 16 + 24 = 40.",
+    "16 ÷ 40 = 2/5 = 40%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_relfreq). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_relfreq) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-014",
@@ -11644,16 +11823,16 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — Grade 7 students: 6 play a sport, 24 do not play a sport. Grade 8 students: 32 play a sport, 36 do not play a sport. Which group has the greater relative frequency of people who play a sport: Grade 7 students or Grade 8 students?",
-   "answer": "Grade 8 students",
+   "prompt": "Two-way table — boys: 10 have a pet, 15 have no pet. girls: 36 have a pet, 22 have no pet. What percent of the boys have a pet?",
+   "answer": "40%",
    "solutionSteps": [
-    "Grade 7 students: 6 ÷ 30 ≈ 0.200; Grade 8 students: 32 ÷ 68 ≈ 0.471.",
-    "Grade 8 students is greater."
+    "Boys in all: 10 + 15 = 25.",
+    "10 ÷ 25 = 2/5 = 40%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-016",
@@ -11693,16 +11872,16 @@
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — boys: 5 have a pet, 5 have no pet. girls: 40 have a pet, 5 have no pet. Which group has the greater relative frequency of people who have a pet: boys or girls?",
-   "answer": "girls",
+   "prompt": "Two-way table — boys: 4 have a pet, 16 have no pet. girls: 35 have a pet, 16 have no pet. What percent of the boys have a pet?",
+   "answer": "20%",
    "solutionSteps": [
-    "boys: 5 ÷ 10 ≈ 0.500; girls: 40 ÷ 45 ≈ 0.889.",
-    "girls is greater."
+    "Boys in all: 4 + 16 = 20.",
+    "4 ÷ 20 = 1/5 = 20%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-cp1-018",
@@ -11847,18 +12026,18 @@
   {
    "id": "pa8-biv-s06-honors-003",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — Grade 7 students: 37 play a sport, 38 do not play a sport. Grade 8 students: 39 play a sport, 28 do not play a sport. Which group has the greater relative frequency of people who play a sport: Grade 7 students or Grade 8 students?",
-   "answer": "Grade 8 students",
+   "prompt": "Two-way table — boys: 16 have a pet, 4 have no pet. girls: 28 have a pet, 15 have no pet. What percent of the boys have a pet?",
+   "answer": "80%",
    "solutionSteps": [
-    "Grade 7 students: 37 ÷ 75 ≈ 0.493; Grade 8 students: 39 ÷ 67 ≈ 0.582.",
-    "Grade 8 students is greater."
+    "Boys in all: 16 + 4 = 20.",
+    "16 ÷ 20 = 4/5 = 80%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-honors-004",
@@ -11930,7 +12109,7 @@
   {
    "id": "pa8-biv-s06-honors-006",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Two-way table — juniors: 32 have a job, 10 have no job. seniors: 15 have a job, 18 have no job. Is there evidence of an association between group and response?",
    "answer": "Yes, because 76% of juniors have a job compared with 45% of seniors.",
@@ -11960,23 +12139,23 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_association). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_association). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s06-honors-007",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — morning-shift workers: 5 bought lunch, 32 brought lunch. evening-shift workers: 36 bought lunch, 31 brought lunch. Which group has the greater relative frequency of people who bought lunch: morning-shift workers or evening-shift workers?",
-   "answer": "evening-shift workers",
+   "prompt": "Two-way table — boys: 14 have a pet, 6 have no pet. girls: 38 have a pet, 16 have no pet. What percent of the boys have a pet?",
+   "answer": "70%",
    "solutionSteps": [
-    "morning-shift workers: 5 ÷ 37 ≈ 0.135; evening-shift workers: 36 ÷ 67 ≈ 0.537.",
-    "evening-shift workers is greater."
+    "Boys in all: 14 + 6 = 20.",
+    "14 ÷ 20 = 7/10 = 70%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-honors-008",
@@ -12047,18 +12226,18 @@
   {
    "id": "pa8-biv-s06-honors-011",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — Grade 7 students: 37 play a sport, 6 do not play a sport. Grade 8 students: 35 play a sport, 25 do not play a sport. Which group has the greater relative frequency of people who play a sport: Grade 7 students or Grade 8 students?",
-   "answer": "Grade 7 students",
+   "prompt": "Two-way table — boys: 20 have a pet, 30 have no pet. girls: 23 have a pet, 39 have no pet. What percent of the boys have a pet?",
+   "answer": "40%",
    "solutionSteps": [
-    "Grade 7 students: 37 ÷ 43 ≈ 0.860; Grade 8 students: 35 ÷ 60 ≈ 0.583.",
-    "Grade 7 students is greater."
+    "Boys in all: 20 + 30 = 50.",
+    "20 ÷ 50 = 2/5 = 40%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-honors-012",
@@ -12112,7 +12291,7 @@
   {
    "id": "pa8-biv-s06-honors-014",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Two-way table — Grade 7 students: 21 play a sport, 13 do not play a sport. Grade 8 students: 9 play a sport, 32 do not play a sport. Is there evidence of an association between group and response?",
    "answer": "Yes, because 62% of Grade 7 students play a sport compared with 22% of Grade 8 students.",
@@ -12142,23 +12321,23 @@
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_association). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_association). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-biv-s06-honors-015",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — adults: 36 prefer movies, 13 prefer games. teens: 15 prefer movies, 39 prefer games. Which group has the greater relative frequency of people who prefer movies: adults or teens?",
-   "answer": "adults",
+   "prompt": "Two-way table — boys: 16 have a pet, 24 have no pet. girls: 23 have a pet, 17 have no pet. What percent of the boys have a pet?",
+   "answer": "40%",
    "solutionSteps": [
-    "adults: 36 ÷ 49 ≈ 0.735; teens: 15 ÷ 54 ≈ 0.278.",
-    "adults is greater."
+    "Boys in all: 16 + 24 = 40.",
+    "16 ÷ 40 = 2/5 = 40%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-honors-016",
@@ -12212,18 +12391,18 @@
   {
    "id": "pa8-biv-s06-honors-018",
    "skillId": "patterns-bivariate-data-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two-way table — morning-shift workers: 38 bought lunch, 29 brought lunch. evening-shift workers: 27 bought lunch, 33 brought lunch. Which group has the greater relative frequency of people who bought lunch: morning-shift workers or evening-shift workers?",
-   "answer": "morning-shift workers",
+   "prompt": "Two-way table — boys: 12 have a pet, 8 have no pet. girls: 23 have a pet, 17 have no pet. What percent of the boys have a pet?",
+   "answer": "60%",
    "solutionSteps": [
-    "morning-shift workers: 38 ÷ 67 ≈ 0.567; evening-shift workers: 27 ÷ 60 ≈ 0.450.",
-    "morning-shift workers is greater."
+    "Boys in all: 12 + 8 = 20.",
+    "12 ÷ 20 = 3/5 = 60%."
    ],
    "standards": [
     "8.SP.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_row_percent). Rewritten from a Support template (was s6_compare) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s06-honors-019",
@@ -13681,6 +13860,210 @@
    "sourceNotes": "Original Claude-authored item (family: s4_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s04-honors-h01",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (4, 29) and (8, 49). For what x does it predict y = 74?",
+   "answer": "x = 13",
+   "solutionSteps": [
+    "Slope: (49 - 29) ÷ 4 = 5; equation y = 5x + 9.",
+    "5x + 9 = 74, so x = 13."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h02",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 7x + 38 models a set of data. One student's data point is (3, 64). Find actual minus predicted for this point.",
+   "answer": "5",
+   "solutionSteps": [
+    "Predicted: 7(3) + 38 = 59.",
+    "Actual minus predicted: 64 - 59 = 5."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h03",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (2, 30) and (6, 50). For what x does it predict y = 90?",
+   "answer": "x = 14",
+   "solutionSteps": [
+    "Slope: (50 - 30) ÷ 4 = 5; equation y = 5x + 20.",
+    "5x + 20 = 90, so x = 14."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h04",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 5x + 52 models a set of data. One student's data point is (5, 82). Find actual minus predicted for this point.",
+   "answer": "5",
+   "solutionSteps": [
+    "Predicted: 5(5) + 52 = 77.",
+    "Actual minus predicted: 82 - 77 = 5."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h05",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (0, 44) and (4, 52). For what x does it predict y = 76?",
+   "answer": "x = 16",
+   "solutionSteps": [
+    "Slope: (52 - 44) ÷ 4 = 2; equation y = 2x + 44.",
+    "2x + 44 = 76, so x = 16."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h06",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 6x + 42 models a set of data. One student's data point is (9, 101). Find actual minus predicted for this point.",
+   "answer": "5",
+   "solutionSteps": [
+    "Predicted: 6(9) + 42 = 96.",
+    "Actual minus predicted: 101 - 96 = 5."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h07",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (0, 49) and (4, 59). For what x does it predict y = 89?",
+   "answer": "x = 16",
+   "solutionSteps": [
+    "Slope: (59 - 49) ÷ 4 = 5/2; equation y = (5/2)x + 49.",
+    "(5/2)x + 49 = 89, so x = 16."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h08",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 6x + 32 models a set of data. One student's data point is (4, 59). Find actual minus predicted for this point.",
+   "answer": "3",
+   "solutionSteps": [
+    "Predicted: 6(4) + 32 = 56.",
+    "Actual minus predicted: 59 - 56 = 3."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h09",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (2, 31) and (6, 51). For what x does it predict y = 101?",
+   "answer": "x = 16",
+   "solutionSteps": [
+    "Slope: (51 - 31) ÷ 4 = 5; equation y = 5x + 21.",
+    "5x + 21 = 101, so x = 16."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h10",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 8x + 29 models a set of data. One student's data point is (11, 122). Find actual minus predicted for this point.",
+   "answer": "5",
+   "solutionSteps": [
+    "Predicted: 8(11) + 29 = 117.",
+    "Actual minus predicted: 122 - 117 = 5."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h11",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of fit passes through (2, 26) and (6, 42). For what x does it predict y = 70?",
+   "answer": "x = 13",
+   "solutionSteps": [
+    "Slope: (42 - 26) ÷ 4 = 4; equation y = 4x + 18.",
+    "4x + 18 = 70, so x = 13."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_prediction). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-honors-h12",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The line y = 9x + 37 models a set of data. One student's data point is (7, 103). Find actual minus predicted for this point.",
+   "answer": "3",
+   "solutionSteps": [
+    "Predicted: 9(7) + 37 = 100.",
+    "Actual minus predicted: 103 - 100 = 3."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_actual_minus_predicted). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-honors-011",
    "skillId": "patterns-bivariate-data-skill-05",
    "level": "honors",
@@ -13877,6 +14260,210 @@
    "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s05-honors-h01",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 23 walk, x take the bus. Grade 8 — y walk, 18 take the bus. 43 students walk and 46 take the bus. Find x + y.",
+   "answer": "48",
+   "solutionSteps": [
+    "Walk column: 23 + y = 43, so y = 20.",
+    "Bus column: x + 18 = 46, so x = 28.",
+    "x + y = 48."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h02",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 120 students, 60% are in grade 8 and the rest are in grade 7. 31 grade 8 students play a sport, and 39 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "40",
+   "solutionSteps": [
+    "Grade 8: 60% of 120 = 72; grade 7: 48.",
+    "Grade 7 students who play: 39 - 31 = 8.",
+    "Grade 7 who do not: 48 - 8 = 40."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h03",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 14 walk, x take the bus. Grade 8 — y walk, 23 take the bus. 30 students walk and 32 take the bus. Find x + y.",
+   "answer": "25",
+   "solutionSteps": [
+    "Walk column: 14 + y = 30, so y = 16.",
+    "Bus column: x + 23 = 32, so x = 9.",
+    "x + y = 25."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h04",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 200 students, 55% are in grade 8 and the rest are in grade 7. 49 grade 8 students play a sport, and 85 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "54",
+   "solutionSteps": [
+    "Grade 8: 55% of 200 = 110; grade 7: 90.",
+    "Grade 7 students who play: 85 - 49 = 36.",
+    "Grade 7 who do not: 90 - 36 = 54."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h05",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 11 walk, x take the bus. Grade 8 — y walk, 12 take the bus. 17 students walk and 34 take the bus. Find x + y.",
+   "answer": "28",
+   "solutionSteps": [
+    "Walk column: 11 + y = 17, so y = 6.",
+    "Bus column: x + 12 = 34, so x = 22.",
+    "x + y = 28."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h06",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 120 students, 55% are in grade 8 and the rest are in grade 7. 31 grade 8 students play a sport, and 52 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "33",
+   "solutionSteps": [
+    "Grade 8: 55% of 120 = 66; grade 7: 54.",
+    "Grade 7 students who play: 52 - 31 = 21.",
+    "Grade 7 who do not: 54 - 21 = 33."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h07",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 20 walk, x take the bus. Grade 8 — y walk, 9 take the bus. 33 students walk and 17 take the bus. Find x + y.",
+   "answer": "21",
+   "solutionSteps": [
+    "Walk column: 20 + y = 33, so y = 13.",
+    "Bus column: x + 9 = 17, so x = 8.",
+    "x + y = 21."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h08",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 200 students, 75% are in grade 8 and the rest are in grade 7. 131 grade 8 students play a sport, and 150 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "31",
+   "solutionSteps": [
+    "Grade 8: 75% of 200 = 150; grade 7: 50.",
+    "Grade 7 students who play: 150 - 131 = 19.",
+    "Grade 7 who do not: 50 - 19 = 31."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h09",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 20 walk, x take the bus. Grade 8 — y walk, 23 take the bus. 40 students walk and 33 take the bus. Find x + y.",
+   "answer": "30",
+   "solutionSteps": [
+    "Walk column: 20 + y = 40, so y = 20.",
+    "Bus column: x + 23 = 33, so x = 10.",
+    "x + y = 30."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h10",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 100 students, 45% are in grade 8 and the rest are in grade 7. 19 grade 8 students play a sport, and 57 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "17",
+   "solutionSteps": [
+    "Grade 8: 45% of 100 = 45; grade 7: 55.",
+    "Grade 7 students who play: 57 - 19 = 38.",
+    "Grade 7 who do not: 55 - 38 = 17."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h11",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A two-way table: Grade 7 — 20 walk, x take the bus. Grade 8 — y walk, 8 take the bus. 47 students walk and 20 take the bus. Find x + y.",
+   "answer": "39",
+   "solutionSteps": [
+    "Walk column: 20 + y = 47, so y = 27.",
+    "Bus column: x + 8 = 20, so x = 12.",
+    "x + y = 39."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_two_unknown_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-honors-h12",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of 100 students, 40% are in grade 8 and the rest are in grade 7. 26 grade 8 students play a sport, and 49 students play a sport in all. How many grade 7 students do not play a sport?",
+   "answer": "37",
+   "solutionSteps": [
+    "Grade 8: 40% of 100 = 40; grade 7: 60.",
+    "Grade 7 students who play: 49 - 26 = 23.",
+    "Grade 7 who do not: 60 - 23 = 37."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_percent_cells). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-honors-021",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "honors",
@@ -14071,6 +14658,118 @@
     "8.SP.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h01",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 20 of 50 students bring lunch. Grade 8: 14 of 20 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "30",
+   "solutionSteps": [
+    "Grade 7: 20 ÷ 50 = 40%. Grade 8: 14 ÷ 20 = 70%.",
+    "|40 - 70| = 30 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h02",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 40 of 50 students bring lunch. Grade 8: 25 of 50 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "30",
+   "solutionSteps": [
+    "Grade 7: 40 ÷ 50 = 80%. Grade 8: 25 ÷ 50 = 50%.",
+    "|80 - 50| = 30 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h03",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 4 of 20 students bring lunch. Grade 8: 6 of 20 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "10",
+   "solutionSteps": [
+    "Grade 7: 4 ÷ 20 = 20%. Grade 8: 6 ÷ 20 = 30%.",
+    "|20 - 30| = 10 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h04",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 8 of 20 students bring lunch. Grade 8: 15 of 50 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "10",
+   "solutionSteps": [
+    "Grade 7: 8 ÷ 20 = 40%. Grade 8: 15 ÷ 50 = 30%.",
+    "|40 - 30| = 10 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h05",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 8 of 40 students bring lunch. Grade 8: 6 of 20 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "10",
+   "solutionSteps": [
+    "Grade 7: 8 ÷ 40 = 20%. Grade 8: 6 ÷ 20 = 30%.",
+    "|20 - 30| = 10 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h06",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Of the students who play a sport, 12 are in grade 7 and 18 are in grade 8. What percent of the students who play a sport are in grade 8?",
+   "answer": "60%",
+   "solutionSteps": [
+    "Column total: 12 + 18 = 30.",
+    "18 ÷ 30 = 3/5 = 60%."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_column_relative). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-h07",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Grade 7: 4 of 20 students bring lunch. Grade 8: 12 of 40 students bring lunch. How many percentage points apart are the two grades?",
+   "answer": "10",
+   "solutionSteps": [
+    "Grade 7: 4 ÷ 20 = 20%. Grade 8: 12 ÷ 40 = 30%.",
+    "|20 - 30| = 10 percentage points."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_percentage_point_gap). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }

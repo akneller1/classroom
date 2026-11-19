@@ -579,6 +579,43 @@
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-cgs-s01-cp2-o01",
+   "skillId": "congruence-similarity-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Triangle ABC has vertices A(1, 2), B(4, 2) and C(1, 6). It is translated 3 units right to make triangle A′B′C′.",
+   "parts": [
+    {
+     "prompt": "Find the coordinates of A′, B′ and C′.",
+     "answer": "A′(4, 2), B′(7, 2), C′(4, 6)"
+    },
+    {
+     "prompt": "Find AB and A′B′.",
+     "answer": "AB = 3 and A′B′ = 3"
+    },
+    {
+     "prompt": "Find AC and A′C′.",
+     "answer": "AC = 4 and A′C′ = 4"
+    },
+    {
+     "prompt": "Are the triangles congruent? Explain.",
+     "answer": "yes: a translation is a rigid transformation, so lengths and angles stay the same"
+    }
+   ],
+   "answer": "(a) A′(4, 2), B′(7, 2), C′(4, 6); (b) AB = 3 and A′B′ = 3; (c) AC = 4 and A′C′ = 4; (d) yes: a translation is a rigid transformation, so lengths and angles stay the same",
+   "solutionSteps": [
+    "Add 3 to each x-coordinate.",
+    "AB: 4 - 1 = 3. A′B′: 7 - 4 = 3.",
+    "AC: 6 - 2 = 4. A′C′: 6 - 2 = 4.",
+    "Rigid transformations keep side lengths and angle measures."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s01-cp1-001",
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
@@ -625,17 +662,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(3, -5), B(-1, -5), C(4, 5). Its image has vertices A′(5, 3), B′(5, -1), C′(-5, 4). Describe the single transformation precisely.",
-   "answer": "rotation 90° counterclockwise about the origin",
+   "prompt": "Segment AB has endpoints A(6, 0) and B(6, -3). It is rotated 90° clockwise about the origin. How long is A′B′?",
+   "answer": "3",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a rotation 90° counterclockwise about the origin."
+    "AB is vertical, so AB = |-3 - 0| = 3.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 3."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-003",
@@ -736,35 +773,35 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC has vertices A(-2, 1), B(2, 3), C(-2, 3). Its image has vertices A′(-1, -2), B′(-3, 2), C′(-3, -2). Describe the single transformation precisely.",
-   "answer": "rotation 90° counterclockwise about the origin",
+   "prompt": "Point A(3, 2) is reflected over the y-axis and then translated 5 units left. What are the coordinates of the final image of A?",
+   "answer": "(-8, 2)",
    "options": [
     {
-     "text": "rotation 90° counterclockwise about the origin",
+     "text": "(-8, 2)",
      "correct": true
     },
     {
-     "text": "rotation 90° clockwise about the origin",
+     "text": "(2, 2)",
      "correct": false
     },
     {
-     "text": "translation 3 units right and 2 units down",
+     "text": "(-2, 2)",
      "correct": false
     },
     {
-     "text": "reflection over the x-axis",
+     "text": "(8, 2)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a rotation 90° counterclockwise about the origin."
+    "Reflect over the y-axis: (-3, 2).",
+    "Translate 5 units left (subtract 5 from x): (-8, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-007",
@@ -865,17 +902,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(1, 2), B(-5, 3), C(0, 5). Its image has vertices A′(-1, 2), B′(5, 3), C′(0, 5). Describe the single transformation precisely.",
-   "answer": "reflection over the y-axis",
+   "prompt": "Point A(-2, -6) is reflected over the y-axis and then translated 5 units left. What are the coordinates of the final image of A?",
+   "answer": "(-3, -6)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a reflection over the y-axis."
+    "Reflect over the y-axis: (2, -6).",
+    "Translate 5 units left (subtract 5 from x): (-3, -6)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-011",
@@ -976,17 +1013,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(0, 2), B(4, -3), C(4, 1). Its image has vertices A′(3, -1), B′(7, -6), C′(7, -2). Describe the single transformation precisely.",
-   "answer": "translation 3 units right and 3 units down",
+   "prompt": "Segment AB has endpoints A(-3, 2) and B(-3, -2). It is rotated 90° counterclockwise about the origin. How long is A′B′?",
+   "answer": "4",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a translation 3 units right and 3 units down."
+    "AB is vertical, so AB = |-2 - 2| = 4.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 4."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-015",
@@ -1011,52 +1048,51 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(-3, -5), B(2, -4), C(-3, -2). Its image has vertices A′(-4, -3), B′(1, -2), C′(-4, 0). Describe the single transformation precisely.",
-   "answer": "translation 1 unit left and 2 units up",
+   "prompt": "Segment AB has endpoints A(3, -2) and B(3, 3). It is rotated 90° counterclockwise about the origin. How long is A′B′?",
+   "answer": "5",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a translation 1 unit left and 2 units up."
+    "AB is vertical, so AB = |3 - (-2)| = 5.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 5."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-017",
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A figure undergoes a dilation with scale factor 2 centered at the origin. Is the image always congruent to the original figure? Answer yes or no.",
-   "answer": "no",
+   "prompt": "Segment AB has endpoints A(-5, -3) and B(-5, -5). It is rotated 90° clockwise about the origin. How long is A′B′?",
+   "answer": "2",
    "solutionSteps": [
-    "Translations, reflections and rotations are rigid motions: they preserve lengths and angle measures.",
-    "A dilation with scale factor other than 1 changes lengths, so the image is similar but not congruent.",
-    "Here a dilation with scale factor 2 changes lengths, so the image is not always congruent: no."
+    "AB is vertical, so AB = |-5 - (-3)| = 2.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 2."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_congruent). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_congruent) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-018",
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(0, -4), B(-2, 3), C(1, 5). Its image has vertices A′(-4, 0), B′(3, 2), C′(5, -1). Describe the single transformation precisely.",
-   "answer": "rotation 90° clockwise about the origin",
+   "prompt": "Point A(-7, -2) is reflected over the x-axis and then translated 2 units left. What are the coordinates of the final image of A?",
+   "answer": "(-9, 2)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a rotation 90° clockwise about the origin."
+    "Reflect over the x-axis: (-7, 2).",
+    "Translate 2 units left (subtract 2 from x): (-9, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-cp1-019",
@@ -1177,17 +1213,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(-5, 1), B(0, 4), C(1, -3). Its image has vertices A′(-10, 7), B′(-5, 10), C′(-4, 3). Describe the single transformation precisely.",
-   "answer": "translation 5 units left and 6 units up",
+   "prompt": "Point A(2, 2) is reflected over the y-axis and then translated 4 units left. What are the coordinates of the final image of A?",
+   "answer": "(-6, 2)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a translation 5 units left and 6 units up."
+    "Reflect over the y-axis: (-2, 2).",
+    "Translate 4 units left (subtract 4 from x): (-6, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-003",
@@ -1323,18 +1359,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A figure undergoes a translation 5 units right and 5 units down. Is the image always congruent to the original figure? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Segment AB has endpoints A(-4, 5) and B(-4, -1). It is rotated 90° clockwise about the origin. How long is A′B′?",
+   "answer": "6",
    "solutionSteps": [
-    "Translations, reflections and rotations are rigid motions: they preserve lengths and angle measures.",
-    "A dilation with scale factor other than 1 changes lengths, so the image is similar but not congruent.",
-    "Here a translation is a rigid motion, so the image is always congruent: yes."
+    "AB is vertical, so AB = |-1 - 5| = 6.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 6."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_congruent). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_congruent) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-008",
@@ -1383,17 +1418,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(-1, -5), B(0, 4), C(-3, -5). Its image has vertices A′(1, -5), B′(0, 4), C′(3, -5). Describe the single transformation precisely.",
-   "answer": "reflection over the y-axis",
+   "prompt": "Point A(-4, -1) is reflected over the y-axis and then translated 3 units left. What are the coordinates of the final image of A?",
+   "answer": "(1, -1)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a reflection over the y-axis."
+    "Reflect over the y-axis: (4, -1).",
+    "Translate 3 units left (subtract 3 from x): (1, -1)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-010",
@@ -1555,17 +1590,17 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(-2, -2), B(0, 2), C(1, 0). Its image has vertices A′(-2, 2), B′(2, 0), C′(0, -1). Describe the single transformation precisely.",
-   "answer": "rotation 90° clockwise about the origin",
+   "prompt": "Point A(6, 3) is reflected over the x-axis and then translated 5 units left. What are the coordinates of the final image of A?",
+   "answer": "(1, -3)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a rotation 90° clockwise about the origin."
+    "Reflect over the x-axis: (6, -3).",
+    "Translate 5 units left (subtract 5 from x): (1, -3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-016",
@@ -1590,35 +1625,34 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC has vertices A(-3, 3), B(0, 3), C(-2, -1). Its image has vertices A′(-6, 6), B′(0, 6), C′(-4, -2). Describe the single transformation precisely.",
-   "answer": "dilation with scale factor 2 centered at the origin",
+   "prompt": "Point A(3, -3) is reflected over the x-axis and then translated 2 units left. What are the coordinates of the final image of A?",
+   "answer": "(1, 3)",
    "solutionSteps": [
-    "Compare each vertex with its image.",
-    "The rule matches a dilation with scale factor 2 centered at the origin."
+    "Reflect over the x-axis: (3, 3).",
+    "Translate 2 units left (subtract 2 from x): (1, 3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_name_coords). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_reflect_then_translate). Rewritten from a Support template (was s1_name_coords) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-018",
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A figure undergoes a translation 2 units left and 4 units up. Is the image always congruent to the original figure? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Segment AB has endpoints A(-3, -2) and B(-3, -1). It is rotated 180° about the origin. How long is A′B′?",
+   "answer": "1",
    "solutionSteps": [
-    "Translations, reflections and rotations are rigid motions: they preserve lengths and angle measures.",
-    "A dilation with scale factor other than 1 changes lengths, so the image is similar but not congruent.",
-    "Here a translation is a rigid motion, so the image is always congruent: yes."
+    "AB is vertical, so AB = |-1 - (-2)| = 1.",
+    "A rotation is a rigid transformation, so it keeps lengths: A′B′ = 1."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_congruent). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rigid_length). Rewritten from a Support template (was s1_congruent) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s01-honors-019",
@@ -2709,6 +2743,43 @@
    }
   },
   {
+   "id": "pa8-cgs-s02-cp2-o01",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point P(3, 5) is rotated about the origin.",
+   "parts": [
+    {
+     "prompt": "Find P′ after a rotation of 90° counterclockwise.",
+     "answer": "(-5, 3)"
+    },
+    {
+     "prompt": "Find P′ after a rotation of 180°.",
+     "answer": "(-3, -5)"
+    },
+    {
+     "prompt": "Find P′ after a rotation of 90° clockwise.",
+     "answer": "(5, -3)"
+    },
+    {
+     "prompt": "Which rotation gives the same image as 270° counterclockwise?",
+     "answer": "90° clockwise"
+    }
+   ],
+   "answer": "(a) (-5, 3); (b) (-3, -5); (c) (5, -3); (d) 90° clockwise",
+   "solutionSteps": [
+    "(x, y) → (-y, x).",
+    "(x, y) → (-x, -y).",
+    "(x, y) → (y, -x).",
+    "Turning 270° one way ends where turning 90° the other way ends."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s02-cp1-001",
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
@@ -2824,52 +2895,52 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(6, -1) is rotated 90° counterclockwise about the origin. What are the coordinates of P′?",
-   "answer": "(1, 6)",
+   "prompt": "Point P(7, -6) is rotated 90° clockwise about the origin, then translated 3 units right. Where does P end up?",
+   "answer": "(-3, -7)",
    "options": [
     {
-     "text": "(1, 6)",
+     "text": "(9, 7)",
+     "correct": false
+    },
+    {
+     "text": "(-3, -7)",
      "correct": true
     },
     {
-     "text": "(-6, -1)",
+     "text": "(-9, -7)",
      "correct": false
     },
     {
-     "text": "(-1, 6)",
-     "correct": false
-    },
-    {
-     "text": "(-1, -6)",
+     "text": "(-6, -7)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "90° counterclockwise: (x, y) → (-y, x).",
-    "P′(1, 6)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-6, -7).",
+    "Add 3 to x: (-3, -7)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-006",
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(-3, -3), B(3, -5), C(-2, 5) is rotated 180° about the origin. What are the coordinates of A′?",
-   "answer": "(3, 3)",
+   "prompt": "Point P(5, -7) is rotated 90° clockwise about the origin, then translated 4 units right. Where does P end up?",
+   "answer": "(-3, -5)",
    "solutionSteps": [
-    "Apply the rule to A(-3, -3).",
-    "A′(3, 3)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-7, -5).",
+    "Add 4 to x: (-3, -5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_figure_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_figure_vertex) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-007",
@@ -2953,17 +3024,17 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(5, -1) is rotated 180° about the origin. What are the coordinates of P′?",
-   "answer": "(-5, 1)",
+   "prompt": "Point P(-5, 6) is rotated 90° clockwise about the origin, then translated 5 units right. Where does P end up?",
+   "answer": "(11, 5)",
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "P′(-5, 1)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (6, 5).",
+    "Add 5 to x: (11, 5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-010",
@@ -3011,70 +3082,70 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-7, 4) is rotated 180° about the origin. What are the coordinates of P′?",
-   "answer": "(7, -4)",
+   "prompt": "Point P(-4, -6) is rotated 90° clockwise about the origin, then translated 5 units right. Where does P end up?",
+   "answer": "(-1, 4)",
    "options": [
     {
-     "text": "(-7, -4)",
+     "text": "(11, -4)",
      "correct": false
     },
     {
-     "text": "(7, 4)",
+     "text": "(-11, 4)",
      "correct": false
     },
     {
-     "text": "(7, -4)",
+     "text": "(-6, 4)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 4)",
      "correct": true
-    },
-    {
-     "text": "(4, -7)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "P′(7, -4)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-6, 4).",
+    "Add 5 to x: (-1, 4)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-013",
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC with vertices A(-5, -1), B(4, -5), C(1, -2) is rotated 90° counterclockwise about the origin. What are the coordinates of C′?",
-   "answer": "(2, 1)",
+   "prompt": "Point P(-2, -6) is rotated 90° clockwise about the origin, then translated 2 units right. Where does P end up?",
+   "answer": "(-4, 2)",
    "options": [
     {
-     "text": "(1, -5)",
-     "correct": false
-    },
-    {
-     "text": "(-2, -1)",
-     "correct": false
-    },
-    {
-     "text": "(-2, 1)",
-     "correct": false
-    },
-    {
-     "text": "(2, 1)",
+     "text": "(-4, 2)",
      "correct": true
+    },
+    {
+     "text": "(8, -2)",
+     "correct": false
+    },
+    {
+     "text": "(-8, 2)",
+     "correct": false
+    },
+    {
+     "text": "(-6, 2)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Apply the rule to C(1, -2).",
-    "C′(2, 1)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-6, 2).",
+    "Add 2 to x: (-4, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_figure_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_figure_vertex) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-014",
@@ -3123,17 +3194,17 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(5, 1) is rotated 180° about the origin. What are the coordinates of P′?",
-   "answer": "(-5, -1)",
+   "prompt": "Point P(-4, -3) is rotated 90° clockwise about the origin, then translated 6 units right. Where does P end up?",
+   "answer": "(3, 4)",
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "P′(-5, -1)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-3, 4).",
+    "Add 6 to x: (3, 4)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-cp1-016",
@@ -3500,59 +3571,59 @@
   {
    "id": "pa8-cgs-s02-honors-001",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(1, -2) is rotated 180° about the origin. What are the coordinates of P′?",
+   "prompt": "Point P(-2, -6) is rotated 90° clockwise about the origin, then translated 5 units right. Where does P end up?",
    "answer": "(-1, 2)",
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "P′(-1, 2)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-6, 2).",
+    "Add 5 to x: (-1, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-honors-002",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC with vertices A(3, -2), B(-4, 1), C(4, 2) is rotated 180° about the origin. What are the coordinates of C′?",
-   "answer": "(-4, -2)",
+   "prompt": "Point P(3, -4) is rotated 90° clockwise about the origin, then translated 3 units right. Where does P end up?",
+   "answer": "(-1, -3)",
    "options": [
     {
-     "text": "(-4, -2)",
+     "text": "(7, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-7, -3)",
+     "correct": false
+    },
+    {
+     "text": "(-4, -3)",
+     "correct": false
+    },
+    {
+     "text": "(-1, -3)",
      "correct": true
-    },
-    {
-     "text": "(-4, 2)",
-     "correct": false
-    },
-    {
-     "text": "(-3, 2)",
-     "correct": false
-    },
-    {
-     "text": "(2, 4)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Apply the rule to C(4, 2).",
-    "C′(-4, -2)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (-4, -3).",
+    "Add 3 to x: (-1, -3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_figure_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_figure_vertex) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-honors-003",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(5, -4), B(2, -2), C(2, -5) is rotated about the origin to A′B′C′ with vertices A′(4, 5), B′(2, 2), C′(5, 2). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
@@ -3564,7 +3635,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-004",
@@ -3604,7 +3675,7 @@
   {
    "id": "pa8-cgs-s02-honors-005",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Point P(-6, -4) is rotated 90° clockwise about the origin. What are the coordinates of P′?",
    "answer": "(-4, 6)",
@@ -3634,29 +3705,29 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-006",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(0, 5), B(5, 4), C(-4, 2) is rotated 180° about the origin. What are the coordinates of B′?",
-   "answer": "(-5, -4)",
+   "prompt": "Point P(-5, 1) is rotated 90° clockwise about the origin, then translated 5 units right. Where does P end up?",
+   "answer": "(6, 5)",
    "solutionSteps": [
-    "Apply the rule to B(5, 4).",
-    "B′(-5, -4)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (1, 5).",
+    "Add 5 to x: (6, 5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_figure_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_figure_vertex) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-honors-007",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Triangle ABC with vertices A(2, -5), B(-5, 0), C(-1, -5) is rotated about the origin to A′B′C′ with vertices A′(-5, -2), B′(0, 5), C′(-5, 1). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
@@ -3686,7 +3757,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-008",
@@ -3708,7 +3779,7 @@
   {
    "id": "pa8-cgs-s02-honors-009",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Point P(5, -3) is rotated 90° clockwise about the origin. What are the coordinates of P′?",
    "answer": "(-3, -5)",
@@ -3720,7 +3791,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-010",
@@ -3742,7 +3813,7 @@
   {
    "id": "pa8-cgs-s02-honors-011",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Triangle ABC with vertices A(0, -5), B(-2, 5), C(0, -2) is rotated about the origin to A′B′C′ with vertices A′(-5, 0), B′(5, 2), C′(-2, 0). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
@@ -3772,7 +3843,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-012",
@@ -3794,7 +3865,7 @@
   {
    "id": "pa8-cgs-s02-honors-013",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Point P(2, 4) is rotated 90° clockwise about the origin. What are the coordinates of P′?",
    "answer": "(4, -2)",
@@ -3824,7 +3895,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-014",
@@ -3864,7 +3935,7 @@
   {
    "id": "pa8-cgs-s02-honors-015",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(3, 1), B(-5, 4), C(3, 0) is rotated about the origin to A′B′C′ with vertices A′(1, -3), B′(4, 5), C′(0, -3). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
@@ -3876,7 +3947,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_identify_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s02-honors-016",
@@ -3916,36 +3987,36 @@
   {
    "id": "pa8-cgs-s02-honors-017",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(1, -4) is rotated 180° about the origin. What are the coordinates of P′?",
-   "answer": "(-1, 4)",
+   "prompt": "Point P(-1, 4) is rotated 90° clockwise about the origin, then translated 2 units right. Where does P end up?",
+   "answer": "(6, 1)",
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "P′(-1, 4)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (4, 1).",
+    "Add 2 to x: (6, 1)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-honors-018",
    "skillId": "congruence-similarity-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(0, -5), B(2, 1), C(5, -5) is rotated 180° about the origin. What are the coordinates of B′?",
-   "answer": "(-2, -1)",
+   "prompt": "Point P(-6, 5) is rotated 90° clockwise about the origin, then translated 3 units right. Where does P end up?",
+   "answer": "(8, 6)",
    "solutionSteps": [
-    "Apply the rule to B(2, 1).",
-    "B′(-2, -1)."
+    "90° clockwise: (x, y) → (y, -x), so P′ = (5, 6).",
+    "Add 3 to x: (8, 6)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_figure_vertex). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_rotate_then_translate). Rewritten from a Support template (was s2_figure_vertex) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s02-honors-019",
@@ -4260,6 +4331,373 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h01",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° counterclockwise about the origin, the image of point M is M′(-1, 2). Where was M before the rotation?",
+   "answer": "(2, 1)",
+   "options": [
+    {
+     "text": "(2, 1)",
+     "correct": true
+    },
+    {
+     "text": "(-2, -1)",
+     "correct": false
+    },
+    {
+     "text": "(1, -2)",
+     "correct": false
+    },
+    {
+     "text": "(2, -1)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° clockwise, (x, y) → (y, -x).",
+    "M = (2, 1). Check: rotating (2, 1) 90° counterclockwise gives (-1, 2)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h02",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(2, -6) is rotated 90° clockwise about the origin, then the image is rotated 180° about the origin. What are the final coordinates?",
+   "answer": "(6, 2)",
+   "solutionSteps": [
+    "First rotation, (x, y) → (y, -x): (-6, -2).",
+    "Second rotation, (x, y) → (-x, -y): (6, 2)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_two_rotations). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h03",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° counterclockwise about the origin, the image of point M is M′(2, -6). Where was M before the rotation?",
+   "answer": "(-6, -2)",
+   "options": [
+    {
+     "text": "(6, 2)",
+     "correct": false
+    },
+    {
+     "text": "(-2, 6)",
+     "correct": false
+    },
+    {
+     "text": "(-6, 2)",
+     "correct": false
+    },
+    {
+     "text": "(-6, -2)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° clockwise, (x, y) → (y, -x).",
+    "M = (-6, -2). Check: rotating (-6, -2) 90° counterclockwise gives (2, -6)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h04",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-4, 6) is rotated 90° counterclockwise about the origin, then the image is rotated 180° about the origin. What are the final coordinates?",
+   "answer": "(6, 4)",
+   "solutionSteps": [
+    "First rotation, (x, y) → (-y, x): (-6, -4).",
+    "Second rotation, (x, y) → (-x, -y): (6, 4)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_two_rotations). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h05",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° clockwise about the origin, the image of point M is M′(-2, -8). Where was M before the rotation?",
+   "answer": "(8, -2)",
+   "options": [
+    {
+     "text": "(8, -2)",
+     "correct": true
+    },
+    {
+     "text": "(-8, 2)",
+     "correct": false
+    },
+    {
+     "text": "(2, 8)",
+     "correct": false
+    },
+    {
+     "text": "(-8, -2)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° counterclockwise, (x, y) → (-y, x).",
+    "M = (8, -2). Check: rotating (8, -2) 90° clockwise gives (-2, -8)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h06",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° counterclockwise about the origin, the image of point M is M′(8, -5). Where was M before the rotation?",
+   "answer": "(-5, -8)",
+   "options": [
+    {
+     "text": "(-5, -8)",
+     "correct": true
+    },
+    {
+     "text": "(5, 8)",
+     "correct": false
+    },
+    {
+     "text": "(-8, 5)",
+     "correct": false
+    },
+    {
+     "text": "(-5, 8)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° clockwise, (x, y) → (y, -x).",
+    "M = (-5, -8). Check: rotating (-5, -8) 90° counterclockwise gives (8, -5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h07",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-1, 5) is rotated 90° counterclockwise about the origin, then the image is rotated 90° clockwise about the origin. What are the final coordinates?",
+   "answer": "(-1, 5)",
+   "solutionSteps": [
+    "First rotation, (x, y) → (-y, x): (-5, -1).",
+    "Second rotation, (x, y) → (y, -x): (-1, 5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_two_rotations). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h08",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° clockwise about the origin, the image of point M is M′(7, -5). Where was M before the rotation?",
+   "answer": "(5, 7)",
+   "options": [
+    {
+     "text": "(-5, -7)",
+     "correct": false
+    },
+    {
+     "text": "(5, 7)",
+     "correct": true
+    },
+    {
+     "text": "(-7, 5)",
+     "correct": false
+    },
+    {
+     "text": "(-5, 7)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° counterclockwise, (x, y) → (-y, x).",
+    "M = (5, 7). Check: rotating (5, 7) 90° clockwise gives (7, -5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h09",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(2, 5) is rotated 180° about the origin, then the image is rotated 90° clockwise about the origin. What are the final coordinates?",
+   "answer": "(-5, 2)",
+   "solutionSteps": [
+    "First rotation, (x, y) → (-x, -y): (-2, -5).",
+    "Second rotation, (x, y) → (y, -x): (-5, 2)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_two_rotations). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h10",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° clockwise about the origin, the image of point M is M′(1, -3). Where was M before the rotation?",
+   "answer": "(3, 1)",
+   "options": [
+    {
+     "text": "(-3, -1)",
+     "correct": false
+    },
+    {
+     "text": "(3, 1)",
+     "correct": true
+    },
+    {
+     "text": "(-1, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-3, 1)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° counterclockwise, (x, y) → (-y, x).",
+    "M = (3, 1). Check: rotating (3, 1) 90° clockwise gives (1, -3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h11",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(7, -5) is rotated 90° clockwise about the origin, then the image is rotated 180° about the origin. What are the final coordinates?",
+   "answer": "(5, 7)",
+   "solutionSteps": [
+    "First rotation, (x, y) → (y, -x): (-5, -7).",
+    "Second rotation, (x, y) → (-x, -y): (5, 7)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_two_rotations). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-h12",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "After a rotation 90° clockwise about the origin, the image of point M is M′(3, -8). Where was M before the rotation?",
+   "answer": "(8, 3)",
+   "options": [
+    {
+     "text": "(8, 3)",
+     "correct": true
+    },
+    {
+     "text": "(-8, -3)",
+     "correct": false
+    },
+    {
+     "text": "(-3, 8)",
+     "correct": false
+    },
+    {
+     "text": "(-8, 3)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Undo the rotation: rotate M′ 90° counterclockwise, (x, y) → (-y, x).",
+    "M = (8, 3). Check: rotating (8, 3) 90° clockwise gives (3, -8)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s02-honors-o01",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Triangle ABC has vertices A(2, 1), B(5, 1) and C(2, 4). It is rotated 90° counterclockwise about the origin to make A′B′C′, and then A′B′C′ is rotated 180° about the origin to make A″B″C″.",
+   "parts": [
+    {
+     "prompt": "Find A′, B′ and C′.",
+     "answer": "A′(-1, 2), B′(-1, 5), C′(-4, 2)"
+    },
+    {
+     "prompt": "Find A″, B″ and C″.",
+     "answer": "A″(1, -2), B″(1, -5), C″(4, -2)"
+    },
+    {
+     "prompt": "Which single rotation maps ABC to A″B″C″?",
+     "answer": "90° clockwise (270° counterclockwise) about the origin"
+    },
+    {
+     "prompt": "Find the length of B″C″ and explain why it equals BC.",
+     "answer": "3√2; rotations keep lengths"
+    }
+   ],
+   "answer": "(a) A′(-1, 2), B′(-1, 5), C′(-4, 2); (b) A″(1, -2), B″(1, -5), C″(4, -2); (c) 90° clockwise (270° counterclockwise) about the origin; (d) 3√2; rotations keep lengths",
+   "solutionSteps": [
+    "(x, y) → (-y, x).",
+    "(x, y) → (-x, -y).",
+    "90° + 180° = 270° counterclockwise, which is 90° clockwise. Check: A(2, 1) → (1, -2).",
+    "BC = √(3² + 3²) = 3√2, and rotations are rigid."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s03-cp2-001",
@@ -5042,21 +5480,58 @@
    }
   },
   {
-   "id": "pa8-cgs-s03-cp1-001",
+   "id": "pa8-cgs-s03-cp2-o01",
    "skillId": "congruence-similarity-skill-03",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Point P(-2, -7) is reflected over the y-axis. What are the coordinates of P′?",
-   "answer": "(2, -7)",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point Q(4, -3) is reflected.",
+   "parts": [
+    {
+     "prompt": "Find the image after a reflection over the x-axis.",
+     "answer": "(4, 3)"
+    },
+    {
+     "prompt": "Find the image after a reflection over the y-axis.",
+     "answer": "(-4, -3)"
+    },
+    {
+     "prompt": "Find the image after a reflection over the line y = x.",
+     "answer": "(-3, 4)"
+    },
+    {
+     "prompt": "How far is Q from the x-axis, and how far is its image from the x-axis?",
+     "answer": "3 units and 3 units"
+    }
+   ],
+   "answer": "(a) (4, 3); (b) (-4, -3); (c) (-3, 4); (d) 3 units and 3 units",
    "solutionSteps": [
-    "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
-    "P′(2, -7)."
+    "Over the x-axis: (x, y) → (x, -y).",
+    "Over the y-axis: (x, y) → (-x, y).",
+    "Over y = x: (x, y) → (y, x).",
+    "A reflection keeps distance to the mirror line."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
+   "id": "pa8-cgs-s03-cp1-001",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Point P(-5, 3) is reflected over the y-axis, and then the image is reflected over the x-axis. What are the final coordinates?",
+   "answer": "(5, -3)",
+   "solutionSteps": [
+    "Over the y-axis: (5, 3).",
+    "Over the x-axis: (5, -3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-002",
@@ -5156,17 +5631,17 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(6, -6) is reflected over the x-axis. What are the coordinates of P′?",
-   "answer": "(6, 6)",
+   "prompt": "Point P(6, -3) is reflected over the y-axis, and then the image is reflected over the x-axis. What are the final coordinates?",
+   "answer": "(-6, 3)",
    "solutionSteps": [
-    "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
-    "P′(6, 6)."
+    "Over the y-axis: (-6, -3).",
+    "Over the x-axis: (-6, 3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-006",
@@ -5277,35 +5752,35 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-4, -4) is reflected over the x-axis. What are the coordinates of P′?",
-   "answer": "(-4, 4)",
+   "prompt": "Point P(-4, -2) is reflected over the y-axis, and then the image is reflected over the x-axis. What are the final coordinates?",
+   "answer": "(4, 2)",
    "options": [
     {
-     "text": "(-4, -4)",
+     "text": "(4, -2)",
      "correct": false
     },
     {
-     "text": "(-4, 4)",
+     "text": "(-2, -4)",
+     "correct": false
+    },
+    {
+     "text": "(-4, -2)",
+     "correct": false
+    },
+    {
+     "text": "(4, 2)",
      "correct": true
-    },
-    {
-     "text": "(4, 4)",
-     "correct": false
-    },
-    {
-     "text": "(4, -4)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
-    "P′(-4, 4)."
+    "Over the y-axis: (4, -2).",
+    "Over the x-axis: (4, 2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-010",
@@ -5380,35 +5855,35 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-6, -3) is reflected over the y-axis. What are the coordinates of P′?",
-   "answer": "(6, -3)",
+   "prompt": "Point P(5, 2) is reflected over the y-axis, and then the image is reflected over the x-axis. What are the final coordinates?",
+   "answer": "(-5, -2)",
    "options": [
     {
-     "text": "(6, 3)",
+     "text": "(-5, 2)",
      "correct": false
     },
     {
-     "text": "(-6, 3)",
+     "text": "(2, 5)",
      "correct": false
     },
     {
-     "text": "(-3, -6)",
-     "correct": false
-    },
-    {
-     "text": "(6, -3)",
+     "text": "(-5, -2)",
      "correct": true
+    },
+    {
+     "text": "(5, 2)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
-    "P′(6, -3)."
+    "Over the y-axis: (-5, 2).",
+    "Over the x-axis: (-5, -2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-014",
@@ -5448,34 +5923,34 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(3, 6) is reflected over the y-axis. What are the coordinates of P′?",
-   "answer": "(-3, 6)",
+   "prompt": "Point P(-7, 5) is reflected over the x-axis, and then the image is reflected over the y-axis. What are the final coordinates?",
+   "answer": "(7, -5)",
    "solutionSteps": [
-    "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
-    "P′(-3, 6)."
+    "Over the x-axis: (-7, -5).",
+    "Over the y-axis: (7, -5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-017",
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(-5, 2), B(3, 2), C(-5, 5) is reflected over the y-axis. What are the coordinates of A′?",
-   "answer": "(5, 2)",
+   "prompt": "Point P(-5, 6) is reflected over the y-axis, and then the image is reflected over the x-axis. What are the final coordinates?",
+   "answer": "(5, -6)",
    "solutionSteps": [
-    "Apply the reflection rule to A(-5, 2).",
-    "So the answer is (5, 2)."
+    "Over the y-axis: (5, 6).",
+    "Over the x-axis: (5, -6)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_figure) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-cp1-018",
@@ -5817,7 +6292,7 @@
   {
    "id": "pa8-cgs-s03-honors-002",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Triangle ABC is reflected to form A′B′C′, as shown. What is the line of reflection?",
    "answer": "the line y = x",
@@ -5854,12 +6329,12 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-003",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(5, -2), B(-3, 3), C(-3, -1) is reflected to A′B′C′ with vertices A′(-1, -2), B′(7, 3), C′(7, -1). What is the equation of the line of reflection?",
    "answer": "x = 2",
@@ -5870,7 +6345,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-004",
@@ -5945,7 +6420,7 @@
   {
    "id": "pa8-cgs-s03-honors-006",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC is reflected to form A′B′C′, as shown. What is the line of reflection?",
    "answer": "the line y = x",
@@ -5964,12 +6439,12 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-007",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Triangle ABC with vertices A(-3, 4), B(-1, -3), C(0, 0) is reflected to A′B′C′ with vertices A′(-3, -8), B′(-1, -1), C′(0, -4). What is the equation of the line of reflection?",
    "answer": "y = -2",
@@ -5998,7 +6473,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-008",
@@ -6055,7 +6530,7 @@
   {
    "id": "pa8-cgs-s03-honors-010",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(-4, 3), B(-2, -2), C(-3, -4) is reflected over the x-axis. What are the coordinates of C′?",
    "answer": "(-3, 4)",
@@ -6067,12 +6542,12 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-011",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(5, 2), B(0, -2), C(3, 3) is reflected to A′B′C′ with vertices A′(1, 2), B′(6, -2), C′(3, 3). What is the equation of the line of reflection?",
    "answer": "x = 3",
@@ -6083,7 +6558,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-012",
@@ -6123,37 +6598,37 @@
   {
    "id": "pa8-cgs-s03-honors-013",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC with vertices A(-4, 1), B(-5, 5), C(4, 5) is reflected over the x-axis. What are the coordinates of A′?",
-   "answer": "(-4, -1)",
+   "prompt": "Point P(7, 3) is reflected over the x-axis, and then the image is reflected over the y-axis. What are the final coordinates?",
+   "answer": "(-7, -3)",
    "options": [
     {
-     "text": "(1, -4)",
+     "text": "(7, -3)",
      "correct": false
     },
     {
-     "text": "(4, -1)",
-     "correct": false
-    },
-    {
-     "text": "(-4, -1)",
+     "text": "(-7, -3)",
      "correct": true
     },
     {
-     "text": "(4, 1)",
+     "text": "(3, 7)",
+     "correct": false
+    },
+    {
+     "text": "(7, 3)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Apply the reflection rule to A(-4, 1).",
-    "So the answer is (-4, -1)."
+    "Over the x-axis: (7, -3).",
+    "Over the y-axis: (-7, -3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_reflect_both_axes). Rewritten from a Support template (was s3_figure) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s03-honors-014",
@@ -6209,7 +6684,7 @@
   {
    "id": "pa8-cgs-s03-honors-016",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(4, -5), B(-4, -2), C(1, 4) is reflected over the line y = x. What are the coordinates of C′?",
    "answer": "(4, 1)",
@@ -6221,12 +6696,12 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-017",
    "skillId": "congruence-similarity-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(-3, 0), B(0, 1), C(-3, 4) is reflected to A′B′C′ with vertices A′(9, 0), B′(6, 1), C′(9, 4). What is the equation of the line of reflection?",
    "answer": "x = 3",
@@ -6237,7 +6712,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_vertical_line). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s03-honors-018",
@@ -6569,6 +7044,213 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h01",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point Q(-2, 5) is reflected over the horizontal line y = -2. What are the coordinates of Q′?",
+   "answer": "(-2, -9)",
+   "solutionSteps": [
+    "Q is 7 units above y = -2.",
+    "y′ = 2(-2) - (5) = -9; x stays -2: Q′(-2, -9)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_y_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h02",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(6, 3) is reflected over the vertical line x = -2. What are the coordinates of P′?",
+   "answer": "(-10, 3)",
+   "solutionSteps": [
+    "P is 8 units right of x = -2, so P′ is 8 units on the other side.",
+    "x′ = 2(-2) - (6) = -10; y stays 3: P′(-10, 3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h03",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point Q(-4, -3) is reflected over the horizontal line y = 1. What are the coordinates of Q′?",
+   "answer": "(-4, 5)",
+   "solutionSteps": [
+    "Q is 4 units below y = 1.",
+    "y′ = 2(1) - (-3) = 5; x stays -4: Q′(-4, 5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_y_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h04",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-2, -6) is reflected over the vertical line x = 3. What are the coordinates of P′?",
+   "answer": "(8, -6)",
+   "solutionSteps": [
+    "P is 5 units left of x = 3, so P′ is 5 units on the other side.",
+    "x′ = 2(3) - (-2) = 8; y stays -6: P′(8, -6)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h05",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(6, -5) is reflected over the vertical line x = 2. What are the coordinates of P′?",
+   "answer": "(-2, -5)",
+   "solutionSteps": [
+    "P is 4 units right of x = 2, so P′ is 4 units on the other side.",
+    "x′ = 2(2) - (6) = -2; y stays -5: P′(-2, -5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h06",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point Q(-5, 1) is reflected over the horizontal line y = 3. What are the coordinates of Q′?",
+   "answer": "(-5, 5)",
+   "solutionSteps": [
+    "Q is 2 units below y = 3.",
+    "y′ = 2(3) - (1) = 5; x stays -5: Q′(-5, 5)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_y_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h07",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-4, -3) is reflected over the vertical line x = 1. What are the coordinates of P′?",
+   "answer": "(6, -3)",
+   "solutionSteps": [
+    "P is 5 units left of x = 1, so P′ is 5 units on the other side.",
+    "x′ = 2(1) - (-4) = 6; y stays -3: P′(6, -3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h08",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-6, -1) is reflected over the vertical line x = 1. What are the coordinates of P′?",
+   "answer": "(8, -1)",
+   "solutionSteps": [
+    "P is 7 units left of x = 1, so P′ is 7 units on the other side.",
+    "x′ = 2(1) - (-6) = 8; y stays -1: P′(8, -1)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h09",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(3, -4) is reflected over the vertical line x = -3. What are the coordinates of P′?",
+   "answer": "(-9, -4)",
+   "solutionSteps": [
+    "P is 6 units right of x = -3, so P′ is 6 units on the other side.",
+    "x′ = 2(-3) - (3) = -9; y stays -4: P′(-9, -4)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_x_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-h10",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point Q(-5, 1) is reflected over the horizontal line y = -1. What are the coordinates of Q′?",
+   "answer": "(-5, -3)",
+   "solutionSteps": [
+    "Q is 2 units above y = -1.",
+    "y′ = 2(-1) - (1) = -3; x stays -5: Q′(-5, -3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_mirror_y_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s03-honors-o01",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Segment AB has endpoints A(-2, 1) and B(4, 3). It is reflected over the line x = 1 to make A′B′.",
+   "parts": [
+    {
+     "prompt": "Find A′ and B′.",
+     "answer": "A′(4, 1) and B′(-2, 3)"
+    },
+    {
+     "prompt": "Find the midpoint of AA′ and explain where it lies.",
+     "answer": "(1, 1); on the line x = 1"
+    },
+    {
+     "prompt": "Find the length of A′B′.",
+     "answer": "2√10"
+    },
+    {
+     "prompt": "A′B′ is then reflected over the x-axis. Find the final endpoints.",
+     "answer": "(4, -1) and (-2, -3)"
+    }
+   ],
+   "answer": "(a) A′(4, 1) and B′(-2, 3); (b) (1, 1); on the line x = 1; (c) 2√10; (d) (4, -1) and (-2, -3)",
+   "solutionSteps": [
+    "x′ = 2(1) - x: -2 → 4 and 4 → -2; y stays the same.",
+    "The mirror line is the perpendicular bisector of AA′.",
+    "√((4 - (-2))² + (3 - 1)²) = √40 = 2√10.",
+    "(x, y) → (x, -y)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s04-cp2-001",
@@ -7372,6 +8054,43 @@
    }
   },
   {
+   "id": "pa8-cgs-s04-cp2-o01",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point R(-3, 2) is translated by the rule (x, y) → (x + 5, y - 4).",
+   "parts": [
+    {
+     "prompt": "Describe the translation in words.",
+     "answer": "5 units right and 4 units down"
+    },
+    {
+     "prompt": "Find R′.",
+     "answer": "(2, -2)"
+    },
+    {
+     "prompt": "S′(6, 1) is the image of S. Find S.",
+     "answer": "(1, 5)"
+    },
+    {
+     "prompt": "Write the rule that moves R′ back to R.",
+     "answer": "(x, y) → (x - 5, y + 4)"
+    }
+   ],
+   "answer": "(a) 5 units right and 4 units down; (b) (2, -2); (c) (1, 5); (d) (x, y) → (x - 5, y + 4)",
+   "solutionSteps": [
+    "+5 on x moves right; -4 on y moves down.",
+    "(-3 + 5, 2 - 4) = (2, -2).",
+    "Undo the rule: (6 - 5, 1 + 4).",
+    "Reverse each change."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s04-cp1-001",
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
@@ -7452,35 +8171,35 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(7, -6) is moved by the translation 6 units left and 3 units down. What are the coordinates of P′?",
-   "answer": "(1, -9)",
+   "prompt": "Point P(3, 1) is translated 7 units right and 2 units up, and then 3 units left and 5 units down. What are the final coordinates?",
+   "answer": "(7, -2)",
    "options": [
     {
-     "text": "(1, -9)",
+     "text": "(10, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 4)",
+     "correct": false
+    },
+    {
+     "text": "(13, 8)",
+     "correct": false
+    },
+    {
+     "text": "(7, -2)",
      "correct": true
-    },
-    {
-     "text": "(4, -12)",
-     "correct": false
-    },
-    {
-     "text": "(13, -3)",
-     "correct": false
-    },
-    {
-     "text": "(1, -3)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Add -6 to x and -3 to y.",
-    "P′(1, -9)."
+    "First translation: (10, 3).",
+    "Second translation: (7, -2)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_translations). Rewritten from a Support template (was s4_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s04-cp1-005",
@@ -7698,35 +8417,35 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-2, -2) is moved by the translation 3 units left and 5 units down. What are the coordinates of P′?",
-   "answer": "(-5, -7)",
+   "prompt": "Point P(1, -3) is translated 7 units right and 2 units up, and then 4 units left and 4 units down. What are the final coordinates?",
+   "answer": "(4, -5)",
    "options": [
     {
-     "text": "(-7, -5)",
+     "text": "(8, -1)",
      "correct": false
     },
     {
-     "text": "(-5, -7)",
+     "text": "(-2, -1)",
+     "correct": false
+    },
+    {
+     "text": "(12, 3)",
+     "correct": false
+    },
+    {
+     "text": "(4, -5)",
      "correct": true
-    },
-    {
-     "text": "(-5, 3)",
-     "correct": false
-    },
-    {
-     "text": "(1, 3)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Add -3 to x and -5 to y.",
-    "P′(-5, -7)."
+    "First translation: (8, -1).",
+    "Second translation: (4, -5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_two_translations). Rewritten from a Support template (was s4_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s04-cp1-014",
@@ -8173,7 +8892,7 @@
   {
    "id": "pa8-cgs-s04-honors-002",
    "skillId": "congruence-similarity-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Triangle ABC with vertices A(-5, -1), B(4, -2), C(0, 0) is translated to A′B′C′ with vertices A′(-9, 4), B′(0, 3), C′(-4, 5). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 4, y + 5)",
@@ -8203,7 +8922,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s04-honors-003",
@@ -8303,7 +9022,7 @@
   {
    "id": "pa8-cgs-s04-honors-006",
    "skillId": "congruence-similarity-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(-3, 1), B(-5, -4), C(4, 4) is translated to A′B′C′ with vertices A′(-4, 6), B′(-6, 1), C′(3, 9). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 1, y + 5)",
@@ -8315,7 +9034,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s04-honors-007",
@@ -8397,7 +9116,7 @@
   {
    "id": "pa8-cgs-s04-honors-010",
    "skillId": "congruence-similarity-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(-1, -1), B(1, -1), C(2, 2) is translated to A′B′C′ with vertices A′(-6, 4), B′(-4, 4), C′(-3, 7). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 5, y + 5)",
@@ -8409,7 +9128,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s04-honors-011",
@@ -8509,7 +9228,7 @@
   {
    "id": "pa8-cgs-s04-honors-014",
    "skillId": "congruence-similarity-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(2, 4), B(-5, 4), C(-2, -1) is translated to A′B′C′ with vertices A′(7, 9), B′(0, 9), C′(3, 4). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 5, y + 5)",
@@ -8521,7 +9240,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s04-honors-015",
@@ -8621,7 +9340,7 @@
   {
    "id": "pa8-cgs-s04-honors-018",
    "skillId": "congruence-similarity-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Triangle ABC with vertices A(-4, 0), B(-2, 4), C(1, 4) is translated to A′B′C′ with vertices A′(-7, -3), B′(-5, 1), C′(-2, 1). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 3, y - 3)",
@@ -8633,7 +9352,44 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+  },
+  {
+   "id": "pa8-cgs-s04-cp1-o01",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Triangle JKL has vertices J(-4, 1), K(-1, 1) and L(-4, 5). A translation maps J to J′(2, -1).",
+   "parts": [
+    {
+     "prompt": "Write the translation rule.",
+     "answer": "(x, y) → (x + 6, y - 2)"
+    },
+    {
+     "prompt": "Find K′ and L′.",
+     "answer": "K′(5, -1) and L′(2, 3)"
+    },
+    {
+     "prompt": "Find KL and K′L′.",
+     "answer": "KL = 5 and K′L′ = 5"
+    },
+    {
+     "prompt": "How far does each vertex move?",
+     "answer": "2√10 units"
+    }
+   ],
+   "answer": "(a) (x, y) → (x + 6, y - 2); (b) K′(5, -1) and L′(2, 3); (c) KL = 5 and K′L′ = 5; (d) 2√10 units",
+   "solutionSteps": [
+    "2 - (-4) = 6 and -1 - 1 = -2.",
+    "Apply the rule to K and L.",
+    "√(3² + 4²) = 5 for both.",
+    "√(6² + 2²) = √40 = 2√10."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s04-honors-019",
@@ -8938,6 +9694,91 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s04-honors-h01",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P is translated 4 units left and 2 units up, then reflected over the y-axis. The final image is (3, -5). Find P.",
+   "answer": "(1, -7)",
+   "solutionSteps": [
+    "Undo the reflection: (3, -5) → (-3, -5).",
+    "Undo the translation (4 right, 2 down): P = (1, -7)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_then_reflect). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s04-honors-h02",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A translation maps A(-4, 5) to A′(0, 1). Where does the same translation map B(5, -4)?",
+   "answer": "(9, -8)",
+   "solutionSteps": [
+    "Rule: (x, y) → (x + 4, y - 4).",
+    "B′ = (5 + 4, -4 - 4) = (9, -8)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_rule_then_apply). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s04-honors-h03",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P is translated 2 units left and 2 units down, then reflected over the y-axis. The final image is (1, -3). Find P.",
+   "answer": "(1, -1)",
+   "solutionSteps": [
+    "Undo the reflection: (1, -3) → (-1, -3).",
+    "Undo the translation (2 right, 2 up): P = (1, -1)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_then_reflect). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s04-honors-h04",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A translation maps A(5, -4) to A′(2, 1). Where does the same translation map B(-2, -2)?",
+   "answer": "(-5, 3)",
+   "solutionSteps": [
+    "Rule: (x, y) → (x - 3, y + 5).",
+    "B′ = (-2 - 3, -2 + 5) = (-5, 3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_rule_then_apply). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s04-honors-h05",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P is translated 4 units left and 2 units down, then reflected over the y-axis. The final image is (6, 1). Find P.",
+   "answer": "(-2, 3)",
+   "solutionSteps": [
+    "Undo the reflection: (6, 1) → (-6, 1).",
+    "Undo the translation (4 right, 2 up): P = (-2, 3)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_reverse_then_reflect). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-cp2-001",
@@ -9577,6 +10418,43 @@
    }
   },
   {
+   "id": "pa8-cgs-s05-cp2-o01",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Rectangle ABCD has vertices A(0, 0), B(4, 0), C(4, 2) and D(0, 2). It is dilated with scale factor 3 centered at the origin.",
+   "parts": [
+    {
+     "prompt": "Find the image of C.",
+     "answer": "(12, 6)"
+    },
+    {
+     "prompt": "Find the length and width of the image.",
+     "answer": "12 and 6"
+    },
+    {
+     "prompt": "Is the image an enlargement or a reduction?",
+     "answer": "an enlargement"
+    },
+    {
+     "prompt": "Find the perimeter of the original and of the image.",
+     "answer": "12 and 36"
+    }
+   ],
+   "answer": "(a) (12, 6); (b) 12 and 6; (c) an enlargement; (d) 12 and 36",
+   "solutionSteps": [
+    "Multiply both coordinates by 3.",
+    "4 × 3 = 12 and 2 × 3 = 6.",
+    "The scale factor 3 is greater than 1.",
+    "2(4 + 2) = 12 and 2(12 + 6) = 36 (3 times as long)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s05-cp1-001",
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
@@ -9639,34 +10517,35 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A figure is dilated with scale factor 1/2. Is the image an enlargement, a reduction, or a congruent copy?",
-   "answer": "reduction",
+   "prompt": "A rectangle is 10 cm long and 7 cm wide. It is dilated with scale factor 2. What is the perimeter of the image?",
+   "answer": "68 cm",
    "options": [
     {
-     "text": "enlargement",
+     "text": "34 cm",
      "correct": false
     },
     {
-     "text": "reduction",
+     "text": "136 cm",
+     "correct": false
+    },
+    {
+     "text": "68 cm",
      "correct": true
     },
     {
-     "text": "congruent copy",
-     "correct": false
-    },
-    {
-     "text": "reflection",
+     "text": "140 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Scale factor greater than 1 → enlargement; between 0 and 1 → reduction; exactly 1 → congruent."
+    "Image sides: 20 cm and 14 cm.",
+    "Perimeter: 2(20 + 14) = 68 cm."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_enlarge). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_image_perimeter). Rewritten from a Support template (was s5_enlarge) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-cp1-004",
@@ -9748,34 +10627,35 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A figure is dilated with scale factor 2. Is the image an enlargement, a reduction, or a congruent copy?",
-   "answer": "enlargement",
+   "prompt": "Point P(-1, 1) is dilated with scale factor 3 centered at the origin, then translated 2 units down. Where does P end up?",
+   "answer": "(-3, 1)",
    "options": [
     {
-     "text": "enlargement",
+     "text": "(-3, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-5, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-3, 1)",
      "correct": true
     },
     {
-     "text": "reduction",
-     "correct": false
-    },
-    {
-     "text": "congruent copy",
-     "correct": false
-    },
-    {
-     "text": "reflection",
+     "text": "(-1, -1)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Scale factor greater than 1 → enlargement; between 0 and 1 → reduction; exactly 1 → congruent."
+    "Dilate: multiply both coordinates by 3: (-3, 3).",
+    "Move 2 units down: (-3, 1)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_enlarge). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_enlarge) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-cp1-008",
@@ -9857,34 +10737,35 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A figure is dilated with scale factor 3/2. Is the image an enlargement, a reduction, or a congruent copy?",
-   "answer": "enlargement",
+   "prompt": "Point P(-5, 2) is dilated with scale factor 2 centered at the origin, then translated 5 units down. Where does P end up?",
+   "answer": "(-10, -1)",
    "options": [
     {
-     "text": "enlargement",
+     "text": "(-10, 4)",
+     "correct": false
+    },
+    {
+     "text": "(-10, -1)",
      "correct": true
     },
     {
-     "text": "reduction",
+     "text": "(-15, 4)",
      "correct": false
     },
     {
-     "text": "congruent copy",
-     "correct": false
-    },
-    {
-     "text": "reflection",
+     "text": "(-6, -10)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Scale factor greater than 1 → enlargement; between 0 and 1 → reduction; exactly 1 → congruent."
+    "Dilate: multiply both coordinates by 2: (-10, 4).",
+    "Move 5 units down: (-10, -1)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_enlarge). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_enlarge) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-cp1-012",
@@ -9908,35 +10789,35 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(1, -3) is dilated with scale factor 2 centered at the origin. What are the coordinates of P′?",
-   "answer": "(2, -6)",
+   "prompt": "Point P(-3, 4) is dilated with scale factor 3 centered at the origin, then translated 1 units down. Where does P end up?",
+   "answer": "(-9, 11)",
    "options": [
     {
-     "text": "(2, -6)",
+     "text": "(-9, 12)",
+     "correct": false
+    },
+    {
+     "text": "(-9, 11)",
      "correct": true
     },
     {
-     "text": "(2, -3)",
+     "text": "(-10, 12)",
      "correct": false
     },
     {
-     "text": "(1/2, -3/2)",
-     "correct": false
-    },
-    {
-     "text": "(3, -1)",
+     "text": "(9, -9)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply each coordinate by 2.",
-    "P′(2, -6)."
+    "Dilate: multiply both coordinates by 3: (-9, 12).",
+    "Move 1 units down: (-9, 11)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-cp1-014",
@@ -10225,7 +11106,7 @@
   {
    "id": "pa8-cgs-s05-honors-001",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Point P(8, -6) is dilated with scale factor 3/2 centered at the origin. What are the coordinates of P′?",
    "answer": "(12, -9)",
@@ -10237,46 +11118,47 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s05-honors-002",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC with vertices A(-4, -4), B(-2, 6), C(4, -2) is dilated about the origin to A′B′C′ with vertices A′(-6, -6), B′(-3, 9), C′(6, -3). What is the scale factor?",
-   "answer": "3/2",
+   "prompt": "A rectangle is 10 cm long and 3 cm wide. It is dilated with scale factor 3. What is the perimeter of the image?",
+   "answer": "78 cm",
    "options": [
     {
-     "text": "3",
+     "text": "26 cm",
      "correct": false
     },
     {
-     "text": "2/3",
+     "text": "234 cm",
      "correct": false
     },
     {
-     "text": "5/2",
+     "text": "90 cm",
      "correct": false
     },
     {
-     "text": "3/2",
+     "text": "78 cm",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Divide an image coordinate by the matching original coordinate: -6 ÷ -4 = 3/2."
+    "Image sides: 30 cm and 9 cm.",
+    "Perimeter: 2(30 + 9) = 78 cm."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_scale_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_image_perimeter). Rewritten from a Support template (was s5_scale_factor) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-003",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "An angle of a triangle measures 55°. What does the matching angle measure after a dilation with scale factor 1/2?",
    "answer": "55°",
@@ -10288,7 +11170,7 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_measure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_measure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s05-honors-004",
@@ -10328,7 +11210,7 @@
   {
    "id": "pa8-cgs-s05-honors-005",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Point P(-15, -15) is dilated with scale factor 1/3 centered at the origin. What are the coordinates of P′?",
    "answer": "(-5, -5)",
@@ -10358,28 +11240,29 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s05-honors-006",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(6, 4), B(2, 4), C(-4, -4) is dilated about the origin to A′B′C′ with vertices A′(3, 2), B′(1, 2), C′(-2, -2). What is the scale factor?",
-   "answer": "1/2",
+   "prompt": "Point P(5, 1) is dilated with scale factor 2 centered at the origin, then translated 6 units down. Where does P end up?",
+   "answer": "(10, -4)",
    "solutionSteps": [
-    "Divide an image coordinate by the matching original coordinate: 3 ÷ 6 = 1/2."
+    "Dilate: multiply both coordinates by 2: (10, 2).",
+    "Move 6 units down: (10, -4)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_scale_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_scale_factor) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-007",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "An angle of a triangle measures 110°. What does the matching angle measure after a dilation with scale factor 3/2?",
    "answer": "110°",
@@ -10409,7 +11292,7 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_measure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_measure). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s05-honors-008",
@@ -10431,7 +11314,7 @@
   {
    "id": "pa8-cgs-s05-honors-009",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Point P(-6, 6) is dilated with scale factor 1/3 centered at the origin. What are the coordinates of P′?",
    "answer": "(-2, 2)",
@@ -10443,23 +11326,24 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s05-honors-010",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(-3, -1), B(-1, 0), C(-3, 3) is dilated about the origin to A′B′C′ with vertices A′(-9, -3), B′(-3, 0), C′(-9, 9). What is the scale factor?",
-   "answer": "3",
+   "prompt": "Point P(-1, -1) is dilated with scale factor 2 centered at the origin, then translated 4 units down. Where does P end up?",
+   "answer": "(-2, -6)",
    "solutionSteps": [
-    "Divide an image coordinate by the matching original coordinate: -9 ÷ -3 = 3."
+    "Dilate: multiply both coordinates by 2: (-2, -2).",
+    "Move 4 units down: (-2, -6)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_scale_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_scale_factor) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-011",
@@ -10516,71 +11400,72 @@
   {
    "id": "pa8-cgs-s05-honors-013",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-3, -3) is dilated with scale factor 3 centered at the origin. What are the coordinates of P′?",
-   "answer": "(-9, -9)",
+   "prompt": "Point P(-4, 5) is dilated with scale factor 2 centered at the origin, then translated 5 units down. Where does P end up?",
+   "answer": "(-8, 5)",
    "options": [
     {
-     "text": "(-1, -1)",
+     "text": "(-8, 10)",
      "correct": false
     },
     {
-     "text": "(-9, -9)",
+     "text": "(-13, 10)",
+     "correct": false
+    },
+    {
+     "text": "(0, -8)",
+     "correct": false
+    },
+    {
+     "text": "(-8, 5)",
      "correct": true
-    },
-    {
-     "text": "(-9, -3)",
-     "correct": false
-    },
-    {
-     "text": "(0, 0)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply each coordinate by 3.",
-    "P′(-9, -9)."
+    "Dilate: multiply both coordinates by 2: (-8, 10).",
+    "Move 5 units down: (-8, 5)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-014",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC with vertices A(0, 1), B(0, -3), C(2, 0) is dilated about the origin to A′B′C′ with vertices A′(0, 2), B′(0, -6), C′(4, 0). What is the scale factor?",
-   "answer": "2",
+   "prompt": "A rectangle is 9 cm long and 2 cm wide. It is dilated with scale factor 1/2. What is the perimeter of the image?",
+   "answer": "11 cm",
    "options": [
     {
-     "text": "1/2",
+     "text": "22 cm",
      "correct": false
     },
     {
-     "text": "3",
+     "text": "11/2 cm",
      "correct": false
     },
     {
-     "text": "2",
+     "text": "11 cm",
      "correct": true
     },
     {
-     "text": "4",
+     "text": "9 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide an image coordinate by the matching original coordinate: 2 ÷ 1 = 2."
+    "Image sides: 9/2 cm and 1 cm.",
+    "Perimeter: 2(9/2 + 1) = 11 cm."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_scale_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_image_perimeter). Rewritten from a Support template (was s5_scale_factor) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-015",
@@ -10637,35 +11522,36 @@
   {
    "id": "pa8-cgs-s05-honors-017",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(-2, -1) is dilated with scale factor 2 centered at the origin. What are the coordinates of P′?",
-   "answer": "(-4, -2)",
+   "prompt": "A rectangle is 4 cm long and 8 cm wide. It is dilated with scale factor 3/2. What is the perimeter of the image?",
+   "answer": "36 cm",
    "solutionSteps": [
-    "Multiply each coordinate by 2.",
-    "P′(-4, -2)."
+    "Image sides: 6 cm and 12 cm.",
+    "Perimeter: 2(6 + 12) = 36 cm."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_image_perimeter). Rewritten from a Support template (was s5_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-018",
    "skillId": "congruence-similarity-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC with vertices A(3, 3), B(-1, 3), C(-3, -1) is dilated about the origin to A′B′C′ with vertices A′(9, 9), B′(-3, 9), C′(-9, -3). What is the scale factor?",
-   "answer": "3",
+   "prompt": "Point P(-2, 1) is dilated with scale factor 3 centered at the origin, then translated 6 units down. Where does P end up?",
+   "answer": "(-6, -3)",
    "solutionSteps": [
-    "Divide an image coordinate by the matching original coordinate: 9 ÷ 3 = 3."
+    "Dilate: multiply both coordinates by 3: (-6, 3).",
+    "Move 6 units down: (-6, -3)."
    ],
    "standards": [
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_scale_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_dilate_then_translate). Rewritten from a Support template (was s5_scale_factor) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s05-honors-019",
@@ -10842,6 +11728,336 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h01",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 20 square units. It is dilated with scale factor 3. What is the area of the image?",
+   "answer": "180 square units",
+   "options": [
+    {
+     "text": "60 square units",
+     "correct": false
+    },
+    {
+     "text": "180 square units",
+     "correct": true
+    },
+    {
+     "text": "23 square units",
+     "correct": false
+    },
+    {
+     "text": "540 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 3, so areas are multiplied by (3)² = 9.",
+    "20 × 9 = 180 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h02",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-2, -3) is dilated with scale factor 2 centered at C(-3, 2). What are the coordinates of P′?",
+   "answer": "(-1, -8)",
+   "solutionSteps": [
+    "From C to P: (1, -5).",
+    "Multiply by 2: (2, -10); add to C: P′(-1, -8)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_center_not_origin). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h03",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 24 square units. It is dilated with scale factor 1/2. What is the area of the image?",
+   "answer": "6 square units",
+   "options": [
+    {
+     "text": "12 square units",
+     "correct": false
+    },
+    {
+     "text": "49/2 square units",
+     "correct": false
+    },
+    {
+     "text": "6 square units",
+     "correct": true
+    },
+    {
+     "text": "3 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 1/2, so areas are multiplied by (1/2)² = 1/4.",
+    "24 × 1/4 = 6 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h04",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(-1, 1) is dilated with scale factor 3 centered at C(3, 3). What are the coordinates of P′?",
+   "answer": "(-9, -3)",
+   "solutionSteps": [
+    "From C to P: (-4, -2).",
+    "Multiply by 3: (-12, -6); add to C: P′(-9, -3)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_center_not_origin). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h05",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 12 square units. It is dilated with scale factor 1/2. What is the area of the image?",
+   "answer": "3 square units",
+   "options": [
+    {
+     "text": "6 square units",
+     "correct": false
+    },
+    {
+     "text": "25/2 square units",
+     "correct": false
+    },
+    {
+     "text": "3/2 square units",
+     "correct": false
+    },
+    {
+     "text": "3 square units",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 1/2, so areas are multiplied by (1/2)² = 1/4.",
+    "12 × 1/4 = 3 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h06",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 8 square units. It is dilated with scale factor 3. What is the area of the image?",
+   "answer": "72 square units",
+   "options": [
+    {
+     "text": "24 square units",
+     "correct": false
+    },
+    {
+     "text": "72 square units",
+     "correct": true
+    },
+    {
+     "text": "11 square units",
+     "correct": false
+    },
+    {
+     "text": "216 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 3, so areas are multiplied by (3)² = 9.",
+    "8 × 9 = 72 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h07",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(4, 0) is dilated with scale factor 2 centered at C(-1, 2). What are the coordinates of P′?",
+   "answer": "(9, -2)",
+   "solutionSteps": [
+    "From C to P: (5, -2).",
+    "Multiply by 2: (10, -4); add to C: P′(9, -2)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_center_not_origin). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h08",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 8 square units. It is dilated with scale factor 2. What is the area of the image?",
+   "answer": "32 square units",
+   "options": [
+    {
+     "text": "16 square units",
+     "correct": false
+    },
+    {
+     "text": "32 square units",
+     "correct": true
+    },
+    {
+     "text": "10 square units",
+     "correct": false
+    },
+    {
+     "text": "64 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 2, so areas are multiplied by (2)² = 4.",
+    "8 × 4 = 32 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h09",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(2, 1) is dilated with scale factor 3 centered at C(1, 1). What are the coordinates of P′?",
+   "answer": "(4, 1)",
+   "solutionSteps": [
+    "From C to P: (1, 0).",
+    "Multiply by 3: (3, 0); add to C: P′(4, 1)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_center_not_origin). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h10",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 10 square units. It is dilated with scale factor 2. What is the area of the image?",
+   "answer": "40 square units",
+   "options": [
+    {
+     "text": "40 square units",
+     "correct": true
+    },
+    {
+     "text": "20 square units",
+     "correct": false
+    },
+    {
+     "text": "12 square units",
+     "correct": false
+    },
+    {
+     "text": "80 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 2, so areas are multiplied by (2)² = 4.",
+    "10 × 4 = 40 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h11",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Point P(2, -2) is dilated with scale factor 3 centered at C(-2, -3). What are the coordinates of P′?",
+   "answer": "(10, 0)",
+   "solutionSteps": [
+    "From C to P: (4, 1).",
+    "Multiply by 3: (12, 3); add to C: P′(10, 0)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_center_not_origin). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s05-honors-h12",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A triangle has area 24 square units. It is dilated with scale factor 3/2. What is the area of the image?",
+   "answer": "54 square units",
+   "options": [
+    {
+     "text": "36 square units",
+     "correct": false
+    },
+    {
+     "text": "54 square units",
+     "correct": true
+    },
+    {
+     "text": "51/2 square units",
+     "correct": false
+    },
+    {
+     "text": "81 square units",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Lengths are multiplied by 3/2, so areas are multiplied by (3/2)² = 9/4.",
+    "24 × 9/4 = 54 square units."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_area_scale). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s06-cp2-001",
@@ -11377,6 +12593,43 @@
     "8.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-cgs-s06-cp2-o01",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point A(2, 3) is reflected over the y-axis and then translated 4 units down.",
+   "parts": [
+    {
+     "prompt": "Find the image after the reflection.",
+     "answer": "(-2, 3)"
+    },
+    {
+     "prompt": "Find the final image.",
+     "answer": "(-2, -1)"
+    },
+    {
+     "prompt": "Do the steps in the other order. What is the final image?",
+     "answer": "(-2, -1)"
+    },
+    {
+     "prompt": "Is a figure moved by these two steps congruent to the original? Explain.",
+     "answer": "yes: both steps are rigid transformations"
+    }
+   ],
+   "answer": "(a) (-2, 3); (b) (-2, -1); (c) (-2, -1); (d) yes: both steps are rigid transformations",
+   "solutionSteps": [
+    "Over the y-axis: (x, y) → (-x, y).",
+    "Subtract 4 from y.",
+    "Translate: (2, -1). Reflect: (-2, -1).",
+    "Reflections and translations keep lengths and angles."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s06-cp1-001",
@@ -11979,7 +13232,7 @@
   {
    "id": "pa8-cgs-s06-honors-003",
    "skillId": "congruence-similarity-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which sequence maps triangle ABC onto triangle A′B′C′ (shown)?",
    "answer": "a reflection over the x-axis followed by a translation 2 units left and 2 units down",
@@ -12016,7 +13269,7 @@
     "8.G.A.2",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s06-honors-004",
@@ -12109,7 +13362,7 @@
   {
    "id": "pa8-cgs-s06-honors-007",
    "skillId": "congruence-similarity-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which sequence maps triangle ABC onto triangle A′B′C′ (shown)?",
    "answer": "a reflection over the y-axis followed by a translation 3 units right and 2 units down",
@@ -12146,7 +13399,7 @@
     "8.G.A.2",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s06-honors-008",
@@ -12203,7 +13456,7 @@
   {
    "id": "pa8-cgs-s06-honors-011",
    "skillId": "congruence-similarity-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which sequence maps triangle ABC onto triangle A′B′C′ (shown)?",
    "answer": "a reflection over the y-axis followed by a translation 4 units left and 1 unit up",
@@ -12240,7 +13493,7 @@
     "8.G.A.2",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_find_sequence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s06-honors-012",
@@ -12495,6 +13748,74 @@
     "8.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa8-cgs-s06-honors-h01",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A figure is reflected over the line x = -4 and then over the line x = 3. The result is a single translation. How many units right does every point move?",
+   "answer": "14",
+   "solutionSteps": [
+    "Two reflections over parallel lines make a translation of twice the distance between the lines.",
+    "2 × (3 - (-4)) = 14 units right."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_parallel_mirrors). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s06-honors-h02",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A figure is reflected over the line x = -4 and then over the line x = 0. The result is a single translation. How many units right does every point move?",
+   "answer": "8",
+   "solutionSteps": [
+    "Two reflections over parallel lines make a translation of twice the distance between the lines.",
+    "2 × (0 - (-4)) = 8 units right."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_parallel_mirrors). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s06-honors-h03",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A figure is reflected over the line x = -1 and then over the line x = 1. The result is a single translation. How many units right does every point move?",
+   "answer": "4",
+   "solutionSteps": [
+    "Two reflections over parallel lines make a translation of twice the distance between the lines.",
+    "2 × (1 - (-1)) = 4 units right."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_parallel_mirrors). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s06-honors-h04",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A figure is reflected over the line x = -4 and then over the line x = 1. The result is a single translation. How many units right does every point move?",
+   "answer": "10",
+   "solutionSteps": [
+    "Two reflections over parallel lines make a translation of twice the distance between the lines.",
+    "2 × (1 - (-4)) = 10 units right."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_parallel_mirrors). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s07-cp2-001",
@@ -13746,7 +15067,7 @@
   {
    "id": "pa8-cgs-s07-honors-001",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A right triangle has one acute angle of 53°. What is the other acute angle?",
    "answer": "37°",
@@ -13758,7 +15079,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-002",
@@ -13798,7 +15119,7 @@
   {
    "id": "pa8-cgs-s07-honors-003",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Two interior angles of a triangle measure 36° and 76°. What is the measure of the exterior angle at the third vertex?",
    "answer": "112°",
@@ -13810,7 +15131,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-004",
@@ -13849,7 +15170,7 @@
   {
    "id": "pa8-cgs-s07-honors-005",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A right triangle has one acute angle of 45°. What is the other acute angle?",
    "answer": "45°",
@@ -13861,7 +15182,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-006",
@@ -13901,7 +15222,7 @@
   {
    "id": "pa8-cgs-s07-honors-007",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "An exterior angle of a triangle measures 90°. One remote interior angle measures 32°. What is the other remote interior angle?",
    "answer": "58°",
@@ -13931,7 +15252,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-008",
@@ -13970,7 +15291,7 @@
   {
    "id": "pa8-cgs-s07-honors-009",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A right triangle has one acute angle of 65°. What is the other acute angle?",
    "answer": "25°",
@@ -14000,7 +15321,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-010",
@@ -14022,7 +15343,7 @@
   {
    "id": "pa8-cgs-s07-honors-011",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Two interior angles of a triangle measure 51° and 44°. What is the measure of the exterior angle at the third vertex?",
    "answer": "95°",
@@ -14034,7 +15355,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-012",
@@ -14073,7 +15394,7 @@
   {
    "id": "pa8-cgs-s07-honors-013",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A right triangle has one acute angle of 34°. What is the other acute angle?",
    "answer": "56°",
@@ -14103,7 +15424,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-014",
@@ -14125,7 +15446,7 @@
   {
    "id": "pa8-cgs-s07-honors-015",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Two interior angles of a triangle measure 69° and 50°. What is the measure of the exterior angle at the third vertex?",
    "answer": "119°",
@@ -14137,12 +15458,12 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-016",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A right triangle has one acute angle of 20°. What is the other acute angle?",
    "answer": "70°",
@@ -14154,7 +15475,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-017",
@@ -14176,7 +15497,7 @@
   {
    "id": "pa8-cgs-s07-honors-018",
    "skillId": "congruence-similarity-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Two interior angles of a triangle measure 41° and 77°. What is the measure of the exterior angle at the third vertex?",
    "answer": "118°",
@@ -14188,7 +15509,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s07-honors-019",
@@ -14306,6 +15627,166 @@
     "8.G.A.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h01",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 8 times the interior angle next to it. Find the exterior angle.",
+   "answer": "160°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 8x = 180.",
+    "x = 20, so the exterior angle is 8 × 20 = 160°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h02",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The angles of a triangle are in the ratio 2 : 6 : 7. What is the largest angle?",
+   "answer": "84°",
+   "solutionSteps": [
+    "2k + 6k + 7k = 180, so 15k = 180 and k = 12.",
+    "Largest angle: 7 × 12 = 84°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_angle_ratio). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h03",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 4 times the interior angle next to it. Find the exterior angle.",
+   "answer": "144°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 4x = 180.",
+    "x = 36, so the exterior angle is 4 × 36 = 144°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h04",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 3 times the interior angle next to it. Find the exterior angle.",
+   "answer": "135°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 3x = 180.",
+    "x = 45, so the exterior angle is 3 × 45 = 135°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h05",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 9 times the interior angle next to it. Find the exterior angle.",
+   "answer": "162°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 9x = 180.",
+    "x = 18, so the exterior angle is 9 × 18 = 162°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h06",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The angles of a triangle are in the ratio 3 : 5 : 7. What is the largest angle?",
+   "answer": "84°",
+   "solutionSteps": [
+    "3k + 5k + 7k = 180, so 15k = 180 and k = 12.",
+    "Largest angle: 7 × 12 = 84°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_angle_ratio). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h07",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The angles of a triangle are in the ratio 1 : 5 : 6. What is the largest angle?",
+   "answer": "90°",
+   "solutionSteps": [
+    "k + 5k + 6k = 180, so 12k = 180 and k = 15.",
+    "Largest angle: 6 × 15 = 90°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_angle_ratio). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h08",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 11 times the interior angle next to it. Find the exterior angle.",
+   "answer": "165°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 11x = 180.",
+    "x = 15, so the exterior angle is 11 × 15 = 165°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h09",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The angles of a triangle are in the ratio 1 : 2 : 6. What is the largest angle?",
+   "answer": "120°",
+   "solutionSteps": [
+    "k + 2k + 6k = 180, so 9k = 180 and k = 20.",
+    "Largest angle: 6 × 20 = 120°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_angle_ratio). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s07-honors-h10",
+   "skillId": "congruence-similarity-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exterior angle of a triangle is 5 times the interior angle next to it. Find the exterior angle.",
+   "answer": "150°",
+   "solutionSteps": [
+    "The exterior and adjacent interior angles form a linear pair: x + 5x = 180.",
+    "x = 30, so the exterior angle is 5 × 30 = 150°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exterior_multiple). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp2-001",
@@ -14951,53 +16432,52 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 63° and 73°. Triangle 2 has angles of 63° and 79°. Are the triangles similar? Answer yes or no.",
-   "answer": "no",
+   "prompt": "Triangle ABC has sides 5, 12 and 13. A similar triangle DEF has shortest side 15. How long is the longest side of triangle DEF?",
+   "answer": "39",
    "solutionSteps": [
-    "Find each third angle: 44° and 38°.",
-    "The angle sets do not match, so they are not similar."
+    "Scale factor: 15 ÷ 5 = 3.",
+    "Longest side: 13 × 3 = 39."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-003",
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A 6.5-foot person casts a 3-foot shadow. At the same time, a building casts a 12-foot shadow. How tall is the building?",
-   "answer": "26 feet",
+   "prompt": "Triangle ABC has sides 6, 8 and 10. A similar triangle DEF has shortest side 9. How long is the longest side of triangle DEF?",
+   "answer": "15",
    "options": [
     {
-     "text": "13 feet",
+     "text": "13",
      "correct": false
     },
     {
-     "text": "12 feet",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "15.5 feet",
-     "correct": false
-    },
-    {
-     "text": "26 feet",
+     "text": "15",
      "correct": true
+    },
+    {
+     "text": "16",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The sun's rays make similar right triangles (AA).",
-    "6.5/3 = h/12, so h = 6.5 × 4 = 26.",
-    "So the answer is 26 feet."
+    "Scale factor: 9 ÷ 6 = 3/2.",
+    "Longest side: 10 × 3/2 = 15."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_shadow). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_shadow) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-004",
@@ -15082,35 +16562,34 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 58° and 40°. Triangle 2 has angles of 58° and 46°. Are the triangles similar? Answer yes or no.",
-   "answer": "no",
+   "prompt": "Triangle ABC has sides 6, 8 and 10. A similar triangle DEF has shortest side 15. How long is the longest side of triangle DEF?",
+   "answer": "25",
    "solutionSteps": [
-    "Find each third angle: 82° and 76°.",
-    "The angle sets do not match, so they are not similar."
+    "Scale factor: 15 ÷ 6 = 5/2.",
+    "Longest side: 10 × 5/2 = 25."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-007",
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A 7.5-foot person casts a 7-foot shadow. At the same time, a tree casts a 63-foot shadow. How tall is the tree?",
-   "answer": "67.5 feet",
+   "prompt": "Triangle ABC has sides 7, 24 and 25. A similar triangle DEF has shortest side 21. How long is the longest side of triangle DEF?",
+   "answer": "75",
    "solutionSteps": [
-    "The sun's rays make similar right triangles (AA).",
-    "7.5/7 = h/63, so h = 7.5 × 9 = 67.5.",
-    "So the answer is 67.5 feet."
+    "Scale factor: 21 ÷ 7 = 3.",
+    "Longest side: 25 × 3 = 75."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_shadow). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_shadow) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-008",
@@ -15177,36 +16656,34 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 33° and 66°. Triangle 2 has angles of 81° and 33°. Are the triangles similar? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Triangle ABC has sides 5, 12 and 13. A similar triangle DEF has shortest side 10. How long is the longest side of triangle DEF?",
+   "answer": "26",
    "solutionSteps": [
-    "Find each third angle: 81° and 66°.",
-    "Triangles with two pairs of congruent angles are similar (AA).",
-    "So the answer is yes."
+    "Scale factor: 10 ÷ 5 = 2.",
+    "Longest side: 13 × 2 = 26."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-011",
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A 6-foot person casts a 6-foot shadow. At the same time, a flagpole casts a 24-foot shadow. How tall is the flagpole?",
-   "answer": "24 feet",
+   "prompt": "Triangle ABC has sides 9, 12 and 15. A similar triangle DEF has shortest side 27. How long is the longest side of triangle DEF?",
+   "answer": "45",
    "solutionSteps": [
-    "The sun's rays make similar right triangles (AA).",
-    "6/6 = h/24, so h = 6 × 4 = 24.",
-    "So the answer is 24 feet."
+    "Scale factor: 27 ÷ 9 = 3.",
+    "Longest side: 15 × 3 = 45."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_shadow). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_shadow) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-012",
@@ -15273,17 +16750,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 32° and 52°. Triangle 2 has angles of 32° and 62°. Are the triangles similar? Answer yes or no.",
-   "answer": "no",
+   "prompt": "Triangle ABC has sides 6, 8 and 10. A similar triangle DEF has shortest side 18. How long is the longest side of triangle DEF?",
+   "answer": "30",
    "solutionSteps": [
-    "Find each third angle: 96° and 86°.",
-    "The angle sets do not match, so they are not similar."
+    "Scale factor: 18 ÷ 6 = 3.",
+    "Longest side: 10 × 3 = 30."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-015",
@@ -15404,18 +16881,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 62° and 67°. Triangle 2 has angles of 51° and 62°. Are the triangles similar? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Triangle ABC has sides 3, 4 and 5. A similar triangle DEF has shortest side 9. How long is the longest side of triangle DEF?",
+   "answer": "15",
    "solutionSteps": [
-    "Find each third angle: 51° and 67°.",
-    "Triangles with two pairs of congruent angles are similar (AA).",
-    "So the answer is yes."
+    "Scale factor: 9 ÷ 3 = 3.",
+    "Longest side: 5 × 3 = 15."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-cp1-019",
@@ -15561,18 +17037,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 35° and 55°. Triangle 2 has angles of 90° and 35°. Are the triangles similar? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Triangle ABC has sides 6, 8 and 10. A similar triangle DEF has shortest side 12. How long is the longest side of triangle DEF?",
+   "answer": "20",
    "solutionSteps": [
-    "Find each third angle: 90° and 55°.",
-    "Triangles with two pairs of congruent angles are similar (AA).",
-    "So the answer is yes."
+    "Scale factor: 12 ÷ 6 = 2.",
+    "Longest side: 10 × 2 = 20."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-honors-003",
@@ -15711,18 +17186,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 43° and 39°. Triangle 2 has angles of 98° and 43°. Are the triangles similar? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Triangle ABC has sides 8, 15 and 17. A similar triangle DEF has shortest side 24. How long is the longest side of triangle DEF?",
+   "answer": "51",
    "solutionSteps": [
-    "Find each third angle: 98° and 39°.",
-    "Triangles with two pairs of congruent angles are similar (AA).",
-    "So the answer is yes."
+    "Scale factor: 24 ÷ 8 = 3.",
+    "Longest side: 17 × 3 = 51."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-honors-008",
@@ -15843,17 +17317,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 73° and 67°. Triangle 2 has angles of 73° and 73°. Are the triangles similar? Answer yes or no.",
-   "answer": "no",
+   "prompt": "Triangle ABC has sides 9, 12 and 15. A similar triangle DEF has shortest side 18. How long is the longest side of triangle DEF?",
+   "answer": "30",
    "solutionSteps": [
-    "Find each third angle: 40° and 34°.",
-    "The angle sets do not match, so they are not similar."
+    "Scale factor: 18 ÷ 9 = 2.",
+    "Longest side: 15 × 2 = 30."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-honors-013",
@@ -15974,18 +17448,17 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle 1 has angles of 46° and 63°. Triangle 2 has angles of 71° and 46°. Are the triangles similar? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "Triangle ABC has sides 7, 24 and 25. A similar triangle DEF has shortest side 14. How long is the longest side of triangle DEF?",
+   "answer": "50",
    "solutionSteps": [
-    "Find each third angle: 71° and 63°.",
-    "Triangles with two pairs of congruent angles are similar (AA).",
-    "So the answer is yes."
+    "Scale factor: 14 ÷ 7 = 2.",
+    "Longest side: 25 × 2 = 50."
    ],
    "standards": [
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_aa). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_similar_two_sides). Rewritten from a Support template (was s8_aa) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-cgs-s08-honors-018",
@@ -17622,7 +19095,7 @@
   {
    "id": "pa8-cgs-s09-honors-001",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In the figure, lines m and n are parallel and t is a transversal. ∠2 measures 52°. What is the measure of ∠7?",
    "answer": "52°",
@@ -17641,12 +19114,12 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-002",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "In the figure (m ∥ n), how are ∠1 and ∠8 related?",
    "answer": "alternate exterior angles",
@@ -17682,7 +19155,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_relationship). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_relationship). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-003",
@@ -17737,7 +19210,7 @@
   {
    "id": "pa8-cgs-s09-honors-005",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "In the figure, lines m and n are parallel and t is a transversal. ∠2 measures 58°. What is the measure of ∠3?",
    "answer": "58°",
@@ -17774,12 +19247,12 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-006",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "In the figure (m ∥ n), how are ∠5 and ∠8 related?",
    "answer": "vertical angles",
@@ -17815,7 +19288,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_relationship). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_relationship). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-007",
@@ -17870,7 +19343,7 @@
   {
    "id": "pa8-cgs-s09-honors-009",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In the figure, lines m and n are parallel and t is a transversal. ∠1 measures 145°. What is the measure of ∠4?",
    "answer": "145°",
@@ -17889,7 +19362,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-010",
@@ -18050,7 +19523,7 @@
   {
    "id": "pa8-cgs-s09-honors-015",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Lines m and n are parallel. ∠4 = (5x + 19)° and ∠5 = (2x + 79)°. Find x.",
    "answer": "x = 20",
@@ -18061,7 +19534,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_algebra). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_algebra). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-016",
@@ -18082,7 +19555,7 @@
   {
    "id": "pa8-cgs-s09-honors-017",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In the figure, lines m and n are parallel and t is a transversal. ∠3 measures 79°. What is the measure of ∠6?",
    "answer": "79°",
@@ -18101,12 +19574,12 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_find_angle). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-018",
    "skillId": "congruence-similarity-skill-09",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Lines m and n are parallel. ∠4 = (3x + 120)° and ∠5 = (4x + 114)°. Find x.",
    "answer": "x = 6",
@@ -18117,7 +19590,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_algebra). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_algebra). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-cgs-s09-honors-019",
@@ -18248,6 +19721,204 @@
     "8.G.A.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: s9_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h01",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (2x + 19)° and ∠8 = (5x - 62)°. Find ∠2.",
+   "answer": "107°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 27.",
+    "∠1 = 73°, and ∠2 forms a linear pair with ∠1: 180 - 73 = 107°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h02",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (2x + 20)° and (x + 115)°. Find the larger angle.",
+   "answer": "130°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 2x + 20 + x + 115 = 180.",
+    "3x + 135 = 180, so x = 15.",
+    "The angles are 50° and 130°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h03",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (2x + 25)° and ∠8 = (4x - 39)°. Find ∠2.",
+   "answer": "91°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 32.",
+    "∠1 = 89°, and ∠2 forms a linear pair with ∠1: 180 - 89 = 91°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h04",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (3x + 10)° and (2x + 80)°. Find the larger angle.",
+   "answer": "116°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 3x + 10 + 2x + 80 = 180.",
+    "5x + 90 = 180, so x = 18.",
+    "The angles are 64° and 116°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h05",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (2x + 19)° and ∠8 = (4x - 49)°. Find ∠2.",
+   "answer": "93°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 34.",
+    "∠1 = 87°, and ∠2 forms a linear pair with ∠1: 180 - 87 = 93°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h06",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (4x + 7)° and (2x + 35)°. Find the larger angle.",
+   "answer": "99°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 4x + 7 + 2x + 35 = 180.",
+    "6x + 42 = 180, so x = 23.",
+    "The angles are 99° and 81°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h07",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (3x + 23)° and ∠8 = (5x - 37)°. Find ∠2.",
+   "answer": "67°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 30.",
+    "∠1 = 113°, and ∠2 forms a linear pair with ∠1: 180 - 113 = 67°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h08",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (3x + 4)° and (2x + 56)°. Find the larger angle.",
+   "answer": "104°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 3x + 4 + 2x + 56 = 180.",
+    "5x + 60 = 180, so x = 24.",
+    "The angles are 76° and 104°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h09",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (3x + 9)° and ∠8 = (5x - 23)°. Find ∠2.",
+   "answer": "123°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 16.",
+    "∠1 = 57°, and ∠2 forms a linear pair with ∠1: 180 - 57 = 123°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h10",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (4x + 2)° and (3x + 80)°. Find the larger angle.",
+   "answer": "122°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 4x + 2 + 3x + 80 = 180.",
+    "7x + 82 = 180, so x = 14.",
+    "The angles are 58° and 122°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h11",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel (angles numbered as usual: ∠1 to ∠4 at m, ∠5 to ∠8 at n, upper left, upper right, lower left, lower right). ∠1 = (3x + 13)° and ∠8 = (4x - 7)°. Find ∠2.",
+   "answer": "107°",
+   "solutionSteps": [
+    "∠1 and ∠8 are alternate exterior angles, so they are equal: x = 20.",
+    "∠1 = 73°, and ∠2 forms a linear pair with ∠1: 180 - 73 = 107°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_alternate_exterior_pair). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-cgs-s09-honors-h12",
+   "skillId": "congruence-similarity-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lines m and n are parallel. Same-side interior angles measure (2x - 4)° and (x + 151)°. Find the larger angle.",
+   "answer": "162°",
+   "solutionSteps": [
+    "Same-side interior angles are supplementary: 2x - 4 + x + 151 = 180.",
+    "3x + 147 = 180, so x = 11.",
+    "The angles are 18° and 162°."
+   ],
+   "standards": [
+    "8.G.A.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_same_side_find). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }
