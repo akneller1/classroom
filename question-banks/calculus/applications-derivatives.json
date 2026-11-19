@@ -16052,6 +16052,336 @@
    }
   },
   {
+   "id": "cal-app-s02-cp2-i001",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 3 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(1, -2) and (-1, 2)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = -2x.",
+    "Substitute into the curve: x² + x(-2x) + (-2x)² = 3x² = 3, so x = ±1.",
+    "Points: (1, -2) and (-1, 2). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp2-i002",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 12 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(2, -4) and (-2, 4)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = -2x.",
+    "Substitute into the curve: x² + x(-2x) + (-2x)² = 3x² = 12, so x = ±2.",
+    "Points: (2, -4) and (-2, 4). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp2-i003",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 27 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(-6, 3) and (6, -3)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = -2y.",
+    "Substitute into the curve: (-2y)² + (-2y)y + y² = 3y² = 27, so y = ±3.",
+    "Points: (-6, 3) and (6, -3). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp2-i004",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 48 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(-8, 4) and (8, -4)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = -2y.",
+    "Substitute into the curve: (-2y)² + (-2y)y + y² = 3y² = 48, so y = ±4.",
+    "Points: (-8, 4) and (8, -4). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp2-i005",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + y² = 25 passes through (3, 4). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = -3/4, d²y/dx² = -25/64; decreasing, concave down",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 2y·y′ = 0, so y′ = -x/y.",
+    "At (3, 4): y′ = -3/4.",
+    "Differentiate y′ again and substitute y′ and x² + y² = 25: y″ = -25/y³.",
+    "At (3, 4): y″ = -25/64.",
+    "y′ < 0, so y is decreasing; y″ < 0, so the curve is concave down there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp2-i006",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The curve x² + y² = 100 passes through (-6, 8). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = 3/4, d²y/dx² = -25/128; increasing, concave down",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 2y·y′ = 0, so y′ = -x/y.",
+    "At (-6, 8): y′ = 3/4.",
+    "Differentiate y′ again and substitute y′ and x² + y² = 100: y″ = -100/y³.",
+    "At (-6, 8): y″ = -25/128.",
+    "y′ > 0, so y is increasing; y″ < 0, so the curve is concave down there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i001",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 75 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(5, -10) and (-5, 10)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = -2x.",
+    "Substitute into the curve: x² + x(-2x) + (-2x)² = 3x² = 75, so x = ±5.",
+    "Points: (5, -10) and (-5, 10). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i002",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 108 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(6, -12) and (-6, 12)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = -2x.",
+    "Substitute into the curve: x² + x(-2x) + (-2x)² = 3x² = 108, so x = ±6.",
+    "Points: (6, -12) and (-6, 12). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i003",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 147 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(-14, 7) and (14, -7)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = -2y.",
+    "Substitute into the curve: (-2y)² + (-2y)y + y² = 3y² = 147, so y = ±7.",
+    "Points: (-14, 7) and (14, -7). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i004",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + xy + y² = 192 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(-16, 8) and (16, -8)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + (y + x·y′) + 2y·y′ = 0, so y′ = -(2x + y)/(x + 2y).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = -2y.",
+    "Substitute into the curve: (-2y)² + (-2y)y + y² = 3y² = 192, so y = ±8.",
+    "Points: (-16, 8) and (16, -8). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i005",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + y² = 169 passes through (5, -12). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = 5/12, d²y/dx² = 169/1728; increasing, concave up",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 2y·y′ = 0, so y′ = -x/y.",
+    "At (5, -12): y′ = 5/12.",
+    "Differentiate y′ again and substitute y′ and x² + y² = 169: y″ = -169/y³.",
+    "At (5, -12): y″ = 169/1728.",
+    "y′ > 0, so y is increasing; y″ > 0, so the curve is concave up there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-cp1-i006",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The curve x² + y² = 289 passes through (-8, -15). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = -8/15, d²y/dx² = 289/3375; decreasing, concave up",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 2y·y′ = 0, so y′ = -x/y.",
+    "At (-8, -15): y′ = -8/15.",
+    "Differentiate y′ again and substitute y′ and x² + y² = 289: y″ = -289/y³.",
+    "At (-8, -15): y″ = 289/3375.",
+    "y′ < 0, so y is decreasing; y″ > 0, so the curve is concave up there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i001",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² - xy + y² = 12 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(2, 4) and (-2, -4)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x - (y + x·y′) + 2y·y′ = 0, so y′ = -(2x - y)/(2y - x).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = 2x.",
+    "Substitute into the curve: x² - x(2x) + (2x)² = 3x² = 12, so x = ±2.",
+    "Points: (2, 4) and (-2, -4). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i002",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² - xy + y² = 27 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is horizontal.",
+   "answer": "(3, 6) and (-3, -6)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x - (y + x·y′) + 2y·y′ = 0, so y′ = -(2x - y)/(2y - x).",
+    "A horizontal tangent needs the numerator to be 0 while the denominator is not: y = 2x.",
+    "Substitute into the curve: x² - x(2x) + (2x)² = 3x² = 27, so x = ±3.",
+    "Points: (3, 6) and (-3, -6). At each point the denominator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_h). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i003",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² - xy + y² = 48 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(8, 4) and (-8, -4)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x - (y + x·y′) + 2y·y′ = 0, so y′ = -(2x - y)/(2y - x).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = 2y.",
+    "Substitute into the curve: (2y)² - (2y)y + y² = 3y² = 48, so y = ±4.",
+    "Points: (8, 4) and (-8, -4). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i004",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² - xy + y² = 75 defines y implicitly as a relation in x. Find every point on the curve where the tangent line is vertical.",
+   "answer": "(10, 5) and (-10, -5)",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x - (y + x·y′) + 2y·y′ = 0, so y′ = -(2x - y)/(2y - x).",
+    "A vertical tangent needs the denominator to be 0 while the numerator is not: x = 2y.",
+    "Substitute into the curve: (2y)² - (2y)y + y² = 3y² = 75, so y = ±5.",
+    "Points: (10, 5) and (-10, -5). At each point the numerator of y′ is not 0."
+   ],
+   "standards": [
+    "AP FUN-4.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_v). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i005",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² + 4y² = 8 passes through (2, 1). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = -1/2, d²y/dx² = -1/2; decreasing, concave down",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 8y·y′ = 0, so y′ = -x/(4y).",
+    "At (2, 1): y′ = -1/2.",
+    "Differentiate y′ again and substitute y′ and x² + 4y² = 8: y″ = -1/(2y³).",
+    "At (2, 1): y″ = -1/2.",
+    "y′ < 0, so y is decreasing; y″ < 0, so the curve is concave down there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
+   "id": "cal-app-s02-honors-i006",
+   "skillId": "applications-derivatives-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The curve x² + 4y² = 20 passes through (4, -1). Find dy/dx and d²y/dx² at that point, then say whether y is increasing or decreasing and whether the curve is concave up or concave down there.",
+   "answer": "dy/dx = 1, d²y/dx² = 5/4; increasing, concave up",
+   "solutionSteps": [
+    "Differentiate implicitly: 2x + 8y·y′ = 0, so y′ = -x/(4y).",
+    "At (4, -1): y′ = 1.",
+    "Differentiate y′ again and substitute y′ and x² + 4y² = 20: y″ = -5/(4y³).",
+    "At (4, -1): y″ = 5/4.",
+    "y′ > 0, so y is increasing; y″ > 0, so the curve is concave up there."
+   ],
+   "standards": [
+    "AP FUN-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_impl_b). Calculus audit 2026-11-18 follow-up (FUN-4.D/E had no practice); answer computed with exact arithmetic in tools/calculus-audit-20261118/implicit_behavior.py."
+  },
+  {
    "id": "cal-app-s03-cp2-g001",
    "skillId": "applications-derivatives-skill-03",
    "level": "cp2",

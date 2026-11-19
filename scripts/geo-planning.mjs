@@ -227,7 +227,7 @@ ${C.ap ? `<p>The year is built around the AP Calculus AB exam in May: new conten
   // standards coverage
   const bySkill = [];
   for (const [set, skills] of Object.entries(stdSkills)) if (C.sets.test(set)) for (const [sk, codes] of Object.entries(skills)) bySkill.push({ key: set + "/" + sk, codes });
-  h += `<h2 id="standards">Standards coverage</h2>\n<p>Each ${source} is tagged with the standards it practices. Standards marked (+) are for advanced courses.</p>\n<table><thead><tr><th>Standard</th><th>What it asks</th><th>Skills that practice it</th></tr></thead><tbody>\n`;
+  h += `<h2 id="standards">Standards coverage</h2>\n<p>Each ${source} is tagged with the standards it practices.${ALL.some(([, plus]) => plus) ? " Standards marked (+) are for advanced courses." : ""}${C.ap ? " Learning objectives are listed in the order the AP Course and Exam Description teaches them." : ""}</p>\n<table><thead><tr><th>Standard</th><th>What it asks</th><th>Skills that practice it</th></tr></thead><tbody>\n`;
   let gaps = 0;
   for (const [code, plus] of ALL) {
     const sk = bySkill.filter((s) => s.codes.some((x) => x === code || (x.indexOf(code) === 0 && /^[a-e]$/.test(x.slice(code.length))))).map((s) => (names[s.key] ? esc(names[s.key].name) : esc(s.key.split("/")[1])));

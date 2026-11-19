@@ -58,7 +58,15 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  }
  async function steal(course,unit){
   await open(course,unit,'connect-four');await page.locator('#tGo').click();
-  let s=await page.evaluate(()=>window.MKGAMES._state());const correct=s.it.options.findIndex(o=>o.ok),wrong=s.it.options.findIndex(o=>!o.ok);const original=s.it.id;
+  let s=await page.evaluate(()=>window.MKGAMES._state());
+  // The deck mixes typed-answer and multiple-choice questions; the steal scenario needs a correct and a wrong choice.
+  for(let attempt=0;attempt<30&&!((s.it.options||[]).some(o=>o.ok)&&(s.it.options||[]).some(o=>!o.ok));attempt++){
+   const previous=s.it.id;await page.locator('#c4Skip').click();
+   await page.waitForFunction(id=>window.MKGAMES._state().it.id!==id,previous);
+   s=await page.evaluate(()=>window.MKGAMES._state());
+  }
+  assert((s.it.options||[]).some(o=>o.ok)&&(s.it.options||[]).some(o=>!o.ok),'Steal scenario needs a multiple-choice question');
+  const correct=s.it.options.findIndex(o=>o.ok),wrong=s.it.options.findIndex(o=>!o.ok);const original=s.it.id;
   await page.locator('[data-opt="'+wrong+'"]').click();await page.locator('#c4Lock').click();assert.ok(await page.locator('#c4Steal').isVisible());assert.equal(await page.locator('.gm-sol').count(),0,'Solution must remain hidden before the steal');
   await page.locator('#c4Steal').click();assert.equal(await page.locator('[data-opt="'+wrong+'"]').isDisabled(),true);assert.equal(await page.evaluate(()=>window.MKGAMES._state().it.id),original);
   await page.locator('[data-opt="'+correct+'"]').click();await page.locator('#c4Lock').click();await page.locator('.c4-hole[data-col="1"]').first().click();
