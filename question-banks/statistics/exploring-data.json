@@ -236,7 +236,7 @@
    "prompt": "Minutes spent on homework last night (11 students): 15, 20, 25, 30, 30, 35, 40, 45, 50, 60, 90. Find the interquartile range (IQR). Use the medians of the lower and upper halves as the quartiles.",
    "answer": "25.00",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 25 and Q3 = 50, so IQR = Q3 − Q1 = 25 = 25.00."
    ],
    "standards": [
@@ -261,7 +261,7 @@
      "correct": true
     }
    ],
-   "hint": "First step: standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k²."
+   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
   },
   {
    "id": "stat-u1-t1-009",
@@ -326,7 +326,7 @@
    "prompt": "Pulse rates (beats per minute) of 14 students: 58, 62, 64, 66, 68, 70, 71, 73, 75, 76, 80, 84, 88, 102. Find the interquartile range (IQR). Use the medians of the lower and upper halves as the quartiles.",
    "answer": "14.00",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 66 and Q3 = 80, so IQR = Q3 − Q1 = 14 = 14.00."
    ],
    "standards": [
@@ -414,7 +414,7 @@
    "prompt": "Commute distances (miles) of 13 teachers: 1.2, 2.5, 3.1, 3.8, 4.4, 5, 5.6, 6.3, 7.9, 8.4, 9, 12.7, 24.5. Find the interquartile range (IQR). Use the medians of the lower and upper halves as the quartiles.",
    "answer": "5.25",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 3.45 and Q3 = 8.7, so IQR = Q3 − Q1 = 5.25."
    ],
    "standards": [
@@ -588,7 +588,7 @@
    "prompt": "Ms. Lee recorded the lengths of 30 fish in inches: mean 14 in, standard deviation 2.5 in, median 13.5 in, IQR 3 in. She converts every length to centimeters (1 in = 2.54 cm). What is the standard deviation of the new values?",
    "answer": "6.35",
    "solutionSteps": [
-    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "Adding a constant does not change spread; multiplying by 2.54 multiplies the spread by 2.54: 2.54(2.5) = 6.35."
    ],
    "standards": [
@@ -613,7 +613,7 @@
      "correct": false
     }
    ],
-   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
+   "hint": "First step: linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD)."
   },
   {
    "id": "stat-u1-t1-020",
@@ -1902,7 +1902,7 @@
    "prompt": "Scores on a state exam are approximately Normal with mean 310 and standard deviation 25. What score is needed to be in the top 10%? Round to one decimal place.",
    "answer": "342.0",
    "solutionSteps": [
-    "Large Counts: np ≥ 10 and n(1 − p) ≥ 10.",
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
     "The value has 90% of the distribution to its left. z ≈ 1.282 (Table A: 1.28). x = 310 + (1.282)(25) ≈ 342.0."
    ],
    "standards": [
@@ -1936,8 +1936,8 @@
    "prompt": "Women's shoe lengths are approximately Normal with mean 24.5 cm and standard deviation 1.2 cm. Find the 25th percentile. Round to one decimal place.",
    "answer": "23.7",
    "solutionSteps": [
-    "Large Counts: np ≥ 10 and n(1 − p) ≥ 10.",
-    "The value has 25% of the distribution to its left. z ≈ -0.674 (Table A: -0.67). x = 24.5 + (-0.674)(1.2) ≈ 23.7."
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
+    "The value has 25% of the distribution to its left. z ≈ -0.674 (Table A: -0.67). x = 24.5 − 0.674(1.2) ≈ 23.7."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -1970,8 +1970,8 @@
    "prompt": "A company wants only the fastest 5% of KenKen solvers for a puzzle team. Times are approximately Normal with mean 75 s and standard deviation 20 s. What is the slowest time that still makes the team? Round to one decimal place.",
    "answer": "42.1",
    "solutionSteps": [
-    "Large Counts: np ≥ 10 and n(1 − p) ≥ 10.",
-    "The value has 5% of the distribution to its left. z ≈ -1.645 (Table A: -1.64). x = 75 + (-1.645)(20) ≈ 42.1."
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
+    "The value has 5% of the distribution to its left. z ≈ -1.645 (Table A: -1.64). x = 75 − 1.645(20) ≈ 42.1."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -2139,7 +2139,7 @@
    "prompt": "A survey asked 4,784 randomly selected young adults (ages 19–25), “What do you think are the chances you will have much more than a middle-class income at age 30?” The two-way table summarizes the responses. What proportion of all young adults in the survey said “Almost certain”? Round to three decimal places.\nTable columns (in order): Almost no chance; Some chance; A 50-50 chance; A good chance; Almost certain.\nFemale: 104, 398, 712, 650, 471.\nMale: 91, 301, 735, 742, 580.",
    "answer": "0.220",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Proportion = (count in the category) ÷ (total).",
     "Marginal total for “Almost certain” is 1051; 1051/4784 ≈ 0.220."
    ],
    "standards": [
@@ -2164,7 +2164,7 @@
      "correct": true
     }
    ],
-   "hint": "First step: use the counts in the table: probability = (count in the event) ÷ (count in the group considered)."
+   "hint": "First step: proportion = (count in the category) ÷ (total)."
   },
   {
    "id": "stat-u1-t2-019",
@@ -2174,7 +2174,7 @@
    "prompt": "A survey asked 4,784 randomly selected young adults (ages 19–25), “What do you think are the chances you will have much more than a middle-class income at age 30?” The two-way table summarizes the responses. What proportion of all young adults surveyed were males who said “A good chance”? Round to three decimal places.\nTable columns (in order): Almost no chance; Some chance; A 50-50 chance; A good chance; Almost certain.\nFemale: 104, 398, 712, 650, 471.\nMale: 91, 301, 735, 742, 580.",
    "answer": "0.155",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Proportion = (count in the category) ÷ (total).",
     "Joint frequency 742 out of the grand total 4784: ≈ 0.155."
    ],
    "standards": [
@@ -2199,7 +2199,7 @@
      "correct": false
     }
    ],
-   "hint": "First step: use the counts in the table: probability = (count in the event) ÷ (count in the group considered)."
+   "hint": "First step: proportion = (count in the category) ÷ (total)."
   },
   {
    "id": "stat-u1-t2-020",
@@ -2209,7 +2209,7 @@
    "prompt": "A survey asked 4,784 randomly selected young adults (ages 19–25), “What do you think are the chances you will have much more than a middle-class income at age 30?” The two-way table summarizes the responses. Among the females, what proportion said “Almost certain”? Round to three decimal places.\nTable columns (in order): Almost no chance; Some chance; A 50-50 chance; A good chance; Almost certain.\nFemale: 104, 398, 712, 650, 471.\nMale: 91, 301, 735, 742, 580.",
    "answer": "0.202",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Proportion = (count in the category) ÷ (total).",
     "Condition on females (row total 2335): 471/2335 ≈ 0.202."
    ],
    "standards": [
@@ -2243,7 +2243,7 @@
    "prompt": "A survey asked 4,784 randomly selected young adults (ages 19–25), “What do you think are the chances you will have much more than a middle-class income at age 30?” The two-way table summarizes the responses. Among those who said “Almost certain,” what proportion were male? Round to three decimal places.\nTable columns (in order): Almost no chance; Some chance; A 50-50 chance; A good chance; Almost certain.\nFemale: 104, 398, 712, 650, 471.\nMale: 91, 301, 735, 742, 580.",
    "answer": "0.552",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Proportion = (count in the category) ÷ (total).",
     "Condition on the column “Almost certain” (total 1051): 580/1051 ≈ 0.552."
    ],
    "standards": [
@@ -2277,7 +2277,7 @@
    "prompt": "A survey asked 4,784 randomly selected young adults (ages 19–25), “What do you think are the chances you will have much more than a middle-class income at age 30?” The two-way table summarizes the responses. Among the males, what proportion said they had “A good chance” or were “Almost certain”? Round to three decimal places.\nTable columns (in order): Almost no chance; Some chance; A 50-50 chance; A good chance; Almost certain.\nFemale: 104, 398, 712, 650, 471.\nMale: 91, 301, 735, 742, 580.",
    "answer": "0.540",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Proportion = (count in the category) ÷ (total).",
     "(742 + 580)/2449 ≈ 0.540."
    ],
    "standards": [
@@ -2415,7 +2415,7 @@
    "prompt": "Shoe size (x) and height in inches (y) for 6 students:\nx: 7, 8, 9, 10, 11, 12\ny: 62, 65, 66, 69, 71, 72\nFind the equation of the least-squares regression line ŷ = a + bx. Round a and b to three decimal places.",
    "answer": "ŷ = 48.229 + 2.029x",
    "solutionSteps": [
-    "Substitute x into the regression line ŷ = a + bx.",
+    "Use technology (LinReg a + bx) to find the least-squares line ŷ = a + bx.",
     "LinReg(a+bx): a ≈ 48.229, b ≈ 2.029."
    ],
    "standards": [
@@ -2426,7 +2426,7 @@
     "States the key idea: “ŷ = 48.229 + 2.029x”.",
     "Includes the key value(s): 48.229, 2.029."
    ],
-   "hint": "First step: substitute x into the regression line ŷ = a + bx."
+   "hint": "First step: use technology (LinReg a + bx) to find the least-squares line ŷ = a + bx."
   },
   {
    "id": "stat-u1-t3-003",
@@ -2470,7 +2470,7 @@
    "prompt": "Hours studied (x) and test score (y) for 7 students:\nx: 1, 2, 2, 3, 4, 5, 6\ny: 62, 65, 70, 68, 77, 80, 88\nFind the equation of the least-squares regression line ŷ = a + bx. Round a and b to three decimal places.",
    "answer": "ŷ = 56.574 + 4.956x",
    "solutionSteps": [
-    "Substitute x into the regression line ŷ = a + bx.",
+    "Use technology (LinReg a + bx) to find the least-squares line ŷ = a + bx.",
     "LinReg(a+bx): a ≈ 56.574, b ≈ 4.956."
    ],
    "standards": [
@@ -2524,7 +2524,7 @@
    "prompt": "Age of a used car in years (x) and price in thousands of dollars (y):\nx: 1, 2, 3, 4, 5, 7, 8, 10\ny: 24.5, 22, 19.8, 18.1, 15, 12.2, 10.9, 7.5\nFind the equation of the least-squares regression line ŷ = a + bx. Round a and b to three decimal places.",
    "answer": "ŷ = 25.596 − 1.869x",
    "solutionSteps": [
-    "Substitute x into the regression line ŷ = a + bx.",
+    "Use technology (LinReg a + bx) to find the least-squares line ŷ = a + bx.",
     "LinReg(a+bx): a ≈ 25.596, b ≈ -1.869."
    ],
    "standards": [
@@ -2544,7 +2544,7 @@
    "prompt": "For a sample of students, shoe size has mean 9.5 and SD 1.6, height has mean 67 in and SD 3.8 in, and r = 0.80. Find the slope of the least-squares regression line for predicting y (the second variable) from x (the first). Round to three decimal places.",
    "answer": "1.900",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "b = r(s_y/sₓ) = 0.8(3.8/1.6) = 1.900."
    ],
    "standards": [
@@ -2569,7 +2569,7 @@
      "correct": false
     }
    ],
-   "hint": "First step: sample SD: s = √(Σ(x − x̄)² ÷ (n − 1))."
+   "hint": "First step: slope of the least-squares line: b = r·s_y ÷ sₓ."
   },
   {
    "id": "stat-u1-t3-008",
@@ -2613,7 +2613,7 @@
    "prompt": "For netbooks, weight (lb) has mean 2.8 and SD 0.4; battery life (hours) has mean 6.5 and SD 1.5; r = −0.62. Find the slope of the least-squares regression line for predicting y (the second variable) from x (the first). Round to three decimal places.",
    "answer": "-2.325",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "b = r(s_y/sₓ) = -0.62(1.5/0.4) = -2.325."
    ],
    "standards": [
@@ -2648,7 +2648,7 @@
    "answer": "13.010",
    "solutionSteps": [
     "The least-squares line passes through (x̄, ȳ), so a = ȳ − b·x̄.",
-    "b = -0.62(1.5/0.4) = -2.3250; a = ȳ − b x̄ = 6.5 − (-2.3250)(2.8) = 13.010."
+    "b = -0.62(1.5/0.4) = -2.3250; a = ȳ − b x̄ = 6.5 − (−2.3250)(2.8) = 13.010."
    ],
    "standards": [
     "APSTATS.5.3.A"
@@ -2752,7 +2752,7 @@
    "prompt": "A regression of used-car price (thousands of $) on age (years) gives ŷ = 25.9 − 1.82x. A 6-year-old car sells for $13,400. Find the residual. Round to two decimal places.",
    "answer": "-1.58",
    "solutionSteps": [
-    "ŷ = 25.9 + (-1.82)(6) = 14.980.",
+    "ŷ = 25.9 − 1.82(6) = 14.980.",
     "Residual = y − ŷ = 13.4 − 14.980 = -1.58.",
     "The actual value is below the line (overpredicted)."
    ],
@@ -2787,7 +2787,7 @@
    "prompt": "A regression of winning percentage on points allowed per game gives ŷ = 182.5 − 1.15x. A team allowed 104 points per game and won 66% of its games. Find the residual. Round to two decimal places.",
    "answer": "3.10",
    "solutionSteps": [
-    "ŷ = 182.5 + (-1.15)(104) = 62.900.",
+    "ŷ = 182.5 − 1.15(104) = 62.900.",
     "Residual = y − ŷ = 66 − 62.900 = 3.10.",
     "The actual value is above the line (underpredicted)."
    ],
@@ -2858,7 +2858,7 @@
    "answer": "0.4900",
    "solutionSteps": [
     "r² = (correlation)²: the fraction of the variation in y accounted for by the linear model.",
-    "r² = (-0.7)² = 0.4900: about 49.0% of the variation in y is accounted for by the linear model with x."
+    "r² = (−0.7)² = 0.4900: about 49.0% of the variation in y is accounted for by the linear model with x."
    ],
    "standards": [
     "APSTATS.5.5.B"
@@ -6450,7 +6450,7 @@
    "prompt": "The correlation between height in inches and weight in pounds for a group is r = 0.68. If height is converted to centimeters and weight to kilograms, what is the new correlation?",
    "answer": "0.68",
    "solutionSteps": [
-    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
+    "Correlation r has no units and does not change when either variable is rescaled.",
     "r has no units and is unchanged by linear changes of units.",
     "Answer: 0.68."
    ],
@@ -6889,7 +6889,7 @@
    "answer": "ŷ = 94.00 − 0.75x",
    "solutionSteps": [
     "b = r·s_y/sₓ = -0.5(6/4) = -0.7500.",
-    "a = ȳ − b·x̄ = 85 − (-0.7500)(12) = 94.00."
+    "a = ȳ − b·x̄ = 85 − (−0.7500)(12) = 94.00."
    ],
    "standards": [
     "APSTATS.5.5.A"
@@ -6908,7 +6908,7 @@
    "prompt": "A regression of y on x has r = 0.7, and x is 2 standard deviations above its mean. How many standard deviations above ȳ is the predicted ŷ?",
    "answer": "1.4",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "In standard units the least-squares line is ẑ_y = r·zₓ.",
     "In standardized units, predicted z_y = r·zₓ = 0.7(2) = 1.4 (regression to the mean)."
    ],
    "options": [
@@ -7228,7 +7228,7 @@
    "prompt": "Predicting a test score (y) from number of absences (x): ŷ = 95 − 3x. A student with 6 absences scored 80. Find the residual and say whether the model overpredicted or underpredicted.",
    "answer": "Residual = 3; the model underpredicted",
    "solutionSteps": [
-    "ŷ = 95 + (-3)(6) = 77.",
+    "ŷ = 95 − 3(6) = 77.",
     "Residual = 80 − 77 = 3.",
     "Positive residual → actual is above prediction (underpredicted)."
    ],
@@ -7236,7 +7236,7 @@
     "APSTATS.5.4.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_resid_calc). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: ŷ = 95 + (-3)(6) = 77.",
+   "hint": "First step: ŷ = 95 − 3(6) = 77.",
    "selfCheck": [
     "States the key idea: “Residual = 3”.",
     "Includes the key value(s): 3."
@@ -7781,7 +7781,7 @@
    "prompt": "The variance of a data set is 49 square inches. What is the standard deviation?",
    "answer": "7 inches",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "SD = √variance.",
     "SD = √variance = √49 = 7, in the original units.",
     "Answer: 7 inches."
    ],
@@ -8746,7 +8746,7 @@
    "prompt": "Test scores have mean 52 and SD 8. What is the z-score of a score of 64?",
    "answer": "1.5",
    "solutionSteps": [
-    "value = mean + z·SD.",
+    "z = (value − mean) ÷ SD.",
     "z = (64 − 52)/8 = 1.5."
    ],
    "options": [
@@ -8771,7 +8771,7 @@
     "APSTATS.1.9.D"
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s05_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: value = mean + z·SD."
+   "hint": "First step: z = (value − mean) ÷ SD."
   },
   {
    "id": "stat-u1-s05-cp2-x08",
@@ -8817,7 +8817,7 @@
    "prompt": "Commute times (minutes) have Q1 = 10 and Q3 = 18. Find the upper fence (1.5 × IQR rule).",
    "answer": "30",
    "solutionSteps": [
-    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "IQR = 8; 18 + 1.5(8) = 30."
    ],
    "options": [
@@ -8842,7 +8842,7 @@
     "APSTATS.1.7.D"
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
+   "hint": "First step: outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR."
   },
   {
    "id": "stat-u1-s06-cp2-x11",
@@ -8991,7 +8991,7 @@
    "prompt": "The weekly study hours of a class have standard deviation 6 hours. What is the variance?",
    "answer": "36",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Variance = SD².",
     "Variance = 6² = 36."
    ],
    "options": [
@@ -9025,7 +9025,7 @@
    "prompt": "Every value is tripled. The old SD was 2.4. What is the new SD?",
    "answer": "7.2",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "SD × 3 = 7.2."
    ],
    "options": [
@@ -9059,7 +9059,7 @@
    "prompt": "5 is added to every value. Old mean 12, old SD 3. What is the new SD?",
    "answer": "3",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "Adding a constant does not change spread.",
     "Answer: 3."
    ],
@@ -9094,7 +9094,7 @@
    "prompt": "Find the IQR of 1, 3, 4, 6, 9, 10, 12, 15 (medians of the halves).",
    "answer": "7.5",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 3.5, Q3 = 11; IQR = 7.5."
    ],
    "options": [
@@ -9162,7 +9162,7 @@
    "prompt": "By the 68–95–99.7 rule, what percent of values are within 2 SD of the mean?",
    "answer": "95%",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Empirical rule: about 68%, 95% and 99.7% of values lie within 1, 2 and 3 SDs of the mean.",
     "About 95% lie within 2 SD."
    ],
    "options": [
@@ -9196,7 +9196,7 @@
    "prompt": "By the 68–95–99.7 rule, what percent of values are more than 1 SD above the mean?",
    "answer": "16%",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Empirical rule: about 68%, 95% and 99.7% of values lie within 1, 2 and 3 SDs of the mean.",
     "(100 − 68)/2 = 16%."
    ],
    "options": [
@@ -9230,7 +9230,7 @@
    "prompt": "Scores on a history test have mean 70 and SD 5. Which score has z = 1.8?",
    "answer": "79",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "value = mean + z·SD.",
     "70 + 1.8(5) = 79."
    ],
    "options": [
@@ -9264,7 +9264,7 @@
    "prompt": "Reaction times (hundredths of a second) for a class have Q1 = 40 and Q3 = 52. Find the lower fence for outliers.",
    "answer": "22",
    "solutionSteps": [
-    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "IQR 12; 40 − 18 = 22."
    ],
    "options": [
@@ -9366,7 +9366,7 @@
    "prompt": "For hours studied (x) and test score (y), r = 0.5, s_y = 8 and sₓ = 2. Find the slope of the LSRL.",
    "answer": "2",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "b = r·s_y/sₓ = 0.5(8)/2 = 2."
    ],
    "options": [
@@ -9468,7 +9468,7 @@
    "prompt": "The mean of 6 values is 15. The value 25 is added. What is the new mean? Round to two decimal places.",
    "answer": "16.43",
    "solutionSteps": [
-    "Mean = (sum of the values) ÷ (number of values).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "(90 + 25)/7 ≈ 16.43."
    ],
    "options": [
@@ -9536,7 +9536,7 @@
    "prompt": "y = 2x − 3 and the mean of x is 10. What is the mean of y?",
    "answer": "17",
    "solutionSteps": [
-    "Mean = (sum of the values) ÷ (number of values).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "2(10) − 3 = 17."
    ],
    "options": [
@@ -9570,7 +9570,7 @@
    "prompt": "y = −4x + 1 and the SD of x is 1.5. What is the SD of y?",
    "answer": "6",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "|−4|(1.5) = 6."
    ],
    "options": [
@@ -9604,7 +9604,7 @@
    "prompt": "IQR of 5, 7, 8, 12, 13, 14, 18, 21, 23 (median excluded from halves)?",
    "answer": "12",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 7.5, Q3 = 19.5.",
     "Answer: 12."
    ],
@@ -9639,7 +9639,7 @@
    "prompt": "Q1 = 22 and Q3 = 34. Find the upper fence.",
    "answer": "52",
    "solutionSteps": [
-    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "34 + 1.5(12) = 52."
    ],
    "options": [
@@ -9777,7 +9777,7 @@
    "prompt": "N(60, 8): find the 90th percentile. Round to one decimal places.",
    "answer": "70.3",
    "solutionSteps": [
-    "A percentile is the percent of values below a given value.",
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
     "60 + 1.2816(8) ≈ 70.3."
    ],
    "options": [
@@ -9811,7 +9811,7 @@
    "prompt": "What z-score is the 75th percentile of a Normal distribution? Round to two decimal places.",
    "answer": "0.67",
    "solutionSteps": [
-    "z = (value − mean) ÷ SD.",
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
     "invNorm(0.75) ≈ 0.674 = 0.67."
    ],
    "options": [
@@ -9913,7 +9913,7 @@
    "prompt": "x is converted from inches to centimeters. r was 0.83. What is the new r?",
    "answer": "0.83",
    "solutionSteps": [
-    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
+    "Correlation r has no units and does not change when either variable is rescaled.",
     "r does not depend on units.",
     "Answer: 0.83."
    ],
@@ -9948,7 +9948,7 @@
    "prompt": "r² = 0.49 and the slope is negative. Find r.",
    "answer": "−0.7",
    "solutionSteps": [
-    "r² = (correlation)²: the fraction of the variation in y accounted for by the linear model.",
+    "r = ±√r², with the same sign as the slope.",
     "r = −√0.49 = −0.7."
    ],
    "options": [
@@ -9982,7 +9982,7 @@
    "prompt": "r = 0.8, sₓ = 5, s_y = 15. Find the slope of the LSRL.",
    "answer": "2.4",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "0.8(15/5) = 2.4."
    ],
    "options": [
@@ -10050,7 +10050,7 @@
    "prompt": "In z-units, r = 0.6 and zₓ = 2.5. What is the predicted z_y?",
    "answer": "1.5",
    "solutionSteps": [
-    "Substitute x into the regression line ŷ = a + bx.",
+    "In standard units the least-squares line is ẑ_y = r·zₓ.",
     "z_y = r·zₓ = 1.5."
    ],
    "options": [
@@ -10186,7 +10186,7 @@
    "prompt": "Histogram counts are 4, 9, 12, 5. What percent fall in the last bin? Round to one decimal places.",
    "answer": "16.7%",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Proportion = (count in the category) ÷ (total).",
     "5/30 ≈ 16.7%."
    ],
    "options": [
@@ -10221,7 +10221,7 @@
    "prompt": "Stemplot row 3 | 1 4 7 (key 3 | 1 = 31). What is the sum of these values?",
    "answer": "102",
    "solutionSteps": [
-    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
+    "Read each leaf with its stem, as the key shows (for example, 3 | 1 means 31).",
     "31 + 34 + 37 = 102."
    ],
    "options": [
@@ -10294,7 +10294,7 @@
    "prompt": "Histogram counts: 0–10: 6, 10–20: 9, 20–30: 10, 30–40: 5. What percent of values are below 20?",
    "answer": "50%",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Proportion = (count in the category) ÷ (total).",
     "(6 + 9)/30 = 50%."
    ],
    "standards": [
@@ -10348,7 +10348,7 @@
    "prompt": "Cumulative relative frequency: up to 50: 0.10, up to 60: 0.35, up to 70: 0.75, up to 80: 1.00. Which interval holds the median?",
    "answer": "60 to 70",
    "solutionSteps": [
-    "Relative frequency = (number of times the outcome occurs) ÷ (number of trials).",
+    "Cumulative relative frequency at a value is the proportion of values at or below it; subtract two of them for an interval.",
     "0.5 is first reached between 60 and 70."
    ],
    "standards": [
@@ -10366,7 +10366,7 @@
    "prompt": "Daily step counts (hundreds) have Q1 = 12 and Q3 = 20. Find the upper fence (1.5 × IQR rule).",
    "answer": "32",
    "solutionSteps": [
-    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "IQR = 8; 20 + 12 = 32."
    ],
    "standards": [
@@ -10374,7 +10374,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s02_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s02-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
+   "hint": "First step: outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR."
   },
   {
    "id": "stat-u1-s02-cp2-x12",
@@ -10384,7 +10384,7 @@
    "prompt": "Wait times at a clinic (minutes) have Q1 = 17 and Q3 = 23. Find the upper fence (1.5 × IQR rule).",
    "answer": "32",
    "solutionSteps": [
-    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "IQR = 6; 23 + 9 = 32."
    ],
    "standards": [
@@ -10392,7 +10392,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s02_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s02-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
+   "hint": "First step: outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR."
   },
   {
    "id": "stat-u1-s02-cp1-x07",
@@ -10402,7 +10402,7 @@
    "prompt": "Data: 2, 10, 11, 12, 13, 14, 15, 30. How many outliers by the 1.5 × IQR rule (medians of halves)?",
    "answer": "2",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Q1 = 10.5, Q3 = 14.5, fences 4.5 and 20.5 → 2 and 30."
    ],
    "standards": [
@@ -10419,7 +10419,7 @@
    "prompt": "Data: 5, 21, 22, 23, 24, 25, 26, 27, 50. How many outliers by the 1.5 × IQR rule (median excluded from halves)?",
    "answer": "2",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Q1 = 21.5, Q3 = 26.5, fences 14 and 34 → 5 and 50.",
     "Answer: 2."
    ],
@@ -10547,7 +10547,7 @@
    "prompt": "X has mean 20 and SD 5. Find the SD of y = 3x + 4.",
    "answer": "15",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "|3| × 5 = 15."
    ],
    "standards": [
@@ -10564,7 +10564,7 @@
    "prompt": "X has mean 7 and SD 7.5. Find the SD of y = 10 − 2x.",
    "answer": "15",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
     "|−2| × 7.5 = 15."
    ],
    "standards": [
@@ -10581,7 +10581,7 @@
    "prompt": "Find the IQR of 1, 3, 5, 7, 9, 11, 13, 15 (medians of the halves).",
    "answer": "8",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 4, Q3 = 12.",
     "Answer: 8."
    ],
@@ -10590,7 +10590,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s04_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s04-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k²."
+   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
   },
   {
    "id": "stat-u1-s04-cp2-x10",
@@ -10600,7 +10600,7 @@
    "prompt": "Find the IQR of 10, 12, 14, 16, 18, 20, 22 (median excluded from halves).",
    "answer": "8",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
     "Q1 = 12, Q3 = 20.",
     "Answer: 8."
    ],
@@ -10609,7 +10609,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s04_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s04-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k²."
+   "hint": "First step: IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves."
   },
   {
    "id": "stat-u1-s04-cp1-x09",
@@ -10653,7 +10653,7 @@
    "prompt": "Q1 = 30 and Q3 = 50. What is the smallest whole number that would be a high outlier?",
    "answer": "81",
    "solutionSteps": [
-    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Fence 80; outliers are greater than 80.",
     "Answer: 81."
    ],
@@ -10671,7 +10671,7 @@
    "prompt": "Q1 = 60 and Q3 = 68. What is the smallest whole number that would be a high outlier?",
    "answer": "81",
    "solutionSteps": [
-    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Fence 80; outliers are greater than 80.",
     "Answer: 81."
    ],
@@ -10707,7 +10707,7 @@
    "prompt": "Test scores have mean 40 and SD 4. What is the z-score of a score of 46?",
    "answer": "1.5",
    "solutionSteps": [
-    "value = mean + z·SD.",
+    "z = (value − mean) ÷ SD.",
     "6/4 = 1.5."
    ],
    "standards": [
@@ -10715,7 +10715,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s05_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s05-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: value = mean + z·SD."
+   "hint": "First step: z = (value − mean) ÷ SD."
   },
   {
    "id": "stat-u1-s05-cp1-x08",
@@ -10761,7 +10761,7 @@
    "prompt": "X is N(80, 5). Which value has 84.13% of the distribution below it?",
    "answer": "85",
    "solutionSteps": [
-    "Standardize with z = (x − μ) ÷ σ, then find the area under the standard Normal curve (Table A or normalcdf).",
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
     "z = 1.00 → 80 + 5 = 85."
    ],
    "standards": [
@@ -10778,7 +10778,7 @@
    "prompt": "X is N(70, 7.5). Which value is at the 97.72nd percentile?",
    "answer": "85",
    "solutionSteps": [
-    "Standardize with z = (x − μ) ÷ σ, then find the area under the standard Normal curve (Table A or normalcdf).",
+    "Find z with the given area to the left (Table A or invNorm), then value = mean + z·SD.",
     "z = 2.00 → 70 + 15 = 85."
    ],
    "standards": [
@@ -10899,7 +10899,7 @@
    "prompt": "Height (inches) and weight have r = 0.82. Heights are converted to centimeters. What is the new r?",
    "answer": "0.82",
    "solutionSteps": [
-    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
+    "Correlation r has no units and does not change when either variable is rescaled.",
     "r has no units.",
     "Answer: 0.82."
    ],
@@ -10908,7 +10908,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u1_s07_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u1-s07-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD)."
+   "hint": "First step: correlation r has no units and does not change when either variable is rescaled."
   },
   {
    "id": "stat-u1-s07-cp2-x07",
@@ -11043,7 +11043,7 @@
    "prompt": "For shoe size (x) and height (y), r = 0.6, sₓ = 2 and s_y = 5. Find the LSRL slope.",
    "answer": "1.5",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "0.6 × 2.5 = 1.5."
    ],
    "standards": [
@@ -11060,7 +11060,7 @@
    "prompt": "For age (x) and reading level (y), r = 0.75, sₓ = 4 and s_y = 8. Find the LSRL slope.",
    "answer": "1.5",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "0.75 × 2 = 1.5."
    ],
    "standards": [
@@ -11147,7 +11147,7 @@
    "prompt": "A point's actual y is 72 and its residual is −5. What was the predicted value?",
    "answer": "77",
    "solutionSteps": [
-    "Residual = observed y − predicted ŷ.",
+    "Residual = observed y − predicted ŷ, so ŷ = y − residual.",
     "ŷ = y − residual = 72 − (−5) = 77."
    ],
    "standards": [
@@ -12339,7 +12339,7 @@
    "prompt": "A histogram has bins 0–10, 10–20, 20–30 with counts 5, 12, 8. What proportion of values are at least 10?",
    "answer": "0.8",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Proportion = (count in the category) ÷ (total).",
     "(12 + 8)/25 = 0.8."
    ],
    "options": [
@@ -12442,7 +12442,7 @@
    "prompt": "Relative frequencies: walk 0.15, bus 0.40, car 0.35, bike ?. What is the bike proportion?",
    "answer": "0.10",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Relative frequencies of all the categories add to 1.",
     "1 − (0.15 + 0.40 + 0.35) = 0.10."
    ],
    "options": [
@@ -12546,7 +12546,7 @@
    "prompt": "Cumulative relative frequency is 0.30 at 40 and 0.55 at 50. What percent of values are between 40 and 50?",
    "answer": "25%",
    "solutionSteps": [
-    "Relative frequency = (number of times the outcome occurs) ÷ (number of trials).",
+    "Cumulative relative frequency at a value is the proportion of values at or below it; subtract two of them for an interval.",
     "0.55 − 0.30 = 0.25 = 25%."
    ],
    "options": [
@@ -12649,7 +12649,7 @@
    "prompt": "Ages of the members of a book club have Q1 = 18 and Q3 = 30. Which age is an outlier (1.5 × IQR rule)?",
    "answer": "50",
    "solutionSteps": [
-    "IQR = Q3 − Q1, with Q1 and Q3 the medians of the lower and upper halves.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Fences: 0 and 48; only 50 is outside."
    ],
    "options": [
@@ -12749,7 +12749,7 @@
    "prompt": "Q1 = 50 and Q3 = 70. What is the smallest value that is NOT a low outlier?",
    "answer": "20",
    "solutionSteps": [
-    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
+    "Outlier fences: Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
     "Lower fence = 50 − 1.5(20) = 20."
    ],
    "options": [
@@ -12956,7 +12956,7 @@
    "prompt": "Find Q3 of 4, 6, 9, 11, 14, 17, 20, 23, 30 (median excluded from the halves).",
    "answer": "21.5",
    "solutionSteps": [
-    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
+    "Q1 and Q3 are the medians of the lower and upper halves of the ordered data.",
     "Upper half 17, 20, 23, 30 → (20 + 23)/2 = 21.5."
    ],
    "options": [
@@ -13024,7 +13024,7 @@
    "prompt": "Mai's score is at the 40th percentile in a class of 50. About how many students scored below her?",
    "answer": "20",
    "solutionSteps": [
-    "A percentile is the percent of values below a given value.",
+    "Count below = (percentile as a decimal) × (number of values).",
     "0.40 × 50 = 20."
    ],
    "options": [
@@ -13263,7 +13263,7 @@
    "prompt": "400 adults: 160 exercise regularly; 120 exercisers and 60 non-exercisers sleep well. Find P(sleeps well).",
    "answer": "0.45",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Probability = (count in the event) ÷ (total).",
     "(120 + 60)/400 = 0.45."
    ],
    "options": [
@@ -13502,7 +13502,7 @@
    "prompt": "r between height and arm span is 0.9. Arm span is converted from inches to feet. What is the new r?",
    "answer": "0.9",
    "solutionSteps": [
-    "Linear transformation Y = a + bX: μ_Y = a + bμ_X and σ_Y = |b|σ_X (adding a constant does not change the SD).",
+    "Correlation r has no units and does not change when either variable is rescaled.",
     "r has no units.",
     "Answer: 0.9."
    ],
@@ -13674,7 +13674,7 @@
    "prompt": "r = −0.4, sₓ = 3, s_y = 9. Find the LSRL slope.",
    "answer": "−1.2",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Slope of the least-squares line: b = r·s_y ÷ sₓ.",
     "−0.4 × 9/3 = −1.2."
    ],
    "options": [
@@ -13878,7 +13878,7 @@
    "prompt": "A model predicting test scores has s = 4 points. How far off are typical predictions?",
    "answer": "About 4 points",
    "solutionSteps": [
-    "Substitute x into the regression line ŷ = a + bx.",
+    "s, the SD of the residuals, is the typical size of a prediction error.",
     "s is the typical size of a residual.",
     "Answer: About 4 points."
    ],
@@ -17275,7 +17275,7 @@
    "answer": "0.4669",
    "solutionSteps": [
     "z-scores: -0.26 and 1.10.",
-    "P(-0.26 < Z < 1.10) = 0.8643 − 0.3974 = 0.4669."
+    "P(−0.26 < Z < 1.10) = 0.8643 − 0.3974 = 0.4669."
    ],
    "standards": [
     "APSTATS.2.11.D"
@@ -17321,7 +17321,7 @@
    "answer": "0.4926",
    "solutionSteps": [
     "z-scores: -1.44 and 0.17.",
-    "P(-1.44 < Z < 0.17) = 0.5675 − 0.0749 = 0.4926."
+    "P(−1.44 < Z < 0.17) = 0.5675 − 0.0749 = 0.4926."
    ],
    "standards": [
     "APSTATS.2.11.D"
@@ -17367,7 +17367,7 @@
    "answer": "0.1422",
    "solutionSteps": [
     "z-scores: -1.86 and -0.94.",
-    "P(-1.86 < Z < -0.94) = 0.1736 − 0.0314 = 0.1422."
+    "P(−1.86 < Z < -0.94) = 0.1736 − 0.0314 = 0.1422."
    ],
    "standards": [
     "APSTATS.2.11.D"
@@ -17413,7 +17413,7 @@
    "answer": "62.3",
    "solutionSteps": [
     "The boundary is the 25th percentile, so z = invNorm(0.25) ≈ -0.67.",
-    "x = 64 + (-0.67)(2.50) = 62.3."
+    "x = 64 − 0.67(2.50) = 62.3."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -17436,7 +17436,7 @@
    "answer": "446.3",
    "solutionSteps": [
     "The boundary is the 25th percentile, so z = invNorm(0.25) ≈ -0.67.",
-    "x = 520 + (-0.67)(110) = 446.3."
+    "x = 520 − 0.67(110) = 446.3."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -17505,7 +17505,7 @@
    "answer": "24.0",
    "solutionSteps": [
     "The boundary is the 25th percentile, so z = invNorm(0.25) ≈ -0.67.",
-    "x = 28 + (-0.67)(6) = 24.0."
+    "x = 28 − 0.67(6) = 24.0."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -17620,7 +17620,7 @@
    "answer": "379.2",
    "solutionSteps": [
     "The boundary is the 10th percentile, so z = invNorm(0.10) ≈ -1.28.",
-    "x = 520 + (-1.28)(110) = 379.2."
+    "x = 520 − 1.28(110) = 379.2."
    ],
    "standards": [
     "APSTATS.2.11.E"
@@ -19169,7 +19169,7 @@
    "answer": "77.61",
    "solutionSteps": [
     "Substitute x into the regression line ŷ = a + bx.",
-    "ŷ = 78.17 + (-0.28)(2) = 77.61."
+    "ŷ = 78.17 − 0.28(2) = 77.61."
    ],
    "standards": [
     "APSTATS.5.3.A"
@@ -19265,7 +19265,7 @@
    "answer": "15.18",
    "solutionSteps": [
     "Substitute x into the regression line ŷ = a + bx.",
-    "ŷ = 29.32 + (-2.02)(7) = 15.18."
+    "ŷ = 29.32 − 2.02(7) = 15.18."
    ],
    "standards": [
     "APSTATS.5.3.A"
@@ -19289,7 +19289,7 @@
    "answer": "71.50",
    "solutionSteps": [
     "Substitute x into the regression line ŷ = a + bx.",
-    "ŷ = 72.69 + (-0.17)(7) = 71.50."
+    "ŷ = 72.69 − 0.17(7) = 71.50."
    ],
    "standards": [
     "APSTATS.5.3.A"
@@ -19360,7 +19360,7 @@
    "prompt": "Point P on the scatterplot is (40, 68.3). Find its residual using the line shown. Round to two decimal places.",
    "answer": "0.58",
    "solutionSteps": [
-    "ŷ = 79.72 + (-0.30)(40) = 67.72.",
+    "ŷ = 79.72 − 0.30(40) = 67.72.",
     "Residual = y − ŷ = 68.3 − 67.72 = 0.58."
    ],
    "standards": [
@@ -19383,7 +19383,7 @@
    "prompt": "Point P on the scatterplot is (5.2, 8.9). Find its residual using the line shown. Round to two decimal places.",
    "answer": "1.17",
    "solutionSteps": [
-    "ŷ = 9.55 + (-0.35)(5.2) = 7.73.",
+    "ŷ = 9.55 − 0.35(5.2) = 7.73.",
     "Residual = y − ŷ = 8.9 − 7.73 = 1.17."
    ],
    "standards": [
@@ -19429,7 +19429,7 @@
    "prompt": "Point P on the scatterplot is (7.8, 10.7). Find its residual using the line shown. Round to two decimal places.",
    "answer": "-2.63",
    "solutionSteps": [
-    "ŷ = 29.48 + (-2.07)(7.8) = 13.33.",
+    "ŷ = 29.48 − 2.07(7.8) = 13.33.",
     "Residual = y − ŷ = 10.7 − 13.33 = -2.63."
    ],
    "standards": [
@@ -19452,7 +19452,7 @@
    "prompt": "Point P on the scatterplot is (19, 74.6). Find its residual using the line shown. Round to two decimal places.",
    "answer": "0.14",
    "solutionSteps": [
-    "ŷ = 80.92 + (-0.34)(19) = 74.46.",
+    "ŷ = 80.92 − 0.34(19) = 74.46.",
     "Residual = y − ŷ = 74.6 − 74.46 = 0.14."
    ],
    "standards": [
@@ -19475,7 +19475,7 @@
    "prompt": "Point P on the scatterplot is (38, 70.2). Find its residual using the line shown. Round to two decimal places.",
    "answer": "0.76",
    "solutionSteps": [
-    "ŷ = 78.94 + (-0.25)(38) = 69.44.",
+    "ŷ = 78.94 − 0.25(38) = 69.44.",
     "Residual = y − ŷ = 70.2 − 69.44 = 0.76."
    ],
    "standards": [
@@ -19498,7 +19498,7 @@
    "prompt": "Point P on the scatterplot is (6.4, 7). Find its residual using the line shown. Round to two decimal places.",
    "answer": "-0.15",
    "solutionSteps": [
-    "ŷ = 9.58 + (-0.38)(6.4) = 7.15.",
+    "ŷ = 9.58 − 0.38(6.4) = 7.15.",
     "Residual = y − ŷ = 7 − 7.15 = -0.15."
    ],
    "standards": [
@@ -19521,7 +19521,7 @@
    "prompt": "Point P on the scatterplot is (3, 8.2). Find its residual using the line shown. Round to two decimal places.",
    "answer": "-0.23",
    "solutionSteps": [
-    "ŷ = 9.51 + (-0.36)(3) = 8.43.",
+    "ŷ = 9.51 − 0.36(3) = 8.43.",
     "Residual = y − ŷ = 8.2 − 8.43 = -0.23."
    ],
    "standards": [

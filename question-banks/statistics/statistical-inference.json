@@ -384,7 +384,7 @@
    "prompt": "Quadrupling the sample size (with the same confidence level and about the same p̂) changes the margin of error by a factor of about",
    "answer": "1/2",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Standard deviations of sampling distributions shrink like 1/√n: to divide the SD by k, multiply n by k².",
     "ME is proportional to 1/√n; √4 = 2, so the margin of error is halved."
    ],
    "standards": [
@@ -1098,7 +1098,7 @@
    "prompt": "The power of a test against a specific alternative is 0.80. What is the probability of a Type II error for that alternative?",
    "answer": "0.20",
    "solutionSteps": [
-    "P(Type I error) = α, the significance level.",
+    "P(Type II error) = 1 − power.",
     "Power = 1 − P(Type II error) = 0.20."
    ],
    "standards": [
@@ -1649,7 +1649,7 @@
    "prompt": "Students were randomly assigned to study with a KenKen warm-up (300 students) or without (300 students). 84 and 60 students, respectively, solved a challenge puzzle. Test H₀: p_warm − p_none = 0 vs Hₐ: p_warm − p_none > 0. Find the test statistic using the pooled proportion. Round to three decimal places.",
    "answer": "2.294",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "p̂₁ = 0.280, p̂₂ = 0.200, pooled p̂_C = (84 + 60)/(300 + 300) = 0.240. z = (0.280 − 0.200)/√(0.240·0.760(1/300 + 1/300)) ≈ 2.294; p-value ≈ 0.0109."
    ],
    "standards": [
@@ -1786,7 +1786,7 @@
    "prompt": "Ten students timed themselves (seconds) on a KenKen before and after a week of practice.\nBefore: 72, 65, 80, 58, 90, 77, 69, 84, 61, 75\nAfter: 64, 60, 71, 55, 79, 70, 66, 74, 60, 68\nConstruct a 95% confidence interval for the true mean improvement (Before − After). Round to two decimal places.",
    "answer": "(4.03, 8.77)",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Paired data: work with the difference (after − before) for each subject.",
     "Differences: 8, 5, 9, 3, 11, 7, 3, 10, 1, 7. x̄_d = 6.40, s_d = 3.307, df = 9, t* = 2.262. 6.40 ± 2.262(3.307/√10) → (4.03, 8.77)."
    ],
    "standards": [
@@ -2956,7 +2956,7 @@
    "prompt": "If 100 different random samples each produce a 90% confidence interval for p, how many intervals would you expect to miss p?",
    "answer": "About 10",
    "solutionSteps": [
-    "One-proportion z interval: p̂ ± z*·√(p̂(1 − p̂)/n).",
+    "In repeated sampling, about C% of C% confidence intervals capture the true parameter.",
     "About 10% of 90% intervals miss the parameter, though the exact count varies."
    ],
    "options": [
@@ -5516,7 +5516,7 @@
    "prompt": "The power of a test against a specific alternative is 0.72. What is the probability of a Type II error for that alternative?",
    "answer": "0.28",
    "solutionSteps": [
-    "P(Type I error) = α, the significance level.",
+    "P(Type II error) = 1 − power.",
     "P(Type II) = 1 − power = 0.28."
    ],
    "options": [
@@ -6199,7 +6199,7 @@
    "solutionSteps": [
     "SE = √(9.2²/28 + 11.4²/31) ≈ 2.6861.",
     "df = 27, t* ≈ 2.052.",
-    "(5.50) ± 5.511 → (-0.01, 11.01)."
+    "(5.50) ± 5.511 → (−0.01, 11.01)."
    ],
    "options": [
     {
@@ -6378,7 +6378,7 @@
    "prompt": "Computer output for regressing y on x (n = 20):\nPredictor  Coef    SE Coef\nConstant   12.4    3.1\nx          2.35    0.48\nS = 4.6   R-sq = 57.1%\nWhat is the slope of the least-squares regression line, and what is its standard error?",
    "answer": "Slope 2.35; SE 0.48",
    "solutionSteps": [
-    "Standard error of p̂: SE = √(p̂(1 − p̂)/n).",
+    "In regression output, the slope b is the coefficient in the x row, and SE_b is the standard error in the same row.",
     "The slope is the coefficient on x (2.35); its SE is in the same row (0.48) = Slope 2.35; SE 0.48."
    ],
    "options": [
@@ -6403,7 +6403,7 @@
     "APSTATS.BEYOND.SLOPE"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_read_output). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: standard error of p̂: SE = √(p̂(1 − p̂)/n)."
+   "hint": "First step: in regression output, the slope b is the coefficient in the x row, and SE_b is the standard error in the same row."
   },
   {
    "id": "stat-u4-s11-cp2-x02",
@@ -6654,7 +6654,7 @@
    "answer": "(a) ŷ = 1.95 − 0.064x; (b) (-0.1074, -0.0206); (c) We are 95% confident the interval captures the true change in mean GPA for each additional weekly hour of screen time; (d) No; observational data — association only",
    "solutionSteps": [
     "(a) ŷ = 1.95 − 0.064x",
-    "(b) (-0.1074, -0.0206)",
+    "(b) (−0.1074, -0.0206)",
     "(c) We are 95% confident the interval captures the true change in mean GPA for each additional weekly hour of screen time",
     "(d) No; observational data — association only",
     "Scoring guide (4 points):",
@@ -6779,7 +6779,7 @@
    "prompt": "A 95% CI for μ is (12.4, 15.0). What is the margin of error?",
    "answer": "1.3",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Margin of error = half the width of the interval.",
     "ME = (15.0 − 12.4)/2 = 1.3."
    ],
    "options": [
@@ -6862,7 +6862,7 @@
    "prompt": "A 95% interval for p is (0.31, 0.39) from n = 500. Without recalculating, which would be the 95% interval from n = 2,000 with the same p̂?",
    "answer": "About (0.33, 0.37)",
    "solutionSteps": [
-    "One-proportion z interval: p̂ ± z*·√(p̂(1 − p̂)/n).",
+    "Standard deviations of sampling distributions shrink like 1/√n: multiplying n by 4 halves the SD (and the margin of error).",
     "Quadrupling n halves the ME: 0.04 → 0.02, same center 0.35.",
     "Answer: About (0.33, 0.37)."
    ],
@@ -7419,7 +7419,7 @@
    "prompt": "A teacher wonders whether the mean time students spend on homework differs from 60 minutes. Which is the correct alternative?",
    "answer": "Hₐ: μ ≠ 60",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Hypotheses are about a parameter: H₀ says \"no difference\" (=), and Hₐ uses <, > or ≠ to match the question.",
     "“Differs” → two-sided.",
     "Answer: Hₐ: μ ≠ 60."
    ],
@@ -7698,7 +7698,7 @@
    "prompt": "A test with α = 0.10 has power 0.85 against a particular alternative. What is P(Type II error) for that alternative?",
    "answer": "0.15",
    "solutionSteps": [
-    "P(Type I error) = α, the significance level.",
+    "P(Type II error) = 1 − power.",
     "P(Type II) = 1 − 0.85 = 0.15."
    ],
    "options": [
@@ -9134,7 +9134,7 @@
    "prompt": "A test of whether a new drug lowers blood pressure has power 0.8 against a particular alternative. What is P(Type II error) for that alternative?",
    "answer": "0.2",
    "solutionSteps": [
-    "P(Type I error) = α, the significance level.",
+    "P(Type II error) = 1 − power.",
     "1 − 0.8 = 0.2."
    ],
    "options": [
@@ -9159,7 +9159,7 @@
     "APSTATS.3.8.C"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: P(Type I error) = α, the significance level."
+   "hint": "First step: P(Type II error) = 1 − power."
   },
   {
    "id": "stat-u4-s01-cp1-x10",
@@ -9271,7 +9271,7 @@
    "prompt": "100 intervals are built at 90% confidence. Expected number that miss?",
    "answer": "10",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Expected count = (number of trials) × (probability).",
     "100 × 0.10 = 10."
    ],
    "options": [
@@ -9305,7 +9305,7 @@
    "prompt": "A poll wants a 95% confidence margin of error of at most 0.05, using p = 0.5. What is the minimum sample size n?",
    "answer": "385",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "384.16 → 385."
    ],
    "options": [
@@ -9581,7 +9581,7 @@
    "prompt": "In a two-proportion z test, 30 of 100 in group 1 and 50 of 100 in group 2 recycle. Find the pooled proportion.",
    "answer": "0.4",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "80/200 = 0.4."
    ],
    "options": [
@@ -9649,7 +9649,7 @@
    "prompt": "A 99% CI has half-width 3.8 with t* = 2.797. Find the SE. Round to three decimal places.",
    "answer": "1.359",
    "solutionSteps": [
-    "The critical value cuts off the middle C% of the standard Normal (z*) or of t with df = n − 1 (t*).",
+    "SE = (margin of error) ÷ (critical value).",
     "3.8/2.797 = 1.359."
    ],
    "options": [
@@ -9717,7 +9717,7 @@
    "prompt": "200 intervals are built at 95% confidence. Expected number that miss?",
    "answer": "10",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Expected count = (number of trials) × (probability).",
     "200 × 0.05 = 10."
    ],
    "options": [
@@ -9751,7 +9751,7 @@
    "prompt": "99% confidence, ME ≤ 0.02, p = 0.5. Minimum n?",
    "answer": "4148",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "4147.4 → 4148."
    ],
    "options": [
@@ -9854,7 +9854,7 @@
    "prompt": "95% confidence, σ ≈ 9, ME ≤ 2 (use z*). Minimum n?",
    "answer": "78",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "77.8 → 78."
    ],
    "options": [
@@ -9957,7 +9957,7 @@
    "prompt": "t = 2.6, df = 9, two-sided test. p-value? Round to four decimal places.",
    "answer": "0.0287",
    "solutionSteps": [
-    "Degrees of freedom: n − 1 for one-sample or paired t; (smaller n) − 1 for the conservative two-sample t; n − 2 for a regression slope; (categories − 1) or (rows − 1)(columns − 1) for chi-square.",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "2P(t₉ ≥ 2.6) = 0.0287."
    ],
    "options": [
@@ -10160,7 +10160,7 @@
    "prompt": "Pool 90/250 and 65/250. What is the pooled proportion?",
    "answer": "0.31",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "155/500 = 0.31."
    ],
    "options": [
@@ -10419,7 +10419,7 @@
    "prompt": "A random sample of n = 49 bags of chips has s = 0.35. Find the standard error of x̄.",
    "answer": "0.05",
    "solutionSteps": [
-    "Standard error of p̂: SE = √(p̂(1 − p̂)/n).",
+    "Standard error of x̄: SE = s/√n.",
     "0.35/√49 = 0.05."
    ],
    "standards": [
@@ -10628,7 +10628,7 @@
    "prompt": "A 95% interval for the proportion of adults who exercise daily uses z* = 1.96 and SE = 0.025. Find the margin of error (three decimals).",
    "answer": "0.049",
    "solutionSteps": [
-    "The critical value cuts off the middle C% of the standard Normal (z*) or of t with df = n − 1 (t*).",
+    "Margin of error = (critical value) × (standard error).",
     "1.96 × 0.025 = 0.049."
    ],
    "standards": [
@@ -10645,7 +10645,7 @@
    "prompt": "95% confidence, ME ≤ 0.05, p* = 0.5. Minimum n?",
    "answer": "385",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "384.16 → 385."
    ],
    "standards": [
@@ -10662,7 +10662,7 @@
    "prompt": "99% confidence, ME ≤ 0.0657, p* = 0.5. Minimum n?",
    "answer": "385",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "384.3 → 385."
    ],
    "standards": [
@@ -10973,7 +10973,7 @@
    "prompt": "T = 2.0, df = 10, Hₐ: μ > μ₀. p-value (four decimals)?",
    "answer": "0.0367",
    "solutionSteps": [
-    "Degrees of freedom: n − 1 for one-sample or paired t; (smaller n) − 1 for the conservative two-sample t; n − 2 for a regression slope; (categories − 1) or (rows − 1)(columns − 1) for chi-square.",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "Right tail of t₁₀.",
     "Answer: 0.0367."
    ],
@@ -10991,7 +10991,7 @@
    "prompt": "T = −2.0, df = 10, Hₐ: μ < μ₀. p-value (four decimals)?",
    "answer": "0.0367",
    "solutionSteps": [
-    "Degrees of freedom: n − 1 for one-sample or paired t; (smaller n) − 1 for the conservative two-sample t; n − 2 for a regression slope; (categories − 1) or (rows − 1)(columns − 1) for chi-square.",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "Left tail of t₁₀.",
     "Answer: 0.0367."
    ],
@@ -11009,14 +11009,15 @@
    "prompt": "A test of whether a coin is fair uses p₀ = 0.5. In n = 100 trials there are 60 successes. Find the test statistic z.",
    "answer": "2",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Test statistic = (statistic − value in H₀) ÷ (standard deviation of the statistic).",
     "0.1/0.05 = 2."
    ],
    "standards": [
     "APSTATS.3.7.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s07_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u4-s07-cp2 (A); both partners' answers must match.",
-   "partnerRole": "A"
+   "partnerRole": "A",
+   "hint": "First step: test statistic = (statistic − value in H₀) ÷ (standard deviation of the statistic)."
   },
   {
    "id": "stat-u4-s07-cp2-x09",
@@ -11026,14 +11027,15 @@
    "prompt": "A test of a claimed success rate uses p₀ = 0.2. In n = 400 trials there are 96 successes. Find the test statistic z.",
    "answer": "2",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Test statistic = (statistic − value in H₀) ÷ (standard deviation of the statistic).",
     "0.04/0.02 = 2."
    ],
    "standards": [
     "APSTATS.3.7.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s07_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u4-s07-cp2 (B); both partners' answers must match.",
-   "partnerRole": "B"
+   "partnerRole": "B",
+   "hint": "First step: test statistic = (statistic − value in H₀) ÷ (standard deviation of the statistic)."
   },
   {
    "id": "stat-u4-s07-cp1-x08",
@@ -11077,7 +11079,7 @@
    "prompt": "x̄ = 55, μ₀ = 50, s = 10, n = 16, Hₐ: μ > 50. p-value (four decimals)?",
    "answer": "0.0320",
    "solutionSteps": [
-    "One-sample t statistic: t = (x̄ − μ₀) ÷ (s/√n).",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "t = 2, df = 15.",
     "Answer: 0.0320."
    ],
@@ -11095,7 +11097,7 @@
    "prompt": "x̄ = 106, μ₀ = 100, s = 12, n = 16, Hₐ: μ > 100. p-value (four decimals)?",
    "answer": "0.0320",
    "solutionSteps": [
-    "One-sample t statistic: t = (x̄ − μ₀) ÷ (s/√n).",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "t = 2, df = 15.",
     "Answer: 0.0320."
    ],
@@ -11153,7 +11155,7 @@
    "prompt": "A test of a new drug has power 0.85 against a particular alternative. What is P(Type II error)?",
    "answer": "0.15",
    "solutionSteps": [
-    "P(Type I error) = α, the significance level.",
+    "P(Type II error) = 1 − power.",
     "1 − power.",
     "Answer: 0.15."
    ],
@@ -11171,7 +11173,7 @@
    "prompt": "A test of a new fertilizer has P(reject H₀ | H₀ is false) = 0.85 for a particular effect size. What is P(fail to reject | H₀ false)?",
    "answer": "0.15",
    "solutionSteps": [
-    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
+    "P(fail to reject H₀ | H₀ false) = P(Type II error) = 1 − power.",
     "Complement.",
     "Answer: 0.15."
    ],
@@ -11265,7 +11267,7 @@
    "prompt": "In a two-proportion z test, 30 of 100 in group 1 and 50 of 100 in group 2 vote early. Find the pooled proportion.",
    "answer": "0.4",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "80/200 = 0.4."
    ],
    "standards": [
@@ -11282,7 +11284,7 @@
    "prompt": "In a two-proportion z test, 24 of 60 in group 1 and 56 of 140 in group 2 own a bike. Find the pooled proportion.",
    "answer": "0.4",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "80/200 = 0.4."
    ],
    "standards": [
@@ -11299,7 +11301,7 @@
    "prompt": "Pool 90/250 and 65/250. Pooled proportion?",
    "answer": "0.31",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "155/500 = 0.31."
    ],
    "standards": [
@@ -11316,7 +11318,7 @@
    "prompt": "Pool 62/200 and 93/300. Pooled proportion?",
    "answer": "0.31",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "155/500 = 0.31."
    ],
    "standards": [
@@ -13318,7 +13320,7 @@
    "prompt": "Planning: 90% confidence, ME ≤ 0.04, prior p* ≈ 0.2. Minimum n?",
    "answer": "271",
    "solutionSteps": [
-    "Margin of error = (critical value) × (standard error).",
+    "Solve the margin-of-error formula for n: n = (z*/ME)²·p*(1 − p*) for a proportion, or (z*σ/ME)² for a mean; then round up.",
     "(1.645/0.04)² × 0.16 = 270.6 → 271."
    ],
    "options": [
@@ -13999,7 +14001,7 @@
    "prompt": "Which p-value gives the strongest evidence against H₀?",
    "answer": "0.001",
    "solutionSteps": [
-    "Strength of a linear association depends on |r|: values near ±1 are strong, values near 0 are weak.",
+    "The smaller the p-value, the stronger the evidence against H₀.",
     "Smallest p-value.",
     "Answer: 0.001."
    ],
@@ -14025,7 +14027,7 @@
     "APSTATS.3.7.B"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s06_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: strength of a linear association depends on |r|: values near ±1 are strong, values near 0 are weak."
+   "hint": "First step: the smaller the p-value, the stronger the evidence against H₀."
   },
   {
    "id": "stat-u4-s06-cp1-x12",
@@ -14069,7 +14071,7 @@
    "prompt": "A test of the claim that p₀ = 0.3 of voters favor a bond uses a random sample of n = 100, with p̂ = 0.36. Find z. Round to two decimal places.",
    "answer": "1.31",
    "solutionSteps": [
-    "One-proportion z statistic: z = (p̂ − p₀) ÷ √(p₀(1 − p₀)/n).",
+    "z = (value − mean) ÷ SD.",
     "0.06/√(0.21/100) = 1.31."
    ],
    "options": [
@@ -14094,7 +14096,7 @@
     "APSTATS.3.7.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s07_mcfill). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: one-proportion z statistic: z = (p̂ − p₀) ÷ √(p₀(1 − p₀)/n)."
+   "hint": "First step: z = (value − mean) ÷ SD."
   },
   {
    "id": "stat-u4-s07-cp2-x13",
@@ -14241,7 +14243,7 @@
    "prompt": "A one-sample t test of whether mean study time exceeds μ₀ gives t = 1.9 with df = 20 (Hₐ: μ > μ₀). Find the p-value. Round to four decimal places.",
    "answer": "0.0360",
    "solutionSteps": [
-    "Degrees of freedom: n − 1 for one-sample or paired t; (smaller n) − 1 for the conservative two-sample t; n − 2 for a regression slope; (categories − 1) or (rows − 1)(columns − 1) for chi-square.",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "Right tail of t₂₀.",
     "Answer: 0.0360."
    ],
@@ -14310,7 +14312,7 @@
    "prompt": "x̄ = 4.6, μ₀ = 5, s = 1.2, n = 36, Hₐ: μ ≠ 5. Find the p-value. Round to four decimal places.",
    "answer": "0.0533",
    "solutionSteps": [
-    "One-sample t statistic: t = (x̄ − μ₀) ÷ (s/√n).",
+    "p-value = the probability, if H₀ is true, of a result at least as extreme as the one observed, in the direction of Hₐ (both tails for ≠).",
     "t = −2.00, df = 35, two-sided.",
     "Answer: 0.0533."
    ],
@@ -14783,7 +14785,7 @@
    "prompt": "Random samples of n = 100 from each of two towns show p̂₁ = 0.5 and p̂₂ = 0.4 who recycle. Find the SE of p̂₁ − p̂₂. Round to four decimal places.",
    "answer": "0.0700",
    "solutionSteps": [
-    "Standard error of p̂: SE = √(p̂(1 − p̂)/n).",
+    "SE of p̂₁ − p̂₂ = √(p̂₁(1 − p̂₁)/n₁ + p̂₂(1 − p̂₂)/n₂).",
     "√(0.25/100 + 0.24/100) = 0.0700."
    ],
    "options": [
@@ -14817,7 +14819,7 @@
    "prompt": "Find the pooled proportion for 45/150 and 55/150. Round to four decimal places.",
    "answer": "0.3333",
    "solutionSteps": [
-    "Proportion = (count in the category) ÷ (total).",
+    "Pooled proportion: p̂_C = (total successes) ÷ (total sample size).",
     "100/300 = 0.3333."
    ],
    "options": [
@@ -14851,7 +14853,7 @@
    "prompt": "p̂₁ = 0.6 and p̂₂ = 0.5, each with n = 200. Construct a 95% CI for p₁ − p₂. Round to three decimal places.",
    "answer": "(0.003, 0.197)",
    "solutionSteps": [
-    "Point estimate of p₁ − p₂: p̂₁ − p̂₂.",
+    "Two-proportion z interval: (p̂₁ − p̂₂) ± z*·√(p̂₁(1 − p̂₁)/n₁ + p̂₂(1 − p̂₂)/n₂).",
     "0.1 ± 1.96(0.0495) = (0.003, 0.197)."
    ],
    "options": [
@@ -14953,7 +14955,7 @@
    "prompt": "Two independent random samples of students score x̄₁ = 82 (with tutoring) and x̄₂ = 76 (without). What is the point estimate of μ₁ − μ₂?",
    "answer": "6",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "Point estimate of μ₁ − μ₂: x̄₁ − x̄₂.",
     "82 − 76 = 6."
    ],
    "options": [
@@ -14978,7 +14980,7 @@
     "APSTATS.4.10.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s10_mcfill). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: for independent events, P(A and B) = P(A)·P(B)."
+   "hint": "First step: point estimate of μ₁ − μ₂: x̄₁ − x̄₂."
   },
   {
    "id": "stat-u4-s10-cp2-x15",
@@ -14988,7 +14990,7 @@
    "prompt": "Before/after measurements are taken on 10 people. How many differences are analyzed?",
    "answer": "10",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Paired data give one difference per pair (or per person).",
     "One per person.",
     "Answer: 10."
    ],
@@ -15014,7 +15016,7 @@
     "APSTATS.4.5.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u4_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: add the counts in the categories asked for."
+   "hint": "First step: paired data give one difference per pair (or per person)."
   },
   {
    "id": "stat-u4-s10-cp2-x16",
@@ -15159,7 +15161,7 @@
    "prompt": "x̄₁ = 50, s₁ = 10, n₁ = 25; x̄₂ = 44, s₂ = 12, n₂ = 36. Find the two-sample t. Round to two decimal places.",
    "answer": "2.12",
    "solutionSteps": [
-    "Standard error of x̄₁ − x̄₂: SE = √(s₁²/n₁ + s₂²/n₂).",
+    "Two-sample t statistic: t = (x̄₁ − x̄₂) ÷ √(s₁²/n₁ + s₂²/n₂).",
     "6/√(4 + 4) = 2.12."
    ],
    "options": [

@@ -1,0 +1,29 @@
+{
+ "version": "20261118",
+ "labVersion": "20261105",
+ "tools": [
+  {
+   "slug": "statistics-normal-curve-lab",
+   "course": "statistics",
+   "unit": "exploring-data",
+   "unitName": "Exploring Data",
+   "title": "Normal Curve: Areas, z-Scores and Percentiles",
+   "intro": "Shade any region under a Normal curve and see its area, the z-scores of the cutoffs and the same area on the standard Normal curve. Then work backward from an area to a percentile.",
+   "description": "Choose a Normal model, shade X < a, X > a, a < X < b or both tails, and read the z-scores and the area (exact and with Table A). Switch to inverse mode to find a percentile from an area, and see the same area on the standard Normal curve.",
+   "topics": ["Normal distributions", "z-scores", "Normal probabilities", "Percentiles (inverse Normal)"],
+   "discovery": "The area under a Normal curve depends only on how many standard deviations a cutoff is from the mean: P(X < a) = P(Z < (a − μ)/σ). Table A gives left-tail areas; right tails and intervals come from subtraction, and percentiles come from reading the table backward.",
+   "also": [["anticipating-patterns"]]
+  },
+  {
+   "slug": "statistics-chi-square-lab",
+   "course": "statistics",
+   "unit": "statistical-inference",
+   "unitName": "Statistical Inference",
+   "title": "Chi-Square: Observed vs Expected",
+   "intro": "Change observed counts and watch the expected counts, each piece of χ², the total and the p-value. Compare a goodness-of-fit test with a test for independence in a two-way table.",
+   "description": "Set observed counts for a goodness-of-fit test (four categories against a claimed distribution) or a 2 × 3 two-way table, and see the expected counts, every (O − E)²/E piece, χ², df and the p-value shaded on the chi-square curve. Check the expected-count condition as you go.",
+   "topics": ["Chi-square tests", "Expected counts", "Goodness of fit (beyond AP)", "Independence in two-way tables"],
+   "discovery": "χ² = Σ(O − E)²/E measures how far the counts are from what the claim or independence predicts. Larger χ² gives a smaller p-value; with the same proportions, doubling every count doubles χ², so bigger samples give stronger evidence."
+  }
+ ]
+}

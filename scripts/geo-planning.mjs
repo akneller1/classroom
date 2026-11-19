@@ -90,7 +90,7 @@ function bankScope(course, prefix, opts = {}) {
   if (opts.ap) {
     let k = 0;
     while (day < 152) push({ unit: null, day_type: "Review", title: (k++ % 2 ? "AP review · Free-response practice" : "AP review · Timed multiple-choice practice"), lesson_id: prefix + "-AP-REVIEW-" + (day + 1), standards: "" });
-    push({ unit: null, day_type: "Assessment", title: "AP Calculus AB Exam (early-to-mid May)", lesson_id: prefix + "-AP-EXAM", standards: "" });
+    push({ unit: null, day_type: "Assessment", title: (opts.exam || "AP Calculus AB Exam") + " (early-to-mid May)", lesson_id: prefix + "-AP-EXAM", standards: "" });
     const projects = opts.projects || [];
     k = 0;
     while (day < 179) push({ unit: null, day_type: "Practice", title: "Post-exam project" + (projects.length ? " · " + projects[Math.floor(k++ / 4) % projects.length] : ""), lesson_id: prefix + "-PROJECT-" + (day + 1), standards: "" });
@@ -128,12 +128,18 @@ const COURSES = {
      algebra) follows the test. The coverage table lists every Grade 7 and Grade 8 standard. */
   prealgebra7: { name: "Pre-Algebra (Grade 7)", load: () => bankScope("prealgebra7", "PA7", { mcas: { afterUnit: 12, review: 6, testing: 2, flex: 4,
     titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
-    sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true }
+    sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true },
+  /* Statistics (2026-11-18, Statistics audit #5): an AP course like Calculus. The four course units cover the five units of
+     the AP Statistics framework effective fall 2026; new content ends about mid-April, AP review and the two practice exams
+     run to the exam in May, and the four Statistics projects fill the weeks after it. */
+  statistics: { name: "Statistics", load: () => bankScope("statistics", "ST", { ap: true, noReviewUnit: true, exam: "AP Statistics Exam", projects: calculusProjects("statistics") }), sets: /^statistics-/, page: "statistics-pacing/", framework: "AP Statistics learning objectives (framework effective fall 2026)", bank: true, ap: true, apName: "AP Statistics",
+    apNote: "The four course units cover the five units of the AP Statistics framework effective fall 2026: Exploring Data covers AP Units 1 and 5 (one-variable data and regression); Sampling and Experimentation covers the data-collection topics of AP Unit 1; Anticipating Patterns covers AP Unit 2 (probability, random variables and distributions) with the sampling-distribution topics of Units 3 and 4; Statistical Inference covers AP Units 3 and 4 (inference for proportions and for means). Skills marked “Beyond AP” (geometric distributions, combining random variables, chi-square goodness of fit and inference for slope) are no longer on the AP exam and can be shortened or skipped. Use the two AP Statistics practice exams in the final review weeks." }
 };
-function calculusProjects() {
+function calculusProjects(course = "calculus") {
+  const re = new RegExp("^" + course + "-project-");
   try {
-    return fs.readdirSync(path.join(ROOT, "artifacts")).filter((d) => /^calculus-project-/.test(d)).sort()
-      .map((d) => d.replace(/^calculus-project-/, "").split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" "));
+    return fs.readdirSync(path.join(ROOT, "artifacts")).filter((d) => re.test(d)).sort()
+      .map((d) => d.replace(re, "").split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" "));
   } catch (e) { return []; }
 }
 const cache = {};
@@ -224,8 +230,10 @@ function discreteStandards(stdSkills) {
 // Grade 7 (Grade 7 audit #17, 2026-11-19): every Common Core Grade 7 and Grade 8 standard at its finest level.
 const ALL_PREALGEBRA7 = [..."7.RP.A.1 7.RP.A.2a 7.RP.A.2b 7.RP.A.2c 7.RP.A.2d 7.RP.A.3 7.NS.A.1a 7.NS.A.1b 7.NS.A.1c 7.NS.A.1d 7.NS.A.2a 7.NS.A.2b 7.NS.A.2c 7.NS.A.2d 7.NS.A.3 7.EE.A.1 7.EE.A.2 7.EE.B.3 7.EE.B.4a 7.EE.B.4b 7.G.A.1 7.G.A.2 7.G.A.3 7.G.B.4 7.G.B.5 7.G.B.6 7.SP.A.1 7.SP.A.2 7.SP.B.3 7.SP.B.4 7.SP.C.5 7.SP.C.6 7.SP.C.7a 7.SP.C.7b 7.SP.C.8a 7.SP.C.8b 7.SP.C.8c".split(" "),
   ..."8.NS.A.1 8.NS.A.2 8.EE.A.1 8.EE.A.2 8.EE.A.3 8.EE.A.4 8.EE.B.5 8.EE.B.6 8.EE.C.7a 8.EE.C.7b 8.EE.C.8a 8.EE.C.8b 8.EE.C.8c 8.F.A.1 8.F.A.2 8.F.A.3 8.F.B.4 8.F.B.5 8.G.A.1 8.G.A.2 8.G.A.3 8.G.A.4 8.G.A.5 8.G.B.6 8.G.B.7 8.G.B.8 8.G.C.9 8.SP.A.1 8.SP.A.2 8.SP.A.3 8.SP.A.4".split(" ")].map((c) => [c]);
+// AP Statistics learning objectives, framework effective fall 2026 (Statistics audit #3 and #5, 2026-11-18).
+const ALL_STATISTICS = [["APSTATS.1.1.A"], ["APSTATS.1.1.B"], ["APSTATS.1.2.A"], ["APSTATS.1.2.B"], ["APSTATS.1.2.C"], ["APSTATS.1.3.A"], ["APSTATS.1.3.B"], ["APSTATS.1.4.A"], ["APSTATS.1.4.B"], ["APSTATS.1.4.C"], ["APSTATS.1.5.A"], ["APSTATS.1.6.A"], ["APSTATS.1.6.B"], ["APSTATS.1.7.A"], ["APSTATS.1.7.B"], ["APSTATS.1.7.C"], ["APSTATS.1.7.D"], ["APSTATS.1.7.E"], ["APSTATS.1.7.F"], ["APSTATS.1.8.A"], ["APSTATS.1.8.B"], ["APSTATS.1.9.A"], ["APSTATS.1.9.B"], ["APSTATS.1.9.C"], ["APSTATS.1.9.D"], ["APSTATS.1.9.E"], ["APSTATS.1.10.A"], ["APSTATS.1.10.B"], ["APSTATS.1.10.C"], ["APSTATS.1.10.D"], ["APSTATS.1.10.E"], ["APSTATS.1.11.A"], ["APSTATS.1.11.B"], ["APSTATS.1.12.A"], ["APSTATS.1.13.A"], ["APSTATS.1.13.B"], ["APSTATS.1.13.C"], ["APSTATS.1.13.D"], ["APSTATS.2.1.A"], ["APSTATS.2.1.B"], ["APSTATS.2.2.A"], ["APSTATS.2.2.B"], ["APSTATS.2.2.C"], ["APSTATS.2.3.A"], ["APSTATS.2.4.A"], ["APSTATS.2.5.A"], ["APSTATS.2.6.A"], ["APSTATS.2.7.A"], ["APSTATS.2.8.A"], ["APSTATS.2.9.A"], ["APSTATS.2.9.B"], ["APSTATS.2.10.A"], ["APSTATS.2.10.B"], ["APSTATS.2.10.C"], ["APSTATS.2.10.D"], ["APSTATS.2.10.E"], ["APSTATS.2.11.A"], ["APSTATS.2.11.B"], ["APSTATS.2.11.C"], ["APSTATS.2.11.D"], ["APSTATS.2.11.E"], ["APSTATS.2.11.F"], ["APSTATS.2.12.A"], ["APSTATS.3.1.A"], ["APSTATS.3.1.B"], ["APSTATS.3.2.A"], ["APSTATS.3.2.B"], ["APSTATS.3.2.C"], ["APSTATS.3.3.A"], ["APSTATS.3.3.B"], ["APSTATS.3.3.C"], ["APSTATS.3.3.D"], ["APSTATS.3.4.A"], ["APSTATS.3.4.B"], ["APSTATS.3.4.C"], ["APSTATS.3.5.A"], ["APSTATS.3.5.B"], ["APSTATS.3.5.C"], ["APSTATS.3.6.A"], ["APSTATS.3.7.A"], ["APSTATS.3.7.B"], ["APSTATS.3.8.A"], ["APSTATS.3.8.B"], ["APSTATS.3.8.C"], ["APSTATS.3.8.D"], ["APSTATS.3.9.A"], ["APSTATS.3.9.B"], ["APSTATS.3.9.C"], ["APSTATS.3.10.A"], ["APSTATS.3.10.B"], ["APSTATS.3.10.C"], ["APSTATS.3.10.D"], ["APSTATS.3.11.A"], ["APSTATS.3.11.B"], ["APSTATS.3.12.A"], ["APSTATS.3.12.B"], ["APSTATS.3.12.C"], ["APSTATS.3.13.A"], ["APSTATS.3.13.B"], ["APSTATS.3.13.C"], ["APSTATS.3.14.A"], ["APSTATS.3.14.B"], ["APSTATS.3.14.C"], ["APSTATS.3.14.D"], ["APSTATS.3.15.A"], ["APSTATS.3.15.B"], ["APSTATS.3.15.C"], ["APSTATS.3.15.D"], ["APSTATS.4.1.A"], ["APSTATS.4.1.B"], ["APSTATS.4.1.C"], ["APSTATS.4.2.A"], ["APSTATS.4.2.B"], ["APSTATS.4.2.C"], ["APSTATS.4.2.D"], ["APSTATS.4.2.E"], ["APSTATS.4.3.A"], ["APSTATS.4.3.B"], ["APSTATS.4.3.C"], ["APSTATS.4.4.A"], ["APSTATS.4.4.B"], ["APSTATS.4.4.C"], ["APSTATS.4.5.A"], ["APSTATS.4.5.B"], ["APSTATS.4.5.C"], ["APSTATS.4.6.A"], ["APSTATS.4.6.B"], ["APSTATS.4.6.C"], ["APSTATS.4.7.A"], ["APSTATS.4.7.B"], ["APSTATS.4.7.C"], ["APSTATS.4.7.D"], ["APSTATS.4.8.A"], ["APSTATS.4.8.B"], ["APSTATS.4.9.A"], ["APSTATS.4.9.B"], ["APSTATS.4.9.C"], ["APSTATS.4.10.A"], ["APSTATS.4.10.B"], ["APSTATS.4.10.C"], ["APSTATS.5.1.A"], ["APSTATS.5.1.B"], ["APSTATS.5.1.C"], ["APSTATS.5.2.A"], ["APSTATS.5.3.A"], ["APSTATS.5.4.A"], ["APSTATS.5.4.B"], ["APSTATS.5.4.C"], ["APSTATS.5.5.A"], ["APSTATS.5.5.B"]];
 export function geoPacingMain(course = "geometry", unitHref) {
-  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || ALL_GEOMETRY;
+  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, statistics: ALL_STATISTICS, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || ALL_GEOMETRY;
   const framework = C.framework || "Common Core " + C.name, source = C.bank ? "question-bank skill" : "generator skill";
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const href = unitHref || ((t) => "../u/geometry/" + slug(t) + "/");
@@ -252,9 +260,9 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
       h += `<tr><td colspan="${cols}"><strong>MCAS review and testing</strong> (days ${mr[0].day}–${mr[mr.length - 1].day}): ${esc(mr.map((d) => d.title.replace(/^MCAS (review · )?/, "")).join("; "))}</td></tr>\n`;
   }
   if (C.ap) {
-    const apr = scope.days.filter((d) => /^AP review/.test(d.title)), exam = scope.days.find((d) => /^AP Calculus AB Exam/.test(d.title)), proj = scope.days.filter((d) => /^Post-exam project/.test(d.title));
+    const apr = scope.days.filter((d) => /^AP review/.test(d.title)), exam = scope.days.find((d) => /^AP (?:Calculus AB|Statistics) Exam/.test(d.title)), proj = scope.days.filter((d) => /^Post-exam project/.test(d.title));
     if (apr.length) h += `<tr><td colspan="4"><strong>AP review and practice exams</strong> (days ${apr[0].day}–${apr[apr.length - 1].day}): alternate timed multiple-choice and free-response practice</td></tr>\n`;
-    if (exam) h += `<tr><td colspan="4"><strong>AP Calculus AB Exam</strong> (about day ${exam.day}, early-to-mid May; check the College Board date for your year)</td></tr>\n`;
+    if (exam) h += `<tr><td colspan="4"><strong>${esc(C.apName || "AP Calculus AB")} Exam</strong> (about day ${exam.day}, early-to-mid May; check the College Board date for your year)</td></tr>\n`;
     if (proj.length) h += `<tr><td colspan="4"><strong>Post-exam projects</strong> (days ${proj[0].day}–${proj[proj.length - 1].day}): ${esc([...new Set(proj.map((d) => d.title.split(" · ")[1]).filter(Boolean))].join("; "))}</td></tr>\n`;
   } else {
   const fin = scope.days.filter((d) => d.unit === null && d.day > 170);

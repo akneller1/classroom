@@ -10,6 +10,7 @@ on:
       - 'tools/calculus-audit-20261118/labs/**'
       - 'scripts/test-calculus-labs.cjs'
       - 'tools/grade7-audit-20261119/labs/**'
+      - 'tools/statistics-audit-20261118/labs/**'
       - 'scripts/test-interactive-math-update.cjs'
       - '.github/workflows/interactive-math.yml'
   workflow_dispatch:
@@ -40,3 +41,8 @@ jobs:
           python tools/grade7-audit-20261119/labs/build.py
           git diff --exit-code -- artifacts/grade7-integer-chips-lab/index.html artifacts/grade7-circles-lab/index.html
           python tools/grade7-audit-20261119/labs/tests/worksheet-answers.py
+      - name: Statistics Normal Curve and Chi-Square labs
+        run: |
+          python tools/statistics-audit-20261118/labs/build.py
+          git diff --exit-code -- artifacts/statistics-normal-curve-lab/index.html artifacts/statistics-chi-square-lab/index.html
+          python tools/statistics-audit-20261118/labs/tests/worksheet-answers.py

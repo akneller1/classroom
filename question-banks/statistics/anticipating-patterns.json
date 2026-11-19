@@ -384,7 +384,7 @@
    "prompt": "A two-way table classifies 240 students by grade and whether they have a pet: Has a pet: Freshman 42, Sophomore 35, Junior 28. No pet: Freshman 38, Sophomore 45, Junior 52. A student is selected at random. Find P(junior | has a pet). Round to four decimal places.\nTable columns (in order): Freshman; Sophomore; Junior.\nHas a pet: 42, 35, 28.\nNo pet: 38, 45, 52.",
    "answer": "0.2667",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
     "Restrict to the 105 pet owners: 28/105 ≈ 0.2667."
    ],
    "standards": [
@@ -418,7 +418,7 @@
    "prompt": "A two-way table classifies 240 students by grade and whether they have a pet: Has a pet: Freshman 42, Sophomore 35, Junior 28. No pet: Freshman 38, Sophomore 45, Junior 52. A student is selected at random. Find P(has a pet | junior). Round to four decimal places.\nTable columns (in order): Freshman; Sophomore; Junior.\nHas a pet: 42, 35, 28.\nNo pet: 38, 45, 52.",
    "answer": "0.3500",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
     "Restrict to the 80 juniors: 28/80 = 0.35 = 0.3500."
    ],
    "standards": [
@@ -452,7 +452,7 @@
    "prompt": "A two-way table classifies 240 students by grade and whether they have a pet: Has a pet: Freshman 42, Sophomore 35, Junior 28. No pet: Freshman 38, Sophomore 45, Junior 52. A student is selected at random. Find P(freshman or has a pet). Round to four decimal places.\nTable columns (in order): Freshman; Sophomore; Junior.\nHas a pet: 42, 35, 28.\nNo pet: 38, 45, 52.",
    "answer": "0.5958",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Addition rule: P(A or B) = P(A) + P(B) − P(A and B).",
     "P(F) + P(Pet) − P(F and Pet) = 80/240 + 105/240 − 42/240 = 143/240 ≈ 0.5958."
    ],
    "standards": [
@@ -800,7 +800,7 @@
    "prompt": "The number of cars X a dealership sells on a weekday has this probability distribution. x: 0, 1, 2, 3, 4; P(x): 0.1, 0.25, 0.35, 0.2, 0.1. Find the expected value E(X). Round to two decimal places.",
    "answer": "1.95",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Expected value: E(X) = Σ x·P(x).",
     "E(X) = Σ x·P(x) = 0(0.1) + 1(0.25) + 2(0.35) + 3(0.2) + 4(0.1) = 1.95."
    ],
    "standards": [
@@ -825,7 +825,7 @@
      "correct": true
     }
    ],
-   "hint": "First step: add the probabilities of the values of X that satisfy the condition."
+   "hint": "First step: expected value: E(X) = Σ x·P(x)."
   },
   {
    "id": "stat-u3-t2-002",
@@ -869,7 +869,7 @@
    "prompt": "The number of KenKen hints X a student uses on a puzzle has this probability distribution. x: 0, 1, 2, 3; P(x): 0.45, 0.3, 0.15, 0.1. Find the expected value E(X). Round to two decimal places.",
    "answer": "0.90",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Expected value: E(X) = Σ x·P(x).",
     "E(X) = Σ x·P(x) = 0(0.45) + 1(0.3) + 2(0.15) + 3(0.1) = 0.90."
    ],
    "standards": [
@@ -937,7 +937,7 @@
    "prompt": "The number of cars Y a dealership leases on a weekday has this probability distribution. x: 0, 1, 2, 3; P(x): 0.4, 0.3, 0.2, 0.1. Find the expected value E(X). Round to two decimal places.",
    "answer": "1.00",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Expected value: E(X) = Σ x·P(x).",
     "E(X) = Σ x·P(x) = 0(0.4) + 1(0.3) + 2(0.2) + 3(0.1) = 1.00."
    ],
    "standards": [
@@ -1517,7 +1517,7 @@
    "prompt": "A spinner lands on blue 30% of the time; it is spun 50 times. Let X = number of blues. Find the mean and standard deviation of X.",
    "answer": "μ = 15, σ ≈ 3.240",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "μ = np = 50(0.3) = 15; σ = √(np(1 − p)) = √(10.5) ≈ 3.240 = μ = 15, σ ≈ 3.240."
    ],
    "standards": [
@@ -1542,7 +1542,7 @@
      "correct": false
     }
    ],
-   "hint": "First step: sample SD: s = √(Σ(x − x̄)² ÷ (n − 1))."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-t2-023",
@@ -1552,7 +1552,7 @@
    "prompt": "15% of KenKen app users buy premium. In a sample of 120 users, let X = number who buy premium. Find the mean and standard deviation of X.",
    "answer": "μ = 18, σ ≈ 3.912",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "μ = np = 120(0.15) = 18; σ = √(np(1 − p)) = √(15.3) ≈ 3.912 = μ = 18, σ ≈ 3.912."
    ],
    "standards": [
@@ -2134,7 +2134,7 @@
    "prompt": "Reese's Pieces are 45% orange. In a random sample of 100 candies, what is the probability that more than 50% are orange? Use technology (normalcdf). Round to four decimal places.",
    "answer": "0.1574",
    "solutionSteps": [
-    "Standardize with z = (x − μ) ÷ σ, then find the area under the standard Normal curve (Table A or normalcdf).",
+    "Standardize with the sampling distribution: z = (p̂ − p) ÷ √(p(1 − p)/n), then use the Normal curve.",
     "Large Counts: np = 45 and n(1 − p) = 55 are both ≥ 10, so p̂ is approximately Normal with mean 0.45 and SD √(0.45·0.55/100) ≈ 0.0497. z = (0.50 − 0.45)/0.0497 ≈ 1.005; normalcdf gives P(p̂ > 0.50) ≈ 0.1574. (Table A with z rounded to 1.01 gives 0.1562.)"
    ],
    "standards": [
@@ -2168,7 +2168,7 @@
    "prompt": "30% of students at a large school walk to school. In an SRS of 250 students, what is the probability that fewer than 25% walk? Use technology (normalcdf). Round to four decimal places.",
    "answer": "0.0422",
    "solutionSteps": [
-    "Standardize with z = (x − μ) ÷ σ, then find the area under the standard Normal curve (Table A or normalcdf).",
+    "Standardize with the sampling distribution: z = (p̂ − p) ÷ √(p(1 − p)/n), then use the Normal curve.",
     "Large Counts: np = 75 and n(1 − p) = 175 are both ≥ 10, so p̂ is approximately Normal with mean 0.3 and SD √(0.3·0.7/250) ≈ 0.0290. z = (0.25 − 0.30)/0.0290 ≈ −1.725; normalcdf gives P(p̂ < 0.25) ≈ 0.0422. (Table A with z rounded to −1.73 gives 0.0418.)"
    ],
    "standards": [
@@ -3031,7 +3031,7 @@
    "prompt": "The probability a randomly chosen student walks to school is 0.15. What is the probability a randomly chosen student does NOT walk to school?",
    "answer": "0.85",
    "solutionSteps": [
-    "Identify what is asked, then use the values given.",
+    "Complement rule: P(not A) = 1 − P(A).",
     "Complement rule: P(not A) = 1 − P(A) = 1 − 0.15 = 0.85."
    ],
    "options": [
@@ -3055,7 +3055,8 @@
    "standards": [
     "APSTATS.2.7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_complement). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_complement). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
+   "hint": "First step: complement rule: P(not A) = 1 − P(A)."
   },
   {
    "id": "stat-u3-s02-cp2-x05",
@@ -4593,7 +4594,7 @@
    "prompt": "A continuous random variable X is uniform on 0 to 10. What is P(X = 4)?",
    "answer": "0",
    "solutionSteps": [
-    "For a uniform distribution, probability = (length of the interval) ÷ (total length).",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "For a continuous random variable, any single value has probability 0; probabilities come from areas over intervals."
    ],
    "options": [
@@ -4753,7 +4754,7 @@
    "prompt": "X = number of goals a soccer team scores in a game: x: 0, 1, 2, 3; P(x): 0.25, 0.35, 0.3, 0.1. Find E(X).",
    "answer": "1.25",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Expected value: E(X) = Σ x·P(x).",
     "E(X) = Σ x·P(x) = 0(0.25) + 1(0.35) + 2(0.3) + 3(0.1) = 1.25."
    ],
    "options": [
@@ -4778,7 +4779,7 @@
     "APSTATS.2.9.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_ev). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: add the probabilities of the values of X that satisfy the condition."
+   "hint": "First step: expected value: E(X) = Σ x·P(x)."
   },
   {
    "id": "stat-u3-s06-cp2-x02",
@@ -4788,7 +4789,7 @@
    "prompt": "X = number of books a student checks out: x: 1, 2, 3, 4; P(x): 0.4, 0.3, 0.2, 0.1. Find E(X).",
    "answer": "2.00",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Expected value: E(X) = Σ x·P(x).",
     "E(X) = Σ x·P(x) = 1(0.4) + 2(0.3) + 3(0.2) + 4(0.1) = 2.00."
    ],
    "options": [
@@ -4813,7 +4814,7 @@
     "APSTATS.2.9.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_ev). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: add the probabilities of the values of X that satisfy the condition."
+   "hint": "First step: expected value: E(X) = Σ x·P(x)."
   },
   {
    "id": "stat-u3-s06-cp1-x01",
@@ -4840,7 +4841,7 @@
    "prompt": "A raffle ticket costs $5. The expected value of a ticket's prize is $3.20. What is the expected net gain per ticket?",
    "answer": "−$1.80",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Expected net gain = (expected prize) − (cost).",
     "Expected net = 3.20 − 5 = −1.80 dollars per ticket.",
     "Answer: −$1.80."
    ],
@@ -4866,7 +4867,7 @@
     "APSTATS.2.9.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_ev_net). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: expected value: E(X) = Σ x·P(x)."
+   "hint": "First step: expected net gain = (expected prize) − (cost)."
   },
   {
    "id": "stat-u3-s06-cp2-x04",
@@ -5178,7 +5179,7 @@
    "prompt": "A fair coin is tossed 20 times. What is the expected number of heads?",
    "answer": "10",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "Binomial mean μ = np = 20(0.5) = 10."
    ],
    "options": [
@@ -5203,7 +5204,7 @@
     "APSTATS.2.10.B"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_binom_mean). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: expected value: E(X) = Σ x·P(x)."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-s07-cp2-x04",
@@ -5434,7 +5435,7 @@
    "prompt": "A binomial distribution has n = 50. For which p is the distribution most nearly symmetric?",
    "answer": "p = 0.5",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "A binomial distribution is symmetric when p = 0.5 and skewed when p is near 0 or 1.",
     "Binomial distributions are symmetric when p = 0.5 and skewed when p is near 0 or 1."
    ],
    "options": [
@@ -5506,7 +5507,7 @@
    "prompt": "X = hours of sleep on Friday and Y = hours of sleep on Saturday for a student, with means 10 and 6. What is the mean of X + Y?",
    "answer": "16",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "The mean of a sum is the sum of the means: 10 + 6 = 16 (true whether or not X and Y are independent)."
    ],
    "options": [
@@ -5531,7 +5532,7 @@
     "APSTATS.BEYOND.COMB"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_comb_mean). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: expected value: E(X) = Σ x·P(x)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x02",
@@ -7294,7 +7295,7 @@
    "prompt": "X and Y are independent with means 40 and 25. What is the mean of X − Y?",
    "answer": "15",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "μ_(X−Y) = 40 − 25 = 15."
    ],
    "options": [
@@ -7319,7 +7320,7 @@
     "APSTATS.BEYOND.COMB"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_comb_topup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: for independent events, P(A and B) = P(A)·P(B)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x08",
@@ -7570,7 +7571,7 @@
    "prompt": "A statistic's sampling distribution for n = 50 has SD 4. Approximately what is its SD for n = 200?",
    "answer": "2",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "The SD of a sampling distribution is proportional to 1/√n.",
     "SD ∝ 1/√n; n × 4 → SD ÷ 2."
    ],
    "options": [
@@ -7637,7 +7638,7 @@
    "prompt": "For a strongly right-skewed population, which sample size gives an approximately Normal sampling distribution of x̄?",
    "answer": "n = 60",
    "solutionSteps": [
-    "Large Counts: np ≥ 10 and n(1 − p) ≥ 10.",
+    "Central Limit Theorem: the more skewed the population, the larger n must be for x̄ to be approximately Normal (n ≥ 30 is a common guide).",
     "The CLT requires larger n for skewed populations (n ≥ 30 rule of thumb; more for strong skew) = n = 60."
    ],
    "options": [
@@ -7842,7 +7843,7 @@
    "prompt": "Two independent random variables have means 12 and 7. What is the mean of their difference (first minus second)?",
    "answer": "5",
    "solutionSteps": [
-    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and P(more than k trials) = (1 − p)ᵏ.",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "μ_(X−Y) = 12 − 7 = 5."
    ],
    "options": [
@@ -7867,7 +7868,7 @@
     "APSTATS.BEYOND.COMB"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_comb_mean2). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and P(more than k trials) = (1 − p)ᵏ."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x10",
@@ -8057,7 +8058,7 @@
    "prompt": "A player makes each free throw with probability p = 0.3 and shoots n = 60 free throws (a binomial setting). What is the mean number made?",
    "answer": "18",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "np = 18."
    ],
    "options": [
@@ -8082,7 +8083,7 @@
     "APSTATS.2.10.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-s09-cp2-x07",
@@ -8230,7 +8231,7 @@
    "prompt": "For a randomly chosen shopper, A = buys bread and B = buys butter. P(B | A) = 0.6 and P(A) = 0.5. Find P(A and B).",
    "answer": "0.3",
    "solutionSteps": [
-    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
+    "General multiplication rule: P(A and B) = P(A)·P(B | A).",
     "0.5 × 0.6 = 0.3."
    ],
    "options": [
@@ -8436,7 +8437,7 @@
    "prompt": "Geometric with p = 0.2. Mean number of trials until success?",
    "answer": "5",
    "solutionSteps": [
-    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and the mean number of trials is 1/p.",
+    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and P(more than k trials) = (1 − p)ᵏ.",
     "1/p = 5."
    ],
    "options": [
@@ -8470,7 +8471,7 @@
    "prompt": "X = time to cook and Y = time to serve a meal are independent, with SDs 6 and 8. Find SD(X + Y).",
    "answer": "10",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√(36 + 64) = 10."
    ],
    "options": [
@@ -8812,7 +8813,7 @@
    "prompt": "P(X ≤ 1) = 0.35 and P(X ≤ 2) = 0.8. Find P(X = 2).",
    "answer": "0.45",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "P(X = k) = P(X ≤ k) − P(X ≤ k − 1).",
     "0.8 − 0.35 = 0.45."
    ],
    "options": [
@@ -8846,7 +8847,7 @@
    "prompt": "X is uniform from 0 to 5. Find P(1 < X < 3).",
    "answer": "0.4",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "2/5 = 0.4."
    ],
    "options": [
@@ -8880,7 +8881,7 @@
    "prompt": "X = 1 or 5 with probabilities 0.75 and 0.25. Find SD(X). Round to three decimal places.",
    "answer": "1.732",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "SD of a random variable: σ_X = √(Σ (x − μ)²·P(x)).",
     "Mean 2; variance 3.",
     "Answer: 1.732."
    ],
@@ -8983,7 +8984,7 @@
    "prompt": "n = 10 and p = 0.5. Find P(X ≥ 9). Round to four decimal places.",
    "answer": "0.0107",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ; add the terms for each k in the event.",
     "11/1024 = 0.0107."
    ],
    "options": [
@@ -9017,7 +9018,7 @@
    "prompt": "n = 8 and p = 0.3. Find P(X = 2). Round to four decimal places.",
    "answer": "0.2965",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ; add the terms for each k in the event.",
     "C(8,2)(0.3)²(0.7)⁶.",
     "Answer: 0.2965."
    ],
@@ -9052,7 +9053,7 @@
    "prompt": "Geometric with p = 0.1. Find P(X > 5). Round to four decimal places.",
    "answer": "0.5905",
    "solutionSteps": [
-    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and the mean number of trials is 1/p.",
+    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and P(more than k trials) = (1 − p)ᵏ.",
     "0.9⁵.",
     "Answer: 0.5905."
    ],
@@ -9087,7 +9088,7 @@
    "prompt": "n = 50 and p = 0.2. Find the binomial SD. Round to three decimal places.",
    "answer": "2.828",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "√8 = 2.828."
    ],
    "options": [
@@ -9121,7 +9122,7 @@
    "prompt": "Independent SDs 5 and 12. SD of X − Y?",
    "answer": "13",
    "solutionSteps": [
-    "For independent random variables, variances add: Var(X ± Y) = Var(X) + Var(Y), and μ_(X ± Y) = μ_X ± μ_Y.",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√(25 + 144) = 13."
    ],
    "options": [
@@ -9360,7 +9361,7 @@
    "prompt": "A spinner lands on red 45 times in 180 spins. Relative frequency of red?",
    "answer": "0.25",
    "solutionSteps": [
-    "Estimate the probability by the relative frequency: (number of times) ÷ (number of trials).",
+    "Relative frequency = (number of times the outcome occurs) ÷ (number of trials).",
     "45/180 = 0.25."
    ],
    "standards": [
@@ -9368,7 +9369,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s01_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s01-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: estimate the probability by the relative frequency: (number of times) ÷ (number of trials)."
+   "hint": "First step: relative frequency = (number of times the outcome occurs) ÷ (number of trials)."
   },
   {
    "id": "stat-u3-s01-cp2-x09",
@@ -9378,7 +9379,7 @@
    "prompt": "Two coins show two heads 30 times in 120 tosses. Relative frequency?",
    "answer": "0.25",
    "solutionSteps": [
-    "Estimate the probability by the relative frequency: (number of times) ÷ (number of trials).",
+    "Relative frequency = (number of times the outcome occurs) ÷ (number of trials).",
     "30/120 = 0.25."
    ],
    "standards": [
@@ -9386,7 +9387,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s01_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s01-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: estimate the probability by the relative frequency: (number of times) ÷ (number of trials)."
+   "hint": "First step: relative frequency = (number of times the outcome occurs) ÷ (number of trials)."
   },
   {
    "id": "stat-u3-s01-cp1-x08",
@@ -9396,7 +9397,7 @@
    "prompt": "In a town, P(rain) = 0.3 each day, independently. What is the expected number of rainy days in 40 days?",
    "answer": "12",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Expected count = (number of trials) × (probability).",
     "0.3 × 40 = 12."
    ],
    "standards": [
@@ -9413,7 +9414,7 @@
    "prompt": "An event has relative frequency 0.24 in 50 trials. How many times did it occur?",
    "answer": "12",
    "solutionSteps": [
-    "Relative frequency = (number of times the outcome occurs) ÷ (number of trials).",
+    "Count = (relative frequency) × (number of trials).",
     "0.24 × 50 = 12."
    ],
    "standards": [
@@ -9430,7 +9431,7 @@
    "prompt": "A fair die is rolled 300 times. Expected number of 6s?",
    "answer": "50",
    "solutionSteps": [
-    "Expected value: E(X) = Σ x·P(x).",
+    "Expected count = (number of trials) × (probability).",
     "300 × 1/6 = 50."
    ],
    "standards": [
@@ -9447,7 +9448,7 @@
    "prompt": "An event has probability 0.125. Expected count in 400 trials?",
    "answer": "50",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Expected count = (number of trials) × (probability).",
     "400 × 0.125 = 50."
    ],
    "standards": [
@@ -9569,7 +9570,7 @@
    "prompt": "18 of the 24 students who like pizza also like tacos. Find P(tacos | pizza).",
    "answer": "0.75",
    "solutionSteps": [
-    "Use the counts in the table: probability = (count in the event) ÷ (count in the group considered).",
+    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
     "18/24 = 0.75."
    ],
    "standards": [
@@ -9577,7 +9578,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s03_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s03-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: use the counts in the table: probability = (count in the event) ÷ (count in the group considered)."
+   "hint": "First step: conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition)."
   },
   {
    "id": "stat-u3-s03-cp2-x11",
@@ -9605,7 +9606,7 @@
    "prompt": "For a randomly chosen student, A = plays a sport and B = has a physical this month. P(A) = 0.4 and P(B | A) = 0.5. Find P(A and B).",
    "answer": "0.2",
    "solutionSteps": [
-    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
+    "General multiplication rule: P(A and B) = P(A)·P(B | A).",
     "0.4 × 0.5 = 0.2."
    ],
    "standards": [
@@ -9639,7 +9640,7 @@
    "prompt": "P(A) = 0.5, P(B | A) = 0.6, P(B | not A) = 0.2. Find P(A | B).",
    "answer": "0.75",
    "solutionSteps": [
-    "Complement rule: P(not A) = 1 − P(A).",
+    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
     "P(A and B) = 0.3; P(B) = 0.4; 0.3/0.4 = 0.75."
    ],
    "standards": [
@@ -9779,7 +9780,7 @@
    "prompt": "X = the number of books a student reads in a month is 0, 1, 2 or 3 with probabilities 0.2, 0.4, 0.3 and 0.1. Find P(X ≥ 2).",
    "answer": "0.4",
    "solutionSteps": [
-    "Addition rule: P(A or B) = P(A) + P(B) − P(A and B).",
+    "Add the probabilities of the values of X that satisfy the condition.",
     "0.3 + 0.1 = 0.4."
    ],
    "standards": [
@@ -9787,7 +9788,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s05_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s05-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: addition rule: P(A or B) = P(A) + P(B) − P(A and B)."
+   "hint": "First step: add the probabilities of the values of X that satisfy the condition."
   },
   {
    "id": "stat-u3-s05-cp2-x11",
@@ -9797,7 +9798,7 @@
    "prompt": "X is equally likely to be 1, 2, 3, 4, or 5. Find P(X > 3).",
    "answer": "0.4",
    "solutionSteps": [
-    "Addition rule: P(A or B) = P(A) + P(B) − P(A and B).",
+    "With equally likely values, probability = (number of values in the event) ÷ (number of values).",
     "2 of 5 values.",
     "Answer: 0.4."
    ],
@@ -9806,7 +9807,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s05_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s05-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: addition rule: P(A or B) = P(A) + P(B) − P(A and B)."
+   "hint": "First step: with equally likely values, probability = (number of values in the event) ÷ (number of values)."
   },
   {
    "id": "stat-u3-s05-cp1-x10",
@@ -9833,7 +9834,7 @@
    "prompt": "X = the number of siblings of a randomly chosen student has P(X ≤ 2) = 0.6 and P(X ≤ 3) = 0.75. Find P(X = 3).",
    "answer": "0.15",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "P(X = k) = P(X ≤ k) − P(X ≤ k − 1).",
     "0.75 − 0.60 = 0.15."
    ],
    "standards": [
@@ -9850,7 +9851,7 @@
    "prompt": "X is uniform from 0 to 10. Find P(2 < X < 6).",
    "answer": "0.4",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "4/10 = 0.4."
    ],
    "standards": [
@@ -9867,7 +9868,7 @@
    "prompt": "X is uniform from 0 to 5. Find P(X > 3).",
    "answer": "0.4",
    "solutionSteps": [
-    "For a uniform distribution, probability = (length of the interval) ÷ (total length).",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "2/5 = 0.4."
    ],
    "standards": [
@@ -9988,7 +9989,7 @@
    "prompt": "Each seed sprouts with probability p = 0.25, independently. For n = 40 of them, find the mean number (a binomial count).",
    "answer": "10",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "np.",
     "Answer: 10."
    ],
@@ -9997,7 +9998,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s07_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s07-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-s07-cp2-x09",
@@ -10007,7 +10008,7 @@
    "prompt": "Each customer buys dessert with probability p = 0.4, independently. For n = 25 of them, find the mean number (a binomial count).",
    "answer": "10",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "np.",
     "Answer: 10."
    ],
@@ -10016,7 +10017,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s07_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s07-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-s07-cp1-x08",
@@ -10026,7 +10027,7 @@
    "prompt": "Each free throw is made with probability p = 0.2, independently. X counts successes in n = 50 tries (binomial). Find the SD of X (three decimals).",
    "answer": "2.828",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "√8 = 2.828."
    ],
    "standards": [
@@ -10043,7 +10044,7 @@
    "prompt": "Each coin toss lands heads with probability p = 0.5, independently. X counts successes in n = 32 tries (binomial). Find the SD of X (three decimals).",
    "answer": "2.828",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "√8 = 2.828."
    ],
    "standards": [
@@ -10060,7 +10061,7 @@
    "prompt": "Binomial with n = 3 and p = 0.5. Find P(X = 0).",
    "answer": "0.125",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ; add the terms for each k in the event.",
     "0.5³.",
     "Answer: 0.125."
    ],
@@ -10078,7 +10079,7 @@
    "prompt": "Geometric with p = 0.5. Find P(X > 3).",
    "answer": "0.125",
    "solutionSteps": [
-    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and the mean number of trials is 1/p.",
+    "Geometric: P(first success on trial k) = (1 − p)^(k−1)·p, and P(more than k trials) = (1 − p)ᵏ.",
     "First 3 trials fail: 0.5³.",
     "Answer: 0.125."
    ],
@@ -10096,7 +10097,7 @@
    "prompt": "X = minutes to walk to the bus stop and Y = minutes on the bus, with E(X) = 12 and E(Y) = 8. Find E(X + Y).",
    "answer": "20",
    "solutionSteps": [
-    "Means of combinations: E(aX + bY) = a·E(X) + b·E(Y).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "12 + 8 = 20."
    ],
    "standards": [
@@ -10104,7 +10105,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s08_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s08-cp2 (A); both partners' answers must match.",
    "partnerRole": "A",
-   "hint": "First step: means of combinations: E(aX + bY) = a·E(X) + b·E(Y)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x12",
@@ -10114,7 +10115,7 @@
    "prompt": "X = weight of a full box and Y = weight of the empty box, with E(X) = 35 and E(Y) = 15. Find E(X − Y).",
    "answer": "20",
    "solutionSteps": [
-    "Means of combinations: E(aX + bY) = a·E(X) + b·E(Y).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "35 − 15 = 20."
    ],
    "standards": [
@@ -10122,7 +10123,7 @@
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s08_partner). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15. Partner Check pair PC-u3-s08-cp2 (B); both partners' answers must match.",
    "partnerRole": "B",
-   "hint": "First step: means of combinations: E(aX + bY) = a·E(X) + b·E(Y)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp1-x09",
@@ -10132,7 +10133,7 @@
    "prompt": "X = time to drive to work and Y = time to park are independent, with SDs 3 and 4. Find SD(X + Y).",
    "answer": "5",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√25 = 5."
    ],
    "standards": [
@@ -10149,7 +10150,7 @@
    "prompt": "X = length of part A and Y = length of part B are independent, with SDs 3 and 4. Find SD(X − Y).",
    "answer": "5",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "Variances add for differences too: √25 = 5."
    ],
    "standards": [
@@ -10183,7 +10184,7 @@
    "prompt": "Independent X and Y have SDs 3.6 and 4.8. Find SD(X − Y).",
    "answer": "6",
    "solutionSteps": [
-    "For independent random variables, variances add: Var(X ± Y) = Var(X) + Var(Y).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√(12.96 + 23.04) = 6."
    ],
    "standards": [
@@ -11565,7 +11566,7 @@
    "prompt": "A fair coin is tossed 1,000 times. The proportion of heads will most likely be",
    "answer": "close to 0.5",
    "solutionSteps": [
-    "The most likely value is the one with the largest probability.",
+    "Law of large numbers: with many trials, the relative frequency gets close to the true probability.",
     "Law of large numbers.",
     "Answer: close to 0.5."
    ],
@@ -11591,7 +11592,7 @@
     "APSTATS.2.3.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s01_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
-   "hint": "First step: the most likely value is the one with the largest probability."
+   "hint": "First step: law of large numbers: with many trials, the relative frequency gets close to the true probability."
   },
   {
    "id": "stat-u3-s01-cp1-x12",
@@ -11668,7 +11669,7 @@
    "prompt": "An event has probability 0.25. About how many times will it occur in 200 trials?",
    "answer": "50",
    "solutionSteps": [
-    "Add the counts in the categories asked for.",
+    "Expected count = (number of trials) × (probability).",
     "0.25 × 200 = 50."
    ],
    "options": [
@@ -11737,7 +11738,7 @@
    "prompt": "Relative frequencies were 0.70, 0.55, and 0.62 after 10, 100, and 1,000 trials (cumulative). Best estimate of the probability?",
    "answer": "0.62",
    "solutionSteps": [
-    "P(X = k) = P(X ≤ k) − P(X ≤ k − 1).",
+    "Law of large numbers: the relative frequency from the most trials is the best estimate.",
     "Use the largest number of trials.",
     "Answer: 0.62."
    ],
@@ -11945,7 +11946,7 @@
    "prompt": "P(A) = 0.6, P(B) = 0.5, P(A or B) = 0.8. Find P(A and B).",
    "answer": "0.3",
    "solutionSteps": [
-    "Addition rule: P(A or B) = P(A) + P(B) − P(A and B).",
+    "Addition rule rearranged: P(A and B) = P(A) + P(B) − P(A or B).",
     "0.6 + 0.5 − 0.8 = 0.3."
    ],
    "options": [
@@ -12220,7 +12221,7 @@
    "prompt": "P(A) = 0.3, P(B | A) = 0.8, P(B | not A) = 0.4. Find P(B).",
    "answer": "0.52",
    "solutionSteps": [
-    "Complement rule: P(not A) = 1 − P(A).",
+    "Total probability: P(B) = P(A)·P(B | A) + P(not A)·P(B | not A).",
     "0.24 + 0.28 = 0.52."
    ],
    "options": [
@@ -12254,7 +12255,7 @@
    "prompt": "P(A) = 0.3, P(B | A) = 0.8, P(B | not A) = 0.4. Find P(A | B). Round to four decimal places.",
    "answer": "0.4615",
    "solutionSteps": [
-    "Complement rule: P(not A) = 1 − P(A).",
+    "Conditional probability: P(A | B) = P(A and B) ÷ P(B), or (count in both) ÷ (count in the condition).",
     "0.24/0.52 = 0.4615."
    ],
    "options": [
@@ -12529,7 +12530,7 @@
    "prompt": "Digits 1–6 are die faces; 0, 7, 8, 9 are skipped. Using the digits 3 8 0 5 5 2, what rolls result?",
    "answer": "3, 5, 5, 2",
    "solutionSteps": [
-    "Use equally likely outcomes, and give \"success\" the fraction of them that matches the probability.",
+    "Read the digits in groups the size of a label; skip numbers that are not labels, and skip repeats when sampling without replacement.",
     "Skip 8 and 0; repeats are allowed for die rolls.",
     "Answer: 3, 5, 5, 2."
    ],
@@ -12905,7 +12906,7 @@
    "prompt": "X = the number of books a student reads in a month is 0, 1, 2 or 3 with probabilities 0.1, 0.2, 0.3 and 0.4. Find P(X ≤ 2).",
    "answer": "0.6",
    "solutionSteps": [
-    "Addition rule: P(A or B) = P(A) + P(B) − P(A and B).",
+    "Add the probabilities of the values of X that satisfy the condition.",
     "0.1 + 0.2 + 0.3 = 0.6."
    ],
    "options": [
@@ -13007,7 +13008,7 @@
    "prompt": "A bus arrives at a random time X minutes after you reach the stop, uniform from 0 to 8. Find P(X < 2).",
    "answer": "0.25",
    "solutionSteps": [
-    "For a uniform distribution, probability = (length of the interval) ÷ (total length).",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "2/8 = 0.25."
    ],
    "options": [
@@ -13041,7 +13042,7 @@
    "prompt": "P(X ≤ 3) = 0.85. Find P(X > 3).",
    "answer": "0.15",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "Complement rule: P(X > k) = 1 − P(X ≤ k).",
     "Complement.",
     "Answer: 0.15."
    ],
@@ -13076,7 +13077,7 @@
    "prompt": "One card is drawn; X = 1 if it is a face card (J, Q, K), else 0. Find P(X = 1).",
    "answer": "3/13",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "P(X = 1) = P(the event) = (favorable outcomes) ÷ (total outcomes).",
     "12/52 = 3/13."
    ],
    "options": [
@@ -13110,7 +13111,7 @@
    "prompt": "X is uniform from 0 to 4. Find P(1 < X ≤ 3).",
    "answer": "0.5",
    "solutionSteps": [
-    "Add the probabilities of the values of X that satisfy the condition.",
+    "For a continuous uniform distribution, probability = (length of the interval) ÷ (total length), and any single value has probability 0.",
     "2/4 = 0.5."
    ],
    "options": [
@@ -13315,7 +13316,7 @@
    "prompt": "X = 0 or 10 with probabilities 0.9 and 0.1. Find SD(X).",
    "answer": "3",
    "solutionSteps": [
-    "Sample SD: s = √(Σ(x − x̄)² ÷ (n − 1)).",
+    "SD of a random variable: σ_X = √(Σ (x − μ)²·P(x)).",
     "Mean 1; variance 0.9(1) + 0.1(81) = 9 = 3."
    ],
    "options": [
@@ -13383,7 +13384,7 @@
    "prompt": "Each part is defective with probability p = 0.1, independently. For n = 20 of them, find the mean number (a binomial count).",
    "answer": "2",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: μ = np and σ = √(np(1 − p)).",
     "np.",
     "Answer: 2."
    ],
@@ -13409,7 +13410,7 @@
     "APSTATS.2.10.B"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s07_mcfill). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ."
+   "hint": "First step: binomial: μ = np and σ = √(np(1 − p))."
   },
   {
    "id": "stat-u3-s07-cp2-x13",
@@ -13452,7 +13453,7 @@
    "prompt": "Binomial with n = 6 and p = 0.5. Find P(X = 3). Round to four decimal places.",
    "answer": "0.3125",
    "solutionSteps": [
-    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ.",
+    "Binomial: P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ; add the terms for each k in the event.",
     "C(6,3)/64 = 20/64 = 0.3125."
    ],
    "options": [
@@ -13486,7 +13487,7 @@
    "prompt": "The times for two independent legs of a relay, X and Y, have SDs 6 and 8 seconds. Find Var(X + Y).",
    "answer": "100",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "36 + 64 = 100."
    ],
    "options": [
@@ -13511,7 +13512,7 @@
     "APSTATS.BEYOND.COMB"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s08_mcfill). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: for independent events, P(A and B) = P(A)·P(B)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x16",
@@ -13521,7 +13522,7 @@
    "prompt": "X = weight of a full box and Y = weight of the empty box, with E(X) = 50 and E(Y) = 30. Find E(X − Y).",
    "answer": "20",
    "solutionSteps": [
-    "Means of combinations: E(aX + bY) = a·E(X) + b·E(Y).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "50 − 30 = 20."
    ],
    "options": [
@@ -13546,7 +13547,7 @@
     "APSTATS.BEYOND.COMB"
    ],
    "sourceNotes": "Original Claude-authored item (family: u3_s08_mcfill). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
-   "hint": "First step: means of combinations: E(aX + bY) = a·E(X) + b·E(Y)."
+   "hint": "First step: for independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y)."
   },
   {
    "id": "stat-u3-s08-cp2-x17",
@@ -13623,7 +13624,7 @@
    "prompt": "X ~ N(10, 3) and Y ~ N(6, 4), independent. Find the mean and SD of X + Y.",
    "answer": "16 and 5",
    "solutionSteps": [
-    "For independent random variables, variances add: Var(X ± Y) = Var(X) + Var(Y), and μ_(X ± Y) = μ_X ± μ_Y.",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√(9 + 16) = 5 = 16 and 5."
    ],
    "options": [
@@ -13657,7 +13658,7 @@
    "prompt": "X ~ N(10, 3) and Y ~ N(6, 4), independent. Find the mean and SD of X − Y.",
    "answer": "4 and 5",
    "solutionSteps": [
-    "For independent random variables, variances add: Var(X ± Y) = Var(X) + Var(Y), and μ_(X ± Y) = μ_X ± μ_Y.",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "Variances add.",
     "Answer: 4 and 5."
    ],
@@ -13692,7 +13693,7 @@
    "prompt": "The weights X and Y of two independently filled bags have Var(X) = 4 and Var(Y) = 9. Find SD(X − Y). Round to two decimal places.",
    "answer": "3.61",
    "solutionSteps": [
-    "For independent events, P(A and B) = P(A)·P(B).",
+    "For independent random variables, μ_(X ± Y) = μ_X ± μ_Y and Var(X ± Y) = Var(X) + Var(Y).",
     "√13 = 3.61."
    ],
    "options": [

@@ -1,0 +1,84 @@
+/* Chi-Square lab: observed counts in four categories against a claimed distribution (goodness of fit), or a 2 × 3 table
+   (independence). Shows expected counts, each (O − E)²/E piece, χ², df and the p-value from the chi-square distribution.
+   The p-value uses the regularized upper incomplete gamma function Q(df/2, χ²/2) (series / continued fraction). */
+var st = { mode: 'gof', claim: 'equal', obs: [30, 22, 28, 20], tab: [[30, 25, 15], [20, 25, 35]], seen: {} };
+var CLAIMS = { equal: [0.25, 0.25, 0.25, 0.25], candy: [0.3, 0.2, 0.2, 0.3], school: [0.4, 0.3, 0.2, 0.1] };
+var NAMES = ['A', 'B', 'C', 'D'], ROWS = ['Juniors', 'Seniors'], COLS = ['Bus', 'Car', 'Walk'];
+function lgamma(z) { var c = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5], x = z, y = z, t = x + 5.5; t -= (x + 0.5) * Math.log(t); var s = 1.000000000190015; for (var j = 0; j < 6; j++) s += c[j] / ++y; return -t + Math.log(2.5066282746310005 * s / x); }
+function gammaQ(a, x) {
+  if (x <= 0) return 1;
+  if (x < a + 1) { var sum = 1 / a, del = sum, ap = a; for (var n = 0; n < 500; n++) { ap += 1; del *= x / ap; sum += del; if (Math.abs(del) < Math.abs(sum) * 1e-14) break; } return 1 - sum * Math.exp(-x + a * Math.log(x) - lgamma(a)); }
+  var b = x + 1 - a, c = 1 / 1e-300, d = 1 / b, h = d;
+  for (var i = 1; i < 500; i++) { var an = -i * (i - a); b += 2; d = an * d + b; if (Math.abs(d) < 1e-300) d = 1e-300; c = b + an / c; if (Math.abs(c) < 1e-300) c = 1e-300; d = 1 / d; var dl = d * c; h *= dl; if (Math.abs(dl - 1) < 1e-14) break; }
+  return Math.exp(-x + a * Math.log(x) - lgamma(a)) * h;
+}
+function chiP(x, df) { return gammaQ(df / 2, x / 2); }
+function chiDens(x, df) { return x <= 0 ? 0 : Math.exp((df / 2 - 1) * Math.log(x) - x / 2 - (df / 2) * Math.log(2) - lgamma(df / 2)); }
+function compute() {
+  var O, E, df;
+  if (st.mode === 'gof') { var n = st.obs.reduce(function (a, b) { return a + b; }, 0); O = st.obs.slice(); E = CLAIMS[st.claim].map(function (p) { return n * p; }); df = 3; }
+  else { var R = st.tab.map(function (r) { return r.reduce(function (a, b) { return a + b; }, 0); }), C = [0, 1, 2].map(function (j) { return st.tab[0][j] + st.tab[1][j]; }), N = R[0] + R[1];
+    O = st.tab[0].concat(st.tab[1]); E = []; for (var i = 0; i < 2; i++) for (var j = 0; j < 3; j++) E.push(R[i] * C[j] / N); df = 2; }
+  var parts = O.map(function (o, k) { return E[k] > 0 ? (o - E[k]) * (o - E[k]) / E[k] : 0; }), chi = parts.reduce(function (a, b) { return a + b; }, 0);
+  return { O: O, E: E, parts: parts, chi: chi, df: df, p: chiP(chi, df) };
+}
+var GB = { xmin: -0.5, xmax: 6.5, ymin: -8, ymax: 60, width: 640, height: 300, label: 'Observed and expected counts', noYAxis: true, xstep: 1, xlabelStep: 100 }, gb = L.graph(P.stage, GB);
+L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Blue bars: observed counts. Dashed outlines: expected counts. The number above each bar is its piece of χ², (O − E)²/E.');
+var GC = { xmin: 0, xmax: 20, ymin: -0.03, ymax: 0.5, width: 640, height: 220, label: 'Chi-square distribution with the p-value shaded', noYAxis: true, yfmt: function () { return ''; } }, gc = L.graph(P.stage, GC);
+L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Bottom: the chi-square distribution for this df. The shaded right tail beyond the observed χ² is the p-value.');
+var modeChips = L.chips(P.panel, { label: 'Test', value: st.mode, options: [{ value: 'gof', label: 'Goodness of fit (4 categories)' }, { value: 'ind', label: 'Independence (2 × 3 table)' }], onChange: function (v) { st.mode = v; show(); draw(); } });
+var claimBox = L.h('div', null, P.panel);
+L.chips(claimBox, { label: 'Claimed distribution', value: st.claim, options: [{ value: 'equal', label: 'Equal: 25% each' }, { value: 'candy', label: '30%, 20%, 20%, 30%' }, { value: 'school', label: '40%, 30%, 20%, 10%' }], onChange: function (v) { st.claim = v; draw(); } });
+var gofBox = L.h('div', null, P.panel), indBox = L.h('div', null, P.panel), sl = [];
+NAMES.forEach(function (nm, k) { sl.push(L.slider(gofBox, { id: 'obs-' + nm.toLowerCase(), label: 'Observed ' + nm, min: 0, max: 60, step: 1, value: st.obs[k], color: 'blue', format: function (v) { return String(v); }, onInput: function (v) { st.obs[k] = v; draw(); } })); });
+var tl = [];
+ROWS.forEach(function (r, i) { COLS.forEach(function (c, j) { tl.push(L.slider(indBox, { id: 'cell-' + i + '-' + j, label: r + ', ' + c, min: 0, max: 60, step: 1, value: st.tab[i][j], color: i ? 'purple' : 'blue', format: function (v) { return String(v); }, onInput: function (v) { st.tab[i][j] = v; draw(); } })); }); });
+function show() { gofBox.style.display = claimBox.style.display = st.mode === 'gof' ? '' : 'none'; indBox.style.display = st.mode === 'ind' ? '' : 'none'; }
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btns, function () { st.obs = [30, 22, 28, 20]; st.tab = [[30, 25, 15], [20, 25, 35]]; sl.forEach(function (s, k) { s.set(st.obs[k], true); }); tl.forEach(function (s, k) { s.set(st.tab[Math.floor(k / 3)][k % 3], true); }); draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Goodness of fit with the equal claim: make the observed counts match the expected counts exactly. What are χ² and the p-value?', check: function () { return st.seen.zero; } },
+  { text: 'Change only one category so that the p-value drops below 0.05.', check: function () { return st.seen.sig; } },
+  { text: 'Find a table where every expected count is at least 5 but one is below 10. Is the Large Counts condition still met?', check: function () { return st.seen.lowE; } },
+  { text: 'Independence: make the three columns have the same split for juniors and seniors. What happens to χ²?', check: function () { return st.seen.indep; } },
+  { text: 'Double every count in a table (keep the proportions). What happens to χ² and the p-value?', check: function () { return st.seen.double; } }
+]);
+L.notice(P.below, '<p><b>Expected counts:</b> for goodness of fit, E = n × (claimed proportion); for a two-way table, E = (row total × column total)/table total.</p>' +
+  '<p><b>χ² = Σ (O − E)²/E</b> adds up how far each count is from what the claim (or independence) predicts, relative to its size. df = (categories − 1) for goodness of fit and (rows − 1)(columns − 1) for a two-way table.</p>' +
+  '<p>Large χ² means a small p-value: the data are unlikely if the claim is true. Check that every expected count is at least 5 before using the chi-square distribution.</p>');
+var hist = [];
+var draw = L.scheduler(function () {
+  var R = compute(), k = R.O.length, mx = Math.max.apply(null, R.O.concat(R.E));
+  L.setNiceView(gb, GB, { xmin: 0.3, xmax: k + 0.6, ymin: -0.14 * Math.max(10, mx), ymax: 1.25 * Math.max(10, mx) }, 6, 6); gb.clear();
+  var lab = st.mode === 'gof' ? NAMES : [0, 1].reduce(function (a, i) { return a.concat(COLS.map(function (c) { return ROWS[i].slice(0, 3) + '·' + c; })); }, []);
+  R.O.forEach(function (o, i0) {
+    var i = i0 + 1;
+    gb.poly([[i - 0.35, 0], [i - 0.35, o], [i + 0.35, o], [i + 0.35, 0]], { fill: st.mode === 'ind' && i0 > 2 ? 'purple' : 'blue', opacity: 0.55 });
+    gb.line(i - 0.4, R.E[i0], i + 0.4, R.E[i0], { color: 'orange', width: 3, dash: '6 4' });
+    gb.text(i, Math.max(o, R.E[i0]), L.num(R.parts[i0], 2), { dy: -8, anchor: 'middle', color: 'ink', size: 13 });
+    gb.text(i, 0, lab[i0], { dy: 18, anchor: 'middle', color: 'ink', size: 12 });
+  });
+  var xmax = Math.max(12, R.df * 4, R.chi * 1.15), top = R.df > 2 ? chiDens(R.df - 2, R.df) : 0.5;
+  L.setNiceView(gc, GC, { xmin: 0, xmax: xmax, ymin: -0.12 * top, ymax: 1.15 * top }, 8, 4); gc.clear();
+  var a = Math.min(R.chi, xmax), pts = [[a, 0]];
+  for (var i = 0; i <= 160; i++) { var x = a + (xmax - a) * i / 160; pts.push([x, Math.min(chiDens(x, R.df), 1.1 * top)]); }
+  pts.push([xmax, 0]); gc.poly(pts, { fill: 'orange', opacity: 0.4 });
+  gc.fn(function (x) { return Math.min(chiDens(x, R.df), 1.14 * top); }, { color: 'blue', width: 3, from: 0.02 });
+  gc.line(a, 0, a, top, { color: 'orange', width: 2, dash: '5 4' }); gc.text(a, top, 'χ² = ' + L.num(R.chi, 2), { dy: -6, anchor: 'middle', color: 'orange', size: 13 });
+  var minE = Math.min.apply(null, R.E);
+  read.innerHTML = 'Expected: ' + R.E.map(function (e) { return L.num(e, 2); }).join(', ') +
+    '<div style="margin-top:6px">χ² = ' + R.parts.map(function (p) { return L.num(p, 2); }).join(' + ') + ' = <b>' + L.num(R.chi, 3) + '</b></div>' +
+    '<div style="margin-top:4px">df = ' + R.df + ' · p-value = P(χ² ≥ ' + L.num(R.chi, 3) + ') = <b>' + L.num(R.p, 4) + '</b></div>';
+  fb.set(minE < 5 ? 'An expected count is below 5: the chi-square p-value is not reliable.' : R.p < 0.05 ? 'p-value < 0.05: convincing evidence against the claim (or of an association).' : 'p-value ≥ 0.05: not convincing evidence.', minE < 5 ? 'warn' : '');
+  if (st.mode === 'gof' && st.claim === 'equal' && R.chi < 1e-9 && R.O.some(function (o) { return o > 0; })) st.seen.zero = true;
+  if (R.p < 0.05 && minE >= 5) st.seen.sig = true;
+  if (minE >= 5 && minE < 10) st.seen.lowE = true;
+  if (st.mode === 'ind' && R.chi < 1e-9 && R.O.some(function (o) { return o > 0; })) st.seen.indep = true;
+  var key = st.mode + st.claim + R.O.join(','), half = R.O.every(function (o) { return o % 2 === 0; }) ? st.mode + st.claim + R.O.map(function (o) { return o / 2; }).join(',') : null;
+  if (half && hist.indexOf(half) >= 0 && R.chi > 0) st.seen.double = true;
+  if (hist.indexOf(key) < 0) { hist.push(key); if (hist.length > 400) hist.shift(); }
+  ch.update();
+});
+show(); draw();

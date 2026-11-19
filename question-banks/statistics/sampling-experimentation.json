@@ -7773,7 +7773,7 @@
    "prompt": "Labels 01–40; digits 07 52 13 07 39. Which three labels are chosen?",
    "answer": "07, 13, 39",
    "solutionSteps": [
-    "Use equally likely outcomes, and give \"success\" the fraction of them that matches the probability.",
+    "Read the digits in groups the size of a label; skip numbers that are not labels, and skip repeats when sampling without replacement.",
     "Skip 52 (>40) and the repeat 07 = 07, 13, 39."
    ],
    "options": [
@@ -8577,7 +8577,7 @@
    "prompt": "Labels 001–480; digits 714 870 998 429 077. First label chosen?",
    "answer": "429",
    "solutionSteps": [
-    "Use equally likely outcomes, and give \"success\" the fraction of them that matches the probability.",
+    "Read the digits in groups the size of a label; skip numbers that are not labels, and skip repeats when sampling without replacement.",
     "714, 870, 998 exceed 480.",
     "Answer: 429."
    ],

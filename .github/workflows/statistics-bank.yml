@@ -15,6 +15,10 @@ on:
       - 'scripts/test-statistics-audit.cjs'
       - 'scripts/test-statistics-s2.cjs'
       - 'scripts/test-statistics-plot.cjs'
+      - 'scripts/test-statistics-s3.cjs'
+      - 'scripts/test-statistics-notes.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'artifacts/statistics-**'
       - '.github/workflows/statistics-bank.yml'
   workflow_dispatch:
 jobs:
@@ -39,6 +43,13 @@ jobs:
         run: node scripts/test-statistics-audit.cjs
       - name: Statistics audit S2 (free response, grading, contexts and hints, diagrams, 24 items per set)
         run: node scripts/test-statistics-s2.cjs
+      - name: Statistics audit S3 (teaching notes, pacing, labs, practice exams, tables, worked-step rules)
+        run: |
+          python tools/statistics-audit-20261118/s3_print.py
+          python tools/statistics-audit-20261118/build_notes.py
+          git diff --exit-code -- artifacts/statistics-ap-practice-exam-a artifacts/statistics-ap-practice-exam-b artifacts/statistics-tables-formulas tools/statistics-audit-20261118/exams.json worksheet-generator/planner/notes-teach-statistics.js
+          node scripts/test-statistics-notes.cjs
+          node scripts/test-statistics-s3.cjs
       - name: Statistics graphing practice
         run: node scripts/test-statistics-plot.cjs
       - name: Validate Statistics coverage, keys, figures, and activity pools
