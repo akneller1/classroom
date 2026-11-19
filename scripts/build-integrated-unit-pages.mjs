@@ -104,7 +104,7 @@ ${courseJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, description: c
 <h1>${htmlEsc(title)} Worksheets, Games &amp; Lessons</h1>
 <p class="lede">${htmlEsc(courseDesc)}</p>
 ${courseBody({ id: course.id, title, blurb: course.blurb || "", units })}
-<a class="open-app" href="../../#${encodeURIComponent(course.id)}">Open ${htmlEsc(title)} in the full classroom site</a>
+${fs.existsSync(path.join(OUT, "grade-" + String(course.id).replace("grade", "") + "-pacing", "index.html")) && /^grade\d$/.test(course.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../grade-${String(course.id).replace("grade", "")}-pacing/">${htmlEsc(title)} pacing guide and standards coverage</a>: a 180-day plan built around the spring MCAS, a block plan, and which skills practice each Common Core standard</li></ul>\n` : ""}<a class="open-app" href="../../#${encodeURIComponent(course.id)}">Open ${htmlEsc(title)} in the full classroom site</a>
 </main>
 ${footer}
 </div>

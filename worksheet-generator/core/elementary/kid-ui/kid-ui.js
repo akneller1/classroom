@@ -43,6 +43,7 @@
     if (/^\d+\s+\d+\/\d+$/.test(a) || /^\d+\/\d+$/.test(a)) return 'fraction';
     if (/^\d*\.\d+$/.test(a)) return 'decimal';
     if (/^\(.+,.+\)$/.test(a)) return 'pair';
+    if (/^\d[\d,]*(?:, \d[\d,]*)+$/.test(a)) return 'list';   // 7, 14, 21 (Grade 4 audit #19, 2026-11-19)
     if (/^[\d,]+\s+[A-Za-z]/.test(a)) return 'number-unit';
     if (/^[\d,]+$/.test(a)) return 'number';
     return 'text';
@@ -62,6 +63,7 @@
       case 'decimal': return 'Type a decimal, like 0.75.';
       case 'pair': return 'Type the point, like (3, 5).';
       case 'number-unit': return young ? 'Just type the number.' : 'Type the number. You can add the unit.';
+      case 'list': return 'Type the numbers in order, with commas, like 7, 14, 21.';
       case 'number': return young ? 'Type a number.' : '';
       default: return '';
     }

@@ -1,0 +1,4121 @@
+{
+ "unit": "measurement-unit-conversions",
+ "edits": [
+  {
+   "id": "m4-mc-s01-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "2 feet 6 inches = ___ inches",
+     "to": "Dev has 2 pounds 7 ounces of flour and uses 5 ounces. How many ounces are left?"
+    },
+    "answer": {
+     "from": "30 inches",
+     "to": "34 ounces"
+    },
+    "solutionSteps": {
+     "from": [
+      "2 feet = 2 × 12 = 24 inches.",
+      "24 + 6 = 30 inches."
+     ],
+     "to": [
+      "2 pounds 7 ounces = 2 × 16 + 7 = 39 ounces.",
+      "39 − 5 = 34 ounces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_mixed_then_use). Rewritten from a Support template (was cu_mixed) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 inches",
+       "correct": false
+      },
+      {
+       "text": "26 inches",
+       "correct": false
+      },
+      {
+       "text": "30 inches",
+       "correct": true
+      },
+      {
+       "text": "24 inches",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "39 ounces",
+       "correct": false
+      },
+      {
+       "text": "4 ounces",
+       "correct": false
+      },
+      {
+       "text": "34 ounces",
+       "correct": true
+      },
+      {
+       "text": "27 ounces",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "21 quarts = ___ pints",
+     "to": "Grace has 7 yards 2 feet of ribbon and uses 2 feet. How many feet are left?"
+    },
+    "answer": {
+     "from": "42 pints",
+     "to": "21 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 quart = 2 pints.",
+      "21 × 2 = 42 pints."
+     ],
+     "to": [
+      "7 yards 2 feet = 7 × 3 + 2 = 23 feet.",
+      "23 − 2 = 21 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_mixed_then_use). Rewritten from a Support template (was cu_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "23 pints",
+       "correct": false
+      },
+      {
+       "text": "42 pints",
+       "correct": true
+      },
+      {
+       "text": "21 pints",
+       "correct": false
+      },
+      {
+       "text": "44 pints",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "23 feet",
+       "correct": false
+      },
+      {
+       "text": "7 feet",
+       "correct": false
+      },
+      {
+       "text": "21 feet",
+       "correct": true
+      },
+      {
+       "text": "19 feet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "Compare. Write <, > or = to make the statement true: 9 gallons ___ 38 quarts",
+     "to": "Tessa has 7 quarts 1 pints of juice and uses 5 pints. How many pints are left?"
+    },
+    "answer": {
+     "from": "<",
+     "to": "10 pints"
+    },
+    "solutionSteps": {
+     "from": [
+      "Convert to the smaller unit: 9 gallons = 36 quarts.",
+      "36 < 38, so 9 gallons < 38 quarts."
+     ],
+     "to": [
+      "7 quarts 1 pints = 7 × 2 + 1 = 15 pints.",
+      "15 − 5 = 10 pints."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_compare). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_mixed_then_use). Rewritten from a Support template (was cu_compare) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "4 gallons 3 quarts = ___ quarts",
+     "to": "Kai has 8 yards 2 feet of ribbon and uses 2 feet. How many feet are left?"
+    },
+    "answer": {
+     "from": "19 quarts",
+     "to": "24 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 gallons = 4 × 4 = 16 quarts.",
+      "16 + 3 = 19 quarts."
+     ],
+     "to": [
+      "8 yards 2 feet = 8 × 3 + 2 = 26 feet.",
+      "26 − 2 = 24 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_mixed_then_use). Rewritten from a Support template (was cu_mixed) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16 quarts",
+       "correct": false
+      },
+      {
+       "text": "7 quarts",
+       "correct": false
+      },
+      {
+       "text": "43 quarts",
+       "correct": false
+      },
+      {
+       "text": "19 quarts",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "26 feet",
+       "correct": false
+      },
+      {
+       "text": "8 feet",
+       "correct": false
+      },
+      {
+       "text": "22 feet",
+       "correct": false
+      },
+      {
+       "text": "24 feet",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Compare. Write <, > or = to make the statement true: 19 yards ___ 685 inches",
+     "to": "6 gallons of juice is shared equally into 4 parts. How many quarts is each part?"
+    },
+    "answer": {
+     "from": "<",
+     "to": "6 quarts"
+    },
+    "solutionSteps": {
+     "from": [
+      "Convert to the smaller unit: 19 yards = 684 inches.",
+      "684 < 685, so 19 yards < 685 inches."
+     ],
+     "to": [
+      "6 gallons = 6 × 4 = 24 quarts.",
+      "24 ÷ 4 = 6 quarts."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_compare). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_convert_then_share). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "13 feet 5 inches = ___ inches",
+     "to": "5 yards of ribbon is shared equally into 6 parts. How many inches is each part?"
+    },
+    "answer": {
+     "from": "161 inches",
+     "to": "30 inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 feet = 13 × 12 = 156 inches.",
+      "156 + 5 = 161 inches."
+     ],
+     "to": [
+      "5 yards = 5 × 36 = 180 inches.",
+      "180 ÷ 6 = 30 inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_convert_then_share). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "135 inches",
+       "correct": false
+      },
+      {
+       "text": "156 inches",
+       "correct": false
+      },
+      {
+       "text": "18 inches",
+       "correct": false
+      },
+      {
+       "text": "161 inches",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "180 inches",
+       "correct": false
+      },
+      {
+       "text": "5/6 inches",
+       "correct": false
+      },
+      {
+       "text": "66 inches",
+       "correct": false
+      },
+      {
+       "text": "30 inches",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s01-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "15 gallons 3 quarts = ___ quarts",
+     "to": "3 yards of ribbon is shared equally into 2 parts. How many inches is each part?"
+    },
+    "answer": {
+     "from": "63 quarts",
+     "to": "54 inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "15 gallons = 15 × 4 = 60 quarts.",
+      "60 + 3 = 63 quarts."
+     ],
+     "to": [
+      "3 yards = 3 × 36 = 108 inches.",
+      "108 ÷ 2 = 54 inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cu_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc1_convert_then_share). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "63 quarts",
+       "correct": true
+      },
+      {
+       "text": "153 quarts",
+       "correct": false
+      },
+      {
+       "text": "18 quarts",
+       "correct": false
+      },
+      {
+       "text": "60 quarts",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "108 inches",
+       "correct": false
+      },
+      {
+       "text": "1 1/2 inches",
+       "correct": false
+      },
+      {
+       "text": "54 inches",
+       "correct": true
+      },
+      {
+       "text": "90 inches",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "14 kilometers = ___ meters",
+     "to": "A shop has 3 kilograms 312 grams of flour. 733 grams are used. How many grams are left?"
+    },
+    "answer": {
+     "from": "14,000 meters",
+     "to": "2,579 grams"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilometer = 1,000 meters.",
+      "14 × 1,000 = 14,000 meters."
+     ],
+     "to": [
+      "3 kilograms 312 grams = 3,000 + 312 = 3,312 grams.",
+      "3,312 − 733 = 2,579 grams."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Compare. Write <, > or = to make the statement true: 6,340 meters ___ 6 kilometers",
+     "to": "A shop has 4 centimeters 3 millimeters of wire. 5 millimeters are used. How many millimeters are left?"
+    },
+    "answer": {
+     "from": ">",
+     "to": "38 millimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "Convert to the smaller unit: 6 kilometers = 6,000 meters.",
+      "6,000 < 6,340, so 6,340 meters > 6 kilometers."
+     ],
+     "to": [
+      "4 centimeters 3 millimeters = 40 + 3 = 43 millimeters.",
+      "43 − 5 = 38 millimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_compare). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_compare) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "5 kilometers 452 meters = ___ meters",
+     "to": "A shop has 9 centimeters 7 millimeters of wire. 27 millimeters are used. How many millimeters are left?"
+    },
+    "answer": {
+     "from": "5,452 meters",
+     "to": "70 millimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 kilometers = 5 × 1,000 = 5,000 meters.",
+      "5,000 + 452 = 5,452 meters."
+     ],
+     "to": [
+      "9 centimeters 7 millimeters = 90 + 7 = 97 millimeters.",
+      "97 − 27 = 70 millimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_mixed) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "21 meters = ___ centimeters",
+     "to": "A shop has 4 centimeters 4 millimeters of wire. 3 millimeters are used. How many millimeters are left?"
+    },
+    "answer": {
+     "from": "2,100 centimeters",
+     "to": "41 millimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 meter = 100 centimeters.",
+      "21 × 100 = 2,100 centimeters."
+     ],
+     "to": [
+      "4 centimeters 4 millimeters = 40 + 4 = 44 millimeters.",
+      "44 − 3 = 41 millimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "21 centimeters",
+       "correct": false
+      },
+      {
+       "text": "2,100 centimeters",
+       "correct": true
+      },
+      {
+       "text": "121 centimeters",
+       "correct": false
+      },
+      {
+       "text": "2,200 centimeters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "44 millimeters",
+       "correct": false
+      },
+      {
+       "text": "41 millimeters",
+       "correct": true
+      },
+      {
+       "text": "37 millimeters",
+       "correct": false
+      },
+      {
+       "text": "5 millimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "4 kilometers 608 meters = ___ meters",
+     "to": "A shop has 6 meters 37 centimeters of ribbon. 10 centimeters are used. How many centimeters are left?"
+    },
+    "answer": {
+     "from": "4,608 meters",
+     "to": "627 centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 kilometers = 4 × 1,000 = 4,000 meters.",
+      "4,000 + 608 = 4,608 meters."
+     ],
+     "to": [
+      "6 meters 37 centimeters = 600 + 37 = 637 centimeters.",
+      "637 − 10 = 627 centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_mixed) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4,608 meters",
+       "correct": true
+      },
+      {
+       "text": "4,609 meters",
+       "correct": false
+      },
+      {
+       "text": "612 meters",
+       "correct": false
+      },
+      {
+       "text": "4,000 meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "627 centimeters",
+       "correct": true
+      },
+      {
+       "text": "637 centimeters",
+       "correct": false
+      },
+      {
+       "text": "590 centimeters",
+       "correct": false
+      },
+      {
+       "text": "33 centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "10 kilometers = ___ meters",
+     "to": "A shop has 2 liters 8 milliliters of juice. 281 milliliters are used. How many milliliters are left?"
+    },
+    "answer": {
+     "from": "10,000 meters",
+     "to": "1,727 milliliters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilometer = 1,000 meters.",
+      "10 × 1,000 = 10,000 meters."
+     ],
+     "to": [
+      "2 liters 8 milliliters = 2,000 + 8 = 2,008 milliliters.",
+      "2,008 − 281 = 1,727 milliliters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "20 kilograms = ___ grams",
+     "to": "A shop has 3 centimeters 4 millimeters of wire. 14 millimeters are used. How many millimeters are left?"
+    },
+    "answer": {
+     "from": "20,000 grams",
+     "to": "20 millimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilogram = 1,000 grams.",
+      "20 × 1,000 = 20,000 grams."
+     ],
+     "to": [
+      "3 centimeters 4 millimeters = 30 + 4 = 34 millimeters.",
+      "34 − 14 = 20 millimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1,020 grams",
+       "correct": false
+      },
+      {
+       "text": "20 grams",
+       "correct": false
+      },
+      {
+       "text": "20,000 grams",
+       "correct": true
+      },
+      {
+       "text": "21,000 grams",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "34 millimeters",
+       "correct": false
+      },
+      {
+       "text": "20 millimeters",
+       "correct": true
+      },
+      {
+       "text": "16 millimeters",
+       "correct": false
+      },
+      {
+       "text": "48 millimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "2 meters 76 centimeters = ___ centimeters",
+     "to": "A shop has 7 kilometers 611 meters of rope. 1491 meters are used. How many meters are left?"
+    },
+    "answer": {
+     "from": "276 centimeters",
+     "to": "6,120 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "2 meters = 2 × 100 = 200 centimeters.",
+      "200 + 76 = 276 centimeters."
+     ],
+     "to": [
+      "7 kilometers 611 meters = 7,000 + 611 = 7,611 meters.",
+      "7,611 − 1491 = 6,120 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_convert_then_subtract). Rewritten from a Support template (was me_mixed) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "200 centimeters",
+       "correct": false
+      },
+      {
+       "text": "277 centimeters",
+       "correct": false
+      },
+      {
+       "text": "78 centimeters",
+       "correct": false
+      },
+      {
+       "text": "276 centimeters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7,611 meters",
+       "correct": false
+      },
+      {
+       "text": "5,509 meters",
+       "correct": false
+      },
+      {
+       "text": "6,120 meters",
+       "correct": true
+      },
+      {
+       "text": "9,102 meters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "1/10 meter = ___ centimeters",
+     "to": "Nora needs 6 kilometers of rope. She has 5 pieces that are each 728 meters. How many more meters does she need?"
+    },
+    "answer": {
+     "from": "10 centimeters",
+     "to": "2,360 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 meter = 100 centimeters.",
+      "1/10 of 100: 100 ÷ 10 = 10, and 1 × 10 = 10 centimeters."
+     ],
+     "to": [
+      "She has 5 × 728 = 3,640 meters. She needs 6 × 1,000 = 6,000 meters.",
+      "6,000 − 3,640 = 2,360 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "29 kilograms = ___ grams",
+     "to": "Nora needs 3 liters of juice. She has 5 pieces that are each 151 milliliters. How many more milliliters does she need?"
+    },
+    "answer": {
+     "from": "29,000 grams",
+     "to": "2,245 milliliters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilogram = 1,000 grams.",
+      "29 × 1,000 = 29,000 grams."
+     ],
+     "to": [
+      "She has 5 × 151 = 755 milliliters. She needs 3 × 1,000 = 3,000 milliliters.",
+      "3,000 − 755 = 2,245 milliliters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "29 grams",
+       "correct": false
+      },
+      {
+       "text": "30,000 grams",
+       "correct": false
+      },
+      {
+       "text": "1,029 grams",
+       "correct": false
+      },
+      {
+       "text": "29,000 grams",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "755 milliliters",
+       "correct": false
+      },
+      {
+       "text": "2,245 milliliters",
+       "correct": true
+      },
+      {
+       "text": "3,000 milliliters",
+       "correct": false
+      },
+      {
+       "text": "2,849 milliliters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "3 kilograms 644 grams = ___ grams",
+     "to": "Nora needs 3 kilometers of rope. She has 6 pieces that are each 232 meters. How many more meters does she need?"
+    },
+    "answer": {
+     "from": "3,644 grams",
+     "to": "1,608 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 kilograms = 3 × 1,000 = 3,000 grams.",
+      "3,000 + 644 = 3,644 grams."
+     ],
+     "to": [
+      "She has 6 × 232 = 1,392 meters. She needs 3 × 1,000 = 3,000 meters.",
+      "3,000 − 1,392 = 1,608 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3,645 grams",
+       "correct": false
+      },
+      {
+       "text": "647 grams",
+       "correct": false
+      },
+      {
+       "text": "3,644 grams",
+       "correct": true
+      },
+      {
+       "text": "3,000 grams",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1,392 meters",
+       "correct": false
+      },
+      {
+       "text": "3,000 meters",
+       "correct": false
+      },
+      {
+       "text": "1,608 meters",
+       "correct": true
+      },
+      {
+       "text": "2,768 meters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "1/2 kilometer = ___ meters",
+     "to": "Nora needs 6 kilometers of rope. She has 5 pieces that are each 758 meters. How many more meters does she need?"
+    },
+    "answer": {
+     "from": "500 meters",
+     "to": "2,210 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilometer = 1,000 meters.",
+      "1/2 of 1,000: 1,000 ÷ 2 = 500, and 1 × 500 = 500 meters."
+     ],
+     "to": [
+      "She has 5 × 758 = 3,790 meters. She needs 6 × 1,000 = 6,000 meters.",
+      "6,000 − 3,790 = 2,210 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1,000 meters",
+       "correct": false
+      },
+      {
+       "text": "2,000 meters",
+       "correct": false
+      },
+      {
+       "text": "5,000 meters",
+       "correct": false
+      },
+      {
+       "text": "500 meters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3,790 meters",
+       "correct": false
+      },
+      {
+       "text": "2,210 meters",
+       "correct": true
+      },
+      {
+       "text": "6,000 meters",
+       "correct": false
+      },
+      {
+       "text": "5,242 meters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "26 meters = ___ centimeters",
+     "to": "Nora needs 5 meters of ribbon. She has 7 pieces that are each 45 centimeters. How many more centimeters does she need?"
+    },
+    "answer": {
+     "from": "2,600 centimeters",
+     "to": "185 centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 meter = 100 centimeters.",
+      "26 × 100 = 2,600 centimeters."
+     ],
+     "to": [
+      "She has 7 × 45 = 315 centimeters. She needs 5 × 100 = 500 centimeters.",
+      "500 − 315 = 185 centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "1/4 kilometer = ___ meters",
+     "to": "Nora needs 5 meters of ribbon. She has 6 pieces that are each 31 centimeters. How many more centimeters does she need?"
+    },
+    "answer": {
+     "from": "250 meters",
+     "to": "314 centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 kilometer = 1,000 meters.",
+      "1/4 of 1,000: 1,000 ÷ 4 = 250, and 1 × 250 = 250 meters."
+     ],
+     "to": [
+      "She has 6 × 31 = 186 centimeters. She needs 5 × 100 = 500 centimeters.",
+      "500 − 186 = 314 centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1,000 meters",
+       "correct": false
+      },
+      {
+       "text": "250 meters",
+       "correct": true
+      },
+      {
+       "text": "4,000 meters",
+       "correct": false
+      },
+      {
+       "text": "2,500 meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "186 centimeters",
+       "correct": false
+      },
+      {
+       "text": "314 centimeters",
+       "correct": true
+      },
+      {
+       "text": "500 centimeters",
+       "correct": false
+      },
+      {
+       "text": "469 centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s02-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "15 meters 50 centimeters = ___ centimeters",
+     "to": "Nora needs 6 meters of ribbon. She has 5 pieces that are each 71 centimeters. How many more centimeters does she need?"
+    },
+    "answer": {
+     "from": "1,550 centimeters",
+     "to": "245 centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "15 meters = 15 × 100 = 1,500 centimeters.",
+      "1,500 + 50 = 1,550 centimeters."
+     ],
+     "to": [
+      "She has 5 × 71 = 355 centimeters. She needs 6 × 100 = 600 centimeters.",
+      "600 − 355 = 245 centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: me_mixed). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc2_how_much_more). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "65 centimeters",
+       "correct": false
+      },
+      {
+       "text": "1,500 centimeters",
+       "correct": false
+      },
+      {
+       "text": "1,551 centimeters",
+       "correct": false
+      },
+      {
+       "text": "1,550 centimeters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "355 centimeters",
+       "correct": false
+      },
+      {
+       "text": "245 centimeters",
+       "correct": true
+      },
+      {
+       "text": "600 centimeters",
+       "correct": false
+      },
+      {
+       "text": "529 centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "A movie starts at 3:45 PM and ends at 5:50 PM. How long does it last?",
+     "to": "Femi starts reading at 1:40. Femi reads for 25 minutes and then practices piano for 10 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "2 hours 5 minutes",
+     "to": "2:15"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 hours 55 minutes",
+       "correct": false
+      },
+      {
+       "text": "1 hour 5 minutes",
+       "correct": false
+      },
+      {
+       "text": "3 hours 5 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 5 minutes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2:15",
+       "correct": true
+      },
+      {
+       "text": "2:05",
+       "correct": false
+      },
+      {
+       "text": "2:25",
+       "correct": false
+      },
+      {
+       "text": "2:40",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count whole hours from 3:45 PM: 2 hours takes you to 5:45 PM.",
+      "Then count 5 more minutes to 5:50 PM. Total: 2 hours 5 minutes."
+     ],
+     "to": [
+      "25 + 10 = 35 minutes in all.",
+      "1:40 + 35 minutes = 2:15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_hm). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_elapsed_hm) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "7 minutes = ___ seconds",
+     "to": "Femi starts reading at 4:20. Femi reads for 20 minutes and then practices piano for 20 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "420 seconds",
+     "to": "5:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 minute = 60 seconds.",
+      "7 × 60 = 420 seconds."
+     ],
+     "to": [
+      "20 + 20 = 40 minutes in all.",
+      "4:20 + 40 minutes = 5:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "67 seconds",
+       "correct": false
+      },
+      {
+       "text": "420 seconds",
+       "correct": true
+      },
+      {
+       "text": "480 seconds",
+       "correct": false
+      },
+      {
+       "text": "700 seconds",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4:40",
+       "correct": false
+      },
+      {
+       "text": "5:10",
+       "correct": false
+      },
+      {
+       "text": "5:00",
+       "correct": true
+      },
+      {
+       "text": "5:20",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "A swim class starts at 5:10 PM and ends at 6:50 PM. How many minutes long is it?",
+     "to": "Femi starts reading at 2:25. Femi reads for 25 minutes and then practices piano for 25 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "100 minutes",
+     "to": "3:15"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 5:10 PM to the next hour, then on to 6:50 PM.",
+      "The time is 100 minutes."
+     ],
+     "to": [
+      "25 + 25 = 50 minutes in all.",
+      "2:25 + 50 minutes = 3:15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_elapsed_minutes) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "6 days = ___ hours",
+     "to": "Femi starts reading at 1:25. Femi reads for 25 minutes and then practices piano for 25 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "144 hours",
+     "to": "2:15"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 day = 24 hours.",
+      "6 × 24 = 144 hours."
+     ],
+     "to": [
+      "25 + 25 = 50 minutes in all.",
+      "1:25 + 50 minutes = 2:15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "A science show starts at 8:35 AM and ends at 9:45 AM. How many minutes long is it?",
+     "to": "Femi starts reading at 6:50. Femi reads for 25 minutes and then practices piano for 10 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "70 minutes",
+     "to": "7:25"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 8:35 AM to the next hour, then on to 9:45 AM.",
+      "The time is 70 minutes."
+     ],
+     "to": [
+      "25 + 10 = 35 minutes in all.",
+      "6:50 + 35 minutes = 7:25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_elapsed_minutes) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "9 hours = ___ minutes",
+     "to": "Femi starts reading at 10:40. Femi reads for 25 minutes and then practices piano for 20 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "540 minutes",
+     "to": "11:25"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hour = 60 minutes.",
+      "9 × 60 = 540 minutes."
+     ],
+     "to": [
+      "25 + 20 = 45 minutes in all.",
+      "10:40 + 45 minutes = 11:25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_convert) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "A science show starts at 7:35 PM and ends at 9:25 PM. How many minutes long is it?",
+     "to": "Femi starts reading at 1:20. Femi reads for 15 minutes and then practices piano for 20 minutes. What time does Femi finish? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "110 minutes",
+     "to": "1:55"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 7:35 PM to the next hour, then on to 9:25 PM.",
+      "The time is 110 minutes."
+     ],
+     "to": [
+      "15 + 20 = 35 minutes in all.",
+      "1:20 + 35 minutes = 1:55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_two_activities). Rewritten from a Support template (was tm_elapsed_minutes) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-cp2-009",
+   "changes": {
+    "prompt": {
+     "from": "A school play starts at 10:00 AM and ends at 12:50 PM. How long does it last?",
+     "to": "A school play starts at 10:00 AM and ends at 11:50 AM. How long does it last?"
+    },
+    "answer": {
+     "from": "2 hours 50 minutes",
+     "to": "1 hour 50 minutes"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 hours 50 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 10 minutes",
+       "correct": false
+      },
+      {
+       "text": "1 hour 50 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 50 minutes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 hours 50 minutes",
+       "correct": false
+      },
+      {
+       "text": "1 hour 50 minutes",
+       "correct": true
+      },
+      {
+       "text": "1 hour 10 minutes",
+       "correct": false
+      },
+      {
+       "text": "50 minutes",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count whole hours from 10:00 AM: 2 hours takes you to 12:00 PM.",
+      "Then count 50 more minutes to 12:50 PM. Total: 2 hours 50 minutes."
+     ],
+     "to": [
+      "Count 1 whole hour from 10:00 AM: that takes you to 11:00 AM.",
+      "Then count 50 more minutes to 11:50 AM. Total: 1 hour 50 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "12 weeks = ___ days",
+     "to": "A game ended at 10:50. It had 80 minutes of play and a 10-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "84 days",
+     "to": "9:20"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 week = 7 days.",
+      "12 × 7 = 84 days."
+     ],
+     "to": [
+      "Total time: 80 + 10 = 90 minutes = 1 hour 30 minutes.",
+      "Count back 1 hour 30 minutes from 10:50: 9:20."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A music lesson starts at 6:15 AM and ends at 7:25 AM. How many minutes long is it?",
+     "to": "A game ended at 10:00. It had 98 minutes of play and a 10-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "70 minutes",
+     "to": "8:12"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 6:15 AM to the next hour, then on to 7:25 AM.",
+      "The time is 70 minutes."
+     ],
+     "to": [
+      "Total time: 98 + 10 = 108 minutes = 1 hour 48 minutes.",
+      "Count back 1 hour 48 minutes from 10:00: 8:12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "12 minutes 38 seconds = ___ seconds",
+     "to": "A game ended at 8:50. It had 94 minutes of play and a 15-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "758 seconds",
+     "to": "7:01"
+    },
+    "solutionSteps": {
+     "from": [
+      "12 minutes = 12 × 60 = 720 seconds.",
+      "720 + 38 = 758 seconds."
+     ],
+     "to": [
+      "Total time: 94 + 15 = 109 minutes = 1 hour 49 minutes.",
+      "Count back 1 hour 49 minutes from 8:50: 7:01."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "50 seconds",
+       "correct": false
+      },
+      {
+       "text": "1238 seconds",
+       "correct": false
+      },
+      {
+       "text": "758 seconds",
+       "correct": true
+      },
+      {
+       "text": "720 seconds",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7:16",
+       "correct": false
+      },
+      {
+       "text": "7:01",
+       "correct": true
+      },
+      {
+       "text": "7:11",
+       "correct": false
+      },
+      {
+       "text": "8:01",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "A school play starts at 5:16 PM and ends at 8:07 PM. How long does it last?",
+     "to": "A school play starts at 5:16 PM and ends at 7:07 PM. How long does it last?"
+    },
+    "answer": {
+     "from": "2 hours 51 minutes",
+     "to": "1 hour 51 minutes"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 hour 51 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 51 minutes",
+       "correct": true
+      },
+      {
+       "text": "3 hours 51 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 9 minutes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "51 minutes",
+       "correct": false
+      },
+      {
+       "text": "2 hours 51 minutes",
+       "correct": false
+      },
+      {
+       "text": "1 hour 51 minutes",
+       "correct": true
+      },
+      {
+       "text": "1 hour 9 minutes",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count whole hours from 5:16 PM: 2 hours takes you to 7:16 PM.",
+      "Then count 51 more minutes to 8:07 PM. Total: 2 hours 51 minutes."
+     ],
+     "to": [
+      "Count 1 whole hour from 5:16 PM: that takes you to 6:16 PM.",
+      "Then count 51 more minutes to 7:07 PM. Total: 1 hour 51 minutes."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A music lesson starts at 7:25 PM and ends at 9:05 PM. How many minutes long is it?",
+     "to": "A game ended at 10:40. It had 69 minutes of play and a 15-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "100 minutes",
+     "to": "9:16"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 7:25 PM to the next hour, then on to 9:05 PM.",
+      "The time is 100 minutes."
+     ],
+     "to": [
+      "Total time: 69 + 15 = 84 minutes = 1 hour 24 minutes.",
+      "Count back 1 hour 24 minutes from 10:40: 9:16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "100 minutes",
+       "correct": true
+      },
+      {
+       "text": "140 minutes",
+       "correct": false
+      },
+      {
+       "text": "20 minutes",
+       "correct": false
+      },
+      {
+       "text": "160 minutes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9:31",
+       "correct": false
+      },
+      {
+       "text": "9:26",
+       "correct": false
+      },
+      {
+       "text": "9:16",
+       "correct": true
+      },
+      {
+       "text": "10:16",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "10 hours = ___ minutes",
+     "to": "A game ended at 6:40. It had 69 minutes of play and a 20-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "600 minutes",
+     "to": "5:11"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hour = 60 minutes.",
+      "10 × 60 = 600 minutes."
+     ],
+     "to": [
+      "Total time: 69 + 20 = 89 minutes = 1 hour 29 minutes.",
+      "Count back 1 hour 29 minutes from 6:40: 5:11."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A science show starts at 4:35 PM and ends at 5:55 PM. How many minutes long is it?",
+     "to": "A game ended at 3:40. It had 72 minutes of play and a 10-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "80 minutes",
+     "to": "2:18"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 4:35 PM to the next hour, then on to 5:55 PM.",
+      "The time is 80 minutes."
+     ],
+     "to": [
+      "Total time: 72 + 10 = 82 minutes = 1 hour 22 minutes.",
+      "Count back 1 hour 22 minutes from 3:40: 2:18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "8 minutes = ___ seconds",
+     "to": "A game ended at 7:20. It had 86 minutes of play and a 10-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "480 seconds",
+     "to": "5:44"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 minute = 60 seconds.",
+      "8 × 60 = 480 seconds."
+     ],
+     "to": [
+      "Total time: 86 + 10 = 96 minutes = 1 hour 36 minutes.",
+      "Count back 1 hour 36 minutes from 7:20: 5:44."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "A science show starts at 7:00 AM and ends at 8:35 AM. How many minutes long is it?",
+     "to": "A game ended at 5:20. It had 100 minutes of play and a 15-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "95 minutes",
+     "to": "3:25"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 7:00 AM to the next hour, then on to 8:35 AM.",
+      "The time is 95 minutes."
+     ],
+     "to": [
+      "Total time: 100 + 15 = 115 minutes = 1 hour 55 minutes.",
+      "Count back 1 hour 55 minutes from 5:20: 3:25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "7 hours = ___ minutes",
+     "to": "A game ended at 9:40. It had 88 minutes of play and a 15-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "420 minutes",
+     "to": "7:57"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hour = 60 minutes.",
+      "7 × 60 = 420 minutes."
+     ],
+     "to": [
+      "Total time: 88 + 15 = 103 minutes = 1 hour 43 minutes.",
+      "Count back 1 hour 43 minutes from 9:40: 7:57."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "14 minutes = ___ seconds",
+     "to": "A game ended at 4:00. It had 82 minutes of play and a 20-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "840 seconds",
+     "to": "2:18"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 minute = 60 seconds.",
+      "14 × 60 = 840 seconds."
+     ],
+     "to": [
+      "Total time: 82 + 20 = 102 minutes = 1 hour 42 minutes.",
+      "Count back 1 hour 42 minutes from 4:00: 2:18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A science show starts at 8:20 AM and ends at 10:10 AM. How many minutes long is it?",
+     "to": "A game ended at 6:40. It had 90 minutes of play and a 15-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "110 minutes",
+     "to": "4:55"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count from 8:20 AM to the next hour, then on to 10:10 AM.",
+      "The time is 110 minutes."
+     ],
+     "to": [
+      "Total time: 90 + 15 = 105 minutes = 1 hour 45 minutes.",
+      "Count back 1 hour 45 minutes from 6:40: 4:55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_elapsed_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s03-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "14 days = ___ hours",
+     "to": "A game ended at 3:20. It had 89 minutes of play and a 10-minute break. What time did it start? (Same morning or afternoon.)"
+    },
+    "answer": {
+     "from": "336 hours",
+     "to": "1:41"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 day = 24 hours.",
+      "14 × 24 = 336 hours."
+     ],
+     "to": [
+      "Total time: 89 + 10 = 99 minutes = 1 hour 39 minutes.",
+      "Count back 1 hour 39 minutes from 3:20: 1:41."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: tm_convert). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc3_backward_with_break). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A bag holds 4 kilograms of flour. A baker uses 950 grams. How many grams of flour are left?",
+     "to": "Kai buys a book for $3.90 and a pen for $4.60. Kai pays with a $20 bill. How much change does Kai get?"
+    },
+    "answer": {
+     "from": "3,050 grams",
+     "to": "$11.50"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 kilograms = 4,000 grams.",
+      "4,000 − 950 = 3,050 grams."
+     ],
+     "to": [
+      "Total: $3.90 + $4.60 = $8.50.",
+      "$20.00 − $8.50 = $11.50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_two_items_change). Rewritten from a Support template (was wm_mass) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "A bag holds 4 kilograms of flour. A baker uses 850 grams. How many grams of flour are left?",
+     "to": "Kai buys a book for $4.10 and a pen for $8.60. Kai pays with a $20 bill. How much change does Kai get?"
+    },
+    "answer": {
+     "from": "3,150 grams",
+     "to": "$7.30"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 kilograms = 4,000 grams.",
+      "4,000 − 850 = 3,150 grams."
+     ],
+     "to": [
+      "Total: $4.10 + $8.60 = $12.70.",
+      "$20.00 − $12.70 = $7.30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_two_items_change). Rewritten from a Support template (was wm_mass) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "450 grams",
+       "correct": false
+      },
+      {
+       "text": "3,150 grams",
+       "correct": true
+      },
+      {
+       "text": "4,000 grams",
+       "correct": false
+      },
+      {
+       "text": "4,850 grams",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "$12.70",
+       "correct": false
+      },
+      {
+       "text": "$15.90",
+       "correct": false
+      },
+      {
+       "text": "$8.30",
+       "correct": false
+      },
+      {
+       "text": "$7.30",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "A puppy weighed 3 pounds 4 ounces at its checkup. How many ounces did the puppy weigh?",
+     "to": "Kai buys a book for $3.60 and a pen for $9.00. Kai pays with a $25 bill. How much change does Kai get?"
+    },
+    "answer": {
+     "from": "52 ounces",
+     "to": "$12.40"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 pounds = 3 × 16 = 48 ounces.",
+      "48 + 4 = 52 ounces."
+     ],
+     "to": [
+      "Total: $3.60 + $9.00 = $12.60.",
+      "$25.00 − $12.60 = $12.40."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_two_items_change). Rewritten from a Support template (was wm_mass) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "A puppy weighed 7 pounds 6 ounces at its checkup. How many ounces did the puppy weigh?",
+     "to": "Kai buys a book for $9.10 and a pen for $6.70. Kai pays with a $25 bill. How much change does Kai get?"
+    },
+    "answer": {
+     "from": "118 ounces",
+     "to": "$9.20"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 pounds = 7 × 16 = 112 ounces.",
+      "112 + 6 = 118 ounces."
+     ],
+     "to": [
+      "Total: $9.10 + $6.70 = $15.80.",
+      "$25.00 − $15.80 = $9.20."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_two_items_change). Rewritten from a Support template (was wm_mass) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "118 ounces",
+       "correct": true
+      },
+      {
+       "text": "112 ounces",
+       "correct": false
+      },
+      {
+       "text": "76 ounces",
+       "correct": false
+      },
+      {
+       "text": "13 ounces",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "$15.80",
+       "correct": false
+      },
+      {
+       "text": "$15.90",
+       "correct": false
+      },
+      {
+       "text": "$9.20",
+       "correct": true
+      },
+      {
+       "text": "$10.20",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "A cooler holds 4 liters of water. How many 250‑milliliter cups can be filled from the cooler?",
+     "to": "A bag holds 2 pounds of flour. Each serving uses 4 ounces. How many servings can be made?"
+    },
+    "answer": {
+     "from": "16 cups",
+     "to": "8 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 liters = 4,000 milliliters.",
+      "4,000 ÷ 250 = 16 cups."
+     ],
+     "to": [
+      "2 pounds = 32 ounces.",
+      "32 ÷ 4 = 8 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_liquid). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "A bag holds 2 kilograms of flour. A baker uses 750 grams. How many grams of flour are left?",
+     "to": "A jug holds 4 gallons of juice. Each serving uses 4 cups. How many servings can be made?"
+    },
+    "answer": {
+     "from": "1,250 grams",
+     "to": "16 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "2 kilograms = 2,000 grams.",
+      "2,000 − 750 = 1,250 grams."
+     ],
+     "to": [
+      "4 gallons = 64 cups.",
+      "64 ÷ 4 = 16 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "A movie is 2 3/4 hours long. How many minutes long is the movie?",
+     "to": "A bag holds 4 pounds of flour. Each serving uses 8 ounces. How many servings can be made?"
+    },
+    "answer": {
+     "from": "165 minutes",
+     "to": "8 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "2 hours = 120 minutes and 3/4 hour = 45 minutes.",
+      "120 + 45 = 165 minutes."
+     ],
+     "to": [
+      "4 pounds = 64 ounces.",
+      "64 ÷ 8 = 8 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "A bag holds 3 kilograms of flour. A baker uses 350 grams. How many grams of flour are left?",
+     "to": "A jug holds 5 liters of juice. Each serving uses 500 milliliters. How many servings can be made?"
+    },
+    "answer": {
+     "from": "2,650 grams",
+     "to": "10 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 kilograms = 3,000 grams.",
+      "3,000 − 350 = 2,650 grams."
+     ],
+     "to": [
+      "5 liters = 5,000 milliliters.",
+      "5,000 ÷ 500 = 10 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3,350 grams",
+       "correct": false
+      },
+      {
+       "text": "3,000 grams",
+       "correct": false
+      },
+      {
+       "text": "50 grams",
+       "correct": false
+      },
+      {
+       "text": "2,650 grams",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2500 servings",
+       "correct": false
+      },
+      {
+       "text": "5 servings",
+       "correct": false
+      },
+      {
+       "text": "10 servings",
+       "correct": true
+      },
+      {
+       "text": "15 servings",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A cooler holds 2 liters of water. How many 400‑milliliter cups can be filled from the cooler?",
+     "to": "A jug holds 5 gallons of juice. Each serving uses 8 cups. How many servings can be made?"
+    },
+    "answer": {
+     "from": "5 cups",
+     "to": "10 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "2 liters = 2,000 milliliters.",
+      "2,000 ÷ 400 = 5 cups."
+     ],
+     "to": [
+      "5 gallons = 80 cups.",
+      "80 ÷ 8 = 10 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_liquid). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "50 cups",
+       "correct": false
+      },
+      {
+       "text": "6 cups",
+       "correct": false
+      },
+      {
+       "text": "5 cups",
+       "correct": true
+      },
+      {
+       "text": "7 cups",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "40 servings",
+       "correct": false
+      },
+      {
+       "text": "5 servings",
+       "correct": false
+      },
+      {
+       "text": "15 servings",
+       "correct": false
+      },
+      {
+       "text": "10 servings",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A puppy weighed 9 pounds 8 ounces at its checkup. How many ounces did the puppy weigh?",
+     "to": "A bag holds 3 pounds of flour. Each serving uses 4 ounces. How many servings can be made?"
+    },
+    "answer": {
+     "from": "152 ounces",
+     "to": "12 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "9 pounds = 9 × 16 = 144 ounces.",
+      "144 + 8 = 152 ounces."
+     ],
+     "to": [
+      "3 pounds = 48 ounces.",
+      "48 ÷ 4 = 12 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "A cooler holds 3 liters of water. How many 200‑milliliter cups can be filled from the cooler?",
+     "to": "A jug holds 5 gallons of juice. Each serving uses 4 cups. How many servings can be made?"
+    },
+    "answer": {
+     "from": "15 cups",
+     "to": "20 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 liters = 3,000 milliliters.",
+      "3,000 ÷ 200 = 15 cups."
+     ],
+     "to": [
+      "5 gallons = 80 cups.",
+      "80 ÷ 4 = 20 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_liquid). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A bag holds 3 kilograms of flour. A baker uses 850 grams. How many grams of flour are left?",
+     "to": "A jug holds 2 gallons of juice. Each serving uses 8 cups. How many servings can be made?"
+    },
+    "answer": {
+     "from": "2,150 grams",
+     "to": "4 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 kilograms = 3,000 grams.",
+      "3,000 − 850 = 2,150 grams."
+     ],
+     "to": [
+      "2 gallons = 32 cups.",
+      "32 ÷ 8 = 4 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_mass). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "550 grams",
+       "correct": false
+      },
+      {
+       "text": "3,000 grams",
+       "correct": false
+      },
+      {
+       "text": "3,850 grams",
+       "correct": false
+      },
+      {
+       "text": "2,150 grams",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "16 servings",
+       "correct": false
+      },
+      {
+       "text": "4 servings",
+       "correct": true
+      },
+      {
+       "text": "2 servings",
+       "correct": false
+      },
+      {
+       "text": "6 servings",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s04-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "A cooler holds 6 liters of water. How many 125‑milliliter cups can be filled from the cooler?",
+     "to": "A jug holds 3 gallons of juice. Each serving uses 8 cups. How many servings can be made?"
+    },
+    "answer": {
+     "from": "48 cups",
+     "to": "6 servings"
+    },
+    "solutionSteps": {
+     "from": [
+      "6 liters = 6,000 milliliters.",
+      "6,000 ÷ 125 = 48 cups."
+     ],
+     "to": [
+      "3 gallons = 48 cups.",
+      "48 ÷ 8 = 6 servings."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: wm_liquid). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc4_how_many_servings). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "480 cups",
+       "correct": false
+      },
+      {
+       "text": "49 cups",
+       "correct": false
+      },
+      {
+       "text": "4 cups",
+       "correct": false
+      },
+      {
+       "text": "48 cups",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6 servings",
+       "correct": true
+      },
+      {
+       "text": "24 servings",
+       "correct": false
+      },
+      {
+       "text": "3 servings",
+       "correct": false
+      },
+      {
+       "text": "9 servings",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s05-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "A square has sides that are 15 yards long. What is the perimeter of the square?",
+     "to": "A rectangle is 17 meters long and 9 meters wide. A second rectangle is 3 times as long and just as wide. What is the area of the second rectangle?"
+    },
+    "answer": {
+     "from": "60 yards",
+     "to": "459 square meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "All four sides of the square are 15 yards.",
+      "4 × 15 = 60 yards."
+     ],
+     "to": [
+      "The second rectangle is 3 × 17 = 51 meters long and 9 meters wide.",
+      "Area: 51 × 9 = 459 square meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: ap_square). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc5_scaled_area). Rewritten from a Support template (was ap_square) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s05-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Rectangle A is 12 yards long and 10 yards wide. Rectangle B has the same area as Rectangle A, and its length is 4 yards. What is the width of Rectangle B?",
+     "to": "A rectangle has a perimeter of 50 feet. Its width is 11 feet. What is its area?"
+    },
+    "answer": {
+     "from": "30 yards",
+     "to": "154 square feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area of Rectangle A: 12 × 10 = 120 square yards.",
+      "Width of Rectangle B: 120 ÷ 4 = 30 yards."
+     ],
+     "to": [
+      "Length + width = 50 ÷ 2 = 25, so length = 25 − 11 = 14 feet.",
+      "Area: 14 × 11 = 154 square feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: ap_same_area). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc5_area_from_perimeter). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-mc-s05-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Rectangle A is 14 inches long and 11 inches wide. Rectangle B has the same area as Rectangle A, and its length is 77 inches. What is the width of Rectangle B?",
+     "to": "A rectangle has a perimeter of 54 feet. Its width is 9 feet. What is its area?"
+    },
+    "answer": {
+     "from": "2 inches",
+     "to": "162 square feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area of Rectangle A: 14 × 11 = 154 square inches.",
+      "Width of Rectangle B: 154 ÷ 77 = 2 inches."
+     ],
+     "to": [
+      "Length + width = 54 ÷ 2 = 27, so length = 27 − 9 = 18 feet.",
+      "Area: 18 × 9 = 162 square feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: ap_same_area). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: mc5_area_from_perimeter). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11 inches",
+       "correct": false
+      },
+      {
+       "text": "52 inches",
+       "correct": false
+      },
+      {
+       "text": "154 inches",
+       "correct": false
+      },
+      {
+       "text": "2 inches",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "162 square feet",
+       "correct": true
+      },
+      {
+       "text": "486 square feet",
+       "correct": false
+      },
+      {
+       "text": "405 square feet",
+       "correct": false
+      },
+      {
+       "text": "171 square feet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m4-mc-s01-cp2-o01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Make a table that converts pounds to ounces.",
+   "parts": [
+    {
+     "prompt": "1 pound = ___ ounces",
+     "answer": "16"
+    },
+    {
+     "prompt": "3 pounds = ___ ounces",
+     "answer": "48"
+    },
+    {
+     "prompt": "3 pounds 13 ounces = ___ ounces",
+     "answer": "61"
+    },
+    {
+     "prompt": "Explain why the number of ounces is greater than the number of pounds.",
+     "answer": "Sample answer: A ounce is a smaller unit, so it takes more of them to measure the same amount."
+    }
+   ],
+   "answer": "(a) 16; (b) 48; (c) 61; (d) Sample answer: A ounce is a smaller unit, so it takes more of them to measure the same amount.",
+   "solutionSteps": [
+    "(a) 1 pound = 16 ounces.",
+    "(b) 3 × 16 = 48.",
+    "(c) 48 + 13 = 61.",
+    "(d) Smaller units, more of them."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_open_table). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s01-cp1-o01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Make a table that converts yards to feet.",
+   "parts": [
+    {
+     "prompt": "1 yard = ___ feet",
+     "answer": "3"
+    },
+    {
+     "prompt": "5 yards = ___ feet",
+     "answer": "15"
+    },
+    {
+     "prompt": "5 yards 1 feet = ___ feet",
+     "answer": "16"
+    },
+    {
+     "prompt": "Explain why the number of feet is greater than the number of yards.",
+     "answer": "Sample answer: A foot is a smaller unit, so it takes more of them to measure the same amount."
+    }
+   ],
+   "answer": "(a) 3; (b) 15; (c) 16; (d) Sample answer: A foot is a smaller unit, so it takes more of them to measure the same amount.",
+   "solutionSteps": [
+    "(a) 1 yard = 3 feet.",
+    "(b) 5 × 3 = 15.",
+    "(c) 15 + 1 = 16.",
+    "(d) Smaller units, more of them."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_open_table). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s01-honors-o01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Make a table that converts yards to feet.",
+   "parts": [
+    {
+     "prompt": "1 yard = ___ feet",
+     "answer": "3"
+    },
+    {
+     "prompt": "6 yards = ___ feet",
+     "answer": "18"
+    },
+    {
+     "prompt": "6 yards 1 feet = ___ feet",
+     "answer": "19"
+    },
+    {
+     "prompt": "Explain why the number of feet is greater than the number of yards.",
+     "answer": "Sample answer: A foot is a smaller unit, so it takes more of them to measure the same amount."
+    }
+   ],
+   "answer": "(a) 3; (b) 18; (c) 19; (d) Sample answer: A foot is a smaller unit, so it takes more of them to measure the same amount.",
+   "solutionSteps": [
+    "(a) 1 yard = 3 feet.",
+    "(b) 6 × 3 = 18.",
+    "(c) 18 + 1 = 19.",
+    "(d) Smaller units, more of them."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_open_table). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s02-cp2-o01",
+   "skillId": "measurement-unit-conversions-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Rosa has 2 kilometers of rope.",
+   "parts": [
+    {
+     "prompt": "How many meters is that?",
+     "answer": "2,000 meters"
+    },
+    {
+     "prompt": "She uses 199 meters. How many meters are left?",
+     "answer": "1,801 meters"
+    },
+    {
+     "prompt": "Write what is left as kilometers and meters.",
+     "answer": "1 kilometer 801 meters"
+    },
+    {
+     "prompt": "Explain how you convert from a larger metric unit to a smaller one.",
+     "answer": "Sample answer: Multiply by 1,000, because each kilometer is 1,000 meters."
+    }
+   ],
+   "answer": "(a) 2,000 meters; (b) 1,801 meters; (c) 1 kilometer 801 meters; (d) Sample answer: Multiply by 1,000, because each kilometer is 1,000 meters.",
+   "solutionSteps": [
+    "(a) 2 × 1,000 = 2,000.",
+    "(b) 2,000 − 199 = 1,801.",
+    "(c) 1,801 = 1 × 1,000 + 801.",
+    "(d) Metric units go by 10, 100 and 1,000."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc2_open_convert). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s02-cp1-o01",
+   "skillId": "measurement-unit-conversions-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Rosa has 4 liters of juice.",
+   "parts": [
+    {
+     "prompt": "How many milliliters is that?",
+     "answer": "4,000 milliliters"
+    },
+    {
+     "prompt": "She uses 343 milliliters. How many milliliters are left?",
+     "answer": "3,657 milliliters"
+    },
+    {
+     "prompt": "Write what is left as liters and milliliters.",
+     "answer": "3 liters 657 milliliters"
+    },
+    {
+     "prompt": "Explain how you convert from a larger metric unit to a smaller one.",
+     "answer": "Sample answer: Multiply by 1,000, because each liter is 1,000 milliliters."
+    }
+   ],
+   "answer": "(a) 4,000 milliliters; (b) 3,657 milliliters; (c) 3 liters 657 milliliters; (d) Sample answer: Multiply by 1,000, because each liter is 1,000 milliliters.",
+   "solutionSteps": [
+    "(a) 4 × 1,000 = 4,000.",
+    "(b) 4,000 − 343 = 3,657.",
+    "(c) 3,657 = 3 × 1,000 + 657.",
+    "(d) Metric units go by 10, 100 and 1,000."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc2_open_convert). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s02-honors-o01",
+   "skillId": "measurement-unit-conversions-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Rosa has 6 kilometers of rope.",
+   "parts": [
+    {
+     "prompt": "How many meters is that?",
+     "answer": "6,000 meters"
+    },
+    {
+     "prompt": "She uses 333 meters. How many meters are left?",
+     "answer": "5,667 meters"
+    },
+    {
+     "prompt": "Write what is left as kilometers and meters.",
+     "answer": "5 kilometers 667 meters"
+    },
+    {
+     "prompt": "Explain how you convert from a larger metric unit to a smaller one.",
+     "answer": "Sample answer: Multiply by 1,000, because each kilometer is 1,000 meters."
+    }
+   ],
+   "answer": "(a) 6,000 meters; (b) 5,667 meters; (c) 5 kilometers 667 meters; (d) Sample answer: Multiply by 1,000, because each kilometer is 1,000 meters.",
+   "solutionSteps": [
+    "(a) 6 × 1,000 = 6,000.",
+    "(b) 6,000 − 333 = 5,667.",
+    "(c) 5,667 = 5 × 1,000 + 667.",
+    "(d) Metric units go by 10, 100 and 1,000."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc2_open_convert). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s03-cp2-o01",
+   "skillId": "measurement-unit-conversions-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A show starts at 8:50 and lasts 40 minutes.",
+   "parts": [
+    {
+     "prompt": "What time does it end? (Same morning or afternoon.)",
+     "answer": "9:30"
+    },
+    {
+     "prompt": "How many minutes is it from the start to the next hour?",
+     "answer": "10"
+    },
+    {
+     "prompt": "How many seconds long is the show?",
+     "answer": "2400 seconds"
+    },
+    {
+     "prompt": "Explain how a number line helps you find elapsed time.",
+     "answer": "Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps."
+    }
+   ],
+   "answer": "(a) 9:30; (b) 10; (c) 2400 seconds; (d) Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps.",
+   "solutionSteps": [
+    "(a) 8:50 + 40 minutes.",
+    "(b) 60 − 50 = 10.",
+    "(c) 40 × 60 = 2400.",
+    "(d) Jump to friendly times."
+   ],
+   "standards": [
+    "4.MD.A.1",
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc3_open_movie). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s03-cp1-o01",
+   "skillId": "measurement-unit-conversions-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A show starts at 10:15 and lasts 55 minutes.",
+   "parts": [
+    {
+     "prompt": "What time does it end? (Same morning or afternoon.)",
+     "answer": "11:10"
+    },
+    {
+     "prompt": "How many minutes is it from the start to the next hour?",
+     "answer": "45"
+    },
+    {
+     "prompt": "How many seconds long is the show?",
+     "answer": "3300 seconds"
+    },
+    {
+     "prompt": "Explain how a number line helps you find elapsed time.",
+     "answer": "Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps."
+    }
+   ],
+   "answer": "(a) 11:10; (b) 45; (c) 3300 seconds; (d) Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps.",
+   "solutionSteps": [
+    "(a) 10:15 + 55 minutes.",
+    "(b) 60 − 15 = 45.",
+    "(c) 55 × 60 = 3300.",
+    "(d) Jump to friendly times."
+   ],
+   "standards": [
+    "4.MD.A.1",
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc3_open_movie). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s03-honors-o01",
+   "skillId": "measurement-unit-conversions-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A show starts at 10:35 and lasts 85 minutes.",
+   "parts": [
+    {
+     "prompt": "What time does it end? (Same morning or afternoon.)",
+     "answer": "12:00"
+    },
+    {
+     "prompt": "How many minutes is it from the start to the next hour?",
+     "answer": "25"
+    },
+    {
+     "prompt": "Write the length of the show in hours and minutes.",
+     "answer": "1 hour 25 minutes"
+    },
+    {
+     "prompt": "Explain how a number line helps you find elapsed time.",
+     "answer": "Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps."
+    }
+   ],
+   "answer": "(a) 12:00; (b) 25; (c) 1 hour 25 minutes; (d) Sample answer: I jump to the next hour, then jump the rest of the minutes, and add the jumps.",
+   "solutionSteps": [
+    "(a) 10:35 + 85 minutes.",
+    "(b) 60 − 35 = 25.",
+    "(c) 85 minutes = 1 hour 25 minutes.",
+    "(d) Jump to friendly times."
+   ],
+   "standards": [
+    "4.MD.A.1",
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc3_open_movie). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s04-cp2-o01",
+   "skillId": "measurement-unit-conversions-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Isla buys a kite for $14.80 and a ball for $14.85. She pays with a $50 bill.",
+   "parts": [
+    {
+     "prompt": "What is the total cost?",
+     "answer": "$29.65"
+    },
+    {
+     "prompt": "How much change does she get?",
+     "answer": "$20.35"
+    },
+    {
+     "prompt": "How much more does the more expensive item cost?",
+     "answer": "$0.05"
+    },
+    {
+     "prompt": "Explain how you can check the change.",
+     "answer": "Sample answer: Add the change to the total cost; it should equal the amount paid."
+    }
+   ],
+   "answer": "(a) $29.65; (b) $20.35; (c) $0.05; (d) Sample answer: Add the change to the total cost; it should equal the amount paid.",
+   "solutionSteps": [
+    "(a) 14.80 + 14.85.",
+    "(b) 50.00 − 29.65.",
+    "(c) Subtract the prices.",
+    "(d) Count up."
+   ],
+   "standards": [
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc4_open_shopping). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s04-cp1-o01",
+   "skillId": "measurement-unit-conversions-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Isla buys a kite for $14.50 and a ball for $5.20. She pays with a $20 bill.",
+   "parts": [
+    {
+     "prompt": "What is the total cost?",
+     "answer": "$19.70"
+    },
+    {
+     "prompt": "How much change does she get?",
+     "answer": "$0.30"
+    },
+    {
+     "prompt": "How much more does the more expensive item cost?",
+     "answer": "$9.30"
+    },
+    {
+     "prompt": "Explain how you can check the change.",
+     "answer": "Sample answer: Add the change to the total cost; it should equal the amount paid."
+    }
+   ],
+   "answer": "(a) $19.70; (b) $0.30; (c) $9.30; (d) Sample answer: Add the change to the total cost; it should equal the amount paid.",
+   "solutionSteps": [
+    "(a) 14.50 + 5.20.",
+    "(b) 20.00 − 19.70.",
+    "(c) Subtract the prices.",
+    "(d) Count up."
+   ],
+   "standards": [
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc4_open_shopping). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s04-honors-o01",
+   "skillId": "measurement-unit-conversions-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Isla buys a kite for $11.10 and a ball for $14.35. She pays with a $50 bill.",
+   "parts": [
+    {
+     "prompt": "What is the total cost?",
+     "answer": "$25.45"
+    },
+    {
+     "prompt": "How much change does she get?",
+     "answer": "$24.55"
+    },
+    {
+     "prompt": "How much more does the more expensive item cost?",
+     "answer": "$3.25"
+    },
+    {
+     "prompt": "Explain how you can check the change.",
+     "answer": "Sample answer: Add the change to the total cost; it should equal the amount paid."
+    }
+   ],
+   "answer": "(a) $25.45; (b) $24.55; (c) $3.25; (d) Sample answer: Add the change to the total cost; it should equal the amount paid.",
+   "solutionSteps": [
+    "(a) 11.10 + 14.35.",
+    "(b) 50.00 − 25.45.",
+    "(c) Subtract the prices.",
+    "(d) Count up."
+   ],
+   "standards": [
+    "4.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc4_open_shopping). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s05-cp2-o01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A rectangular garden is 11 feet long and 4 feet wide.",
+   "parts": [
+    {
+     "prompt": "What is the area?",
+     "answer": "44 square feet"
+    },
+    {
+     "prompt": "How much fence goes around it?",
+     "answer": "30 feet"
+    },
+    {
+     "prompt": "A second garden has the same area and a width of 2 feet. How long is it?",
+     "answer": "22 feet"
+    },
+    {
+     "prompt": "Explain the difference between area and perimeter.",
+     "answer": "Sample answer: Area counts the square units inside; perimeter is the distance around the outside."
+    }
+   ],
+   "answer": "(a) 44 square feet; (b) 30 feet; (c) 22 feet; (d) Sample answer: Area counts the square units inside; perimeter is the distance around the outside.",
+   "solutionSteps": [
+    "(a) 11 × 4 = 44.",
+    "(b) 2 × (11 + 4) = 30.",
+    "(c) 44 ÷ 2 = 22.",
+    "(d) Inside versus around."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_open_garden). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s05-cp1-o01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A rectangular garden is 11 feet long and 4 feet wide.",
+   "parts": [
+    {
+     "prompt": "What is the area?",
+     "answer": "44 square feet"
+    },
+    {
+     "prompt": "How much fence goes around it?",
+     "answer": "30 feet"
+    },
+    {
+     "prompt": "A second garden has the same area and a width of 2 feet. How long is it?",
+     "answer": "22 feet"
+    },
+    {
+     "prompt": "Explain the difference between area and perimeter.",
+     "answer": "Sample answer: Area counts the square units inside; perimeter is the distance around the outside."
+    }
+   ],
+   "answer": "(a) 44 square feet; (b) 30 feet; (c) 22 feet; (d) Sample answer: Area counts the square units inside; perimeter is the distance around the outside.",
+   "solutionSteps": [
+    "(a) 11 × 4 = 44.",
+    "(b) 2 × (11 + 4) = 30.",
+    "(c) 44 ÷ 2 = 22.",
+    "(d) Inside versus around."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_open_garden). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s05-honors-o01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A rectangular garden is 24 feet long and 9 feet wide.",
+   "parts": [
+    {
+     "prompt": "What is the area?",
+     "answer": "216 square feet"
+    },
+    {
+     "prompt": "How much fence goes around it?",
+     "answer": "66 feet"
+    },
+    {
+     "prompt": "A second garden has the same area and a width of 8 feet. How long is it?",
+     "answer": "27 feet"
+    },
+    {
+     "prompt": "Explain the difference between area and perimeter.",
+     "answer": "Sample answer: Area counts the square units inside; perimeter is the distance around the outside."
+    }
+   ],
+   "answer": "(a) 216 square feet; (b) 66 feet; (c) 27 feet; (d) Sample answer: Area counts the square units inside; perimeter is the distance around the outside.",
+   "solutionSteps": [
+    "(a) 24 × 9 = 216.",
+    "(b) 2 × (24 + 9) = 66.",
+    "(c) 216 ÷ 8 = 27.",
+    "(d) Inside versus around."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_open_garden). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-mc-s01-cp2-s01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL the lengths equal to 6 feet.",
+   "answer": [
+    "5 feet 12 inches",
+    "4 feet 24 inches"
+   ],
+   "options": [
+    {
+     "text": "5 feet 12 inches",
+     "correct": true
+    },
+    {
+     "text": "6 yards",
+     "correct": false
+    },
+    {
+     "text": "18 yards",
+     "correct": false
+    },
+    {
+     "text": "4 feet 24 inches",
+     "correct": true
+    },
+    {
+     "text": "84 inches",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "1 foot = 12 inches and 1 yard = 3 feet, so 6 feet = 72 inches = 2 yards.",
+    "Correct choices: 5 feet 12 inches; 4 feet 24 inches. Not correct: 84 inches; 6 yards; 18 yards."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_select_equal_length). 4th Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-mc-s01-cp1-s01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL the lengths equal to 6 feet.",
+   "answer": [
+    "5 feet 12 inches",
+    "72 inches",
+    "2 yards"
+   ],
+   "options": [
+    {
+     "text": "5 feet 12 inches",
+     "correct": true
+    },
+    {
+     "text": "72 inches",
+     "correct": true
+    },
+    {
+     "text": "84 inches",
+     "correct": false
+    },
+    {
+     "text": "60 inches",
+     "correct": false
+    },
+    {
+     "text": "2 yards",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "1 foot = 12 inches and 1 yard = 3 feet, so 6 feet = 72 inches = 2 yards.",
+    "Correct choices: 5 feet 12 inches; 72 inches; 2 yards. Not correct: 60 inches; 84 inches."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_select_equal_length). 4th Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-mc-s01-honors-s01",
+   "skillId": "measurement-unit-conversions-skill-01",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL the lengths equal to 9 feet.",
+   "answer": [
+    "3 yards",
+    "8 feet 12 inches",
+    "7 feet 24 inches",
+    "108 inches"
+   ],
+   "options": [
+    {
+     "text": "9 yards",
+     "correct": false
+    },
+    {
+     "text": "3 yards",
+     "correct": true
+    },
+    {
+     "text": "8 feet 12 inches",
+     "correct": true
+    },
+    {
+     "text": "7 feet 24 inches",
+     "correct": true
+    },
+    {
+     "text": "108 inches",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "1 foot = 12 inches and 1 yard = 3 feet, so 9 feet = 108 inches = 3 yards.",
+    "Correct choices: 3 yards; 8 feet 12 inches; 7 feet 24 inches; 108 inches. Not correct: 9 yards."
+   ],
+   "standards": [
+    "4.MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc1_select_equal_length). 4th Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-mc-s05-cp2-s01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL the rectangles with an area of 18 square feet.",
+   "answer": [
+    "2 ft by 9 ft",
+    "1 ft by 18 ft"
+   ],
+   "options": [
+    {
+     "text": "2 ft by 9 ft",
+     "correct": true
+    },
+    {
+     "text": "1 ft by 19 ft",
+     "correct": false
+    },
+    {
+     "text": "1 ft by 18 ft",
+     "correct": true
+    },
+    {
+     "text": "3 ft by 7 ft",
+     "correct": false
+    },
+    {
+     "text": "3 ft by 9 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Area = length × width; the pairs whose product is 18 work.",
+    "Correct choices: 2 ft by 9 ft; 1 ft by 18 ft. Not correct: 3 ft by 9 ft; 1 ft by 19 ft; 3 ft by 7 ft."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_select_area). 4th Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-mc-s05-cp1-s01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL the rectangles with an area of 40 square feet.",
+   "answer": [
+    "2 ft by 20 ft",
+    "4 ft by 10 ft",
+    "5 ft by 8 ft"
+   ],
+   "options": [
+    {
+     "text": "2 ft by 20 ft",
+     "correct": true
+    },
+    {
+     "text": "1 ft by 41 ft",
+     "correct": false
+    },
+    {
+     "text": "4 ft by 10 ft",
+     "correct": true
+    },
+    {
+     "text": "5 ft by 8 ft",
+     "correct": true
+    },
+    {
+     "text": "2 ft by 40 ft",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Area = length × width; the pairs whose product is 40 work.",
+    "Correct choices: 2 ft by 20 ft; 4 ft by 10 ft; 5 ft by 8 ft. Not correct: 2 ft by 40 ft; 1 ft by 41 ft."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_select_area). 4th Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-mc-s05-honors-s01",
+   "skillId": "measurement-unit-conversions-skill-05",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL the rectangles with an area of 60 square feet.",
+   "answer": [
+    "5 ft by 12 ft",
+    "1 ft by 60 ft",
+    "6 ft by 10 ft",
+    "4 ft by 15 ft"
+   ],
+   "options": [
+    {
+     "text": "5 ft by 12 ft",
+     "correct": true
+    },
+    {
+     "text": "2 ft by 31 ft",
+     "correct": false
+    },
+    {
+     "text": "1 ft by 60 ft",
+     "correct": true
+    },
+    {
+     "text": "6 ft by 10 ft",
+     "correct": true
+    },
+    {
+     "text": "4 ft by 15 ft",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Area = length × width; the pairs whose product is 60 work.",
+    "Correct choices: 5 ft by 12 ft; 1 ft by 60 ft; 6 ft by 10 ft; 4 ft by 15 ft. Not correct: 2 ft by 31 ft."
+   ],
+   "standards": [
+    "4.MD.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mc5_select_area). 4th Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  }
+ ],
+ "meta": {
+  "m4-mc-s01-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 ÷ 4 = 6 quarts.",
+   "distractors": {
+    "24 quarts": "a common mistake",
+    "1 1/2 quarts": "a common mistake",
+    "10 quarts": "a common mistake"
+   }
+  },
+  "m4-mc-s01-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "180 ÷ 6 = 30 inches.",
+   "distractors": {
+    "180 inches": "a common mistake",
+    "5/6 inches": "a common mistake",
+    "66 inches": "a common mistake"
+   }
+  },
+  "m4-mc-s01-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "108 ÷ 2 = 54 inches.",
+   "distractors": {
+    "108 inches": "a common mistake",
+    "1 1/2 inches": "a common mistake",
+    "90 inches": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6,000 − 3,640 = 2,360 meters.",
+   "distractors": {
+    "3,640 meters": "a common mistake",
+    "6,000 meters": "a common mistake",
+    "5,272 meters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3,000 − 755 = 2,245 milliliters.",
+   "distractors": {
+    "755 milliliters": "a common mistake",
+    "3,000 milliliters": "a common mistake",
+    "2,849 milliliters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3,000 − 1,392 = 1,608 meters.",
+   "distractors": {
+    "1,392 meters": "a common mistake",
+    "3,000 meters": "a common mistake",
+    "2,768 meters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6,000 − 3,790 = 2,210 meters.",
+   "distractors": {
+    "3,790 meters": "a common mistake",
+    "6,000 meters": "a common mistake",
+    "5,242 meters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "500 − 315 = 185 centimeters.",
+   "distractors": {
+    "315 centimeters": "a common mistake",
+    "500 centimeters": "a common mistake",
+    "455 centimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "500 − 186 = 314 centimeters.",
+   "distractors": {
+    "186 centimeters": "a common mistake",
+    "500 centimeters": "a common mistake",
+    "469 centimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "600 − 355 = 245 centimeters.",
+   "distractors": {
+    "355 centimeters": "a common mistake",
+    "600 centimeters": "a common mistake",
+    "529 centimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 30 minutes from 10:50: 9:20.",
+   "distractors": {
+    "9:30": "a common mistake",
+    "10:20": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 48 minutes from 10:00: 8:12.",
+   "distractors": {
+    "8:22": "a common mistake",
+    "9:12": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 49 minutes from 8:50: 7:01.",
+   "distractors": {
+    "7:16": "a common mistake",
+    "7:11": "a common mistake",
+    "8:01": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 24 minutes from 10:40: 9:16.",
+   "distractors": {
+    "9:31": "a common mistake",
+    "9:26": "a common mistake",
+    "10:16": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 29 minutes from 6:40: 5:11.",
+   "distractors": {
+    "5:31": "a common mistake",
+    "5:21": "a common mistake",
+    "6:11": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 22 minutes from 3:40: 2:18.",
+   "distractors": {
+    "2:28": "a common mistake",
+    "3:18": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 36 minutes from 7:20: 5:44.",
+   "distractors": {
+    "5:54": "a common mistake",
+    "6:44": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 55 minutes from 5:20: 3:25.",
+   "distractors": {
+    "3:40": "a common mistake",
+    "3:35": "a common mistake",
+    "4:25": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 43 minutes from 9:40: 7:57.",
+   "distractors": {
+    "8:12": "a common mistake",
+    "7:07": "a common mistake",
+    "8:57": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 42 minutes from 4:00: 2:18.",
+   "distractors": {
+    "2:38": "a common mistake",
+    "2:28": "a common mistake",
+    "3:18": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 45 minutes from 6:40: 4:55.",
+   "distractors": {
+    "5:10": "a common mistake",
+    "4:05": "a common mistake",
+    "5:55": "a common mistake"
+   }
+  },
+  "m4-mc-s03-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Count back 1 hour 39 minutes from 3:20: 1:41.",
+   "distractors": {
+    "1:51": "a common mistake",
+    "2:41": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 ÷ 4 = 8 servings.",
+   "distractors": {
+    "4 servings": "a common mistake",
+    "10 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "64 ÷ 4 = 16 servings.",
+   "distractors": {
+    "8 servings": "a common mistake",
+    "20 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "64 ÷ 8 = 8 servings.",
+   "distractors": {
+    "32 servings": "a common mistake",
+    "4 servings": "a common mistake",
+    "12 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5,000 ÷ 500 = 10 servings.",
+   "distractors": {
+    "2500 servings": "a common mistake",
+    "5 servings": "a common mistake",
+    "15 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "80 ÷ 8 = 10 servings.",
+   "distractors": {
+    "40 servings": "a common mistake",
+    "5 servings": "a common mistake",
+    "15 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "48 ÷ 4 = 12 servings.",
+   "distractors": {
+    "6 servings": "a common mistake",
+    "15 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "80 ÷ 4 = 20 servings.",
+   "distractors": {
+    "10 servings": "a common mistake",
+    "25 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 ÷ 8 = 4 servings.",
+   "distractors": {
+    "16 servings": "a common mistake",
+    "2 servings": "a common mistake",
+    "6 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s04-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "48 ÷ 8 = 6 servings.",
+   "distractors": {
+    "24 servings": "a common mistake",
+    "3 servings": "a common mistake",
+    "9 servings": "a common mistake"
+   }
+  },
+  "m4-mc-s05-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Area: 14 × 11 = 154 square feet.",
+   "distractors": {
+    "550 square feet": "a common mistake",
+    "429 square feet": "a common mistake",
+    "165 square feet": "a common mistake"
+   }
+  },
+  "m4-mc-s05-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Area: 18 × 9 = 162 square feet.",
+   "distractors": {
+    "486 square feet": "a common mistake",
+    "405 square feet": "a common mistake",
+    "171 square feet": "a common mistake"
+   }
+  },
+  "m4-mc-s01-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "39 − 5 = 34 ounces.",
+   "distractors": {
+    "39 ounces": "a common mistake",
+    "4 ounces": "a common mistake",
+    "27 ounces": "a common mistake"
+   }
+  },
+  "m4-mc-s01-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "23 − 2 = 21 feet.",
+   "distractors": {
+    "23 feet": "a common mistake",
+    "7 feet": "a common mistake",
+    "19 feet": "a common mistake"
+   }
+  },
+  "m4-mc-s01-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 5 = 10 pints.",
+   "distractors": {
+    "15 pints": "a common mistake",
+    "3 pints": "a common mistake",
+    "9 pints": "a common mistake"
+   }
+  },
+  "m4-mc-s01-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "26 − 2 = 24 feet.",
+   "distractors": {
+    "26 feet": "a common mistake",
+    "8 feet": "a common mistake",
+    "22 feet": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3,312 − 733 = 2,579 grams.",
+   "distractors": {
+    "3,312 grams": "a common mistake",
+    "2,267 grams": "a common mistake",
+    "4,045 grams": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "43 − 5 = 38 millimeters.",
+   "distractors": {
+    "43 millimeters": "a common mistake",
+    "35 millimeters": "a common mistake",
+    "2 millimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "97 − 27 = 70 millimeters.",
+   "distractors": {
+    "97 millimeters": "a common mistake",
+    "63 millimeters": "a common mistake",
+    "124 millimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "44 − 3 = 41 millimeters.",
+   "distractors": {
+    "44 millimeters": "a common mistake",
+    "37 millimeters": "a common mistake",
+    "5 millimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "637 − 10 = 627 centimeters.",
+   "distractors": {
+    "637 centimeters": "a common mistake",
+    "590 centimeters": "a common mistake",
+    "33 centimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2,008 − 281 = 1,727 milliliters.",
+   "distractors": {
+    "2,008 milliliters": "a common mistake",
+    "1,719 milliliters": "a common mistake",
+    "2,289 milliliters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "34 − 14 = 20 millimeters.",
+   "distractors": {
+    "34 millimeters": "a common mistake",
+    "16 millimeters": "a common mistake",
+    "48 millimeters": "a common mistake"
+   }
+  },
+  "m4-mc-s02-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7,611 − 1491 = 6,120 meters.",
+   "distractors": {
+    "7,611 meters": "a common mistake",
+    "5,509 meters": "a common mistake",
+    "9,102 meters": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1:40 + 35 minutes = 2:15.",
+   "distractors": {
+    "2:05": "a common mistake",
+    "2:25": "a common mistake",
+    "2:40": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4:20 + 40 minutes = 5:00.",
+   "distractors": {
+    "4:40": "a common mistake",
+    "5:10": "a common mistake",
+    "5:20": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2:25 + 50 minutes = 3:15.",
+   "distractors": {
+    "2:50": "a common mistake",
+    "3:25": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1:25 + 50 minutes = 2:15.",
+   "distractors": {
+    "1:50": "a common mistake",
+    "2:25": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6:50 + 35 minutes = 7:25.",
+   "distractors": {
+    "7:15": "a common mistake",
+    "7:35": "a common mistake",
+    "7:50": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10:40 + 45 minutes = 11:25.",
+   "distractors": {
+    "11:05": "a common mistake",
+    "11:35": "a common mistake",
+    "11:40": "a common mistake"
+   }
+  },
+  "m4-mc-s03-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1:20 + 35 minutes = 1:55.",
+   "distractors": {
+    "1:35": "a common mistake",
+    "1:05": "a common mistake",
+    "2:20": "a common mistake"
+   }
+  },
+  "m4-mc-s04-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "$20.00 − $8.50 = $11.50.",
+   "distractors": {
+    "$8.50": "a common mistake",
+    "$16.10": "a common mistake",
+    "$12.50": "a common mistake"
+   }
+  },
+  "m4-mc-s04-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "$20.00 − $12.70 = $7.30.",
+   "distractors": {
+    "$12.70": "a common mistake",
+    "$15.90": "a common mistake",
+    "$8.30": "a common mistake"
+   }
+  },
+  "m4-mc-s04-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "$25.00 − $12.60 = $12.40.",
+   "distractors": {
+    "$12.60": "a common mistake",
+    "$21.40": "a common mistake",
+    "$13.40": "a common mistake"
+   }
+  },
+  "m4-mc-s04-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "$25.00 − $15.80 = $9.20.",
+   "distractors": {
+    "$15.80": "a common mistake",
+    "$15.90": "a common mistake",
+    "$10.20": "a common mistake"
+   }
+  },
+  "m4-mc-s05-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Area: 51 × 9 = 459 square meters.",
+   "distractors": {
+    "153 square meters": "a common mistake",
+    "120 square meters": "a common mistake",
+    "1377 square meters": "a common mistake"
+   }
+  },
+  "m4-mc-s01-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "48 + 13 = 61."
+  },
+  "m4-mc-s01-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "15 + 1 = 16."
+  },
+  "m4-mc-s01-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "18 + 1 = 19."
+  },
+  "m4-mc-s02-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "1,801 = 1 × 1,000 + 801."
+  },
+  "m4-mc-s02-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3,657 = 3 × 1,000 + 657."
+  },
+  "m4-mc-s02-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "5,667 = 5 × 1,000 + 667."
+  },
+  "m4-mc-s03-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "40 × 60 = 2400."
+  },
+  "m4-mc-s03-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "55 × 60 = 3300."
+  },
+  "m4-mc-s03-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "85 minutes = 1 hour 25 minutes."
+  },
+  "m4-mc-s04-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract the prices."
+  },
+  "m4-mc-s04-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract the prices."
+  },
+  "m4-mc-s04-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract the prices."
+  },
+  "m4-mc-s05-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "44 ÷ 2 = 22."
+  },
+  "m4-mc-s05-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "44 ÷ 2 = 22."
+  },
+  "m4-mc-s05-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "216 ÷ 8 = 27."
+  },
+  "m4-mc-s01-cp2-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "1 foot = 12 inches and 1 yard = 3 feet, so 6 feet = 72 inches = 2 yards."
+  },
+  "m4-mc-s01-cp1-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "1 foot = 12 inches and 1 yard = 3 feet, so 6 feet = 72 inches = 2 yards."
+  },
+  "m4-mc-s01-honors-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "1 foot = 12 inches and 1 yard = 3 feet, so 9 feet = 108 inches = 3 yards."
+  },
+  "m4-mc-s05-cp2-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area = length × width; the pairs whose product is 18 work."
+  },
+  "m4-mc-s05-cp1-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area = length × width; the pairs whose product is 40 work."
+  },
+  "m4-mc-s05-honors-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area = length × width; the pairs whose product is 60 work."
+  }
+ }
+}
