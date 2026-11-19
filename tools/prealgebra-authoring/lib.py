@@ -397,11 +397,11 @@ def plane_draw(xr=(-8, 8), yr=(-8, 8), lines=(), polys=(), points=(), step=1, la
         for p in points:
             x, y, t = p[0], p[1], p[2]
             col = p[3] if len(p) > 3 else "black"
-            ax.plot([float(x)], [float(y)], "o", color=col, ms=7, zorder=5)
+            ax.plot([float(x)], [float(y)], "o", color=col, ms=7, zorder=5, clip_on=False)
             if t:
                 ax.annotate(t, (float(x), float(y)), textcoords="offset points", xytext=(7, 7), fontsize=12, fontweight="bold", color=col)
         for p in open_pts:
-            ax.plot([float(p[0])], [float(p[1])], "o", mfc="white", mec=p[2] if len(p) > 2 else "black", ms=8, zorder=6)
+            ax.plot([float(p[0])], [float(p[1])], "o", mfc="white", mec=p[2] if len(p) > 2 else "black", ms=8, zorder=6, clip_on=False)
         if any(len(l) > 3 and l[3] for l in lines) or any(len(p) > 2 and p[2] for p in polys):
             ax.legend(loc="upper left", fontsize=11, framealpha=0.95)
         if title:

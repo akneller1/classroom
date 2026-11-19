@@ -26,6 +26,7 @@ function win(rel) {
    review and exam, and a final review and exam. Lesson titles, standards and notes are the planner's own. */
 /* Precalculus (2026-11-18, Precalculus audit #3) uses the same planner sequence and padding. */
 /* Discrete Math (2026-11-18, Discrete Math audit #6) uses it too; its standards list is read from the bank's own tags. */
+/* 8th Grade Math (2026-11-19, 8th Grade Math audit #2) uses the same sequence and padding as Algebra 2. */
 /* Calculus (2026-11-18, Calculus audit #7) is an AP course: new content (units 1-8) ends about day 130 (mid-April),
    the AP Review unit and practice exams run to the AP Calculus AB exam in early-to-mid May (about day 153), and the
    rest of the year is the course's calculus projects. There is no extra final exam. */
@@ -98,6 +99,7 @@ const COURSES = {
   algebra2: { name: "Algebra 2", load: () => bankScope("algebra2", "A2"), sets: /^algebra2-/, page: "algebra-2-pacing/", framework: "Massachusetts Model Algebra II", bank: true },
   precalculus: { name: "Precalculus", load: () => bankScope("precalculus", "PC"), sets: /^precalculus-/, page: "precalculus-pacing/", framework: "Common Core (+) standards for precalculus", bank: true },
   discrete: { name: "Discrete Math", load: () => bankScope("discrete", "DM"), sets: /^discrete-/, page: "discrete-math-pacing/", framework: "Discrete Mathematics strand or Common Core", bank: true },
+  prealgebra: { name: "8th Grade Math", load: () => bankScope("prealgebra", "PA8"), sets: /^prealgebra-/, page: "8th-grade-math-pacing/", framework: "Common Core Grade 8", bank: true },
   calculus: { name: "Calculus", load: () => bankScope("calculus", "CA", { ap: true, projects: calculusProjects() }), sets: /^calculus-/, page: "calculus-pacing/", framework: "AP Calculus AB learning objectives", bank: true, ap: true }
 };
 function calculusProjects() {
@@ -181,6 +183,10 @@ const ALL_PRECALCULUS = [["N-CN.A.3", "+"], ["N-CN.B.4", "+"], ["N-CN.B.5", "+"]
   ["S-MD.A.1", "+"], ["S-MD.A.2", "+"], ["S-MD.A.3", "+"], ["S-MD.A.4", "+"], ["S-MD.B.5", "+"], ["S-MD.B.6", "+"], ["S-MD.B.7", "+"], ["S-CP.B.8", "+"], ["S-CP.B.9", "+"]];
 // AP Calculus AB learning objectives from the Course and Exam Description (Calculus audit #7 and #11, 2026-11-18).
 const ALL_CALCULUS = [["AP CHA-1.A"], ["AP LIM-1.A"], ["AP LIM-1.B"], ["AP LIM-1.C"], ["AP LIM-1.D"], ["AP LIM-1.E"], ["AP LIM-2.A"], ["AP LIM-2.B"], ["AP LIM-2.C"], ["AP LIM-2.D"], ["AP FUN-1.A"], ["AP CHA-2.A"], ["AP CHA-2.B"], ["AP CHA-2.C"], ["AP CHA-2.D"], ["AP FUN-2.A"], ["AP FUN-3.A"], ["AP LIM-3.A"], ["AP FUN-3.B"], ["AP FUN-3.C"], ["AP FUN-3.D"], ["AP FUN-3.E"], ["AP FUN-3.F"], ["AP CHA-3.A"], ["AP CHA-3.B"], ["AP CHA-3.C"], ["AP CHA-3.D"], ["AP CHA-3.E"], ["AP CHA-3.F"], ["AP LIM-4.A"], ["AP FUN-1.B"], ["AP FUN-1.C"], ["AP FUN-4.A"], ["AP FUN-4.B"], ["AP FUN-4.C"], ["AP FUN-4.D"], ["AP FUN-4.E"], ["AP CHA-4.A"], ["AP LIM-5.A"], ["AP LIM-5.B"], ["AP LIM-5.C"], ["AP FUN-5.A"], ["AP FUN-6.A"], ["AP FUN-6.B"], ["AP FUN-6.C"], ["AP FUN-6.D"], ["AP FUN-7.A"], ["AP FUN-7.B"], ["AP FUN-7.D"], ["AP FUN-7.E"], ["AP FUN-7.F"], ["AP FUN-7.G"], ["AP CHA-4.B"], ["AP CHA-4.C"], ["AP CHA-4.D"], ["AP CHA-4.E"], ["AP CHA-5.A"], ["AP CHA-5.B"], ["AP CHA-5.C"]];
+// Common Core Grade 8 standards (8th Grade Math audit #2, 2026-11-19), sub-standards where the bank tags them separately.
+const ALL_GRADE8 = [["8.NS.A.1"], ["8.NS.A.2"], ["8.EE.A.1"], ["8.EE.A.2"], ["8.EE.A.3"], ["8.EE.A.4"], ["8.EE.B.5"], ["8.EE.B.6"], ["8.EE.C.7a"], ["8.EE.C.7b"],
+  ["8.EE.C.8a"], ["8.EE.C.8b"], ["8.EE.C.8c"], ["8.F.A.1"], ["8.F.A.2"], ["8.F.A.3"], ["8.F.B.4"], ["8.F.B.5"], ["8.G.A.1"], ["8.G.A.2"], ["8.G.A.3"], ["8.G.A.4"], ["8.G.A.5"],
+  ["8.G.B.6"], ["8.G.B.7"], ["8.G.B.8"], ["8.G.C.9"], ["8.SP.A.1"], ["8.SP.A.2"], ["8.SP.A.3"], ["8.SP.A.4"]];
 // Discrete Math has no single published framework: list every code the bank's skills are tagged with, DM strands first.
 function discreteStandards(stdSkills) {
   const codes = new Set();
@@ -188,7 +194,7 @@ function discreteStandards(stdSkills) {
   return [...codes].sort((a, b) => (/^DM/.test(b) - /^DM/.test(a)) || a.localeCompare(b, "en", { numeric: true })).map((c) => [c]);
 }
 export function geoPacingMain(course = "geometry", unitHref) {
-  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, discrete: discreteStandards(stdSkills) }[course] || ALL_GEOMETRY;
+  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills) }[course] || ALL_GEOMETRY;
   const framework = C.framework || "Common Core " + C.name, source = C.bank ? "question-bank skill" : "generator skill";
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const href = unitHref || ((t) => "../u/geometry/" + slug(t) + "/");

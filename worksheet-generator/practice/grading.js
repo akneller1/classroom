@@ -101,12 +101,18 @@ function calcKey(answer){return typeof answer==='string'&&calcOn()&&G.MKCALC.sup
    go to stat-grading.js when no grader above reads the key. Only on Statistics practice tests, like the Calculus grader. */
 function statOn(){return !!G.MKSTAT&&(!G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='statistics');}
 function statKey(answer){return typeof answer==='string'&&statOn()&&G.MKSTAT.supports(answer)?answer:null;}
+/* 8th Grade Math audit #4 and #20 (2026-11-19): classification words, numbers with unit phrases, scientific notation,
+   line equations, expanded expressions and modelling equations go to grade8-grading.js, and typed ±, e-notation, ^ and
+   sqrt( ) are read. Only on 8th Grade Math practice tests, like the Calculus grader. */
+function gr8On(){return !!G.MKGRADE8&&(!G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='prealgebra');}
+function gr8Key(answer,prompt){return typeof answer==='string'&&gr8On()&&G.MKGRADE8.supports(answer,prompt)?answer:null;}
 function gradeBank(answer,typed,prompt){
+ if(gr8On()&&typeof answer==='string'){if(G.MKGRADE8.preferred(answer,prompt))return G.MKGRADE8.grade(answer,typed,prompt);typed=G.MKGRADE8.normalizeTyped(typed);}
  if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
  var key=bankAnswer(answer);
- if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):calcKey(answer)!==null?G.MKCALC.grade(answer,typed,prompt):statKey(answer)!==null?G.MKSTAT.grade(answer,typed,prompt):{status:'self'};
+ if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):calcKey(answer)!==null?G.MKCALC.grade(answer,typed,prompt):statKey(answer)!==null?G.MKSTAT.grade(answer,typed,prompt):gr8Key(answer,prompt)!==null?G.MKGRADE8.grade(answer,typed,prompt):{status:'self'};
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);return k!==null?k:statKey(answer);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
 })(window);

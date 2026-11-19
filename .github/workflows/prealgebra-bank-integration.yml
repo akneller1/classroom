@@ -11,6 +11,12 @@ on:
       - 'worksheet-generator/match-game.html'
       - 'worksheet-generator/planner/**'
       - 'scripts/test-prealgebra-integration.cjs'
+      - 'scripts/test-grade8-audit.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'worksheet-generator/practice/**'
+      - 'worksheet-generator/core/math-display.js'
+      - 'data.js'
+      - 'course-catalog.js'
       - '.github/workflows/prealgebra-bank-integration.yml'
   workflow_dispatch:
 jobs:
@@ -24,3 +30,4 @@ jobs:
           node-version: '22'
       - run: node scripts/test-published-question-banks.cjs
       - run: node scripts/test-prealgebra-integration.cjs
+      - run: node scripts/test-grade8-audit.cjs

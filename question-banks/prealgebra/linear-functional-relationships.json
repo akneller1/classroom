@@ -443,10 +443,6 @@
    "prompt": "Select ALL relations that represent y as a function of x.",
    "options": [
     {
-     "text": "{(3, 7), (1, 4), (0, -4), (5, -4)}",
-     "correct": true
-    },
-    {
      "text": "{(2, 8), (5, -3), (2, 12), (3, 8)}",
      "correct": false
     },
@@ -468,7 +464,6 @@
     }
    ],
    "answer": [
-    "{(3, 7), (1, 4), (0, -4), (5, -4)}",
     "y = -4x + 5",
     "{(6, -3), (5, 0), (-5, 8), (2, -4)}"
    ],
@@ -479,7 +474,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s01-cp2-020",
@@ -973,8 +968,8 @@
      "correct": false
     },
     {
-     "text": "{(-2, 2), (7, 6), (7, 8), (0, 7)}",
-     "correct": false
+     "text": "y = -4x + 5",
+     "correct": true
     },
     {
      "text": "y = 4x + 3",
@@ -984,6 +979,7 @@
    "answer": [
     "{(6, 1), (0, 0), (-4, -5), (-1, 2)}",
     "{(6, -1), (4, -4), (-3, -6), (3, 1)}",
+    "y = -4x + 5",
     "y = 4x + 3"
    ],
    "solutionSteps": [
@@ -993,7 +989,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s01-cp1-020",
@@ -1520,7 +1516,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s01-honors-020",
@@ -2061,10 +2057,6 @@
    "prompt": "Select ALL points on the graph of y = 2x - 1.",
    "options": [
     {
-     "text": "(-3, -7)",
-     "correct": true
-    },
-    {
      "text": "(-2, -6)",
      "correct": false
     },
@@ -2086,7 +2078,6 @@
     }
    ],
    "answer": [
-    "(-3, -7)",
     "(3, 5)",
     "(4, 7)"
    ],
@@ -2102,7 +2093,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s02-cp2-020",
@@ -2684,7 +2675,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s02-cp1-020",
@@ -2891,7 +2882,7 @@
    "skillId": "linear-functional-relationships-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Complete the table of values for y = -x² + 0. x: -2, -1, 0, 1, 2; y: ?, -1, 0, -1, -4. What value replaces the ?",
+   "prompt": "Complete the table of values for y = -x². x: -2, -1, 0, 1, 2; y: ?, -1, 0, -1, -4. What value replaces the ?",
    "answer": "-4",
    "options": [
     {
@@ -2912,7 +2903,7 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = -2 into y = -x² + 0.",
+    "Substitute x = -2 into y = -x².",
     "y = -4."
    ],
    "standards": [
@@ -3185,10 +3176,10 @@
    "skillId": "linear-functional-relationships-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Complete the table of values for y = x² + 0. x: -2, -1, 0, 1, 2; y: 4, 1, 0, ?, 4. What value replaces the ?",
+   "prompt": "Complete the table of values for y = x². x: -2, -1, 0, 1, 2; y: 4, 1, 0, ?, 4. What value replaces the ?",
    "answer": "1",
    "solutionSteps": [
-    "Substitute x = 1 into y = x² + 0.",
+    "Substitute x = 1 into y = x².",
     "y = 1."
    ],
    "standards": [
@@ -3208,10 +3199,6 @@
      "correct": false
     },
     {
-     "text": "(4, -10)",
-     "correct": true
-    },
-    {
      "text": "(0, 1)",
      "correct": false
     },
@@ -3229,7 +3216,6 @@
     }
    ],
    "answer": [
-    "(4, -10)",
     "(2, -6)",
     "(-1, 0)"
    ],
@@ -3245,7 +3231,7 @@
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s02-honors-020",
@@ -3731,8 +3717,8 @@
      "correct": true
     },
     {
-     "text": "y = x³ - 7",
-     "correct": false
+     "text": "4x + 6y = 11",
+     "correct": true
     },
     {
      "text": "y = 7",
@@ -3742,6 +3728,7 @@
    "answer": [
     "y = 4(x - 7)",
     "y = x/4",
+    "4x + 6y = 11",
     "y = 7"
    ],
    "solutionSteps": [
@@ -3750,7 +3737,7 @@
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s03-cp2-020",
@@ -4283,7 +4270,7 @@
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s03-cp1-020",
@@ -4775,10 +4762,6 @@
    "prompt": "Select ALL equations that represent linear functions.",
    "options": [
     {
-     "text": "y = 2(x - 7)",
-     "correct": true
-    },
-    {
      "text": "y = 2ˣ",
      "correct": false
     },
@@ -4800,7 +4783,6 @@
     }
    ],
    "answer": [
-    "y = 2(x - 7)",
     "y = 7",
     "y = x/2"
    ],
@@ -4810,7 +4792,7 @@
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s03-honors-020",
@@ -5364,10 +5346,6 @@
    "prompt": "Select ALL pairs of points that lie on a line with slope -3/2.",
    "options": [
     {
-     "text": "(4, 0) and (2, 3)",
-     "correct": true
-    },
-    {
      "text": "(4, 0) and (1, 2)",
      "correct": false
     },
@@ -5389,7 +5367,6 @@
     }
    ],
    "answer": [
-    "(4, 0) and (2, 3)",
     "(4, 0) and (6, -3)",
     "(4, 0) and (8, -6)"
    ],
@@ -5400,7 +5377,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s04-cp1-001",
@@ -5955,7 +5932,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s04-honors-001",
@@ -6472,10 +6449,6 @@
      "correct": false
     },
     {
-     "text": "(1, 1) and (3, -5)",
-     "correct": true
-    },
-    {
      "text": "(1, 1) and (2, -1)",
      "correct": false
     },
@@ -6493,7 +6466,6 @@
     }
    ],
    "answer": [
-    "(1, 1) and (3, -5)",
     "(1, 1) and (2, -2)",
     "(1, 1) and (0, 4)"
    ],
@@ -6504,7 +6476,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s05-cp2-001",
@@ -6546,7 +6518,7 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A taxi ride of 4 miles costs $10.9 and a ride of 7 miles costs $16. The cost is a linear function of miles. Write an equation for cost C after m miles.",
+   "prompt": "A taxi ride of 4 miles costs $10.90 and a ride of 7 miles costs $16. The cost is a linear function of miles. Write an equation for cost C after m miles.",
    "answer": "C = 1.7m + 4.1",
    "options": [
     {
@@ -7042,7 +7014,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s05-cp1-001",
@@ -7417,7 +7389,7 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A taxi ride of 5 miles costs $17.1 and a ride of 11 miles costs $32.7. The cost is a linear function of miles. Write an equation for cost C after m miles.",
+   "prompt": "A taxi ride of 5 miles costs $17.10 and a ride of 11 miles costs $32.70. The cost is a linear function of miles. Write an equation for cost C after m miles.",
    "answer": "C = 2.6m + 4.1",
    "solutionSteps": [
     "Rate = (32.7 - 17.1) ÷ (11 - 5) = 2.6.",
@@ -7551,10 +7523,6 @@
      "correct": false
     },
     {
-     "text": "y = 3x - 6",
-     "correct": true
-    },
-    {
      "text": "-3x + y = -6",
      "correct": true
     },
@@ -7568,7 +7536,6 @@
     }
    ],
    "answer": [
-    "y = 3x - 6",
     "-3x + y = -6",
     "y + 3 = 3(x - 1)"
    ],
@@ -7579,7 +7546,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s05-honors-001",
@@ -7779,7 +7746,7 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A taxi ride of 4 miles costs $10.1 and a ride of 8 miles costs $16.1. The cost is a linear function of miles. Write an equation for cost C after m miles.",
+   "prompt": "A taxi ride of 4 miles costs $10.10 and a ride of 8 miles costs $16.10. The cost is a linear function of miles. Write an equation for cost C after m miles.",
    "answer": "C = 1.5m + 4.1",
    "options": [
     {
@@ -8091,10 +8058,6 @@
      "correct": false
     },
     {
-     "text": "y = -4x + 2",
-     "correct": true
-    },
-    {
      "text": "y + 2 = -4(x - 1)",
      "correct": true
     },
@@ -8104,7 +8067,6 @@
     }
    ],
    "answer": [
-    "y = -4x + 2",
     "y + 2 = -4(x - 1)",
     "4x + y = 2"
    ],
@@ -8115,7 +8077,7 @@
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s06-cp2-001",
@@ -8737,7 +8699,7 @@
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s06-cp1-001",
@@ -8867,7 +8829,7 @@
     }
    ],
    "solutionSteps": [
-    "x-intercept: 1x = 4 → (4, 0). y-intercept: 2y = 4 → (0, 2).",
+    "x-intercept: x = 4 → (4, 0). y-intercept: 2y = 4 → (0, 2).",
     "Graph D passes through both intercepts."
    ],
    "diagram": {
@@ -8993,7 +8955,7 @@
     }
    ],
    "solutionSteps": [
-    "x-intercept: 1x = 4 → (4, 0). y-intercept: 2y = 4 → (0, 2).",
+    "x-intercept: x = 4 → (4, 0). y-intercept: 2y = 4 → (0, 2).",
     "Graph D passes through both intercepts."
    ],
    "diagram": {
@@ -9291,10 +9253,6 @@
      "correct": false
     },
     {
-     "text": "The y-intercept is 5.",
-     "correct": true
-    },
-    {
      "text": "The slope is 2.",
      "correct": true
     },
@@ -9312,7 +9270,6 @@
     }
    ],
    "answer": [
-    "The y-intercept is 5.",
     "The slope is 2.",
     "The line passes through (1, 7)."
    ],
@@ -9330,7 +9287,7 @@
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s06-cp1-020",
@@ -9522,7 +9479,8 @@
    "answer": "y = -3x - 10",
    "solutionSteps": [
     "A vertical shift changes only the y-intercept: -5 - 5 = -10.",
-    "The slope stays the same."
+    "The slope stays the same.",
+    "The new equation is y = -3x - 10."
    ],
    "standards": [
     "8.F.A.3",
@@ -9658,7 +9616,7 @@
     }
    ],
    "solutionSteps": [
-    "x-intercept: 2x = 4 → (2, 0). y-intercept: 1y = 4 → (0, 4).",
+    "x-intercept: 2x = 4 → (2, 0). y-intercept: y = 4 → (0, 4).",
     "Graph B passes through both intercepts."
    ],
    "diagram": {
@@ -9802,7 +9760,8 @@
    "answer": "y = -4x",
    "solutionSteps": [
     "A vertical shift changes only the y-intercept: 3 - 3 = 0.",
-    "The slope stays the same."
+    "The slope stays the same.",
+    "The new equation is y = -4x."
    ],
    "standards": [
     "8.F.A.3",
@@ -9861,7 +9820,8 @@
    "answer": "y = -4x + 2",
    "solutionSteps": [
     "A vertical shift changes only the y-intercept: -3 + 5 = 2.",
-    "The slope stays the same."
+    "The slope stays the same.",
+    "The new equation is y = -4x + 2."
    ],
    "standards": [
     "8.F.A.3",
@@ -9941,10 +9901,6 @@
      "correct": false
     },
     {
-     "text": "The slope is 3.",
-     "correct": true
-    },
-    {
      "text": "The line passes through (-5, 0).",
      "correct": false
     },
@@ -9962,7 +9918,6 @@
     }
    ],
    "answer": [
-    "The slope is 3.",
     "The y-intercept is -5.",
     "The line passes through (1, -2)."
    ],
@@ -9980,7 +9935,7 @@
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s07-cp2-001",
@@ -10517,7 +10472,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s07-cp1-001",
@@ -11016,10 +10971,6 @@
    "prompt": "A linear function has this table: x: -1, 0, 1, 2; y: -2, 0, 2, 4. Select ALL ordered pairs that also belong to the function.",
    "options": [
     {
-     "text": "(1, 2)",
-     "correct": true
-    },
-    {
      "text": "(2, 4)",
      "correct": true
     },
@@ -11041,7 +10992,6 @@
     }
    ],
    "answer": [
-    "(1, 2)",
     "(2, 4)",
     "(0, 0)"
    ],
@@ -11052,7 +11002,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s07-honors-001",
@@ -11586,7 +11536,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s08-cp2-001",
@@ -13913,10 +13863,6 @@
      "correct": false
     },
     {
-     "text": "The car wash started the day with $10 in the register.",
-     "correct": true
-    },
-    {
      "text": "After 10 cars, there is $70.",
      "correct": true
     },
@@ -13934,7 +13880,6 @@
     }
    ],
    "answer": [
-    "The car wash started the day with $10 in the register.",
     "After 10 cars, there is $70.",
     "The car wash earns $6 for each car."
    ],
@@ -13945,7 +13890,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s09-cp1-001",
@@ -14430,10 +14375,6 @@
    "prompt": "The money M (dollars) in a car wash's register after c cars is M = 6c + 37. Select ALL true statements.",
    "options": [
     {
-     "text": "After 10 cars, there is $97.",
-     "correct": true
-    },
-    {
      "text": "After 10 cars, there is $430.",
      "correct": false
     },
@@ -14455,7 +14396,6 @@
     }
    ],
    "answer": [
-    "After 10 cars, there is $97.",
     "The car wash started the day with $37 in the register.",
     "The car wash earns $6 for each car."
    ],
@@ -14466,7 +14406,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s09-honors-001",
@@ -15019,7 +14959,7 @@
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s10-cp2-001",
@@ -15086,7 +15026,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "40 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 40 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -15282,7 +15223,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "40 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 40 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -15437,7 +15379,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "40 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 40 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -15476,7 +15419,8 @@
    "prompt": "The graph shows a hiker's distance from camp. For how long did the hiker stay in one place?",
    "answer": "4 hours",
    "solutionSteps": [
-    "The graph is flat from t = 2 to t = 6."
+    "The graph is flat from t = 2 to t = 6.",
+    "6 - 2 = 4 hours."
    ],
    "diagram": {
     "type": "image",
@@ -15515,7 +15459,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "30 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 30 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -15580,10 +15525,6 @@
    "prompt": "The water level L (cm) in a pool after h hours is L = 3h + 16. Select ALL true statements.",
    "options": [
     {
-     "text": "The water level rises 3 cm each hour.",
-     "correct": true
-    },
-    {
      "text": "The pool starts with 3 cm of water.",
      "correct": false
     },
@@ -15605,7 +15546,6 @@
     }
    ],
    "answer": [
-    "The water level rises 3 cm each hour.",
     "After 5 hours the level is 31 cm.",
     "The pool starts with 16 cm of water."
    ],
@@ -15616,7 +15556,7 @@
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s10-cp1-001",
@@ -15683,7 +15623,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "20 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 20 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -15879,7 +15820,8 @@
    "prompt": "The graph shows a hiker's distance from camp. For how long did the hiker stay in one place?",
    "answer": "3 hours",
    "solutionSteps": [
-    "The graph is flat from t = 2 to t = 5."
+    "The graph is flat from t = 2 to t = 5.",
+    "5 - 2 = 3 hours."
    ],
    "diagram": {
     "type": "image",
@@ -16034,7 +15976,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "20 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 20 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -16137,10 +16080,6 @@
    "prompt": "The water level L (cm) in a pool after h hours is L = 5h + 24. Select ALL true statements.",
    "options": [
     {
-     "text": "The water level rises 5 cm each hour.",
-     "correct": true
-    },
-    {
      "text": "After 5 hours the level is 145 cm.",
      "correct": false
     },
@@ -16162,7 +16101,6 @@
     }
    ],
    "answer": [
-    "The water level rises 5 cm each hour.",
     "After 5 hours the level is 49 cm.",
     "The pool starts with 24 cm of water."
    ],
@@ -16173,7 +16111,7 @@
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s10-cp1-020",
@@ -16527,7 +16465,8 @@
    "prompt": "The graph shows a hiker's distance from camp. What was the hiker's greatest distance from camp?",
    "answer": "20 km",
    "solutionSteps": [
-    "Read the highest point of the graph."
+    "Read the highest point of the graph.",
+    "The highest point is at 20 km from camp."
    ],
    "diagram": {
     "type": "image",
@@ -16642,7 +16581,8 @@
    "prompt": "The graph shows a hiker's distance from camp. For how long did the hiker stay in one place?",
    "answer": "5 hours",
    "solutionSteps": [
-    "The graph is flat from t = 2 to t = 7."
+    "The graph is flat from t = 2 to t = 7.",
+    "7 - 2 = 5 hours."
    ],
    "diagram": {
     "type": "image",
@@ -16758,7 +16698,7 @@
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s10-honors-020",
@@ -17077,7 +17017,8 @@
    "prompt": "Jamal fills a tank at 3 liters per minute for 4 minutes, then stops for 4 minutes. How many line segments does the sketch of liters vs. minutes have, and which one is horizontal?",
    "answer": "2 segments; segment 2 is horizontal",
    "solutionSteps": [
-    "Each change in rate starts a new segment; a rate of 0 is horizontal."
+    "Each change in rate starts a new segment; a rate of 0 is horizontal.",
+    "So the graph has 2 segments; segment 2 is horizontal."
    ],
    "standards": [
     "8.F.B.5"
@@ -17323,10 +17264,6 @@
      "correct": false
     },
     {
-     "text": "(1, 7)",
-     "correct": true
-    },
-    {
      "text": "(5, 5)",
      "correct": false
     },
@@ -17340,7 +17277,6 @@
     }
    ],
    "answer": [
-    "(1, 7)",
     "(-1, 9)",
     "(-4, -3)"
    ],
@@ -17350,7 +17286,7 @@
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s11-cp1-001",
@@ -17634,7 +17570,8 @@
    "prompt": "Elena fills a tank at 2 liters per minute for 3 minutes, stops for 2 minutes, then fills at 1 liters per minute for 2 more minutes. How many line segments does the sketch of liters vs. minutes have, and which one is horizontal?",
    "answer": "3 segments; segment 2 is horizontal",
    "solutionSteps": [
-    "Each change in rate starts a new segment; a rate of 0 is horizontal."
+    "Each change in rate starts a new segment; a rate of 0 is horizontal.",
+    "So the graph has 3 segments; segment 2 is horizontal."
    ],
    "standards": [
     "8.F.B.5"
@@ -17798,7 +17735,8 @@
    "prompt": "Wren fills a tank at 2 liters per minute for 3 minutes, stops for 2 minutes, then fills at 4 liters per minute for 4 more minutes. How many line segments does the sketch of liters vs. minutes have, and which one is horizontal?",
    "answer": "3 segments; segment 2 is horizontal",
    "solutionSteps": [
-    "Each change in rate starts a new segment; a rate of 0 is horizontal."
+    "Each change in rate starts a new segment; a rate of 0 is horizontal.",
+    "So the graph has 3 segments; segment 2 is horizontal."
    ],
    "standards": [
     "8.F.B.5"
@@ -17905,7 +17843,7 @@
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s11-honors-001",
@@ -18371,12 +18309,8 @@
    "skillId": "linear-functional-relationships-skill-11",
    "level": "honors",
    "format": "select-all",
-   "prompt": "For f(x) = x + 0 when x < 1 and f(x) = -x + 6 when x ≥ 1, select ALL points on the graph.",
+   "prompt": "For f(x) = x when x < 1 and f(x) = -x + 6 when x ≥ 1, select ALL points on the graph.",
    "options": [
-    {
-     "text": "(2, 4)",
-     "correct": true
-    },
     {
      "text": "(1, 5)",
      "correct": true
@@ -18399,7 +18333,6 @@
     }
    ],
    "answer": [
-    "(2, 4)",
     "(1, 5)",
     "(-2, -2)"
    ],
@@ -18409,7 +18342,7 @@
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-lfr-s11-honors-020",
@@ -20685,6 +20618,157 @@
    "sourceNotes": "Original Claude-authored item (family: prop_equation_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
   },
   {
+   "id": "pa8-lfr-s12-cp2-017",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The graph shows the cost y (dollars) of x pounds of apples. What is the unit rate in dollars per pound?",
+   "answer": "3 dollars per pound",
+   "solutionSteps": [
+    "The line passes through (0, 0) and (2, 6).",
+    "Unit rate = 6 ÷ 2 = 3 dollars per pound."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_graph_rate). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp2-017.png",
+     "alt": "First-quadrant graph, x from 0 to 8 (pounds (x)), y from 0 to 24 (cost in dollars (y)): Apples through (0, 0) and (2, 6); the point (2, 6) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-cp2-018",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which equation represents the proportional relationship shown in the graph?",
+   "answer": "y = 4x",
+   "options": [
+    {
+     "text": "y = 4x",
+     "correct": true
+    },
+    {
+     "text": "y = x/4",
+     "correct": false
+    },
+    {
+     "text": "y = x + 4",
+     "correct": false
+    },
+    {
+     "text": "y = 8x",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The line passes through (0, 0) and (2, 8).",
+    "k = 8 ÷ 2 = 4, so y = 4x."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_graph_equation). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp2-018.png",
+     "alt": "First-quadrant graph, x from 0 to 6 (x), y from 0 to 24 (y): a line through (0, 0) and (2, 8); the point (2, 8) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-cp2-019",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL points on the graph of the proportional relationship y = 4x.",
+   "answer": [
+    "(1, 4)",
+    "(3, 12)",
+    "(0, 0)"
+   ],
+   "options": [
+    {
+     "text": "(1, 4)",
+     "correct": true
+    },
+    {
+     "text": "(4, 1)",
+     "correct": false
+    },
+    {
+     "text": "(3, 12)",
+     "correct": true
+    },
+    {
+     "text": "(2, 6)",
+     "correct": false
+    },
+    {
+     "text": "(0, 0)",
+     "correct": true
+    },
+    {
+     "text": "(5, 9)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A point is on the graph when y = 4 × x.",
+    "(1, 4), (3, 12) and (0, 0) work; (4, 1), (2, 6) and (5, 9) do not."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_points_select). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-lfr-s12-cp2-020",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Runner A is shown in the graph (x = minutes, y = laps). Runner B runs y = 2x laps in x minutes. Who runs faster?",
+   "answer": "Runner A",
+   "options": [
+    {
+     "text": "Runner A",
+     "correct": true
+    },
+    {
+     "text": "Runner B",
+     "correct": false
+    },
+    {
+     "text": "They run at the same rate",
+     "correct": false
+    },
+    {
+     "text": "It cannot be told",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Runner A: 6 laps in 2 minutes, so 3 laps per minute.",
+    "Runner B: 2 laps per minute. 3 > 2, so Runner A is faster."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_compare_graph). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp2-020.png",
+     "alt": "First-quadrant graph, x from 0 to 8 (minutes (x)), y from 0 to 24 (laps (y)): Runner A through (0, 0) and (2, 6); the point (2, 6) marked."
+    }
+   }
+  },
+  {
    "id": "pa8-lfr-s12-cp1-001",
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
@@ -21079,6 +21163,141 @@
     "8.EE.B.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: prop_compare_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+  },
+  {
+   "id": "pa8-lfr-s12-cp1-017",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The graph shows the distance y (miles) a cyclist rides in x hours. What is the unit rate in miles per hour?",
+   "answer": "12.5 miles per hour",
+   "solutionSteps": [
+    "The line passes through (0, 0) and (4, 50).",
+    "Unit rate = 50 ÷ 4 = 12.5 miles per hour."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_graph_rate). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp1-017.png",
+     "alt": "First-quadrant graph, x from 0 to 8 (hours (x)), y from 0 to 100 (miles (y)): Cyclist through (0, 0) and (4, 50); the point (4, 50) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-cp1-018",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "The graph shows a proportional relationship. Which point on the graph shows the unit rate?",
+   "answer": "(1, 2.5)",
+   "options": [
+    {
+     "text": "(1, 2.5)",
+     "correct": true
+    },
+    {
+     "text": "(2.5, 1)",
+     "correct": false
+    },
+    {
+     "text": "(0, 2.5)",
+     "correct": false
+    },
+    {
+     "text": "(2, 5)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The line passes through (0, 0) and (2, 5), so the unit rate is 5 ÷ 2 = 2.5.",
+    "The unit rate is the y-value when x = 1: (1, 2.5)."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_graph_unit_point). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp1-018.png",
+     "alt": "First-quadrant graph, x from 0 to 8 (x), y from 0 to 20 (y): a line through (0, 0) and (2, 5); the point (2, 5) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-cp1-019",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "The graph of a proportional relationship passes through (4, 6). Select ALL true statements.",
+   "answer": [
+    "The unit rate is 1.5.",
+    "The equation is y = 1.5x.",
+    "The graph passes through (0, 0).",
+    "The point (10, 15) is on the graph."
+   ],
+   "options": [
+    {
+     "text": "The unit rate is 1.5.",
+     "correct": true
+    },
+    {
+     "text": "The equation is y = 1.5x.",
+     "correct": true
+    },
+    {
+     "text": "The graph passes through (0, 0).",
+     "correct": true
+    },
+    {
+     "text": "The unit rate is 4/6.",
+     "correct": false
+    },
+    {
+     "text": "The point (10, 15) is on the graph.",
+     "correct": true
+    },
+    {
+     "text": "The equation is y = x + 2.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Unit rate = 6 ÷ 4 = 1.5, so y = 1.5x and the graph starts at (0, 0).",
+    "Check (10, 15): 1.5 × 10 = 15 ✓. 4/6 is x ÷ y, not y ÷ x; y = x + 2 is not proportional."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_statements_select). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-lfr-s12-cp1-020",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Pump A is shown in the graph (x = minutes, y = gallons). Pump B: x: 2, 5, 8; y: 9, 22.5, 36. How many more gallons per minute does the faster pump fill?",
+   "answer": "0.5 gallons per minute",
+   "solutionSteps": [
+    "Pump A: 20 gallons in 5 minutes, so 4 gallons per minute.",
+    "Pump B: 9 ÷ 2 = 4.5 gallons per minute.",
+    "4.5 - 4 = 0.5 gallons per minute (Pump B is faster)."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_compare_graph_table). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-cp1-020.png",
+     "alt": "First-quadrant graph, x from 0 to 8 (minutes (x)), y from 0 to 32 (gallons (y)): Pump A through (0, 0) and (5, 20); the point (5, 20) marked."
+    }
+   }
   },
   {
    "id": "pa8-lfr-s12-honors-001",
@@ -21476,6 +21695,128 @@
     "8.EE.B.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: prop_predict_error). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+  },
+  {
+   "id": "pa8-lfr-s12-honors-017",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The graph shows two cars on a highway (x = hours, y = miles). How many more miles does Car A travel than Car B in 5 hours?",
+   "answer": "50 miles",
+   "solutionSteps": [
+    "Car A: 130 miles in 2 hours, so 65 miles per hour. Car B: 110 miles in 2 hours, so 55 miles per hour.",
+    "In 5 hours: 65 × 5 = 325 and 55 × 5 = 275.",
+    "325 - 275 = 50 miles."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_two_graphs). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-honors-017.png",
+     "alt": "First-quadrant graph, x from 0 to 6 (hours (x)), y from 0 to 400 (miles (y)): Car A through (0, 0) and (2, 130) and Car B through (0, 0) and (2, 110); the points (2, 130), (2, 110) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-honors-018",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of a proportional relationship passes through (5, 8). Which point is also on the graph?",
+   "answer": "(12.5, 20)",
+   "options": [
+    {
+     "text": "(12.5, 20)",
+     "correct": true
+    },
+    {
+     "text": "(8, 5)",
+     "correct": false
+    },
+    {
+     "text": "(10, 13)",
+     "correct": false
+    },
+    {
+     "text": "(6, 9)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The unit rate is 8 ÷ 5 = 1.6, so y = 1.6x.",
+    "Check: 1.6 × 12.5 = 20 ✓. (10, 13) and (6, 9) add instead of multiply; (8, 5) swaps x and y."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_point_reason). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-lfr-s12-honors-019",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Relationship A is shown in the graph. Relationship B is y = 2.5x. Select ALL true statements.",
+   "answer": [
+    "A has the greater unit rate.",
+    "Both graphs pass through (0, 0)."
+   ],
+   "options": [
+    {
+     "text": "A has the greater unit rate.",
+     "correct": true
+    },
+    {
+     "text": "B has the greater unit rate.",
+     "correct": false
+    },
+    {
+     "text": "Both graphs pass through (0, 0).",
+     "correct": true
+    },
+    {
+     "text": "At x = 6, A is 3 more than B.",
+     "correct": false
+    },
+    {
+     "text": "The equation of A is y = 7x.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A passes through (0, 0) and (3, 8), so its unit rate is 8/3 ≈ 2.67 > 2.5.",
+    "At x = 6: A = 16 and B = 15, a difference of 1, not 3. y = 7x would pass through (1, 7), not (3, 8)."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_compare_select). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra/linear-functional-relationships/pa8-lfr-s12-honors-019.png",
+     "alt": "First-quadrant graph, x from 0 to 9 (x), y from 0 to 24 (y): A through (0, 0) and (3, 8); the point (3, 8) marked."
+    }
+   }
+  },
+  {
+   "id": "pa8-lfr-s12-honors-020",
+   "skillId": "linear-functional-relationships-skill-12",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The graph of a proportional relationship passes through (6, 15) and (x, 35). Find x.",
+   "answer": "x = 14",
+   "solutionSteps": [
+    "The unit rate is 15 ÷ 6 = 2.5, so y = 2.5x.",
+    "2.5x = 35, so x = 14."
+   ],
+   "standards": [
+    "8.EE.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: prop_missing_coordinate). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }

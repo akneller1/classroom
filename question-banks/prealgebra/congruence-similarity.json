@@ -500,7 +500,7 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(4, 5), B(6, 6), C(4, 1) maps to A′B′C′ A′(-4, 5), B′(-6, 6), C′(-4, 1). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
+   "prompt": "Triangle ABC with vertices A(4, 5), B(6, 6), C(4, 1) maps to A′B′C′ with vertices A′(-4, 5), B′(-6, 6), C′(-4, 1). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
    "answer": "reflection over the y-axis",
    "options": [
     {
@@ -542,10 +542,6 @@
      "correct": false
     },
     {
-     "text": "reflection over the x-axis",
-     "correct": true
-    },
-    {
      "text": "a stretch that doubles only the x-coordinates",
      "correct": false
     },
@@ -563,7 +559,6 @@
     }
    ],
    "answer": [
-    "reflection over the x-axis",
     "rotation 180° about the origin",
     "translation 2 units right"
    ],
@@ -574,7 +569,7 @@
     "8.G.A.1",
     "8.G.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s01-cp1-001",
@@ -1056,7 +1051,7 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(3, 6), B(3, 1), C(6, 5) maps to A′B′C′ A′(-3, 6), B′(-3, 1), C′(-6, 5). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
+   "prompt": "Triangle ABC with vertices A(3, 6), B(3, 1), C(6, 5) maps to A′B′C′ with vertices A′(-3, 6), B′(-3, 1), C′(-6, 5). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
    "answer": "reflection over the y-axis",
    "options": [
     {
@@ -1091,7 +1086,7 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Triangle ABC A(-3, 1), B(0, 4), C(2, -2) maps to A′B′C′ A′(1, 3), B′(4, 6), C′(6, 0).",
+   "prompt": "Triangle ABC with vertices A(-3, 1), B(0, 4), C(2, -2) maps to A′B′C′ with vertices A′(1, 3), B′(4, 6), C′(6, 0).",
    "parts": [
     {
      "prompt": "Which type of transformation is it?",
@@ -1612,7 +1607,7 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(1, 6), B(2, 3), C(6, 5) maps to A′B′C′ A′(-1, 6), B′(-2, 3), C′(-6, 5). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
+   "prompt": "Triangle ABC with vertices A(1, 6), B(2, 3), C(6, 5) maps to A′B′C′ with vertices A′(-1, 6), B′(-2, 3), C′(-6, 5). Jada says it is a reflection over the x-axis because \"the triangle flipped.\" Which transformation is it actually?",
    "answer": "reflection over the y-axis",
    "options": [
     {
@@ -1647,7 +1642,7 @@
    "skillId": "congruence-similarity-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Triangle ABC A(-2, 3), B(-3, -3), C(4, 0) maps to A′B′C′ A′(-3, -1), B′(-4, -7), C′(3, -4).",
+   "prompt": "Triangle ABC with vertices A(-2, 3), B(-3, -3), C(4, 0) maps to A′B′C′ with vertices A′(-3, -1), B′(-4, -7), C′(3, -4).",
    "parts": [
     {
      "prompt": "Which type of transformation is it?",
@@ -2217,10 +2212,6 @@
    "prompt": "Point P(-1, -6) maps to P′(1, 6). Select ALL transformations (or sequences) that map P to P′.",
    "options": [
     {
-     "text": "reflection over the x-axis followed by a reflection over the y-axis",
-     "correct": true
-    },
-    {
      "text": "reflection over the line y = x",
      "correct": false
     },
@@ -2242,7 +2233,6 @@
     }
    ],
    "answer": [
-    "reflection over the x-axis followed by a reflection over the y-axis",
     "rotation 180° clockwise about the origin",
     "rotation 180° about the origin"
    ],
@@ -2253,7 +2243,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s02-cp1-001",
@@ -2312,7 +2302,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-1, -2), B(-5, 2), C(5, -4) is rotated about the origin to A′B′C′ A′(2, -1), B′(-2, -5), C′(4, 5). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(-1, -2), B(-5, 2), C(5, -4) is rotated about the origin to A′B′C′ with vertices A′(2, -1), B′(-2, -5), C′(4, 5). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
    "solutionSteps": [
     "Test the rotation rules on one vertex, then confirm with the others.",
@@ -2422,7 +2412,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(1, -5), B(1, 0), C(3, 1) is rotated about the origin to A′B′C′ A′(5, 1), B′(0, 1), C′(-1, 3). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(1, -5), B(1, 0), C(3, 1) is rotated about the origin to A′B′C′ with vertices A′(5, 1), B′(0, 1), C′(-1, 3). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
    "options": [
     {
@@ -2532,7 +2522,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-5, 0), B(1, 2), C(3, -3) is rotated about the origin to A′B′C′ A′(0, -5), B′(-2, 1), C′(3, 3). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(-5, 0), B(1, 2), C(3, -3) is rotated about the origin to A′B′C′ with vertices A′(0, -5), B′(-2, 1), C′(3, 3). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
    "solutionSteps": [
     "Test the rotation rules on one vertex, then confirm with the others.",
@@ -2626,7 +2616,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-1, 0), B(3, 4), C(2, 0) is rotated about the origin to A′B′C′ A′(1, 0), B′(-3, -4), C′(-2, 0). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(-1, 0), B(3, 4), C(2, 0) is rotated about the origin to A′B′C′ with vertices A′(1, 0), B′(-3, -4), C′(-2, 0). Describe the rotation (angle and direction).",
    "answer": "rotation 180° about the origin",
    "options": [
     {
@@ -2702,7 +2692,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-1, -1), B(-2, -3), C(5, 1) is rotated about the origin to A′B′C′ A′(1, -1), B′(3, -2), C′(-1, 5). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(-1, -1), B(-2, -3), C(5, 1) is rotated about the origin to A′B′C′ with vertices A′(1, -1), B′(3, -2), C′(-1, 5). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
    "solutionSteps": [
     "Test the rotation rules on one vertex, then confirm with the others.",
@@ -2778,7 +2768,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Rotate triangle ABC A(3, -2), B(-1, -1), C(1, 4) 90° counterclockwise about the origin.",
+   "prompt": "Rotate triangle ABC with vertices A(3, -2), B(-1, -1), C(1, 4) 90° counterclockwise about the origin.",
    "parts": [
     {
      "prompt": "Find A′.",
@@ -2867,7 +2857,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(5, -4), B(2, -2), C(2, -5) is rotated about the origin to A′B′C′ A′(4, 5), B′(2, 2), C′(5, 2). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(5, -4), B(2, -2), C(2, -5) is rotated about the origin to A′B′C′ with vertices A′(4, 5), B′(2, 2), C′(5, 2). Describe the rotation (angle and direction).",
    "answer": "rotation 90° counterclockwise about the origin",
    "solutionSteps": [
     "Test the rotation rules on one vertex, then confirm with the others.",
@@ -2971,7 +2961,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(2, -5), B(-5, 0), C(-1, -5) is rotated about the origin to A′B′C′ A′(-5, -2), B′(0, 5), C′(-5, 1). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(2, -5), B(-5, 0), C(-1, -5) is rotated about the origin to A′B′C′ with vertices A′(-5, -2), B′(0, 5), C′(-5, 1). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
    "options": [
     {
@@ -3057,7 +3047,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(0, -5), B(-2, 5), C(0, -2) is rotated about the origin to A′B′C′ A′(-5, 0), B′(5, 2), C′(-2, 0). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(0, -5), B(-2, 5), C(0, -2) is rotated about the origin to A′B′C′ with vertices A′(-5, 0), B′(5, 2), C′(-2, 0). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
    "options": [
     {
@@ -3179,7 +3169,7 @@
    "skillId": "congruence-similarity-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(3, 1), B(-5, 4), C(3, 0) is rotated about the origin to A′B′C′ A′(1, -3), B′(4, 5), C′(0, -3). Describe the rotation (angle and direction).",
+   "prompt": "Triangle ABC with vertices A(3, 1), B(-5, 4), C(3, 0) is rotated about the origin to A′B′C′ with vertices A′(1, -3), B′(4, 5), C′(0, -3). Describe the rotation (angle and direction).",
    "answer": "rotation 90° clockwise about the origin",
    "solutionSteps": [
     "Test the rotation rules on one vertex, then confirm with the others.",
@@ -3339,14 +3329,14 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s03-cp2-001",
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Point P(2, -1) is reflected over the  x-axis. What are the coordinates of P′?",
+   "prompt": "Point P(2, -1) is reflected over the x-axis. What are the coordinates of P′?",
    "answer": "(2, 1)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3363,7 +3353,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(2, -1), B(3, -5), C(5, -1) is reflected over the y-axis. What are the coordinates of B′?",
+   "prompt": "Triangle ABC with vertices A(2, -1), B(3, -5), C(5, -1) is reflected over the y-axis. What are the coordinates of B′?",
    "answer": "(-3, -5)",
    "options": [
     {
@@ -3397,7 +3387,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Quadrilateral wxyz is reflected over the y-axis. Which statement describes how the image differs from the original?",
+   "prompt": "Quadrilateral WXYZ is reflected over the y-axis. Which statement describes how the image differs from the original?",
    "answer": "The order of the vertices reverses (clockwise becomes counterclockwise).",
    "options": [
     {
@@ -3431,7 +3421,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Point P(-7, 5) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-7, 5) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(7, 5)",
    "options": [
     {
@@ -3466,7 +3456,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-5, -2), B(-2, -3), C(1, -1) is reflected over the y-axis. What are the coordinates of A′?",
+   "prompt": "Triangle ABC with vertices A(-5, -2), B(-2, -3), C(1, -1) is reflected over the y-axis. What are the coordinates of A′?",
    "answer": "(5, -2)",
    "solutionSteps": [
     "Apply the reflection rule to A(-5, -2)."
@@ -3516,7 +3506,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Point P(4, 3) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(4, 3) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(-4, 3)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3556,7 +3546,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Quadrilateral wxyz is reflected over the x-axis. Which statement describes how the image differs from the original?",
+   "prompt": "Quadrilateral WXYZ is reflected over the x-axis. Which statement describes how the image differs from the original?",
    "answer": "The order of the vertices reverses (clockwise becomes counterclockwise).",
    "options": [
     {
@@ -3590,7 +3580,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Point P(-5, 3) is reflected over the  x-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-5, 3) is reflected over the x-axis. What are the coordinates of P′?",
    "answer": "(-5, -3)",
    "options": [
     {
@@ -3700,7 +3690,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Point P(7, -1) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(7, -1) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(-7, -1)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3740,7 +3730,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Point P(-1, 1) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-1, 1) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(1, 1)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3757,7 +3747,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-1, 1), B(2, 1), C(2, -2) is reflected over the x-axis. What are the coordinates of A′?",
+   "prompt": "Triangle ABC with vertices A(-1, 1), B(2, 1), C(2, -2) is reflected over the x-axis. What are the coordinates of A′?",
    "answer": "(-1, -1)",
    "solutionSteps": [
     "Apply the reflection rule to A(-1, 1)."
@@ -3773,7 +3763,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Point P(-1, 7) is reflected over the  x-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-1, 7) is reflected over the x-axis. What are the coordinates of P′?",
    "answer": "(-1, -7)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3790,7 +3780,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(1, 2), B(-2, -3), C(4, 1) is reflected over the y-axis. What are the coordinates of B′?",
+   "prompt": "Triangle ABC with vertices A(1, 2), B(-2, -3), C(4, 1) is reflected over the y-axis. What are the coordinates of B′?",
    "answer": "(2, -3)",
    "solutionSteps": [
     "Apply the reflection rule to B(-2, -3)."
@@ -3844,10 +3834,6 @@
    "prompt": "Select ALL transformations (or sequences) that map P(5, 2) to P′(5, -2).",
    "options": [
     {
-     "text": "reflection over the x-axis",
-     "correct": true
-    },
-    {
      "text": "reflection over the y-axis",
      "correct": false
     },
@@ -3869,7 +3855,6 @@
     }
    ],
    "answer": [
-    "reflection over the x-axis",
     "rotation 180° about the origin followed by a reflection over the y-axis",
     "reflection over the y-axis followed by a rotation 180° about the origin"
    ],
@@ -3880,14 +3865,14 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s03-cp1-001",
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(-2, -7) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-2, -7) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(2, -7)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -3945,7 +3930,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(1, 2), B(1, 5), C(5, 3) is reflected to A′B′C′ A′(5, 2), B′(5, 5), C′(1, 3). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(1, 2), B(1, 5), C(5, 3) is reflected to A′B′C′ with vertices A′(5, 2), B′(5, 5), C′(1, 3). What is the equation of the line of reflection?",
    "answer": "x = 3",
    "solutionSteps": [
     "The midpoint of A and A′ is (3, 2); every midpoint lies on the line x = 3."
@@ -3995,7 +3980,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(6, -6) is reflected over the  x-axis. What are the coordinates of P′?",
+   "prompt": "Point P(6, -6) is reflected over the x-axis. What are the coordinates of P′?",
    "answer": "(6, 6)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4012,7 +3997,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(2, 0), B(5, -1), C(5, 2) is reflected over the x-axis. What are the coordinates of C′?",
+   "prompt": "Triangle ABC with vertices A(2, 0), B(5, -1), C(5, 2) is reflected over the x-axis. What are the coordinates of C′?",
    "answer": "(5, -2)",
    "options": [
     {
@@ -4046,7 +4031,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(3, 5), B(4, -2), C(-2, -1) is reflected to A′B′C′ A′(3, -7), B′(4, 0), C′(-2, -1). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(3, 5), B(4, -2), C(-2, -1) is reflected to A′B′C′ with vertices A′(3, -7), B′(4, 0), C′(-2, -1). What is the equation of the line of reflection?",
    "answer": "y = -1",
    "options": [
     {
@@ -4114,7 +4099,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-4, -4) is reflected over the  x-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-4, -4) is reflected over the x-axis. What are the coordinates of P′?",
    "answer": "(-4, 4)",
    "options": [
     {
@@ -4149,7 +4134,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, -1), B(2, 3), C(-4, 5) is reflected over the line y = x. What are the coordinates of C′?",
+   "prompt": "Triangle ABC with vertices A(-3, -1), B(2, 3), C(-4, 5) is reflected over the line y = x. What are the coordinates of C′?",
    "answer": "(5, -4)",
    "solutionSteps": [
     "Apply the reflection rule to C(-4, 5)."
@@ -4165,7 +4150,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(1, 3), B(1, 0), C(-1, 1) is reflected to A′B′C′ A′(-5, 3), B′(-5, 0), C′(-3, 1). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(1, 3), B(1, 0), C(-1, 1) is reflected to A′B′C′ with vertices A′(-5, 3), B′(-5, 0), C′(-3, 1). What is the equation of the line of reflection?",
    "answer": "x = -2",
    "solutionSteps": [
     "The midpoint of A and A′ is (-2, 3); every midpoint lies on the line x = -2."
@@ -4215,7 +4200,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point P(-6, -3) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(-6, -3) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(6, -3)",
    "options": [
     {
@@ -4250,7 +4235,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(0, -2), B(4, 2), C(1, 2) is reflected over the line y = x. What are the coordinates of A′?",
+   "prompt": "Triangle ABC with vertices A(0, -2), B(4, 2), C(1, 2) is reflected over the line y = x. What are the coordinates of A′?",
    "answer": "(-2, 0)",
    "solutionSteps": [
     "Apply the reflection rule to A(0, -2)."
@@ -4266,7 +4251,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, -1), B(3, -1), C(1, 4) is reflected to A′B′C′ A′(-3, -1), B′(3, -1), C′(1, -6). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(-3, -1), B(3, -1), C(1, 4) is reflected to A′B′C′ with vertices A′(-3, -1), B′(3, -1), C′(1, -6). What is the equation of the line of reflection?",
    "answer": "y = -1",
    "solutionSteps": [
     "The midpoint of A and A′ is (-3, -1); every midpoint lies on the line y = -1."
@@ -4282,7 +4267,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point P(3, 6) is reflected over the  y-axis. What are the coordinates of P′?",
+   "prompt": "Point P(3, 6) is reflected over the y-axis. What are the coordinates of P′?",
    "answer": "(-3, 6)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4299,7 +4284,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-5, 2), B(3, 2), C(-5, 5) is reflected over the y-axis. What are the coordinates of A′?",
+   "prompt": "Triangle ABC with vertices A(-5, 2), B(3, 2), C(-5, 5) is reflected over the y-axis. What are the coordinates of A′?",
    "answer": "(5, 2)",
    "solutionSteps": [
     "Apply the reflection rule to A(-5, 2)."
@@ -4315,7 +4300,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(1, -1), B(2, 3), C(5, -3) is reflected to A′B′C′ A′(-5, -1), B′(-6, 3), C′(-9, -3). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(1, -1), B(2, 3), C(5, -3) is reflected to A′B′C′ with vertices A′(-5, -1), B′(-6, 3), C′(-9, -3). What is the equation of the line of reflection?",
    "answer": "x = -2",
    "solutionSteps": [
     "The midpoint of A and A′ is (-2, -1); every midpoint lies on the line x = -2."
@@ -4366,7 +4351,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Reflect triangle ABC A(3, -1), B(3, -3), C(-4, 0) over the y-axis.",
+   "prompt": "Reflect triangle ABC with vertices A(3, -1), B(3, -3), C(-4, 0) over the y-axis.",
    "parts": [
     {
      "prompt": "Find A′.",
@@ -4403,7 +4388,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(-3, 2) is reflected over the  line x = -1. What are the coordinates of P′?",
+   "prompt": "Point P(-3, 2) is reflected over the line x = -1. What are the coordinates of P′?",
    "answer": "(1, 2)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4461,7 +4446,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(5, -2), B(-3, 3), C(-3, -1) is reflected to A′B′C′ A′(-1, -2), B′(7, 3), C′(7, -1). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(5, -2), B(-3, 3), C(-3, -1) is reflected to A′B′C′ with vertices A′(-1, -2), B′(7, 3), C′(7, -1). What is the equation of the line of reflection?",
    "answer": "x = 2",
    "solutionSteps": [
     "The midpoint of A and A′ is (2, -2); every midpoint lies on the line x = 2."
@@ -4477,7 +4462,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Quadrilateral wxyz is reflected over the line y = x. Which statement describes how the image differs from the original?",
+   "prompt": "Quadrilateral WXYZ is reflected over the line y = x. Which statement describes how the image differs from the original?",
    "answer": "The order of the vertices reverses (clockwise becomes counterclockwise).",
    "options": [
     {
@@ -4511,7 +4496,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Point P(-6, 5) is reflected over the  line y = 1. What are the coordinates of P′?",
+   "prompt": "Point P(-6, 5) is reflected over the line y = 1. What are the coordinates of P′?",
    "answer": "(-6, -3)",
    "options": [
     {
@@ -4569,7 +4554,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-3, 4), B(-1, -3), C(0, 0) is reflected to A′B′C′ A′(-3, -8), B′(-1, -1), C′(0, -4). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(-3, 4), B(-1, -3), C(0, 0) is reflected to A′B′C′ with vertices A′(-3, -8), B′(-1, -1), C′(0, -4). What is the equation of the line of reflection?",
    "answer": "y = -2",
    "options": [
     {
@@ -4637,7 +4622,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(-2, 6) is reflected over the  line x = 2. What are the coordinates of P′?",
+   "prompt": "Point P(-2, 6) is reflected over the line x = 2. What are the coordinates of P′?",
    "answer": "(6, 6)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4654,7 +4639,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-4, 3), B(-2, -2), C(-3, -4) is reflected over the x-axis. What are the coordinates of C′?",
+   "prompt": "Triangle ABC with vertices A(-4, 3), B(-2, -2), C(-3, -4) is reflected over the x-axis. What are the coordinates of C′?",
    "answer": "(-3, 4)",
    "solutionSteps": [
     "Apply the reflection rule to C(-3, -4)."
@@ -4670,7 +4655,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(5, 2), B(0, -2), C(3, 3) is reflected to A′B′C′ A′(1, 2), B′(6, -2), C′(3, 3). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(5, 2), B(0, -2), C(3, 3) is reflected to A′B′C′ with vertices A′(1, 2), B′(6, -2), C′(3, 3). What is the equation of the line of reflection?",
    "answer": "x = 3",
    "solutionSteps": [
     "The midpoint of A and A′ is (3, 2); every midpoint lies on the line x = 3."
@@ -4686,7 +4671,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Point P(-4, 1) is reflected over the  line x = -2. What are the coordinates of P′?",
+   "prompt": "Point P(-4, 1) is reflected over the line x = -2. What are the coordinates of P′?",
    "answer": "(0, 1)",
    "options": [
     {
@@ -4721,7 +4706,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-4, 1), B(-5, 5), C(4, 5) is reflected over the x-axis. What are the coordinates of A′?",
+   "prompt": "Triangle ABC with vertices A(-4, 1), B(-5, 5), C(4, 5) is reflected over the x-axis. What are the coordinates of A′?",
    "answer": "(-4, -1)",
    "options": [
     {
@@ -4755,7 +4740,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-3, 2), B(-2, 0), C(5, 5) is reflected to A′B′C′ A′(-3, -6), B′(-2, -4), C′(5, -9). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(-3, 2), B(-2, 0), C(5, 5) is reflected to A′B′C′ with vertices A′(-3, -6), B′(-2, -4), C′(5, -9). What is the equation of the line of reflection?",
    "answer": "y = -2",
    "options": [
     {
@@ -4789,7 +4774,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(-7, 3) is reflected over the  line x = -3. What are the coordinates of P′?",
+   "prompt": "Point P(-7, 3) is reflected over the line x = -3. What are the coordinates of P′?",
    "answer": "(1, 3)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4806,7 +4791,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(4, -5), B(-4, -2), C(1, 4) is reflected over the line y = x. What are the coordinates of C′?",
+   "prompt": "Triangle ABC with vertices A(4, -5), B(-4, -2), C(1, 4) is reflected over the line y = x. What are the coordinates of C′?",
    "answer": "(4, 1)",
    "solutionSteps": [
     "Apply the reflection rule to C(1, 4)."
@@ -4822,7 +4807,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, 0), B(0, 1), C(-3, 4) is reflected to A′B′C′ A′(9, 0), B′(6, 1), C′(9, 4). What is the equation of the line of reflection?",
+   "prompt": "Triangle ABC with vertices A(-3, 0), B(0, 1), C(-3, 4) is reflected to A′B′C′ with vertices A′(9, 0), B′(6, 1), C′(9, 4). What is the equation of the line of reflection?",
    "answer": "x = 3",
    "solutionSteps": [
     "The midpoint of A and A′ is (3, 0); every midpoint lies on the line x = 3."
@@ -4838,7 +4823,7 @@
    "skillId": "congruence-similarity-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(5, -1) is reflected over the  line x = -1. What are the coordinates of P′?",
+   "prompt": "Point P(5, -1) is reflected over the line x = -1. What are the coordinates of P′?",
    "answer": "(-7, -1)",
    "solutionSteps": [
     "The line of reflection is the perpendicular bisector of PP′: P′ is the same distance from the line on the other side.",
@@ -4929,7 +4914,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s04-cp2-001",
@@ -5474,10 +5459,6 @@
      "correct": false
     },
     {
-     "text": "A′B′ = AB",
-     "correct": true
-    },
-    {
      "text": "Every point moves 1 unit left and 4 units down.",
      "correct": true
     },
@@ -5491,7 +5472,6 @@
     }
    ],
    "answer": [
-    "A′B′ = AB",
     "Every point moves 1 unit left and 4 units down.",
     "Triangle A′B′C′ is congruent to triangle ABC."
    ],
@@ -5502,7 +5482,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s04-cp1-001",
@@ -5526,7 +5506,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(0, 0), B(-1, 4), C(-5, 0) is translated to A′B′C′ A′(-2, -1), B′(-3, 3), C′(-7, -1). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(0, 0), B(-1, 4), C(-5, 0) is translated to A′B′C′ with vertices A′(-2, -1), B′(-3, 3), C′(-7, -1). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 2, y - 1)",
    "options": [
     {
@@ -5620,7 +5600,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(3, -2), B(3, 2), C(-2, 0) is translated to A′B′C′ A′(-2, 3), B′(-2, 7), C′(-7, 5). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(3, -2), B(3, 2), C(-2, 0) is translated to A′B′C′ with vertices A′(-2, 3), B′(-2, 7), C′(-7, 5). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 5, y + 5)",
    "solutionSteps": [
     "Change in x: -5; change in y: 5.",
@@ -5696,7 +5676,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-1, 1), B(-4, 1), C(4, 3) is translated to A′B′C′ A′(4, -1), B′(1, -1), C′(9, 1). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-1, 1), B(-4, 1), C(4, 3) is translated to A′B′C′ with vertices A′(4, -1), B′(1, -1), C′(9, 1). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 5, y - 2)",
    "options": [
     {
@@ -5790,7 +5770,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(4, -1), B(-3, 1), C(0, 3) is translated to A′B′C′ A′(8, -2), B′(1, 0), C′(4, 2). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(4, -1), B(-3, 1), C(0, 3) is translated to A′B′C′ with vertices A′(8, -2), B′(1, 0), C′(4, 2). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 4, y - 1)",
    "solutionSteps": [
     "Change in x: 4; change in y: -1.",
@@ -5866,7 +5846,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-5, -3), B(-4, -4), C(-1, 0) is translated to A′B′C′ A′(-3, 1), B′(-2, 0), C′(1, 4). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-5, -3), B(-4, -4), C(-1, 0) is translated to A′B′C′ with vertices A′(-3, 1), B′(-2, 0), C′(1, 4). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 2, y + 4)",
    "solutionSteps": [
     "Change in x: 2; change in y: 4.",
@@ -5942,7 +5922,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-4, 4), B(0, -1), C(1, 3) is translated to A′B′C′ A′(1, -1), B′(5, -6), C′(6, -2). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-4, 4), B(0, -1), C(1, 3) is translated to A′B′C′ with vertices A′(1, -1), B′(5, -6), C′(6, -2). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 5, y - 5)",
    "solutionSteps": [
     "Change in x: 5; change in y: -5.",
@@ -6047,10 +6027,6 @@
      "correct": false
     },
     {
-     "text": "A′B′ = AB",
-     "correct": true
-    },
-    {
      "text": "Every point moves 4 units left and 2 units down.",
      "correct": false
     },
@@ -6064,7 +6040,6 @@
     }
    ],
    "answer": [
-    "A′B′ = AB",
     "Every point moves 2 units left and 4 units down.",
     "Triangle A′B′C′ is congruent to triangle ABC."
    ],
@@ -6075,7 +6050,7 @@
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s04-honors-001",
@@ -6099,7 +6074,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-5, -1), B(4, -2), C(0, 0) is translated to A′B′C′ A′(-9, 4), B′(0, 3), C′(-4, 5). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-5, -1), B(4, -2), C(0, 0) is translated to A′B′C′ with vertices A′(-9, 4), B′(0, 3), C′(-4, 5). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 4, y + 5)",
    "options": [
     {
@@ -6228,7 +6203,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, 1), B(-5, -4), C(4, 4) is translated to A′B′C′ A′(-4, 6), B′(-6, 1), C′(3, 9). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-3, 1), B(-5, -4), C(4, 4) is translated to A′B′C′ with vertices A′(-4, 6), B′(-6, 1), C′(3, 9). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 1, y + 5)",
    "solutionSteps": [
     "Change in x: -1; change in y: 5.",
@@ -6321,7 +6296,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-1, -1), B(1, -1), C(2, 2) is translated to A′B′C′ A′(-6, 4), B′(-4, 4), C′(-3, 7). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-1, -1), B(1, -1), C(2, 2) is translated to A′B′C′ with vertices A′(-6, 4), B′(-4, 4), C′(-3, 7). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 5, y + 5)",
    "solutionSteps": [
     "Change in x: -5; change in y: 5.",
@@ -6432,7 +6407,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(2, 4), B(-5, 4), C(-2, -1) is translated to A′B′C′ A′(7, 9), B′(0, 9), C′(3, 4). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(2, 4), B(-5, 4), C(-2, -1) is translated to A′B′C′ with vertices A′(7, 9), B′(0, 9), C′(3, 4). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x + 5, y + 5)",
    "solutionSteps": [
     "Change in x: 5; change in y: 5.",
@@ -6543,7 +6518,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-4, 0), B(-2, 4), C(1, 4) is translated to A′B′C′ A′(-7, -3), B′(-5, 1), C′(-2, 1). Write the translation rule in the form (x, y) → (x + a, y + b).",
+   "prompt": "Triangle ABC with vertices A(-4, 0), B(-2, 4), C(1, 4) is translated to A′B′C′ with vertices A′(-7, -3), B′(-5, 1), C′(-2, 1). Write the translation rule in the form (x, y) → (x + a, y + b).",
    "answer": "(x, y) → (x - 3, y - 3)",
    "solutionSteps": [
     "Change in x: -3; change in y: -3.",
@@ -6595,7 +6570,7 @@
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Translate triangle ABC A(4, 4), B(-1, -3), C(4, 1) using the rule (x, y) → (x - 3, y - 3).",
+   "prompt": "Translate triangle ABC with vertices A(4, 4), B(-1, -3), C(4, 1) using the rule (x, y) → (x - 3, y - 3).",
    "parts": [
     {
      "prompt": "Find A′.",
@@ -6649,7 +6624,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(0, 2), B(3, 0), C(-2, -1) is dilated about the origin to A′B′C′ A′(0, 4), B′(6, 0), C′(-4, -2). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(0, 2), B(3, 0), C(-2, -1) is dilated about the origin to A′B′C′ with vertices A′(0, 4), B′(6, 0), C′(-4, -2). What is the scale factor?",
    "answer": "2",
    "options": [
     {
@@ -6752,7 +6727,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(6, -2), B(2, 4), C(-4, -4) is dilated about the origin to A′B′C′ A′(3, -1), B′(1, 2), C′(-2, -2). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(6, -2), B(2, 4), C(-4, -4) is dilated about the origin to A′B′C′ with vertices A′(3, -1), B′(1, 2), C′(-2, -2). What is the scale factor?",
    "answer": "1/2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 3 ÷ 6 = 1/2."
@@ -6819,7 +6794,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, -2), B(0, -3), C(3, 0) is dilated about the origin to A′B′C′ A′(-6, -4), B′(0, -6), C′(6, 0). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-3, -2), B(0, -3), C(3, 0) is dilated about the origin to A′B′C′ with vertices A′(-6, -4), B′(0, -6), C′(6, 0). What is the scale factor?",
    "answer": "2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: -6 ÷ -3 = 2."
@@ -6904,7 +6879,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-1, -3), B(-3, -1), C(-1, 2) is dilated about the origin to A′B′C′ A′(-3, -9), B′(-9, -3), C′(-3, 6). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-1, -3), B(-3, -1), C(-1, 2) is dilated about the origin to A′B′C′ with vertices A′(-3, -9), B′(-9, -3), C′(-3, 6). What is the scale factor?",
    "answer": "3",
    "options": [
     {
@@ -6989,7 +6964,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(3, -3), B(1, 1), C(2, 3) is dilated about the origin to A′B′C′ A′(6, -6), B′(2, 2), C′(4, 6). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(3, -3), B(1, 1), C(2, 3) is dilated about the origin to A′B′C′ with vertices A′(6, -6), B′(2, 2), C′(4, 6). What is the scale factor?",
    "answer": "2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 6 ÷ 3 = 2."
@@ -7022,7 +6997,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-2, -1), B(3, 2), C(1, -1) is dilated about the origin to A′B′C′ A′(-6, -3), B′(9, 6), C′(3, -3). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-2, -1), B(3, 2), C(1, -1) is dilated about the origin to A′B′C′ with vertices A′(-6, -3), B′(9, 6), C′(3, -3). What is the scale factor?",
    "answer": "3",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: -6 ÷ -2 = 3."
@@ -7055,7 +7030,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(2, 6), B(4, -4), C(0, 2) is dilated about the origin to A′B′C′ A′(1, 3), B′(2, -2), C′(0, 1). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(2, 6), B(4, -4), C(0, 2) is dilated about the origin to A′B′C′ with vertices A′(1, 3), B′(2, -2), C′(0, 1). What is the scale factor?",
    "answer": "1/2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 1 ÷ 2 = 1/2."
@@ -7145,7 +7120,7 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s05-cp1-001",
@@ -7169,7 +7144,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-3, 6), B(6, 9), C(6, 3) is dilated about the origin to A′B′C′ A′(-1, 2), B′(2, 3), C′(2, 1). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-3, 6), B(6, 9), C(6, 3) is dilated about the origin to A′B′C′ with vertices A′(-1, 2), B′(2, 3), C′(2, 1). What is the scale factor?",
    "answer": "1/3",
    "options": [
     {
@@ -7247,7 +7222,8 @@
    "prompt": "A triangle has perimeter 44 cm. What is the perimeter of its image after a dilation with scale factor 5/2?",
    "answer": "110 cm",
    "solutionSteps": [
-    "Perimeter is a length: multiply by the scale factor."
+    "Perimeter is a length: multiply by the scale factor.",
+    "44 × 5/2 = 110 cm."
    ],
    "standards": [
     "8.G.A.3",
@@ -7295,7 +7271,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-6, -2), B(0, -4), C(0, 4) is dilated about the origin to A′B′C′ A′(-9, -3), B′(0, -6), C′(0, 6). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-6, -2), B(0, -4), C(0, 4) is dilated about the origin to A′B′C′ with vertices A′(-9, -3), B′(0, -6), C′(0, 6). What is the scale factor?",
    "answer": "3/2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: -9 ÷ -6 = 3/2."
@@ -7403,7 +7379,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(2, 0), B(-2, -1), C(-1, -3) is dilated about the origin to A′B′C′ A′(4, 0), B′(-4, -2), C′(-2, -6). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(2, 0), B(-2, -1), C(-1, -3) is dilated about the origin to A′B′C′ with vertices A′(4, 0), B′(-4, -2), C′(-2, -6). What is the scale factor?",
    "answer": "2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 4 ÷ 2 = 2."
@@ -7463,7 +7439,8 @@
    "prompt": "A triangle has perimeter 62 cm. What is the perimeter of its image after a dilation with scale factor 3?",
    "answer": "186 cm",
    "solutionSteps": [
-    "Perimeter is a length: multiply by the scale factor."
+    "Perimeter is a length: multiply by the scale factor.",
+    "62 × 3 = 186 cm."
    ],
    "standards": [
     "8.G.A.3",
@@ -7511,7 +7488,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-6, -6), B(0, -4), C(-6, 0) is dilated about the origin to A′B′C′ A′(-3, -3), B′(0, -2), C′(-3, 0). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-6, -6), B(0, -4), C(-6, 0) is dilated about the origin to A′B′C′ with vertices A′(-3, -3), B′(0, -2), C′(-3, 0). What is the scale factor?",
    "answer": "1/2",
    "options": [
     {
@@ -7555,7 +7532,8 @@
    "prompt": "An angle of a triangle measures 58°. What does the matching angle measure after a dilation with scale factor 5/2?",
    "answer": "58°",
    "solutionSteps": [
-    "Dilations preserve angle measures."
+    "Dilations preserve angle measures.",
+    "The matching angle still measures 58°."
    ],
    "standards": [
     "8.G.A.3",
@@ -7585,7 +7563,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-4, -2), B(-6, 6), C(-2, 4) is dilated about the origin to A′B′C′ A′(-6, -3), B′(-9, 9), C′(-3, 6). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-4, -2), B(-6, 6), C(-2, 4) is dilated about the origin to A′B′C′ with vertices A′(-6, -3), B′(-9, 9), C′(-3, 6). What is the scale factor?",
    "answer": "3/2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: -6 ÷ -4 = 3/2."
@@ -7611,7 +7589,8 @@
    "prompt": "A triangle has perimeter 38 cm. What is the perimeter of its image after a dilation with scale factor 5/2?",
    "answer": "95 cm",
    "solutionSteps": [
-    "Perimeter is a length: multiply by the scale factor."
+    "Perimeter is a length: multiply by the scale factor.",
+    "38 × 5/2 = 95 cm."
    ],
    "standards": [
     "8.G.A.3",
@@ -7659,7 +7638,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Dilate triangle ABC A(2, 0), B(0, 1), C(-3, -2) by scale factor 2 centered at the origin.",
+   "prompt": "Dilate triangle ABC with vertices A(2, 0), B(0, 1), C(-3, -2) by scale factor 2 centered at the origin.",
    "parts": [
     {
      "prompt": "Find A′.",
@@ -7713,7 +7692,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(-4, -4), B(-2, 6), C(4, -2) is dilated about the origin to A′B′C′ A′(-6, -6), B′(-3, 9), C′(6, -3). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-4, -4), B(-2, 6), C(4, -2) is dilated about the origin to A′B′C′ with vertices A′(-6, -6), B′(-3, 9), C′(6, -3). What is the scale factor?",
    "answer": "3/2",
    "options": [
     {
@@ -7750,7 +7729,8 @@
    "prompt": "An angle of a triangle measures 55°. What does the matching angle measure after a dilation with scale factor 1/2?",
    "answer": "55°",
    "solutionSteps": [
-    "Dilations preserve angle measures."
+    "Dilations preserve angle measures.",
+    "The matching angle still measures 55°."
    ],
    "standards": [
     "8.G.A.3",
@@ -7833,7 +7813,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(6, 4), B(2, 4), C(-4, -4) is dilated about the origin to A′B′C′ A′(3, 2), B′(1, 2), C′(-2, -2). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(6, 4), B(2, 4), C(-4, -4) is dilated about the origin to A′B′C′ with vertices A′(3, 2), B′(1, 2), C′(-2, -2). What is the scale factor?",
    "answer": "1/2",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 3 ÷ 6 = 1/2."
@@ -7917,7 +7897,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(-3, -1), B(-1, 0), C(-3, 3) is dilated about the origin to A′B′C′ A′(-9, -3), B′(-3, 0), C′(-9, 9). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(-3, -1), B(-1, 0), C(-3, 3) is dilated about the origin to A′B′C′ with vertices A′(-9, -3), B′(-3, 0), C′(-9, 9). What is the scale factor?",
    "answer": "3",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: -9 ÷ -3 = 3."
@@ -8019,7 +7999,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Triangle ABC A(0, 1), B(0, -3), C(2, 0) is dilated about the origin to A′B′C′ A′(0, 2), B′(0, -6), C′(4, 0). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(0, 1), B(0, -3), C(2, 0) is dilated about the origin to A′B′C′ with vertices A′(0, 2), B′(0, -6), C′(4, 0). What is the scale factor?",
    "answer": "2",
    "options": [
     {
@@ -8056,7 +8036,8 @@
    "prompt": "A rectangle has area 42 square cm. What is the area of its image after a dilation with scale factor 3/2?",
    "answer": "94.5 square cm",
    "solutionSteps": [
-    "Area is multiplied by the square of the scale factor."
+    "Area is multiplied by the square of the scale factor.",
+    "42 × (3/2)² = 42 × 9/4 = 94.5 square cm."
    ],
    "standards": [
     "8.G.A.3",
@@ -8121,7 +8102,7 @@
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Triangle ABC A(3, 3), B(-1, 3), C(-3, -1) is dilated about the origin to A′B′C′ A′(9, 9), B′(-3, 9), C′(-9, -3). What is the scale factor?",
+   "prompt": "Triangle ABC with vertices A(3, 3), B(-1, 3), C(-3, -1) is dilated about the origin to A′B′C′ with vertices A′(9, 9), B′(-3, 9), C′(-9, -3). What is the scale factor?",
    "answer": "3",
    "solutionSteps": [
     "Divide an image coordinate by the matching original coordinate: 9 ÷ 3 = 3."
@@ -8139,10 +8120,6 @@
    "format": "select-all",
    "prompt": "A triangle is dilated with scale factor 2 centered at the origin. Select ALL true statements.",
    "options": [
-    {
-     "text": "Corresponding angles are congruent.",
-     "correct": true
-    },
     {
      "text": "The image area is 2 times the original area.",
      "correct": false
@@ -8165,7 +8142,6 @@
     }
    ],
    "answer": [
-    "Corresponding angles are congruent.",
     "Each image side is 2 times as long as the original side.",
     "The image is similar to the original."
    ],
@@ -8176,14 +8152,14 @@
     "8.G.A.3",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s05-honors-020",
    "skillId": "congruence-similarity-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Dilate triangle ABC A(-1, -1), B(2, -3), C(0, 2) by scale factor 2 centered at the origin.",
+   "prompt": "Dilate triangle ABC with vertices A(-1, -1), B(2, -3), C(0, 2) by scale factor 2 centered at the origin.",
    "parts": [
     {
      "prompt": "Find A′.",
@@ -8712,10 +8688,6 @@
      "correct": false
     },
     {
-     "text": "a translation 2 units left and 4 units up followed by a rotation 180° about the origin",
-     "correct": true
-    },
-    {
      "text": "a dilation with scale factor 3 centered at the origin followed by a reflection over the y-axis",
      "correct": false
     },
@@ -8733,7 +8705,6 @@
     }
    ],
    "answer": [
-    "a translation 2 units left and 4 units up followed by a rotation 180° about the origin",
     "a rotation 90° counterclockwise about the origin followed by a reflection over the y-axis",
     "a reflection over the x-axis followed by a translation 3 units right and 1 unit up"
    ],
@@ -8744,7 +8715,7 @@
     "8.G.A.2",
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s06-cp1-001",
@@ -10444,7 +10415,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s07-cp1-001",
@@ -10962,10 +10933,6 @@
    "prompt": "Select ALL sets of measures that could be the three angles of a triangle.",
    "options": [
     {
-     "text": "40°, 54°, 86°",
-     "correct": true
-    },
-    {
      "text": "78°, 87°, 15°",
      "correct": true
     },
@@ -10987,7 +10954,6 @@
     }
    ],
    "answer": [
-    "40°, 54°, 86°",
     "78°, 87°, 15°",
     "72°, 50°, 58°"
    ],
@@ -10997,7 +10963,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s07-honors-001",
@@ -11510,7 +11476,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s08-cp2-001",
@@ -11558,7 +11524,7 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A 4-foot person casts a 8-foot shadow. At the same time, a building casts a 24-foot shadow. How tall is the building?",
+   "prompt": "A 4-foot person casts an 8-foot shadow. At the same time, a building casts a 24-foot shadow. How tall is the building?",
    "answer": "12 feet",
    "options": [
     {
@@ -11728,7 +11694,7 @@
    "skillId": "congruence-similarity-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A 7-foot person casts a 8-foot shadow. At the same time, a flagpole casts a 24-foot shadow. How tall is the flagpole?",
+   "prompt": "A 7-foot person casts an 8-foot shadow. At the same time, a flagpole casts a 24-foot shadow. How tall is the flagpole?",
    "answer": "21 feet",
    "options": [
     {
@@ -12051,10 +12017,6 @@
      "correct": false
     },
     {
-     "text": "30, 40, 50",
-     "correct": true
-    },
-    {
      "text": "5, 4, 4",
      "correct": false
     },
@@ -12072,7 +12034,6 @@
     }
    ],
    "answer": [
-    "30, 40, 50",
     "3/2, 2, 5/2",
     "6, 8, 10"
    ],
@@ -12083,7 +12044,7 @@
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s08-cp1-001",
@@ -12621,10 +12582,6 @@
      "correct": false
     },
     {
-     "text": "30, 30, 33",
-     "correct": true
-    },
-    {
      "text": "30, 30, 34",
      "correct": false
     },
@@ -12638,7 +12595,6 @@
     }
    ],
    "answer": [
-    "30, 30, 33",
     "100, 100, 110",
     "5, 5, 11/2"
    ],
@@ -12649,7 +12605,7 @@
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s08-honors-001",
@@ -13211,7 +13167,7 @@
     "8.G.A.4",
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s09-cp2-001",
@@ -13828,10 +13784,6 @@
    "prompt": "Lines m and n are parallel. Select ALL angles congruent to ∠2.",
    "options": [
     {
-     "text": "∠7",
-     "correct": true
-    },
-    {
      "text": "∠5",
      "correct": false
     },
@@ -13853,7 +13805,6 @@
     }
    ],
    "answer": [
-    "∠7",
     "∠3",
     "∠6"
    ],
@@ -13870,7 +13821,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s09-cp1-001",
@@ -14433,10 +14384,6 @@
    "prompt": "Lines m and n are parallel. Select ALL angles congruent to ∠3.",
    "options": [
     {
-     "text": "∠7",
-     "correct": true
-    },
-    {
      "text": "∠8",
      "correct": false
     },
@@ -14458,7 +14405,6 @@
     }
    ],
    "answer": [
-    "∠7",
     "∠6",
     "∠2"
    ],
@@ -14475,7 +14421,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-cgs-s09-honors-001",
@@ -15064,7 +15010,7 @@
    "standards": [
     "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   }
  ]
 }

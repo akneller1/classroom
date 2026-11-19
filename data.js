@@ -8430,12 +8430,12 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
   "artifacts/exponents-exponential-functions-exponent-rules-unpacker/index.html":[["prealgebra7","factors-fractions-exponents"],["prealgebra","equations-expressions"]],
   "artifacts/prealgebra-square-roots-number-line/index.html":[["prealgebra7","factors-fractions-exponents"]],
   "artifacts/math6-fraction-division-groups/index.html":[["prealgebra7","operations-fractions"]],
-  "artifacts/geometry-parallel-lines-transversal/index.html":[["prealgebra7","spatial-thinking"]],
+  "artifacts/geometry-parallel-lines-transversal/index.html":[["prealgebra7","spatial-thinking"],["prealgebra","congruence-similarity"]],
   "artifacts/geometry-transformation-studio/index.html":[["prealgebra7","spatial-thinking"]],
   "artifacts/math6-area-shear-lab/index.html":[["prealgebra7","area-volume"]],
-  "artifacts/geometry-solids-volume-lab/index.html":[["prealgebra7","area-volume"]],
+  "artifacts/geometry-solids-volume-lab/index.html":[["prealgebra7","area-volume"],["prealgebra","geometry-applications"]],
   "artifacts/polynomials-factoring-area-model-multiplier/index.html":[["prealgebra7","nonlinear-functions-polynomials"]],
-  "artifacts/exponential-functions-linear-vs-exponential/index.html":[["prealgebra7","nonlinear-functions-polynomials"]],
+  "artifacts/exponential-functions-linear-vs-exponential/index.html":[["prealgebra7","nonlinear-functions-polynomials"],["prealgebra","linear-functional-relationships"]],
   "artifacts/statistics-data-modeling-line-of-best-fit-lab/index.html":[["prealgebra","patterns-bivariate-data"]],
   "artifacts/algebra2-sequence-builder/index.html":[["precalculus","sequences-series-limits"]],
   "artifacts/calculus-limit-explorer/index.html":[["precalculus","sequences-series-limits"],["calculus","ap-review"]],
@@ -8443,7 +8443,8 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
   "artifacts/calculus-riemann-sum-lab/index.html":[["calculus","ap-review"]],
   "artifacts/calculus-accumulation-ftc/index.html":[["calculus","ap-review"]],
   "artifacts/discrete-venn-explorer/index.html":[["discrete","speaking-mathematically"]],
-  "artifacts/discrete-truth-table-lab/index.html":[["discrete","speaking-mathematically"]]
+  "artifacts/discrete-truth-table-lab/index.html":[["discrete","speaking-mathematically"]],
+  "artifacts/prealgebra7-proportional-relationships/index.html":[["prealgebra","linear-functional-relationships"]]
  };
  function find(path){var hit=null;G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){(u.artifacts||[]).forEach(function(a){if(!hit&&a.path===path)hit=a;});});});return hit;}
  Object.keys(SHARE).forEach(function(path){

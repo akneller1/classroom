@@ -43,7 +43,7 @@ def corr(xs, ys):
 def scatter_draw(xs, ys, xr, yr, xs_step, ys_step, xl, yl, line=None, labels=None, size=6.3):
     def draw_on(ax):
         data_axes(ax, (xr[0] - (xs_step if xr[0] else 0) * 0, xr[1]), yr, xs_step, ys_step, xl, yl)
-        ax.scatter(xs, ys, color="#1f4e9c", s=42, zorder=5)
+        ax.scatter(xs, ys, color="#1f4e9c", s=42, zorder=5, clip_on=False)
         if line:
             m, b = line
             ax.plot(list(xr), [float(m) * x + float(b) for x in xr], color="#b23a3a", lw=2)

@@ -184,6 +184,7 @@ sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
 table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
 table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
 table.tbl th[scope=row]{font-weight:700}
+table.mk-inline-table{display:table;margin:.35em 0}
 table.tbl tr:first-child th{font-weight:700}
 .m{white-space:normal}
 `;
@@ -351,7 +352,27 @@ function layoutLine(line){
   }
   return inlineHtml(question)+given;
  }
- return null;
+ return inlineTable(line);
+}
+/* 8th Grade Math audit #19 (2026-11-19): a table typed inline in a prompt ("x: 0, 1, 2, 3; y: 1, 4, 7, 10" or
+   "hours h: 0, 1, 2; cost C ($): 28, 39, 50") is drawn as a two-row table. Both rows need the same number (3+) of
+   numbers or "?" cells. The first label starts after the previous sentence, a colon, a dash or the word "table". */
+const TABLE_CELLS='(?:-?\\d+(?:\\.\\d+)?|\\?)(?:, (?:-?\\d+(?:\\.\\d+)?|\\?)){2,}';
+const INLINE_TABLE=new RegExp(':\\s('+TABLE_CELLS+'); ([^:;?!\\n]{1,40}): ('+TABLE_CELLS+')');
+function inlineTable(line){
+ const m=INLINE_TABLE.exec(line);
+ if(!m)return null;
+ const a=m[1].split(', '),b=m[3].split(', ');
+ if(a.length!==b.length)return null;
+ const head=line.slice(0,m.index);
+ let cut=-1;
+ for(const re of [/[.?!]\s/g,/:\s/g,/\s[—–]\s/g,/\btable\s/g]){let k;while((k=re.exec(head)))cut=Math.max(cut,k.index+k[0].length);}
+ const label=head.slice(cut<0?0:cut).trim();
+ if(!label||label.length>40||!/[A-Za-z]/.test(label))return null;
+ const before=head.slice(0,cut<0?0:cut).trimEnd(),after=line.slice(m.index+m[0].length).replace(/^\s*\.(?=\s|$)/,'');
+ const cell=(x,k)=>k?`<td>${mini(x)}</td>`:`<th scope="row">${mini(x)}</th>`;
+ const tbl=`<table class="tbl mk-inline-table">${[[label].concat(a),[m[2].trim()].concat(b)].map(r=>'<tr>'+r.map(cell).join('')+'</tr>').join('')}</table>`;
+ return (before?inlineHtml(before)+' ':'')+tbl+(after.trim()?' '+inlineHtml(after.trim()):'');
 }
 function piecewise(line,match,rows){
  const body=givenGrid(rows,(cell,_i,j)=>j?'if '+mini(cell):mini(cell));
@@ -360,7 +381,7 @@ function piecewise(line,match,rows){
 }
 function layout(value){
  const source=String(value??'');
- if(!RELATION.test(source))return null;
+ if(!RELATION.test(source)&&!INLINE_TABLE.test(source))return null;
  const lines=source.split('\n'),changed=lines.map(layoutLine);
  if(changed.every(line=>line===null))return null;
  return changed.map((line,i)=>line===null?inlineHtml(lines[i]):line).join('<br>');
