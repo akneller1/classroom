@@ -3047,7 +3047,7 @@
   {
    "id": "dm-np-s05-honors-002",
    "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "True or false: 4 | 2026 (that is, 4 divides 2026).",
    "answer": "False",
@@ -3055,7 +3055,7 @@
     "d | n means n = dk for some integer k.",
     "2026 / 4 is not an integer."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divides_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "Undefined",
@@ -8002,77 +8002,6 @@
    ]
   },
   {
-   "id": "dm-np-s05-honors-012",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(44, 60).",
-   "answer": "660",
-   "solutionSteps": [
-    "gcd(44, 60) = 4.",
-    "lcm = 44·60/gcd = 2640/4 = 660."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "659",
-     "correct": false
-    },
-    {
-     "text": "661",
-     "correct": false
-    },
-    {
-     "text": "662",
-     "correct": false
-    },
-    {
-     "text": "660",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "DM.PROOF.5",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-012",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 333 = 5·q + r with 0 ≤ r < 5.",
-   "answer": "66",
-   "solutionSteps": [
-    "333 ÷ 5 = 66.6; take the whole-number part.",
-    "333 = 5·66 + 3, so q = 66 (and r = 3)."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "66",
-     "correct": true
-    },
-    {
-     "text": "65",
-     "correct": false
-    },
-    {
-     "text": "67",
-     "correct": false
-    },
-    {
-     "text": "68",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.4",
-    "N-RN.B.3",
-    "MP.3"
-   ]
-  },
-  {
    "id": "dm-np-s01-honors-012",
    "skillId": "number-theory-proof-skill-01",
    "level": "cp1",
@@ -8104,288 +8033,6 @@
    ],
    "standards": [
     "DM.PROOF.1",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-015",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(44, 24).",
-   "answer": "264",
-   "solutionSteps": [
-    "gcd(44, 24) = 4.",
-    "lcm = 44·24/gcd = 1056/4 = 264."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "264",
-     "correct": true
-    },
-    {
-     "text": "263",
-     "correct": false
-    },
-    {
-     "text": "265",
-     "correct": false
-    },
-    {
-     "text": "266",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.5",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-014",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 192 = 4·q + r with 0 ≤ r < 4.",
-   "answer": "48",
-   "solutionSteps": [
-    "192 ÷ 4 = 48; take the whole-number part.",
-    "192 = 4·48 + 0, so q = 48 (and r = 0)."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "47",
-     "correct": false
-    },
-    {
-     "text": "48",
-     "correct": true
-    },
-    {
-     "text": "49",
-     "correct": false
-    },
-    {
-     "text": "50",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.4",
-    "N-RN.B.3",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s01-honors-013",
-   "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 274?",
-   "answer": "277",
-   "solutionSteps": [
-    "Rule out 275 = 5·55, 276 = 2·138.",
-    "277 has no divisor from 2 to √277, so it is prime."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "276",
-     "correct": false
-    },
-    {
-     "text": "278",
-     "correct": false
-    },
-    {
-     "text": "279",
-     "correct": false
-    },
-    {
-     "text": "277",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "DM.PROOF.1",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s01-honors-014",
-   "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 72?",
-   "answer": "73",
-   "solutionSteps": [
-    "Start with 73.",
-    "73 has no divisor from 2 to √73, so it is prime."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "73",
-     "correct": true
-    },
-    {
-     "text": "72",
-     "correct": false
-    },
-    {
-     "text": "74",
-     "correct": false
-    },
-    {
-     "text": "75",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.1",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-016",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(32, 40).",
-   "answer": "160",
-   "solutionSteps": [
-    "gcd(32, 40) = 8.",
-    "lcm = 32·40/gcd = 1280/8 = 160."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "159",
-     "correct": false
-    },
-    {
-     "text": "160",
-     "correct": true
-    },
-    {
-     "text": "161",
-     "correct": false
-    },
-    {
-     "text": "162",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.5",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s04-honors-015",
-   "skillId": "number-theory-proof-skill-04",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find the quotient q when 180 = 2·q + r with 0 ≤ r < 2.",
-   "answer": "90",
-   "solutionSteps": [
-    "180 ÷ 2 = 90; take the whole-number part.",
-    "180 = 2·90 + 0, so q = 90 (and r = 0)."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "89",
-     "correct": false
-    },
-    {
-     "text": "91",
-     "correct": false
-    },
-    {
-     "text": "90",
-     "correct": true
-    },
-    {
-     "text": "92",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.4",
-    "N-RN.B.3",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s01-honors-015",
-   "skillId": "number-theory-proof-skill-01",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "What is the smallest prime greater than 86?",
-   "answer": "89",
-   "solutionSteps": [
-    "Rule out 87 = 3·29, 88 = 2·44.",
-    "89 has no divisor from 2 to √89, so it is prime."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "88",
-     "correct": false
-    },
-    {
-     "text": "89",
-     "correct": true
-    },
-    {
-     "text": "90",
-     "correct": false
-    },
-    {
-     "text": "91",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.1",
-    "MP.3"
-   ]
-  },
-  {
-   "id": "dm-np-s05-honors-017",
-   "skillId": "number-theory-proof-skill-05",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "Find lcm(32, 16).",
-   "answer": "32",
-   "solutionSteps": [
-    "gcd(32, 16) = 16.",
-    "lcm = 32·16/gcd = 512/16 = 32."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "31",
-     "correct": false
-    },
-    {
-     "text": "33",
-     "correct": false
-    },
-    {
-     "text": "32",
-     "correct": true
-    },
-    {
-     "text": "34",
-     "correct": false
-    }
-   ],
-   "standards": [
-    "DM.PROOF.5",
     "MP.3"
    ]
   },
@@ -9562,6 +9209,405 @@
    "standards": [
     "DM.PROOF.7",
     "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s01-honors-d01",
+   "skillId": "number-theory-proof-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Smallest n ≥ 0 that is a counterexample to \"n² + n + 11 is always prime\"?",
+   "answer": "10",
+   "solutionSteps": [
+    "Check n = 0, 1, 2, …: each value before n = 10 is prime.",
+    "n = 10: n² + n + 11 = 121 = 11·11.",
+    "One counterexample disproves the universal claim."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np01_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.1",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s01-honors-d02",
+   "skillId": "number-theory-proof-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Smallest n ≥ 0 that is a counterexample to \"2n² + 29 is always prime\"?",
+   "answer": "29",
+   "solutionSteps": [
+    "Check n = 0, 1, 2, …: each value before n = 29 is prime.",
+    "n = 29: 2n² + 29 = 1711 = 29·59.",
+    "One counterexample disproves the universal claim."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np01_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.1",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "31",
+     "correct": false
+    },
+    {
+     "text": "29",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s01-honors-d03",
+   "skillId": "number-theory-proof-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Smallest n ≥ 0 that is a counterexample to \"n² − n + 17 is always prime\"?",
+   "answer": "17",
+   "solutionSteps": [
+    "Check n = 0, 1, 2, …: each value before n = 17 is prime.",
+    "n = 17: n² − n + 17 = 289 = 17·17.",
+    "One counterexample disproves the universal claim."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np01_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.1",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "17",
+     "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "19",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s04-honors-d01",
+   "skillId": "number-theory-proof-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write 0.1636363… as a fraction in lowest terms.",
+   "answer": "9/55",
+   "solutionSteps": [
+    "Let x be the decimal; multiply by a power of 10 so the repeating block lines up, then subtract.",
+    "The difference removes the repeating part and leaves a whole number over a multiple of 9.",
+    "Simplify: x = 9/55."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.4",
+    "N-RN.B.3",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "2/11",
+     "correct": false
+    },
+    {
+     "text": "8/55",
+     "correct": false
+    },
+    {
+     "text": "9/55",
+     "correct": true
+    },
+    {
+     "text": "9/56",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s04-honors-d02",
+   "skillId": "number-theory-proof-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write 0.2454545… as a fraction in lowest terms.",
+   "answer": "27/110",
+   "solutionSteps": [
+    "Let x be the decimal; multiply by a power of 10 so the repeating block lines up, then subtract.",
+    "The difference removes the repeating part and leaves a whole number over a multiple of 9.",
+    "Simplify: x = 27/110."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.4",
+    "N-RN.B.3",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "14/55",
+     "correct": false
+    },
+    {
+     "text": "13/55",
+     "correct": false
+    },
+    {
+     "text": "9/37",
+     "correct": false
+    },
+    {
+     "text": "27/110",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s04-honors-d03",
+   "skillId": "number-theory-proof-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write 0.285714285714… as a fraction in lowest terms.",
+   "answer": "2/7",
+   "solutionSteps": [
+    "Let x be the decimal; multiply by a power of 10 so the repeating block lines up, then subtract.",
+    "The difference removes the repeating part and leaves a whole number over a multiple of 9.",
+    "Simplify: x = 2/7."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.4",
+    "N-RN.B.3",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "3/7",
+     "correct": false
+    },
+    {
+     "text": "2/7",
+     "correct": true
+    },
+    {
+     "text": "1/7",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s05-honors-d01",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many integers from 1 to 1500 are divisible by 15 but not by 6?",
+   "answer": "50",
+   "solutionSteps": [
+    "Multiples of 15: ⌊1500/15⌋ = 100.",
+    "Divisible by both means divisible by lcm(15, 6) = 30: ⌊1500/30⌋ = 50.",
+    "100 − 50 = 50."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np05_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.5",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "51",
+     "correct": false
+    },
+    {
+     "text": "49",
+     "correct": false
+    },
+    {
+     "text": "52",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s05-honors-d02",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many integers from 1 to 800 are divisible by 9 but not by 12?",
+   "answer": "66",
+   "solutionSteps": [
+    "Multiples of 9: ⌊800/9⌋ = 88.",
+    "Divisible by both means divisible by lcm(9, 12) = 36: ⌊800/36⌋ = 22.",
+    "88 − 22 = 66."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np05_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.5",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "66",
+     "correct": true
+    },
+    {
+     "text": "67",
+     "correct": false
+    },
+    {
+     "text": "65",
+     "correct": false
+    },
+    {
+     "text": "68",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s05-honors-d03",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many integers from 1 to 2000 are divisible by 18 but not by 24?",
+   "answer": "84",
+   "solutionSteps": [
+    "Multiples of 18: ⌊2000/18⌋ = 111.",
+    "Divisible by both means divisible by lcm(18, 24) = 72: ⌊2000/72⌋ = 27.",
+    "111 − 27 = 84."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np05_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.5",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "85",
+     "correct": false
+    },
+    {
+     "text": "83",
+     "correct": false
+    },
+    {
+     "text": "86",
+     "correct": false
+    },
+    {
+     "text": "84",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s05-honors-d04",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many integers from 1 to 999 are divisible by 21 but not by 14?",
+   "answer": "24",
+   "solutionSteps": [
+    "Multiples of 21: ⌊999/21⌋ = 47.",
+    "Divisible by both means divisible by lcm(21, 14) = 42: ⌊999/42⌋ = 23.",
+    "47 − 23 = 24."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np05_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.5",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
+    },
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "26",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-np-s05-honors-d05",
+   "skillId": "number-theory-proof-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many integers from 1 to 1200 are divisible by 16 but not by 10?",
+   "answer": "60",
+   "solutionSteps": [
+    "Multiples of 16: ⌊1200/16⌋ = 75.",
+    "Divisible by both means divisible by lcm(16, 10) = 80: ⌊1200/80⌋ = 15.",
+    "75 − 15 = 60."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: np05_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.PROOF.5",
+    "MP.3"
+   ],
+   "options": [
+    {
+     "text": "61",
+     "correct": false
+    },
+    {
+     "text": "60",
+     "correct": true
+    },
+    {
+     "text": "59",
+     "correct": false
+    },
+    {
+     "text": "62",
+     "correct": false
+    }
    ]
   }
  ]
