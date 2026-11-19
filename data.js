@@ -116,7 +116,7 @@ window.LIBRARY = {
   "color": "blue",
   "art": "distribution",
   "planned": false,
-  "blurb": "Explore data, design studies, model chance, and draw conclusions with statistical inference.",
+  "blurb": "AP Statistics content (2026 framework) at three levels: explore data, design studies, model chance, and draw conclusions with inference. Topics outside the AP course are marked Beyond AP.",
   "curriculumSource": "https://resources.finalsite.net/images/v1623872059/parkhillk12mous/cskhg83dim7bbtbfbqej/StatisticsCourseSummary--BoardApprovedMarch302017.pdf",
   "units": [
     {

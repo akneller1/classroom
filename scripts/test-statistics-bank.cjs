@@ -32,7 +32,8 @@ for(const unit of course.units){
  for(const kind of ['color','who'])assert(kinds.includes(kind),'Missing expanded printable '+kind);
 }
 const auditGapItems=3*48+18; // 2026-11-16: three new inference skills (48 each) plus nine Partner Check pairs
-assert.equal(partnerPairs,123);assert.equal(errorItems,158);assert.equal(total,1931+auditGapItems+require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='statistics').length+require('../tests/fixtures/statistics-display-items.json').length);assert.equal(cells,123);assert.equal(g.window.LIBRARY.courses.find(c=>c.id==='discrete').units.length,10,'Discrete outline must be preserved');
+const audit20261118=JSON.parse(fs.readFileSync(path.join(root,'tools/statistics-audit-20261118/added.json'),'utf8')).length; // 2026-11-18 audit: new items listed in added.json
+assert.equal(partnerPairs,123);assert.equal(errorItems,158);assert.equal(total,1931+auditGapItems+audit20261118+require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='statistics').length+require('../tests/fixtures/statistics-display-items.json').length);assert.equal(cells,123);assert.equal(g.window.LIBRARY.courses.find(c=>c.id==='discrete').units.length,10,'Discrete outline must be preserved');
 console.log('PASS '+total+' Statistics questions, all 123 topic/level cells, figure assets, answer keys, whole-unit game pools, and supported resource links');
 
 

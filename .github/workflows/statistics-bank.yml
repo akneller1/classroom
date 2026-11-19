@@ -11,6 +11,8 @@ on:
       - 'scripts/test-statistics-bank.cjs'
       - 'scripts/test-hs-bank-integration.cjs'
       - 'tools/statistics-expansion-20261107/**'
+      - 'tools/statistics-audit-20261118/**'
+      - 'scripts/test-statistics-audit.cjs'
       - '.github/workflows/statistics-bank.yml'
   workflow_dispatch:
 jobs:
@@ -29,6 +31,10 @@ jobs:
         run: python -m pip install scipy
       - name: Recompute new numerical answers independently
         run: python tools/statistics-expansion-20261107/scripts/verification/verify_expansion.py .
+      - name: Recompute keys from the printed prompts (Statistics audit 2026-11-18)
+        run: python tools/statistics-audit-20261118/verify_keys.py
+      - name: Statistics audit regression checks
+        run: node scripts/test-statistics-audit.cjs
       - name: Validate Statistics coverage, keys, figures, and activity pools
         run: node scripts/test-statistics-bank.cjs
       - name: Exercise Statistics generators, games, vocabulary, and lesson plans
