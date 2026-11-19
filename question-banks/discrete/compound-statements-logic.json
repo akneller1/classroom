@@ -4220,7 +4220,7 @@
   {
    "id": "dm-lg-s05-honors-006",
    "skillId": "compound-statements-logic-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Determine the truth value of the NEGATION of \"If 9 is odd, then 9 is prime.\"",
    "answer": "True",
@@ -4228,7 +4228,7 @@
     "The original is false.",
     "A negation always has the opposite truth value, so the negation is true."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negation_truth). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Same truth value as the original",
@@ -8345,9 +8345,26 @@
    ]
   },
   {
+   "id": "dm-lg-s02-honors-023",
+   "skillId": "compound-statements-logic-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a truth table with 9 variables, in how many rows is p ∨ q true?",
+   "answer": "384",
+   "solutionSteps": [
+    "p ∨ q is true in 3 of the 4 (p, q) combinations.",
+    "Times 2^7 for the other variables: 3·128 = 384."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "MP.3",
+    "DM.LOGIC"
+   ]
+  },
+  {
    "id": "dm-lg-s01-honors-012",
    "skillId": "compound-statements-logic-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "How many rows does a truth table with 9 variables have?",
    "answer": "512",
@@ -8355,7 +8372,7 @@
     "Each variable is T or F.",
     "2^9 = 512 rows."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.3",
     "DM.LOGIC"

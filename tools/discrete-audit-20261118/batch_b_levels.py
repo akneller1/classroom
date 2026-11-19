@@ -13,41 +13,8 @@ B = load()
 NOTE = 'Original Claude-authored Discrete Math item (family: {}). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.'
 rng = random.Random(4)
 
-# ---------------- #4 Advanced clones of Support templates move to Standard ----------------
-def tmpl(s):
-    s = re.sub(r'\{[^}]*\}', '{S}', s); s = re.sub(r'\[[^\]]*\]', '[W]', s)
-    s = re.sub(r'\b(Kim|Lee|Ann|Ben|Ana|Bo|Cy|Sam|Jordan|Riley|Casey|Avery|Morgan|Taylor|Jamie|Quinn|Alex)\b', 'Nm', s)
-    s = re.sub(r'[A-Z](?: > [A-Z])+', 'R', s)
-    return re.sub(r'\d+(\.\d+)?', '#', s)
-
-
-moved = 0
-ids = {q['id'] for _, q in items(B)}
-for u, d in B.items():
-    cp2 = collections.defaultdict(set)
-    for q in d['questions']:
-        if q['level'] == 'cp2': cp2[q['skillId']].add(tmpl(q['prompt']))
-    for q in d['questions']:
-        if q['level'] == 'honors' and tmpl(q['prompt']) in cp2[q['skillId']]:
-            q['level'] = 'cp1'   # the id stays the same: ids are stable references (saved work, release fixtures)
-            q['sourceNotes'] += ' Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).'
-            moved += 1
-
-
-# ---------------- #2 cap quick checks ----------------
-removed = 0
-for u, d in B.items():
-    seen = collections.Counter(); keep = []
-    for q in sorted(d['questions'], key=lambda q: q['id']):
-        if family(q) == 'quick_check':
-            k = (q['skillId'], q['level']); seen[k] += 1
-            if seen[k] > 4:
-                removed += 1; continue
-        keep.append(q)
-    order = {q['id']: i for i, q in enumerate(d['questions'])}
-    d['questions'] = sorted(keep, key=lambda q: order[q['id']])
-
 # ---------------- new multi-step Advanced items ----------------
+ids = {q['id'] for _, q in items(B)}
 def item(skill, fam, fmt, prompt, answer, steps, std, options=None):
     unit = skill.rsplit('-skill-', 1)[0]
     code = {'speaking-mathematically': 'sm', 'compound-statements-logic': 'lg', 'number-theory-proof': 'np', 'sequences-induction-recursion': 'sq',
@@ -127,7 +94,7 @@ sk = 'election-theory-skill-01'
 for n, k in ((25, 4), (40, 3), (61, 5), (100, 6)):
     v = math.ceil((n + k - 1) / k)
     item(sk, 'min_plurality', 'short-answer',
-         f'{n} voters choose among {k} candidates, and each voter casts one first-place vote. What is the smallest number of first-place votes a candidate can have and still be the UNIQUE plurality winner?', str(v),
+         f'{n} voters, {k} candidates: what is the fewest first-place votes a unique plurality winner can have?', str(v),
          [f'If the winner has v votes, each of the other {k - 1} candidates has at most v − 1.',
           f'So the total is at most v + {k - 1}(v − 1) = {k}v − {k - 1}, and it must reach {n}: {k}v − {k - 1} ≥ {n}.',
           f'v ≥ ({n} + {k - 1})/{k} = {Fr(n + k - 1, k)}, so v = {v}.',
@@ -270,6 +237,81 @@ for a, b in ((12, 4), (6, 4), (30, 10), (9, 6)):
          options=[f'No: {a} ∈ A but {a} ∉ B because {b} does not divide {a}' if yes else f'Yes: if n = {a}k then n = {b}({Fr(a, b)}k), so every element of A is in B',
                   'Yes: both sets are infinite, so they are equal', f'No: B has more elements than A' if yes else f'Yes: {a} > {b}, so the multiples of {a} are among the multiples of {b}',
                   'It cannot be decided for infinite sets'])
+
+
+# election-theory-skill-05: short Banzhaf and Shapley–Shubik questions for players other than P1 (also used by
+# Advanced Tarsia puzzles, which need short prompts and answers)
+sk = 'election-theory-skill-05'
+for qq, w, who in ((14, [9, 6, 4, 2], 2), (12, [8, 5, 4, 2], 3), (16, [10, 7, 4, 3], 2), (13, [7, 6, 5, 3], 4), (11, [6, 5, 4, 1], 3), (17, [10, 8, 5, 2], 2), (15, [8, 7, 5, 4], 3), (10, [5, 4, 3, 2], 4)):
+    c = E.critical_counts(qq, w); T = sum(c)
+    item(sk, 'banzhaf_other', 'short-answer', f'Find the Banzhaf power index of P{who} in [{qq}: {", ".join(map(str, w))}].', E.fs(Fr(c[who - 1], T)),
+         [f'Winning coalitions (total ≥ {qq}): ' + '; '.join(E.name(S) for S in E.coalitions(qq, w)) + '.',
+          f'P{who} is critical when the coalition loses without it; count those coalitions: {c[who - 1]}.',
+          'Critical counts for all players: ' + ', '.join(f'P{i + 1} {x}' for i, x in enumerate(c)) + f' (total {T}).', f'Index = {c[who - 1]}/{T} = {E.fs(Fr(c[who - 1], T))}.'], std_of(sk))
+for qq, w, who in ((5, [3, 2, 1], 2), (6, [4, 2, 1], 3), (7, [4, 3, 2], 2), (9, [5, 3, 2, 1], 2), (8, [4, 3, 2, 1], 3), (10, [6, 3, 2, 1], 4), (11, [5, 4, 3, 1], 2), (12, [6, 5, 2, 1], 3)):
+    pc = E.pivotal_counts(qq, w); tot = math.factorial(len(w))
+    item(sk, 'shapley_other', 'short-answer', f'Find the Shapley–Shubik power index of P{who} in [{qq}: {", ".join(map(str, w))}].', E.fs(Fr(pc[who - 1], tot)),
+         [f'List all {len(w)}! = {tot} orderings of the players.', f'In each ordering the pivotal player is the one whose weight first brings the running total to {qq} or more.',
+          'Pivotal counts: ' + ', '.join(f'P{i + 1} {x}' for i, x in enumerate(pc)) + '.', f'Index of P{who} = {pc[who - 1]}/{tot} = {E.fs(Fr(pc[who - 1], tot))}.'], std_of(sk))
+
+
+# election-theory-skill-07: four-state divisor methods (short prompts, also used by Advanced Tarsia puzzles)
+sk = 'election-theory-skill-07'
+def divisor_method(pops, S, mode):
+    a = [0 if mode != 'up' else 1 for _ in pops]
+    pri = lambda i: Fr(pops[i], a[i] + 1) if mode == 'down' else Fr(pops[i], a[i]) if mode == 'up' else Fr(2 * pops[i], 2 * a[i] + 1)
+    while sum(a) < S:
+        b = max(range(len(pops)), key=pri); a[b] += 1
+    return a
+for pops, S, mode, nm in (([1180, 2390, 3120, 1310], 20, 'down', "Jefferson"), ([1180, 2390, 3120, 1310], 20, 'near', "Webster"), ([2450, 960, 1730, 860], 15, 'up', "Adams"), ([2450, 960, 1730, 860], 15, 'near', "Webster")):
+    a = divisor_method(pops, S, mode); T = sum(pops)
+    item(sk, 'divisor_four', 'short-answer', f'{nm}\'s method: populations {", ".join(map(str, pops))}; {S} seats. Give the apportionment in order.', ', '.join(map(str, a)),
+         [f'Standard divisor {T}/{S} = {T / S:.2f}; standard quotas ' + ', '.join(f'{p * S / T:.2f}' for p in pops) + '.',
+          f'{nm} rounds every modified quota {"down" if mode == "down" else "up" if mode == "up" else "to the nearest whole number"}; adjust the divisor until the rounded quotas add to {S}.',
+          f'Equivalently, hand out seats one at a time to the largest priority value p/{"(a + 1)" if mode == "down" else "a" if mode == "up" else "(a + 1/2)"}.',
+          'Apportionment: ' + ', '.join(map(str, a)) + f' (total {sum(a)}).'], std_of(sk))
+
+# ---------------- #4 Advanced clones of Support templates move to Standard ----------------
+def tmpl(s):
+    s = re.sub(r'\{[^}]*\}', '{S}', s); s = re.sub(r'\[[^\]]*\]', '[W]', s)
+    s = re.sub(r'\b(Kim|Lee|Ann|Ben|Ana|Bo|Cy|Sam|Jordan|Riley|Casey|Avery|Morgan|Taylor|Jamie|Quinn|Alex)\b', 'Nm', s)
+    s = re.sub(r'[A-Z](?: > [A-Z])+', 'R', s)
+    return re.sub(r'\d+(\.\d+)?', '#', s)
+
+
+moved = 0
+ids = {q['id'] for _, q in items(B)}
+# Items listed in a release fixture and partner pairs keep their level; each skill keeps enough Advanced items for the
+# Advanced game decks (multiple choice) and Tarsia puzzles (short answer): at least 5 and 4 of those formats.
+import json as _json
+FIXED = {m.group(1) for _, q in items(B) for m in [re.match(r'Partner-check companion to (\S+) ', q.get('sourceNotes', ''))] if m} | {e['id'] for e in _json.load(open(os.path.join(os.path.dirname(__file__), '..', '..', 'tests', 'fixtures', 'content-20261115.json'))) if e.get('course') == 'discrete'}
+for u, d in B.items():
+    cp2 = collections.defaultdict(set)
+    for q in d['questions']:
+        if q['level'] == 'cp2': cp2[q['skillId']].add(tmpl(q['prompt']))
+    hon = collections.Counter((q['skillId'], q['format']) for q in d['questions'] if q['level'] == 'honors')
+    KEEP = {'multiple-choice': 5, 'short-answer': 4}
+    for q in d['questions']:
+        if q['level'] != 'honors' or tmpl(q['prompt']) not in cp2[q['skillId']]: continue
+        if q['id'] in FIXED or family(q) == 'partner_pair' or 'partner' in q.get('sourceNotes', '').lower(): continue
+        if q['format'] in KEEP and hon[(q['skillId'], q['format'])] <= KEEP[q['format']]: continue
+        q['level'] = 'cp1'   # the id stays the same: ids are stable references (saved work, release fixtures)
+        hon[(q['skillId'], q['format'])] -= 1
+        q['sourceNotes'] += ' Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).'
+        moved += 1
+
+# ---------------- #2 cap quick checks ----------------
+removed = 0
+for u, d in B.items():
+    seen = collections.Counter(); keep = []
+    for q in sorted(d['questions'], key=lambda q: q['id']):
+        if family(q) == 'quick_check':
+            k = (q['skillId'], q['level']); seen[k] += 1
+            if seen[k] > 4:
+                removed += 1; continue
+        keep.append(q)
+    order = {q['id']: i for i, q in enumerate(d['questions'])}
+    d['questions'] = sorted(keep, key=lambda q: order[q['id']])
 
 save(B)
 print('quick checks removed', removed, '| Advanced → Standard', moved, '| new Advanced items', sum(1 for _, q in items(B) if '-honors-a' in q['id']))

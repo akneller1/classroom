@@ -2877,7 +2877,7 @@
   {
    "id": "dm-rl-s05-honors-004",
    "skillId": "properties-relations-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "Find the relation induced by the partition {{1}, {2, 3, 4}} of {1, 2, 3, 4}: x R y if and only if x and y are in the same block. List R ordered by first then second coordinate.",
    "answer": "{(1, 1), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)}",
@@ -2885,7 +2885,7 @@
     "Pair every element with every element of its own block (including itself).",
     "R = {(1, 1), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)} (10 pairs)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "MP.7",
     "DM.RELATIONS"
@@ -4268,7 +4268,7 @@
   {
    "id": "dm-rl-s07-honors-005",
    "skillId": "properties-relations-skill-07",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "R = {(0, 0), (0, 2), (1, 1), (1, 3), (2, 0), (2, 2), (3, 1), (3, 3)} is an equivalence relation on A = {0, 1, 2, 3}. Which is the set of distinct equivalence classes?",
    "answer": "{{0, 2}, {1, 3}}",
@@ -4276,7 +4276,7 @@
     "[a] = {b | a R b}. Equal classes are listed once.",
     "Classes: {{0, 2}, {1, 3}}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_classes). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_classes). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "{{0, 2}, {1, 3}}",
@@ -4718,7 +4718,7 @@
   {
    "id": "dm-rl-s01-honors-009",
    "skillId": "properties-relations-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (1, 4), (2, 2), (3, 1), (3, 2), (3, 3), (3, 4), (4, 3), (4, 4)}. Which set is R⁻¹?",
    "answer": "{(1, 3), (2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}",
@@ -4726,7 +4726,7 @@
     "Reverse every pair.",
     "R⁻¹ = {(1, 3), (2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "{(1, 3), (2, 1), (2, 2), (2, 3), (3, 3), (3, 4), (4, 1), (4, 3), (4, 4)}",
@@ -4753,7 +4753,7 @@
   {
    "id": "dm-rl-s01-honors-010",
    "skillId": "properties-relations-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (1, 4), (2, 3), (3, 1), (3, 2), (3, 3)}. Which set is R⁻¹?",
    "answer": "{(1, 3), (2, 1), (2, 3), (3, 2), (3, 3), (4, 1)}",
@@ -4761,7 +4761,7 @@
     "Reverse every pair.",
     "R⁻¹ = {(1, 3), (2, 1), (2, 3), (3, 2), (3, 3), (4, 1)}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "{(2, 1), (2, 3), (3, 2), (3, 3), (4, 1)}",
@@ -5256,7 +5256,7 @@
   {
    "id": "dm-rl-s02-honors-009",
    "skillId": "properties-relations-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many loops does the directed graph of R = {(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)} on {1, 2, 3, 4} have?",
    "answer": "4",
@@ -5265,7 +5265,7 @@
     "A loop is a pair (a, a).",
     "4 loops"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "3",
@@ -5292,7 +5292,7 @@
   {
    "id": "dm-rl-s02-honors-010",
    "skillId": "properties-relations-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many loops does the directed graph of R = {(2, 1), (3, 3), (4, 2), (4, 3), (4, 4)} on {1, 2, 3, 4} have?",
    "answer": "2",
@@ -5301,7 +5301,7 @@
     "A loop is a pair (a, a).",
     "2 loops"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "4",
@@ -5958,7 +5958,7 @@
   {
    "id": "dm-rl-s04-honors-008",
    "skillId": "properties-relations-skill-03",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (2, 2), (2, 3), (2, 4), (4, 1)}. Is R transitive?",
    "answer": "No",
@@ -5966,7 +5966,7 @@
     "Check the definition of transitive on every relevant pair.",
     "No: (1, 2), (2, 3) ∈ R but (1, 3) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118). Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Yes",
@@ -5993,7 +5993,7 @@
   {
    "id": "dm-rl-s04-honors-009",
    "skillId": "properties-relations-skill-03",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 1), (1, 2), (1, 3), (2, 1), (2, 4), (3, 1), (3, 2)}. Is R reflexive?",
    "answer": "No",
@@ -6001,7 +6001,7 @@
     "Check the definition of reflexive on every relevant pair.",
     "No: (2, 2) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118). Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Only if R is also reflexive",
@@ -6028,7 +6028,7 @@
   {
    "id": "dm-rl-s04-honors-010",
    "skillId": "properties-relations-skill-03",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {1, 2, 3, 4} and R = {(1, 2), (1, 3), (3, 2), (4, 1)}. Is R symmetric?",
    "answer": "No",
@@ -6036,7 +6036,7 @@
     "Check the definition of symmetric on every relevant pair.",
     "No: (1, 2) ∈ R but (2, 1) ∉ R"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118). Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: check_property). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from skill 4 by Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118).",
    "options": [
     {
      "text": "Yes",
@@ -6279,7 +6279,7 @@
   {
    "id": "dm-rl-s05-honors-009",
    "skillId": "properties-relations-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many ordered pairs are in the relation induced by the partition {{1}, {2, 3, 4}} of {1, 2, 3, 4}?",
    "answer": "10",
@@ -6288,7 +6288,7 @@
     "Each block of size k contributes k² pairs.",
     "10 pairs"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "4",
@@ -6595,7 +6595,7 @@
   {
    "id": "dm-rl-s06-honors-009",
    "skillId": "properties-relations-skill-06",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Is R = {(2, 2), (2, 3), (3, 2), (3, 3), (3, 4), (4, 3)} an equivalence relation on {1, 2, 3, 4}?",
    "answer": "No",
@@ -6603,7 +6603,7 @@
     "All three properties are needed; one counterexample to any of them is enough to say no.",
     "Check reflexive, symmetric and transitive: reflexive no, symmetric yes, transitive no."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Yes",
@@ -6630,7 +6630,7 @@
   {
    "id": "dm-rl-s06-honors-010",
    "skillId": "properties-relations-skill-06",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Is R = {(2, 1), (2, 2), (4, 1), (4, 2), (4, 3)} an equivalence relation on {1, 2, 3, 4}?",
    "answer": "No",
@@ -6638,7 +6638,7 @@
     "All three properties are needed; one counterexample to any of them is enough to say no.",
     "Check reflexive, symmetric and transitive: reflexive no, symmetric no, transitive yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: is_equivalence). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Yes, because it contains loops",
@@ -7426,9 +7426,26 @@
    ]
   },
   {
+   "id": "dm-rl-s07-honors-013",
+   "skillId": "properties-relations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many equivalence classes does congruence mod 13 have on ℤ?",
+   "answer": "13",
+   "solutionSteps": [
+    "Every integer has exactly one remainder 0, 1, …, 12 on division by 13.",
+    "The classes are [0], [1], …, [12]: 13 classes."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "MP.7",
+    "DM.RELATIONS"
+   ]
+  },
+  {
    "id": "dm-rl-s02-honors-012",
    "skillId": "properties-relations-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many loops does the digraph of \"a = b\" on {1, ..., 16} have?",
    "answer": "16",
@@ -7436,7 +7453,7 @@
     "\"a = b\" relates each element only to itself.",
     "One loop at each of the 16 vertices: 16 loops."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "15",
@@ -7463,7 +7480,7 @@
   {
    "id": "dm-rl-s02-honors-013",
    "skillId": "properties-relations-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many loops does the digraph of \"a = b\" on {1, ..., 18} have?",
    "answer": "18",
@@ -7471,7 +7488,7 @@
     "\"a = b\" relates each element only to itself.",
     "One loop at each of the 18 vertices: 18 loops."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "18",
@@ -8938,7 +8955,7 @@
   {
    "id": "dm-rl-s04-honors-i45",
    "skillId": "properties-relations-skill-04",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (5.5, 3.5) ∈ R? Answer Yes or No.",
    "answer": "Yes",
@@ -8951,7 +8968,7 @@
     "MP.7",
     "DM.RELATIONS"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118). Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item)."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
   },
   {
    "id": "dm-rl-s04-cp2-i46",
@@ -8992,7 +9009,7 @@
   {
    "id": "dm-rl-s04-honors-i48",
    "skillId": "properties-relations-skill-04",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "R on ℝ: x R y if and only if x − y ≥ 2. Is (0, 0) ∈ R? Answer Yes or No.",
    "answer": "No",
@@ -9005,7 +9022,7 @@
     "MP.7",
     "DM.RELATIONS"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118). Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item)."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: infinite_member). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118)."
   },
   {
    "id": "dm-rl-s03-honors-a01",

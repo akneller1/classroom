@@ -69,7 +69,15 @@ for (const q of Q) check(q, !!fam(q), 'no family tag');
 {
   const tmpl = s => s.replace(/\{[^}]*\}/g, '{S}').replace(/\[[^\]]*\]/g, '[W]').replace(/\b(Kim|Lee|Ann|Ben|Ana|Bo|Cy|Sam|Jordan|Riley|Casey|Avery|Morgan|Taylor|Jamie|Quinn|Alex)\b/g, 'Nm').replace(/[A-Z](?: > [A-Z])+/g, 'R').replace(/\d+(\.\d+)?/g, '#');
   const cp2 = new Set(Q.filter(q => q.level === 'cp2').map(q => q.skillId + '|' + tmpl(q.prompt)));
-  for (const q of Q.filter(q => q.level === 'honors')) check(q, !cp2.has(q.skillId + '|' + tmpl(q.prompt)), 'Advanced item reuses a Support template');
+  // An Advanced clone may stay only when it is pinned (release fixture, partner-check target) or when its skill is at the floor
+  // the Advanced game decks and Tarsia puzzles need (5 multiple-choice and 4 short-answer Advanced items).
+  const fixed = new Set(require('../tests/fixtures/content-20261115.json').filter(e => e.course === 'discrete').map(e => e.id));
+  for (const q of Q) { const m = /^Partner-check companion to (\S+) /.exec(q.sourceNotes || ''); if (m) fixed.add(m[1]); }
+  const KEEP = { 'multiple-choice': 5, 'short-answer': 4 }, n = {};
+  for (const q of Q.filter(q => q.level === 'honors')) n[q.skillId + q.format] = (n[q.skillId + q.format] || 0) + 1;
+  const clones = Q.filter(q => q.level === 'honors' && cp2.has(q.skillId + '|' + tmpl(q.prompt)));
+  for (const q of clones) check(q, fixed.has(q.id) || n[q.skillId + q.format] <= (KEEP[q.format] || 0), 'Advanced item reuses a Support template');
+  assert(clones.length <= 120, 'Advanced clones of Support templates: ' + clones.length);
 }
 /* #3 the practice test grades sets, truth columns, lists, statement forms and one-word answers. */
 {

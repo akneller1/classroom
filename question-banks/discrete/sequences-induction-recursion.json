@@ -1166,7 +1166,7 @@
   {
    "id": "dm-sq-s02-honors-003",
    "skillId": "sequences-induction-recursion-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "Find the sum: 5 + 8 + 11 + ... + 62",
    "answer": "670",
@@ -1175,7 +1175,7 @@
     "20 terms: 20(5 + 62)/2.",
     "Sum = 670"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: series_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: series_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "F-IF.A.3",
     "F-BF.A.2",
@@ -1185,7 +1185,7 @@
   {
    "id": "dm-sq-s02-honors-004",
    "skillId": "sequences-induction-recursion-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "Find the sum: 3 + 6 + 12 + ... + 768",
    "answer": "1533",
@@ -1194,7 +1194,7 @@
     "9 terms: 3(2⁹ − 1).",
     "Sum = 1533"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: series_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: series_sum). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "F-IF.A.3",
     "F-BF.A.2",
@@ -1367,7 +1367,7 @@
   {
    "id": "dm-sq-s02-honors-005",
    "skillId": "sequences-induction-recursion-skill-02",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Classify the sequence 7, 7, 7, 7, ...",
    "answer": "Both arithmetic (d = 0) and geometric (r = 1)",
@@ -1375,7 +1375,7 @@
     "Check differences between consecutive terms and ratios between consecutive terms.",
     "Both arithmetic (d = 0) and geometric (r = 1)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Geometric, r = 2",
@@ -1977,7 +1977,7 @@
   {
    "id": "dm-sq-s03-honors-003",
    "skillId": "sequences-induction-recursion-skill-03",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Evaluate C(10, 5), also written ( 10 choose 5 ).",
    "answer": "252",
@@ -1986,7 +1986,7 @@
     "C(n, r) = n! / (r!(n − r)!).",
     "C(10, 5) = 252"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: binom_eval). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "252",
@@ -3896,7 +3896,7 @@
   {
    "id": "dm-sq-s06-honors-003",
    "skillId": "sequences-induction-recursion-skill-06",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "Tower of Hanoi: m₁ = 1 and m_k = 2m_(k−1) + 1 moves for k disks. How many moves are needed for 10 disks?",
    "answer": "1023",
@@ -3904,7 +3904,7 @@
     "Iterate the recurrence or use m_k = 2ᵏ − 1.",
     "m_10 = 1023"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hanoi). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hanoi). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "F-IF.A.3",
     "F-BF.A.2",
@@ -5884,7 +5884,7 @@
   {
    "id": "dm-sq-s09-honors-003",
    "skillId": "sequences-induction-recursion-skill-09",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "Find the measure of each interior angle of a regular 20‑gon, in degrees.",
    "answer": "162",
@@ -5892,7 +5892,7 @@
     "Interior angle sum (n − 2)·180°, divided by n.",
     "(20 − 2)·180/20 = 162°"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: interior_angle). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: interior_angle). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "G-CO.A.5",
     "DM.PATTERNS"
@@ -6758,7 +6758,7 @@
   {
    "id": "dm-sq-s04-honors-008",
    "skillId": "sequences-induction-recursion-skill-04",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "With F₁ = F₂ = 1 and F_n = F_(n−1) + F_(n−2), what is F_18?",
    "answer": "2584",
@@ -6767,7 +6767,7 @@
     "F₁ to F_18: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584.",
     "F_18 = 2584."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "2584",
@@ -6795,7 +6795,7 @@
   {
    "id": "dm-sq-s04-honors-009",
    "skillId": "sequences-induction-recursion-skill-04",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "With F₁ = F₂ = 1 and F_n = F_(n−1) + F_(n−2), what is F_25?",
    "answer": "75025",
@@ -6804,7 +6804,7 @@
     "F₁ to F_25: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025.",
     "F_25 = 75025."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "46368",

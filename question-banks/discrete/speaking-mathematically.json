@@ -5987,7 +5987,7 @@
   {
    "id": "dm-sm-s05-honors-009",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Which symbol makes this statement true?  {2, 4, 6} ☐ {2, 4, 6}  (⊊ means \"is a proper subset of\", ⊄ means \"is not a subset of\")",
    "answer": "=",
@@ -5996,7 +5996,7 @@
     "Elements use ∈ or ∉; sets use ⊆, ⊊ or =.",
     "Answer: {2, 4, 6} = {2, 4, 6}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_symbol). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: choose_symbol). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "=",
@@ -6093,7 +6093,7 @@
   {
    "id": "dm-sm-s05-honors-010",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Let A = {x ∈ ℤ | x² < 9} and B = {x ∈ ℤ | |x| ≤ 2}. Is A ⊆ B?",
    "answer": "Yes",
@@ -6101,7 +6101,7 @@
     "x² < 9 for an integer x means x ∈ {−2, −1, 0, 1, 2}, so A = B and A ⊆ B.",
     "Answer: Yes."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: builder_subset). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Cannot be decided",
@@ -7621,6 +7621,111 @@
    ]
   },
   {
+   "id": "dm-sm-s04-honors-012",
+   "skillId": "speaking-mathematically-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many elements are in {n ∈ ℤ | -7 ≤ n ≤ 9}?",
+   "answer": "17",
+   "solutionSteps": [
+    "The integers from -7 to 9 inclusive.",
+    "Count = last − first + 1 = 9 − (-7) + 1 = 17."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "options": [
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "19",
+     "correct": false
+    },
+    {
+     "text": "17",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.6",
+    "DM.LANG"
+   ]
+  },
+  {
+   "id": "dm-sm-s04-honors-013",
+   "skillId": "speaking-mathematically-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many elements are in {n ∈ ℤ | -8 ≤ n ≤ 10}?",
+   "answer": "19",
+   "solutionSteps": [
+    "The integers from -8 to 10 inclusive.",
+    "Count = last − first + 1 = 10 − (-8) + 1 = 19."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "options": [
+    {
+     "text": "19",
+     "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "MP.6",
+    "DM.LANG"
+   ]
+  },
+  {
+   "id": "dm-sm-s06-honors-015",
+   "skillId": "speaking-mathematically-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "If |A| = 9 and |B| = 13, find |A × B|.",
+   "answer": "117",
+   "solutionSteps": [
+    "A × B has one ordered pair (x, y) for each choice of x ∈ A and y ∈ B.",
+    "|A × B| = |A|·|B| = 9·13 = 117."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "options": [
+    {
+     "text": "116",
+     "correct": false
+    },
+    {
+     "text": "118",
+     "correct": false
+    },
+    {
+     "text": "119",
+     "correct": false
+    },
+    {
+     "text": "117",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "MP.6",
+    "DM.LANG"
+   ]
+  },
+  {
    "id": "dm-sm-s07-honors-011",
    "skillId": "speaking-mathematically-skill-07",
    "level": "honors",
@@ -7640,7 +7745,7 @@
   {
    "id": "dm-sm-s07-honors-012",
    "skillId": "speaking-mathematically-skill-07",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "How many strings of length 2 use an alphabet of 12 letters (repeats allowed)?",
    "answer": "144",
@@ -7648,7 +7753,7 @@
     "Each of the 2 positions can be any of the 12 letters (repeats allowed).",
     "12·12 = 144 strings."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "143",
@@ -7675,7 +7780,7 @@
   {
    "id": "dm-sm-s05-honors-012",
    "skillId": "speaking-mathematically-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "How many proper subsets does a set with 9 elements have?",
    "answer": "511",
@@ -7683,7 +7788,42 @@
     "There are 2^9 = 512 subsets in all.",
     "A proper subset is any subset except the set itself: 512 − 1 = 511."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "MP.6",
+    "DM.LANG"
+   ]
+  },
+  {
+   "id": "dm-sm-s04-honors-014",
+   "skillId": "speaking-mathematically-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many elements are in {n ∈ ℤ | -9 ≤ n ≤ 11}?",
+   "answer": "21",
+   "solutionSteps": [
+    "The integers from -9 to 11 inclusive.",
+    "Count = last − first + 1 = 11 − (-9) + 1 = 21."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
+    },
+    {
+     "text": "22",
+     "correct": false
+    },
+    {
+     "text": "23",
+     "correct": false
+    }
+   ],
    "standards": [
     "MP.6",
     "DM.LANG"

@@ -286,7 +286,7 @@
   {
    "id": "dm-st-s01-honors-003",
    "skillId": "set-theory-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Are the sets {n ∈ ℤ | n = 2k for some k ∈ ℤ} and {n ∈ ℤ | n = 2k − 2 for some k ∈ ℤ} equal?",
    "answer": "Yes: they have exactly the same elements",
@@ -294,7 +294,7 @@
     "If n = 2k then n = 2(k + 1) − 2, and conversely; both are the even integers.",
     "Sets are equal when each is a subset of the other (same elements)."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "No: they are written differently",
@@ -2960,7 +2960,7 @@
   {
    "id": "dm-st-s05-honors-001",
    "skillId": "set-theory-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "short-answer",
    "prompt": "List the elements of P({∅, 1}), the power set. Write subsets by size, then in the original order, separated by commas, e.g. ∅, {a}, ...",
    "answer": "∅, {∅}, {1}, {∅, 1}",
@@ -2968,7 +2968,7 @@
     "P(S) contains every subset of S, including ∅ and S.",
     "P({∅, 1}) = {∅, {∅}, {1}, {∅, 1}}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "S-CP.A.1",
     "DM.SETS"
@@ -3121,7 +3121,7 @@
   {
    "id": "dm-st-s05-honors-002",
    "skillId": "set-theory-skill-05",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "A set has 10 elements. How many elements does its power set have?",
    "answer": "1024",
@@ -3130,7 +3130,7 @@
     "|P(S)| = 2^|S|.",
     "2^10 = 1024"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_size). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_size). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "20",
@@ -6116,7 +6116,7 @@
   {
    "id": "dm-st-s01-honors-007",
    "skillId": "set-theory-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Are the sets {n ∈ ℤ | n³ = n} and {−1, 0, 1} equal?",
    "answer": "Yes: they have exactly the same elements",
@@ -6125,7 +6125,7 @@
     "Compare the elements of both sets.",
     "They are equal."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Yes: both are described by a condition on n",
@@ -6152,7 +6152,7 @@
   {
    "id": "dm-st-s01-honors-008",
    "skillId": "set-theory-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Are the sets {n ∈ ℤ | n² − 5n + 6 < 0} and ∅ equal?",
    "answer": "Yes: they have exactly the same elements",
@@ -6161,7 +6161,7 @@
     "Compare the elements of both sets.",
     "They are equal."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "Yes: they have exactly the same elements",
@@ -6188,7 +6188,7 @@
   {
    "id": "dm-st-s01-honors-009",
    "skillId": "set-theory-skill-01",
-   "level": "cp1",
+   "level": "honors",
    "format": "multiple-choice",
    "prompt": "Are the sets {n ∈ ℤ | 12 | n} and {n ∈ ℤ | 3 | n and 4 | n} equal?",
    "answer": "Yes: they have exactly the same elements",
@@ -6197,7 +6197,7 @@
     "Compare the elements of both sets.",
     "They are equal."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_equal). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
     {
      "text": "No: they are written differently",
@@ -8072,6 +8072,41 @@
     },
     {
      "text": "35",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
+  },
+  {
+   "id": "dm-st-s03-honors-016",
+   "skillId": "set-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "U has 82 elements and |A| = 41. Find |A′|.",
+   "answer": "41",
+   "solutionSteps": [
+    "A′ is everything in U that is not in A.",
+    "82 − 41 = 41."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "options": [
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "42",
+     "correct": false
+    },
+    {
+     "text": "43",
+     "correct": false
+    },
+    {
+     "text": "41",
      "correct": true
     }
    ],
