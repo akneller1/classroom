@@ -38,11 +38,12 @@ jobs:
           git diff --exit-code -- artifacts/calculus-related-rates-lab/index.html artifacts/calculus-particle-motion-lab/index.html
           node scripts/test-calculus-labs.cjs
           python tools/calculus-audit-20261118/labs/tests/worksheet-answers.py
-      - name: Grade 7 Integer Chips and Circles labs
+      - name: Grade 7 Integer Chips, Circles and Scale Drawings labs
         run: |
           python tools/grade7-audit-20261119/labs/build.py
-          git diff --exit-code -- artifacts/grade7-integer-chips-lab/index.html artifacts/grade7-circles-lab/index.html
+          git diff --exit-code -- artifacts/grade7-integer-chips-lab/index.html artifacts/grade7-circles-lab/index.html artifacts/grade7-scale-drawing-lab/index.html
           python tools/grade7-audit-20261119/labs/tests/worksheet-answers.py
+
       - name: Statistics Normal Curve and Chi-Square labs
         run: |
           python tools/statistics-audit-20261118/labs/build.py

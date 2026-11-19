@@ -55,3 +55,28 @@ W['grade7-circles-lab'] = dict(
     misconceptions=["Using the diameter in A = πr² instead of the radius.", "Writing the area in linear units or the circumference in square units.",
                     "Thinking doubling the radius doubles the area."],
     varies="Answers found with 3.14 differ slightly from answers found with the π key; both are acceptable when the method is shown."))
+
+W['grade7-scale-drawing-lab'] = dict(
+  predict=[("A room is 24 ft long. On a drawing with the scale 1 unit : 4 ft, how long is it?", "6 units: 24 ÷ 4 = 6.", 1),
+           ("If a drawing is redrawn so every length is twice as long, will its area be twice as large?", "No: length and width both double, so the area is 2 × 2 = 4 times as large.", 1)],
+  explore=[("Set drawing A to 1 : 4 ft. Record the drawing lengths of the 24-ft and 18-ft walls and the drawing area.", "6 units and 4.5 units; area 22.5 square units", 1),
+           ("Set A to 1 : 4 ft and B to 1 : 2 ft. Record the scale factor from A to B and the area of each drawing.", "Scale factor 2; areas 22.5 and 90 square units (90 ÷ 22.5 = 4)", 1),
+           ("Set A to 1 : 6 ft and B to 1 : 4 ft. Record the scale factor from A to B.", "6 ÷ 4 = 1.5", 1),
+           ("Find the scale where the room covers 40 square units.", "1 : 3 ft (360 ÷ 9 = 40)", 1)],
+  record=[dict(title="One room, five scales", note="Actual room: 24 ft by 18 ft, 360 square feet.",
+     head=["Scale (1 unit : s ft)", "24-ft wall (units)", "18-ft wall (units)", "Drawing area (square units)"],
+     rows=[["1 : 2 ft", "?12", "?9", "?90"], ["1 : 3 ft", "?8", "?6", "?40"], ["1 : 4 ft", "?6", "?4.5", "?22.5"],
+           ["1 : 6 ft", "?4", "?3", "?10"], ["1 : 8 ft", "?3", "?2.25", "?5.625"]])],
+  rules=[("With the scale 1 unit : s ft, a drawing length is the actual length ___ s.", ["÷"]),
+         ("Redrawing from scale 1 : a to scale 1 : b multiplies every length by ___.", ["a ÷ b"]),
+         ("If lengths are multiplied by k, areas are multiplied by ___.", ["k²"])],
+  explain=("Explain why drawing B covers 4 times the area of drawing A when it is twice as long.",
+           "Every length on B is 2 times the matching length on A, including both the length and the width. Area is length times width, so the area is multiplied by 2 × 2 = 4.", 3),
+  apply=[("A map uses 1 in. : 25 mi. Two towns are 3.2 in. apart on the map. How far apart are they?", "3.2 × 25 = 80 mi"),
+         ("A 30 ft by 20 ft deck is drawn with 1 in. : 5 ft. What are the drawing dimensions?", "6 in. by 4 in."),
+         ("The deck is redrawn at 1 in. : 2 ft. How many times as long is the new drawing? How many times the area?", "5 ÷ 2 = 2.5 times as long; 2.5² = 6.25 times the area"),
+         ("A model car is built at 1 : 24. The real car is 4.2 m long. How long is the model, in centimeters?", "4.2 ÷ 24 = 0.175 m = 17.5 cm")],
+  teacher=dict(discovery="A scale 1 unit : s ft divides every actual length by s; redrawing from scale 1 : a to 1 : b multiplies lengths by a ÷ b and areas by (a ÷ b)².",
+    misconceptions=["Multiplying by the scale when converting actual lengths to drawing lengths.", "Multiplying areas by the scale factor instead of its square.",
+                    "Thinking a scale of 1 : 8 ft makes a larger drawing than 1 : 2 ft."],
+    varies="Students may describe the scale factor from A to B or from B to A; check that it matches the direction they state."))

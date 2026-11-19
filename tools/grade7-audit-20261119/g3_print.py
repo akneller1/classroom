@@ -139,7 +139,13 @@ def domain(q):
     return q['standards'][0].split('.')[1] if q.get('standards') and q['standards'][0].startswith('7.') else None
 
 
+# Items added after the tests were built (batch G4) stay out of the pools, so the published tests do not reshuffle.
+LATER = re.compile(r'family: g7_(rewrite_meaning|rewrite_percent|polygon_angle|polygon_algebra|congruent_\w+|circle_figure|circle_area_figure|scale_drawing_figure|dot_plot_compare)\b')
+
+
 def usable(q):
+    if LATER.search(q.get('sourceNotes', '')):
+        return False
     if q['level'] not in ('cp1', 'honors') or domain(q) is None or q['unit'] == 'nonlinear-functions-polynomials':
         return False
     if q['format'] == 'multiple-choice':

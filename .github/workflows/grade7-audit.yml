@@ -9,6 +9,7 @@ on:
       - 'scripts/test-grade7-plot.cjs'
       - 'scripts/test-grade7-notes.cjs'
       - 'scripts/test-grade7-g3.cjs'
+      - 'scripts/test-grade7-g4.cjs'
       - 'scripts/geo-planning.mjs'
       - 'data.js'
       - 'worksheet-generator/plot-grade7.js'
@@ -44,6 +45,8 @@ jobs:
         run: |
           bash tools/grade7-audit-20261119/run_all.sh
           git diff --exit-code -- question-banks/prealgebra7 worksheet-generator/vocabulary-data-middle-grades.js worksheet-generator/menu/standards-map.js
+      - name: Recompute the batch G4 figure-item keys from their figures
+        run: python tools/grade7-audit-20261119/verify_g4.py
       - name: Grade 7 audit regression checks
         run: node scripts/test-grade7-audit.cjs
       - name: Graphing Practice for four more Grade 7 units (#14)
@@ -59,3 +62,5 @@ jobs:
           git diff --exit-code -- artifacts/grade7-practice-test-a/exam.html artifacts/grade7-practice-test-a/key.html artifacts/grade7-practice-test-b/exam.html artifacts/grade7-practice-test-b/key.html artifacts/grade7-reference-sheet/index.html tools/grade7-audit-20261119/practice-tests.json
       - name: Labs, pacing guide, practice tests and reference sheet (#15, #17, #18)
         run: node scripts/test-grade7-g3.cjs
+      - name: Batch G4 (radical grading, 7.EE.A.2, figures, Scale Drawings lab)
+        run: node scripts/test-grade7-g4.cjs

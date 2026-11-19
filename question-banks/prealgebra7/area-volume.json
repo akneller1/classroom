@@ -3120,6 +3120,54 @@
    "sourceNotes": "Original Claude-authored item (family: s3_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-arv-s03-cp2-g01",
+   "skillId": "area-volume-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the area. Use 3.14 for π and round to the nearest tenth.",
+   "answer": "113.0 cm²",
+   "solutionSteps": [
+    "A = πr² = 3.14 · 6²",
+    "A = 3.14 · 36 = 113.04, which rounds to 113.0 cm²"
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-cp2-g01.png",
+     "alt": "A circle with a radius drawn and labelled r = 6 cm."
+    }
+   },
+   "hint": "First step: A = πr² = 3.14 · 6²"
+  },
+  {
+   "id": "pa7-arv-s03-cp2-g02",
+   "skillId": "area-volume-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the area. Use 3.14 for π and round to the nearest tenth.",
+   "answer": "78.5 m²",
+   "solutionSteps": [
+    "r = 10 ÷ 2 = 5 m.",
+    "A = 3.14 · 25 = 78.5 m²"
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-cp2-g02.png",
+     "alt": "A circle with a diameter drawn and labelled d = 10 m."
+    }
+   },
+   "hint": "First step: r = 10 ÷ 2 = 5 m."
+  },
+  {
    "id": "pa7-arv-s03-cp1-001",
    "skillId": "area-volume-skill-03",
    "level": "cp1",
@@ -3523,6 +3571,52 @@
    "sourceNotes": "Original Claude-authored item (family: s3_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-arv-s03-cp1-g01",
+   "skillId": "area-volume-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the area of the figure. Use 3.14 for π and round to the nearest tenth.",
+   "answer": "56.5 in.²",
+   "solutionSteps": [
+    "r = 6 in.",
+    "Half of πr²: 3.14 · 36 ÷ 2 = 56.52, which rounds to 56.5 in.²"
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-cp1-g01.png",
+     "alt": "A semicircle whose straight side (the diameter) is labelled 12 in.."
+    }
+   }
+  },
+  {
+   "id": "pa7-arv-s03-cp1-g02",
+   "skillId": "area-volume-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the area of the figure. Use 3.14 for π and round to the nearest tenth.",
+   "answer": "12.6 ft²",
+   "solutionSteps": [
+    "One quarter of πr²: 3.14 · 16 ÷ 4 = 12.56",
+    "which rounds to 12.6 ft²"
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-cp1-g02.png",
+     "alt": "A quarter circle; each straight side is a radius labelled 4 ft."
+    }
+   }
+  },
+  {
    "id": "pa7-arv-s03-honors-001",
    "skillId": "area-volume-skill-03",
    "level": "honors",
@@ -3924,6 +4018,52 @@
     "7.G.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa7-arv-s03-honors-g01",
+   "skillId": "area-volume-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A second circle has twice this diameter. Find the area of the second circle. Use 3.14 for π and round to the nearest tenth.",
+   "answer": "803.8 cm²",
+   "solutionSteps": [
+    "Doubling the diameter doubles the radius, so the area is multiplied by 2² = 4.",
+    "Old area 3.14 · 8² = 200.96 cm²; new area 4 · 200.96 = 803.84, which rounds to 803.8 cm²."
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-honors-g01.png",
+     "alt": "A circle with a diameter drawn and labelled d = 16 cm."
+    }
+   }
+  },
+  {
+   "id": "pa7-arv-s03-honors-g02",
+   "skillId": "area-volume-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A window is a 20 m by 20 m square with this semicircle on top (its diameter is the top side of the square). Find the total area. Use 3.14 for π.",
+   "answer": "557.0 m²",
+   "solutionSteps": [
+    "The semicircle has r = 10 m: area 3.14 · 100 ÷ 2 = 157 m².",
+    "A square on the diameter has area 20 · 20 = 400 m²; together 557 m²."
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_circle_area_figure). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/area-volume/pa7-arv-s03-honors-g02.png",
+     "alt": "A semicircle whose straight side (the diameter) is labelled 20 m."
+    }
+   }
   },
   {
    "id": "pa7-arv-s03-honors-h01",

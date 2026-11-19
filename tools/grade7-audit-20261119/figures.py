@@ -155,3 +155,123 @@ def story_graph(path, segs, ylabel, xlabel='time', y0=0.0):
     words = {1: 'rises', 0: 'stays level', -1: 'falls'}
     parts = [words[(dy > 0) - (dy < 0)] + (' steeply' if abs(dy) / dx > 1.5 and dy else ' slowly' if dy and abs(dy) / dx < 0.6 else '') for dx, dy in segs]
     return f'Graph of {ylabel} against {xlabel} with no numbers. From left to right the graph ' + ', then '.join(parts) + '.'
+
+
+# ---- Grade 7 audit G4 (#13, the rest): polygons, congruence marks, circles, scale drawings, side-by-side dot plots ----
+
+def polygon(path, labels, name):
+    """A convex polygon with one label per vertex angle (numbers or expressions). Not drawn to scale."""
+    n = len(labels)
+    fig, ax = plt.subplots(figsize=(3.8, 3.4))
+    ax.set_aspect('equal'); ax.axis('off')
+    jit = [1.0, 0.9, 1.08, 0.95, 1.05, 0.92, 1.0, 1.06]
+    pts = [(jit[i] * math.cos(math.pi / 2 + 2 * math.pi * i / n), jit[i] * math.sin(math.pi / 2 + 2 * math.pi * i / n)) for i in range(n)]
+    ax.add_patch(plt.Polygon(pts, closed=True, facecolor='#eef3fb', edgecolor=INK, linewidth=2))
+    for (x, y), lab in zip(pts, labels):
+        ax.text(x * 0.6, y * 0.6, lab, ha='center', va='center', fontsize=10.5, color=BLUE)
+    ax.set_xlim(-1.3, 1.3); ax.set_ylim(-1.3, 1.3)
+    ax.text(0, -1.25, 'Not drawn to scale', ha='center', fontsize=8, color='#4a4f78')
+    _save(fig, path)
+    return f'A {name} with its interior angles labelled ' + ', '.join(labels) + '. Not drawn to scale.'
+
+
+def _ticks(ax, p, q, k, size=0.07):
+    mx, my = (p[0] + q[0]) / 2, (p[1] + q[1]) / 2
+    dx, dy = q[0] - p[0], q[1] - p[1]; L = math.hypot(dx, dy); ux, uy = dx / L, dy / L; nx, ny = -uy, ux
+    for j in range(k):
+        o = (j - (k - 1) / 2) * 0.06
+        cx, cy = mx + ux * o, my + uy * o
+        ax.plot([cx - nx * size, cx + nx * size], [cy - ny * size, cy + ny * size], color=INK, linewidth=1.6)
+
+
+def congruent_triangles(path, names, side_labels, angle_labels):
+    """Two congruent triangles, the second reflected and moved; matching sides carry 1, 2, 3 tick marks.
+    names: ('ABC', 'DEF'); side_labels: {(tri, i): text} for side i (0 = first-second vertex, 1 = second-third, 2 = third-first);
+    angle_labels: {(tri, i): text} at vertex i."""
+    fig, ax = plt.subplots(figsize=(5.2, 2.6))
+    ax.set_aspect('equal'); ax.axis('off')
+    T1 = [(0, 0), (2.2, 0), (0.6, 1.5)]
+    T2 = [(5.4 - x, y) for x, y in T1]
+    for t, (T, nm) in enumerate(((T1, names[0]), (T2, names[1]))):
+        ax.add_patch(plt.Polygon(T, closed=True, facecolor='#eef3fb', edgecolor=INK, linewidth=2))
+        cx, cy = sum(p[0] for p in T) / 3, sum(p[1] for p in T) / 3
+        for i, (x, y) in enumerate(T):
+            ax.text(x + (x - cx) * 0.18, y + (y - cy) * 0.22, nm[i], ha='center', va='center', fontsize=12, color=INK, fontweight='bold')
+            if (t, i) in angle_labels:
+                ax.text(x + (cx - x) * (0.68 if len(angle_labels[(t, i)]) > 5 else 0.5), y + (cy - y) * 0.5, angle_labels[(t, i)], ha='center', va='center', fontsize=9, color=BLUE)
+        for i in range(3):
+            p, q = T[i], T[(i + 1) % 3]
+            _ticks(ax, p, q, i + 1)
+            if (t, i) in side_labels:
+                mx, my = (p[0] + q[0]) / 2, (p[1] + q[1]) / 2
+                ax.text(mx + (mx - cx) * 0.75, my + (my - cy) * 0.75, side_labels[(t, i)], ha='center', va='center', fontsize=10, color=BLUE)
+    ax.set_xlim(-0.8, 6.2); ax.set_ylim(-0.5, 1.9)
+    _save(fig, path)
+    sides = '; '.join(f'{v} on side {names[t][i]}{names[t][(i + 1) % 3]}' for (t, i), v in side_labels.items())
+    angs = '; '.join(f'{v} at {names[t][i]}' for (t, i), v in angle_labels.items())
+    return (f'Two triangles, {names[0]} and the mirror-image {names[1]}. Matching sides have the same tick marks: '
+            f'{names[0][0]}{names[0][1]} and {names[1][0]}{names[1][1]} one tick, {names[0][1]}{names[0][2]} and {names[1][1]}{names[1][2]} two ticks, '
+            f'{names[0][2]}{names[0][0]} and {names[1][2]}{names[1][0]} three ticks.' + (f' Labels: {sides}.' if sides else '') + (f' Angles: {angs}.' if angs else ''))
+
+
+def circle_fig(path, kind, label):
+    """kind 'radius' or 'diameter': a circle with that segment labelled; 'semicircle': a semicircle with its diameter labelled;
+    'quarter': a quarter circle with its radius labelled."""
+    from matplotlib.patches import Circle, Wedge
+    fig, ax = plt.subplots(figsize=(3.2, 3.0 if kind in ('radius', 'diameter') else 2.2))
+    ax.set_aspect('equal'); ax.axis('off')
+    if kind in ('radius', 'diameter'):
+        ax.add_patch(Circle((0, 0), 1, facecolor='#eef3fb', edgecolor=INK, linewidth=2))
+        ax.plot([0], [0], 'o', color=INK, markersize=4)
+        x0 = -1 if kind == 'diameter' else 0
+        ax.plot([x0, 1], [0, 0], color=BLUE, linewidth=2.2)
+        ax.text((x0 + 1) / 2, 0.1, label, ha='center', va='bottom', fontsize=12, color=BLUE)
+        ax.set_xlim(-1.2, 1.2); ax.set_ylim(-1.2, 1.2)
+        alt = f'A circle with a {kind} drawn and labelled {label}.'
+    elif kind == 'semicircle':
+        ax.add_patch(Wedge((0, 0), 1, 0, 180, facecolor='#eef3fb', edgecolor=INK, linewidth=2))
+        ax.text(0, -0.14, label, ha='center', va='top', fontsize=12, color=BLUE)
+        ax.set_xlim(-1.2, 1.2); ax.set_ylim(-0.4, 1.15)
+        alt = f'A semicircle whose straight side (the diameter) is labelled {label}.'
+    else:
+        ax.add_patch(Wedge((0, 0), 1, 0, 90, facecolor='#eef3fb', edgecolor=INK, linewidth=2))
+        ax.plot([0.12, 0.12, 0], [0, 0.12, 0.12], color=INK, linewidth=1.2)
+        ax.text(0.5, -0.1, label, ha='center', va='top', fontsize=12, color=BLUE)
+        ax.set_xlim(-0.2, 1.2); ax.set_ylim(-0.35, 1.1)
+        alt = f'A quarter circle; each straight side is a radius labelled {label}.'
+    _save(fig, path)
+    return alt
+
+
+def floor_plan(path, w_label, h_label, scale, w=3.0, h=2.0, title='Room'):
+    """A rectangle on a scale drawing with its two drawing lengths and the scale written under it."""
+    fig, ax = plt.subplots(figsize=(4.2, 3.0))
+    ax.set_aspect('equal'); ax.axis('off')
+    ax.add_patch(plt.Rectangle((0, 0), w, h, facecolor='#eef3fb', edgecolor=INK, linewidth=2.2))
+    ax.text(w / 2, h / 2, title, ha='center', va='center', fontsize=12, color=INK)
+    ax.text(w / 2, -0.15, w_label, ha='center', va='top', fontsize=11, color=BLUE)
+    ax.text(w + 0.12, h / 2, h_label, ha='left', va='center', fontsize=11, color=BLUE)
+    ax.text(w / 2, -0.62, f'Scale: {scale}', ha='center', va='top', fontsize=10.5, color=INK)
+    ax.set_xlim(-0.3, w + 1.1); ax.set_ylim(-1.0, h + 0.25)
+    _save(fig, path)
+    return f'Scale drawing of a rectangular {title.lower()}: {w_label} long and {h_label} wide on the drawing. Scale: {scale}.'
+
+
+def dot_plots(path, a, b, names, lo, hi, xlabel):
+    """Two dot plots on the same number line, one above the other."""
+    fig, axs = plt.subplots(2, 1, figsize=(5.2, 3.6), sharex=True)
+    for ax, data, nm in zip(axs, (a, b), names):
+        cnt = {}
+        for v in data:
+            cnt[v] = cnt.get(v, 0) + 1
+            ax.plot([v], [cnt[v]], 'o', color=BLUE, markersize=7)
+        ax.set_ylim(0.3, max(max(cnt.values()), 4) + 0.7); ax.set_yticks([])
+        for s in ('top', 'right', 'left'):
+            ax.spines[s].set_visible(False)
+        ax.set_title(nm, loc='left', fontsize=10.5, color=INK)
+        ax.set_xlim(lo - 0.5, hi + 0.5); ax.set_xticks(range(lo, hi + 1)); ax.tick_params(labelsize=9, colors=INK)
+    axs[1].set_xlabel(xlabel, fontsize=10.5, color=INK)
+    fig.tight_layout()
+    _save(fig, path)
+    fmt = lambda d: ', '.join(str(v) for v in sorted(d))
+    return f'Two dot plots on the same scale ({xlabel}, {lo} to {hi}). {names[0]}: {fmt(a)}. {names[1]}: {fmt(b)}.'

@@ -11310,6 +11310,56 @@
    "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-dap-s09-cp2-g01",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. How much greater is the median for Class B than for Class A?",
+   "answer": "3",
+   "solutionSteps": [
+    "Median of A: 4 (the 5th and 6th values are 4 and 4).",
+    "Median of B: 7. Difference: 7 - 4 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-cp2-g01.png",
+     "alt": "Two dot plots on the same scale (books read, 2 to 9). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 5, 6, 6, 7, 7, 7, 7, 8, 8, 9."
+    }
+   },
+   "hint": "First step: Median of A: 4 (the 5th and 6th values are 4 and 4)."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-g02",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. Which class has the greater range, and by how much?",
+   "answer": "Class B, by 2",
+   "solutionSteps": [
+    "Range A: 6 - 2 = 4.",
+    "Range B: 7 - 1 = 6. Class B by 2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-cp2-g02.png",
+     "alt": "Two dot plots on the same scale (books read, 1 to 7). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 1, 2, 3, 4, 4, 4, 4, 5, 6, 7."
+    }
+   },
+   "hint": "First step: Range A: 6 - 2 = 4."
+  },
+  {
    "id": "pa7-dap-s09-cp1-001",
    "skillId": "data-analysis-probability-skill-09",
    "level": "cp1",
@@ -11719,6 +11769,54 @@
     "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-g01",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. Find the difference of the means.",
+   "answer": "2",
+   "solutionSteps": [
+    "Mean A: 40 ÷ 10 = 4.",
+    "Mean B: 60 ÷ 10 = 6. Difference: 2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-cp1-g01.png",
+     "alt": "Two dot plots on the same scale (books read, 2 to 8). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 4, 5, 5, 6, 6, 6, 6, 7, 7, 8."
+    }
+   }
+  },
+  {
+   "id": "pa7-dap-s09-cp1-g02",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. The means are equal. Which class has the greater mean absolute deviation (MAD)? Give both MADs.",
+   "answer": "Class B; MAD A = 0.8, MAD B = 1.2",
+   "solutionSteps": [
+    "Mean of each class is 4.",
+    "MAD A = (2 + 1 + 1 + 0 + 0 + 0 + 0 + 1 + 1 + 2) ÷ 10 = 0.8; MAD B = (3 + 2 + 1 + 0 + 0 + 0 + 0 + 1 + 2 + 3) ÷ 10 = 1.2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-cp1-g02.png",
+     "alt": "Two dot plots on the same scale (books read, 1 to 7). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 1, 2, 3, 4, 4, 4, 4, 5, 6, 7."
+    }
+   }
   },
   {
    "id": "pa7-dap-s09-honors-001",
@@ -12136,6 +12234,54 @@
     "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa7-dap-s09-honors-g01",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. Both classes have MAD 0.8. The difference of the means is how many MADs?",
+   "answer": "3.75",
+   "solutionSteps": [
+    "Means: 4 and 7; difference 3.",
+    "3 ÷ 0.8 = 3.75 MADs."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-honors-g01.png",
+     "alt": "Two dot plots on the same scale (books read, 2 to 9). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 5, 6, 6, 7, 7, 7, 7, 8, 8, 9."
+    }
+   }
+  },
+  {
+   "id": "pa7-dap-s09-honors-g02",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The dot plots show the number of books read by students in two classes. Both classes have MAD 0.8. Express the difference of the means as a multiple of the MAD. Is the overlap large or small?",
+   "answer": "5 MADs; small overlap",
+   "solutionSteps": [
+    "Means: 4 and 8; difference 4.",
+    "4 ÷ 0.8 = 5, a large difference compared with the spread, so the overlap is small."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dot_plot_compare). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/data-analysis-probability/pa7-dap-s09-honors-g02.png",
+     "alt": "Two dot plots on the same scale (books read, 2 to 10). Class A: 2, 3, 3, 4, 4, 4, 4, 5, 5, 6. Class B: 6, 7, 7, 8, 8, 8, 8, 9, 9, 10."
+    }
+   }
   },
   {
    "id": "pa7-dap-s09-honors-h01",

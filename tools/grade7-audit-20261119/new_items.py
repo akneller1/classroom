@@ -392,6 +392,164 @@ def grade8(o, rng):
         o.add(u, 5, lv, 'multiple-choice', p, ans, ['A good line of fit follows the trend, with points balanced above and below and as close to the line as possible.', ans], ['8.SP.A.2'], ['reasoning'], 'g7_line_of_fit', wrong=wrong, rng=rng)
 
 
+# ---------------------------------------------------------------- Grade 7 audit G4 (2026-11-19)
+# #9: 7.EE.A.2 beyond the one Rewriting Expressions skill; #13: figures for polygons, congruence, circles, scale drawings
+# and side-by-side dot plots. Appended after the G2 families, so earlier ids do not change.
+
+def rewrite_meaning(o, rng):
+    U = 'one-step-equations-inequalities'
+    items = {
+        'cp2': [('Each of n students buys a notebook for $4 and a pen for $2. The total cost is 4n + 2n dollars. Rewrite it as one term. What does the new form show?',
+                 '6n: each student spends $6', ['8n: each student spends $8', '6 + n: the total is $6 more than n', '42n: each student spends $42'],
+                 ['Combine like terms: 4n + 2n = 6n.', 'The coefficient 6 is the cost for one student, $4 + $2.'], 3),
+                ('A garden is 3 m wide. Its length is x + 5 m. Its area is 3(x + 5) square meters. Rewrite it as 3x + 15. What does 15 represent?',
+                 'the area of the 3 m by 5 m part', ['the perimeter of the garden', 'the length of the garden', 'the area of the 3 m by x m part'],
+                 ['3(x + 5) = 3x + 15: the garden splits into a 3 by x part and a 3 by 5 part.', 'The 15 square meters is the 3 m by 5 m part.'], 2)],
+        'cp1': [('A team buys t T-shirts at $12 each and t hats at $8 each. Write the total cost as one term and explain what the coefficient means.',
+                 '20t: the cost for one shirt and one hat together is $20', ['20t: the team buys 20 items', '96t: each shirt and hat cost $96', '20 + t: the cost is $20 plus the number of items'],
+                 ['12t + 8t = 20t.', 'The coefficient 20 is $12 + $8, the cost of one shirt-and-hat set.'], 3),
+                ('A pool fills from two hoses. One adds 7 gallons per minute and the other 5 gallons per minute. After m minutes the water added is 7m + 5m. Which form shows the combined rate?',
+                 '12m', ['35m', '7(m + 5)', '12 + m'], ['7m + 5m = 12m.', 'The coefficient 12 gallons per minute is the combined rate.'], 3)],
+        'honors': [('A rectangle has length 2w + 6 and width w. Its perimeter is 2(2w + 6) + 2w. Write the perimeter in the form a(w + b). What does the form show?',
+                    '6(w + 2): the perimeter is 6 times (w + 2)', ['6w + 12: the perimeter is 12 more than 6w', '4(w + 3): the perimeter is 4 times (w + 3)', '6(w + 6): the perimeter is 6 times (w + 6)'],
+                    ['2(2w + 6) + 2w = 4w + 12 + 2w = 6w + 12.', 'Factor out 6: 6(w + 2).'], 2),
+                   ('Ana earns d dollars a week. She saves 15% and spends 30% on lunch. The rest is d − 0.15d − 0.3d. Rewrite it as one term. What fraction of her pay is left?',
+                    '0.55d: 55% of her pay is left', ['0.45d: 45% of her pay is left', '0.55d: she spends 55% on lunch', 'd − 0.45: she has $0.45 less'],
+                    ['d − 0.15d − 0.3d = (1 − 0.15 − 0.3)d = 0.55d.', '0.55 = 55%, so 55% of her pay is left.'], 3)],
+    }
+    for lv in LV:
+        for prompt, ans, wrong, steps, sk in items[lv]:
+            o.add(U, sk, lv, 'multiple-choice', prompt, ans, steps, ['7.EE.A.2', '7.EE.A.1'], ['reasoning', 'context'], 'g7_rewrite_meaning', wrong=wrong, rng=rng)
+    for lv, (pct, kind) in zip(LV, [(25, 'off'), (15, 'off'), (35, 'markup')]):
+        f = (100 - pct) if kind == 'off' else (100 + pct)
+        expr = f'p − {pct / 100:g}p' if kind == 'off' else f'p + {pct / 100:g}p'
+        o.add('ratios-proportions-percentages', 9, lv, 'multiple-choice',
+              f'An item has price p. After a {pct}% {"discount" if kind == "off" else "markup"} the new price is {expr}. Which rewritten form shows that the new price is a percent of p, and what percent?',
+              f'{f / 100:g}p, so {f}% of p',
+              [f'{expr} = (1 {"−" if kind == "off" else "+"} {pct / 100:g})p = {f / 100:g}p.', f'{f / 100:g} = {f}%, so the new price is {f}% of the original.'],
+              ['7.EE.A.2', '7.RP.A.3'], ['reasoning', 'context'], 'g7_rewrite_percent', wrong=[f'{pct / 100:g}p, so {pct}% of p', f'{(200 - f) / 100:g}p, so {200 - f}% of p', f'p {"−" if kind == "off" else "+"} {pct}, so ${pct} {"less" if kind == "off" else "more"}'], rng=rng)
+
+
+def poly_angles(o, rng):
+    U, sk = 'spatial-thinking', 3
+    plans = {
+        'cp2': [('triangle', [52, 71, None]), ('triangle', [38, 90, None])],
+        'cp1': [('quadrilateral', [95, 70, 110, None]), ('pentagon', [100, 115, 120, 98, None])],
+        'honors': [('quadrilateral', 'x 2x x+30 2x+30'.split()), ('pentagon', 'x x+10 x+20 x+30 x+40'.split())],
+    }
+    for lv in LV:
+        for name, ang in plans[lv]:
+            n = len(ang); total = (n - 2) * 180
+            if lv != 'honors':
+                x = total - sum(a for a in ang if a)
+                labels = [f'{a}°' if a else 'x°' for a in ang]
+                o.add(U, sk, lv, 'short-answer', f'Find x in the {name}.', f'x = {x}',
+                      [f'The interior angles of a {name} add to ({n} − 2) · 180° = {total}°.', ' + '.join(str(a) for a in ang if a) + f' + x = {total}.', f'x = {total} − {sum(a for a in ang if a)} = {x}.'],
+                      ['8.G.A.5', '7.G.B.5'], ['diagram'], 'g7_polygon_angle', fig=('polygon', labels, name))
+            else:
+                coef = sum(2 if a.startswith('2x') else 1 for a in ang)
+                const = sum(int(a.split('+')[1]) if '+' in a else 0 for a in ang)
+                x = (total - const) // coef; assert coef * x + const == total
+                vals = [(2 if a.startswith('2x') else 1) * x + (int(a.split('+')[1]) if '+' in a else 0) for a in ang]
+                labels = [a.replace('+', ' + ') + '°' if a != 'x' else 'x°' for a in ang]
+                o.add(U, sk, lv, 'short-answer', f'Find the measure of the largest angle of the {name}.', f'{max(vals)}°',
+                      [f'The interior angles add to ({n} − 2) · 180° = {total}°.', f'{coef}x + {const} = {total}, so x = {x}.', 'The angles are ' + ', '.join(f'{v}°' for v in vals) + f'; the largest is {max(vals)}°.'],
+                      ['8.G.A.5', '7.EE.B.4a'], ['diagram', 'multistep'], 'g7_polygon_algebra', fig=('polygon', labels, name))
+
+
+def congruence_marks(o, rng):
+    U, sk = 'spatial-thinking', 5
+    nm = ('ABC', 'DEF')
+    # cp2: read a side and an angle across the tick marks
+    o.add(U, sk, 'cp2', 'short-answer', '△ABC ≅ △DEF. The tick marks show matching sides. How long is DE?', '7 cm',
+          ['Sides with one tick mark match: AB and DE.', 'AB = 7 cm, so DE = 7 cm.'], ['8.G.A.2'], ['diagram'], 'g7_congruent_marks', fig=('cong', nm, {(0, 0): '7 cm', (0, 1): '9 cm'}, {}))
+    o.add(U, sk, 'cp2', 'short-answer', '△ABC ≅ △DEF. Find the measure of ∠E.', '64°',
+          ['∠B matches ∠E (the second letters).', 'm∠B = 64°, so m∠E = 64°.'], ['8.G.A.2'], ['diagram'], 'g7_congruent_marks', fig=('cong', nm, {}, {(0, 1): '64°', (0, 0): '47°'}))
+    o.add(U, sk, 'cp1', 'multiple-choice', '△ABC ≅ △DEF. Which side of △DEF has two tick marks, matching BC?', 'EF',
+          ['Two tick marks are on BC in △ABC.', 'BC matches EF (second and third letters).'], ['8.G.A.2'], ['diagram'], 'g7_congruent_marks', wrong=['DE', 'DF', 'AC'], rng=rng, fig=('cong', nm, {}, {}))
+    o.add(U, sk, 'cp1', 'short-answer', '△ABC ≅ △DEF. The side lengths are labelled. Find x.', 'x = 6',
+          ['CA and FD both have three tick marks, so they are equal.', '2x + 3 = 15, so 2x = 12 and x = 6.'], ['8.G.A.2', '7.EE.B.4a'], ['diagram'], 'g7_congruent_algebra',
+          fig=('cong', nm, {(0, 2): '2x + 3', (1, 2): '15'}, {}))
+    o.add(U, sk, 'honors', 'short-answer', '△ABC ≅ △DEF. Find x, then the measure of ∠C.', 'x = 15; m∠C = 80°',
+          ['∠A matches ∠D, so 3x + 5 = 50 and x = 15.', '∠B matches ∠E, so m∠B = 50°.', 'm∠C = 180° − 50° − 50° = 80°.'],
+          ['8.G.A.2', '7.EE.B.4a'], ['diagram', 'multistep'], 'g7_congruent_algebra', fig=('cong', nm, {}, {(0, 0): '(3x + 5)°', (1, 0): '50°', (1, 1): '50°'}))
+    o.add(U, sk, 'honors', 'short-answer', '△ABC ≅ △DEF. Use the labelled lengths to find the perimeter of △DEF.', '31 cm',
+          ['Matching sides: DE = AB = 9 cm, EF = BC = 12 cm, and FD = 10 cm is given.', 'Perimeter of △DEF = 9 + 12 + 10 = 31 cm.'],
+          ['8.G.A.2'], ['diagram', 'multistep'], 'g7_congruent_perimeter', fig=('cong', nm, {(0, 0): '9 cm', (0, 1): '12 cm', (1, 2): '10 cm'}, {}))
+
+
+def circle_figs(o, rng):
+    def t(x):  # nearest tenth, half up
+        return f'{float(half_up(Fr(x).limit_denominator(10 ** 6) if not isinstance(x, Fr) else x, 1)):.1f}'
+    P = Fr(314, 100)
+    C = [('cp2', 'radius', 'r = 5 cm', 'Find the circumference. Use 3.14 for π and round to the nearest tenth.', P * 10, 'cm', ['C = 2πr = 2 · 3.14 · 5', 'C = 31.4 cm']),
+         ('cp2', 'diameter', 'd = 12 in.', 'Find the circumference. Use 3.14 for π and round to the nearest tenth.', P * 12, 'in.', ['C = πd = 3.14 · 12', 'C = 37.68, which rounds to 37.7 in.']),
+         ('cp1', 'semicircle', '10 m', 'Find the perimeter of the semicircle (the curved part and the diameter). Use 3.14 for π and round to the nearest tenth.', P * 5 + 10, 'm',
+          ['Curved part: half of πd = 3.14 · 10 ÷ 2 = 15.7 m.', 'Add the diameter: 15.7 + 10 = 25.7 m.']),
+         ('cp1', 'radius', 'r = 7 ft', 'A wheel has this radius. How far does it roll in 10 full turns? Use 3.14 for π and round to the nearest tenth.', P * 14 * 10, 'ft',
+          ['One turn: C = 2 · 3.14 · 7 = 43.96 ft.', '10 turns: 439.6 ft.']),
+         ('honors', 'quarter', '8 cm', 'Find the perimeter of the quarter circle. Use 3.14 for π and round to the nearest tenth.', P * 16 / 4 + 16, 'cm',
+          ['Curved part: one quarter of 2πr = 2 · 3.14 · 8 ÷ 4 = 12.56 cm.', 'Add the two radii: 12.56 + 8 + 8 = 28.56, which rounds to 28.6 cm.']),
+         ('honors', 'diameter', 'd = 24 in.', 'The circumference of a second circle is 3 times this circle\'s circumference. What is the second circle\'s radius?', None, 'in.',
+          ['Circumference is proportional to the diameter, so the second diameter is 3 · 24 = 72 in.', 'Its radius is 72 ÷ 2 = 36 in.'])]
+    for lv, kind, lab, q, v, unit, steps in C:
+        ans = '36 in.' if v is None else f'{t(v)} {unit}'
+        o.add('spatial-thinking', 6, lv, 'short-answer', q, ans, steps, ['7.G.B.4'], ['diagram'] + (['multistep'] if lv == 'honors' else []), 'g7_circle_figure', fig=('circle', kind, lab))
+    A = [('cp2', 'radius', 'r = 6 cm', P * 36, 'cm²', ['A = πr² = 3.14 · 6²', 'A = 3.14 · 36 = 113.04, which rounds to 113.0 cm²']),
+         ('cp2', 'diameter', 'd = 10 m', P * 25, 'm²', ['r = 10 ÷ 2 = 5 m.', 'A = 3.14 · 25 = 78.5 m²']),
+         ('cp1', 'semicircle', '12 in.', P * 36 / 2, 'in.²', ['r = 6 in.', 'Half of πr²: 3.14 · 36 ÷ 2 = 56.52, which rounds to 56.5 in.²']),
+         ('cp1', 'quarter', '4 ft', P * 16 / 4, 'ft²', ['One quarter of πr²: 3.14 · 16 ÷ 4 = 12.56', 'which rounds to 12.6 ft²']),
+         ('honors', 'diameter', 'd = 16 cm', None, 'cm²', ['Doubling the diameter doubles the radius, so the area is multiplied by 2² = 4.', 'Old area 3.14 · 8² = 200.96 cm²; new area 4 · 200.96 = 803.84, which rounds to 803.8 cm².']),
+         ('honors', 'semicircle', '20 m', None, 'm²', ['The semicircle has r = 10 m: area 3.14 · 100 ÷ 2 = 157 m².', 'A square on the diameter has area 20 · 20 = 400 m²; together 557 m².'])]
+    Q = {None: None}
+    for lv, kind, lab, v, unit, steps in A:
+        if v is None and kind == 'diameter':
+            q = 'A second circle has twice this diameter. Find the area of the second circle. Use 3.14 for π and round to the nearest tenth.'; ans = f'{t(P * 64 * 4)} {unit}'
+        elif v is None:
+            q = 'A window is a 20 m by 20 m square with this semicircle on top (its diameter is the top side of the square). Find the total area. Use 3.14 for π.'; ans = f'{t(P * 50 + 400)} {unit}'
+        else:
+            q = 'Find the area' + (' of the figure' if kind in ('semicircle', 'quarter') else '') + '. Use 3.14 for π and round to the nearest tenth.'; ans = f'{t(v)} {unit}'
+        o.add('area-volume', 3, lv, 'short-answer', q, ans, steps, ['7.G.B.4'], ['diagram'] + (['multistep'] if lv == 'honors' else []), 'g7_circle_area_figure', fig=('circle', kind, lab))
+
+
+def scale_figs(o, rng):
+    U, sk = 'ratios-proportions-percentages', 3
+    plans = [('cp2', 'Kitchen', '4.5 in.', '3 in.', '1 in. : 4 ft', 'How long is the actual kitchen?', '18 ft', ['Each inch is 4 ft.', '4.5 · 4 = 18 ft.']),
+             ('cp2', 'Garden', '6 cm', '2.5 cm', '1 cm : 2 m', 'How wide is the actual garden (the shorter side)?', '5 m', ['Each centimeter is 2 m.', '2.5 · 2 = 5 m.']),
+             ('cp1', 'Bedroom', '3 in.', '2.5 in.', '1 in. : 4 ft', 'Find the actual area of the bedroom.', '120 square feet',
+              ['Actual length 3 · 4 = 12 ft; actual width 2.5 · 4 = 10 ft.', 'Area = 12 · 10 = 120 square feet.']),
+             ('cp1', 'Patio', '5 cm', '3 cm', '1 cm : 1.5 m', 'Find the actual perimeter of the patio.', '24 m',
+              ['Actual sides 5 · 1.5 = 7.5 m and 3 · 1.5 = 4.5 m.', 'Perimeter = 2(7.5 + 4.5) = 24 m.']),
+             ('honors', 'Classroom', '6 in.', '4 in.', '1 in. : 5 ft', 'The room is redrawn with the scale 1 in. : 8 ft. How long is the longer side on the new drawing?', '3.75 in.',
+              ['Actual length: 6 · 5 = 30 ft.', 'New drawing: 30 ÷ 8 = 3.75 in.']),
+             ('honors', 'Park', '8 cm', '5 cm', '1 cm : 25 m', 'Find the actual area of the park in square meters.', '25,000 square meters',
+              ['Actual sides: 8 · 25 = 200 m and 5 · 25 = 125 m.', 'Area = 200 · 125 = 25,000 square meters (the drawing area 40 cm² times 25² = 625).'])]
+    for lv, title, wl, hl, sc, q, ans, steps in plans:
+        o.add(U, sk, lv, 'short-answer', f'The scale drawing shows a {title.lower()}. {q}', ans, steps, ['7.G.A.1'], ['diagram'] + (['multistep'] if lv != 'cp2' else []), 'g7_scale_drawing_figure', fig=('plan', wl, hl, sc, title))
+
+
+def dotplot_figs(o, rng):
+    U, sk = 'data-analysis-probability', 9
+    base = [2, 3, 3, 4, 4, 4, 4, 5, 5, 6]          # mean 4, MAD 0.8, median 4, range 4
+    wide = [1, 2, 3, 4, 4, 4, 4, 5, 6, 7]          # mean 4, MAD 1.2, median 4, range 6
+    plans = [('cp2', base, [x + 3 for x in base], 'How much greater is the median for Class B than for Class A?', '3',
+              ['Median of A: 4 (the 5th and 6th values are 4 and 4).', 'Median of B: 7. Difference: 7 − 4 = 3.']),
+             ('cp2', base, wide, 'Which class has the greater range, and by how much?', 'Class B, by 2',
+              ['Range A: 6 − 2 = 4.', 'Range B: 7 − 1 = 6. Class B by 2.']),
+             ('cp1', base, [x + 2 for x in base], 'Find the difference of the means.', '2',
+              ['Mean A: 40 ÷ 10 = 4.', 'Mean B: 60 ÷ 10 = 6. Difference: 2.']),
+             ('cp1', base, wide, 'The means are equal. Which class has the greater mean absolute deviation (MAD)? Give both MADs.', 'Class B; MAD A = 0.8, MAD B = 1.2',
+              ['Mean of each class is 4.', 'MAD A = (2 + 1 + 1 + 0 + 0 + 0 + 0 + 1 + 1 + 2) ÷ 10 = 0.8; MAD B = (3 + 2 + 1 + 0 + 0 + 0 + 0 + 1 + 2 + 3) ÷ 10 = 1.2.']),
+             ('honors', base, [x + 3 for x in base], 'Both classes have MAD 0.8. The difference of the means is how many MADs?', '3.75',
+              ['Means: 4 and 7; difference 3.', '3 ÷ 0.8 = 3.75 MADs.']),
+             ('honors', base, [x + 4 for x in base], 'Both classes have MAD 0.8. Express the difference of the means as a multiple of the MAD. Is the overlap large or small?', '5 MADs; small overlap',
+              ['Means: 4 and 8; difference 4.', '4 ÷ 0.8 = 5, a large difference compared with the spread, so the overlap is small.'])]
+    for i, (lv, a, b, q, ans, steps) in enumerate(plans):
+        lo, hi = min(a + b), max(a + b)
+        o.add(U, sk, lv, 'short-answer', f'The dot plots show the number of books read by students in two classes. {q}', ans, steps, ['7.SP.B.3', '7.SP.B.4'],
+              ['diagram'] + (['multistep'] if lv == 'honors' else []), 'g7_dot_plot_compare', fig=('dots', a, b, ('Class A', 'Class B'), lo, hi, 'books read'))
+
+
 def draw(fig, path):
     kind = fig[0]
     if kind == 'slice':
@@ -403,10 +561,21 @@ def draw(fig, path):
         return figures.line_graph(path, [(float(a), float(b)) for a, b in pts], xm, ym, xl, yl, 1, ys, lab)
     if kind == 'story':
         return figures.story_graph(path, fig[1], fig[2])
+    if kind == 'polygon':
+        return figures.polygon(path, fig[1], fig[2])
+    if kind == 'cong':
+        return figures.congruent_triangles(path, fig[1], fig[2], fig[3])
+    if kind == 'circle':
+        return figures.circle_fig(path, fig[1], fig[2])
+    if kind == 'plan':
+        return figures.floor_plan(path, fig[1], fig[2], fig[3], title=fig[4])
+    if kind == 'dots':
+        return figures.dot_plots(path, *fig[1:])
     raise ValueError(kind)
 
 
-FAMILIES = [tri_ineq, cross_sections, prop_graphs, angle_eqs, percents, number_sense, grade8]
+FAMILIES = [tri_ineq, cross_sections, prop_graphs, angle_eqs, percents, number_sense, grade8,
+            rewrite_meaning, poly_angles, congruence_marks, circle_figs, scale_figs, dotplot_figs]
 GID = re.compile(r'-g\d{2}$')
 
 

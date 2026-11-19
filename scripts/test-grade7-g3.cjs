@@ -17,7 +17,7 @@ const cards = (unit) => course.units.find((u) => u.id === unit).artifacts;
 
 /* #15 labs: built pages, worksheets, keys, thumbnails and cards in the right units */
 const M = JSON.parse(rd('tools/grade7-audit-20261119/labs/manifest.json'));
-assert.deepStrictEqual(M.tools.map((t) => t.slug), ['grade7-integer-chips-lab', 'grade7-circles-lab']);
+assert.deepStrictEqual(M.tools.map((t) => t.slug), ['grade7-integer-chips-lab', 'grade7-circles-lab', 'grade7-scale-drawing-lab']); // the third lab came in batch G4
 for (const t of M.tools) {
   const html = rd(`artifacts/${t.slug}/index.html`), src = rd(`tools/grade7-audit-20261119/labs/src/${t.slug}.js`);
   assert(html.includes(src.trim().slice(0, 200)) && html.includes('../interactive-math/lab.js'), t.slug + ' page is built from its source');
@@ -96,4 +96,4 @@ for (const u of ['ratios-proportions-percentages', 'spatial-thinking', 'area-vol
   assert(cards(u).some((a) => a.path === 'artifacts/grade7-reference-sheet/reference-sheet.pdf'), 'reference sheet card in ' + u);
 assert(fs.statSync(path.join(ROOT, 'artifacts/grade7-reference-sheet/reference-sheet.pdf')).size > 20000, 'reference sheet PDF');
 
-console.log(`PASS Grade 7 audit G3: 2 labs, pacing guide (MCAS days ${mcas[1]}–${mcas[2]}, ${cov[1]}/${cov[2]} standards), 2 practice tests (76 bank questions + 4 constructed response), reference sheet`);
+console.log(`PASS Grade 7 audit G3: ${M.tools.length} labs, pacing guide (MCAS days ${mcas[1]}–${mcas[2]}, ${cov[1]}/${cov[2]} standards), 2 practice tests (76 bank questions + 4 constructed response), reference sheet`);

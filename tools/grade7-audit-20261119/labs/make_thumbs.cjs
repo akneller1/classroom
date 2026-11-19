@@ -5,10 +5,11 @@ const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '../../..'); const M = require('./manifest.json');
 const T = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' };
 const PRE = {
+  'grade7-scale-drawing-lab': p => p.evaluate(() => { [...document.querySelectorAll('button')].filter(b => b.textContent.trim() === '1 : 3 ft')[0].click(); }),
   'grade7-integer-chips-lab': p => p.evaluate(() => { const e = document.getElementById('sl-a'); e.value = 6; e.dispatchEvent(new Event('input')); const f = document.getElementById('sl-b'); f.value = -9; f.dispatchEvent(new Event('input')); }),
   'grade7-circles-lab': p => p.evaluate(() => { [...document.querySelectorAll('button')].find(b => b.textContent.trim() === '16').click(); [...document.querySelectorAll('button')].find(b => b.textContent.trim().startsWith('Area')).click(); })
 };
-const SHOT = { 'grade7-integer-chips-lab': 'svg[aria-label="Integer chips"]', 'grade7-circles-lab': 'svg[aria-label="Circle model"]' };
+const SHOT = { 'grade7-scale-drawing-lab': 'svg[aria-label="Two scale drawings of the same room"]', 'grade7-integer-chips-lab': 'svg[aria-label="Integer chips"]', 'grade7-circles-lab': 'svg[aria-label="Circle model"]' };
 (async () => {
   const srv = await new Promise(r => { const s = http.createServer((q, res) => { const u = decodeURIComponent(q.url.split('?')[0]); fs.readFile(path.join(ROOT, u), (e, d) => { if (e) { res.writeHead(404); res.end(); return; } res.writeHead(200, { 'Content-Type': T[path.extname(u)] || 'application/octet-stream' }); res.end(d); }); }); s.listen(0, () => r(s)); });
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 1000 }, deviceScaleFactor: 2 });

@@ -194,9 +194,11 @@ API.grade = function (answer, typed) {
   if (kind === 'approx') return approxGrade(answer, t);
   if (t.length > 180) return { status: 'invalid', message: 'Enter only your final answer (180 characters maximum).' };
   if (kind === 'vector') t = t.replace(/^</, '⟨').replace(/>$/, '⟩');
-  var a = shape(answer), b = shape(t), f = {}, keyIrrational = false, typedRational = true;
+  // kf: the key's own form. When the key itself is unsimplified on purpose ("Which is greater: √18 or 4.1?" → √18),
+  // that form is not required to be simplified (Grade 7 audit G4, 2026-11-19).
+  var a = shape(answer), b = shape(t), f = {}, kf = {}, keyIrrational = false, typedRational = true;
   if (kind === 'list' && b.kind !== 'list') b = { kind: 'list', parts: t.replace(/^[a-zθ]\s*=\s*/, '').split(/\s*,\s*|\s+or\s+/).map(function (p) { return p.replace(/^[a-zθ]\s*=\s*/, ''); }) };
-  function val(text, isKey) { var flags = isKey ? {} : f, v = exactOf(text.trim(), flags); if (isKey && !isRational(v)) keyIrrational = true; if (!isKey && !isRational(v)) typedRational = false; return v; }
+  function val(text, isKey) { var flags = isKey ? kf : f, v = exactOf(text.trim(), flags); if (isKey && !isRational(v)) keyIrrational = true; if (!isKey && !isRational(v)) typedRational = false; return v; }
   var ok;
   try {
     if (kind === 'interval') {
@@ -227,9 +229,9 @@ API.grade = function (answer, typed) {
     return { status: 'invalid', message: 'Answer format could not be read. Use exact values such as (√3)/2, 7π/6 or 3 - 4i.' };
   }
   if (!ok && f.decimal && keyIrrational && typedRational) return { status: 'invalid', message: 'Give an exact answer (use √ and π), not a decimal.' };
-  if (ok && f.denominator) return { status: 'invalid', message: 'Rationalize the denominator, as in 1/√2 = (√2)/2.' };
-  if (ok && f.radical) return { status: 'invalid', message: 'Simplify the radical: take out square factors, as in √12 = 2√3.' };
-  if (ok && (f.product || f.combine)) return { status: 'invalid', message: 'Simplify completely: multiply out and combine like terms.' };
+  if (ok && f.denominator && !kf.denominator) return { status: 'invalid', message: 'Rationalize the denominator, as in 1/√2 = (√2)/2.' };
+  if (ok && f.radical && !kf.radical) return { status: 'invalid', message: 'Simplify the radical: take out square factors, as in √12 = 2√3.' };
+  if (ok && (f.product && !kf.product || f.combine && !kf.combine)) return { status: 'invalid', message: 'Simplify completely: multiply out and combine like terms.' };
   return { status: ok ? 'correct' : 'incorrect' };
 };
 })(typeof window !== 'undefined' ? window : globalThis);

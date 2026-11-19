@@ -1,0 +1,52 @@
+/* Scale Drawings lab (7.G.A.1): the same L-shaped room (24 ft by 18 ft with a 12 ft by 6 ft corner cut out, 360 square feet)
+   drawn at two scales on one grid. Each drawing length is the actual length divided by the scale; lengths from drawing A to
+   drawing B are multiplied by the scale factor sA ÷ sB, and areas by its square. */
+var ROOM = [[0, 0], [24, 0], [24, 12], [12, 12], [12, 18], [0, 18]], AREA = 360;
+var st = { a: 4, b: 2, seen: {}, pairs: {} };
+var G = { xmin: 0, xmax: 28, ymin: 0, ymax: 11, width: 660, height: 260, label: 'Two scale drawings of the same room', xstep: 1, ystep: 1, noLabels: true }, g = L.graph(P.stage, G);
+L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Each grid square is 1 unit. Drawing A (blue, left) and drawing B (orange, right) show the same room: 24 ft by 18 ft with a 12 ft by 6 ft corner cut out.');
+var opts = [2, 3, 4, 6, 8].map(function (k) { return { value: String(k), label: '1 : ' + k + ' ft' }; });
+L.chips(P.panel, { label: 'Scale of drawing A (1 unit represents)', value: String(st.a), options: opts, onChange: function (v) { st.a = +v; draw(); } });
+L.chips(P.panel, { label: 'Scale of drawing B (1 unit represents)', value: String(st.b), options: opts, onChange: function (v) { st.b = +v; draw(); } });
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Set drawing A to 1 unit : 4 ft. How many units long is the 24-ft wall on drawing A?', check: function () { return st.seen.a4; } },
+  { text: 'Make drawing B exactly twice as long as drawing A. How many times as much area does B cover?', check: function () { return st.seen.twice; } },
+  { text: 'Make drawing B half as long as drawing A. What fraction of A’s area does B cover?', check: function () { return st.seen.half; } },
+  { text: 'Find two scales where drawing B is 1.5 times as long as drawing A. What is the scale factor from A to B?', check: function () { return st.seen.oneHalf; } },
+  { text: 'Find the scale where the room covers 40 square units on the drawing.', check: function () { return st.seen.area40; } }
+]);
+L.notice(P.below, '<p><b>Scale:</b> a scale such as 1 unit : 4 ft means every unit on the drawing stands for 4 ft. Divide an actual length by 4 to get the drawing length; multiply a drawing length by 4 to get the actual length.</p>' +
+  '<p><b>Redrawing at a new scale:</b> lengths are multiplied by the scale factor. Areas are multiplied by the square of the scale factor, because both the length and the width change.</p>');
+var n2 = function (v) { return L.num(v, 2); };
+// division shown as a stacked fraction
+function fr(n, d) { return '<span style="display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.05;margin:0 2px;font-size:.92em"><span style="border-bottom:1.5px solid currentColor;padding:0 3px">' + n + '</span><span>' + d + '</span></span>'; }
+function gcd(x, y) { return y ? gcd(y, x % y) : x; }
+function ratio(x, y) { var c = gcd(x, y); return y / c === 1 ? String(x / c) : fr(x / c, y / c); }
+function room(x0, y0, s, color) {
+  var pts = ROOM.map(function (p) { return [x0 + p[0] / s, y0 + p[1] / s]; });
+  g.poly(pts, { fill: color, opacity: 0.28, stroke: color, width: 2.5 });
+  g.text(x0 + 12 / s, y0, n2(24 / s) + ' u', { dy: 16, anchor: 'middle', color: color, size: 12, weight: 700 });
+  g.text(x0, y0 + 9 / s, n2(18 / s) + ' u', { dx: -4, anchor: 'end', color: color, size: 12, weight: 700 });
+}
+var draw = L.scheduler(function () {
+  var a = st.a, b = st.b, k = a / b;
+  g.clear();
+  room(1.6, 1, a, 'blue'); room(15, 1, b, 'orange');
+  g.text(1.6, 10.6, 'A: 1 unit = ' + a + ' ft', { anchor: 'start', color: 'blue', size: 13, weight: 700 });
+  g.text(15, 10.6, 'B: 1 unit = ' + b + ' ft', { anchor: 'start', color: 'orange', size: 13, weight: 700 });
+  var areaA = AREA / (a * a), areaB = AREA / (b * b);
+  read.innerHTML = 'Drawing A: 24 ft → ' + fr(24, a) + ' = <b>' + n2(24 / a) + '</b> units; 18 ft → ' + n2(18 / a) + ' units; area ' + n2(areaA) + ' square units' +
+    '<div>Drawing B: 24 ft → ' + fr(24, b) + ' = <b>' + n2(24 / b) + '</b> units; 18 ft → ' + n2(18 / b) + ' units; area ' + n2(areaB) + ' square units</div>' +
+    '<div style="margin-top:6px">Scale factor from A to B: ' + fr(a, b) + ' = <b>' + ratio(a, b) + '</b> (lengths). Areas: ' + fr(n2(areaB), n2(areaA)) + ' = <b>' + ratio(a * a, b * b) + '</b>, the square of ' + ratio(a, b) + '</div>' +
+    '<div>Actual room either way: 24 ft by 18 ft, 360 square feet.</div>';
+  fb.set(a === b ? 'Same scale: the drawings are congruent.' : (k > 1 ? 'B is larger' : 'B is smaller') + ': lengths × ' + ratio(a, b) + ', areas × ' + ratio(a * a, b * b) + '.', '');
+  if (a === 4) st.seen.a4 = true;
+  if (k === 2) st.seen.twice = true;
+  if (k === 0.5) st.seen.half = true;
+  if (k === 1.5) st.seen.oneHalf = true;
+  if (areaA === 40 || areaB === 40) st.seen.area40 = true;
+  ch.update();
+});
+draw();

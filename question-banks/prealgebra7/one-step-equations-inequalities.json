@@ -1706,6 +1706,42 @@
    "sourceNotes": "Original Claude-authored item (family: s2_expand_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-osei-s02-cp2-g01",
+   "skillId": "one-step-equations-inequalities-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A garden is 3 m wide. Its length is x + 5 m. Its area is 3(x + 5) square meters. Rewrite it as 3x + 15. What does 15 represent?",
+   "answer": "the area of the 3 m by 5 m part",
+   "solutionSteps": [
+    "3(x + 5) = 3x + 15: the garden splits into a 3 by x part and a 3 by 5 part.",
+    "The 15 square meters is the 3 m by 5 m part."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "the length of the garden",
+     "correct": false
+    },
+    {
+     "text": "the perimeter of the garden",
+     "correct": false
+    },
+    {
+     "text": "the area of the 3 m by x m part",
+     "correct": false
+    },
+    {
+     "text": "the area of the 3 m by 5 m part",
+     "correct": true
+    }
+   ],
+   "hint": "First step: 3(x + 5) = 3x + 15: the garden splits into a 3 by x part and a 3 by 5 part."
+  },
+  {
    "id": "pa7-osei-s02-cp1-001",
    "skillId": "one-step-equations-inequalities-skill-02",
    "level": "cp1",
@@ -2570,6 +2606,41 @@
    "sourceNotes": "Original Claude-authored item (family: s2_expand_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-osei-s02-honors-g01",
+   "skillId": "one-step-equations-inequalities-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A rectangle has length 2w + 6 and width w. Its perimeter is 2(2w + 6) + 2w. Write the perimeter in the form a(w + b). What does the form show?",
+   "answer": "6(w + 2): the perimeter is 6 times (w + 2)",
+   "solutionSteps": [
+    "2(2w + 6) + 2w = 4w + 12 + 2w = 6w + 12.",
+    "Factor out 6: 6(w + 2)."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "6(w + 2): the perimeter is 6 times (w + 2)",
+     "correct": true
+    },
+    {
+     "text": "4(w + 3): the perimeter is 4 times (w + 3)",
+     "correct": false
+    },
+    {
+     "text": "6w + 12: the perimeter is 12 more than 6w",
+     "correct": false
+    },
+    {
+     "text": "6(w + 6): the perimeter is 6 times (w + 6)",
+     "correct": false
+    }
+   ]
+  },
+  {
    "id": "pa7-osei-s02-honors-h01",
    "skillId": "one-step-equations-inequalities-skill-02",
    "level": "honors",
@@ -3049,6 +3120,42 @@
    "sourceNotes": "Original Claude-authored item (family: s3_combine_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-osei-s03-cp2-g01",
+   "skillId": "one-step-equations-inequalities-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Each of n students buys a notebook for $4 and a pen for $2. The total cost is 4n + 2n dollars. Rewrite it as one term. What does the new form show?",
+   "answer": "6n: each student spends $6",
+   "solutionSteps": [
+    "Combine like terms: 4n + 2n = 6n.",
+    "The coefficient 6 is the cost for one student, $4 + $2."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "8n: each student spends $8",
+     "correct": false
+    },
+    {
+     "text": "42n: each student spends $42",
+     "correct": false
+    },
+    {
+     "text": "6 + n: the total is $6 more than n",
+     "correct": false
+    },
+    {
+     "text": "6n: each student spends $6",
+     "correct": true
+    }
+   ],
+   "hint": "First step: Combine like terms: 4n + 2n = 6n."
+  },
+  {
    "id": "pa7-osei-s03-cp1-001",
    "skillId": "one-step-equations-inequalities-skill-03",
    "level": "cp1",
@@ -3485,6 +3592,76 @@
    "sourceNotes": "Original Claude-authored item (family: s3_combine_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
+   "id": "pa7-osei-s03-cp1-g01",
+   "skillId": "one-step-equations-inequalities-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A team buys t T-shirts at $12 each and t hats at $8 each. Write the total cost as one term and explain what the coefficient means.",
+   "answer": "20t: the cost for one shirt and one hat together is $20",
+   "solutionSteps": [
+    "12t + 8t = 20t.",
+    "The coefficient 20 is $12 + $8, the cost of one shirt-and-hat set."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "20t: the cost for one shirt and one hat together is $20",
+     "correct": true
+    },
+    {
+     "text": "20t: the team buys 20 items",
+     "correct": false
+    },
+    {
+     "text": "96t: each shirt and hat cost $96",
+     "correct": false
+    },
+    {
+     "text": "20 + t: the cost is $20 plus the number of items",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pa7-osei-s03-cp1-g02",
+   "skillId": "one-step-equations-inequalities-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A pool fills from two hoses. One adds 7 gallons per minute and the other 5 gallons per minute. After m minutes the water added is 7m + 5m. Which form shows the combined rate?",
+   "answer": "12m",
+   "solutionSteps": [
+    "7m + 5m = 12m.",
+    "The coefficient 12 gallons per minute is the combined rate."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "12m",
+     "correct": true
+    },
+    {
+     "text": "12 + m",
+     "correct": false
+    },
+    {
+     "text": "35m",
+     "correct": false
+    },
+    {
+     "text": "7(m + 5)",
+     "correct": false
+    }
+   ]
+  },
+  {
    "id": "pa7-osei-s03-honors-001",
    "skillId": "one-step-equations-inequalities-skill-03",
    "level": "honors",
@@ -3919,6 +4096,41 @@
     "6.EE.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_combine_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa7-osei-s03-honors-g01",
+   "skillId": "one-step-equations-inequalities-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Ana earns d dollars a week. She saves 15% and spends 30% on lunch. The rest is d - 0.15d - 0.3d. Rewrite it as one term. What fraction of her pay is left?",
+   "answer": "0.55d: 55% of her pay is left",
+   "solutionSteps": [
+    "d - 0.15d - 0.3d = (1 - 0.15 - 0.3)d = 0.55d.",
+    "0.55 = 55%, so 55% of her pay is left."
+   ],
+   "standards": [
+    "7.EE.A.2",
+    "7.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_meaning). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "options": [
+    {
+     "text": "0.45d: 45% of her pay is left",
+     "correct": false
+    },
+    {
+     "text": "d - 0.45: she has $0.45 less",
+     "correct": false
+    },
+    {
+     "text": "0.55d: 55% of her pay is left",
+     "correct": true
+    },
+    {
+     "text": "0.55d: she spends 55% on lunch",
+     "correct": false
+    }
+   ]
   },
   {
    "id": "pa7-osei-s03-honors-h01",

@@ -41,5 +41,11 @@ for r in W['grade7-circles-lab']['record'][0]['rows']:
 ok(round(6 * math.pi, 2) == 18.85 and round(4 * math.pi, 2) == 12.57 and round(8 * math.pi, 2) == 25.13, 'circle explore C')
 ok(round(16 * math.pi, 2) == 50.27 and round(25 * math.pi, 2) == 78.54 and abs(2 * math.pi * 5 - 31.4) < 0.1, 'circle explore A')
 ok(abs(3.14 * 26 - 81.64) < 1e-9 and abs(3.14 * 9 - 28.26) < 1e-9 and abs(18.84 / 3.14 - 6) < 1e-9 and (12 ** 2) / (6 ** 2) == 4, 'circle apply')
+# Scale drawings: the room is 24 ft by 18 ft, 360 square feet
+for r in W['grade7-scale-drawing-lab']['record'][0]['rows']:
+    sc = float(r[0].split(': ')[1].split()[0])
+    ok(num(r[1]) == 24 / sc and num(r[2]) == 18 / sc and abs(num(r[3]) - 360 / sc ** 2) < 1e-9, f'scale {r[0]}')
+ok(24 * 12 + 12 * 6 == 360 and 360 / 16 == 22.5 and 360 / 4 / (360 / 16) == 4 and 6 / 4 == 1.5 and 360 / 9 == 40, 'scale explore')
+ok(abs(3.2 * 25 - 80) < 1e-9 and (30 / 5, 20 / 5) == (6, 4) and 5 / 2 == 2.5 and 2.5 ** 2 == 6.25 and abs(4.2 / 24 * 100 - 17.5) < 1e-9, 'scale apply')
 print('FAIL' if fails else 'PASS', 'Grade 7 lab worksheet answers', '(%d failures)' % fails if fails else '')
 sys.exit(1 if fails else 0)
