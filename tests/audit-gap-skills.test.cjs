@@ -33,7 +33,7 @@ for (const [course, unit, index, name, standard] of SKILLS) {
     assert.ok(manifest.banks.some(b => b.courseId === course && b.unitId === unit && (b.approved || b.teacherUse)), 'bank is not published in the manifest');
     const items = bank(course, unit).filter(q => q.skillId === record.id);
     const pairs = course === 'statistics' ? 2 : 0; // Statistics adds one Partner Check pair per level
-    const grows = course === 'statistics' || course === 'prealgebra';   // later audits add items (8th Grade Math audit #8, 2026-11-19)
+    const grows = course === 'statistics' || course === 'prealgebra' || course === 'prealgebra7';   // later audits add items (8th Grade Math audit #8 and Grade 7 audit G2, 2026-11-19)
     if (grows) assert.ok(items.length >= 48 + 3 * pairs, 'count');
     else assert.strictEqual(items.length, 48 + 3 * pairs);
     for (const level of ['cp2', 'cp1', 'honors']) {

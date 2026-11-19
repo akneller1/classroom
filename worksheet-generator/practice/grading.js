@@ -106,7 +106,60 @@ function statKey(answer){return typeof answer==='string'&&statOn()&&G.MKSTAT.sup
    sqrt( ) are read. Only on 8th Grade Math practice tests, like the Calculus grader. */
 function gr8On(){return !!G.MKGRADE8&&(!G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='prealgebra');}
 function gr8Key(answer,prompt){return typeof answer==='string'&&gr8On()&&G.MKGRADE8.supports(answer,prompt)?answer:null;}
+/* Grade 7 audit #1 (2026-11-19): mixed numbers ("-8 2/3" is -26/3, not -8 × 2/3), one-variable inequalities in any
+   letter ("m >= 23", "x>-2", "-2 < x") and repeating decimals ("0.8333… (3 repeats)"). Mixed numbers become improper
+   fractions in both the key and the typed answer, so 5/4, 1.25 and 1 1/4 all match 1 1/4; when the question asks for a
+   mixed number, the typed answer must be one. */
+var MIXED=/(^|[^\d.\/])(-?)(\d+)[  ]+(\d+)\/(\d+)(?![\d\/.])/g;
+function improper(s){return String(s).replace(/[−–]/g,'-').replace(MIXED,function(m,pre,sg,w,n,d){return pre+sg+(BigInt(w)*BigInt(d)+BigInt(n))+'/'+d;});}
+function hasMixed(s){MIXED.lastIndex=0;var r=MIXED.test(String(s).replace(/[−–]/g,'-'));MIXED.lastIndex=0;return r;}
+var REP=/^\s*(-?)(\d*)\.(\d*?)(\d+)(?:…|\.\.\.)\s*\((\d+) repeats?\)\s*$/;
+function repeatingKey(answer){
+ var m=REP.exec(String(answer).replace(/[−–]/g,'-'));if(!m)return null;
+ var rep=m[5],dec=m[3]+m[4];if(dec.slice(-rep.length)!==rep)return null;
+ while(dec.length>=rep.length&&dec.slice(-rep.length)===rep)dec=dec.slice(0,-rep.length);
+ var whole=m[2]||'0',k=dec.length,r=rep.length;
+ var a=BigInt(whole+dec+rep)-BigInt(whole+dec),d=(10n**BigInt(k+r))-(10n**BigInt(k));
+ return {neg:m[1]==='-',whole:whole,nonrep:dec,rep:rep,num:(m[1]==='-'?-a:a),den:d};
+}
+function gradeRepeating(R,typed){
+ var t=String(typed||'').replace(/[−–]/g,'-').replace(/\s+/g,'').replace(/repeating$/i,'').replace(/\(\d+repeats?\)$/i,'');
+ if(!t)return {status:'empty'};
+ var f=/^(-?)(\d+)\/(\d+)$/.exec(t);
+ if(f){var n=BigInt(f[2]),d=BigInt(f[3]);if(d===0n)return {status:'invalid',message:'The denominator cannot be 0.'};if(f[1])n=-n;return {status:n*R.den===R.num*d?'correct':'incorrect'};}
+ var bar=/^(-?)(\d*)\.(\d*?)((?:\d̅)+)$/.exec(t)||/^(-?)(\d*)\.(\d*?)\((\d+)\)$/.exec(t);
+ var sign=R.neg?'-':'';
+ if(bar){var rep=bar[4].replace(/̅/g,'');return {status:(bar[1]===sign&&(bar[2]||'0')===R.whole&&bar[3]===R.nonrep&&rep===R.rep)?'correct':'incorrect'};}
+ var dots=/^(-?)(\d*)\.(\d+)(?:…|\.\.\.)$/.exec(t);
+ if(dots){var want=R.nonrep;while(want.length<dots[3].length+R.rep.length)want+=R.rep;var ok=dots[1]===sign&&(dots[2]||'0')===R.whole&&dots[3].length>=R.nonrep.length+2*R.rep.length&&want.indexOf(dots[3])===0;return {status:ok?'correct':'incorrect'};}
+ if(/^-?\d*\.\d+$/.test(t))return {status:'invalid',message:'This decimal repeats. Show the repeating digits (for example 0.83… or 0.8(3)) or give the fraction.'};
+ return {status:'invalid',message:'Enter a fraction, or the decimal with its repeating digits shown.'};
+}
+var INEQ=/^\s*(?:([a-z])\s*(<=|>=|<|>|≤|≥)\s*(-?[\d.]+(?:\/\d+)?)|(-?[\d.]+(?:\/\d+)?)\s*(<=|>=|<|>|≤|≥)\s*([a-z]))\s*$/i;
+function inequalityKey(answer){var m=INEQ.exec(String(answer).replace(/[−–]/g,'-'));return m?(m[1]||m[6]).toLowerCase():null;}
+function gradeInequality(answer,typed,letter){
+ var t=String(typed||'').replace(/[−–]/g,'-').trim();
+ if(!t)return {status:'empty'};
+ var m=INEQ.exec(t);
+ if(!m)return {status:'invalid',message:'Enter a solved inequality such as '+letter+' >= 3.'};
+ if((m[1]||m[6]).toLowerCase()!==letter)return {status:'incorrect'};
+ var sub=function(s){return normalize(String(s).replace(/[−–]/g,'-').replace(new RegExp('\\b'+letter+'\\b','gi'),'x'));};
+ return {status:C.setEqual(solutionSet(sub(answer)),solutionSet(sub(t)))?'correct':'incorrect'};
+}
+function grade7(answer,typed,prompt){
+ if(typeof answer!=='string'||!C)return null;
+ var R=repeatingKey(answer);if(R)return gradeRepeating(R,typed);
+ var v=inequalityKey(answer);if(v)return gradeInequality(answer,typed,v);
+ if(hasMixed(answer)){
+   var t=String(typed||'').trim();
+   if(t&&/mixed number/i.test(prompt||'')&&!hasMixed(t)&&/\d\/\d/.test(t))return {status:'invalid',message:'Write your answer as a mixed number, such as 2 1/3.'};
+   return gradeBank(improper(answer),improper(t),prompt);
+ }
+ return null;
+}
+function grade7Supports(answer){if(typeof answer!=='string')return false;if(repeatingKey(answer)||inequalityKey(answer))return true;if(hasMixed(answer))return API.bankAnswer(improper(answer))!==null;return false;}
 function gradeBank(answer,typed,prompt){
+ var g7=grade7(answer,typed,prompt);if(g7)return g7;
  if(gr8On()&&typeof answer==='string'){if(G.MKGRADE8.preferred(answer,prompt))return G.MKGRADE8.grade(answer,typed,prompt);typed=G.MKGRADE8.normalizeTyped(typed);}
  if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
  var key=bankAnswer(answer);
@@ -114,5 +167,5 @@ function gradeBank(answer,typed,prompt){
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
 })(window);
