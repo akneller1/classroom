@@ -659,17 +659,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A right triangle has legs 12 m and 16 m. What is the length of the hypotenuse?",
-   "answer": "20 m",
+   "prompt": "A right triangle has legs 10 ft and 24 ft. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "60 ft",
    "solutionSteps": [
-    "c² = 12² + 16² = 400.",
-    "c = √400 = 20 m."
+    "c = √(10² + 24²) = √676 = 26 ft.",
+    "Perimeter: 10 + 24 + 26 = 60 ft."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_hyp). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_hyp) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-002",
@@ -718,17 +718,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 12, 7, 14 form a right triangle? Answer yes or no.",
-   "answer": "no",
+   "prompt": "A right triangle has legs 12 ft and 16 ft. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "48 ft",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 7² + 12² = 193 and 14² = 196.",
-    "Not equal → not a right triangle."
+    "c = √(12² + 16²) = √400 = 20 ft.",
+    "Perimeter: 12 + 16 + 20 = 48 ft."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-004",
@@ -836,18 +836,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 40, 41, 9 form a right triangle? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "A right triangle has a hypotenuse of 25 m and one leg of 7 m. Find the other leg, then the area of the triangle.",
+   "answer": "84 square meters",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 9² + 40² = 1681 and 41² = 1681.",
-    "Equal → right triangle (converse of the Pythagorean theorem).",
-    "So the answer is yes."
+    "Other leg: √(25² - 7²) = 24 m.",
+    "Area: (1/2)(7)(24) = 84 square meters."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_leg_then_area). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-008",
@@ -889,17 +888,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A right triangle has legs 9 ft and 12 ft. What is the length of the hypotenuse?",
-   "answer": "15 ft",
+   "prompt": "A right triangle has legs 15 m and 20 m. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "60 m",
    "solutionSteps": [
-    "c² = 9² + 12² = 225.",
-    "c = √225 = 15 ft."
+    "c = √(15² + 20²) = √625 = 25 m.",
+    "Perimeter: 15 + 20 + 25 = 60 m."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_hyp). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_hyp) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-010",
@@ -930,18 +929,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 41, 40, 9 form a right triangle? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "A right triangle has a hypotenuse of 20 m and one leg of 12 m. Find the other leg, then the area of the triangle.",
+   "answer": "96 square meters",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 9² + 40² = 1681 and 41² = 1681.",
-    "Equal → right triangle (converse of the Pythagorean theorem).",
-    "So the answer is yes."
+    "Other leg: √(20² - 12²) = 16 m.",
+    "Area: (1/2)(12)(16) = 96 square meters."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_leg_then_area). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-012",
@@ -983,35 +981,35 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A right triangle has legs 9 m and 12 m. What is the length of the hypotenuse?",
-   "answer": "15 m",
+   "prompt": "A right triangle has a hypotenuse of 17 m and one leg of 8 m. Find the other leg, then the area of the triangle.",
+   "answer": "60 square meters",
    "options": [
     {
-     "text": "225 m",
+     "text": "15 square meters",
      "correct": false
     },
     {
-     "text": "21 m",
+     "text": "120 square meters",
      "correct": false
     },
     {
-     "text": "15 m",
+     "text": "68 square meters",
+     "correct": false
+    },
+    {
+     "text": "60 square meters",
      "correct": true
-    },
-    {
-     "text": "16 m",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "c² = 9² + 12² = 225.",
-    "c = √225 = 15 m."
+    "Other leg: √(17² - 8²) = 15 m.",
+    "Area: (1/2)(8)(15) = 60 square meters."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_hyp). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_leg_then_area). Rewritten from a Support template (was s1_hyp) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-014",
@@ -1060,18 +1058,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 12, 35, 37 form a right triangle? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "A right triangle has legs 20 in. and 21 in. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "70 in.",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 12² + 35² = 1369 and 37² = 1369.",
-    "Equal → right triangle (converse of the Pythagorean theorem).",
-    "So the answer is yes."
+    "c = √(20² + 21²) = √841 = 29 in.",
+    "Perimeter: 20 + 21 + 29 = 70 in."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-016",
@@ -1113,17 +1110,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A right triangle has legs 9 m and 40 m. What is the length of the hypotenuse?",
-   "answer": "41 m",
+   "prompt": "A right triangle has legs 5 ft and 12 ft. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "30 ft",
    "solutionSteps": [
-    "c² = 9² + 40² = 1681.",
-    "c = √1681 = 41 m."
+    "c = √(5² + 12²) = √169 = 13 ft.",
+    "Perimeter: 5 + 12 + 13 = 30 ft."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_hyp). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_hyp) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-018",
@@ -1325,17 +1322,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 8, 18, 15 form a right triangle? Answer yes or no.",
-   "answer": "no",
+   "prompt": "A right triangle has a hypotenuse of 13 m and one leg of 5 m. Find the other leg, then the area of the triangle.",
+   "answer": "30 square meters",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 8² + 15² = 289 and 18² = 324.",
-    "Not equal → not a right triangle."
+    "Other leg: √(13² - 5²) = 12 m.",
+    "Area: (1/2)(5)(12) = 30 square meters."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s1_leg_then_area). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-honors-004",
@@ -1447,17 +1444,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 11, 14, 17 form a right triangle? Answer yes or no.",
-   "answer": "no",
+   "prompt": "A right triangle has a hypotenuse of 25 m and one leg of 15 m. Find the other leg, then the area of the triangle.",
+   "answer": "150 square meters",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 11² + 14² = 317 and 17² = 289.",
-    "Not equal → not a right triangle."
+    "Other leg: √(25² - 15²) = 20 m.",
+    "Area: (1/2)(15)(20) = 150 square meters."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s1_leg_then_area). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-honors-009",
@@ -1569,18 +1566,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 17.5, 18.5, 6 form a right triangle? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "A right triangle has legs 6 cm and 8 cm. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "24 cm",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 6² + 17.5² = 342.25 and 18.5² = 342.25.",
-    "Equal → right triangle (converse of the Pythagorean theorem).",
-    "So the answer is yes."
+    "c = √(6² + 8²) = √100 = 10 cm.",
+    "Perimeter: 6 + 8 + 10 = 24 cm."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-honors-014",
@@ -1710,17 +1706,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Can the side lengths 15, 9, 18 form a right triangle? Answer yes or no.",
-   "answer": "no",
+   "prompt": "A right triangle has legs 6 in. and 8 in. Find the hypotenuse, then the perimeter of the triangle.",
+   "answer": "24 in.",
    "solutionSteps": [
-    "Test the longest side as the hypotenuse: 15² + 9² = 306 and 18² = 324.",
-    "Not equal → not a right triangle."
+    "c = √(6² + 8²) = √100 = 10 in.",
+    "Perimeter: 6 + 8 + 10 = 24 in."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_converse). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s1_legs_then_perimeter). Rewritten from a Support template (was s1_converse) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-honors-019",
@@ -2542,34 +2538,35 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A rectangular field is 20 meters long and 15 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "25 meters",
+   "prompt": "A rectangular park is 12 m by 16 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "8 m",
    "options": [
     {
-     "text": "5 meters",
+     "text": "20 m",
      "correct": false
     },
     {
-     "text": "25 meters",
+     "text": "8 m",
      "correct": true
     },
     {
-     "text": "625 meters",
+     "text": "28 m",
      "correct": false
     },
     {
-     "text": "35 meters",
+     "text": "4 m",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(15² + 20²) = √625 = 25.",
-    "So the answer is 25 meters."
+    "Ana: 12 + 16 = 28 m.",
+    "Ben: √(12² + 16²) = 20 m.",
+    "Difference: 8 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-003",
@@ -2608,68 +2605,70 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A 10-foot ladder leans against a wall with its base 8 feet from the wall. How high up the wall does the ladder reach?",
-   "answer": "6 feet",
+   "prompt": "A rectangular park is 80 m by 150 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "60 m",
    "options": [
     {
-     "text": "2 feet",
+     "text": "170 m",
      "correct": false
     },
     {
-     "text": "18 feet",
+     "text": "230 m",
      "correct": false
     },
     {
-     "text": "6 feet",
+     "text": "70 m",
+     "correct": false
+    },
+    {
+     "text": "60 m",
      "correct": true
-    },
-    {
-     "text": "12.8 feet",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "The wall, ground and ladder form a right triangle with hypotenuse 10.",
-    "h = √(10² - 8²) = 6 feet."
+    "Ana: 80 + 150 = 230 m.",
+    "Ben: √(80² + 150²) = 170 m.",
+    "Difference: 60 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_ladder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_ladder) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-006",
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A rectangular field is 8 meters long and 6 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "10 meters",
+   "prompt": "A rectangular park is 30 m by 40 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "20 m",
    "options": [
     {
-     "text": "14 meters",
+     "text": "50 m",
      "correct": false
     },
     {
-     "text": "100 meters",
+     "text": "70 m",
      "correct": false
     },
     {
-     "text": "2 meters",
+     "text": "10 m",
      "correct": false
     },
     {
-     "text": "10 meters",
+     "text": "20 m",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10.",
-    "So the answer is 10 meters."
+    "Ana: 30 + 40 = 70 m.",
+    "Ben: √(30² + 40²) = 50 m.",
+    "Difference: 20 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-007",
@@ -2726,32 +2725,34 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A 13-foot ladder leans against a wall with its base 12 feet from the wall. How high up the wall does the ladder reach?",
-   "answer": "5 feet",
+   "prompt": "A rectangular park is 18 m by 24 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "12 m",
    "solutionSteps": [
-    "The wall, ground and ladder form a right triangle with hypotenuse 13.",
-    "h = √(13² - 12²) = 5 feet."
+    "Ana: 18 + 24 = 42 m.",
+    "Ben: √(18² + 24²) = 30 m.",
+    "Difference: 12 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_ladder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_ladder) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-010",
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A rectangular field is 24 meters long and 7 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "25 meters",
+   "prompt": "A rectangular park is 140 m by 480 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "120 m",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(7² + 24²) = √625 = 25.",
-    "So the answer is 25 meters."
+    "Ana: 140 + 480 = 620 m.",
+    "Ben: √(140² + 480²) = 500 m.",
+    "Difference: 120 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-011",
@@ -2808,50 +2809,52 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A 20-foot ladder leans against a wall with its base 16 feet from the wall. How high up the wall does the ladder reach?",
-   "answer": "12 feet",
+   "prompt": "A rectangular park is 14 m by 48 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "12 m",
    "options": [
     {
-     "text": "12 feet",
+     "text": "12 m",
      "correct": true
     },
     {
-     "text": "36 feet",
+     "text": "50 m",
      "correct": false
     },
     {
-     "text": "25.6 feet",
+     "text": "62 m",
      "correct": false
     },
     {
-     "text": "4 feet",
+     "text": "34 m",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The wall, ground and ladder form a right triangle with hypotenuse 20.",
-    "h = √(20² - 16²) = 12 feet."
+    "Ana: 14 + 48 = 62 m.",
+    "Ben: √(14² + 48²) = 50 m.",
+    "Difference: 12 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_ladder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_ladder) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-014",
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A rectangular field is 12 meters long and 5 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "13 meters",
+   "prompt": "A rectangular park is 200 m by 480 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "160 m",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(5² + 12²) = √169 = 13.",
-    "So the answer is 13 meters."
+    "Ana: 200 + 480 = 680 m.",
+    "Ben: √(200² + 480²) = 520 m.",
+    "Difference: 160 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-015",
@@ -2942,16 +2945,17 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A doorway is 7 feet tall and 2 feet wide. What is the length of its diagonal, to the nearest tenth of a foot? (Would a 7.6-foot-wide flat panel fit through diagonally?)",
-   "answer": "7.3 feet",
+   "prompt": "A rectangular park is 40 m by 42 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "24 m",
    "solutionSteps": [
-    "d² = 7² + 2² = 53.",
-    "d ≈ 7.3 feet, so a 7.6-foot panel would not fit."
+    "Ana: 40 + 42 = 82 m.",
+    "Ben: √(40² + 42²) = 58 m.",
+    "Difference: 24 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp1-019",
@@ -3054,34 +3058,35 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A rectangular field is 12 meters long and 9 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "15 meters",
+   "prompt": "A rectangular park is 50 m by 120 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "40 m",
    "options": [
     {
-     "text": "21 meters",
+     "text": "130 m",
      "correct": false
     },
     {
-     "text": "3 meters",
-     "correct": false
-    },
-    {
-     "text": "225 meters",
-     "correct": false
-    },
-    {
-     "text": "15 meters",
+     "text": "40 m",
      "correct": true
+    },
+    {
+     "text": "170 m",
+     "correct": false
+    },
+    {
+     "text": "70 m",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(9² + 12²) = √225 = 15.",
-    "So the answer is 15 meters."
+    "Ana: 50 + 120 = 170 m.",
+    "Ben: √(50² + 120²) = 130 m.",
+    "Difference: 40 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-honors-003",
@@ -3188,16 +3193,17 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A TV screen is 8 inches wide and 6 inches tall. TV sizes are measured along the diagonal. What is the size of the TV?",
-   "answer": "10 inches",
+   "prompt": "A rectangular park is 120 m by 160 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "80 m",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10.",
-    "So the answer is 10 inches."
+    "Ana: 120 + 160 = 280 m.",
+    "Ben: √(120² + 160²) = 200 m.",
+    "Difference: 80 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-honors-008",
@@ -3304,16 +3310,17 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A rectangular field is 21 meters long and 20 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
-   "answer": "29 meters",
+   "prompt": "A rectangular park is 75 m by 100 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "50 m",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(20² + 21²) = √841 = 29.",
-    "So the answer is 29 meters."
+    "Ana: 75 + 100 = 175 m.",
+    "Ben: √(75² + 100²) = 125 m.",
+    "Difference: 50 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-honors-013",
@@ -3420,34 +3427,35 @@
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A TV screen is 15 inches wide and 8 inches tall. TV sizes are measured along the diagonal. What is the size of the TV?",
-   "answer": "17 inches",
+   "prompt": "A rectangular park is 100 m by 240 m. Ana walks along two sides from one corner to the opposite corner; Ben walks straight across the diagonal. How many meters shorter is Ben's walk?",
+   "answer": "80 m",
    "options": [
     {
-     "text": "289 inches",
+     "text": "260 m",
      "correct": false
     },
     {
-     "text": "23 inches",
-     "correct": false
-    },
-    {
-     "text": "7 inches",
-     "correct": false
-    },
-    {
-     "text": "17 inches",
+     "text": "80 m",
      "correct": true
+    },
+    {
+     "text": "340 m",
+     "correct": false
+    },
+    {
+     "text": "140 m",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(8² + 15²) = √289 = 17.",
-    "So the answer is 17 inches."
+    "Ana: 100 + 240 = 340 m.",
+    "Ben: √(100² + 240²) = 260 m.",
+    "Difference: 80 m."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rect_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-honors-018",
@@ -4261,34 +4269,34 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cone has radius 20 cm and height 21 cm. What is its slant height?",
-   "answer": "29 cm",
+   "prompt": "A cone has radius 15 cm and slant height 39 cm. Find its height, then its volume in terms of π.",
+   "answer": "2700π cubic centimeters",
    "options": [
     {
-     "text": "841 cm",
+     "text": "2925π cubic centimeters",
      "correct": false
     },
     {
-     "text": "41 cm",
+     "text": "8100π cubic centimeters",
      "correct": false
     },
     {
-     "text": "29 cm",
+     "text": "2700π cubic centimeters",
      "correct": true
     },
     {
-     "text": "6.4 cm",
+     "text": "180π cubic centimeters",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Radius, height and slant height form a right triangle (slant height is the hypotenuse).",
-    "l = √(20² + 21²) = 29 cm."
+    "Height: √(39² - 15²) = 36 cm.",
+    "Volume: (1/3)π(15²)(36) = 2700π cubic centimeters."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cone_slant). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_slant_then_volume). Rewritten from a Support template (was s3_cone_slant) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s03-cp1-003",
@@ -4587,16 +4595,16 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has radius 9 cm and height 12 cm. What is its slant height?",
-   "answer": "15 cm",
+   "prompt": "A cone has radius 24 cm and slant height 25 cm. Find its height, then its volume in terms of π.",
+   "answer": "1344π cubic centimeters",
    "solutionSteps": [
-    "Radius, height and slant height form a right triangle (slant height is the hypotenuse).",
-    "l = √(9² + 12²) = 15 cm."
+    "Height: √(25² - 24²) = 7 cm.",
+    "Volume: (1/3)π(24²)(7) = 1344π cubic centimeters."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cone_slant). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_slant_then_volume). Rewritten from a Support template (was s3_cone_slant) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s03-cp1-015",
@@ -4678,16 +4686,16 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has radius 8 cm and height 15 cm. What is its slant height?",
-   "answer": "17 cm",
+   "prompt": "A cone has radius 15 cm and slant height 17 cm. Find its height, then its volume in terms of π.",
+   "answer": "600π cubic centimeters",
    "solutionSteps": [
-    "Radius, height and slant height form a right triangle (slant height is the hypotenuse).",
-    "l = √(8² + 15²) = 17 cm."
+    "Height: √(17² - 15²) = 8 cm.",
+    "Volume: (1/3)π(15²)(8) = 600π cubic centimeters."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cone_slant). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_slant_then_volume). Rewritten from a Support template (was s3_cone_slant) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s03-cp1-018",
@@ -4787,16 +4795,16 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A rectangular box is 4 in. by 4 in. by 7 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
-   "answer": "9 in.",
+   "prompt": "A cone has radius 60 cm and slant height 87 cm. Find its height, then its volume in terms of π.",
+   "answer": "75600π cubic centimeters",
    "solutionSteps": [
-    "Bottom diagonal: √(4² + 4²) = √32.",
-    "Space diagonal: √(32 + 7²) = √81 = 9 in."
+    "Height: √(87² - 60²) = 63 cm.",
+    "Volume: (1/3)π(60²)(63) = 75600π cubic centimeters."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_box_diag). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s3_slant_then_volume). Rewritten from a Support template (was s3_box_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s03-honors-002",
@@ -6149,34 +6157,35 @@
    "skillId": "geometry-applications-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point is closer to (2, -1): (3, -7) or (8, 4)?",
-   "answer": "(3, -7)",
+   "prompt": "A triangle has vertices (3, -1), (9, -1) and (3, 7). What is its perimeter?",
+   "answer": "24",
    "options": [
     {
-     "text": "(3, -7)",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "24",
      "correct": true
     },
     {
-     "text": "(8, 4)",
-     "correct": false
-    },
-    {
-     "text": "They are the same distance",
-     "correct": false
-    },
-    {
-     "text": "Cannot be determined",
+     "text": "10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Squared distances: 37 and 61.",
-    "The smaller is closer: (3, -7)."
+    "The legs are 6 and 8 units long.",
+    "The third side is √(6² + 8²) = 10.",
+    "Perimeter: 6 + 8 + 10 = 24."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter_on_grid). Rewritten from a Support template (was s4_closer) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s04-cp1-005",
@@ -6275,34 +6284,35 @@
    "skillId": "geometry-applications-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point is closer to (1, 0): (0, 3) or (-4, 3)?",
-   "answer": "(0, 3)",
+   "prompt": "A triangle has vertices (3, 2), (11, 2) and (3, 17). What is its perimeter?",
+   "answer": "40",
    "options": [
     {
-     "text": "(0, 3)",
+     "text": "40",
      "correct": true
     },
     {
-     "text": "(-4, 3)",
+     "text": "23",
      "correct": false
     },
     {
-     "text": "They are the same distance",
+     "text": "46",
      "correct": false
     },
     {
-     "text": "Cannot be determined",
+     "text": "17",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Squared distances: 10 and 34.",
-    "The smaller is closer: (0, 3)."
+    "The legs are 8 and 15 units long.",
+    "The third side is √(8² + 15²) = 17.",
+    "Perimeter: 8 + 15 + 17 = 40."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter_on_grid). Rewritten from a Support template (was s4_closer) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s04-cp1-009",
@@ -6365,34 +6375,35 @@
    "skillId": "geometry-applications-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point is closer to (-2, -2): (-2, -8) or (-5, -4)?",
-   "answer": "(-5, -4)",
+   "prompt": "A triangle has vertices (-1, -4), (2, -4) and (-1, 0). What is its perimeter?",
+   "answer": "12",
    "options": [
     {
-     "text": "(-2, -8)",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "(-5, -4)",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "12",
      "correct": true
-    },
-    {
-     "text": "They are the same distance",
-     "correct": false
-    },
-    {
-     "text": "Cannot be determined",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Squared distances: 36 and 13.",
-    "The smaller is closer: (-5, -4)."
+    "The legs are 3 and 4 units long.",
+    "The third side is √(3² + 4²) = 5.",
+    "Perimeter: 3 + 4 + 5 = 12."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter_on_grid). Rewritten from a Support template (was s4_closer) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s04-cp1-013",
@@ -6719,34 +6730,35 @@
    "skillId": "geometry-applications-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point is closer to (1, -1): (0, -3) or (0, -6)?",
-   "answer": "(0, -3)",
+   "prompt": "A triangle has vertices (3, -3), (9, -3) and (3, 5). What is its perimeter?",
+   "answer": "24",
    "options": [
     {
-     "text": "(0, -3)",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "24",
      "correct": true
     },
     {
-     "text": "(0, -6)",
-     "correct": false
-    },
-    {
-     "text": "They are the same distance",
-     "correct": false
-    },
-    {
-     "text": "Cannot be determined",
+     "text": "10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Squared distances: 5 and 26.",
-    "The smaller is closer: (0, -3)."
+    "The legs are 6 and 8 units long.",
+    "The third side is √(6² + 8²) = 10.",
+    "Perimeter: 6 + 8 + 10 = 24."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter_on_grid). Rewritten from a Support template (was s4_closer) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s04-honors-006",
@@ -7955,15 +7967,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A sphere has radius 6 feet. Find its volume. Give your answer in terms of π.",
-   "answer": "288π cubic feet",
+   "prompt": "A cylinder has a diameter of 6 inches and a height of 3 inches. Find its volume in terms of π.",
+   "answer": "27π cubic inches",
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(6)³ = 288π cubic feet."
+    "Radius: 6 ÷ 2 = 3 inches.",
+    "V = π(3²)(3) = 27π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder_from_diameter). Rewritten from a Support template (was s5_sphere) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-004",
@@ -8004,16 +8017,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A ball has a diameter of 9 inches. Find its volume in terms of π.",
-   "answer": "(243/2)π cubic inches",
+   "prompt": "A cone has a diameter of 16 feet and a height of 18 feet. Find its volume in terms of π.",
+   "answer": "384π cubic feet",
    "solutionSteps": [
-    "r = 9/2 in.",
-    "V = (4/3)π(9/2)³ = (243/2)π cubic inches."
+    "Radius: 16 ÷ 2 = 8 feet.",
+    "V = (1/3)π(8²)(18) = 384π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-006",
@@ -8054,15 +8067,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has radius 2 meters and height 15 meters. Find its volume. Use 3.14 for π and round to the nearest tenth.",
-   "answer": "62.8 cubic meters",
+   "prompt": "A cone has a diameter of 12 feet and a height of 3 feet. Find its volume in terms of π.",
+   "answer": "36π cubic feet",
    "solutionSteps": [
-    "V = (1/3)πr²h = (1/3)π(2)²(15) = 20π ≈ 62.8 cubic meters."
+    "Radius: 12 ÷ 2 = 6 feet.",
+    "V = (1/3)π(6²)(3) = 36π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-008",
@@ -8137,35 +8151,34 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A soup can is 8 cm tall with a diameter of 8 cm. How much soup can it hold? Use 3.14 for π and round to the nearest tenth of a cubic centimeter.",
-   "answer": "401.9 cubic centimeters",
+   "prompt": "A cone has a diameter of 6 feet and a height of 6 feet. Find its volume in terms of π.",
+   "answer": "18π cubic feet",
    "options": [
     {
-     "text": "1607.7 cubic centimeters",
+     "text": "54π cubic feet",
      "correct": false
     },
     {
-     "text": "201.0 cubic centimeters",
+     "text": "72π cubic feet",
      "correct": false
     },
     {
-     "text": "401.9 cubic centimeters",
+     "text": "12π cubic feet",
+     "correct": false
+    },
+    {
+     "text": "18π cubic feet",
      "correct": true
-    },
-    {
-     "text": "128.0 cubic centimeters",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "r = 4 cm.",
-    "V = π(4)²(8) ≈ 401.9 cubic cm.",
-    "So the answer is 401.9 cubic centimeters."
+    "Radius: 6 ÷ 2 = 3 feet.",
+    "V = (1/3)π(3²)(6) = 18π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-011",
@@ -8252,50 +8265,50 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A soup can is 13 cm tall with a diameter of 10 cm. How much soup can it hold? Use 3.14 for π and round to the nearest tenth of a cubic centimeter.",
-   "answer": "1020.5 cubic centimeters",
+   "prompt": "A cylinder has a diameter of 10 inches and a height of 4 inches. Find its volume in terms of π.",
+   "answer": "100π cubic inches",
    "solutionSteps": [
-    "r = 5 cm.",
-    "V = π(5)²(13) ≈ 1020.5 cubic cm.",
-    "So the answer is 1020.5 cubic centimeters."
+    "Radius: 10 ÷ 2 = 5 inches.",
+    "V = π(5²)(4) = 100π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-016",
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cylinder has a radius of 8 centimeters and a height of 10 centimeters. Find its volume. Give your answer in terms of π.",
-   "answer": "640π cubic centimeters",
+   "prompt": "A cylinder has a diameter of 16 inches and a height of 9 inches. Find its volume in terms of π.",
+   "answer": "576π cubic inches",
    "options": [
     {
-     "text": "80π cubic centimeters",
+     "text": "2304π cubic inches",
      "correct": false
     },
     {
-     "text": "160π cubic centimeters",
+     "text": "144π cubic inches",
      "correct": false
     },
     {
-     "text": "(640/3)π cubic centimeters",
-     "correct": false
-    },
-    {
-     "text": "640π cubic centimeters",
+     "text": "576π cubic inches",
      "correct": true
+    },
+    {
+     "text": "72π cubic inches",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "V = πr²h = π(8)²(10) = 640π cubic centimeters."
+    "Radius: 16 ÷ 2 = 8 inches.",
+    "V = π(8²)(9) = 576π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cylinder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder_from_diameter). Rewritten from a Support template (was s5_cylinder) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-017",
@@ -8493,15 +8506,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A sphere has radius 6 feet. Find its volume. Use 3.14 for π and round to the nearest tenth.",
-   "answer": "904.3 cubic feet",
+   "prompt": "A cylinder has a diameter of 8 inches and a height of 8 inches. Find its volume in terms of π.",
+   "answer": "128π cubic inches",
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(6)³ = 288π ≈ 904.3 cubic feet."
+    "Radius: 8 ÷ 2 = 4 inches.",
+    "V = π(4²)(8) = 128π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder_from_diameter). Rewritten from a Support template (was s5_sphere) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-004",
@@ -8542,16 +8556,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A paper cone cup has radius 4 in. and height 4 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
-   "answer": "67.0 cubic inches",
+   "prompt": "A cone has a diameter of 16 feet and a height of 3 feet. Find its volume in terms of π.",
+   "answer": "64π cubic feet",
    "solutionSteps": [
-    "V = (1/3)π(4)²(4) ≈ 67.0.",
-    "So the answer is 67.0 cubic inches."
+    "Radius: 16 ÷ 2 = 8 feet.",
+    "V = (1/3)π(8²)(3) = 64π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-006",
@@ -8674,31 +8688,32 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A paper cone cup has radius 1 in. and height 9 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
-   "answer": "9.4 cubic inches",
+   "prompt": "A cone has a diameter of 4 feet and a height of 9 feet. Find its volume in terms of π.",
+   "answer": "12π cubic feet",
    "solutionSteps": [
-    "V = (1/3)π(1)²(9) ≈ 9.4.",
-    "So the answer is 9.4 cubic inches."
+    "Radius: 4 ÷ 2 = 2 feet.",
+    "V = (1/3)π(2²)(9) = 12π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-011",
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylinder has a radius of 7 inches and a height of 4 inches. Find its volume. Use 3.14 for π and round to the nearest tenth.",
-   "answer": "615.4 cubic inches",
+   "prompt": "A cone has a diameter of 4 feet and a height of 18 feet. Find its volume in terms of π.",
+   "answer": "24π cubic feet",
    "solutionSteps": [
-    "V = πr²h = π(7)²(4) = 196π ≈ 615.4 cubic inches."
+    "Radius: 4 ÷ 2 = 2 feet.",
+    "V = (1/3)π(2²)(18) = 24π cubic feet."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cylinder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone_from_diameter). Rewritten from a Support template (was s5_cylinder) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-012",
@@ -8788,16 +8803,16 @@
    "skillId": "geometry-applications-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A paper cone cup has radius 1 in. and height 8 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
-   "answer": "8.4 cubic inches",
+   "prompt": "A cylinder has a diameter of 6 inches and a height of 10 inches. Find its volume in terms of π.",
+   "answer": "90π cubic inches",
    "solutionSteps": [
-    "V = (1/3)π(1)²(8) ≈ 8.4.",
-    "So the answer is 8.4 cubic inches."
+    "Radius: 6 ÷ 2 = 3 inches.",
+    "V = π(3²)(10) = 90π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder_from_diameter). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-016",
@@ -9694,35 +9709,35 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cylindrical glass must hold 48π cubic cm of juice. Its base has radius 2 cm. What is the least height it can have?",
-   "answer": "12 cm",
+   "prompt": "A cylinder has volume 63π cubic cm and height 7 cm. What is its radius?",
+   "answer": "3 cm",
    "options": [
     {
-     "text": "36 cm",
+     "text": "9 cm",
      "correct": false
     },
     {
-     "text": "11 cm",
+     "text": "4 cm",
      "correct": false
     },
     {
-     "text": "24 cm",
+     "text": "21 cm",
      "correct": false
     },
     {
-     "text": "12 cm",
+     "text": "3 cm",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "πr²h = 48π → 4h = 48.",
-    "h = 12 cm."
+    "πr²(7) = 63π, so r² = 9.",
+    "r = √9 = 3 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-005",
@@ -9764,17 +9779,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has volume 32π cubic cm and radius 4 cm. What is its height?",
-   "answer": "6 cm",
+   "prompt": "A cylinder has volume 128π cubic cm and height 8 cm. What is its radius?",
+   "answer": "4 cm",
    "solutionSteps": [
-    "32π = (1/3)π(4)²h.",
-    "h = 3 × 32 ÷ 16 = 6 cm."
+    "πr²(8) = 128π, so r² = 16.",
+    "r = √16 = 4 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-007",
@@ -9816,17 +9831,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical glass must hold 90π cubic cm of juice. Its base has radius 3 cm. What is the least height it can have?",
-   "answer": "10 cm",
+   "prompt": "A cone-shaped funnel holds 162π cubic cm and is 6 cm tall. What is the radius of its opening?",
+   "answer": "9 cm",
    "solutionSteps": [
-    "πr²h = 90π → 9h = 90.",
-    "h = 10 cm."
+    "(1/3)πr²(6) = 162π, so r² = 81.",
+    "r = √81 = 9 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-009",
@@ -9850,17 +9865,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has volume 18π cubic cm and radius 3 cm. What is its height?",
-   "answer": "6 cm",
+   "prompt": "A cylinder has volume 100π cubic cm and height 4 cm. What is its radius?",
+   "answer": "5 cm",
    "solutionSteps": [
-    "18π = (1/3)π(3)²h.",
-    "h = 3 × 18 ÷ 9 = 6 cm."
+    "πr²(4) = 100π, so r² = 25.",
+    "r = √25 = 5 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-011",
@@ -9902,87 +9917,87 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical glass must hold 112π cubic cm of juice. Its base has radius 4 cm. What is the least height it can have?",
-   "answer": "7 cm",
+   "prompt": "A cylinder has volume 567π cubic cm and height 7 cm. What is its radius?",
+   "answer": "9 cm",
    "solutionSteps": [
-    "πr²h = 112π → 16h = 112.",
-    "h = 7 cm."
+    "πr²(7) = 567π, so r² = 81.",
+    "r = √81 = 9 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-013",
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cylinder has volume 180π cubic cm and radius 6 cm. What is its height?",
-   "answer": "5 cm",
+   "prompt": "A cylinder has volume 486π cubic cm and height 6 cm. What is its radius?",
+   "answer": "9 cm",
    "options": [
     {
-     "text": "15 cm",
+     "text": "81 cm",
      "correct": false
     },
     {
-     "text": "5/3 cm",
-     "correct": false
-    },
-    {
-     "text": "5 cm",
+     "text": "9 cm",
      "correct": true
     },
     {
-     "text": "30 cm",
+     "text": "10 cm",
+     "correct": false
+    },
+    {
+     "text": "54 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "180π = π(6)²h = 36πh.",
-    "h = 180 ÷ 36 = 5 cm."
+    "πr²(6) = 486π, so r² = 81.",
+    "r = √81 = 9 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cyl_height). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_cyl_height) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-014",
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cone has volume 128π cubic cm and radius 8 cm. What is its height?",
-   "answer": "6 cm",
+   "prompt": "A cone-shaped funnel holds 64π cubic cm and is 3 cm tall. What is the radius of its opening?",
+   "answer": "8 cm",
    "options": [
     {
-     "text": "6 cm",
+     "text": "8 cm",
      "correct": true
     },
     {
-     "text": "48 cm",
+     "text": "64 cm",
      "correct": false
     },
     {
-     "text": "18 cm",
+     "text": "24 cm",
      "correct": false
     },
     {
-     "text": "2 cm",
+     "text": "9 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "128π = (1/3)π(8)²h.",
-    "h = 3 × 128 ÷ 64 = 6 cm."
+    "(1/3)πr²(3) = 64π, so r² = 64.",
+    "r = √64 = 8 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-015",
@@ -10006,69 +10021,69 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical tank holds 113.04 cubic feet of water and has a radius of 2 feet. Using 3.14 for π, how tall is the tank?",
-   "answer": "9 feet",
+   "prompt": "A cone-shaped funnel holds 49π cubic cm and is 3 cm tall. What is the radius of its opening?",
+   "answer": "7 cm",
    "solutionSteps": [
-    "113.04 = 3.14(2)²h = 12.56h.",
-    "h = 113.04 ÷ 12.56 = 9 feet."
+    "(1/3)πr²(3) = 49π, so r² = 49.",
+    "r = √49 = 7 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-017",
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cylinder has volume 8π cubic cm and radius 2 cm. What is its height?",
-   "answer": "2 cm",
+   "prompt": "A cone-shaped funnel holds 75π cubic cm and is 9 cm tall. What is the radius of its opening?",
+   "answer": "5 cm",
    "options": [
     {
-     "text": "2/3 cm",
+     "text": "25 cm",
      "correct": false
     },
     {
-     "text": "3 cm",
-     "correct": false
-    },
-    {
-     "text": "2 cm",
+     "text": "5 cm",
      "correct": true
     },
     {
-     "text": "4 cm",
+     "text": "15 cm",
+     "correct": false
+    },
+    {
+     "text": "6 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "8π = π(2)²h = 4πh.",
-    "h = 8 ÷ 4 = 2 cm."
+    "(1/3)πr²(9) = 75π, so r² = 25.",
+    "r = √25 = 5 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cyl_height). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_cyl_height) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-018",
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has volume 50π cubic cm and radius 5 cm. What is its height?",
+   "prompt": "A cylinder has volume 288π cubic cm and height 8 cm. What is its radius?",
    "answer": "6 cm",
    "solutionSteps": [
-    "50π = (1/3)π(5)²h.",
-    "h = 3 × 50 ÷ 25 = 6 cm."
+    "πr²(8) = 288π, so r² = 36.",
+    "r = √36 = 6 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp1-019",
@@ -10171,35 +10186,35 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cone has volume 192π cubic cm and radius 8 cm. What is its height?",
-   "answer": "9 cm",
+   "prompt": "A cylinder has volume 12π cubic cm and height 3 cm. What is its radius?",
+   "answer": "2 cm",
    "options": [
     {
-     "text": "9 cm",
-     "correct": true
+     "text": "4 cm",
+     "correct": false
     },
     {
      "text": "3 cm",
      "correct": false
     },
     {
-     "text": "72 cm",
-     "correct": false
+     "text": "2 cm",
+     "correct": true
     },
     {
-     "text": "27 cm",
+     "text": "6 cm",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "192π = (1/3)π(8)²h.",
-    "h = 3 × 192 ÷ 64 = 9 cm."
+    "πr²(3) = 12π, so r² = 4.",
+    "r = √4 = 2 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-003",
@@ -10223,17 +10238,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical glass must hold 63π cubic cm of juice. Its base has radius 3 cm. What is the least height it can have?",
-   "answer": "7 cm",
+   "prompt": "A cone-shaped funnel holds 16π cubic cm and is 3 cm tall. What is the radius of its opening?",
+   "answer": "4 cm",
    "solutionSteps": [
-    "πr²h = 63π → 9h = 63.",
-    "h = 7 cm."
+    "(1/3)πr²(3) = 16π, so r² = 16.",
+    "r = √16 = 4 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-005",
@@ -10275,52 +10290,52 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A cylinder has volume 350π cubic cm and radius 5 cm. What is its height?",
-   "answer": "14 cm",
+   "prompt": "A cone-shaped funnel holds 98π cubic cm and is 6 cm tall. What is the radius of its opening?",
+   "answer": "7 cm",
    "options": [
     {
-     "text": "70 cm",
+     "text": "49 cm",
      "correct": false
     },
     {
-     "text": "35 cm",
+     "text": "21 cm",
      "correct": false
     },
     {
-     "text": "14 cm",
+     "text": "8 cm",
+     "correct": false
+    },
+    {
+     "text": "7 cm",
      "correct": true
-    },
-    {
-     "text": "14/3 cm",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "350π = π(5)²h = 25πh.",
-    "h = 350 ÷ 25 = 14 cm."
+    "(1/3)πr²(6) = 98π, so r² = 49.",
+    "r = √49 = 7 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cyl_height). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_cyl_height) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-007",
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cone has volume 48π cubic cm and radius 4 cm. What is its height?",
-   "answer": "9 cm",
+   "prompt": "A cone-shaped funnel holds 27π cubic cm and is 9 cm tall. What is the radius of its opening?",
+   "answer": "3 cm",
    "solutionSteps": [
-    "48π = (1/3)π(4)²h.",
-    "h = 3 × 48 ÷ 16 = 9 cm."
+    "(1/3)πr²(9) = 27π, so r² = 9.",
+    "r = √9 = 3 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cone_radius). Rewritten from a Support template (was s6_cone) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-008",
@@ -10362,17 +10377,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical tank holds 200.96 cubic feet of water and has a radius of 4 feet. Using 3.14 for π, how tall is the tank?",
-   "answer": "4 feet",
+   "prompt": "A cylinder has volume 225π cubic cm and height 9 cm. What is its radius?",
+   "answer": "5 cm",
    "solutionSteps": [
-    "200.96 = 3.14(4)²h = 50.24h.",
-    "h = 200.96 ÷ 50.24 = 4 feet."
+    "πr²(9) = 225π, so r² = 25.",
+    "r = √25 = 5 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-010",
@@ -10465,17 +10480,17 @@
    "skillId": "geometry-applications-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A cylindrical tank holds 251.2 cubic feet of water and has a radius of 4 feet. Using 3.14 for π, how tall is the tank?",
-   "answer": "5 feet",
+   "prompt": "A cylinder has volume 48π cubic cm and height 3 cm. What is its radius?",
+   "answer": "4 cm",
    "solutionSteps": [
-    "251.2 = 3.14(4)²h = 50.24h.",
-    "h = 251.2 ÷ 50.24 = 5 feet."
+    "πr²(3) = 48π, so r² = 16.",
+    "r = √16 = 4 cm."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s6_cylinder_radius). Rewritten from a Support template (was s6_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-honors-015",
@@ -12368,18 +12383,17 @@
    "skillId": "geometry-applications-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A grain silo is a cylinder (radius 2 m, height 11 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "(148/3)π cubic meters",
+   "prompt": "A cylinder has radius 6 cm and height 9 cm. A cone with the same radius and height is cut out of it. What volume is left? Give your answer in terms of π.",
+   "answer": "216π cubic centimeters",
    "solutionSteps": [
-    "Cylinder: 44π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
-    "Total (148/3)π cubic m.",
-    "So the answer is (148/3)π cubic meters."
+    "Cylinder: π(6²)(9) = 324π.",
+    "Cone: (1/3) of that = 108π.",
+    "Left: 324π - 108π = 216π cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_cylinder_minus_cone). Rewritten from a Support template (was s7_silo) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s07-honors-007",
@@ -12463,18 +12477,17 @@
    "skillId": "geometry-applications-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A grain silo is a cylinder (radius 5 m, height 5 m) topped by a hemisphere with the same radius. Find its volume. Use 3.14 for π and round to the nearest tenth.",
-   "answer": "654.2 cubic meters",
+   "prompt": "A cylinder has radius 5 cm and height 9 cm. A cone with the same radius and height is cut out of it. What volume is left? Give your answer in terms of π.",
+   "answer": "150π cubic centimeters",
    "solutionSteps": [
-    "Cylinder: 125π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
-    "Total (625/3)π cubic m.",
-    "With π ≈ 3.14: (625/3)(3.14) ≈ 654.2 cubic meters."
+    "Cylinder: π(5²)(9) = 225π.",
+    "Cone: (1/3) of that = 75π.",
+    "Left: 225π - 75π = 150π cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_cylinder_minus_cone). Rewritten from a Support template (was s7_silo) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s07-honors-011",
@@ -12689,18 +12702,17 @@
    "skillId": "geometry-applications-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A grain silo is a cylinder (radius 5 m, height 14 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "(1300/3)π cubic meters",
+   "prompt": "A cylinder has radius 2 cm and height 3 cm. A cone with the same radius and height is cut out of it. What volume is left? Give your answer in terms of π.",
+   "answer": "8π cubic centimeters",
    "solutionSteps": [
-    "Cylinder: 350π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
-    "Total (1300/3)π cubic m.",
-    "So the answer is (1300/3)π cubic meters."
+    "Cylinder: π(2²)(3) = 12π.",
+    "Cone: (1/3) of that = 4π.",
+    "Left: 12π - 4π = 8π cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_cylinder_minus_cone). Rewritten from a Support template (was s7_silo) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s07-honors-019",

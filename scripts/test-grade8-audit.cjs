@@ -373,6 +373,100 @@ for (const q of Q) if (q.format === 'short-answer') {
   check(null, share <= 0.25, 'Advanced items reusing a lower template: ' + (100 * share).toFixed(1) + '%');
   check(null, Q.filter((q) => /batch D move/.test(q.sourceNotes || '')).every((q) => q.level === 'cp1'), 'batch D moved items are Standard');
 }
+/* #14 follow-up (batch E): Standard items rewritten from Support templates with an added step, every key recomputed */
+{
+  const mask = (t) => t.replace(/-?\d+(\.\d+)?/g, '#');
+  const E = Q.filter((q) => /\(Standard, batch E\)/.test(q.sourceNotes || ''));
+  check(null, E.length >= 400, 'batch E Standard items ' + E.length);
+  const SUP = { '⁻': '-', '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9' };
+  const ev = (s) => { s = String(s).replace(/[()\s]/g, ''); const p = s.split('/'); return p.length === 2 ? +p[0] / +p[1] : +s; };
+  const nums = (s) => (String(s).replace(/([x0-9])([⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g, (m, b, e) => b + '^' + [...e].map((c) => SUP[c]).join('')).match(/-?\d+(\.\d+)?(\/\d+)?/g) || []).map(ev);
+  const lin = (s, v = 'x') => { let m = 0, b = 0; for (const t of s.replace(/\s+/g, '').split(/(?=[+-])/)) { if (!t) continue; if (t.includes(v)) { const c = t.replace(v, '').replace(/[()]/g, ''); m += c === '' || c === '+' ? 1 : c === '-' ? -1 : ev(c); } else b += ev(t); } return [m, b]; };
+  const two = (s) => { const [l, r] = s.split(' = '), y = /([+-]?\s*\d*)y/.exec(l), a = lin(l.replace(/[+-]?\s*\d*y/, ''))[0]; const bs = y[1].replace(/\s/g, ''); return [a, bs === '' || bs === '+' ? 1 : bs === '-' ? -1 : +bs, +r]; };
+  const pts = (s) => [...s.matchAll(/\((-?\d+), (-?\d+(?:\/\d+)?)\)/g)].map((m) => [+m[1], ev(m[2])]);
+  const g = (re, s) => { const m = re.exec(s); if (!m) throw new Error('prompt shape: ' + re); return m; };
+  const list = (s) => s.split(', ').map(Number);
+  const R = {
+    s1_integers_between_fractions: (p) => { const m = g(/between (\S+) and (\S+) on/, p); return [Math.floor(ev(m[2])) - Math.ceil(ev(m[1])) + 1]; },
+    s2_order_of_operations: (p) => { const m = g(/Evaluate: (\S+) \+ (\S+) × \((\S+)\)/, p); return [ev(m[1]) + ev(m[2]) * ev(m[3])]; },
+    s3_convert_then_add: (p) => { const m = g(/Write (\d+)\/(\d+) as a decimal, then add (\d+\.\d+)/, p); return [+(m[1] / m[2] + +m[3]).toFixed(10)]; },
+    s4_count_irrational_list: (p) => [g(/irrational: (.*)\?$/, p)[1].split(', ').filter((t) => /π|√(8|50|12|20)\b|√2 \+ 1/.test(t)).length],
+    s5_simplify_then_add: (p) => { const m = g(/√(\d+) · √(\d+) ([+-]) (\d+)/, p); return [Math.sqrt(m[1] * m[2]) + (m[3] === '-' ? -1 : 1) * m[4]]; },
+    s7_area_to_perimeter: (p) => [4 * Math.sqrt(+g(/area of (\d+)/, p)[1])],
+    s8_negative_plus_zero: (p) => { const m = nums(g(/Evaluate: (.*)$/, p)[1]); return [m[0] ** m[1] + 1]; },
+    s10_normalize_large: (p) => { const m = nums(g(/Write (.*) in scientific/, p)[1]), v = m[0] * 10 ** m[2], e = Math.floor(Math.log10(v) + 1e-9); return [+(v / 10 ** e).toPrecision(10), 10, e]; },
+    s11_divide_context: (p) => { const m = nums(g(/budget of (.*) dollars is shared equally by (.*) households/, p).slice(1).join(' ; ')); return [m[0] / m[3], 10, m[2] - m[5]]; },
+    s2_power_then_product: (p) => { const m = g(/\((-?\d+)x\)(\S) · x(\S?)$/, p), e = +SUP[m[2]], f = m[3] ? +SUP[m[3]] : 1; return [(+m[1]) ** e, e + f]; },
+    s3_sentence_then_solve: (p) => { const m = g(/^(\d+) (less|more) than (\d+) times a number is (\d+)/, p); return [(m[2] === 'less' ? +m[4] + +m[1] : m[4] - m[1]) / m[3]]; },
+    s3_cost_then_solve: (p) => { const m = g(/\$(\d+) fee plus \$(\d+) per hour\. A family paid \$(\d+)/, p); return [(m[3] - m[1]) / m[2]]; },
+    s4_distribute_both_sides: (p) => { const m = g(/Solve: (\d+)\(x - (\d+)\) ([+-]) (\d+) = (.*)$/, p), [d, e] = lin(m[5]), c = (m[3] === '-' ? -1 : 1) * m[4]; return [(e + m[1] * m[2] - c) / (m[1] - d)]; },
+    s5_parentheses_two_step: (p) => { const m = g(/Solve: (\d+)\(x \+ (\d+)\) - (\d+) = (-?\d+)/, p); return [(+m[4] + +m[3]) / m[1] - m[2]]; },
+    s6_distribute_then_combine: (p) => { const m = g(/Simplify: (-?\d+)\(x ([+-]) (\d+)\) ([+-]) (\d*)x - (\d+)/, p), a = +m[1], b = (m[2] === '-' ? -1 : 1) * m[3], c = (m[4] === '-' ? -1 : 1) * (m[5] === '' ? 1 : +m[5]); return [a + c, a * b - m[6]]; },
+    s8_cube_two_step: (p) => { const m = g(/x³ - (\d+) = (-?\d+)/, p); return [Math.round(Math.cbrt(+m[2] + +m[1]))]; },
+    s1_rule_then_evaluate: (p) => { const m = g(/y: (.*)\. Write a rule, then find y when x = (\d+)/, p), y = list(m[1]); return [y[0] + (y[1] - y[0]) * m[2]]; },
+    s2_difference_of_values: (p) => { const m = g(/f\(x\) = (.*), find f\((-?\d+)\) - f\((-?\d+)\)/, p), [a] = lin(m[1]); return [a * (m[2] - m[3])]; },
+    s3_complete_linear_table: (p) => { const y = g(/y: (.*)\. What/, p)[1].split(', '), k = y.indexOf('?'), i = k > 1 ? 0 : 2, j = k > 1 ? 1 : 3, d = (y[j] - y[i]) / (j - i); return [+y[i] + d * (k - i)]; },
+    s4_slope_from_points: (p) => { const [[a, b], [c, d]] = pts(p); return [(d - b) / (c - a)]; },
+    s5_equation_two_points: (p) => { const [[a, b], [c, d]] = pts(p), m = (d - b) / (c - a); return [m, b - m * a]; },
+    s6_x_intercept_of_line: (p) => { const [m, b] = lin(g(/y = (.*)\.$/, p)[1]); return [-b / m, 0]; },
+    s7_rule_from_two_values: (p) => { const m = g(/f\((\d+)\) = (-?\d+) and f\((\d+)\) = (-?\d+)/, p), s = (m[4] - m[2]) / (m[3] - m[1]); return [s, m[2] - s * m[1]]; },
+    s8_max_on_interval: (p) => { const m = g(/f\(x\) = (.*) on the interval from x = (-?\d+) to x = (-?\d+)/, p), [a, b] = lin(m[1]); return [Math.max(a * m[2] + b, a * m[3] + b)]; },
+    s9_initial_from_two: (p) => { const m = g(/had (\d+) gallons after (\d+) hours? and (\d+) gallons after (\d+) hours/, p), r = (m[3] - m[1]) / (m[4] - m[2]); return [m[1] - r * m[2]]; },
+    s10_input_from_total: (p) => { const m = g(/C\(n\) = (\d+)n \+ (\d+) .* cost \$(\d+)\?/, p); return [(m[3] - m[2]) / m[1]]; },
+    s11_value_at_boundary: (p) => { const m = g(/for x ≥ (-?\d+)\. Find/, p), k = +m[1], [c, d] = lin(g(/and f\(x\) = (.*) for x ≥/, p)[1]); return [c * k + d]; },
+    s12_rate_then_predict: (p) => { const m = g(/travels (\d+) miles in (\d+) hours .* in (\d+) hours/, p); return [m[1] / m[2] * m[3]]; },
+    s1_y_intercept_standard_form: (p) => { const [a, b, c] = two(g(/graph of (.*)\?$/, p)[1]); return [0, c / b]; },
+    s3_isolate_then_substitute: (p) => { const m = g(/substitution: (.*) and (.*)$/, p), [a, b, c] = two(m[1]), [d, e, f] = two(m[2]), D = a * e - b * d; return [(c * e - b * f) / D, (a * f - c * d) / D]; },
+    s4_add_to_eliminate: (p) => { const m = g(/elimination: (.*) and (.*)$/, p), [a, b, c] = two(m[1]), [d, e, f] = two(m[2]), D = a * e - b * d; return [(c * e - b * f) / D, (a * f - c * d) / D]; },
+    s5_multiply_and_compare: (p) => { const m = g(/system (.*) and (.*) have/, p), [a, b, c] = two(m[1]), [d, e, f] = two(m[2]); return Math.abs(a * e - b * d) > 1e-9 ? 'one solution' : Math.abs(c * d - a * f) < 1e-9 ? 'infinitely many solutions' : 'no solution'; },
+    s6_tickets_then_compare: (p) => { const m = g(/sold (\d+) tickets for \$(\d+)\. Adult tickets cost \$(\d+) and child tickets cost \$(\d+)/, p), A = (m[2] - m[4] * m[1]) / (m[3] - m[4]), C = m[1] - A; return [m[3] * A - m[4] * C]; },
+    s2_count_two_conditions: (p) => { const m = g(/hours studied: (.*); test score: (.*)\. How many students studied more than (\d+) hours and scored above (\d+)/, p), x = list(m[1]), y = list(m[2]); return [x.filter((v, i) => v > +m[3] && y[i] > +m[4]).length]; },
+    s3_change_and_direction: (p) => { const y = list(g(/y: (.*?)\. By how much/, p)[1]), d = y[y.length - 1] - y[0]; return d + ', ' + (d > 0 ? 'positive' : 'negative'); },
+    s4_fit_line_equation: (p) => { const [[a, b], [c, d]] = pts(p), m = (d - b) / (c - a); return [m, b]; },
+    s4_two_predictions: (p) => { const m = g(/y = (\d+)x \+ \d+\. How much greater is the prediction for x = (\d+) than the prediction for x = (\d+)/, p); return [m[1] * (m[2] - m[3])]; },
+    s5_column_total_from_rows: (p) => { const m = g(/and (\d+) do not\. Grade 8 has (\d+) students, and (\d+) of them/, p); return [+m[1] + (m[2] - m[3])]; },
+    s6_row_percent: (p) => { const m = g(/boys: (\d+) have a pet, (\d+) have no pet/, p); return [100 * m[1] / (+m[1] + +m[2])]; },
+    s1_rigid_length: (p) => { const [[, b], [, c]] = pts(p); return [Math.abs(c - b)]; },
+    s1_reflect_then_translate: (p) => { const [[x, y]] = pts(p), ax = g(/over the (x|y)-axis/, p)[1], h = +g(/translated (\d+) units left/, p)[1]; return ax === 'x' ? [x - h, -y] : [-x - h, y]; },
+    s2_rotate_then_translate: (p) => { const [[x, y]] = pts(p), h = +g(/translated (\d+) units right/, p)[1]; return [y + h, -x]; },
+    s3_reflect_both_axes: (p) => { const [[x, y]] = pts(p); return [-x, -y]; },
+    s4_two_translations: (p) => { const [[x, y]] = pts(p), m = g(/translated (\d+) units right and (\d+) units up, and then (\d+) units left and (\d+) units down/, p); return [x + +m[1] - m[3], y + +m[2] - m[4]]; },
+    s5_image_perimeter: (p) => { const m = g(/is (\d+) cm long and (\d+) cm wide\. It is dilated with scale factor (\S+)\./, p); return [2 * (+m[1] + +m[2]) * ev(m[3])]; },
+    s5_dilate_then_translate: (p) => { const [[x, y]] = pts(p), m = g(/scale factor (\d+) centered at the origin, then translated (\d+) units down/, p); return [m[1] * x, m[1] * y - m[2]]; },
+    s8_similar_two_sides: (p) => { const m = g(/sides (\d+), (\d+) and (\d+)\. A similar triangle DEF has shortest side (\S+)\./, p); return [m[3] * ev(m[4]) / m[1]]; },
+    s1_legs_then_perimeter: (p) => { const m = g(/legs (\d+) \S+ and (\d+)/, p); return [+m[1] + +m[2] + Math.hypot(m[1], m[2])]; },
+    s1_leg_then_area: (p) => { const m = g(/hypotenuse of (\d+) m and one leg of (\d+) m/, p); return [m[2] * Math.sqrt(m[1] ** 2 - m[2] ** 2) / 2]; },
+    s2_shortcut_saved: (p) => { const m = g(/park is (\d+) m by (\d+) m/, p); return [+m[1] + +m[2] - Math.hypot(m[1], m[2])]; },
+    s3_slant_then_volume: (p) => { const m = g(/radius (\d+) cm and slant height (\d+) cm/, p); return [m[1] ** 2 * Math.sqrt(m[2] ** 2 - m[1] ** 2) / 3]; },
+    s4_perimeter_on_grid: (p) => { const [[a, b], [c], [, d]] = pts(p), u = c - a, v = d - b; return [u + v + Math.hypot(u, v)]; },
+    s5_cylinder_from_diameter: (p) => { const m = g(/diameter of (\d+) inches and a height of (\d+)/, p); return [(m[1] / 2) ** 2 * m[2]]; },
+    s5_cone_from_diameter: (p) => { const m = g(/diameter of (\d+) feet and a height of (\d+)/, p); return [(m[1] / 2) ** 2 * m[2] / 3]; },
+    s6_cylinder_radius: (p) => { const m = g(/volume (\d+)π cubic cm and height (\d+)/, p); return [Math.sqrt(m[1] / m[2])]; },
+    s6_cone_radius: (p) => { const m = g(/holds (\d+)π cubic cm and is (\d+) cm tall/, p); return [Math.sqrt(3 * m[1] / m[2])]; },
+    s7_cylinder_minus_cone: (p) => { const m = g(/radius (\d+) cm and height (\d+) cm/, p); return [2 * m[1] ** 2 * m[2] / 3]; },
+    s7_cone_with_scoop: (p) => { const m = g(/radius (\d+) cm, height (\d+) cm/, p); return [m[1] ** 2 * m[2] / 3 + 2 * m[1] ** 3 / 3]; },
+    s9_alt_interior_pair: (p) => [180 - g(/∠3 = (\d+)°/, p)[1]],
+    s9_corresponding_solve: (p) => { const m = g(/measure \((.*)\)° and \((.*)\)°/, p), [a, b] = lin(m[1]), [c, d] = lin(m[2]), x = (d - b) / (a - c); return [x, a * x + b]; },
+  };
+  const close = (u, v) => u.length === v.length && u.every((x, i) => Math.abs(x - v[i]) < 1e-6);
+  const cp2 = new Set(Q.filter((q) => q.level === 'cp2').map((q) => q.skillId + '|' + mask(q.prompt)));
+  const hon = new Set(Q.filter((q) => q.level === 'honors').map((q) => q.skillId + '|' + mask(q.prompt)));
+  for (const q of E) {
+    const f = fam(q), fn = R[f];
+    check(q, !!fn, 'no recomputation for family ' + f);
+    check(q, q.level === 'cp1' && !cp2.has(q.skillId + '|' + mask(q.prompt)) && !hon.has(q.skillId + '|' + mask(q.prompt)), 'batch E item reuses a Support or Advanced template');
+    if (!fn) continue;
+    let want; try { want = fn(q.prompt); } catch (e) { check(q, false, e.message); continue; }
+    const a = String(q.answer);
+    if (typeof want === 'string') check(q, a === want, 'recomputed ' + want + ' but key ' + a);
+    else check(q, close(want, /^(s6_distribute_then_combine|s5_equation_two_points|s7_rule_from_two_values|s4_fit_line_equation)$/.test(f) ? lin(a.replace(/^y = /, '')) : nums(a)), 'recomputed ' + want.join(', ') + ' but key ' + a);
+    for (const s of q.solutionSteps) check(q, !/\+ -|- -|(?<![\d.])1[xy]\b|  |\b1 (hours|minutes|weeks)\b/.test(s), 'step formatting: ' + s);
+    if (q.options) check(q, q.options.filter((o) => o.correct).length === 1 && q.options.find((o) => o.correct).text === a && new Set(q.options.map((o) => o.text)).size === q.options.length, 'options');
+  }
+  const S = Q.filter((q) => q.level === 'cp1' && q.format !== 'plot');
+  const share = S.filter((q) => cp2.has(q.skillId + '|' + mask(q.prompt))).length / S.length;
+  check(null, share <= 0.15, 'Standard items reusing a Support template: ' + (100 * share).toFixed(1) + '%');
+}
 /* #1 the lesson planner has teaching notes for every 8th Grade Math skill */
 {
   const w = { console, Math, Date, JSON }; w.window = w; w.globalThis = w; vm.createContext(w);

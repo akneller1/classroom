@@ -2514,34 +2514,35 @@
    "skillId": "equations-expressions-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Simplify: (-4x)⁴",
-   "answer": "256x⁴",
+   "prompt": "Simplify: (3x)³ · x",
+   "answer": "27x⁴",
    "options": [
     {
-     "text": "-4x⁴",
+     "text": "9x⁴",
      "correct": false
     },
     {
-     "text": "-16x⁴",
-     "correct": false
-    },
-    {
-     "text": "256x⁴",
+     "text": "27x⁴",
      "correct": true
     },
     {
-     "text": "256x⁵",
+     "text": "27x³",
+     "correct": false
+    },
+    {
+     "text": "-27x⁴",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Raise every factor inside the parentheses to the power; multiply exponents.",
-    "(-4x)⁴ = 256x⁴."
+    "(3x)³ = 27x³.",
+    "Multiply by x: add exponents 3 + 1 = 4.",
+    "So the answer is 27x⁴."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_power). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_power_then_product). Rewritten from a Support template (was s2_power) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s02-cp1-016",
@@ -3804,52 +3805,52 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the sentence: \"4 less than 3 times a number n is 29.\"",
-   "answer": "3n - 4 = 29",
+   "prompt": "5 less than 4 times a number is 43. Write an equation and find the number.",
+   "answer": "n = 12",
    "solutionSteps": [
-    "Translate word by word: 'times' means multiply, 'more than' means add, 'less than' subtracts from the quantity that follows, and 'is' means =.",
-    "Equation: 3n - 4 = 29. (Its solution is n = 11.)"
+    "Equation: 4n - 5 = 43.",
+    "4n = 48, so n = 12."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_sentence_then_solve). Rewritten from a Support template (was s3_number_sentence) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-002",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A bike rental charges a $34 base fee plus $16 per hour. The total cost was $242. Write an equation to find the number of hours, h.",
-   "answer": "34 + 16h = 242",
+   "prompt": "5 less than 9 times a number is 76. Write an equation and find the number.",
+   "answer": "n = 9",
    "options": [
     {
-     "text": "(34 + 16)h = 242",
-     "correct": false
-    },
-    {
-     "text": "34h + 16 = 242",
-     "correct": false
-    },
-    {
-     "text": "16h = 242 + 34",
-     "correct": false
-    },
-    {
-     "text": "34 + 16h = 242",
+     "text": "n = 9",
      "correct": true
+    },
+    {
+     "text": "n = 10",
+     "correct": false
+    },
+    {
+     "text": "n = 7",
+     "correct": false
+    },
+    {
+     "text": "n = 71",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Total = fee + rate × hours.",
-    "34 + 16h = 242. Solving gives h = 13."
+    "Equation: 9n - 5 = 76.",
+    "9n = 81, so n = 9."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cost). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_sentence_then_solve). Rewritten from a Support template (was s3_cost) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-003",
@@ -3925,52 +3926,52 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents the sentence? \"11 less than 3 times a number n is 10.\"",
-   "answer": "3n - 11 = 10",
+   "prompt": "A kayak rental charges a $44 fee plus $10 per hour. A family paid $124. Write an equation and find the number of hours, h.",
+   "answer": "h = 8",
    "options": [
     {
-     "text": "11 - 3n = 10",
+     "text": "h = 9",
      "correct": false
     },
     {
-     "text": "3n - 11 = 10",
+     "text": "h = 8",
      "correct": true
     },
     {
-     "text": "3n + 11 = 10",
+     "text": "h = 7",
      "correct": false
     },
     {
-     "text": "3(n - 11) = 10",
+     "text": "h = 12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Translate word by word: 'times' means multiply, 'more than' means add, 'less than' subtracts from the quantity that follows, and 'is' means =.",
-    "Equation: 3n - 11 = 10. (Its solution is n = 7.)"
+    "44 + 10h = 124.",
+    "10h = 80, so h = 8."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_number_sentence) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-007",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A phone plan charges a $45 activation fee plus $24 per month. The total cost was $285. Write an equation to find the number of months, m.",
-   "answer": "45 + 24m = 285",
+   "prompt": "A kayak rental charges a $28 fee plus $16 per hour. A family paid $172. Write an equation and find the number of hours, h.",
+   "answer": "h = 9",
    "solutionSteps": [
-    "Total = fee + rate × months.",
-    "45 + 24m = 285. Solving gives m = 10."
+    "28 + 16h = 172.",
+    "16h = 144, so h = 9."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cost). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_cost) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-008",
@@ -4029,69 +4030,69 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Nia has $108 saved and saves $13 each week. Write and solve an equation to find how many weeks w until Nia has $303.",
-   "answer": "w = 15",
+   "prompt": "A kayak rental charges a $46 fee plus $15 per hour. A family paid $196. Write an equation and find the number of hours, h.",
+   "answer": "h = 10",
    "options": [
     {
-     "text": "w = 23",
+     "text": "h = 11",
      "correct": false
     },
     {
-     "text": "w = 31",
+     "text": "h = 9",
      "correct": false
     },
     {
-     "text": "w = 15",
+     "text": "h = 10",
      "correct": true
     },
     {
-     "text": "w = 16",
+     "text": "h = 13",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 108 + 13w = 303.",
-    "13w = 195, so w = 15 weeks."
+    "46 + 15h = 196.",
+    "15h = 150, so h = 10."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_write_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_write_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-011",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the sentence: \"19 less than 7 times a number n is -5.\"",
-   "answer": "7n - 19 = -5",
+   "prompt": "A kayak rental charges a $24 fee plus $7 per hour. A family paid $52. Write an equation and find the number of hours, h.",
+   "answer": "h = 4",
    "solutionSteps": [
-    "Translate word by word: 'times' means multiply, 'more than' means add, 'less than' subtracts from the quantity that follows, and 'is' means =.",
-    "Equation: 7n - 19 = -5. (Its solution is n = 2.)"
+    "24 + 7h = 52.",
+    "7h = 28, so h = 4."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_number_sentence) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-012",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A gym charges a $57 joining fee plus $24 per class. The total cost was $393. Write an equation to find the number of classes, c.",
-   "answer": "57 + 24c = 393",
+   "prompt": "A kayak rental charges a $27 fee plus $20 per hour. A family paid $267. Write an equation and find the number of hours, h.",
+   "answer": "h = 12",
    "solutionSteps": [
-    "Total = fee + rate × classes.",
-    "57 + 24c = 393. Solving gives c = 14."
+    "27 + 20h = 267.",
+    "20h = 240, so h = 12."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cost). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_cost) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-013",
@@ -4150,87 +4151,87 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Yusuf has $99 saved and saves $5 each week. Write and solve an equation to find how many weeks w until Yusuf has $159.",
-   "answer": "w = 12",
+   "prompt": "11 more than 3 times a number is 41. Write an equation and find the number.",
+   "answer": "n = 10",
    "options": [
     {
-     "text": "w = 31",
-     "correct": false
-    },
-    {
-     "text": "w = 13",
-     "correct": false
-    },
-    {
-     "text": "w = 51",
-     "correct": false
-    },
-    {
-     "text": "w = 12",
+     "text": "n = 10",
      "correct": true
+    },
+    {
+     "text": "n = 11",
+     "correct": false
+    },
+    {
+     "text": "n = 17",
+     "correct": false
+    },
+    {
+     "text": "n = 30",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 99 + 5w = 159.",
-    "5w = 60, so w = 12 weeks."
+    "Equation: 3n + 11 = 41.",
+    "3n = 30, so n = 10."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_write_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_sentence_then_solve). Rewritten from a Support template (was s3_write_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-016",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents the sentence? \"14 less than 2 times a number n is -22.\"",
-   "answer": "2n - 14 = -22",
+   "prompt": "15 more than 8 times a number is 71. Write an equation and find the number.",
+   "answer": "n = 7",
    "options": [
     {
-     "text": "14 - 2n = -22",
+     "text": "n = 8",
      "correct": false
     },
     {
-     "text": "2n - 14 = -22",
+     "text": "n = 10",
+     "correct": false
+    },
+    {
+     "text": "n = 7",
      "correct": true
     },
     {
-     "text": "2(n - 14) = -22",
-     "correct": false
-    },
-    {
-     "text": "2n + 14 = -22",
+     "text": "n = 56",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Translate word by word: 'times' means multiply, 'more than' means add, 'less than' subtracts from the quantity that follows, and 'is' means =.",
-    "Equation: 2n - 14 = -22. (Its solution is n = -4.)"
+    "Equation: 8n + 15 = 71.",
+    "8n = 56, so n = 7."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_sentence_then_solve). Rewritten from a Support template (was s3_number_sentence) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-017",
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A gym charges a $15 joining fee plus $15 per class. The total cost was $195. Write an equation to find the number of classes, c.",
-   "answer": "15 + 15c = 195",
+   "prompt": "5 more than 2 times a number is 29. Write an equation and find the number.",
+   "answer": "n = 12",
    "solutionSteps": [
-    "Total = fee + rate × classes.",
-    "15 + 15c = 195. Solving gives c = 12."
+    "Equation: 2n + 5 = 29.",
+    "2n = 24, so n = 12."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_cost). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_sentence_then_solve). Rewritten from a Support template (was s3_cost) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp1-018",
@@ -4460,35 +4461,35 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Kai has $89 saved and saves $27 each week. Write and solve an equation to find how many weeks w until Kai has $197.",
-   "answer": "w = 4",
+   "prompt": "A kayak rental charges a $16 fee plus $19 per hour. A family paid $73. Write an equation and find the number of hours, h.",
+   "answer": "h = 3",
    "options": [
     {
-     "text": "w = 5",
-     "correct": false
-    },
-    {
-     "text": "w = 7",
-     "correct": false
-    },
-    {
-     "text": "w = 4",
+     "text": "h = 3",
      "correct": true
     },
     {
-     "text": "w = 10",
+     "text": "h = 4",
+     "correct": false
+    },
+    {
+     "text": "h = 2",
+     "correct": false
+    },
+    {
+     "text": "h = 5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 89 + 27w = 197.",
-    "27w = 108, so w = 4 weeks."
+    "16 + 19h = 73.",
+    "19h = 57, so h = 3."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_write_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_write_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-honors-007",
@@ -4652,17 +4653,17 @@
    "skillId": "equations-expressions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the sentence: \"14 more than 7 times a number n is 105.\"",
-   "answer": "7n + 14 = 105",
+   "prompt": "A kayak rental charges a $53 fee plus $21 per hour. A family paid $200. Write an equation and find the number of hours, h.",
+   "answer": "h = 7",
    "solutionSteps": [
-    "Translate word by word: 'times' means multiply, 'more than' means add, 'less than' subtracts from the quantity that follows, and 'is' means =.",
-    "Equation: 7n + 14 = 105. (Its solution is n = 13.)"
+    "53 + 21h = 200.",
+    "21h = 147, so h = 7."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s3_cost_then_solve). Rewritten from a Support template (was s3_number_sentence) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-honors-014",
@@ -5531,19 +5532,17 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -5x + 2 = 3x + 66",
-   "answer": "x = -8",
+   "prompt": "Solve: 5(x - 1) + 2 = -2x - 17",
+   "answer": "x = -2",
    "solutionSteps": [
-    "Move the x-terms to one side: -8x + 2 = 66.",
-    "Undo the constant: -8x = 64.",
-    "Divide: x = -8.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -8."
+    "Distribute: 5x - 5 + 2 = -2x - 17.",
+    "Collect x-terms: 7x = -14.",
+    "x = -2."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-002",
@@ -5621,37 +5620,35 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Solve: -6x - 1 = -2x - 29",
-   "answer": "x = 7",
+   "prompt": "Solve: 4(x - 6) + 6 = 2x - 24",
+   "answer": "x = -3",
    "options": [
     {
-     "text": "x = -7",
+     "text": "x = -2",
      "correct": false
     },
     {
-     "text": "x = 15/2",
-     "correct": false
-    },
-    {
-     "text": "x = 7/2",
-     "correct": false
-    },
-    {
-     "text": "x = 7",
+     "text": "x = -3",
      "correct": true
+    },
+    {
+     "text": "x = 3",
+     "correct": false
+    },
+    {
+     "text": "x = -5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Move the x-terms to one side: -4x - 1 = -29.",
-    "Undo the constant: -4x = -28.",
-    "Divide: x = 7.",
-    "Check by substituting into both sides.",
-    "So the answer is x = 7."
+    "Distribute: 4x - 24 + 6 = 2x - 24.",
+    "Collect x-terms: 2x = -6.",
+    "x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-005",
@@ -5676,20 +5673,20 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which value of x is the solution of 7x + 11 = -2x - 34?",
-   "answer": "x = -5",
+   "prompt": "Solve: 3(x - 7) + 2 = 4x - 17",
+   "answer": "x = -2",
    "options": [
     {
-     "text": "x = -7",
-     "correct": false
-    },
-    {
-     "text": "x = 5",
-     "correct": false
-    },
-    {
-     "text": "x = -5",
+     "text": "x = -2",
      "correct": true
+    },
+    {
+     "text": "x = -1",
+     "correct": false
+    },
+    {
+     "text": "x = 2",
+     "correct": false
     },
     {
      "text": "x = -4",
@@ -5697,33 +5694,31 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = -5: left side = -24, right side = -24.",
-    "Only the solution makes both sides equal.",
-    "So the answer is x = -5."
+    "Distribute: 3x - 21 + 2 = 4x - 17.",
+    "Collect x-terms: -x = 2.",
+    "x = -2."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_which_solution). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_which_solution) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-007",
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -5x + 2 = -3x + 8",
-   "answer": "x = -3",
+   "prompt": "Solve: 3(x - 8) + 8 = -x + 20",
+   "answer": "x = 9",
    "solutionSteps": [
-    "Move the x-terms to one side: -2x + 2 = 8.",
-    "Undo the constant: -2x = 6.",
-    "Divide: x = -3.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -3."
+    "Distribute: 3x - 24 + 8 = -x + 20.",
+    "Collect x-terms: 4x = 36.",
+    "x = 9."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-008",
@@ -5856,54 +5851,52 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which value of x is the solution of 4x - 10 = -9x - 101?",
-   "answer": "x = -7",
+   "prompt": "Solve: 4(x - 2) + 7 = -3x - 22",
+   "answer": "x = -3",
    "options": [
     {
-     "text": "x = -9",
+     "text": "x = -2",
      "correct": false
     },
     {
-     "text": "x = -7",
+     "text": "x = -3",
      "correct": true
     },
     {
-     "text": "x = 7",
+     "text": "x = 3",
      "correct": false
     },
     {
-     "text": "x = -6",
+     "text": "x = -5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = -7: left side = -38, right side = -38.",
-    "Only the solution makes both sides equal.",
-    "So the answer is x = -7."
+    "Distribute: 4x - 8 + 7 = -3x - 22.",
+    "Collect x-terms: 7x = -21.",
+    "x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_which_solution). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_which_solution) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-013",
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -6x - 5 = 5x + 116",
-   "answer": "x = -11",
+   "prompt": "Solve: 5(x - 3) + 3 = 3x - 18",
+   "answer": "x = -3",
    "solutionSteps": [
-    "Move the x-terms to one side: -11x - 5 = 116.",
-    "Undo the constant: -11x = 121.",
-    "Divide: x = -11.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -11."
+    "Distribute: 5x - 15 + 3 = 3x - 18.",
+    "Collect x-terms: 2x = -6.",
+    "x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-014",
@@ -5928,19 +5921,17 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -3x - 17 = 3x - 5",
-   "answer": "x = -2",
+   "prompt": "Solve: 3(x - 4) + 6 = x - 8",
+   "answer": "x = -1",
    "solutionSteps": [
-    "Move the x-terms to one side: -6x - 17 = -5.",
-    "Undo the constant: -6x = 12.",
-    "Divide: x = -2.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -2."
+    "Distribute: 3x - 12 + 6 = x - 8.",
+    "Collect x-terms: 2x = -2.",
+    "x = -1."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp1-016",
@@ -6084,19 +6075,17 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -4x + 7 = 8x + 43",
-   "answer": "x = -3",
+   "prompt": "Solve: 2(x - 3) + 3 = -3x + 42",
+   "answer": "x = 9",
    "solutionSteps": [
-    "Move the x-terms to one side: -12x + 7 = 43.",
-    "Undo the constant: -12x = 36.",
-    "Divide: x = -3.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -3."
+    "Distribute: 2x - 6 + 3 = -3x + 42.",
+    "Collect x-terms: 5x = 45.",
+    "x = 9."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-honors-002",
@@ -6155,19 +6144,17 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: -2x + 10 = 2x - 50",
-   "answer": "x = 15",
+   "prompt": "Solve: 3(x - 1) + 3 = x + 12",
+   "answer": "x = 6",
    "solutionSteps": [
-    "Move the x-terms to one side: -4x + 10 = -50.",
-    "Undo the constant: -4x = -60.",
-    "Divide: x = 15.",
-    "Check by substituting into both sides.",
-    "So the answer is x = 15."
+    "Distribute: 3x - 3 + 3 = x + 12.",
+    "Collect x-terms: 2x = 12.",
+    "x = 6."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-honors-005",
@@ -6244,37 +6231,35 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Solve: 3x - 9 = -9x - 25",
-   "answer": "x = -4/3",
+   "prompt": "Solve: 3(x - 6) + 4 = 5x - 20",
+   "answer": "x = 3",
    "options": [
     {
-     "text": "x = 4/3",
-     "correct": false
-    },
-    {
-     "text": "x = -4/3",
+     "text": "x = 3",
      "correct": true
     },
     {
-     "text": "x = -17/6",
+     "text": "x = 4",
      "correct": false
     },
     {
-     "text": "x = 8/3",
+     "text": "x = -3",
+     "correct": false
+    },
+    {
+     "text": "x = 1",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Move the x-terms to one side: 12x - 9 = -25.",
-    "Undo the constant: 12x = -16.",
-    "Divide: x = -4/3.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -4/3."
+    "Distribute: 3x - 18 + 4 = 5x - 20.",
+    "Collect x-terms: -2x = -6.",
+    "x = 3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-honors-008",
@@ -6315,37 +6300,35 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Solve: -2x - 2 = -3x - 6",
-   "answer": "x = -4",
+   "prompt": "Solve: 4(x - 1) + 5 = -3x - 6",
+   "answer": "x = -1",
    "options": [
     {
-     "text": "x = 4",
+     "text": "x = 0",
      "correct": false
     },
     {
-     "text": "x = -8",
+     "text": "x = 1",
      "correct": false
     },
     {
-     "text": "x = -4",
+     "text": "x = -3",
+     "correct": false
+    },
+    {
+     "text": "x = -1",
      "correct": true
-    },
-    {
-     "text": "x = 4/5",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Move the x-terms to one side: x - 2 = -6.",
-    "Undo the constant: x = -4.",
-    "Divide: x = -4.",
-    "Check by substituting into both sides.",
-    "So the answer is x = -4."
+    "Distribute: 4x - 4 + 5 = -3x - 6.",
+    "Collect x-terms: 7x = -7.",
+    "x = -1."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-honors-011",
@@ -6386,19 +6369,17 @@
    "skillId": "equations-expressions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 6x + 5 = -2x + 15",
-   "answer": "x = 5/4",
+   "prompt": "Solve: 3(x - 7) + 4 = 4x - 12",
+   "answer": "x = -5",
    "solutionSteps": [
-    "Move the x-terms to one side: 8x + 5 = 15.",
-    "Undo the constant: 8x = 10.",
-    "Divide: x = 5/4.",
-    "Check by substituting into both sides.",
-    "So the answer is x = 5/4."
+    "Distribute: 3x - 21 + 4 = 4x - 12.",
+    "Collect x-terms: -x = 5.",
+    "x = -5."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-honors-014",
@@ -7287,34 +7268,35 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "9 students each buy a club shirt and pay $1 of shipping per shirt; together they pay $54. Solve 9(x + 1) = 54 to find the price x of one shirt in dollars.",
-   "answer": "x = 5",
+   "prompt": "Solve: 4(x + 8) - 3 = 61",
+   "answer": "x = 8",
    "options": [
+    {
+     "text": "x = 16",
+     "correct": false
+    },
+    {
+     "text": "x = 8",
+     "correct": true
+    },
     {
      "text": "x = 6",
      "correct": false
     },
     {
-     "text": "x = 53",
+     "text": "x = 7",
      "correct": false
-    },
-    {
-     "text": "x = 53/9",
-     "correct": false
-    },
-    {
-     "text": "x = 5",
-     "correct": true
     }
    ],
    "solutionSteps": [
-    "Divide both sides by 9: x + 1 = 6.",
-    "x = 5."
+    "Add 3: 4(x + 8) = 64.",
+    "Divide by 4: x + 8 = 16.",
+    "x = 8."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-003",
@@ -7373,16 +7355,17 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "3 students each buy a club shirt and pay $1 of shipping per shirt; together they pay $27. Solve 3(x + 1) = 27 to find the price x of one shirt in dollars.",
-   "answer": "x = 8",
+   "prompt": "Solve: 6(x + 8) - 4 = 62",
+   "answer": "x = 3",
    "solutionSteps": [
-    "Divide both sides by 3: x + 1 = 9.",
-    "x = 8."
+    "Add 4: 6(x + 8) = 66.",
+    "Divide by 6: x + 8 = 11.",
+    "x = 3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-006",
@@ -7441,7 +7424,7 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "5 students each buy a club shirt and pay $6 of shipping per shirt; together they pay $50. Solve 5(x + 6) = 50 to find the price x of one shirt in dollars.",
+   "prompt": "Solve: 3(x + 6) - 11 = 19",
    "answer": "x = 4",
    "options": [
     {
@@ -7449,42 +7432,44 @@
      "correct": false
     },
     {
-     "text": "x = 44",
-     "correct": false
-    },
-    {
-     "text": "x = 44/5",
-     "correct": false
-    },
-    {
      "text": "x = 4",
      "correct": true
+    },
+    {
+     "text": "x = -4",
+     "correct": false
+    },
+    {
+     "text": "x = 3",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide both sides by 5: x + 6 = 10.",
+    "Add 11: 3(x + 6) = 30.",
+    "Divide by 3: x + 6 = 10.",
     "x = 4."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-009",
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the distributive property to rewrite -6(x + 1).",
-   "answer": "-6x - 6",
+   "prompt": "Solve: 6(x + 4) - 5 = 49",
+   "answer": "x = 5",
    "solutionSteps": [
-    "Multiply each term inside by -6: -6 · x and -6 · 1.",
-    "= -6x - 6."
+    "Add 5: 6(x + 4) = 54.",
+    "Divide by 6: x + 4 = 9.",
+    "x = 5."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_distribute) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-010",
@@ -7508,34 +7493,35 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "9 students each buy a club shirt and pay $1 of shipping per shirt; together they pay $63. Solve 9(x + 1) = 63 to find the price x of one shirt in dollars.",
-   "answer": "x = 6",
+   "prompt": "Solve: 5(x + 9) - 3 = 27",
+   "answer": "x = -3",
    "options": [
     {
-     "text": "x = 62/9",
-     "correct": false
-    },
-    {
-     "text": "x = 62",
-     "correct": false
-    },
-    {
      "text": "x = 6",
+     "correct": false
+    },
+    {
+     "text": "x = -3",
      "correct": true
     },
     {
-     "text": "x = 7",
+     "text": "x = -5",
+     "correct": false
+    },
+    {
+     "text": "x = -4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide both sides by 9: x + 1 = 7.",
-    "x = 6."
+    "Add 3: 5(x + 9) = 30.",
+    "Divide by 5: x + 9 = 6.",
+    "x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-012",
@@ -7612,32 +7598,34 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "3 students each buy a club shirt and pay $4 of shipping per shirt; together they pay $39. Solve 3(x + 4) = 39 to find the price x of one shirt in dollars.",
+   "prompt": "Solve: 5(x + 1) - 1 = 49",
    "answer": "x = 9",
    "solutionSteps": [
-    "Divide both sides by 3: x + 4 = 13.",
+    "Add 1: 5(x + 1) = 50.",
+    "Divide by 5: x + 1 = 10.",
     "x = 9."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-015",
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the distributive property to rewrite -6(x - 9).",
-   "answer": "-6x + 54",
+   "prompt": "Solve: 2(x + 7) - 2 = 8",
+   "answer": "x = -2",
    "solutionSteps": [
-    "Multiply each term inside by -6: -6 · x and -6 · (-9).",
-    "= -6x + 54."
+    "Add 2: 2(x + 7) = 10.",
+    "Divide by 2: x + 7 = 5.",
+    "x = -2."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_distribute) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-016",
@@ -7679,16 +7667,17 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "7 students each buy a club shirt and pay $3 of shipping per shirt; together they pay $84. Solve 7(x + 3) = 84 to find the price x of one shirt in dollars.",
-   "answer": "x = 9",
+   "prompt": "Solve: 5(x + 8) - 3 = 62",
+   "answer": "x = 5",
    "solutionSteps": [
-    "Divide both sides by 7: x + 3 = 12.",
-    "x = 9."
+    "Add 3: 5(x + 8) = 65.",
+    "Divide by 5: x + 8 = 13.",
+    "x = 5."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_parentheses_two_step). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-018",
@@ -8916,34 +8905,34 @@
    "skillId": "equations-expressions-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Simplify by combining like terms: -9x - 1 + 6x - 8",
-   "answer": "-3x - 9",
+   "prompt": "Simplify: 2(x + 1) - 5x - 5",
+   "answer": "-3x - 3",
    "options": [
     {
-     "text": "-15x - 9",
+     "text": "-3x - 3",
+     "correct": true
+    },
+    {
+     "text": "-3x - 4",
      "correct": false
     },
     {
-     "text": "-12x",
+     "text": "-10x - 3",
      "correct": false
     },
     {
      "text": "-3x + 7",
      "correct": false
-    },
-    {
-     "text": "-3x - 9",
-     "correct": true
     }
    ],
    "solutionSteps": [
-    "x-terms: -9 + (6) = -3. Constants: -1 + (-8) = -9.",
-    "= -3x - 9."
+    "Distribute: 2x + 2 - 5x - 5.",
+    "Combine like terms: -3x - 3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_simplify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_distribute_then_combine). Rewritten from a Support template (was s6_simplify) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s06-cp1-003",
@@ -9019,34 +9008,34 @@
    "skillId": "equations-expressions-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Simplify by combining like terms: -6x - 12 + 2x - 2",
-   "answer": "-4x - 14",
+   "prompt": "Simplify: 3(x + 3) + 4x - 5",
+   "answer": "7x + 4",
    "options": [
     {
-     "text": "-4x - 10",
+     "text": "7x - 2",
      "correct": false
     },
     {
-     "text": "-8x - 14",
+     "text": "12x + 4",
      "correct": false
     },
     {
-     "text": "-18x",
-     "correct": false
-    },
-    {
-     "text": "-4x - 14",
+     "text": "7x + 4",
      "correct": true
+    },
+    {
+     "text": "7x + 14",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "x-terms: -6 + (2) = -4. Constants: -12 + (-2) = -14.",
-    "= -4x - 14."
+    "Distribute: 3x + 9 + 4x - 5.",
+    "Combine like terms: 7x + 4."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_simplify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_distribute_then_combine). Rewritten from a Support template (was s6_simplify) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s06-cp1-007",
@@ -9225,16 +9214,16 @@
    "skillId": "equations-expressions-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Simplify by combining like terms: -4x + 5 + 7x + 9",
-   "answer": "3x + 14",
+   "prompt": "Simplify: 4(x + 4) + 4x - 4",
+   "answer": "8x + 12",
    "solutionSteps": [
-    "x-terms: -4 + (7) = 3. Constants: 5 + (9) = 14.",
-    "= 3x + 14."
+    "Distribute: 4x + 16 + 4x - 4.",
+    "Combine like terms: 8x + 12."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_simplify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_distribute_then_combine). Rewritten from a Support template (was s6_simplify) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s06-cp1-015",
@@ -12305,16 +12294,17 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "4 identical cube-shaped boxes have a total volume of 2048 cubic inches. Solve 4e³ = 2048 for the edge length e.",
-   "answer": "e = 8",
+   "prompt": "Solve: x³ - 6 = 2",
+   "answer": "x = 2",
    "solutionSteps": [
-    "e³ = 512.",
-    "e = 8."
+    "Add 6: x³ = 8.",
+    "Take the cube root: x = ∛8 = 2.",
+    "So the answer is x = 2."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). Rewritten from a Support template (was s8_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-004",
@@ -12408,34 +12398,35 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A square mural has area A = s² square feet. If the mural plus a 24 square-foot border panel covers 348 square feet, solve s² + 24 = 348 for the side length s.",
-   "answer": "s = 18",
+   "prompt": "Solve: x³ - 5 = 3",
+   "answer": "x = 2",
    "options": [
     {
-     "text": "s = 324",
+     "text": "x = 3",
      "correct": false
     },
     {
-     "text": "s = 18 or s = -18",
+     "text": "x = 8",
      "correct": false
     },
     {
-     "text": "s = 174",
+     "text": "x = 1",
      "correct": false
     },
     {
-     "text": "s = 18",
+     "text": "x = 2",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "s² = 324.",
-    "s = 18 (a length cannot be negative, so reject -18)."
+    "Add 5: x³ = 8.",
+    "Take the cube root: x = ∛8 = 2.",
+    "So the answer is x = 2."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). Rewritten from a Support template (was s8_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-008",
@@ -12511,16 +12502,17 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "4 identical cube-shaped boxes have a total volume of 4000 cubic inches. Solve 4e³ = 4000 for the edge length e.",
-   "answer": "e = 10",
+   "prompt": "Solve: x³ - 12 = -4",
+   "answer": "x = 2",
    "solutionSteps": [
-    "e³ = 1000.",
-    "e = 10."
+    "Add 12: x³ = 8.",
+    "Take the cube root: x = ∛8 = 2.",
+    "So the answer is x = 2."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). Rewritten from a Support template (was s8_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-012",
@@ -12595,34 +12587,35 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A square mural has area A = s² square feet. If the mural plus a 7 square-foot border panel covers 331 square feet, solve s² + 7 = 331 for the side length s.",
-   "answer": "s = 18",
+   "prompt": "Solve: x³ - 26 = 99",
+   "answer": "x = 5",
    "options": [
     {
-     "text": "s = 331/2",
+     "text": "x = 6",
      "correct": false
     },
     {
-     "text": "s = 324",
+     "text": "x = 125",
      "correct": false
     },
     {
-     "text": "s = 18 or s = -18",
-     "correct": false
-    },
-    {
-     "text": "s = 18",
+     "text": "x = 5",
      "correct": true
+    },
+    {
+     "text": "x = 4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "s² = 324.",
-    "s = 18 (a length cannot be negative, so reject -18)."
+    "Add 26: x³ = 125.",
+    "Take the cube root: x = ∛125 = 5.",
+    "So the answer is x = 5."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). Rewritten from a Support template (was s8_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-016",

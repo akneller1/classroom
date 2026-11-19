@@ -526,68 +526,66 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(-5, -2), (2, 7), (-5, -1), (-1, 5)} a function? Answer yes or no.",
-   "answer": "no",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 4, 1, -2, -5. Write a rule, then find y when x = 11.",
+   "answer": "-29",
    "solutionSteps": [
-    "The input -5 is paired with two different outputs.",
-    "So the answer is no."
+    "y starts at 4 and changes by -3 each time x goes up 1: y = -3x + 4.",
+    "y = -3(11) + 4 = -29."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-002",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which relation is a function?",
-   "answer": "{(0, 4), (6, 0), (-5, -2), (-2, -3)}",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -5, -7, -9, -11. Write a rule, then find y when x = 6.",
+   "answer": "-17",
    "options": [
     {
-     "text": "{(0, 4), (6, 0), (-5, -2), (-2, -3)}",
+     "text": "-12",
+     "correct": false
+    },
+    {
+     "text": "-17",
      "correct": true
     },
     {
-     "text": "{(-4, 0), (-4, 1), (-5, 0), (7, 8)}",
+     "text": "-13",
      "correct": false
     },
     {
-     "text": "{(5, -1), (5, -4), (0, 0), (-1, 2)}",
-     "correct": false
-    },
-    {
-     "text": "{(-4, 3), (5, -1), (5, 3), (-1, 8)}",
+     "text": "-7",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A function pairs each input with exactly one output.",
-    "Repeated outputs are allowed; a repeated input with different outputs is not.",
-    "{(0, 4), (6, 0), (-5, -2), (-2, -3)}: no input repeats, so it is a function; {(-4, 0), (-4, 1), (-5, 0), (7, 8)}: input -4 has outputs 0 and 1, so not a function; {(5, -1), (5, -4), (0, 0), (-1, 2)}: input 5 has outputs -1 and -4, so not a function; {(-4, 3), (5, -1), (5, 3), (-1, 8)}: input 5 has outputs -1 and 3, so not a function."
+    "y starts at -5 and changes by -2 each time x goes up 1: y = -2x - 5.",
+    "y = -2(6) - 5 = -17."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_which_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-003",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write a function rule for the table. x: 0, 1, 2, 3; y: 1, -2, -5, -8",
-   "answer": "y = -3x + 1",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 1, 4, 7, 10. Write a rule, then find y when x = 12.",
+   "answer": "37",
    "solutionSteps": [
-    "Rate of change = change in y ÷ change in x = -3 ÷ 1 = -3.",
-    "Use a point to find b: 1 = -3(0) + b, so b = 1.",
-    "y = -3x + 1"
+    "y starts at 1 and changes by 3 each time x goes up 1: y = 3x + 1.",
+    "y = 3(12) + 1 = 37."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rule_from_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_rule_from_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-004",
@@ -628,16 +626,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write a function rule (y in terms of x): \"The output is 15 less than 2 times the input.\"",
-   "answer": "y = 2x - 15",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 7, 4, 1, -2. Write a rule, then find y when x = 7.",
+   "answer": "-14",
    "solutionSteps": [
-    "Translate the words into operations on x.",
-    "y = 2x - 15"
+    "y starts at 7 and changes by -3 each time x goes up 1: y = -3x + 7.",
+    "y = -3(7) + 7 = -14."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_verbal). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_verbal) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-006",
@@ -678,86 +676,84 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(0, 1), (-2, -5), (1, 7), (7, 6)} a function? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -2, 0, 2, 4. Write a rule, then find y when x = 10.",
+   "answer": "18",
    "solutionSteps": [
-    "Each input (x-value) is paired with exactly one output.",
-    "So the answer is yes."
+    "y starts at -2 and changes by 2 each time x goes up 1: y = 2x - 2.",
+    "y = 2(10) - 2 = 18."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-008",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which relation is a function?",
-   "answer": "{(4, 7), (-1, 1), (7, 8), (2, -1)}",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 3, 0, -3, -6. Write a rule, then find y when x = 9.",
+   "answer": "-24",
    "options": [
     {
-     "text": "{(2, 4), (-5, 0), (-2, 6), (2, 6)}",
+     "text": "-27",
      "correct": false
     },
     {
-     "text": "{(5, 4), (-2, -2), (5, 1), (7, -5)}",
+     "text": "-9",
      "correct": false
     },
     {
-     "text": "{(4, 7), (-1, 1), (7, 8), (2, -1)}",
+     "text": "-30",
+     "correct": false
+    },
+    {
+     "text": "-24",
      "correct": true
-    },
-    {
-     "text": "{(-5, 2), (5, -1), (-3, -1), (-3, -4)}",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A function pairs each input with exactly one output.",
-    "Repeated outputs are allowed; a repeated input with different outputs is not.",
-    "{(2, 4), (-5, 0), (-2, 6), (2, 6)}: input 2 has outputs 4 and 6, so not a function; {(5, 4), (-2, -2), (5, 1), (7, -5)}: input 5 has outputs 4 and 1, so not a function; {(4, 7), (-1, 1), (7, 8), (2, -1)}: no input repeats, so it is a function; {(-5, 2), (5, -1), (-3, -1), (-3, -4)}: input -3 has outputs -1 and -4, so not a function."
+    "y starts at 3 and changes by -3 each time x goes up 1: y = -3x + 3.",
+    "y = -3(9) + 3 = -24."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_which_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-009",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write a function rule for the table. x: -2, -1, 0, 1; y: -9, -5, -1, 3",
-   "answer": "y = 4x - 1",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 5, 9, 13, 17. Write a rule, then find y when x = 7.",
+   "answer": "33",
    "options": [
     {
-     "text": "y = 4x + 3",
+     "text": "28",
      "correct": false
     },
     {
-     "text": "y = -4x - 1",
+     "text": "21",
      "correct": false
     },
     {
-     "text": "y = 4x - 1",
+     "text": "33",
      "correct": true
     },
     {
-     "text": "y = -x + 4",
+     "text": "23",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Rate of change = change in y ÷ change in x = 4 ÷ 1 = 4.",
-    "Use a point to find b: -9 = 4(-2) + b, so b = -1.",
-    "y = 4x - 1"
+    "y starts at 5 and changes by 4 each time x goes up 1: y = 4x + 5.",
+    "y = 4(7) + 5 = 33."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rule_from_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_rule_from_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-010",
@@ -830,68 +826,66 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(5, 8), (4, -6), (5, 5), (-4, 6)} a function? Answer yes or no.",
-   "answer": "no",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 3, 5, 7, 9. Write a rule, then find y when x = 7.",
+   "answer": "17",
    "solutionSteps": [
-    "The input 5 is paired with two different outputs.",
-    "So the answer is no."
+    "y starts at 3 and changes by 2 each time x goes up 1: y = 2x + 3.",
+    "y = 2(7) + 3 = 17."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-014",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which relation is a function?",
-   "answer": "{(7, 9), (4, 8), (3, -6), (-1, -6)}",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -3, -5, -7, -9. Write a rule, then find y when x = 11.",
+   "answer": "-25",
    "options": [
     {
-     "text": "{(7, 9), (4, 8), (3, -6), (-1, -6)}",
+     "text": "-25",
      "correct": true
     },
     {
-     "text": "{(5, -4), (2, -3), (5, -6), (3, -4)}",
+     "text": "-22",
      "correct": false
     },
     {
-     "text": "{(5, -5), (1, -4), (4, -5), (5, -6)}",
+     "text": "-11",
      "correct": false
     },
     {
-     "text": "{(3, -5), (0, 5), (3, -8), (6, 8)}",
+     "text": "-19",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A function pairs each input with exactly one output.",
-    "Repeated outputs are allowed; a repeated input with different outputs is not.",
-    "{(7, 9), (4, 8), (3, -6), (-1, -6)}: no input repeats, so it is a function; {(5, -4), (2, -3), (5, -6), (3, -4)}: input 5 has outputs -4 and -6, so not a function; {(5, -5), (1, -4), (4, -5), (5, -6)}: input 5 has outputs -5 and -6, so not a function; {(3, -5), (0, 5), (3, -8), (6, 8)}: input 3 has outputs -5 and -8, so not a function."
+    "y starts at -3 and changes by -2 each time x goes up 1: y = -2x - 3.",
+    "y = -2(11) - 3 = -25."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_which_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-015",
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write a function rule for the table. x: 1, 2, 3, 4; y: -5, -7, -9, -11",
-   "answer": "y = -2x - 3",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -4, -7, -10, -13. Write a rule, then find y when x = 12.",
+   "answer": "-40",
    "solutionSteps": [
-    "Rate of change = change in y ÷ change in x = -2 ÷ 1 = -2.",
-    "Use a point to find b: -5 = -2(1) + b, so b = -3.",
-    "y = -2x - 3"
+    "y starts at -4 and changes by -3 each time x goes up 1: y = -3x - 4.",
+    "y = -3(12) - 4 = -40."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rule_from_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_rule_from_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-016",
@@ -914,34 +908,34 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write a function rule (y in terms of x): \"The output is 9 more than 7 times the input.\"",
-   "answer": "y = 7x + 9",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 6, 3, 0, -3. Write a rule, then find y when x = 9.",
+   "answer": "-21",
    "options": [
     {
-     "text": "y = 7x - 9",
-     "correct": false
-    },
-    {
-     "text": "y = 7x + 9",
+     "text": "-21",
      "correct": true
     },
     {
-     "text": "y = 7(x + 9)",
+     "text": "-27",
      "correct": false
     },
     {
-     "text": "y = 9x + 7",
+     "text": "-6",
+     "correct": false
+    },
+    {
+     "text": "-33",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Translate the words into operations on x.",
-    "y = 7x + 9"
+    "y starts at 6 and changes by -3 each time x goes up 1: y = -3x + 6.",
+    "y = -3(9) + 6 = -21."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_verbal). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_verbal) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-cp1-018",
@@ -1048,16 +1042,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(-3, 5), (-3, 6), (5, -4), (1, 1)} a function? Answer yes or no.",
-   "answer": "no",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 6, 11, 16, 21. Write a rule, then find y when x = 9.",
+   "answer": "51",
    "solutionSteps": [
-    "The input -3 is paired with two different outputs.",
-    "So the answer is no."
+    "y starts at 6 and changes by 5 each time x goes up 1: y = 5x + 6.",
+    "y = 5(9) + 6 = 51."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-002",
@@ -1099,17 +1093,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write a function rule for the table. x: -4, 1, 6, 7; y: 1, -4, -9, -10",
-   "answer": "y = -x - 3",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 8, 6, 4, 2. Write a rule, then find y when x = 6.",
+   "answer": "-4",
    "solutionSteps": [
-    "Rate of change = change in y ÷ change in x = -5 ÷ 5 = -1.",
-    "Use a point to find b: 1 = -1(-4) + b, so b = -3.",
-    "y = -x - 3"
+    "y starts at 8 and changes by -2 each time x goes up 1: y = -2x + 8.",
+    "y = -2(6) + 8 = -4."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rule_from_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_rule_from_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-004",
@@ -1208,16 +1201,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(1, 9), (-4, 9), (3, 8), (0, -2)} a function? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -4, 1, 6, 11. Write a rule, then find y when x = 8.",
+   "answer": "36",
    "solutionSteps": [
-    "Each input (x-value) is paired with exactly one output.",
-    "So the answer is yes."
+    "y starts at -4 and changes by 5 each time x goes up 1: y = 5x - 4.",
+    "y = 5(8) - 4 = 36."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-008",
@@ -1386,16 +1379,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(-5, -6), (0, -3), (-3, -3), (6, 1)} a function? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 2, 4, 6, 8. Write a rule, then find y when x = 8.",
+   "answer": "18",
    "solutionSteps": [
-    "Each input (x-value) is paired with exactly one output.",
-    "So the answer is yes."
+    "y starts at 2 and changes by 2 each time x goes up 1: y = 2x + 2.",
+    "y = 2(8) + 2 = 18."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-014",
@@ -1437,17 +1430,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write a function rule for the table. x: -4, 1, 3, 6; y: 18, -2, -10, -22",
-   "answer": "y = -4x + 2",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: -3, -5, -7, -9. Write a rule, then find y when x = 6.",
+   "answer": "-15",
    "solutionSteps": [
-    "Rate of change = change in y ÷ change in x = -20 ÷ 5 = -4.",
-    "Use a point to find b: 18 = -4(-4) + b, so b = 2.",
-    "y = -4x + 2"
+    "y starts at -3 and changes by -2 each time x goes up 1: y = -2x - 3.",
+    "y = -2(6) - 3 = -15."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rule_from_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_rule_from_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-016",
@@ -1486,16 +1478,16 @@
    "skillId": "linear-functional-relationships-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relation {(-1, 1), (2, -4), (5, 3), (3, -5)} a function? Answer yes or no.",
-   "answer": "yes",
+   "prompt": "The table shows a function. x: 0, 1, 2, 3; y: 5, 3, 1, -1. Write a rule, then find y when x = 12.",
+   "answer": "-19",
    "solutionSteps": [
-    "Each input (x-value) is paired with exactly one output.",
-    "So the answer is yes."
+    "y starts at 5 and changes by -2 each time x goes up 1: y = -2x + 5.",
+    "y = -2(12) + 5 = -19."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_is_function). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s1_rule_then_evaluate). Rewritten from a Support template (was s1_is_function) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s01-honors-019",
@@ -2291,34 +2283,34 @@
    "skillId": "linear-functional-relationships-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point lies on the graph of y = x - 5?",
-   "answer": "(4, -1)",
+   "prompt": "For f(x) = 2x - 9, find f(1) - f(-4).",
+   "answer": "10",
    "options": [
     {
-     "text": "(-1, 4)",
+     "text": "-6",
      "correct": false
     },
     {
-     "text": "(4, -1)",
+     "text": "10",
      "correct": true
     },
     {
-     "text": "(4, 0)",
+     "text": "1",
      "correct": false
     },
     {
-     "text": "(-4, 1)",
+     "text": "-10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = 4: y = -1.",
-    "So (4, -1) is on the graph; the others do not satisfy the equation."
+    "f(1) = -7 and f(-4) = -17.",
+    "-7 - (-17) = 10."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point_on). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_difference_of_values). Rewritten from a Support template (was s2_point_on) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s02-cp1-002",
@@ -2439,34 +2431,34 @@
    "skillId": "linear-functional-relationships-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Complete the table of values for y = 2x - 1. x: -2, -1, 0, 1, 2; y: -5, -3, -1, ?, 3. What value replaces the ?",
-   "answer": "1",
+   "prompt": "For f(x) = -2x - 3, find f(2) - f(1).",
+   "answer": "-2",
    "options": [
     {
-     "text": "-3",
+     "text": "-6",
      "correct": false
     },
     {
-     "text": "-1",
+     "text": "-5",
      "correct": false
-    },
-    {
-     "text": "1",
-     "correct": true
     },
     {
      "text": "2",
      "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": true
     }
    ],
    "solutionSteps": [
-    "Substitute x = 1 into y = 2x - 1.",
-    "y = 1."
+    "f(2) = -7 and f(1) = -5.",
+    "-7 - (-5) = -2."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_difference_of_values). Rewritten from a Support template (was s2_table_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s02-cp1-007",
@@ -2537,50 +2529,50 @@
    "skillId": "linear-functional-relationships-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which point lies on the graph of y = 4x + 1?",
-   "answer": "(-1, -3)",
+   "prompt": "For f(x) = 4x + 6, find f(1) - f(-1).",
+   "answer": "8",
    "options": [
     {
-     "text": "(-1, -3)",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "(-1, -2)",
+     "text": "0",
      "correct": false
     },
     {
-     "text": "(1, 3)",
+     "text": "14",
      "correct": false
     },
     {
-     "text": "(-3, -1)",
+     "text": "-8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = -1: y = -3.",
-    "So (-1, -3) is on the graph; the others do not satisfy the equation."
+    "f(1) = 10 and f(-1) = 2.",
+    "10 - 2 = 8."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_point_on). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_difference_of_values). Rewritten from a Support template (was s2_point_on) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s02-cp1-010",
    "skillId": "linear-functional-relationships-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Complete the table of values for y = 2x - 3. x: -2, -1, 0, 1, 2; y: ?, -5, -3, -1, 1. What value replaces the ?",
-   "answer": "-7",
+   "prompt": "For f(x) = -3x + 7, find f(4) - f(0).",
+   "answer": "-12",
    "solutionSteps": [
-    "Substitute x = -2 into y = 2x - 3.",
-    "y = -7."
+    "f(4) = -5 and f(0) = 7.",
+    "-5 - 7 = -12."
    ],
    "standards": [
     "8.F.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_difference_of_values). Rewritten from a Support template (was s2_table_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s02-cp1-011",
@@ -4049,51 +4041,50 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 1, 2, 3, 4; y: -2, -6, -10, -14, -18",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -4, ?, -14, -19, -24. What value replaces the ?",
+   "answer": "-9",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear.",
-    "In order of x, the rates of change are -4, -4, -4, -4: constant, so linear."
+    "The y-values change by -5 each time x goes up 1.",
+    "Missing value: -4 - 5 = -9."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-002",
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents a linear function?",
-   "answer": "2x + 9y = 12",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 3, 9, ?, 21, 27. What value replaces the ?",
+   "answer": "15",
    "options": [
     {
-     "text": "2x + 9y = 12",
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "15",
      "correct": true
     },
     {
-     "text": "y = 2/x",
-     "correct": false
-    },
-    {
-     "text": "y = 2ˣ",
-     "correct": false
-    },
-    {
-     "text": "y = 2x² + 9",
+     "text": "39",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A linear function can be written y = mx + b: x appears only to the first power, not in a denominator, exponent, product with y, or root.",
-    "2x + 9y = 12: it can be written y = mx + b; y = 2/x: x is in a denominator; y = 2ˣ: x is an exponent; y = 2x² + 9: x is raised to a power."
+    "The y-values change by 6 each time x goes up 1.",
+    "Missing value: 3 + 12 = 15."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-003",
@@ -4157,51 +4148,50 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 1, 2, 3, 4; y: 2, 3, 6, 11, 18",
-   "answer": "nonlinear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -7, ?, -11, -13, -15. What value replaces the ?",
+   "answer": "-9",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear.",
-    "In order of x, the rates of change are 1, 3, 5, 7: not constant, so nonlinear."
+    "The y-values change by -2 each time x goes up 1.",
+    "Missing value: -7 - 2 = -9."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-006",
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents a nonlinear function?",
-   "answer": "y = x³ - 2",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -3, 0, 3, ?, 9. What value replaces the ?",
+   "answer": "6",
    "options": [
     {
-     "text": "y = 2",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "y = x/4",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "y = 4(x - 2)",
-     "correct": false
-    },
-    {
-     "text": "y = x³ - 2",
+     "text": "6",
      "correct": true
+    },
+    {
+     "text": "21",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A linear function can be written y = mx + b: x appears only to the first power, not in a denominator, exponent, product with y, or root.",
-    "y = 2: it can be written y = mx + b; y = x/4: it can be written y = mx + b; y = 4(x - 2): it can be written y = mx + b; y = x³ - 2: x is raised to a power."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: -3 + 9 = 6."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-007",
@@ -4265,51 +4255,50 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 1, 2, 3, 4; y: -3, 0, 3, 8, 9",
-   "answer": "nonlinear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -6, -4, ?, 0, 2. What value replaces the ?",
+   "answer": "-2",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear.",
-    "In order of x, the rates of change are 3, 3, 5, 1: not constant, so nonlinear."
+    "The y-values change by 2 each time x goes up 1.",
+    "Missing value: -6 + 4 = -2."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-010",
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents a linear function?",
-   "answer": "5x + 8y = 2",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 2, ?, -4, -7, -10. What value replaces the ?",
+   "answer": "-1",
    "options": [
     {
-     "text": "5x + 8y = 2",
+     "text": "-4",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "-1",
      "correct": true
     },
     {
-     "text": "y = √x + 8",
-     "correct": false
-    },
-    {
-     "text": "xy = 2",
-     "correct": false
-    },
-    {
-     "text": "y = 5x² + 8",
+     "text": "-10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A linear function can be written y = mx + b: x appears only to the first power, not in a denominator, exponent, product with y, or root.",
-    "5x + 8y = 2: it can be written y = mx + b; y = √x + 8: x is under a root; xy = 2: x and y are multiplied; y = 5x² + 8: x is raised to a power."
+    "The y-values change by -3 each time x goes up 1.",
+    "Missing value: 2 - 3 = -1."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-011",
@@ -4374,51 +4363,50 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 1, 2, 3, 4; y: -5, -2, 1, 4, 7",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -3, -8, -13, ?, -23. What value replaces the ?",
+   "answer": "-18",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear.",
-    "In order of x, the rates of change are 3, 3, 3, 3: constant, so linear."
+    "The y-values change by -5 each time x goes up 1.",
+    "Missing value: -3 - 15 = -18."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-014",
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents a linear function?",
-   "answer": "y = 3x + 2",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -5, -2, 1, ?, 7. What value replaces the ?",
+   "answer": "4",
    "options": [
     {
-     "text": "y = 3ˣ",
-     "correct": false
-    },
-    {
-     "text": "y = 3x² + 2",
-     "correct": false
-    },
-    {
-     "text": "y = √x + 2",
-     "correct": false
-    },
-    {
-     "text": "y = 3x + 2",
+     "text": "4",
      "correct": true
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "19",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A linear function can be written y = mx + b: x appears only to the first power, not in a denominator, exponent, product with y, or root.",
-    "y = 3ˣ: x is an exponent; y = 3x² + 2: x is raised to a power; y = √x + 2: x is under a root; y = 3x + 2: it can be written y = mx + b."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: -5 + 9 = 4."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-015",
@@ -4483,17 +4471,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 1, 2, 3, 4; y: 6, 4, 2, 0, -2",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 2, -1, ?, -7, -10. What value replaces the ?",
+   "answer": "-4",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear.",
-    "In order of x, the rates of change are -2, -2, -2, -2: constant, so linear."
+    "The y-values change by -3 each time x goes up 1.",
+    "Missing value: 2 - 6 = -4."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-cp1-018",
@@ -4599,51 +4586,50 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: -3, 5, 1, 13, 9",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -7, -4, -1, ?, 5. What value replaces the ?",
+   "answer": "2",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are 4, 4, 4, 4: constant, so linear."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: -7 + 9 = 2."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-002",
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which equation represents a nonlinear function?",
-   "answer": "y = x³ - 4",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -8, -10, -12, ?, -16. What value replaces the ?",
+   "answer": "-14",
    "options": [
     {
-     "text": "y = 4",
+     "text": "-16",
      "correct": false
     },
     {
-     "text": "y = x³ - 4",
+     "text": "-15",
+     "correct": false
+    },
+    {
+     "text": "-14",
      "correct": true
     },
     {
-     "text": "y = 5(x - 4)",
-     "correct": false
-    },
-    {
-     "text": "y = 4 - 5x",
+     "text": "-24",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A linear function can be written y = mx + b: x appears only to the first power, not in a denominator, exponent, product with y, or root.",
-    "y = 4: it can be written y = mx + b; y = x³ - 4: x is raised to a power; y = 5(x - 4): it can be written y = mx + b; y = 4 - 5x: it can be written y = mx + b."
+    "The y-values change by -2 each time x goes up 1.",
+    "Missing value: -8 - 6 = -14."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-003",
@@ -4707,17 +4693,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: 6, 4, 5, 2, 3",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 5, 8, ?, 14, 17. What value replaces the ?",
+   "answer": "11",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are -1, -1, -1, -1: constant, so linear."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: 5 + 6 = 11."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-006",
@@ -4833,17 +4818,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: -4, -2, -3, 0, -1",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 0, ?, 6, 9, 12. What value replaces the ?",
+   "answer": "3",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are 1, 1, 1, 1: constant, so linear."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: 0 + 3 = 3."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-010",
@@ -4941,17 +4925,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: 5, -1, 2, -7, -4",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: -8, -10, ?, -14, -16. What value replaces the ?",
+   "answer": "-12",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are -3, -3, -3, -3: constant, so linear."
+    "The y-values change by -2 each time x goes up 1.",
+    "Missing value: -8 - 4 = -12."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-014",
@@ -5008,17 +4991,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: 4, 10, 7, 16, 13",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 6, 9, 12, ?, 18. What value replaces the ?",
+   "answer": "15",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are 3, 3, 3, 3: constant, so linear."
+    "The y-values change by 3 each time x goes up 1.",
+    "Missing value: 6 + 9 = 15."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-017",
@@ -5041,17 +5023,16 @@
    "skillId": "linear-functional-relationships-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the table represent a linear or nonlinear function? x: 0, 2, 1, 4, 3; y: 5, 3, 4, 1, 2",
-   "answer": "linear",
+   "prompt": "The table shows a linear function. x: 0, 1, 2, 3, 4; y: 5, 7, 9, ?, 13. What value replaces the ?",
+   "answer": "11",
    "solutionSteps": [
-    "Order by x and compare the change in y for each change of 1 in x.",
-    "Constant rate of change → linear; otherwise nonlinear. (Order the x-values first.)",
-    "In order of x, the rates of change are -1, -1, -1, -1: constant, so linear."
+    "The y-values change by 2 each time x goes up 1.",
+    "Missing value: 5 + 6 = 11."
    ],
    "standards": [
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s3_complete_linear_table). Rewritten from a Support template (was s3_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s03-honors-019",
@@ -5869,16 +5850,17 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the rate of change (slope) of the linear function in the table. x: 1, 2, 3, 4; y: 6, 7, 8, 9",
-   "answer": "1",
+   "prompt": "A line passes through (0, 4) and (2, -2). What is its slope?",
+   "answer": "-3",
    "solutionSteps": [
-    "Δy ÷ Δx = (7 - 6) ÷ (2 - 1) = 1."
+    "Rise: -2 - 4 = -6. Run: 2 - 0 = 2.",
+    "Slope = -6 ÷ 2 = -3."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-003",
@@ -5909,35 +5891,35 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Is the slope of the line through (-6, 4) and (-6, 10) positive, negative, zero, or undefined?",
-   "answer": "undefined",
+   "prompt": "A line passes through (-5, -5) and (-4, -8). What is its slope?",
+   "answer": "-3",
    "options": [
     {
-     "text": "positive",
-     "correct": false
-    },
-    {
-     "text": "negative",
-     "correct": false
-    },
-    {
-     "text": "zero",
-     "correct": false
-    },
-    {
-     "text": "undefined",
+     "text": "-3",
      "correct": true
+    },
+    {
+     "text": "-1/3",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "-13",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Δy = 6, Δx = 0.",
-    "Δx = 0: vertical line, slope undefined."
+    "Rise: -8 - (-5) = -3. Run: -4 - (-5) = 1.",
+    "Slope = -3 ÷ 1 = -3."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_type) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-005",
@@ -6015,16 +5997,17 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the rate of change (slope) of the linear function in the table. x: 0, 1, 2, 3; y: 1, 0, -1, -2",
-   "answer": "-1",
+   "prompt": "A line passes through (-5, 0) and (7, 9). What is its slope?",
+   "answer": "3/4",
    "solutionSteps": [
-    "Δy ÷ Δx = (0 - 1) ÷ (1 - 0) = -1."
+    "Rise: 9 - 0 = 9. Run: 7 - (-5) = 12.",
+    "Slope = 9 ÷ 12 = 3/4."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-008",
@@ -6055,35 +6038,35 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Is the slope of the line through (-5, 6) and (-4, 4) positive, negative, zero, or undefined?",
-   "answer": "negative",
+   "prompt": "A line passes through (-4, 1) and (2, 4). What is its slope?",
+   "answer": "1/2",
    "options": [
     {
-     "text": "positive",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "negative",
+     "text": "-1/2",
+     "correct": false
+    },
+    {
+     "text": "1/2",
      "correct": true
     },
     {
-     "text": "zero",
-     "correct": false
-    },
-    {
-     "text": "undefined",
+     "text": "5/6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Δy = -2, Δx = 1.",
-    "y decreases as x increases: negative."
+    "Rise: 4 - 1 = 3. Run: 2 - (-4) = 6.",
+    "Slope = 3 ÷ 6 = 1/2."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_type) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-010",
@@ -6143,16 +6126,17 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the rate of change (slope) of the linear function in the table. x: 0, 1, 2, 3; y: 1, 2, 3, 4",
-   "answer": "1",
+   "prompt": "A line passes through (-5, 5) and (1, 1). What is its slope?",
+   "answer": "-2/3",
    "solutionSteps": [
-    "Δy ÷ Δx = (2 - 1) ÷ (1 - 0) = 1."
+    "Rise: 1 - 5 = -4. Run: 1 - (-5) = 6.",
+    "Slope = -4 ÷ 6 = -2/3."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-013",
@@ -6183,36 +6167,35 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Is the slope of the line through (1, -4) and (6, -4) positive, negative, zero, or undefined?",
-   "answer": "zero",
+   "prompt": "A line passes through (1, 4) and (4, 13). What is its slope?",
+   "answer": "3",
    "options": [
     {
-     "text": "positive",
+     "text": "1/3",
      "correct": false
     },
     {
-     "text": "negative",
+     "text": "-3",
      "correct": false
     },
     {
-     "text": "zero",
+     "text": "17/3",
+     "correct": false
+    },
+    {
+     "text": "3",
      "correct": true
-    },
-    {
-     "text": "undefined",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Δy = 0, Δx = 5.",
-    "Δy = 0: horizontal line, slope 0.",
-    "So the answer is zero."
+    "Rise: 13 - 4 = 9. Run: 4 - 1 = 3.",
+    "Slope = 9 ÷ 3 = 3."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_type) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-015",
@@ -6272,16 +6255,17 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the rate of change (slope) of the linear function in the table. x: 0, 1, 2, 3; y: -4, -3, -2, -1",
-   "answer": "1",
+   "prompt": "A line passes through (-2, 3) and (6, 7). What is its slope?",
+   "answer": "1/2",
    "solutionSteps": [
-    "Δy ÷ Δx = (-3 - (-4)) ÷ (1 - 0) = 1."
+    "Rise: 7 - 3 = 4. Run: 6 - (-2) = 8.",
+    "Slope = 4 ÷ 8 = 1/2."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-cp1-018",
@@ -6829,16 +6813,17 @@
    "skillId": "linear-functional-relationships-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the rate of change (slope) of the linear function in the table. x: 0, 2, 3, 6; y: -1, -3, -4, -7",
-   "answer": "-1",
+   "prompt": "A line passes through (1, 0) and (5, 3). What is its slope?",
+   "answer": "3/4",
    "solutionSteps": [
-    "Δy ÷ Δx = (-3 - (-1)) ÷ (2 - 0) = -1."
+    "Rise: 3 - 0 = 3. Run: 5 - 1 = 4.",
+    "Slope = 3 ÷ 4 = 3/4."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_slope_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s4_slope_from_points). Rewritten from a Support template (was s4_slope_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s04-honors-015",
@@ -7801,17 +7786,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A phone plan costs $15 per month plus $4 for each gigabyte g of data used. Write an equation for the monthly cost C.",
-   "answer": "C = 4g + 15",
+   "prompt": "Write the equation in slope-intercept form of the line through (-2, -6) and (0, -2).",
+   "answer": "y = 2x - 2",
    "solutionSteps": [
-    "Starting value (g = 0): 15. Rate: 4 per gigabyte.",
-    "C = 4g + 15."
+    "Slope: (-2 - (-6)) ÷ (0 - (-2)) = 2.",
+    "b = -6 - 2(-2) = -2.",
+    "y = 2x - 2."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-cp1-004",
@@ -7906,35 +7892,36 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A phone plan costs $39 per month plus $2 for each gigabyte g of data used. Write an equation for the monthly cost C.",
-   "answer": "C = 2g + 39",
+   "prompt": "Write the equation in slope-intercept form of the line through (1, 0) and (7, 24).",
+   "answer": "y = 4x - 4",
    "options": [
     {
-     "text": "C = 41g",
+     "text": "y = 4x + 4",
      "correct": false
     },
     {
-     "text": "C = 2g - 39",
+     "text": "y = -4x - 4",
      "correct": false
     },
     {
-     "text": "C = 2g + 39",
+     "text": "y = 4x",
+     "correct": false
+    },
+    {
+     "text": "y = 4x - 4",
      "correct": true
-    },
-    {
-     "text": "C = 39g + 2",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Starting value (g = 0): 39. Rate: 2 per gigabyte.",
-    "C = 2g + 39."
+    "Slope: (24 - 0) ÷ (7 - 1) = 4.",
+    "b = 0 - 4(1) = -4.",
+    "y = 4x - 4."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-cp1-008",
@@ -8046,35 +8033,36 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write the equation in slope-intercept form of the line with slope 1 through (-1, -2).",
-   "answer": "y = x - 1",
+   "prompt": "Write the equation in slope-intercept form of the line through (2, 1) and (6, 13).",
+   "answer": "y = 3x - 5",
    "options": [
     {
-     "text": "y = x - 1",
+     "text": "y = 3x + 5",
+     "correct": false
+    },
+    {
+     "text": "y = -3x - 5",
+     "correct": false
+    },
+    {
+     "text": "y = 3x + 1",
+     "correct": false
+    },
+    {
+     "text": "y = 3x - 5",
      "correct": true
-    },
-    {
-     "text": "y = -x - 1",
-     "correct": false
-    },
-    {
-     "text": "y = x - 2",
-     "correct": false
-    },
-    {
-     "text": "y = x - 3",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "b = y - mx = -2 - (1)(-1) = -1.",
-    "y = x - 1"
+    "Slope: (13 - 1) ÷ (6 - 2) = 3.",
+    "b = 1 - 3(2) = -5.",
+    "y = 3x - 5."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_slope_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_slope_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-cp1-014",
@@ -8117,18 +8105,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A taxi ride of 5 miles costs $17.10 and a ride of 11 miles costs $32.70. The cost is a linear function of miles. Write an equation for cost C after m miles.",
-   "answer": "C = 2.6m + 4.1",
+   "prompt": "Write the equation in slope-intercept form of the line through (1, 5) and (5, 1).",
+   "answer": "y = -x + 6",
    "solutionSteps": [
-    "Rate = (32.7 - 17.1) ÷ (11 - 5) = 2.6.",
-    "b = 17.1 - 2.6(5) = 4.1.",
-    "So the answer is C = 2.6m + 4.1."
+    "Slope: (1 - 5) ÷ (5 - 1) = -1.",
+    "b = 5 - (-1)(1) = 6.",
+    "y = -x + 6."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-cp1-016",
@@ -8170,17 +8158,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the equation in slope-intercept form of the line with slope 2 through (-1, -5).",
-   "answer": "y = 2x - 3",
+   "prompt": "Write the equation in slope-intercept form of the line through (-2, 1) and (4, 4).",
+   "answer": "y = (1/2)x + 2",
    "solutionSteps": [
-    "b = y - mx = -5 - (2)(-1) = -3.",
-    "y = 2x - 3"
+    "Slope: (4 - 1) ÷ (4 - (-2)) = 1/2.",
+    "b = 1 - (1/2)(-2) = 2.",
+    "y = (1/2)x + 2."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_slope_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_slope_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-cp1-018",
@@ -8320,17 +8309,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write the equation in slope-intercept form of the line with slope 4 through (-2, -13).",
-   "answer": "y = 4x - 5",
+   "prompt": "Write the equation in slope-intercept form of the line through (2, -9) and (8, -21).",
+   "answer": "y = -2x - 5",
    "solutionSteps": [
-    "b = y - mx = -13 - (4)(-2) = -5.",
-    "y = 4x - 5"
+    "Slope: (-21 - (-9)) ÷ (8 - 2) = -2.",
+    "b = -9 - (-2)(2) = -5.",
+    "y = -2x - 5."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_slope_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_slope_point) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-honors-002",
@@ -8373,17 +8363,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A phone plan costs $48 per month plus $5 for each gigabyte g of data used. Write an equation for the monthly cost C.",
-   "answer": "C = 5g + 48",
+   "prompt": "Write the equation in slope-intercept form of the line through (-2, 0) and (4, 18).",
+   "answer": "y = 3x + 6",
    "solutionSteps": [
-    "Starting value (g = 0): 48. Rate: 5 per gigabyte.",
-    "C = 5g + 48."
+    "Slope: (18 - 0) ÷ (4 - (-2)) = 3.",
+    "b = 0 - 3(-2) = 6.",
+    "y = 3x + 6."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-honors-004",
@@ -8638,17 +8629,18 @@
    "skillId": "linear-functional-relationships-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A phone plan costs $49 per month plus $3 for each gigabyte g of data used. Write an equation for the monthly cost C.",
-   "answer": "C = 3g + 49",
+   "prompt": "Write the equation in slope-intercept form of the line through (2, 1) and (6, 9).",
+   "answer": "y = 2x - 3",
    "solutionSteps": [
-    "Starting value (g = 0): 49. Rate: 3 per gigabyte.",
-    "C = 3g + 49."
+    "Slope: (9 - 1) ÷ (6 - 2) = 2.",
+    "b = 1 - 2(2) = -3.",
+    "y = 2x - 3."
    ],
    "standards": [
     "8.F.B.4",
     "8.EE.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s5_equation_two_points). Rewritten from a Support template (was s5_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s05-honors-014",
@@ -9690,35 +9682,35 @@
    "skillId": "linear-functional-relationships-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the y-intercept of the graph of x + 2y = 4.",
-   "answer": "(0, 2)",
+   "prompt": "Find the x-intercept of the graph of y = -4x + 24.",
+   "answer": "(6, 0)",
    "options": [
     {
-     "text": "(0, 4)",
+     "text": "(0, 24)",
      "correct": false
     },
     {
-     "text": "(4, 0)",
+     "text": "(-6, 0)",
      "correct": false
     },
     {
-     "text": "(2, 0)",
+     "text": "(24, 0)",
      "correct": false
     },
     {
-     "text": "(0, 2)",
+     "text": "(6, 0)",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "At the y-intercept, x = 0.",
-    "Solve: (0, 2)."
+    "At the x-intercept, y = 0: 0 = -4x + 24.",
+    "-4x = -24, so x = 6. The x-intercept is (6, 0)."
    ],
    "standards": [
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_intercepts). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_x_intercept_of_line). Rewritten from a Support template (was s6_intercepts) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s06-cp1-003",
@@ -10319,35 +10311,35 @@
    "skillId": "linear-functional-relationships-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the y-intercept of the graph of 2x - 3y = -12.",
-   "answer": "(0, 4)",
+   "prompt": "Find the x-intercept of the graph of y = 2x + 10.",
+   "answer": "(-5, 0)",
    "options": [
     {
-     "text": "(0, -12)",
+     "text": "(0, 10)",
      "correct": false
     },
     {
-     "text": "(0, 4)",
+     "text": "(5, 0)",
+     "correct": false
+    },
+    {
+     "text": "(10, 0)",
+     "correct": false
+    },
+    {
+     "text": "(-5, 0)",
      "correct": true
-    },
-    {
-     "text": "(4, 0)",
-     "correct": false
-    },
-    {
-     "text": "(-6, 0)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "At the y-intercept, x = 0.",
-    "Solve: (0, 4)."
+    "At the x-intercept, y = 0: 0 = 2x + 10.",
+    "2x = -10, so x = -5. The x-intercept is (-5, 0)."
    ],
    "standards": [
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_intercepts). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s6_x_intercept_of_line). Rewritten from a Support template (was s6_intercepts) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s06-honors-003",
@@ -10500,17 +10492,17 @@
    "skillId": "linear-functional-relationships-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the x-intercept of the graph of -5x - 3y = 15.",
-   "answer": "(-3, 0)",
+   "prompt": "Find the x-intercept of the graph of y = 5x + 20.",
+   "answer": "(-4, 0)",
    "solutionSteps": [
-    "At the x-intercept, y = 0.",
-    "Solve: (-3, 0)."
+    "At the x-intercept, y = 0: 0 = 5x + 20.",
+    "5x = -20, so x = -4. The x-intercept is (-4, 0)."
    ],
    "standards": [
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_intercepts). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s6_x_intercept_of_line). Rewritten from a Support template (was s6_intercepts) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s06-honors-008",
@@ -10663,17 +10655,17 @@
    "skillId": "linear-functional-relationships-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the y-intercept of the graph of -2x - 5y = 10.",
-   "answer": "(0, -2)",
+   "prompt": "Find the x-intercept of the graph of y = 2x - 10.",
+   "answer": "(5, 0)",
    "solutionSteps": [
-    "At the y-intercept, x = 0.",
-    "Solve: (0, -2)."
+    "At the x-intercept, y = 0: 0 = 2x - 10.",
+    "2x = 10, so x = 5. The x-intercept is (5, 0)."
    ],
    "standards": [
     "8.F.A.3",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_intercepts). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s6_x_intercept_of_line). Rewritten from a Support template (was s6_intercepts) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s06-honors-013",
@@ -11510,54 +11502,54 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: 1, 2, 3, 4",
-   "answer": "y = x + 1",
+   "prompt": "A linear function has f(2) = 23 and f(5) = 35. Write its equation.",
+   "answer": "y = 4x + 15",
    "options": [
     {
-     "text": "y = x + 2",
+     "text": "y = 4x + 23",
      "correct": false
     },
     {
-     "text": "y = x + 1",
+     "text": "y = -4x + 15",
+     "correct": false
+    },
+    {
+     "text": "y = 4x + 19",
+     "correct": false
+    },
+    {
+     "text": "y = 4x + 15",
      "correct": true
-    },
-    {
-     "text": "y = -x + 1",
-     "correct": false
-    },
-    {
-     "text": "y = 2x + 1",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope = 1 ÷ 1 = 1.",
-    "y-intercept: 1.",
-    "y = x + 1"
+    "Slope: (35 - 23) ÷ (5 - 2) = 4.",
+    "b = 23 - 4(2) = 15.",
+    "y = 4x + 15."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-003",
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 43, 53, 73, 83. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$33",
+   "prompt": "A linear function has f(3) = 20 and f(7) = 44. Write its equation.",
+   "answer": "y = 6x + 2",
    "solutionSteps": [
-    "Rate: 10 per hour.",
-    "Fee = 43 - 10(1) = 33.",
-    "So the answer is $33."
+    "Slope: (44 - 20) ÷ (7 - 3) = 6.",
+    "b = 20 - 6(3) = 2.",
+    "y = 6x + 2."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-004",
@@ -11582,54 +11574,54 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: -1, 3, 7, 11",
-   "answer": "y = 4x - 1",
+   "prompt": "A linear function has f(3) = 18 and f(5) = 28. Write its equation.",
+   "answer": "y = 5x + 3",
    "options": [
     {
-     "text": "y = 4x",
+     "text": "y = 5x + 18",
      "correct": false
     },
     {
-     "text": "y = -x + 4",
-     "correct": false
-    },
-    {
-     "text": "y = 5x - 1",
-     "correct": false
-    },
-    {
-     "text": "y = 4x - 1",
+     "text": "y = 5x + 3",
      "correct": true
+    },
+    {
+     "text": "y = -5x + 3",
+     "correct": false
+    },
+    {
+     "text": "y = 5x + 8",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope = 4 ÷ 1 = 4.",
-    "y-intercept: -1.",
-    "y = 4x - 1"
+    "Slope: (28 - 18) ÷ (5 - 3) = 5.",
+    "b = 18 - 5(3) = 3.",
+    "y = 5x + 3."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-006",
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 33, 40, 54, 61. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$26",
+   "prompt": "A linear function has f(3) = 17 and f(6) = 26. Write its equation.",
+   "answer": "y = 3x + 8",
    "solutionSteps": [
-    "Rate: 7 per hour.",
-    "Fee = 33 - 7(1) = 26.",
-    "So the answer is $26."
+    "Slope: (26 - 17) ÷ (6 - 3) = 3.",
+    "b = 17 - 3(3) = 8.",
+    "y = 3x + 8."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-007",
@@ -11654,54 +11646,54 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: -3, 0, 3, 6",
-   "answer": "y = 3x - 3",
+   "prompt": "A linear function has f(2) = 14 and f(7) = 29. Write its equation.",
+   "answer": "y = 3x + 8",
    "options": [
     {
-     "text": "y = -3x + 3",
-     "correct": false
-    },
-    {
-     "text": "y = 3x - 2",
-     "correct": false
-    },
-    {
-     "text": "y = 4x - 3",
-     "correct": false
-    },
-    {
-     "text": "y = 3x - 3",
+     "text": "y = 3x + 8",
      "correct": true
+    },
+    {
+     "text": "y = 3x + 14",
+     "correct": false
+    },
+    {
+     "text": "y = -3x + 8",
+     "correct": false
+    },
+    {
+     "text": "y = 3x + 11",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope = 3 ÷ 1 = 3.",
-    "y-intercept: -3.",
-    "y = 3x - 3"
+    "Slope: (29 - 14) ÷ (7 - 2) = 3.",
+    "b = 14 - 3(2) = 8.",
+    "y = 3x + 8."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-009",
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 47, 54, 68, 75. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$40",
+   "prompt": "A linear function has f(1) = -1 and f(4) = -10. Write its equation.",
+   "answer": "y = -3x + 2",
    "solutionSteps": [
-    "Rate: 7 per hour.",
-    "Fee = 47 - 7(1) = 40.",
-    "So the answer is $40."
+    "Slope: (-10 - (-1)) ÷ (4 - 1) = -3.",
+    "b = -1 - (-3)(1) = 2.",
+    "y = -3x + 2."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-010",
@@ -11744,36 +11736,36 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: -5, -1, 3, 7",
-   "answer": "y = 4x - 5",
+   "prompt": "A linear function has f(4) = 30 and f(7) = 45. Write its equation.",
+   "answer": "y = 5x + 10",
    "options": [
     {
-     "text": "y = -5x + 4",
+     "text": "y = 5x + 30",
      "correct": false
     },
     {
-     "text": "y = 5x - 5",
+     "text": "y = -5x + 10",
      "correct": false
     },
     {
-     "text": "y = 4x - 5",
+     "text": "y = 5x + 15",
+     "correct": false
+    },
+    {
+     "text": "y = 5x + 10",
      "correct": true
-    },
-    {
-     "text": "y = 4x - 4",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope = 4 ÷ 1 = 4.",
-    "y-intercept: -5.",
-    "y = 4x - 5"
+    "Slope: (45 - 30) ÷ (7 - 4) = 5.",
+    "b = 30 - 5(4) = 10.",
+    "y = 5x + 10."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-012",
@@ -11833,36 +11825,36 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: 4, 3, 2, 1",
-   "answer": "y = -x + 4",
+   "prompt": "A linear function has f(1) = 16 and f(6) = 36. Write its equation.",
+   "answer": "y = 4x + 12",
    "solutionSteps": [
-    "Slope = -1 ÷ 1 = -1.",
-    "y-intercept: 4.",
-    "y = -x + 4"
+    "Slope: (36 - 16) ÷ (6 - 1) = 4.",
+    "b = 16 - 4(1) = 12.",
+    "y = 4x + 12."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-015",
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 37, 46, 64, 73. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$28",
+   "prompt": "A linear function has f(4) = 3 and f(6) = 7. Write its equation.",
+   "answer": "y = 2x - 5",
    "solutionSteps": [
-    "Rate: 9 per hour.",
-    "Fee = 37 - 9(1) = 28.",
-    "So the answer is $28."
+    "Slope: (7 - 3) ÷ (6 - 4) = 2.",
+    "b = 3 - 2(4) = -5.",
+    "y = 2x - 5."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-016",
@@ -11887,36 +11879,36 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write an equation for the linear function in the table. x: 0, 1, 2, 3; y: 6, 2, -2, -6",
-   "answer": "y = -4x + 6",
+   "prompt": "A linear function has f(4) = 7 and f(8) = 19. Write its equation.",
+   "answer": "y = 3x - 5",
    "options": [
     {
-     "text": "y = -4x + 6",
+     "text": "y = 3x + 7",
+     "correct": false
+    },
+    {
+     "text": "y = -3x - 5",
+     "correct": false
+    },
+    {
+     "text": "y = 3x - 2",
+     "correct": false
+    },
+    {
+     "text": "y = 3x - 5",
      "correct": true
-    },
-    {
-     "text": "y = -3x + 6",
-     "correct": false
-    },
-    {
-     "text": "y = -4x + 7",
-     "correct": false
-    },
-    {
-     "text": "y = 6x - 4",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Slope = -4 ÷ 1 = -4.",
-    "y-intercept: 6.",
-    "y = -4x + 6"
+    "Slope: (19 - 7) ÷ (8 - 4) = 3.",
+    "b = 7 - 3(4) = -5.",
+    "y = 3x - 5."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-cp1-018",
@@ -12126,18 +12118,18 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 31, 42, 64, 75. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$20",
+   "prompt": "A linear function has f(3) = -1 and f(6) = 8. Write its equation.",
+   "answer": "y = 3x - 10",
    "solutionSteps": [
-    "Rate: 11 per hour.",
-    "Fee = 31 - 11(1) = 20.",
-    "So the answer is $20."
+    "Slope: (8 - (-1)) ÷ (6 - 3) = 3.",
+    "b = -1 - 3(3) = -10.",
+    "y = 3x - 10."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-honors-004",
@@ -12215,18 +12207,18 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the linear function in the table. x: 1, 3, 4, 7; y: -8, -16, -20, -32",
-   "answer": "y = -4x - 4",
+   "prompt": "A linear function has f(4) = 33 and f(7) = 51. Write its equation.",
+   "answer": "y = 6x + 9",
    "solutionSteps": [
-    "Slope = -8 ÷ 2 = -4.",
-    "y-intercept: -4.",
-    "y = -4x - 4"
+    "Slope: (51 - 33) ÷ (7 - 4) = 6.",
+    "b = 33 - 6(4) = 9.",
+    "y = 6x + 9."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-honors-007",
@@ -12322,36 +12314,36 @@
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write an equation for the linear function in the table. x: 1, 3, 4, 7; y: -9, -15, -18, -27",
-   "answer": "y = -3x - 6",
+   "prompt": "A linear function has f(1) = -10 and f(4) = -19. Write its equation.",
+   "answer": "y = -3x - 7",
    "solutionSteps": [
-    "Slope = -6 ÷ 2 = -3.",
-    "y-intercept: -6.",
-    "y = -3x - 6"
+    "Slope: (-19 - (-10)) ÷ (4 - 1) = -3.",
+    "b = -10 - (-3)(1) = -7.",
+    "y = -3x - 7."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_rule) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-honors-011",
    "skillId": "linear-functional-relationships-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A kayak rental's cost is linear in time. hours h: 1, 2, 4, 5; cost C ($): 16, 25, 43, 52. What is the fixed fee (the cost for 0 hours)?",
-   "answer": "$7",
+   "prompt": "A linear function has f(4) = 11 and f(6) = 17. Write its equation.",
+   "answer": "y = 3x - 1",
    "solutionSteps": [
-    "Rate: 9 per hour.",
-    "Fee = 16 - 9(1) = 7.",
-    "So the answer is $7."
+    "Slope: (17 - 11) ÷ (6 - 4) = 3.",
+    "b = 11 - 3(4) = -1.",
+    "y = 3x - 1."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s7_rule_from_two_values). Rewritten from a Support template (was s7_context_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s07-honors-012",
@@ -13625,16 +13617,16 @@
    "skillId": "linear-functional-relationships-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is y = (1/4)x - 6 increasing, decreasing, or constant?",
-   "answer": "increasing",
+   "prompt": "f(x) = -3x - 3 on the interval from x = -1 to x = 5. What is the maximum value of f?",
+   "answer": "0",
    "solutionSteps": [
-    "The rate of change is 1/4.",
-    "Positive rate → increasing; negative → decreasing; zero → constant."
+    "The slope is -3, so f is decreasing; the maximum is at x = -1.",
+    "f(-1) = 0."
    ],
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_linear_trend). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_max_on_interval). Rewritten from a Support template (was s8_linear_trend) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s08-cp1-008",
@@ -14160,16 +14152,16 @@
    "skillId": "linear-functional-relationships-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is y = (2/3)x - 6 increasing, decreasing, or constant?",
-   "answer": "increasing",
+   "prompt": "f(x) = -x + 2 on the interval from x = -3 to x = 2. What is the maximum value of f?",
+   "answer": "5",
    "solutionSteps": [
-    "The rate of change is 2/3.",
-    "Positive rate → increasing; negative → decreasing; zero → constant."
+    "The slope is -1, so f is decreasing; the maximum is at x = -3.",
+    "f(-3) = 5."
    ],
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_linear_trend). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_max_on_interval). Rewritten from a Support template (was s8_linear_trend) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s08-honors-004",
@@ -14384,16 +14376,16 @@
    "skillId": "linear-functional-relationships-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is y = (1/4)x + 3 increasing, decreasing, or constant?",
-   "answer": "increasing",
+   "prompt": "f(x) = 3x - 5 on the interval from x = -3 to x = 5. What is the maximum value of f?",
+   "answer": "10",
    "solutionSteps": [
-    "The rate of change is 1/4.",
-    "Positive rate → increasing; negative → decreasing; zero → constant."
+    "The slope is 3, so f is increasing; the maximum is at x = 5.",
+    "f(5) = 10."
    ],
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_linear_trend). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
+   "sourceNotes": "Original Claude-authored item (family: s8_max_on_interval). Rewritten from a Support template (was s8_linear_trend) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s08-honors-012",
@@ -15441,16 +15433,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The water level w (inches) in a pool after h hours of filling is modeled by w = 40h + 12. What is the rate of change, with units?",
-   "answer": "40 inches per hour",
+   "prompt": "A pool had 62 gallons after 1 hour and 154 gallons after 5 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "39 gallons",
    "solutionSteps": [
-    "The coefficient of h is the rate of change: 40 inches per hour."
+    "Rate: (154 - 62) ÷ (5 - 1) = 23 gallons per hour.",
+    "Start: 62 - 23(1) = 39 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_meaning). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_meaning) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-cp1-002",
@@ -15830,16 +15823,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The cost C (dollars) of n pounds of apples is modeled by C = 34n + 34. What is the rate of change, with units?",
-   "answer": "34 dollars per pound",
+   "prompt": "A pool had 64 gallons after 3 hours and 86 gallons after 5 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "31 gallons",
    "solutionSteps": [
-    "The coefficient of n is the rate of change: 34 dollars per pound."
+    "Rate: (86 - 64) ÷ (5 - 3) = 11 gallons per hour.",
+    "Start: 64 - 11(3) = 31 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_meaning). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_meaning) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-cp1-016",
@@ -16065,17 +16059,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A savings account held $100 after 3 weeks and $168 after 7 weeks, growing by the same amount each week. Find the rate in dollars per week.",
-   "answer": "17 dollars per week",
+   "prompt": "A pool had 79 gallons after 2 hours and 94 gallons after 7 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "73 gallons",
    "solutionSteps": [
-    "Rate = (168 - 100) ÷ (7 - 3) = 17.",
-    "So the answer is 17 dollars per week."
+    "Rate: (94 - 79) ÷ (7 - 2) = 3 gallons per hour.",
+    "Start: 79 - 3(2) = 73 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_from_two). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_from_two) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-honors-004",
@@ -16195,35 +16189,35 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A delivery truck had traveled 262 miles after 4 hours and 454 miles after 8 hours, at a constant speed. Find the speed in miles per hour.",
-   "answer": "48 miles per hour",
+   "prompt": "A pool had 52 gallons after 2 hours and 116 gallons after 6 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "20 gallons",
    "options": [
     {
-     "text": "227/4 miles per hour",
+     "text": "52 gallons",
      "correct": false
     },
     {
-     "text": "192 miles per hour",
+     "text": "16 gallons",
      "correct": false
     },
     {
-     "text": "48 miles per hour",
+     "text": "20 gallons",
      "correct": true
     },
     {
-     "text": "131/2 miles per hour",
+     "text": "4 gallons",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Rate = (454 - 262) ÷ (8 - 4) = 48.",
-    "So the answer is 48 miles per hour."
+    "Rate: (116 - 52) ÷ (6 - 2) = 16 gallons per hour.",
+    "Start: 52 - 16(2) = 20 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_from_two). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_from_two) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-honors-008",
@@ -16308,17 +16302,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A delivery truck had traveled 150 miles after 2 hours and 327 miles after 5 hours, at a constant speed. Find the speed in miles per hour.",
-   "answer": "59 miles per hour",
+   "prompt": "A pool had 62 gallons after 2 hours and 84 gallons after 4 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "40 gallons",
    "solutionSteps": [
-    "Rate = (327 - 150) ÷ (5 - 2) = 59.",
-    "So the answer is 59 miles per hour."
+    "Rate: (84 - 62) ÷ (4 - 2) = 11 gallons per hour.",
+    "Start: 62 - 11(2) = 40 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_from_two). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_from_two) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-honors-012",
@@ -16421,17 +16415,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A delivery truck had traveled 92 miles after 3 hours and 130 miles after 5 hours, at a constant speed. Find the speed in miles per hour.",
-   "answer": "19 miles per hour",
+   "prompt": "A pool had 52 gallons after 2 hours and 127 gallons after 7 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "22 gallons",
    "solutionSteps": [
-    "Rate = (130 - 92) ÷ (5 - 3) = 19.",
-    "So the answer is 19 miles per hour."
+    "Rate: (127 - 52) ÷ (7 - 2) = 15 gallons per hour.",
+    "Start: 52 - 15(2) = 22 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_from_two). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_from_two) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-honors-016",
@@ -16479,17 +16473,17 @@
    "skillId": "linear-functional-relationships-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A savings account held $207 after 4 weeks and $248 after 5 weeks, growing by the same amount each week. Find the rate in dollars per week.",
-   "answer": "41 dollars per week",
+   "prompt": "A pool had 95 gallons after 1 hour and 143 gallons after 5 hours, filling at a constant rate. How many gallons were in it at the start?",
+   "answer": "83 gallons",
    "solutionSteps": [
-    "Rate = (248 - 207) ÷ (5 - 4) = 41.",
-    "So the answer is 41 dollars per week."
+    "Rate: (143 - 95) ÷ (5 - 1) = 12 gallons per hour.",
+    "Start: 95 - 12(1) = 83 gallons."
    ],
    "standards": [
     "8.F.B.4",
     "8.F.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_from_two). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s9_initial_from_two). Rewritten from a Support template (was s9_from_two) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s09-honors-019",
@@ -17443,17 +17437,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "C(n) = 27n + 169 gives the cost, in dollars, of a field trip for n students. What does C(3) = 250 mean?",
-   "answer": "For 3 students, the value is 250 dollars.",
+   "prompt": "C(n) = 26n + 113 gives the cost, in dollars, of a trip for n students. For how many students is the cost $243?",
+   "answer": "5 students",
    "solutionSteps": [
-    "The input 3 is the number of students; the output 250 is in dollars.",
-    "So the answer is: For 3 students, the value is 250 dollars."
+    "26n + 113 = 243.",
+    "26n = 130, so n = 5.",
+    "So the answer is 5 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-003",
@@ -17526,35 +17521,36 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "D(t) = 51t + 288 gives the distance, in miles, a train is from the station after t hours. What does D(9) = 747 mean?",
-   "answer": "For 9 hours, the value is 747 miles.",
+   "prompt": "C(n) = 17n + 166 gives the cost, in dollars, of a trip for n students. For how many students is the cost $285?",
+   "answer": "7 students",
    "options": [
     {
-     "text": "For 747 hours, the value is 9 miles.",
+     "text": "8 students",
      "correct": false
     },
     {
-     "text": "For 9 hours, the value is 51 miles.",
-     "correct": false
-    },
-    {
-     "text": "For 9 hours, the value is 747 miles.",
+     "text": "7 students",
      "correct": true
     },
     {
-     "text": "The rate is 747 miles per hour.",
+     "text": "16 students",
+     "correct": false
+    },
+    {
+     "text": "6 students",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The input 9 is the number of hours; the output 747 is in miles.",
-    "So the answer is: For 9 hours, the value is 747 miles."
+    "17n + 166 = 285.",
+    "17n = 119, so n = 7.",
+    "So the answer is 7 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-006",
@@ -17645,17 +17641,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "C(n) = 46n + 209 gives the cost, in dollars, of a field trip for n students. What does C(7) = 531 mean?",
-   "answer": "For 7 students, the value is 531 dollars.",
+   "prompt": "C(n) = 21n + 109 gives the cost, in dollars, of a trip for n students. For how many students is the cost $340?",
+   "answer": "11 students",
    "solutionSteps": [
-    "The input 7 is the number of students; the output 531 is in dollars.",
-    "So the answer is: For 7 students, the value is 531 dollars."
+    "21n + 109 = 340.",
+    "21n = 231, so n = 11.",
+    "So the answer is 11 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-009",
@@ -17728,35 +17725,36 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "D(t) = 46t + 147 gives the distance, in miles, a train is from the station after t hours. What does D(2) = 239 mean?",
-   "answer": "For 2 hours, the value is 239 miles.",
+   "prompt": "C(n) = 38n + 158 gives the cost, in dollars, of a trip for n students. For how many students is the cost $728?",
+   "answer": "15 students",
    "options": [
     {
-     "text": "For 2 hours, the value is 239 miles.",
+     "text": "15 students",
      "correct": true
     },
     {
-     "text": "The rate is 239 miles per hour.",
+     "text": "16 students",
      "correct": false
     },
     {
-     "text": "For 2 hours, the value is 46 miles.",
+     "text": "19 students",
      "correct": false
     },
     {
-     "text": "For 239 hours, the value is 2 miles.",
+     "text": "14 students",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The input 2 is the number of hours; the output 239 is in miles.",
-    "So the answer is: For 2 hours, the value is 239 miles."
+    "38n + 158 = 728.",
+    "38n = 570, so n = 15.",
+    "So the answer is 15 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-012",
@@ -17805,17 +17803,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "C(n) = 28n + 95 gives the cost, in dollars, of a field trip for n students. What does C(4) = 207 mean?",
-   "answer": "For 4 students, the value is 207 dollars.",
+   "prompt": "C(n) = 14n + 146 gives the cost, in dollars, of a trip for n students. For how many students is the cost $412?",
+   "answer": "19 students",
    "solutionSteps": [
-    "The input 4 is the number of students; the output 207 is in dollars.",
-    "So the answer is: For 4 students, the value is 207 dollars."
+    "14n + 146 = 412.",
+    "14n = 266, so n = 19.",
+    "So the answer is 19 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-014",
@@ -17846,17 +17845,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "C(n) = 27n + 183 gives the cost, in dollars, of a field trip for n students. What does C(2) = 237 mean?",
-   "answer": "For 2 students, the value is 237 dollars.",
+   "prompt": "C(n) = 30n + 141 gives the cost, in dollars, of a trip for n students. For how many students is the cost $921?",
+   "answer": "26 students",
    "solutionSteps": [
-    "The input 2 is the number of students; the output 237 is in dollars.",
-    "So the answer is: For 2 students, the value is 237 dollars."
+    "30n + 141 = 921.",
+    "30n = 780, so n = 26.",
+    "So the answer is 26 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-016",
@@ -17888,17 +17888,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "D(t) = 36t + 267 gives the distance, in miles, a train is from the station after t hours. What does D(7) = 519 mean?",
-   "answer": "For 7 hours, the value is 519 miles.",
+   "prompt": "C(n) = 13n + 78 gives the cost, in dollars, of a trip for n students. For how many students is the cost $325?",
+   "answer": "19 students",
    "solutionSteps": [
-    "The input 7 is the number of hours; the output 519 is in miles.",
-    "So the answer is: For 7 hours, the value is 519 miles."
+    "13n + 78 = 325.",
+    "13n = 247, so n = 19.",
+    "So the answer is 19 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-cp1-018",
@@ -18051,17 +18052,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "D(t) = 37t + 182 gives the distance, in miles, a train is from the station after t hours. What does D(4) = 330 mean?",
-   "answer": "For 4 hours, the value is 330 miles.",
+   "prompt": "C(n) = 33n + 171 gives the cost, in dollars, of a trip for n students. For how many students is the cost $699?",
+   "answer": "16 students",
    "solutionSteps": [
-    "The input 4 is the number of hours; the output 330 is in miles.",
-    "So the answer is: For 4 hours, the value is 330 miles."
+    "33n + 171 = 699.",
+    "33n = 528, so n = 16.",
+    "So the answer is 16 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-honors-003",
@@ -18171,35 +18173,36 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "C(n) = 28n + 245 gives the cost, in dollars, of a field trip for n students. What does C(6) = 413 mean?",
-   "answer": "For 6 students, the value is 413 dollars.",
+   "prompt": "C(n) = 37n + 168 gives the cost, in dollars, of a trip for n students. For how many students is the cost $871?",
+   "answer": "19 students",
    "options": [
     {
-     "text": "For 6 students, the value is 413 dollars.",
+     "text": "19 students",
      "correct": true
     },
     {
-     "text": "The rate is 413 dollars per student.",
+     "text": "20 students",
      "correct": false
     },
     {
-     "text": "For 413 students, the value is 6 dollars.",
+     "text": "23 students",
      "correct": false
     },
     {
-     "text": "For 6 students, the value is 28 dollars.",
+     "text": "18 students",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The input 6 is the number of students; the output 413 is in dollars.",
-    "So the answer is: For 6 students, the value is 413 dollars."
+    "37n + 168 = 871.",
+    "37n = 703, so n = 19.",
+    "So the answer is 19 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-honors-007",
@@ -18309,17 +18312,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "D(t) = 51t + 90 gives the distance, in miles, a train is from the station after t hours. What does D(2) = 192 mean?",
-   "answer": "For 2 hours, the value is 192 miles.",
+   "prompt": "C(n) = 12n + 163 gives the cost, in dollars, of a trip for n students. For how many students is the cost $427?",
+   "answer": "22 students",
    "solutionSteps": [
-    "The input 2 is the number of hours; the output 192 is in miles.",
-    "So the answer is: For 2 hours, the value is 192 miles."
+    "12n + 163 = 427.",
+    "12n = 264, so n = 22.",
+    "So the answer is 22 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-honors-011",
@@ -18487,17 +18491,18 @@
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "C(n) = 31n + 100 gives the cost, in dollars, of a field trip for n students. What does C(5) = 255 mean?",
-   "answer": "For 5 students, the value is 255 dollars.",
+   "prompt": "C(n) = 15n + 79 gives the cost, in dollars, of a trip for n students. For how many students is the cost $304?",
+   "answer": "15 students",
    "solutionSteps": [
-    "The input 5 is the number of students; the output 255 is in dollars.",
-    "So the answer is: For 5 students, the value is 255 dollars."
+    "15n + 79 = 304.",
+    "15n = 225, so n = 15.",
+    "So the answer is 15 students."
    ],
    "standards": [
     "8.F.B.5",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_interpret_value). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s10_input_from_total). Rewritten from a Support template (was s10_interpret_value) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s10-honors-018",
@@ -19990,34 +19995,34 @@
    "skillId": "linear-functional-relationships-skill-11",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A piecewise function is defined as f(x) = -3x - 2 for x < -1, and f(x) = 3x + 4 for x ≥ -1. Find f(-3).",
-   "answer": "7",
+   "prompt": "f(x) = 3x + 3 for x < 3, and f(x) = 4x + 5 for x ≥ 3. Find f(3).",
+   "answer": "17",
    "options": [
     {
-     "text": "7",
+     "text": "17",
      "correct": true
     },
     {
-     "text": "8",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "-7",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "-5",
+     "text": "9",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "-3 < -1, so use f(x) = -3x - 2.",
-    "f(-3) = 7."
+    "x = 3 is not less than 3, so it belongs to the piece for x ≥ 3.",
+    "f(3) = 4(3) + 5 = 17."
    ],
    "standards": [
     "8.F.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_evaluate). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s11_value_at_boundary). Rewritten from a Support template (was s11_evaluate) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s11-honors-006",
@@ -23334,87 +23339,84 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A proportional relationship includes the point (2, 84). Find the value of y when x = 10.",
-   "answer": "420",
+   "prompt": "A car travels 174 miles in 3 hours at a constant speed. At this rate, how far does it travel in 10 hours?",
+   "answer": "580 miles",
    "options": [
     {
-     "text": "0.2381",
+     "text": "184 miles",
      "correct": false
     },
     {
-     "text": "840",
+     "text": "1740 miles",
      "correct": false
     },
     {
-     "text": "92",
+     "text": "406 miles",
      "correct": false
     },
     {
-     "text": "420",
+     "text": "580 miles",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Unit rate: 84 ÷ 2 = 42.",
-    "y = 42x, so when x = 10, y = 42 · 10 = 420."
+    "Unit rate: 174 ÷ 3 = 58 miles per hour.",
+    "58 × 10 = 580 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_predict). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-cp1-003",
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (4, 52). What is the slope of the line?",
-   "answer": "13",
+   "prompt": "A car travels 212 miles in 4 hours at a constant speed. At this rate, how far does it travel in 11 hours?",
+   "answer": "583 miles",
    "solutionSteps": [
-    "From (0, 0) to (4, 52) the rise is 52 and the run is 4.",
-    "Slope = 52 ÷ 4 = 13.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 13."
+    "Unit rate: 212 ÷ 4 = 53 miles per hour.",
+    "53 × 11 = 583 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-cp1-004",
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The table shows a proportional relationship between seconds (x) and meters (y). x: 3, 4, 6; y: 66, 88, 132. Find the unit rate in meters per second.",
-   "answer": "22 meters per second",
+   "prompt": "A car travels 140 miles in 2 hours at a constant speed. At this rate, how far does it travel in 11 hours?",
+   "answer": "770 miles",
    "options": [
     {
-     "text": "22 meters per second",
+     "text": "770 miles",
      "correct": true
     },
     {
-     "text": "126 meters per second",
+     "text": "151 miles",
      "correct": false
     },
     {
-     "text": "0.0455 meters per second",
+     "text": "1540 miles",
      "correct": false
     },
     {
-     "text": "66 meters per second",
+     "text": "630 miles",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The unit rate is y ÷ x for any pair in the table.",
-    "66 ÷ 3 = 22, and the other pairs give the same value.",
-    "The unit rate is 22 meters per second."
+    "Unit rate: 140 ÷ 2 = 70 miles per hour.",
+    "70 × 11 = 770 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_table). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_table) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-cp1-005",
@@ -23472,18 +23474,16 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (4, 70). What is the slope of the line?",
-   "answer": "17.5",
+   "prompt": "A car travels 94 miles in 2 hours at a constant speed. At this rate, how far does it travel in 11 hours?",
+   "answer": "517 miles",
    "solutionSteps": [
-    "From (0, 0) to (4, 70) the rise is 70 and the run is 4.",
-    "Slope = 70 ÷ 4 = 17.5.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 17.5."
+    "Unit rate: 94 ÷ 2 = 47 miles per hour.",
+    "47 × 11 = 517 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-cp1-008",
@@ -23541,34 +23541,34 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A proportional relationship includes the point (5, 62.5). Find the value of y when x = 7.",
-   "answer": "87.5",
+   "prompt": "A car travels 220 miles in 5 hours at a constant speed. At this rate, how far does it travel in 11 hours?",
+   "answer": "484 miles",
    "options": [
     {
-     "text": "0.56",
+     "text": "231 miles",
      "correct": false
     },
     {
-     "text": "64.5",
+     "text": "2420 miles",
      "correct": false
     },
     {
-     "text": "437.5",
-     "correct": false
-    },
-    {
-     "text": "87.5",
+     "text": "484 miles",
      "correct": true
+    },
+    {
+     "text": "264 miles",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit rate: 62.5 ÷ 5 = 12.5.",
-    "y = 12.5x, so when x = 7, y = 12.5 · 7 = 87.5."
+    "Unit rate: 220 ÷ 5 = 44 miles per hour.",
+    "44 × 11 = 484 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_predict). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-cp1-011",
@@ -24037,18 +24037,16 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (12, 51). What is the slope of the line?",
-   "answer": "4.25",
+   "prompt": "A car travels 330 miles in 5 hours at a constant speed. At this rate, how far does it travel in 8 hours?",
+   "answer": "528 miles",
    "solutionSteps": [
-    "From (0, 0) to (12, 51) the rise is 51 and the run is 12.",
-    "Slope = 51 ÷ 12 = 4.25.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 4.25."
+    "Unit rate: 330 ÷ 5 = 66 miles per hour.",
+    "66 × 8 = 528 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-002",
@@ -24090,68 +24088,66 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A shop charges 85 dollars for 20 hours of bike rental. Write an equation that gives the number of dollars, y, for x hours.",
-   "answer": "y = 4.25x",
+   "prompt": "A car travels 88 miles in 2 hours at a constant speed. At this rate, how far does it travel in 6 hours?",
+   "answer": "264 miles",
    "solutionSteps": [
-    "Unit rate: 85 ÷ 20 = 4.25 dollars per hour.",
-    "A proportional relationship has the form y = kx, so y = 4.25x."
+    "Unit rate: 88 ÷ 2 = 44 miles per hour.",
+    "44 × 6 = 264 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_equation). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_equation) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-004",
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (20, 85). What is the slope of the line?",
-   "answer": "4.25",
+   "prompt": "A car travels 102 miles in 3 hours at a constant speed. At this rate, how far does it travel in 10 hours?",
+   "answer": "340 miles",
    "options": [
     {
-     "text": "65",
+     "text": "112 miles",
      "correct": false
     },
     {
-     "text": "85",
-     "correct": false
-    },
-    {
-     "text": "4.25",
+     "text": "340 miles",
      "correct": true
     },
     {
-     "text": "0.2353",
+     "text": "1020 miles",
+     "correct": false
+    },
+    {
+     "text": "238 miles",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "From (0, 0) to (20, 85) the rise is 85 and the run is 20.",
-    "Slope = 85 ÷ 20 = 4.25.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 4.25."
+    "Unit rate: 102 ÷ 3 = 34 miles per hour.",
+    "34 × 10 = 340 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-005",
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A proportional relationship includes the point (8, 18). Find the value of y when x = 20.",
-   "answer": "45",
+   "prompt": "A car travels 208 miles in 4 hours at a constant speed. At this rate, how far does it travel in 8 hours?",
+   "answer": "416 miles",
    "solutionSteps": [
-    "Unit rate: 18 ÷ 8 = 2.25.",
-    "y = 2.25x, so when x = 20, y = 2.25 · 20 = 45."
+    "Unit rate: 208 ÷ 4 = 52 miles per hour.",
+    "52 × 8 = 416 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_predict). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_predict) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-006",
@@ -24192,18 +24188,16 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (20, 48). What is the slope of the line?",
-   "answer": "2.4",
+   "prompt": "A car travels 315 miles in 5 hours at a constant speed. At this rate, how far does it travel in 8 hours?",
+   "answer": "504 miles",
    "solutionSteps": [
-    "From (0, 0) to (20, 48) the rise is 48 and the run is 20.",
-    "Slope = 48 ÷ 20 = 2.4.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 2.4."
+    "Unit rate: 315 ÷ 5 = 63 miles per hour.",
+    "63 × 8 = 504 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-008",
@@ -24244,18 +24238,16 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (8, 66). What is the slope of the line?",
-   "answer": "8.25",
+   "prompt": "A car travels 280 miles in 4 hours at a constant speed. At this rate, how far does it travel in 6 hours?",
+   "answer": "420 miles",
    "solutionSteps": [
-    "From (0, 0) to (8, 66) the rise is 66 and the run is 8.",
-    "Slope = 66 ÷ 8 = 8.25.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 8.25."
+    "Unit rate: 280 ÷ 4 = 70 miles per hour.",
+    "70 × 6 = 420 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-010",
@@ -24296,18 +24288,16 @@
    "skillId": "linear-functional-relationships-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The graph of a proportional relationship is a line through the origin and the point (4, 5.6). What is the slope of the line?",
-   "answer": "1.4",
+   "prompt": "A car travels 264 miles in 4 hours at a constant speed. At this rate, how far does it travel in 6 hours?",
+   "answer": "396 miles",
    "solutionSteps": [
-    "From (0, 0) to (4, 5.6) the rise is 5.6 and the run is 4.",
-    "Slope = 5.6 ÷ 4 = 1.4.",
-    "For a proportional relationship, the slope equals the unit rate.",
-    "So the answer is 1.4."
+    "Unit rate: 264 ÷ 4 = 66 miles per hour.",
+    "66 × 6 = 396 miles."
    ],
    "standards": [
     "8.EE.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: prop_point_slope). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+   "sourceNotes": "Original Claude-authored item (family: s12_rate_then_predict). Rewritten from a Support template (was prop_point_slope) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-lfr-s12-honors-012",
