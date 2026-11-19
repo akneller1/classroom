@@ -24,7 +24,7 @@ def norm(s):
     s = re.sub(r'log\(abs\(([^|]*)\|', r'log(abs(\1))', s)
     s = re.sub(r'√([A-Za-z0-9.]+)', r'√(\1)', s)
     s = re.sub(r'(sin|cos|tan|sec|csc|cot)([²³⁴⁵⁶⁷⁸⁹])\(([^()]*)\)', lambda m: '(' + m.group(1) + '(' + m.group(3) + '))' + m.group(2), s)
-    s = s.replace('π', 'pi').replace('√', 'sqrt').replace('∞', 'oo')
+    s = s.replace('π', '(pi)').replace('√', 'sqrt').replace('∞', 'oo')
     s = s.replace('tan⁻¹', 'atan').replace('sin⁻¹', 'asin').replace('cos⁻¹', 'acos')
     s = s.replace('arctan', 'atan').replace('arcsin', 'asin').replace('arccos', 'acos')
     # superscripts -> ^(..)
@@ -70,7 +70,7 @@ def core(q):
     p = q['prompt']
     if 'answered this problem' in p:
         p = p.split('\n')[1]
-    return p
+    return re.sub(r'\s*Hint: .*$', '', p)
 
 def num(s): return P(s)
 

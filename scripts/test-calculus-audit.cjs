@@ -1,5 +1,6 @@
 'use strict';
 // Calculus audit (2026-11-18): regression checks for the fixes. Batch C1: #1, #7, #8, #11, #12, #13, #14, #18, #19, #20.
+// Batch C2: #3, #4, #9, #10 (the grader, #2, is checked by test-calculus-grading.cjs).
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const ROOT = path.join(__dirname, '..');
@@ -83,4 +84,40 @@ for (const q of items) if (/position s\(t\) = .* for t ≥ 0\. Find the (velocit
 const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/precalculus-calculus-bank-integration.yml'), 'utf8');
 assert.match(wf, /verify_keys\.py/);
 
-console.log(`PASS Calculus audit fixes: ${errs.length} find-the-mistake items with specific diagnoses, pacing, on-skill items, AP objectives, stems, notation, AP Review, Euler marked BC, IVT wording and units`);
+
+// #3 worked solutions: at least two steps everywhere, and integral answers show F(b) and F(a)
+assert(!items.some(q => (q.solutionSteps || []).length < 2), 'single-step solutions: ' + items.filter(q => q.solutionSteps.length < 2).map(q => q.id).slice(0, 5));
+const integral = items.filter(q => q.format !== 'open-response' && /Evaluate ∫ from \S+ to \S+ [^f]|displacement from|total distance traveled|average value of f\(x\)|area of the region bounded/.test(q.prompt));
+const shown = integral.filter(q => q.solutionSteps.some(s => /F\(\S+\) = |s\(\S+\) [−-] s\(|signed area|\]: /.test(s)));
+assert(shown.length >= 0.9 * integral.length, `integral items that show the evaluation: ${shown.length} of ${integral.length}`);
+
+// #4 integrals, limits and sums are drawn as big operators; fractions lose their outer parentheses
+const md = {}; md.window = md; vm.createContext(md);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'worksheet-generator/core/math-display.js'), 'utf8'), md);
+const H = md.MK_MATH_DISPLAY.html;
+assert.match(H('Evaluate ∫ from 1 to 3 (2x + 3) dx.'), /class="bo"[^]*class="bo-u">3<[^]*bo-s">∫<[^]*class="bo-l">1</);
+assert.match(H('Evaluate lim (x → -3) (x² - 9)/(x + 3).'), /bo-lim[^]*bo-l"><i>x<\/i> → −3<[^]*class="fn"><i>x<\/i>² − 9</);
+assert.match(H('lim (n → ∞) Σ (k = 1 to n) (k/n)² · (1/n)'), /bo-s">Σ</);
+assert.match(H('Find d/dx [x²].'), /class="fn"><i>d<\/i><\/span><span class="fd"><i>d<\/i><i>x<\/i>/);
+assert.match(fs.readFileSync(path.join(ROOT, 'worksheet-generator/core/math-display.css'), 'utf8'), /\.bo\{/);
+
+// #9 Honors items in the upgraded families use richer functions; CP2 items carry a hint
+const fx = q => (q.prompt.replace(/Hint: .*$/, '').match(/\b(?:sin|cos|tan|ln)\(|e\^|√|π/g) || []).length;
+for (const f of ['s4_disp', 's5_total', 's3_intervals', 's2_crit', 's4_absolute', 's10_mvt', 's5_general', 's5_infty', 's7_sign', 's8_motion', 's2_formula', 's4_accel']) {
+  const h = items.filter(q => fam(q) === f + '_h');
+  assert(h.length >= 3, f + ' Honors items: ' + h.length);
+  const cp2 = items.filter(q => fam(q) === f && q.level === 'cp2' && !/answered this/.test(q.prompt) && q.format !== 'open-response');
+  assert(cp2.every(q => /Hint: /.test(q.prompt)), f + ' CP2 hint');
+  const avg = a => a.reduce((s, q) => s + fx(q), 0) / Math.max(1, a.length);
+  assert(avg(h) > avg(cp2) || ['s5_general', 's7_sign', 's3_intervals', 's2_crit'].includes(f), f + ' Honors no richer than CP2');
+}
+
+// #10 AP topics: local linearization, implicit second derivatives, calculator-active integrals, motion from a velocity
+// graph, washers about other lines, exponential models
+const need = { lin_approx: 9, im_second: 9, calc_numeric: 6, vgraph_: 12, washer_line: 9, exp_model: 9 };
+for (const [k, n] of Object.entries(need)) assert(items.filter(q => fam(q).startsWith(k)).length >= n - 1, k + ' items');
+for (const q of items.filter(q => fam(q).startsWith('vgraph_'))) assert(fs.existsSync(path.join(ROOT, q.diagram.spec.src)), q.id + ' velocity graph image');
+const tagsCalc = fs.readdirSync(path.join(dir, 'meta')).flatMap(f => Object.values(JSON.parse(fs.readFileSync(path.join(dir, 'meta', f), 'utf8')))).filter(t => t.includes('calculator-active')).length;
+assert(tagsCalc >= 20, 'calculator-active tags: ' + tagsCalc);
+
+console.log(`PASS Calculus audit fixes: ${errs.length} find-the-mistake items with specific diagnoses, pacing, on-skill items, AP objectives, stems, notation, AP Review, Euler marked BC, IVT wording and units; worked solutions, big-operator display, Honors levels, AP topics (${integral.length} integral items)`);

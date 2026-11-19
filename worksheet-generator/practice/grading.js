@@ -91,11 +91,18 @@ function exactKey(answer){return typeof answer==='string'&&G.MKEXACT&&G.MKEXACT.
 /* Discrete Math audit #3 (2026-11-18): sets, truth columns and rows, lists, statement forms and one-word answers go to
    discrete-grading.js. */
 function discreteKey(answer){return typeof answer==='string'&&G.MKDISCRETE&&G.MKDISCRETE.supports(answer)?answer:null;}
-function gradeBank(answer,typed){
+/* Calculus audit #2 (2026-11-18): expressions, antiderivatives (+ C), differential-equation families and constants with
+   e, ln and trig go to calculus-grading.js when none of the graders above reads the key. */
+/* Only on Calculus practice tests: elsewhere a form question ("Simplify", "prime factorization") must not accept any
+   equivalent expression. practice.js sets MK_PRACTICE_COURSE; tests that load the graders without it get the grader. */
+function calcOn(){return !!G.MKCALC&&(!G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='calculus');}
+function calcKey(answer){return typeof answer==='string'&&calcOn()&&G.MKCALC.supports(answer)?answer:null;}
+function gradeBank(answer,typed,prompt){
+ if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
  var key=bankAnswer(answer);
- if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):{status:'self'};
+ if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):calcKey(answer)!==null?G.MKCALC.grade(answer,typed,prompt):{status:'self'};
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);if(k===null)k=exactKey(answer);return k!==null?k:discreteKey(answer);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);return k!==null?k:calcKey(answer);};API.gradeBank=gradeBank;
 })(window);
