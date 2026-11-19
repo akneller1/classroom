@@ -84,4 +84,25 @@ for (const [u, t] of [['ratios-rates-percent-proportions', 'double number line']
 const n = Object.keys(V).filter((k) => k.startsWith('math6-')).reduce((a, k) => a + terms(k.slice(6)).length, 0);
 assert(n >= 100, n + ' Grade 6 terms');
 
+// 6B: #4 levels, #5-#9 new content, #17 figures, #18 constructed response
+const H = all.filter((q) => /-honors-h\d{2}$/.test(q.id)), G = all.filter((q) => /-g\d{2}$/.test(q.id));
+const skills = [...new Set(all.map((q) => q.skillId))];
+assert.equal(skills.length, 53, 'skills');
+for (const sk of skills) assert.equal(H.filter((q) => q.skillId === sk).length, 2, sk + ' has two Honors multi-step items');
+assert(all.filter((q) => q.level === 'cp2' && (q.hint || '').startsWith('First step:')).length >= 600, 'CP2 first-step hints');
+const has = (s) => G.filter((q) => q.standards.includes(s)).length;
+for (const [s, n] of [['6.RP.A.3c', 9], ['6.EE.C.9', 8], ['6.RP.A.3a', 12], ['6.NS.A.1', 7], ['6.SP.B.5a', 3], ['6.SP.B.5b', 3], ['6.SP.A.3', 3], ['6.EE.B.6', 6], ['6.EE.A.2b', 3], ['6.G.A.4', 8], ['6.G.A.3', 6]])
+  assert(has(s) >= n, `${s}: ${has(s)} new items`);
+for (const q of G.filter((q) => q.diagram)) {
+  assert(fs.existsSync(path.join(ROOT, q.diagram.spec.src)), q.id + ' figure file');
+  assert(q.diagram.spec.alt.length > 30, q.id + ' alt text');
+}
+assert(G.filter((q) => q.diagram).length >= 35, 'new figures');
+const CRs = G.filter((q) => q.format === 'open-response' && (q.parts || []).length === 4);
+assert.equal(CRs.length, 14, 'two four-part constructed-response tasks per unit');
+for (const u of ['rrp', 'fdo', 'rat', 'exq', 'ineq', 'geo', 'dd']) for (const lv of ['cp1', 'honors'])
+  assert(CRs.some((q) => q.id.startsWith(`m6-${u}-`) && q.level === lv), `${u} ${lv} constructed response`);
+for (const q of G) if (q.format === 'short-answer') assert.equal(g(q.answer, q.answer, q.prompt), 'correct', q.id + ' new key grades itself correct');
+
+console.log(`PASS Grade 6 audit 6B: ${H.length} Honors multi-step items, ${G.length} new items (${CRs.length} constructed response)`);
 console.log(`PASS Grade 6 audit 6A: ${cases.length} grading cases, ${auto}/${sa} short answers auto-graded; error analysis, tags, text, ${n} vocabulary terms`);

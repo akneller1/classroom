@@ -26,13 +26,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install the key checker's dependency
-        run: pip install sympy
+      - name: Install the key checker's and the figures' dependencies
+        run: pip install sympy matplotlib
       - name: Recompute Grade 6 keys from the printed prompts and check every error-analysis item (Grade 6 audit 2026-11-19)
         run: python tools/grade6-audit-20261119/verify_keys.py
       - name: The bank changes rebuild exactly from the scripts
         run: |
           bash tools/grade6-audit-20261119/run_all.sh
           git diff --exit-code -- question-banks/math6 worksheet-generator/vocabulary-data-middle-grades.js worksheet-generator/menu/standards-map.js
+      - name: Recompute the batch 6B Honors and new-item keys
+        run: |
+          python tools/grade6-audit-20261119/verify_honors.py
+          python tools/grade6-audit-20261119/verify_new.py
       - name: Grade 6 audit regression checks
         run: node scripts/test-grade6-audit.cjs

@@ -191,6 +191,7 @@ G6 = [
     (r'How many integers n make \|n\| (<|≤) (\d+) true', lambda g, k: same(2 * int(g[1]) + (1 if g[0] == '≤' else -1), kn(k))),
     (r'In which quadrant is the point \((-?\d+), (-?\d+)\)', lambda g, k: k.strip() == quadrant(int(g[0]), int(g[1]))),
     (r'Where is the point \((-?\d+), (-?\d+)\)', lambda g, k: k.strip() == quadrant(int(g[0]), int(g[1]))),
+    (r'Point P\((-?\d+), (-?\d+)\) is reflected across the (x|y)-axis to point Q\. How far apart', lambda g, k: num(k) == 2 * abs(int(g[1] if g[2] == 'x' else g[0]))),
     (r'Point P?\(?(-?\d+), (-?\d+)\)? is reflected (?:across|over) the (x-axis|y-axis|both axes)', lambda g, k: same_pair(k, (int(g[0]) * (-1 if g[2] != 'x-axis' else 1), int(g[1]) * (-1 if g[2] != 'y-axis' else 1)))),
     (r'What is the distance between \((-?\d+), (-?\d+)\) and \((-?\d+), (-?\d+)\)', lambda g, k: same(abs(int(g[0]) - int(g[2])) + abs(int(g[1]) - int(g[3])), kn(k)) and (g[0] == g[2] or g[1] == g[3])),
     (r'has vertices \((-?\d+), (-?\d+)\), \((-?\d+), (-?\d+)\), \((-?\d+), (-?\d+)\), \((-?\d+), (-?\d+)\)\. What is its (perimeter|area)', lambda g, k: rect(g, k, g[8])),
