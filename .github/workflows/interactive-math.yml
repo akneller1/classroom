@@ -9,6 +9,7 @@ on:
       - 'tools/interactive-math-20261107/**'
       - 'tools/calculus-audit-20261118/labs/**'
       - 'scripts/test-calculus-labs.cjs'
+      - 'tools/grade7-audit-20261119/labs/**'
       - 'scripts/test-interactive-math-update.cjs'
       - '.github/workflows/interactive-math.yml'
   workflow_dispatch:
@@ -34,3 +35,8 @@ jobs:
           git diff --exit-code -- artifacts/calculus-related-rates-lab/index.html artifacts/calculus-particle-motion-lab/index.html
           node scripts/test-calculus-labs.cjs
           python tools/calculus-audit-20261118/labs/tests/worksheet-answers.py
+      - name: Grade 7 Integer Chips and Circles labs
+        run: |
+          python tools/grade7-audit-20261119/labs/build.py
+          git diff --exit-code -- artifacts/grade7-integer-chips-lab/index.html artifacts/grade7-circles-lab/index.html
+          python tools/grade7-audit-20261119/labs/tests/worksheet-answers.py

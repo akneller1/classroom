@@ -6,6 +6,16 @@ on:
       - 'question-banks/assets/prealgebra7/**'
       - 'tools/grade7-audit-20261119/**'
       - 'scripts/test-grade7-audit.cjs'
+      - 'scripts/test-grade7-plot.cjs'
+      - 'scripts/test-grade7-notes.cjs'
+      - 'scripts/test-grade7-g3.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'data.js'
+      - 'worksheet-generator/plot-grade7.js'
+      - 'worksheet-generator/plot-practice.js'
+      - 'worksheet-generator/planner/**'
+      - 'worksheet-generator/lesson-planner.html'
+      - 'artifacts/grade7-*/**'
       - 'worksheet-generator/practice/**'
       - 'worksheet-generator/practice-test.html'
       - 'worksheet-generator/menu/mathcheck.js'
@@ -36,3 +46,16 @@ jobs:
           git diff --exit-code -- question-banks/prealgebra7 worksheet-generator/vocabulary-data-middle-grades.js worksheet-generator/menu/standards-map.js
       - name: Grade 7 audit regression checks
         run: node scripts/test-grade7-audit.cjs
+      - name: Graphing Practice for four more Grade 7 units (#14)
+        run: node scripts/test-grade7-plot.cjs
+      - name: Teaching notes for every Grade 7 skill (#16)
+        run: |
+          python tools/grade7-audit-20261119/build_notes.py
+          git diff --exit-code -- worksheet-generator/planner/notes-teach-prealgebra7.js
+          node scripts/test-grade7-notes.cjs
+      - name: Practice tests and reference sheet rebuild exactly (#18)
+        run: |
+          python tools/grade7-audit-20261119/g3_print.py
+          git diff --exit-code -- artifacts/grade7-practice-test-a/exam.html artifacts/grade7-practice-test-a/key.html artifacts/grade7-practice-test-b/exam.html artifacts/grade7-practice-test-b/key.html artifacts/grade7-reference-sheet/index.html tools/grade7-audit-20261119/practice-tests.json
+      - name: Labs, pacing guide, practice tests and reference sheet (#15, #17, #18)
+        run: node scripts/test-grade7-g3.cjs

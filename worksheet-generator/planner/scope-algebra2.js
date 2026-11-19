@@ -25,12 +25,13 @@ course.units.forEach(function(unit,ui){
   var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):((G.MKPLAN_TEACH||{})[courseId]||{})[skill.id];
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
   if(meta&&meta.enrich)title+=' (enrichment)';
+  if(meta&&meta.review)title+=' (review)';
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,
    day_type:'Lesson',lesson_id:id,title:title,standards:std(skill.id),
-   content_objective:'Students will be able to '+verb+'.'+(meta&&meta.enrich?' Enrichment: beyond the Massachusetts Algebra II standards; optional for Support and Standard classes.':''),
+   content_objective:'Students will be able to '+verb+'.'+(meta&&meta.enrich?' Enrichment: beyond the Massachusetts Algebra II standards; optional for Support and Standard classes.':'')+(meta&&meta.review?' Review: this skill practices standards from earlier grades; compact or assign it as a warm-up for students who show mastery.':''),
    language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
-   sentence_frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
+   sentence_frame:meta&&meta.frame?meta.frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
    key_vocabulary:meta&&meta.voc?meta.voc.map(function(w){return w[0];}).join(', '):'',common_misconception:meta&&meta.watch?meta.watch:'',notes_style:'Guided notes',
    do_now_strategy:previousLesson?'Review a previously learned topic.':'Settle in and preview today’s learning.',
    do_now_source_ids:previousLesson?[previousLesson]:[],spiral_review_ids:previousLesson?[previousLesson]:[],

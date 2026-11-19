@@ -1,0 +1,55 @@
+/* Integer Chips lab: add and subtract integers two ways. Chips: blue (+1) and red (−1) counters; a blue–red zero pair
+   is crossed out because it is worth 0. Number line: start at 0, jump to a, then jump b to the right (adding a positive)
+   or to the left (adding a negative). Subtraction is shown as adding the opposite: a − b = a + (−b). */
+var st = { a: -3, b: 5, op: '+', seen: {} };
+var GN = { xmin: -20, xmax: 20, ymin: -2, ymax: 5, width: 660, height: 200, label: 'Number line with the two jumps', noYAxis: true, xstep: 1, xlabelStep: 2, ystep: 100, xfmt: function (t) { return t < 0 ? '−' + (-t) : String(t); }, yfmt: function () { return ''; } }, gn = L.graph(P.stage, GN);
+L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Top: start at 0, jump to the first number (orange), then make the second jump (purple). Where you land is the answer.');
+var GC = { xmin: 0, xmax: 22, ymin: 0, ymax: 5.4, width: 660, height: 190, label: 'Integer chips', noGrid: true }, gc = L.graph(P.stage, GC);
+L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Bottom: blue chips are +1, red chips are −1. Each blue–red pair is a zero pair and is crossed out.');
+L.chips(P.panel, { label: 'Operation', value: st.op, options: [{ value: '+', label: 'a + b' }, { value: '-', label: 'a − b' }], onChange: function (v) { st.op = v; draw(); } });
+var fmt = function (v) { return v < 0 ? '−' + (-v) : String(v); };
+var sa = L.slider(P.panel, { id: 'a', label: 'a, the first number', min: -10, max: 10, step: 1, value: st.a, color: 'orange', format: fmt, onInput: function (v) { st.a = v; draw(); } });
+var sb = L.slider(P.panel, { id: 'b', label: 'b, the second number', min: -10, max: 10, step: 1, value: st.b, color: 'purple', format: fmt, onInput: function (v) { st.b = v; draw(); } });
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btns, function () { st.a = -3; st.b = 5; st.op = '+'; sa.set(-3, true); sb.set(5, true); draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Make a + b equal 0 using two numbers that are not 0. What do you notice about the two numbers?', check: function () { return st.seen.opp; } },
+  { text: 'Add two negative numbers. Is the sum to the left or right of both numbers?', check: function () { return st.seen.twoNeg; } },
+  { text: 'Find a subtraction a − b whose answer is greater than a.', check: function () { return st.seen.bigger; } },
+  { text: 'Show that a − b and a + (−b) land on the same point: try a − 4, then a + (−4) with the same a.', check: function () { return st.seen.sameOpp; } },
+  { text: 'Find a − b = 6 where a is negative. How far apart are a and b on the number line?', check: function () { return st.seen.dist; } }
+]);
+L.notice(P.below, '<p><b>Adding:</b> a positive b moves right on the number line; a negative b moves left. With chips, combine them and remove zero pairs.</p>' +
+  '<p><b>Subtracting:</b> a − b = a + (−b). Subtracting a negative number is the same as adding a positive number.</p>' +
+  '<p><b>Opposites</b> (additive inverses) such as 7 and −7 add to 0, and |a − b| is the distance between a and b.</p>');
+var hist = {};
+var draw = L.scheduler(function () {
+  var a = st.a, b = st.b, step = st.op === '+' ? b : -b, r = a + step;
+  gn.clear();
+  gn.line(0, 0, a, 0, { color: 'orange', width: 6 }); gn.dot(a, 0, { color: 'orange', r: 6 });
+  gn.line(a, 1.6, r, 1.6, { color: 'purple', width: 6 }); gn.dot(r, 1.6, { color: 'purple', r: 6 });
+  gn.line(r, 0, r, 1.6, { color: 'ink', width: 1.5, dash: '4 4' });
+  gn.text(a / 2, 0, fmt(a), { dy: -10, anchor: 'middle', color: 'orange', size: 13 });
+  gn.text((a + r) / 2, 1.6, '+ ' + (step < 0 ? '(' + fmt(step) + ')' : fmt(step)), { dy: -10, anchor: 'middle', color: 'purple', size: 13 });
+  gn.text(r, 3.4, '= ' + fmt(r), { anchor: 'middle', color: 'ink', size: 15, weight: 700 });
+  // chips: first number on the top row, second (or its opposite) on the second row; zero pairs crossed out
+  gc.clear();
+  var pos = Math.max(a, 0) + Math.max(step, 0), neg = Math.max(-a, 0) + Math.max(-step, 0), pairs = Math.min(pos, neg);
+  var row = function (n, y, color, sign, crossed) { for (var i = 0; i < n; i++) { var x = 1 + i; gc.dot(x, y, { color: color, r: 11 }); gc.text(x, y, sign, { dy: 5, anchor: 'middle', color: 'card', size: 14, weight: 700 }); if (i < crossed) gc.line(x - 0.36, y - 0.45, x + 0.36, y + 0.45, { color: 'ink', width: 2.5 }); } };
+  row(pos, 4.3, 'blue', '+', pairs); row(neg, 2.6, 'red', '−', pairs);
+  gc.text(0.6, 0.8, pairs + ' zero pair' + (pairs === 1 ? '' : 's') + ' removed · ' + (r >= 0 ? r + ' blue' : (-r) + ' red') + ' chip' + (Math.abs(r) === 1 ? '' : 's') + ' left = ' + fmt(r), { anchor: 'start', color: 'ink', size: 14 });
+  read.innerHTML = (st.op === '+' ? fmt(a) + ' + ' + (b < 0 ? '(' + fmt(b) + ')' : fmt(b)) : fmt(a) + ' − ' + (b < 0 ? '(' + fmt(b) + ')' : fmt(b)) + ' = ' + fmt(a) + ' + ' + (step < 0 ? '(' + fmt(step) + ')' : fmt(step))) + ' = <b>' + fmt(r) + '</b>' +
+    '<div style="margin-top:6px">Distance between ' + fmt(a) + ' and ' + fmt(b) + ': |' + fmt(a) + ' − ' + (b < 0 ? '(' + fmt(b) + ')' : fmt(b)) + '| = ' + Math.abs(a - b) + '</div>';
+  fb.set(r === 0 && a !== 0 ? 'The two numbers are opposites: they make 0.' : st.op === '-' && b < 0 ? 'Subtracting a negative moves right, like adding a positive.' : '', '');
+  if (st.op === '+' && r === 0 && a !== 0) st.seen.opp = true;
+  if (st.op === '+' && a < 0 && b < 0) st.seen.twoNeg = true;
+  if (st.op === '-' && r > a) st.seen.bigger = true;
+  hist[st.op + ',' + a + ',' + step] = r;
+  if (st.op === '-' && hist['+,' + a + ',' + step] === r && b > 0) st.seen.sameOpp = true;
+  if (st.op === '+' && hist['-,' + a + ',' + step] === r && b < 0) st.seen.sameOpp = true;
+  if (st.op === '-' && a < 0 && r === 6) st.seen.dist = true;
+  ch.update();
+});
+draw();

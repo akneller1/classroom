@@ -1,0 +1,146 @@
+"""Grade 7 audit #16 (2026-11-19): write worksheet-generator/planner/notes-teach-prealgebra7.js from notes/u*.py.
+(Same format and checks as tools/statistics-audit-20261118/build_notes.py, plus a talk frame per skill.)
+
+Each record is keyed by the catalog skill id (<unit>-skill-NN). A skill whose items practice only Grade 6 or earlier
+standards is marked review: true, and the planner titles it "(review)" (audit #12).
+Run: python3 tools/grade7-audit-20261119/build_notes.py
+"""
+import glob, json, os, re, runpy, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from lib import ROOT, load, items  # noqa: E402
+
+OUT = os.path.join(ROOT, 'worksheet-generator', 'planner', 'notes-teach-prealgebra7.js')
+KEYS = ('obj', 'idea', 'voc', 'watch', 'frame', 'cards', 'review')
+REVIEW = re.compile(r'^[1-6]\.')
+MATRIX = re.compile(r'\[([^\[\]⟨⟩]*;[^\[\]⟨⟩]*)\]')
+
+
+def matrices(s):
+    """Inside ⟨math⟩, write the shorthand [a, b; c, d] as a bmatrix (rows split on ;, entries on ,)."""
+    def mat(m):
+        rows = [r.strip().replace(', ', ' & ') for r in m.group(1).split(';')]
+        return '\\begin{bmatrix} ' + ' \\\\ '.join(rows) + ' \\end{bmatrix}'
+    return re.sub('⟨([^⟩]*)⟩', lambda m: '⟨' + MATRIX.sub(mat, m.group(1)) + '⟩', s)
+
+
+def close_blank(s, i):
+    """Same rule as closeBlank in planner/notes-diagrams.js: index of the "}}" ending a blank opened before i."""
+    depth, k = 0, i
+    while k < len(s):
+        ch = s[k]
+        if ch == '\\':
+            k += 2
+            continue
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            if depth:
+                depth -= 1
+            elif s[k + 1:k + 2] == '}':
+                return k
+        k += 1
+    return -1
+
+
+def braces_ok(tex):
+    depth, k = 0, 0
+    while k < len(tex):
+        if tex[k] == '\\':
+            k += 2
+            continue
+        depth += {'{': 1, '}': -1}.get(tex[k], 0)
+        if depth < 0:
+            return False
+        k += 1
+    return depth == 0
+
+
+def check_text(s):
+    """Problems the planner would render badly: unclosed ⟨ or {{, or unbalanced TeX braces."""
+    if s.count('⟨') != s.count('⟩'):
+        return 'unbalanced ⟨⟩'
+    k = 0
+    while k < len(s):
+        if s[k] == '⟨':
+            m = s.index('⟩', k)
+            if not braces_ok(s[k + 1:m]):
+                return 'unbalanced braces in math'
+            k = m + 1
+        elif s.startswith('{{', k):
+            e = close_blank(s, k + 2)
+            if e < 0:
+                return 'unclosed {{'
+            k = e + 2
+        else:
+            k += 1
+    return ''
+
+
+def main():
+    recs = {}
+    for f in sorted(glob.glob(os.path.join(HERE, 'notes', 'u*.py'))):
+        for (unit, k), rec in runpy.run_path(f)['R'].items():
+            sid = '%s-skill-%02d' % (unit, k)
+            if sid in recs:
+                sys.exit('duplicate notes for ' + sid)
+            bad = set(rec) - set(KEYS)
+            if bad:
+                sys.exit('%s: unknown keys %s' % (sid, sorted(bad)))
+            rec = {key: rec[key] for key in KEYS if key in rec}
+            rec['cards'] = [dict(c, big=matrices(c['big']), steps=[matrices(t) for t in c['steps']]) for c in rec['cards']]
+            for t in [rec['idea'], rec['watch']] + [m for v in rec['voc'] for m in v]:
+                err = check_text(t)
+                if err:
+                    sys.exit('%s: %s in %r' % (sid, err, t))
+            recs[sid] = rec
+
+    order, names, stds = [], {}, {}
+    banks = load()
+    for u, d in banks.items():
+        for q in sorted(d['questions'], key=lambda q: q['skillId']):
+            if q['skillId'] not in names:
+                order.append((d['unitId'], q['skillId']))
+                names[q['skillId']] = q.get('skillName') or ''
+    for u, q in items(banks):
+        stds.setdefault(q['skillId'], set()).update(q['standards'])
+    for sid, r in recs.items():
+        if sid in stds and stds[sid] and all(REVIEW.match(x) for x in stds[sid]):
+            r['review'] = True
+    missing = [s for _, s in order if s not in recs]
+    extra = [s for s in recs if s not in names]
+    if missing or extra:
+        sys.exit('missing %s; no such skill %s' % (missing, extra))
+    for sid, r in recs.items():
+        for c in r['cards']:
+            for t in [c['big']] + c['steps']:
+                if '{{' not in ''.join([c['big']] + c['steps']):
+                    sys.exit('%s: card %r has no guided-notes blank' % (sid, c['h']))
+                err = check_text(t)
+                if err:
+                    sys.exit('%s: %s in %r' % (sid, err, t))
+
+    for sid, r in recs.items():
+        if '___' not in r['frame'] or '⟨' in r['frame']:
+            sys.exit('%s: the talk frame needs a ___ blank and no math markup' % sid)
+    lines = ['/* Teaching notes for the Pre-Algebra (Grade 7) lesson planner (see notes-teach.js for the format).',
+             '   Generated by tools/grade7-audit-20261119/build_notes.py from notes/u*.py; edit those, then rerun.',
+             '   Records are keyed by catalog skill id: obj (objective), idea (key idea), voc (vocabulary with meanings),',
+             '   watch (common mistake), frame (talk frame), cards (explanation cards with guided-notes blanks) and',
+             '   review (the skill practices only Grade 6 or earlier standards). */',
+             '(function (G) {', "  'use strict';",
+             '  var T = (G.MKPLAN_TEACH = G.MKPLAN_TEACH || {}), N = T.prealgebra7 = T.prealgebra7 || {};']
+    unit = None
+    for u, sid in order:
+        if u != unit:
+            unit = u
+            lines.append('  /* ---------- %s ---------- */' % u)
+        lines.append('  N[%s] = %s;' % (json.dumps(sid), json.dumps(recs[sid], ensure_ascii=False)))
+    lines.append('})(typeof window !== \'undefined\' ? window : globalThis);')
+    open(OUT, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+    print('wrote %d records to %s' % (len(recs), os.path.relpath(OUT, ROOT)))
+
+
+if __name__ == '__main__':
+    main()
