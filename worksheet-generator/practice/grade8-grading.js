@@ -162,6 +162,7 @@
       }
       if (k === 'line') {
         var kl = linearEq(a), tl = linearEq(t);
+        if (!tl && /^-?\d+(?:\.\d+)?(?:\/\d+)?$/.test(kl.rhs.trim())) { const v = sameValue(kl.rhs.trim(), t); if (v !== null) return { status: v ? 'correct' : 'incorrect' }; }   // "k = 5" ← "5"
         if (!tl) return { status: 'invalid', message: 'Enter an equation solved for ' + kl.v + ', such as ' + kl.v + ' = 2x + 3.' };
         if (tl.v.toLowerCase() !== kl.v.toLowerCase()) return { status: 'incorrect' };
         if (/[()]/.test(stripFracParens(tl.rhs))) return { status: 'invalid', message: 'Simplify the right side (no parentheses).' };

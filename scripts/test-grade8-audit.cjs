@@ -15,7 +15,7 @@ function check(q, ok, msg) { checks++; if (!ok) fails.push((q && q.id ? q.id + '
 const texts = (q) => [q.prompt, ...(Array.isArray(q.answer) ? q.answer : [String(q.answer)]), ...(q.options || []).map((o) => String(o.text)), ...(q.solutionSteps || [])];
 const fam = (q) => ((q.sourceNotes || '').match(/family: ([a-z0-9_-]+)\)/) || [])[1] || '';
 const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
-const frac = (n, d) => { const g = gcd(n, d); return d / g === 1 ? String(n / g) : n / g + '/' + d / g; };
+const frac = (n, d) => { if (d < 0) { n = -n; d = -d; } const g = gcd(n, d); return d / g === 1 ? String(n / g) : n / g + '/' + d / g; };
 const num = (s) => +String(s).replace(/[^\d.-]/g, '');
 
 /* #11 simplest radical form */
@@ -215,6 +215,55 @@ for (const q of Q) if (q.format === 'short-answer') {
   }
   const data = fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8');
   assert(/"prealgebra": \["linear-functional-relationships", "systems-linear-equations", "patterns-bivariate-data", "congruence-similarity"\]/.test(data), 'Graphing Practice units');
+}
+/* #3 harder Advanced items in the 17 skills that were mostly re-numbered lower-level templates; #14 Standard items with an added step */
+{
+  const mask = (t) => t.replace(/-?\d+(\.\d+)?/g, '#');
+  const H = Q.filter((q) => /-honors-h0\d$/.test(q.id));
+  assert.equal(H.length, 136, 'new Advanced items');
+  const skills = [...new Set(H.map((q) => q.skillId))];
+  assert.equal(skills.length, 17);
+  for (const sk of skills) {
+    const lower = new Set(Q.filter((q) => q.skillId === sk && q.level !== 'honors').map((q) => mask(q.prompt)));
+    const adv = Q.filter((q) => q.skillId === sk && q.level === 'honors' && q.format !== 'plot');
+    for (const q of H.filter((q) => q.skillId === sk)) check(q, !lower.has(mask(q.prompt)), 'new Advanced item reuses a lower template');
+    const clones = adv.filter((q) => lower.has(mask(q.prompt))).length;
+    check({ id: sk }, clones / adv.length <= 0.6, 'Advanced clone share ' + clones + '/' + adv.length);
+    check({ id: sk }, adv.filter((q) => q.format === 'multiple-choice').length >= 6, 'Advanced multiple choice for games');
+    check({ id: sk }, Q.filter((q) => q.skillId === sk && /Moved from Advanced to Standard/.test(q.sourceNotes)).every((q) => q.level === 'cp1'), 'moved items are Standard');
+  }
+  // independent recomputation of the new Advanced items
+  const R = (re, q) => re.exec(q.prompt);
+  for (const q of H) {
+    const f = fam(q), a = String(q.answer); let m, want = null;
+    if (f === 's4_find_k' && (m = R(/between \((-?\d+), (-?\d+)\) and \(k, (-?\d+)\) is (\d+) units/, q))) want = 'k = ' + (+m[1] + Math.sqrt(m[4] ** 2 - (m[3] - m[2]) ** 2));
+    if (f === 's4_equidistant' && (m = R(/from \(0, (\d+)\) as from \((\d+), 0\)/, q))) want = '(' + frac(m[2] ** 2 - m[1] ** 2, 2 * m[2]) + ', 0)';
+    if (f === 's6_slope_from_point' && (m = R(/y = mx ([+-]) (\d+) passes through \((-?\d+), (-?\d+)\)/, q))) want = 'm = ' + frac(+m[4] - (m[1] === '+' ? 1 : -1) * m[2], +m[3]);
+    if (f === 's8_perimeter_side' && (m = R(/perimeters (\d+) cm and (\d+) cm\. A side of the smaller triangle is (\d+) cm/, q))) want = frac(m[3] * m[2], +m[1]) + ' cm';
+    if (f === 's8_nested_unknown' && (m = R(/BC = (\d+), BD = (\d+) and CE = (\d+)/, q))) want = 'x = ' + frac(m[2] * m[1], m[3] - m[2]);
+    if (f === 's5_sphere_diameter' && (m = R(/diameter (\d+) cm/, q))) want = frac(4 * (m[1] / 2) ** 3, 3) + 'π cubic centimeters';
+    if (f === 's5_cones_fill' && (m = R(/radius (\d+) ft and height (\d+) ft\. A cone-shaped bucket has radius (\d+) ft and height (\d+) ft/, q))) want = frac(3 * m[1] ** 2 * m[2], m[3] ** 2 * m[4]);
+    if (f === 's7_pipe' && (m = R(/radius (\d+) cm and length (\d+) cm with a cylindrical hole of radius (\d+) cm/, q))) want = (m[1] ** 2 - m[3] ** 2) * m[2] + 'π cubic centimeters';
+    if (f === 's6_coins' && (m = R(/has (\d+) coins, all dimes and quarters, worth \$(\d+)\.(\d\d)/, q))) want = String((+(m[2] + m[3]) - 10 * m[1]) / 15);
+    if (f === 's1_function_value' && (m = /\((-?\d+), a\)/.exec(q.prompt))) want = 'a = ' + new RegExp('\\(' + m[1] + ', (-?\\d+)\\)').exec(q.prompt)[1];
+    if (f === 's3_nth_digit' && (m = R(/^(\d+)\/(\d+) = .* What is the (\d+)th digit/, q))) { let r = +m[1] % +m[2], d = ''; for (let i = 0; i < +m[3]; i++) { r *= 10; d = String(Math.floor(r / m[2])); r %= +m[2]; } want = d; }
+    if (f === 's1_above_line' && (m = R(/x: ([\d, ]+); y: ([\d, ]+) is graphed/, q))) { const xs = m[1].split(', ').map(Number), ys = m[2].split(', ').map(Number); want = String(xs.filter((x, i) => ys[i] > x).length); }
+    if (want !== null) check(q, want === a, 'recomputed ' + want + ' but key ' + a);
+  }
+  assert(H.filter((q) => /s4_find_k|s4_equidistant|s6_slope_from_point|s8_perimeter_side|s8_nested_unknown|s5_sphere_diameter|s5_cones_fill|s7_pipe|s6_coins|s1_function_value|s3_nth_digit|s1_above_line/.test(fam(q))).length === 48, 'recomputed families');
+  const S = Q.filter((q) => /audit #14/.test(q.sourceNotes));
+  assert(S.length >= 50, 'Standard items with an added step ' + S.length);
+  const cp2 = new Set(Q.filter((q) => q.level === 'cp2').map((q) => q.skillId + '|' + mask(q.prompt)));
+  for (const q of S) check(q, q.level === 'cp1' && !cp2.has(q.skillId + '|' + mask(q.prompt)), 'Standard item still a Support template');
+  for (const q of S.filter((q) => /Find y when x = (-?\d+)\.$/.test(q.prompt) && /x: /.test(q.prompt))) {
+    const xs = /x: ([-\d, ]+);/.exec(q.prompt)[1].split(', ').map(Number), ys = /y: ([-\d/, ]+)\./.exec(q.prompt)[1].split(', ').map((v) => eval(v)), X = +/x = (-?\d+)\.$/.exec(q.prompt)[1];
+    const m = (ys[1] - ys[0]) / (xs[1] - xs[0]), y = ys[0] + m * (X - xs[0]);
+    check(q, Math.abs(eval(q.answer) - y) < 1e-9, 'table extension ' + y);
+  }
+  for (const q of S.filter((q) => /Find the perimeter of triangle DEF/.test(q.prompt))) {
+    const m = /AB = (\d+), BC = (\d+), CA = (\d+), and (DE|EF|FD) = (\d+)/.exec(q.prompt), k = m[5] / { DE: m[1], EF: m[2], FD: m[3] }[m[4]];
+    check(q, Math.abs(eval(q.answer) - k * (+m[1] + +m[2] + +m[3])) < 1e-9, 'perimeter');
+  }
 }
 /* #1 the lesson planner has teaching notes for every 8th Grade Math skill */
 {
