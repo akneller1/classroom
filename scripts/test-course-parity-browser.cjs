@@ -7,7 +7,7 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  page.on('pageerror',e=>errors.push(e.message));
  async function open(course,unit,game){if(game==='detective'&&new URL(page.url()).origin===base)await page.evaluate(()=>{for(const k of Object.keys(localStorage))if(k.startsWith('mrk-whodunit-'))localStorage.removeItem(k)});await page.goto(base+'/worksheet-generator/'+(['detective','escape-room'].includes(game)?'course-activity':'course-game')+'.html?course='+course+'&unit='+unit+'&game='+game);await page.getByRole('button',{name:'Continue',exact:true}).click();}
  async function escape(course,unit){
-  await open(course,unit,'escape-room');await page.locator('#activityStart').click();await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await open(course,unit,'escape-room');await startActivity();await page.getByRole('button',{name:'Begin',exact:true}).click();
   const room=await page.evaluate(()=>window.MK_ESCAPE_ROOM);assert.equal(room.stages.length,5);assert.ok(room.stages.some(s=>s.type==='cipher'));assert.ok(room.stages.some(s=>s.type==='order'));
   for(let i=0;i<5;i++){
    const stage=room.stages[i];await page.waitForFunction(i=>window.MK_ESCAPE_STATE().stage===i,i);
@@ -46,7 +46,7 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
   await page.locator('#w').fill(room.word);await page.locator('#go').click();await page.getByRole('heading',{name:'You escaped!',exact:true}).waitFor();cases.push(course+'/'+unit+'/escape-complete');
  }
  async function mystery(course,unit){
-  await open(course,unit,'detective');await page.locator('#activityStart').click();await page.locator('#start').click();const data=await page.evaluate(()=>window.MK_MYSTERY_CASE);
+  await open(course,unit,'detective');await startActivity();await page.locator('#start').click();const data=await page.evaluate(()=>window.MK_MYSTERY_CASE);
   assert.equal(data.questions.length,10);assert.ok(await page.getByRole('heading',{name:'Case board',exact:true}).isVisible());
   for(let i=0;i<10;i++){
    const answer=data.questions[i].answer.v;
@@ -58,30 +58,41 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  }
  async function steal(course,unit){
   await open(course,unit,'connect-four');await page.locator('#tGo').click();
-  let s=await page.evaluate(()=>window.MKGAMES._state());
-  // The deck mixes typed-answer and multiple-choice questions; the steal scenario needs a correct and a wrong choice.
-  for(let attempt=0;attempt<30&&!((s.it.options||[]).some(o=>o.ok)&&(s.it.options||[]).some(o=>!o.ok));attempt++){
-   const previous=s.it.id;await page.locator('#c4Skip').click();
-   await page.waitForFunction(id=>window.MKGAMES._state().it.id!==id,previous);
-   s=await page.evaluate(()=>window.MKGAMES._state());
+  // The deck mixes typed-answer and multiple-choice questions (and true/false, with one wrong choice). Skipping keeps
+  // the same team's turn, so skip until the question has a correct choice and at least `wrong` wrong ones.
+  async function choices(wrong,why){
+   await page.waitForFunction(()=>!!window.MKGAMES._state().it);   // questions are drawn asynchronously
+   let s=await page.evaluate(()=>window.MKGAMES._state());
+   const ok=st=>(st.it.options||[]).some(o=>o.ok)&&(st.it.options||[]).filter(o=>!o.ok).length>=wrong;
+   for(let attempt=0;attempt<40&&!ok(s);attempt++){
+    const previous=s.it.id;await page.locator('#c4Skip').click();
+    await page.waitForFunction(id=>{const it=window.MKGAMES._state().it;return !!it&&it.id!==id;},previous);
+    s=await page.evaluate(()=>window.MKGAMES._state());
+   }
+   assert(ok(s),why);return s;
   }
-  assert((s.it.options||[]).some(o=>o.ok)&&(s.it.options||[]).some(o=>!o.ok),'Steal scenario needs a multiple-choice question');
+  let s=await choices(1,'Steal scenario needs a multiple-choice question');
   const correct=s.it.options.findIndex(o=>o.ok),wrong=s.it.options.findIndex(o=>!o.ok);const original=s.it.id;
   await page.locator('[data-opt="'+wrong+'"]').click();await page.locator('#c4Lock').click();assert.ok(await page.locator('#c4Steal').isVisible());assert.equal(await page.locator('.gm-sol').count(),0,'Solution must remain hidden before the steal');
   await page.locator('#c4Steal').click();assert.equal(await page.locator('[data-opt="'+wrong+'"]').isDisabled(),true);assert.equal(await page.evaluate(()=>window.MKGAMES._state().it.id),original);
   await page.locator('[data-opt="'+correct+'"]').click();await page.locator('#c4Lock').click();await page.locator('.c4-hole[data-col="1"]').first().click();
   s=await page.evaluate(()=>window.MKGAMES._state());assert.equal(s.board[5][1],'R');await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'L');
-  s=await page.evaluate(()=>window.MKGAMES._state());await page.locator('[data-opt="'+s.it.options.findIndex(o=>!o.ok)+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Pass').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'R');
-  s=await page.evaluate(()=>window.MKGAMES._state());
-  // A true/false question has only one wrong choice. Use a question with two
-  // distractors to exercise two misses without clicking an eliminated answer.
-  for(let attempt=0;attempt<30&&s.it.options.filter(o=>!o.ok).length<2;attempt++){
-   const previous=s.it.id;await page.locator('#c4Skip').click();
-   await page.waitForFunction(id=>window.MKGAMES._state().it.id!==id,previous);
-   s=await page.evaluate(()=>window.MKGAMES._state());
-  }
-  assert(s.it.options.filter(o=>!o.ok).length>=2,'Double-miss scenario needs two distractors');
+  s=await choices(1,'Pass scenario needs a multiple-choice question');await page.locator('[data-opt="'+s.it.options.findIndex(o=>!o.ok)+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Pass').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'R');
+  // Two distractors, to exercise two misses without clicking an eliminated answer.
+  s=await choices(2,'Double-miss scenario needs two distractors');
   const wrongs=s.it.options.map((o,i)=>o.ok?-1:i).filter(i=>i>=0);await page.locator('[data-opt="'+wrongs[0]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Steal').click();await page.locator('[data-opt="'+wrongs[1]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'L');cases.push(course+'/'+unit+'/steal-pass-miss');
+ }
+ // The question bank loads asynchronously; a Start click before it arrives can find too few questions
+ // ("Choose more skills at this difficulty…"). Retry the click a few times before giving up.
+ async function startActivity(){
+  for(let attempt=0;attempt<8;attempt++){
+   const before=await page.locator('#activityStart').isVisible();if(!before)return;
+   await page.locator('#activityStart').click();
+   await page.waitForTimeout(400);
+   const status=await page.evaluate(()=>{const e=document.querySelector('#activityStatus');return e?e.textContent:'';});
+   if(!/Choose more skills at this difficulty/.test(status))return;
+   await page.waitForTimeout(1000);
+  }
  }
  try{
  for(const u of library.courses.find(c=>c.id==='algebra2').units){await mystery('algebra2',u.id);await escape('algebra2',u.id);}
@@ -96,7 +107,7 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
    if(game==='connect-four')await page.locator('#c4Lock').waitFor();
    if(game==='picture-reveal')await page.locator('#prCheck').waitFor();
    if(game==='showdown'){await page.locator('#sdNew').waitFor();const columns=await page.locator('.sd-cat').count();assert.equal(await page.locator('.sd-board .sd-cell').count(),columns*5,'Showdown board layout '+course.id+'/'+unit.id);assert.ok(await page.locator('.sd-cell[data-cell]').count()>0,'Showdown has playable questions '+course.id+'/'+unit.id);}
-   if(['detective','escape-room'].includes(game)){await page.locator('#activityStart').click();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
+   if(['detective','escape-room'].includes(game)){await startActivity();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
    await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit.id+'-'+game+'.png'});cases.push(course.id+'/'+unit.id+'/'+game+'/preview');
   }
  }

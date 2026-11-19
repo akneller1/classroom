@@ -132,7 +132,7 @@
     "Random Variables: Discrete Probability Distributions",
     "Expected Value, Standard Deviation, and Linear Transformations",
     "Binomial and Geometric Distributions",
-    "Combining Independent Random Variables",
+    "Beyond AP: Combining Independent Random Variables",
     "Sampling Distributions of Proportions and Means",
     "Bias, Variability, Sample Size, and the Central Limit Theorem"
   ],
@@ -147,7 +147,7 @@
     "Type I and Type II Errors and Statistical Power",
     "Comparing Two Populations: Intervals and Tests for Two Proportions",
     "Independent Two-Sample and Paired t-Procedures",
-    "Extension: Confidence Intervals for a Regression Slope"
+    "Beyond AP: Confidence Intervals for a Regression Slope"
   ]
 },
   "calculus": {
@@ -1163,9 +1163,9 @@
   skills["algebra2"]["polynomial-functions"].push("Binomial Theorem and Pascal's Triangle");
   skills["precalculus"]["functions"].push("Solving Exponential and Logarithmic Equations");
   skills["calculus"]["fundamental-theorem-calculus"].push("Integration Using Long Division and Completing the Square");
-  skills["statistics"]["statistical-inference"].push("Chi-Square Goodness-of-Fit Tests");
+  skills["statistics"]["statistical-inference"].push("Beyond AP: Chi-Square Goodness-of-Fit Tests");
   skills["statistics"]["statistical-inference"].push("Chi-Square Tests for Homogeneity and Independence");
-  skills["statistics"]["statistical-inference"].push("Significance Tests for the Slope of a Regression Line");
+  skills["statistics"]["statistical-inference"].push("Beyond AP: Significance Tests for the Slope of a Regression Line");
   skills["geometry"]["right-triangles-trigonometry"].push("Law of Sines and Law of Cosines");
   skills["geometry"]["foundations-geometry"].push("Conditional Statements, Converses, and Biconditionals");
   // Algebra 2 audit additions, November 17, 2026 (standards gaps). Existing skill IDs stay stable.

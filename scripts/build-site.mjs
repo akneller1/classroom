@@ -255,7 +255,7 @@ const COURSE_SEO = {
   },
   statistics: {
     title: "Free Statistics Activities, Worksheets & Games",
-    description: "Free Statistics worksheets, interactive data labs, classroom activities and lesson plans on sampling, probability and inference."
+    description: "Free AP Statistics worksheets, interactive data labs, classroom activities and lesson plans on data, sampling, probability, inference and regression."
   },
   discrete: {
     title: "Free Discrete Math Worksheets & Classroom Activities",
