@@ -716,14 +716,14 @@
       "Operations with numbers in scientific notation"
     ],
     "equations-expressions": [
-      "Expressions with radical exponents",
+      "Square and cube roots in expressions",
       "Expressions with integer exponents",
       "Creating linear equations",
       "Solving equations with variables on both sides",
       "Solving equations using the distributive property",
       "Solving equations by combining like terms",
       "One, infinitely many, or no solutions",
-      "Solving exponent equations"
+      "Solving x² = p and x³ = p equations"
     ],
     "linear-functional-relationships": [
       "Introduction to functions and writing function rules",

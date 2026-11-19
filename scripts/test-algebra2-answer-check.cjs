@@ -35,5 +35,5 @@ for (const [key, typed, want] of cases) assert.equal(P.gradeBank(key, typed).sta
 for (const key of ['(x + 3)(x - 5)', '4x² + 2x - 2', 'y = 200(0.5)^x', 'x = ln 12 ≈ 2.485', 'parabola', '2 ft above the vertex',
   'center (1, 2); vertices (1, 2 ± √13)', 'x = -3 ± 4√3', 'y = 2']) assert.equal(P.bankAnswer(key), null, 'self-check for ' + key);
 const practice = fs.readFileSync(path.join(WG, 'practice/practice.js'), 'utf8');
-assert(/bankAnswer\(q\.answer\)!==null\?'auto'/.test(practice) && /q\.bank\?G\.MKPRACTICE\.gradeBank/.test(practice), 'practice test uses the bank grader');
+assert(/bankAnswer\(q\.answer(?:,q\.prompt)?\)!==null\?'auto'/.test(practice) && /q\.bank\?G\.MKPRACTICE\.gradeBank/.test(practice), 'practice test uses the bank grader');
 console.log('PASS Algebra 2 short-answer auto-check: ' + auto + ' of ' + shortAnswers.length + ' short answers graded; ' + rejected + ' wrong variants rejected');

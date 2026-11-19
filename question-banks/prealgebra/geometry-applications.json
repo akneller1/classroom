@@ -78,7 +78,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 7² + 24² = 625 and 25² = 625.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -133,17 +134,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "A right triangle has a hypotenuse of 15 in. and a leg of 9 in.. Find the length of the other leg.",
+   "prompt": "A right triangle has a hypotenuse of 15 in. and a leg of 9 in. Find the length of the other leg.",
    "answer": "12 in.",
    "solutionSteps": [
     "b² = 15² - 9² = 225 - 81 = 144.",
-    "b = 12 in.."
+    "b = 12 in."
    ],
    "diagram": {
     "type": "image",
     "spec": {
      "src": "question-banks/assets/prealgebra/geometry-applications/pa8-geo-s01-cp2-005.png",
-     "alt": "Right triangle with one leg 9 in., other leg b, hypotenuse 15 in.."
+     "alt": "Right triangle with one leg 9 in., other leg b, hypotenuse 15 in."
     }
    },
    "standards": [
@@ -262,7 +263,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 12² + 35² = 1369 and 37² = 1369.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -345,7 +347,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 3² + 4² = 25 and 5² = 25.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -400,17 +403,17 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "A right triangle has a hypotenuse of 10 in. and a leg of 6 in.. Find the length of the other leg.",
+   "prompt": "A right triangle has a hypotenuse of 10 in. and a leg of 6 in. Find the length of the other leg.",
    "answer": "8 in.",
    "solutionSteps": [
     "b² = 10² - 6² = 100 - 36 = 64.",
-    "b = 8 in.."
+    "b = 8 in."
    ],
    "diagram": {
     "type": "image",
     "spec": {
      "src": "question-banks/assets/prealgebra/geometry-applications/pa8-geo-s01-cp2-014.png",
-     "alt": "Right triangle with one leg 6 in., other leg b, hypotenuse 10 in.."
+     "alt": "Right triangle with one leg 6 in., other leg b, hypotenuse 10 in."
     }
    },
    "standards": [
@@ -483,7 +486,7 @@
    "skillId": "geometry-applications-skill-01",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A right triangle has a hypotenuse of 17 in. and a leg of 8 in.. Find the length of the other leg.",
+   "prompt": "A right triangle has a hypotenuse of 17 in. and a leg of 8 in. Find the length of the other leg.",
    "answer": "15 in.",
    "options": [
     {
@@ -505,13 +508,13 @@
    ],
    "solutionSteps": [
     "b² = 17² - 8² = 289 - 64 = 225.",
-    "b = 15 in.."
+    "b = 15 in."
    ],
    "diagram": {
     "type": "image",
     "spec": {
      "src": "question-banks/assets/prealgebra/geometry-applications/pa8-geo-s01-cp2-017.png",
-     "alt": "Right triangle with one leg 8 in., other leg b, hypotenuse 17 in.."
+     "alt": "Right triangle with one leg 8 in., other leg b, hypotenuse 17 in."
     }
    },
    "standards": [
@@ -580,10 +583,6 @@
    "prompt": "Select ALL sets of side lengths that form right triangles.",
    "options": [
     {
-     "text": "15, 20, 25",
-     "correct": true
-    },
-    {
      "text": "8, 15, 17",
      "correct": true
     },
@@ -605,18 +604,55 @@
     }
    ],
    "answer": [
-    "15, 20, 25",
     "8, 15, 17",
     "5, 12, 13"
    ],
    "solutionSteps": [
-    "Check whether the squares of the two shorter sides add to the square of the longest side."
+    "Check whether the squares of the two shorter sides add to the square of the longest side.",
+    "Correct choices: 8, 15, 17; 5, 12, 13. Not correct: 3, 9, 10; 5, 10, 12; 8, 12, 15."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s01-cp2-o01",
+   "skillId": "geometry-applications-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A right triangle has legs 9 cm and 12 cm.",
+   "parts": [
+    {
+     "prompt": "Find the hypotenuse.",
+     "answer": "15 cm"
+    },
+    {
+     "prompt": "Find the perimeter.",
+     "answer": "36 cm"
+    },
+    {
+     "prompt": "Find the area.",
+     "answer": "54 square cm"
+    },
+    {
+     "prompt": "A triangle has sides 9, 12 and 16. Is it a right triangle?",
+     "answer": "no: 81 + 144 = 225 ≠ 256"
+    }
+   ],
+   "answer": "(a) 15 cm; (b) 36 cm; (c) 54 square cm; (d) no: 81 + 144 = 225 ≠ 256",
+   "solutionSteps": [
+    "9² + 12² = 81 + 144 = 225, and √225 = 15.",
+    "9 + 12 + 15 = 36.",
+    "(1/2)(9)(12) = 54.",
+    "9² + 12² = 225 and 16² = 256."
+   ],
+   "standards": [
+    "8.G.B.6",
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-cp1-001",
@@ -720,7 +756,8 @@
     }
    ],
    "solutionSteps": [
-    "5² + 12² = 169 = 13²."
+    "5² + 12² = 169 = 13².",
+    "So the answer is 5, 12, 13."
    ],
    "standards": [
     "8.G.B.6",
@@ -803,7 +840,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 9² + 40² = 1681 and 41² = 1681.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -837,7 +875,8 @@
     }
    ],
    "solutionSteps": [
-    "3² + 4² = 25 = 5²."
+    "3² + 4² = 25 = 5².",
+    "So the answer is 3, 4, 5."
    ],
    "standards": [
     "8.G.B.6",
@@ -895,7 +934,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 9² + 40² = 1681 and 41² = 1681.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -929,7 +969,8 @@
     }
    ],
    "solutionSteps": [
-    "9² + 12² = 225 = 15²."
+    "9² + 12² = 225 = 15².",
+    "So the answer is 9, 12, 15."
    ],
    "standards": [
     "8.G.B.6",
@@ -1023,7 +1064,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 12² + 35² = 1369 and 37² = 1369.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -1057,7 +1099,8 @@
     }
    ],
    "solutionSteps": [
-    "7² + 24² = 625 = 25²."
+    "7² + 24² = 625 = 25².",
+    "So the answer is 7, 24, 25."
    ],
    "standards": [
     "8.G.B.6",
@@ -1179,13 +1222,51 @@
     "5, 12, 13"
    ],
    "solutionSteps": [
-    "Check whether the squares of the two shorter sides add to the square of the longest side."
+    "Check whether the squares of the two shorter sides add to the square of the longest side.",
+    "Correct choices: 7, 24, 25; 8, 15, 17; 5, 12, 13. Not correct: 10, 4, 11; 9, 3, 10; 9, 12, 16."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s01-cp1-o01",
+   "skillId": "geometry-applications-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A triangle has sides 10, 24 and 26.",
+   "parts": [
+    {
+     "prompt": "Use the converse of the Pythagorean theorem to decide whether it is a right triangle.",
+     "answer": "yes: 10² + 24² = 676 = 26²"
+    },
+    {
+     "prompt": "Which side is across from the right angle?",
+     "answer": "the side of length 26"
+    },
+    {
+     "prompt": "Find the area.",
+     "answer": "120 square units"
+    },
+    {
+     "prompt": "Find the length of the altitude to the side of length 26, to the nearest tenth.",
+     "answer": "9.2"
+    }
+   ],
+   "answer": "(a) yes: 10² + 24² = 676 = 26²; (b) the side of length 26; (c) 120 square units; (d) 9.2",
+   "solutionSteps": [
+    "100 + 576 = 676 = 26².",
+    "The hypotenuse is the longest side.",
+    "The legs are 10 and 24: (1/2)(10)(24) = 120.",
+    "Area 120 = (1/2)(26)h, so h = 240/26 ≈ 9.2."
+   ],
+   "standards": [
+    "8.G.B.6",
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s01-honors-001",
@@ -1193,10 +1274,10 @@
    "level": "honors",
    "format": "short-answer",
    "prompt": "A right triangle has legs 6 cm and 2 cm. Find the length of the hypotenuse in simplest radical form (exact value).",
-   "answer": "√40 cm",
+   "answer": "2√10 cm",
    "solutionSteps": [
     "c² = 6² + 2² = 36 + 4 = 40.",
-    "c = √40 cm."
+    "c = √40 = √(4 · 10) = 2√10 cm."
    ],
    "standards": [
     "8.G.B.6",
@@ -1282,7 +1363,8 @@
     }
    ],
    "solutionSteps": [
-    "9² + 12² = 225 = 15²."
+    "9² + 12² = 225 = 15².",
+    "So the answer is 9, 12, 15."
    ],
    "standards": [
     "8.G.B.6",
@@ -1313,7 +1395,7 @@
    "skillId": "geometry-applications-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A right triangle has legs 11 in. and 3 in.. Find the length of the hypotenuse, rounded to the nearest tenth.",
+   "prompt": "A right triangle has legs 11 in. and 3 in. Find the length of the hypotenuse, rounded to the nearest tenth.",
    "answer": "11.4 in.",
    "options": [
     {
@@ -1335,7 +1417,7 @@
    ],
    "solutionSteps": [
     "c² = 11² + 3² = 121 + 9 = 130.",
-    "c = √130 ≈ 11.402 ≈ 11.4 in.."
+    "c = √130 ≈ 11.402 ≈ 11.4 in."
    ],
    "standards": [
     "8.G.B.6",
@@ -1403,7 +1485,8 @@
     }
    ],
    "solutionSteps": [
-    "5² + 12² = 169 = 13²."
+    "5² + 12² = 169 = 13².",
+    "So the answer is 5, 12, 13."
    ],
    "standards": [
     "8.G.B.6",
@@ -1490,7 +1573,8 @@
    "answer": "yes",
    "solutionSteps": [
     "Test the longest side as the hypotenuse: 6² + 17.5² = 342.25 and 18.5² = 342.25.",
-    "Equal → right triangle (converse of the Pythagorean theorem)."
+    "Equal → right triangle (converse of the Pythagorean theorem).",
+    "So the answer is yes."
    ],
    "standards": [
     "8.G.B.6",
@@ -1524,7 +1608,8 @@
     }
    ],
    "solutionSteps": [
-    "10² + 24² = 676 = 26²."
+    "10² + 24² = 676 = 26².",
+    "So the answer is 10, 24, 26."
    ],
    "standards": [
     "8.G.B.6",
@@ -1608,11 +1693,11 @@
    "skillId": "geometry-applications-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A right triangle has hypotenuse 18 in. and one leg 7 in.. Find the other leg to the nearest tenth.",
+   "prompt": "A right triangle has hypotenuse 18 in. and one leg 7 in. Find the other leg to the nearest tenth.",
    "answer": "16.6 in.",
    "solutionSteps": [
     "b² = 18² - 7² = 275.",
-    "b = √275 ≈ 16.6 in.."
+    "b = √275 ≈ 16.6 in."
    ],
    "standards": [
     "8.G.B.6",
@@ -1680,10 +1765,6 @@
    "prompt": "Select ALL sets of side lengths that form right triangles.",
    "options": [
     {
-     "text": "5, 12, 13",
-     "correct": true
-    },
-    {
      "text": "10, 14, 18",
      "correct": false
     },
@@ -1705,18 +1786,55 @@
     }
    ],
    "answer": [
-    "5, 12, 13",
     "7, 24, 25",
     "12, 16, 20"
    ],
    "solutionSteps": [
-    "Check whether the squares of the two shorter sides add to the square of the longest side."
+    "Check whether the squares of the two shorter sides add to the square of the longest side.",
+    "Correct choices: 7, 24, 25; 12, 16, 20. Not correct: 10, 14, 18; 6, 9, 11; 11, 14, 18."
    ],
    "standards": [
     "8.G.B.6",
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s01-honors-o01",
+   "skillId": "geometry-applications-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A right triangle has legs x and x + 7 and hypotenuse 13.",
+   "parts": [
+    {
+     "prompt": "Write an equation.",
+     "answer": "x² + (x + 7)² = 13²"
+    },
+    {
+     "prompt": "Find x by testing whole numbers.",
+     "answer": "x = 5"
+    },
+    {
+     "prompt": "Find the area of the triangle.",
+     "answer": "30 square units"
+    },
+    {
+     "prompt": "Find the perimeter of the triangle.",
+     "answer": "30 units"
+    }
+   ],
+   "answer": "(a) x² + (x + 7)² = 13²; (b) x = 5; (c) 30 square units; (d) 30 units",
+   "solutionSteps": [
+    "Pythagorean theorem with the two legs.",
+    "5² + 12² = 25 + 144 = 169 = 13².",
+    "(1/2)(5)(12) = 30.",
+    "5 + 12 + 13 = 30."
+   ],
+   "standards": [
+    "8.G.B.6",
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s02-cp2-001",
@@ -1767,7 +1885,8 @@
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(10² + 24²) = √676 = 26."
+    "The diagonal is the hypotenuse: √(10² + 24²) = √676 = 26.",
+    "So the answer is 26 inches."
    ],
    "standards": [
     "8.G.B.7"
@@ -1782,7 +1901,8 @@
    "prompt": "Zoe walks 12 blocks north and then 16 blocks east. How far is Zoe from the starting point in a straight line?",
    "answer": "20 blocks",
    "solutionSteps": [
-    "The path makes a right angle: d = √(12² + 16²) = 20."
+    "The path makes a right angle: d = √(12² + 16²) = 20.",
+    "So the answer is 20 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -1838,7 +1958,8 @@
    "prompt": "A TV screen is 16 inches wide and 12 inches tall. TV sizes are measured along the diagonal. What is the size of the TV?",
    "answer": "20 inches",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(12² + 16²) = √400 = 20."
+    "The diagonal is the hypotenuse: √(12² + 16²) = √400 = 20.",
+    "So the answer is 20 inches."
    ],
    "standards": [
     "8.G.B.7"
@@ -1871,7 +1992,8 @@
     }
    ],
    "solutionSteps": [
-    "The path makes a right angle: d = √(10² + 24²) = 26."
+    "The path makes a right angle: d = √(10² + 24²) = 26.",
+    "So the answer is 26 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -1943,7 +2065,8 @@
    "prompt": "Wren walks 7 blocks north and then 24 blocks east. How far is Wren from the starting point in a straight line?",
    "answer": "25 blocks",
    "solutionSteps": [
-    "The path makes a right angle: d = √(7² + 24²) = 25."
+    "The path makes a right angle: d = √(7² + 24²) = 25.",
+    "So the answer is 25 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -1999,7 +2122,8 @@
    "prompt": "A rectangular field is 16 meters long and 12 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
    "answer": "20 meters",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(12² + 16²) = √400 = 20."
+    "The diagonal is the hypotenuse: √(12² + 16²) = √400 = 20.",
+    "So the answer is 20 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2032,7 +2156,8 @@
     }
    ],
    "solutionSteps": [
-    "The path makes a right angle: d = √(9² + 40²) = 41."
+    "The path makes a right angle: d = √(9² + 40²) = 41.",
+    "So the answer is 41 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -2104,7 +2229,8 @@
     }
    ],
    "solutionSteps": [
-    "The path makes a right angle: d = √(8² + 15²) = 17."
+    "The path makes a right angle: d = √(8² + 15²) = 17.",
+    "So the answer is 17 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -2176,7 +2302,8 @@
    "prompt": "Zoe walks 7 blocks north and then 24 blocks east. How far is Zoe from the starting point in a straight line?",
    "answer": "25 blocks",
    "solutionSteps": [
-    "The path makes a right angle: d = √(7² + 24²) = 25."
+    "The path makes a right angle: d = √(7² + 24²) = 25.",
+    "So the answer is 25 blocks."
    ],
    "standards": [
     "8.G.B.7"
@@ -2225,10 +2352,6 @@
    "prompt": "A rectangular garden is 4 ft long and 3 ft wide. Select ALL true statements about its diagonal.",
    "options": [
     {
-     "text": "The diagonal squared equals 25.",
-     "correct": true
-    },
-    {
      "text": "The diagonal is shorter than 4 ft.",
      "correct": false
     },
@@ -2250,17 +2373,17 @@
     }
    ],
    "answer": [
-    "The diagonal squared equals 25.",
     "The diagonal is 5 ft.",
     "The diagonal is shorter than 7 ft."
    ],
    "solutionSteps": [
-    "d = √(3² + 4²) = 5."
+    "d = √(3² + 4²) = 5.",
+    "Correct choices: The diagonal is 5 ft; The diagonal is shorter than 7 ft. Not correct: The diagonal is shorter than 4 ft; The diagonal is 25 ft; The diagonal is 7 ft."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s02-cp1-001",
@@ -2304,7 +2427,8 @@
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(15² + 20²) = √625 = 25."
+    "The diagonal is the hypotenuse: √(15² + 20²) = √625 = 25.",
+    "So the answer is 25 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2403,7 +2527,8 @@
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10."
+    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10.",
+    "So the answer is 10 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2484,7 +2609,8 @@
    "prompt": "A rectangular field is 24 meters long and 7 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
    "answer": "25 meters",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(7² + 24²) = √625 = 25."
+    "The diagonal is the hypotenuse: √(7² + 24²) = √625 = 25.",
+    "So the answer is 25 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2583,7 +2709,8 @@
    "prompt": "A rectangular field is 12 meters long and 5 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
    "answer": "13 meters",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(5² + 12²) = √169 = 13."
+    "The diagonal is the hypotenuse: √(5² + 12²) = √169 = 13.",
+    "So the answer is 13 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2762,12 +2889,13 @@
     "The diagonal squared equals 225."
    ],
    "solutionSteps": [
-    "d = √(9² + 12²) = 15."
+    "d = √(9² + 12²) = 15.",
+    "Correct choices: The diagonal is 15 ft; The diagonal is shorter than 21 ft; The diagonal squared equals 225. Not correct: The diagonal is 225 ft; The diagonal is 21 ft; The diagonal is shorter than 12 ft."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s02-honors-001",
@@ -2811,7 +2939,8 @@
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(9² + 12²) = √225 = 15."
+    "The diagonal is the hypotenuse: √(9² + 12²) = √225 = 15.",
+    "So the answer is 15 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -2926,7 +3055,8 @@
    "prompt": "A TV screen is 8 inches wide and 6 inches tall. TV sizes are measured along the diagonal. What is the size of the TV?",
    "answer": "10 inches",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10."
+    "The diagonal is the hypotenuse: √(6² + 8²) = √100 = 10.",
+    "So the answer is 10 inches."
    ],
    "standards": [
     "8.G.B.7"
@@ -3041,7 +3171,8 @@
    "prompt": "A rectangular field is 21 meters long and 20 meters wide. How long is the path straight across the field from one corner to the opposite corner?",
    "answer": "29 meters",
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(20² + 21²) = √841 = 29."
+    "The diagonal is the hypotenuse: √(20² + 21²) = √841 = 29.",
+    "So the answer is 29 meters."
    ],
    "standards": [
     "8.G.B.7"
@@ -3174,7 +3305,8 @@
     }
    ],
    "solutionSteps": [
-    "The diagonal is the hypotenuse: √(8² + 15²) = √289 = 17."
+    "The diagonal is the hypotenuse: √(8² + 15²) = √289 = 17.",
+    "So the answer is 17 inches."
    ],
    "standards": [
     "8.G.B.7"
@@ -3464,7 +3596,7 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A rectangular box is 4 in. by 4 in. by 7 in.. What is the length of the diagonal from a bottom corner to the opposite top corner?",
+   "prompt": "A rectangular box is 4 in. by 4 in. by 7 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
    "answer": "9 in.",
    "options": [
     {
@@ -3486,7 +3618,7 @@
    ],
    "solutionSteps": [
     "Bottom diagonal: √(4² + 4²) = √32.",
-    "Space diagonal: √(32 + 7²) = √81 = 9 in.."
+    "Space diagonal: √(32 + 7²) = √81 = 9 in."
    ],
    "diagram": {
     "type": "image",
@@ -3574,7 +3706,7 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "A rectangular box is 1 in. by 4 in. by 8 in.. What is the length of the diagonal from a bottom corner to the opposite top corner?",
+   "prompt": "A rectangular box is 1 in. by 4 in. by 8 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
    "answer": "9 in.",
    "options": [
     {
@@ -3596,7 +3728,7 @@
    ],
    "solutionSteps": [
     "Bottom diagonal: √(1² + 4²) = √17.",
-    "Space diagonal: √(17 + 8²) = √81 = 9 in.."
+    "Space diagonal: √(17 + 8²) = √81 = 9 in."
    ],
    "diagram": {
     "type": "image",
@@ -3875,10 +4007,6 @@
      "correct": false
     },
     {
-     "text": "The bottom-face diagonal squared is 104.",
-     "correct": true
-    },
-    {
      "text": "The space diagonal squared is 225.",
      "correct": true
     },
@@ -3892,28 +4020,28 @@
     }
    ],
    "answer": [
-    "The bottom-face diagonal squared is 104.",
     "The space diagonal squared is 225.",
     "The space diagonal is 15."
    ],
    "solutionSteps": [
-    "Bottom diagonal² = 104; space diagonal² = 104 + 121 = 225."
+    "Bottom diagonal² = 104; space diagonal² = 104 + 121 = 225.",
+    "Correct choices: The space diagonal squared is 225; The space diagonal is 15. Not correct: The space diagonal is 23; The space diagonal is 10.2; The space diagonal squared is 104."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s03-cp1-001",
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A rectangular box is 3 in. by 4 in. by 12 in.. What is the length of the diagonal from a bottom corner to the opposite top corner?",
+   "prompt": "A rectangular box is 3 in. by 4 in. by 12 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
    "answer": "13 in.",
    "solutionSteps": [
     "Bottom diagonal: √(3² + 4²) = √25.",
-    "Space diagonal: √(25 + 12²) = √169 = 13 in.."
+    "Space diagonal: √(25 + 12²) = √169 = 13 in."
    ],
    "diagram": {
     "type": "image",
@@ -3982,7 +4110,7 @@
    "skillId": "geometry-applications-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A rectangular box is 4 in. by 5 in. by 20 in.. What is the length of the diagonal from a bottom corner to the opposite top corner?",
+   "prompt": "A rectangular box is 4 in. by 5 in. by 20 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
    "answer": "21 in.",
    "options": [
     {
@@ -4004,7 +4132,7 @@
    ],
    "solutionSteps": [
     "Bottom diagonal: √(4² + 5²) = √41.",
-    "Space diagonal: √(41 + 20²) = √441 = 21 in.."
+    "Space diagonal: √(41 + 20²) = √441 = 21 in."
    ],
    "diagram": {
     "type": "image",
@@ -4384,10 +4512,6 @@
    "prompt": "A box measures 8 × 9 × 12. Select ALL true statements.",
    "options": [
     {
-     "text": "The space diagonal is 17.",
-     "correct": true
-    },
-    {
      "text": "The bottom-face diagonal squared is 145.",
      "correct": true
     },
@@ -4409,17 +4533,17 @@
     }
    ],
    "answer": [
-    "The space diagonal is 17.",
     "The bottom-face diagonal squared is 145.",
     "The space diagonal squared is 289."
    ],
    "solutionSteps": [
-    "Bottom diagonal² = 145; space diagonal² = 145 + 144 = 289."
+    "Bottom diagonal² = 145; space diagonal² = 145 + 144 = 289.",
+    "Correct choices: The bottom-face diagonal squared is 145; The space diagonal squared is 289. Not correct: The space diagonal is 29; The space diagonal is 12.0; The space diagonal squared is 145."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s03-cp1-020",
@@ -4462,11 +4586,11 @@
    "skillId": "geometry-applications-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangular box is 4 in. by 4 in. by 7 in.. What is the length of the diagonal from a bottom corner to the opposite top corner?",
+   "prompt": "A rectangular box is 4 in. by 4 in. by 7 in. What is the length of the diagonal from a bottom corner to the opposite top corner?",
    "answer": "9 in.",
    "solutionSteps": [
     "Bottom diagonal: √(4² + 4²) = √32.",
-    "Space diagonal: √(32 + 7²) = √81 = 9 in.."
+    "Space diagonal: √(32 + 7²) = √81 = 9 in."
    ],
    "standards": [
     "8.G.B.7"
@@ -4549,7 +4673,8 @@
    ],
    "solutionSteps": [
     "Longest segment = space diagonal = √(9² + 9² + 6²) ≈ 14.07 in.",
-    "It fits only if the rod is no longer than that."
+    "It fits only if the rod is no longer than that.",
+    "So the answer is: No, because the longest segment inside the box is about 14.1 in."
    ],
    "standards": [
     "8.G.B.7"
@@ -4667,7 +4792,8 @@
    ],
    "solutionSteps": [
     "Longest segment = space diagonal = √(5² + 4² + 6²) ≈ 8.77 in.",
-    "It fits only if the rod is no longer than that."
+    "It fits only if the rod is no longer than that.",
+    "So the answer is: Yes, because the longest segment inside the box is about 8.8 in."
    ],
    "standards": [
     "8.G.B.7"
@@ -4683,7 +4809,7 @@
    "answer": "8.1 in.",
    "solutionSteps": [
     "Floor diagonal² = 5² + 2² = 29.",
-    "Space diagonal = √(29 + 6²) = √65 ≈ 8.1 in.."
+    "Space diagonal = √(29 + 6²) = √65 ≈ 8.1 in."
    ],
    "standards": [
     "8.G.B.7"
@@ -4749,7 +4875,8 @@
    ],
    "solutionSteps": [
     "Longest segment = space diagonal = √(7² + 3² + 8²) ≈ 11.05 in.",
-    "It fits only if the rod is no longer than that."
+    "It fits only if the rod is no longer than that.",
+    "So the answer is: Yes, because the longest segment inside the box is about 11.0 in."
    ],
    "standards": [
     "8.G.B.7"
@@ -4960,12 +5087,13 @@
     "The bottom-face diagonal squared is 32."
    ],
    "solutionSteps": [
-    "Bottom diagonal² = 32; space diagonal² = 32 + 49 = 81."
+    "Bottom diagonal² = 32; space diagonal² = 32 + 49 = 81.",
+    "Correct choices: The space diagonal is 9; The space diagonal squared is 81; The bottom-face diagonal squared is 32. Not correct: The space diagonal is 5.7; The space diagonal is 15; The space diagonal squared is 32."
    ],
    "standards": [
     "8.G.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s04-cp2-001",
@@ -5540,10 +5668,6 @@
      "correct": false
     },
     {
-     "text": "(-15, 3)",
-     "correct": true
-    },
-    {
      "text": "(2, 10)",
      "correct": true
     },
@@ -5557,17 +5681,17 @@
     }
    ],
    "answer": [
-    "(-15, 3)",
     "(2, 10)",
     "(10, -2)"
    ],
    "solutionSteps": [
-    "Compute each distance with the Pythagorean theorem."
+    "Compute each distance with the Pythagorean theorem.",
+    "Correct choices: (2, 10); (10, -2). Not correct: (2, 3); (3, 10); (9, 10)."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s04-cp1-001",
@@ -6114,7 +6238,7 @@
   {
    "id": "pa8-geo-s04-honors-001",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the distance between (3, 7) and (9, -1).",
    "answer": "10 units",
@@ -6125,7 +6249,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-002",
@@ -6164,7 +6288,7 @@
   {
    "id": "pa8-geo-s04-honors-003",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the perimeter of the triangle with vertices (-6, -1), (-2, -1), and (-6, 2).",
    "answer": "12 units",
@@ -6176,7 +6300,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-004",
@@ -6216,7 +6340,7 @@
   {
    "id": "pa8-geo-s04-honors-005",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which point is closer to (1, -1): (0, -3) or (0, -6)?",
    "answer": "(0, -3)",
@@ -6245,12 +6369,12 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_closer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-006",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Find the distance between (-3, 2) and (-7, -1).",
    "answer": "5 units",
@@ -6279,7 +6403,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-007",
@@ -6300,7 +6424,7 @@
   {
    "id": "pa8-geo-s04-honors-008",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the perimeter of the triangle with vertices (-5, -6), (7, -6), and (-5, -1).",
    "answer": "30 units",
@@ -6312,7 +6436,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-009",
@@ -6368,7 +6492,7 @@
   {
    "id": "pa8-geo-s04-honors-011",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the distance between (-1, -4) and (3, -7).",
    "answer": "5 units",
@@ -6379,12 +6503,12 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_integer). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-012",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the distance between (-6, -1) and (5, -4), rounded to the nearest tenth.",
    "answer": "11.4 units",
@@ -6395,7 +6519,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_irrational). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_irrational). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-013",
@@ -6523,10 +6647,10 @@
    "level": "honors",
    "format": "short-answer",
    "prompt": "Find the distance between (6, 0) and (-4, -6). Give the exact value.",
-   "answer": "√136 units",
+   "answer": "2√34 units",
    "solutionSteps": [
-    "d² = (-4 - 6)² + (-6 - 0)² = 136.",
-    "d = √136 units."
+    "d² = (-4 - 6)² + (-6 - 0)² = 100 + 36 = 136.",
+    "d = √136 = √(4 · 34) = 2√34 units."
    ],
    "standards": [
     "8.G.B.8"
@@ -6536,7 +6660,7 @@
   {
    "id": "pa8-geo-s04-honors-018",
    "skillId": "geometry-applications-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the perimeter of the triangle with vertices (-5, -4), (7, -4), and (-5, 1).",
    "answer": "30 units",
@@ -6548,7 +6672,7 @@
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s04-honors-019",
@@ -6622,12 +6746,153 @@
     "(10, 13)"
    ],
    "solutionSteps": [
-    "Compute each distance with the Pythagorean theorem."
+    "Compute each distance with the Pythagorean theorem.",
+    "Correct choices: (-13, 6); (19, -2); (10, 13). Not correct: (10, 6); (17, 13); (11, 13)."
    ],
    "standards": [
     "8.G.B.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h01",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The distance between (1, 2) and (k, 6) is 5 units, and k > 1. Find k.",
+   "answer": "k = 4",
+   "solutionSteps": [
+    "Vertical leg: |6 - 2| = 4.",
+    "Horizontal leg: √(5² - 4²) = 3.",
+    "k = 1 + 3 = 4.",
+    "So the answer is k = 4."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_find_k). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h02",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The distance between (-2, 3) and (k, -9) is 13 units, and k > -2. Find k.",
+   "answer": "k = 3",
+   "solutionSteps": [
+    "Vertical leg: |-9 - 3| = 12.",
+    "Horizontal leg: √(13² - 12²) = 5.",
+    "k = -2 + 5 = 3.",
+    "So the answer is k = 3."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_find_k). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h03",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The distance between (0, -4) and (k, 4) is 10 units, and k > 0. Find k.",
+   "answer": "k = 6",
+   "solutionSteps": [
+    "Vertical leg: |4 - -4| = 8.",
+    "Horizontal leg: √(10² - 8²) = 6.",
+    "k = 0 + 6 = 6.",
+    "So the answer is k = 6."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_find_k). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h04",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The distance between (3, 1) and (k, 9) is 17 units, and k > 3. Find k.",
+   "answer": "k = 18",
+   "solutionSteps": [
+    "Vertical leg: |9 - 1| = 8.",
+    "Horizontal leg: √(17² - 8²) = 15.",
+    "k = 3 + 15 = 18.",
+    "So the answer is k = 18."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_find_k). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h05",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the point on the x-axis that is the same distance from (0, 4) as from (8, 0).",
+   "answer": "(3, 0)",
+   "solutionSteps": [
+    "For (x, 0): x² + 4² = (8 - x)².",
+    "x² + 16 = 64 - 16x + x², so 16x = 48.",
+    "x = 3; the point is (3, 0)."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_equidistant). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h06",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the point on the x-axis that is the same distance from (0, 6) as from (8, 0).",
+   "answer": "(7/4, 0)",
+   "solutionSteps": [
+    "For (x, 0): x² + 6² = (8 - x)².",
+    "x² + 36 = 64 - 16x + x², so 16x = 28.",
+    "x = 7/4; the point is (7/4, 0)."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_equidistant). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h07",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the point on the x-axis that is the same distance from (0, 2) as from (6, 0).",
+   "answer": "(8/3, 0)",
+   "solutionSteps": [
+    "For (x, 0): x² + 2² = (6 - x)².",
+    "x² + 4 = 36 - 12x + x², so 12x = 32.",
+    "x = 8/3; the point is (8/3, 0)."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_equidistant). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-h08",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the point on the x-axis that is the same distance from (0, 10) as from (4, 0).",
+   "answer": "(-21/2, 0)",
+   "solutionSteps": [
+    "For (x, 0): x² + 10² = (4 - x)².",
+    "x² + 100 = 16 - 8x + x², so 8x = -84.",
+    "x = -21/2; the point is (-21/2, 0)."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_equidistant). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp2-001",
@@ -6697,9 +6962,9 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "A sphere has radius 8 centimeters. Find its volume. Give your answer in terms of π.",
-   "answer": "2048/3π cubic centimeters",
+   "answer": "(2048/3)π cubic centimeters",
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(8)³ = 2048/3π cubic centimeters."
+    "V = (4/3)πr³ = (4/3)π(8)³ = (2048/3)π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -6740,7 +7005,8 @@
    ],
    "solutionSteps": [
     "r = 4 cm.",
-    "V = π(4)²(10) ≈ 502.4 cubic cm."
+    "V = π(4)²(10) ≈ 502.4 cubic cm.",
+    "So the answer is 502.4 cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -6817,7 +7083,7 @@
    "prompt": "A sphere has radius 4 feet. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "267.9 cubic feet",
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(4)³ = 256/3π ≈ 267.9 cubic feet."
+    "V = (4/3)πr³ = (4/3)π(4)³ = (256/3)π ≈ 267.9 cubic feet."
    ],
    "diagram": {
     "type": "image",
@@ -6864,7 +7130,7 @@
      "correct": false
     },
     {
-     "text": "256/3π cubic inches",
+     "text": "(256/3)π cubic inches",
      "correct": false
     },
     {
@@ -6915,10 +7181,10 @@
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "A sphere has radius 5 feet. Find its volume. Give your answer in terms of π.",
-   "answer": "500/3π cubic feet",
+   "answer": "(500/3)π cubic feet",
    "options": [
     {
-     "text": "100/3π cubic feet",
+     "text": "(100/3)π cubic feet",
      "correct": false
     },
     {
@@ -6926,7 +7192,7 @@
      "correct": false
     },
     {
-     "text": "500/3π cubic feet",
+     "text": "(500/3)π cubic feet",
      "correct": true
     },
     {
@@ -6935,7 +7201,7 @@
     }
    ],
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(5)³ = 500/3π cubic feet."
+    "V = (4/3)πr³ = (4/3)π(5)³ = (500/3)π cubic feet."
    ],
    "diagram": {
     "type": "image",
@@ -6957,7 +7223,8 @@
    "prompt": "A paper cone cup has radius 4 in. and height 8 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
    "answer": "134.0 cubic inches",
    "solutionSteps": [
-    "V = (1/3)π(4)²(8) ≈ 134.0."
+    "V = (1/3)π(4)²(8) ≈ 134.0.",
+    "So the answer is 134.0 cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -7075,7 +7342,8 @@
    ],
    "solutionSteps": [
     "r = 3 cm.",
-    "V = π(3)²(12) ≈ 339.1 cubic cm."
+    "V = π(3)²(12) ≈ 339.1 cubic cm.",
+    "So the answer is 339.1 cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -7198,10 +7466,6 @@
      "correct": false
     },
     {
-     "text": "The sphere's volume is 288π.",
-     "correct": true
-    },
-    {
      "text": "The cone's volume is 60π.",
      "correct": true
     },
@@ -7211,17 +7475,53 @@
     }
    ],
    "answer": [
-    "The sphere's volume is 288π.",
     "The cone's volume is 60π.",
     "The cylinder's volume is 180π."
    ],
    "solutionSteps": [
-    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³."
+    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³.",
+    "Correct choices: The cone's volume is 60π; The cylinder's volume is 180π. Not correct: The sphere's volume is 144π; The cone's volume is 180π; The cylinder's volume is 60π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s05-cp2-o01",
+   "skillId": "geometry-applications-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A cylinder has radius 3 cm and height 10 cm.",
+   "parts": [
+    {
+     "prompt": "Find its volume in terms of π.",
+     "answer": "90π cubic cm"
+    },
+    {
+     "prompt": "Find its volume using 3.14 for π.",
+     "answer": "282.6 cubic cm"
+    },
+    {
+     "prompt": "A cone has the same radius and height. Find its volume in terms of π.",
+     "answer": "30π cubic cm"
+    },
+    {
+     "prompt": "A sphere has the same radius. Find its volume in terms of π.",
+     "answer": "36π cubic cm"
+    }
+   ],
+   "answer": "(a) 90π cubic cm; (b) 282.6 cubic cm; (c) 30π cubic cm; (d) 36π cubic cm",
+   "solutionSteps": [
+    "V = πr²h = π(9)(10) = 90π.",
+    "90 × 3.14 = 282.6.",
+    "V = (1/3)π(9)(10) = 30π, one third of the cylinder.",
+    "(4/3)π(3³) = 36π."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-cp1-001",
@@ -7328,10 +7628,10 @@
    "level": "cp1",
    "format": "short-answer",
    "prompt": "A ball has a diameter of 9 inches. Find its volume in terms of π.",
-   "answer": "243/2π cubic inches",
+   "answer": "(243/2)π cubic inches",
    "solutionSteps": [
     "r = 9/2 in.",
-    "V = (4/3)π(9/2)³ = 243/2π cubic inches."
+    "V = (4/3)π(9/2)³ = (243/2)π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -7393,10 +7693,10 @@
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A sphere has diameter 2 centimeters. Find its volume. Give your answer in terms of π.",
-   "answer": "4/3π cubic centimeters",
+   "answer": "(4/3)π cubic centimeters",
    "options": [
     {
-     "text": "32/3π cubic centimeters",
+     "text": "(32/3)π cubic centimeters",
      "correct": false
     },
     {
@@ -7404,7 +7704,7 @@
      "correct": false
     },
     {
-     "text": "4/3π cubic centimeters",
+     "text": "(4/3)π cubic centimeters",
      "correct": true
     },
     {
@@ -7414,7 +7714,7 @@
    ],
    "solutionSteps": [
     "r = 1.",
-    "V = (4/3)πr³ = (4/3)π(1)³ = 4/3π cubic centimeters."
+    "V = (4/3)πr³ = (4/3)π(1)³ = (4/3)π cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -7482,7 +7782,8 @@
    ],
    "solutionSteps": [
     "r = 4 cm.",
-    "V = π(4)²(8) ≈ 401.9 cubic cm."
+    "V = π(4)²(8) ≈ 401.9 cubic cm.",
+    "So the answer is 401.9 cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -7526,9 +7827,9 @@
    "level": "cp1",
    "format": "short-answer",
    "prompt": "A sphere has radius 1 inches. Find its volume. Give your answer in terms of π.",
-   "answer": "4/3π cubic inches",
+   "answer": "(4/3)π cubic inches",
    "solutionSteps": [
-    "V = (4/3)πr³ = (4/3)π(1)³ = 4/3π cubic inches."
+    "V = (4/3)πr³ = (4/3)π(1)³ = (4/3)π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -7578,7 +7879,8 @@
    "answer": "1020.5 cubic centimeters",
    "solutionSteps": [
     "r = 5 cm.",
-    "V = π(5)²(13) ≈ 1020.5 cubic cm."
+    "V = π(5)²(13) ≈ 1020.5 cubic cm.",
+    "So the answer is 1020.5 cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -7602,7 +7904,7 @@
      "correct": false
     },
     {
-     "text": "640/3π cubic centimeters",
+     "text": "(640/3)π cubic centimeters",
      "correct": false
     },
     {
@@ -7690,10 +7992,6 @@
    "prompt": "A cylinder and a cone each have radius 6 and height 8; a sphere has radius 6. Select ALL true statements (volumes in cubic units).",
    "options": [
     {
-     "text": "The sphere's volume is 288π.",
-     "correct": true
-    },
-    {
      "text": "The cone's volume is 96π.",
      "correct": true
     },
@@ -7715,17 +8013,53 @@
     }
    ],
    "answer": [
-    "The sphere's volume is 288π.",
     "The cone's volume is 96π.",
     "The cylinder's volume is 288π."
    ],
    "solutionSteps": [
-    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³."
+    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³.",
+    "Correct choices: The cone's volume is 96π; The cylinder's volume is 288π. Not correct: The cylinder's volume is 96π; The sphere's volume is 144π; The cone's volume is 288π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s05-cp1-o01",
+   "skillId": "geometry-applications-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A ball (sphere) has radius 6 cm and fits exactly in a cylindrical can with radius 6 cm and height 12 cm.",
+   "parts": [
+    {
+     "prompt": "Find the volume of the ball in terms of π.",
+     "answer": "288π cubic cm"
+    },
+    {
+     "prompt": "Find the volume of the can in terms of π.",
+     "answer": "432π cubic cm"
+    },
+    {
+     "prompt": "What fraction of the can does the ball fill?",
+     "answer": "2/3"
+    },
+    {
+     "prompt": "How much space in the can is empty, in terms of π?",
+     "answer": "144π cubic cm"
+    }
+   ],
+   "answer": "(a) 288π cubic cm; (b) 432π cubic cm; (c) 2/3; (d) 144π cubic cm",
+   "solutionSteps": [
+    "(4/3)π(6³) = (4/3)(216)π = 288π.",
+    "π(6²)(12) = 432π.",
+    "288π ÷ 432π = 2/3.",
+    "432π - 288π = 144π."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s05-honors-001",
@@ -7746,7 +8080,7 @@
   {
    "id": "pa8-geo-s05-honors-002",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A cone has diameter 16 inches and height 5 inches. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "334.9 cubic inches",
@@ -7770,17 +8104,17 @@
    ],
    "solutionSteps": [
     "r = 8.",
-    "V = (1/3)πr²h = (1/3)π(8)²(5) = 320/3π ≈ 334.9 cubic inches."
+    "V = (1/3)πr²h = (1/3)π(8)²(5) = (320/3)π ≈ 334.9 cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-003",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A sphere has radius 6 feet. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "904.3 cubic feet",
@@ -7790,7 +8124,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-004",
@@ -7829,17 +8163,18 @@
   {
    "id": "pa8-geo-s05-honors-005",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A paper cone cup has radius 4 in. and height 4 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
    "answer": "67.0 cubic inches",
    "solutionSteps": [
-    "V = (1/3)π(4)²(4) ≈ 67.0."
+    "V = (1/3)π(4)²(4) ≈ 67.0.",
+    "So the answer is 67.0 cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-006",
@@ -7877,7 +8212,7 @@
   {
    "id": "pa8-geo-s05-honors-007",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A cone has radius 9 inches and height 11 inches. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "932.6 cubic inches",
@@ -7887,7 +8222,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-008",
@@ -7916,7 +8251,7 @@
    ],
    "solutionSteps": [
     "r = 7.",
-    "V = (4/3)πr³ = (4/3)π(7)³ = 1372/3π ≈ 1436.0 cubic feet."
+    "V = (4/3)πr³ = (4/3)π(7)³ = (1372/3)π ≈ 1436.0 cubic feet."
    ],
    "standards": [
     "8.G.C.9"
@@ -7960,22 +8295,23 @@
   {
    "id": "pa8-geo-s05-honors-010",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A paper cone cup has radius 1 in. and height 9 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
    "answer": "9.4 cubic inches",
    "solutionSteps": [
-    "V = (1/3)π(1)²(9) ≈ 9.4."
+    "V = (1/3)π(1)²(9) ≈ 9.4.",
+    "So the answer is 9.4 cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-011",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A cylinder has a radius of 7 inches and a height of 4 inches. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "615.4 cubic inches",
@@ -7985,7 +8321,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_cylinder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_cylinder). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-012",
@@ -7993,10 +8329,10 @@
    "level": "honors",
    "format": "short-answer",
    "prompt": "A cone has diameter 10 inches and height 11 inches. Find its volume. Give your answer in terms of π.",
-   "answer": "275/3π cubic inches",
+   "answer": "(275/3)π cubic inches",
    "solutionSteps": [
     "r = 5.",
-    "V = (1/3)πr²h = (1/3)π(5)²(11) = 275/3π cubic inches."
+    "V = (1/3)πr²h = (1/3)π(5)²(11) = (275/3)π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -8073,17 +8409,18 @@
   {
    "id": "pa8-geo-s05-honors-015",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A paper cone cup has radius 1 in. and height 8 in. About how many cubic inches of water does it hold? Use 3.14 for π and round to the nearest tenth.",
    "answer": "8.4 cubic inches",
    "solutionSteps": [
-    "V = (1/3)π(1)²(8) ≈ 8.4."
+    "V = (1/3)π(1)²(8) ≈ 8.4.",
+    "So the answer is 8.4 cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-016",
@@ -8124,10 +8461,10 @@
    "level": "honors",
    "format": "short-answer",
    "prompt": "A cone has diameter 16 centimeters and height 2 centimeters. Find its volume. Give your answer in terms of π.",
-   "answer": "128/3π cubic centimeters",
+   "answer": "(128/3)π cubic centimeters",
    "solutionSteps": [
     "r = 8.",
-    "V = (1/3)πr²h = (1/3)π(8)²(2) = 128/3π cubic centimeters."
+    "V = (1/3)πr²h = (1/3)π(8)²(2) = (128/3)π cubic centimeters."
    ],
    "standards": [
     "8.G.C.9"
@@ -8137,7 +8474,7 @@
   {
    "id": "pa8-geo-s05-honors-018",
    "skillId": "geometry-applications-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A sphere has radius 9 inches. Find its volume. Give your answer in terms of π.",
    "answer": "972π cubic inches",
@@ -8147,7 +8484,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s05-honors-019",
@@ -8203,12 +8540,181 @@
     "The sphere's volume is 288π."
    ],
    "solutionSteps": [
-    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³."
+    "V(cylinder) = πr²h; V(cone) = (1/3)πr²h; V(sphere) = (4/3)πr³.",
+    "Correct choices: The cylinder's volume is 144π; The cone's volume is 48π; The sphere's volume is 288π. Not correct: The cylinder's volume is 48π; The cone's volume is 144π; The sphere's volume is 144π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s05-honors-o01",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A cone has radius 5 m and height 12 m.",
+   "parts": [
+    {
+     "prompt": "Find its volume in terms of π.",
+     "answer": "100π cubic m"
+    },
+    {
+     "prompt": "Find its slant height.",
+     "answer": "13 m"
+    },
+    {
+     "prompt": "If the radius is doubled and the height stays the same, what is the new volume?",
+     "answer": "400π cubic m"
+    },
+    {
+     "prompt": "A cylinder has the same radius and height as the original cone. Find its volume in terms of π.",
+     "answer": "300π cubic m"
+    }
+   ],
+   "answer": "(a) 100π cubic m; (b) 13 m; (c) 400π cubic m; (d) 300π cubic m",
+   "solutionSteps": [
+    "(1/3)π(25)(12) = 100π.",
+    "√(5² + 12²) = √169 = 13.",
+    "The radius is squared, so the volume is multiplied by 4: 400π.",
+    "π(25)(12) = 300π, three times the cone."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h01",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sphere has diameter 12 cm. Find its volume in terms of π.",
+   "answer": "288π cubic centimeters",
+   "solutionSteps": [
+    "Radius = 12 ÷ 2 = 6 cm.",
+    "V = (4/3)π(6³) = 288π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere_diameter). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h02",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sphere has diameter 18 cm. Find its volume in terms of π.",
+   "answer": "972π cubic centimeters",
+   "solutionSteps": [
+    "Radius = 18 ÷ 2 = 9 cm.",
+    "V = (4/3)π(9³) = 972π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere_diameter). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h03",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sphere has diameter 6 cm. Find its volume in terms of π.",
+   "answer": "36π cubic centimeters",
+   "solutionSteps": [
+    "Radius = 6 ÷ 2 = 3 cm.",
+    "V = (4/3)π(3³) = 36π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere_diameter). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h04",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sphere has diameter 24 cm. Find its volume in terms of π.",
+   "answer": "2304π cubic centimeters",
+   "solutionSteps": [
+    "Radius = 24 ÷ 2 = 12 cm.",
+    "V = (4/3)π(12³) = 2304π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sphere_diameter). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h05",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cylindrical tank has radius 6 ft and height 10 ft. A cone-shaped bucket has radius 2 ft and height 5 ft. How many full buckets fill the tank?",
+   "answer": "54",
+   "solutionSteps": [
+    "Tank: π(6²)(10) = 360π.",
+    "Bucket: (1/3)π(2²)(5) = (20/3)π.",
+    "360π ÷ (20/3)π = 54 buckets."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_cones_fill). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h06",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cylindrical tank has radius 4 ft and height 9 ft. A cone-shaped bucket has radius 2 ft and height 3 ft. How many full buckets fill the tank?",
+   "answer": "36",
+   "solutionSteps": [
+    "Tank: π(4²)(9) = 144π.",
+    "Bucket: (1/3)π(2²)(3) = 4π.",
+    "144π ÷ 4π = 36 buckets."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_cones_fill). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h07",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cylindrical tank has radius 9 ft and height 8 ft. A cone-shaped bucket has radius 3 ft and height 4 ft. How many full buckets fill the tank?",
+   "answer": "54",
+   "solutionSteps": [
+    "Tank: π(9²)(8) = 648π.",
+    "Bucket: (1/3)π(3²)(4) = 12π.",
+    "648π ÷ 12π = 54 buckets."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_cones_fill). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s05-honors-h08",
+   "skillId": "geometry-applications-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A cylindrical tank has radius 10 ft and height 12 ft. A cone-shaped bucket has radius 5 ft and height 6 ft. How many full buckets fill the tank?",
+   "answer": "24",
+   "solutionSteps": [
+    "Tank: π(10²)(12) = 1200π.",
+    "Bucket: (1/3)π(5²)(6) = 50π.",
+    "1200π ÷ 50π = 24 buckets."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_cones_fill). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s06-cp2-001",
@@ -8707,10 +9213,6 @@
      "correct": false
     },
     {
-     "text": "radius 1, height 36",
-     "correct": true
-    },
-    {
      "text": "radius 3, height 4",
      "correct": true
     },
@@ -8728,18 +9230,18 @@
     }
    ],
    "answer": [
-    "radius 1, height 36",
     "radius 3, height 4",
     "radius 6, height 1"
    ],
    "solutionSteps": [
-    "Compute r²h for each choice."
+    "Compute r²h for each choice.",
+    "Correct choices: radius 3, height 4; radius 6, height 1. Not correct: radius 4, height 3; radius 4, height 4; radius 3, height 8."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s06-cp1-001",
@@ -9207,10 +9709,6 @@
      "correct": false
     },
     {
-     "text": "radius 8, height 1/2",
-     "correct": true
-    },
-    {
      "text": "radius 4, height 2",
      "correct": true
     },
@@ -9224,18 +9722,18 @@
     }
    ],
    "answer": [
-    "radius 8, height 1/2",
     "radius 4, height 2",
     "radius 1, height 32"
    ],
    "solutionSteps": [
-    "Compute r²h for each choice."
+    "Compute r²h for each choice.",
+    "Correct choices: radius 4, height 2; radius 1, height 32. Not correct: radius 4, height 4; radius 2, height 4; radius 5, height 2."
    ],
    "standards": [
     "8.G.C.9",
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-geo-s06-cp1-020",
@@ -9386,7 +9884,8 @@
     }
    ],
    "solutionSteps": [
-    "V = πr²h. The radius is squared, so the volume is multiplied by 4."
+    "V = πr²h. The radius is squared, so the volume is multiplied by 4.",
+    "So the answer is: It is multiplied by 4."
    ],
    "standards": [
     "8.G.C.9",
@@ -9451,7 +9950,7 @@
    "skillId": "geometry-applications-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A sphere has volume 1372/3π cubic cm. What is its radius?",
+   "prompt": "A sphere has volume (1372/3)π cubic cm. What is its radius?",
    "answer": "7 cm",
    "options": [
     {
@@ -9472,7 +9971,7 @@
     }
    ],
    "solutionSteps": [
-    "(4/3)πr³ = 1372/3π, so r³ = 1372/3 × 3 ÷ 4 = 343.",
+    "(4/3)πr³ = (1372/3)π, so r³ = 1372/3 × 3 ÷ 4 = 343.",
     "r = ∛343 = 7 cm."
    ],
    "standards": [
@@ -9524,7 +10023,8 @@
     }
    ],
    "solutionSteps": [
-    "V = πr²h. The height appears to the first power, so the volume is multiplied by 3."
+    "V = πr²h. The height appears to the first power, so the volume is multiplied by 3.",
+    "So the answer is: It is multiplied by 3."
    ],
    "standards": [
     "8.G.C.9",
@@ -9571,10 +10071,10 @@
    "skillId": "geometry-applications-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A sphere has volume 32/3π cubic cm. What is its radius?",
+   "prompt": "A sphere has volume (32/3)π cubic cm. What is its radius?",
    "answer": "2 cm",
    "solutionSteps": [
-    "(4/3)πr³ = 32/3π, so r³ = 32/3 × 3 ÷ 4 = 8.",
+    "(4/3)πr³ = (32/3)π, so r³ = 32/3 × 3 ÷ 4 = 8.",
     "r = ∛8 = 2 cm."
    ],
    "standards": [
@@ -9626,7 +10126,8 @@
     }
    ],
    "solutionSteps": [
-    "V = πr²h. The height appears to the first power, so the volume is multiplied by 2."
+    "V = πr²h. The height appears to the first power, so the volume is multiplied by 2.",
+    "So the answer is: It is multiplied by 2."
    ],
    "standards": [
     "8.G.C.9",
@@ -9709,10 +10210,10 @@
    "skillId": "geometry-applications-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A sphere has volume 32/3π cubic cm. What is its diameter?",
+   "prompt": "A sphere has volume (32/3)π cubic cm. What is its diameter?",
    "answer": "4 cm",
    "solutionSteps": [
-    "(4/3)πr³ = 32/3π, so r³ = 32/3 × 3 ÷ 4 = 8.",
+    "(4/3)πr³ = (32/3)π, so r³ = 32/3 × 3 ÷ 4 = 8.",
     "r = ∛8 = 2; diameter = 4 cm."
    ],
    "standards": [
@@ -9785,7 +10286,8 @@
    "solutionSteps": [
     "Cylinder: π(2)²(9) = 36π.",
     "Cone: (1/3)π(2)²(9) = 12π.",
-    "Total: 48π cubic cm."
+    "Total: 48π cubic cm.",
+    "So the answer is 48π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -9805,10 +10307,10 @@
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "A grain silo is a cylinder (radius 2 m, height 7 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "100/3π cubic meters",
+   "answer": "(100/3)π cubic meters",
    "options": [
     {
-     "text": "100/3π cubic meters",
+     "text": "(100/3)π cubic meters",
      "correct": true
     },
     {
@@ -9816,18 +10318,19 @@
      "correct": false
     },
     {
-     "text": "92/3π cubic meters",
+     "text": "(92/3)π cubic meters",
      "correct": false
     },
     {
-     "text": "116/3π cubic meters",
+     "text": "(116/3)π cubic meters",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Cylinder: 28π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 100/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (100/3)π cubic m.",
+    "So the answer is (100/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -9858,7 +10361,7 @@
      "correct": false
     },
     {
-     "text": "250/3π cubic centimeters",
+     "text": "(250/3)π cubic centimeters",
      "correct": false
     },
     {
@@ -9869,7 +10372,8 @@
    "solutionSteps": [
     "Cylinder: π(5)²(7) = 175π.",
     "Cone: (1/3)π(5)²(3) = 25π.",
-    "Total: 200π cubic cm."
+    "Total: 200π cubic cm.",
+    "So the answer is 200π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -9892,8 +10396,9 @@
    "answer": "192.6 cubic meters",
    "solutionSteps": [
     "Cylinder: 56π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 184/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (184/3)π cubic m.",
+    "With π ≈ 3.14: (184/3)(3.14) ≈ 192.6 cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -9917,7 +10422,8 @@
    "solutionSteps": [
     "Cylinder: π(5)²(11) = 275π.",
     "Cone: (1/3)π(5)²(9) = 75π.",
-    "Total: 350π cubic cm."
+    "Total: 350π cubic cm.",
+    "So the answer is 350π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -9937,29 +10443,30 @@
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "A grain silo is a cylinder (radius 5 m, height 4 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "550/3π cubic meters",
+   "answer": "(550/3)π cubic meters",
    "options": [
     {
      "text": "100π cubic meters",
      "correct": false
     },
     {
-     "text": "800/3π cubic meters",
+     "text": "(800/3)π cubic meters",
      "correct": false
     },
     {
-     "text": "550/3π cubic meters",
+     "text": "(550/3)π cubic meters",
      "correct": true
     },
     {
-     "text": "350/3π cubic meters",
+     "text": "(350/3)π cubic meters",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Cylinder: 100π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 550/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (550/3)π cubic m.",
+    "So the answer is (550/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10001,7 +10508,8 @@
    "solutionSteps": [
     "Cylinder: π(6)²(9) = 324π.",
     "Cone: (1/3)π(6)²(6) = 72π.",
-    "Total: 396π cubic cm."
+    "Total: 396π cubic cm.",
+    "So the answer is 396π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10025,7 +10533,8 @@
    "solutionSteps": [
     "Cylinder: 540π.",
     "Hemisphere: (1/2)(4/3)π(6)³ = 144π.",
-    "Total 684π cubic m."
+    "Total 684π cubic m.",
+    "So the answer is 684π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10049,7 +10558,8 @@
    "solutionSteps": [
     "Cylinder: π(4)²(10) = 160π.",
     "Cone: (1/3)π(4)²(12) = 64π.",
-    "Total: 224π cubic cm."
+    "Total: 224π cubic cm.",
+    "So the answer is 224π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10072,8 +10582,9 @@
    "answer": "889.7 cubic meters",
    "solutionSteps": [
     "Cylinder: 200π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 850/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (850/3)π cubic m.",
+    "With π ≈ 3.14: (850/3)(3.14) ≈ 889.7 cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10108,14 +10619,15 @@
      "correct": true
     },
     {
-     "text": "256/3π cubic centimeters",
+     "text": "(256/3)π cubic centimeters",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Cylinder: π(4)²(10) = 160π.",
     "Cone: (1/3)π(4)²(6) = 32π.",
-    "Total: 192π cubic cm."
+    "Total: 192π cubic cm.",
+    "So the answer is 192π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10135,29 +10647,30 @@
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "A grain silo is a cylinder (radius 2 m, height 5 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "76/3π cubic meters",
+   "answer": "(76/3)π cubic meters",
    "options": [
     {
      "text": "20π cubic meters",
      "correct": false
     },
     {
-     "text": "76/3π cubic meters",
+     "text": "(76/3)π cubic meters",
      "correct": true
     },
     {
-     "text": "92/3π cubic meters",
+     "text": "(92/3)π cubic meters",
      "correct": false
     },
     {
-     "text": "68/3π cubic meters",
+     "text": "(68/3)π cubic meters",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Cylinder: 20π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 76/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (76/3)π cubic m.",
+    "So the answer is (76/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10181,7 +10694,8 @@
    "solutionSteps": [
     "Cylinder: π(3)²(10) = 90π.",
     "Cone: (1/3)π(3)²(6) = 18π.",
-    "Total: 108π cubic cm."
+    "Total: 108π cubic cm.",
+    "So the answer is 108π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10201,11 +10715,12 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 2 m, height 8 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "112/3π cubic meters",
+   "answer": "(112/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 32π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 112/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (112/3)π cubic m.",
+    "So the answer is (112/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10247,7 +10762,8 @@
    "solutionSteps": [
     "Cylinder: π(6)²(7) = 252π.",
     "Cone: (1/3)π(6)²(9) = 108π.",
-    "Total: 360π cubic cm."
+    "Total: 360π cubic cm.",
+    "So the answer is 360π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10267,10 +10783,10 @@
    "level": "cp2",
    "format": "multiple-choice",
    "prompt": "A grain silo is a cylinder (radius 2 m, height 14 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "184/3π cubic meters",
+   "answer": "(184/3)π cubic meters",
    "options": [
     {
-     "text": "200/3π cubic meters",
+     "text": "(200/3)π cubic meters",
      "correct": false
     },
     {
@@ -10278,18 +10794,19 @@
      "correct": false
     },
     {
-     "text": "176/3π cubic meters",
+     "text": "(176/3)π cubic meters",
      "correct": false
     },
     {
-     "text": "184/3π cubic meters",
+     "text": "(184/3)π cubic meters",
      "correct": true
     }
    ],
    "solutionSteps": [
     "Cylinder: 56π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 184/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (184/3)π cubic m.",
+    "So the answer is (184/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10313,7 +10830,8 @@
    "solutionSteps": [
     "Cylinder: π(3)²(8) = 72π.",
     "Cone: (1/3)π(3)²(6) = 18π.",
-    "Total: 90π cubic cm."
+    "Total: 90π cubic cm.",
+    "So the answer is 90π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10333,11 +10851,12 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 5 m, height 13 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "1225/3π cubic meters",
+   "answer": "(1225/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 325π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 1225/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (1225/3)π cubic m.",
+    "So the answer is (1225/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10360,7 +10879,7 @@
    "answer": "80π",
    "options": [
     {
-     "text": "112/3π",
+     "text": "(112/3)π",
      "correct": false
     },
     {
@@ -10393,11 +10912,11 @@
    "prompt": "A capsule-shaped tank is a cylinder (radius 4, height 4) with a hemisphere on one end. Select ALL true statements (volumes in cubic units).",
    "options": [
     {
-     "text": "The total is 320/3π.",
+     "text": "The total is (320/3)π.",
      "correct": true
     },
     {
-     "text": "The total is 448/3π.",
+     "text": "The total is (448/3)π.",
      "correct": false
     },
     {
@@ -10405,30 +10924,67 @@
      "correct": true
     },
     {
-     "text": "The cylinder part is 64/3π.",
+     "text": "The cylinder part is (64/3)π.",
      "correct": false
     },
     {
-     "text": "The hemisphere part is 128/3π.",
+     "text": "The hemisphere part is (128/3)π.",
      "correct": true
     },
     {
-     "text": "The hemisphere part is 256/3π.",
+     "text": "The hemisphere part is (256/3)π.",
      "correct": false
     }
    ],
    "answer": [
-    "The total is 320/3π.",
+    "The total is (320/3)π.",
     "The cylinder part is 64π.",
-    "The hemisphere part is 128/3π."
+    "The hemisphere part is (128/3)π."
    ],
    "solutionSteps": [
-    "Hemisphere = half of (4/3)πr³."
+    "Hemisphere = half of (4/3)πr³.",
+    "Correct choices: The total is (320/3)π; The cylinder part is 64π; The hemisphere part is (128/3)π. Not correct: The total is (448/3)π; The cylinder part is (64/3)π; The hemisphere part is (256/3)π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s07-cp2-o01",
+   "skillId": "geometry-applications-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A solid is a cylinder (radius 2 in., height 6 in.) with a cone (radius 2 in., height 3 in.) on top.",
+   "parts": [
+    {
+     "prompt": "Find the volume of the cylinder in terms of π.",
+     "answer": "24π cubic in."
+    },
+    {
+     "prompt": "Find the volume of the cone in terms of π.",
+     "answer": "4π cubic in."
+    },
+    {
+     "prompt": "Find the total volume in terms of π.",
+     "answer": "28π cubic in."
+    },
+    {
+     "prompt": "Find the total volume using 3.14 for π, to the nearest tenth.",
+     "answer": "87.9 cubic in."
+    }
+   ],
+   "answer": "(a) 24π cubic in.; (b) 4π cubic in.; (c) 28π cubic in.; (d) 87.9 cubic in.",
+   "solutionSteps": [
+    "π(2²)(6) = 24π.",
+    "(1/3)π(2²)(3) = 4π.",
+    "24π + 4π = 28π.",
+    "28 × 3.14 = 87.92."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s07-cp1-001",
@@ -10440,7 +10996,8 @@
    "solutionSteps": [
     "Cylinder: π(4)²(8) = 128π.",
     "Cone: (1/3)π(4)²(9) = 48π.",
-    "Total: 176π ≈ 552.6 cubic cm."
+    "Total: 176π ≈ 552.6 cubic cm.",
+    "So the answer is 552.6 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10482,7 +11039,8 @@
    "solutionSteps": [
     "Cylinder: 432π.",
     "Hemisphere: (1/2)(4/3)π(6)³ = 144π.",
-    "Total 576π cubic m."
+    "Total 576π cubic m.",
+    "So the answer is 576π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10505,7 +11063,8 @@
    "answer": "144π cubic inches",
    "solutionSteps": [
     "Cylinder 216π; cone 72π.",
-    "Remaining: 144π cubic in."
+    "Remaining: 144π cubic in.",
+    "So the answer is 144π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10522,7 +11081,8 @@
    "solutionSteps": [
     "Cylinder: π(4)²(12) = 192π.",
     "Cone: (1/3)π(4)²(12) = 64π.",
-    "Total: 256π ≈ 803.8 cubic cm."
+    "Total: 256π ≈ 803.8 cubic cm.",
+    "So the answer is 803.8 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10542,18 +11102,18 @@
    "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A grain silo is a cylinder (radius 4 m, height 15 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "848/3π cubic meters",
+   "answer": "(848/3)π cubic meters",
    "options": [
     {
-     "text": "848/3π cubic meters",
+     "text": "(848/3)π cubic meters",
      "correct": true
     },
     {
-     "text": "976/3π cubic meters",
+     "text": "(976/3)π cubic meters",
      "correct": false
     },
     {
-     "text": "752/3π cubic meters",
+     "text": "(752/3)π cubic meters",
      "correct": false
     },
     {
@@ -10563,8 +11123,9 @@
    ],
    "solutionSteps": [
     "Cylinder: 240π.",
-    "Hemisphere: (1/2)(4/3)π(4)³ = 128/3π.",
-    "Total 848/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(4)³ = (128/3)π.",
+    "Total (848/3)π cubic m.",
+    "So the answer is (848/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10605,7 +11166,8 @@
    ],
    "solutionSteps": [
     "Outer 324π - inner 36π.",
-    "= 288π cubic in."
+    "= 288π cubic in.",
+    "So the answer is 288π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10640,7 +11202,8 @@
    "solutionSteps": [
     "Cylinder: π(6)²(11) = 396π.",
     "Cone: (1/3)π(6)²(12) = 144π.",
-    "Total: 540π ≈ 1695.6 cubic cm."
+    "Total: 540π ≈ 1695.6 cubic cm.",
+    "So the answer is 1695.6 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10660,11 +11223,12 @@
    "level": "cp1",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 4 m, height 11 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "656/3π cubic meters",
+   "answer": "(656/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 176π.",
-    "Hemisphere: (1/2)(4/3)π(4)³ = 128/3π.",
-    "Total 656/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(4)³ = (128/3)π.",
+    "Total (656/3)π cubic m.",
+    "So the answer is (656/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10687,7 +11251,8 @@
    "answer": "196π cubic inches",
    "solutionSteps": [
     "Cylinder 294π; cone 98π.",
-    "Remaining: 196π cubic in."
+    "Remaining: 196π cubic in.",
+    "So the answer is 196π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10703,7 +11268,7 @@
    "answer": "144π cubic centimeters",
    "options": [
     {
-     "text": "272/3π cubic centimeters",
+     "text": "(272/3)π cubic centimeters",
      "correct": false
     },
     {
@@ -10722,7 +11287,8 @@
    "solutionSteps": [
     "Cylinder: π(4)²(5) = 80π.",
     "Cone: (1/3)π(4)²(12) = 64π.",
-    "Total: 144π cubic cm."
+    "Total: 144π cubic cm.",
+    "So the answer is 144π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10742,11 +11308,12 @@
    "level": "cp1",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 5 m, height 11 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "1075/3π cubic meters",
+   "answer": "(1075/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 275π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 1075/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (1075/3)π cubic m.",
+    "So the answer is (1075/3)π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10787,7 +11354,8 @@
    ],
    "solutionSteps": [
     "Outer 324π - inner 144π.",
-    "= 180π cubic in."
+    "= 180π cubic in.",
+    "So the answer is 180π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10804,7 +11372,8 @@
    "solutionSteps": [
     "Cylinder: π(3)²(6) = 54π.",
     "Cone: (1/3)π(3)²(9) = 27π.",
-    "Total: 81π cubic cm."
+    "Total: 81π cubic cm.",
+    "So the answer is 81π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10827,8 +11396,9 @@
    "answer": "575.7 cubic meters",
    "solutionSteps": [
     "Cylinder: 100π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 550/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (550/3)π cubic m.",
+    "With π ≈ 3.14: (550/3)(3.14) ≈ 575.7 cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10869,7 +11439,8 @@
    ],
    "solutionSteps": [
     "Cylinder 432π; cone 144π.",
-    "Remaining: 288π cubic in."
+    "Remaining: 288π cubic in.",
+    "So the answer is 288π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10897,14 +11468,15 @@
      "correct": true
     },
     {
-     "text": "175/3π cubic centimeters",
+     "text": "(175/3)π cubic centimeters",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Cylinder: π(5)²(4) = 100π.",
     "Cone: (1/3)π(5)²(3) = 25π.",
-    "Total: 125π cubic cm."
+    "Total: 125π cubic cm.",
+    "So the answer is 125π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -10928,7 +11500,8 @@
    "solutionSteps": [
     "Cylinder: 117π.",
     "Hemisphere: (1/2)(4/3)π(3)³ = 18π.",
-    "Total 135π cubic m."
+    "Total 135π cubic m.",
+    "So the answer is 135π cubic meters."
    ],
    "diagram": {
     "type": "image",
@@ -10951,7 +11524,8 @@
    "answer": "72π cubic inches",
    "solutionSteps": [
     "Cylinder 108π; cone 36π.",
-    "Remaining: 72π cubic in."
+    "Remaining: 72π cubic in.",
+    "So the answer is 72π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -10971,7 +11545,7 @@
      "correct": true
     },
     {
-     "text": "250/3π",
+     "text": "(250/3)π",
      "correct": false
     },
     {
@@ -11000,10 +11574,6 @@
    "prompt": "A capsule-shaped tank is a cylinder (radius 3, height 3) with a hemisphere on one end. Select ALL true statements (volumes in cubic units).",
    "options": [
     {
-     "text": "The cylinder part is 27π.",
-     "correct": true
-    },
-    {
      "text": "The total is 45π.",
      "correct": true
     },
@@ -11025,29 +11595,66 @@
     }
    ],
    "answer": [
-    "The cylinder part is 27π.",
     "The total is 45π.",
     "The hemisphere part is 18π."
    ],
    "solutionSteps": [
-    "Hemisphere = half of (4/3)πr³."
+    "Hemisphere = half of (4/3)πr³.",
+    "Correct choices: The total is 45π; The hemisphere part is 18π. Not correct: The cylinder part is 9π; The hemisphere part is 36π; The total is 63π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s07-cp1-o01",
+   "skillId": "geometry-applications-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A grain silo is a cylinder (radius 3 m, height 10 m) topped by a hemisphere with the same radius.",
+   "parts": [
+    {
+     "prompt": "Find the volume of the cylinder in terms of π.",
+     "answer": "90π cubic m"
+    },
+    {
+     "prompt": "Find the volume of the hemisphere in terms of π.",
+     "answer": "18π cubic m"
+    },
+    {
+     "prompt": "Find the total volume using 3.14 for π.",
+     "answer": "339.1 cubic m"
+    },
+    {
+     "prompt": "What percent of the silo's volume is in the hemisphere, to the nearest tenth?",
+     "answer": "16.7%"
+    }
+   ],
+   "answer": "(a) 90π cubic m; (b) 18π cubic m; (c) 339.1 cubic m; (d) 16.7%",
+   "solutionSteps": [
+    "π(3²)(10) = 90π.",
+    "(1/2)(4/3)π(3³) = 18π.",
+    "108π ≈ 108 × 3.14 = 339.12 ≈ 339.1.",
+    "18π ÷ 108π = 1/6 ≈ 16.7%."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-geo-s07-honors-001",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A solid is a cylinder (radius 2 cm, height 3 cm) with a cone (same radius, height 3 cm) on top. Find the total volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "50.2 cubic centimeters",
    "solutionSteps": [
     "Cylinder: π(2)²(3) = 12π.",
     "Cone: (1/3)π(2)²(3) = 4π.",
-    "Total: 16π ≈ 50.2 cubic cm."
+    "Total: 16π ≈ 50.2 cubic cm.",
+    "So the answer is 50.2 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -11059,7 +11666,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-002",
@@ -11088,8 +11695,9 @@
    ],
    "solutionSteps": [
     "Cylinder: 350π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 1300/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (1300/3)π cubic m.",
+    "So the answer is 1360.7 cubic meters."
    ],
    "standards": [
     "8.G.C.9"
@@ -11099,18 +11707,19 @@
   {
    "id": "pa8-geo-s07-honors-003",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A cone (radius 6 in., height 3 in.) is carved out of a cylinder with the same radius and height. What volume of material remains? Give your answer in terms of π.",
    "answer": "72π cubic inches",
    "solutionSteps": [
     "Cylinder 108π; cone 36π.",
-    "Remaining: 72π cubic in."
+    "Remaining: 72π cubic in.",
+    "So the answer is 72π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_subtract). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_subtract). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-004",
@@ -11175,7 +11784,8 @@
    "solutionSteps": [
     "Cylinder: π(4)²(3) = 48π.",
     "Cone: (1/3)π(4)²(9) = 48π.",
-    "Total: 96π ≈ 301.4 cubic cm."
+    "Total: 96π ≈ 301.4 cubic cm.",
+    "So the answer is 301.4 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -11192,19 +11802,20 @@
   {
    "id": "pa8-geo-s07-honors-006",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 2 m, height 11 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "148/3π cubic meters",
+   "answer": "(148/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 44π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 148/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (148/3)π cubic m.",
+    "So the answer is (148/3)π cubic meters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-007",
@@ -11233,7 +11844,8 @@
    ],
    "solutionSteps": [
     "Outer 144π - inner 9π.",
-    "= 135π cubic in."
+    "= 135π cubic in.",
+    "So the answer is 135π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -11260,14 +11872,15 @@
   {
    "id": "pa8-geo-s07-honors-009",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A solid is a cylinder (radius 4 cm, height 5 cm) with a cone (same radius, height 6 cm) on top. Find the total volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "351.7 cubic centimeters",
    "solutionSteps": [
     "Cylinder: π(4)²(5) = 80π.",
     "Cone: (1/3)π(4)²(6) = 32π.",
-    "Total: 112π ≈ 351.7 cubic cm."
+    "Total: 112π ≈ 351.7 cubic cm.",
+    "So the answer is 351.7 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -11279,24 +11892,25 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-010",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 5 m, height 5 m) topped by a hemisphere with the same radius. Find its volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "654.2 cubic meters",
    "solutionSteps": [
     "Cylinder: 125π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 625/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (625/3)π cubic m.",
+    "With π ≈ 3.14: (625/3)(3.14) ≈ 654.2 cubic meters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-011",
@@ -11325,7 +11939,8 @@
    ],
    "solutionSteps": [
     "Outer 294π - inner 24π.",
-    "= 270π cubic in."
+    "= 270π cubic in.",
+    "So the answer is 270π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -11352,14 +11967,15 @@
   {
    "id": "pa8-geo-s07-honors-013",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A solid is a cylinder (radius 4 cm, height 3 cm) with a cone (same radius, height 3 cm) on top. Find the total volume. Give your answer in terms of π.",
    "answer": "64π cubic centimeters",
    "solutionSteps": [
     "Cylinder: π(4)²(3) = 48π.",
     "Cone: (1/3)π(4)²(3) = 16π.",
-    "Total: 64π cubic cm."
+    "Total: 64π cubic cm.",
+    "So the answer is 64π cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -11371,7 +11987,7 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-014",
@@ -11400,8 +12016,9 @@
    ],
    "solutionSteps": [
     "Cylinder: 52π.",
-    "Hemisphere: (1/2)(4/3)π(2)³ = 16/3π.",
-    "Total 172/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(2)³ = (16/3)π.",
+    "Total (172/3)π cubic m.",
+    "So the answer is 180.0 cubic meters."
    ],
    "standards": [
     "8.G.C.9"
@@ -11435,7 +12052,8 @@
    ],
    "solutionSteps": [
     "Cylinder 54π; cone 18π.",
-    "Remaining: 36π cubic in."
+    "Remaining: 36π cubic in.",
+    "So the answer is 36π cubic inches."
    ],
    "standards": [
     "8.G.C.9"
@@ -11480,14 +12098,15 @@
   {
    "id": "pa8-geo-s07-honors-017",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A solid is a cylinder (radius 4 cm, height 12 cm) with a cone (same radius, height 3 cm) on top. Find the total volume. Use 3.14 for π and round to the nearest tenth.",
    "answer": "653.1 cubic centimeters",
    "solutionSteps": [
     "Cylinder: π(4)²(12) = 192π.",
     "Cone: (1/3)π(4)²(3) = 16π.",
-    "Total: 208π ≈ 653.1 cubic cm."
+    "Total: 208π ≈ 653.1 cubic cm.",
+    "So the answer is 653.1 cubic centimeters."
    ],
    "diagram": {
     "type": "image",
@@ -11499,24 +12118,25 @@
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_cyl_cone). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-018",
    "skillId": "geometry-applications-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A grain silo is a cylinder (radius 5 m, height 14 m) topped by a hemisphere with the same radius. Find its volume. Give your answer in terms of π.",
-   "answer": "1300/3π cubic meters",
+   "answer": "(1300/3)π cubic meters",
    "solutionSteps": [
     "Cylinder: 350π.",
-    "Hemisphere: (1/2)(4/3)π(5)³ = 250/3π.",
-    "Total 1300/3π cubic m."
+    "Hemisphere: (1/2)(4/3)π(5)³ = (250/3)π.",
+    "Total (1300/3)π cubic m.",
+    "So the answer is (1300/3)π cubic meters."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_silo). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item."
   },
   {
    "id": "pa8-geo-s07-honors-019",
@@ -11560,7 +12180,7 @@
    "prompt": "A capsule-shaped tank is a cylinder (radius 5, height 7) with a hemisphere on one end. Select ALL true statements (volumes in cubic units).",
    "options": [
     {
-     "text": "The cylinder part is 175/3π.",
+     "text": "The cylinder part is (175/3)π.",
      "correct": false
     },
     {
@@ -11568,34 +12188,207 @@
      "correct": true
     },
     {
-     "text": "The hemisphere part is 250/3π.",
+     "text": "The hemisphere part is (250/3)π.",
      "correct": true
     },
     {
-     "text": "The total is 775/3π.",
+     "text": "The total is (775/3)π.",
      "correct": true
     },
     {
-     "text": "The hemisphere part is 500/3π.",
+     "text": "The hemisphere part is (500/3)π.",
      "correct": false
     },
     {
-     "text": "The total is 1025/3π.",
+     "text": "The total is (1025/3)π.",
      "correct": false
     }
    ],
    "answer": [
     "The cylinder part is 175π.",
-    "The hemisphere part is 250/3π.",
-    "The total is 775/3π."
+    "The hemisphere part is (250/3)π.",
+    "The total is (775/3)π."
    ],
    "solutionSteps": [
-    "Hemisphere = half of (4/3)πr³."
+    "Hemisphere = half of (4/3)πr³.",
+    "Correct choices: The cylinder part is 175π; The hemisphere part is (250/3)π; The total is (775/3)π. Not correct: The cylinder part is (175/3)π; The hemisphere part is (500/3)π; The total is (1025/3)π."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s07-honors-o01",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A cone (radius 4 cm, height 6 cm) is drilled out of a cylinder (radius 4 cm, height 9 cm), with the same circular base.",
+   "parts": [
+    {
+     "prompt": "Find the volume of the cylinder in terms of π.",
+     "answer": "144π cubic cm"
+    },
+    {
+     "prompt": "Find the volume of the cone in terms of π.",
+     "answer": "32π cubic cm"
+    },
+    {
+     "prompt": "Find the volume that remains in terms of π.",
+     "answer": "112π cubic cm"
+    },
+    {
+     "prompt": "What percent of the cylinder was removed, to the nearest tenth?",
+     "answer": "22.2%"
+    }
+   ],
+   "answer": "(a) 144π cubic cm; (b) 32π cubic cm; (c) 112π cubic cm; (d) 22.2%",
+   "solutionSteps": [
+    "π(4²)(9) = 144π.",
+    "(1/3)π(4²)(6) = 32π.",
+    "144π - 32π = 112π.",
+    "32 ÷ 144 ≈ 0.2222 = 22.2%."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h01",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A capsule is a cylinder (radius 3 cm, length 10 cm) with a hemisphere on each end. Find its volume in terms of π.",
+   "answer": "126π cubic centimeters",
+   "solutionSteps": [
+    "Cylinder: π(3²)(10) = 90π.",
+    "Two hemispheres make one sphere: (4/3)π(3³) = 36π.",
+    "Total: 126π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_capsule). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h02",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A capsule is a cylinder (radius 2 cm, length 7 cm) with a hemisphere on each end. Find its volume in terms of π.",
+   "answer": "(116/3)π cubic centimeters",
+   "solutionSteps": [
+    "Cylinder: π(2²)(7) = 28π.",
+    "Two hemispheres make one sphere: (4/3)π(2³) = (32/3)π.",
+    "Total: (116/3)π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_capsule). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h03",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A capsule is a cylinder (radius 4 cm, length 5 cm) with a hemisphere on each end. Find its volume in terms of π.",
+   "answer": "(496/3)π cubic centimeters",
+   "solutionSteps": [
+    "Cylinder: π(4²)(5) = 80π.",
+    "Two hemispheres make one sphere: (4/3)π(4³) = (256/3)π.",
+    "Total: (496/3)π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_capsule). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h04",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A capsule is a cylinder (radius 5 cm, length 12 cm) with a hemisphere on each end. Find its volume in terms of π.",
+   "answer": "(1400/3)π cubic centimeters",
+   "solutionSteps": [
+    "Cylinder: π(5²)(12) = 300π.",
+    "Two hemispheres make one sphere: (4/3)π(5³) = (500/3)π.",
+    "Total: (1400/3)π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_capsule). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h05",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A pipe is a cylinder of radius 5 cm and length 10 cm with a cylindrical hole of radius 3 cm through its center. Find the volume of material in terms of π.",
+   "answer": "160π cubic centimeters",
+   "solutionSteps": [
+    "Outer cylinder: π(5²)(10) = 250π.",
+    "Hole: π(3²)(10) = 90π.",
+    "Material: 250π - 90π = 160π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_pipe). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h06",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A pipe is a cylinder of radius 4 cm and length 9 cm with a cylindrical hole of radius 2 cm through its center. Find the volume of material in terms of π.",
+   "answer": "108π cubic centimeters",
+   "solutionSteps": [
+    "Outer cylinder: π(4²)(9) = 144π.",
+    "Hole: π(2²)(9) = 36π.",
+    "Material: 144π - 36π = 108π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_pipe). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h07",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A pipe is a cylinder of radius 6 cm and length 8 cm with a cylindrical hole of radius 5 cm through its center. Find the volume of material in terms of π.",
+   "answer": "88π cubic centimeters",
+   "solutionSteps": [
+    "Outer cylinder: π(6²)(8) = 288π.",
+    "Hole: π(5²)(8) = 200π.",
+    "Material: 288π - 200π = 88π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_pipe). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s07-honors-h08",
+   "skillId": "geometry-applications-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A pipe is a cylinder of radius 7 cm and length 6 cm with a cylindrical hole of radius 4 cm through its center. Find the volume of material in terms of π.",
+   "answer": "198π cubic centimeters",
+   "solutionSteps": [
+    "Outer cylinder: π(7²)(6) = 294π.",
+    "Hole: π(4²)(6) = 96π.",
+    "Material: 294π - 96π = 198π cubic centimeters."
+   ],
+   "standards": [
+    "8.G.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_pipe). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }

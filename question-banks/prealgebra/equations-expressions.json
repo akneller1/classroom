@@ -497,10 +497,6 @@
    "prompt": "Select ALL expressions equal to 36.",
    "options": [
     {
-     "text": "(√6)⁴",
-     "correct": true
-    },
-    {
      "text": "∛36",
      "correct": false
     },
@@ -522,18 +518,18 @@
     }
    ],
    "answer": [
-    "(√6)⁴",
     "√1296",
     "∛(6⁶)"
    ],
    "solutionSteps": [
-    "√1296 = 36; (√6)⁴ = 6² = 36; ∛(6⁶) = 6² = 36."
+    "√1296 = 36; (√6)⁴ = 6² = 36; ∛(6⁶) = 6² = 36.",
+    "Correct choices: √1296; ∛(6⁶). Not correct: ∛36; 2⁶; 6³."
    ],
    "standards": [
     "8.EE.A.2",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s01-cp1-001",
@@ -1056,13 +1052,14 @@
     "4²"
    ],
    "solutionSteps": [
-    "√256 = 16; (√4)⁴ = 4² = 16; ∛(4⁶) = 4² = 16."
+    "√256 = 16; (√4)⁴ = 4² = 16; ∛(4⁶) = 4² = 16.",
+    "Correct choices: √256; (√4)⁴; 4². Not correct: 8; √8; 4³."
    ],
    "standards": [
     "8.EE.A.2",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s01-honors-001",
@@ -1091,7 +1088,8 @@
    "solutionSteps": [
     "Substitute x = 8: ∛(8³) + √(8²) + 3.",
     "= 19.",
-    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x."
+    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x.",
+    "So the answer is 19."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1160,7 +1158,8 @@
     }
    ],
    "solutionSteps": [
-    "Square both sides: n = 9² = 81."
+    "Square both sides: n = 9² = 81.",
+    "So the answer is n = 81."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1211,7 +1210,8 @@
    ],
    "solutionSteps": [
     "√((-8)²) = √64 = 8, which is not -8.",
-    "For x ≥ 0, √(x²) = x. The principal square root is never negative."
+    "For x ≥ 0, √(x²) = x. The principal square root is never negative.",
+    "So the answer is x = -8."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1264,7 +1264,8 @@
    "solutionSteps": [
     "Substitute x = 5: ∛(5³) + √(5²) + 3.",
     "= 13.",
-    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x."
+    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x.",
+    "So the answer is 13."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1297,7 +1298,8 @@
    "prompt": "If √n = 11, what is n?",
    "answer": "n = 121",
    "solutionSteps": [
-    "Square both sides: n = 11² = 121."
+    "Square both sides: n = 11² = 121.",
+    "So the answer is n = 121."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1366,7 +1368,8 @@
    ],
    "solutionSteps": [
     "√((-2)²) = √4 = 2, which is not -2.",
-    "For x ≥ 0, √(x²) = x. The principal square root is never negative."
+    "For x ≥ 0, √(x²) = x. The principal square root is never negative.",
+    "So the answer is x = -2."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1401,7 +1404,8 @@
    "solutionSteps": [
     "Substitute x = 7: ∛(7³) + √(7²) + 2.",
     "= 16.",
-    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x."
+    "Note √(x²) is never negative: √(x²) = |x|, while ∛(x³) = x.",
+    "So the answer is 16."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1452,7 +1456,8 @@
    "prompt": "If √n = 8, what is n?",
    "answer": "n = 64",
    "solutionSteps": [
-    "Square both sides: n = 8² = 64."
+    "Square both sides: n = 8² = 64.",
+    "So the answer is n = 64."
    ],
    "standards": [
     "8.EE.A.2",
@@ -1519,10 +1524,6 @@
    "prompt": "Select ALL expressions equal to 16.",
    "options": [
     {
-     "text": "√256",
-     "correct": true
-    },
-    {
      "text": "4³",
      "correct": false
     },
@@ -1544,18 +1545,18 @@
     }
    ],
    "answer": [
-    "√256",
     "(√4)⁴",
     "∛(4⁶)"
    ],
    "solutionSteps": [
-    "√256 = 16; (√4)⁴ = 4² = 16; ∛(4⁶) = 4² = 16."
+    "√256 = 16; (√4)⁴ = 4² = 16; ∛(4⁶) = 4² = 16.",
+    "Correct choices: (√4)⁴; ∛(4⁶). Not correct: 4³; ∛16; √8."
    ],
    "standards": [
     "8.EE.A.2",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s01-honors-020",
@@ -2071,10 +2072,6 @@
    "prompt": "Select ALL expressions equivalent to x¹².",
    "options": [
     {
-     "text": "(x²)⁶",
-     "correct": true
-    },
-    {
      "text": "x⁶ + x⁶",
      "correct": false
     },
@@ -2096,17 +2093,53 @@
     }
    ],
    "answer": [
-    "(x²)⁶",
     "x¹⁵ ÷ x³",
     "x⁶ · x⁶"
    ],
    "solutionSteps": [
-    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸."
+    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸.",
+    "Correct choices: x¹⁵ ÷ x³; x⁶ · x⁶. Not correct: x⁶ + x⁶; (x¹⁰)²; x²⁴ ÷ x²."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s02-cp2-o01",
+   "skillId": "equations-expressions-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Let A = 3x⁴ and B = 2x³.",
+   "parts": [
+    {
+     "prompt": "Simplify A · B.",
+     "answer": "6x⁷"
+    },
+    {
+     "prompt": "Simplify A².",
+     "answer": "9x⁸"
+    },
+    {
+     "prompt": "Evaluate A · B when x = 1.",
+     "answer": "6"
+    },
+    {
+     "prompt": "Simplify A ÷ B.",
+     "answer": "3x/2"
+    }
+   ],
+   "answer": "(a) 6x⁷; (b) 9x⁸; (c) 6; (d) 3x/2",
+   "solutionSteps": [
+    "3 · 2 = 6 and x⁴ · x³ = x⁷.",
+    "3² = 9 and (x⁴)² = x⁸.",
+    "6(1)⁷ = 6.",
+    "3 ÷ 2 = 3/2 and x⁴ ÷ x³ = x."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s02-cp1-001",
@@ -2214,7 +2247,7 @@
    "skillId": "equations-expressions-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Evaluate 1x³ - x² when x = 1.",
+   "prompt": "Evaluate x³ - x² when x = 1.",
    "answer": "0",
    "solutionSteps": [
     "Substitute x = 1 and evaluate powers first.",
@@ -2615,12 +2648,49 @@
     "x⁴ · x⁴"
    ],
    "solutionSteps": [
-    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸."
+    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸.",
+    "Correct choices: x¹¹ ÷ x³; (x²)⁴; x⁴ · x⁴. Not correct: x⁴ + x⁴; x¹⁶ ÷ x²; x⁶ · x¹."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s02-cp1-o01",
+   "skillId": "equations-expressions-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Let A = 4a³b² and B = 2ab⁵.",
+   "parts": [
+    {
+     "prompt": "Simplify A · B.",
+     "answer": "8a⁴b⁷"
+    },
+    {
+     "prompt": "Simplify A ÷ B with positive exponents.",
+     "answer": "2a²/b³"
+    },
+    {
+     "prompt": "Simplify A².",
+     "answer": "16a⁶b⁴"
+    },
+    {
+     "prompt": "Evaluate A ÷ B when a = 2 and b = 1.",
+     "answer": "8"
+    }
+   ],
+   "answer": "(a) 8a⁴b⁷; (b) 2a²/b³; (c) 16a⁶b⁴; (d) 8",
+   "solutionSteps": [
+    "4 · 2 = 8, a³ · a = a⁴, b² · b⁵ = b⁷.",
+    "4 ÷ 2 = 2, a³ ÷ a = a², b² ÷ b⁵ = b⁻³ = 1/b³.",
+    "4² = 16, (a³)² = a⁶, (b²)² = b⁴.",
+    "2(2²)/1³ = 8."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s02-honors-001",
@@ -3096,10 +3166,6 @@
    "prompt": "Select ALL expressions equivalent to x¹².",
    "options": [
     {
-     "text": "(x²)⁶",
-     "correct": true
-    },
-    {
      "text": "x⁶ + x⁶",
      "correct": false
     },
@@ -3121,17 +3187,53 @@
     }
    ],
    "answer": [
-    "(x²)⁶",
     "x⁶ · x⁶",
     "x¹⁵ ÷ x³"
    ],
    "solutionSteps": [
-    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸."
+    "Apply the product, quotient and power rules to each choice; x⁴ + x⁴ = 2x⁴, not x⁸.",
+    "Correct choices: x⁶ · x⁶; x¹⁵ ÷ x³. Not correct: x⁶ + x⁶; x¹⁰ · x¹; x²⁴ ÷ x²."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s02-honors-o01",
+   "skillId": "equations-expressions-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Let A = (2x²y)³ and B = 4x⁵y².",
+   "parts": [
+    {
+     "prompt": "Simplify A.",
+     "answer": "8x⁶y³"
+    },
+    {
+     "prompt": "Simplify A ÷ B.",
+     "answer": "2xy"
+    },
+    {
+     "prompt": "Simplify (A ÷ B)².",
+     "answer": "4x²y²"
+    },
+    {
+     "prompt": "Evaluate (A ÷ B)² when x = 1 and y = 3.",
+     "answer": "36"
+    }
+   ],
+   "answer": "(a) 8x⁶y³; (b) 2xy; (c) 4x²y²; (d) 36",
+   "solutionSteps": [
+    "2³ = 8, (x²)³ = x⁶, y³.",
+    "8 ÷ 4 = 2, x⁶ ÷ x⁵ = x, y³ ÷ y² = y.",
+    "(2xy)² = 4x²y².",
+    "4(1²)(3²) = 36."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s03-cp2-001",
@@ -3595,10 +3697,6 @@
      "correct": false
     },
     {
-     "text": "3n = 32 - 14",
-     "correct": true
-    },
-    {
      "text": "3(n + 14) = 32",
      "correct": false
     },
@@ -3616,19 +3714,19 @@
     }
    ],
    "answer": [
-    "3n = 32 - 14",
     "3n + 14 = 32",
     "14 + 3n = 32"
    ],
    "solutionSteps": [
     "Cost = 14 + 3n, and the cost is 32.",
-    "Equivalent rearrangements of the same equation also work."
+    "Equivalent rearrangements of the same equation also work.",
+    "Correct choices: 3n + 14 = 32; 14 + 3n = 32. Not correct: 3n - 14 = 32; 3(n + 14) = 32; 14n + 3 = 32."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s03-cp2-020",
@@ -4156,13 +4254,14 @@
    ],
    "solutionSteps": [
     "Cost = 8 + 3n, and the cost is 32.",
-    "Equivalent rearrangements of the same equation also work."
+    "Equivalent rearrangements of the same equation also work.",
+    "Correct choices: 3n = 32 - 8; 3n + 8 = 32; 8 + 3n = 32. Not correct: 3n - 8 = 32; 8n + 3 = 32; 3(n + 8) = 32."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s03-cp1-020",
@@ -4436,7 +4535,8 @@
    ],
    "solutionSteps": [
     "Add the three sides and set equal to the perimeter.",
-    "w + 2w + w + 12 = 80. (w = 17)"
+    "w + 2w + w + 12 = 80. (w = 17)",
+    "So the answer is w + 2w + (w + 12) = 80."
    ],
    "standards": [
     "8.EE.C.7",
@@ -4659,10 +4759,6 @@
    "prompt": "A taxi charges $24 plus $6 per mile. A ride cost $90. Select ALL equations that could be used to find the number of miles n.",
    "options": [
     {
-     "text": "6n + 24 = 90",
-     "correct": true
-    },
-    {
      "text": "6n = 90 - 24",
      "correct": true
     },
@@ -4684,19 +4780,19 @@
     }
    ],
    "answer": [
-    "6n + 24 = 90",
     "6n = 90 - 24",
     "24 + 6n = 90"
    ],
    "solutionSteps": [
     "Cost = 24 + 6n, and the cost is 90.",
-    "Equivalent rearrangements of the same equation also work."
+    "Equivalent rearrangements of the same equation also work.",
+    "Correct choices: 6n = 90 - 24; 24 + 6n = 90. Not correct: 6(n + 24) = 90; 6n - 24 = 90; 24n + 6 = 90."
    ],
    "standards": [
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s03-honors-020",
@@ -4746,7 +4842,8 @@
     "Move the x-terms to one side: 5x + 6 = 56.",
     "Undo the constant: 5x = 50.",
     "Divide: x = 10.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 10."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4780,8 +4877,9 @@
    ],
    "solutionSteps": [
     "196 + 14w = 191 + 15w.",
-    "-1w = -5.",
-    "w = 5."
+    "-w = -5.",
+    "w = 5.",
+    "So the answer is 5 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4815,7 +4913,8 @@
    ],
    "solutionSteps": [
     "Substitute x = 11: left side = 34, right side = 34.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = 11."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4851,7 +4950,8 @@
     "Move the x-terms to one side: -4x - 15 = -27.",
     "Undo the constant: -4x = -12.",
     "Divide: x = 3.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4868,7 +4968,8 @@
    "solutionSteps": [
     "104 + 15w = 254 + 5w.",
     "10w = 150.",
-    "w = 15."
+    "w = 15.",
+    "So the answer is 15 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4902,7 +5003,8 @@
    ],
    "solutionSteps": [
     "Substitute x = 4: left side = 5, right side = 5.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = 4."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4920,7 +5022,8 @@
     "Move the x-terms to one side: 3x - 15 = -12.",
     "Undo the constant: 3x = 3.",
     "Divide: x = 1.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4937,7 +5040,8 @@
    "solutionSteps": [
     "184 + 12w = 218 + 10w.",
     "2w = 34.",
-    "w = 17."
+    "w = 17.",
+    "So the answer is 17 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -4971,7 +5075,8 @@
    ],
    "solutionSteps": [
     "Substitute x = 11: left side = 71, right side = 71.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = 11."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5007,7 +5112,8 @@
     "Move the x-terms to one side: 6x - 15 = 21.",
     "Undo the constant: 6x = 36.",
     "Divide: x = 6.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 6."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5042,7 +5148,8 @@
    "solutionSteps": [
     "69 + 12w = 63 + 15w.",
     "-3w = -6.",
-    "w = 2."
+    "w = 2.",
+    "So the answer is 2 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5076,7 +5183,8 @@
    ],
    "solutionSteps": [
     "Substitute x = 11: left side = 51, right side = 51.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = 11."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5094,7 +5202,8 @@
     "Move the x-terms to one side: 8x + 15 = 39.",
     "Undo the constant: 8x = 24.",
     "Divide: x = 3.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5111,7 +5220,8 @@
    "solutionSteps": [
     "171 + 11w = 183 + 5w.",
     "6w = 12.",
-    "w = 2."
+    "w = 2.",
+    "So the answer is 2 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5129,7 +5239,8 @@
     "Move the x-terms to one side: 2x + 11 = 35.",
     "Undo the constant: 2x = 24.",
     "Divide: x = 12.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 12."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5146,7 +5257,8 @@
    "solutionSteps": [
     "140 + 10w = 134 + 13w.",
     "-3w = -6.",
-    "w = 2."
+    "w = 2.",
+    "So the answer is 2 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5164,7 +5276,8 @@
     "Move the x-terms to one side: -3x + 2 = -28.",
     "Undo the constant: -3x = -30.",
     "Divide: x = 10.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 10."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5181,7 +5294,8 @@
    "solutionSteps": [
     "22 + 13w = 36 + 11w.",
     "2w = 14.",
-    "w = 7."
+    "w = 7.",
+    "So the answer is 7 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5251,7 +5365,8 @@
    ],
    "solutionSteps": [
     "Step 3: divide the constant by the coefficient of x, not the other way around.",
-    "Correct solution: x = 11."
+    "Correct solution: x = 11.",
+    "So the answer is Step 3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5269,7 +5384,8 @@
     "Move the x-terms to one side: -8x + 2 = 66.",
     "Undo the constant: -8x = 64.",
     "Divide: x = -8.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -8."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5304,7 +5420,8 @@
    "solutionSteps": [
     "182 + 14w = 310 + 6w.",
     "8w = 128.",
-    "w = 16."
+    "w = 16.",
+    "So the answer is 16 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5338,7 +5455,8 @@
    ],
    "solutionSteps": [
     "Substitute x = -7: left side = -53, right side = -53.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = -7."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5374,7 +5492,8 @@
     "Move the x-terms to one side: -4x - 1 = -29.",
     "Undo the constant: -4x = -28.",
     "Divide: x = 7.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 7."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5390,8 +5509,9 @@
    "answer": "17 weeks",
    "solutionSteps": [
     "163 + 14w = 146 + 15w.",
-    "-1w = -17.",
-    "w = 17."
+    "-w = -17.",
+    "w = 17.",
+    "So the answer is 17 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5425,7 +5545,8 @@
    ],
    "solutionSteps": [
     "Substitute x = -5: left side = -24, right side = -24.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = -5."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5443,7 +5564,8 @@
     "Move the x-terms to one side: -2x + 2 = 8.",
     "Undo the constant: -2x = 6.",
     "Divide: x = -3.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5460,7 +5582,8 @@
    "solutionSteps": [
     "69 + 8w = 13 + 15w.",
     "-7w = -56.",
-    "w = 8."
+    "w = 8.",
+    "So the answer is 8 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5494,7 +5617,8 @@
    ],
    "solutionSteps": [
     "Substitute x = -7: left side = 58, right side = 58.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = -7."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5530,7 +5654,8 @@
     "Move the x-terms to one side: -10x - 9 = 11.",
     "Undo the constant: -10x = 20.",
     "Divide: x = -2.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -2."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5564,8 +5689,9 @@
    ],
    "solutionSteps": [
     "26 + 11w = 14 + 12w.",
-    "-1w = -12.",
-    "w = 12."
+    "-w = -12.",
+    "w = 12.",
+    "So the answer is 12 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5599,7 +5725,8 @@
    ],
    "solutionSteps": [
     "Substitute x = -7: left side = -38, right side = -38.",
-    "Only the solution makes both sides equal."
+    "Only the solution makes both sides equal.",
+    "So the answer is x = -7."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5617,7 +5744,8 @@
     "Move the x-terms to one side: -11x - 5 = 116.",
     "Undo the constant: -11x = 121.",
     "Divide: x = -11.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -11."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5634,7 +5762,8 @@
    "solutionSteps": [
     "173 + 9w = 239 + 3w.",
     "6w = 66.",
-    "w = 11."
+    "w = 11.",
+    "So the answer is 11 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5652,7 +5781,8 @@
     "Move the x-terms to one side: -6x - 17 = -5.",
     "Undo the constant: -6x = 12.",
     "Divide: x = -2.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -2."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5669,7 +5799,8 @@
    "solutionSteps": [
     "198 + 14w = 333 + 5w.",
     "9w = 135.",
-    "w = 15."
+    "w = 15.",
+    "So the answer is 15 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5687,7 +5818,8 @@
     "Move the x-terms to one side: 5x + 2 = -43.",
     "Undo the constant: 5x = -45.",
     "Divide: x = -9.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -9."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5704,7 +5836,8 @@
    "solutionSteps": [
     "119 + 6w = 47 + 12w.",
     "-6w = -72.",
-    "w = 12."
+    "w = 12.",
+    "So the answer is 12 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5738,7 +5871,8 @@
    ],
    "solutionSteps": [
     "Step 3: divide the constant by the coefficient of x, not the other way around.",
-    "Correct solution: x = 9."
+    "Correct solution: x = 9.",
+    "So the answer is Step 3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5784,12 +5918,13 @@
    ],
    "solutionSteps": [
     "The solution of -5x - 19 = 5x + 1 is x = -2.",
-    "Equivalent equations come from doing the same operation to both sides."
+    "Equivalent equations come from doing the same operation to both sides.",
+    "Correct choices: x = -2; -10x = 20; -10x - 19 = 1. Not correct: x = 2; -10x - 19 = 2; -10x = -18."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s04-honors-001",
@@ -5802,7 +5937,8 @@
     "Move the x-terms to one side: -12x + 7 = 43.",
     "Undo the constant: -12x = 36.",
     "Divide: x = -3.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5837,7 +5973,8 @@
    "solutionSteps": [
     "168 + 15w = 259 + 2w.",
     "13w = 91.",
-    "w = 7."
+    "w = 7.",
+    "So the answer is 7 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5852,7 +5989,7 @@
    "prompt": "For what value of k is x = 7 the solution of 6x = 2x + k?",
    "answer": "k = 28",
    "solutionSteps": [
-    "Substitute x = 7: 6(7) + 0 = 2(7) + k.",
+    "Substitute x = 7: 6(7) = 2(7) + k.",
     "42 = 14 + k, so k = 28."
    ],
    "standards": [
@@ -5871,7 +6008,8 @@
     "Move the x-terms to one side: -4x + 10 = -50.",
     "Undo the constant: -4x = -60.",
     "Divide: x = 15.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 15."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5906,7 +6044,8 @@
    "solutionSteps": [
     "77 + 13w = 110 + 2w.",
     "11w = 33.",
-    "w = 3."
+    "w = 3.",
+    "So the answer is 3 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5976,7 +6115,8 @@
     "Move the x-terms to one side: 12x - 9 = -25.",
     "Undo the constant: 12x = -16.",
     "Divide: x = -4/3.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -4/3."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -5993,7 +6133,8 @@
    "solutionSteps": [
     "101 + 10w = 125 + 2w.",
     "8w = 24.",
-    "w = 3."
+    "w = 3.",
+    "So the answer is 3 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6045,7 +6186,8 @@
     "Move the x-terms to one side: x - 2 = -6.",
     "Undo the constant: x = -4.",
     "Divide: x = -4.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = -4."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6062,7 +6204,8 @@
    "solutionSteps": [
     "111 + 10w = 167 + 2w.",
     "8w = 56.",
-    "w = 7."
+    "w = 7.",
+    "So the answer is 7 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6096,7 +6239,8 @@
     "Move the x-terms to one side: 8x + 5 = 15.",
     "Undo the constant: 8x = 10.",
     "Divide: x = 5/4.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 5/4."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6131,7 +6275,8 @@
    "solutionSteps": [
     "79 + 11w = 91 + 5w.",
     "6w = 12.",
-    "w = 2."
+    "w = 2.",
+    "So the answer is 2 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6201,7 +6346,8 @@
     "Move the x-terms to one side: x - 19 = -6.",
     "Undo the constant: x = 13.",
     "Divide: x = 13.",
-    "Check by substituting into both sides."
+    "Check by substituting into both sides.",
+    "So the answer is x = 13."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6218,7 +6364,8 @@
    "solutionSteps": [
     "117 + 6w = 57 + 12w.",
     "-6w = -60.",
-    "w = 10."
+    "w = 10.",
+    "So the answer is 10 weeks."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6268,7 +6415,8 @@
    ],
    "solutionSteps": [
     "Step 2: the constant must be subtracted from both sides, not added.",
-    "Correct solution: x = 4."
+    "Correct solution: x = 4.",
+    "So the answer is Step 2."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6291,10 +6439,6 @@
      "correct": false
     },
     {
-     "text": "-7x - 14 = 14",
-     "correct": true
-    },
-    {
      "text": "-7x = 28",
      "correct": true
     },
@@ -6308,18 +6452,18 @@
     }
    ],
    "answer": [
-    "-7x - 14 = 14",
     "-7x = 28",
     "x = -4"
    ],
    "solutionSteps": [
     "The solution of 2x - 14 = 9x + 14 is x = -4.",
-    "Equivalent equations come from doing the same operation to both sides."
+    "Equivalent equations come from doing the same operation to both sides.",
+    "Correct choices: -7x = 28; x = -4. Not correct: x = 4; -7x = 0; 11x - 14 = 14."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s05-cp2-001",
@@ -6786,7 +6930,8 @@
    ],
    "solutionSteps": [
     "Step 1 should distribute 5 to both terms: 5x + 10 = -15.",
-    "Correct: 5x = -25, so x = -5."
+    "Correct: 5x = -25, so x = -5.",
+    "So the answer is Step 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -6813,10 +6958,6 @@
      "correct": false
     },
     {
-     "text": "5x + x + 18",
-     "correct": true
-    },
-    {
      "text": "18 + 6x",
      "correct": true
     },
@@ -6827,16 +6968,52 @@
    ],
    "answer": [
     "6x + 18",
-    "5x + x + 18",
     "18 + 6x"
    ],
    "solutionSteps": [
-    "6(x + 3) = 6x + 18."
+    "6(x + 3) = 6x + 18.",
+    "Correct choices: 6x + 18; 18 + 6x. Not correct: 6x + 3; 6x - 18; 9x."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s05-cp2-o01",
+   "skillId": "equations-expressions-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Solve 3(x + 4) = 27 step by step.",
+   "parts": [
+    {
+     "prompt": "Distribute.",
+     "answer": "3x + 12 = 27"
+    },
+    {
+     "prompt": "Isolate the x-term.",
+     "answer": "3x = 15"
+    },
+    {
+     "prompt": "Solve and check.",
+     "answer": "x = 5; 3(5 + 4) = 27"
+    },
+    {
+     "prompt": "Solve the same equation a second way: divide both sides by 3 first.",
+     "answer": "x + 4 = 9, so x = 5"
+    }
+   ],
+   "answer": "(a) 3x + 12 = 27; (b) 3x = 15; (c) x = 5; 3(5 + 4) = 27; (d) x + 4 = 9, so x = 5",
+   "solutionSteps": [
+    "Multiply 3 by both terms in the parentheses.",
+    "Subtract 12 from both sides.",
+    "Divide by 3. Check: 3 · 9 = 27.",
+    "27 ÷ 3 = 9, then subtract 4."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp1-001",
@@ -6894,16 +7071,17 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the distributive property to rewrite 3(x - 2).",
-   "answer": "3x - 6",
+   "prompt": "Use the distributive property to rewrite 3(x - 2) + x, then combine like terms.",
+   "answer": "4x - 6",
    "solutionSteps": [
-    "Multiply each term inside by 3: 3 · x and 3 · (-2).",
-    "= 3x - 6."
+    "Distribute: 3x - 6 + x.",
+    "Combine the x-terms: 3x + x = 4x.",
+    "Result: 4x - 6."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Standard version with an added step (8th Grade Math audit #14, 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s05-cp1-004",
@@ -6961,34 +7139,35 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use the distributive property to rewrite 7(x + 9).",
-   "answer": "7x + 63",
+   "prompt": "Use the distributive property to rewrite 7(x + 9) - 2x, then combine like terms.",
+   "answer": "5x + 63",
    "options": [
     {
      "text": "7x + 63",
+     "correct": false
+    },
+    {
+     "text": "5x + 63",
      "correct": true
     },
     {
-     "text": "7x + 16",
+     "text": "5x + 9",
      "correct": false
     },
     {
-     "text": "7x - 63",
-     "correct": false
-    },
-    {
-     "text": "7x + 9",
+     "text": "9x + 63",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply each term inside by 7: 7 · x and 7 · 9.",
-    "= 7x + 63."
+    "Distribute: 7x + 63 - 2x.",
+    "Combine the x-terms: 7x - (2x) = 5x.",
+    "Result: 5x + 63."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Standard version with an added step (8th Grade Math audit #14, 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s05-cp1-007",
@@ -7062,7 +7241,7 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 1(x - 9) - 6x = -44",
+   "prompt": "Solve: (x - 9) - 6x = -44",
    "answer": "x = 7",
    "solutionSteps": [
     "Distribute to remove the parentheses (multiply every term inside).",
@@ -7113,34 +7292,35 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use the distributive property to rewrite 7(x - 7).",
-   "answer": "7x - 49",
+   "prompt": "Use the distributive property to rewrite 7(x - 7) - 2x, then combine like terms.",
+   "answer": "5x - 49",
    "options": [
     {
-     "text": "7x",
-     "correct": false
-    },
-    {
-     "text": "7x + 49",
-     "correct": false
-    },
-    {
-     "text": "7x - 7",
-     "correct": false
-    },
-    {
      "text": "7x - 49",
+     "correct": false
+    },
+    {
+     "text": "5x - 7",
+     "correct": false
+    },
+    {
+     "text": "9x - 49",
+     "correct": false
+    },
+    {
+     "text": "5x - 49",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Multiply each term inside by 7: 7 · x and 7 · (-7).",
-    "= 7x - 49."
+    "Distribute: 7x - 49 - 2x.",
+    "Combine the x-terms: 7x - (2x) = 5x.",
+    "Result: 5x - 49."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Standard version with an added step (8th Grade Math audit #14, 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s05-cp1-013",
@@ -7265,16 +7445,17 @@
    "skillId": "equations-expressions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the distributive property to rewrite 6(x + 6).",
-   "answer": "6x + 36",
+   "prompt": "Use the distributive property to rewrite 6(x + 6) - 2x, then combine like terms.",
+   "answer": "4x + 36",
    "solutionSteps": [
-    "Multiply each term inside by 6: 6 · x and 6 · 6.",
-    "= 6x + 36."
+    "Distribute: 6x + 36 - 2x.",
+    "Combine the x-terms: 6x - (2x) = 4x.",
+    "Result: 4x + 36."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_distribute). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Standard version with an added step (8th Grade Math audit #14, 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s05-cp1-019",
@@ -7303,7 +7484,8 @@
    ],
    "solutionSteps": [
     "Step 1 should distribute 3 to both terms: 3x + 6 = 18.",
-    "Correct: 3x = 12, so x = 4."
+    "Correct: 3x = 12, so x = 4.",
+    "So the answer is Step 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -7348,12 +7530,49 @@
     "4x + x - 10"
    ],
    "solutionSteps": [
-    "5(x - 2) = 5x - 10."
+    "5(x - 2) = 5x - 10.",
+    "Correct choices: 5x - 10; -10 + 5x; 4x + x - 10. Not correct: 5x + 10; 5x - 2; 3x."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s05-cp1-o01",
+   "skillId": "equations-expressions-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Solve 4(2x - 3) = 2(x + 9) step by step.",
+   "parts": [
+    {
+     "prompt": "Distribute on both sides.",
+     "answer": "8x - 12 = 2x + 18"
+    },
+    {
+     "prompt": "Collect the x-terms and the constants.",
+     "answer": "6x = 30"
+    },
+    {
+     "prompt": "Solve and check.",
+     "answer": "x = 5; 4(7) = 2(14)"
+    },
+    {
+     "prompt": "Divide both sides by 2 first. What equation do you get, and does it give the same x?",
+     "answer": "2(2x - 3) = x + 9; yes, x = 5"
+    }
+   ],
+   "answer": "(a) 8x - 12 = 2x + 18; (b) 6x = 30; (c) x = 5; 4(7) = 2(14); (d) 2(2x - 3) = x + 9; yes, x = 5",
+   "solutionSteps": [
+    "4 · 2x - 4 · 3 and 2 · x + 2 · 9.",
+    "Subtract 2x and add 12.",
+    "x = 5. Check: 28 = 28.",
+    "4x - 6 = x + 9, so 3x = 15 and x = 5."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-honors-001",
@@ -7428,7 +7647,7 @@
    "skillId": "equations-expressions-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: -5(x + 5) = -1(x + 3) + 34",
+   "prompt": "Solve: -5(x + 5) = -(x + 3) + 34",
    "answer": "x = -14",
    "options": [
     {
@@ -7514,7 +7733,7 @@
    "skillId": "equations-expressions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: -1(x + 6) = -4(x - 3) - 27",
+   "prompt": "Solve: -(x + 6) = -4(x - 3) - 27",
    "answer": "x = -3",
    "solutionSteps": [
     "Distribute to remove the parentheses (multiply every term inside).",
@@ -7736,7 +7955,7 @@
    "skillId": "equations-expressions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 1(x + 9) = -2(x + 2) + 24",
+   "prompt": "Solve: (x + 9) = -2(x + 2) + 24",
    "answer": "x = 11/3",
    "solutionSteps": [
     "Distribute to remove the parentheses (multiply every term inside).",
@@ -7826,7 +8045,8 @@
    ],
    "solutionSteps": [
     "Step 1 should distribute 2 to both terms: 2x + 14 = 28.",
-    "Correct: 2x = 14, so x = 7."
+    "Correct: 2x = 14, so x = 7.",
+    "So the answer is Step 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -7843,10 +8063,6 @@
     {
      "text": "5x - 15",
      "correct": false
-    },
-    {
-     "text": "15 + 5x",
-     "correct": true
     },
     {
      "text": "4x + x + 15",
@@ -7866,17 +8082,53 @@
     }
    ],
    "answer": [
-    "15 + 5x",
     "4x + x + 15",
     "5x + 15"
    ],
    "solutionSteps": [
-    "5(x + 3) = 5x + 15."
+    "5(x + 3) = 5x + 15.",
+    "Correct choices: 4x + x + 15; 5x + 15. Not correct: 5x - 15; 8x; 5x + 3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s05-honors-o01",
+   "skillId": "equations-expressions-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Solve (1/2)(6x + 8) - 3(x - 2) = 2x + 4 step by step.",
+   "parts": [
+    {
+     "prompt": "Distribute.",
+     "answer": "3x + 4 - 3x + 6 = 2x + 4"
+    },
+    {
+     "prompt": "Simplify the left side.",
+     "answer": "10 = 2x + 4"
+    },
+    {
+     "prompt": "Solve.",
+     "answer": "x = 3"
+    },
+    {
+     "prompt": "Check.",
+     "answer": "(1/2)(26) - 3(1) = 10 = 2(3) + 4"
+    }
+   ],
+   "answer": "(a) 3x + 4 - 3x + 6 = 2x + 4; (b) 10 = 2x + 4; (c) x = 3; (d) (1/2)(26) - 3(1) = 10 = 2(3) + 4",
+   "solutionSteps": [
+    "(1/2)(6x) = 3x, (1/2)(8) = 4, and -3(x - 2) = -3x + 6.",
+    "The x-terms cancel: 3x - 3x = 0, and 4 + 6 = 10.",
+    "2x = 6, so x = 3.",
+    "Left: 13 - 3 = 10. Right: 6 + 4 = 10."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s06-cp2-001",
@@ -8342,8 +8594,9 @@
     }
    ],
    "solutionSteps": [
-    "Step 1: 4x - 5x = -1x, not 9x (the subtraction belongs to 5x).",
-    "Correct: -1x + 2 = -5, so x = 7."
+    "Step 1: 4x - 5x = -x, not 9x (the subtraction belongs to 5x).",
+    "Correct: -x + 2 = -5, so x = 7.",
+    "So the answer is Step 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8357,10 +8610,6 @@
    "format": "select-all",
    "prompt": "Select ALL expressions equivalent to 6x + 9 - 4x + 18.",
    "options": [
-    {
-     "text": "2x + 27",
-     "correct": true
-    },
     {
      "text": "27 + 2x",
      "correct": true
@@ -8383,24 +8632,24 @@
     }
    ],
    "answer": [
-    "2x + 27",
     "27 + 2x",
     "6x - 4x + 27"
    ],
    "solutionSteps": [
-    "Combine x-terms: 6x - 4x = 2x. Constants: 9 + 18 = 27."
+    "Combine x-terms: 6x - 4x = 2x. Constants: 9 + 18 = 27.",
+    "Correct choices: 27 + 2x; 6x - 4x + 27. Not correct: 10x + 27; 29x; 2x + 9."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s06-cp1-001",
    "skillId": "equations-expressions-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 8x - 7 - 1x - 8 = 69",
+   "prompt": "Solve: 8x - 7 - x - 8 = 69",
    "answer": "x = 12",
    "solutionSteps": [
     "Combine: 7x - 15 = 69.",
@@ -8456,7 +8705,8 @@
    "solutionSteps": [
     "Add sides: 6x + 6 = 24.",
     "x = 3.",
-    "Side lengths: 14, 3, 7 cm."
+    "Side lengths: 14, 3, 7 cm.",
+    "So the answer is x = 3; longest side 14 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8576,7 +8826,8 @@
    "solutionSteps": [
     "Add sides: 6x + 18 = 60.",
     "x = 7.",
-    "Side lengths: 27, 14, 19 cm."
+    "Side lengths: 27, 14, 19 cm.",
+    "So the answer is x = 7; longest side 27 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8660,7 +8911,8 @@
    "solutionSteps": [
     "Add sides: 3x + 18 = 24.",
     "x = 2.",
-    "Side lengths: 8, 2, 14 cm."
+    "Side lengths: 8, 2, 14 cm.",
+    "So the answer is x = 2; longest side 14 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8762,7 +9014,8 @@
    "solutionSteps": [
     "Add sides: 5x + 9 = 29.",
     "x = 4.",
-    "Side lengths: 11, 8, 10 cm."
+    "Side lengths: 11, 8, 10 cm.",
+    "So the answer is x = 4; longest side 11 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8863,7 +9116,8 @@
    ],
    "solutionSteps": [
     "Step 1: 7x - 5x = 2x, not 12x (the subtraction belongs to 5x).",
-    "Correct: 2x + 5 = 11, so x = 3."
+    "Correct: 2x + 5 = 11, so x = 3.",
+    "So the answer is Step 1."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8908,12 +9162,13 @@
     "-x + 9"
    ],
    "solutionSteps": [
-    "Combine x-terms: 3x - 4x = -x. Constants: 3 + 6 = 9."
+    "Combine x-terms: 3x - 4x = -x. Constants: 3 + 6 = 9.",
+    "Correct choices: 3x - 4x + 9; 9 - x; -x + 9. Not correct: 7x + 9; 8x; -x + 3."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s06-honors-001",
@@ -8960,7 +9215,8 @@
    "solutionSteps": [
     "Add sides: 6x + 12 = 42.",
     "x = 5.",
-    "Side lengths: 14, 15, 13 cm."
+    "Side lengths: 14, 15, 13 cm.",
+    "So the answer is x = 5; longest side 15 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -8988,7 +9244,7 @@
    "skillId": "equations-expressions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: 6x + 9 + 3x = 1x - 7 + 8",
+   "prompt": "Solve: 6x + 9 + 3x = x - 7 + 8",
    "answer": "x = -1",
    "options": [
     {
@@ -9028,7 +9284,8 @@
    "solutionSteps": [
     "Add sides: 6x + 12 = 72.",
     "x = 10.",
-    "Side lengths: 44, 10, 18 cm."
+    "Side lengths: 44, 10, 18 cm.",
+    "So the answer is x = 10; longest side 44 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -9114,7 +9371,8 @@
    "solutionSteps": [
     "Add sides: 4x + 3 = 47.",
     "x = 11.",
-    "Side lengths: 12, 22, 13 cm."
+    "Side lengths: 12, 22, 13 cm.",
+    "So the answer is x = 11; longest side 22 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -9182,7 +9440,8 @@
    "solutionSteps": [
     "Add sides: 6x + 12 = 66.",
     "x = 9.",
-    "Side lengths: 31, 18, 17 cm."
+    "Side lengths: 31, 18, 17 cm.",
+    "So the answer is x = 9; longest side 31 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -9250,7 +9509,8 @@
    "solutionSteps": [
     "Add sides: 4x + 27 = 51.",
     "x = 6.",
-    "Side lengths: 15, 12, 24 cm."
+    "Side lengths: 15, 12, 24 cm.",
+    "So the answer is x = 6; longest side 24 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -9336,7 +9596,8 @@
    "solutionSteps": [
     "Add sides: 4x + 3 = 31.",
     "x = 7.",
-    "Side lengths: 8, 14, 9 cm."
+    "Side lengths: 8, 14, 9 cm.",
+    "So the answer is x = 7; longest side 14 cm."
    ],
    "standards": [
     "8.EE.C.7b"
@@ -9367,10 +9628,6 @@
    "prompt": "Select ALL expressions equivalent to 2x + 3 - 2x + 6.",
    "options": [
     {
-     "text": "2x - 2x + 9",
-     "correct": true
-    },
-    {
      "text": "3",
      "correct": false
     },
@@ -9392,17 +9649,17 @@
     }
    ],
    "answer": [
-    "2x - 2x + 9",
     "9",
     "9 - 0x"
    ],
    "solutionSteps": [
-    "Combine x-terms: 2x - 2x = 0x. Constants: 3 + 6 = 9."
+    "Combine x-terms: 2x - 2x = 0x. Constants: 3 + 6 = 9.",
+    "Correct choices: 9; 9 - 0x. Not correct: 3; 9x; 4x + 9."
    ],
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s06-honors-020",
@@ -9899,7 +10156,8 @@
    ],
    "solutionSteps": [
     "0 = 0 is a true statement that does not depend on x.",
-    "Every value of x makes the original equation true: infinitely many solutions."
+    "Every value of x makes the original equation true: infinitely many solutions.",
+    "So the answer is: No. The equation is true for every x, so it has infinitely many solutions."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -9944,12 +10202,49 @@
     "-4x - 8 = -4x - 9"
    ],
    "solutionSteps": [
-    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ."
+    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ.",
+    "Correct choices: -4(x + 2) + 7 = -4x - 4; -3(x - 2) - 2 = -3x + 1; -4x - 8 = -4x - 9. Not correct: 4(x + 2) - 1 = 5x - 9; 4x - 2 = 5x - 9; 4(x - 5) + 2 = 4x - 18."
    ],
    "standards": [
     "8.EE.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s07-cp2-o01",
+   "skillId": "equations-expressions-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Consider the equation 2(x + 3) = 2x + k.",
+   "parts": [
+    {
+     "prompt": "How many solutions are there when k = 6?",
+     "answer": "infinitely many solutions"
+    },
+    {
+     "prompt": "How many solutions are there when k = 5?",
+     "answer": "no solution"
+    },
+    {
+     "prompt": "Change the right side to 3x + 6. How many solutions now?",
+     "answer": "one solution: x = 0"
+    },
+    {
+     "prompt": "Explain why k = 5 gives no solution.",
+     "answer": "the x-terms cancel and 6 = 5 is false"
+    }
+   ],
+   "answer": "(a) infinitely many solutions; (b) no solution; (c) one solution: x = 0; (d) the x-terms cancel and 6 = 5 is false",
+   "solutionSteps": [
+    "2x + 6 = 2x + 6 is true for every x.",
+    "2x + 6 = 2x + 5 gives 6 = 5, which is false.",
+    "2x + 6 = 3x + 6 gives x = 0.",
+    "Subtracting 2x from both sides leaves 6 = 5."
+   ],
+   "standards": [
+    "8.EE.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s07-cp1-001",
@@ -9990,7 +10285,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Does the equation 1(x - 4) - 5 = x - 3 have one solution, no solution, or infinitely many solutions?",
+   "prompt": "Does the equation (x - 4) - 5 = x - 3 have one solution, no solution, or infinitely many solutions?",
    "answer": "no solution",
    "solutionSteps": [
     "Simplify each side to the form ax + b.",
@@ -10022,7 +10317,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "How many solutions does 1(x + 2) + 0 = x + 1 have?",
+   "prompt": "How many solutions does (x + 2) = x + 1 have?",
    "answer": "no solution",
    "options": [
     {
@@ -10410,7 +10705,8 @@
    ],
    "solutionSteps": [
     "0 = 0 is a true statement that does not depend on x.",
-    "Every value of x makes the original equation true: infinitely many solutions."
+    "Every value of x makes the original equation true: infinitely many solutions.",
+    "So the answer is: No. The equation is true for every x, so it has infinitely many solutions."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10425,19 +10721,15 @@
    "prompt": "Select ALL equations that have NO solution.",
    "options": [
     {
-     "text": "-1(x - 4) + 1 = -3x - 6",
+     "text": "-(x - 4) + 1 = -3x - 6",
      "correct": false
-    },
-    {
-     "text": "x + 8 = x + 11",
-     "correct": true
     },
     {
      "text": "-2(x - 4) - 8 = -2x + 2",
      "correct": true
     },
     {
-     "text": "-1(x - 1) + 5 = -x + 11",
+     "text": "-(x - 1) + 5 = -x + 11",
      "correct": true
     },
     {
@@ -10450,17 +10742,53 @@
     }
    ],
    "answer": [
-    "x + 8 = x + 11",
     "-2(x - 4) - 8 = -2x + 2",
-    "-1(x - 1) + 5 = -x + 11"
+    "-(x - 1) + 5 = -x + 11"
    ],
    "solutionSteps": [
-    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ."
+    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ.",
+    "Correct choices: -2(x - 4) - 8 = -2x + 2; -(x - 1) + 5 = -x + 11. Not correct: -(x - 4) + 1 = -3x - 6; -4x + 3 = -5x - 9; 4(x + 2) - 7 = 4x + 1."
    ],
    "standards": [
     "8.EE.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s07-cp1-o01",
+   "skillId": "equations-expressions-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Consider 5x - 3(x - 2) = 2x + 6.",
+   "parts": [
+    {
+     "prompt": "Simplify the left side.",
+     "answer": "2x + 6"
+    },
+    {
+     "prompt": "How many solutions does the equation have?",
+     "answer": "infinitely many solutions"
+    },
+    {
+     "prompt": "Change the 6 on the right side to make the equation have no solution. Give one possible new equation.",
+     "answer": "5x - 3(x - 2) = 2x + 7"
+    },
+    {
+     "prompt": "Change the right side so the equation has exactly one solution, and solve it.",
+     "answer": "for example 5x - 3(x - 2) = 3x + 6; x = 0"
+    }
+   ],
+   "answer": "(a) 2x + 6; (b) infinitely many solutions; (c) 5x - 3(x - 2) = 2x + 7; (d) for example 5x - 3(x - 2) = 3x + 6; x = 0",
+   "solutionSteps": [
+    "5x - 3x + 6 = 2x + 6.",
+    "Both sides are 2x + 6, so every x works.",
+    "Same x-coefficient, different constant: 6 ≠ 7.",
+    "2x + 6 = 3x + 6 gives x = 0."
+   ],
+   "standards": [
+    "8.EE.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s07-honors-001",
@@ -10555,7 +10883,8 @@
    ],
    "solutionSteps": [
     "2(x + 1) = 2x + 2 after distributing.",
-    "Identical sides → infinitely many."
+    "Identical sides → infinitely many.",
+    "So the answer is 2x + 2."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10571,7 +10900,8 @@
    "answer": "no solution",
    "solutionSteps": [
     "17 + 7v = 25 + 7v.",
-    "Subtract 7v: 17 = 25, which is false. The costs are never equal."
+    "Subtract 7v: 17 = 25, which is false. The costs are never equal.",
+    "So the answer is no solution."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10583,7 +10913,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "How many solutions does 1(x - 2) + 8 = -x - 7 have?",
+   "prompt": "How many solutions does (x - 2) + 8 = -x - 7 have?",
    "answer": "one solution",
    "options": [
     {
@@ -10671,7 +11001,8 @@
    ],
    "solutionSteps": [
     "3(x + 6) = 3x + 18 after distributing.",
-    "Identical sides → infinitely many."
+    "Identical sides → infinitely many.",
+    "So the answer is 3x + 18."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10687,7 +11018,8 @@
    "answer": "no solution",
    "solutionSteps": [
     "18 + 3v = 25 + 3v.",
-    "Subtract 3v: 18 = 25, which is false. The costs are never equal."
+    "Subtract 3v: 18 = 25, which is false. The costs are never equal.",
+    "So the answer is no solution."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10699,7 +11031,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "How many solutions does 1(x + 4) - 5 = 4x + 1 have?",
+   "prompt": "How many solutions does (x + 4) - 5 = 4x + 1 have?",
    "answer": "one solution",
    "options": [
     {
@@ -10805,7 +11137,8 @@
    ],
    "solutionSteps": [
     "6(x + 9) = 6x + 54 after distributing.",
-    "Identical sides → infinitely many."
+    "Identical sides → infinitely many.",
+    "So the answer is 6x + 54."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10821,7 +11154,8 @@
    "answer": "no solution",
    "solutionSteps": [
     "27 + 3v = 39 + 3v.",
-    "Subtract 3v: 27 = 39, which is false. The costs are never equal."
+    "Subtract 3v: 27 = 39, which is false. The costs are never equal.",
+    "So the answer is no solution."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10867,7 +11201,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Does the equation -1(x - 2) + 9 = -2x + 11 + x have one solution, no solution, or infinitely many solutions?",
+   "prompt": "Does the equation -(x - 2) + 9 = -2x + 11 + x have one solution, no solution, or infinitely many solutions?",
    "answer": "infinitely many solutions",
    "solutionSteps": [
     "Simplify each side to the form ax + b.",
@@ -10883,7 +11217,7 @@
    "skillId": "equations-expressions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "For what value of k does -x + 1 = kx + 0 have no solution?",
+   "prompt": "For what value of k does -x + 1 = kx have no solution?",
    "answer": "k = -1",
    "solutionSteps": [
     "No solution happens when the x-coefficients match but the constants differ.",
@@ -10921,7 +11255,8 @@
    ],
    "solutionSteps": [
     "0 = 0 is a true statement that does not depend on x.",
-    "Every value of x makes the original equation true: infinitely many solutions."
+    "Every value of x makes the original equation true: infinitely many solutions.",
+    "So the answer is: No. The equation is true for every x, so it has infinitely many solutions."
    ],
    "standards": [
     "8.EE.C.7a"
@@ -10956,22 +11291,60 @@
      "correct": true
     },
     {
-     "text": "-x + 5 = 7",
-     "correct": false
+     "text": "-4(x + 2) + 7 = -4x - 4",
+     "correct": true
     }
    ],
    "answer": [
     "2(x - 4) - 9 = x - 18 + x",
     "3(x - 2) - 9 = 2x - 20 + x",
-    "-2x + 1 = -2x - 3"
+    "-2x + 1 = -2x - 3",
+    "-4(x + 2) + 7 = -4x - 4"
    ],
    "solutionSteps": [
-    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ."
+    "Simplify each side; no solution occurs when the x-coefficients match and the constants differ.",
+    "Correct choices: 2(x - 4) - 9 = x - 18 + x; 3(x - 2) - 9 = 2x - 20 + x; -2x + 1 = -2x - 3; -4(x + 2) + 7 = -4x - 4. Not correct: 3(x - 3) + 5 = 2x - 8; -4(x - 5) + 8 = -4x + 28."
    ],
    "standards": [
     "8.EE.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s07-honors-o01",
+   "skillId": "equations-expressions-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Consider ax + 4 = 3x - b, where a and b are numbers.",
+   "parts": [
+    {
+     "prompt": "For which values does the equation have infinitely many solutions?",
+     "answer": "a = 3 and b = -4"
+    },
+    {
+     "prompt": "For which values does it have no solution?",
+     "answer": "a = 3 and b ≠ -4"
+    },
+    {
+     "prompt": "For which values does it have exactly one solution?",
+     "answer": "a ≠ 3 (any b)"
+    },
+    {
+     "prompt": "Find the solution when a = 5 and b = 2.",
+     "answer": "x = -3"
+    }
+   ],
+   "answer": "(a) a = 3 and b = -4; (b) a = 3 and b ≠ -4; (c) a ≠ 3 (any b); (d) x = -3",
+   "solutionSteps": [
+    "The sides must match: a = 3 and 4 = -b.",
+    "Same x-coefficients with different constants.",
+    "Different x-coefficients always give one solution.",
+    "5x + 4 = 3x - 2, so 2x = -6 and x = -3."
+   ],
+   "standards": [
+    "8.EE.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp2-001",
@@ -10982,7 +11355,8 @@
    "answer": "x = 10 or x = -10",
    "solutionSteps": [
     "Subtract 10: x² = 100.",
-    "x = ±10."
+    "x = ±10.",
+    "So the answer is x = 10 or x = -10."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11050,7 +11424,8 @@
    ],
    "solutionSteps": [
     "Subtract 5: x² = 25.",
-    "x = ±5."
+    "x = ±5.",
+    "So the answer is x = 5 or x = -5."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11082,7 +11457,8 @@
    "answer": "x = 4 or x = -4",
    "solutionSteps": [
     "Subtract 17: x² = 16.",
-    "x = ±4."
+    "x = ±4.",
+    "So the answer is x = 4 or x = -4."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11150,7 +11526,8 @@
    ],
    "solutionSteps": [
     "Subtract 11: x² = 16.",
-    "x = ±4."
+    "x = ±4.",
+    "So the answer is x = 4 or x = -4."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11182,7 +11559,8 @@
    "answer": "x = 4 or x = -4",
    "solutionSteps": [
     "Subtract 16: x² = 16.",
-    "x = ±4."
+    "x = ±4.",
+    "So the answer is x = 4 or x = -4."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11232,7 +11610,8 @@
    ],
    "solutionSteps": [
     "Subtract 28: x² = 25.",
-    "x = ±5."
+    "x = ±5.",
+    "So the answer is x = 5 or x = -5."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11282,7 +11661,8 @@
    "answer": "x = 8 or x = -8",
    "solutionSteps": [
     "Subtract 10: x² = 64.",
-    "x = ±8."
+    "x = ±8.",
+    "So the answer is x = 8 or x = -8."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11332,7 +11712,8 @@
    ],
    "solutionSteps": [
     "Subtract 18: x² = 144.",
-    "x = ±12."
+    "x = ±12.",
+    "So the answer is x = 12 or x = -12."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11382,7 +11763,8 @@
    "answer": "x = 12 or x = -12",
    "solutionSteps": [
     "Subtract 4: x² = 144.",
-    "x = ±12."
+    "x = ±12.",
+    "So the answer is x = 12 or x = -12."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11477,12 +11859,13 @@
     "x² - 9 = 0"
    ],
    "solutionSteps": [
-    "Isolate x² and take square roots; x³ has only one real root, and x² cannot be negative."
+    "Isolate x² and take square roots; x³ has only one real root, and x² cannot be negative.",
+    "Correct choices: 2x² = 18; x² + 1 = 10; x² - 9 = 0. Not correct: 2x = 6; x² = -9; x³ = 27."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
    "id": "pa8-eqx-s08-cp1-001",
@@ -11493,7 +11876,8 @@
    "answer": "x = 2",
    "solutionSteps": [
     "Isolate x³: x³ = 8.",
-    "x = ∛8 = 2."
+    "x = ∛8 = 2.",
+    "So the answer is x = 2."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11527,7 +11911,8 @@
    ],
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the answer is 0."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11555,16 +11940,17 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 2ˣ = 4",
-   "answer": "x = 2",
+   "prompt": "Solve: 2x³ = 54",
+   "answer": "x = 3",
    "solutionSteps": [
-    "Write 4 as a power of 2: 4 = 2².",
-    "Same base, so the exponents are equal: x = 2."
+    "Divide both sides by 2: x³ = 27.",
+    "Take the cube root: x = ∛27 = 3.",
+    "So the answer is x = 3."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-005",
@@ -11593,7 +11979,8 @@
    ],
    "solutionSteps": [
     "Isolate x³: x³ = 125.",
-    "x = ∛125 = 5."
+    "x = ∛125 = 5.",
+    "So the answer is x = 5."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11627,7 +12014,8 @@
    ],
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the answer is 0."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11673,34 +12061,35 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Solve: 3ˣ = 243",
-   "answer": "x = 5",
+   "prompt": "Solve: x³ + 4 = 68",
+   "answer": "x = 4",
    "options": [
     {
-     "text": "x = 5",
+     "text": "x = 4",
      "correct": true
     },
     {
-     "text": "x = 6",
+     "text": "x = 64",
      "correct": false
     },
     {
-     "text": "x = 81",
+     "text": "x = 8",
      "correct": false
     },
     {
-     "text": "x = 240",
+     "text": "x = 4 or x = -4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write 243 as a power of 3: 243 = 3⁵.",
-    "Same base, so the exponents are equal: x = 5."
+    "Subtract 4 from both sides: x³ = 64.",
+    "Take the cube root: x = ∛64 = 4. A cube root has only one real value.",
+    "So the answer is x = 4."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-009",
@@ -11711,7 +12100,8 @@
    "answer": "x = 6",
    "solutionSteps": [
     "Isolate x³: x³ = 216.",
-    "x = ∛216 = 6."
+    "x = ∛216 = 6.",
+    "So the answer is x = 6."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11727,7 +12117,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11755,16 +12146,16 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 3ˣ = 81",
-   "answer": "x = 4",
+   "prompt": "Solve: x² - 7 = 74",
+   "answer": "x = 9 or x = -9",
    "solutionSteps": [
-    "Write 81 as a power of 3: 81 = 3⁴.",
-    "Same base, so the exponents are equal: x = 4."
+    "Add 7 to both sides: x² = 81.",
+    "Take the square root of both sides: x = ±√81, so x = 9 or x = -9."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_two_step). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-013",
@@ -11793,7 +12184,8 @@
    ],
    "solutionSteps": [
     "Divide by 2: x² = 121.",
-    "x = ±11."
+    "x = ±11.",
+    "So the answer is x = 11 or x = -11."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11809,7 +12201,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11855,16 +12248,16 @@
    "skillId": "equations-expressions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Solve: 3ˣ = 9",
-   "answer": "x = 2",
+   "prompt": "Solve: 5x² = 80",
+   "answer": "x = 4 or x = -4",
    "solutionSteps": [
-    "Write 9 as a power of 3: 9 = 3².",
-    "Same base, so the exponents are equal: x = 2."
+    "Divide both sides by 5: x² = 16.",
+    "Take the square root of both sides: x = 4 or x = -4."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_two_step). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp1-017",
@@ -11893,7 +12286,8 @@
    ],
    "solutionSteps": [
     "Isolate x³: x³ = 27.",
-    "x = ∛27 = 3."
+    "x = ∛27 = 3.",
+    "So the answer is x = 3."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11909,7 +12303,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"
@@ -11995,7 +12390,8 @@
    "answer": "x = √2 or x = -√2",
    "solutionSteps": [
     "3x² = 6, so x² = 2.",
-    "x = ±√2 (irrational)."
+    "x = ±√2 (irrational).",
+    "So the answer is x = √2 or x = -√2."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12029,7 +12425,8 @@
    ],
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the answer is 0."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12057,16 +12454,16 @@
    "skillId": "equations-expressions-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 5ˣ⁺¹ = 1",
-   "answer": "x = -1",
+   "prompt": "Solve: (x + 1)³ = -8",
+   "answer": "x = -3",
    "solutionSteps": [
-    "1 = 5⁰.",
-    "So x + 1 = 0, and x = -1."
+    "Take the cube root of both sides: x + 1 = ∛(-8) = -2.",
+    "Subtract 1: x = -3."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_shifted_cube). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-honors-005",
@@ -12129,7 +12526,8 @@
    ],
    "solutionSteps": [
     "3x² = 15, so x² = 5.",
-    "x = ±√5 (irrational)."
+    "x = ±√5 (irrational).",
+    "So the answer is x = √5 or x = -√5."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12145,7 +12543,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12191,34 +12590,34 @@
    "skillId": "equations-expressions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: 5ˣ⁺³ = 625",
-   "answer": "x = 1",
+   "prompt": "Solve: (x - 3)² = 49",
+   "answer": "x = 10 or x = -4",
    "options": [
     {
-     "text": "x = -7",
+     "text": "x = 10",
      "correct": false
     },
     {
-     "text": "x = 7",
+     "text": "x = 52",
      "correct": false
     },
     {
-     "text": "x = 4",
+     "text": "x = 10 or x = -10",
      "correct": false
     },
     {
-     "text": "x = 1",
+     "text": "x = 10 or x = -4",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "625 = 5⁴.",
-    "So x + 3 = 4, and x = 1."
+    "Take the square root of both sides: x - 3 = 7 or x - 3 = -7.",
+    "Add 3: x = 10 or x = -4."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_shifted_square). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-honors-010",
@@ -12245,7 +12644,8 @@
    "answer": "x = √2 or x = -√2",
    "solutionSteps": [
     "2x² = 4, so x² = 2.",
-    "x = ±√2 (irrational)."
+    "x = ±√2 (irrational).",
+    "So the answer is x = √2 or x = -√2."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12261,7 +12661,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12307,16 +12708,17 @@
    "skillId": "equations-expressions-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 3ˣ⁺³ = 3",
+   "prompt": "Solve: 2x³ + 5 = -11",
    "answer": "x = -2",
    "solutionSteps": [
-    "3 = 3¹.",
-    "So x + 3 = 1, and x = -2."
+    "Subtract 5 from both sides: 2x³ = -16.",
+    "Divide by 2: x³ = -8.",
+    "Take the cube root: x = -2."
    ],
    "standards": [
     "8.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_exponent_unknown). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s8_cube_two_step). 8th Grade Math audit 2026-11-19; answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-honors-015",
@@ -12379,7 +12781,8 @@
    ],
    "solutionSteps": [
     "3x² = 18, so x² = 6.",
-    "x = ±√6 (irrational)."
+    "x = ±√6 (irrational).",
+    "So the answer is x = √6 or x = -√6."
    ],
    "standards": [
     "8.EE.A.2"
@@ -12395,7 +12798,8 @@
    "answer": "0",
    "solutionSteps": [
     "A square of a real number is never negative.",
-    "x² would have to be negative, so there is no real solution."
+    "x² would have to be negative, so there is no real solution.",
+    "So the equation has 0 real solutions."
    ],
    "standards": [
     "8.EE.A.2"

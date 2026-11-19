@@ -102,7 +102,7 @@ function buildAuthored(selected,overrides){
  while(questions.length<requested&&pools.some(function(pool){return pool.length;})){
    for(var i=0;i<pools.length&&questions.length<requested;i++){
      if(!pools[i].length)continue;
-     var q=pools[i].shift(),kind=q.format==='multiple-choice'?'mc':q.format==='select-all'?'multi':q.format==='plot'?'plot':q.format==='short-answer'&&G.MKPRACTICE&&G.MKPRACTICE.bankAnswer&&G.MKPRACTICE.bankAnswer(q.answer)!==null?'auto':'self';
+     var q=pools[i].shift(),kind=q.format==='multiple-choice'?'mc':q.format==='select-all'?'multi':q.format==='plot'?'plot':q.format==='short-answer'&&G.MKPRACTICE&&G.MKPRACTICE.bankAnswer&&G.MKPRACTICE.bankAnswer(q.answer,q.prompt)!==null?'auto':'self';
      var options=(q.options||[]).map(function(o){return o.text;});
      var choices=kind==='mc'?{opts:options,key:(q.options||[]).findIndex(function(o){return o.correct===true;})}
        :kind==='multi'?{opts:options,keys:(q.options||[]).map(function(o,j){return o.correct===true?j:-1;}).filter(function(j){return j>=0;})}:null;

@@ -269,7 +269,7 @@ def page(ex, E, names, key):
     P += [frq_html(q, n, key, '<h2>Section II, Part B · Free response · No calculator · 60 minutes</h2><p>Show all your work and justify your answers.</p>' if n == 3 else '')
           for n, (u, q) in enumerate(E['FB'], 3)]
     P.append(f'<p class="foot">Mr. K’s Classroom · {title}{" · Teacher key" if key else ""}. Items come from the Calculus question banks; calculator questions 31–45 were checked numerically.</p>')
-    P.append('<script src="../../worksheet-generator/core/math-display.js?v=cal-audit-20261118"></script></body></html>')
+    P.append('<script src="../../worksheet-generator/core/math-display.js?v=g8-audit-20261119"></script></body></html>')
     return ''.join(P)
 
 

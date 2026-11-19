@@ -9,7 +9,7 @@ def eqtxt(A, B, C, D_, v="x"):
     return f"{lin((A, v), (B, ''))} = {lin((C, v), (D_, ''))}"
 
 
-# ======================================================================= S1 Expressions with radical exponents
+# ======================================================================= S1 Square and cube roots in expressions
 SQ = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144]
 CB = [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
 
@@ -909,7 +909,7 @@ def s7_open(r, L):
                     (f"Solve {a}x + {b} = {a + 1}x + {b}.", "x = 0", {"kind": "eq", "eq": f"{a}x + {b} = {a + 1}x + {b}"})], tags=["reasoning"])
 
 
-# ======================================================================= S8 Solving exponent equations
+# ======================================================================= S8 Solving x² = p and x³ = p equations
 @fam("012")
 def s8_two_step(r, L):
     k = r.randint(2, 12)
@@ -1029,7 +1029,7 @@ def s8_open(r, L):
 
 
 SKILLS = {
-    1: dict(name="Expressions with radical exponents", std=["8.EE.A.2", "8.EE.A.1"], fams=[s1_numeric, s1_substitute, s1_simplify_var, s1_inverse, s1_area_volume, s1_abs_root],
+    1: dict(name="Square and cube roots in expressions", std=["8.EE.A.2", "8.EE.A.1"], fams=[s1_numeric, s1_substitute, s1_simplify_var, s1_inverse, s1_area_volume, s1_abs_root],
             extra=[s1_error, s1_select, s1_open]),
     2: dict(name="Expressions with integer exponents", std=["8.EE.A.1"], fams=[s2_product, s2_quotient, s2_power, s2_zero, s2_evaluate, s2_numeric_rules, s2_missing_exp],
             extra=[s2_error, s2_select, s2_open]),
@@ -1043,6 +1043,6 @@ SKILLS = {
             extra=[s6_error, s6_select, s6_open]),
     7: dict(name="One, infinitely many, or no solutions", std=["8.EE.C.7a"], fams=[s7_classify, s7_classify_sa, s7_param, s7_complete, s7_context],
             extra=[s7_error, s7_select, s7_open]),
-    8: dict(name="Solving exponent equations", std=["8.EE.A.2"], fams=[s8_two_step, s8_no_real, s8_context, s8_exponent_unknown, s8_shifted_square],
+    8: dict(name="Solving x² = p and x³ = p equations", std=["8.EE.A.2"], fams=[s8_two_step, s8_no_real, s8_context, s8_exponent_unknown, s8_shifted_square],
             extra=[s8_error, s8_select, s8_open]),
 }
