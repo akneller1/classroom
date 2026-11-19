@@ -149,5 +149,54 @@ for (const q of Q) {
     check(q, A === (v ? 'Yes' : 'No'), prop);
   }
 }
+
+/* #5 the lesson planner has teaching notes for every Discrete Math skill. */
+{
+  const vm = require('vm'), w = { console, Math, Date, JSON }; w.window = w; w.globalThis = w; vm.createContext(w);
+  for (const rel of ['data.js', 'course-catalog.js', 'worksheet-generator/menu/standards.js', 'worksheet-generator/menu/standards-map.js',
+    'worksheet-generator/planner/notes-teach-discrete.js', 'worksheet-generator/planner/scope-algebra2.js'])
+    vm.runInContext(fs.readFileSync(path.join(ROOT, rel), 'utf8'), w, { filename: rel });
+  const N = w.MKPLAN_TEACH.discrete, course = w.LIBRARY.courses.find(c => c.id === 'discrete');
+  let skills = 0;
+  for (const u of course.units) for (const s of w.MK_COURSE_CATALOG.getSkillRecords('discrete', u.id)) {
+    skills++;
+    const r = N[s.id];
+    assert(r && r.obj && !/^work with /.test(r.obj) && r.idea.length > 20 && r.watch, 'teaching notes for ' + s.id);
+    assert(Array.isArray(r.voc) && r.voc.length >= 2 && r.voc.every(v => v[0] && v[1]), s.id + ' vocabulary');
+    assert(r.cards.length >= 1 && r.cards.every(c => c.h && c.big && c.steps.length >= 2 && c.steps.some(x => /\{\{/.test(x))), s.id + ' card with blanks');
+  }
+  assert.equal(Object.keys(N).length, skills, 'no notes outside the catalog');
+  const lessons = w.MKPLAN_SCOPE_DISCRETE.days.filter(d => d.day_type === 'Lesson');
+  assert.equal(lessons.length, skills);
+  for (const d of lessons) assert(!/able to work with /.test(d.content_objective) && d.key_vocabulary && d.common_misconception, d.lesson_id + ' planner fields');
+  const html = fs.readFileSync(path.join(ROOT, 'worksheet-generator/lesson-planner.html'), 'utf8');
+  assert(html.indexOf('planner/notes-teach-discrete.js') > 0 && html.indexOf('planner/notes-teach-discrete.js') < html.indexOf('planner/scope-algebra2.js'), 'planner page loads the Discrete notes first');
+  console.log('PASS Discrete Math teaching notes for ' + skills + ' skills');
+}
+
+/* #7 skill-level standards; #8 drawn graphs; #11 proof writing; #18 LP Graphing Practice; #19 Speaking Mathematically lab. */
+{
+  const STD = require(path.join(ROOT, 'worksheet-generator/menu/standards.js'));
+  const STRAND = { 'speaking-mathematically': 'LANG', 'compound-statements-logic': 'LOGIC', 'number-theory-proof': 'PROOF', 'sequences-induction-recursion': 'INDUCTION', 'set-theory': 'SETS', 'properties-relations': 'RELATIONS', 'counting-probability': 'COUNTING', 'graphs-trees': 'GRAPHS', 'election-theory': 'ELECTIONS', 'linear-programming': 'LP' };
+  for (const q of Q) {
+    const [unit, n] = q.skillId.split('-skill-'), code = 'DM.' + STRAND[unit] + '.' + Number(n);
+    check(q, q.standards[0] === code && STD.describe(code), 'skill-level strand ' + code);
+    check(q, !(q.standards.includes('MP.4') && /^graphs-trees-skill-0[1235]/.test(q.skillId)), 'modeling tag on a graph-structure skill');
+    check(q, !q.standards.includes('G-CO.A.5'), 'transformation standard on a pattern item');
+    if (/^graphs-trees/.test(q.skillId) && /vertices [A-Z](?:, [A-Z])+ and edges [A-Z]{2}/.test(q.prompt))
+      check(q, q.diagram && fs.existsSync(path.join(ROOT, q.diagram.spec.src)), 'graph given as an edge list has no drawing');
+  }
+  for (const sk of ['number-theory-proof-skill-02', 'number-theory-proof-skill-06', 'number-theory-proof-skill-07', 'set-theory-skill-06', 'set-theory-skill-07', 'sequences-induction-recursion-skill-08']) {
+    const s = Q.filter(q => q.skillId === sk);
+    assert(s.filter(q => q.format === 'open-response').length >= 9 && s.filter(q => fam(q) === 'proof_order').length >= 6, sk + ' proof writing');
+  }
+  const plots = Q.filter(q => q.format === 'plot' && /^linear-programming/.test(q.skillId));
+  assert(plots.length >= 24 && ['cp2', 'cp1', 'honors'].every(l => plots.filter(q => q.level === l).length >= 8), 'LP Graphing Practice items');
+  const vm = require('vm'), dctx = { window: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8'), dctx);
+  assert(/"discrete":\["linear-programming"\]/.test(fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8')), 'Graphing Practice enabled for Linear Programming');
+  const sm = dctx.window.LIBRARY.courses.find(c => c.id === 'discrete').units.find(u => u.id === 'speaking-mathematically');
+  assert(sm.artifacts.some(a => a.path === 'artifacts/discrete-quantifier-explorer/index.html' && fs.existsSync(path.join(ROOT, a.worksheet)) && fs.existsSync(path.join(ROOT, a.thumb))), 'Quantifier & Set-Notation Explorer card');
+  console.log('PASS Discrete Math standards, drawings, proofs, graphing practice and lab');
+}
 if (fails.length) { console.error(fails.slice(0, 40).join('\n')); console.error(fails.length + ' problems'); process.exit(1); }
 console.log('PASS Discrete Math audit fixes; MC key positions ' + pos.join('/') + '; ' + checked + ' checks');

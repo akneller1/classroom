@@ -45,5 +45,10 @@ tool('discrete-voting-explorer', 'election-theory', 'Election Theory', 'Voting, 
      'Ranked ballots: plurality, Borda count, plurality with elimination and pairwise comparisons side by side, with majority and Condorcet checks and stated tie rules. Weighted voting: winning coalitions, critical players, Banzhaf and Shapley–Shubik indices, dictators, veto power and dummies. Apportionment: quotas, modified divisors, the quota rule and the Alabama paradox.',
      ['Voting methods', 'Fairness criteria', 'Weighted voting and power', 'Apportionment'],
      'Different reasonable voting methods can pick different winners from the same ballots; voting power depends on critical appearances, not weight; Hamilton always satisfies the quota rule but can show the Alabama paradox, while divisor methods avoid that paradox but can violate quota.')
+tool('discrete-quantifier-explorer', 'speaking-mathematically', 'Speaking Mathematically', 'Quantifier & Set-Notation Explorer',
+     'Choose a domain and an open sentence. See which elements make it true, write the truth set in roster and set-builder notation, and decide universal and existential statements with a counterexample or a witness.',
+     'Pick a domain D ({−5, …, 5}, {1, …, 12} or the primes below 30) and an open sentence P(x). Every element is marked true or false; the truth set appears in roster and set-builder notation; ∀x ∈ D, P(x) and ∃x ∈ D, P(x) are decided with a counterexample or a witness; and the negation view shows ¬∀x P(x) ≡ ∃x ¬P(x) and ¬∃x P(x) ≡ ∀x ¬P(x).',
+     ['Universal and existential statements', 'Counterexamples and witnesses', 'Truth sets', 'Set-roster and set-builder notation'],
+     'A universal statement is true exactly when the truth set is the whole domain and is disproved by one counterexample; an existential statement is true exactly when the truth set is not empty; the same sentence can change truth value when the domain changes; negating swaps ∀ and ∃ and negates the sentence.')
 json.dump({'version': '20261109', 'labVersion': '20261105', 'tools': T}, open('manifest.json', 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 print(len(T), 'tools')

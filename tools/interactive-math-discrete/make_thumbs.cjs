@@ -5,6 +5,7 @@ const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '../..'); const M = require('./manifest.json');
 const T = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' };
 const PRE = {   // a few clicks so the thumbnail shows the idea, not just the opening state
+  'discrete-quantifier-explorer': p => p.evaluate(() => [...document.querySelectorAll('button.chip')].find(b => b.textContent === '2x + 1 > 0').click()),
   'discrete-truth-table-lab': p => p.evaluate(() => { const e = document.getElementById('tt-s1'); e.value = 'p → (q ∨ r)'; e.dispatchEvent(new Event('input')); const f = document.getElementById('tt-s2'); f.value = '(p → q) ∨ (p → r)'; f.dispatchEvent(new Event('input')); }),
   'discrete-venn-explorer': p => p.evaluate(() => { [...document.querySelectorAll('button.chip')].find(b => b.textContent === 'A, B and C').click(); const e = document.getElementById('vn-e1'); e.value = 'A − (B ∪ C)'; e.dispatchEvent(new Event('input')); }),
   'discrete-relation-explorer': p => p.evaluate(() => [...document.querySelectorAll('button.chip')].find(b => b.textContent === 'a divides b').click()),
@@ -17,6 +18,7 @@ const SHOT = { 'discrete-truth-table-lab': '.stage', 'discrete-counting-explorer
   const srv = await new Promise(r => { const s = http.createServer((q, res) => { const u = decodeURIComponent(q.url.split('?')[0]); fs.readFile(path.join(ROOT, u), (e, d) => { if (e) { res.writeHead(404); res.end(); return; } res.writeHead(200, { 'Content-Type': T[path.extname(u)] || 'application/octet-stream' }); res.end(d); }); }); s.listen(0, () => r(s)); });
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 1000 }, deviceScaleFactor: 2 });
   for (const t of M.tools) {
+    if (process.argv[2] && t.slug !== process.argv[2]) continue;
     await p.goto(`http://localhost:${srv.address().port}/artifacts/${t.slug}/index.html`); await p.waitForTimeout(150);
     if (PRE[t.slug]) { await PRE[t.slug](p); await p.waitForTimeout(250); }
     const sel = [].concat(SHOT[t.slug] || '.stage svg'), tmp = `/tmp/thumb-${t.slug}.png`, parts = [];
