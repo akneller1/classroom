@@ -17391,6 +17391,43 @@
    "sourceNotes": "Original Claude-authored item (family: s10_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-lfr-s10-cp2-o01",
+   "skillId": "linear-functional-relationships-skill-10",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A taxi ride costs C(m) = 2m + 3 dollars for m miles.",
+   "parts": [
+    {
+     "prompt": "Find C(5).",
+     "answer": "13"
+    },
+    {
+     "prompt": "What does C(5) mean?",
+     "answer": "a 5-mile ride costs $13"
+    },
+    {
+     "prompt": "What does the 3 mean?",
+     "answer": "a $3 starting fee"
+    },
+    {
+     "prompt": "How many miles can you ride for $21?",
+     "answer": "9 miles"
+    }
+   ],
+   "answer": "(a) 13; (b) a 5-mile ride costs $13; (c) a $3 starting fee; (d) 9 miles",
+   "solutionSteps": [
+    "2(5) + 3 = 13.",
+    "Input miles, output dollars.",
+    "It is the cost for 0 miles.",
+    "2m + 3 = 21, so m = 9."
+   ],
+   "standards": [
+    "8.F.B.5",
+    "8.F.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s10_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-lfr-s10-cp1-001",
    "skillId": "linear-functional-relationships-skill-10",
    "level": "cp1",
@@ -19343,6 +19380,42 @@
    "sourceNotes": "Original Claude-authored item (family: s11_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-lfr-s11-cp2-o01",
+   "skillId": "linear-functional-relationships-skill-11",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "f(x) = x + 2 for x < 0, and f(x) = 2 for x ≥ 0.",
+   "parts": [
+    {
+     "prompt": "Find f(-3).",
+     "answer": "-1"
+    },
+    {
+     "prompt": "Find f(0).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Find f(5).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Describe the graph on each side of x = 0.",
+     "answer": "a rising line with slope 1 for x < 0; a horizontal line at y = 2 for x ≥ 0"
+    }
+   ],
+   "answer": "(a) -1; (b) 2; (c) 2; (d) a rising line with slope 1 for x < 0; a horizontal line at y = 2 for x ≥ 0",
+   "solutionSteps": [
+    "-3 < 0: -3 + 2 = -1.",
+    "0 ≥ 0 uses the second piece.",
+    "5 ≥ 0: f is constant 2.",
+    "The first piece has slope 1; the second is constant."
+   ],
+   "standards": [
+    "8.F.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s11_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-lfr-s11-cp1-001",
    "skillId": "linear-functional-relationships-skill-11",
    "level": "cp1",
@@ -20279,6 +20352,42 @@
     "8.F.B.5"
    ],
    "sourceNotes": "Original Claude-authored item (family: s11_graph_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+  },
+  {
+   "id": "pa8-lfr-s11-cp1-o01",
+   "skillId": "linear-functional-relationships-skill-11",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A parking garage charges $5 for the first 2 hours and $3 for each hour after that. Let C(h) be the cost for h hours (h a whole number from 1 to 8).",
+   "parts": [
+    {
+     "prompt": "Find C(1) and C(2).",
+     "answer": "$5 and $5"
+    },
+    {
+     "prompt": "Write the rule for h > 2.",
+     "answer": "C(h) = 5 + 3(h - 2)"
+    },
+    {
+     "prompt": "Find C(6).",
+     "answer": "$17"
+    },
+    {
+     "prompt": "How many hours can you park for $20?",
+     "answer": "7 hours"
+    }
+   ],
+   "answer": "(a) $5 and $5; (b) C(h) = 5 + 3(h - 2); (c) $17; (d) 7 hours",
+   "solutionSteps": [
+    "Both are within the first 2 hours.",
+    "$3 for each hour past 2.",
+    "5 + 3(4) = 17.",
+    "5 + 3(h - 2) = 20 gives h = 7."
+   ],
+   "standards": [
+    "8.F.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s11_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-lfr-s11-honors-016",
@@ -21322,6 +21431,43 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-lfr-s06-cp2-o01",
+   "skillId": "linear-functional-relationships-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Line A is y = 2x + 1. Line B goes through (0, 4) and (2, 5).",
+   "parts": [
+    {
+     "prompt": "Find the slope of each line.",
+     "answer": "A: 2; B: 1/2"
+    },
+    {
+     "prompt": "Which line is steeper?",
+     "answer": "Line A"
+    },
+    {
+     "prompt": "Find the y-intercept of each line.",
+     "answer": "A: 1; B: 4"
+    },
+    {
+     "prompt": "Find y on each line when x = 6.",
+     "answer": "A: 13; B: 7"
+    }
+   ],
+   "answer": "(a) A: 2; B: 1/2; (b) Line A; (c) A: 1; B: 4; (d) A: 13; B: 7",
+   "solutionSteps": [
+    "B: (5 - 4) ÷ 2 = 1/2.",
+    "2 > 1/2.",
+    "A from its equation; B from (0, 4).",
+    "2(6) + 1 = 13 and (1/2)(6) + 4 = 7."
+   ],
+   "standards": [
+    "8.F.A.3",
+    "8.F.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-lfr-s06-cp1-p001",
@@ -22578,6 +22724,43 @@
     "8.F.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_slope_from_point). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-lfr-s06-honors-o01",
+   "skillId": "linear-functional-relationships-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Function f is y = -3x + 12. Function g goes through (-2, 1) and (4, 4).",
+   "parts": [
+    {
+     "prompt": "Find the x-intercept and y-intercept of f.",
+     "answer": "x-intercept (4, 0); y-intercept (0, 12)"
+    },
+    {
+     "prompt": "Write an equation for g.",
+     "answer": "y = (1/2)x + 2"
+    },
+    {
+     "prompt": "Find where f and g intersect.",
+     "answer": "(20/7, 24/7)"
+    },
+    {
+     "prompt": "Which function has the greater rate of change? Compare absolute values too.",
+     "answer": "g has the greater rate (1/2 > -3), but f changes faster (|-3| > 1/2)"
+    }
+   ],
+   "answer": "(a) x-intercept (4, 0); y-intercept (0, 12); (b) y = (1/2)x + 2; (c) (20/7, 24/7); (d) g has the greater rate (1/2 > -3), but f changes faster (|-3| > 1/2)",
+   "solutionSteps": [
+    "0 = -3x + 12 gives x = 4.",
+    "Slope (4 - 1) ÷ 6 = 1/2; 1 = (1/2)(-2) + b gives b = 2.",
+    "-3x + 12 = (1/2)x + 2 gives (7/2)x = 10, x = 20/7, y = 24/7.",
+    "Compare slopes."
+   ],
+   "standards": [
+    "8.F.A.3",
+    "8.F.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-lfr-s12-cp2-001",

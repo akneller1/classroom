@@ -4001,6 +4001,43 @@
    "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-rne-s03-cp2-o01",
+   "skillId": "real-numbers-exponents-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Convert between fractions and decimals.",
+   "parts": [
+    {
+     "prompt": "Write 3/8 as a decimal.",
+     "answer": "0.375"
+    },
+    {
+     "prompt": "Write 2/3 as a decimal.",
+     "answer": "0.666… (6 repeats)"
+    },
+    {
+     "prompt": "Write 0.45 as a fraction in simplest form.",
+     "answer": "9/20"
+    },
+    {
+     "prompt": "Does 3/8 terminate or repeat? Does 2/3?",
+     "answer": "3/8 terminates; 2/3 repeats"
+    }
+   ],
+   "answer": "(a) 0.375; (b) 0.666… (6 repeats); (c) 9/20; (d) 3/8 terminates; 2/3 repeats",
+   "solutionSteps": [
+    "3 ÷ 8 = 0.375.",
+    "2 ÷ 3 = 0.666….",
+    "45/100 = 9/20.",
+    "The denominator 8 has only factors of 2."
+   ],
+   "standards": [
+    "8.NS.A.1",
+    "7.NS.A.2.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-rne-s03-cp1-001",
    "skillId": "real-numbers-exponents-skill-03",
    "level": "cp1",
@@ -10376,6 +10413,42 @@
    "sourceNotes": "Original Claude-authored item (family: s6_count_between). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
+   "id": "pa8-rne-s06-cp1-o01",
+   "skillId": "real-numbers-exponents-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Use perfect squares to estimate square roots.",
+   "parts": [
+    {
+     "prompt": "Between which two whole numbers is √50?",
+     "answer": "7 and 8"
+    },
+    {
+     "prompt": "Estimate √50 to the nearest tenth.",
+     "answer": "7.1"
+    },
+    {
+     "prompt": "Order from least to greatest: √50, 7.2, 50/7.",
+     "answer": "√50, 50/7, 7.2"
+    },
+    {
+     "prompt": "Which is closer to 7: √50 or 50/7?",
+     "answer": "√50"
+    }
+   ],
+   "answer": "(a) 7 and 8; (b) 7.1; (c) √50, 50/7, 7.2; (d) √50",
+   "solutionSteps": [
+    "49 < 50 < 64.",
+    "7.1² = 50.41 and 7.0² = 49; 50 is closer to 50.41.",
+    "√50 ≈ 7.07 and 50/7 ≈ 7.14.",
+    "√50 ≈ 7.07 and 50/7 ≈ 7.14."
+   ],
+   "standards": [
+    "8.NS.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-rne-s06-honors-019",
    "skillId": "real-numbers-exponents-skill-06",
    "level": "honors",
@@ -12748,6 +12821,42 @@
    "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-rne-s08-cp2-o01",
+   "skillId": "real-numbers-exponents-skill-08",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Use the pattern 2³ = 8, 2² = 4, 2¹ = 2.",
+   "parts": [
+    {
+     "prompt": "What do you divide by each time the exponent goes down 1?",
+     "answer": "2"
+    },
+    {
+     "prompt": "Find 2⁰.",
+     "answer": "1"
+    },
+    {
+     "prompt": "Find 2⁻¹ and 2⁻².",
+     "answer": "1/2 and 1/4"
+    },
+    {
+     "prompt": "Find 5⁰ and 5⁻¹.",
+     "answer": "1 and 1/5"
+    }
+   ],
+   "answer": "(a) 2; (b) 1; (c) 1/2 and 1/4; (d) 1 and 1/5",
+   "solutionSteps": [
+    "8 ÷ 2 = 4, 4 ÷ 2 = 2.",
+    "2 ÷ 2 = 1.",
+    "1 ÷ 2 = 1/2 and 1/2 ÷ 2 = 1/4.",
+    "Any nonzero number to the 0 power is 1; 5⁻¹ = 1/5."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-rne-s08-cp1-001",
    "skillId": "real-numbers-exponents-skill-08",
    "level": "cp1",
@@ -13264,6 +13373,42 @@
     "8.EE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-rne-s08-cp1-o01",
+   "skillId": "real-numbers-exponents-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Evaluate with zero and negative exponents.",
+   "parts": [
+    {
+     "prompt": "3⁻²",
+     "answer": "1/9"
+    },
+    {
+     "prompt": "4⁰ + 4⁻¹",
+     "answer": "5/4"
+    },
+    {
+     "prompt": "10⁻³ as a decimal",
+     "answer": "0.001"
+    },
+    {
+     "prompt": "Which is greater: 2⁻³ or 3⁻²? Explain.",
+     "answer": "2⁻³ (1/8 > 1/9)"
+    }
+   ],
+   "answer": "(a) 1/9; (b) 5/4; (c) 0.001; (d) 2⁻³ (1/8 > 1/9)",
+   "solutionSteps": [
+    "1/3² = 1/9.",
+    "1 + 1/4.",
+    "1/1000.",
+    "2⁻³ = 1/8 and 3⁻² = 1/9."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-rne-s08-honors-001",
@@ -14290,6 +14435,42 @@
    "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-rne-s09-cp2-o01",
+   "skillId": "real-numbers-exponents-skill-09",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Use the properties of exponents.",
+   "parts": [
+    {
+     "prompt": "Simplify 3⁴ · 3² as a power of 3.",
+     "answer": "3⁶"
+    },
+    {
+     "prompt": "Simplify 5⁷ ÷ 5³ as a power of 5.",
+     "answer": "5⁴"
+    },
+    {
+     "prompt": "Simplify (2³)² as a power of 2, then evaluate.",
+     "answer": "2⁶ = 64"
+    },
+    {
+     "prompt": "Simplify x⁵ · x³.",
+     "answer": "x⁸"
+    }
+   ],
+   "answer": "(a) 3⁶; (b) 5⁴; (c) 2⁶ = 64; (d) x⁸",
+   "solutionSteps": [
+    "Add exponents: 4 + 2.",
+    "Subtract exponents: 7 - 3.",
+    "Multiply exponents: 3 × 2.",
+    "Add exponents."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-rne-s09-cp1-001",
    "skillId": "real-numbers-exponents-skill-09",
    "level": "cp1",
@@ -15309,6 +15490,42 @@
     "8.EE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s9_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-rne-s09-honors-o01",
+   "skillId": "real-numbers-exponents-skill-09",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Simplify. Use only positive exponents.",
+   "parts": [
+    {
+     "prompt": "(3x⁻²)³",
+     "answer": "27/x⁶"
+    },
+    {
+     "prompt": "(a⁴b⁻³)(a⁻⁶b⁵)",
+     "answer": "b²/a²"
+    },
+    {
+     "prompt": "(2⁵ · 2⁻²) ÷ 2⁻¹, as a number",
+     "answer": "16"
+    },
+    {
+     "prompt": "Find n if 9ⁿ = 3⁸.",
+     "answer": "n = 4"
+    }
+   ],
+   "answer": "(a) 27/x⁶; (b) b²/a²; (c) 16; (d) n = 4",
+   "solutionSteps": [
+    "3³ = 27 and (x⁻²)³ = x⁻⁶.",
+    "a⁴⁻⁶ = a⁻² and b⁻³⁺⁵ = b².",
+    "2⁵⁻²⁺¹ = 2⁴ = 16.",
+    "9ⁿ = 3²ⁿ, so 2n = 8."
+   ],
+   "standards": [
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s9_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-rne-s10-cp2-001",
@@ -18168,6 +18385,42 @@
    "sourceNotes": "Original Claude-authored item (family: s11_divide_context). Rewritten from a Support template (was s11_context) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-rne-s11-cp1-o01",
+   "skillId": "real-numbers-exponents-skill-11",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Earth is about 1.5 × 10⁸ km from the Sun. Light travels about 3 × 10⁵ km per second.",
+   "parts": [
+    {
+     "prompt": "Write 1.5 × 10⁸ in standard form.",
+     "answer": "150,000,000"
+    },
+    {
+     "prompt": "How many seconds does sunlight take to reach Earth?",
+     "answer": "5 × 10² seconds"
+    },
+    {
+     "prompt": "Convert that time to minutes, to the nearest tenth.",
+     "answer": "8.3 minutes"
+    },
+    {
+     "prompt": "How far does light travel in 2 × 10³ seconds? Use scientific notation.",
+     "answer": "6 × 10⁸ km"
+    }
+   ],
+   "answer": "(a) 150,000,000; (b) 5 × 10² seconds; (c) 8.3 minutes; (d) 6 × 10⁸ km",
+   "solutionSteps": [
+    "Move the decimal 8 places right.",
+    "1.5 × 10⁸ ÷ (3 × 10⁵) = 0.5 × 10³ = 5 × 10².",
+    "500 ÷ 60 ≈ 8.3.",
+    "(3 × 10⁵)(2 × 10³) = 6 × 10⁸."
+   ],
+   "standards": [
+    "8.EE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s11_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-rne-s11-honors-005",
    "skillId": "real-numbers-exponents-skill-11",
    "level": "honors",
@@ -18580,6 +18833,42 @@
     "8.EE.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s11_light_distance). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-rne-s11-honors-o01",
+   "skillId": "real-numbers-exponents-skill-11",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A hard drive holds 2.4 × 10¹² bytes. A photo uses about 3 × 10⁶ bytes, and a video uses about 1.2 × 10⁹ bytes.",
+   "parts": [
+    {
+     "prompt": "How many photos fit on the drive?",
+     "answer": "8 × 10⁵ photos"
+    },
+    {
+     "prompt": "How many videos fit on the drive?",
+     "answer": "2 × 10³ videos"
+    },
+    {
+     "prompt": "How many times as large is a video as a photo?",
+     "answer": "4 × 10²"
+    },
+    {
+     "prompt": "After 500 videos are saved, how many bytes are left? Use scientific notation.",
+     "answer": "1.8 × 10¹² bytes"
+    }
+   ],
+   "answer": "(a) 8 × 10⁵ photos; (b) 2 × 10³ videos; (c) 4 × 10²; (d) 1.8 × 10¹² bytes",
+   "solutionSteps": [
+    "2.4 × 10¹² ÷ (3 × 10⁶) = 0.8 × 10⁶.",
+    "2.4 × 10¹² ÷ (1.2 × 10⁹) = 2 × 10³.",
+    "1.2 × 10⁹ ÷ (3 × 10⁶) = 0.4 × 10³.",
+    "500 × 1.2 × 10⁹ = 6 × 10¹¹; 2.4 × 10¹² - 0.6 × 10¹² = 1.8 × 10¹²."
+   ],
+   "standards": [
+    "8.EE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s11_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   }
  ]
 }

@@ -180,13 +180,21 @@ for (const q of Q) if (q.format === 'short-answer') {
     check(q, q.answer === (Math.abs(k[0] * k[1] - 1) < 1e-9 ? 'congruent' : 'similar'), 'two dilations: ' + k.join(' × '));
   }
 }
-/* #15 every skill has open-response items (the 23 skills that had none now have one per level) */
+/* #15 every skill has open-response items at every level (23 skills in the first pass, 45 skill/levels in batch F) */
 {
   const sk = [...new Set(Q.map((q) => q.skillId))];
   for (const s of sk) check({ id: s }, Q.some((q) => q.skillId === s && q.format === 'open-response' && q.parts.length >= 4), 'no open-response item');
   for (const q of Q.filter((q) => /-o01$/.test(q.id))) check(q, q.format === 'open-response' && q.parts.length >= 4 && q.solutionSteps.length === q.parts.length, 'new open-response item');
-  assert.equal(Q.filter((q) => /-o01$/.test(q.id)).length, 69);
+  assert.equal(Q.filter((q) => /-o01$/.test(q.id)).length, 114);
   const o = (id) => byId[id].parts.map((p) => p.answer);
+  // batch F: every skill now has an open-response item at Support, Standard and Advanced
+  for (const s of sk) for (const L of ['cp2', 'cp1', 'honors']) check({ id: s + '|' + L }, Q.some((q) => q.skillId === s && q.level === L && q.format === 'open-response' && q.parts.length >= 4), 'no open-response item at this level');
+  assert.deepEqual(o('pa8-sys-s06-cp1-o01').slice(1, 3), ['a = 90', 's = 110']);
+  assert.equal(8 * 90 + 5 * 110, 1270);
+  assert.equal(o('pa8-rne-s06-cp1-o01')[2], '√50, 50/7, 7.2');
+  assert(Math.sqrt(50) < 50 / 7 && 50 / 7 < 7.2);
+  assert.equal(o('pa8-geo-s03-honors-o01')[1], '392π cubic cm');
+  assert.equal((49 * 24) / 3, 392);
   assert.deepEqual(o('pa8-sys-s03-honors-o01').slice(1, 3), ['c = 25', 'a = 40']);
   assert.equal(12 * 40 + 8 * 25, 680);
   assert.equal(o('pa8-lfr-s09-honors-o01')[2], '450 minutes');

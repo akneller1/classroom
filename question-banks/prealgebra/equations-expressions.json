@@ -532,6 +532,43 @@
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-eqx-s01-cp2-o01",
+   "skillId": "equations-expressions-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A square tile has an area of 49 square inches, and a cube-shaped box has a volume of 64 cubic inches.",
+   "parts": [
+    {
+     "prompt": "Find the side length of the tile.",
+     "answer": "7 inches"
+    },
+    {
+     "prompt": "Find the edge length of the box.",
+     "answer": "4 inches"
+    },
+    {
+     "prompt": "Find the perimeter of the tile.",
+     "answer": "28 inches"
+    },
+    {
+     "prompt": "Find the area of one face of the box.",
+     "answer": "16 square inches"
+    }
+   ],
+   "answer": "(a) 7 inches; (b) 4 inches; (c) 28 inches; (d) 16 square inches",
+   "solutionSteps": [
+    "√49 = 7.",
+    "∛64 = 4.",
+    "4 × 7 = 28.",
+    "4² = 16."
+   ],
+   "standards": [
+    "8.EE.A.2",
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-eqx-s01-cp1-001",
    "skillId": "equations-expressions-skill-01",
    "level": "cp1",
@@ -1340,6 +1377,43 @@
     "8.EE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_area_volume). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+  },
+  {
+   "id": "pa8-eqx-s01-cp1-o01",
+   "skillId": "equations-expressions-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Use square roots and cube roots.",
+   "parts": [
+    {
+     "prompt": "Evaluate √(x² + 144) when x = 5.",
+     "answer": "13"
+    },
+    {
+     "prompt": "Simplify √(36y⁴). Assume y > 0.",
+     "answer": "6y²"
+    },
+    {
+     "prompt": "Simplify ∛(8x⁶).",
+     "answer": "2x²"
+    },
+    {
+     "prompt": "Evaluate ∛(-27) + √81.",
+     "answer": "6"
+    }
+   ],
+   "answer": "(a) 13; (b) 6y²; (c) 2x²; (d) 6",
+   "solutionSteps": [
+    "√(25 + 144) = √169 = 13.",
+    "√36 = 6 and √(y⁴) = y².",
+    "∛8 = 2 and ∛(x⁶) = x².",
+    "-3 + 9 = 6."
+   ],
+   "standards": [
+    "8.EE.A.2",
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-eqx-s01-honors-012",
@@ -6382,6 +6456,42 @@
    "sourceNotes": "Original Claude-authored item (family: s4_distribute_both_sides). Rewritten from a Support template (was s4_solve) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-eqx-s04-cp1-o01",
+   "skillId": "equations-expressions-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Gym A charges $30 to join plus $12 per month. Gym B charges $66 to join plus $8 per month.",
+   "parts": [
+    {
+     "prompt": "Write an expression for the cost of each gym after m months.",
+     "answer": "A: 30 + 12m; B: 66 + 8m"
+    },
+    {
+     "prompt": "Write and solve an equation to find when the costs are equal.",
+     "answer": "30 + 12m = 66 + 8m; m = 9"
+    },
+    {
+     "prompt": "Find the cost at that time.",
+     "answer": "$138"
+    },
+    {
+     "prompt": "Which gym is cheaper for 12 months?",
+     "answer": "Gym B ($162 vs $174)"
+    }
+   ],
+   "answer": "(a) A: 30 + 12m; B: 66 + 8m; (b) 30 + 12m = 66 + 8m; m = 9; (c) $138; (d) Gym B ($162 vs $174)",
+   "solutionSteps": [
+    "Joining fee plus monthly cost times months.",
+    "4m = 36, so m = 9.",
+    "30 + 12(9) = 138 and 66 + 8(9) = 138.",
+    "A: 30 + 144 = 174. B: 66 + 96 = 162."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-eqx-s04-honors-014",
    "skillId": "equations-expressions-skill-04",
    "level": "honors",
@@ -6695,6 +6805,42 @@
     "8.EE.C.7b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-o01",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Solve and check: (2/3)(x + 6) = (1/2)x + 7.",
+   "parts": [
+    {
+     "prompt": "Multiply both sides by 6 to clear fractions. What equation results?",
+     "answer": "4(x + 6) = 3x + 42"
+    },
+    {
+     "prompt": "Solve for x.",
+     "answer": "x = 18"
+    },
+    {
+     "prompt": "Check the solution in the original equation.",
+     "answer": "16 = 16"
+    },
+    {
+     "prompt": "Change the 7 so the equation has no solution, or explain why that is impossible.",
+     "answer": "impossible: the x-coefficients 2/3 and 1/2 differ, so there is always exactly one solution"
+    }
+   ],
+   "answer": "(a) 4(x + 6) = 3x + 42; (b) x = 18; (c) 16 = 16; (d) impossible: the x-coefficients 2/3 and 1/2 differ, so there is always exactly one solution",
+   "solutionSteps": [
+    "6 · (2/3) = 4 and 6 · (1/2) = 3, 6 · 7 = 42.",
+    "4x + 24 = 3x + 42, so x = 18.",
+    "(2/3)(24) = 16 and (1/2)(18) + 7 = 16.",
+    "No solution needs equal x-coefficients with different constants."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-eqx-s05-cp2-001",
@@ -8884,6 +9030,42 @@
    "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-eqx-s06-cp2-o01",
+   "skillId": "equations-expressions-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A rectangle has length 2x + 3 and width x.",
+   "parts": [
+    {
+     "prompt": "Write an expression for the perimeter and simplify it.",
+     "answer": "6x + 6"
+    },
+    {
+     "prompt": "The perimeter is 42. Write an equation.",
+     "answer": "6x + 6 = 42"
+    },
+    {
+     "prompt": "Solve for x.",
+     "answer": "x = 6"
+    },
+    {
+     "prompt": "Find the length and width.",
+     "answer": "length 15, width 6"
+    }
+   ],
+   "answer": "(a) 6x + 6; (b) 6x + 6 = 42; (c) x = 6; (d) length 15, width 6",
+   "solutionSteps": [
+    "2(2x + 3) + 2x = 4x + 6 + 2x = 6x + 6.",
+    "Set the perimeter expression equal to 42.",
+    "6x = 36.",
+    "2(6) + 3 = 15."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-eqx-s06-cp1-001",
    "skillId": "equations-expressions-skill-06",
    "level": "cp1",
@@ -9771,6 +9953,42 @@
     "8.EE.C.7b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+  },
+  {
+   "id": "pa8-eqx-s06-cp1-o01",
+   "skillId": "equations-expressions-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Three consecutive integers have a sum of 87.",
+   "parts": [
+    {
+     "prompt": "Write expressions for the three integers using n for the smallest.",
+     "answer": "n, n + 1, n + 2"
+    },
+    {
+     "prompt": "Write and simplify an equation.",
+     "answer": "3n + 3 = 87"
+    },
+    {
+     "prompt": "Solve for n.",
+     "answer": "n = 28"
+    },
+    {
+     "prompt": "List the three integers and check.",
+     "answer": "28, 29, 30; 28 + 29 + 30 = 87"
+    }
+   ],
+   "answer": "(a) n, n + 1, n + 2; (b) 3n + 3 = 87; (c) n = 28; (d) 28, 29, 30; 28 + 29 + 30 = 87",
+   "solutionSteps": [
+    "Consecutive integers differ by 1.",
+    "n + (n + 1) + (n + 2) = 3n + 3.",
+    "3n = 84.",
+    "Add them."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-eqx-s06-honors-016",
@@ -12236,6 +12454,42 @@
     "8.EE.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s08-cp2-o01",
+   "skillId": "equations-expressions-skill-08",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Solve each equation.",
+   "parts": [
+    {
+     "prompt": "x² = 81",
+     "answer": "x = 9 or x = -9"
+    },
+    {
+     "prompt": "x³ = 125",
+     "answer": "x = 5"
+    },
+    {
+     "prompt": "x² = 20 (exact form)",
+     "answer": "x = √20 or x = -√20 (2√5 or -2√5)"
+    },
+    {
+     "prompt": "How many real solutions does x² = -4 have?",
+     "answer": "0"
+    }
+   ],
+   "answer": "(a) x = 9 or x = -9; (b) x = 5; (c) x = √20 or x = -√20 (2√5 or -2√5); (d) 0",
+   "solutionSteps": [
+    "9² = 81 and (-9)² = 81.",
+    "5³ = 125.",
+    "Take the square root; 20 is not a perfect square.",
+    "No real number squared is negative."
+   ],
+   "standards": [
+    "8.EE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-eqx-s08-cp1-001",

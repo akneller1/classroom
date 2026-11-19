@@ -2518,6 +2518,42 @@
    "sourceNotes": "Original Claude-authored item (family: s2_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-geo-s02-cp2-o01",
+   "skillId": "geometry-applications-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A 13-foot ladder leans against a wall. The bottom of the ladder is 5 feet from the wall.",
+   "parts": [
+    {
+     "prompt": "Draw and label a right triangle for this situation. Which side is the hypotenuse?",
+     "answer": "the ladder (13 ft)"
+    },
+    {
+     "prompt": "Write an equation for the height h.",
+     "answer": "5² + h² = 13²"
+    },
+    {
+     "prompt": "Find h.",
+     "answer": "12 feet"
+    },
+    {
+     "prompt": "If the bottom moves 1 foot closer to the wall, is the top higher or lower?",
+     "answer": "higher"
+    }
+   ],
+   "answer": "(a) the ladder (13 ft); (b) 5² + h² = 13²; (c) 12 feet; (d) higher",
+   "solutionSteps": [
+    "The ladder is across from the right angle at the wall.",
+    "Pythagorean Theorem.",
+    "h² = 169 - 25 = 144.",
+    "A shorter base leaves more of the 13 feet for height: √(169 - 16) ≈ 12.4."
+   ],
+   "standards": [
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-geo-s02-cp1-001",
    "skillId": "geometry-applications-skill-02",
    "level": "cp1",
@@ -3458,6 +3494,42 @@
    "sourceNotes": "Original Claude-authored item (family: s2_shortcut_saved). Rewritten from a Support template (was s2_rect_diag) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-geo-s02-cp1-o01",
+   "skillId": "geometry-applications-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A TV screen is 32 inches wide and 24 inches tall. TVs are sold by the length of the diagonal.",
+   "parts": [
+    {
+     "prompt": "Find the diagonal.",
+     "answer": "40 inches"
+    },
+    {
+     "prompt": "A box is 36 inches wide and 30 inches tall. Find its diagonal to the nearest inch.",
+     "answer": "47 inches"
+    },
+    {
+     "prompt": "Can the screen fit flat in the box? Explain.",
+     "answer": "yes: 32 ≤ 36 and 24 ≤ 30"
+    },
+    {
+     "prompt": "What is the area of the screen?",
+     "answer": "768 square inches"
+    }
+   ],
+   "answer": "(a) 40 inches; (b) 47 inches; (c) yes: 32 ≤ 36 and 24 ≤ 30; (d) 768 square inches",
+   "solutionSteps": [
+    "√(32² + 24²) = √1600 = 40.",
+    "√(36² + 30²) = √2196 ≈ 46.9.",
+    "Compare width with width and height with height.",
+    "32 × 24 = 768."
+   ],
+   "standards": [
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-geo-s02-honors-018",
    "skillId": "geometry-applications-skill-02",
    "level": "honors",
@@ -4240,6 +4312,42 @@
     "8.G.B.7"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s03-cp2-o01",
+   "skillId": "geometry-applications-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A box is 4 cm long, 3 cm wide and 12 cm tall.",
+   "parts": [
+    {
+     "prompt": "Find the diagonal of the bottom of the box.",
+     "answer": "5 cm"
+    },
+    {
+     "prompt": "The bottom diagonal and the height form a right triangle. Name its hypotenuse.",
+     "answer": "the space diagonal of the box"
+    },
+    {
+     "prompt": "Find the space diagonal.",
+     "answer": "13 cm"
+    },
+    {
+     "prompt": "Will a 14-cm straw fit inside the box? Explain.",
+     "answer": "no: the longest segment inside is 13 cm"
+    }
+   ],
+   "answer": "(a) 5 cm; (b) the space diagonal of the box; (c) 13 cm; (d) no: the longest segment inside is 13 cm",
+   "solutionSteps": [
+    "√(4² + 3²) = 5.",
+    "It runs from a bottom corner to the opposite top corner.",
+    "√(5² + 12²) = 13.",
+    "14 > 13."
+   ],
+   "standards": [
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-geo-s03-cp1-001",
@@ -5481,6 +5589,42 @@
    "sourceNotes": "Original Claude-authored item (family: s3_cube_diagonal). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-geo-s03-honors-o01",
+   "skillId": "geometry-applications-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A cone has a slant height of 25 cm and a radius of 7 cm. A cylinder has the same radius and the same height as the cone.",
+   "parts": [
+    {
+     "prompt": "Find the height of the cone.",
+     "answer": "24 cm"
+    },
+    {
+     "prompt": "Find the volume of the cone in terms of π.",
+     "answer": "392π cubic cm"
+    },
+    {
+     "prompt": "Find the volume of the cylinder in terms of π.",
+     "answer": "1176π cubic cm"
+    },
+    {
+     "prompt": "Find the length of the longest segment that fits inside the cylinder.",
+     "answer": "√772 ≈ 27.8 cm"
+    }
+   ],
+   "answer": "(a) 24 cm; (b) 392π cubic cm; (c) 1176π cubic cm; (d) √772 ≈ 27.8 cm",
+   "solutionSteps": [
+    "√(25² - 7²) = √576 = 24.",
+    "(1/3)π(49)(24) = 392π.",
+    "π(49)(24) = 1176π.",
+    "Diameter 14 and height 24: √(14² + 24²) = √772."
+   ],
+   "standards": [
+    "8.G.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-geo-s04-cp2-001",
    "skillId": "geometry-applications-skill-04",
    "level": "cp2",
@@ -6077,6 +6221,42 @@
     "8.G.B.8"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s04-cp2-o01",
+   "skillId": "geometry-applications-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Points A(1, 2) and B(4, 6) are graphed on a coordinate plane.",
+   "parts": [
+    {
+     "prompt": "Find the horizontal distance between A and B.",
+     "answer": "3"
+    },
+    {
+     "prompt": "Find the vertical distance between A and B.",
+     "answer": "4"
+    },
+    {
+     "prompt": "Find the distance AB.",
+     "answer": "5"
+    },
+    {
+     "prompt": "Find the distance from A to C(1, -3).",
+     "answer": "5"
+    }
+   ],
+   "answer": "(a) 3; (b) 4; (c) 5; (d) 5",
+   "solutionSteps": [
+    "4 - 1 = 3.",
+    "6 - 2 = 4.",
+    "√(3² + 4²) = 5.",
+    "Same x-coordinate: 2 - (-3) = 5."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-geo-s04-cp1-001",
@@ -7282,6 +7462,42 @@
     "8.G.B.8"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_equidistant). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-geo-s04-honors-o01",
+   "skillId": "geometry-applications-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Triangle PQR has vertices P(-2, -1), Q(4, -1) and R(1, 3).",
+   "parts": [
+    {
+     "prompt": "Find PQ.",
+     "answer": "6"
+    },
+    {
+     "prompt": "Find PR and QR.",
+     "answer": "PR = 5 and QR = 5"
+    },
+    {
+     "prompt": "Classify the triangle by its sides.",
+     "answer": "isosceles"
+    },
+    {
+     "prompt": "Find the perimeter and the area.",
+     "answer": "perimeter 16; area 12"
+    }
+   ],
+   "answer": "(a) 6; (b) PR = 5 and QR = 5; (c) isosceles; (d) perimeter 16; area 12",
+   "solutionSteps": [
+    "4 - (-2) = 6.",
+    "√(3² + 4²) = 5 for both.",
+    "Two sides are 5.",
+    "6 + 5 + 5 = 16. Area: (1/2)(6)(4) = 12, since the height from R to PQ is 3 - (-1) = 4."
+   ],
+   "standards": [
+    "8.G.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-geo-s05-cp2-001",
@@ -9634,6 +9850,43 @@
     "8.EE.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-geo-s06-cp2-o01",
+   "skillId": "geometry-applications-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A cylindrical can has volume 72π cubic cm and radius 3 cm.",
+   "parts": [
+    {
+     "prompt": "Write the volume formula with the known values.",
+     "answer": "72π = π(3²)h"
+    },
+    {
+     "prompt": "Find the height.",
+     "answer": "8 cm"
+    },
+    {
+     "prompt": "Another can has the same radius and twice the height. Find its volume.",
+     "answer": "144π cubic cm"
+    },
+    {
+     "prompt": "A cone has the same radius and height as the first can. Find its volume.",
+     "answer": "24π cubic cm"
+    }
+   ],
+   "answer": "(a) 72π = π(3²)h; (b) 8 cm; (c) 144π cubic cm; (d) 24π cubic cm",
+   "solutionSteps": [
+    "V = πr²h.",
+    "72π = 9πh, so h = 8.",
+    "π(9)(16) = 144π.",
+    "(1/3)(72π) = 24π."
+   ],
+   "standards": [
+    "8.G.C.9",
+    "8.EE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-geo-s06-cp1-001",

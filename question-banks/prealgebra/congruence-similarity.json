@@ -579,6 +579,43 @@
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-cgs-s01-cp2-o01",
+   "skillId": "congruence-similarity-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Triangle ABC has vertices A(1, 2), B(4, 2) and C(1, 6). It is translated 3 units right to make triangle A′B′C′.",
+   "parts": [
+    {
+     "prompt": "Find the coordinates of A′, B′ and C′.",
+     "answer": "A′(4, 2), B′(7, 2), C′(4, 6)"
+    },
+    {
+     "prompt": "Find AB and A′B′.",
+     "answer": "AB = 3 and A′B′ = 3"
+    },
+    {
+     "prompt": "Find AC and A′C′.",
+     "answer": "AC = 4 and A′C′ = 4"
+    },
+    {
+     "prompt": "Are the triangles congruent? Explain.",
+     "answer": "yes: a translation is a rigid transformation, so lengths and angles stay the same"
+    }
+   ],
+   "answer": "(a) A′(4, 2), B′(7, 2), C′(4, 6); (b) AB = 3 and A′B′ = 3; (c) AC = 4 and A′C′ = 4; (d) yes: a translation is a rigid transformation, so lengths and angles stay the same",
+   "solutionSteps": [
+    "Add 3 to each x-coordinate.",
+    "AB: 4 - 1 = 3. A′B′: 7 - 4 = 3.",
+    "AC: 6 - 2 = 4. A′C′: 6 - 2 = 4.",
+    "Rigid transformations keep side lengths and angle measures."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s01-cp1-001",
    "skillId": "congruence-similarity-skill-01",
    "level": "cp1",
@@ -2706,6 +2743,43 @@
    }
   },
   {
+   "id": "pa8-cgs-s02-cp2-o01",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point P(3, 5) is rotated about the origin.",
+   "parts": [
+    {
+     "prompt": "Find P′ after a rotation of 90° counterclockwise.",
+     "answer": "(-5, 3)"
+    },
+    {
+     "prompt": "Find P′ after a rotation of 180°.",
+     "answer": "(-3, -5)"
+    },
+    {
+     "prompt": "Find P′ after a rotation of 90° clockwise.",
+     "answer": "(5, -3)"
+    },
+    {
+     "prompt": "Which rotation gives the same image as 270° counterclockwise?",
+     "answer": "90° clockwise"
+    }
+   ],
+   "answer": "(a) (-5, 3); (b) (-3, -5); (c) (5, -3); (d) 90° clockwise",
+   "solutionSteps": [
+    "(x, y) → (-y, x).",
+    "(x, y) → (-x, -y).",
+    "(x, y) → (y, -x).",
+    "Turning 270° one way ends where turning 90° the other way ends."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s02-cp1-001",
    "skillId": "congruence-similarity-skill-02",
    "level": "cp1",
@@ -4589,6 +4663,43 @@
    "sourceNotes": "Original Claude-authored item (family: s2_original_from_image). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-cgs-s02-honors-o01",
+   "skillId": "congruence-similarity-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Triangle ABC has vertices A(2, 1), B(5, 1) and C(2, 4). It is rotated 90° counterclockwise about the origin to make A′B′C′, and then A′B′C′ is rotated 180° about the origin to make A″B″C″.",
+   "parts": [
+    {
+     "prompt": "Find A′, B′ and C′.",
+     "answer": "A′(-1, 2), B′(-1, 5), C′(-4, 2)"
+    },
+    {
+     "prompt": "Find A″, B″ and C″.",
+     "answer": "A″(1, -2), B″(1, -5), C″(4, -2)"
+    },
+    {
+     "prompt": "Which single rotation maps ABC to A″B″C″?",
+     "answer": "90° clockwise (270° counterclockwise) about the origin"
+    },
+    {
+     "prompt": "Find the length of B″C″ and explain why it equals BC.",
+     "answer": "3√2; rotations keep lengths"
+    }
+   ],
+   "answer": "(a) A′(-1, 2), B′(-1, 5), C′(-4, 2); (b) A″(1, -2), B″(1, -5), C″(4, -2); (c) 90° clockwise (270° counterclockwise) about the origin; (d) 3√2; rotations keep lengths",
+   "solutionSteps": [
+    "(x, y) → (-y, x).",
+    "(x, y) → (-x, -y).",
+    "90° + 180° = 270° counterclockwise, which is 90° clockwise. Check: A(2, 1) → (1, -2).",
+    "BC = √(3² + 3²) = 3√2, and rotations are rigid."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s03-cp2-001",
    "skillId": "congruence-similarity-skill-03",
    "level": "cp2",
@@ -5367,6 +5478,43 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s03-cp2-o01",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point Q(4, -3) is reflected.",
+   "parts": [
+    {
+     "prompt": "Find the image after a reflection over the x-axis.",
+     "answer": "(4, 3)"
+    },
+    {
+     "prompt": "Find the image after a reflection over the y-axis.",
+     "answer": "(-4, -3)"
+    },
+    {
+     "prompt": "Find the image after a reflection over the line y = x.",
+     "answer": "(-3, 4)"
+    },
+    {
+     "prompt": "How far is Q from the x-axis, and how far is its image from the x-axis?",
+     "answer": "3 units and 3 units"
+    }
+   ],
+   "answer": "(a) (4, 3); (b) (-4, -3); (c) (-3, 4); (d) 3 units and 3 units",
+   "solutionSteps": [
+    "Over the x-axis: (x, y) → (x, -y).",
+    "Over the y-axis: (x, y) → (-x, y).",
+    "Over y = x: (x, y) → (y, x).",
+    "A reflection keeps distance to the mirror line."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s03-cp1-001",
@@ -7068,6 +7216,43 @@
    "sourceNotes": "Original Claude-authored item (family: s3_mirror_y_equals). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-cgs-s03-honors-o01",
+   "skillId": "congruence-similarity-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Segment AB has endpoints A(-2, 1) and B(4, 3). It is reflected over the line x = 1 to make A′B′.",
+   "parts": [
+    {
+     "prompt": "Find A′ and B′.",
+     "answer": "A′(4, 1) and B′(-2, 3)"
+    },
+    {
+     "prompt": "Find the midpoint of AA′ and explain where it lies.",
+     "answer": "(1, 1); on the line x = 1"
+    },
+    {
+     "prompt": "Find the length of A′B′.",
+     "answer": "2√10"
+    },
+    {
+     "prompt": "A′B′ is then reflected over the x-axis. Find the final endpoints.",
+     "answer": "(4, -1) and (-2, -3)"
+    }
+   ],
+   "answer": "(a) A′(4, 1) and B′(-2, 3); (b) (1, 1); on the line x = 1; (c) 2√10; (d) (4, -1) and (-2, -3)",
+   "solutionSteps": [
+    "x′ = 2(1) - x: -2 → 4 and 4 → -2; y stays the same.",
+    "The mirror line is the perpendicular bisector of AA′.",
+    "√((4 - (-2))² + (3 - 1)²) = √40 = 2√10.",
+    "(x, y) → (x, -y)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s04-cp2-001",
    "skillId": "congruence-similarity-skill-04",
    "level": "cp2",
@@ -7867,6 +8052,43 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s04-cp2-o01",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point R(-3, 2) is translated by the rule (x, y) → (x + 5, y - 4).",
+   "parts": [
+    {
+     "prompt": "Describe the translation in words.",
+     "answer": "5 units right and 4 units down"
+    },
+    {
+     "prompt": "Find R′.",
+     "answer": "(2, -2)"
+    },
+    {
+     "prompt": "S′(6, 1) is the image of S. Find S.",
+     "answer": "(1, 5)"
+    },
+    {
+     "prompt": "Write the rule that moves R′ back to R.",
+     "answer": "(x, y) → (x - 5, y + 4)"
+    }
+   ],
+   "answer": "(a) 5 units right and 4 units down; (b) (2, -2); (c) (1, 5); (d) (x, y) → (x - 5, y + 4)",
+   "solutionSteps": [
+    "+5 on x moves right; -4 on y moves down.",
+    "(-3 + 5, 2 - 4) = (2, -2).",
+    "Undo the rule: (6 - 5, 1 + 4).",
+    "Reverse each change."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s04-cp1-001",
@@ -9133,6 +9355,43 @@
    "sourceNotes": "Original Claude-authored item (family: s4_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
+   "id": "pa8-cgs-s04-cp1-o01",
+   "skillId": "congruence-similarity-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Triangle JKL has vertices J(-4, 1), K(-1, 1) and L(-4, 5). A translation maps J to J′(2, -1).",
+   "parts": [
+    {
+     "prompt": "Write the translation rule.",
+     "answer": "(x, y) → (x + 6, y - 2)"
+    },
+    {
+     "prompt": "Find K′ and L′.",
+     "answer": "K′(5, -1) and L′(2, 3)"
+    },
+    {
+     "prompt": "Find KL and K′L′.",
+     "answer": "KL = 5 and K′L′ = 5"
+    },
+    {
+     "prompt": "How far does each vertex move?",
+     "answer": "2√10 units"
+    }
+   ],
+   "answer": "(a) (x, y) → (x + 6, y - 2); (b) K′(5, -1) and L′(2, 3); (c) KL = 5 and K′L′ = 5; (d) 2√10 units",
+   "solutionSteps": [
+    "2 - (-4) = 6 and -1 - 1 = -2.",
+    "Apply the rule to K and L.",
+    "√(3² + 4²) = 5 for both.",
+    "√(6² + 2²) = √40 = 2√10."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-cgs-s04-honors-019",
    "skillId": "congruence-similarity-skill-04",
    "level": "honors",
@@ -10157,6 +10416,43 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-cgs-s05-cp2-o01",
+   "skillId": "congruence-similarity-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Rectangle ABCD has vertices A(0, 0), B(4, 0), C(4, 2) and D(0, 2). It is dilated with scale factor 3 centered at the origin.",
+   "parts": [
+    {
+     "prompt": "Find the image of C.",
+     "answer": "(12, 6)"
+    },
+    {
+     "prompt": "Find the length and width of the image.",
+     "answer": "12 and 6"
+    },
+    {
+     "prompt": "Is the image an enlargement or a reduction?",
+     "answer": "an enlargement"
+    },
+    {
+     "prompt": "Find the perimeter of the original and of the image.",
+     "answer": "12 and 36"
+    }
+   ],
+   "answer": "(a) (12, 6); (b) 12 and 6; (c) an enlargement; (d) 12 and 36",
+   "solutionSteps": [
+    "Multiply both coordinates by 3.",
+    "4 × 3 = 12 and 2 × 3 = 6.",
+    "The scale factor 3 is greater than 1.",
+    "2(4 + 2) = 12 and 2(12 + 6) = 36 (3 times as long)."
+   ],
+   "standards": [
+    "8.G.A.3",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s05-cp1-001",
@@ -12297,6 +12593,43 @@
     "8.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-cgs-s06-cp2-o01",
+   "skillId": "congruence-similarity-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Point A(2, 3) is reflected over the y-axis and then translated 4 units down.",
+   "parts": [
+    {
+     "prompt": "Find the image after the reflection.",
+     "answer": "(-2, 3)"
+    },
+    {
+     "prompt": "Find the final image.",
+     "answer": "(-2, -1)"
+    },
+    {
+     "prompt": "Do the steps in the other order. What is the final image?",
+     "answer": "(-2, -1)"
+    },
+    {
+     "prompt": "Is a figure moved by these two steps congruent to the original? Explain.",
+     "answer": "yes: both steps are rigid transformations"
+    }
+   ],
+   "answer": "(a) (-2, 3); (b) (-2, -1); (c) (-2, -1); (d) yes: both steps are rigid transformations",
+   "solutionSteps": [
+    "Over the y-axis: (x, y) → (-x, y).",
+    "Subtract 4 from y.",
+    "Translate: (2, -1). Reflect: (-2, -1).",
+    "Reflections and translations keep lengths and angles."
+   ],
+   "standards": [
+    "8.G.A.2",
+    "8.G.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-cgs-s06-cp1-001",

@@ -6152,6 +6152,42 @@
    "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
   },
   {
+   "id": "pa8-sys-s04-cp2-o01",
+   "skillId": "systems-linear-equations-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Solve by elimination: x + y = 10 and x - y = 4.",
+   "parts": [
+    {
+     "prompt": "Add the two equations. What equation results?",
+     "answer": "2x = 14"
+    },
+    {
+     "prompt": "Solve for x.",
+     "answer": "x = 7"
+    },
+    {
+     "prompt": "Find y.",
+     "answer": "y = 3"
+    },
+    {
+     "prompt": "Check the solution in the second equation.",
+     "answer": "7 - 3 = 4"
+    }
+   ],
+   "answer": "(a) 2x = 14; (b) x = 7; (c) y = 3; (d) 7 - 3 = 4",
+   "solutionSteps": [
+    "The y-terms cancel.",
+    "14 ÷ 2.",
+    "7 + y = 10.",
+    "True."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-sys-s04-cp1-001",
    "skillId": "systems-linear-equations-skill-04",
    "level": "cp1",
@@ -7320,6 +7356,42 @@
    "sourceNotes": "Original Claude-authored item (family: s4_ticket_context). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-sys-s04-honors-o01",
+   "skillId": "systems-linear-equations-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Solve by elimination: 3x + 4y = 10 and 5x - 6y = 4.",
+   "parts": [
+    {
+     "prompt": "Which multipliers make the y-terms opposites?",
+     "answer": "multiply the first by 3 and the second by 2"
+    },
+    {
+     "prompt": "Write the new equations and add them.",
+     "answer": "9x + 12y = 30 and 10x - 12y = 8; 19x = 38"
+    },
+    {
+     "prompt": "Solve for x and y.",
+     "answer": "x = 2, y = 1"
+    },
+    {
+     "prompt": "Check in the second equation.",
+     "answer": "5(2) - 6(1) = 4"
+    }
+   ],
+   "answer": "(a) multiply the first by 3 and the second by 2; (b) 9x + 12y = 30 and 10x - 12y = 8; 19x = 38; (c) x = 2, y = 1; (d) 5(2) - 6(1) = 4",
+   "solutionSteps": [
+    "12y and -12y.",
+    "Add.",
+    "19x = 38; 3(2) + 4y = 10 gives y = 1.",
+    "True."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-sys-s05-cp2-001",
    "skillId": "systems-linear-equations-skill-05",
    "level": "cp2",
@@ -7839,6 +7911,42 @@
     "8.EE.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s5_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-sys-s05-cp2-o01",
+   "skillId": "systems-linear-equations-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Compare slopes and y-intercepts to classify each system.",
+   "parts": [
+    {
+     "prompt": "y = 2x + 1 and y = 2x - 3",
+     "answer": "no solution"
+    },
+    {
+     "prompt": "y = 3x + 2 and y = -x + 2",
+     "answer": "one solution"
+    },
+    {
+     "prompt": "y = x + 4 and 2y = 2x + 8",
+     "answer": "infinitely many solutions"
+    },
+    {
+     "prompt": "Write a second equation so y = -2x + 5 has no solution with it.",
+     "answer": "for example y = -2x + 1"
+    }
+   ],
+   "answer": "(a) no solution; (b) one solution; (c) infinitely many solutions; (d) for example y = -2x + 1",
+   "solutionSteps": [
+    "Same slope, different y-intercepts: parallel lines.",
+    "Different slopes.",
+    "Divide the second by 2: y = x + 4, the same line.",
+    "Same slope, different y-intercept."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-sys-s05-cp1-001",
@@ -8494,6 +8602,42 @@
     "8.EE.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s5_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
+  },
+  {
+   "id": "pa8-sys-s05-cp1-o01",
+   "skillId": "systems-linear-equations-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Consider the system 2x + 3y = 6 and 4x + 6y = k.",
+   "parts": [
+    {
+     "prompt": "Write the first equation in slope-intercept form.",
+     "answer": "y = (-2/3)x + 2"
+    },
+    {
+     "prompt": "For which value of k are there infinitely many solutions?",
+     "answer": "k = 12"
+    },
+    {
+     "prompt": "For which values of k is there no solution?",
+     "answer": "any k other than 12"
+    },
+    {
+     "prompt": "Can this system ever have exactly one solution? Explain.",
+     "answer": "no: the slopes are always equal"
+    }
+   ],
+   "answer": "(a) y = (-2/3)x + 2; (b) k = 12; (c) any k other than 12; (d) no: the slopes are always equal",
+   "solutionSteps": [
+    "3y = -2x + 6.",
+    "The second equation is twice the first.",
+    "Same slope, different line.",
+    "Both lines have slope -2/3."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-sys-s05-honors-006",
@@ -10351,6 +10495,42 @@
    "sourceNotes": "Original Claude-authored item (family: s6_tickets_then_compare). Rewritten from a Support template (was s6_plans) as a Standard item with an added step: 8th Grade Math audit follow-up 2026-11-19 (Standard, batch E); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-sys-s06-cp1-o01",
+   "skillId": "systems-linear-equations-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A school sold 200 tickets to a play. Adult tickets cost $8 and student tickets cost $5. The school collected $1,270.",
+   "parts": [
+    {
+     "prompt": "Write a system of equations (a adult, s student).",
+     "answer": "a + s = 200 and 8a + 5s = 1270"
+    },
+    {
+     "prompt": "Solve for a.",
+     "answer": "a = 90"
+    },
+    {
+     "prompt": "Find s.",
+     "answer": "s = 110"
+    },
+    {
+     "prompt": "How much money came from student tickets?",
+     "answer": "$550"
+    }
+   ],
+   "answer": "(a) a + s = 200 and 8a + 5s = 1270; (b) a = 90; (c) s = 110; (d) $550",
+   "solutionSteps": [
+    "Count and money.",
+    "8a + 5(200 - a) = 1270 gives 3a = 270.",
+    "200 - 90.",
+    "110 × 5."
+   ],
+   "standards": [
+    "8.EE.C.8c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
+  },
+  {
    "id": "pa8-sys-s06-honors-018",
    "skillId": "systems-linear-equations-skill-06",
    "level": "honors",
@@ -10574,6 +10754,42 @@
     "8.EE.C.8c"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_equal_cost). 8th Grade Math audit 2026-11-19 (#3, Advanced); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s06-honors-o01",
+   "skillId": "systems-linear-equations-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A chemist mixes a 20% acid solution with a 50% acid solution to make 30 liters of a 30% solution.",
+   "parts": [
+    {
+     "prompt": "Write a system (x liters of 20%, y liters of 50%).",
+     "answer": "x + y = 30 and (1/5)x + (1/2)y = 9"
+    },
+    {
+     "prompt": "Solve for x and y.",
+     "answer": "x = 20, y = 10"
+    },
+    {
+     "prompt": "Check the amount of acid.",
+     "answer": "(1/5)(20) + (1/2)(10) = 9"
+    },
+    {
+     "prompt": "How many liters of 50% solution would make 30 L of a 40% solution instead?",
+     "answer": "20 liters"
+    }
+   ],
+   "answer": "(a) x + y = 30 and (1/5)x + (1/2)y = 9; (b) x = 20, y = 10; (c) (1/5)(20) + (1/2)(10) = 9; (d) 20 liters",
+   "solutionSteps": [
+    "20% = 1/5, 50% = 1/2, and 30% of 30 L is 9 L of acid.",
+    "Substitute y = 30 - x: (1/5)x + 15 - (1/2)x = 9, so (3/10)x = 6.",
+    "4 L + 5 L = 9 L.",
+    "(1/5)(30 - y) + (1/2)y = 12 gives (3/10)y = 6."
+   ],
+   "standards": [
+    "8.EE.C.8c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-sle-s02-cp2-p001",
@@ -11189,6 +11405,43 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-sys-s02-cp2-o01",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Solve the system by graphing: y = x + 1 and y = -x + 5.",
+   "parts": [
+    {
+     "prompt": "Give the slope and y-intercept of each line.",
+     "answer": "y = x + 1: slope 1, y-intercept 1; y = -x + 5: slope -1, y-intercept 5"
+    },
+    {
+     "prompt": "Where do the lines cross?",
+     "answer": "(2, 3)"
+    },
+    {
+     "prompt": "Check the point in both equations.",
+     "answer": "3 = 2 + 1 and 3 = -2 + 5"
+    },
+    {
+     "prompt": "How many solutions does the system have?",
+     "answer": "one"
+    }
+   ],
+   "answer": "(a) y = x + 1: slope 1, y-intercept 1; y = -x + 5: slope -1, y-intercept 5; (b) (2, 3); (c) 3 = 2 + 1 and 3 = -2 + 5; (d) one",
+   "solutionSteps": [
+    "Read from y = mx + b.",
+    "x + 1 = -x + 5 gives x = 2.",
+    "Both are true.",
+    "The slopes are different."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   },
   {
    "id": "pa8-sle-s02-cp1-p001",
@@ -12415,6 +12668,43 @@
     "8.EE.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s2_intersection_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-o01",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Phone plan A costs $20 plus $0.10 per minute. Plan B costs $35 plus $0.05 per minute.",
+   "parts": [
+    {
+     "prompt": "Write an equation for each plan (y dollars, x minutes).",
+     "answer": "A: y = 0.10x + 20; B: y = 0.05x + 35"
+    },
+    {
+     "prompt": "Find the intersection point of the graphs.",
+     "answer": "(300, 50)"
+    },
+    {
+     "prompt": "What does the intersection mean?",
+     "answer": "at 300 minutes both plans cost $50"
+    },
+    {
+     "prompt": "Which plan is cheaper for 500 minutes, and by how much?",
+     "answer": "Plan B, by $10 ($60 vs $70)"
+    }
+   ],
+   "answer": "(a) A: y = 0.10x + 20; B: y = 0.05x + 35; (b) (300, 50); (c) at 300 minutes both plans cost $50; (d) Plan B, by $10 ($60 vs $70)",
+   "solutionSteps": [
+    "Fixed fee plus rate times minutes.",
+    "0.10x + 20 = 0.05x + 35 gives 0.05x = 15.",
+    "Same input, same output.",
+    "A: 0.10(500) + 20 = 70. B: 0.05(500) + 35 = 60."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_open_batch_f). 8th Grade Math audit follow-up 2026-11-19 (#15, open response, batch F); answers checked when generated (tools/grade8-audit-20261119/batch_f.py)."
   }
  ]
 }
