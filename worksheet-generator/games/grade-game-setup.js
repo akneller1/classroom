@@ -2,7 +2,7 @@
 (function(root){'use strict';
 var p=new URLSearchParams(root.location.search);
 var course=p.get('course'),topic=p.get('topic'),game=p.get('game')||'tic-tac-toe';
-var validCourses={math6:'Grade 6 Math',prealgebra7:'Grade 7 Pre-Algebra',prealgebra:'Grade 8 Math'};
+var validCourses={math6:'Grade 6 Math',prealgebra7:'7th Grade Math',prealgebra:'Grade 8 Math'};
 var validGames={'tic-tac-toe':true,'connect-four':true,'picture-reveal':true,flashcards:true,showdown:true};
 var entries=root.MK_LEGACY_CROSSWALK_AUDIT.inspect(root.MK_SKILL_CROSSWALK,root.MKMENU);
 var entry=entries.find(function(x){return x.key===topic&&x.targets.some(function(t){return t&&t.courseId===course})});

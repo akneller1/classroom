@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 9 cheat sheet (Spatial Thinking). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 9 cheat sheet (Spatial Thinking). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-spatial-thinking",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 9,
  "unitName": "Spatial Thinking",
  "focus": "points, lines, planes, angle pairs, parallel lines and polygons",

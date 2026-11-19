@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 13 cheat sheet (Nonlinear Functions and Polynomials). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 13 cheat sheet (Nonlinear Functions and Polynomials). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-nonlinear-functions-polynomials",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 13,
  "unitName": "Nonlinear Functions and Polynomials",
  "focus": "sequences, nonlinear graphs and exponential growth and decay",

@@ -446,7 +446,7 @@ ${geoPacingMain(c.id, (t) => { const uu = c.units.find((x) => x.title === t); re
 
 // ---------- 7th grade hub ----------
 // Standard-path 7th-grade teachers have no "7th Grade Math" course: every Grade 7 standard is taught in
-// Pre-Algebra (accelerated 7). This page lists those skills by Grade 7 domain and links each to its unit page.
+// 7th Grade Math (accelerated). This page lists those skills by Grade 7 domain and links each to its unit page.
 {
   const pa7 = catalog.find((c) => c.id === "prealgebra7");
   if (pa7) {
@@ -494,9 +494,9 @@ ${courseJsonLd({ siteUrl: SITE_URL, courseName: "7th Grade Math", courseUrl: url
 <main>
 <h1>7th Grade Math Worksheets, Games &amp; Lessons</h1>
 <p class="lede">${htmlEsc(description)}</p>
-<p>Every Grade 7 standard is taught in the <a href="../prealgebra7/">Pre-Algebra (Grade 7)</a> course, the accelerated 7th-grade path that also covers most of Grade 8. If your class follows the standard path, use the skills below: each one links to its unit page with worksheets, games, lesson plans and practice tests at the Support, Standard and Advanced levels. For the next year, see <a href="../prealgebra/">8th Grade Math</a>; for review, see <a href="../math6/">6th Grade Math</a>.</p>
+<p>Every Grade 7 standard is taught in the <a href="../prealgebra7/">7th Grade Math</a> course, the accelerated 7th-grade path that also covers most of Grade 8. If your class follows the standard path, use the skills below: each one links to its unit page with worksheets, games, lesson plans and practice tests at the Support, Standard and Advanced levels. For the next year, see <a href="../prealgebra/">8th Grade Math</a>; for review, see <a href="../math6/">6th Grade Math</a>.</p>
 ${sections}
-<a class="open-app" href="../prealgebra7/">See the full Pre-Algebra (Grade 7) course</a>
+<a class="open-app" href="../prealgebra7/">See the full 7th Grade Math course</a>
 </main>
 <footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
 </div>

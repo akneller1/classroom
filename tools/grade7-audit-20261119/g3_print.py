@@ -129,7 +129,7 @@ def reference_html(standalone=True):
     if not standalone:
         return body
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grade 7 Reference Sheet · Mr. K’s Classroom</title>'
-            f'<style>{CSS}</style></head><body><div class="eyebrow">Pre-Algebra · Reference</div><h1>Grade 7 Reference Sheet</h1>'
+            f'<style>{CSS}</style></head><body><div class="eyebrow">7th Grade Math · Reference</div><h1>Grade 7 Reference Sheet</h1>'
             '<p>Area, circle, volume and angle facts, percent and probability formulas, and unit conversions on one page. Keep it with your notes and use it on the practice tests.</p>'
             f'{body}</body></html>')
 
@@ -224,7 +224,7 @@ def cr_html(c, n, key):
 def test_page(ex, items, names, key):
     title = f'Grade 7 Practice Test {ex.upper()}'
     P = [f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{title}{" · Teacher key" if key else ""}</title><style>{CSS}</style></head><body>']
-    P.append(f'<div class="cover"><div class="eyebrow">Pre-Algebra · MCAS review</div><h1>{title}{" — Teacher Key" if key else ""}</h1>')
+    P.append(f'<div class="cover"><div class="eyebrow">7th Grade Math · MCAS review</div><h1>{title}{" — Teacher Key" if key else ""}</h1>')
     if not key:
         P.append('<div class="name"><span>Name</span><span>Date</span><span>Period</span></div>')
     P.append('<table><tr><th>Session</th><th>Questions</th><th>Tools</th><th>Points</th></tr>'
@@ -256,7 +256,7 @@ def test_page(ex, items, names, key):
         P.append(cr_html(CR[ex][si], n, key) + '</ol></div>')
     if not key:
         P.append('<div class="section">' + reference_html(False) + '</div>')
-    P.append(f'<p class="foot">Mr. K’s Classroom · {title}{" · Teacher key" if key else ""}. Questions 1–19 and 21–39 come from the Pre-Algebra question banks, whose answer keys are recomputed in CI (verify_keys.py).</p></body></html>')
+    P.append(f'<p class="foot">Mr. K’s Classroom · {title}{" · Teacher key" if key else ""}. Questions 1–19 and 21–39 come from the 7th Grade Math question banks, whose answer keys are recomputed in CI (verify_keys.py).</p></body></html>')
     return ''.join(P)
 
 

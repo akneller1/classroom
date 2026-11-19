@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 8 cheat sheet (Linear Functions and Graphing). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 8 cheat sheet (Linear Functions and Graphing). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-linear-functions-graphing",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 8,
  "unitName": "Linear Functions and Graphing",
  "focus": "relations, functions, two-variable equations, slope and intercepts",

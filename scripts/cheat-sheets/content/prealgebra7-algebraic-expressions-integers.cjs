@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 1 cheat sheet (Algebraic Expressions and Integers). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 1 cheat sheet (Algebraic Expressions and Integers). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-algebraic-expressions-integers",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 1,
  "unitName": "Algebraic Expressions and Integers",
  "focus": "place value, variables, expressions and the order of operations",

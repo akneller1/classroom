@@ -6,7 +6,7 @@
   var NS = G.MKMENU;
   if (!NS || !Array.isArray(NS.CATALOG)) return;
   var ORDER = ['1st Grade Math', '2nd Grade Math', '3rd Grade Math', '4th Grade Math', '5th Grade Math', '6th Grade Math',
-    'Pre-Algebra', '8th Grade Math', 'Algebra 1', 'Geometry', 'Algebra 2', 'Precalculus', 'Calculus',
+    '7th Grade Math', '8th Grade Math', 'Algebra 1', 'Geometry', 'Algebra 2', 'Precalculus', 'Calculus',
     'Statistics', 'Discrete Math', 'Financial Algebra'];
   var rank = function (g) { var i = ORDER.indexOf(g && g.course); return i < 0 ? ORDER.length : i; };
   var sorted = NS.CATALOG.map(function (g, i) { return [g, i]; })

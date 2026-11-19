@@ -17,7 +17,7 @@
   var params = new URLSearchParams(location.search);
   var COURSES = {
     grade1: '1st Grade Math', grade2: '2nd Grade Math', grade3: '3rd Grade Math', grade4: '4th Grade Math',
-    grade5: '5th Grade Math', math6: '6th Grade Math', prealgebra7: 'Pre-Algebra', prealgebra: '8th Grade Math',
+    grade5: '5th Grade Math', math6: '6th Grade Math', prealgebra7: '7th Grade Math', prealgebra: '8th Grade Math',
     algebra: 'Algebra 1', geometry: 'Geometry', algebra2: 'Algebra 2', precalculus: 'Precalculus', calculus: 'Calculus',
     statistics: 'Statistics', discrete: 'Discrete Math', 'financial-algebra': 'Financial Algebra'
   };

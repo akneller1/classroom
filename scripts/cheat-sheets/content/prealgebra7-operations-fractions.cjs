@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 5 cheat sheet (Operations with Fractions). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 5 cheat sheet (Operations with Fractions). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-operations-fractions",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 5,
  "unitName": "Operations with Fractions",
  "focus": "comparing rational numbers, fractions and decimals, the four operations",

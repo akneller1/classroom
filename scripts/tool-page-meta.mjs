@@ -20,7 +20,7 @@ export const TOOL_DESCRIPTIONS = {
   "worksheet-generator/practice-test.html": "A self-checking practice test for any unit: answer, compare with worked solutions, see strengths by skill and take a targeted reassessment.",
   "worksheet-generator/algebra2-game.html": "Algebra 2 review games: Showdown, Connect 4, Tic-Tac-Toe and Picture Reveal with checked questions and worked solutions.",
   "worksheet-generator/algebra2-practice.html": "An Algebra 2 assessment readiness check: answer questions by skill, review worked solutions and see what to practice next.",
-  "worksheet-generator/middle-school-game.html": "Review games for 6th Grade, Pre-Algebra and 8th Grade Math with checked questions and worked solutions.",
+  "worksheet-generator/middle-school-game.html": "Review games for 6th Grade, 7th Grade Math and 8th Grade Math with checked questions and worked solutions.",
   "worksheet-generator/asteroid-blaster.html": "Asteroid Blaster: a fast arcade review game where students answer math questions to clear asteroids.",
   "worksheet-generator/millionaire.html": "Math Millionaire: a whole-class game show with checked questions, lifelines and worked solutions.",
   "worksheet-generator/plot-practice.html": "Graphing practice: plot points, lines and curves on a coordinate grid and get instant feedback.",

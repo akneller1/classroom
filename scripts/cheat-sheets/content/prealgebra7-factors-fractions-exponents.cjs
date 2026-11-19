@@ -1,7 +1,7 @@
-/* Pre-Algebra Unit 4 cheat sheet (Factors, Fractions, and Exponents). Every worked example is checked by build.cjs. */
+/* 7th Grade Math Unit 4 cheat sheet (Factors, Fractions, and Exponents). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-factors-fractions-exponents",
- "course": "Pre-Algebra",
+ "course": "7th Grade Math",
  "unitNo": 4,
  "unitName": "Factors, Fractions, and Exponents",
  "focus": "divisibility, prime factorization, GCF and simplifying fractions",
