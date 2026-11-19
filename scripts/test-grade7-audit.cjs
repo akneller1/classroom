@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Grade 7 audit (2026-11-19), batch G1: #1 practice-test grading of mixed numbers, inequalities and repeating decimals,
+// Grade 7 audit (2026-11-19). Batch G1: #1 practice-test grading of mixed numbers, inequalities and repeating decimals,
 // #11 standards tags that match the items, #12 Place Value at grade level, #19 vocabulary, #20 text clean-up.
 // (#2, the key checker, runs as python3 tools/grade7-audit-20261119/verify_keys.py.)
 'use strict';
@@ -83,4 +83,47 @@ for (const t of ['constant of proportionality', 'proportional relationship', 'sc
   'population', 'inference', 'additive inverse', 'percent error', 'dilation'])
   assert(terms.some(r => r[0].trim().toLowerCase() === t), 'vocabulary: ' + t);
 
-console.log(`PASS Grade 7 audit G1: ${cases.length} grading cases, ${auto}/${sa.length} short answers auto-graded; text clean-up; Place Value at grade level; standards tags; ${terms.length} vocabulary terms`);
+// ---------- Batch G2: #3 levels, #4–#10 standards, #13 figures ----------
+const isNew = q => /-(g|h)\d{2}$/.test(q.id);
+const tagged = s => all.filter(q => q.standards.includes(s));
+const mustHave = { '7.G.A.2': 12, '7.G.A.3': 10, '7.RP.A.2a': 2, '7.RP.A.2b': 4, '7.RP.A.2c': 2, '7.RP.A.2d': 2, '8.EE.B.5': 2, '7.NS.A.1a': 3, '7.NS.A.2c': 3,
+  '7.SP.C.8c': 3, '8.G.A.3': 3, '8.G.A.4': 2, '8.SP.A.4': 3, '8.F.A.2': 3, '8.F.B.5': 3, '8.EE.C.8c': 3, '8.SP.A.2': 3, '8.EE.C.7a': 3 };
+for (const [s, n] of Object.entries(mustHave)) assert(tagged(s).length >= n, `${s}: ${tagged(s).length} items`);
+assert(tagged('7.G.A.2').filter(q => /triangle/i.test(q.prompt)).length >= 12, '7.G.A.2 items are about triangles');
+assert(tagged('7.G.A.3').filter(q => /cross-section|sliced/i.test(q.prompt)).length >= 10, '7.G.A.3 items are about cross-sections');
+const pct = re => all.filter(q => re.test(q.prompt)).length;
+assert(pct(/percent error/i) >= 6 && pct(/commission/i) >= 3 && pct(/\btip\b/i) >= 3 && pct(/raised \d+%\. Later the new price is lowered/) >= 3, 'percent contexts');
+assert(all.filter(q => q.skillId === 'spatial-thinking-skill-02' && q.diagram && /x/.test(q.diagram.spec.alt)).length >= 8, 'angle equations with figures');
+// every Grade 7 and Grade 8 standard in the site's list has items
+const std = ctx.window.MKSTD, codes = Object.keys(rd('worksheet-generator/menu/standards.js').match(/'[78]\.[A-Z]+\.[A-Z]\.\d+[a-z]?'/g).reduce((o, x) => (o[x.slice(1, -1)] = 1, o), {}));
+const leaves = codes.filter(c => !codes.some(o => o !== c && o.startsWith(c) && o.length === c.length + 1));
+const used = new Set(all.flatMap(q => q.standards));
+const covered = c => used.has(c) || [...used].some(u => u.startsWith(c) && u.length === c.length + 1);
+assert.deepEqual(leaves.filter(c => !covered(c)), [], 'Grade 7 and 8 standards without items');
+// #13 figures
+for (const q of all.filter(q => isNew(q) && q.diagram)) {
+  const f = path.join(ROOT, q.diagram.spec.src);
+  assert(fs.existsSync(f) && fs.statSync(f).size > 2000 && q.diagram.spec.alt.length > 40, q.id + ' figure and alt text');
+}
+assert(all.filter(q => isNew(q) && q.diagram).length >= 25, 'new figures');
+for (const q of all.filter(q => isNew(q) && q.format === 'multiple-choice')) {
+  assert.equal(new Set(q.options.map(o => o.text)).size, 4, q.id + ' four distinct options');
+  assert.equal(q.options.filter(o => o.correct).length, 1, q.id);
+  assert.equal(q.options.find(o => o.correct).text, q.answer, q.id);
+}
+// #3 levels
+const skills = [...new Set(all.map(q => q.skillId))];
+for (const sid of skills.filter(s => s !== 'algebraic-expressions-integers-skill-01'))
+  assert(all.filter(q => q.skillId === sid && /-honors-h\d{2}$/.test(q.id) && (q.solutionSteps || []).length >= 3).length >= 2, sid + ' has two new multi-step Honors items');
+const mean = (lv, f) => { const xs = all.filter(q => q.level === lv); return xs.reduce((a, q) => a + f(q), 0) / xs.length; };
+const steps = q => (q.solutionSteps || []).length, ctxt = q => /\b(buys|costs?|earns?|saves?|pays?|sold|charges?|invests?|survey|students|store|team|garden|tank|ramp|ladder|recipe)\b/i.test(q.prompt) ? 1 : 0;
+const nums = q => ((q.prompt + ' ' + (q.parts || []).map(p => p.prompt).join(' ')).match(/\d+(?:\.\d+)?/g) || []).length, words = q => q.prompt.split(/\s+/).length;
+for (const [name, f, gap] of [['quantities per prompt', nums, 0.4], ['words per prompt', words, 2], ['share in a real-world context', ctxt, 0.03]]) {
+  const [a, b, c] = ['cp2', 'cp1', 'honors'].map(lv => mean(lv, f));
+  assert(a <= b && b <= c && c >= a + gap, `${name} rises from CP2 to Honors: ${a.toFixed(2)}, ${b.toFixed(2)}, ${c.toFixed(2)}`);
+}
+const hinted = all.filter(q => q.hint);
+assert(hinted.length >= 1200 && hinted.every(q => q.level === 'cp2' && /^First step: /.test(q.hint)), 'CP2 first-step hints');
+for (const q of hinted) assert(!(typeof q.answer === 'string' && q.answer.length > 2 && q.hint.includes(q.answer)), q.id + ' hint gives the answer away');
+
+console.log(`PASS Grade 7 audit G1–G2: ${cases.length} grading cases, ${auto}/${sa.length} short answers auto-graded; text, Place Value, tags, ${terms.length} vocabulary terms; ${all.filter(isNew).length} new items (${all.filter(q => isNew(q) && q.diagram).length} with figures), every Grade 7 and 8 standard practiced, ${hinted.length} CP2 hints`);

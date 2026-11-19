@@ -33,11 +33,12 @@ for (const [course, unit, index, name, standard] of SKILLS) {
     assert.ok(manifest.banks.some(b => b.courseId === course && b.unitId === unit && (b.approved || b.teacherUse)), 'bank is not published in the manifest');
     const items = bank(course, unit).filter(q => q.skillId === record.id);
     const pairs = course === 'statistics' ? 2 : 0; // Statistics adds one Partner Check pair per level
-    if (course === 'statistics') assert.ok(items.length >= 48 + 3 * pairs, 'count'); // later audits add items
+    const grows = course === 'statistics' || course === 'prealgebra7'; // later audits add items (Grade 7 audit G2: two Honors items per skill)
+    if (grows) assert.ok(items.length >= 48 + 3 * pairs, 'count');
     else assert.strictEqual(items.length, 48 + 3 * pairs);
     for (const level of ['cp2', 'cp1', 'honors']) {
       const set = items.filter(q => q.level === level);
-      if (course === 'statistics') assert.ok(set.length >= 16 + pairs, level + ' count');
+      if (grows) assert.ok(set.length >= 16 + pairs, level + ' count');
       else assert.strictEqual(set.length, 16 + pairs, level + ' count');
       if (pairs) {
         const pair = set.filter(q => q.partnerRole);

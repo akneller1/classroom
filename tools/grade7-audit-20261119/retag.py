@@ -15,7 +15,7 @@ import lib
 def tags_for(q):
     sk, p, a = q['skillId'], q['prompt'], str(q.get('answer'))
     text = p + ' ' + ' '.join(x.get('prompt', '') for x in q.get('parts', []))
-    if '-g7-' in q['id']:
+    if re.search(r'-(g|h)\d{2}$', q['id']):
         return None
     if sk == 'spatial-thinking-skill-07':
         return [s for s in q['standards'] if s != '7.G.A.2'] or ['G-CO.D.12']

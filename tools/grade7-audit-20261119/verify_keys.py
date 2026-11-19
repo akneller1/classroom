@@ -100,7 +100,8 @@ def problem_text(q):
         lines = [l for l in p.split('\n') if l.strip()]
         body = [l for l in lines[1:] if not re.search(r"'s answer:|Identify the mistake", l)]
         return ' '.join(body)
-    return p.replace('\n', ' ')
+    alt = ((q.get('diagram') or {}).get('spec') or {}).get('alt', '')
+    return p.replace('\n', ' ') + (' [FIGURE] ' + alt if alt else '')
 
 
 def solve_eq(text, key):
@@ -302,6 +303,7 @@ WORD = [
     (r'What is the value of the digit (\d) in ([\d,]+)\?', lambda g, k: (lambda n: same(int(g[0]) * 10 ** (len(n) - 1 - n.index(g[0])), num(k)))(g[1].replace(',', ''))),
     (r'Use compatible numbers to estimate ([\d.]+) ÷ ([\d.]+)\.', lambda g, k: True if num(k) > 0 and abs(float(d(g[0]) / d(g[1])) - float(num(k))) / float(num(k)) < 0.25 else False),
     (r'Twice a number increased by (\d+) is (\d+)\. Find the number', lambda g, k: same(sp.Rational(int(g[1]) - int(g[0]), 2), num(k))),
+    (r'Point A\((-?\d+), (-?\d+)\) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise', lambda g, k: (lambda m: m is not None and (int(num(m.group(1))), int(num(m.group(2)))) == (-int(g[0]), -int(g[1])))(re.match(r'\((.+?), (.+?)\)', k))),
     (r'Point A\((-?\d+), (-?\d+)\) is rotated (90|180|270)° counterclockwise about the origin', lambda g, k: (lambda x, y, a, m: m is not None and (int(num(m.group(1))), int(num(m.group(2)))) == {90: (-y, x), 180: (-x, -y), 270: (y, -x)}[a])(int(g[0]), int(g[1]), int(g[2]), re.match(r'\((.+?), (.+?)\)', k.replace('−', '-')))),
     (r'A frequency table shows the number of values in each interval: (.+?)\. How many values are there in all', lambda g, k: sum(int(x) for x in re.findall(r': (\d+)', g[0])) == int(num(k))),
     (r'Use P = 2l \+ 2w to find the perimeter of a rectangle with l = ([\d.]+) \w+ and w = ([\d.]+)', lambda g, k: same(2 * d(g[0]) + 2 * d(g[1]), num(k))),
@@ -328,8 +330,72 @@ WORD = [
     (r'The digit \d appears in ([\d,.]+) and in ([\d,.]+)\. The value of the \d in [\d,.]+ is how many times the value', lambda g, k: same(d(g[0]) / d(g[1]), num(k))),
     (r'How many \w+ \(\$([\d.]+) each\) have the same value as \$([\d,.]+)\?', lambda g, k: same(d(g[1]) / d(g[0]), num(k))),
     (r'of about (\d) × 10([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+) \w+, and .+ of about (\d) × 10([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+) \w+\. About how many times as large', lambda g, k: same(sp.Integer(int(g[2])) * sp.Integer(10) ** int(g[3].translate(SUP)) / (sp.Integer(int(g[0])) * sp.Integer(10) ** int(g[1].translate(SUP))), num(k))),
+    # Grade 7 audit batch G2 items
+    (r'Use the figure\. Find (the value of x|the measure of the larger angle|the measure of each angle)\. \[FIGURE\] (Two lines cross|A right angle|A straight line).*?labelled \((.+?)\)° .*?labelled \((.+?)\)°', lambda g, k: angle_fig(g, k)),
+    (r'Use the figure\. Find (the value of x|the measure of the larger angle|the measure of each angle)\. \[FIGURE\] A straight line with a ray .*?: \((.+?)\)° on the right and \((.+?)\)° on the left', lambda g, k: angle_fig((g[0], 'A straight line', g[1], g[2]), k)),
+    (r'Use the figure\. Find (the value of x|the measure of the larger angle|the measure of each angle)\. \[FIGURE\] (A right angle) split by a ray into two adjacent angles labelled \((.+?)\)° and \((.+?)\)°', lambda g, k: angle_fig(g, k)),
+    (r'How many triangles can be drawn with (.+?)\?$', lambda g, k: tri_count(g[0]) == k.strip()),
+    (r'Can segments of length (\d+) cm, (\d+) cm and (\d+) cm form a triangle', lambda g, k: (lambda t: (t[0] + t[1] > t[2]) == k.lower().startswith('yes'))(sorted(map(int, g)))),
+    (r'Two sides of a triangle are (\d+) in\. and (\d+) in\. Which could be the length of the third side', lambda g, k: abs(int(g[0]) - int(g[1])) < num(k) < int(g[0]) + int(g[1])),
+    (r'Two sides of a triangle are (\d+) m and (\d+) m\. The third side is a whole number of meters\. How many different lengths', lambda g, k: int(g[0]) + int(g[1]) - abs(int(g[0]) - int(g[1])) - 1 == int(num(k))),
+    (r'A rectangular prism is (\d+) cm long, (\d+) cm wide and (\d+) cm tall\. It is sliced parallel to its', lambda g, k: int(g[0]) * int(g[1]) == num(k)),
+    (r'A cylinder has radius (\d+) cm and height (\d+) cm\. It is sliced perpendicular to its base through the center', lambda g, k: 2 * int(g[0]) * int(g[1]) == num(k)),
+    (r'The figure shows a (rectangular prism|square pyramid|cylinder|cone) sliced by a plane (parallel|perpendicular)', lambda g, k: {('rectangular prism', 'parallel'): 'rectangle', ('rectangular prism', 'perpendicular'): 'rectangle', ('square pyramid', 'parallel'): 'square', ('square pyramid', 'perpendicular'): 'triangle', ('cylinder', 'parallel'): 'circle', ('cylinder', 'perpendicular'): 'rectangle', ('cone', 'parallel'): 'circle', ('cone', 'perpendicular'): 'triangle'}[(g[0], g[1])] == k.strip()),
+    (r'Does the graph show a proportional relationship .*\[FIGURE\] .*The line passes through (the origin|\(0, ([\d.]+)\))', lambda g, k: (g[0] == 'the origin') == k.lower().startswith('yes')),
+    (r'What is the constant of proportionality\? \[FIGURE\] .*marked points \((\d+(?:\.\d+)?), (\d+(?:\.\d+)?)\)', lambda g, k: same(d(g[1]) / d(g[0]), num(k))),
+    (r'What does the point \((\d+), ([\d.]+)\) mean\?', lambda g, k: re.match(r'In ' + g[0] + r' \w+.* is ' + re.escape(g[1]), k) is not None),
+    (r'passes through the point \(1, ([\d.]+)\)\. Write an equation', lambda g, k: k.replace(' ', '') == 'y=' + g[0] + 'x'),
+    (r'Plan B is described by y = ([\d.]+)x\. How much greater .*\[FIGURE\] .*marked points \((\d+(?:\.\d+)?), (\d+(?:\.\d+)?)\)', lambda g, k: same(d(g[0]) - d(g[2]) / d(g[1]), num(k))),
+    (r'estimated .* as ([\d.]+)\. The actual value is ([\d.]+)\. What is the percent error\?', lambda g, k: same(abs(d(g[0]) - d(g[1])) / d(g[1]) * 100, num(k.rstrip('%')), rounding_tol(text_of(g)) if False else 0.05)),
+    (r'earns (?:an? )?([\d.]+)% commission on sales of \$([\d,.]+)\. How much commission', lambda g, k: same(d(g[0]) / 100 * d(g[1]), num(k))),
+    (r'earns \$(\d+) per week plus (?:an? )?([\d.]+)% commission on sales\. One week the sales are \$([\d,.]+)\.', lambda g, k: same(d(g[0]) + d(g[1]) / 100 * d(g[2]), num(k))),
+    (r'A meal costs \$([\d.]+)\. You leave a (\d+)% tip on the cost of the meal\. How much is the tip', lambda g, k: same(d(g[0]) * d(g[1]) / 100, num(k), 0.005)),
+    (r'A meal costs \$([\d.]+) before tax\. The sales tax is ([\d.]+)% and the tip is (\d+)% of the cost before tax\. What is the total', lambda g, k: same(d(g[0]) * (1 + d(g[1]) / 100 + d(g[2]) / 100), num(k), 0.011)),
+    (r'A \$([\d.]+) jacket\'s price is raised (\d+)%\. Later the new price is lowered (\d+)%\.', lambda g, k: (lambda ch: (k == 'no change') if ch == 0 else (same(abs(ch), num(k.split('%')[0])) and (('increase' in k) == (ch > 0))))((1 + d(g[1]) / 100) * (1 - d(g[2]) / 100) * 100 - 100)),
+    (r'climbs (\d+) ft up a trail and then walks (\d+) ft back down\. What is the hiker', lambda g, k: int(g[0]) - int(g[1]) == int(num(k))),
+    (r'An atom has (\d+) protons, each with a charge of \+1, and (\d+) electrons', lambda g, k: int(g[0]) - int(g[1]) == int(num(k))),
+    (r'A store adds \$(\d+) to a gift card and later takes \$(\d+) off the card', lambda g, k: int(g[0]) - int(g[1]) == int(num(k))),
+    (r'Use properties of operations to evaluate (.+?)\.$', lambda g, k: same(ex(g[0]), num(k))),
+    (r'Point [AB]\((\d+), (\d+)\) is dilated by a scale factor of ([\d/.]+) with the center of dilation at the origin', lambda g, k: (lambda m: m is not None and same(num(m.group(1)), d(g[0]) * ex(g[2])) and same(num(m.group(2)), d(g[1]) * ex(g[2])))(re.match(r'\((.+?), (.+?)\)', k))),
+    (r'maps P\((\d+), (\d+)\) to P′\(([\d.]+), ([\d.]+)\)\. What is the scale factor', lambda g, k: same(d(g[2]) / d(g[0]), num(k)) and same(d(g[3]) / d(g[1]), num(k))),
+    (r'Rectangle R is (\d+) cm by (\d+) cm\. Rectangle S is ([\d.]+) cm by ([\d.]+) cm\. Is S the image of R under a dilation', lambda g, k: (lambda r1, r2: (k == 'No') if r1 != r2 else same(num(k.split('factor')[-1]), r1))(d(g[2]) / d(g[0]), d(g[3]) / d(g[1]))),
+    (r'7th grade: (\d+) hot lunch, (\d+) packed lunch\. 8th grade: (\d+) hot lunch, (\d+) packed lunch\. How many students chose hot lunch in all', lambda g, k: int(g[0]) + int(g[2]) == int(num(k))),
+    (r'7th grade: (\d+) hot lunch, (\d+) packed lunch\. 8th grade: (\d+) hot lunch, (\d+) packed lunch\. What fraction of the 7th graders', lambda g, k: same(sp.Rational(int(g[0]), int(g[0]) + int(g[1])), num(k))),
+    (r'7th grade: (\d+) hot lunch, (\d+) packed lunch\. 8th grade: (\d+) hot lunch, (\d+) packed lunch\. Which grade has the greater relative frequency', lambda g, k: (lambda a, b: (('7th' in k) == (a > b)) and int(re.search(r'by (\d+)', k).group(1)) == abs(int(round_half(a * 100)) - int(round_half(b * 100))))(sp.Rational(int(g[0]), int(g[0]) + int(g[1])), sp.Rational(int(g[2]), int(g[2]) + int(g[3])))),
+    (r'Function A is y = (\d+)x \+ (\d+)\. Function B has these \(x, y\) pairs: \(0, (\d+)\), \(1, (\d+)\).*?(What is the rate of change of Function B|Which function has the greater rate)', lambda g, k: (int(g[3]) - int(g[2]) == int(num(k))) if g[4].startswith('What') else (lambda m1, m2: k == f"{'Function A' if m1 > m2 else 'Function B'}, by {abs(m1 - m2)}")(int(g[0]), int(g[3]) - int(g[2]))),
+    (r'The sum of two numbers is (\d+) and their difference is (\d+)\. Write and solve a system to find the greater number', lambda g, k: same(sp.Rational(int(g[0]) + int(g[1]), 2), num(k))),
+    (r'Gym A charges \$(\d+) to join plus \$(\d+) per class\. Gym B charges \$(\d+) to join plus \$(\d+) per class\. After how many classes', lambda g, k: same(sp.Rational(int(g[0]) - int(g[2]), int(g[3]) - int(g[1])), num(k))),
+    (r'A club sold (\d+) T-shirts and hats for \$(\d+)\. T-shirts cost \$(\d+) and hats cost \$(\d+)\.', lambda g, k: same(sp.Rational(int(g[1]) - int(g[3]) * int(g[0]), int(g[2]) - int(g[3])), num(k))),
     (r'A ([\d.]+)-\w+ \w+ (?:costs|is priced at) \$([\d.]+)\.', lambda g, k: (_ for _ in ()).throw(Skip('ambiguous'))),
 ]
+
+
+def text_of(g):
+    return ''
+
+
+def tri_count(c):
+    nums = [int(x) for x in re.findall(r'(\d+)', c)]
+    if re.match(r'three angles', c):
+        return 'more than one triangle' if sum(nums) == 180 else 'no triangle'
+    if re.match(r'sides of', c):
+        t = sorted(nums)
+        return 'exactly one triangle' if t[0] + t[1] > t[2] else 'no triangle'
+    if re.match(r'two sides of .* with a \d+° angle between them', c):
+        return 'exactly one triangle' if nums[2] < 180 else 'no triangle'
+    if re.match(r'angles of', c):
+        return 'more than one triangle' if sum(nums) < 180 else 'no triangle'
+    raise Skip('triangle conditions')
+
+
+def angle_fig(g, k):
+    x = sp.Symbol('x')
+    a, b = ex(g[2]), ex(g[3])
+    rel = {'Two lines cross': sp.Eq(a, b), 'A right angle': sp.Eq(a + b, 90), 'A straight line': sp.Eq(a + b, 180)}[g[1]]
+    xv = sp.solve(rel, x)[0]
+    if g[0] == 'the value of x':
+        return same(xv, num(k.split('=')[-1]))
+    return same(max(a.subs(x, xv), b.subs(x, xv)), num(k))
 
 
 def round_half(v, places=0):

@@ -248,6 +248,7 @@
     '7.SP.C.7b': 'Develop a probability model (may not be uniform) from observed frequencies.',
     '7.SP.C.8a': 'The probability of a compound event is the fraction of outcomes in its sample space.',
     '7.SP.C.8b': 'Represent sample spaces for compound events with lists, tables and tree diagrams.',
+    '7.SP.C.8c': 'Design and use a simulation to generate frequencies for compound events.',
 
     /* Grade 8 */
     '8.EE': 'Expressions and Equations (grade 8).',
