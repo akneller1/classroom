@@ -42,7 +42,8 @@ const html = read(gameFile);
 assert.match(html, /grade5\/g5-core\.js/);
 assert.match(html, /grade5\/g5-games\.js/);
 assert.match(html,/g5-games\.js\?v=math-race-right-facing-20261112/,'Grade 5 game must use the right-facing car script');
-assert.match(html,/g5-core\.js\?v=grade5-home-link-20261112/,'Game must load updated working-home chrome');
+// The deploy pins Grade 5 to FinancialAlgebra 46f1acd (old chrome version) until batch 5C moves the pin; accept both.
+assert.match(html,/g5-core\.js\?v=(?:g5-audit-20261119|grade5-home-link-20261112)/,'Game must load updated working-home chrome');
 const raceSource=read('worksheet-generator/grade5/g5-games.js');
 assert.match(raceSource,/var carX = 80 \+ pos\[t\]/,'Math Race car must follow its position');
 assert.match(raceSource,/transform="translate\(' \+ \(2 \* carX\) \+ ' 0\) scale\(-1 1\)"/,'Math Race cars must face right');

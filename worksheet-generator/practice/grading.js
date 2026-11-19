@@ -180,6 +180,56 @@ function numCmp(s){var m=/^\s*(-?[\d.]+(?:\/\d+)?)\s*(<=|>=|<|>|≤|≥|=)\s*(-?
    which requires the setup equation ("33 + 20c = 133", not "20c = 100"). practice.js sets MK_PRACTICE_COURSE; tests that
    load the graders without it get this grader. */
 function grade6On(){return !G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='math6'||G.MK_PRACTICE_COURSE==='prealgebra7';}
+/* Grade 5 audit (2026-11-19, #2 and #3): Grade 5 answers that used to fall back to self-checking.
+   - "greater than", "less than 1", "equal to" and the symbols: the words and the symbols are the same answer.
+   - Remainders "90 R 2": also 90 r 2, 90 remainder 2.  Compound measures "5 feet 3 inches": also 5 ft 3 in.
+   - A number with a unit the other graders do not know ("32 cubic units"): the number, with or without the unit.
+   - A word answer named in the prompt or a Grade 5 term (acute, scalene, rhombus, overestimate, the x-axis, point D).
+   - "Write ... in simplest form": an equal fraction that is not fully reduced (4/6 for 2/3) or a decimal is "not in the form
+     asked"; an improper fraction in lowest terms (5/4 for 1 1/4) is accepted. "As a mixed number" requires a mixed number. */
+var G5WORDS=/^(acute|right|obtuse|scalene|isosceles|equilateral|square|rectangle|rhombus|parallelogram|trapezoid|kite|quadrilateral|triangle|pentagon|hexagon|octagon|polygon|overestimate|underestimate|(?:acute|right|obtuse) (?:scalene|isosceles|equilateral))$/;
+var G5UNIT='(?:cubic|square) (?:units?|inch(?:es)?|feet|foot|yards?|meters?|centimeters?)|units?|inch(?:es)?|feet|foot|yards?|miles?|ounces?|fluid ounces?|pounds?|tons?|cups?|pints?|quarts?|gallons?|grams?|kilograms?|milligrams?|meters?|centimeters?|millimeters?|kilometers?|liters?|milliliters?|minutes?|hours?|seconds?|days?|weeks?|sides?|cubes?|layers?|pieces?|students?|people|boxes|bags|teams|tables|buses|vans|cars|rows';
+var G5ABBR={ft:'foot','in':'inch',yd:'yard',mi:'mile',lb:'pound',lbs:'pound',oz:'ounce','fl oz':'fluid ounce',qt:'quart',pt:'pint',gal:'gallon',c:'cup',t:'ton',g:'gram',kg:'kilogram',mg:'milligram',m:'meter',cm:'centimeter',mm:'millimeter',km:'kilometer',l:'liter',ml:'milliliter',min:'minute',hr:'hour',h:'hour',sec:'second',s:'second','cu units':'cubic unit','sq units':'square unit'};
+function g5unit(u){var w=String(u||'').toLowerCase().replace(/\./g,'').replace(/\s+/g,' ').trim();w=G5ABBR[w]||w.replace(/^cu /,'cubic ').replace(/^sq /,'square ');return w.replace(/feet/g,'foot').replace(/inches/g,'inch').replace(/people/,'person').replace(/(ch|sh|x|bus)es\b/g,'$1').replace(/s\b/g,'');}
+function g5cmp(s){var t=String(s||'').toLowerCase().replace(/[−–]/g,'-').replace(/\s+/g,' ').trim(),W={'greater than':'>','more than':'>','less than':'<','equal to':'=','equals':'=','the same as':'='};for(var w in W)if(t===w||t.indexOf(w+' ')===0)return W[w]+t.slice(w.length).replace(/\s/g,'');return /^[<>=]/.test(t)?t.replace(/\s/g,''):null;}
+function g5num(s){var m=/^\s*\$?\s*(\d[\d,]*\s+\d+\/\d+|\d+\/\d+|\d[\d,]*(?:\.\d+)?|\.\d+)\s*(.*)$/.exec(String(s||'').replace(/[‑]/g,'-'));if(!m)return null;var n=m[1].replace(/,/g,''),mx=/^(\d+)\s+(\d+)\/(\d+)$/.exec(n);if(mx)n=(+mx[1]*+mx[3]+ +mx[2])+'/'+mx[3];try{return {v:rational(n),u:m[2].trim()};}catch(e){return null;}}
+function g5form(prompt){var t=String(prompt||'').toLowerCase();return /simplest form|lowest terms|\bsimplify\b/.test(t)?'simplest':/as a mixed number/.test(t)?'mixed':'';}
+function g5formOk(t,key,form){var mt=/^\s*\d+\s+(\d+)\s*\/\s*(\d+)\s*$/.exec(t),ft=/^\s*(\d+)\s*\/\s*(\d+)\s*$/.exec(t),mixedKey=/^\d+ \d+\/\d+$/.test(key),fracKey=/^\d+\/\d+$/.test(key),gcd=function(a,b){return b?gcd(b,a%b):a;};
+ if(form==='mixed')return !!mt||(!ft&&!/\./.test(t));
+ if(!mixedKey&&!fracKey)return !mt&&!ft;var n=mt?+mt[1]:ft?+ft[1]:null,d=mt?+mt[2]:ft?+ft[2]:null;if(n===null)return false;return gcd(n,d)===1&&(!mt||n<d);}
+/* Elementary, Grade 6 and Grade 7 practice tests only, like the Grade 6 reader: in later courses a number without its
+   unit or a word named in the prompt is not always the answer, and 8th Grade Math has its own grader. practice.js sets
+   MK_PRACTICE_COURSE; tests that load the graders without it get this grader. */
+function grade5On(){var c=G.MK_PRACTICE_COURSE;return !c||/^grade[1-5]$|^math[1-6]$|^prealgebra7$/.test(c);}
+function grade5Kind(answer,prompt){
+ if(typeof answer!=='string'||!grade5On())return null;var a=answer.trim(),p=String(prompt||'');
+ if(g5form(p)&&(/^\d+ \d+\/\d+$|^\d+\/\d+$/.test(a)||(/^\d+$/.test(a)&&/\d\/\d/.test(p))))return 'form';
+ if(/^(greater|less|more) than(?: \S+)?$|^equal to$/.test(a)||(/^[<>=]$/.test(a)&&!/compare using/i.test(p)))return 'cmp';
+ if(/^\d[\d,]* R \d+$/.test(a))return 'remainder';
+ if(new RegExp('^\\d[\\d,]* (?:'+G5UNIT+') \\d+ (?:'+G5UNIT+')$').test(a))return 'compound';
+ if(/^(?:the )?[xy][‑-]axis$/.test(a))return 'axis';
+ if(/^point [A-Z]$/.test(a))return 'point';
+ if(G5WORDS.test(a)||(/^[a-z][a-z ‑-]{1,30}$/.test(a)&&a.split(' ').length<=3&&new RegExp('\\b'+a.replace(/[‑-]/g,'[‑-]')+'\\b','i').test(p)&&/\bor\b|which|classify|name/i.test(p)))return 'word';
+ if(new RegExp('^\\$?\\d[\\d,]*(?:\\.\\d+)?(?: \\d+/\\d+)? (?:'+G5UNIT+')$').test(a)&&bankAnswer(a)===null)return 'num-unit';
+ return null;
+}
+function grade5(answer,typed,prompt){
+ var kind=grade5Kind(answer,prompt);if(!kind)return null;
+ var t=String(typed==null?'':typed).trim(),a=answer.trim();if(!t)return {status:'empty'};
+ if(t.length>120)return {status:'invalid',message:'Enter only your final answer.'};
+ var norm=function(s){return String(s).toLowerCase().replace(/[‑–]/g,'-').replace(/^(the|a|an) /,'').replace(/[.!]+$/,'').replace(/\s+/g,' ').trim();};
+ try{
+  if(kind==='form'){var kn=g5num(a),tn=g5num(t);if(!tn||tn.u)return {status:'invalid',message:'Enter a number such as 2/3 or 1 1/2.'};if(!kn.v.eq(tn.v))return {status:'incorrect'};return g5formOk(t,a,g5form(prompt))?{status:'correct'}:{status:'invalid',message:g5form(prompt)==='mixed'?'Write your answer as a mixed number.':'That is equal, but not in simplest form. Simplify completely.'};}
+  if(kind==='cmp'){var c=g5cmp(t);return c?{status:c===g5cmp(a)?'correct':'incorrect'}:{status:'invalid',message:'Answer with greater than, less than or equal to (or >, <, =).'};}
+  if(kind==='remainder'){var r=/^([\d,]+)\s*(?:r|rem|remainder)\.?\s*(\d+)$/i.exec(t),k=/^([\d,]+) R (\d+)$/.exec(a);return r?{status:+r[1].replace(/,/g,'')===+k[1].replace(/,/g,'')&&+r[2]===+k[2]?'correct':'incorrect'}:{status:'invalid',message:'Write the quotient and remainder, such as 12 R 3.'};}
+  if(kind==='compound'){var re=/^([\d,]+)\s*([a-z. ]+?)\s*,?\s*(?:and\s+)?([\d,]+)\s*([a-z. ]+)$/i,x=re.exec(t),y=re.exec(a);if(!x)return {status:'invalid',message:'Give both parts, such as 5 feet 3 inches.'};return {status:+x[1].replace(/,/g,'')===+y[1].replace(/,/g,'')&&+x[3]===+y[3]&&g5unit(x[2])===g5unit(y[2])&&g5unit(x[4])===g5unit(y[4])?'correct':'incorrect'};}
+  if(kind==='axis'){var q=/^(?:the )?([xy])[\s‑-]*axis$/i.exec(t);return q?{status:q[1].toLowerCase()===/([xy])/.exec(a)[1]?'correct':'incorrect'}:{status:'invalid',message:'Answer x-axis or y-axis.'};}
+  if(kind==='point'){var pt=/^(?:point\s+)?([A-Z])$/i.exec(t);return pt?{status:pt[1].toUpperCase()===a.slice(-1)?'correct':'incorrect'}:{status:'invalid',message:'Give the letter of the point.'};}
+  if(kind==='word')return {status:norm(t)===norm(a)?'correct':'incorrect'};
+  if(kind==='num-unit'){var kv=g5num(a),tv=g5num(t);if(!tv)return {status:'invalid',message:'Enter a number, with or without its unit.'};if(tv.u&&g5unit(tv.u)!==g5unit(kv.u))return {status:'incorrect'};return {status:tv.v.eq(kv.v)?'correct':'incorrect'};}
+ }catch(e){return {status:'invalid',message:'Answer format could not be read.'};}
+ return null;
+}
 function grade6Kind(answer,prompt){
  if(typeof answer!=='string'||!C||!grade6On())return null;
  var a=answer.trim();
@@ -210,6 +260,7 @@ function grade6(answer,typed,prompt){
  return null;
 }
 function gradeBank(answer,typed,prompt){
+ var g5=grade5(answer,typed,prompt);if(g5)return g5;
  var g6=grade6(answer,typed,prompt);if(g6)return g6;
  var g7=grade7(answer,typed,prompt);if(g7)return g7;
  if(gr8On()&&typeof answer==='string'){if(G.MKGRADE8.preferred(answer,prompt))return G.MKGRADE8.grade(answer,typed,prompt);typed=G.MKGRADE8.normalizeTyped(typed);}
@@ -219,5 +270,5 @@ function gradeBank(answer,typed,prompt){
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade5Kind(answer,prompt))return answer;if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
 })(window);

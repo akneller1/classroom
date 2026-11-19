@@ -28,6 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           node --test classroom/tests/grade5-course-discovery.test.cjs
+          GRADE5_SOURCE_DIR=grade5-source node classroom/scripts/test-grade5-audit.cjs
           (cd grade5-source && node --test tests/grade5-generators.test.mjs tests/grade5-unified.test.mjs tests/grade5-error-analysis.test.mjs)
           (cd grade5-source && node scripts/test-grade5.cjs)
       - name: Assemble and audit the release artifact (validation only)

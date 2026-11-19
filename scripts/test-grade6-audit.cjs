@@ -48,7 +48,7 @@ for (const course of ['prealgebra', 'prealgebra7', 'algebra2', 'precalculus', 'c
   for (const q of bank(course)) if (q.format === 'short-answer' && typeof q.answer === 'string' && P.bankAnswer(q.answer, q.prompt) !== null)
     assert.equal(g(q.answer, q.answer, q.prompt), 'correct', q.id + ' key grades itself correct: ' + q.answer);
 assert(/bankAnswer\(q\.answer,q\.prompt\)/.test(rd('worksheet-generator/practice/practice.js')), 'practice.js passes the prompt when choosing auto-grading');
-assert(/practice\/grading\.js\?v=g6-audit-20261119/.test(rd('worksheet-generator/practice-test.html')), 'grader cache version bumped');
+assert(/practice\/grading\.js\?v=g[56]-audit-20261119/.test(rd('worksheet-generator/practice-test.html')), 'grader cache version bumped');
 
 // #3 error analysis: the answer shown is never the key
 for (const q of all.filter((q) => /answered this problem incorrectly/.test(q.prompt))) {
