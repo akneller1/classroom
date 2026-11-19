@@ -26,6 +26,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install the lab checkers' dependencies
+        run: python -m pip install numpy scipy   # Statistics lab worksheet answers (S3) recompute areas and p-values
       - name: Check catalog resources, course preservation, and student links
         run: node scripts/test-interactive-math-update.cjs
       - name: Independently recompute worksheet answers
