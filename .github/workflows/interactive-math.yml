@@ -11,6 +11,7 @@ on:
       - 'scripts/test-calculus-labs.cjs'
       - 'tools/grade7-audit-20261119/labs/**'
       - 'tools/statistics-audit-20261118/labs/**'
+      - 'tools/grade6-audit-20261119/labs/**'
       - 'scripts/test-interactive-math-update.cjs'
       - '.github/workflows/interactive-math.yml'
   workflow_dispatch:
@@ -49,3 +50,8 @@ jobs:
           python tools/statistics-audit-20261118/labs/build.py
           git diff --exit-code -- artifacts/statistics-normal-curve-lab/index.html artifacts/statistics-chi-square-lab/index.html
           python tools/statistics-audit-20261118/labs/tests/worksheet-answers.py
+      - name: Grade 6 Fraction Cubes and Nets labs
+        run: |
+          python tools/grade6-audit-20261119/labs/build.py
+          git diff --exit-code -- artifacts/grade6-fraction-cubes-lab/index.html artifacts/grade6-nets-lab/index.html
+          python tools/grade6-audit-20261119/labs/tests/worksheet-answers.py

@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nets and Surface Area · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "6th Grade Math", "unit": "Geometry", "title": "Nets and Surface Area", "intro": "See a box and its net side by side, with matching colors for each pair of faces. Add the face areas to find the surface area, and compare closed and open boxes."});
+/* Nets and Surface Area lab (6.G.A.4): a rectangular prism and its net, drawn side by side with matching colors for the
+   three pairs of faces (top and bottom, front and back, left and right). The surface area is the sum of the six face
+   areas, 2(lw + lh + wh); an open box leaves out the top. */
+var st = { l: 4, w: 3, h: 2, open: false, pair: 'all', seen: {}, sa24: {} };
+var g = L.graph(P.stage, { xmin: 0, xmax: 1, ymin: 0, ymax: 1, width: 660, height: 360, label: 'Net and box', noGrid: true, noLabels: true });
+var cap = L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, '');
+var f0 = function (v) { return String(v); };
+var sl = L.slider(P.panel, { id: 'l', label: 'Length l', min: 1, max: 8, step: 1, value: st.l, color: 'blue', format: f0, onInput: function (v) { st.l = v; draw(); } });
+var sw = L.slider(P.panel, { id: 'w', label: 'Width w', min: 1, max: 6, step: 1, value: st.w, color: 'orange', format: f0, onInput: function (v) { st.w = v; draw(); } });
+var sh = L.slider(P.panel, { id: 'h', label: 'Height h', min: 1, max: 6, step: 1, value: st.h, color: 'green', format: f0, onInput: function (v) { st.h = v; draw(); } });
+L.chips(P.panel, { label: 'Box', value: 'closed', options: [{ value: 'closed', label: 'Closed box' }, { value: 'open', label: 'Open box (no top)' }], onChange: function (v) { st.open = v === 'open'; draw(); } });
+L.chips(P.panel, { label: 'Highlight', value: st.pair, options: [{ value: 'all', label: 'All faces' }, { value: 'tb', label: 'Top and bottom' }, { value: 'fb', label: 'Front and back' }, { value: 'lr', label: 'Left and right' }], onChange: function (v) { st.pair = v; draw(); } });
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btns, function () { st.l = 4; st.w = 3; st.h = 2; sl.set(4, true); sw.set(3, true); sh.set(2, true); draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Find the surface area of a box 4 by 3 by 2 from its net.', check: function () { return st.seen.c1; } },
+  { text: 'Make a cube whose surface area is 54 square units. What is its edge length?', check: function () { return st.seen.c2; } },
+  { text: 'An open box is 5 by 4 by 3. How much cardboard does it use?', check: function () { return st.seen.c3; } },
+  { text: 'Find two different boxes with a volume of 24 cubic units. Do they have the same surface area?', check: function () { return Object.keys(st.sa24).length >= 2; } },
+  { text: 'Find a box with a surface area of exactly 22 square units.', check: function () { return st.seen.c5; } }
+]);
+L.notice(P.below, '<p><b>Net:</b> a flat pattern of the six faces. Folding it along the edges makes the box. The faces come in three matching pairs: top and bottom (l by w), front and back (l by h), and left and right (w by h).</p>' +
+  '<p><b>Surface area:</b> add the areas of all the faces, SA = 2lw + 2lh + 2wh. An open box has no top, so it uses one l by w face less.</p>');
+var COL = { tb: 'orange', fb: 'blue', lr: 'green' };
+var draw = L.scheduler(function () {
+  var l = st.l, w = st.w, h = st.h;
+  // net (cross): bottom l×w at the center; front and back (l×h) below and above it; top (l×w) above the back; left and right (h×w) beside the bottom
+  var NW = 2 * h + l, NH = 2 * h + 2 * w, kx = 0.55, ky = 0.42, BW = l + kx * w, BH = h + ky * w, gap = 2.2;
+  var total = NW + gap + BW, span = Math.max(total + 2.4, (Math.max(NH, BH) + 1.6) * 660 / 360);
+  g.clear(); g.setView({ xmin: -1.6, xmax: -1.6 + span, ymin: -0.8, ymax: -0.8 + span * 360 / 660 });
+  var faces = [['Bottom', h, h, l, w, 'tb'], ['Front', h, 0, l, h, 'fb'], ['Back', h, h + w, l, h, 'fb'], ['Top', h, 2 * h + w, l, w, 'tb'], ['Left', 0, h, h, w, 'lr'], ['Right', h + l, h, h, w, 'lr']];
+  faces.forEach(function (f) {
+    if (f[0] === 'Top' && st.open) { g.poly([[f[1], f[2]], [f[1] + f[3], f[2]], [f[1] + f[3], f[2] + f[4]], [f[1], f[2] + f[4]]], { fill: 'ink-soft', opacity: 0.04, stroke: 'ink-soft', width: 1.5 }); g.text(f[1] + f[3] / 2, f[2] + f[4] / 2, 'no top', { anchor: 'middle', color: 'ink-soft', size: 12 }); return; }
+    var on = st.pair === 'all' || st.pair === f[5];
+    g.poly([[f[1], f[2]], [f[1] + f[3], f[2]], [f[1] + f[3], f[2] + f[4]], [f[1], f[2] + f[4]]], { fill: COL[f[5]], opacity: on ? 0.3 : 0.06, stroke: 'ink', width: 2 });
+    g.text(f[1] + f[3] / 2, f[2] + f[4] / 2, f[0] + ' ' + f[3] + '×' + f[4], { anchor: 'middle', dy: 5, color: 'ink', size: f[3] * f[4] < 4 ? 10 : 12 });
+  });
+  g.text(h + l / 2, 0, 'l = ' + l, { anchor: 'middle', dy: 18, color: 'blue', size: 13, weight: 700 });
+  g.text(0, h + w / 2, 'w = ' + w, { anchor: 'end', dx: -6, dy: 5, color: 'orange', size: 13, weight: 700 });
+  // the box, oblique view, to the right of the net
+  var ox = NW + gap, P0 = function (x, y, z) { return [ox + x + kx * z, y + ky * z]; }, on = function (p) { return st.pair === 'all' || st.pair === p; };
+  g.poly([P0(0, 0, 0), P0(l, 0, 0), P0(l, h, 0), P0(0, h, 0)], { fill: COL.fb, opacity: on('fb') ? 0.3 : 0.06, stroke: 'ink', width: 2.5 });
+  if (!st.open) g.poly([P0(0, h, 0), P0(l, h, 0), P0(l, h, w), P0(0, h, w)], { fill: COL.tb, opacity: on('tb') ? 0.3 : 0.06, stroke: 'ink', width: 2.5 });
+  else { g.poly([P0(0, h, 0), P0(l, h, 0), P0(l, h, w), P0(0, h, w)], { fill: COL.tb, opacity: on('tb') ? 0.12 : 0.03, stroke: 'ink', width: 2.5 }); }
+  g.poly([P0(l, 0, 0), P0(l, 0, w), P0(l, h, w), P0(l, h, 0)], { fill: COL.lr, opacity: on('lr') ? 0.3 : 0.06, stroke: 'ink', width: 2.5 });
+  var a = P0(0, 0, 0); g.text(a[0] + l / 2, a[1], String(l), { anchor: 'middle', dy: 18, color: 'blue', size: 13, weight: 700 });
+  a = P0(l, 0, w / 2); g.text(a[0], a[1], String(w), { anchor: 'start', dx: 8, dy: 12, color: 'orange', size: 13, weight: 700 });
+  a = P0(0, h / 2, 0); g.text(a[0], a[1], String(h), { anchor: 'end', dx: -8, color: 'green', size: 13, weight: 700 });
+  var lw = l * w, lh = l * h, wh = w * h, SA = 2 * (lw + lh + wh) - (st.open ? lw : 0), V = l * w * h;
+  cap.textContent = 'Matching colors show the matching pairs of faces in the net (left) and on the box (right).' + (st.open ? ' The open box has no top.' : '');
+  read.innerHTML = (st.open ? 'Bottom only: 1' : 'Top and bottom: 2') + ' × (' + l + ' × ' + w + ') = ' + (st.open ? lw : 2 * lw) +
+    '<div>Front and back: 2 × (' + l + ' × ' + h + ') = ' + 2 * lh + '</div>' +
+    '<div>Left and right: 2 × (' + w + ' × ' + h + ') = ' + 2 * wh + '</div>' +
+    '<div style="margin-top:6px">Surface area = <b>' + SA + '</b> square units' + (st.open ? ' (open box)' : '') + '</div>' +
+    '<div>Volume = ' + l + ' × ' + w + ' × ' + h + ' = ' + V + ' cubic units</div>';
+  var same = function (x, y, z) { var s = [l, w, h].sort(), t = [x, y, z].sort(); return s[0] === t[0] && s[1] === t[1] && s[2] === t[2]; };
+  if (!st.open && same(4, 3, 2)) st.seen.c1 = true;
+  if (!st.open && l === w && w === h && SA === 54) st.seen.c2 = true;
+  if (st.open && l === 5 && w === 4 && h === 3) st.seen.c3 = true;
+  if (!st.open && V === 24) st.sa24[[l, w, h].sort().join('x')] = SA;
+  if (!st.open && SA === 22) st.seen.c5 = true;
+  var k24 = Object.keys(st.sa24);
+  fb.set(k24.length >= 2 ? 'Volume 24: ' + k24.map(function (k) { return k + ' has SA ' + st.sa24[k]; }).join('; ') + '. Same volume, different surface areas.' : '', '');
+  ch.update();
+});
+draw();
+
+})();
+</script>
+</body></html>

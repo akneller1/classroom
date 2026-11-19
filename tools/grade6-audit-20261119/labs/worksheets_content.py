@@ -1,0 +1,55 @@
+# Explore & Reflect worksheets for the Grade 6 audit labs (#16). Same structure as the Grade 7 audit labs:
+# predict, explore, record, rules, explain, apply, teacher. Fractions are written {a/b} and print stacked.
+# Every number is recomputed by tests/worksheet-answers.py.
+W = {}
+
+W['grade6-fraction-cubes-lab'] = dict(
+  predict=[("How many cubes of edge {1/2} unit fit inside one unit cube? Make a guess before you build it.", "8: two along each edge, and 2 × 2 × 2 = 8.", 1),
+           ("A box is 2 by 1{1/2} by 1. Is its volume more or less than 3 cubic units?", "Exactly 3: 2 × 1{1/2} × 1 = 3.", 1)],
+  explore=[("Set l = 2, w = 1{1/2}, h = 1 and cubes of edge {1/2}. How many cubes fit along each edge? How many in all?", "4, 3 and 2; 4 × 3 × 2 = 24 cubes", 1),
+           ("Each of those cubes has volume {1/2} × {1/2} × {1/2}. What is it? Use it to find the volume of the box.", "{1/8} cubic unit; 24 × {1/8} = 3 cubic units", 1),
+           ("Set l = 2{1/2}, w = 2, h = 1{1/2}. Find the number of {1/2}-unit cubes and the volume.", "5 × 4 × 3 = 60 cubes; 60 × {1/8} = 7{1/2} cubic units", 1),
+           ("Set a 1 by 1 by 1 cube and choose cubes of edge {1/4}. How many small cubes fill it?", "4 × 4 × 4 = 64", 1)],
+  record=[dict(title="Counting cubes and V = lwh", note="Use cubes of edge {1/2}. Each has volume {1/8} cubic unit.",
+     head=["l", "w", "h", "Cubes along l, w, h", "Number of cubes", "Cubes × {1/8}", "l × w × h"],
+     rows=[["2", "1{1/2}", "1", "?4, 3, 2", "?24", "?3", "?3"], ["1{1/2}", "1{1/2}", "1{1/2}", "?3, 3, 3", "?27", "?3{3/8}", "?3{3/8}"],
+           ["2{1/2}", "2", "1{1/2}", "?5, 4, 3", "?60", "?7{1/2}", "?7{1/2}"], ["3", "{1/2}", "2", "?6, 1, 4", "?24", "?3", "?3"],
+           ["3{1/2}", "1", "1", "?7, 2, 2", "?28", "?3{1/2}", "?3{1/2}"]])],
+  rules=[("Along an edge of length l there are l ÷ e cubes of edge e, which is ___.", ["{l/e}"]),
+         ("A cube of edge {1/2} has volume ___ cubic unit.", ["{1/8}"]),
+         ("Number of cubes × volume of one cube = ___.", ["l × w × h"]),
+         ("The volume of a right rectangular prism is V = ___ = ___.", ["lwh", "Bh"])],
+  explain=("Explain why 2 × 1{1/2} × 1 gives the same volume as counting {1/2}-unit cubes.",
+           "There are 4 × 3 × 2 = 24 half-unit cubes, and 8 of them make one unit cube, so the volume is 24 ÷ 8 = 3 cubic units. Multiplying the edges gives the same number: 2 × 1{1/2} × 1 = (4 × 3 × 2) ÷ 8, because each edge length is its number of half-unit steps divided by 2.", 3),
+  apply=[("A fish tank is 2{1/2} ft long, 1 ft wide and 1{1/2} ft tall. What is its volume?", "2{1/2} × 1 × 1{1/2} = 3{3/4} cubic feet"),
+         ("A box is 4 in. by 2{1/2} in. by 3 in. How many {1/2}-inch cubes fill it?", "8 × 5 × 6 = 240 cubes"),
+         ("A prism has a base area of 6{3/4} square meters and a height of 2 m. What is its volume?", "V = Bh = 6{3/4} × 2 = 13{1/2} cubic meters"),
+         ("A box has volume 15 cubic units, length 3 and width 2{1/2}. What is its height?", "15 ÷ (3 × 2{1/2}) = 15 ÷ 7{1/2} = 2 units")],
+  teacher=dict(discovery="The number of small cubes times the volume of one cube equals l × w × h, so V = lwh and V = Bh work for fractional edges; 8 cubes of edge {1/2} make a unit cube.",
+    misconceptions=["Thinking a cube of edge {1/2} has volume {1/2}.", "Adding the edge lengths instead of multiplying.", "Counting only the cubes on the visible faces."],
+    varies="Students may count cubes or multiply edge lengths first; both should give the same volume."))
+
+W['grade6-nets-lab'] = dict(
+  predict=[("How many faces does a rectangular prism have? How many different sizes can they be?", "6 faces in 3 matching pairs, so at most 3 different sizes.", 1),
+           ("Which uses more cardboard: a 4 by 3 by 2 box or a 6 by 2 by 2 box? Both hold 24 cubic units.", "The 6 by 2 by 2 box: 56 square units vs. 52.", 1)],
+  explore=[("Set l = 4, w = 3, h = 2. Record the area of each pair of faces and the surface area.", "Top and bottom 2 × 12 = 24; front and back 2 × 8 = 16; left and right 2 × 6 = 12; SA = 52", 1),
+           ("Make a cube with surface area 54. What is its edge length?", "3: 6 × 3 × 3 = 54", 1),
+           ("Switch to an open box 5 by 4 by 3. How much cardboard does it use?", "2(20 + 15 + 12) − 20 = 74 square units", 1),
+           ("Find two boxes with volume 24 and record their surface areas.", "For example, 4 × 3 × 2: SA 52; 6 × 2 × 2: SA 56; 24 × 1 × 1 is too long for the lab", 1)],
+  record=[dict(title="Surface area from the net", note="Closed boxes unless the row says open.",
+     head=["l", "w", "h", "lw", "lh", "wh", "SA"],
+     rows=[["4", "3", "2", "?12", "?8", "?6", "?52"], ["3", "3", "3", "?9", "?9", "?9", "?54"], ["6", "2", "2", "?12", "?12", "?4", "?56"],
+           ["5", "4", "3 (open)", "?20", "?15", "?12", "?74"], ["3", "2", "1", "?6", "?3", "?2", "?22"]])],
+  rules=[("A rectangular prism has ___ pairs of matching faces.", ["3"]),
+         ("The surface area of a closed box is SA = ___.", ["2lw + 2lh + 2wh"]),
+         ("An open box (no top) uses SA = 2lw + 2lh + 2wh − ___.", ["lw"]),
+         ("Two boxes with the same volume ___ have the same surface area.", ["do not always"])],
+  explain=("Explain how a net helps you find the surface area of a box.",
+           "The net unfolds the box so all six faces lie flat. Each face is a rectangle, so you find its area by multiplying, then add all six. Because opposite faces match, you can add one face of each pair and double the sum.", 3),
+  apply=[("A cereal box is 8 in. by 2 in. by 12 in. How much cardboard covers it?", "2(16 + 96 + 24) = 272 square inches"),
+         ("A cube has edge 5 cm. What is its surface area?", "6 × 25 = 150 square centimeters"),
+         ("An open planter box is 4 ft long, 2 ft wide and 1 ft tall. How much wood does it use?", "2(8 + 4 + 2) − 8 = 20 square feet"),
+         ("Wrapping paper comes in sheets of 300 square inches. Is one sheet enough for a 10 by 6 by 4 in. box?", "Yes: SA = 2(60 + 40 + 24) = 248 square inches, less than 300")],
+  teacher=dict(discovery="A rectangular prism has three pairs of matching faces, so SA = 2lw + 2lh + 2wh; an open box uses one l by w face less; boxes with the same volume can have different surface areas.",
+    misconceptions=["Adding only three faces.", "Mixing up surface area (square units) and volume (cubic units).", "Leaving out the bottom of an open box instead of the top."],
+    varies="Students may add all six faces or double the three different ones; the totals are the same."))

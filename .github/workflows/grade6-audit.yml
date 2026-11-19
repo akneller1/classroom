@@ -7,6 +7,13 @@ on:
       - 'tools/grade6-audit-20261119/**'
       - 'tools/grade7-audit-20261119/verify_keys.py'
       - 'scripts/test-grade6-*.cjs'
+      - 'scripts/geo-planning.mjs'
+      - 'data.js'
+      - 'worksheet-generator/plot-grade6.js'
+      - 'worksheet-generator/plot-practice.js'
+      - 'worksheet-generator/planner/**'
+      - 'worksheet-generator/lesson-planner.html'
+      - 'artifacts/grade6-*/**'
       - 'worksheet-generator/practice/**'
       - 'worksheet-generator/practice-test.html'
       - 'worksheet-generator/menu/mathcheck.js'
@@ -40,3 +47,16 @@ jobs:
           python tools/grade6-audit-20261119/verify_new.py
       - name: Grade 6 audit regression checks
         run: node scripts/test-grade6-audit.cjs
+      - name: Graphing Practice for three more Grade 6 units (#11)
+        run: node scripts/test-grade6-plot.cjs
+      - name: Teaching notes for every Grade 6 skill and extension marks (#12, #19)
+        run: |
+          python tools/grade6-audit-20261119/build_notes.py
+          git diff --exit-code -- worksheet-generator/planner/notes-teach-math6.js
+          node scripts/test-grade6-notes.cjs
+      - name: Practice tests and reference sheet rebuild exactly (#14)
+        run: |
+          python tools/grade6-audit-20261119/g6_print.py
+          git diff --exit-code -- artifacts/grade6-practice-test-a/exam.html artifacts/grade6-practice-test-a/key.html artifacts/grade6-practice-test-b/exam.html artifacts/grade6-practice-test-b/key.html artifacts/grade6-reference-sheet/index.html tools/grade6-audit-20261119/practice-tests.json
+      - name: Labs, pacing guide, practice tests and reference sheet (#13, #14, #16)
+        run: node scripts/test-grade6-c.cjs

@@ -26,10 +26,11 @@ course.units.forEach(function(unit,ui){
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
   if(meta&&meta.enrich)title+=' (enrichment)';
   if(meta&&meta.review)title+=' (review)';
+  if(meta&&meta.ext)title+=' (extension)';
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,
    day_type:'Lesson',lesson_id:id,title:title,standards:std(skill.id),
-   content_objective:'Students will be able to '+verb+'.'+(meta&&meta.enrich?' Enrichment: beyond the Massachusetts Algebra II standards; optional for Support and Standard classes.':'')+(meta&&meta.review?' Review: this skill practices standards from earlier grades; compact or assign it as a warm-up for students who show mastery.':''),
+   content_objective:'Students will be able to '+verb+'.'+(meta&&meta.enrich?' Enrichment: beyond the Massachusetts Algebra II standards; optional for Support and Standard classes.':'')+(meta&&meta.review?' Review: this skill practices standards from earlier grades; compact or assign it as a warm-up for students who show mastery.':'')+(meta&&meta.ext?' Extension: most items here also practice a Grade 7 standard; core Grade 6 classes can treat the Grade 7 part as optional.':''),
    language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:meta&&meta.frame?meta.frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
    key_vocabulary:meta&&meta.voc?meta.voc.map(function(w){return w[0];}).join(', '):'',common_misconception:meta&&meta.watch?meta.watch:'',notes_style:'Guided notes',

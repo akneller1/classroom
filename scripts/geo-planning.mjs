@@ -46,10 +46,10 @@ function bankScope(course, prefix, opts = {}) {
   const planned = base.days.length + base.units.length * 2 + 3 + 3 + (opts.mcas ? opts.mcas.review + opts.mcas.testing : 0);
   const lastUnit = base.units[base.units.length - 1].unit;
   const beforeReview = base.days.filter((d) => d.unit !== reviewUnit).length + (base.units.length - (reviewUnit === null ? 0 : 1)) * 2 + 3;
-  const spare = opts.mcas ? 0 : opts.ap ? Math.max(0, 130 - beforeReview) : Math.max(7, 177 - planned - 3), extraCount = {};
+  const spare = opts.mcas && opts.mcas.compact ? 0 : opts.mcas ? Math.max(0, 177 - planned - 3 - (opts.mcas.post ? opts.mcas.post.days : 0)) : opts.ap ? Math.max(0, 130 - beforeReview) : Math.max(7, 177 - planned - 3), extraCount = {};
   // Grade 7 has 116 lessons: no extra or mid-unit practice days (each unit keeps the planner's own practice day), review
   // skills are taught two to a day, and only the largest units keep a flex day, so the year still fits in 180 days.
-  const flexUnits = opts.mcas ? bySize.slice(0, opts.mcas.flex) : null;
+  const flexUnits = opts.mcas && opts.mcas.compact ? bySize.slice(0, opts.mcas.flex) : null;
   for (let i = 0; i < spare; i++) extraCount[bySize[i % bySize.length]] = (extraCount[bySize[i % bySize.length]] || 0) + 1;
   const days = [], units = [];
   let day = 0, semesterDone = false;
@@ -57,7 +57,7 @@ function bankScope(course, prefix, opts = {}) {
   for (const u of base.units) {
     const own = base.days.filter((d) => d.unit === u.unit), rest = own.filter((d) => d.day_type !== "Lesson");
     let lessons = own.filter((d) => d.day_type === "Lesson");
-    if (opts.mcas) {
+    if (opts.mcas && opts.mcas.compact) {
       const merged = []; let open = null;
       for (const d of lessons) {
         if (!/ \(review\)$/.test(d.title)) { merged.push(d); continue; }
@@ -70,7 +70,7 @@ function bankScope(course, prefix, opts = {}) {
     const start = day + 1, half = Math.ceil(lessons.length / 2);
     lessons.forEach((d, i) => {
       push(d);
-      if (i === half - 1 && !opts.mcas) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Mid-unit practice", lesson_id: d.lesson_id.replace(/-S\d+$/, "-MIDPRACTICE"), standards: d.standards, content_objective: "Practice the first half of the unit." });
+      if (i === half - 1 && !(opts.mcas && opts.mcas.compact)) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Mid-unit practice", lesson_id: d.lesson_id.replace(/-S\d+$/, "-MIDPRACTICE"), standards: d.standards, content_objective: "Practice the first half of the unit." });
     });
     for (let k = 1; k <= (extraCount[u.unit] || 0); k++) push({ unit: u.unit, unit_title: u.title, day_type: "Practice", title: u.title + " · Extra practice", lesson_id: prefix + "-U" + u.unit + "-EXTRA" + (k > 1 ? k : ""), standards: "", content_objective: "Mixed practice before review." });
     rest.forEach(push);
@@ -78,7 +78,7 @@ function bankScope(course, prefix, opts = {}) {
     units.push({ unit: u.unit, title: u.title, start_day: start, end_day: day, total_days: day - start + 1, lesson_ids: u.lesson_ids });
     if (opts.mcas && u.unit === opts.mcas.afterUnit) {
       for (let k = 1; k <= opts.mcas.review; k++) push({ unit: null, day_type: "Review", title: "MCAS review · " + opts.mcas.titles[(k - 1) % opts.mcas.titles.length], lesson_id: prefix + "-MCAS-REVIEW-" + k, standards: "" });
-      for (let k = 1; k <= opts.mcas.testing; k++) push({ unit: null, day_type: "Assessment", title: "MCAS Grade 7 Mathematics · Session " + k, lesson_id: prefix + "-MCAS-" + k, standards: "" });
+      for (let k = 1; k <= opts.mcas.testing; k++) push({ unit: null, day_type: "Assessment", title: "MCAS Grade " + (opts.mcas.grade || 7) + " Mathematics · Session " + k, lesson_id: prefix + "-MCAS-" + k, standards: "" });
     }
     if (!semesterDone && day >= 84) {
       semesterDone = true;
@@ -96,6 +96,7 @@ function bankScope(course, prefix, opts = {}) {
     while (day < 179) push({ unit: null, day_type: "Practice", title: "Post-exam project" + (projects.length ? " · " + projects[Math.floor(k++ / 4) % projects.length] : ""), lesson_id: prefix + "-PROJECT-" + (day + 1), standards: "" });
     push({ unit: null, day_type: "Flex", title: "Course reflection", lesson_id: prefix + "-FINAL-FLEX", standards: "" });
   } else {
+  if (opts.mcas && opts.mcas.post) for (let k = 0; day < 174; k++) push({ unit: null, day_type: "Practice", title: "After MCAS · " + opts.mcas.post.titles[Math.floor(k / 3) % opts.mcas.post.titles.length], lesson_id: prefix + "-POST-MCAS-" + (k + 1), standards: "" });
   while (day < 177) push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: prefix + "-FINAL-REVIEW-" + (day + 1), standards: "" });
   push({ unit: null, day_type: "Review", title: "Final Review", lesson_id: prefix + "-FINAL-REVIEW-LAST", standards: "" });
   push({ unit: null, day_type: "Assessment", title: "Final Exam", lesson_id: prefix + "-FINAL-EXAM", standards: "" });
@@ -126,9 +127,16 @@ const COURSES = {
      planned around the spring Grade 7 MCAS: review days with the two cumulative practice tests and the testing sessions
      come after Data Analysis and Probability (unit 12), and unit 13 (Nonlinear Functions and Polynomials, high-school
      algebra) follows the test. The coverage table lists every Grade 7 and Grade 8 standard. */
-  prealgebra7: { name: "Pre-Algebra (Grade 7)", load: () => bankScope("prealgebra7", "PA7", { mcas: { afterUnit: 12, review: 6, testing: 2, flex: 4,
+  prealgebra7: { name: "Pre-Algebra (Grade 7)", load: () => bankScope("prealgebra7", "PA7", { mcas: { compact: true, afterUnit: 12, review: 6, testing: 2, flex: 4,
     titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
     sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true },
+  /* 6th Grade Math (2026-11-19, Grade 6 audit #13): the seven units in order, with the spring Grade 6 MCAS after Data
+     Displays (the last unit), so every Grade 6 standard is taught first. Six review days use the two Grade 6 practice tests
+     and the reference sheet; the remaining days are extra practice before each unit test, then a final review. */
+  math6: { name: "6th Grade Math", load: () => bankScope("math6", "M6", { mcas: { grade: 6, afterUnit: 7, review: 6, testing: 2,
+    post: { days: 21, titles: ["Grade 7 preview: integer operations", "Grade 7 preview: proportional relationships", "Grade 7 preview: two-step equations", "Ratio and percent project", "Geometry design project", "Statistics survey project", "Fluency and spiral review"] },
+    titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
+    sets: /^math6-/, page: "grade-6-pacing/", framework: "Massachusetts Grade 6 mathematics", bank: true, mcas: 6 },
   /* Statistics (2026-11-18, Statistics audit #5): an AP course like Calculus. The four course units cover the five units of
      the AP Statistics framework effective fall 2026; new content ends about mid-April, AP review and the two practice exams
      run to the exam in May, and the four Statistics projects fill the weeks after it. */
@@ -232,17 +240,19 @@ const ALL_PREALGEBRA7 = [..."7.RP.A.1 7.RP.A.2a 7.RP.A.2b 7.RP.A.2c 7.RP.A.2d 7.
   ..."8.NS.A.1 8.NS.A.2 8.EE.A.1 8.EE.A.2 8.EE.A.3 8.EE.A.4 8.EE.B.5 8.EE.B.6 8.EE.C.7a 8.EE.C.7b 8.EE.C.8a 8.EE.C.8b 8.EE.C.8c 8.F.A.1 8.F.A.2 8.F.A.3 8.F.B.4 8.F.B.5 8.G.A.1 8.G.A.2 8.G.A.3 8.G.A.4 8.G.A.5 8.G.B.6 8.G.B.7 8.G.B.8 8.G.C.9 8.SP.A.1 8.SP.A.2 8.SP.A.3 8.SP.A.4".split(" ")].map((c) => [c]);
 // AP Statistics learning objectives, framework effective fall 2026 (Statistics audit #3 and #5, 2026-11-18).
 const ALL_STATISTICS = [["APSTATS.1.1.A"], ["APSTATS.1.1.B"], ["APSTATS.1.2.A"], ["APSTATS.1.2.B"], ["APSTATS.1.2.C"], ["APSTATS.1.3.A"], ["APSTATS.1.3.B"], ["APSTATS.1.4.A"], ["APSTATS.1.4.B"], ["APSTATS.1.4.C"], ["APSTATS.1.5.A"], ["APSTATS.1.6.A"], ["APSTATS.1.6.B"], ["APSTATS.1.7.A"], ["APSTATS.1.7.B"], ["APSTATS.1.7.C"], ["APSTATS.1.7.D"], ["APSTATS.1.7.E"], ["APSTATS.1.7.F"], ["APSTATS.1.8.A"], ["APSTATS.1.8.B"], ["APSTATS.1.9.A"], ["APSTATS.1.9.B"], ["APSTATS.1.9.C"], ["APSTATS.1.9.D"], ["APSTATS.1.9.E"], ["APSTATS.1.10.A"], ["APSTATS.1.10.B"], ["APSTATS.1.10.C"], ["APSTATS.1.10.D"], ["APSTATS.1.10.E"], ["APSTATS.1.11.A"], ["APSTATS.1.11.B"], ["APSTATS.1.12.A"], ["APSTATS.1.13.A"], ["APSTATS.1.13.B"], ["APSTATS.1.13.C"], ["APSTATS.1.13.D"], ["APSTATS.2.1.A"], ["APSTATS.2.1.B"], ["APSTATS.2.2.A"], ["APSTATS.2.2.B"], ["APSTATS.2.2.C"], ["APSTATS.2.3.A"], ["APSTATS.2.4.A"], ["APSTATS.2.5.A"], ["APSTATS.2.6.A"], ["APSTATS.2.7.A"], ["APSTATS.2.8.A"], ["APSTATS.2.9.A"], ["APSTATS.2.9.B"], ["APSTATS.2.10.A"], ["APSTATS.2.10.B"], ["APSTATS.2.10.C"], ["APSTATS.2.10.D"], ["APSTATS.2.10.E"], ["APSTATS.2.11.A"], ["APSTATS.2.11.B"], ["APSTATS.2.11.C"], ["APSTATS.2.11.D"], ["APSTATS.2.11.E"], ["APSTATS.2.11.F"], ["APSTATS.2.12.A"], ["APSTATS.3.1.A"], ["APSTATS.3.1.B"], ["APSTATS.3.2.A"], ["APSTATS.3.2.B"], ["APSTATS.3.2.C"], ["APSTATS.3.3.A"], ["APSTATS.3.3.B"], ["APSTATS.3.3.C"], ["APSTATS.3.3.D"], ["APSTATS.3.4.A"], ["APSTATS.3.4.B"], ["APSTATS.3.4.C"], ["APSTATS.3.5.A"], ["APSTATS.3.5.B"], ["APSTATS.3.5.C"], ["APSTATS.3.6.A"], ["APSTATS.3.7.A"], ["APSTATS.3.7.B"], ["APSTATS.3.8.A"], ["APSTATS.3.8.B"], ["APSTATS.3.8.C"], ["APSTATS.3.8.D"], ["APSTATS.3.9.A"], ["APSTATS.3.9.B"], ["APSTATS.3.9.C"], ["APSTATS.3.10.A"], ["APSTATS.3.10.B"], ["APSTATS.3.10.C"], ["APSTATS.3.10.D"], ["APSTATS.3.11.A"], ["APSTATS.3.11.B"], ["APSTATS.3.12.A"], ["APSTATS.3.12.B"], ["APSTATS.3.12.C"], ["APSTATS.3.13.A"], ["APSTATS.3.13.B"], ["APSTATS.3.13.C"], ["APSTATS.3.14.A"], ["APSTATS.3.14.B"], ["APSTATS.3.14.C"], ["APSTATS.3.14.D"], ["APSTATS.3.15.A"], ["APSTATS.3.15.B"], ["APSTATS.3.15.C"], ["APSTATS.3.15.D"], ["APSTATS.4.1.A"], ["APSTATS.4.1.B"], ["APSTATS.4.1.C"], ["APSTATS.4.2.A"], ["APSTATS.4.2.B"], ["APSTATS.4.2.C"], ["APSTATS.4.2.D"], ["APSTATS.4.2.E"], ["APSTATS.4.3.A"], ["APSTATS.4.3.B"], ["APSTATS.4.3.C"], ["APSTATS.4.4.A"], ["APSTATS.4.4.B"], ["APSTATS.4.4.C"], ["APSTATS.4.5.A"], ["APSTATS.4.5.B"], ["APSTATS.4.5.C"], ["APSTATS.4.6.A"], ["APSTATS.4.6.B"], ["APSTATS.4.6.C"], ["APSTATS.4.7.A"], ["APSTATS.4.7.B"], ["APSTATS.4.7.C"], ["APSTATS.4.7.D"], ["APSTATS.4.8.A"], ["APSTATS.4.8.B"], ["APSTATS.4.9.A"], ["APSTATS.4.9.B"], ["APSTATS.4.9.C"], ["APSTATS.4.10.A"], ["APSTATS.4.10.B"], ["APSTATS.4.10.C"], ["APSTATS.5.1.A"], ["APSTATS.5.1.B"], ["APSTATS.5.1.C"], ["APSTATS.5.2.A"], ["APSTATS.5.3.A"], ["APSTATS.5.4.A"], ["APSTATS.5.4.B"], ["APSTATS.5.4.C"], ["APSTATS.5.5.A"], ["APSTATS.5.5.B"]];
+// 6th Grade Math (Grade 6 audit #13, 2026-11-19): every Common Core Grade 6 standard at its finest level.
+const ALL_MATH6 = "6.RP.A.1 6.RP.A.2 6.RP.A.3a 6.RP.A.3b 6.RP.A.3c 6.RP.A.3d 6.NS.A.1 6.NS.B.2 6.NS.B.3 6.NS.B.4 6.NS.C.5 6.NS.C.6a 6.NS.C.6b 6.NS.C.6c 6.NS.C.7a 6.NS.C.7b 6.NS.C.7c 6.NS.C.7d 6.NS.C.8 6.EE.A.1 6.EE.A.2a 6.EE.A.2b 6.EE.A.2c 6.EE.A.3 6.EE.A.4 6.EE.B.5 6.EE.B.6 6.EE.B.7 6.EE.B.8 6.EE.C.9 6.G.A.1 6.G.A.2 6.G.A.3 6.G.A.4 6.SP.A.1 6.SP.A.2 6.SP.A.3 6.SP.B.4 6.SP.B.5a 6.SP.B.5b 6.SP.B.5c 6.SP.B.5d".split(" ").map((c) => [c]);
 export function geoPacingMain(course = "geometry", unitHref) {
-  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, statistics: ALL_STATISTICS, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || ALL_GEOMETRY;
+  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, statistics: ALL_STATISTICS, math6: ALL_MATH6, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || ALL_GEOMETRY;
   const framework = C.framework || "Common Core " + C.name, source = C.bank ? "question-bank skill" : "generator skill";
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const href = unitHref || ((t) => "../u/geometry/" + slug(t) + "/");
   const wk = (d) => Math.ceil(d / 5);
   let h = `<h1>${esc(C.name)} Pacing Guide and Standards Coverage</h1>
 <p class="lede">A 180-day full-year plan in two semesters, a compressed one-semester (90-day block) plan, and a table showing which ${source}s practice each ${C.ap ? esc(C.apName || "AP Calculus AB") + " learning objective" : esc(framework) + " standard"}. Every lesson has a ready plan in the Lesson Planner.</p>
-${C.ap ? `<p>The year is built around the ${esc(C.apName || "AP Calculus AB")} exam in May: new content ends about mid-April, ${C.apName ? "AP review and practice exams" : "the AP Review unit and practice exams"} fill the weeks before the exam, and the weeks after it go to the course projects. ${C.apNote ? esc(C.apNote) : "Euler’s method (Differential Equations) is a BC topic and can be skipped in an AB-only class."}</p>\n` : ""}${C.mcas ? `<p>The year is built around the spring Grade 7 MCAS. Units 1–12 come first, so every Grade 7 standard is taught before the test; six review days use the two cumulative practice tests and the Grade 7 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 7/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 7/.test(d.title)).pop() || {}).day}; check your district’s testing window). Unit 13, high-school algebra, follows the test. Review skills (Grade 6 and earlier standards) are taught two to a day; the last column lists the Grade 7 and Grade 8 standards each unit practices.</p>\n` : ""}<p><a href="#year">Full year</a> · <a href="#block">One-semester block</a> · <a href="#standards">Standards coverage</a></p>
+${C.ap ? `<p>The year is built around the ${esc(C.apName || "AP Calculus AB")} exam in May: new content ends about mid-April, ${C.apName ? "AP review and practice exams" : "the AP Review unit and practice exams"} fill the weeks before the exam, and the weeks after it go to the course projects. ${C.apNote ? esc(C.apNote) : "Euler’s method (Differential Equations) is a BC topic and can be skipped in an AB-only class."}</p>\n` : ""}${C.mcas === 6 ? `<p>The year is built around the spring Grade 6 MCAS. All seven units come first, so every Grade 6 standard is taught before the test; six review days use the two cumulative Grade 6 practice tests and the Grade 6 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 6/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 6/.test(d.title)).pop() || {}).day}; check your district’s testing window). The weeks after the test are Grade 7 previews, three projects and the final review. Lessons marked (extension) also practice a Grade 7 standard; the last column lists those Grade 7 standards.</p>\n` : C.mcas ? `<p>The year is built around the spring Grade 7 MCAS. Units 1–12 come first, so every Grade 7 standard is taught before the test; six review days use the two cumulative practice tests and the Grade 7 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 7/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 7/.test(d.title)).pop() || {}).day}; check your district’s testing window). Unit 13, high-school algebra, follows the test. Review skills (Grade 6 and earlier standards) are taught two to a day; the last column lists the Grade 7 and Grade 8 standards each unit practices.</p>\n` : ""}<p><a href="#year">Full year</a> · <a href="#block">One-semester block</a> · <a href="#standards">Standards coverage</a></p>
 <h2 id="year">Full year (180 days, 36 weeks)</h2>
-${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><th>Days</th><th>Weeks</th><th>Lessons</th>${C.mcas ? "<th>Grade 7 and 8 standards</th>" : ""}</tr></thead><tbody>
+${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><th>Days</th><th>Weeks</th><th>Lessons</th>${C.mcas ? (C.mcas === 6 ? "<th>Grade 7 extension standards</th>" : "<th>Grade 7 and 8 standards</th>") : ""}</tr></thead><tbody>
 `;
   const cols = C.mcas ? 5 : 4;
   const row = (u) => {
@@ -258,6 +268,9 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
     const mr = scope.days.filter((d) => d.unit === null && /^MCAS/.test(d.title));
     if (C.mcas && mr.length && mr[0].day === u.end_day + 1)
       h += `<tr><td colspan="${cols}"><strong>MCAS review and testing</strong> (days ${mr[0].day}–${mr[mr.length - 1].day}): ${esc(mr.map((d) => d.title.replace(/^MCAS (review · )?/, "")).join("; "))}</td></tr>\n`;
+    const pm = scope.days.filter((d) => /^After MCAS · /.test(d.title));
+    if (C.mcas && mr.length && mr[0].day === u.end_day + 1 && pm.length)
+      h += `<tr><td colspan="${cols}"><strong>After the MCAS</strong> (days ${pm[0].day}–${pm[pm.length - 1].day}): ${esc([...new Set(pm.map((d) => d.title.replace(/^After MCAS · /, "")))].join("; "))}</td></tr>\n`;
   }
   if (C.ap) {
     const apr = scope.days.filter((d) => /^AP review/.test(d.title)), exam = scope.days.find((d) => /^AP (?:Calculus AB|Statistics) Exam/.test(d.title)), proj = scope.days.filter((d) => /^Post-exam project/.test(d.title));
@@ -265,7 +278,7 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
     if (exam) h += `<tr><td colspan="4"><strong>${esc(C.apName || "AP Calculus AB")} Exam</strong> (about day ${exam.day}, early-to-mid May; check the College Board date for your year)</td></tr>\n`;
     if (proj.length) h += `<tr><td colspan="4"><strong>Post-exam projects</strong> (days ${proj[0].day}–${proj[proj.length - 1].day}): ${esc([...new Set(proj.map((d) => d.title.split(" · ")[1]).filter(Boolean))].join("; "))}</td></tr>\n`;
   } else {
-  const fin = scope.days.filter((d) => d.unit === null && d.day > 170);
+  const fin = scope.days.filter((d) => d.unit === null && d.day > 170 && !/^After MCAS/.test(d.title));
   if (fin.length) h += `<tr><td colspan="${cols}"><strong>Final review and exam</strong> (days ${fin[0].day}–${fin[fin.length - 1].day})</td></tr>\n`;
   }
   h += `</tbody></table>\n${C.mcas ? "</div>\n" : ""}`;
@@ -274,7 +287,7 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
   let day = 1;
   for (const u of scope.units) {
     const keep = Math.ceil(u.total_days / 2); h += `<tr><td>Unit ${u.unit}: ${esc(u.title)}</td><td>${day + 1}–${day + keep} (${keep})</td></tr>\n`; day += keep;
-    if (C.mcas && u.unit === 12) { h += `<tr><td>MCAS review and testing</td><td>${day + 1}–${day + 4} (4)</td></tr>\n`; day += 4; }
+    if (C.mcas && u.unit === (C.mcas === 6 ? 7 : 12)) { h += `<tr><td>MCAS review and testing</td><td>${day + 1}–${day + 4} (4)</td></tr>\n`; day += 4; }
   }
   h += `<tr><td>${C.ap ? "AP review and practice exams" : "Final review and exam"}</td><td>${day + 1}${day + 1 < 90 ? "–90" : ""}</td></tr>\n</tbody></table>\n`;
   // standards coverage
