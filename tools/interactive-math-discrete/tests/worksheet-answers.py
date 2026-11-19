@@ -65,6 +65,11 @@ has('discrete-recursion-explorer', '1023', '144', '143', '−64', '1307.50', '12
 # sets
 U = set(range(1, 21)); A = {x for x in U if x % 2 == 0}; B = {x for x in U if x % 3 == 0}; C = {2, 3, 5, 7, 11, 13, 17, 19}
 ros = lambda S: '{' + ', '.join(map(str, sorted(S))) + '}'
+# Quantifier explorer: truth sets recomputed from the tool's domains and sentences.
+D5 = list(range(-5, 6)); D12 = list(range(1, 13)); ros2 = lambda xs: '{' + ', '.join(str(x).replace('-', '−') for x in xs) + '}'
+has('discrete-quantifier-explorer', ros2([x for x in D5 if x * x > x]), ros2([x for x in D5 if x * x == 4]), ros2([x for x in D12 if all(x % d for d in range(2, x)) and x > 1]),
+    ros2([x for x in D5 if 2 * x + 1 > 0]), ros2([x for x in D12 if x * x >= 30]))
+check(not [x for x in D5 if x * x >= 30] and all(x * x >= 0 for x in D5) and not all(2 * x + 1 > 0 for x in D5) and all(2 * x + 1 > 0 for x in D12), 'quantifier truth values')
 has('discrete-venn-explorer', ros(A & B), ros(U - (A | B)), ros(A - B), ros(A ^ B), ros({x for x in U if (x in A) + (x in B) + (x in C) == 1}))
 check((A - (B - C)) != ((A - B) - C) and 2 in (A - (B - C)) - ((A - B) - C), 'A−(B−C) counterexample 2')
 P, Q, U10 = {2, 3, 5, 7}, {1, 3, 5, 7, 9}, set(range(1, 11)); check(P - Q == {2} and U10 - (P | Q) == {4, 6, 8, 10}, 'venn apply 1')

@@ -7,6 +7,7 @@
    - statement forms in p, q, r, s: the same form up to the order of ∧ / ∨ / ↔ operands is correct; a form with a different
      truth column is incorrect; an equivalent form written differently is left to the teacher, because a question may ask for
      a particular rewriting (simplified, without →, …)
+   - step orders such as BDAC (proof steps), in any spacing or punctuation
    - one-word answers: Yes / No, True / False, T / F, none, a single candidate letter.
    Anything else stays self-checked. */
 (function (G) {
@@ -137,6 +138,7 @@
     if (namedOf(k)) return 'named';
     if (listOf(k)) return 'list';
     if (isFormKey(k)) { try { parse(normForm(k)); return 'form'; } catch (e) { return null; } }
+    if (/^[A-H]{3,8}$/.test(k) && new Set(k).size === k.length) return 'order';
     if (WORDS.test(k)) return 'word';
     if (/^[A-E]$/.test(k)) return 'letter';
     if (/^P\d+$/.test(k)) return 'list';
@@ -182,6 +184,11 @@
         if (shape(kn) === shape(tn)) return { status: 'correct' };
         var vs = Object.keys(Object.assign(vars(kn), vars(tn))).sort();
         return column(kn, vs) === column(tn, vs) ? { status: 'self' } : { status: 'incorrect' };
+      }
+      if (kd === 'order') {
+        var o = t.toUpperCase().replace(/[^A-H]/g, '');
+        if (o.length !== k.length) return { status: 'invalid', message: 'Answer with the ' + k.length + ' letters in order, like ' + 'ABCDEFGH'.slice(0, k.length) + '.' };
+        return { status: o === k ? 'correct' : 'incorrect' };
       }
       if (kd === 'word') {
         var w = function (x) { x = x.toLowerCase(); return x === 't' ? 'true' : x === 'f' ? 'false' : x; };

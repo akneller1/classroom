@@ -5,7 +5,7 @@
 const { chromium } = require('playwright'); const http = require('http'), fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = path.resolve(__dirname, '../../..');
 const ctx = { window: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8'), ctx);
-const entries = []; for (const c of ctx.window.LIBRARY.courses) for (const u of c.units) for (const a of u.artifacts) if (a.bankFormat === 'interactive-math' && a.added === '2026-11-09' && c.id === 'discrete') entries.push({ c: c.id, u: u.id, a });
+const entries = []; for (const c of ctx.window.LIBRARY.courses) for (const u of c.units) for (const a of u.artifacts) if (a.bankFormat === 'interactive-math' && ['2026-11-09', '2026-11-18'].includes(a.added) && c.id === 'discrete') entries.push({ c: c.id, u: u.id, a });
 const T = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.pdf': 'application/pdf' };
 let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; console.log('FAIL', m); } };
 (async () => {

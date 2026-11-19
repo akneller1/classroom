@@ -23,6 +23,13 @@ module.exports = {
     async (p, H) => { await H.chip(p, 'Fibonacci'); },
     async (p, H) => { await H.chip(p, 'Geometric'); await H.type(p, 'rc-guess', '3*2^(n-1)'); }
   ],
+  'discrete-quantifier-explorer': [
+    async (p, H) => { await H.chip(p, 'x² ≥ 0'); },
+    async (p, H) => { await H.chip(p, 'x² > x'); },
+    async (p, H) => { await H.chip(p, 'x² ≥ 30'); },
+    async (p, H) => { await H.chip(p, '2x + 1 > 0'); await H.chip(p, '{1, …, 12}'); },
+    async (p, H) => { await H.chip(p, '{−5, …, 5}'); await H.chip(p, 'Their negations'); }
+  ],
   'discrete-venn-explorer': [
     async (p, H) => { await H.btn(p, 'in A, not B'); await H.type(p, 'vn-e1', "A ∩ B'"); },
     async (p, H) => { await H.type(p, 'vn-e1', "(A ∪ B)'"); await H.type(p, 'vn-e2', "A' ∩ B'"); },
