@@ -7,6 +7,8 @@ on:
       - 'artifacts/**'
       - 'thumbs/**'
       - 'tools/interactive-math-20261107/**'
+      - 'tools/calculus-audit-20261118/labs/**'
+      - 'scripts/test-calculus-labs.cjs'
       - 'scripts/test-interactive-math-update.cjs'
       - '.github/workflows/interactive-math.yml'
   workflow_dispatch:
@@ -26,3 +28,9 @@ jobs:
         run: node scripts/test-interactive-math-update.cjs
       - name: Independently recompute worksheet answers
         run: python tools/interactive-math-20261107/tests/worksheet-answers.py
+      - name: Calculus Related Rates and Particle Motion labs
+        run: |
+          python tools/calculus-audit-20261118/labs/build.py
+          git diff --exit-code -- artifacts/calculus-related-rates-lab/index.html artifacts/calculus-particle-motion-lab/index.html
+          node scripts/test-calculus-labs.cjs
+          python tools/calculus-audit-20261118/labs/tests/worksheet-answers.py

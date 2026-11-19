@@ -386,37 +386,46 @@
    "skillId": "applications-integrals-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Interpreting Definite Integrals in Context): answer each part and show your work.",
+   "prompt": "Free response (Interpreting Definite Integrals in Context). H(t) is the height of a plant, in centimeters, t weeks after a start time. H is twice differentiable.",
+   "answer": "(a) At t = 1 week, the height of a plant is decreasing at 2 centimeters per week; (b) the net change in height of a plant from t = 1 to t = 5, in centimeters; (c) (1/4)∫ from 1 to 5 H(t) dt, in centimeters; (d) centimeters per week per week",
    "parts": [
     {
-     "prompt": "Oil leaks from a tank at r(t) = 2t + 8 liters per hour. How many liters leak during the first 6 hours?",
-     "answer": "84 liters"
+     "label": "a",
+     "prompt": "Interpret H′(1) = -2 in context, with units.",
+     "answer": "At t = 1 week, the height of a plant is decreasing at 2 centimeters per week"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 3t + 4 liters per hour. How many liters leak during the first 6 hours?",
-     "answer": "78 liters"
+     "label": "b",
+     "prompt": "Interpret ∫ from 1 to 5 H′(t) dt in context.",
+     "answer": "the net change in height of a plant from t = 1 to t = 5, in centimeters"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 3t + 9 liters per hour. How many liters leak during the first 6 hours?",
-     "answer": "108 liters"
+     "label": "c",
+     "prompt": "Write an expression for the average value of H on 1 ≤ t ≤ 5. Explain why its units are centimeters.",
+     "answer": "(1/4)∫ from 1 to 5 H(t) dt, in centimeters"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 2t + 2 liters per hour. How many liters leak during the first 5 hours?",
-     "answer": "35 liters"
+     "label": "d",
+     "prompt": "What are the units of H″(t)?",
+     "answer": "centimeters per week per week"
     }
    ],
-   "answer": "(a) 84 liters; (b) 78 liters; (c) 108 liters; (d) 35 liters",
    "solutionSteps": [
-    "(a) Total = ∫ from 0 to 6 (2t + 8) dt. = 84 liters.",
-    "(b) Total = ∫ from 0 to 6 (3t + 4) dt. = 78 liters.",
-    "(c) Total = ∫ from 0 to 6 (3t + 9) dt. = 108 liters.",
-    "(d) Total = ∫ from 0 to 5 (2t + 2) dt. = 35 liters."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units centimeters·weeks, and dividing by the length of the interval (weeks) leaves centimeters.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) H″ is the rate of change of H′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP CHA-4.A",
     "AP CHA-4.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_units_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s01-cp2-016",
@@ -823,37 +832,46 @@
    "skillId": "applications-integrals-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Interpreting Definite Integrals in Context): answer each part and show your work.",
+   "prompt": "Free response (Interpreting Definite Integrals in Context). W(t) is the amount of water in the pond, in gallons, t days after a start time. W is twice differentiable.",
+   "answer": "(a) At t = 1 day, the amount of water in the pond is decreasing at 4 gallons per day; (b) the net change in amount of water in the pond from t = 1 to t = 5, in gallons; (c) (1/4)∫ from 1 to 5 W(t) dt, in gallons; (d) gallons per day per day",
    "parts": [
     {
-     "prompt": "Oil leaks from a tank at r(t) = 2t² + 8 liters per hour. How many liters leak during the first 2 hours?",
-     "answer": "64/3 liters"
+     "label": "a",
+     "prompt": "Interpret W′(1) = -4 in context, with units.",
+     "answer": "At t = 1 day, the amount of water in the pond is decreasing at 4 gallons per day"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 3t² + 5 liters per hour. How many liters leak during the first 3 hours?",
-     "answer": "42 liters"
+     "label": "b",
+     "prompt": "Interpret ∫ from 1 to 5 W′(t) dt in context.",
+     "answer": "the net change in amount of water in the pond from t = 1 to t = 5, in gallons"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = t² + 3 liters per hour. How many liters leak during the first 7 hours?",
-     "answer": "406/3 liters"
+     "label": "c",
+     "prompt": "Write an expression for the average value of W on 1 ≤ t ≤ 5. Explain why its units are gallons.",
+     "answer": "(1/4)∫ from 1 to 5 W(t) dt, in gallons"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = t² + 6 liters per hour. How many liters leak during the first 4 hours?",
-     "answer": "136/3 liters"
+     "label": "d",
+     "prompt": "What are the units of W″(t)?",
+     "answer": "gallons per day per day"
     }
    ],
-   "answer": "(a) 64/3 liters; (b) 42 liters; (c) 406/3 liters; (d) 136/3 liters",
    "solutionSteps": [
-    "(a) Total = ∫ from 0 to 2 (2t² + 8) dt. = 64/3 liters.",
-    "(b) Total = ∫ from 0 to 3 (3t² + 5) dt. = 42 liters.",
-    "(c) Total = ∫ from 0 to 7 (t² + 3) dt. = 406/3 liters.",
-    "(d) Total = ∫ from 0 to 4 (t² + 6) dt. = 136/3 liters."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units gallons·days, and dividing by the length of the interval (days) leaves gallons.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) W″ is the rate of change of W′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP CHA-4.A",
     "AP CHA-4.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_units_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s01-cp1-016",
@@ -1260,37 +1278,46 @@
    "skillId": "applications-integrals-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Interpreting Definite Integrals in Context): answer each part and show your work.",
+   "prompt": "Free response (Interpreting Definite Integrals in Context). P(t) is the number of people in the museum, in people, t hours after a start time. P is twice differentiable.",
+   "answer": "(a) At t = 3 hours, the number of people in the museum is decreasing at 2 people per hour; (b) the net change in number of people in the museum from t = 3 to t = 9, in people; (c) (1/6)∫ from 3 to 9 P(t) dt, in people; (d) people per hour per hour",
    "parts": [
     {
-     "prompt": "Oil leaks from a tank at r(t) = 3t² + 9 liters per hour. How many liters leak during the first 2 hours?",
-     "answer": "26 liters"
+     "label": "a",
+     "prompt": "Interpret P′(3) = -2 in context, with units.",
+     "answer": "At t = 3 hours, the number of people in the museum is decreasing at 2 people per hour"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = t² + 11 liters per hour. How many liters leak during the first 3 hours?",
-     "answer": "42 liters"
+     "label": "b",
+     "prompt": "Interpret ∫ from 3 to 9 P′(t) dt in context.",
+     "answer": "the net change in number of people in the museum from t = 3 to t = 9, in people"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 2t² + 8 liters per hour. How many liters leak during the first 3 hours?",
-     "answer": "42 liters"
+     "label": "c",
+     "prompt": "Write an expression for the average value of P on 3 ≤ t ≤ 9. Explain why its units are people.",
+     "answer": "(1/6)∫ from 3 to 9 P(t) dt, in people"
     },
     {
-     "prompt": "Oil leaks from a tank at r(t) = 3t² + 11 liters per hour. How many liters leak during the first 6 hours?",
-     "answer": "282 liters"
+     "label": "d",
+     "prompt": "What are the units of P″(t)?",
+     "answer": "people per hour per hour"
     }
    ],
-   "answer": "(a) 26 liters; (b) 42 liters; (c) 42 liters; (d) 282 liters",
    "solutionSteps": [
-    "(a) Total = ∫ from 0 to 2 (3t² + 9) dt. = 26 liters.",
-    "(b) Total = ∫ from 0 to 3 (t² + 11) dt. = 42 liters.",
-    "(c) Total = ∫ from 0 to 3 (2t² + 8) dt. = 42 liters.",
-    "(d) Total = ∫ from 0 to 6 (3t² + 11) dt. = 282 liters."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units people·hours, and dividing by the length of the interval (hours) leaves people.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) P″ is the rate of change of P′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP CHA-4.A",
     "AP CHA-4.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_units_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s01-honors-016",
@@ -1695,36 +1722,45 @@
    "skillId": "applications-integrals-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation and Net Change): answer each part and show your work.",
+   "prompt": "Free response (Accumulation and Net Change). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 9; R(2) = 16; R(4) = 7; R(6) = 15; R(8) = 10. The tank holds 300 gallons at t = 0.",
+   "answer": "(a) -1/4 gallons per hour per hour; (b) 95 gallons; about 95 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 395 gallons",
    "parts": [
     {
-     "prompt": "A reservoir holds 170 thousand gallons at t = 0. Water flows in at r(t) = 7t + 6 thousand gallons per day. How much is in the reservoir at t = 6 days?",
-     "answer": "332 thousand gallons"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "-1/4 gallons per hour per hour"
     },
     {
-     "prompt": "A reservoir holds 134 thousand gallons at t = 0. Water flows in at r(t) = 2t + 6 thousand gallons per day. How much is in the reservoir at t = 5 days?",
-     "answer": "189 thousand gallons"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "95 gallons; about 95 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "A reservoir holds 106 thousand gallons at t = 0. Water flows in at r(t) = 5t + 1 thousand gallons per day. How much is in the reservoir at t = 6 days?",
-     "answer": "202 thousand gallons"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 25/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A reservoir holds 112 thousand gallons at t = 0. Water flows in at r(t) = 5t + 6 thousand gallons per day. How much is in the reservoir at t = 6 days?",
-     "answer": "238 thousand gallons"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "395 gallons"
     }
    ],
-   "answer": "(a) 332 thousand gallons; (b) 189 thousand gallons; (c) 202 thousand gallons; (d) 238 thousand gallons",
    "solutionSteps": [
-    "(a) Amount = 170 + ∫ from 0 to 6 (7t + 6) dt. = 170 + 162 = 332.",
-    "(b) Amount = 134 + ∫ from 0 to 5 (2t + 6) dt. = 134 + 55 = 189.",
-    "(c) Amount = 106 + ∫ from 0 to 6 (5t + 1) dt. = 106 + 96 = 202.",
-    "(d) Amount = 112 + ∫ from 0 to 6 (5t + 6) dt. = 112 + 126 = 238."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (15 − 16)/4 = -1/4 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(9 + 16)/2 + 2(16 + 7)/2 + 2(7 + 15)/2 + 2(15 + 10)/2 = 95. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 25/2 is between R(0) = 9 and R(2) = 16, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 300 + 95 = 395 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s02-cp2-016",
@@ -2128,36 +2164,45 @@
    "skillId": "applications-integrals-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation and Net Change): answer each part and show your work.",
+   "prompt": "Free response (Accumulation and Net Change). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 10; R(2) = 13; R(5) = 10; R(7) = 15; R(10) = 16. The tank holds 200 gallons at t = 0.",
+   "answer": "(a) 2/5 gallons per hour per hour; (b) 129 gallons; about 129 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 329 gallons",
    "parts": [
     {
-     "prompt": "A tank holds 123 L at t = 0. Water enters at E(t) = 6t + 6 L/min and leaves at a constant 21 L/min. How much water is in the tank at t = 4 minutes?",
-     "answer": "111 L"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "2/5 gallons per hour per hour"
     },
     {
-     "prompt": "A tank holds 56 L at t = 0. Water enters at E(t) = 6t + 6 L/min and leaves at a constant 13 L/min. How much water is in the tank at t = 3 minutes?",
-     "answer": "62 L"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "129 gallons; about 129 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "A tank holds 36 L at t = 0. Water enters at E(t) = 5t + 2 L/min and leaves at a constant 28 L/min. How much water is in the tank at t = 5 minutes?",
-     "answer": "-63/2 L"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 23/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A tank holds 180 L at t = 0. Water enters at E(t) = 7t + 7 L/min and leaves at a constant 10 L/min. How much water is in the tank at t = 4 minutes?",
-     "answer": "224 L"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "329 gallons"
     }
    ],
-   "answer": "(a) 111 L; (b) 62 L; (c) -63/2 L; (d) 224 L",
    "solutionSteps": [
-    "(a) Amount = 123 + ∫ from 0 to 4 (E(t) - 21) dt. = 111 L.",
-    "(b) Amount = 56 + ∫ from 0 to 3 (E(t) - 13) dt. = 62 L.",
-    "(c) Amount = 36 + ∫ from 0 to 5 (E(t) - 28) dt. = -63/2 L.",
-    "(d) Amount = 180 + ∫ from 0 to 4 (E(t) - 10) dt. = 224 L."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (15 − 13)/5 = 2/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(10 + 13)/2 + 3(13 + 10)/2 + 2(10 + 15)/2 + 3(15 + 16)/2 = 129. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 23/2 is between R(0) = 10 and R(2) = 13, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 200 + 129 = 329 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s02-cp1-016",
@@ -2561,36 +2606,45 @@
    "skillId": "applications-integrals-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation and Net Change): answer each part and show your work.",
+   "prompt": "Free response (Accumulation and Net Change). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 12; R(2) = 10; R(5) = 15; R(7) = 17; R(10) = 12. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) 7/5 gallons per hour per hour; (b) 135 gallons; about 135 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 635 gallons",
    "parts": [
     {
-     "prompt": "A tank holds 51 L at t = 0. Water enters at E(t) = 5t + 2 L/min and leaves at a constant 23 L/min. How much water is in the tank at t = 4 minutes?",
-     "answer": "7 L"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "7/5 gallons per hour per hour"
     },
     {
-     "prompt": "A tank holds 138 L at t = 0. Water enters at E(t) = 2t + 5 L/min and leaves at a constant 10 L/min. How much water is in the tank at t = 2 minutes?",
-     "answer": "132 L"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "135 gallons; about 135 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "A tank holds 66 L at t = 0. Water enters at E(t) = 7t + 6 L/min and leaves at a constant 14 L/min. How much water is in the tank at t = 3 minutes?",
-     "answer": "147/2 L"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 11? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A tank holds 61 L at t = 0. Water enters at E(t) = 5t + 3 L/min and leaves at a constant 17 L/min. How much water is in the tank at t = 5 minutes?",
-     "answer": "107/2 L"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "635 gallons"
     }
    ],
-   "answer": "(a) 7 L; (b) 132 L; (c) 147/2 L; (d) 107/2 L",
    "solutionSteps": [
-    "(a) Amount = 51 + ∫ from 0 to 4 (E(t) - 23) dt. = 7 L.",
-    "(b) Amount = 138 + ∫ from 0 to 2 (E(t) - 10) dt. = 132 L.",
-    "(c) Amount = 66 + ∫ from 0 to 3 (E(t) - 14) dt. = 147/2 L.",
-    "(d) Amount = 61 + ∫ from 0 to 5 (E(t) - 17) dt. = 107/2 L."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (17 − 10)/5 = 7/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(12 + 10)/2 + 3(10 + 15)/2 + 2(15 + 17)/2 + 3(17 + 12)/2 = 135. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 11 is between R(0) = 12 and R(2) = 10, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 135 = 635 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s02-honors-016",
@@ -2994,36 +3048,45 @@
    "skillId": "applications-integrals-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Average Value of a Function): answer each part and show your work.",
+   "prompt": "Free response (Average Value of a Function). The temperature in a greenhouse is T(t) = 40 - 2t degrees Celsius, t hours after 6 a.m., for 0 ≤ t ≤ 10.",
+   "answer": "(a) 30 °C; (b) Yes; (c) t = 5; (d) -2 °C per hour; part (a) is an average temperature, this is an average rate of change",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = 9x² + 4x on [-2, 2].",
-     "answer": "12"
+     "label": "a",
+     "prompt": "Find the average temperature from t = 0 to t = 10.",
+     "answer": "30 °C"
     },
     {
-     "prompt": "Find the average value of f(x) = -9x² - 4 on [1, 5].",
-     "answer": "-97"
+     "label": "b",
+     "prompt": "Must there be a time in the interval when the temperature equals the average? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Find the average value of f(x) = 3x² + 8x - 4 on [-2, 3].",
-     "answer": "7"
+     "label": "c",
+     "prompt": "Find the time(s) when T(t) equals its average value.",
+     "answer": "t = 5"
     },
     {
-     "prompt": "Find the average value of f(x) = 6x² - 4x - 6 on [-2, 1].",
-     "answer": "2"
+     "label": "d",
+     "prompt": "Find the average rate of change of T from t = 0 to t = 10, and explain how it differs from the answer to part (a).",
+     "answer": "-2 °C per hour; part (a) is an average temperature, this is an average rate of change"
     }
    ],
-   "answer": "(a) 12; (b) -97; (c) 7; (d) 2",
    "solutionSteps": [
-    "(a) ∫ = 48; divide by 4. = 12.",
-    "(b) ∫ = -388; divide by 4. = -97.",
-    "(c) ∫ = 35; divide by 5. = 7.",
-    "(d) ∫ = 6; divide by 3. = 2."
+    "(a) (1/(10 − 0))∫ from 0 to 10 T(t) dt = 30.",
+    "(a) Scoring, 2 points: 1 point for 1/(b − a) times the integral, 1 point for the value.",
+    "(b) T is continuous on the closed interval, so by the Mean Value Theorem for Integrals (or the IVT between its minimum and maximum) T takes its average value.",
+    "(b) Scoring, 2 points: 1 point for continuity, 1 point for the theorem.",
+    "(c) Solve 40 - 2t = 30.",
+    "(c) Scoring, 1 point: the time(s).",
+    "(d) (T(10) − T(0))/(10 − 0).",
+    "(d) Scoring, 2 points: 1 point for the value with units, 1 point for the distinction.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_avg_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_avg). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s03-cp2-016",
@@ -3427,36 +3490,45 @@
    "skillId": "applications-integrals-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Average Value of a Function): answer each part and show your work.",
+   "prompt": "Free response (Average Value of a Function). The temperature in a greenhouse is T(t) = t² - 4t + 10 degrees Celsius, t hours after 6 a.m., for 0 ≤ t ≤ 6.",
+   "answer": "(a) 10 °C; (b) Yes; (c) t = 0, t = 4; (d) 2 °C per hour; part (a) is an average temperature, this is an average rate of change",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = 1/x on [1, e].",
-     "answer": "1/(e - 1)"
+     "label": "a",
+     "prompt": "Find the average temperature from t = 0 to t = 6.",
+     "answer": "10 °C"
     },
     {
-     "prompt": "Find the average value of f(x) = 4sin(x) on [0, π].",
-     "answer": "8/π"
+     "label": "b",
+     "prompt": "Must there be a time in the interval when the temperature equals the average? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Find the average value of f(x) = 6cos(x) on [0, π/3].",
-     "answer": "(9√3)/π"
+     "label": "c",
+     "prompt": "Find the time(s) when T(t) equals its average value.",
+     "answer": "t = 0, t = 4"
     },
     {
-     "prompt": "Find the average value of f(x) = 5cos(x) on [0, π/3].",
-     "answer": "(15√3)/(2π)"
+     "label": "d",
+     "prompt": "Find the average rate of change of T from t = 0 to t = 6, and explain how it differs from the answer to part (a).",
+     "answer": "2 °C per hour; part (a) is an average temperature, this is an average rate of change"
     }
    ],
-   "answer": "(a) 1/(e - 1); (b) 8/π; (c) (9√3)/π; (d) (15√3)/(2π)",
    "solutionSteps": [
-    "(a) ∫ = 1; divide by -1 + e. = 1/(e - 1).",
-    "(b) ∫ = 8; divide by π. = 8/π.",
-    "(c) ∫ = 3√3; divide by π/3. = (9√3)/π.",
-    "(d) ∫ = (5√3)/2; divide by π/3. = (15√3)/(2π)."
+    "(a) (1/(6 − 0))∫ from 0 to 6 T(t) dt = 10.",
+    "(a) Scoring, 2 points: 1 point for 1/(b − a) times the integral, 1 point for the value.",
+    "(b) T is continuous on the closed interval, so by the Mean Value Theorem for Integrals (or the IVT between its minimum and maximum) T takes its average value.",
+    "(b) Scoring, 2 points: 1 point for continuity, 1 point for the theorem.",
+    "(c) Solve t² - 4t + 10 = 10.",
+    "(c) Scoring, 1 point: the time(s).",
+    "(d) (T(6) − T(0))/(6 − 0).",
+    "(d) Scoring, 2 points: 1 point for the value with units, 1 point for the distinction.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_avg_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_avg). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s03-cp1-016",
@@ -3860,36 +3932,45 @@
    "skillId": "applications-integrals-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Average Value of a Function): answer each part and show your work.",
+   "prompt": "Free response (Average Value of a Function). The temperature in a greenhouse is T(t) = 15 + 6cos(πt/6) degrees Celsius, t hours after 6 a.m., for 0 ≤ t ≤ 3.",
+   "answer": "(a) 12/π + 15 °C ≈ 18.82 °C; (b) Yes; (c) decreasing; (d) -2 °C per hour; part (a) is an average temperature, this is an average rate of change",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = 4e^x on [0, 2].",
-     "answer": "-2 + 2e²"
+     "label": "a",
+     "prompt": "Find the average temperature from t = 0 to t = 3.",
+     "answer": "12/π + 15 °C ≈ 18.82 °C"
     },
     {
-     "prompt": "Find the average value of f(x) = sin(x) on [0, π/3].",
-     "answer": "3/(2π)"
+     "label": "b",
+     "prompt": "Must there be a time in the interval when the temperature equals the average? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Find the average value of f(x) = 9x² + 6x + 2 on [-1, 1].",
-     "answer": "5"
+     "label": "c",
+     "prompt": "Is the temperature increasing or decreasing at t = 1? Justify your answer.",
+     "answer": "decreasing"
     },
     {
-     "prompt": "Find the average value of f(x) = e^x on [0, 2].",
-     "answer": "-1/2 + (1/2)e²"
+     "label": "d",
+     "prompt": "Find the average rate of change of T from t = 0 to t = 3, and explain how it differs from the answer to part (a).",
+     "answer": "-2 °C per hour; part (a) is an average temperature, this is an average rate of change"
     }
    ],
-   "answer": "(a) -2 + 2e²; (b) 3/(2π); (c) 5; (d) -1/2 + (1/2)e²",
    "solutionSteps": [
-    "(a) ∫ = -4 + 4e²; divide by 2. = -2 + 2e².",
-    "(b) ∫ = 1/2; divide by π/3. = 3/(2π).",
-    "(c) ∫ = 10; divide by 2. = 5.",
-    "(d) ∫ = -1 + e²; divide by 2. = -1/2 + (1/2)e²."
+    "(a) (1/(3 − 0))∫ from 0 to 3 T(t) dt = 12/π + 15.",
+    "(a) Scoring, 2 points: 1 point for 1/(b − a) times the integral, 1 point for the value.",
+    "(b) T is continuous on the closed interval, so by the Mean Value Theorem for Integrals (or the IVT between its minimum and maximum) T takes its average value.",
+    "(b) Scoring, 2 points: 1 point for continuity, 1 point for the theorem.",
+    "(c) T′(1) = -π/2 ≈ -1.571.",
+    "(c) Scoring, 1 point: the sign of T′(1).",
+    "(d) (T(3) − T(0))/(3 − 0).",
+    "(d) Scoring, 2 points: 1 point for the value with units, 1 point for the distinction.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_avg_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_avg). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s03-honors-016",
@@ -4316,36 +4397,45 @@
    "skillId": "applications-integrals-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Motion and Displacement): answer each part and show your work.",
+   "prompt": "Free response (Motion and Displacement). A particle moves along the x-axis with velocity v(t) = (t - 1)(t - 3) meters per second for 0 ≤ t ≤ 4.",
+   "answer": "(a) t = 1, t = 3; (b) slowing down; (c) 4/3 m; (d) 4 m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = 3t² - 27t + 60 m/s. Find its displacement from t = 0 to t = 5.",
-     "answer": "175/2 m"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 1, t = 3"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t² - 5t + 6 m/s. Find its displacement from t = 0 to t = 6.",
-     "answer": "18 m"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1/2? Give a reason.",
+     "answer": "slowing down"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t² - 4t + 3 m/s. Find its displacement from t = 0 to t = 4.",
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 4.",
      "answer": "4/3 m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 3t² - 21t + 36 m/s. Find its displacement from t = 0 to t = 2.",
-     "answer": "38 m"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 4.",
+     "answer": "4 m"
     }
    ],
-   "answer": "(a) 175/2 m; (b) 18 m; (c) 4/3 m; (d) 38 m",
    "solutionSteps": [
-    "(a) Displacement = ∫ from 0 to 5 v(t) dt. = 175/2 m.",
-    "(b) Displacement = ∫ from 0 to 6 v(t) dt. = 18 m.",
-    "(c) Displacement = ∫ from 0 to 4 v(t) dt. = 4/3 m.",
-    "(d) Displacement = ∫ from 0 to 2 v(t) dt. = 38 m."
+    "(a) v(t) = 0 at t = 1, t = 3, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1/2) = 5/4 and a(1/2) = v′(1/2) = -3; they have opposite signs, so it is slowing down.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 4 v(t) dt = 4/3 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 4 |v(t)| dt: split at 1, 3 and add the absolute values: 4 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s04-cp2-016",
@@ -4772,36 +4862,45 @@
    "skillId": "applications-integrals-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Motion and Displacement): answer each part and show your work.",
+   "prompt": "Free response (Motion and Displacement). A particle moves along the x-axis with velocity v(t) = (t - 2)(t - 6) meters per second for 0 ≤ t ≤ 7.",
+   "answer": "(a) t = 2, t = 6; (b) speeding up; (c) 7/3 m; (d) 71/3 m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = 3t² - 18t + 15 m/s. Find its displacement from t = 0 to t = 1.",
-     "answer": "7 m"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 2, t = 6"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 2t² - 10t + 12 m/s and is at s(0) = -7 m. Find its position at t = 6.",
-     "answer": "29 m"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 3? Give a reason.",
+     "answer": "speeding up"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 2t² - 18t + 40 m/s and is at s(0) = 1 m. Find its position at t = 3.",
-     "answer": "58 m"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 7.",
+     "answer": "7/3 m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 3t² - 15t + 18 m/s. Find its displacement from t = 0 to t = 6.",
-     "answer": "54 m"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 7.",
+     "answer": "71/3 m"
     }
    ],
-   "answer": "(a) 7 m; (b) 29 m; (c) 58 m; (d) 54 m",
    "solutionSteps": [
-    "(a) Displacement = ∫ from 0 to 1 v(t) dt. = 7 m.",
-    "(b) s(6) = s(0) + ∫ from 0 to 6 v(t) dt. = -7 + 36 = 29 m.",
-    "(c) s(3) = s(0) + ∫ from 0 to 3 v(t) dt. = 1 + 57 = 58 m.",
-    "(d) Displacement = ∫ from 0 to 6 v(t) dt. = 54 m."
+    "(a) v(t) = 0 at t = 2, t = 6, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(3) = -3 and a(3) = v′(3) = -2; they have the same sign, so it is speeding up.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 7 v(t) dt = 7/3 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 7 |v(t)| dt: split at 2, 6 and add the absolute values: 71/3 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s04-cp1-016",
@@ -5228,36 +5327,45 @@
    "skillId": "applications-integrals-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Motion and Displacement): answer each part and show your work.",
+   "prompt": "Free response (Motion and Displacement). A particle moves along the x-axis with velocity v(t) = t³ - 6t² + 9t meters per second for 0 ≤ t ≤ 4.",
+   "answer": "(a) t = 3; (b) speeding up; (c) 8 m; (d) 8 m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = 2t² - 22t + 60 m/s and is at s(0) = 0 m. Find its position at t = 8.",
-     "answer": "352/3 m"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 3"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t² - 6t + 5 m/s and is at s(0) = -9 m. Find its position at t = 1.",
-     "answer": "-20/3 m"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1/2? Give a reason.",
+     "answer": "speeding up"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t² - 9t + 20 m/s. Find its displacement from t = 0 to t = 3.",
-     "answer": "57/2 m"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 4.",
+     "answer": "8 m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t² - 5t + 6 m/s. Find its displacement from t = 0 to t = 1.",
-     "answer": "23/6 m"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 4.",
+     "answer": "8 m"
     }
    ],
-   "answer": "(a) 352/3 m; (b) -20/3 m; (c) 57/2 m; (d) 23/6 m",
    "solutionSteps": [
-    "(a) s(8) = s(0) + ∫ from 0 to 8 v(t) dt. = 0 + 352/3 = 352/3 m.",
-    "(b) s(1) = s(0) + ∫ from 0 to 1 v(t) dt. = -9 + 7/3 = -20/3 m.",
-    "(c) Displacement = ∫ from 0 to 3 v(t) dt. = 57/2 m.",
-    "(d) Displacement = ∫ from 0 to 1 v(t) dt. = 23/6 m."
+    "(a) v(t) = 0 at t = 3, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1/2) = 25/8 and a(1/2) = v′(1/2) = 15/4; they have the same sign, so it is speeding up.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 4 v(t) dt = 8 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 4 |v(t)| dt: split at 3 and add the absolute values: 8 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s04-honors-016",
@@ -5661,36 +5769,45 @@
    "skillId": "applications-integrals-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Total Distance Traveled): answer each part and show your work.",
+   "prompt": "Free response (Total Distance Traveled). A particle moves along the x-axis with velocity v(t) = (t - 2)(t - 5) meters per second for 0 ≤ t ≤ 6.",
+   "answer": "(a) t = 2, t = 5; (b) speeding up; (c) 6 m; (d) 15 m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = 4t - 16 ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "40 ft"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 2, t = 5"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = t - 4 ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "10 ft"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 3? Give a reason.",
+     "answer": "speeding up"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 4t - 12 ft/s. Find the total distance traveled from t = 0 to t = 8.",
-     "answer": "68 ft"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 6.",
+     "answer": "6 m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 3t - 12 ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "30 ft"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 6.",
+     "answer": "15 m"
     }
    ],
-   "answer": "(a) 40 ft; (b) 10 ft; (c) 68 ft; (d) 30 ft",
    "solutionSteps": [
-    "(a) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 40 ft.",
-    "(b) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 10 ft.",
-    "(c) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 68 ft.",
-    "(d) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 30 ft."
+    "(a) v(t) = 0 at t = 2, t = 5, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(3) = -2 and a(3) = v′(3) = -1; they have the same sign, so it is speeding up.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 6 v(t) dt = 6 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 6 |v(t)| dt: split at 2, 5 and add the absolute values: 15 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s05-cp2-016",
@@ -6101,36 +6218,45 @@
    "skillId": "applications-integrals-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Total Distance Traveled): answer each part and show your work.",
+   "prompt": "Free response (Total Distance Traveled). A particle moves along the x-axis with velocity v(t) = (t - 2)(t - 4) meters per second for 0 ≤ t ≤ 5.",
+   "answer": "(a) t = 2, t = 4; (b) slowing down; (c) 20/3 m; (d) 28/3 m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 3)(3t - 3) ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "62 ft"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 2, t = 4"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 8)(t - 5) ft/s. Find the total distance traveled from t = 0 to t = 8.",
-     "answer": "251/3 ft"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1? Give a reason.",
+     "answer": "slowing down"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 2t - 10 ft/s. Find the total distance traveled from t = 0 to t = 8.",
-     "answer": "34 ft"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 5.",
+     "answer": "20/3 m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 5)(4t - 8) ft/s. Find the total distance traveled from t = 0 to t = 7.",
-     "answer": "262/3 ft"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 5.",
+     "answer": "28/3 m"
     }
    ],
-   "answer": "(a) 62 ft; (b) 251/3 ft; (c) 34 ft; (d) 262/3 ft",
    "solutionSteps": [
-    "(a) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 62 ft.",
-    "(b) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 251/3 ft.",
-    "(c) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 34 ft.",
-    "(d) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 262/3 ft."
+    "(a) v(t) = 0 at t = 2, t = 4, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1) = 3 and a(1) = v′(1) = -4; they have opposite signs, so it is slowing down.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 5 v(t) dt = 20/3 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 5 |v(t)| dt: split at 2, 4 and add the absolute values: 28/3 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s05-cp1-016",
@@ -6542,36 +6668,45 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Total Distance Traveled): answer each part and show your work.",
+   "prompt": "Free response (Total Distance Traveled). A particle moves along the x-axis with velocity v(t) = 3sin(πt/3) meters per second for 0 ≤ t ≤ 5.",
+   "answer": "(a) t = 3; (b) speeding up; (c) 9/(2π) m; (d) 63/(2π) m",
    "parts": [
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 5)(3t - 6) ft/s. Find the total distance traveled from t = 0 to t = 3.",
-     "answer": "59/2 ft"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 3"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 3)(4t - 8) ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "220/3 ft"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1? Give a reason.",
+     "answer": "speeding up"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = 3t - 15 ft/s. Find the total distance traveled from t = 0 to t = 8.",
-     "answer": "51 ft"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 5.",
+     "answer": "9/(2π) m"
     },
     {
-     "prompt": "A particle moves with velocity v(t) = (t - 6)(2t - 4) ft/s. Find the total distance traveled from t = 0 to t = 6.",
-     "answer": "128/3 ft"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 5.",
+     "answer": "63/(2π) m"
     }
    ],
-   "answer": "(a) 59/2 ft; (b) 220/3 ft; (c) 51 ft; (d) 128/3 ft",
    "solutionSteps": [
-    "(a) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 59/2 ft.",
-    "(b) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 220/3 ft.",
-    "(c) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 51 ft.",
-    "(d) Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values. = 128/3 ft."
+    "(a) v(t) = 0 at t = 3, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1) = 3√3/2 and a(1) = v′(1) = π/2; they have the same sign, so it is speeding up.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 5 v(t) dt = 9/(2π) m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 5 |v(t)| dt: split at 3 and add the absolute values: 63/(2π) m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s05-honors-016",
@@ -7017,36 +7152,45 @@
    "skillId": "applications-integrals-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Area Between Curves): answer each part and show your work.",
+   "prompt": "Free response (Area Between Curves). Let R be the region enclosed by the graphs of y = x and y = x² for 0 ≤ x ≤ 1.",
+   "answer": "(a) 1/6; (b) 2π/15; (c) π∫ from 0 to 1 [(x + 1)² − (x² + 1)²] dx; (d) 1/30",
    "parts": [
     {
-     "prompt": "Find the area of the region bounded by y = -x - 6 and y = 3x² + 8x - 6.",
-     "answer": "27/2"
+     "label": "a",
+     "prompt": "Find the area of R.",
+     "answer": "1/6"
     },
     {
-     "prompt": "Find the area of the region bounded by y = -x + 3 and y = 3x² + 2x + 3.",
-     "answer": "1/2"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "2π/15"
     },
     {
-     "prompt": "Find the area of the region bounded by y = -x - 2 and y = x² - 2x - 8.",
-     "answer": "125/6"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from 0 to 1 [(x + 1)² − (x² + 1)²] dx"
     },
     {
-     "prompt": "Find the area of the region bounded by y = -3x - 1 and y = 2x² - 3x - 3.",
-     "answer": "8/3"
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "1/30"
     }
    ],
-   "answer": "(a) 27/2; (b) 1/2; (c) 125/6; (d) 8/3",
    "solutionSteps": [
-    "(a) On [-3, 0], y = -x - 6 is on top. Area = ∫ from -3 to 0 ((top) - (bottom)) dx = 27/2.",
-    "(b) On [-1, 0], y = -x + 3 is on top. Area = ∫ from -1 to 0 ((top) - (bottom)) dx = 1/2.",
-    "(c) On [-2, 3], y = -x - 2 is on top. Area = ∫ from -2 to 3 ((top) - (bottom)) dx = 125/6.",
-    "(d) On [-1, 1], y = -3x - 1 is on top. Area = ∫ from -1 to 1 ((top) - (bottom)) dx = 8/3."
+    "(a) ∫ from 0 to 1 [(x) − (x²)] dx = 1/6.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x² and y = x, not against the axis of rotation, so each slice is a disk with a hole: outer radius x, inner radius x². Washers: π∫ from 0 to 1 [(x)² − (x²)²] dx = 2π/15.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = x − x²: ∫ from 0 to 1 (x − x²)² dx = 1/30.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s06-cp2-016",
@@ -7487,36 +7631,45 @@
    "skillId": "applications-integrals-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Area Between Curves): answer each part and show your work.",
+   "prompt": "Free response (Area Between Curves). Let R be the region enclosed by the graphs of y = 4x and y = x² for 0 ≤ x ≤ 4.",
+   "answer": "(a) 32/3; (b) 2048π/15; (c) π∫ from 0 to 4 [(4x + 1)² − (x² + 1)²] dx; (d) 512/15",
    "parts": [
     {
-     "prompt": "Find the area of the region bounded by y = -3x + 6 and y = x² - 2x.",
-     "answer": "125/6"
-    },
-    {
-     "prompt": "Find the area of the region bounded by y = -3x + 5 and y = x² - 3x + 1.",
+     "label": "a",
+     "prompt": "Find the area of R.",
      "answer": "32/3"
     },
     {
-     "prompt": "Find the area of the region bounded by y = -2x - 1 and y = x² - x - 1.",
-     "answer": "1/6"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "2048π/15"
     },
     {
-     "prompt": "Find the area of the region bounded by y = -2x - 2 and y = 3x² - 2x - 29.",
-     "answer": "108"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from 0 to 4 [(4x + 1)² − (x² + 1)²] dx"
+    },
+    {
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "512/15"
     }
    ],
-   "answer": "(a) 125/6; (b) 32/3; (c) 1/6; (d) 108",
    "solutionSteps": [
-    "(a) On [-3, 2], y = -3x + 6 is on top. Area = ∫ from -3 to 2 ((top) - (bottom)) dx = 125/6.",
-    "(b) On [-2, 2], y = -3x + 5 is on top. Area = ∫ from -2 to 2 ((top) - (bottom)) dx = 32/3.",
-    "(c) On [-1, 0], y = -2x - 1 is on top. Area = ∫ from -1 to 0 ((top) - (bottom)) dx = 1/6.",
-    "(d) On [-3, 3], y = -2x - 2 is on top. Area = ∫ from -3 to 3 ((top) - (bottom)) dx = 108."
+    "(a) ∫ from 0 to 4 [(4x) − (x²)] dx = 32/3.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x² and y = 4x, not against the axis of rotation, so each slice is a disk with a hole: outer radius 4x, inner radius x². Washers: π∫ from 0 to 4 [(4x)² − (x²)²] dx = 2048π/15.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = 4x − x²: ∫ from 0 to 4 (4x − x²)² dx = 512/15.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s06-cp1-016",
@@ -7950,36 +8103,45 @@
    "skillId": "applications-integrals-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Area Between Curves): answer each part and show your work.",
+   "prompt": "Free response (Area Between Curves). Let R be the region enclosed by the graphs of y = x² and y = x³ for 0 ≤ x ≤ 1.",
+   "answer": "(a) 1/12; (b) 2π/35; (c) π∫ from 0 to 1 [(x² + 1)² − (x³ + 1)²] dx; (d) 1/105",
    "parts": [
     {
-     "prompt": "Find the area of the region bounded by y = x³ - 3x² + x + 6 and y = x³ - 2x.",
-     "answer": "27/2"
+     "label": "a",
+     "prompt": "Find the area of R.",
+     "answer": "1/12"
     },
     {
-     "prompt": "Find the area of the region bounded by y = x³ - 3x² - x + 3 and y = x³ - x.",
-     "answer": "4"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "2π/35"
     },
     {
-     "prompt": "Find the area of the region bounded by y = x³ - 3x² - 10x and y = x³ - x.",
-     "answer": "27/2"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from 0 to 1 [(x² + 1)² − (x³ + 1)²] dx"
     },
     {
-     "prompt": "Find the area of the region bounded by y = x³ - 3x² + 10x - 9 and y = x³ - 2x.",
-     "answer": "4"
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "1/105"
     }
    ],
-   "answer": "(a) 27/2; (b) 4; (c) 27/2; (d) 4",
    "solutionSteps": [
-    "(a) On [-1, 2], y = x³ - 3x² + x + 6 is on top. Area = ∫ from -1 to 2 ((top) - (bottom)) dx = 27/2.",
-    "(b) On [-1, 1], y = x³ - 3x² - x + 3 is on top. Area = ∫ from -1 to 1 ((top) - (bottom)) dx = 4.",
-    "(c) On [-3, 0], y = x³ - 3x² - 10x is on top. Area = ∫ from -3 to 0 ((top) - (bottom)) dx = 27/2.",
-    "(d) On [1, 3], y = x³ - 3x² + 10x - 9 is on top. Area = ∫ from 1 to 3 ((top) - (bottom)) dx = 4."
+    "(a) ∫ from 0 to 1 [(x²) − (x³)] dx = 1/12.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x³ and y = x², not against the axis of rotation, so each slice is a disk with a hole: outer radius x², inner radius x³. Washers: π∫ from 0 to 1 [(x²)² − (x³)²] dx = 2π/35.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = x² − x³: ∫ from 0 to 1 (x² − x³)² dx = 1/105.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s06-honors-016",
@@ -8385,36 +8547,46 @@
    "skillId": "applications-integrals-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Volumes of Solids): answer each part and show your work.",
+   "prompt": "Free response (Volumes of Solids). Let R be the region enclosed by the graphs of y = 1 and y = x² for -1 ≤ x ≤ 1.",
+   "answer": "(a) 4/3; (b) 8π/5; (c) π∫ from -1 to 1 [(1 + 1)² − (x² + 1)²] dx; (d) 16/15",
    "parts": [
     {
-     "prompt": "The region under y = x from x = 0 to x = 1 is revolved about the x-axis. Find the volume.",
-     "answer": "π/3"
+     "label": "a",
+     "prompt": "Find the area of R.",
+     "answer": "4/3"
     },
     {
-     "prompt": "The region under y = x from x = 0 to x = 4 is revolved about the x-axis. Find the volume.",
-     "answer": "64π/3"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "8π/5"
     },
     {
-     "prompt": "The region under y = x² from x = 0 to x = 2 is revolved about the x-axis. Find the volume.",
-     "answer": "32π/5"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from -1 to 1 [(1 + 1)² − (x² + 1)²] dx"
     },
     {
-     "prompt": "The region under y = x + 1 from x = 0 to x = 1 is revolved about the x-axis. Find the volume.",
-     "answer": "7π/3"
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "16/15"
     }
    ],
-   "answer": "(a) π/3; (b) 64π/3; (c) 32π/5; (d) 7π/3",
    "solutionSteps": [
-    "(a) Disk method: V = π∫ [f(x)]² dx. V = π∫ from 0 to 1 (x)² dx = π/3.",
-    "(b) Disk method: V = π∫ [f(x)]² dx. V = π∫ from 0 to 4 (x)² dx = 64π/3.",
-    "(c) Disk method: V = π∫ [f(x)]² dx. V = π∫ from 0 to 2 (x²)² dx = 32π/5.",
-    "(d) Disk method: V = π∫ [f(x)]² dx. V = π∫ from 0 to 1 (x + 1)² dx = 7π/3."
+    "(a) ∫ from -1 to 1 [(1) − (x²)] dx = 4/3.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x² and y = 1, not against the axis of rotation, so each slice is a disk with a hole: outer radius 1, inner radius x². Washers: π∫ from -1 to 1 [(1)² − (x²)²] dx = 8π/5.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = 1 − x²: ∫ from -1 to 1 (1 − x²)² dx = 16/15.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
+    "AP CHA-5.B",
     "AP CHA-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_volume_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s07-cp2-016",
@@ -8827,37 +8999,46 @@
    "skillId": "applications-integrals-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Volumes of Solids): answer each part and show your work.",
+   "prompt": "Free response (Volumes of Solids). Let R be the region enclosed by the graphs of y = 9 and y = x² for -3 ≤ x ≤ 3.",
+   "answer": "(a) 36; (b) 1944π/5; (c) π∫ from -3 to 3 [(9 + 1)² − (x² + 1)²] dx; (d) 1296/5",
    "parts": [
     {
-     "prompt": "A solid has base bounded by y = √x, the x-axis, and x = 0 to x = 4. Cross sections perpendicular to the x-axis are squares with a side in the base. Find the volume.",
-     "answer": "8"
+     "label": "a",
+     "prompt": "Find the area of R.",
+     "answer": "36"
     },
     {
-     "prompt": "The region under y = x from x = 0 to x = 4 is revolved about the x-axis. Find the volume.",
-     "answer": "64π/3"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "1944π/5"
     },
     {
-     "prompt": "A solid has base bounded by y = x², the x-axis, and x = 0 to x = 1. Cross sections perpendicular to the x-axis are squares with a side in the base. Find the volume.",
-     "answer": "1/5"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from -3 to 3 [(9 + 1)² − (x² + 1)²] dx"
     },
     {
-     "prompt": "The region between y = x and y = x² (from x = 0 to x = 1) is revolved about the x-axis. Find the volume.",
-     "answer": "2π/15"
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "1296/5"
     }
    ],
-   "answer": "(a) 8; (b) 64π/3; (c) 1/5; (d) 2π/15",
    "solutionSteps": [
-    "(a) Cross-section area A(x) = s² with s = √x. V = ∫ from 0 to 4 A(x) dx = 8.",
-    "(b) Disk method: V = π∫ [f(x)]² dx. V = π∫ from 0 to 4 (x)² dx = 64π/3.",
-    "(c) Cross-section area A(x) = s² with s = x². V = ∫ from 0 to 1 A(x) dx = 1/5.",
-    "(d) R = x, r = x². V = 2π/15."
+    "(a) ∫ from -3 to 3 [(9) − (x²)] dx = 36.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x² and y = 9, not against the axis of rotation, so each slice is a disk with a hole: outer radius 9, inner radius x². Washers: π∫ from -3 to 3 [(9)² − (x²)²] dx = 1944π/5.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = 9 − x²: ∫ from -3 to 3 (9 − x²)² dx = 1296/5.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-5.B",
     "AP CHA-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_volume_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s07-cp1-016",
@@ -9265,37 +9446,46 @@
    "skillId": "applications-integrals-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Volumes of Solids): answer each part and show your work.",
+   "prompt": "Free response (Volumes of Solids). Let R be the region enclosed by the graphs of y = 2√x and y = x for 0 ≤ x ≤ 4.",
+   "answer": "(a) 8/3; (b) 32π/3; (c) π∫ from 0 to 4 [(2√x + 1)² − (x + 1)²] dx; (d) 32/15",
    "parts": [
     {
-     "prompt": "A solid has base bounded by y = x², the x-axis, and x = 0 to x = 3. Cross sections perpendicular to the x-axis are semicircles with a diameter in the base. Find the volume.",
-     "answer": "243π/40"
+     "label": "a",
+     "prompt": "Find the area of R.",
+     "answer": "8/3"
     },
     {
-     "prompt": "A solid has base bounded by y = x, the x-axis, and x = 0 to x = 3. Cross sections perpendicular to the x-axis are semicircles with a diameter in the base. Find the volume.",
-     "answer": "9π/8"
+     "label": "b",
+     "prompt": "Find the volume of the solid formed when R is revolved about the x-axis. Explain why each cross section is a washer.",
+     "answer": "32π/3"
     },
     {
-     "prompt": "The region bounded by y = x², the y-axis, and y = 1 is revolved about the y-axis. Find the volume.",
-     "answer": "π/2"
+     "label": "c",
+     "prompt": "Write, but do not evaluate, an integral for the volume of the solid formed when R is revolved about the line y = −1.",
+     "answer": "π∫ from 0 to 4 [(2√x + 1)² − (x + 1)²] dx"
     },
     {
-     "prompt": "The region between y = 2x and y = x² (from x = 0 to x = 2) is revolved about the x-axis. Find the volume.",
-     "answer": "64π/15"
+     "label": "d",
+     "prompt": "R is the base of a solid whose cross sections perpendicular to the x-axis are squares. Find the volume.",
+     "answer": "32/15"
     }
    ],
-   "answer": "(a) 243π/40; (b) 9π/8; (c) π/2; (d) 64π/15",
    "solutionSteps": [
-    "(a) Cross-section area A(x) = (1/2)π(s/2)² = πs² ÷ 8 with s = x². V = ∫ from 0 to 3 A(x) dx = 243π/40.",
-    "(b) Cross-section area A(x) = (1/2)π(s/2)² = πs² ÷ 8 with s = x. V = ∫ from 0 to 3 A(x) dx = 9π/8.",
-    "(c) Disks perpendicular to the y-axis: radius x = √y. V = π∫ from 0 to 1 (√y)² dy = π/2.",
-    "(d) R = 2x, r = x². V = 64π/15."
+    "(a) ∫ from 0 to 4 [(2√x) − (x)] dx = 8/3.",
+    "(a) Scoring, 2 points: 1 point for the integrand (top minus bottom), 1 point for the value.",
+    "(b) The region lies between y = x and y = 2√x, not against the axis of rotation, so each slice is a disk with a hole: outer radius 2√x, inner radius x. Washers: π∫ from 0 to 4 [(2√x)² − (x)²] dx = 32π/3.",
+    "(b) Scoring, 2 points: 1 point for R² − r² (not (R − r)²), 1 point for the value.",
+    "(c) Each radius grows by 1: outer radius (top + 1), inner radius (bottom + 1).",
+    "(c) Scoring, 1 point: the integrand with both radii shifted by 1, with π and the limits.",
+    "(d) Side = 2√x − x: ∫ from 0 to 4 (2√x − x)² dx = 32/15.",
+    "(d) Scoring, 2 points: 1 point for the area of a square cross section, 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP CHA-5.B",
     "AP CHA-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_volume_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_region). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s07-honors-016",
@@ -9694,36 +9884,45 @@
    "skillId": "applications-integrals-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Integral Models in Applied Contexts): answer each part and show your work.",
+   "prompt": "Free response (Integral Models in Applied Contexts). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 15; R(2) = 14; R(4) = 10; R(6) = 16; R(8) = 11. The tank holds 300 gallons at t = 0.",
+   "answer": "(a) 1/2 gallons per hour per hour; (b) 106 gallons; about 106 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 406 gallons",
    "parts": [
     {
-     "prompt": "Rain falls at R(t) = 0.1t + 0.5 inches per hour. How much rain falls in the first 7 hours?",
-     "answer": "5.95 inches"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "1/2 gallons per hour per hour"
     },
     {
-     "prompt": "Cars pass a sensor at a rate of C(t) = 6t + 49 cars per hour. How many cars pass in the first 3 hours?",
-     "answer": "174 cars"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "106 gallons; about 106 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "A culture starts with 342 bacteria and grows at N′(t) = (171/5)e^(0.1t) bacteria per hour. How many are present at t = 2? Round to the nearest whole number.",
-     "answer": "418"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 29/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A culture starts with 527 bacteria and grows at N′(t) = (527/4)e^(0.25t) bacteria per hour. How many are present at t = 7? Round to the nearest whole number.",
-     "answer": "3033"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "406 gallons"
     }
    ],
-   "answer": "(a) 5.95 inches; (b) 174 cars; (c) 418; (d) 3033",
    "solutionSteps": [
-    "(a) ∫ from 0 to 7 R(t) dt. = 5.95 inches.",
-    "(b) ∫ from 0 to 3 C(t) dt. ≈ 174 cars.",
-    "(c) N(2) = 342 + ∫ from 0 to 2 N′(t) dt. ≈ 418.",
-    "(d) N(7) = 527 + ∫ from 0 to 7 N′(t) dt. ≈ 3033."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (16 − 14)/4 = 1/2 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(15 + 14)/2 + 2(14 + 10)/2 + 2(10 + 16)/2 + 2(16 + 11)/2 = 106. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 29/2 is between R(0) = 15 and R(2) = 14, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 300 + 106 = 406 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_model_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s08-cp2-016",
@@ -10121,36 +10320,45 @@
    "skillId": "applications-integrals-skill-08",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Integral Models in Applied Contexts): answer each part and show your work.",
+   "prompt": "Free response (Integral Models in Applied Contexts). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 7; R(2) = 16; R(5) = 11; R(7) = 8; R(10) = 8. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -8/5 gallons per hour per hour; (b) 213/2 gallons; about 213/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 1213/2 gallons",
    "parts": [
     {
-     "prompt": "Rain falls at R(t) = 0.1t + 0.2 inches per hour. How much rain falls in the first 3 hours?",
-     "answer": "1.05 inches"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-8/5 gallons per hour per hour"
     },
     {
-     "prompt": "A culture starts with 122 bacteria and grows at N′(t) = (61/2)e^(0.25t) bacteria per hour. How many are present at t = 6? Round to the nearest whole number.",
-     "answer": "547"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "213/2 gallons; about 213/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "Rain falls at R(t) = 0.1t + 0.3 inches per hour. How much rain falls in the first 9 hours?",
-     "answer": "6.75 inches"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 23/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A culture starts with 738 bacteria and grows at N′(t) = (738/5)e^(0.2t) bacteria per hour. How many are present at t = 8? Round to the nearest whole number.",
-     "answer": "3655"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "1213/2 gallons"
     }
    ],
-   "answer": "(a) 1.05 inches; (b) 547; (c) 6.75 inches; (d) 3655",
    "solutionSteps": [
-    "(a) ∫ from 0 to 3 R(t) dt. = 1.05 inches.",
-    "(b) N(6) = 122 + ∫ from 0 to 6 N′(t) dt. ≈ 547.",
-    "(c) ∫ from 0 to 9 R(t) dt. = 6.75 inches.",
-    "(d) N(8) = 738 + ∫ from 0 to 8 N′(t) dt. ≈ 3655."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (8 − 16)/5 = -8/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(7 + 16)/2 + 3(16 + 11)/2 + 2(11 + 8)/2 + 3(8 + 8)/2 = 213/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 23/2 is between R(0) = 7 and R(2) = 16, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 213/2 = 1213/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_model_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s08-cp1-016",
@@ -10553,36 +10761,45 @@
    "skillId": "applications-integrals-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Integral Models in Applied Contexts): answer each part and show your work.",
+   "prompt": "Free response (Integral Models in Applied Contexts). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 7; R(2) = 12; R(5) = 6; R(7) = 10; R(10) = 10. The tank holds 300 gallons at t = 0.",
+   "answer": "(a) -2/5 gallons per hour per hour; (b) 92 gallons; about 92 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 392 gallons",
    "parts": [
     {
-     "prompt": "Cars pass a sensor at a rate of C(t) = 10sin(πt/2) + 84 cars per hour. How many cars pass in the first 4 hours? Round to the nearest whole car.",
-     "answer": "336 cars"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-2/5 gallons per hour per hour"
     },
     {
-     "prompt": "Rain falls at R(t) = 0.2t + 0.5 inches per hour. How much rain falls in the first 2 hours?",
-     "answer": "1.4 inches"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "92 gallons; about 92 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "A culture starts with 564 bacteria and grows at N′(t) = (282/5)e^(0.1t) bacteria per hour. How many are present at t = 4? Round to the nearest whole number.",
-     "answer": "841"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 19/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Rain falls at R(t) = 0.1t + 0.2 inches per hour. How much rain falls in the first 3 hours?",
-     "answer": "1.05 inches"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "392 gallons"
     }
    ],
-   "answer": "(a) 336 cars; (b) 1.4 inches; (c) 841; (d) 1.05 inches",
    "solutionSteps": [
-    "(a) ∫ from 0 to 4 C(t) dt. ≈ 336 cars.",
-    "(b) ∫ from 0 to 2 R(t) dt. = 1.4 inches.",
-    "(c) N(4) = 564 + ∫ from 0 to 4 N′(t) dt. ≈ 841.",
-    "(d) ∫ from 0 to 3 R(t) dt. = 1.05 inches."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (10 − 12)/5 = -2/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(7 + 12)/2 + 3(12 + 6)/2 + 2(6 + 10)/2 + 3(10 + 10)/2 = 92. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 19/2 is between R(0) = 7 and R(2) = 12, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 300 + 92 = 392 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-4.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_model_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-aoi-s08-honors-016",

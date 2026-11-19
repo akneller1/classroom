@@ -171,6 +171,7 @@ jobs:
         run: |
           node scripts/test-function-graphs-browser.cjs
           node scripts/test-statistics-displays-browser.cjs
+          node scripts/test-calculus-labs-browser.cjs
       - name: Browser-check elementary game routing, student links and course switching
         run: node scripts/test-elementary-browser-parity.cjs _site
       - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check

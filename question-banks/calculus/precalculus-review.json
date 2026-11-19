@@ -367,37 +367,46 @@
    "skillId": "precalculus-review-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
+   "prompt": "Free response (Factoring and Simplifying Expressions). Let f(x) = (x² + 3x - 10)/(x² + 8x - 20).",
+   "answer": "(a) (x + 5)(x - 2); (x + 10)(x - 2); (b) (x + 5)/(x + 10); x ≠ -10, 2; (c) 7/12; a hole; (d) x = -10",
    "parts": [
     {
-     "prompt": "Factor completely: 2x² + 14x",
-     "answer": "2x(x + 7)"
+     "label": "a",
+     "prompt": "Factor the numerator and the denominator completely.",
+     "answer": "(x + 5)(x - 2); (x + 10)(x - 2)"
     },
     {
-     "prompt": "Factor completely: 2x² + 10x",
-     "answer": "2x(x + 5)"
+     "label": "b",
+     "prompt": "Simplify f(x) and state the values of x excluded from the domain.",
+     "answer": "(x + 5)/(x + 10); x ≠ -10, 2"
     },
     {
-     "prompt": "Factor completely: x² + 7x + 6",
-     "answer": "(x + 1)(x + 6)"
+     "label": "c",
+     "prompt": "Find lim (x → 2) f(x). Is there a hole or a vertical asymptote at x = 2? Explain.",
+     "answer": "7/12; a hole"
     },
     {
-     "prompt": "Factor completely: 5x² + 25x",
-     "answer": "5x(x + 5)"
+     "label": "d",
+     "prompt": "Find the equation(s) of the vertical asymptote(s) of the graph of f.",
+     "answer": "x = -10"
     }
    ],
-   "answer": "(a) 2x(x + 7); (b) 2x(x + 5); (c) (x + 1)(x + 6); (d) 5x(x + 5)",
    "solutionSteps": [
-    "(a) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 2x² + 14x = 2x(x + 7).",
-    "(b) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 2x² + 10x = 2x(x + 5).",
-    "(c) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x² + 7x + 6 = (x + 1)(x + 6).",
-    "(d) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 5x² + 25x = 5x(x + 5)."
+    "(a) Numerator (x + 5)(x - 2), denominator (x + 10)(x - 2).",
+    "(a) Scoring, 2 points: 1 point for each factorization.",
+    "(b) Cancel the common factor (x - 2). The original denominator is 0 at -10, 2.",
+    "(b) Scoring, 2 points: 1 point for the simplified form, 1 point for every excluded value (including the cancelled one).",
+    "(c) The factor (x - 2) cancels, so the limit is the simplified form at x = 2: 7/12. A finite limit where f is undefined is a removable discontinuity (a hole).",
+    "(c) Scoring, 2 points: 1 point for the limit, 1 point for the reason.",
+    "(d) Zeros of the simplified denominator that are not zeros of the numerator: -10.",
+    "(d) Scoring, 1 point: every vertical asymptote.",
+    "Total: 7 points."
    ],
    "standards": [
     "A-SSE.A.2",
     "A-APR.D.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_factor_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_algebra). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s01-cp2-016",
@@ -785,37 +794,46 @@
    "skillId": "precalculus-review-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
+   "prompt": "Free response (Factoring and Simplifying Expressions). Let f(x) = (x² - 2x - 3)/(x² - x - 6).",
+   "answer": "(a) (x + 1)(x - 3); (x + 2)(x - 3); (b) (x + 1)/(x + 2); x ≠ -2, 3; (c) 4/5; a hole; (d) x = -2",
    "parts": [
     {
-     "prompt": "Factor completely: x³ - x² + 7x - 7",
-     "answer": "(x - 1)(x² + 7)"
+     "label": "a",
+     "prompt": "Factor the numerator and the denominator completely.",
+     "answer": "(x + 1)(x - 3); (x + 2)(x - 3)"
     },
     {
-     "prompt": "Factor completely: x³ + 2x² - 7x - 14",
-     "answer": "(x + 2)(x² - 7)"
+     "label": "b",
+     "prompt": "Simplify f(x) and state the values of x excluded from the domain.",
+     "answer": "(x + 1)/(x + 2); x ≠ -2, 3"
     },
     {
-     "prompt": "Factor completely: 12x² - 2x - 4",
-     "answer": "2(2x + 1)(3x - 2)"
+     "label": "c",
+     "prompt": "Find lim (x → 3) f(x). Is there a hole or a vertical asymptote at x = 3? Explain.",
+     "answer": "4/5; a hole"
     },
     {
-     "prompt": "Factor completely: 8x³ - 64",
-     "answer": "8(x - 2)(x² + 2x + 4)"
+     "label": "d",
+     "prompt": "Find the equation(s) of the vertical asymptote(s) of the graph of f.",
+     "answer": "x = -2"
     }
    ],
-   "answer": "(a) (x - 1)(x² + 7); (b) (x + 2)(x² - 7); (c) 2(2x + 1)(3x - 2); (d) 8(x - 2)(x² + 2x + 4)",
    "solutionSteps": [
-    "(a) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x³ - x² + 7x - 7 = (x - 1)(x² + 7).",
-    "(b) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x³ + 2x² - 7x - 14 = (x + 2)(x² - 7).",
-    "(c) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 12x² - 2x - 4 = 2(2x + 1)(3x - 2).",
-    "(d) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 8x³ - 64 = 8(x - 2)(x² + 2x + 4)."
+    "(a) Numerator (x + 1)(x - 3), denominator (x + 2)(x - 3).",
+    "(a) Scoring, 2 points: 1 point for each factorization.",
+    "(b) Cancel the common factor (x - 3). The original denominator is 0 at -2, 3.",
+    "(b) Scoring, 2 points: 1 point for the simplified form, 1 point for every excluded value (including the cancelled one).",
+    "(c) The factor (x - 3) cancels, so the limit is the simplified form at x = 3: 4/5. A finite limit where f is undefined is a removable discontinuity (a hole).",
+    "(c) Scoring, 2 points: 1 point for the limit, 1 point for the reason.",
+    "(d) Zeros of the simplified denominator that are not zeros of the numerator: -2.",
+    "(d) Scoring, 1 point: every vertical asymptote.",
+    "Total: 7 points."
    ],
    "standards": [
     "A-SSE.A.2",
     "A-APR.D.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_factor_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_algebra). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s01-cp1-016",
@@ -1201,37 +1219,46 @@
    "skillId": "precalculus-review-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Factoring and Simplifying Expressions): answer each part and show your work.",
+   "prompt": "Free response (Factoring and Simplifying Expressions). Let f(x) = (x³ + x² - 6x)/(x³ - 2x²).",
+   "answer": "(a) x(x + 3)(x - 2); x²(x - 2); (b) (x + 3)/x; x ≠ 0, 2; (c) 5/2; a hole; (d) x = 0",
    "parts": [
     {
-     "prompt": "Factor completely: 27x³ + 8",
-     "answer": "(3x + 2)(9x² - 6x + 4)"
+     "label": "a",
+     "prompt": "Factor the numerator and the denominator completely.",
+     "answer": "x(x + 3)(x - 2); x²(x - 2)"
     },
     {
-     "prompt": "Factor completely: x² - 3x - 40",
-     "answer": "(x - 8)(x + 5)"
+     "label": "b",
+     "prompt": "Simplify f(x) and state the values of x excluded from the domain.",
+     "answer": "(x + 3)/x; x ≠ 0, 2"
     },
     {
-     "prompt": "Factor completely: x³ - x² - 8x + 8",
-     "answer": "(x - 1)(x² - 8)"
+     "label": "c",
+     "prompt": "Find lim (x → 2) f(x). Is there a hole or a vertical asymptote at x = 2? Explain.",
+     "answer": "5/2; a hole"
     },
     {
-     "prompt": "Factor completely: x² + 3x - 40",
-     "answer": "(x - 5)(x + 8)"
+     "label": "d",
+     "prompt": "Find the equation(s) of the vertical asymptote(s) of the graph of f.",
+     "answer": "x = 0"
     }
    ],
-   "answer": "(a) (3x + 2)(9x² - 6x + 4); (b) (x - 8)(x + 5); (c) (x - 1)(x² - 8); (d) (x - 5)(x + 8)",
    "solutionSteps": [
-    "(a) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). 27x³ + 8 = (3x + 2)(9x² - 6x + 4).",
-    "(b) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x² - 3x - 40 = (x - 8)(x + 5).",
-    "(c) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x³ - x² - 8x + 8 = (x - 1)(x² - 8).",
-    "(d) Look for a GCF, then a pattern (trinomial, difference of squares, sum or difference of cubes, grouping). x² + 3x - 40 = (x - 5)(x + 8)."
+    "(a) Numerator x(x + 3)(x - 2), denominator x²(x - 2).",
+    "(a) Scoring, 2 points: 1 point for each factorization.",
+    "(b) Cancel the common factor (x - 2). The original denominator is 0 at 0, 2.",
+    "(b) Scoring, 2 points: 1 point for the simplified form, 1 point for every excluded value (including the cancelled one).",
+    "(c) The factor (x - 2) cancels, so the limit is the simplified form at x = 2: 5/2. A finite limit where f is undefined is a removable discontinuity (a hole).",
+    "(c) Scoring, 2 points: 1 point for the limit, 1 point for the reason.",
+    "(d) Zeros of the simplified denominator that are not zeros of the numerator: 0.",
+    "(d) Scoring, 1 point: every vertical asymptote.",
+    "Total: 7 points."
    ],
    "standards": [
     "A-SSE.A.2",
     "A-APR.D.6"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_factor_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_algebra). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s01-honors-016",
@@ -1617,37 +1644,46 @@
    "skillId": "precalculus-review-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
+   "prompt": "Free response (Exponential Functions). A culture has f(t) = 50·2^t bacteria after t hours.",
+   "answer": "(a) 150 bacteria per hour; (b) t = ln(6)/ln(2); (c) 200ln(2) bacteria per hour; (d) f(t) = 50e^(t·ln(2))",
    "parts": [
     {
-     "prompt": "Simplify (e^(3x))⁵.",
-     "answer": "e^(15x)"
+     "label": "a",
+     "prompt": "Find the average rate of change of f from t = 1 to t = 3, with units.",
+     "answer": "150 bacteria per hour"
     },
     {
-     "prompt": "Simplify e^(3x)·e^(3x).",
-     "answer": "e^(6x)"
+     "label": "b",
+     "prompt": "Solve f(t) = 300 exactly. Explain the step that brings t down from the exponent.",
+     "answer": "t = ln(6)/ln(2)"
     },
     {
-     "prompt": "Simplify (e^(2x))².",
-     "answer": "e^(4x)"
+     "label": "c",
+     "prompt": "Find f′(2), the instantaneous rate of change at t = 2, with units.",
+     "answer": "200ln(2) bacteria per hour"
     },
     {
-     "prompt": "Simplify e^(6x)·e^(-x).",
-     "answer": "e^(5x)"
+     "label": "d",
+     "prompt": "Rewrite f(t) in the form f(t) = a·e^(rt).",
+     "answer": "f(t) = 50e^(t·ln(2))"
     }
    ],
-   "answer": "(a) e^(15x); (b) e^(6x); (c) e^(4x); (d) e^(5x)",
    "solutionSteps": [
-    "(a) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(15x).",
-    "(b) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(6x).",
-    "(c) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(4x).",
-    "(d) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(5x)."
+    "(a) (f(3) − f(1))/(3 − 1) = (400 − 100)/2 = 150.",
+    "(a) Scoring, 2 points: 1 point for the setup, 1 point for the value with units.",
+    "(b) 2^t = 6. Take ln of both sides: t·ln(2) = ln(6), so t = ln(6)/ln(2) ≈ 2.585.",
+    "(b) Scoring, 2 points: 1 point for isolating the power, 1 point for the logarithm.",
+    "(c) f′(t) = 50·2^t·ln(2), so f′(2) = 200ln(2) ≈ 138.6.",
+    "(c) Scoring, 1 point: the derivative of an exponential with the ln factor.",
+    "(d) 2 = e^(ln 2), so 2^t = e^(t ln 2).",
+    "(d) Scoring, 1 point: the base-e form.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.1",
     "F-IF.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rules_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_precalc). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s02-cp2-016",
@@ -2032,37 +2068,46 @@
    "skillId": "precalculus-review-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
+   "prompt": "Free response (Exponential Functions). A culture has f(t) = 40·3^t bacteria after t hours.",
+   "answer": "(a) 480 bacteria per hour; (b) t = ln(5)/ln(3); (c) 360ln(3) bacteria per hour; (d) f(t) = 40e^(t·ln(3))",
    "parts": [
     {
-     "prompt": "Simplify (e^(2x))².",
-     "answer": "e^(4x)"
+     "label": "a",
+     "prompt": "Find the average rate of change of f from t = 1 to t = 3, with units.",
+     "answer": "480 bacteria per hour"
     },
     {
-     "prompt": "Simplify (e^(5x))(e^(-2x)).",
-     "answer": "e^(3x)"
+     "label": "b",
+     "prompt": "Solve f(t) = 200 exactly. Explain the step that brings t down from the exponent.",
+     "answer": "t = ln(5)/ln(3)"
     },
     {
-     "prompt": "Simplify e^(3x) ÷ e^(4x).",
-     "answer": "e^(-x)"
+     "label": "c",
+     "prompt": "Find f′(2), the instantaneous rate of change at t = 2, with units.",
+     "answer": "360ln(3) bacteria per hour"
     },
     {
-     "prompt": "Simplify (e^(5x))².",
-     "answer": "e^(10x)"
+     "label": "d",
+     "prompt": "Rewrite f(t) in the form f(t) = a·e^(rt).",
+     "answer": "f(t) = 40e^(t·ln(3))"
     }
    ],
-   "answer": "(a) e^(4x); (b) e^(3x); (c) e^(-x); (d) e^(10x)",
    "solutionSteps": [
-    "(a) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(4x).",
-    "(b) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(3x).",
-    "(c) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(-x).",
-    "(d) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(10x)."
+    "(a) (f(3) − f(1))/(3 − 1) = (1080 − 120)/2 = 480.",
+    "(a) Scoring, 2 points: 1 point for the setup, 1 point for the value with units.",
+    "(b) 3^t = 5. Take ln of both sides: t·ln(3) = ln(5), so t = ln(5)/ln(3) ≈ 1.465.",
+    "(b) Scoring, 2 points: 1 point for isolating the power, 1 point for the logarithm.",
+    "(c) f′(t) = 40·3^t·ln(3), so f′(2) = 360ln(3) ≈ 395.5.",
+    "(c) Scoring, 1 point: the derivative of an exponential with the ln factor.",
+    "(d) 3 = e^(ln 3), so 3^t = e^(t ln 3).",
+    "(d) Scoring, 1 point: the base-e form.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.1",
     "F-IF.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rules_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_precalc). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s02-cp1-016",
@@ -2447,37 +2492,46 @@
    "skillId": "precalculus-review-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Exponential Functions): answer each part and show your work.",
+   "prompt": "Free response (Exponential Functions). A culture has f(t) = 100·2^t bacteria after t hours.",
+   "answer": "(a) 300 bacteria per hour; (b) t = ln(5)/ln(2); (c) 400ln(2) bacteria per hour; (d) f(t) = 100e^(t·ln(2))",
    "parts": [
     {
-     "prompt": "Simplify e^(2x) ÷ e^(4x).",
-     "answer": "e^(-2x)"
+     "label": "a",
+     "prompt": "Find the average rate of change of f from t = 1 to t = 3, with units.",
+     "answer": "300 bacteria per hour"
     },
     {
-     "prompt": "Simplify e^(5x) ÷ e^(-x).",
-     "answer": "e^(6x)"
+     "label": "b",
+     "prompt": "Solve f(t) = 500 exactly. Explain the step that brings t down from the exponent.",
+     "answer": "t = ln(5)/ln(2)"
     },
     {
-     "prompt": "Simplify (e^(5x))(e^(2x)).",
-     "answer": "e^(7x)"
+     "label": "c",
+     "prompt": "Find f′(2), the instantaneous rate of change at t = 2, with units.",
+     "answer": "400ln(2) bacteria per hour"
     },
     {
-     "prompt": "Simplify (e^(3x))⁴.",
-     "answer": "e^(12x)"
+     "label": "d",
+     "prompt": "Rewrite f(t) in the form f(t) = a·e^(rt).",
+     "answer": "f(t) = 100e^(t·ln(2))"
     }
    ],
-   "answer": "(a) e^(-2x); (b) e^(6x); (c) e^(7x); (d) e^(12x)",
    "solutionSteps": [
-    "(a) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(-2x).",
-    "(b) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(6x).",
-    "(c) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(7x).",
-    "(d) Product: add exponents. Quotient: subtract exponents. Power: multiply exponents. = e^(12x)."
+    "(a) (f(3) − f(1))/(3 − 1) = (800 − 200)/2 = 300.",
+    "(a) Scoring, 2 points: 1 point for the setup, 1 point for the value with units.",
+    "(b) 2^t = 5. Take ln of both sides: t·ln(2) = ln(5), so t = ln(5)/ln(2) ≈ 2.322.",
+    "(b) Scoring, 2 points: 1 point for isolating the power, 1 point for the logarithm.",
+    "(c) f′(t) = 100·2^t·ln(2), so f′(2) = 400ln(2) ≈ 277.3.",
+    "(c) Scoring, 1 point: the derivative of an exponential with the ln factor.",
+    "(d) 2 = e^(ln 2), so 2^t = e^(t ln 2).",
+    "(d) Scoring, 1 point: the base-e form.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.1",
     "F-IF.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rules_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_precalc). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s02-honors-016",
@@ -2857,37 +2911,46 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
+   "prompt": "Free response (Logarithmic Functions). Let f(x) = ln(x - 3) + 2.",
+   "answer": "(a) x > 3; x = 3; (b) x = e^(-2) + 3; (c) f⁻¹(x) = e^(x - 2) + 3; (d) f′(x) = 1/(x - 3); 1",
    "parts": [
     {
-     "prompt": "Evaluate log₅(25).",
-     "answer": "2"
+     "label": "a",
+     "prompt": "State the domain of f and the equation of its vertical asymptote. Explain.",
+     "answer": "x > 3; x = 3"
     },
     {
-     "prompt": "Evaluate log₂(8).",
-     "answer": "3"
+     "label": "b",
+     "prompt": "Find the exact zero of f.",
+     "answer": "x = e^(-2) + 3"
     },
     {
-     "prompt": "Evaluate log(1).",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Find the inverse function f⁻¹(x).",
+     "answer": "f⁻¹(x) = e^(x - 2) + 3"
     },
     {
-     "prompt": "Write 10⁰ = 1 in logarithmic form.",
-     "answer": "log₁₀(1) = 0"
+     "label": "d",
+     "prompt": "Find f′(x) and the slope of the graph at x = 4.",
+     "answer": "f′(x) = 1/(x - 3); 1"
     }
    ],
-   "answer": "(a) 2; (b) 3; (c) 0; (d) log₁₀(1) = 0",
    "solutionSteps": [
-    "(a) 5² = 25. So log₅(25) = 2.",
-    "(b) 2³ = 8. So log₂(8) = 3.",
-    "(c) 10⁰ = 1. So log(1) = 0.",
-    "(d) bᵉ = y is equivalent to log_b(y) = e. log₁₀(1) = 0."
+    "(a) The argument x - 3 must be positive.",
+    "(a) Scoring, 1 point: domain and asymptote.",
+    "(b) ln(x - 3) = -2, so x - 3 = e^(-2) and x = e^(-2) + 3.",
+    "(b) Scoring, 2 points: 1 point for isolating the logarithm, 1 point for the exact value.",
+    "(c) Swap x and y: x = ln(y - 3) + 2; y = e^(x - 2) + 3.",
+    "(c) Scoring, 2 points: 1 point for exponentiating, 1 point for the inverse.",
+    "(d) d/dx ln(u) = u′/u.",
+    "(d) Scoring, 1 point: the derivative and the slope.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.4",
     "F-BF.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s17_logo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_log). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s03-cp2-016",
@@ -3270,37 +3333,46 @@
    "skillId": "precalculus-review-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
+   "prompt": "Free response (Logarithmic Functions). Let f(x) = 4ln(x - 2) + 8.",
+   "answer": "(a) x > 2; x = 2; (b) x = e^(-2) + 2; (c) f⁻¹(x) = e^(x/4 - 2) + 2; (d) f′(x) = 4/(x - 2); 4",
    "parts": [
     {
-     "prompt": "Write 3⁵ = 243 in logarithmic form.",
-     "answer": "log₃(243) = 5"
+     "label": "a",
+     "prompt": "State the domain of f and the equation of its vertical asymptote. Explain.",
+     "answer": "x > 2; x = 2"
     },
     {
-     "prompt": "Write 5⁻² = 1/25 in logarithmic form.",
-     "answer": "log₅(1/25) = -2"
+     "label": "b",
+     "prompt": "Find the exact zero of f.",
+     "answer": "x = e^(-2) + 2"
     },
     {
-     "prompt": "Evaluate log₂(8).",
-     "answer": "3"
+     "label": "c",
+     "prompt": "Find the inverse function f⁻¹(x).",
+     "answer": "f⁻¹(x) = e^(x/4 - 2) + 2"
     },
     {
-     "prompt": "Evaluate log₂(1/4).",
-     "answer": "-2"
+     "label": "d",
+     "prompt": "Find f′(x) and the slope of the graph at x = 3.",
+     "answer": "f′(x) = 4/(x - 2); 4"
     }
    ],
-   "answer": "(a) log₃(243) = 5; (b) log₅(1/25) = -2; (c) 3; (d) -2",
    "solutionSteps": [
-    "(a) bᵉ = y is equivalent to log_b(y) = e. log₃(243) = 5.",
-    "(b) bᵉ = y is equivalent to log_b(y) = e. log₅(1/25) = -2.",
-    "(c) 2³ = 8. So log₂(8) = 3.",
-    "(d) 2⁻² = 1/4. So log₂(1/4) = -2."
+    "(a) The argument x - 2 must be positive.",
+    "(a) Scoring, 1 point: domain and asymptote.",
+    "(b) ln(x - 2) = -2, so x - 2 = e^(-2) and x = e^(-2) + 2.",
+    "(b) Scoring, 2 points: 1 point for isolating the logarithm, 1 point for the exact value.",
+    "(c) Swap x and y: x = 4ln(y - 2) + 8; y = e^(x/4 - 2) + 2.",
+    "(c) Scoring, 2 points: 1 point for exponentiating, 1 point for the inverse.",
+    "(d) d/dx ln(u) = u′/u.",
+    "(d) Scoring, 1 point: the derivative and the slope.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.4",
     "F-BF.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s17_logo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_log). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s03-cp1-016",
@@ -3683,37 +3755,46 @@
    "skillId": "precalculus-review-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Logarithmic Functions): answer each part and show your work.",
+   "prompt": "Free response (Logarithmic Functions). Let f(x) = 2ln(x + 1) - 2.",
+   "answer": "(a) x > -1; x = -1; (b) x = -1 + e; (c) f⁻¹(x) = e^(x/2 + 1) - 1; (d) f′(x) = 2/(x + 1); 2",
    "parts": [
     {
-     "prompt": "Evaluate log₂(2).",
-     "answer": "1"
+     "label": "a",
+     "prompt": "State the domain of f and the equation of its vertical asymptote. Explain.",
+     "answer": "x > -1; x = -1"
     },
     {
-     "prompt": "Write 10¹ = 10 in logarithmic form.",
-     "answer": "log₁₀(10) = 1"
+     "label": "b",
+     "prompt": "Find the exact zero of f.",
+     "answer": "x = -1 + e"
     },
     {
-     "prompt": "Solve log₅(x - 9) = -1.",
-     "answer": "x = 46/5"
+     "label": "c",
+     "prompt": "Find the inverse function f⁻¹(x).",
+     "answer": "f⁻¹(x) = e^(x/2 + 1) - 1"
     },
     {
-     "prompt": "Solve log₃(x - 9) = 1.",
-     "answer": "x = 12"
+     "label": "d",
+     "prompt": "Find f′(x) and the slope of the graph at x = 0.",
+     "answer": "f′(x) = 2/(x + 1); 2"
     }
    ],
-   "answer": "(a) 1; (b) log₁₀(10) = 1; (c) x = 46/5; (d) x = 12",
    "solutionSteps": [
-    "(a) 2¹ = 2. So log₂(2) = 1.",
-    "(b) bᵉ = y is equivalent to log_b(y) = e. log₁₀(10) = 1.",
-    "(c) x = 1/5 + 9 = 46/5. Check: the argument must be positive.",
-    "(d) x = 3 + 9 = 12. Check: the argument must be positive."
+    "(a) The argument x + 1 must be positive.",
+    "(a) Scoring, 1 point: domain and asymptote.",
+    "(b) ln(x + 1) = 1, so x + 1 = e and x = -1 + e.",
+    "(b) Scoring, 2 points: 1 point for isolating the logarithm, 1 point for the exact value.",
+    "(c) Swap x and y: x = 2ln(y + 1) - 2; y = e^(x/2 + 1) - 1.",
+    "(c) Scoring, 2 points: 1 point for exponentiating, 1 point for the inverse.",
+    "(d) d/dx ln(u) = u′/u.",
+    "(d) Scoring, 1 point: the derivative and the slope.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-LE.A.4",
     "F-BF.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s17_logo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_log). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s03-honors-016",
@@ -4102,37 +4183,46 @@
    "skillId": "precalculus-review-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
+   "prompt": "Free response (Unit Circle and Exact Trigonometric Values). Let f(x) = 2cos(x) - 1 for 0 ≤ x ≤ 2π.",
+   "answer": "(a) -1 + √3; (b) x = π/3, x = 5π/3; (c) f′(x) = -2sin(x); x = π; (d) [-3, 1]",
    "parts": [
     {
-     "prompt": "Find the exact value of sin(120°).",
-     "answer": "(√3)/2"
+     "label": "a",
+     "prompt": "Find the exact value of f(π/6).",
+     "answer": "-1 + √3"
     },
     {
-     "prompt": "Find the exact value of tan(240°).",
-     "answer": "√3"
+     "label": "b",
+     "prompt": "Solve f(x) = 0 on [0, 2π].",
+     "answer": "x = π/3, x = 5π/3"
     },
     {
-     "prompt": "Find the exact value of tan(0°).",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Find f′(x) and the x-values in (0, 2π) where the graph of f has a horizontal tangent line.",
+     "answer": "f′(x) = -2sin(x); x = π"
     },
     {
-     "prompt": "Find the exact value of cos(240°).",
-     "answer": "-1/2"
+     "label": "d",
+     "prompt": "Find the range of f. Explain.",
+     "answer": "[-3, 1]"
     }
    ],
-   "answer": "(a) (√3)/2; (b) √3; (c) 0; (d) -1/2",
    "solutionSteps": [
-    "(a) sin(60°) = (√3)/2. sin(120°) = (√3)/2.",
-    "(b) tan(60°) = √3. tan(240°) = √3.",
-    "(c) tan(0°) = 0. tan(0°) = 0.",
-    "(d) cos(60°) = 1/2. cos(240°) = -1/2."
+    "(a) cos(π/6) = √3/2, so f(π/6) = -1 + √3.",
+    "(a) Scoring, 1 point: the exact value from the unit circle.",
+    "(b) cos(x) = 1/2: reference angle and the quadrants where cos has that sign give π/3, 5π/3.",
+    "(b) Scoring, 2 points: 1 point for the equation in fn(x), 1 point for every solution.",
+    "(c) f′(x) = -2sin(x) = 0 at π.",
+    "(c) Scoring, 2 points: 1 point for f′, 1 point for the x-values.",
+    "(d) cos(x) runs from −1 to 1, so f runs from -3 to 1.",
+    "(d) Scoring, 1 point: the range with a reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-TF.A.2",
     "F-TF.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s2_exacto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_trig). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s04-cp2-016",
@@ -4521,37 +4611,46 @@
    "skillId": "precalculus-review-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
+   "prompt": "Free response (Unit Circle and Exact Trigonometric Values). Let f(x) = 2sin(x) + 1 for 0 ≤ x ≤ 2π.",
+   "answer": "(a) 1 - √3; (b) x = 7π/6, x = 11π/6; (c) f′(x) = 2cos(x); x = π/2, x = 3π/2; (d) [-1, 3]",
    "parts": [
     {
-     "prompt": "Find the exact value of cot(5π/6).",
-     "answer": "-√3"
+     "label": "a",
+     "prompt": "Find the exact value of f(4π/3).",
+     "answer": "1 - √3"
     },
     {
-     "prompt": "Find the exact value of sin(210°).",
-     "answer": "-1/2"
+     "label": "b",
+     "prompt": "Solve f(x) = 0 on [0, 2π].",
+     "answer": "x = 7π/6, x = 11π/6"
     },
     {
-     "prompt": "Find the exact value of sec(π).",
-     "answer": "-1"
+     "label": "c",
+     "prompt": "Find f′(x) and the x-values in (0, 2π) where the graph of f has a horizontal tangent line.",
+     "answer": "f′(x) = 2cos(x); x = π/2, x = 3π/2"
     },
     {
-     "prompt": "Find the exact value of sin(150°).",
-     "answer": "1/2"
+     "label": "d",
+     "prompt": "Find the range of f. Explain.",
+     "answer": "[-1, 3]"
     }
    ],
-   "answer": "(a) -√3; (b) -1/2; (c) -1; (d) 1/2",
    "solutionSteps": [
-    "(a) cot(π/6) = √3. cot(5π/6) = -√3.",
-    "(b) sin(30°) = 1/2. sin(210°) = -1/2.",
-    "(c) sec(π) = 1. sec(π) = -1.",
-    "(d) sin(30°) = 1/2. sin(150°) = 1/2."
+    "(a) sin(4π/3) = -√3/2, so f(4π/3) = 1 - √3.",
+    "(a) Scoring, 1 point: the exact value from the unit circle.",
+    "(b) sin(x) = -1/2: reference angle and the quadrants where sin has that sign give 7π/6, 11π/6.",
+    "(b) Scoring, 2 points: 1 point for the equation in fn(x), 1 point for every solution.",
+    "(c) f′(x) = 2cos(x) = 0 at π/2, 3π/2.",
+    "(c) Scoring, 2 points: 1 point for f′, 1 point for the x-values.",
+    "(d) sin(x) runs from −1 to 1, so f runs from -1 to 3.",
+    "(d) Scoring, 1 point: the range with a reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-TF.A.2",
     "F-TF.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s2_exacto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_trig). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s04-cp1-016",
@@ -4940,37 +5039,46 @@
    "skillId": "precalculus-review-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Unit Circle and Exact Trigonometric Values): answer each part and show your work.",
+   "prompt": "Free response (Unit Circle and Exact Trigonometric Values). Let f(x) = 2cos(x) - 1 for 0 ≤ x ≤ 2π.",
+   "answer": "(a) -√2 - 1; (b) x = π/3, x = 5π/3; (c) f′(x) = -2sin(x); x = π; (d) [-3, 1]",
    "parts": [
     {
-     "prompt": "Find the exact value of cos(-5π/3).",
-     "answer": "1/2"
+     "label": "a",
+     "prompt": "Find the exact value of f(5π/4).",
+     "answer": "-√2 - 1"
     },
     {
-     "prompt": "Find the exact value of sin(5π).",
-     "answer": "0"
+     "label": "b",
+     "prompt": "Solve f(x) = 0 on [0, 2π].",
+     "answer": "x = π/3, x = 5π/3"
     },
     {
-     "prompt": "Find the exact value of sec(11π/4).",
-     "answer": "-√2"
+     "label": "c",
+     "prompt": "Find f′(x) and the x-values in (0, 2π) where the graph of f has a horizontal tangent line.",
+     "answer": "f′(x) = -2sin(x); x = π"
     },
     {
-     "prompt": "Find the exact value of cos(29π/6).",
-     "answer": "-(√3)/2"
+     "label": "d",
+     "prompt": "Find the range of f. Explain.",
+     "answer": "[-3, 1]"
     }
    ],
-   "answer": "(a) 1/2; (b) 0; (c) -√2; (d) -(√3)/2",
    "solutionSteps": [
-    "(a) cos(π/3) = 1/2. cos(-5π/3) = 1/2.",
-    "(b) sin(π) = 0. sin(5π) = 0.",
-    "(c) sec(π/4) = √2. sec(11π/4) = -√2.",
-    "(d) cos(π/6) = (√3)/2. cos(29π/6) = -(√3)/2."
+    "(a) cos(5π/4) = -√2/2, so f(5π/4) = -√2 - 1.",
+    "(a) Scoring, 1 point: the exact value from the unit circle.",
+    "(b) cos(x) = 1/2: reference angle and the quadrants where cos has that sign give π/3, 5π/3.",
+    "(b) Scoring, 2 points: 1 point for the equation in fn(x), 1 point for every solution.",
+    "(c) f′(x) = -2sin(x) = 0 at π.",
+    "(c) Scoring, 2 points: 1 point for f′, 1 point for the x-values.",
+    "(d) cos(x) runs from −1 to 1, so f runs from -3 to 1.",
+    "(d) Scoring, 1 point: the range with a reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "F-TF.A.2",
     "F-TF.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s2_exacto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_trig). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s04-honors-016",
@@ -5380,37 +5488,46 @@
    "skillId": "precalculus-review-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
+   "prompt": "Free response (Graphical, Numerical, and Algebraic Representations). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 5; R(2) = 10; R(4) = 8; R(6) = 9; R(8) = 8. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -1/4 gallons per hour per hour; (b) 67 gallons; about 67 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 567 gallons",
    "parts": [
     {
-     "prompt": "Use the table (f(-2) = -5; f(2) = 13; f(8) = 37; f(10) = 6) to find the average rate of change of f from x = 8 to x = 10.",
-     "answer": "-31/2"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "-1/4 gallons per hour per hour"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = -3x² + 5 on [4, 7].",
-     "answer": "-33"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "67 gallons; about 67 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = -3x² + 3 on [1, 5].",
-     "answer": "-18"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 15/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = 3x² + 2x + 1 on [1, 5].",
-     "answer": "20"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "567 gallons"
     }
    ],
-   "answer": "(a) -31/2; (b) -33; (c) -18; (d) 20",
    "solutionSteps": [
-    "(a) Average rate of change = (f(b) - f(a)) ÷ (b - a). (6 - 37) ÷ (10 - 8) = -31/2.",
-    "(b) f(7) = -142, f(4) = -43. (-142 - (-43)) ÷ (7 - 4) = -33.",
-    "(c) f(5) = -72, f(1) = 0. (-72 - 0) ÷ (5 - 1) = -18.",
-    "(d) f(5) = 86, f(1) = 6. (86 - 6) ÷ (5 - 1) = 20."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (9 − 10)/4 = -1/4 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(5 + 10)/2 + 2(10 + 8)/2 + 2(8 + 9)/2 + 2(9 + 8)/2 = 67. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 15/2 is between R(0) = 5 and R(2) = 10, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 67 = 567 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "F-IF.B.6",
     "F-IF.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_aroc_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s05-cp2-016",
@@ -5819,37 +5936,46 @@
    "skillId": "precalculus-review-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
+   "prompt": "Free response (Graphical, Numerical, and Algebraic Representations). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 13; R(2) = 9; R(5) = 11; R(7) = 16; R(10) = 8. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) 7/5 gallons per hour per hour; (b) 115 gallons; about 115 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 615 gallons",
    "parts": [
     {
-     "prompt": "Use the table (f(4) = 15; f(5) = -13; f(6) = 36; f(7) = 23) to find the average rate of change of f from x = 5 to x = 6.",
-     "answer": "49"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "7/5 gallons per hour per hour"
     },
     {
-     "prompt": "Use the table (f(-2) = 6; f(4) = 14; f(6) = -5; f(8) = 37) to find the average rate of change of f from x = 6 to x = 8.",
-     "answer": "21"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "115 gallons; about 115 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "Use the table (f(1) = 12; f(5) = 34; f(7) = 31; f(8) = 7) to find the average rate of change of f from x = 1 to x = 5.",
-     "answer": "11/2"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 11? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Use the table (f(-1) = 18; f(2) = -5; f(6) = -9; f(8) = -3) to find the average rate of change of f from x = -1 to x = 6.",
-     "answer": "-27/7"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "615 gallons"
     }
    ],
-   "answer": "(a) 49; (b) 21; (c) 11/2; (d) -27/7",
    "solutionSteps": [
-    "(a) Average rate of change = (f(b) - f(a)) ÷ (b - a). (36 - (-13)) ÷ (6 - 5) = 49.",
-    "(b) Average rate of change = (f(b) - f(a)) ÷ (b - a). (37 - (-5)) ÷ (8 - 6) = 21.",
-    "(c) Average rate of change = (f(b) - f(a)) ÷ (b - a). (34 - 12) ÷ (5 - 1) = 11/2.",
-    "(d) Average rate of change = (f(b) - f(a)) ÷ (b - a). (-9 - 18) ÷ (6 - (-1)) = -27/7."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (16 − 9)/5 = 7/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(13 + 9)/2 + 3(9 + 11)/2 + 2(11 + 16)/2 + 3(16 + 8)/2 = 115. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 11 is between R(0) = 13 and R(2) = 9, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 115 = 615 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "F-IF.B.6",
     "F-IF.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_aroc_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s05-cp1-016",
@@ -6251,37 +6377,46 @@
    "skillId": "precalculus-review-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Graphical, Numerical, and Algebraic Representations): answer each part and show your work.",
+   "prompt": "Free response (Graphical, Numerical, and Algebraic Representations). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 13; R(2) = 11; R(5) = 10; R(7) = 15; R(10) = 15. The tank holds 200 gallons at t = 0.",
+   "answer": "(a) 4/5 gallons per hour per hour; (b) 251/2 gallons; about 251/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 651/2 gallons",
    "parts": [
     {
-     "prompt": "Find the average rate of change of f(x) = 1/x on [3, 5].",
-     "answer": "-1/15"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "4/5 gallons per hour per hour"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = 3x² - 5x on [4, 6].",
-     "answer": "25"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "251/2 gallons; about 251/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = x³ - 3x on [5, 8].",
-     "answer": "126"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 12? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Find the average rate of change of f(x) = 1/x on [1, 5].",
-     "answer": "-1/5"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "651/2 gallons"
     }
    ],
-   "answer": "(a) -1/15; (b) 25; (c) 126; (d) -1/5",
    "solutionSteps": [
-    "(a) f(5) = 1/5, f(3) = 1/3. (1/5 - (1/3)) ÷ (5 - 3) = -1/15.",
-    "(b) f(6) = 78, f(4) = 28. (78 - 28) ÷ (6 - 4) = 25.",
-    "(c) f(8) = 488, f(5) = 110. (488 - 110) ÷ (8 - 5) = 126.",
-    "(d) f(5) = 1/5, f(1) = 1. (1/5 - 1) ÷ (5 - 1) = -1/5."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (15 − 11)/5 = 4/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(13 + 11)/2 + 3(11 + 10)/2 + 2(10 + 15)/2 + 3(15 + 15)/2 = 251/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 12 is between R(0) = 13 and R(2) = 11, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 200 + 251/2 = 651/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "F-IF.B.6",
     "F-IF.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_aroc_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-pcr-s05-honors-016",

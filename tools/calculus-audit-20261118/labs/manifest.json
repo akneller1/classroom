@@ -1,0 +1,42 @@
+{
+ "version": "20261118",
+ "labVersion": "20261105",
+ "tools": [
+  {
+   "slug": "calculus-related-rates-lab",
+   "course": "calculus",
+   "unit": "applications-derivatives",
+   "unitName": "Applications of Derivatives",
+   "title": "Related Rates: Sliding Ladder",
+   "intro": "The foot of a ladder slides away from the wall at a steady rate. Watch how fast the top slides down, and find out why that rate keeps changing.",
+   "description": "Slide the foot of a ladder away from a wall at a chosen rate and watch dy/dt, the angle rate and the area rate update from 2x·dx/dt + 2y·dy/dt = 0. See why the top speeds up near the ground and where the triangle is largest.",
+   "topics": [
+    "Related rates",
+    "Implicit differentiation in time",
+    "Interpreting rates"
+   ],
+   "discovery": "Differentiating x² + y² = L² with respect to t links the rates: dy/dt = −(x/y)·dx/dt. A constant dx/dt gives a changing dy/dt that grows without bound as y → 0, and the area x·y/2 is largest where x = y."
+  },
+  {
+   "slug": "calculus-particle-motion-lab",
+   "course": "calculus",
+   "unit": "applications-integrals",
+   "unitName": "Applications of Integrals",
+   "title": "Particle Motion: Position, Velocity and Distance",
+   "intro": "A particle moves along a line with a velocity you choose. Watch its position, the signed area under v, and the distance it travels.",
+   "description": "Run a particle along a number line from a velocity function and a starting position. Link the position graph to the signed area under v, see when it changes direction and when it speeds up, and compare displacement with total distance.",
+   "topics": [
+    "Position from velocity",
+    "Displacement and total distance",
+    "Speeding up and slowing down"
+   ],
+   "discovery": "x(t) = x(0) + ∫₀ᵗ v(u) du; displacement is the signed area under v and total distance is the area under |v|. The particle turns where v changes sign and speeds up when v and a have the same sign.",
+   "also": [
+    [
+     "calculus",
+     "applications-derivatives"
+    ]
+   ]
+  }
+ ]
+}

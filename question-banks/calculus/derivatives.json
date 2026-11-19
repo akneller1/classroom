@@ -384,38 +384,47 @@
    "skillId": "derivatives-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (The Derivative as a Limit of Difference Quotients): answer each part and show your work.",
+   "prompt": "Free response (The Derivative as a Limit of Difference Quotients). Let f(x) = x³ - 2x.",
+   "answer": "(a) lim (h → 0) (f(3 + h) − f(3))/h = 25; (b) y = 25x - 54; (c) 47/2; an underestimate; (d) y = 528/25 - x/25",
    "parts": [
     {
-     "prompt": "Use the definition f′(a) = lim (h → 0) (f(a + h) - f(a))/h to find f′(3) for f(x) = -x² + 3x + 2.",
-     "answer": "-3"
+     "label": "a",
+     "prompt": "Write f′(3) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(3 + h) − f(3))/h = 25"
     },
     {
-     "prompt": "Use the definition f′(a) = lim (h → 0) (f(a + h) - f(a))/h to find f′(-4) for f(x) = -2x² + x + 3.",
-     "answer": "17"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = 3.",
+     "answer": "y = 25x - 54"
     },
     {
-     "prompt": "Use the definition f′(a) = lim (h → 0) (f(a + h) - f(a))/h to find f′(2) for f(x) = 3x² + 5x - 6.",
-     "answer": "17"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(31/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "47/2; an underestimate"
     },
     {
-     "prompt": "Use the definition f′(a) = lim (h → 0) (f(a + h) - f(a))/h to find f′(-1) for f(x) = -3x² - 6x + 1.",
-     "answer": "0"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = 3.",
+     "answer": "y = 528/25 - x/25"
     }
    ],
-   "answer": "(a) -3; (b) 17; (c) 17; (d) 0",
    "solutionSteps": [
-    "(a) Divide by h: -h - 3. Let h → 0: f′(3) = -3.",
-    "(b) Divide by h: -2h + 17. Let h → 0: f′(-4) = 17.",
-    "(c) Divide by h: 3h + 17. Let h → 0: f′(2) = 17.",
-    "(d) Divide by h: -3h. Let h → 0: f′(-1) = 0."
+    "(a) Definition of the derivative at x = 3; the value is f′(3) = 25.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (3, 21), slope 25.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(31/10) = 47/2. f″(3) = 18, so f is concave up near x = 3 and the tangent line lies below the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(3).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.A",
     "AP CHA-2.B",
     "AP LIM-3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_def_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s01-cp2-016",
@@ -819,38 +828,47 @@
    "skillId": "derivatives-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (The Derivative as a Limit of Difference Quotients): answer each part and show your work.",
+   "prompt": "Free response (The Derivative as a Limit of Difference Quotients). Let f(x) = x² + 4x.",
+   "answer": "(a) lim (h → 0) (f(-1 + h) − f(-1))/h = 2; (b) y = 2x - 1; (c) -14/5; an underestimate; (d) y = -x/2 - 7/2",
    "parts": [
     {
-     "prompt": "For f(x) = -4x² - 2x - 6, simplify the difference quotient (f(x + h) - f(x))/h (h ≠ 0).",
-     "answer": "-4h - 8x - 2"
+     "label": "a",
+     "prompt": "Write f′(-1) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(-1 + h) − f(-1))/h = 2"
     },
     {
-     "prompt": "For f(x) = 4x² - 3x - 1, simplify the difference quotient (f(x + h) - f(x))/h (h ≠ 0).",
-     "answer": "4h + 8x - 3"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = -1.",
+     "answer": "y = 2x - 1"
     },
     {
-     "prompt": "For f(x) = 4x² + 6, simplify the difference quotient (f(x + h) - f(x))/h (h ≠ 0).",
-     "answer": "4h + 8x"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(-9/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "-14/5; an underestimate"
     },
     {
-     "prompt": "For f(x) = 2x² + 3, simplify the difference quotient (f(x + h) - f(x))/h (h ≠ 0).",
-     "answer": "2h + 4x"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = -1.",
+     "answer": "y = -x/2 - 7/2"
     }
    ],
-   "answer": "(a) -4h - 8x - 2; (b) 4h + 8x - 3; (c) 4h + 8x; (d) 2h + 4x",
    "solutionSteps": [
-    "(a) Subtract f(x) and divide by h. = -4h - 8x - 2.",
-    "(b) Subtract f(x) and divide by h. = 4h + 8x - 3.",
-    "(c) Subtract f(x) and divide by h. = 4h + 8x.",
-    "(d) Subtract f(x) and divide by h. = 2h + 4x."
+    "(a) Definition of the derivative at x = -1; the value is f′(-1) = 2.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (-1, -3), slope 2.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(-9/10) = -14/5. f″(-1) = 2, so f is concave up near x = -1 and the tangent line lies below the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(-1).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.A",
     "AP CHA-2.B",
     "AP LIM-3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_def_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s01-cp1-016",
@@ -1254,38 +1272,47 @@
    "skillId": "derivatives-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (The Derivative as a Limit of Difference Quotients): answer each part and show your work.",
+   "prompt": "Free response (The Derivative as a Limit of Difference Quotients). Let f(x) = 1/x.",
+   "answer": "(a) lim (h → 0) (f(2 + h) − f(2))/h = -1/4; (b) y = 1 - x/4; (c) 19/40; an underestimate; (d) y = 4x - 15/2",
    "parts": [
     {
-     "prompt": "The limit lim (h → 0) ((sin(π/3 + h) - sin(π/3))/h) represents f′(a) for some f and a. Identify f and a, and evaluate the limit.",
-     "answer": "f(x) = sin(x), a = π/3; value 1/2"
+     "label": "a",
+     "prompt": "Write f′(2) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(2 + h) − f(2))/h = -1/4"
     },
     {
-     "prompt": "The limit lim (h → 0) ((sin(π/6 + h) - sin(π/6))/h) represents f′(a) for some f and a. Identify f and a, and evaluate the limit.",
-     "answer": "f(x) = sin(x), a = π/6; value (√3)/2"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = 2.",
+     "answer": "y = 1 - x/4"
     },
     {
-     "prompt": "The limit lim (h → 0) ((√(25 + h) - 5)/h) represents f′(a) for some f and a. Identify f and a, and evaluate the limit.",
-     "answer": "f(x) = √x, a = 25; value 1/10"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(21/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "19/40; an underestimate"
     },
     {
-     "prompt": "The limit lim (h → 0) ((sin(π + h) - sin(π))/h) represents f′(a) for some f and a. Identify f and a, and evaluate the limit.",
-     "answer": "f(x) = sin(x), a = π; value -1"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = 2.",
+     "answer": "y = 4x - 15/2"
     }
    ],
-   "answer": "(a) f(x) = sin(x), a = π/3; value 1/2; (b) f(x) = sin(x), a = π/6; value (√3)/2; (c) f(x) = √x, a = 25; value 1/10; (d) f(x) = sin(x), a = π; value -1",
    "solutionSteps": [
-    "(a) f(x) = sin(x) and a = π/3. f′(a) = 1/2.",
-    "(b) f(x) = sin(x) and a = π/6. f′(a) = (√3)/2.",
-    "(c) f(x) = √x and a = 25. f′(a) = 1/10.",
-    "(d) f(x) = sin(x) and a = π. f′(a) = -1."
+    "(a) Definition of the derivative at x = 2; the value is f′(2) = -1/4.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (2, 1/2), slope -1/4.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(21/10) = 19/40. f″(2) = 1/4, so f is concave up near x = 2 and the tangent line lies below the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(2).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.A",
     "AP CHA-2.B",
     "AP LIM-3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_def_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s01-honors-016",
@@ -1647,36 +1674,45 @@
    "skillId": "derivatives-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Derivatives from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Derivatives from Graphs and Tables). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 15; R(2) = 15; R(4) = 12; R(6) = 11; R(8) = 10. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -1 gallons per hour per hour; (b) 101 gallons; about 101 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 601 gallons",
    "parts": [
     {
-     "prompt": "f is differentiable with f(2) = 33; f(8) = -7; f(11) = -30; f(13) = 59. Estimate f′(11) using the values on either side of 11.",
-     "answer": "66/5"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "-1 gallons per hour per hour"
     },
     {
-     "prompt": "f is differentiable with f(0) = 58; f(2) = -6; f(3) = -21; f(14) = 37. Estimate f′(2) using the values on either side of 2.",
-     "answer": "-79/3"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "101 gallons; about 101 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "f is differentiable with f(1) = 3; f(4) = -9; f(10) = -8; f(12) = 43. Estimate f′(4) using the values on either side of 4.",
-     "answer": "-11/9"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R′(t) = 0? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is differentiable with f(1) = -14; f(3) = -6; f(7) = 36; f(10) = 1. Estimate f′(3) using the values on either side of 3.",
-     "answer": "25/3"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "601 gallons"
     }
    ],
-   "answer": "(a) 66/5; (b) -79/3; (c) -11/9; (d) 25/3",
    "solutionSteps": [
-    "(a) Use the symmetric difference quotient (f(13) - f(8)) ÷ (13 - 8). (59 - (-7)) ÷ 5 = 66/5.",
-    "(b) Use the symmetric difference quotient (f(3) - f(0)) ÷ (3 - 0). (-21 - 58) ÷ 3 = -79/3.",
-    "(c) Use the symmetric difference quotient (f(10) - f(1)) ÷ (10 - 1). (-8 - 3) ÷ 9 = -11/9.",
-    "(d) Use the symmetric difference quotient (f(7) - f(1)) ÷ (7 - 1). (36 - (-14)) ÷ 6 = 25/3."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (11 − 15)/4 = -1 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(15 + 15)/2 + 2(15 + 12)/2 + 2(12 + 11)/2 + 2(11 + 10)/2 = 101. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable and R(0) = R(2) = 15, so by the Mean Value Theorem (Rolle) some c has R′(c) = 0.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 101 = 601 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s02-cp2-016",
@@ -2035,36 +2071,45 @@
    "skillId": "derivatives-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Derivatives from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Derivatives from Graphs and Tables). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 11; R(2) = 9; R(5) = 17; R(7) = 16; R(10) = 12. The tank holds 300 gallons at t = 0.",
+   "answer": "(a) 7/5 gallons per hour per hour; (b) 134 gallons; about 134 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 434 gallons",
    "parts": [
     {
-     "prompt": "f is differentiable with f(5) = 24; f(9) = 28; f(11) = -28; f(15) = -23. Estimate f′(11) using the values on either side of 11.",
-     "answer": "-17/2"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "7/5 gallons per hour per hour"
     },
     {
-     "prompt": "f is differentiable with f(4) = 29; f(9) = 59; f(10) = 31; f(15) = -25. Estimate f′(9) using the values on either side of 9.",
-     "answer": "1/3"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "134 gallons; about 134 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "f is differentiable with f(5) = 19; f(6) = 26; f(11) = 27; f(13) = -12. Estimate f′(11) using the values on either side of 11.",
-     "answer": "-38/7"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 10? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is differentiable with f(2) = 6; f(5) = 18; f(6) = 24; f(15) = 28. Estimate f′(5) using the values on either side of 5.",
-     "answer": "9/2"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "434 gallons"
     }
    ],
-   "answer": "(a) -17/2; (b) 1/3; (c) -38/7; (d) 9/2",
    "solutionSteps": [
-    "(a) Use the symmetric difference quotient (f(15) - f(9)) ÷ (15 - 9). (-23 - 28) ÷ 6 = -17/2.",
-    "(b) Use the symmetric difference quotient (f(10) - f(4)) ÷ (10 - 4). (31 - 29) ÷ 6 = 1/3.",
-    "(c) Use the symmetric difference quotient (f(13) - f(6)) ÷ (13 - 6). (-12 - 26) ÷ 7 = -38/7.",
-    "(d) Use the symmetric difference quotient (f(6) - f(2)) ÷ (6 - 2). (24 - 6) ÷ 4 = 9/2."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (16 − 9)/5 = 7/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(11 + 9)/2 + 3(9 + 17)/2 + 2(17 + 16)/2 + 3(16 + 12)/2 = 134. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 10 is between R(0) = 11 and R(2) = 9, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 300 + 134 = 434 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s02-cp1-016",
@@ -2423,36 +2468,45 @@
    "skillId": "derivatives-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Derivatives from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Derivatives from Graphs and Tables). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 18; R(2) = 10; R(5) = 9; R(7) = 12; R(10) = 18. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) 2/5 gallons per hour per hour; (b) 245/2 gallons; about 245/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 1245/2 gallons",
    "parts": [
     {
-     "prompt": "f is differentiable with f(7) = 34; f(8) = 57; f(9) = 27; f(10) = 27. Estimate f′(9) using the values on either side of 9.",
-     "answer": "-15"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "2/5 gallons per hour per hour"
     },
     {
-     "prompt": "f is differentiable with f(1) = 46; f(8) = -6; f(10) = 1; f(13) = -17. Estimate f′(8) using the values on either side of 8.",
-     "answer": "-5"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "245/2 gallons; about 245/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "f is differentiable with f(6) = -21; f(10) = -26; f(11) = 21; f(15) = 11. Estimate f′(11) using the values on either side of 11.",
-     "answer": "37/5"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 14? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is differentiable with f(1) = 11; f(2) = 7; f(5) = 41; f(13) = -26. Estimate f′(2) using the values on either side of 2.",
-     "answer": "15/2"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "1245/2 gallons"
     }
    ],
-   "answer": "(a) -15; (b) -5; (c) 37/5; (d) 15/2",
    "solutionSteps": [
-    "(a) Use the symmetric difference quotient (f(10) - f(8)) ÷ (10 - 8). (27 - 57) ÷ 2 = -15.",
-    "(b) Use the symmetric difference quotient (f(10) - f(1)) ÷ (10 - 1). (1 - 46) ÷ 9 = -5.",
-    "(c) Use the symmetric difference quotient (f(15) - f(10)) ÷ (15 - 10). (11 - (-26)) ÷ 5 = 37/5.",
-    "(d) Use the symmetric difference quotient (f(5) - f(1)) ÷ (5 - 1). (41 - 11) ÷ 4 = 15/2."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (12 − 10)/5 = 2/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(18 + 10)/2 + 3(10 + 9)/2 + 2(9 + 12)/2 + 3(12 + 18)/2 = 245/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 14 is between R(0) = 18 and R(2) = 10, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 245/2 = 1245/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s02-honors-016",
@@ -2847,38 +2901,47 @@
    "skillId": "derivatives-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Calculating Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Calculating Derivatives). Differentiable functions f and g have these values: f(1) = 0, g(1) = 1, f′(1) = -4, g′(1) = 3; f(2) = 2, g(2) = 1, f′(2) = -2, g′(2) = -3; f(3) = 1, g(3) = 3, f′(3) = 3, g′(3) = -3.",
+   "answer": "(a) -12; (b) -8; (c) 4; (d) decreasing",
    "parts": [
     {
-     "prompt": "Find f′(x) for f(x) = 3x⁴ - 8x.",
-     "answer": "12x³ - 8"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "-12"
     },
     {
-     "prompt": "Find f′(x) for f(x) = 2√x - 1/x.",
-     "answer": "1/x² + 1/(√x)"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "-8"
     },
     {
-     "prompt": "Find f′(x) for f(x) = -4x³ + 6x² + 6x - 3.",
-     "answer": "-12x² + 12x + 6"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "4"
     },
     {
-     "prompt": "Find f′(x) for f(x) = -x⁶ - 5x.",
-     "answer": "-6x⁵ - 5"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "decreasing"
     }
    ],
-   "answer": "(a) 12x³ - 8; (b) 1/x² + 1/(√x); (c) -12x² + 12x + 6; (d) -6x⁵ - 5",
    "solutionSteps": [
-    "(a) Power rule. f′(x) = 12x³ - 8.",
-    "(b) Rewrite as powers: x^(1/2) and x^(-1). f′(x) = 1/x² + 1/(√x).",
-    "(c) Power rule term by term. f′(x) = -12x² + 12x + 6.",
-    "(d) Power rule. f′(x) = -6x⁵ - 5."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(1)·(3) = -4·(3) = -12.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (-2)(1) + (2)(-3) = -8.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (-2 − (-6))/1 = 4.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = -8.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-3.B",
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_rule_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s03-cp2-016",
@@ -3285,38 +3348,47 @@
    "skillId": "derivatives-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Calculating Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Calculating Derivatives). Differentiable functions f and g have these values: f(1) = -3, g(1) = 3, f′(1) = -3, g′(1) = -3; f(2) = -1, g(2) = 1, f′(2) = 0, g′(2) = 1; f(3) = 1, g(3) = 1, f′(3) = -3, g′(3) = 2.",
+   "answer": "(a) 9; (b) -1; (c) 1; (d) decreasing",
    "parts": [
     {
-     "prompt": "Find f′(x) for f(x) = 3ln(x) + 4e^(-x).",
-     "answer": "-4e^(-x) + 3/x"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "9"
     },
     {
-     "prompt": "Find f′(x) for f(x) = (3x - 4)².",
-     "answer": "18x - 24"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "-1"
     },
     {
-     "prompt": "Find f′(x) for f(x) = 3e^(3x) + 4ln(x).",
-     "answer": "9e^(3x) + 4/x"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "1"
     },
     {
-     "prompt": "Find f′(x) for f(x) = (3x + 5)/(x² + 5).",
-     "answer": "-(3x² + 10x - 15)/(x² + 5)²"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "decreasing"
     }
    ],
-   "answer": "(a) -4e^(-x) + 3/x; (b) 18x - 24; (c) 9e^(3x) + 4/x; (d) -(3x² + 10x - 15)/(x² + 5)²",
    "solutionSteps": [
-    "(a) (e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x. f′(x) = -4e^(-x) + 3/x.",
-    "(b) Chain rule: n(inside)ⁿ⁻¹ · (inside)′. f′(x) = 18x - 24.",
-    "(c) (e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x. f′(x) = 9e^(3x) + 4/x.",
-    "(d) Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v². f′(x) = -(3x² + 10x - 15)/(x² + 5)²."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(3)·(-3) = -3·(-3) = 9.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (0)(1) + (-1)(1) = -1.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (0 − (-1))/1 = 1.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = -1.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-3.B",
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_rule_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s03-cp1-016",
@@ -3726,38 +3798,47 @@
    "skillId": "derivatives-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Calculating Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Calculating Derivatives). Differentiable functions f and g have these values: f(1) = 3, g(1) = 1, f′(1) = 4, g′(1) = 3; f(2) = 2, g(2) = 1, f′(2) = 1, g′(2) = 1; f(3) = -1, g(3) = 2, f′(3) = -3, g′(3) = 2.",
+   "answer": "(a) 12; (b) 3; (c) -1; (d) increasing",
    "parts": [
     {
-     "prompt": "Find f′(x) for f(x) = x⁵e^(-2x).",
-     "answer": "x⁴(-2x + 5)e^(-2x)"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "12"
     },
     {
-     "prompt": "Find f′(x) for f(x) = x⁵e^(-4x).",
-     "answer": "x⁴(-4x + 5)e^(-4x)"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "3"
     },
     {
-     "prompt": "Find f′(x) for f(x) = (x² + 4)/(3x + 5).",
-     "answer": "(3x² + 10x - 12)/(3x + 5)²"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "-1"
     },
     {
-     "prompt": "Find f′(x) for f(x) = (x² - 3)/(4x + 3).",
-     "answer": "(2(2x² + 3x + 6))/(4x + 3)²"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) x⁴(-2x + 5)e^(-2x); (b) x⁴(-4x + 5)e^(-4x); (c) (3x² + 10x - 12)/(3x + 5)²; (d) (2(2x² + 3x + 6))/(4x + 3)²",
    "solutionSteps": [
-    "(a) Product rule with the chain rule for e^(kx). f′(x) = x⁴(-2x + 5)e^(-2x).",
-    "(b) Product rule with the chain rule for e^(kx). f′(x) = x⁴(-4x + 5)e^(-4x).",
-    "(c) Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v². f′(x) = (3x² + 10x - 12)/(3x + 5)².",
-    "(d) Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v². f′(x) = (2(2x² + 3x + 6))/(4x + 3)²."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(1)·(3) = 4·(3) = 12.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (1)(1) + (2)(1) = 3.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (1 − (2))/1 = -1.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = 3.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-3.B",
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_rule_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s03-honors-016",
@@ -4127,36 +4208,45 @@
    "skillId": "derivatives-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Higher-Order Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Higher-Order Derivatives). A particle moves along the x-axis with velocity v(t) = (t - 3)(t - 7) meters per second for 0 ≤ t ≤ 8.",
+   "answer": "(a) t = 3, t = 7; (b) speeding up; (c) 56/3 m; (d) 40 m",
    "parts": [
     {
-     "prompt": "Find f″(x) for f(x) = 5x⁷ - 3x.",
-     "answer": "210x⁵"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 3, t = 7"
     },
     {
-     "prompt": "Find f″(x) for f(x) = 4√x - 6/x.",
-     "answer": "-12/x³ - 1/(x√x)"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 9/2? Give a reason.",
+     "answer": "speeding up"
     },
     {
-     "prompt": "Find f″(x) for f(x) = -5x⁷ - 9x.",
-     "answer": "-210x⁵"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 8.",
+     "answer": "56/3 m"
     },
     {
-     "prompt": "Find f″(x) for f(x) = 5√x - 5/x.",
-     "answer": "-10/x³ - 5/(4x√x)"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 8.",
+     "answer": "40 m"
     }
    ],
-   "answer": "(a) 210x⁵; (b) -12/x³ - 1/(x√x); (c) -210x⁵; (d) -10/x³ - 5/(4x√x)",
    "solutionSteps": [
-    "(a) Differentiate, then differentiate again. f″(x) = 210x⁵.",
-    "(b) Differentiate, then differentiate again. f″(x) = -12/x³ - 1/(x√x).",
-    "(c) Differentiate, then differentiate again. f″(x) = -210x⁵.",
-    "(d) Differentiate, then differentiate again. f″(x) = -10/x³ - 5/(4x√x)."
+    "(a) v(t) = 0 at t = 3, t = 7, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(9/2) = -15/4 and a(9/2) = v′(9/2) = -1; they have the same sign, so it is speeding up.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 8 v(t) dt = 56/3 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 8 |v(t)| dt: split at 3, 7 and add the absolute values: 40 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_second_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s04-cp2-016",
@@ -4523,36 +4613,45 @@
    "skillId": "derivatives-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Higher-Order Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Higher-Order Derivatives). A particle moves along the x-axis with velocity v(t) = (t - 3)(t - 6) meters per second for 0 ≤ t ≤ 7.",
+   "answer": "(a) t = 3, t = 6; (b) slowing down; (c) 119/6 m; (d) 173/6 m",
    "parts": [
     {
-     "prompt": "Find f″(x) for f(x) = (5x - 4)⁴.",
-     "answer": "300(5x - 4)²"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 3, t = 6"
     },
     {
-     "prompt": "Find f″(x) for f(x) = 4sin(x) + 3cos(x).",
-     "answer": "-4sin(x) - 3cos(x)"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1? Give a reason.",
+     "answer": "slowing down"
     },
     {
-     "prompt": "Find f″(x) for f(x) = 2sin(x) - cos(x).",
-     "answer": "-2sin(x) + cos(x)"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 7.",
+     "answer": "119/6 m"
     },
     {
-     "prompt": "Find f″(x) for f(x) = 4e^(4x) + 3ln(x).",
-     "answer": "64e^(4x) - 3/x²"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 7.",
+     "answer": "173/6 m"
     }
    ],
-   "answer": "(a) 300(5x - 4)²; (b) -4sin(x) - 3cos(x); (c) -2sin(x) + cos(x); (d) 64e^(4x) - 3/x²",
    "solutionSteps": [
-    "(a) Differentiate, then differentiate again. f″(x) = 300(5x - 4)².",
-    "(b) Differentiate, then differentiate again. f″(x) = -4sin(x) - 3cos(x).",
-    "(c) Differentiate, then differentiate again. f″(x) = -2sin(x) + cos(x).",
-    "(d) Differentiate, then differentiate again. f″(x) = 64e^(4x) - 3/x²."
+    "(a) v(t) = 0 at t = 3, t = 6, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1) = 10 and a(1) = v′(1) = -7; they have opposite signs, so it is slowing down.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 7 v(t) dt = 119/6 m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 7 |v(t)| dt: split at 3, 6 and add the absolute values: 173/6 m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_second_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s04-cp1-016",
@@ -4919,36 +5018,45 @@
    "skillId": "derivatives-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Higher-Order Derivatives): answer each part and show your work.",
+   "prompt": "Free response (Higher-Order Derivatives). A particle moves along the x-axis with velocity v(t) = 2cos(πt/2) meters per second for 0 ≤ t ≤ 3.",
+   "answer": "(a) t = 1; (b) slowing down; (c) -4/π m; (d) 12/π m",
    "parts": [
     {
-     "prompt": "Find f″(x) for f(x) = -6x + 5tan(x).",
-     "answer": "10tan(x)/cos²(x)"
+     "label": "a",
+     "prompt": "At what time(s) does the particle change direction? Justify your answer.",
+     "answer": "t = 1"
     },
     {
-     "prompt": "Find f‴(x) for f(x) = (2x + 1)⁴.",
-     "answer": "384x + 192"
+     "label": "b",
+     "prompt": "Is the particle speeding up or slowing down at t = 1/2? Give a reason.",
+     "answer": "slowing down"
     },
     {
-     "prompt": "Find f‴(x) for f(x) = 5ln(x) + 5e^(-6x).",
-     "answer": "-1080e^(-6x) + 10/x³"
+     "label": "c",
+     "prompt": "Find the displacement of the particle from t = 0 to t = 3.",
+     "answer": "-4/π m"
     },
     {
-     "prompt": "Find f″(x) for f(x) = (5x - 5)/(x² + 3).",
-     "answer": "(10(-2x(x² + 3) + 3(x - 1)(x² - 1)))/(x² + 3)³"
+     "label": "d",
+     "prompt": "Find the total distance the particle travels from t = 0 to t = 3.",
+     "answer": "12/π m"
     }
    ],
-   "answer": "(a) 10tan(x)/cos²(x); (b) 384x + 192; (c) -1080e^(-6x) + 10/x³; (d) (10(-2x(x² + 3) + 3(x - 1)(x² - 1)))/(x² + 3)³",
    "solutionSteps": [
-    "(a) Differentiate, then differentiate again. f″(x) = 10tan(x)/cos²(x).",
-    "(b) Differentiate, then differentiate again (three times in all). f‴(x) = 384x + 192.",
-    "(c) Differentiate, then differentiate again (three times in all). f‴(x) = -1080e^(-6x) + 10/x³.",
-    "(d) Differentiate, then differentiate again. f″(x) = (10(-2x(x² + 3) + 3(x - 1)(x² - 1)))/(x² + 3)³."
+    "(a) v(t) = 0 at t = 1, and v changes sign there.",
+    "(a) Scoring, 2 points: 1 point for the times, 1 point for \"v changes sign\" as the reason.",
+    "(b) v(1/2) = √2 and a(1/2) = v′(1/2) = -π√2/2; they have opposite signs, so it is slowing down.",
+    "(b) Scoring, 2 points: 1 point for a(t) at the time, 1 point for comparing the signs of v and a.",
+    "(c) ∫ from 0 to 3 v(t) dt = -4/π m.",
+    "(c) Scoring, 1 point: the definite integral of v with its value.",
+    "(d) ∫ from 0 to 3 |v(t)| dt: split at 1 and add the absolute values: 12/π m.",
+    "(d) Scoring, 2 points: 1 point for using |v| (or splitting at the zeros), 1 point for the value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_second_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_motion). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s04-honors-016",
@@ -5321,36 +5429,45 @@
    "skillId": "derivatives-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Differentiability and Continuity): answer each part and show your work.",
+   "prompt": "Free response (Differentiability and Continuity). f(x) = x² - 4x - 2 for x < 4, and f(x) = 4x + k for x ≥ 4, where k is a constant.",
+   "answer": "(a) -2; (b) 16 + k; (c) k = -18; (d) Yes",
    "parts": [
     {
-     "prompt": "f(x) = -3x² for x ≤ 3 and f(x) = mx + b for x > 3. Find m and b so that f is differentiable at x = 3.",
-     "answer": "m = -18, b = 27"
+     "label": "a",
+     "prompt": "Find lim (x → 4⁻) f(x).",
+     "answer": "-2"
     },
     {
-     "prompt": "f(x) = x² for x ≤ -2 and f(x) = mx + b for x > -2. Find m and b so that f is differentiable at x = -2.",
-     "answer": "m = -4, b = -4"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) in terms of k.",
+     "answer": "16 + k"
     },
     {
-     "prompt": "f(x) = x² for x ≤ -1 and f(x) = mx + b for x > -1. Find m and b so that f is differentiable at x = -1.",
-     "answer": "m = -2, b = -1"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 4. Use the definition of continuity.",
+     "answer": "k = -18"
     },
     {
-     "prompt": "f(x) = 2x² for x ≤ 2 and f(x) = mx + b for x > 2. Find m and b so that f is differentiable at x = 2.",
-     "answer": "m = 8, b = -8"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 4? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) m = -18, b = 27; (b) m = -4, b = -4; (c) m = -2, b = -1; (d) m = 8, b = -8",
    "solutionSteps": [
-    "(a) Continuous: -18(3) + b = -27. b = 27.",
-    "(b) Continuous: -4(-2) + b = 4. b = -4.",
-    "(c) Continuous: -2(-1) + b = 1. b = -1.",
-    "(d) Continuous: 8(2) + b = 8. b = -8."
+    "(a) Use the left piece: -2.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 4(4) + k = 16 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 4⁻) f(x) = f(4): -2 = 4(4) + k, so k = -18.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 4, right slope 4: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_ab_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s05-cp2-016",
@@ -5724,36 +5841,45 @@
    "skillId": "derivatives-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Differentiability and Continuity): answer each part and show your work.",
+   "prompt": "Free response (Differentiability and Continuity). f(x) = x² - 2x for x < 4, and f(x) = 6x + k for x ≥ 4, where k is a constant.",
+   "answer": "(a) 8; (b) 24 + k; (c) k = -16; (d) Yes",
    "parts": [
     {
-     "prompt": "f(x) = 3x² for x ≤ -1 and f(x) = mx + b for x > -1. Find m and b so that f is differentiable at x = -1.",
-     "answer": "m = -6, b = -3"
+     "label": "a",
+     "prompt": "Find lim (x → 4⁻) f(x).",
+     "answer": "8"
     },
     {
-     "prompt": "f(x) = 2x² for x ≤ 2 and f(x) = mx + b for x > 2. Find m and b so that f is differentiable at x = 2.",
-     "answer": "m = 8, b = -8"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) in terms of k.",
+     "answer": "24 + k"
     },
     {
-     "prompt": "f(x) = 3x² for x ≤ -2 and f(x) = mx + b for x > -2. Find m and b so that f is differentiable at x = -2.",
-     "answer": "m = -12, b = -12"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 4. Use the definition of continuity.",
+     "answer": "k = -16"
     },
     {
-     "prompt": "f(x) = 3x² for x ≤ 1 and f(x) = mx + b for x > 1. Find m and b so that f is differentiable at x = 1.",
-     "answer": "m = 6, b = -3"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 4? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) m = -6, b = -3; (b) m = 8, b = -8; (c) m = -12, b = -12; (d) m = 6, b = -3",
    "solutionSteps": [
-    "(a) Continuous: -6(-1) + b = 3. b = -3.",
-    "(b) Continuous: 8(2) + b = 8. b = -8.",
-    "(c) Continuous: -12(-2) + b = 12. b = -12.",
-    "(d) Continuous: 6(1) + b = 3. b = -3."
+    "(a) Use the left piece: 8.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 6(4) + k = 24 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 4⁻) f(x) = f(4): 8 = 6(4) + k, so k = -16.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 6, right slope 6: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_ab_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s05-cp1-016",
@@ -6127,36 +6253,45 @@
    "skillId": "derivatives-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Differentiability and Continuity): answer each part and show your work.",
+   "prompt": "Free response (Differentiability and Continuity). f(x) = ln(x) for x < 1, and f(x) = 4x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) 0; (b) 4 + k; (c) k = -4; (d) No",
    "parts": [
     {
-     "prompt": "f(x) = x² for x ≤ -1 and f(x) = mx + b for x > -1. Find m and b so that f is differentiable at x = -1.",
-     "answer": "m = -2, b = -1"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "0"
     },
     {
-     "prompt": "f(x) = 3x² for x ≤ -2 and f(x) = mx + b for x > -2. Find m and b so that f is differentiable at x = -2.",
-     "answer": "m = -12, b = -12"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "4 + k"
     },
     {
-     "prompt": "f(x) = -3x² for x ≤ 2 and f(x) = mx + b for x > 2. Find m and b so that f is differentiable at x = 2.",
-     "answer": "m = -12, b = 12"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -4"
     },
     {
-     "prompt": "f(x) = 2x² for x ≤ -1 and f(x) = mx + b for x > -1. Find m and b so that f is differentiable at x = -1.",
-     "answer": "m = -4, b = -2"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) m = -2, b = -1; (b) m = -12, b = -12; (c) m = -12, b = 12; (d) m = -4, b = -2",
    "solutionSteps": [
-    "(a) Continuous: -2(-1) + b = 1. b = -1.",
-    "(b) Continuous: -12(-2) + b = 12. b = -12.",
-    "(c) Continuous: -12(2) + b = -12. b = 12.",
-    "(d) Continuous: -4(-1) + b = 2. b = -2."
+    "(a) Use the left piece: 0.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 4(1) + k = 4 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): 0 = 4(1) + k, so k = -4.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 1, right slope 4: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_ab_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s05-honors-016",
@@ -6549,37 +6684,46 @@
    "skillId": "derivatives-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Tangent Lines and Their Slopes): answer each part and show your work.",
+   "prompt": "Free response (Tangent Lines and Their Slopes). Let f(x) = 2x² + x.",
+   "answer": "(a) lim (h → 0) (f(2 + h) − f(2))/h = 9; (b) y = 9x - 8; (c) 109/10; an underestimate; (d) y = 92/9 - x/9",
    "parts": [
     {
-     "prompt": "Find the equation of the tangent line to f(x) = -2x³ + 2x² - 4x + 3 at x = -1.",
-     "answer": "y = -14x - 3"
+     "label": "a",
+     "prompt": "Write f′(2) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(2 + h) − f(2))/h = 9"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = 2x³ + 5x² - 4x + 2 at x = 0.",
-     "answer": "y = -4x + 2"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = 2.",
+     "answer": "y = 9x - 8"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = -6x³ + 3x² - 1 at x = -1.",
-     "answer": "y = -24x - 16"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(21/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "109/10; an underestimate"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = -2x³ + 3x² + x + 4 at x = -1.",
-     "answer": "y = -11x - 3"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = 2.",
+     "answer": "y = 92/9 - x/9"
     }
    ],
-   "answer": "(a) y = -14x - 3; (b) y = -4x + 2; (c) y = -24x - 16; (d) y = -11x - 3",
    "solutionSteps": [
-    "(a) y - 11 = -14(x + 1). y = -14x - 3.",
-    "(b) y - 2 = -4(x - 0). y = -4x + 2.",
-    "(c) y - 8 = -24(x + 1). y = -24x - 16.",
-    "(d) y - 8 = -11(x + 1). y = -11x - 3."
+    "(a) Definition of the derivative at x = 2; the value is f′(2) = 9.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (2, 10), slope 9.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(21/10) = 109/10. f″(2) = 4, so f is concave up near x = 2 and the tangent line lies below the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(2).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.C",
     "AP CHA-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_tangent_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s06-cp2-016",
@@ -6974,37 +7118,46 @@
    "skillId": "derivatives-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Tangent Lines and Their Slopes): answer each part and show your work.",
+   "prompt": "Free response (Tangent Lines and Their Slopes). Let f(x) = 2x³ - x.",
+   "answer": "(a) lim (h → 0) (f(2 + h) − f(2))/h = 23; (b) y = 23x - 32; (c) 163/10; an underestimate; (d) y = 324/23 - x/23",
    "parts": [
     {
-     "prompt": "Find the equation of the tangent line to f(x) = 4x(x² + 3) at x = -1.",
-     "answer": "y = 24x + 8"
+     "label": "a",
+     "prompt": "Write f′(2) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(2 + h) − f(2))/h = 23"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = (5x + 1)(x² - 4) at x = 1.",
-     "answer": "y = -3x - 15"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = 2.",
+     "answer": "y = 23x - 32"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = 6x + 2tan(x) at x = 0.",
-     "answer": "y = 8x"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(21/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "163/10; an underestimate"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = (6x + 2)(x² - 5) at x = 1.",
-     "answer": "y = -8x - 24"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = 2.",
+     "answer": "y = 324/23 - x/23"
     }
    ],
-   "answer": "(a) y = 24x + 8; (b) y = -3x - 15; (c) y = 8x; (d) y = -8x - 24",
    "solutionSteps": [
-    "(a) y - (-16) = 24(x + 1). y = 24x + 8.",
-    "(b) y - (-18) = -3(x - 1). y = -3x - 15.",
-    "(c) y - 0 = 8(x - 0). y = 8x.",
-    "(d) y - (-32) = -8(x - 1). y = -8x - 24."
+    "(a) Definition of the derivative at x = 2; the value is f′(2) = 23.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (2, 14), slope 23.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(21/10) = 163/10. f″(2) = 24, so f is concave up near x = 2 and the tangent line lies below the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(2).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.C",
     "AP CHA-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_tangent_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s06-cp1-016",
@@ -7396,37 +7549,46 @@
    "skillId": "derivatives-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Tangent Lines and Their Slopes): answer each part and show your work.",
+   "prompt": "Free response (Tangent Lines and Their Slopes). Let f(x) = ln(x).",
+   "answer": "(a) lim (h → 0) (f(1 + h) − f(1))/h = 1; (b) y = x - 1; (c) 1/10; an overestimate; (d) y = 1 - x",
    "parts": [
     {
-     "prompt": "Find the equation of the normal line to f(x) = (x² + 3)/(6x + 3) at x = -1.",
-     "answer": "y = (1/2)x - 5/6"
+     "label": "a",
+     "prompt": "Write f′(1) as a limit of a difference quotient, and find its value.",
+     "answer": "lim (h → 0) (f(1 + h) − f(1))/h = 1"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = (5x - 6)/(x² + 3) at x = 1.",
-     "answer": "y = (11/8)x - 13/8"
+     "label": "b",
+     "prompt": "Write an equation for the line tangent to the graph of f at x = 1.",
+     "answer": "y = x - 1"
     },
     {
-     "prompt": "Find the equation of the tangent line to f(x) = (5x + 1)/(x² + 5) at x = 1.",
-     "answer": "y = (1/2)x + 1/2"
+     "label": "c",
+     "prompt": "Use the tangent line to approximate f(11/10). Is it an overestimate or an underestimate? Justify your answer.",
+     "answer": "1/10; an overestimate"
     },
     {
-     "prompt": "Find the equation of the normal line to f(x) = (2x - 1)(x² + 3) at x = -1.",
-     "answer": "y = -(1/14)x - 169/14"
+     "label": "d",
+     "prompt": "Write an equation for the line normal to the graph of f at x = 1.",
+     "answer": "y = 1 - x"
     }
    ],
-   "answer": "(a) y = (1/2)x - 5/6; (b) y = (11/8)x - 13/8; (c) y = (1/2)x + 1/2; (d) y = -(1/14)x - 169/14",
    "solutionSteps": [
-    "(a) y - (-4/3) = (1/2)(x + 1). y = (1/2)x - 5/6.",
-    "(b) y - (-1/4) = (11/8)(x - 1). y = (11/8)x - 13/8.",
-    "(c) y - 1 = (1/2)(x - 1). y = (1/2)x + 1/2.",
-    "(d) y - (-12) = -(1/14)(x + 1). y = -(1/14)x - 169/14."
+    "(a) Definition of the derivative at x = 1; the value is f′(1) = 1.",
+    "(a) Scoring, 2 points: 1 point for the limit, 1 point for the value.",
+    "(b) Point (1, 0), slope 1.",
+    "(b) Scoring, 1 point: the line.",
+    "(c) L(11/10) = 1/10. f″(1) = -1, so f is concave down near x = 1 and the tangent line lies above the graph.",
+    "(c) Scoring, 2 points: 1 point for the approximation, 1 point for the concavity reason.",
+    "(d) The normal line is perpendicular to the tangent line: its slope is the negative reciprocal of f′(1).",
+    "(d) Scoring, 1 point: the normal line.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP CHA-2.C",
     "AP CHA-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_tangent_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_tangent). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s06-honors-016",
@@ -7844,36 +8006,45 @@
    "skillId": "derivatives-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Connecting a Function and Its Derivative): answer each part and show your work.",
+   "prompt": "Free response (Connecting a Function and Its Derivative). Let f(x) = x³ - 3x² on the closed interval [-1, 3].",
+   "answer": "(a) f′(x) = 3x(x - 2); x = 0, x = 2; (b) relative maximum at x = 0; relative minimum at x = 2; (c) 0 at x = 0; (d) x = 1",
    "parts": [
     {
-     "prompt": "f′(x) = x² - x. On what interval(s) is f increasing?",
-     "answer": "(-∞, 0) ∪ (1, ∞)"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = 3x(x - 2); x = 0, x = 2"
     },
     {
-     "prompt": "f′(x) = x² - 3x - 10. On what interval(s) is f decreasing?",
-     "answer": "(-2, 5)"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative maximum at x = 0; relative minimum at x = 2"
     },
     {
-     "prompt": "f′(x) = x² - 6x + 8. On what interval(s) is f increasing?",
-     "answer": "(-∞, 2) ∪ (4, ∞)"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [-1, 3]. Justify your answer.",
+     "answer": "0 at x = 0"
     },
     {
-     "prompt": "f′(x) = x² + 2x - 3. On what interval(s) is f increasing?",
-     "answer": "(-∞, -3) ∪ (1, ∞)"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 1"
     }
    ],
-   "answer": "(a) (-∞, 0) ∪ (1, ∞); (b) (-2, 5); (c) (-∞, 2) ∪ (4, ∞); (d) (-∞, -3) ∪ (1, ∞)",
    "solutionSteps": [
-    "(a) Sign chart: f′ is positive outside [0, 1] and negative inside. f is increasing on (-∞, 0) ∪ (1, ∞).",
-    "(b) Sign chart: f′ is positive outside [-2, 5] and negative inside. f is decreasing on (-2, 5).",
-    "(c) Sign chart: f′ is positive outside [2, 4] and negative inside. f is increasing on (-∞, 2) ∪ (4, ∞).",
-    "(d) Sign chart: f′ is positive outside [-3, 1] and negative inside. f is increasing on (-∞, -3) ∪ (1, ∞)."
+    "(a) f′(x) = 3x(x - 2), which is 0 at 0, 2.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = 6x - 6; f″(0) = -6; f″(2) = 6.",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(-1) = -4; f(0) = 0; f(2) = -4; f(3) = 0.",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 1.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_sign_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s07-cp2-016",
@@ -8289,36 +8460,45 @@
    "skillId": "derivatives-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Connecting a Function and Its Derivative): answer each part and show your work.",
+   "prompt": "Free response (Connecting a Function and Its Derivative). Let f(x) = x³ - 15x² + 48x + 2 on the closed interval [1, 9].",
+   "answer": "(a) f′(x) = 3(x - 2)(x - 8); x = 2, x = 8; (b) relative maximum at x = 2; relative minimum at x = 8; (c) 46 at x = 2; (d) x = 5",
    "parts": [
     {
-     "prompt": "f′(x) = x² + 6x + 8. On what interval(s) is f decreasing?",
-     "answer": "(-4, -2)"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = 3(x - 2)(x - 8); x = 2, x = 8"
     },
     {
-     "prompt": "f′(x) = x² - x. On what interval(s) is f decreasing?",
-     "answer": "(0, 1)"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative maximum at x = 2; relative minimum at x = 8"
     },
     {
-     "prompt": "f′(x) = -x² - 6x - 8. On what interval(s) is f decreasing?",
-     "answer": "(-∞, -4) ∪ (-2, ∞)"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [1, 9]. Justify your answer.",
+     "answer": "46 at x = 2"
     },
     {
-     "prompt": "f′(x) = x² + 2x - 8. On what interval(s) is f decreasing?",
-     "answer": "(-4, 2)"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 5"
     }
    ],
-   "answer": "(a) (-4, -2); (b) (0, 1); (c) (-∞, -4) ∪ (-2, ∞); (d) (-4, 2)",
    "solutionSteps": [
-    "(a) Sign chart: f′ is positive outside [-4, -2] and negative inside. f is decreasing on (-4, -2).",
-    "(b) Sign chart: f′ is positive outside [0, 1] and negative inside. f is decreasing on (0, 1).",
-    "(c) Sign chart: f′ is negative outside [-4, -2] and positive inside. f is decreasing on (-∞, -4) ∪ (-2, ∞).",
-    "(d) Sign chart: f′ is positive outside [-4, 2] and negative inside. f is decreasing on (-4, 2)."
+    "(a) f′(x) = 3(x - 2)(x - 8), which is 0 at 2, 8.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = 6x - 30; f″(2) = -18; f″(8) = 18.",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(1) = 36; f(2) = 46; f(8) = -62; f(9) = -52.",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 5.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_sign_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s07-cp1-016",
@@ -8727,36 +8907,45 @@
    "skillId": "derivatives-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Connecting a Function and Its Derivative): answer each part and show your work.",
+   "prompt": "Free response (Connecting a Function and Its Derivative). Let f(x) = x²e^(-x) on the closed interval [-1, 4].",
+   "answer": "(a) f′(x) = -x(x - 2)e^(-x); x = 0, x = 2; (b) relative minimum at x = 0; relative maximum at x = 2; (c) e at x = -1; (d) x = 2 - √2, x = √2 + 2",
    "parts": [
     {
-     "prompt": "f′(x) = x² + 7x + 12. On what interval(s) is f decreasing?",
-     "answer": "(-4, -3)"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = -x(x - 2)e^(-x); x = 0, x = 2"
     },
     {
-     "prompt": "f′(x) = -x² + 3x + 4. On what interval(s) is f decreasing?",
-     "answer": "(-∞, -1) ∪ (4, ∞)"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative minimum at x = 0; relative maximum at x = 2"
     },
     {
-     "prompt": "f′(x) = -x² + 9x - 20. On what interval(s) is f increasing?",
-     "answer": "(4, 5)"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [-1, 4]. Justify your answer.",
+     "answer": "e at x = -1"
     },
     {
-     "prompt": "f′(x) = x² + 6x + 8. On what interval(s) is f increasing?",
-     "answer": "(-∞, -4) ∪ (-2, ∞)"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 2 - √2, x = √2 + 2"
     }
    ],
-   "answer": "(a) (-4, -3); (b) (-∞, -1) ∪ (4, ∞); (c) (4, 5); (d) (-∞, -4) ∪ (-2, ∞)",
    "solutionSteps": [
-    "(a) Sign chart: f′ is positive outside [-4, -3] and negative inside. f is decreasing on (-4, -3).",
-    "(b) Sign chart: f′ is negative outside [-1, 4] and positive inside. f is decreasing on (-∞, -1) ∪ (4, ∞).",
-    "(c) Sign chart: f′ is negative outside [4, 5] and positive inside. f is increasing on (4, 5).",
-    "(d) Sign chart: f′ is positive outside [-4, -2] and negative inside. f is increasing on (-∞, -4) ∪ (-2, ∞)."
+    "(a) f′(x) = -x(x - 2)e^(-x), which is 0 at 0, 2.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = (x² - 4x + 2)e^(-x); f″(0) = 2; f″(2) = -2e^(-2).",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(-1) = e; f(0) = 0; f(2) = 4e^(-2); f(4) = 16e^(-4).",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 2 - √2, √2 + 2.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_sign_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s07-honors-016",
@@ -9128,36 +9317,45 @@
    "skillId": "derivatives-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (The Chain Rule): answer each part and show your work.",
+   "prompt": "Free response (The Chain Rule). Differentiable functions f and g have these values: f(1) = -2, g(1) = 3, f′(1) = 2, g′(1) = -2; f(2) = 1, g(2) = 3, f′(2) = 0, g′(2) = 1; f(3) = -1, g(3) = 1, f′(3) = -3, g′(3) = 3.",
+   "answer": "(a) 6; (b) 1; (c) -1/9; (d) increasing",
    "parts": [
     {
-     "prompt": "Let h(x) = f(g(x)). You know g(1) = -2, g′(1) = -2, f′(1) = 6, and f′(-2) = 1. Find h′(1).",
-     "answer": "-2"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "6"
     },
     {
-     "prompt": "Find f′(x) for f(x) = (5x - 4)³.",
-     "answer": "15(5x - 4)²"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "1"
     },
     {
-     "prompt": "Let h(x) = f(g(x)). You know g(-2) = 0, g′(-2) = 3, f′(-2) = -1, and f′(0) = -5. Find h′(-2).",
-     "answer": "-15"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "-1/9"
     },
     {
-     "prompt": "Find f′(2) for f(x) = (4x - 3)².",
-     "answer": "40"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) -2; (b) 15(5x - 4)²; (c) -15; (d) 40",
    "solutionSteps": [
-    "(a) h′(1) = f′(g(1)) · g′(1). = f′(-2) · (-2) = -2.",
-    "(b) Chain rule: f′(x) = (outer)′ evaluated at the inside, times (inside)′. f′(x) = 15(5x - 4)².",
-    "(c) h′(-2) = f′(g(-2)) · g′(-2). = f′(0) · (3) = -15.",
-    "(d) Chain rule first, then substitute. f′(2) = 40."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(3)·(-2) = -3·(-2) = 6.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (0)(3) + (1)(1) = 1.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (0 − (1))/9 = -1/9.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = 1.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: ch_table_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s08-cp2-016",
@@ -9522,36 +9720,45 @@
    "skillId": "derivatives-skill-08",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (The Chain Rule): answer each part and show your work.",
+   "prompt": "Free response (The Chain Rule). Differentiable functions f and g have these values: f(1) = 5, g(1) = 3, f′(1) = -3, g′(1) = 2; f(2) = 0, g(2) = 1, f′(2) = 3, g′(2) = 3; f(3) = 0, g(3) = 1, f′(3) = 4, g′(3) = 0.",
+   "answer": "(a) 8; (b) 3; (c) 3; (d) increasing",
    "parts": [
     {
-     "prompt": "Let h(x) = f(g(x)). You know g(4) = -2, g′(4) = -3, f′(4) = -1, and f′(-2) = 7. Find h′(4).",
-     "answer": "-21"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "8"
     },
     {
-     "prompt": "Let h(x) = f(g(x)). You know g(2) = -1, g′(2) = 2, f′(2) = -6, and f′(-1) = 3. Find h′(2).",
-     "answer": "6"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "3"
     },
     {
-     "prompt": "Let h(x) = f(g(x)). You know g(3) = 5, g′(3) = 6, f′(3) = -6, and f′(5) = -4. Find h′(3).",
-     "answer": "-24"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "3"
     },
     {
-     "prompt": "Find f′(1) for f(x) = (x² - 3)².",
-     "answer": "-8"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) -21; (b) 6; (c) -24; (d) -8",
    "solutionSteps": [
-    "(a) h′(4) = f′(g(4)) · g′(4). = f′(-2) · (-3) = -21.",
-    "(b) h′(2) = f′(g(2)) · g′(2). = f′(-1) · (2) = 6.",
-    "(c) h′(3) = f′(g(3)) · g′(3). = f′(5) · (6) = -24.",
-    "(d) Chain rule first, then substitute. f′(1) = -8."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(3)·(2) = 4·(2) = 8.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (3)(1) + (0)(3) = 3.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (3 − (0))/1 = 3.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = 3.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: ch_table_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s08-cp1-016",
@@ -9924,36 +10131,45 @@
    "skillId": "derivatives-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (The Chain Rule): answer each part and show your work.",
+   "prompt": "Free response (The Chain Rule). Differentiable functions f and g have these values: f(1) = 5, g(1) = 2, f′(1) = -1, g′(1) = 2; f(2) = 0, g(2) = 1, f′(2) = 1, g′(2) = -3; f(3) = -3, g(3) = 2, f′(3) = 4, g′(3) = 3.",
+   "answer": "(a) 2; (b) 1; (c) 1; (d) increasing",
    "parts": [
     {
-     "prompt": "Let h(x) = (g(x))⁴. You know g(-3) = -4 and g′(-3) = -3. Find h′(-3).",
-     "answer": "768"
+     "label": "a",
+     "prompt": "Let h(x) = f(g(x)). Find h′(1).",
+     "answer": "2"
     },
     {
-     "prompt": "Find f′(x) for f(x) = 1/(6x² + 7)³.",
-     "answer": "-36x/(6x² + 7)⁴"
+     "label": "b",
+     "prompt": "Let p(x) = f(x)g(x). Find p′(2).",
+     "answer": "1"
     },
     {
-     "prompt": "Let h(x) = (g(x))³. You know g(-3) = 4 and g′(-3) = -1. Find h′(-3).",
-     "answer": "-48"
+     "label": "c",
+     "prompt": "Let q(x) = f(x)/g(x). Find q′(2).",
+     "answer": "1"
     },
     {
-     "prompt": "Find f′(-2) for f(x) = (x² - 3)⁵.",
-     "answer": "-20"
+     "label": "d",
+     "prompt": "Is the graph of p increasing or decreasing at x = 2? Give a reason.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) 768; (b) -36x/(6x² + 7)⁴; (c) -48; (d) -20",
    "solutionSteps": [
-    "(a) h′(x) = 4(g(x))³ · g′(x). h′(-3) = 4(-4)³(-3) = 768.",
-    "(b) Chain rule: f′(x) = (outer)′ evaluated at the inside, times (inside)′. f′(x) = -36x/(6x² + 7)⁴.",
-    "(c) h′(x) = 3(g(x))² · g′(x). h′(-3) = 3(4)²(-1) = -48.",
-    "(d) Chain rule first, then substitute. f′(-2) = -20."
+    "(a) Chain rule: h′(1) = f′(g(1))·g′(1) = f′(2)·(2) = 1·(2) = 2.",
+    "(a) Scoring, 2 points: 1 point for the chain rule, 1 point for the value.",
+    "(b) Product rule: f′(2)g(2) + f(2)g′(2) = (1)(1) + (0)(-3) = 1.",
+    "(b) Scoring, 2 points: 1 point for the product rule, 1 point for the value.",
+    "(c) Quotient rule: (f′(2)g(2) − f(2)g′(2))/g(2)² = (1 − (0))/1 = 1.",
+    "(c) Scoring, 2 points: 1 point for the quotient rule, 1 point for the value.",
+    "(d) p′(2) = 1.",
+    "(d) Scoring, 1 point: the sign of p′(2) as the reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: ch_table_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_rules). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s08-honors-016",
@@ -10322,36 +10538,45 @@
    "skillId": "derivatives-skill-09",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Implicit Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Implicit Differentiation). Consider the curve x² + xy + y² = 7.",
+   "answer": "(a) dy/dx = −(2x + y)/(x + 2y); (b) y = 14/5 - 4x/5; (c) (√21/3, -2√21/3) and (-√21/3, 2√21/3); (d) −1/2 at both points",
    "parts": [
     {
-     "prompt": "Use implicit differentiation to find dy/dx for x² + 2y² = 57.",
-     "answer": "-x/(2y)"
+     "label": "a",
+     "prompt": "Show that dy/dx = −(2x + y)/(x + 2y).",
+     "answer": "dy/dx = −(2x + y)/(x + 2y)"
     },
     {
-     "prompt": "Find the slope of the tangent line to x² + y² = 169 at the point (5, -12).",
-     "answer": "5/12"
+     "label": "b",
+     "prompt": "Write an equation of the line tangent to the curve at (1, 2).",
+     "answer": "y = 14/5 - 4x/5"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for x² + 5y² = 47.",
-     "answer": "-x/(5y)"
+     "label": "c",
+     "prompt": "Find the points on the curve where the tangent line is horizontal. Explain how you found them.",
+     "answer": "(√21/3, -2√21/3) and (-√21/3, 2√21/3)"
     },
     {
-     "prompt": "Find the slope of the tangent line to x² + y² = 25 at the point (-3, 4).",
-     "answer": "3/4"
+     "label": "d",
+     "prompt": "Find dy/dx at each point of the curve where x = 0.",
+     "answer": "−1/2 at both points"
     }
    ],
-   "answer": "(a) -x/(2y); (b) 5/12; (c) -x/(5y); (d) 3/4",
    "solutionSteps": [
-    "(a) Differentiate both sides: 2x + 4y(dy/dx) = 0. dy/dx = -x/(2y).",
-    "(b) dy/dx = -x/y. At (5, -12): dy/dx = 5/12.",
-    "(c) Differentiate both sides: 2x + 10y(dy/dx) = 0. dy/dx = -x/(5y).",
-    "(d) dy/dx = -x/y. At (-3, 4): dy/dx = 3/4."
+    "(a) 2x + y + x·dy/dx + 2y·dy/dx = 0, so (x + 2y)dy/dx = −(2x + y).",
+    "(a) Scoring, 2 points: 1 point for the product rule on xy, 1 point for solving for dy/dx.",
+    "(b) Slope at (1, 2): −(2·1 + 2)/(1 + 2·2) = -4/5.",
+    "(b) Scoring, 2 points: 1 point for the slope, 1 point for the line.",
+    "(c) dy/dx = 0 when y = −2x. Substitute: x² − 2x² + 4x² = 3x² = 7, so x = ±√21/3.",
+    "(c) Scoring, 3 points: 1 point for y = −2x, 1 point for substituting into the curve, 1 point for both points.",
+    "(d) At x = 0, y² = 7, so y = ±√7; dy/dx = −y/(2y) = −1/2 at both.",
+    "(d) Scoring, 1 point: both points and the slope.",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: im_expr_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_implicit). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s09-cp2-016",
@@ -10723,36 +10948,45 @@
    "skillId": "derivatives-skill-09",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Implicit Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Implicit Differentiation). Consider the curve x² + xy + y² = 13.",
+   "answer": "(a) dy/dx = −(2x + y)/(x + 2y); (b) y = 26/7 - 5x/7; (c) (√39/3, -2√39/3) and (-√39/3, 2√39/3); (d) −1/2 at both points",
    "parts": [
     {
-     "prompt": "Use implicit differentiation to find dy/dx for x³ + y³ = 15.",
-     "answer": "-x²/y²"
+     "label": "a",
+     "prompt": "Show that dy/dx = −(2x + y)/(x + 2y).",
+     "answer": "dy/dx = −(2x + y)/(x + 2y)"
     },
     {
-     "prompt": "Find the slope of the tangent line to x² + xy + y² = 7 at the point (3, -2).",
-     "answer": "4"
+     "label": "b",
+     "prompt": "Write an equation of the line tangent to the curve at (1, 3).",
+     "answer": "y = 26/7 - 5x/7"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for x³ + y³ = 19.",
-     "answer": "-x²/y²"
+     "label": "c",
+     "prompt": "Find the points on the curve where the tangent line is horizontal. Explain how you found them.",
+     "answer": "(√39/3, -2√39/3) and (-√39/3, 2√39/3)"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for x² + xy + y² = 8.",
-     "answer": "-(2x + y)/(x + 2y)"
+     "label": "d",
+     "prompt": "Find dy/dx at each point of the curve where x = 0.",
+     "answer": "−1/2 at both points"
     }
    ],
-   "answer": "(a) -x²/y²; (b) 4; (c) -x²/y²; (d) -(2x + y)/(x + 2y)",
    "solutionSteps": [
-    "(a) 3x² + 3y²(dy/dx) = 0. dy/dx = -x²/y².",
-    "(b) dy/dx = -(2x + y)/(x + 2y). At (3, -2): dy/dx = 4.",
-    "(c) 3x² + 3y²(dy/dx) = 0. dy/dx = -x²/y².",
-    "(d) 2x + (y + x(dy/dx)) + 2y(dy/dx) = 0. (x + 2y)(dy/dx) = -(2x + y). dy/dx = -(2x + y)/(x + 2y)."
+    "(a) 2x + y + x·dy/dx + 2y·dy/dx = 0, so (x + 2y)dy/dx = −(2x + y).",
+    "(a) Scoring, 2 points: 1 point for the product rule on xy, 1 point for solving for dy/dx.",
+    "(b) Slope at (1, 3): −(2·1 + 3)/(1 + 2·3) = -5/7.",
+    "(b) Scoring, 2 points: 1 point for the slope, 1 point for the line.",
+    "(c) dy/dx = 0 when y = −2x. Substitute: x² − 2x² + 4x² = 3x² = 13, so x = ±√39/3.",
+    "(c) Scoring, 3 points: 1 point for y = −2x, 1 point for substituting into the curve, 1 point for both points.",
+    "(d) At x = 0, y² = 13, so y = ±√13; dy/dx = −y/(2y) = −1/2 at both.",
+    "(d) Scoring, 1 point: both points and the slope.",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: im_expr_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_implicit). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s09-cp1-016",
@@ -11121,36 +11355,45 @@
    "skillId": "derivatives-skill-09",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Implicit Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Implicit Differentiation). Consider the curve x² + xy + y² = 21.",
+   "answer": "(a) dy/dx = −(2x + y)/(x + 2y); (b) y = 14/3 - 2x/3; (c) (√7, -2√7) and (-√7, 2√7); (d) -14/81",
    "parts": [
     {
-     "prompt": "Find the slope of the tangent line to x²y + y³ = 5 at the point (-2, 1).",
-     "answer": "4/7"
+     "label": "a",
+     "prompt": "Show that dy/dx = −(2x + y)/(x + 2y).",
+     "answer": "dy/dx = −(2x + y)/(x + 2y)"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for sin(y) + x² = 20.",
-     "answer": "-2x/cos(y)"
+     "label": "b",
+     "prompt": "Write an equation of the line tangent to the curve at (1, 4).",
+     "answer": "y = 14/3 - 2x/3"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for e^y + xy = 22.",
-     "answer": "-y/(e^y + x)"
+     "label": "c",
+     "prompt": "Find the points on the curve where the tangent line is horizontal. Explain how you found them.",
+     "answer": "(√7, -2√7) and (-√7, 2√7)"
     },
     {
-     "prompt": "Use implicit differentiation to find dy/dx for xy² - x² = 7.",
-     "answer": "(2x - y²)/(2xy)"
+     "label": "d",
+     "prompt": "Find d²y/dx² at (1, 4).",
+     "answer": "-14/81"
     }
    ],
-   "answer": "(a) 4/7; (b) -2x/cos(y); (c) -y/(e^y + x); (d) (2x - y²)/(2xy)",
    "solutionSteps": [
-    "(a) dy/dx = -2xy/(x² + 3y²). At (-2, 1): dy/dx = 4/7.",
-    "(b) cos(y)(dy/dx) + 2x = 0. dy/dx = -2x/cos(y).",
-    "(c) e^y(dy/dx) + y + x(dy/dx) = 0. dy/dx = -y/(e^y + x).",
-    "(d) y² + 2xy(dy/dx) - 2x = 0. dy/dx = (2x - y²)/(2xy)."
+    "(a) 2x + y + x·dy/dx + 2y·dy/dx = 0, so (x + 2y)dy/dx = −(2x + y).",
+    "(a) Scoring, 2 points: 1 point for the product rule on xy, 1 point for solving for dy/dx.",
+    "(b) Slope at (1, 4): −(2·1 + 4)/(1 + 2·4) = -2/3.",
+    "(b) Scoring, 2 points: 1 point for the slope, 1 point for the line.",
+    "(c) dy/dx = 0 when y = −2x. Substitute: x² − 2x² + 4x² = 3x² = 21, so x = ±√7.",
+    "(c) Scoring, 3 points: 1 point for y = −2x, 1 point for substituting into the curve, 1 point for both points.",
+    "(d) Differentiate dy/dx with the quotient rule, replace dy/dx, and substitute the point.",
+    "(d) Scoring, 2 points: 1 point for the quotient rule with dy/dx, 1 point for the value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: im_slope_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_implicit). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s09-honors-016",
@@ -11513,36 +11756,45 @@
    "skillId": "derivatives-skill-10",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives of Inverse Functions): answer each part and show your work.",
+   "prompt": "Free response (Derivatives of Inverse Functions). Let f(x) = x³ + 3x + 1, and let g be the inverse function of f.",
+   "answer": "(a) f′(x) > 0 for all x, so f is increasing and one-to-one; (b) -1; (c) 1/6; (d) y = x/6 - 1/2",
    "parts": [
     {
-     "prompt": "Let f(x) = x³ + 4x - 5, which is one-to-one. Find (f⁻¹)′(-21).",
-     "answer": "1/16"
+     "label": "a",
+     "prompt": "Explain why f has an inverse function.",
+     "answer": "f′(x) > 0 for all x, so f is increasing and one-to-one"
     },
     {
-     "prompt": "Find f′(x) for f(x) = sin⁻¹(5x).",
-     "answer": "5/√(1 - 25x²)"
+     "label": "b",
+     "prompt": "Find g(-3).",
+     "answer": "-1"
     },
     {
-     "prompt": "Find f′(x) for f(x) = tan⁻¹(2x).",
-     "answer": "2/(1 + 4x²)"
+     "label": "c",
+     "prompt": "Find g′(-3).",
+     "answer": "1/6"
     },
     {
-     "prompt": "Find f′(x) for f(x) = sin⁻¹(4x).",
-     "answer": "4/√(1 - 16x²)"
+     "label": "d",
+     "prompt": "Write an equation of the line tangent to the graph of g at x = -3.",
+     "answer": "y = x/6 - 1/2"
     }
    ],
-   "answer": "(a) 1/16; (b) 5/√(1 - 25x²); (c) 2/(1 + 4x²); (d) 4/√(1 - 16x²)",
    "solutionSteps": [
-    "(a) f(-2) = -21, so f⁻¹(-21) = -2. (f⁻¹)′(-21) = 1/f′(-2) = 1/16 = 1/16.",
-    "(b) Use (sin⁻¹ u)′ = u′/√(1 - u²) or (tan⁻¹ u)′ = u′/(1 + u²). f′(x) = 5/√(1 - 25x²).",
-    "(c) Use (sin⁻¹ u)′ = u′/√(1 - u²) or (tan⁻¹ u)′ = u′/(1 + u²). f′(x) = 2/(1 + 4x²).",
-    "(d) Use (sin⁻¹ u)′ = u′/√(1 - u²) or (tan⁻¹ u)′ = u′/(1 + u²). f′(x) = 4/√(1 - 16x²)."
+    "(a) f′(x) = 3x² + 3 > 0 for every x.",
+    "(a) Scoring, 1 point: f′ > 0 (or f one-to-one) as the reason.",
+    "(b) f(-1) = -3, so g(-3) = -1.",
+    "(b) Scoring, 1 point: the value.",
+    "(c) g′(-3) = 1/f′(g(-3)) = 1/f′(-1) = 1/6.",
+    "(c) Scoring, 2 points: 1 point for the inverse derivative formula, 1 point for the value.",
+    "(d) Point (-3, -1), slope 1/6.",
+    "(d) Scoring, 1 point: the line.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP FUN-3.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: inv_point_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_inverse). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s10-cp2-016",
@@ -11905,36 +12157,45 @@
    "skillId": "derivatives-skill-10",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives of Inverse Functions): answer each part and show your work.",
+   "prompt": "Free response (Derivatives of Inverse Functions). Let f(x) = x³ + x + 3, and let g be the inverse function of f.",
+   "answer": "(a) f′(x) > 0 for all x, so f is increasing and one-to-one; (b) -1; (c) 1/4; (d) y = x/4 - 5/4",
    "parts": [
     {
-     "prompt": "Let f(x) = x³ + 6x + 2, which is one-to-one. Find (f⁻¹)′(2).",
-     "answer": "1/6"
+     "label": "a",
+     "prompt": "Explain why f has an inverse function.",
+     "answer": "f′(x) > 0 for all x, so f is increasing and one-to-one"
     },
     {
-     "prompt": "f is differentiable and one-to-one with f(-3) = 0, f′(-3) = 3, and f′(0) = -2. Let g be the inverse of f. Find g′(0).",
-     "answer": "1/3"
+     "label": "b",
+     "prompt": "Find g(1).",
+     "answer": "-1"
     },
     {
-     "prompt": "f is differentiable and one-to-one with f(5) = 0, f′(5) = 6, and f′(0) = -3. Let g be the inverse of f. Find g′(0).",
-     "answer": "1/6"
+     "label": "c",
+     "prompt": "Find g′(1).",
+     "answer": "1/4"
     },
     {
-     "prompt": "Let f(x) = x³ + 4x - 4, which is one-to-one. Find (f⁻¹)′(12).",
-     "answer": "1/16"
+     "label": "d",
+     "prompt": "Write an equation of the line tangent to the graph of g at x = 1.",
+     "answer": "y = x/4 - 5/4"
     }
    ],
-   "answer": "(a) 1/6; (b) 1/3; (c) 1/6; (d) 1/16",
    "solutionSteps": [
-    "(a) f(0) = 2, so f⁻¹(2) = 0. (f⁻¹)′(2) = 1/f′(0) = 1/6 = 1/6.",
-    "(b) g(0) = -3. g′(0) = 1/f′(g(0)) = 1/f′(-3) = 1/3.",
-    "(c) g(0) = 5. g′(0) = 1/f′(g(0)) = 1/f′(5) = 1/6.",
-    "(d) f(2) = 12, so f⁻¹(12) = 2. (f⁻¹)′(12) = 1/f′(2) = 1/16 = 1/16."
+    "(a) f′(x) = 3x² + 1 > 0 for every x.",
+    "(a) Scoring, 1 point: f′ > 0 (or f one-to-one) as the reason.",
+    "(b) f(-1) = 1, so g(1) = -1.",
+    "(b) Scoring, 1 point: the value.",
+    "(c) g′(1) = 1/f′(g(1)) = 1/f′(-1) = 1/4.",
+    "(c) Scoring, 2 points: 1 point for the inverse derivative formula, 1 point for the value.",
+    "(d) Point (1, -1), slope 1/4.",
+    "(d) Scoring, 1 point: the line.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP FUN-3.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: inv_point_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_inverse). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s10-cp1-016",
@@ -12297,36 +12558,45 @@
    "skillId": "derivatives-skill-10",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives of Inverse Functions): answer each part and show your work.",
+   "prompt": "Free response (Derivatives of Inverse Functions). Let f(x) = x³ + 2x + 1, and let g be the inverse function of f.",
+   "answer": "(a) f′(x) > 0 for all x, so f is increasing and one-to-one; (b) -1; (c) 1/5; (d) y = x/5 - 3/5",
    "parts": [
     {
-     "prompt": "f is differentiable and one-to-one with f(-2) = -4, f′(-2) = -4, and f′(-4) = 7. Let g be the inverse of f. Find g′(-4).",
-     "answer": "-1/4"
+     "label": "a",
+     "prompt": "Explain why f has an inverse function.",
+     "answer": "f′(x) > 0 for all x, so f is increasing and one-to-one"
     },
     {
-     "prompt": "Let f(x) = x³ + x, which is one-to-one. Find (f⁻¹)′(2).",
-     "answer": "1/4"
+     "label": "b",
+     "prompt": "Find g(-2).",
+     "answer": "-1"
     },
     {
-     "prompt": "f is differentiable and one-to-one with f(-2) = -4, f′(-2) = 5, and f′(-4) = -5. Let g be the inverse of f. Find g′(-4).",
+     "label": "c",
+     "prompt": "Find g′(-2).",
      "answer": "1/5"
     },
     {
-     "prompt": "Let f(x) = x³ + 5x - 1, which is one-to-one. Find (f⁻¹)′(-1).",
-     "answer": "1/5"
+     "label": "d",
+     "prompt": "Write an equation of the line tangent to the graph of g at x = -2.",
+     "answer": "y = x/5 - 3/5"
     }
    ],
-   "answer": "(a) -1/4; (b) 1/4; (c) 1/5; (d) 1/5",
    "solutionSteps": [
-    "(a) g(-4) = -2. g′(-4) = 1/f′(g(-4)) = 1/f′(-2) = -1/4.",
-    "(b) f(1) = 2, so f⁻¹(2) = 1. (f⁻¹)′(2) = 1/f′(1) = 1/4 = 1/4.",
-    "(c) g(-4) = -2. g′(-4) = 1/f′(g(-4)) = 1/f′(-2) = 1/5.",
-    "(d) f(0) = -1, so f⁻¹(-1) = 0. (f⁻¹)′(-1) = 1/f′(0) = 1/5 = 1/5."
+    "(a) f′(x) = 3x² + 2 > 0 for every x.",
+    "(a) Scoring, 1 point: f′ > 0 (or f one-to-one) as the reason.",
+    "(b) f(-1) = -2, so g(-2) = -1.",
+    "(b) Scoring, 1 point: the value.",
+    "(c) g′(-2) = 1/f′(g(-2)) = 1/f′(-1) = 1/5.",
+    "(c) Scoring, 2 points: 1 point for the inverse derivative formula, 1 point for the value.",
+    "(d) Point (-2, -1), slope 1/5.",
+    "(d) Scoring, 1 point: the line.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP FUN-3.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: inv_table_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_inverse). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-der-s10-honors-016",

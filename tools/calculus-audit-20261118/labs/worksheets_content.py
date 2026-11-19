@@ -1,0 +1,56 @@
+# Explore & Reflect worksheets for the Calculus audit labs (#16). Same structure as
+# tools/interactive-math-20261107/worksheets_content.py: predict, explore, record, rules, explain, apply, teacher.
+# Every number is recomputed by tests/worksheet-answers.py.
+W = {}
+
+W['calculus-related-rates-lab'] = dict(
+  predict=[("The foot of a ladder slides out at a steady 2 ft/s. Does the top also slide down at a steady speed? Why or why not?", "No. It starts slowly and speeds up as the top nears the ground.", 1),
+           ("A 13-ft ladder has its foot 12 ft from the wall. Which is larger: dx/dt or the speed of the top, |dy/dt|?", "|dy/dt|, because x > y, so |dy/dt| = {x/y}·dx/dt is larger.", 1)],
+  explore=[("L = 13 ft, dx/dt = 2 ft/s, x = 5 ft. Record y and dy/dt.", "y = 12 ft; dy/dt = −{5/6} ≈ −0.833 ft/s", 1),
+           ("Move the foot to x = 12 ft. Record dy/dt. Why is the top faster now?", "−4.8 ft/s. The ratio x/y = {12/5} is larger.", 1),
+           ("With L = 13 ft, find x where the top slides down twice as fast as the foot slides out.", "x ≈ 11.63 ft (where x = 2y)", 1),
+           ("With L = 13 ft, find x where the area of the triangle stops growing. What is dA/dt there?", "x ≈ 9.19 ft (x = y); dA/dt = 0", 1)],
+  record=[dict(title="Rates at one moment", note="Round to 3 decimal places.",
+     head=["L (ft)", "dx/dt (ft/s)", "x (ft)", "y (ft)", "dy/dt (ft/s)", "dA/dt (ft²/s)"],
+     rows=[["13", "2", "5", "?12", "?−0.833", "?9.917"], ["13", "2", "12", "?5", "?−4.8", "?−23.8"],
+           ["10", "1", "6", "?8", "?−0.75", "?1.75"], ["25", "3", "7", "?24", "?−0.875", "?32.938"]])],
+  rules=[("Differentiate x² + y² = L² with respect to ___ to link the rates.", ["t"]),
+         ("The rates are related by dy/dt = ___ · dx/dt.", ["−{x/y}"]),
+         ("Substitute the numbers for x and y ___ differentiating, never before.", ["after"]),
+         ("The top and the foot move equally fast, and the area is largest, when ___.", ["x = y"])],
+  explain=("Explain why dy/dt keeps changing even though dx/dt stays the same.",
+           "dy/dt = −(x/y)·dx/dt. As the foot moves out, x grows and y shrinks, so x/y grows; as y → 0 the speed of the top grows without bound.", 3),
+  apply=[("A 10-ft ladder's foot slides out at 1.5 ft/s. How fast is the top sliding down when the foot is 8 ft from the wall?", "y = 6, so dy/dt = −{8(1.5)/6} = −2: the top slides down at 2 ft/s."),
+         ("For the ladder in problem 1, how fast is the angle θ between the ladder and the ground changing at that moment?", "cos θ = {x/10}, so −sin θ·{dθ/dt} = {1/10}·{dx/dt}; {dθ/dt} = −{1.5/6} = −0.25 rad/s."),
+         ("A circle's radius grows at 3 cm/s. How fast is its area growing when r = 5 cm?", "{dA/dt} = 2πr·{dr/dt} = 2π(5)(3) = 30π ≈ 94.2 cm²/s"),
+         ("A 6-ft person walks away from a 15-ft lamppost at 4 ft/s. How fast is the shadow growing?", "Similar triangles: {15/(x + s)} = {6/s}, so s = {2x/3} and {ds/dt} = {2/3}(4) = {8/3} ≈ 2.67 ft/s.")],
+  teacher=dict(discovery="Differentiating x² + y² = L² with respect to time gives 2x·dx/dt + 2y·dy/dt = 0, so dy/dt = −(x/y)·dx/dt: a steady dx/dt gives a changing dy/dt, the ends move equally fast where x = y, and that is where the area is largest.",
+    misconceptions=["Substituting x = 5 before differentiating (treating x as a constant gives dx/dt = 0).", "Expecting the top to move at the same speed as the foot.",
+                    "Dropping the negative sign: dy/dt < 0 means the top is moving down."],
+    varies="x-values found with the slider (to the nearest 0.1 ft) for the twice-as-fast and largest-area questions."))
+
+W['calculus-particle-motion-lab'] = dict(
+  predict=[("v(t) = t² − 5t + 4 m/s. At what times do you think the particle changes direction?", "t = 1 and t = 4, where v = (t − 1)(t − 4) changes sign", 1),
+           ("Can the total distance traveled ever be less than the size of the displacement? Explain.", "No. Distance counts every movement as positive, so it is at least |displacement|.", 1)],
+  explore=[("Use t² − 5t + 4 with x(0) = 0. Record x(1), x(4) and x(6).", "{11/6} ≈ 1.833, −{8/3} ≈ −2.667, 6", 1),
+           ("Same velocity: at t = 2 and t = 3, is the particle speeding up or slowing down? Give v and a.", "t = 2: v = −2, a = −1, speeding up. t = 3: v = −2, a = 1, slowing down.", 1),
+           ("Use 4 − 2t. When is the particle back where it started, and how far has it traveled by then?", "t = 4 s; 8 m (4 m out and 4 m back)", 1),
+           ("Use 3 sin(πt/3). Record the displacement and the total distance from t = 0 to t = 6.", "Displacement 0; distance {36/π} ≈ 11.459 m", 1)],
+  record=[dict(title="Motion at one time", note="x(0) = 0. Round to 3 decimal places.",
+     head=["v(t)", "t", "x(t)", "v", "a", "Displacement", "Total distance"],
+     rows=[["t² − 5t + 4", "6", "?6", "?10", "?7", "?6", "?15"], ["t² − 5t + 4", "2", "?0.667", "?−2", "?−1", "?0.667", "?3"],
+           ["4 − 2t", "5", "?−5", "?−6", "?−2", "?−5", "?13"], ["3 sin(πt/3)", "4.5", "?2.865", "?−3", "?0", "?2.865", "?8.594"]])],
+  rules=[("Position from velocity: x(t) = x(0) + ___.", ["∫_{0}^{t} v(u) du"]),
+         ("The particle changes direction where v ___.", ["changes sign"]),
+         ("It speeds up when v and a have ___ signs, and slows down when they have ___ signs.", ["the same", "opposite"]),
+         ("Total distance is the integral of ___; displacement is the integral of ___.", ["|v(t)|", "v(t)"])],
+  explain=("For t² − 5t + 4 on 0 ≤ t ≤ 6, explain why the displacement (6 m) and the total distance (15 m) are different.",
+           "From t = 1 to t = 4 the particle moves left 4.5 m. That movement subtracts 4.5 from the displacement but adds 4.5 to the distance: {11/6} − 4.5 + {26/3} = 6, while {11/6} + 4.5 + {26/3} = 15.", 3),
+  apply=[("v(t) = 3t² − 12 for 0 ≤ t ≤ 3 and x(0) = 5. Find x(3).", "x(3) = 5 + [t³ − 12t] from 0 to 3 = 5 + (27 − 36) = −4"),
+         ("For the same particle, find the total distance traveled on 0 ≤ t ≤ 3.", "v = 0 at t = 2. |∫_{0}^{2} v dt| + |∫_{2}^{3} v dt| = 16 + 7 = 23 m"),
+         ("For the same particle, is it speeding up or slowing down at t = 1? Why?", "v(1) = −9 and a(1) = 6 have opposite signs, so it is slowing down."),
+         ("v(t) = cos t for 0 ≤ t ≤ π. Find the displacement and the total distance.", "Displacement sin π − sin 0 = 0; distance 1 + 1 = 2")],
+  teacher=dict(discovery="Position is the starting position plus the signed area under v; displacement uses v and distance uses |v|, the particle turns where v changes sign, and it speeds up when v and a share a sign.",
+    misconceptions=["Thinking a negative acceleration always means slowing down.", "Treating v = 0 alone as a change of direction (v must change sign).",
+                    "Using ∫ v dt for total distance, so motion to the left cancels motion to the right."],
+    varies="Times read from the slider are to the nearest 0.05 s; position values depend on x(0) in the last challenge."))

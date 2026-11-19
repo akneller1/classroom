@@ -360,36 +360,45 @@
    "skillId": "differential-equations-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
+   "prompt": "Free response (Functions Defined by Their Rates of Change). Consider the differential equation dy/dx = 4x/y. Let y = f(x) be the solution with f(1) = 5.",
+   "answer": "(a) y = 4x/5 + 21/5; f(1.1) ≈ 127/25; (b) 84/125; an underestimate; (c) y = √(4x² + 21); (d) √37",
    "parts": [
     {
-     "prompt": "For y′ = -3x + 4y, find the slope of the solution curve through (-3, -1).",
-     "answer": "5"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 4x/5 + 21/5; f(1.1) ≈ 127/25"
     },
     {
-     "prompt": "For y′ = 2x + y, find the slope of the solution curve through (3, 2).",
-     "answer": "8"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 5). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "84/125; an underestimate"
     },
     {
-     "prompt": "For y′ = 4x - 3y, find the slope of the solution curve through (2, -2).",
-     "answer": "14"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(4x² + 21)"
     },
     {
-     "prompt": "For y′ = -2x + 4y, find the slope of the solution curve through (-2, 3).",
-     "answer": "16"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "√37"
     }
    ],
-   "answer": "(a) 5; (b) 8; (c) 14; (d) 16",
    "solutionSteps": [
-    "(a) Substitute x = -3, y = -1 into y′. y′ = 5.",
-    "(b) Substitute x = 3, y = 2 into y′. y′ = 8.",
-    "(c) Substitute x = 2, y = -2 into y′. y′ = 14.",
-    "(d) Substitute x = -2, y = 3 into y′. y′ = 16."
+    "(a) dy/dx at (1, 5) is 4/5; L(1.1) = 5 + (4/5)(0.1) = 127/25.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 84/125 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 4x dx; y²/2 = 2x² + C; y² = 4x² + 21, so y = √(4x² + 21) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(4x² + 21).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_slope_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s01-cp2-016",
@@ -766,36 +775,45 @@
    "skillId": "differential-equations-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
+   "prompt": "Free response (Functions Defined by Their Rates of Change). Consider the differential equation dy/dx = 4x/y. Let y = f(x) be the solution with f(1) = 4.",
+   "answer": "(a) y = x + 3; f(1.1) ≈ 41/10; (b) 3/4; an underestimate; (c) y = √(4x² + 12); (d) 2√7",
    "parts": [
     {
-     "prompt": "For y′ = (1/2)x + (1/2)y, find the slope of the solution curve through (-2, -3).",
-     "answer": "-5/2"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = x + 3; f(1.1) ≈ 41/10"
     },
     {
-     "prompt": "For y′ = x² - y, find the slope of the solution curve through (-1, -1).",
-     "answer": "2"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 4). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "3/4; an underestimate"
     },
     {
-     "prompt": "For y′ = -y² + 3x, find the slope of the solution curve through (0, -1).",
-     "answer": "-1"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(4x² + 12)"
     },
     {
-     "prompt": "For y′ = x² - y, find the slope of the solution curve through (0, 0).",
-     "answer": "0"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "2√7"
     }
    ],
-   "answer": "(a) -5/2; (b) 2; (c) -1; (d) 0",
    "solutionSteps": [
-    "(a) Substitute x = -2, y = -3 into y′. y′ = -5/2.",
-    "(b) Substitute x = -1, y = -1 into y′. y′ = 2.",
-    "(c) Substitute x = 0, y = -1 into y′. y′ = -1.",
-    "(d) Substitute x = 0, y = 0 into y′. y′ = 0."
+    "(a) dy/dx at (1, 4) is 1; L(1.1) = 4 + (1)(0.1) = 41/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 3/4 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 4x dx; y²/2 = 2x² + C; y² = 4x² + 12, so y = √(4x² + 12) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(4x² + 12).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_slope_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s01-cp1-016",
@@ -1172,36 +1190,45 @@
    "skillId": "differential-equations-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Functions Defined by Their Rates of Change): answer each part and show your work.",
+   "prompt": "Free response (Functions Defined by Their Rates of Change). Consider the differential equation dy/dx = xy/2. Let y = f(x) be the solution with f(1) = 6.",
+   "answer": "(a) y = 3x + 3; f(1.1) ≈ 63/10; (b) 9/2; an underestimate; (c) y = 6e^((x² - 1)/4); (d) 6e^(3/4)",
    "parts": [
     {
-     "prompt": "For y′ = -2x + 2y, find the slope of the solution curve through (1, -1).",
-     "answer": "-4"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 3x + 3; f(1.1) ≈ 63/10"
     },
     {
-     "prompt": "For y′ = -y² - 2x, find the slope of the solution curve through (-3, 3).",
-     "answer": "-3"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "9/2; an underestimate"
     },
     {
-     "prompt": "For y′ = 2x + 3y, find the slope of the solution curve through (-3, 2).",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 6e^((x² - 1)/4)"
     },
     {
-     "prompt": "For y′ = 4x - 3y, find the slope of the solution curve through (2, 3).",
-     "answer": "-1"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "6e^(3/4)"
     }
    ],
-   "answer": "(a) -4; (b) -3; (c) 0; (d) -1",
    "solutionSteps": [
-    "(a) Substitute x = 1, y = -1 into y′. y′ = -4.",
-    "(b) Substitute x = -3, y = 3 into y′. y′ = -3.",
-    "(c) Substitute x = -3, y = 2 into y′. y′ = 0.",
-    "(d) Substitute x = 2, y = 3 into y′. y′ = -1."
+    "(a) dy/dx at (1, 6) is 3; L(1.1) = 6 + (3)(0.1) = 63/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 9/2 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/2) dx; ln|y| = x²/4 + C; y(1) = 6 gives y = 6e^((x² - 1)/4).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 6e^((x² - 1)/4).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_slope_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s01-honors-016",
@@ -1570,36 +1597,45 @@
    "skillId": "differential-equations-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Verifying Solutions to Differential Equations). Consider the differential equation dy/dx = x/y. Let y = f(x) be the solution with f(2) = 3.",
+   "answer": "(a) y = 2x/3 + 5/3; f(2.1) ≈ 46/15; (b) 5/27; an underestimate; (c) y = √(x² + 5); (d) √14",
    "parts": [
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 2y′ - 8y = 0.",
-     "answer": "k = -2 or k = 4"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = 2x/3 + 5/3; f(2.1) ≈ 46/15"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ + y′ - 6y = 0.",
-     "answer": "k = -3 or k = 2"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 3). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "5/27; an underestimate"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ + 2y′ - 3y = 0.",
-     "answer": "k = -3 or k = 1"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(x² + 5)"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 2y′ - 3y = 0.",
-     "answer": "k = -1 or k = 3"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√14"
     }
    ],
-   "answer": "(a) k = -2 or k = 4; (b) k = -3 or k = 2; (c) k = -3 or k = 1; (d) k = -1 or k = 3",
    "solutionSteps": [
-    "(a) k² - 2k - 8 = 0. k = -2 or k = 4.",
-    "(b) k² + k - 6 = 0. k = -3 or k = 2.",
-    "(c) k² + 2k - 3 = 0. k = -3 or k = 1.",
-    "(d) k² - 2k - 3 = 0. k = -1 or k = 3."
+    "(a) dy/dx at (2, 3) is 2/3; L(2.1) = 3 + (2/3)(0.1) = 46/15.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 5/27 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = x dx; y²/2 = x²/2 + C; y² = x² + 5, so y = √(x² + 5) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(x² + 5).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_findk_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s02-cp2-016",
@@ -1969,36 +2005,45 @@
    "skillId": "differential-equations-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Verifying Solutions to Differential Equations). Consider the differential equation dy/dx = 2x/y. Let y = f(x) be the solution with f(1) = 5.",
+   "answer": "(a) y = 2x/5 + 23/5; f(1.1) ≈ 126/25; (b) 46/125; an underestimate; (c) y = √(2x² + 23); (d) √31",
    "parts": [
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ + 5y′ + 6y = 0.",
-     "answer": "k = -3 or k = -2"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 2x/5 + 23/5; f(1.1) ≈ 126/25"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 2y′ - 3y = 0.",
-     "answer": "k = -1 or k = 3"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 5). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "46/125; an underestimate"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 6y′ + 8y = 0.",
-     "answer": "k = 2 or k = 4"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(2x² + 23)"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 7y′ + 12y = 0.",
-     "answer": "k = 3 or k = 4"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "√31"
     }
    ],
-   "answer": "(a) k = -3 or k = -2; (b) k = -1 or k = 3; (c) k = 2 or k = 4; (d) k = 3 or k = 4",
    "solutionSteps": [
-    "(a) k² + 5k + 6 = 0. k = -3 or k = -2.",
-    "(b) k² - 2k - 3 = 0. k = -1 or k = 3.",
-    "(c) k² - 6k + 8 = 0. k = 2 or k = 4.",
-    "(d) k² - 7k + 12 = 0. k = 3 or k = 4."
+    "(a) dy/dx at (1, 5) is 2/5; L(1.1) = 5 + (2/5)(0.1) = 126/25.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 46/125 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 2x dx; y²/2 = x² + C; y² = 2x² + 23, so y = √(2x² + 23) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(2x² + 23).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_findk_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s02-cp1-016",
@@ -2368,36 +2413,45 @@
    "skillId": "differential-equations-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Verifying Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Verifying Solutions to Differential Equations). Consider the differential equation dy/dx = xy/4. Let y = f(x) be the solution with f(1) = 4.",
+   "answer": "(a) y = x + 3; f(1.1) ≈ 41/10; (b) 5/4; an underestimate; (c) y = 4e^((x² - 1)/8); (d) 4e^(3/8)",
    "parts": [
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - 7y′ + 12y = 0.",
-     "answer": "k = 3 or k = 4"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = x + 3; f(1.1) ≈ 41/10"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ - y′ - 12y = 0.",
-     "answer": "k = -3 or k = 4"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 4). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "5/4; an underestimate"
     },
     {
-     "prompt": "Find all values of k for which y = e^(kx) is a solution of y″ + 4y′ + 3y = 0.",
-     "answer": "k = -3 or k = -1"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 4e^((x² - 1)/8)"
     },
     {
-     "prompt": "Find all values of k for which y = xᵏ (x > 0) is a solution of x²y″ - 4xy′ + 4y = 0.",
-     "answer": "k = 1 or k = 4"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "4e^(3/8)"
     }
    ],
-   "answer": "(a) k = 3 or k = 4; (b) k = -3 or k = 4; (c) k = -3 or k = -1; (d) k = 1 or k = 4",
    "solutionSteps": [
-    "(a) k² - 7k + 12 = 0. k = 3 or k = 4.",
-    "(b) k² - k - 12 = 0. k = -3 or k = 4.",
-    "(c) k² + 4k + 3 = 0. k = -3 or k = -1.",
-    "(d) k(k - 1) - 4k + 4 = 0. k = 1 or k = 4."
+    "(a) dy/dx at (1, 4) is 1; L(1.1) = 4 + (1)(0.1) = 41/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 5/4 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/4) dx; ln|y| = x²/8 + C; y(1) = 4 gives y = 4e^((x² - 1)/8).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 4e^((x² - 1)/8).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_findk_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s02-honors-016",
@@ -2783,36 +2837,45 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Estimating Solutions to Differential Equations). Consider the differential equation dy/dx = x/y. Let y = f(x) be the solution with f(2) = 6.",
+   "answer": "(a) y = x/3 + 16/3; f(2.1) ≈ 181/30; (b) 4/27; an underestimate; (c) y = √(x² + 32); (d) √41",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = -x - y, y(0) = 1.",
-     "answer": "0"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = x/3 + 16/3; f(2.1) ≈ 181/30"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = -x + y, y(0) = 1.",
-     "answer": "2"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "4/27; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = 2x + 2y, y(2) = 2.",
-     "answer": "36"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(x² + 32)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(1) for y′ = -x - y, y(-1) = 1.",
-     "answer": "0"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√41"
     }
    ],
-   "answer": "(a) 0; (b) 2; (c) 36; (d) 0",
    "solutionSteps": [
-    "(a) Step 1: y ≈ 0.5 at x = 0.5. Step 2: y ≈ 0 at x = 1.",
-    "(b) Step 1: y ≈ 1.5 at x = 0.5. Step 2: y ≈ 2 at x = 1.",
-    "(c) Step 1: y ≈ 10 at x = 3. Step 2: y ≈ 36 at x = 4.",
-    "(d) Step 1: y ≈ 1 at x = 0. Step 2: y ≈ 0 at x = 1."
+    "(a) dy/dx at (2, 6) is 1/3; L(2.1) = 6 + (1/3)(0.1) = 181/30.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 4/27 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = x dx; y²/2 = x²/2 + C; y² = x² + 32, so y = √(x² + 32) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(x² + 32).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_euler_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s03-cp2-016",
@@ -3189,36 +3252,45 @@
    "skillId": "differential-equations-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Estimating Solutions to Differential Equations). Consider the differential equation dy/dx = 2x/y. Let y = f(x) be the solution with f(1) = 3.",
+   "answer": "(a) y = 2x/3 + 7/3; f(1.1) ≈ 46/15; (b) 14/27; an underestimate; (c) y = √(2x² + 7); (d) √15",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = 2x - y, y(2) = 1.",
-     "answer": "3.75"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 2x/3 + 7/3; f(1.1) ≈ 46/15"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -2x - y, y(-1) = -3.",
-     "answer": "0.25"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 3). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "14/27; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = x + y, y(0) = 0.",
-     "answer": "0.25"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(2x² + 7)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(-1.8) for y′ = 3x - y, y(-2) = -3.",
-     "answer": "-3.54"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "√15"
     }
    ],
-   "answer": "(a) 3.75; (b) 0.25; (c) 0.25; (d) -3.54",
    "solutionSteps": [
-    "(a) Step 1: y ≈ 2.5 at x = 2.5. Step 2: y ≈ 3.75 at x = 3.",
-    "(b) Step 1: y ≈ -0.5 at x = -0.5. Step 2: y ≈ 0.25 at x = 0.",
-    "(c) Step 1: y ≈ 0 at x = 0.5. Step 2: y ≈ 0.25 at x = 1.",
-    "(d) Step 1: y ≈ -3.3 at x = -1.9. Step 2: y ≈ -3.54 at x = -1.8."
+    "(a) dy/dx at (1, 3) is 2/3; L(1.1) = 3 + (2/3)(0.1) = 46/15.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 14/27 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 2x dx; y²/2 = x² + C; y² = 2x² + 7, so y = √(2x² + 7) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(2x² + 7).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_euler_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s03-cp1-016",
@@ -3612,36 +3684,45 @@
    "skillId": "differential-equations-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Solutions to Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Estimating Solutions to Differential Equations). Consider the differential equation dy/dx = xy/3. Let y = f(x) be the solution with f(1) = 6.",
+   "answer": "(a) y = 2x + 4; f(1.1) ≈ 31/5; (b) 8/3; an underestimate; (c) y = 6e^((x² - 1)/6); (d) 6e^(1/2)",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy - 1, y(1) = 0.",
-     "answer": "-1051/3125"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 2x + 4; f(1.1) ≈ 31/5"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 1, y(-2) = -3.",
-     "answer": "-737/400"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "8/3; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 3 steps to approximate y(-0.5) for y′ = xy - 3, y(-2) = 3.",
-     "answer": "-39/16"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 6e^((x² - 1)/6)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 3 steps to approximate y(3) for y′ = xy - 1, y(0) = 1.",
-     "answer": "-4"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "6e^(1/2)"
     }
    ],
-   "answer": "(a) -1051/3125; (b) -737/400; (c) -39/16; (d) -4",
    "solutionSteps": [
-    "(a) Step 2: y ≈ -0.211 at x = 1.2. Step 3: y ≈ -1051/3125 at x = 1.3.",
-    "(b) Step 2: y ≈ -2.125 at x = -1.8. Step 3: y ≈ -737/400 at x = -1.7.",
-    "(c) Step 2: y ≈ -1.875 at x = -1. Step 3: y ≈ -39/16 at x = -0.5.",
-    "(d) Step 2: y ≈ -1 at x = 2. Step 3: y ≈ -4 at x = 3."
+    "(a) dy/dx at (1, 6) is 2; L(1.1) = 6 + (2)(0.1) = 31/5.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 8/3 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/3) dx; ln|y| = x²/6 + C; y(1) = 6 gives y = 6e^((x² - 1)/6).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 6e^((x² - 1)/6).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_euler_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s03-honors-016",
@@ -4012,36 +4093,45 @@
    "skillId": "differential-equations-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
+   "prompt": "Free response (Separating Variables). Consider the differential equation dy/dx = 2x/y. Let y = f(x) be the solution with f(2) = 4.",
+   "answer": "(a) y = x + 2; f(2.1) ≈ 41/10; (b) 1/4; an underestimate; (c) y = √(2x² + 8); (d) √26",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = -25x⁴y.",
-     "answer": "y = Ce^(-5x⁵)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = x + 2; f(2.1) ≈ 41/10"
     },
     {
-     "prompt": "Find the general solution of y′ = -3x/(4y).",
-     "answer": "4y² + 3x² = C"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 4). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "1/4; an underestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = 15x²y.",
-     "answer": "y = Ce^(5x³)"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(2x² + 8)"
     },
     {
-     "prompt": "Find the general solution of y′ = 8xy.",
-     "answer": "y = Ce^(4x²)"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√26"
     }
    ],
-   "answer": "(a) y = Ce^(-5x⁵); (b) 4y² + 3x² = C; (c) y = Ce^(5x³); (d) y = Ce^(4x²)",
    "solutionSteps": [
-    "(a) ln|y| = -5x⁵ + C₁. y = Ce^(-5x⁵).",
-    "(b) Integrate both sides and multiply by 2. 4y² + 3x² = C.",
-    "(c) ln|y| = 5x³ + C₁. y = Ce^(5x³).",
-    "(d) ln|y| = 4x² + C₁. y = Ce^(4x²)."
+    "(a) dy/dx at (2, 4) is 1; L(2.1) = 4 + (1)(0.1) = 41/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 1/4 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 2x dx; y²/2 = x² + C; y² = 2x² + 8, so y = √(2x² + 8) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(2x² + 8).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generalso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s04-cp2-016",
@@ -4411,36 +4501,45 @@
    "skillId": "differential-equations-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
+   "prompt": "Free response (Separating Variables). Consider the differential equation dy/dx = 2x/y. Let y = f(x) be the solution with f(1) = 2.",
+   "answer": "(a) y = x + 1; f(1.1) ≈ 21/10; (b) 1/2; an underestimate; (c) y = √(2x² + 2); (d) √10",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = 12y.",
-     "answer": "y = Ce^(12x)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = x + 1; f(1.1) ≈ 21/10"
     },
     {
-     "prompt": "Find the general solution of y′ = 7x/(9y).",
-     "answer": "9y² - 7x² = C"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 2). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "1/2; an underestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = -2y.",
-     "answer": "y = Ce^(-2x)"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(2x² + 2)"
     },
     {
-     "prompt": "Find the general solution of y′ = -3x²y.",
-     "answer": "y = Ce^(-x³)"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "√10"
     }
    ],
-   "answer": "(a) y = Ce^(12x); (b) 9y² - 7x² = C; (c) y = Ce^(-2x); (d) y = Ce^(-x³)",
    "solutionSteps": [
-    "(a) ln|y| = 12x + C₁. y = Ce^(12x).",
-    "(b) Integrate both sides and multiply by 2. 9y² - 7x² = C.",
-    "(c) ln|y| = -2x + C₁. y = Ce^(-2x).",
-    "(d) ln|y| = -x³ + C₁. y = Ce^(-x³)."
+    "(a) dy/dx at (1, 2) is 1; L(1.1) = 2 + (1)(0.1) = 21/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 1/2 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 2x dx; y²/2 = x² + C; y² = 2x² + 2, so y = √(2x² + 2) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(2x² + 2).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generalso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s04-cp1-016",
@@ -4810,36 +4909,45 @@
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Separating Variables): answer each part and show your work.",
+   "prompt": "Free response (Separating Variables). Consider the differential equation dy/dx = xy/2. Let y = f(x) be the solution with f(1) = 4.",
+   "answer": "(a) y = 2x + 2; f(1.1) ≈ 21/5; (b) 3; an underestimate; (c) y = 4e^((x² - 1)/4); (d) 4e^(3/4)",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = 9y².",
-     "answer": "y = -1/(9x + C)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 2x + 2; f(1.1) ≈ 21/5"
     },
     {
-     "prompt": "Find the general solution of y′ = 6y².",
-     "answer": "y = -1/(6x + C)"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 4). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "3; an underestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = 9x/(8y).",
-     "answer": "8y² - 9x² = C"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 4e^((x² - 1)/4)"
     },
     {
-     "prompt": "Find the general solution of y′ = 5y.",
-     "answer": "y = Ce^(5x)"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "4e^(3/4)"
     }
    ],
-   "answer": "(a) y = -1/(9x + C); (b) y = -1/(6x + C); (c) 8y² - 9x² = C; (d) y = Ce^(5x)",
    "solutionSteps": [
-    "(a) -1/y = 9x + C. y = -1/(9x + C).",
-    "(b) -1/y = 6x + C. y = -1/(6x + C).",
-    "(c) Integrate both sides and multiply by 2. 8y² - 9x² = C.",
-    "(d) ln|y| = 5x + C₁. y = Ce^(5x)."
+    "(a) dy/dx at (1, 4) is 2; L(1.1) = 4 + (2)(0.1) = 21/5.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 3 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/2) dx; ln|y| = x²/4 + C; y(1) = 4 gives y = 4e^((x² - 1)/4).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 4e^((x² - 1)/4).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generalso_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s04-honors-016",
@@ -5209,36 +5317,45 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Solving Separable Differential Equations). Consider the differential equation dy/dx = x/y. Let y = f(x) be the solution with f(2) = 4.",
+   "answer": "(a) y = x/2 + 3; f(2.1) ≈ 81/20; (b) 3/16; an underestimate; (c) y = √(x² + 12); (d) √21",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = 15x²y.",
-     "answer": "y = Ce^(5x³)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = x/2 + 3; f(2.1) ≈ 81/20"
     },
     {
-     "prompt": "Find the general solution of y′ = 5x⁴y.",
-     "answer": "y = Ce^(x⁵)"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 4). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "3/16; an underestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = 4x/(5y).",
-     "answer": "5y² - 4x² = C"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(x² + 12)"
     },
     {
-     "prompt": "Find the general solution of y′ = -12x²y.",
-     "answer": "y = Ce^(-4x³)"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√21"
     }
    ],
-   "answer": "(a) y = Ce^(5x³); (b) y = Ce^(x⁵); (c) 5y² - 4x² = C; (d) y = Ce^(-4x³)",
    "solutionSteps": [
-    "(a) ln|y| = 5x³ + C₁. y = Ce^(5x³).",
-    "(b) ln|y| = x⁵ + C₁. y = Ce^(x⁵).",
-    "(c) Integrate both sides and multiply by 2. 5y² - 4x² = C.",
-    "(d) ln|y| = -4x³ + C₁. y = Ce^(-4x³)."
+    "(a) dy/dx at (2, 4) is 1/2; L(2.1) = 4 + (1/2)(0.1) = 81/20.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 3/16 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = x dx; y²/2 = x²/2 + C; y² = x² + 12, so y = √(x² + 12) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(x² + 12).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s05-cp2-016",
@@ -5608,36 +5725,45 @@
    "skillId": "differential-equations-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Solving Separable Differential Equations). Consider the differential equation dy/dx = 5x/y. Let y = f(x) be the solution with f(2) = 3.",
+   "answer": "(a) y = 10x/3 - 11/3; f(2.1) ≈ 10/3; (b) -55/27; an overestimate; (c) y = √(5x² - 11); (d) √34",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = -4y.",
-     "answer": "y = Ce^(-4x)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = 10x/3 - 11/3; f(2.1) ≈ 10/3"
     },
     {
-     "prompt": "Find the general solution of y′ = 3x/(2y).",
-     "answer": "2y² - 3x² = C"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 3). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "-55/27; an overestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = 15x⁴y.",
-     "answer": "y = Ce^(3x⁵)"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(5x² - 11)"
     },
     {
-     "prompt": "Find the general solution of y′ = -2x/y.",
-     "answer": "y² + 2x² = C"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√34"
     }
    ],
-   "answer": "(a) y = Ce^(-4x); (b) 2y² - 3x² = C; (c) y = Ce^(3x⁵); (d) y² + 2x² = C",
    "solutionSteps": [
-    "(a) ln|y| = -4x + C₁. y = Ce^(-4x).",
-    "(b) Integrate both sides and multiply by 2. 2y² - 3x² = C.",
-    "(c) ln|y| = 3x⁵ + C₁. y = Ce^(3x⁵).",
-    "(d) Integrate both sides and multiply by 2. y² + 2x² = C."
+    "(a) dy/dx at (2, 3) is 10/3; L(2.1) = 3 + (10/3)(0.1) = 10/3.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = -55/27 at the point; concave down, so the tangent line lies above the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 5x dx; y²/2 = 5x²/2 + C; y² = 5x² - 11, so y = √(5x² - 11) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(5x² - 11).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s05-cp1-016",
@@ -6007,36 +6133,45 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Solving Separable Differential Equations): answer each part and show your work.",
+   "prompt": "Free response (Solving Separable Differential Equations). Consider the differential equation dy/dx = xy/4. Let y = f(x) be the solution with f(1) = 6.",
+   "answer": "(a) y = 3x/2 + 9/2; f(1.1) ≈ 123/20; (b) 15/8; an underestimate; (c) y = 6e^((x² - 1)/8); (d) 6e^(3/8)",
    "parts": [
     {
-     "prompt": "Find the general solution of y′ = -3x²y.",
-     "answer": "y = Ce^(-x³)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 3x/2 + 9/2; f(1.1) ≈ 123/20"
     },
     {
-     "prompt": "Find the general solution of y′ = 20x⁴y.",
-     "answer": "y = Ce^(4x⁵)"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "15/8; an underestimate"
     },
     {
-     "prompt": "Find the general solution of y′ = 5x/(2y).",
-     "answer": "2y² - 5x² = C"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 6e^((x² - 1)/8)"
     },
     {
-     "prompt": "Find the general solution of y′ = -10y.",
-     "answer": "y = Ce^(-10x)"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "6e^(3/8)"
     }
    ],
-   "answer": "(a) y = Ce^(-x³); (b) y = Ce^(4x⁵); (c) 2y² - 5x² = C; (d) y = Ce^(-10x)",
    "solutionSteps": [
-    "(a) ln|y| = -x³ + C₁. y = Ce^(-x³).",
-    "(b) ln|y| = 4x⁵ + C₁. y = Ce^(4x⁵).",
-    "(c) Integrate both sides and multiply by 2. 2y² - 5x² = C.",
-    "(d) ln|y| = -10x + C₁. y = Ce^(-10x)."
+    "(a) dy/dx at (1, 6) is 3/2; L(1.1) = 6 + (3/2)(0.1) = 123/20.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 15/8 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/4) dx; ln|y| = x²/8 + C; y(1) = 6 gives y = 6e^((x² - 1)/8).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 6e^((x² - 1)/8).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s05-honors-016",
@@ -6422,37 +6557,46 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
+   "prompt": "Free response (Initial Conditions and Particular Solutions). Consider the differential equation dy/dx = 3x/y. Let y = f(x) be the solution with f(2) = 5.",
+   "answer": "(a) y = 6x/5 + 13/5; f(2.1) ≈ 128/25; (b) 39/125; an underestimate; (c) y = √(3x² + 13); (d) 2√10",
    "parts": [
     {
-     "prompt": "Solve y′ = 3y with y(0) = 13.",
-     "answer": "y = 13e^(3x)"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = 6x/5 + 13/5; f(2.1) ≈ 128/25"
     },
     {
-     "prompt": "y′ = y and y(0) = 11. Find y(2), rounded to the nearest hundredth.",
-     "answer": "81.28"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 5). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "39/125; an underestimate"
     },
     {
-     "prompt": "Solve y′ = -2y with y(0) = 8.",
-     "answer": "y = 8e^(-2x)"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(3x² + 13)"
     },
     {
-     "prompt": "Solve y′ = -2y with y(0) = 20.",
-     "answer": "y = 20e^(-2x)"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "2√10"
     }
    ],
-   "answer": "(a) y = 13e^(3x); (b) 81.28; (c) y = 8e^(-2x); (d) y = 20e^(-2x)",
    "solutionSteps": [
-    "(a) y(0) = C = 13. y = 13e^(3x).",
-    "(b) y = 11e^x. y(2) = 11e^(2) ≈ 81.28.",
-    "(c) y(0) = C = 8. y = 8e^(-2x).",
-    "(d) y(0) = C = 20. y = 20e^(-2x)."
+    "(a) dy/dx at (2, 5) is 6/5; L(2.1) = 5 + (6/5)(0.1) = 128/25.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 39/125 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 3x dx; y²/2 = 3x²/2 + C; y² = 3x² + 13, so y = √(3x² + 13) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(3x² + 13).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.E",
     "AP FUN-7.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s06-cp2-016",
@@ -6859,37 +7003,46 @@
    "skillId": "differential-equations-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
+   "prompt": "Free response (Initial Conditions and Particular Solutions). Consider the differential equation dy/dx = 4x/y. Let y = f(x) be the solution with f(2) = 6.",
+   "answer": "(a) y = 4x/3 + 10/3; f(2.1) ≈ 92/15; (b) 10/27; an underestimate; (c) y = √(4x² + 20); (d) 2√14",
    "parts": [
     {
-     "prompt": "y′ = 2y and y(0) = 10. Find y(3), rounded to the nearest hundredth.",
-     "answer": "4034.29"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = 4x/3 + 10/3; f(2.1) ≈ 92/15"
     },
     {
-     "prompt": "Solve y′ = 2xy with y(0) = 7.",
-     "answer": "y = 7e^(x²)"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "10/27; an underestimate"
     },
     {
-     "prompt": "Solve y′ = -2y with y(0) = 20.",
-     "answer": "y = 20e^(-2x)"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(4x² + 20)"
     },
     {
-     "prompt": "Solve y′ = -x/y with y(2) = 3.",
-     "answer": "y = √(13 - x²)"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "2√14"
     }
    ],
-   "answer": "(a) 4034.29; (b) y = 7e^(x²); (c) y = 20e^(-2x); (d) y = √(13 - x²)",
    "solutionSteps": [
-    "(a) y = 10e^(2x). y(3) = 10e^(6) ≈ 4034.29.",
-    "(b) ln|y| = x² + C₁, so y = Ce^(x²). C = 7: y = 7e^(x²).",
-    "(c) y(0) = C = 20. y = 20e^(-2x).",
-    "(d) 3² = -2² + C, C = 13. y > 0 at the start, so y = √(13 - x²)."
+    "(a) dy/dx at (2, 6) is 4/3; L(2.1) = 6 + (4/3)(0.1) = 92/15.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 10/27 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 4x dx; y²/2 = 2x² + C; y² = 4x² + 20, so y = √(4x² + 20) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(4x² + 20).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.E",
     "AP FUN-7.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s06-cp1-016",
@@ -7291,37 +7444,46 @@
    "skillId": "differential-equations-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Initial Conditions and Particular Solutions): answer each part and show your work.",
+   "prompt": "Free response (Initial Conditions and Particular Solutions). Consider the differential equation dy/dx = xy/4. Let y = f(x) be the solution with f(1) = 2.",
+   "answer": "(a) y = x/2 + 3/2; f(1.1) ≈ 41/20; (b) 5/8; an underestimate; (c) y = 2e^((x² - 1)/8); (d) 2e^(3/8)",
    "parts": [
     {
-     "prompt": "A drink cools by T′ = -0.05(T - 64) (minutes, °F) from T(0) = 199. Find T(15), rounded to the nearest tenth.",
-     "answer": "127.8°F"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = x/2 + 3/2; f(1.1) ≈ 41/20"
     },
     {
-     "prompt": "y′ = 2y and y(0) = 16. Find y(4), rounded to the nearest hundredth.",
-     "answer": "47695.33"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 2). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "5/8; an underestimate"
     },
     {
-     "prompt": "Solve y′ = 4x + 3 with y(0) = 2.",
-     "answer": "y = 2x² + 3x + 2"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 2e^((x² - 1)/8)"
     },
     {
-     "prompt": "Solve y′ = 2x - 5 with y(0) = 0.",
-     "answer": "y = x² - 5x"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "2e^(3/8)"
     }
    ],
-   "answer": "(a) 127.8°F; (b) 47695.33; (c) y = 2x² + 3x + 2; (d) y = x² - 5x",
    "solutionSteps": [
-    "(a) T - 64 = Ce^(-0.05t); C = 135. T(15) = 64 + 135e^(-0.75) ≈ 127.8°F.",
-    "(b) y = 16e^(2x). y(4) = 16e^(8) ≈ 47695.33.",
-    "(c) y(0) = C = 2. y = 2x² + 3x + 2.",
-    "(d) y(0) = C = 0. y = x² - 5x."
+    "(a) dy/dx at (1, 2) is 1/2; L(1.1) = 2 + (1/2)(0.1) = 41/20.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 5/8 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/4) dx; ln|y| = x²/8 + C; y(1) = 2 gives y = 2e^((x² - 1)/8).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 2e^((x² - 1)/8).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.E",
     "AP FUN-7.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-deq-s06-honors-016",

@@ -1,5 +1,5 @@
 'use strict';
-// Calculus audit (2026-11-18): regression checks for the fixes. Batch C1: #1, #7, #8, #11, #12, #13, #14, #18, #19, #20.
+// Calculus audit (2026-11-18): regression checks for the fixes. Batch C1: #1, #7, #8, #11, #12, #13, #14, #18, #19, #20. Batch C3: #5.
 // Batch C2: #3, #4, #9, #10 (the grader, #2, is checked by test-calculus-grading.cjs).
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
@@ -120,4 +120,24 @@ for (const q of items.filter(q => fam(q).startsWith('vgraph_'))) assert(fs.exist
 const tagsCalc = fs.readdirSync(path.join(dir, 'meta')).flatMap(f => Object.values(JSON.parse(fs.readFileSync(path.join(dir, 'meta', f), 'utf8')))).filter(t => t.includes('calculator-active')).length;
 assert(tagsCalc >= 20, 'calculator-active tags: ' + tagsCalc);
 
-console.log(`PASS Calculus audit fixes: ${errs.length} find-the-mistake items with specific diagnoses, pacing, on-skill items, AP objectives, stems, notation, AP Review, Euler marked BC, IVT wording and units; worked solutions, big-operator display, Honors levels, AP topics (${integral.length} integral items)`);
+// #5 (batch C3) every skill and level has an AP-style free-response problem: a context or function, four parts that
+// build on each other, at least one justification, and scoring notes with points per part
+const frqs = items.filter(q => q.id.endsWith('-015'));
+assert.strictEqual(frqs.length, 210, 'free-response problems: ' + frqs.length);
+for (const q of frqs) {
+  assert.strictEqual(q.format, 'open-response', q.id + ' format');
+  assert(/^Free response \(/.test(q.prompt), q.id + ' stem');
+  assert.strictEqual(q.parts.length, 4, q.id + ' parts');
+  assert(q.parts.some(p => /Justify|Explain|Give a reason|explain/.test(p.prompt)) || /frq_(rules|lhop|subst|division|rnotation)/.test(q.sourceNotes), q.id + ' justification part');
+  const scoring = q.solutionSteps.filter(s => /^\([a-d]\) Scoring, \d+ points?: /.test(s));
+  assert.strictEqual(scoring.length, 4, q.id + ' scoring notes');
+  const total = scoring.reduce((s, x) => s + Number(x.match(/Scoring, (\d+)/)[1]), 0);
+  assert(q.solutionSteps.includes(`Total: ${total} points.`), q.id + ' total points');
+  assert(q.parts.every(p => String(p.answer).trim() && !/\bnan\b|zoo|\blog\(|sqrt|\*\*|\boo\b|None/.test(p.answer)), q.id + ' answers');
+  if (q.diagram) assert(fs.existsSync(path.join(ROOT, q.diagram.spec.src)), q.id + ' graph image');
+}
+const frqKinds = new Set(frqs.map(q => fam(q)));
+assert(frqKinds.size >= 25, 'free-response problem types: ' + frqKinds.size);
+assert(!frqs.some(q => q.skillId === 'antiderivatives-definite-integrals-skill-04' && /Approximate ∫/.test(text(q))), 'Riemann notation FRQ stays on skill');
+
+console.log(`PASS Calculus audit fixes: ${errs.length} find-the-mistake items with specific diagnoses, pacing, on-skill items, AP objectives, stems, notation, AP Review, Euler marked BC, IVT wording and units; worked solutions, big-operator display, Honors levels, AP topics (${integral.length} integral items); ${frqs.length} free-response problems of ${frqKinds.size} types`);

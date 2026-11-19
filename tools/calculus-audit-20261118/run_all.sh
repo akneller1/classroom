@@ -9,6 +9,7 @@ python3 $T/fix_text.py             # 13, 18, 19  notation, Euler marked BC, IVT 
 python3 $T/stems.py                # 12 open-response stems
 python3 $T/fix_off_skill.py        # 8  on-skill items
 python3 $T/fix_ap_review.py        # 14 AP Review skills
+python3 $T/frq.py                  # 5  free-response problems (slot 015)
 python3 $T/retag.py                # 11 AP objective tags
 python3 $T/level_up.py             # 9  Honors and CP2 levels
 python3 $T/add_topics.py           # 10 AP topics

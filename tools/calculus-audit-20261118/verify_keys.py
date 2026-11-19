@@ -337,6 +337,6 @@ if __name__ == '__main__':
     print(dict(st))
     for b in bad:
         print('MISMATCH', b)
-    if bad or st['ok'] < 1300:
+    if bad or st['ok'] < 1150:  # slot-015 items are free-response problems since #5 (answers computed with sympy in frq.py)
         sys.exit(1)
     print(f"PASS {st['ok']} Calculus keys recomputed independently")
