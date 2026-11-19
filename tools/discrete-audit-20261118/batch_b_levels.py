@@ -29,9 +29,7 @@ for u, d in B.items():
         if q['level'] == 'cp2': cp2[q['skillId']].add(tmpl(q['prompt']))
     for q in d['questions']:
         if q['level'] == 'honors' and tmpl(q['prompt']) in cp2[q['skillId']]:
-            q['level'] = 'cp1'
-            new = q['id'].replace('-honors-', '-cp1-h')
-            assert new not in ids; ids.add(new); q['id'] = new
+            q['level'] = 'cp1'   # the id stays the same: ids are stable references (saved work, release fixtures)
             q['sourceNotes'] += ' Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).'
             moved += 1
 
