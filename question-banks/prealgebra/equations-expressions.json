@@ -1170,7 +1170,7 @@
   {
    "id": "pa8-eqx-s01-honors-005",
    "skillId": "equations-expressions-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A cube has volume 27x⁹ cubic units (x > 0). Write an expression for the length of one edge.",
    "answer": "3x³",
@@ -1181,7 +1181,7 @@
     "8.EE.A.2",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area_volume). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_area_volume). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s01-honors-006",
@@ -1310,7 +1310,7 @@
   {
    "id": "pa8-eqx-s01-honors-011",
    "skillId": "equations-expressions-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A square has area 25x⁴ square units (x > 0). Write an expression for its side length.",
    "answer": "5x²",
@@ -1339,7 +1339,7 @@
     "8.EE.A.2",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area_volume). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_area_volume). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s01-honors-012",
@@ -1594,6 +1594,40 @@
     "8.EE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa8-eqx-s01-honors-h01",
+   "skillId": "equations-expressions-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "If ∛(2x - 5) = 5, what is x?",
+   "answer": "x = 65",
+   "solutionSteps": [
+    "Cube both sides: 2x - 5 = 125.",
+    "2x = 130, so x = 65."
+   ],
+   "standards": [
+    "8.EE.A.2",
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_cube_root_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s01-honors-h02",
+   "skillId": "equations-expressions-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "If ∛(2x + 7) = 5, what is x?",
+   "answer": "x = 59",
+   "solutionSteps": [
+    "Cube both sides: 2x + 7 = 125.",
+    "2x = 118, so x = 59."
+   ],
+   "standards": [
+    "8.EE.A.2",
+    "8.EE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_cube_root_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s02-cp2-001",
@@ -4355,7 +4389,7 @@
   {
    "id": "pa8-eqx-s03-honors-003",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A rectangle's length is 11 cm more than its width w. Its perimeter is 86 cm. Write an equation that can be used to find w.",
    "answer": "2w + 2(w + 11) = 86",
@@ -4367,12 +4401,12 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-004",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Plan A costs $60 plus $8 per month. Plan B costs $43 plus $9 per month. Write an equation to find the number of months, m, for which the plans cost the same.",
    "answer": "60 + 8m = 43 + 9m",
@@ -4402,7 +4436,7 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-005",
@@ -4424,7 +4458,7 @@
   {
    "id": "pa8-eqx-s03-honors-006",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Kai has $89 saved and saves $27 each week. Write and solve an equation to find how many weeks w until Kai has $197.",
    "answer": "w = 4",
@@ -4454,7 +4488,7 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_write_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_write_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-007",
@@ -4547,7 +4581,7 @@
   {
    "id": "pa8-eqx-s03-honors-010",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Plan A costs $39 plus $4 per visit. Plan B costs $13 plus $6 per visit. Write an equation to find the number of visits, v, for which the plans cost the same.",
    "answer": "39 + 4v = 13 + 6v",
@@ -4559,7 +4593,7 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-011",
@@ -4616,7 +4650,7 @@
   {
    "id": "pa8-eqx-s03-honors-013",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Write an equation for the sentence: \"14 more than 7 times a number n is 105.\"",
    "answer": "7n + 14 = 105",
@@ -4628,7 +4662,7 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_number_sentence). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-014",
@@ -4685,7 +4719,7 @@
   {
    "id": "pa8-eqx-s03-honors-016",
    "skillId": "equations-expressions-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Plan A costs $12 plus $8 per month. Plan B costs $2 plus $9 per month. Write an equation to find the number of months, m, for which the plans cost the same.",
    "answer": "12 + 8m = 2 + 9m",
@@ -4697,7 +4731,7 @@
     "8.EE.C.7",
     "A-CED.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_two_plans). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s03-honors-017",
@@ -4830,6 +4864,125 @@
     "A-CED.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h01",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Maya is 40 years old and her cousin is c years old. In 5 years Maya will be 3 times as old as her cousin. Write an equation and find c.",
+   "answer": "c = 10",
+   "solutionSteps": [
+    "40 + 5 = 3(c + 5).",
+    "45 = 3c + 15, so c = 10."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_age_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h02",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of 4 consecutive even integers is 52. Write an equation and find the largest integer.",
+   "answer": "16",
+   "solutionSteps": [
+    "Let the integers be x, x + 2, x + 4, x + 6: 4x + 12 = 52.",
+    "x = 10, so the largest is 16."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_consecutive_even). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h03",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Maya is 57 years old and her cousin is c years old. In 9 years Maya will be 3 times as old as her cousin. Write an equation and find c.",
+   "answer": "c = 13",
+   "solutionSteps": [
+    "57 + 9 = 3(c + 9).",
+    "66 = 3c + 27, so c = 13."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_age_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h04",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of 4 consecutive even integers is 172. Write an equation and find the largest integer.",
+   "answer": "46",
+   "solutionSteps": [
+    "Let the integers be x, x + 2, x + 4, x + 6: 4x + 12 = 172.",
+    "x = 40, so the largest is 46."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_consecutive_even). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h05",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Maya is 37 years old and her cousin is c years old. In 5 years Maya will be 3 times as old as her cousin. Write an equation and find c.",
+   "answer": "c = 9",
+   "solutionSteps": [
+    "37 + 5 = 3(c + 5).",
+    "42 = 3c + 15, so c = 9."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_age_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h06",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of 3 consecutive even integers is 60. Write an equation and find the largest integer.",
+   "answer": "22",
+   "solutionSteps": [
+    "Let the integers be x, x + 2, x + 4: 3x + 6 = 60.",
+    "x = 18, so the largest is 22."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_consecutive_even). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s03-honors-h07",
+   "skillId": "equations-expressions-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Maya is 53 years old and her cousin is c years old. In 7 years Maya will be 3 times as old as her cousin. Write an equation and find c.",
+   "answer": "c = 13",
+   "solutionSteps": [
+    "53 + 7 = 3(c + 7).",
+    "60 = 3c + 21, so c = 13."
+   ],
+   "standards": [
+    "8.EE.C.7",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_age_equation). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s04-cp2-001",
@@ -5929,7 +6082,7 @@
   {
    "id": "pa8-eqx-s04-honors-001",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve: -4x + 7 = 8x + 43",
    "answer": "x = -3",
@@ -5943,7 +6096,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-002",
@@ -6000,7 +6153,7 @@
   {
    "id": "pa8-eqx-s04-honors-004",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve: -2x + 10 = 2x - 50",
    "answer": "x = 15",
@@ -6014,12 +6167,12 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-005",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Marco has $77 and saves $13 per week. Hiro has $110 and saves $2 per week. After how many weeks w will they have the same amount?",
    "answer": "3 weeks",
@@ -6050,7 +6203,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-006",
@@ -6089,7 +6242,7 @@
   {
    "id": "pa8-eqx-s04-honors-007",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Solve: 3x - 9 = -9x - 25",
    "answer": "x = -4/3",
@@ -6121,7 +6274,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-008",
@@ -6160,7 +6313,7 @@
   {
    "id": "pa8-eqx-s04-honors-010",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Solve: -2x - 2 = -3x - 6",
    "answer": "x = -4",
@@ -6192,7 +6345,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-011",
@@ -6231,7 +6384,7 @@
   {
    "id": "pa8-eqx-s04-honors-013",
    "skillId": "equations-expressions-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve: 6x + 5 = -2x + 15",
    "answer": "x = 5/4",
@@ -6245,7 +6398,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s4_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s04-honors-014",
@@ -6464,6 +6617,103 @@
     "8.EE.C.7b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h01",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: 2.5(x + 8) = 1.5x + 10",
+   "answer": "x = -10",
+   "solutionSteps": [
+    "Distribute: 2.5x + 20 = 1.5x + 10.",
+    "x = -10, so x = -10."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h02",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: 0.4(x + 3) = 0.1x + 3",
+   "answer": "x = 6",
+   "solutionSteps": [
+    "Distribute: 0.4x + 1.2 = 0.1x + 3.",
+    "0.3x = 1.8, so x = 6."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h03",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: 0.6(x + 6) = 0.2x + 6.8",
+   "answer": "x = 8",
+   "solutionSteps": [
+    "Distribute: 0.6x + 3.6 = 0.2x + 6.8.",
+    "0.4x = 3.2, so x = 8."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h04",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: (x + 7)/2 = (x + 27)/6",
+   "answer": "x = 3",
+   "solutionSteps": [
+    "Cross-multiply: 6(x + 7) = 2(x + 27).",
+    "6x + 42 = 2x + 54.",
+    "4x = 12, so x = 3."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cross_multiply). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h05",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: 0.8(x + 5) = 0.3x - 1",
+   "answer": "x = -10",
+   "solutionSteps": [
+    "Distribute: 0.8x + 4 = 0.3x - 1.",
+    "0.5x = -5, so x = -10."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s04-honors-h06",
+   "skillId": "equations-expressions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve: 0.6(x + 4) = 0.2x - 1.6",
+   "answer": "x = -10",
+   "solutionSteps": [
+    "Distribute: 0.6x + 2.4 = 0.2x - 1.6.",
+    "0.4x = -4, so x = -10."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_decimal_distribute). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s05-cp2-001",
@@ -9190,7 +9440,7 @@
   {
    "id": "pa8-eqx-s06-honors-002",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A triangle has sides 2x + 4, 3x, and x + 8 centimeters. The perimeter is 42 cm. Find x and the length of the longest side.",
    "answer": "x = 5; longest side 15 cm",
@@ -9221,7 +9471,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-003",
@@ -9277,7 +9527,7 @@
   {
    "id": "pa8-eqx-s06-honors-005",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A triangle has sides 4x + 4, x, and x + 8 centimeters. The perimeter is 72 cm. Find x and the length of the longest side.",
    "answer": "x = 10; longest side 44 cm",
@@ -9290,12 +9540,12 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-006",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The sum of 4 consecutive integers is 34. What is the least of these integers?",
    "answer": "7",
@@ -9306,7 +9556,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-007",
@@ -9433,7 +9683,7 @@
   {
    "id": "pa8-eqx-s06-honors-011",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A triangle has sides 3x + 4, 2x, and x + 8 centimeters. The perimeter is 66 cm. Find x and the length of the longest side.",
    "answer": "x = 9; longest side 31 cm",
@@ -9446,12 +9696,12 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-012",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The sum of 3 consecutive integers is 27. What is the least of these integers?",
    "answer": "8",
@@ -9462,7 +9712,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-013",
@@ -9520,7 +9770,7 @@
   {
    "id": "pa8-eqx-s06-honors-015",
    "skillId": "equations-expressions-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The sum of 4 consecutive integers is -2. What is the least of these integers?",
    "answer": "-2",
@@ -9531,7 +9781,7 @@
    "standards": [
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s06-honors-016",
@@ -9696,6 +9946,105 @@
     "8.EE.C.7b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h01",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of four consecutive odd integers is 216. What is the smallest of them?",
+   "answer": "51",
+   "solutionSteps": [
+    "x + (x + 2) + (x + 4) + (x + 6) = 216, so 4x + 12 = 216.",
+    "4x = 204, so x = 51."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive_odd). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h02",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A triangle has sides x, 2x + 7 and 3x - 2. Its perimeter is 41. How long is the longest side?",
+   "answer": "19",
+   "solutionSteps": [
+    "Combine like terms: 6x + 5 = 41.",
+    "x = 6; the sides are 6, 19 and 16.",
+    "The longest side is 19."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_triangle_perimeter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h03",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of four consecutive odd integers is 56. What is the smallest of them?",
+   "answer": "11",
+   "solutionSteps": [
+    "x + (x + 2) + (x + 4) + (x + 6) = 56, so 4x + 12 = 56.",
+    "4x = 44, so x = 11."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive_odd). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h04",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A triangle has sides x, 2x + 2 and 3x - 5. Its perimeter is 81. How long is the longest side?",
+   "answer": "37",
+   "solutionSteps": [
+    "Combine like terms: 6x - 3 = 81.",
+    "x = 14; the sides are 14, 30 and 37.",
+    "The longest side is 37."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_triangle_perimeter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h05",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The sum of four consecutive odd integers is 248. What is the smallest of them?",
+   "answer": "59",
+   "solutionSteps": [
+    "x + (x + 2) + (x + 4) + (x + 6) = 248, so 4x + 12 = 248.",
+    "4x = 236, so x = 59."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_consecutive_odd). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s06-honors-h06",
+   "skillId": "equations-expressions-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A triangle has sides x, 2x + 6 and 3x - 4. Its perimeter is 50. How long is the longest side?",
+   "answer": "22",
+   "solutionSteps": [
+    "Combine like terms: 6x + 2 = 50.",
+    "x = 8; the sides are 8, 22 and 20.",
+    "The longest side is 22."
+   ],
+   "standards": [
+    "8.EE.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_triangle_perimeter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s07-cp2-001",
@@ -10843,7 +11192,7 @@
   {
    "id": "pa8-eqx-s07-honors-003",
    "skillId": "equations-expressions-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "For what value of k does -2x - 5 = kx - 9 have no solution?",
    "answer": "k = -2",
@@ -10854,7 +11203,7 @@
    "standards": [
     "8.EE.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_param). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_param). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s07-honors-004",
@@ -10961,7 +11310,7 @@
   {
    "id": "pa8-eqx-s07-honors-008",
    "skillId": "equations-expressions-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "For what value of k does -5x + 3 = kx + 5 have no solution?",
    "answer": "k = -5",
@@ -10972,7 +11321,7 @@
    "standards": [
     "8.EE.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_param). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s7_param). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-eqx-s07-honors-009",
@@ -11345,6 +11694,38 @@
     "8.EE.C.7a"
    ],
    "sourceNotes": "Original Claude-authored item (family: s7_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s07-honors-h01",
+   "skillId": "equations-expressions-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k does k(x + 7) = 7x + 49 have infinitely many solutions?",
+   "answer": "k = 7",
+   "solutionSteps": [
+    "Distribute: kx + 7k = 7x + 49.",
+    "Matching x-terms needs k = 7; then 7k = 49 also matches, so every x works."
+   ],
+   "standards": [
+    "8.EE.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinitely_many_param). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-eqx-s07-honors-h02",
+   "skillId": "equations-expressions-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k does k(x + 5) = 3x + 15 have infinitely many solutions?",
+   "answer": "k = 3",
+   "solutionSteps": [
+    "Distribute: kx + 5k = 3x + 15.",
+    "Matching x-terms needs k = 3; then 5k = 15 also matches, so every x works."
+   ],
+   "standards": [
+    "8.EE.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinitely_many_param). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-eqx-s08-cp2-001",

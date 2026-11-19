@@ -1434,7 +1434,7 @@
   {
    "id": "pa8-sys-s01-honors-009",
    "skillId": "systems-linear-equations-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Rewrite -3x - 3y = -3 in slope-intercept form so it can be graphed.",
    "answer": "y = -x + 1",
@@ -1464,7 +1464,7 @@
     "8.EE.B.6",
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rewrite). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rewrite). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s01-honors-010",
@@ -1530,7 +1530,7 @@
   {
    "id": "pa8-sys-s01-honors-012",
    "skillId": "systems-linear-equations-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "To graph y = -2x + 2, Lea plots the y-intercept and then uses the slope once, moving right. What point does she reach?",
    "answer": "(1, 0)",
@@ -1543,7 +1543,7 @@
     "8.EE.B.6",
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_next_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_next_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s01-honors-013",
@@ -1686,7 +1686,7 @@
   {
    "id": "pa8-sys-s01-honors-018",
    "skillId": "systems-linear-equations-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Rewrite -3x + y = -2 in slope-intercept form so it can be graphed.",
    "answer": "y = 3x - 2",
@@ -1698,7 +1698,7 @@
     "8.EE.B.6",
     "8.F.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_rewrite). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s1_rewrite). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s01-honors-019",
@@ -1813,6 +1813,57 @@
     "8.F.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s01-honors-h01",
+   "skillId": "systems-linear-equations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line passes through (0, -2) and is parallel to 3x - y = 6. Find y on the line when x = 6.",
+   "answer": "16",
+   "solutionSteps": [
+    "Slope of 3x - y = 6: 3.",
+    "New line: y = 3x - 2; at x = 6, y = 16."
+   ],
+   "standards": [
+    "8.EE.B.6",
+    "8.F.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_parallel_then_value). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s01-honors-h02",
+   "skillId": "systems-linear-equations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line passes through (0, -3) and is parallel to 2x - y = -2. Find y on the line when x = 6.",
+   "answer": "9",
+   "solutionSteps": [
+    "Slope of 2x - y = -2: 2.",
+    "New line: y = 2x - 3; at x = 6, y = 9."
+   ],
+   "standards": [
+    "8.EE.B.6",
+    "8.F.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_parallel_then_value). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s01-honors-h03",
+   "skillId": "systems-linear-equations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line passes through (0, 0) and is parallel to 2x - y = -6. Find y on the line when x = 6.",
+   "answer": "12",
+   "solutionSteps": [
+    "Slope of 2x - y = -6: 2.",
+    "New line: y = 2x; at x = 6, y = 12."
+   ],
+   "standards": [
+    "8.EE.B.6",
+    "8.F.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_parallel_then_value). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-sys-s02-cp2-001",
@@ -3162,7 +3213,7 @@
   {
    "id": "pa8-sys-s02-honors-003",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Which point is the solution of the system y = -2x + 7 and -6x - 5y = -19?",
    "answer": "(4, -1)",
@@ -3192,12 +3243,12 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_check). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_check). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-004",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Plan A costs $10 plus $20 per month. Plan B costs $25 per month. The graph shows both plans. After how many months do the plans cost the same, and what is that cost?",
    "answer": "2 months, $50",
@@ -3217,7 +3268,7 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-005",
@@ -3349,7 +3400,7 @@
   {
    "id": "pa8-sys-s02-honors-009",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Plan A costs $30 plus $30 per month. Plan B costs $10 plus $40 per month. The graph shows both plans. After how many months do the plans cost the same, and what is that cost?",
    "answer": "2 months, $90",
@@ -3387,7 +3438,7 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-010",
@@ -3478,7 +3529,7 @@
   {
    "id": "pa8-sys-s02-honors-012",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "The system y = 3x + 4 and y = 5x + 6 is graphed. How many solutions does it have?",
    "answer": "exactly one solution",
@@ -3515,12 +3566,12 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-013",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Plan A costs $30 plus $30 per month. Plan B costs $5 plus $35 per month. The graph shows both plans. After how many months do the plans cost the same, and what is that cost?",
    "answer": "5 months, $180",
@@ -3540,7 +3591,7 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-014",
@@ -3595,7 +3646,7 @@
   {
    "id": "pa8-sys-s02-honors-016",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Plan A costs $30 plus $10 per month. Plan B costs $15 per month. The graph shows both plans. After how many months do the plans cost the same, and what is that cost?",
    "answer": "6 months, $90",
@@ -3615,7 +3666,7 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_context_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-017",
@@ -3646,7 +3697,7 @@
   {
    "id": "pa8-sys-s02-honors-018",
    "skillId": "systems-linear-equations-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The graph shows the system y = x - 2 and y = -2x - 8. What is the solution of the system?",
    "answer": "(-2, -4)",
@@ -3665,7 +3716,7 @@
     "8.EE.C.8a",
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_read). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_read). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s02-honors-019",
@@ -4867,7 +4918,7 @@
   {
    "id": "pa8-sys-s03-honors-001",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve by substitution: y = 2x + 6 and 6x - y = -10",
    "answer": "(-1, 4)",
@@ -4879,7 +4930,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-002",
@@ -4934,7 +4985,7 @@
   {
    "id": "pa8-sys-s03-honors-004",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "A play sold 36 tickets for $228. Adult tickets cost $8 and student tickets cost $3. How many student tickets were sold?",
    "answer": "12",
@@ -4964,7 +5015,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-005",
@@ -5004,7 +5055,7 @@
   {
    "id": "pa8-sys-s03-honors-006",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "For the system y = -x + 9 and -3x - 4y = -34, substitute the first equation into the second. What one-variable equation results?",
    "answer": "-3x - 4(-x + 9) = -34",
@@ -5015,12 +5066,12 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_first_step). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_first_step). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-007",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Solve by substitution: y = -4x + 3 and 12x + 3y = 9",
    "answer": "infinitely many solutions",
@@ -5049,12 +5100,12 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-008",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A play sold 41 tickets for $351. Adult tickets cost $11 and student tickets cost $7. How many student tickets were sold?",
    "answer": "25",
@@ -5066,7 +5117,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-009",
@@ -5104,7 +5155,7 @@
   {
    "id": "pa8-sys-s03-honors-011",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Solve by substitution: y = 4x - 3 and -12x + 3y = -13",
    "answer": "no solution",
@@ -5133,12 +5184,12 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-012",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "A play sold 53 tickets for $588. Adult tickets cost $15 and student tickets cost $6. How many adult tickets were sold?",
    "answer": "30",
@@ -5150,7 +5201,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-013",
@@ -5224,7 +5275,7 @@
   {
    "id": "pa8-sys-s03-honors-015",
    "skillId": "systems-linear-equations-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Solve by substitution: y = -2x + 6 and -4x - 2y = -8",
    "answer": "no solution",
@@ -5235,7 +5286,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s3_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s03-honors-016",
@@ -5416,6 +5467,176 @@
     "8.EE.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h01",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parent is p years old and a child is c years old. p + c = 62, and in 3 years the parent will be 3 times as old as the child. How old is the child now?",
+   "answer": "14 years old",
+   "solutionSteps": [
+    "p = 62 - c and p + 3 = 3(c + 3).",
+    "62 - c + 3 = 3c + 9, so 4c = 56 and c = 14.",
+    "So the answer is 14 years old."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_ages_system). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h02",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 2y - 7 and 2x + 5y = 13",
+   "answer": "(-1, 3)",
+   "solutionSteps": [
+    "Substitute: 2(2y - 7) + 5y = 13.",
+    "9y - 14 = 13, so y = 3.",
+    "x = 2(3) - 7 = -1. Solution (-1, 3)."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_x_isolated). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h03",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 2y - 11 and 4x - 3y = -14",
+   "answer": "(1, 6)",
+   "solutionSteps": [
+    "Substitute: 4(2y - 11) - 3y = -14.",
+    "5y - 44 = -14, so y = 6.",
+    "x = 2(6) - 11 = 1. Solution (1, 6)."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_x_isolated). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h04",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parent is p years old and a child is c years old. p + c = 72, and in 6 years the parent will be 3 times as old as the child. How old is the child now?",
+   "answer": "15 years old",
+   "solutionSteps": [
+    "p = 72 - c and p + 6 = 3(c + 6).",
+    "72 - c + 6 = 3c + 18, so 4c = 60 and c = 15.",
+    "So the answer is 15 years old."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_ages_system). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h05",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 2y - 5 and 5x + 2y = 11",
+   "answer": "(1, 3)",
+   "solutionSteps": [
+    "Substitute: 5(2y - 5) + 2y = 11.",
+    "12y - 25 = 11, so y = 3.",
+    "x = 2(3) - 5 = 1. Solution (1, 3)."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_x_isolated). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h06",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parent is p years old and a child is c years old. p + c = 48, and in 6 years the parent will be 2 times as old as the child. How old is the child now?",
+   "answer": "14 years old",
+   "solutionSteps": [
+    "p = 48 - c and p + 6 = 2(c + 6).",
+    "48 - c + 6 = 2c + 12, so 3c = 42 and c = 14.",
+    "So the answer is 14 years old."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_ages_system). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h07",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 2y - 3 and 4x - 3y = -7",
+   "answer": "(-1, 1)",
+   "solutionSteps": [
+    "Substitute: 4(2y - 3) - 3y = -7.",
+    "5y - 12 = -7, so y = 1.",
+    "x = 2(1) - 3 = -1. Solution (-1, 1)."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_x_isolated). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h08",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parent is p years old and a child is c years old. p + c = 36, and in 6 years the parent will be 2 times as old as the child. How old is the child now?",
+   "answer": "10 years old",
+   "solutionSteps": [
+    "p = 36 - c and p + 6 = 2(c + 6).",
+    "36 - c + 6 = 2c + 12, so 3c = 30 and c = 10.",
+    "So the answer is 10 years old."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_ages_system). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h09",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 3y + 14 and 4x - 3y = 11",
+   "answer": "(-1, -5)",
+   "solutionSteps": [
+    "Substitute: 4(3y + 14) - 3y = 11.",
+    "9y + 56 = 11, so y = -5.",
+    "x = 3(-5) + 14 = -1. Solution (-1, -5)."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_x_isolated). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s03-honors-h10",
+   "skillId": "systems-linear-equations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parent is p years old and a child is c years old. p + c = 72, and in 8 years the parent will be 3 times as old as the child. How old is the child now?",
+   "answer": "14 years old",
+   "solutionSteps": [
+    "p = 72 - c and p + 8 = 3(c + 8).",
+    "72 - c + 8 = 3c + 24, so 4c = 56 and c = 14.",
+    "So the answer is 14 years old."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_ages_system). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-sys-s04-cp2-001",
@@ -8249,7 +8470,7 @@
   {
    "id": "pa8-sys-s05-honors-005",
    "skillId": "systems-linear-equations-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Without solving, how many solutions does the system 3x + 3y = 0 and 9x + 8y = 0 have?",
    "answer": "one solution",
@@ -8278,7 +8499,7 @@
    "standards": [
     "8.EE.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Moved from Advanced to Standard (8th Grade Math audit #3, 2026-11-19): same template as a Support or Standard item. (batch D move)"
   },
   {
    "id": "pa8-sys-s05-honors-006",
@@ -8664,6 +8885,22 @@
     "8.EE.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s5_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa8-sys-s05-honors-h01",
+   "skillId": "systems-linear-equations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k does the system y = 4x + 3 and 8x - 2y = k have infinitely many solutions?",
+   "answer": "k = -6",
+   "solutionSteps": [
+    "Multiply y = 4x + 3 by 2 and rearrange: 8x - 2y = -6.",
+    "The equations are the same line when k = -6."
+   ],
+   "standards": [
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_infinite_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-sys-s06-cp2-001",
@@ -12069,6 +12306,125 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "pa8-sys-s02-honors-h01",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Plan A: y = 9x + 47. Plan B: y = 12x + 38. The graphs cross where the plans cost the same. What is that cost?",
+   "answer": "$74",
+   "solutionSteps": [
+    "9x + 47 = 12x + 38 gives x = 3.",
+    "Cost: 9(3) + 47 = $74."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_equal_total). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h02",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The lines y = x + k and y = -x + 6 intersect at a point with x = 1. Find k.",
+   "answer": "k = 4",
+   "solutionSteps": [
+    "At x = 1 the second line gives y = 5.",
+    "5 = 1(1) + k, so k = 4."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_intersection_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h03",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Plan A: y = 8x + 52. Plan B: y = 14x + 4. The graphs cross where the plans cost the same. What is that cost?",
+   "answer": "$116",
+   "solutionSteps": [
+    "8x + 52 = 14x + 4 gives x = 8.",
+    "Cost: 8(8) + 52 = $116."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_equal_total). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h04",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The lines y = x + k and y = -x intersect at a point with x = -3. Find k.",
+   "answer": "k = 6",
+   "solutionSteps": [
+    "At x = -3 the second line gives y = 3.",
+    "3 = 1(-3) + k, so k = 6."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_intersection_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h05",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Plan A: y = 9x + 59. Plan B: y = 13x + 47. The graphs cross where the plans cost the same. What is that cost?",
+   "answer": "$86",
+   "solutionSteps": [
+    "9x + 59 = 13x + 47 gives x = 3.",
+    "Cost: 9(3) + 59 = $86."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_equal_total). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h06",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The lines y = x + k and y = -x - 3 intersect at a point with x = 0. Find k.",
+   "answer": "k = -3",
+   "solutionSteps": [
+    "At x = 0 the second line gives y = -3.",
+    "-3 = 1(0) + k, so k = -3."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_intersection_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-sys-s02-honors-h07",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The lines y = x + k and y = -x + 6 intersect at a point with x = -2. Find k.",
+   "answer": "k = 10",
+   "solutionSteps": [
+    "At x = -2 the second line gives y = 8.",
+    "8 = 1(-2) + k, so k = 10."
+   ],
+   "standards": [
+    "8.EE.C.8a",
+    "8.EE.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_intersection_parameter). 8th Grade Math audit follow-up 2026-11-19 (Advanced, batch D); answer recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }
