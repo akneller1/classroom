@@ -11,6 +11,7 @@
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n5 voters: A > B > C\n4 voters: B > C > A\n2 voters: C > A > B\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "11, 6",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 6."
    ],
@@ -28,6 +29,7 @@
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n14 voters: A > B > C\n10 voters: C > B > A\n8 voters: B > C > A\n3 voters: C > A > B\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "35, 18",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 18."
    ],
@@ -45,6 +47,7 @@
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n8 voters: A > B > C > D\n6 voters: B > C > D > A\n5 voters: C > D > B > A\n3 voters: D > C > B > A\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "22, 12",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 12."
    ],
@@ -62,6 +65,7 @@
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n8 voters: A > C > B\n6 voters: B > C > A\n5 voters: C > B > A\n2 voters: C > A > B\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "21, 11",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 11."
    ],
@@ -79,6 +83,7 @@
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n10 voters: A > B > C > D\n8 voters: B > C > D > A\n6 voters: C > B > D > A\n4 voters: D > C > B > A\n3 voters: D > B > C > A\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "31, 16",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 16."
    ],
@@ -91,15 +96,16 @@
   {
    "id": "dm-el-s01-honors-002",
    "skillId": "election-theory-skill-01",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Preference schedule (each row lists a ballot from most to least preferred):\n9 voters: P > Q > R\n7 voters: Q > R > P\n6 voters: R > Q > P\n2 voters: R > P > Q\nHow many voters are there, and how many votes is a MAJORITY? Answer as \"voters, majority\".",
    "answer": "24, 13",
    "solutionSteps": [
+    "Add the row counts for the number of voters; a majority is more than half of that total.",
     "Add the voter counts.",
     "A majority is more than half: 13."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: voters_majority). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: voters_majority). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -378,7 +384,8 @@
     "A has 5 first‑place votes"
    ],
    "solutionSteps": [
-    "12 voters; majority 7; first‑place votes A 5, B 4, C 3."
+    "12 voters; majority 7; first‑place votes A 5, B 4, C 3.",
+    "Option by option: ✗ C has 4 first‑place votes (not correct). ✗ B has a majority (not correct). ✓ No candidate has a majority of first‑place votes (correct). ✓ There are 12 voters (correct). ✓ A has 5 first‑place votes (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: schedule_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -420,7 +427,8 @@
     "A list of every individual ballot"
    ],
    "solutionSteps": [
-    "Head‑to‑head tables and first‑place bar graphs lose information; reordering rows does not."
+    "Head‑to‑head tables and first‑place bar graphs lose information; reordering rows does not.",
+    "Option by option: ✗ A bar graph of first‑place votes only (not correct). ✓ Rows ordered by voter count instead of by ballot (correct). ✗ A table of head‑to‑head results derived from the ballots (not correct). ✓ A preference schedule with counts (correct). ✓ A list of every individual ballot (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: schedule_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -462,7 +470,8 @@
     "B is ranked first or second by 27 voters"
    ],
    "solutionSteps": [
-    "A last: 8 + 6 + 4 + 3 = 21. B in top two: 10 + 8 + 6 + 3 = 27. C first: 6."
+    "A last: 8 + 6 + 4 + 3 = 21. B in top two: 10 + 8 + 6 + 3 = 27. C first: 6.",
+    "Option by option: ✓ There are 31 voters (correct). ✓ A is ranked last by 21 voters (correct). ✓ B is ranked first or second by 27 voters (correct). ✗ C has 10 first‑place votes (not correct). ✗ D has a majority of last‑place votes (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: schedule_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1003,7 +1012,8 @@
     "Winner: A.",
     "Winner: B.",
     "Winner: C (majority of 35 voters).",
-    "Points: A 0, B 2, C 1. Winner: B."
+    "Points: A 0, B 2, C 1. Winner: B.",
+    "Option by option: ✓ Borda count (correct). ✗ Plurality with elimination (not correct). ✓ Pairwise comparisons (correct). ✗ None of the four methods (not correct). ✗ Plurality (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1045,7 +1055,8 @@
     "Pairwise comparisons"
    ],
    "solutionSteps": [
-    "Plurality looks only at first choices."
+    "Plurality looks only at first choices.",
+    "Option by option: ✓ Borda count (correct). ✓ Plurality with elimination, after the first round (correct). ✗ Plurality (not correct). ✓ Pairwise comparisons (correct). ✗ Counting first‑place votes only (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1090,7 +1101,8 @@
     "Winner: A.",
     "Winner: B.",
     "Winner: B (majority of 31 voters).",
-    "Points: A 0, B 3, C 2, D 1. Winner: B."
+    "Points: A 0, B 3, C 2, D 1. Winner: B.",
+    "Option by option: ✓ The Borda winner is B (correct). ✗ Every method agrees (not correct). ✗ Instant runoff chooses A (not correct). ✓ Plurality chooses A (correct). ✓ A is the Condorcet loser (loses every head‑to‑head) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1671,7 +1683,8 @@
     "Pareto (if everyone prefers X to Y, Y does not win)"
    ],
    "solutionSteps": [
-    "Plurality satisfies majority, monotonicity and Pareto; it can violate Condorcet and IIA."
+    "Plurality satisfies majority, monotonicity and Pareto; it can violate Condorcet and IIA.",
+    "Option by option: ✗ Condorcet criterion (not correct). ✗ Independence of irrelevant alternatives (not correct). ✓ Majority criterion (correct). ✓ Monotonicity criterion (correct). ✓ Pareto (if everyone prefers X to Y, Y does not win) (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1713,7 +1726,8 @@
     "A majority candidate is always a Condorcet winner"
    ],
    "solutionSteps": [
-    "A majority candidate beats everyone head‑to‑head; cycles can prevent a Condorcet winner."
+    "A majority candidate beats everyone head‑to‑head; cycles can prevent a Condorcet winner.",
+    "Option by option: ✓ A Condorcet winner, if one exists, is unique (correct). ✗ Pairwise comparisons can violate the Condorcet criterion (not correct). ✗ Borda always picks the majority candidate (not correct). ✓ Some elections have no Condorcet winner (correct). ✓ A majority candidate is always a Condorcet winner (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1755,7 +1769,8 @@
     "Every voting method can violate some reasonable fairness criterion"
    ],
    "solutionSteps": [
-    "With two candidates, majority rule is fair; with three or more, trade‑offs are unavoidable."
+    "With two candidates, majority rule is fair; with three or more, trade‑offs are unavoidable.",
+    "Option by option: ✗ Borda count satisfies every criterion (not correct). ✗ The theorem applies to two‑candidate elections (not correct). ✓ Pairwise comparisons can violate IIA (correct). ✓ Choosing a method involves trade‑offs (correct). ✓ Every voting method can violate some reasonable fairness criterion (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -1967,7 +1982,7 @@
   {
    "id": "dm-el-s04-honors-001",
    "skillId": "election-theory-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In the weighted voting system [12: 7, 5, 4, 2] (players P1, P2, ... in order), list the players with VETO power (comma‑separated, or \"none\").",
    "answer": "P1",
@@ -1975,7 +1990,7 @@
     "A player has veto power when the other players together cannot reach the quota.",
     "Total 18; veto players: P1; dictators: none; dummies: none."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -1984,7 +1999,7 @@
   {
    "id": "dm-el-s04-honors-002",
    "skillId": "election-theory-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "In the weighted voting system [14: 8, 6, 4, 1] (players P1, P2, ... in order), list the players with VETO power (comma‑separated, or \"none\").",
    "answer": "P1, P2",
@@ -1992,7 +2007,7 @@
     "A player has veto power when the other players together cannot reach the quota.",
     "Total 19; veto players: P1, P2; dictators: none; dummies: P3, P4."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -2185,7 +2200,8 @@
     "P1 is a dictator"
    ],
    "solutionSteps": [
-    "P1 alone meets the quota, so P2 and P3 are never critical."
+    "P1 alone meets the quota, so P2 and P3 are never critical.",
+    "Option by option: ✓ P3 is a dummy (correct). ✗ P2 has veto power (not correct). ✓ P1 is the only player with veto power (correct). ✓ P2 is a dummy (correct). ✓ P1 is a dictator (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: weighted_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2227,7 +2243,8 @@
     "[6: 4, 3, 2]"
    ],
    "solutionSteps": [
-    "[4: 3, 2, 2] has quota ≤ half of 7 (anarchy risk); [12: 5, 4, 2] has quota above the total 11."
+    "[4: 3, 2, 2] has quota ≤ half of 7 (anarchy risk); [12: 5, 4, 2] has quota above the total 11.",
+    "Option by option: ✓ [10: 5, 5, 4] (correct). ✗ [4: 3, 2, 2] (not correct). ✓ [8: 4, 4, 4, 2] (correct). ✗ [12: 5, 4, 2] (not correct). ✓ [6: 4, 3, 2] (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: weighted_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2260,7 +2277,7 @@
   {
    "id": "dm-el-s04-honors-005",
    "skillId": "election-theory-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "select-all",
    "prompt": "In [12: 7, 5, 4, 2], which statements are true? Select ALL that apply.",
    "answer": [
@@ -2269,9 +2286,10 @@
     "No player is a dictator"
    ],
    "solutionSteps": [
-    "Without P1 the others total 11 < 12 → veto. {P1, P2} = 12 wins. P4 is never critical: every winning coalition with P4 still wins without it."
+    "Without P1 the others total 11 < 12 → veto. {P1, P2} = 12 wins. P4 is never critical: every winning coalition with P4 still wins without it.",
+    "Option by option: ✓ Every coalition containing P1 and P2 wins (correct). ✓ P1 has veto power (correct). ✓ No player is a dictator (correct). ✗ P4 is a dummy (not correct). ✗ P3 has veto power (not correct)."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: weighted_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: weighted_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Every coalition containing P1 and P2 wins",
@@ -2485,7 +2503,7 @@
   {
    "id": "dm-el-s05-honors-001",
    "skillId": "election-theory-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the Banzhaf power index of P1 in [19: 10, 9, 6, 1]. Give a fraction in lowest terms.",
    "answer": "1/2",
@@ -2494,7 +2512,7 @@
     "Critical counts: P1 4, P2 4, P3 0, P4 0 (total 8).",
     "Banzhaf index of P1 = 4/8 = 1/2."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -2503,7 +2521,7 @@
   {
    "id": "dm-el-s05-honors-002",
    "skillId": "election-theory-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Find the Banzhaf power index of P1 in [14: 9, 7, 5, 2]. Give a fraction in lowest terms.",
    "answer": "5/12",
@@ -2512,7 +2530,7 @@
     "Critical counts: P1 5, P2 3, P3 3, P4 1 (total 12).",
     "Banzhaf index of P1 = 5/12 = 5/12."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -2688,7 +2706,8 @@
     "{P1, P2, P3}"
    ],
    "solutionSteps": [
-    "Totals: P1P2 8, P1P3 7, P2P3 5, all 10, P1 5."
+    "Totals: P1P2 8, P1P3 7, P2P3 5, all 10, P1 5.",
+    "Option by option: ✓ {P1, P2} (correct). ✗ {P2, P3} (not correct). ✗ {P1, P3} (not correct). ✓ {P1, P2, P3} (correct). ✗ {P1} (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2730,7 +2749,8 @@
     "A dummy is never critical"
    ],
    "solutionSteps": [
-    "Definitions of critical, dummy and dictator."
+    "Definitions of critical, dummy and dictator.",
+    "Option by option: ✓ A dictator is critical in every winning coalition (correct). ✗ Every member of every winning coalition is critical (not correct). ✓ A critical player's removal turns a winning coalition into a losing one (correct). ✗ Critical players must have the largest weight (not correct). ✓ A dummy is never critical (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2772,7 +2792,8 @@
     "P1 has exactly twice the power of P3"
    ],
    "solutionSteps": [
-    "Critical counts: P1 4, P2 4, P3 2, P4 2."
+    "Critical counts: P1 4, P2 4, P3 2, P4 2.",
+    "Option by option: ✓ P3 has positive Banzhaf power (correct). ✗ All four players have equal power (not correct). ✗ P3 is a dummy (not correct). ✓ P1 and P2 have equal Banzhaf power (correct). ✓ P1 has exactly twice the power of P3 (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: power_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -2879,7 +2900,7 @@
   {
    "id": "dm-el-s05-honors-007",
    "skillId": "election-theory-skill-05",
-   "level": "honors",
+   "level": "cp1",
    "format": "open-response",
    "prompt": "Weighted system [10: 6, 4, 3, 1].",
    "answer": "(a) 24 | (b) P1 7/12, P2 1/4, P3 1/12, P4 1/12 | (c) P1 1/2, P2 3/10, P3 1/10, P4 1/10 | (d) No; they measure power in different ways.",
@@ -2889,7 +2910,7 @@
     "Critical counts / total.",
     "Different models."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_or). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_or). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "parts": [
     {
      "prompt": "How many orderings (sequential coalitions) are there?",
@@ -3335,7 +3356,8 @@
     "Method of sealed bids"
    ],
    "solutionSteps": [
-    "Sealed bids and markers handle indivisible items; the others divide continuous objects."
+    "Sealed bids and markers handle indivisible items; the others divide continuous objects.",
+    "Option by option: ✗ Last diminisher (not correct). ✗ Divider‑chooser (not correct). ✓ Method of markers (correct). ✗ Lone divider (not correct). ✓ Method of sealed bids (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fair_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3377,7 +3399,8 @@
     "Ann cuts two pieces she values equally"
    ],
    "solutionSteps": [
-    "Divider‑chooser guarantees each a fair share."
+    "Divider‑chooser guarantees each a fair share.",
+    "Option by option: ✓ Each gets at least half by their own values (correct). ✓ Ben picks the piece he likes better (correct). ✗ Ben must take the smaller piece (not correct). ✓ Ann cuts two pieces she values equally (correct). ✗ Ann chooses first (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fair_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3419,7 +3442,8 @@
     "Each item goes to its highest bidder"
    ],
    "solutionSteps": [
-    "The highest bidder rule makes the total value of items ≥ the sum of fair shares, giving a surplus ≥ 0."
+    "The highest bidder rule makes the total value of items ≥ the sum of fair shares, giving a surplus ≥ 0.",
+    "Option by option: ✓ The surplus is nonnegative (correct). ✗ Each player gets at least one item (not correct). ✗ Cash payments always cancel to zero before the surplus (not correct). ✓ Each player receives at least their fair share by their own bids (correct). ✓ Each item goes to its highest bidder (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: fair_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3906,7 +3930,8 @@
     "Jefferson's method"
    ],
    "solutionSteps": [
-    "Hamilton uses the standard divisor with largest remainders."
+    "Hamilton uses the standard divisor with largest remainders.",
+    "Option by option: ✓ Adams's method (correct). ✓ Webster's method (correct). ✓ Jefferson's method (correct). ✗ Hamilton's method (not correct). ✗ Plurality (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: apportion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3948,7 +3973,8 @@
     "One seat is left after the lower quotas"
    ],
    "solutionSteps": [
-    "4 + 3 + 2 = 9, one seat left; largest remainder 0.6."
+    "4 + 3 + 2 = 9, one seat left; largest remainder 0.6.",
+    "Option by option: ✗ Upper quotas are 4, 3, 2 (not correct). ✓ Hamilton gives the extra seat to the state with quota 4.6 (correct). ✗ Every state gets its upper quota (not correct). ✓ Lower quotas are 4, 3, 2 (correct). ✓ One seat is left after the lower quotas (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: apportion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -3990,7 +4016,8 @@
     "Hamilton's method satisfies the quota rule"
    ],
    "solutionSteps": [
-    "Hamilton always gives lower or upper quota but suffers paradoxes; divisor methods avoid paradoxes but can violate quota."
+    "Hamilton always gives lower or upper quota but suffers paradoxes; divisor methods avoid paradoxes but can violate quota.",
+    "Option by option: ✗ Hamilton's method is free of the Alabama paradox (not correct). ✗ Webster's method never violates quota (not correct). ✓ Adams's method can violate the lower quota (correct). ✓ Jefferson's method can violate the upper quota (correct). ✓ Hamilton's method satisfies the quota rule (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: apportion_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4244,6 +4271,7 @@
    "prompt": "An apportionment gives a state a number of seats that is neither its lower nor its upper quota. This violates the ...",
    "answer": "Quota rule",
    "solutionSteps": [
+    "Alabama: more seats makes a state lose one; population: a faster-growing state loses a seat; new-states: adding a state changes the others' seats.",
     "Know the three paradoxes and the quota rule.",
     "Quota rule"
    ],
@@ -4296,7 +4324,8 @@
    "prompt": "Populations A 130, B 690, C 410. Hamilton gives 2, 7, 4 with 13 seats and 1, 8, 5 with 14 seats. Which paradox occurs?",
    "answer": "Alabama paradox",
    "solutionSteps": [
-    "Compare state by state: A drops from 2 to 1 when the number of seats increases."
+    "Compare state by state: A drops from 2 to 1 when the number of seats increases.",
+    "Answer: Alabama paradox."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: alabama). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4561,7 +4590,8 @@
     "New‑states paradox"
    ],
    "solutionSteps": [
-    "Hamilton satisfies quota but can show all three paradoxes."
+    "Hamilton satisfies quota but can show all three paradoxes.",
+    "Option by option: ✗ Condorcet paradox (not correct). ✓ Alabama paradox (correct). ✓ Population paradox (correct). ✗ Quota rule violation (not correct). ✓ New‑states paradox (correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4603,7 +4633,8 @@
     "Different methods can give different winners"
    ],
    "solutionSteps": [
-    "Choosing a method involves trade‑offs and should be decided in advance."
+    "Choosing a method involves trade‑offs and should be decided in advance.",
+    "Option by option: ✓ Each method can fail some fairness criterion (correct). ✓ The method should be chosen before the votes are counted (correct). ✗ Plurality never fails any criterion (not correct). ✓ Different methods can give different winners (correct). ✗ The method with the most criteria always wins (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4645,7 +4676,8 @@
     "Hamilton — Alabama paradox"
    ],
    "solutionSteps": [
-    "Divisor methods avoid the Alabama paradox; Borda can violate Condorcet."
+    "Divisor methods avoid the Alabama paradox; Borda can violate Condorcet.",
+    "Option by option: ✗ Borda — Condorcet criterion always satisfied (not correct). ✓ Adams — can violate lower quota (correct). ✓ Jefferson — can violate upper quota (correct). ✓ Hamilton — Alabama paradox (correct). ✗ Webster — Alabama paradox (not correct)."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox_select). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -4796,7 +4828,8 @@
    "prompt": "Preference schedule:\n7 voters: C > A > B\n9 voters: A > C > B\n4 voters: A > B > C\n10 voters: C > B > A\nWho wins by plurality?",
    "answer": "C",
    "solutionSteps": [
-    "First‑place votes: A 13, B 0, C 17.",
+    "Count only first choices: A: 9 + 4 = 13; B: 0 = 0; C: 7 + 10 = 17.",
+    "Plurality needs the most first-place votes, not a majority (16 of 30).",
     "Winner: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4831,7 +4864,8 @@
    "prompt": "Preference schedule:\n8 voters: A > C > B\n12 voters: C > B > A\n2 voters: C > A > B\n6 voters: B > C > A\nWho wins by plurality?",
    "answer": "C",
    "solutionSteps": [
-    "First‑place votes: A 8, B 6, C 14.",
+    "Count only first choices: A: 8 = 8; B: 6 = 6; C: 12 + 2 = 14.",
+    "Plurality needs the most first-place votes, not a majority (15 of 28).",
     "Winner: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4866,7 +4900,8 @@
    "prompt": "Preference schedule:\n11 voters: B > C > A\n8 voters: C > A > B\n2 voters: C > B > A\n2 voters: B > A > C\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 0, B 13, C 10.",
+    "Count only first choices: A: 0 = 0; B: 11 + 2 = 13; C: 8 + 2 = 10.",
+    "Plurality needs the most first-place votes, not a majority (12 of 23).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4901,7 +4936,8 @@
    "prompt": "Preference schedule:\n5 voters: A > C > B\n7 voters: C > B > A\n11 voters: A > B > C\n11 voters: B > C > A\nWho wins by plurality?",
    "answer": "A",
    "solutionSteps": [
-    "First‑place votes: A 16, B 11, C 7.",
+    "Count only first choices: A: 5 + 11 = 16; B: 11 = 11; C: 7 = 7.",
+    "Plurality needs the most first-place votes, not a majority (18 of 34).",
     "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4936,7 +4972,8 @@
    "prompt": "Preference schedule:\n10 voters: B > C > A\n11 voters: B > A > C\n10 voters: A > B > C\n12 voters: C > A > B\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 10, B 21, C 12.",
+    "Count only first choices: A: 10 = 10; B: 10 + 11 = 21; C: 12 = 12.",
+    "Plurality needs the most first-place votes, not a majority (22 of 43).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -4971,7 +5008,8 @@
    "prompt": "Preference schedule:\n7 voters: C > B > A\n2 voters: A > C > B\n4 voters: B > C > A\n12 voters: B > A > C\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 2, B 16, C 7.",
+    "Count only first choices: A: 2 = 2; B: 4 + 12 = 16; C: 7 = 7.",
+    "Plurality needs the most first-place votes, not a majority (13 of 25).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5006,7 +5044,8 @@
    "prompt": "Preference schedule:\n7 voters: A > B > C\n11 voters: B > C > A\n8 voters: C > B > A\n4 voters: B > A > C\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 7, B 15, C 8.",
+    "Count only first choices: A: 7 = 7; B: 11 + 4 = 15; C: 8 = 8.",
+    "Plurality needs the most first-place votes, not a majority (16 of 30).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5041,7 +5080,8 @@
    "prompt": "Preference schedule:\n11 voters: B > C > A\n11 voters: A > C > B\n8 voters: A > B > C\n4 voters: C > B > A\nWho wins by plurality?",
    "answer": "A",
    "solutionSteps": [
-    "First‑place votes: A 19, B 11, C 4.",
+    "Count only first choices: A: 11 + 8 = 19; B: 11 = 11; C: 4 = 4.",
+    "Plurality needs the most first-place votes, not a majority (18 of 34).",
     "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5076,7 +5116,8 @@
    "prompt": "Preference schedule:\n2 voters: C > B > A\n5 voters: C > A > B\n4 voters: B > A > C\n6 voters: B > C > A\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 0, B 10, C 7.",
+    "Count only first choices: A: 0 = 0; B: 4 + 6 = 10; C: 2 + 5 = 7.",
+    "Plurality needs the most first-place votes, not a majority (9 of 17).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -5111,8 +5152,11 @@
    "prompt": "Preference schedule:\n8 voters: B > A > C\n4 voters: A > C > B\n5 voters: C > B > A\n4 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "C",
    "solutionSteps": [
-    "Borda points: A 41, B 42, C 43.",
-    "Winner: C."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 8·2 + 4·3 + 5·1 + 4·2 = 41",
+    "B: 8·3 + 4·1 + 5·2 + 4·1 = 42",
+    "C: 8·1 + 4·2 + 5·3 + 4·3 = 43",
+    "Highest total: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5218,8 +5262,11 @@
    "prompt": "Preference schedule:\n4 voters: B > C > A\n5 voters: C > B > A\n2 voters: A > C > B\n11 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "C",
    "solutionSteps": [
-    "Borda points: A 37, B 35, C 60.",
-    "Winner: C."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 4·1 + 5·1 + 2·3 + 11·2 = 37",
+    "B: 4·3 + 5·2 + 2·1 + 11·1 = 35",
+    "C: 4·2 + 5·3 + 2·2 + 11·3 = 60",
+    "Highest total: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5288,8 +5335,11 @@
    "prompt": "Preference schedule:\n4 voters: A > B > C\n11 voters: C > B > A\n3 voters: B > C > A\n2 voters: A > C > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "C",
    "solutionSteps": [
-    "Borda points: A 32, B 41, C 47.",
-    "Winner: C."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 4·3 + 11·1 + 3·1 + 2·3 = 32",
+    "B: 4·2 + 11·2 + 3·3 + 2·1 = 41",
+    "C: 4·1 + 11·3 + 3·2 + 2·2 = 47",
+    "Highest total: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5323,8 +5373,11 @@
    "prompt": "Preference schedule:\n8 voters: C > B > A\n8 voters: C > A > B\n7 voters: A > C > B\n6 voters: A > B > C\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "C",
    "solutionSteps": [
-    "Borda points: A 63, B 43, C 68.",
-    "Winner: C."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 8·1 + 8·2 + 7·3 + 6·3 = 63",
+    "B: 8·2 + 8·1 + 7·1 + 6·2 = 43",
+    "C: 8·3 + 8·3 + 7·2 + 6·1 = 68",
+    "Highest total: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5395,8 +5448,11 @@
    "prompt": "Preference schedule:\n12 voters: A > C > B\n7 voters: B > A > C\n12 voters: B > C > A\n2 voters: A > B > C\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "B",
    "solutionSteps": [
-    "Borda points: A 68, B 73, C 57.",
-    "Winner: B."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 12·3 + 7·2 + 12·1 + 2·3 = 68",
+    "B: 12·1 + 7·3 + 12·3 + 2·2 = 73",
+    "C: 12·2 + 7·1 + 12·2 + 2·1 = 57",
+    "Highest total: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -5430,6 +5486,7 @@
    "prompt": "Preference schedule:\n11 voters: C > A > B\n4 voters: A > C > B\n9 voters: C > B > A\n2 voters: B > A > C\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, C",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 15–11",
     "A vs C: 6–20",
     "B vs C: 2–24"
@@ -5466,6 +5523,7 @@
    "prompt": "Preference schedule:\n2 voters: B > A > C\n7 voters: B > C > A\n8 voters: A > C > B\n11 voters: C > A > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, C",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 19–9",
     "A vs C: 10–18",
     "B vs C: 9–19"
@@ -5502,6 +5560,7 @@
    "prompt": "Preference schedule:\n3 voters: C > B > A\n10 voters: A > B > C\n10 voters: B > C > A\n7 voters: B > A > C\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, B",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 10–20",
     "A vs C: 17–13",
     "B vs C: 27–3"
@@ -5538,6 +5597,7 @@
    "prompt": "Preference schedule:\n8 voters: C > A > B\n12 voters: B > A > C\n7 voters: A > C > B\n2 voters: A > B > C\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 17–12",
     "A vs C: 21–8",
     "B vs C: 14–15"
@@ -5574,6 +5634,7 @@
    "prompt": "Preference schedule:\n10 voters: C > A > B\n11 voters: B > A > C\n2 voters: A > B > C\n7 voters: A > C > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 19–11",
     "A vs C: 20–10",
     "B vs C: 13–17"
@@ -5610,6 +5671,7 @@
    "prompt": "Preference schedule:\n10 voters: B > C > A\n12 voters: A > B > C\n6 voters: A > C > B\n6 voters: C > A > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 24–10",
     "A vs C: 18–16",
     "B vs C: 22–12"
@@ -5646,6 +5708,7 @@
    "prompt": "Preference schedule:\n5 voters: A > C > B\n7 voters: A > B > C\n6 voters: B > A > C\n5 voters: C > B > A\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 12–11",
     "A vs C: 18–5",
     "B vs C: 13–10"
@@ -5682,6 +5745,7 @@
    "prompt": "Preference schedule:\n2 voters: A > B > C\n8 voters: B > C > A\n12 voters: C > A > B\n5 voters: C > B > A\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, C",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 14–13",
     "A vs C: 2–25",
     "B vs C: 10–17"
@@ -5713,16 +5777,17 @@
   {
    "id": "dm-el-s03-honors-007",
    "skillId": "election-theory-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Preference schedule:\n3 voters: B > C > A\n10 voters: C > B > A\n8 voters: C > A > B\n9 voters: A > C > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, C",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 17–13",
     "A vs C: 9–21",
     "B vs C: 3–27"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "No Condorcet winner",
@@ -5749,16 +5814,17 @@
   {
    "id": "dm-el-s03-honors-008",
    "skillId": "election-theory-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Preference schedule:\n9 voters: A > B > C\n12 voters: A > C > B\n2 voters: B > C > A\n6 voters: B > A > C\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 21–8",
     "A vs C: 27–2",
     "B vs C: 17–12"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Yes, B",
@@ -5785,16 +5851,17 @@
   {
    "id": "dm-el-s03-honors-009",
    "skillId": "election-theory-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Preference schedule:\n10 voters: B > A > C\n5 voters: C > A > B\n12 voters: A > B > C\n5 voters: A > C > B\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, A",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 22–10",
     "A vs C: 27–5",
     "B vs C: 22–10"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Yes, C",
@@ -5821,16 +5888,17 @@
   {
    "id": "dm-el-s03-honors-010",
    "skillId": "election-theory-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Preference schedule:\n12 voters: C > A > B\n6 voters: A > C > B\n7 voters: C > B > A\n4 voters: B > C > A\nIs there a Condorcet winner? If so, who?",
    "answer": "Yes, C",
    "solutionSteps": [
+    "A Condorcet winner must beat every other candidate head-to-head.",
     "A vs B: 18–11",
     "A vs C: 6–23",
     "B vs C: 4–25"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "Yes, C",
@@ -5862,6 +5930,7 @@
    "prompt": "How many winning coalitions does [15: 9, 8, 6, 4] have?",
    "answer": "7",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "7"
    ],
@@ -5897,6 +5966,7 @@
    "prompt": "How many winning coalitions does [10: 7, 6, 5, 1] have?",
    "answer": "8",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "8"
    ],
@@ -5932,6 +6002,7 @@
    "prompt": "How many winning coalitions does [10: 9, 7, 1] have?",
    "answer": "3",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "3"
    ],
@@ -5967,6 +6038,7 @@
    "prompt": "How many winning coalitions does [9: 7, 5, 3] have?",
    "answer": "3",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "3"
    ],
@@ -6002,6 +6074,7 @@
    "prompt": "How many winning coalitions does [8: 6, 3, 2] have?",
    "answer": "3",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "3"
    ],
@@ -6037,6 +6110,7 @@
    "prompt": "How many winning coalitions does [11: 9, 8, 1] have?",
    "answer": "2",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "2"
    ],
@@ -6072,6 +6146,7 @@
    "prompt": "How many winning coalitions does [4: 4, 2, 1] have?",
    "answer": "4",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "4"
    ],
@@ -6107,6 +6182,7 @@
    "prompt": "How many winning coalitions does [10: 7, 6, 5] have?",
    "answer": "4",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "4"
    ],
@@ -6142,6 +6218,7 @@
    "prompt": "How many winning coalitions does [7: 4, 3, 1] have?",
    "answer": "2",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "2"
    ],
@@ -6177,6 +6254,7 @@
    "prompt": "How many winning coalitions does [12: 8, 6, 5] have?",
    "answer": "3",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "3"
    ],
@@ -6212,6 +6290,7 @@
    "prompt": "How many winning coalitions does [13: 9, 8, 2, 1] have?",
    "answer": "4",
    "solutionSteps": [
+    "A coalition wins when its total weight reaches the quota; check every combination of players.",
     "List coalitions meeting the quota.",
     "4"
    ],
@@ -6247,6 +6326,7 @@
    "prompt": "In [14: 9, 8, 4, 1], what is the Banzhaf power index of P1?",
    "answer": "1/2",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 5, P2 3, P3 1, P4 1.",
     "Index = 5/10."
    ],
@@ -6282,6 +6362,7 @@
    "prompt": "In [12: 8, 7, 5, 3], what is the Banzhaf power index of P1?",
    "answer": "1/3",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 4, P2 4, P3 4, P4 0.",
     "Index = 4/12."
    ],
@@ -6317,6 +6398,7 @@
    "prompt": "In [10: 8, 6, 1], what is the Banzhaf power index of P1?",
    "answer": "1/2",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 2, P2 2, P3 0.",
     "Index = 2/4."
    ],
@@ -6352,6 +6434,7 @@
    "prompt": "In [12: 7, 6, 5, 2], what is the Banzhaf power index of P1?",
    "answer": "5/12",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 5, P2 3, P3 3, P4 1.",
     "Index = 5/12."
    ],
@@ -6387,6 +6470,7 @@
    "prompt": "In [13: 8, 7, 4, 3], what is the Banzhaf power index of P1?",
    "answer": "1/3",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 4, P2 4, P3 2, P4 2.",
     "Index = 4/12."
    ],
@@ -6422,6 +6506,7 @@
    "prompt": "In [9: 8, 4, 2, 1], what is the Banzhaf power index of P1?",
    "answer": "7/10",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 7, P2 1, P3 1, P4 1.",
     "Index = 7/10."
    ],
@@ -6457,6 +6542,7 @@
    "prompt": "In [13: 9, 8, 6, 2], what is the Banzhaf power index of P1?",
    "answer": "1/3",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 4, P2 4, P3 4, P4 0.",
     "Index = 4/12."
    ],
@@ -6492,6 +6578,7 @@
    "prompt": "In [10: 9, 6, 3, 1], what is the Banzhaf power index of P1?",
    "answer": "1/2",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 6, P2 2, P3 2, P4 2.",
     "Index = 6/12."
    ],
@@ -6527,6 +6614,7 @@
    "prompt": "In [8: 8, 3, 1], what is the Banzhaf power index of P1?",
    "answer": "1",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 4, P2 0, P3 0.",
     "Index = 4/4."
    ],
@@ -6562,6 +6650,7 @@
    "prompt": "In [10: 7, 5, 4, 1], what is the Banzhaf power index of P1?",
    "answer": "5/12",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 5, P2 3, P3 3, P4 1.",
     "Index = 5/12."
    ],
@@ -6597,6 +6686,7 @@
    "prompt": "In [10: 8, 5, 3, 2], what is the Banzhaf power index of P1?",
    "answer": "1/2",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 6, P2 2, P3 2, P4 2.",
     "Index = 6/12."
    ],
@@ -6632,6 +6722,7 @@
    "prompt": "In [13: 8, 7, 6, 4], what is the Banzhaf power index of P1?",
    "answer": "1/3",
    "solutionSteps": [
+    "A player is critical in a winning coalition if the coalition loses without that player; the index is the share of all critical counts.",
     "Critical counts: P1 4, P2 4, P3 4, P4 0.",
     "Index = 4/12."
    ],
@@ -6863,7 +6954,7 @@
   {
    "id": "dm-el-s06-honors-008",
    "skillId": "election-theory-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Kim and Lee inherit one bike and use sealed bids: Kim bids $90, Lee bids $60. After the surplus is shared equally, how much does the winner pay the other person? Answer in dollars and cents.",
    "answer": "37.50",
@@ -6873,7 +6964,7 @@
     "Surplus = $45 − $30 = $15; each heir gets half of it, $7.50.",
     "Kim pays Lee $30 + $7.50 = $37.50."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -7091,7 +7182,7 @@
   {
    "id": "dm-el-s07-honors-008",
    "skillId": "election-theory-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Populations: A 700, B 670, C 490; 15 seats. Use Hamilton's method. Give the apportionment in the order A, B, C.",
    "answer": "6, 5, 4",
@@ -7099,7 +7190,7 @@
     "Standard quotas: 5.645, 5.403, 3.952.",
     "Floors then largest remainders: 6, 5, 4"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -7108,7 +7199,7 @@
   {
    "id": "dm-el-s07-honors-009",
    "skillId": "election-theory-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Populations: A 760, B 350, C 440; 12 seats. Use Hamilton's method. Give the apportionment in the order A, B, C.",
    "answer": "6, 3, 3",
@@ -7116,7 +7207,7 @@
     "Standard quotas: 5.884, 2.710, 3.406.",
     "Floors then largest remainders: 6, 3, 3"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -7125,7 +7216,7 @@
   {
    "id": "dm-el-s07-honors-010",
    "skillId": "election-theory-skill-07",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "Populations: A 530, B 270, C 160; 12 seats. Use Hamilton's method. Give the apportionment in the order A, B, C.",
    "answer": "7, 3, 2",
@@ -7133,7 +7224,7 @@
     "Standard quotas: 6.625, 3.375, 2.000.",
     "Floors then largest remainders: 7, 3, 2"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
@@ -7147,8 +7238,11 @@
    "prompt": "Preference schedule:\n12 voters: C > B > A\n12 voters: A > C > B\n11 voters: A > B > C\n7 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "A",
    "solutionSteps": [
-    "Borda points: A 95, B 65, C 92.",
-    "Winner: A."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 12·1 + 12·3 + 11·3 + 7·2 = 95",
+    "B: 12·2 + 12·1 + 11·2 + 7·1 = 65",
+    "C: 12·3 + 12·2 + 11·1 + 7·3 = 92",
+    "Highest total: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7182,7 +7276,8 @@
    "prompt": "Preference schedule:\n12 voters: A > C > B\n11 voters: B > C > A\n10 voters: C > B > A\n12 voters: B > A > C\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 12, B 23, C 10.",
+    "Count only first choices: A: 12 = 12; B: 11 + 12 = 23; C: 10 = 10.",
+    "Plurality needs the most first-place votes, not a majority (23 of 45).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7217,7 +7312,8 @@
    "prompt": "Preference schedule:\n7 voters: A > C > B\n11 voters: A > B > C\n11 voters: B > A > C\n10 voters: B > C > A\nWho wins by plurality?",
    "answer": "B",
    "solutionSteps": [
-    "First‑place votes: A 18, B 21, C 0.",
+    "Count only first choices: A: 7 + 11 = 18; B: 11 + 10 = 21; C: 0 = 0.",
+    "Plurality needs the most first-place votes, not a majority (20 of 39).",
     "Winner: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7252,7 +7348,8 @@
    "prompt": "Preference schedule:\n4 voters: C > B > A\n4 voters: B > A > C\n5 voters: A > C > B\n10 voters: C > A > B\nWho wins by plurality?",
    "answer": "C",
    "solutionSteps": [
-    "First‑place votes: A 5, B 4, C 14.",
+    "Count only first choices: A: 5 = 5; B: 4 = 4; C: 4 + 10 = 14.",
+    "Plurality needs the most first-place votes, not a majority (12 of 23).",
     "Winner: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7287,8 +7384,11 @@
    "prompt": "Preference schedule:\n10 voters: B > C > A\n6 voters: A > B > C\n2 voters: A > C > B\n5 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "B",
    "solutionSteps": [
-    "Borda points: A 44, B 49, C 45.",
-    "Winner: B."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 10·1 + 6·3 + 2·3 + 5·2 = 44",
+    "B: 10·3 + 6·2 + 2·1 + 5·1 = 49",
+    "C: 10·2 + 6·1 + 2·2 + 5·3 = 45",
+    "Highest total: B."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7322,8 +7422,11 @@
    "prompt": "Preference schedule:\n7 voters: B > A > C\n5 voters: C > A > B\n6 voters: A > C > B\n8 voters: A > B > C\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "A",
    "solutionSteps": [
-    "Borda points: A 66, B 48, C 42.",
-    "Winner: A."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 7·2 + 5·2 + 6·3 + 8·3 = 66",
+    "B: 7·3 + 5·1 + 6·1 + 8·2 = 48",
+    "C: 7·1 + 5·3 + 6·2 + 8·1 = 42",
+    "Highest total: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7357,7 +7460,8 @@
    "prompt": "Preference schedule:\n6 voters: A > C > B\n2 voters: C > B > A\n6 voters: A > B > C\n10 voters: B > C > A\nWho wins by plurality?",
    "answer": "A",
    "solutionSteps": [
-    "First‑place votes: A 12, B 10, C 2.",
+    "Count only first choices: A: 6 + 6 = 12; B: 10 = 10; C: 2 = 2.",
+    "Plurality needs the most first-place votes, not a majority (13 of 24).",
     "Winner: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7392,7 +7496,8 @@
    "prompt": "Preference schedule:\n8 voters: B > C > A\n4 voters: C > B > A\n10 voters: C > A > B\n12 voters: A > B > C\nWho wins by plurality?",
    "answer": "C",
    "solutionSteps": [
-    "First‑place votes: A 12, B 8, C 14.",
+    "Count only first choices: A: 12 = 12; B: 8 = 8; C: 4 + 10 = 14.",
+    "Plurality needs the most first-place votes, not a majority (18 of 34).",
     "Winner: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7422,15 +7527,18 @@
   {
    "id": "dm-el-s08-honors-008",
    "skillId": "election-theory-skill-08",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Preference schedule:\n7 voters: B > C > A\n8 voters: A > C > B\n5 voters: B > A > C\n7 voters: C > A > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "C",
    "solutionSteps": [
-    "Borda points: A 55, B 51, C 56.",
-    "Winner: C."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 7·1 + 8·3 + 5·2 + 7·2 = 55",
+    "B: 7·3 + 8·1 + 5·3 + 7·1 = 51",
+    "C: 7·2 + 8·2 + 5·1 + 7·3 = 56",
+    "Highest total: C."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "options": [
     {
      "text": "A",
@@ -7462,7 +7570,8 @@
    "prompt": "Preference schedule:\n4 voters: A > B > C\n9 voters: C > B > A\n7 voters: C > A > B\n9 voters: B > C > A\nWho wins by plurality?",
    "answer": "C",
    "solutionSteps": [
-    "First‑place votes: A 4, B 9, C 16.",
+    "Count only first choices: A: 4 = 4; B: 9 = 9; C: 9 + 7 = 16.",
+    "Plurality needs the most first-place votes, not a majority (15 of 29).",
     "Winner: C."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
@@ -7497,8 +7606,11 @@
    "prompt": "Preference schedule:\n7 voters: C > A > B\n5 voters: B > A > C\n4 voters: B > C > A\n9 voters: A > C > B\nWho wins by Borda count (n points for 1st place, n − 1 for 2nd, ..., 1 for last)?",
    "answer": "A",
    "solutionSteps": [
-    "Borda points: A 55, B 43, C 52.",
-    "Winner: A."
+    "Points: 3 for 1st place, 2 for 2nd, …, 1 for last.",
+    "A: 7·2 + 5·2 + 4·1 + 9·3 = 55",
+    "B: 7·1 + 5·3 + 4·3 + 9·1 = 43",
+    "C: 7·3 + 5·1 + 4·2 + 9·2 = 52",
+    "Highest total: A."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: method_winner). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7875,8 +7987,8 @@
    "prompt": "Borda count with 4 candidates: how many points does a first‑place vote earn?",
    "answer": "4",
    "solutionSteps": [
-    "n points for first.",
-    "Answer: 4"
+    "With 4 candidates, last place earns 1 point and each higher place earns 1 more.",
+    "First place earns 4 points."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7910,8 +8022,8 @@
    "prompt": "Population 2400, 6 seats. Find the standard divisor.",
    "answer": "400",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 400"
+    "Standard divisor = total population ÷ number of seats.",
+    "2400 ÷ 6 = 400 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7945,8 +8057,8 @@
    "prompt": "With 7 candidates, how many head‑to‑head comparisons are there?",
    "answer": "21",
    "solutionSteps": [
-    "C(n, 2).",
-    "Answer: 21"
+    "Each comparison is a pair of different candidates; order does not matter.",
+    "C(7, 2) = 21."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -7962,8 +8074,8 @@
    "prompt": "How many coalitions (nonempty) can 4 players form?",
    "answer": "15",
    "solutionSteps": [
-    "2ⁿ − 1.",
-    "Answer: 15"
+    "Each of the 4 players is in or out: 2^4 = 16 subsets.",
+    "Remove the empty coalition: 16 − 1 = 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -7997,8 +8109,8 @@
    "prompt": "How many votes are a majority of 33 votes?",
    "answer": "17",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 17"
+    "A majority is MORE than half: half of 33 is 33/2.",
+    "The smallest whole number greater than 33/2 is 17."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8014,8 +8126,8 @@
    "prompt": "Borda count with 5 candidates: how many points does a first‑place vote earn?",
    "answer": "5",
    "solutionSteps": [
-    "n points for first.",
-    "Answer: 5"
+    "With 5 candidates, last place earns 1 point and each higher place earns 1 more.",
+    "First place earns 5 points."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8049,8 +8161,8 @@
    "prompt": "What is the smallest valid quota for weights 5, 3, 2, 9?",
    "answer": "10",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 10"
+    "Total weight = 5 + 3 + 2 + 9 = 19.",
+    "The quota must be more than half of 19, i.e. more than 19/2, so the smallest is 10."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8066,8 +8178,8 @@
    "prompt": "Population 4200, 10 seats. Find the standard divisor.",
    "answer": "420",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 420"
+    "Standard divisor = total population ÷ number of seats.",
+    "4200 ÷ 10 = 420 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8101,8 +8213,8 @@
    "prompt": "How many coalitions (nonempty) can 6 players form?",
    "answer": "63",
    "solutionSteps": [
-    "2ⁿ − 1.",
-    "Answer: 63"
+    "Each of the 6 players is in or out: 2^6 = 64 subsets.",
+    "Remove the empty coalition: 64 − 1 = 63."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8136,8 +8248,8 @@
    "prompt": "How many votes are a majority of 51 votes?",
    "answer": "26",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 26"
+    "A majority is MORE than half: half of 51 is 51/2.",
+    "The smallest whole number greater than 51/2 is 26."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8153,8 +8265,8 @@
    "prompt": "Borda count with 6 candidates: how many points does a first‑place vote earn?",
    "answer": "6",
    "solutionSteps": [
-    "n points for first.",
-    "Answer: 6"
+    "With 6 candidates, last place earns 1 point and each higher place earns 1 more.",
+    "First place earns 6 points."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8188,8 +8300,8 @@
    "prompt": "What is the smallest valid quota for weights 7, 3, 2, 15?",
    "answer": "14",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 14"
+    "Total weight = 7 + 3 + 2 + 15 = 27.",
+    "The quota must be more than half of 27, i.e. more than 27/2, so the smallest is 14."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8205,8 +8317,8 @@
    "prompt": "Population 6000, 14 seats. Find the standard divisor.",
    "answer": "3000/7",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 3000/7"
+    "Standard divisor = total population ÷ number of seats.",
+    "6000 ÷ 14 = 3000/7 ≈ 428.57 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8222,8 +8334,8 @@
    "prompt": "How many votes are a majority of 69 votes?",
    "answer": "35",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 35"
+    "A majority is MORE than half: half of 69 is 69/2.",
+    "The smallest whole number greater than 69/2 is 35."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8239,8 +8351,8 @@
    "prompt": "What is the smallest valid quota for weights 5, 3, 2, 21?",
    "answer": "16",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 16"
+    "Total weight = 5 + 3 + 2 + 21 = 31.",
+    "The quota must be more than half of 31, i.e. more than 31/2, so the smallest is 16."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8256,8 +8368,8 @@
    "prompt": "Population 7800, 17 seats. Find the standard divisor.",
    "answer": "7800/17",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 7800/17"
+    "Standard divisor = total population ÷ number of seats.",
+    "7800 ÷ 17 = 7800/17 ≈ 458.82 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8273,8 +8385,8 @@
    "prompt": "How many votes are a majority of 87 votes?",
    "answer": "44",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 44"
+    "A majority is MORE than half: half of 87 is 87/2.",
+    "The smallest whole number greater than 87/2 is 44."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8290,59 +8402,8 @@
    "prompt": "What is the smallest valid quota for weights 7, 3, 2, 27?",
    "answer": "20",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 20"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-cp2-016",
-   "skillId": "election-theory-skill-07",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Population 9600, 21 seats. Find the standard divisor.",
-   "answer": "3200/7",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 3200/7"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-cp2-016",
-   "skillId": "election-theory-skill-01",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 105 votes?",
-   "answer": "53",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 53"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-cp2-016",
-   "skillId": "election-theory-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 5, 3, 2, 33?",
-   "answer": "22",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 22"
+    "Total weight = 7 + 3 + 2 + 27 = 39.",
+    "The quota must be more than half of 39, i.e. more than 39/2, so the smallest is 20."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8358,8 +8419,8 @@
    "prompt": "How many votes are a majority of 25 votes?",
    "answer": "13",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 13"
+    "A majority is MORE than half: half of 25 is 25/2.",
+    "The smallest whole number greater than 25/2 is 13."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8375,8 +8436,8 @@
    "prompt": "What is the smallest valid quota for weights 7, 4, 2, 3?",
    "answer": "9",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 9"
+    "Total weight = 7 + 4 + 2 + 3 = 16.",
+    "The quota must be more than half of 16, i.e. more than 8, so the smallest is 9."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8392,8 +8453,8 @@
    "prompt": "Population 3400, 8 seats. Find the standard divisor.",
    "answer": "425",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 425"
+    "Standard divisor = total population ÷ number of seats.",
+    "3400 ÷ 8 = 425 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8427,8 +8488,8 @@
    "prompt": "How many votes are a majority of 43 votes?",
    "answer": "22",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 22"
+    "A majority is MORE than half: half of 43 is 43/2.",
+    "The smallest whole number greater than 43/2 is 22."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8444,8 +8505,8 @@
    "prompt": "What is the smallest valid quota for weights 5, 4, 2, 9?",
    "answer": "11",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 11"
+    "Total weight = 5 + 4 + 2 + 9 = 20.",
+    "The quota must be more than half of 20, i.e. more than 10, so the smallest is 11."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8461,8 +8522,8 @@
    "prompt": "Population 5200, 12 seats. Find the standard divisor.",
    "answer": "1300/3",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 1300/3"
+    "Standard divisor = total population ÷ number of seats.",
+    "5200 ÷ 12 = 1300/3 ≈ 433.33 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8478,8 +8539,8 @@
    "prompt": "How many votes are a majority of 61 votes?",
    "answer": "31",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 31"
+    "A majority is MORE than half: half of 61 is 61/2.",
+    "The smallest whole number greater than 61/2 is 31."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8495,8 +8556,8 @@
    "prompt": "What is the smallest valid quota for weights 7, 4, 2, 15?",
    "answer": "15",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 15"
+    "Total weight = 7 + 4 + 2 + 15 = 28.",
+    "The quota must be more than half of 28, i.e. more than 14, so the smallest is 15."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8512,8 +8573,8 @@
    "prompt": "Population 7000, 16 seats. Find the standard divisor.",
    "answer": "875/2",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 875/2"
+    "Standard divisor = total population ÷ number of seats.",
+    "7000 ÷ 16 = 875/2 ≈ 437.50 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8529,8 +8590,8 @@
    "prompt": "How many votes are a majority of 79 votes?",
    "answer": "40",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 40"
+    "A majority is MORE than half: half of 79 is 79/2.",
+    "The smallest whole number greater than 79/2 is 40."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8546,8 +8607,8 @@
    "prompt": "Borda count with 7 candidates: how many points does a first‑place vote earn?",
    "answer": "7",
    "solutionSteps": [
-    "n points for first.",
-    "Answer: 7"
+    "With 7 candidates, last place earns 1 point and each higher place earns 1 more.",
+    "First place earns 7 points."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8581,8 +8642,8 @@
    "prompt": "What is the smallest valid quota for weights 5, 4, 2, 21?",
    "answer": "17",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 17"
+    "Total weight = 5 + 4 + 2 + 21 = 32.",
+    "The quota must be more than half of 32, i.e. more than 16, so the smallest is 17."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8598,76 +8659,8 @@
    "prompt": "Population 8800, 19 seats. Find the standard divisor.",
    "answer": "8800/19",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 8800/19"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-cp1-015",
-   "skillId": "election-theory-skill-01",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 97 votes?",
-   "answer": "49",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 49"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-cp1-016",
-   "skillId": "election-theory-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Population 10600, 23 seats. Find the standard divisor.",
-   "answer": "10600/23",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 10600/23"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-honors-011",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 35 votes?",
-   "answer": "18",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 18"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-honors-011",
-   "skillId": "election-theory-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 7, 5, 2, 3?",
-   "answer": "9",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 9"
+    "Standard divisor = total population ÷ number of seats.",
+    "8800 ÷ 19 = 8800/19 ≈ 463.16 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
@@ -8683,8 +8676,8 @@
    "prompt": "Population 4400, 10 seats. Find the standard divisor.",
    "answer": "440",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 440"
+    "Standard divisor = total population ÷ number of seats.",
+    "4400 ÷ 10 = 440 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8711,176 +8704,6 @@
    ]
   },
   {
-   "id": "dm-el-s01-honors-012",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 53 votes?",
-   "answer": "27",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 27"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-honors-012",
-   "skillId": "election-theory-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 5, 5, 2, 9?",
-   "answer": "11",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 11"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-honors-013",
-   "skillId": "election-theory-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Population 6200, 14 seats. Find the standard divisor.",
-   "answer": "3100/7",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 3100/7"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-honors-013",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 71 votes?",
-   "answer": "36",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 36"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-honors-013",
-   "skillId": "election-theory-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 7, 5, 2, 15?",
-   "answer": "15",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 15"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-honors-014",
-   "skillId": "election-theory-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Population 8000, 18 seats. Find the standard divisor.",
-   "answer": "4000/9",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 4000/9"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-honors-014",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 89 votes?",
-   "answer": "45",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 45"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-honors-014",
-   "skillId": "election-theory-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 5, 5, 2, 21?",
-   "answer": "17",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 17"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-honors-015",
-   "skillId": "election-theory-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Population 9800, 21 seats. Find the standard divisor.",
-   "answer": "1400/3",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 1400/3"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-honors-015",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 107 votes?",
-   "answer": "54",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 54"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
    "id": "dm-el-s07-honors-016",
    "skillId": "election-theory-skill-07",
    "level": "honors",
@@ -8888,8 +8711,8 @@
    "prompt": "Population 11600, 25 seats. Find the standard divisor.",
    "answer": "464",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 464"
+    "Standard divisor = total population ÷ number of seats.",
+    "11600 ÷ 25 = 464 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -8916,74 +8739,6 @@
    ]
   },
   {
-   "id": "dm-el-s01-honors-016",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 125 votes?",
-   "answer": "63",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 63"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s04-honors-015",
-   "skillId": "election-theory-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 5, 5, 2, 33?",
-   "answer": "23",
-   "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 23"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s07-honors-017",
-   "skillId": "election-theory-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Population 13400, 28 seats. Find the standard divisor.",
-   "answer": "3350/7",
-   "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 3350/7"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
-   "id": "dm-el-s01-honors-017",
-   "skillId": "election-theory-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "How many votes are a majority of 143 votes?",
-   "answer": "72",
-   "solutionSteps": [
-    "More than half.",
-    "Answer: 72"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "MP.4",
-    "DM.ELECTIONS"
-   ]
-  },
-  {
    "id": "dm-el-s07-honors-018",
    "skillId": "election-theory-skill-07",
    "level": "honors",
@@ -8991,8 +8746,8 @@
    "prompt": "Population 15200, 32 seats. Find the standard divisor.",
    "answer": "475",
    "solutionSteps": [
-    "Population ÷ seats.",
-    "Answer: 475"
+    "Standard divisor = total population ÷ number of seats.",
+    "15200 ÷ 32 = 475 people per seat."
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "options": [
@@ -9019,34 +8774,874 @@
    ]
   },
   {
-   "id": "dm-el-s01-honors-018",
-   "skillId": "election-theory-skill-01",
+   "id": "dm-el-s04-honors-a01",
+   "skillId": "election-theory-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "How many votes are a majority of 161 votes?",
-   "answer": "81",
+   "prompt": "Weights 9, 6, 4, 2 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "13",
    "solutionSteps": [
-    "More than half.",
-    "Answer: 81"
+    "Total weight = 21, so a valid quota is at least 11 and at most 21.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 6 + 4 + 2 = 12 < q.",
+    "So q ≥ 13; combined with q ≥ 11, the smallest valid quota is 13.",
+    "Check: in [13: 9, 6, 4, 2] the others total 12 < 13, and with q = 12 they would reach it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"
    ]
   },
   {
-   "id": "dm-el-s04-honors-016",
+   "id": "dm-el-s04-honors-a02",
    "skillId": "election-theory-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "What is the smallest valid quota for weights 5, 5, 2, 45?",
-   "answer": "29",
+   "prompt": "Weights 10, 7, 5, 3 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "16",
    "solutionSteps": [
-    "More than half of the total.",
-    "Answer: 29"
+    "Total weight = 25, so a valid quota is at least 13 and at most 25.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 7 + 5 + 3 = 15 < q.",
+    "So q ≥ 16; combined with q ≥ 13, the smallest valid quota is 16.",
+    "Check: in [16: 10, 7, 5, 3] the others total 15 < 16, and with q = 15 they would reach it."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s04-honors-a03",
+   "skillId": "election-theory-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Weights 8, 7, 6, 2 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "16",
+   "solutionSteps": [
+    "Total weight = 23, so a valid quota is at least 12 and at most 23.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 7 + 6 + 2 = 15 < q.",
+    "So q ≥ 16; combined with q ≥ 12, the smallest valid quota is 16.",
+    "Check: in [16: 8, 7, 6, 2] the others total 15 < 16, and with q = 15 they would reach it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s04-honors-a04",
+   "skillId": "election-theory-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Weights 12, 5, 4, 4 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "14",
+   "solutionSteps": [
+    "Total weight = 25, so a valid quota is at least 13 and at most 25.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 5 + 4 + 4 = 13 < q.",
+    "So q ≥ 14; combined with q ≥ 13, the smallest valid quota is 14.",
+    "Check: in [14: 12, 5, 4, 4] the others total 13 < 14, and with q = 13 they would reach it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s04-honors-a05",
+   "skillId": "election-theory-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Weights 7, 6, 3, 3 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "13",
+   "solutionSteps": [
+    "Total weight = 19, so a valid quota is at least 10 and at most 19.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 6 + 3 + 3 = 12 < q.",
+    "So q ≥ 13; combined with q ≥ 10, the smallest valid quota is 13.",
+    "Check: in [13: 7, 6, 3, 3] the others total 12 < 13, and with q = 12 they would reach it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s04-honors-a06",
+   "skillId": "election-theory-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Weights 11, 9, 4, 1 (players P1, P2, …). A valid quota is more than half the total weight and at most the total. What is the smallest valid quota for which P1 has veto power?",
+   "answer": "15",
+   "solutionSteps": [
+    "Total weight = 25, so a valid quota is at least 13 and at most 25.",
+    "P1 has veto power exactly when the other players together fall short of the quota: 9 + 4 + 1 = 14 < q.",
+    "So q ≥ 15; combined with q ≥ 13, the smallest valid quota is 15.",
+    "Check: in [15: 11, 9, 4, 1] the others total 14 < 15, and with q = 14 they would reach it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: veto_quota). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s01-honors-a01",
+   "skillId": "election-theory-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "25 voters, 4 candidates: what is the fewest first-place votes a unique plurality winner can have?",
+   "answer": "7",
+   "solutionSteps": [
+    "If the winner has v votes, each of the other 3 candidates has at most v − 1.",
+    "So the total is at most v + 3(v − 1) = 4v − 3, and it must reach 25: 4v − 3 ≥ 25.",
+    "v ≥ (25 + 3)/4 = 7, so v = 7.",
+    "Check: 7 + 6 + 6 + 6 = 25 ≥ 25, and the extra votes can be removed from the others; 6 votes would not be enough."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: min_plurality). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s01-honors-a02",
+   "skillId": "election-theory-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "40 voters, 3 candidates: what is the fewest first-place votes a unique plurality winner can have?",
+   "answer": "14",
+   "solutionSteps": [
+    "If the winner has v votes, each of the other 2 candidates has at most v − 1.",
+    "So the total is at most v + 2(v − 1) = 3v − 2, and it must reach 40: 3v − 2 ≥ 40.",
+    "v ≥ (40 + 2)/3 = 14, so v = 14.",
+    "Check: 14 + 13 + 13 = 40 ≥ 40, and the extra votes can be removed from the others; 13 votes would not be enough."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: min_plurality). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s01-honors-a03",
+   "skillId": "election-theory-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "61 voters, 5 candidates: what is the fewest first-place votes a unique plurality winner can have?",
+   "answer": "13",
+   "solutionSteps": [
+    "If the winner has v votes, each of the other 4 candidates has at most v − 1.",
+    "So the total is at most v + 4(v − 1) = 5v − 4, and it must reach 61: 5v − 4 ≥ 61.",
+    "v ≥ (61 + 4)/5 = 13, so v = 13.",
+    "Check: 13 + 12 + 12 + 12 + 12 = 61 ≥ 61, and the extra votes can be removed from the others; 12 votes would not be enough."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: min_plurality). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s01-honors-a04",
+   "skillId": "election-theory-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "100 voters, 6 candidates: what is the fewest first-place votes a unique plurality winner can have?",
+   "answer": "18",
+   "solutionSteps": [
+    "If the winner has v votes, each of the other 5 candidates has at most v − 1.",
+    "So the total is at most v + 5(v − 1) = 6v − 5, and it must reach 100: 6v − 5 ≥ 100.",
+    "v ≥ (100 + 5)/6 = 35/2, so v = 18.",
+    "Check: 18 + 17 + 17 + 17 + 17 + 17 = 103 ≥ 100, and the extra votes can be removed from the others; 17 votes would not be enough."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: min_plurality). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a01",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power distribution of [13: 8, 6, 4, 2]. Give the indices of P1, P2, P3, P4 in order, as fractions in lowest terms separated by commas.",
+   "answer": "1/2, 3/10, 1/10, 1/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 13): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "In each, a player is critical if the coalition loses without it: {P1, P2} → P1, P2; {P1, P2, P3} → P1, P2; {P1, P2, P4} → P1, P2; {P1, P3, P4} → P1, P3, P4; {P1, P2, P3, P4} → P1.",
+    "Critical counts: P1 5, P2 3, P3 1, P4 1; total 10.",
+    "Indices: 1/2, 3/10, 1/10, 1/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_all). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a02",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power distribution of [11: 7, 5, 3, 2]. Give the indices of P1, P2, P3, P4 in order, as fractions in lowest terms separated by commas.",
+   "answer": "1/2, 3/10, 1/10, 1/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 11): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "In each, a player is critical if the coalition loses without it: {P1, P2} → P1, P2; {P1, P2, P3} → P1, P2; {P1, P2, P4} → P1, P2; {P1, P3, P4} → P1, P3, P4; {P1, P2, P3, P4} → P1.",
+    "Critical counts: P1 5, P2 3, P3 1, P4 1; total 10.",
+    "Indices: 1/2, 3/10, 1/10, 1/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_all). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a03",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power distribution of [15: 9, 7, 5, 1]. Give the indices of P1, P2, P3, P4 in order, as fractions in lowest terms separated by commas.",
+   "answer": "1/2, 3/10, 1/10, 1/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 15): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "In each, a player is critical if the coalition loses without it: {P1, P2} → P1, P2; {P1, P2, P3} → P1, P2; {P1, P2, P4} → P1, P2; {P1, P3, P4} → P1, P3, P4; {P1, P2, P3, P4} → P1.",
+    "Critical counts: P1 5, P2 3, P3 1, P4 1; total 10.",
+    "Indices: 1/2, 3/10, 1/10, 1/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_all). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a04",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power distribution of [10: 6, 5, 3, 3]. Give the indices of P1, P2, P3, P4 in order, as fractions in lowest terms separated by commas.",
+   "answer": "1/3, 1/3, 1/6, 1/6",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 10): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P2, P3, P4}; {P1, P2, P3, P4}.",
+    "In each, a player is critical if the coalition loses without it: {P1, P2} → P1, P2; {P1, P2, P3} → P1, P2; {P1, P2, P4} → P1, P2; {P1, P3, P4} → P1, P3, P4; {P2, P3, P4} → P2, P3, P4; {P1, P2, P3, P4} → none.",
+    "Critical counts: P1 4, P2 4, P3 2, P4 2; total 12.",
+    "Indices: 1/3, 1/3, 1/6, 1/6."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_all). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s02-honors-a01",
+   "skillId": "election-theory-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Preference schedule:\n12 voters: C > D > B > A\n7 voters: A > D > C > B\n9 voters: C > A > D > B\n10 voters: D > A > B > C\n5 voters: B > A > C > D\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
+   "answer": "A",
+   "solutionSteps": [
+    "43 voters, so a majority is 22.",
+    "Round 1: A 7, B 5, C 21, D 10 → no majority; eliminate B and move its ballots to their next choice.",
+    "Round 2: A 12, C 21, D 10 → no majority; eliminate D and move its ballots to their next choice.",
+    "Round 3: A 22, C 21",
+    "A wins with a majority; note that the plurality leader C does not."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: irv_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s02-honors-a02",
+   "skillId": "election-theory-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Preference schedule:\n9 voters: A > D > B > C\n14 voters: D > C > A > B\n12 voters: A > B > C > D\n8 voters: C > A > B > D\n13 voters: D > C > B > A\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
+   "answer": "A",
+   "solutionSteps": [
+    "56 voters, so a majority is 29.",
+    "Round 1: A 21, B 0, C 8, D 27 → no majority; eliminate B and move its ballots to their next choice.",
+    "Round 2: A 21, C 8, D 27 → no majority; eliminate C and move its ballots to their next choice.",
+    "Round 3: A 29, D 27",
+    "A wins with a majority; note that the plurality leader D does not."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: irv_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s02-honors-a03",
+   "skillId": "election-theory-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Preference schedule:\n8 voters: C > B > D > A\n5 voters: C > A > B > D\n13 voters: B > D > C > A\n9 voters: B > C > D > A\n12 voters: D > C > A > B\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
+   "answer": "C",
+   "solutionSteps": [
+    "47 voters, so a majority is 24.",
+    "Round 1: A 0, B 22, C 13, D 12 → no majority; eliminate A and move its ballots to their next choice.",
+    "Round 2: B 22, C 13, D 12 → no majority; eliminate D and move its ballots to their next choice.",
+    "Round 3: B 22, C 25",
+    "C wins with a majority; note that the plurality leader B does not."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: irv_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s02-honors-a04",
+   "skillId": "election-theory-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Preference schedule:\n8 voters: D > A > C > B\n6 voters: A > C > B > D\n5 voters: A > C > D > B\n13 voters: B > C > D > A\n3 voters: B > A > C > D\nWho wins by plurality with elimination (instant runoff)? Answer with the letter.",
+   "answer": "A",
+   "solutionSteps": [
+    "35 voters, so a majority is 18.",
+    "Round 1: A 11, B 16, C 0, D 8 → no majority; eliminate C and move its ballots to their next choice.",
+    "Round 2: A 11, B 16, D 8 → no majority; eliminate D and move its ballots to their next choice.",
+    "Round 3: A 19, B 16",
+    "A wins with a majority; note that the plurality leader B does not."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: irv_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s03-honors-a01",
+   "skillId": "election-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Preference schedule:\n14 voters: C > A > B\n11 voters: A > C > B\n6 voters: B > C > A\n15 voters: B > A > C\nDoes the plurality method violate the Condorcet criterion in this election?",
+   "answer": "Yes: A beats every rival head-to-head but B wins plurality",
+   "solutionSteps": [
+    "Plurality: A 11, B 21, C 14, so B wins.",
+    "Head-to-head: A vs B 25–21; A vs C 26–20; B vs C 21–25.",
+    "A beats every other candidate, so A is the Condorcet winner.",
+    "The criterion is violated only when a Condorcet winner exists and the method picks someone else."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_violation). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "Yes: A beats every rival head-to-head but B wins plurality",
+     "correct": true
+    },
+    {
+     "text": "Yes: A is both the Condorcet and the plurality winner",
+     "correct": false
+    },
+    {
+     "text": "No: plurality always satisfies the Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided without the Borda count",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-el-s03-honors-a02",
+   "skillId": "election-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Preference schedule:\n3 voters: C > D > B > A\n8 voters: A > B > C > D\n12 voters: A > C > D > B\n4 voters: C > A > D > B\nDoes the plurality method violate the Condorcet criterion in this election?",
+   "answer": "No: A is both the Condorcet and the plurality winner",
+   "solutionSteps": [
+    "Plurality: A 20, B 0, C 7, D 0, so A wins.",
+    "Head-to-head: A vs B 24–3; A vs C 20–7; A vs D 24–3; B vs C 8–19; B vs D 8–19; C vs D 27–0.",
+    "A beats every other candidate, so A is the Condorcet winner.",
+    "The criterion is violated only when a Condorcet winner exists and the method picks someone else."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_violation). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "Yes: A beats every rival head-to-head but A wins plurality",
+     "correct": false
+    },
+    {
+     "text": "No: plurality always satisfies the Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "No: A is both the Condorcet and the plurality winner",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided without the Borda count",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-el-s03-honors-a03",
+   "skillId": "election-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Preference schedule:\n12 voters: C > A > B\n13 voters: B > C > A\n5 voters: B > A > C\n11 voters: A > C > B\nDoes the plurality method violate the Condorcet criterion in this election?",
+   "answer": "Yes: C beats every rival head-to-head but B wins plurality",
+   "solutionSteps": [
+    "Plurality: A 11, B 18, C 12, so B wins.",
+    "Head-to-head: A vs B 23–18; A vs C 16–25; B vs C 18–23.",
+    "C beats every other candidate, so C is the Condorcet winner.",
+    "The criterion is violated only when a Condorcet winner exists and the method picks someone else."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_violation). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "Yes: C is both the Condorcet and the plurality winner",
+     "correct": false
+    },
+    {
+     "text": "Yes: C beats every rival head-to-head but B wins plurality",
+     "correct": true
+    },
+    {
+     "text": "No: plurality always satisfies the Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "It cannot be decided without the Borda count",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-el-s03-honors-a04",
+   "skillId": "election-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Preference schedule:\n11 voters: A > B > C > D\n2 voters: D > C > B > A\n6 voters: A > B > D > C\n4 voters: C > D > A > B\nDoes the plurality method violate the Condorcet criterion in this election?",
+   "answer": "No: A is both the Condorcet and the plurality winner",
+   "solutionSteps": [
+    "Plurality: A 17, B 0, C 4, D 2, so A wins.",
+    "Head-to-head: A vs B 21–2; A vs C 17–6; A vs D 17–6; B vs C 17–6; B vs D 17–6; C vs D 15–8.",
+    "A beats every other candidate, so A is the Condorcet winner.",
+    "The criterion is violated only when a Condorcet winner exists and the method picks someone else."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: condorcet_violation). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ],
+   "options": [
+    {
+     "text": "Yes: A beats every rival head-to-head but A wins plurality",
+     "correct": false
+    },
+    {
+     "text": "No: plurality always satisfies the Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "No: A is both the Condorcet and the plurality winner",
+     "correct": true
+    },
+    {
+     "text": "It cannot be decided without the Borda count",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a05",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P2 in [14: 9, 6, 4, 2].",
+   "answer": "3/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 14): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P2 is critical when the coalition loses without it; count those coalitions: 3.",
+    "Critical counts for all players: P1 5, P2 3, P3 1, P4 1 (total 10).",
+    "Index = 3/10 = 3/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a06",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P3 in [12: 8, 5, 4, 2].",
+   "answer": "1/5",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 12): {P1, P2}; {P1, P3}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P3 is critical when the coalition loses without it; count those coalitions: 2.",
+    "Critical counts for all players: P1 6, P2 2, P3 2, P4 0 (total 10).",
+    "Index = 2/10 = 1/5."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a07",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P2 in [16: 10, 7, 4, 3].",
+   "answer": "3/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 16): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P2 is critical when the coalition loses without it; count those coalitions: 3.",
+    "Critical counts for all players: P1 5, P2 3, P3 1, P4 1 (total 10).",
+    "Index = 3/10 = 3/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a08",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P4 in [13: 7, 6, 5, 3].",
+   "answer": "1/6",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 13): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P2, P3, P4}; {P1, P2, P3, P4}.",
+    "P4 is critical when the coalition loses without it; count those coalitions: 2.",
+    "Critical counts for all players: P1 4, P2 4, P3 2, P4 2 (total 12).",
+    "Index = 2/12 = 1/6."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a09",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P3 in [11: 6, 5, 4, 1].",
+   "answer": "1/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 11): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P3 is critical when the coalition loses without it; count those coalitions: 1.",
+    "Critical counts for all players: P1 5, P2 3, P3 1, P4 1 (total 10).",
+    "Index = 1/10 = 1/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a10",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P2 in [17: 10, 8, 5, 2].",
+   "answer": "3/10",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 17): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P2 is critical when the coalition loses without it; count those coalitions: 3.",
+    "Critical counts for all players: P1 5, P2 3, P3 1, P4 1 (total 10).",
+    "Index = 3/10 = 3/10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a11",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P3 in [15: 8, 7, 5, 4].",
+   "answer": "1/6",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 15): {P1, P2}; {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P2, P3, P4}; {P1, P2, P3, P4}.",
+    "P3 is critical when the coalition loses without it; count those coalitions: 2.",
+    "Critical counts for all players: P1 4, P2 4, P3 2, P4 2 (total 12).",
+    "Index = 2/12 = 1/6."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a12",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Banzhaf power index of P4 in [10: 5, 4, 3, 2].",
+   "answer": "1/5",
+   "solutionSteps": [
+    "Winning coalitions (total ≥ 10): {P1, P2, P3}; {P1, P2, P4}; {P1, P3, P4}; {P1, P2, P3, P4}.",
+    "P4 is critical when the coalition loses without it; count those coalitions: 2.",
+    "Critical counts for all players: P1 4, P2 2, P3 2, P4 2 (total 10).",
+    "Index = 2/10 = 1/5."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: banzhaf_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a13",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P2 in [5: 3, 2, 1].",
+   "answer": "1/2",
+   "solutionSteps": [
+    "List all 3! = 6 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 5 or more.",
+    "Pivotal counts: P1 3, P2 3, P3 0.",
+    "Index of P2 = 3/6 = 1/2."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a14",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P3 in [6: 4, 2, 1].",
+   "answer": "0",
+   "solutionSteps": [
+    "List all 3! = 6 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 6 or more.",
+    "Pivotal counts: P1 3, P2 3, P3 0.",
+    "Index of P3 = 0/6 = 0."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a15",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P2 in [7: 4, 3, 2].",
+   "answer": "1/2",
+   "solutionSteps": [
+    "List all 3! = 6 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 7 or more.",
+    "Pivotal counts: P1 3, P2 3, P3 0.",
+    "Index of P2 = 3/6 = 1/2."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a16",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P2 in [9: 5, 3, 2, 1].",
+   "answer": "5/12",
+   "solutionSteps": [
+    "List all 4! = 24 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 9 or more.",
+    "Pivotal counts: P1 10, P2 10, P3 2, P4 2.",
+    "Index of P2 = 10/24 = 5/12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a17",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P3 in [8: 4, 3, 2, 1].",
+   "answer": "1/12",
+   "solutionSteps": [
+    "List all 4! = 24 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 8 or more.",
+    "Pivotal counts: P1 10, P2 10, P3 2, P4 2.",
+    "Index of P3 = 2/24 = 1/12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a18",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P4 in [10: 6, 3, 2, 1].",
+   "answer": "1/12",
+   "solutionSteps": [
+    "List all 4! = 24 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 10 or more.",
+    "Pivotal counts: P1 10, P2 10, P3 2, P4 2.",
+    "Index of P4 = 2/24 = 1/12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a19",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P2 in [11: 5, 4, 3, 1].",
+   "answer": "1/3",
+   "solutionSteps": [
+    "List all 4! = 24 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 11 or more.",
+    "Pivotal counts: P1 8, P2 8, P3 8, P4 0.",
+    "Index of P2 = 8/24 = 1/3."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s05-honors-a20",
+   "skillId": "election-theory-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the Shapley–Shubik power index of P3 in [12: 6, 5, 2, 1].",
+   "answer": "1/12",
+   "solutionSteps": [
+    "List all 4! = 24 orderings of the players.",
+    "In each ordering the pivotal player is the one whose weight first brings the running total to 12 or more.",
+    "Pivotal counts: P1 10, P2 10, P3 2, P4 2.",
+    "Index of P3 = 2/24 = 1/12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: shapley_other). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s07-honors-a01",
+   "skillId": "election-theory-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jefferson's method: populations 1180, 2390, 3120, 1310; 20 seats. Give the apportionment in order.",
+   "answer": "3, 6, 8, 3",
+   "solutionSteps": [
+    "Standard divisor 8000/20 = 400.00; standard quotas 2.95, 5.97, 7.80, 3.27.",
+    "Jefferson rounds every modified quota down; adjust the divisor until the rounded quotas add to 20.",
+    "Equivalently, hand out seats one at a time to the largest priority value p/(a + 1).",
+    "Apportionment: 3, 6, 8, 3 (total 20)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisor_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s07-honors-a02",
+   "skillId": "election-theory-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Webster's method: populations 1180, 2390, 3120, 1310; 20 seats. Give the apportionment in order.",
+   "answer": "3, 6, 8, 3",
+   "solutionSteps": [
+    "Standard divisor 8000/20 = 400.00; standard quotas 2.95, 5.97, 7.80, 3.27.",
+    "Webster rounds every modified quota to the nearest whole number; adjust the divisor until the rounded quotas add to 20.",
+    "Equivalently, hand out seats one at a time to the largest priority value p/(a + 1/2).",
+    "Apportionment: 3, 6, 8, 3 (total 20)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisor_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s07-honors-a03",
+   "skillId": "election-theory-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Adams's method: populations 2450, 960, 1730, 860; 15 seats. Give the apportionment in order.",
+   "answer": "6, 3, 4, 2",
+   "solutionSteps": [
+    "Standard divisor 6000/15 = 400.00; standard quotas 6.12, 2.40, 4.33, 2.15.",
+    "Adams rounds every modified quota up; adjust the divisor until the rounded quotas add to 15.",
+    "Equivalently, hand out seats one at a time to the largest priority value p/a.",
+    "Apportionment: 6, 3, 4, 2 (total 15)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisor_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "MP.4",
+    "DM.ELECTIONS"
+   ]
+  },
+  {
+   "id": "dm-el-s07-honors-a04",
+   "skillId": "election-theory-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Webster's method: populations 2450, 960, 1730, 860; 15 seats. Give the apportionment in order.",
+   "answer": "6, 2, 5, 2",
+   "solutionSteps": [
+    "Standard divisor 6000/15 = 400.00; standard quotas 6.12, 2.40, 4.33, 2.15.",
+    "Webster rounds every modified quota to the nearest whole number; adjust the divisor until the rounded quotas add to 15.",
+    "Equivalently, hand out seats one at a time to the largest priority value p/(a + 1/2).",
+    "Apportionment: 6, 2, 5, 2 (total 15)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: divisor_four). Discrete Math audit 2026-11-18 (tools/discrete-audit-20261118): multi-step Advanced item; answer computed by the script.",
    "standards": [
     "MP.4",
     "DM.ELECTIONS"

@@ -88,11 +88,14 @@ function bankAnswer(answer){
    vectors, matrices, intervals, exact solution lists and rounded "≈" answers) go to exact-grading.js, which also insists on
    simplest form. Equations and expressions in x stay self-checked. */
 function exactKey(answer){return typeof answer==='string'&&G.MKEXACT&&G.MKEXACT.supports(answer)?answer:null;}
+/* Discrete Math audit #3 (2026-11-18): sets, truth columns and rows, lists, statement forms and one-word answers go to
+   discrete-grading.js. */
+function discreteKey(answer){return typeof answer==='string'&&G.MKDISCRETE&&G.MKDISCRETE.supports(answer)?answer:null;}
 function gradeBank(answer,typed){
  var key=bankAnswer(answer);
- if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):{status:'self'};
+ if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):{status:'self'};
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);return k!==null?k:exactKey(answer);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer){var k=bankAnswer(answer);if(k===null)k=exactKey(answer);return k!==null?k:discreteKey(answer);};API.gradeBank=gradeBank;
 })(window);
