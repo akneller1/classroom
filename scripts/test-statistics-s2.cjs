@@ -70,7 +70,7 @@ for (const q of sa) {
 assert(auto / sa.length >= 0.75, 'auto-graded share ' + (auto / sa.length).toFixed(3));
 const practice = fs.readFileSync(path.join(ROOT, 'worksheet-generator/practice/practice.js'), 'utf8'), html = fs.readFileSync(path.join(ROOT, 'worksheet-generator/practice-test.html'), 'utf8');
 assert(/selfCheck:Array\.isArray\(q\.selfCheck\)/.test(practice) && /pt-selfcheck/.test(practice) && /pt-hint/.test(practice), 'practice test shows hints and self-check lists');
-assert(/<script src="practice\/stat-grading\.js\?v=[^"]+"><\/script>\s*<script src="practice\/grading\.js/.test(html), 'stat-grading.js loads before grading.js');
+assert(/<script src="practice\/stat-grading\.js\?v=[^"]+"><\/script>\s*(?:<script src="practice\/grade8-grading\.js\?v=[^"]+"><\/script>\s*)?<script src="practice\/grading\.js/.test(html), 'stat-grading.js loads before grading.js');
 
 // #8 CP items in context, CP2 hints, complexity rising with level
 const BARE = /^(?:[A-Za-zμσΣχ][̂̄]?[₀-₉ₓ_A-Za-z]{0,3}(?:\([^)]*\))?\*? ?(?:=|≤) ?[−\d(.]|X is N\(|Mean \d|Q1 =|Binomial with|One-sample t|Two-sample t|Two-sided|One-sided|Pool |Independent X|Find the (?:mean|median|range|sample standard deviation) of \d|\d+% confidence,|Power |Group 1 mean|Paired differences|Slope |A regression uses n|To halve|By what factor|Var\(|SD\(|E\(|A data set has|\d+ (?:brands|factors|fertilizers|treatments) |\d+ × |Of \d+ \w+, \d+ \w+\.)/;
