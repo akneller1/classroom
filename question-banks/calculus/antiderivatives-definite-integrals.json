@@ -351,36 +351,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Antidifferentiation as the Inverse of Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Antidifferentiation as the Inverse of Differentiation). The function f satisfies f′(x) = 3x² - 6x + 2 and f(2) = -3.",
+   "answer": "(a) x³ - 3x² + 2x + C; (b) f(x) = x³ - 3x² + 2x - 3; (c) 24; f(4) − f(2) = 24; (d) 12",
    "parts": [
     {
-     "prompt": "Find F(x) if F′(x) = 12x² + 2 and F(0) = 9.",
-     "answer": "F(x) = 4x³ + 2x + 9"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "x³ - 3x² + 2x + C"
     },
     {
-     "prompt": "Find F(x) if F′(x) = -6x² + 10x - 4 and F(0) = -10.",
-     "answer": "F(x) = -2x³ + 5x² - 4x - 10"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = x³ - 3x² + 2x - 3"
     },
     {
-     "prompt": "Find F(x) if F′(x) = 3x² - 2x + 6 and F(1) = 9.",
-     "answer": "F(x) = x³ - x² + 6x + 3"
+     "label": "c",
+     "prompt": "Find ∫ from 2 to 4 f′(x) dx and explain what it tells you about f.",
+     "answer": "24; f(4) − f(2) = 24"
     },
     {
-     "prompt": "Find F(x) if F′(x) = 30x⁵ - 6 and F(0) = 5.",
-     "answer": "F(x) = 5x⁶ - 6x + 5"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [2, 4].",
+     "answer": "12"
     }
    ],
-   "answer": "(a) F(x) = 4x³ + 2x + 9; (b) F(x) = -2x³ + 5x² - 4x - 10; (c) F(x) = x³ - x² + 6x + 3; (d) F(x) = 5x⁶ - 6x + 5",
    "solutionSteps": [
-    "(a) F(0) = 0 + C = 9, so C = 9. F(x) = 4x³ + 2x + 9.",
-    "(b) F(0) = 0 + C = -10, so C = -10. F(x) = -2x³ + 5x² - 4x - 10.",
-    "(c) F(1) = 6 + C = 9, so C = 3. F(x) = x³ - x² + 6x + 3.",
-    "(d) F(0) = 0 + C = 5, so C = 5. F(x) = 5x⁶ - 6x + 5."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(2) = -3 gives C = -3.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(4) − f(2) = 24.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(4 − 2))∫ from 2 to 4 f′(x) dx = 12.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s01-cp2-016",
@@ -750,36 +759,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Antidifferentiation as the Inverse of Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Antidifferentiation as the Inverse of Differentiation). The function f satisfies f′(x) = 9x² + 2 and f(1) = 3.",
+   "answer": "(a) 3x³ + 2x + C; (b) f(x) = 3x³ + 2x - 2; (c) 82; f(3) − f(1) = 82; (d) 41",
    "parts": [
     {
-     "prompt": "Find F(x) if F′(x) = 12x² + 1 and F(1) = -6.",
-     "answer": "F(x) = 4x³ + x - 11"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "3x³ + 2x + C"
     },
     {
-     "prompt": "Find F(x) if F′(x) = 35x⁶ - 4 and F(1) = -3.",
-     "answer": "F(x) = 5x⁷ - 4x - 4"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = 3x³ + 2x - 2"
     },
     {
-     "prompt": "Find F(x) if F′(x) = 3x² - 5 and F(0) = 1.",
-     "answer": "F(x) = x³ - 5x + 1"
+     "label": "c",
+     "prompt": "Find ∫ from 1 to 3 f′(x) dx and explain what it tells you about f.",
+     "answer": "82; f(3) − f(1) = 82"
     },
     {
-     "prompt": "Find F(x) if F′(x) = -3x² - 6x + 2 and F(1) = -10.",
-     "answer": "F(x) = -x³ - 3x² + 2x - 8"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [1, 3].",
+     "answer": "41"
     }
    ],
-   "answer": "(a) F(x) = 4x³ + x - 11; (b) F(x) = 5x⁷ - 4x - 4; (c) F(x) = x³ - 5x + 1; (d) F(x) = -x³ - 3x² + 2x - 8",
    "solutionSteps": [
-    "(a) F(1) = 5 + C = -6, so C = -11. F(x) = 4x³ + x - 11.",
-    "(b) F(1) = 1 + C = -3, so C = -4. F(x) = 5x⁷ - 4x - 4.",
-    "(c) F(0) = 0 + C = 1, so C = 1. F(x) = x³ - 5x + 1.",
-    "(d) F(1) = -2 + C = -10, so C = -8. F(x) = -x³ - 3x² + 2x - 8."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(1) = 3 gives C = -2.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(3) − f(1) = 82.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(3 − 1))∫ from 1 to 3 f′(x) dx = 41.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s01-cp1-016",
@@ -1149,36 +1167,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Antidifferentiation as the Inverse of Differentiation): answer each part and show your work.",
+   "prompt": "Free response (Antidifferentiation as the Inverse of Differentiation). The function f satisfies f′(x) = 2e^(2x) - 1 and f(0) = 3.",
+   "answer": "(a) -x + e^(2x) + C; (b) f(x) = -x + e^(2x) + 2; (c) -3 + e⁴; f(2) − f(0) = -3 + e⁴; (d) -3/2 + (1/2)e⁴",
    "parts": [
     {
-     "prompt": "Find F(x) if F′(x) = -9x² + 12x - 2 and F(1) = 4.",
-     "answer": "F(x) = -3x³ + 6x² - 2x + 3"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "-x + e^(2x) + C"
     },
     {
-     "prompt": "Find F(x) if F′(x) = 3x + 5e^x and F(1) = -1.",
-     "answer": "F(x) = (3/2)x² + 5e^x - 5e - 5/2"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = -x + e^(2x) + 2"
     },
     {
-     "prompt": "Find F(x) if F′(x) = -sin(x) + 5cos(x) and F(1) = 0.",
-     "answer": "F(x) = 5sin(x) + cos(x) - 5sin(1) - cos(1)"
+     "label": "c",
+     "prompt": "Find ∫ from 0 to 2 f′(x) dx and explain what it tells you about f.",
+     "answer": "-3 + e⁴; f(2) − f(0) = -3 + e⁴"
     },
     {
-     "prompt": "Find F(x) if F′(x) = -sin(x) + 5cos(x) and F(0) = -8.",
-     "answer": "F(x) = 5sin(x) + cos(x) - 9"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [0, 2].",
+     "answer": "-3/2 + (1/2)e⁴"
     }
    ],
-   "answer": "(a) F(x) = -3x³ + 6x² - 2x + 3; (b) F(x) = (3/2)x² + 5e^x - 5e - 5/2; (c) F(x) = 5sin(x) + cos(x) - 5sin(1) - cos(1); (d) F(x) = 5sin(x) + cos(x) - 9",
    "solutionSteps": [
-    "(a) F(1) = 1 + C = 4, so C = 3. F(x) = -3x³ + 6x² - 2x + 3.",
-    "(b) F(1) = 3/2 + 5e + C = -1, so C = -5e - 5/2. F(x) = (3/2)x² + 5e^x - 5e - 5/2.",
-    "(c) F(1) = cos(1) + 5sin(1) + C = 0, so C = -5sin(1) - cos(1). F(x) = 5sin(x) + cos(x) - 5sin(1) - cos(1).",
-    "(d) F(0) = 1 + C = -8, so C = -9. F(x) = 5sin(x) + cos(x) - 9."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(0) = 3 gives C = 2.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(2) − f(0) = -3 + e⁴.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(2 − 0))∫ from 0 to 2 f′(x) dx = -3/2 + (1/2)e⁴.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_particular_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s01-honors-016",
@@ -1207,8 +1234,8 @@
    "prompt": "Find ∫ (3x² + 6x - 8) dx.",
    "answer": "x³ + 3x² - 8x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "x³ + 3x² - 8x + C."
+    "Integrate term by term: ∫ 3x² dx = x³; ∫ 6x dx = 3x²; ∫ -8 dx = -8x.",
+    "Add the constant of integration: x³ + 3x² - 8x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1241,8 +1268,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "-x³ - 6x + C."
+    "Integrate term by term: ∫ -3x² dx = -x³; ∫ -6 dx = -6x.",
+    "Add the constant of integration: -x³ - 6x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1257,8 +1284,8 @@
    "prompt": "Find ∫ (12x² + 8x - 1) dx.",
    "answer": "4x³ + 4x² - x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "4x³ + 4x² - x + C."
+    "Integrate term by term: ∫ 12x² dx = 4x³; ∫ 8x dx = 4x²; ∫ -1 dx = -x.",
+    "Add the constant of integration: 4x³ + 4x² - x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1291,8 +1318,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule term by term.",
-    "3x⁷ - 5x + C."
+    "Integrate term by term: ∫ 21x⁶ dx = 3x⁷; ∫ -5 dx = -5x.",
+    "Add the constant of integration: 3x⁷ - 5x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1307,8 +1334,8 @@
    "prompt": "Find ∫ (6x² + 2x - 8) dx.",
    "answer": "2x³ + x² - 8x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "2x³ + x² - 8x + C."
+    "Integrate term by term: ∫ 6x² dx = 2x³; ∫ 2x dx = x²; ∫ -8 dx = -8x.",
+    "Add the constant of integration: 2x³ + x² - 8x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1341,8 +1368,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "-2x³ - 6x² + 5x + C."
+    "Integrate term by term: ∫ -6x² dx = -2x³; ∫ -12x dx = -6x²; ∫ 5 dx = 5x.",
+    "Add the constant of integration: -2x³ - 6x² + 5x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1357,8 +1384,8 @@
    "prompt": "Find ∫ (30x⁵ + 4) dx.",
    "answer": "5x⁶ + 4x + C",
    "solutionSteps": [
-    "Power rule term by term.",
-    "5x⁶ + 4x + C."
+    "Integrate term by term: ∫ 30x⁵ dx = 5x⁶; ∫ 4 dx = 4x.",
+    "Add the constant of integration: 5x⁶ + 4x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1391,8 +1418,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "x³ - 4x² + 7x + C."
+    "Integrate term by term: ∫ 3x² dx = x³; ∫ -8x dx = -4x²; ∫ 7 dx = 7x.",
+    "Add the constant of integration: x³ - 4x² + 7x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1407,8 +1434,8 @@
    "prompt": "Find ∫ (4x³ - 5) dx.",
    "answer": "x⁴ - 5x + C",
    "solutionSteps": [
-    "Power rule term by term.",
-    "x⁴ - 5x + C."
+    "Integrate term by term: ∫ 4x³ dx = x⁴; ∫ -5 dx = -5x.",
+    "Add the constant of integration: x⁴ - 5x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1441,8 +1468,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule term by term.",
-    "6x⁷ + 6x + C."
+    "Integrate term by term: ∫ 42x⁶ dx = 6x⁷; ∫ 6 dx = 6x.",
+    "Add the constant of integration: 6x⁷ + 6x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1457,8 +1484,8 @@
    "prompt": "Find ∫ (21x⁶ - 6) dx.",
    "answer": "3x⁷ - 6x + C",
    "solutionSteps": [
-    "Power rule term by term.",
-    "3x⁷ - 6x + C."
+    "Integrate term by term: ∫ 21x⁶ dx = 3x⁷; ∫ -6 dx = -6x.",
+    "Add the constant of integration: 3x⁷ - 6x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1491,8 +1518,8 @@
     }
    ],
    "solutionSteps": [
-    "Power rule term by term.",
-    "4x⁴ + 6x + C."
+    "Integrate term by term: ∫ 16x³ dx = 4x⁴; ∫ 6 dx = 6x.",
+    "Add the constant of integration: 4x⁴ + 6x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1507,8 +1534,8 @@
    "prompt": "Find ∫ (-6x² + 12x - 2) dx.",
    "answer": "-2x³ + 6x² - 2x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "-2x³ + 6x² - 2x + C."
+    "Integrate term by term: ∫ -6x² dx = -2x³; ∫ 12x dx = 6x²; ∫ -2 dx = -2x.",
+    "Add the constant of integration: -2x³ + 6x² - 2x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1524,8 +1551,8 @@
    "answer": "3x⁷ - 5x + C",
    "solutionSteps": [
     "Mistake: Multiplied by x instead of using the power rule.",
-    "Power rule term by term.",
-    "3x⁷ - 5x + C.",
+    "Integrate term by term: ∫ 21x⁶ dx = 3x⁷; ∫ -5 dx = -5x.",
+    "Add the constant of integration: 3x⁷ - 5x + C.",
     "The correct answer is 3x⁷ - 5x + C, not 21x⁷ - 5x + C."
    ],
    "standards": [
@@ -1538,36 +1565,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Antiderivatives of Basic Functions): answer each part and show your work.",
+   "prompt": "Free response (Antiderivatives of Basic Functions). The function f satisfies f′(x) = 6x² - 2x + 1 and f(0) = -2.",
+   "answer": "(a) 2x³ - x² + x + C; (b) f(x) = 2x³ - x² + x - 2; (c) 14; f(2) − f(0) = 14; (d) 7",
    "parts": [
     {
-     "prompt": "Find ∫ (6x² + 8x - 5) dx.",
-     "answer": "2x³ + 4x² - 5x + C"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "2x³ - x² + x + C"
     },
     {
-     "prompt": "Find ∫ (24x⁵ - 6) dx.",
-     "answer": "4x⁶ - 6x + C"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = 2x³ - x² + x - 2"
     },
     {
-     "prompt": "Find ∫ (6x² + 10x + 9) dx.",
-     "answer": "2x³ + 5x² + 9x + C"
+     "label": "c",
+     "prompt": "Find ∫ from 0 to 2 f′(x) dx and explain what it tells you about f.",
+     "answer": "14; f(2) − f(0) = 14"
     },
     {
-     "prompt": "Find ∫ (6x² + 4) dx.",
-     "answer": "2x³ + 4x + C"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [0, 2].",
+     "answer": "7"
     }
    ],
-   "answer": "(a) 2x³ + 4x² - 5x + C; (b) 4x⁶ - 6x + C; (c) 2x³ + 5x² + 9x + C; (d) 2x³ + 4x + C",
    "solutionSteps": [
-    "(a) Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C. 2x³ + 4x² - 5x + C.",
-    "(b) Power rule term by term. 4x⁶ - 6x + C.",
-    "(c) Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C. 2x³ + 5x² + 9x + C.",
-    "(d) Power rule term by term. 2x³ + 4x + C."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(0) = -2 gives C = -2.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(2) − f(0) = 14.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(2 − 0))∫ from 0 to 2 f′(x) dx = 7.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_indef_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s02-cp2-016",
@@ -1578,8 +1614,8 @@
    "answer": "-x³ - x² - 9x + C",
    "solutionSteps": [
     "Mistake: Multiplied by the new exponent instead of dividing by it.",
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "-x³ - x² - 9x + C.",
+    "Integrate term by term: ∫ -3x² dx = -x³; ∫ -2x dx = -x²; ∫ -9 dx = -9x.",
+    "Add the constant of integration: -x³ - x² - 9x + C.",
     "The correct answer is -x³ - x² - 9x + C, not -9x³ - 4x² - 9x + C."
    ],
    "standards": [
@@ -1595,8 +1631,8 @@
    "prompt": "Find ∫ (-3sin(x) + 3cos(x)) dx.",
    "answer": "3sin(x) + 3cos(x) + C",
    "solutionSteps": [
-    "∫ cos x dx = sin x + C, ∫ sin x dx = -cos x + C.",
-    "3sin(x) + 3cos(x) + C."
+    "Integrate term by term: ∫ -3sin(x) dx = 3cos(x); ∫ 3cos(x) dx = 3sin(x).",
+    "Add the constant of integration: 3sin(x) + 3cos(x) + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1629,8 +1665,8 @@
     }
    ],
    "solutionSteps": [
-    "∫ (1 ÷ x) dx = ln|x| + C.",
-    "5x + 2ln|x| + C."
+    "Integrate term by term: ∫ 5 dx = 5x; ∫ 2/x dx = 2ln(x).",
+    "Add the constant of integration: 5x + 2ln|x| + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1645,8 +1681,8 @@
    "prompt": "Find ∫ (6sin(x) + 6cos(x)) dx.",
    "answer": "6sin(x) - 6cos(x) + C",
    "solutionSteps": [
-    "∫ cos x dx = sin x + C, ∫ sin x dx = -cos x + C.",
-    "6sin(x) - 6cos(x) + C."
+    "Integrate term by term: ∫ 6sin(x) dx = -6cos(x); ∫ 6cos(x) dx = 6sin(x).",
+    "Add the constant of integration: 6sin(x) - 6cos(x) + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1679,8 +1715,8 @@
     }
    ],
    "solutionSteps": [
-    "Rewrite √x = x^(1/2) and 1 ÷ x² = x⁻²; use the power rule.",
-    "12x√x - 3/x + C."
+    "Integrate term by term: ∫ 18√x dx = 12x^(3/2); ∫ 3/(x²) dx = -3/x.",
+    "Add the constant of integration: 12x√x - 3/x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1695,8 +1731,8 @@
    "prompt": "Find ∫ (-12x² - 8x - 4) dx.",
    "answer": "-4x³ - 4x² - 4x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "-4x³ - 4x² - 4x + C."
+    "Integrate term by term: ∫ -12x² dx = -4x³; ∫ -8x dx = -4x²; ∫ -4 dx = -4x.",
+    "Add the constant of integration: -4x³ - 4x² - 4x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1729,8 +1765,8 @@
     }
    ],
    "solutionSteps": [
-    "Rewrite √x = x^(1/2) and 1 ÷ x² = x⁻²; use the power rule.",
-    "10x√x - 1/x + C."
+    "Integrate term by term: ∫ 15√x dx = 10x^(3/2); ∫ 1/x² dx = -1/x.",
+    "Add the constant of integration: 10x√x - 1/x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1745,8 +1781,8 @@
    "prompt": "Find ∫ (5/x - 1) dx.",
    "answer": "-x + 5ln|x| + C",
    "solutionSteps": [
-    "∫ (1 ÷ x) dx = ln|x| + C.",
-    "-x + 5ln|x| + C."
+    "Integrate term by term: ∫ -1 dx = -x; ∫ 5/x dx = 5ln(x).",
+    "Add the constant of integration: -x + 5ln|x| + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1779,8 +1815,8 @@
     }
    ],
    "solutionSteps": [
-    "∫ eˣ dx = eˣ + C.",
-    "(5/2)x² + 6e^x + C."
+    "Integrate term by term: ∫ 5x dx = 5x²/2; ∫ 6e^x dx = 6e^x.",
+    "Add the constant of integration: (5/2)x² + 6e^x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1795,8 +1831,8 @@
    "prompt": "Find ∫ (12x² + 12x - 2) dx.",
    "answer": "4x³ + 6x² - 2x + C",
    "solutionSteps": [
-    "Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C.",
-    "4x³ + 6x² - 2x + C."
+    "Integrate term by term: ∫ 12x² dx = 4x³; ∫ 12x dx = 6x²; ∫ -2 dx = -2x.",
+    "Add the constant of integration: 4x³ + 6x² - 2x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1829,8 +1865,8 @@
     }
    ],
    "solutionSteps": [
-    "∫ cos x dx = sin x + C, ∫ sin x dx = -cos x + C.",
-    "sin(x) + cos(x) + C."
+    "Integrate term by term: ∫ -sin(x) dx = cos(x); ∫ cos(x) dx = sin(x).",
+    "Add the constant of integration: sin(x) + cos(x) + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1845,8 +1881,8 @@
    "prompt": "Find ∫ (5x + e^x) dx.",
    "answer": "(5/2)x² + e^x + C",
    "solutionSteps": [
-    "∫ eˣ dx = eˣ + C.",
-    "(5/2)x² + e^x + C."
+    "Integrate term by term: ∫ 5x dx = 5x²/2; ∫ e^x dx = e^x.",
+    "Add the constant of integration: (5/2)x² + e^x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1879,8 +1915,8 @@
     }
    ],
    "solutionSteps": [
-    "∫ (1 ÷ x) dx = ln|x| + C.",
-    "4x + ln|x| + C."
+    "Integrate term by term: ∫ 4 dx = 4x; ∫ 1/x dx = ln(x).",
+    "Add the constant of integration: 4x + ln|x| + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1895,8 +1931,8 @@
    "prompt": "Find ∫ (18√x - 6/x²) dx.",
    "answer": "12x√x + 6/x + C",
    "solutionSteps": [
-    "Rewrite √x = x^(1/2) and 1 ÷ x² = x⁻²; use the power rule.",
-    "12x√x + 6/x + C."
+    "Integrate term by term: ∫ 18√x dx = 12x^(3/2); ∫ -6/(x²) dx = 6/x.",
+    "Add the constant of integration: 12x√x + 6/x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -1912,8 +1948,8 @@
    "answer": "2x + 3ln|x| + C",
    "solutionSteps": [
     "Mistake: Integrated 3/x as 3. ∫ (1/x) dx = ln|x|.",
-    "∫ (1 ÷ x) dx = ln|x| + C.",
-    "2x + 3ln|x| + C.",
+    "Integrate term by term: ∫ 2 dx = 2x; ∫ 3/x dx = 3ln(x).",
+    "Add the constant of integration: 2x + 3ln|x| + C.",
     "The correct answer is 2x + 3ln|x| + C, not 2x + 3 + C."
    ],
    "standards": [
@@ -1926,36 +1962,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Antiderivatives of Basic Functions): answer each part and show your work.",
+   "prompt": "Free response (Antiderivatives of Basic Functions). The function f satisfies f′(x) = 9x² - 1 and f(2) = 0.",
+   "answer": "(a) 3x³ - x + C; (b) f(x) = 3x³ - x - 22; (c) 166; f(4) − f(2) = 166; (d) 83",
    "parts": [
     {
-     "prompt": "Find ∫ (12x² + 8x - 1) dx.",
-     "answer": "4x³ + 4x² - x + C"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "3x³ - x + C"
     },
     {
-     "prompt": "Find ∫ (5x + 3e^x) dx.",
-     "answer": "(5/2)x² + 3e^x + C"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = 3x³ - x - 22"
     },
     {
-     "prompt": "Find ∫ (2/x - 2) dx.",
-     "answer": "-2x + 2ln|x| + C"
+     "label": "c",
+     "prompt": "Find ∫ from 2 to 4 f′(x) dx and explain what it tells you about f.",
+     "answer": "166; f(4) − f(2) = 166"
     },
     {
-     "prompt": "Find ∫ (12√x - 4/x²) dx.",
-     "answer": "8x√x + 4/x + C"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [2, 4].",
+     "answer": "83"
     }
    ],
-   "answer": "(a) 4x³ + 4x² - x + C; (b) (5/2)x² + 3e^x + C; (c) -2x + 2ln|x| + C; (d) 8x√x + 4/x + C",
    "solutionSteps": [
-    "(a) Power rule: ∫ xⁿ dx = xⁿ⁺¹ ÷ (n + 1) + C. 4x³ + 4x² - x + C.",
-    "(b) ∫ eˣ dx = eˣ + C. (5/2)x² + 3e^x + C.",
-    "(c) ∫ (1 ÷ x) dx = ln|x| + C. -2x + 2ln|x| + C.",
-    "(d) Rewrite √x = x^(1/2) and 1 ÷ x² = x⁻²; use the power rule. 8x√x + 4/x + C."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(2) = 0 gives C = -22.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(4) − f(2) = 166.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(4 − 2))∫ from 2 to 4 f′(x) dx = 83.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_indef_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s02-cp1-016",
@@ -1966,8 +2011,8 @@
    "answer": "4x√x + 1/x + C",
    "solutionSteps": [
     "Mistake: Multiplied by 3/2 instead of dividing by 3/2: ∫ 6x^(1/2) dx = 4x^(3/2).",
-    "Rewrite √x = x^(1/2) and 1 ÷ x² = x⁻²; use the power rule.",
-    "4x√x + 1/x + C.",
+    "Integrate term by term: ∫ 6√x dx = 4x^(3/2); ∫ -1/x² dx = 1/x.",
+    "Add the constant of integration: 4x√x + 1/x + C.",
     "The correct answer is 4x√x + 1/x + C, not 9x√x + 1/x + C."
    ],
    "standards": [
@@ -1983,8 +2028,8 @@
    "prompt": "Find ∫ (4e^(4x) + sin(x) + 1/x) dx.",
    "answer": "e^(4x) + ln|x| - cos(x) + C",
    "solutionSteps": [
-    "Integrate term by term.",
-    "e^(4x) + ln|x| - cos(x) + C."
+    "Integrate term by term: ∫ 4e^(4x) dx = e^(4x); ∫ sin(x) dx = -cos(x); ∫ 1/x dx = ln(x).",
+    "Add the constant of integration: e^(4x) + ln|x| - cos(x) + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2017,8 +2062,8 @@
     }
    ],
    "solutionSteps": [
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 4√x + C."
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ 2/(√x) dx = 4√x.",
+    "Add the constant of integration: (1/4)x⁴ + 4√x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2067,8 +2112,8 @@
     }
    ],
    "solutionSteps": [
-    "Integrate term by term.",
-    "e^(4x) + 5ln|x| - cos(x) + C."
+    "Integrate term by term: ∫ 4e^(4x) dx = e^(4x); ∫ sin(x) dx = -cos(x); ∫ 5/x dx = 5ln(x).",
+    "Add the constant of integration: e^(4x) + 5ln|x| - cos(x) + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2117,8 +2162,8 @@
     }
    ],
    "solutionSteps": [
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 10√x + C."
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ 5/(√x) dx = 10√x.",
+    "Add the constant of integration: (1/4)x⁴ + 10√x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2167,8 +2212,8 @@
     }
    ],
    "solutionSteps": [
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 12√x + C."
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ 6/(√x) dx = 12√x.",
+    "Add the constant of integration: (1/4)x⁴ + 12√x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2267,8 +2312,8 @@
     }
    ],
    "solutionSteps": [
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 2√x + C."
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ x^(-1/2) dx = 2√x.",
+    "Add the constant of integration: (1/4)x⁴ + 2√x + C."
    ],
    "standards": [
     "AP FUN-6.C"
@@ -2300,8 +2345,8 @@
    "answer": "(1/4)x⁴ + 12√x + C",
    "solutionSteps": [
     "Mistake: Differentiated instead of integrating.",
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 12√x + C.",
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ 6/(√x) dx = 12√x.",
+    "Add the constant of integration: (1/4)x⁴ + 12√x + C.",
     "The correct answer is (1/4)x⁴ + 12√x + C, not 3x² - 3/(x√x) + C."
    ],
    "standards": [
@@ -2314,36 +2359,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Antiderivatives of Basic Functions): answer each part and show your work.",
+   "prompt": "Free response (Antiderivatives of Basic Functions). The function f satisfies f′(x) = 6x² - 4x + 3 and f(1) = 2.",
+   "answer": "(a) 2x³ - 2x² + 3x + C; (b) f(x) = 2x³ - 2x² + 3x - 1; (c) 42; f(3) − f(1) = 42; (d) 21",
    "parts": [
     {
-     "prompt": "Find ∫ 6e^(2x) dx.",
-     "answer": "3e^(2x) + C"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "2x³ - 2x² + 3x + C"
     },
     {
-     "prompt": "Find ∫ (2e^(2x) + sin(x) + 2/x) dx.",
-     "answer": "e^(2x) + 2ln|x| - cos(x) + C"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = 2x³ - 2x² + 3x - 1"
     },
     {
-     "prompt": "Find ∫ 24e^(4x) dx.",
-     "answer": "6e^(4x) + C"
+     "label": "c",
+     "prompt": "Find ∫ from 1 to 3 f′(x) dx and explain what it tells you about f.",
+     "answer": "42; f(3) − f(1) = 42"
     },
     {
-     "prompt": "Find ∫ (5sec(x)² - 2/x) dx.",
-     "answer": "-2ln|x| + 5sin(x)/cos(x) + C"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [1, 3].",
+     "answer": "21"
     }
    ],
-   "answer": "(a) 3e^(2x) + C; (b) e^(2x) + 2ln|x| - cos(x) + C; (c) 6e^(4x) + C; (d) -2ln|x| + 5sin(x)/cos(x) + C",
    "solutionSteps": [
-    "(a) ∫ e^(kx) dx = (1 ÷ k)e^(kx) + C. 3e^(2x) + C.",
-    "(b) Integrate term by term. e^(2x) + 2ln|x| - cos(x) + C.",
-    "(c) ∫ e^(kx) dx = (1 ÷ k)e^(kx) + C. 6e^(4x) + C.",
-    "(d) ∫ sec² x dx = tan x + C; ∫ (1 ÷ x) dx = ln|x| + C. -2ln|x| + 5sin(x)/cos(x) + C."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(1) = 2 gives C = -1.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(3) − f(1) = 42.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(3 − 1))∫ from 1 to 3 f′(x) dx = 21.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_indef_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s02-honors-016",
@@ -2354,8 +2408,8 @@
    "answer": "(1/4)x⁴ + 4√x + C",
    "solutionSteps": [
     "Mistake: Differentiated instead of integrating.",
-    "1 ÷ √x = x^(-1/2).",
-    "(1/4)x⁴ + 4√x + C.",
+    "Integrate term by term: ∫ x³ dx = x⁴/4; ∫ 2/(√x) dx = 4√x.",
+    "Add the constant of integration: (1/4)x⁴ + 4√x + C.",
     "The correct answer is (1/4)x⁴ + 4√x + C, not 3x² - 1/(x√x) + C."
    ],
    "standards": [
@@ -2732,37 +2786,46 @@
    "skillId": "antiderivatives-definite-integrals-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Definite Integrals as Limits of Riemann Sums): answer each part and show your work.",
+   "prompt": "Free response (Definite Integrals as Limits of Riemann Sums). Let f(x) = 2x + 1 on [1, 5].",
+   "answer": "(a) 32; (b) an overestimate; (c) 28; (d) lim (n → ∞) Σ (k = 1 to n) [2(1 + 4k/n) + 1]·(4/n); 28",
    "parts": [
     {
-     "prompt": "Approximate ∫ from -2 to 0 (2x + 3) dx using a right Riemann sum with 2 equal subintervals.",
-     "answer": "4"
+     "label": "a",
+     "prompt": "Approximate ∫ from 1 to 5 f(x) dx with a right Riemann sum using 4 equal subintervals.",
+     "answer": "32"
     },
     {
-     "prompt": "Approximate ∫ from -1 to 1 (3x + 2) dx using a left Riemann sum with 2 equal subintervals.",
-     "answer": "1"
+     "label": "b",
+     "prompt": "Is the right Riemann sum an overestimate or an underestimate? Justify your answer.",
+     "answer": "an overestimate"
     },
     {
-     "prompt": "Approximate ∫ from 1 to 3 (x + 5) dx using a left Riemann sum with 2 equal subintervals.",
-     "answer": "13"
+     "label": "c",
+     "prompt": "Approximate ∫ from 1 to 5 f(x) dx with a trapezoidal sum using the same 4 subintervals.",
+     "answer": "28"
     },
     {
-     "prompt": "Approximate ∫ from 1 to 9 (x + 6) dx using a left Riemann sum with 4 equal subintervals.",
-     "answer": "80"
+     "label": "d",
+     "prompt": "Write ∫ from 1 to 5 f(x) dx as the limit of a right Riemann sum, and evaluate the integral exactly.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [2(1 + 4k/n) + 1]·(4/n); 28"
     }
    ],
-   "answer": "(a) 4; (b) 1; (c) 13; (d) 80",
    "solutionSteps": [
-    "(a) Sample points: -1, 0. Sum: Δx·[f(-1) + f(0)] = 4.",
-    "(b) Sample points: -1, 0. Sum: Δx·[f(-1) + f(0)] = 1.",
-    "(c) Sample points: 1, 2. Sum: Δx·[f(1) + f(2)] = 13.",
-    "(d) Sample points: 1, 3, 5, 7. Sum: Δx·[f(1) + f(3) + f(5) + f(7)] = 80."
+    "(a) Δx = 1; right endpoints 2, 3, 4, 5; sum = 32.",
+    "(a) Scoring, 2 points: 1 point for Δx and the endpoints, 1 point for the value.",
+    "(b) f is increasing on [1, 5], so each right endpoint is the largest value on its subinterval.",
+    "(b) Scoring, 2 points: 1 point for monotonicity, 1 point for the conclusion.",
+    "(c) (Δx/2)[f(x₀) + 2f(x₁) + … + 2f(x₍ₙ₋₁₎) + f(xₙ)] = 28.",
+    "(c) Scoring, 1 point: the trapezoidal sum.",
+    "(d) Δx = 4/n and xₖ = 1 + 4k/n. By the Fundamental Theorem, the integral is 28.",
+    "(d) Scoring, 2 points: 1 point for the limit of the sum, 1 point for the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-5.A",
     "AP LIM-5.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_riemann_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_riemann). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s03-cp2-016",
@@ -3153,37 +3216,46 @@
    "skillId": "antiderivatives-definite-integrals-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Definite Integrals as Limits of Riemann Sums): answer each part and show your work.",
+   "prompt": "Free response (Definite Integrals as Limits of Riemann Sums). Let f(x) = x³ on [0, 2].",
+   "answer": "(a) 25/4; (b) an overestimate; (c) 17/4; (d) lim (n → ∞) Σ (k = 1 to n) [(2k/n)³]·(2/n); 4",
    "parts": [
     {
-     "prompt": "Approximate ∫ from -1 to 0 (-2x² + x + 5) dx using a left Riemann sum with 2 equal subintervals.",
-     "answer": "3"
+     "label": "a",
+     "prompt": "Approximate ∫ from 0 to 2 f(x) dx with a right Riemann sum using 4 equal subintervals.",
+     "answer": "25/4"
     },
     {
-     "prompt": "Approximate ∫ from 0 to 2 (2x² + 2x) dx using a left Riemann sum with 4 equal subintervals.",
-     "answer": "13/2"
+     "label": "b",
+     "prompt": "Is the right Riemann sum an overestimate or an underestimate? Justify your answer.",
+     "answer": "an overestimate"
     },
     {
-     "prompt": "Approximate ∫ from 2 to 4 (2x² + 4x + 5) dx using a midpoint Riemann sum with 4 equal subintervals.",
-     "answer": "285/4"
+     "label": "c",
+     "prompt": "Approximate ∫ from 0 to 2 f(x) dx with a trapezoidal sum using the same 4 subintervals.",
+     "answer": "17/4"
     },
     {
-     "prompt": "Approximate ∫ from -1 to 3 (2x² + 2x + 5) dx using a right Riemann sum with 4 equal subintervals.",
-     "answer": "60"
+     "label": "d",
+     "prompt": "Write ∫ from 0 to 2 f(x) dx as the limit of a right Riemann sum, and evaluate the integral exactly.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [(2k/n)³]·(2/n); 4"
     }
    ],
-   "answer": "(a) 3; (b) 13/2; (c) 285/4; (d) 60",
    "solutionSteps": [
-    "(a) Sample points: -1, -1/2. Sum: Δx·[f(-1) + f(-1/2)] = 3.",
-    "(b) Sample points: 0, 1/2, 1, 3/2. Sum: Δx·[f(0) + f(1/2) + f(1) + f(3/2)] = 13/2.",
-    "(c) Sample points: 9/4, 11/4, 13/4, 15/4. Sum: Δx·[f(9/4) + f(11/4) + f(13/4) + f(15/4)] = 285/4.",
-    "(d) Sample points: 0, 1, 2, 3. Sum: Δx·[f(0) + f(1) + f(2) + f(3)] = 60."
+    "(a) Δx = 1/2; right endpoints 1/2, 1, 3/2, 2; sum = 25/4.",
+    "(a) Scoring, 2 points: 1 point for Δx and the endpoints, 1 point for the value.",
+    "(b) f is increasing on [0, 2], so each right endpoint is the largest value on its subinterval.",
+    "(b) Scoring, 2 points: 1 point for monotonicity, 1 point for the conclusion.",
+    "(c) (Δx/2)[f(x₀) + 2f(x₁) + … + 2f(x₍ₙ₋₁₎) + f(xₙ)] = 17/4.",
+    "(c) Scoring, 1 point: the trapezoidal sum.",
+    "(d) Δx = 2/n and xₖ = 2k/n. By the Fundamental Theorem, the integral is 4.",
+    "(d) Scoring, 2 points: 1 point for the limit of the sum, 1 point for the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-5.A",
     "AP LIM-5.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_riemann_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_riemann). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s03-cp1-016",
@@ -3574,37 +3646,46 @@
    "skillId": "antiderivatives-definite-integrals-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Definite Integrals as Limits of Riemann Sums): answer each part and show your work.",
+   "prompt": "Free response (Definite Integrals as Limits of Riemann Sums). Let f(x) = √x on [1, 9].",
+   "answer": "(a) 2√3 + 2√5 + 2√7 + 6 ≈ 19.228; (b) an overestimate; (c) 2√3 + 4 + 2√5 + 2√7 ≈ 17.228; (d) lim (n → ∞) Σ (k = 1 to n) [√(1 + 8k/n)]·(8/n); 52/3",
    "parts": [
     {
-     "prompt": "Approximate ∫ from 0 to 3 (2x² - 4x + 5) dx using a midpoint Riemann sum with 6 equal subintervals.",
-     "answer": "119/8"
+     "label": "a",
+     "prompt": "Approximate ∫ from 1 to 9 f(x) dx with a right Riemann sum using 4 equal subintervals.",
+     "answer": "2√3 + 2√5 + 2√7 + 6 ≈ 19.228"
     },
     {
-     "prompt": "Approximate ∫ from -2 to 6 (x² + 3x + 7) dx using a left Riemann sum with 4 equal subintervals.",
-     "answer": "128"
+     "label": "b",
+     "prompt": "Is the right Riemann sum an overestimate or an underestimate? Justify your answer.",
+     "answer": "an overestimate"
     },
     {
-     "prompt": "Approximate ∫ from 0 to 12 (3x² + 2x + 6) dx using a midpoint Riemann sum with 6 equal subintervals.",
-     "answer": "1932"
+     "label": "c",
+     "prompt": "Approximate ∫ from 1 to 9 f(x) dx with a trapezoidal sum using the same 4 subintervals.",
+     "answer": "2√3 + 4 + 2√5 + 2√7 ≈ 17.228"
     },
     {
-     "prompt": "Approximate ∫ from 2 to 9/2 (x² + x + 4) dx using a right Riemann sum with 5 equal subintervals.",
-     "answer": "405/8"
+     "label": "d",
+     "prompt": "Write ∫ from 1 to 9 f(x) dx as the limit of a right Riemann sum, and evaluate the integral exactly.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [√(1 + 8k/n)]·(8/n); 52/3"
     }
    ],
-   "answer": "(a) 119/8; (b) 128; (c) 1932; (d) 405/8",
    "solutionSteps": [
-    "(a) Sample points: 1/4, 3/4, 5/4, 7/4, 9/4, 11/4. Sum: Δx·[f(1/4) + f(3/4) + f(5/4) + f(7/4) + f(9/4) + f(11/4)] = 119/8.",
-    "(b) Sample points: -2, 0, 2, 4. Sum: Δx·[f(-2) + f(0) + f(2) + f(4)] = 128.",
-    "(c) Sample points: 1, 3, 5, 7, 9, 11. Sum: Δx·[f(1) + f(3) + f(5) + f(7) + f(9) + f(11)] = 1932.",
-    "(d) Sample points: 5/2, 3, 7/2, 4, 9/2. Sum: Δx·[f(5/2) + f(3) + f(7/2) + f(4) + f(9/2)] = 405/8."
+    "(a) Δx = 2; right endpoints 3, 5, 7, 9; sum = 2√3 + 2√5 + 2√7 + 6.",
+    "(a) Scoring, 2 points: 1 point for Δx and the endpoints, 1 point for the value.",
+    "(b) f is increasing on [1, 9], so each right endpoint is the largest value on its subinterval.",
+    "(b) Scoring, 2 points: 1 point for monotonicity, 1 point for the conclusion.",
+    "(c) (Δx/2)[f(x₀) + 2f(x₁) + … + 2f(x₍ₙ₋₁₎) + f(xₙ)] = 2√3 + 4 + 2√5 + 2√7.",
+    "(c) Scoring, 1 point: the trapezoidal sum.",
+    "(d) Δx = 8/n and xₖ = 1 + 8k/n. By the Fundamental Theorem, the integral is 52/3.",
+    "(d) Scoring, 2 points: 1 point for the limit of the sum, 1 point for the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-5.A",
     "AP LIM-5.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_riemann_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_riemann). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s03-honors-016",
@@ -4001,40 +4082,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Converting Riemann Sums to Integral Notation): answer each part and show your work.",
-   "answer": "(a) 27/2; (b) 8/3; (c) 16; (d) 8/3",
+   "prompt": "Free response (Converting Riemann Sums to Integral Notation). The limit L = lim (n → ∞) Σ (k = 1 to n) [(3k/n)² + 1]·(3/n) is a right Riemann sum.",
+   "answer": "(a) Δx = 3/n; xₖ = 3k/n; (b) ∫ from 0 to 3 x² + 1 dx; (c) 12; (d) lim (n → ∞) Σ (k = 1 to n) [(2k/n)²]·(2/n)",
    "parts": [
     {
      "label": "a",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) 3(3k/n) · (3/n) by writing it as a definite integral.",
-     "answer": "27/2"
+     "prompt": "Identify Δx and the right endpoint xₖ.",
+     "answer": "Δx = 3/n; xₖ = 3k/n"
     },
     {
      "label": "b",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (2k/n)² · (2/n) by writing it as a definite integral.",
-     "answer": "8/3"
+     "prompt": "Write L as a definite integral.",
+     "answer": "∫ from 0 to 3 x² + 1 dx"
     },
     {
      "label": "c",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) 2(4k/n) · (4/n) by writing it as a definite integral.",
-     "answer": "16"
+     "prompt": "Evaluate L.",
+     "answer": "12"
     },
     {
      "label": "d",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (2k/n)² · (2/n) by writing it as a definite integral.",
-     "answer": "8/3"
+     "prompt": "Write ∫ from 0 to 2 x² dx as the limit of a right Riemann sum.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [(2k/n)²]·(2/n)"
     }
    ],
    "solutionSteps": [
-    "(a) ∫ from 0 to 3 3x dx = 27/2 − 0 = 27/2.",
-    "(b) ∫ from 0 to 2 x² dx = 8/3 − 0 = 8/3.",
-    "(c) ∫ from 0 to 4 2x dx = 16 − 0 = 16.",
-    "(d) ∫ from 0 to 2 x² dx = 8/3 − 0 = 8/3."
+    "(a) The factor 3/n is the width; the expression inside f is the kth right endpoint.",
+    "(a) Scoring, 1 point: Δx and xₖ.",
+    "(b) x₀ = 0, and the width 3 = b − a gives b = 3.",
+    "(b) Scoring, 2 points: 1 point for the integrand, 1 point for the limits.",
+    "(c) Antiderivative and the Fundamental Theorem: 12.",
+    "(c) Scoring, 1 point: the value.",
+    "(d) Δx = 2/n and xₖ = 2k/n.",
+    "(d) Scoring, 2 points: 1 point for Δx, 1 point for f(xₖ) with the limit and sum.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: conv_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_rnotation). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s04-cp2-016",
@@ -4433,40 +4519,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Converting Riemann Sums to Integral Notation): answer each part and show your work.",
-   "answer": "(a) 39; (b) 45; (c) 5/2; (d) 19/3",
+   "prompt": "Free response (Converting Riemann Sums to Integral Notation). The limit L = lim (n → ∞) Σ (k = 1 to n) [(2k/n)²]·(2/n) is a right Riemann sum.",
+   "answer": "(a) Δx = 2/n; xₖ = 2k/n; (b) ∫ from 0 to 2 x² dx; (c) 8/3; (d) lim (n → ∞) Σ (k = 1 to n) [2(1 + 2k/n) + 1]·(2/n)",
    "parts": [
     {
      "label": "a",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (2 + 3k/n)² · (3/n) by writing it as a definite integral.",
-     "answer": "39"
+     "prompt": "Identify Δx and the right endpoint xₖ.",
+     "answer": "Δx = 2/n; xₖ = 2k/n"
     },
     {
      "label": "b",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) ((2 + 3k/n)² + 2) · (3/n) by writing it as a definite integral.",
-     "answer": "45"
+     "prompt": "Write L as a definite integral.",
+     "answer": "∫ from 0 to 2 x² dx"
     },
     {
      "label": "c",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (2 + k/n) · (1/n) by writing it as a definite integral.",
-     "answer": "5/2"
+     "prompt": "Evaluate L.",
+     "answer": "8/3"
     },
     {
      "label": "d",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (2 + k/n)² · (1/n) by writing it as a definite integral.",
-     "answer": "19/3"
+     "prompt": "Write ∫ from 1 to 3 2x + 1 dx as the limit of a right Riemann sum.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [2(1 + 2k/n) + 1]·(2/n)"
     }
    ],
    "solutionSteps": [
-    "(a) ∫ from 2 to 5 x² dx = 125/3 − 8/3 = 39.",
-    "(b) ∫ from 2 to 5 (x² + 2) dx = 155/3 − 20/3 = 45.",
-    "(c) ∫ from 2 to 3 x dx = 9/2 − 2 = 5/2.",
-    "(d) ∫ from 2 to 3 x² dx = 9 − 8/3 = 19/3."
+    "(a) The factor 2/n is the width; the expression inside f is the kth right endpoint.",
+    "(a) Scoring, 1 point: Δx and xₖ.",
+    "(b) x₀ = 0, and the width 2 = b − a gives b = 2.",
+    "(b) Scoring, 2 points: 1 point for the integrand, 1 point for the limits.",
+    "(c) Antiderivative and the Fundamental Theorem: 8/3.",
+    "(c) Scoring, 1 point: the value.",
+    "(d) Δx = 2/n and xₖ = 1 + 2k/n.",
+    "(d) Scoring, 2 points: 1 point for Δx, 1 point for f(xₖ) with the limit and sum.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: conv_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_rnotation). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s04-cp1-016",
@@ -4865,40 +4956,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Converting Riemann Sums to Integral Notation): answer each part and show your work.",
-   "answer": "(a) 38/3; (b) 20; (c) 22/3; (d) 52/3",
+   "prompt": "Free response (Converting Riemann Sums to Integral Notation). The limit L = lim (n → ∞) Σ (k = 1 to n) [√(1 + 3k/n)]·(3/n) is a right Riemann sum.",
+   "answer": "(a) Δx = 3/n; xₖ = 1 + 3k/n; (b) ∫ from 1 to 4 √x dx; (c) 14/3; (d) lim (n → ∞) Σ (k = 1 to n) [1/(1 + 2k/n)]·(2/n)",
    "parts": [
     {
      "label": "a",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) √(4 + 5k/n) · (5/n) by writing it as a definite integral.",
-     "answer": "38/3"
+     "prompt": "Identify Δx and the right endpoint xₖ.",
+     "answer": "Δx = 3/n; xₖ = 1 + 3k/n"
     },
     {
      "label": "b",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) (1 + 2k/n)³ · (2/n) by writing it as a definite integral.",
-     "answer": "20"
+     "prompt": "Write L as a definite integral.",
+     "answer": "∫ from 1 to 4 √x dx"
     },
     {
      "label": "c",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) ((2 + k/n)² + 1) · (1/n) by writing it as a definite integral.",
-     "answer": "22/3"
+     "prompt": "Evaluate L.",
+     "answer": "14/3"
     },
     {
      "label": "d",
-     "prompt": "Evaluate lim (n → ∞) Σ (k = 1 to n) √(1 + 8k/n) · (8/n) by writing it as a definite integral.",
-     "answer": "52/3"
+     "prompt": "Write ∫ from 1 to 3 1/x dx as the limit of a right Riemann sum.",
+     "answer": "lim (n → ∞) Σ (k = 1 to n) [1/(1 + 2k/n)]·(2/n)"
     }
    ],
    "solutionSteps": [
-    "(a) ∫ from 4 to 9 √x dx = 18 − 16/3 = 38/3.",
-    "(b) ∫ from 1 to 3 x³ dx = 81/4 − 1/4 = 20.",
-    "(c) ∫ from 2 to 3 (x² + 1) dx = 12 − 14/3 = 22/3.",
-    "(d) ∫ from 1 to 9 √x dx = 18 − 2/3 = 52/3."
+    "(a) The factor 3/n is the width; the expression inside f is the kth right endpoint.",
+    "(a) Scoring, 1 point: Δx and xₖ.",
+    "(b) x₀ = 1, and the width 3 = b − a gives b = 4.",
+    "(b) Scoring, 2 points: 1 point for the integrand, 1 point for the limits.",
+    "(c) Antiderivative and the Fundamental Theorem: 14/3.",
+    "(c) Scoring, 1 point: the value.",
+    "(d) Δx = 2/n and xₖ = 1 + 2k/n.",
+    "(d) Scoring, 2 points: 1 point for Δx, 1 point for f(xₖ) with the limit and sum.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: conv_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_rnotation). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s04-honors-016",
@@ -4930,8 +5026,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 22; f(2) = 20; f(4) = 24; f(6) = 7.",
    "answer": "117",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (22 + 20)/2 = 42; [2, 4]: 2 × (20 + 24)/2 = 44; [4, 6]: 2 × (24 + 7)/2 = 31.",
     "Sum = 117."
    ],
    "standards": [
@@ -4965,8 +5061,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (0 + 17)/2 = 17; [2, 4]: 2 × (17 + 10)/2 = 27; [4, 6]: 2 × (10 + 23)/2 = 33.",
     "Sum = 77."
    ],
    "standards": [
@@ -4979,17 +5075,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 4; f(2) = 9; f(4) = 24; f(6) = 7.",
-   "answer": "77",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 2 (ln(1 + x²)) dx. Round to three decimal places.",
+   "answer": "1.433",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
-    "Sum = 77."
+    "ln(1 + x²) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand ln(1 + x²) with lower limit 0 and upper limit 2.",
+    "The calculator gives 1.433173, which rounds to 1.433."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp2-004",
@@ -5017,8 +5114,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (4 + 3)/2 = 7; [2, 4]: 2 × (3 + 8)/2 = 11; [4, 6]: 2 × (8 + 27)/2 = 35.",
     "Sum = 53."
    ],
    "standards": [
@@ -5034,8 +5131,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 11; f(2) = 16; f(4) = 2; f(6) = 20.",
    "answer": "67",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (11 + 16)/2 = 27; [2, 4]: 2 × (16 + 2)/2 = 18; [4, 6]: 2 × (2 + 20)/2 = 22.",
     "Sum = 67."
    ],
    "standards": [
@@ -5069,8 +5166,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (8 + 4)/2 = 12; [2, 4]: 2 × (4 + 11)/2 = 15; [4, 6]: 2 × (11 + 18)/2 = 29.",
     "Sum = 56."
    ],
    "standards": [
@@ -5086,8 +5183,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 24; f(2) = 3; f(4) = 13; f(6) = 22.",
    "answer": "78",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (24 + 3)/2 = 27; [2, 4]: 2 × (3 + 13)/2 = 16; [4, 6]: 2 × (13 + 22)/2 = 35.",
     "Sum = 78."
    ],
    "standards": [
@@ -5121,8 +5218,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (9 + 24)/2 = 33; [2, 4]: 2 × (24 + 12)/2 = 36; [4, 6]: 2 × (12 + 6)/2 = 18.",
     "Sum = 87."
    ],
    "standards": [
@@ -5138,8 +5235,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 27; f(2) = 7; f(4) = 16; f(6) = 20.",
    "answer": "93",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (27 + 7)/2 = 34; [2, 4]: 2 × (7 + 16)/2 = 23; [4, 6]: 2 × (16 + 20)/2 = 36.",
     "Sum = 93."
    ],
    "standards": [
@@ -5173,8 +5270,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (0 + 24)/2 = 24; [2, 4]: 2 × (24 + 25)/2 = 49; [4, 6]: 2 × (25 + 6)/2 = 31.",
     "Sum = 104."
    ],
    "standards": [
@@ -5187,17 +5284,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 2; f(2) = 8; f(4) = 8; f(6) = 7.",
-   "answer": "41",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 1 (1/(1 + x⁴)) dx. Round to three decimal places.",
+   "answer": "0.867",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
-    "Sum = 41."
+    "1/(1 + x⁴) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand 1/(1 + x⁴) with lower limit 0 and upper limit 1.",
+    "The calculator gives 0.866973, which rounds to 0.867."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp2-012",
@@ -5225,8 +5323,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (30 + 23)/2 = 53; [2, 4]: 2 × (23 + 10)/2 = 33; [4, 6]: 2 × (10 + 20)/2 = 30.",
     "Sum = 116."
    ],
    "standards": [
@@ -5242,8 +5340,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 27; f(2) = 12; f(4) = 1; f(6) = 19.",
    "answer": "72",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (27 + 12)/2 = 39; [2, 4]: 2 × (12 + 1)/2 = 13; [4, 6]: 2 × (1 + 19)/2 = 20.",
     "Sum = 72."
    ],
    "standards": [
@@ -5260,8 +5358,8 @@
    "answer": "97",
    "solutionSteps": [
     "Mistake: Used a left Riemann sum instead of trapezoids.",
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (26 + 15)/2 = 41; [2, 4]: 2 × (15 + 15)/2 = 30; [4, 6]: 2 × (15 + 11)/2 = 26.",
     "Sum = 97.",
     "The correct answer is 97, not 112."
    ],
@@ -5275,36 +5373,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Approximating Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Approximating Definite Integrals). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 13; R(2) = 13; R(4) = 10; R(6) = 16; R(8) = 9. The tank holds 200 gallons at t = 0.",
+   "answer": "(a) 3/4 gallons per hour per hour; (b) 100 gallons; about 100 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 300 gallons",
    "parts": [
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 10; f(2) = 22; f(4) = 16; f(6) = 19.",
-     "answer": "105"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "3/4 gallons per hour per hour"
     },
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 16; f(2) = 29; f(4) = 23; f(6) = 14.",
-     "answer": "134"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "100 gallons; about 100 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 2; f(2) = 19; f(4) = 14; f(6) = 21.",
-     "answer": "89"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R′(t) = 0? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 11; f(2) = 22; f(4) = 13; f(6) = 24.",
-     "answer": "105"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "300 gallons"
     }
    ],
-   "answer": "(a) 105; (b) 134; (c) 89; (d) 105",
    "solutionSteps": [
-    "(a) Trapezoid area = width × (average of the two heights). Sum = 105.",
-    "(b) Trapezoid area = width × (average of the two heights). Sum = 134.",
-    "(c) Trapezoid area = width × (average of the two heights). Sum = 89.",
-    "(d) Trapezoid area = width × (average of the two heights). Sum = 105."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (16 − 13)/4 = 3/4 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(13 + 13)/2 + 2(13 + 10)/2 + 2(10 + 16)/2 + 2(16 + 9)/2 = 100. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable and R(0) = R(2) = 13, so by the Mean Value Theorem (Rolle) some c has R′(c) = 0.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 200 + 100 = 300 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp2-016",
@@ -5315,8 +5422,8 @@
    "answer": "91",
    "solutionSteps": [
     "Mistake: Forgot the widths.",
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (5 + 18)/2 = 23; [2, 4]: 2 × (18 + 23)/2 = 41; [4, 6]: 2 × (23 + 4)/2 = 27.",
     "Sum = 91.",
     "The correct answer is 91, not 91/2."
    ],
@@ -5333,8 +5440,8 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 0; f(2) = 27; f(3) = 9; f(6) = 16; f(8) = 1.",
    "answer": "86",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 0 = 0; [2, 3]: 1 × 27 = 27; [3, 6]: 3 × 9 = 27; [6, 8]: 2 × 16 = 32.",
     "Sum = 86."
    ],
    "standards": [
@@ -5368,8 +5475,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (2 + 26)/2 = 42; [3, 6]: 3 × (26 + 28)/2 = 81; [6, 7]: 1 × (28 + 17)/2 = 45/2; [7, 8]: 1 × (17 + 27)/2 = 22.",
     "Sum = 335/2."
    ],
    "standards": [
@@ -5382,17 +5489,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 7 f(x) dx. f(0) = 0; f(2) = 12; f(3) = 24; f(6) = 26; f(7) = 24.",
-   "answer": "150",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 2 (√(1 + x³)) dx. Round to three decimal places.",
+   "answer": "3.241",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
-    "Sum = 150."
+    "√(1 + x³) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand √(1 + x³) with lower limit 0 and upper limit 2.",
+    "The calculator gives 3.241309, which rounds to 3.241."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp1-004",
@@ -5420,8 +5528,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 5 = 10; [2, 5]: 3 × 4 = 12; [5, 6]: 1 × 19 = 19; [6, 7]: 1 × 12 = 12.",
     "Sum = 53."
    ],
    "standards": [
@@ -5437,8 +5545,8 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 3; f(2) = 3; f(4) = 2; f(5) = 15; f(6) = 28.",
    "answer": "53",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 3 = 6; [2, 4]: 2 × 2 = 4; [4, 5]: 1 × 15 = 15; [5, 6]: 1 × 28 = 28.",
     "Sum = 53."
    ],
    "standards": [
@@ -5472,8 +5580,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 1 = 2; [2, 4]: 2 × 16 = 32; [4, 7]: 3 × 15 = 45; [7, 8]: 1 × 3 = 3.",
     "Sum = 82."
    ],
    "standards": [
@@ -5489,8 +5597,8 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 2; f(3) = 30; f(4) = 22; f(7) = 13; f(9) = 17.",
    "answer": "185",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 3]: 3 × 30 = 90; [3, 4]: 1 × 22 = 22; [4, 7]: 3 × 13 = 39; [7, 9]: 2 × 17 = 34.",
     "Sum = 185."
    ],
    "standards": [
@@ -5524,8 +5632,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 7 = 14; [2, 3]: 1 × 25 = 25; [3, 5]: 2 × 12 = 24; [5, 7]: 2 × 16 = 32.",
     "Sum = 95."
    ],
    "standards": [
@@ -5541,8 +5649,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(3) = 7; f(5) = 10; f(6) = 14; f(8) = 9.",
    "answer": "70",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (5 + 7)/2 = 18; [3, 5]: 2 × (7 + 10)/2 = 17; [5, 6]: 1 × (10 + 14)/2 = 12; [6, 8]: 2 × (14 + 9)/2 = 23.",
     "Sum = 70."
    ],
    "standards": [
@@ -5576,8 +5684,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (21 + 19)/2 = 60; [3, 6]: 3 × (19 + 20)/2 = 117/2; [6, 7]: 1 × (20 + 4)/2 = 12; [7, 9]: 2 × (4 + 13)/2 = 17.",
     "Sum = 295/2."
    ],
    "standards": [
@@ -5590,17 +5698,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 10 f(x) dx. f(0) = 11; f(2) = 12; f(5) = 15; f(7) = 3; f(10) = 22.",
-   "answer": "119",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 4 (cos(√x)) dx. Round to three decimal places.",
+   "answer": "0.805",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
-    "Sum = 119."
+    "cos(√x) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand cos(√x) with lower limit 0 and upper limit 4.",
+    "The calculator gives 0.804896, which rounds to 0.805."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp1-012",
@@ -5628,8 +5737,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 3]: 3 × 23 = 69; [3, 4]: 1 × 17 = 17; [4, 5]: 1 × 16 = 16; [5, 6]: 1 × 5 = 5.",
     "Sum = 107."
    ],
    "standards": [
@@ -5645,8 +5754,8 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 3; f(3) = 14; f(4) = 17; f(5) = 11; f(8) = 15.",
    "answer": "115",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 3]: 3 × 14 = 42; [3, 4]: 1 × 17 = 17; [4, 5]: 1 × 11 = 11; [5, 8]: 3 × 15 = 45.",
     "Sum = 115."
    ],
    "standards": [
@@ -5663,8 +5772,8 @@
    "answer": "117",
    "solutionSteps": [
     "Mistake: Used left endpoints instead of right endpoints.",
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 3]: 3 × 11 = 33; [3, 4]: 1 × 3 = 3; [4, 7]: 3 × 17 = 51; [7, 10]: 3 × 10 = 30.",
     "Sum = 117.",
     "The correct answer is 117, not 71."
    ],
@@ -5678,36 +5787,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Approximating Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Approximating Definite Integrals). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 18; R(2) = 13; R(5) = 12; R(7) = 11; R(10) = 9. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -2/5 gallons per hour per hour; (b) 243/2 gallons; about 243/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 1243/2 gallons",
    "parts": [
     {
-     "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 4; f(3) = 7; f(4) = 11; f(7) = 19; f(9) = 20.",
-     "answer": "129"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-2/5 gallons per hour per hour"
     },
     {
-     "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 14; f(3) = 6; f(5) = 20; f(8) = 30; f(9) = 5.",
-     "answer": "153"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "243/2 gallons; about 243/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 19; f(3) = 1; f(4) = 13; f(5) = 27; f(8) = 22.",
-     "answer": "109"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 31/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 7 f(x) dx. f(0) = 22; f(3) = 24; f(5) = 2; f(6) = 9; f(7) = 15.",
-     "answer": "225/2"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "1243/2 gallons"
     }
    ],
-   "answer": "(a) 129; (b) 153; (c) 109; (d) 225/2",
    "solutionSteps": [
-    "(a) Height = right endpoint value. Sum = 129.",
-    "(b) Height = right endpoint value. Sum = 153.",
-    "(c) Height = right endpoint value. Sum = 109.",
-    "(d) Trapezoid area = width × (average of the two heights). Sum = 225/2."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (11 − 13)/5 = -2/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(18 + 13)/2 + 3(13 + 12)/2 + 2(12 + 11)/2 + 3(11 + 9)/2 = 243/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 31/2 is between R(0) = 18 and R(2) = 13, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 243/2 = 1243/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-cp1-016",
@@ -5718,8 +5836,8 @@
    "answer": "251/2",
    "solutionSteps": [
     "Mistake: Used a left Riemann sum instead of trapezoids.",
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (17 + 30)/2 = 141/2; [3, 4]: 1 × (30 + 19)/2 = 49/2; [4, 5]: 1 × (19 + 20)/2 = 39/2; [5, 6]: 1 × (20 + 2)/2 = 11.",
     "Sum = 251/2.",
     "The correct answer is 251/2, not 120."
    ],
@@ -5736,8 +5854,8 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 7 f(x) dx. f(0) = 13; f(2) = 7; f(3) = 27; f(5) = 4; f(7) = 3.",
    "answer": "95",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 13 = 26; [2, 3]: 1 × 7 = 7; [3, 5]: 2 × 27 = 54; [5, 7]: 2 × 4 = 8.",
     "Sum = 95."
    ],
    "standards": [
@@ -5771,8 +5889,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (2 + 7)/2 = 9; [2, 3]: 1 × (7 + 24)/2 = 31/2; [3, 5]: 2 × (24 + 15)/2 = 39; [5, 8]: 3 × (15 + 17)/2 = 48.",
     "Sum = 223/2."
    ],
    "standards": [
@@ -5785,17 +5903,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 30; f(2) = 4; f(5) = 20; f(7) = 6; f(9) = 29.",
-   "answer": "124",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 1 (sin(x²)) dx. Round to three decimal places.",
+   "answer": "0.310",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
-    "Sum = 124."
+    "sin(x²) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand sin(x²) with lower limit 0 and upper limit 1.",
+    "The calculator gives 0.310268, which rounds to 0.310."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-honors-004",
@@ -5823,8 +5942,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 3]: 3 × 16 = 48; [3, 5]: 2 × 2 = 4; [5, 8]: 3 × 18 = 54; [8, 11]: 3 × 23 = 69.",
     "Sum = 175."
    ],
    "standards": [
@@ -5840,8 +5959,8 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 23; f(3) = 28; f(6) = 24; f(8) = 22.",
    "answer": "190",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = right endpoint value.",
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 23 = 46; [2, 3]: 1 × 28 = 28; [3, 6]: 3 × 24 = 72; [6, 8]: 2 × 22 = 44.",
     "Sum = 190."
    ],
    "standards": [
@@ -5875,8 +5994,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 3]: 3 × 20 = 60; [3, 6]: 3 × 5 = 15; [6, 7]: 1 × 27 = 27; [7, 9]: 2 × 28 = 56.",
     "Sum = 158."
    ],
    "standards": [
@@ -5892,8 +6011,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 10; f(2) = 1; f(4) = 20; f(7) = 21; f(9) = 25.",
    "answer": "279/2",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (10 + 1)/2 = 11; [2, 4]: 2 × (1 + 20)/2 = 21; [4, 7]: 3 × (20 + 21)/2 = 123/2; [7, 9]: 2 × (21 + 25)/2 = 46.",
     "Sum = 279/2."
    ],
    "standards": [
@@ -5927,8 +6046,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Height = left endpoint value.",
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 3]: 3 × 9 = 27; [3, 4]: 1 × 14 = 14; [4, 5]: 1 × 22 = 22; [5, 6]: 1 × 14 = 14.",
     "Sum = 77."
    ],
    "standards": [
@@ -5944,8 +6063,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 5 f(x) dx. f(0) = 30; f(1) = 11; f(2) = 2; f(4) = 15; f(5) = 10.",
    "answer": "113/2",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 1]: 1 × (30 + 11)/2 = 41/2; [1, 2]: 1 × (11 + 2)/2 = 13/2; [2, 4]: 2 × (2 + 15)/2 = 17; [4, 5]: 1 × (15 + 10)/2 = 25/2.",
     "Sum = 113/2."
    ],
    "standards": [
@@ -5979,8 +6098,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (10 + 23)/2 = 99/2; [3, 4]: 1 × (23 + 26)/2 = 49/2; [4, 5]: 1 × (26 + 25)/2 = 51/2; [5, 8]: 3 × (25 + 29)/2 = 81.",
     "Sum = 361/2."
    ],
    "standards": [
@@ -5993,17 +6112,18 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 7 f(x) dx. f(0) = 5; f(1) = 27; f(2) = 21; f(5) = 16; f(7) = 21.",
-   "answer": "265/2",
+   "prompt": "Calculator active. Use a calculator to evaluate ∫ from 0 to 2 (√(4 - x²)·cos(x)) dx. Round to three decimal places.",
+   "answer": "1.812",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
-    "Sum = 265/2."
+    "√(4 - x²)·cos(x) has no elementary antiderivative, so use the calculator’s numerical integration (fnInt or ∫ from the math menu).",
+    "Enter the integrand √(4 - x²)·cos(x) with lower limit 0 and upper limit 2.",
+    "The calculator gives 1.811834, which rounds to 1.812."
    ],
    "standards": [
-    "AP LIM-5.A"
+    "AP LIM-5.A",
+    "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: calc_numeric). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-honors-012",
@@ -6031,8 +6151,8 @@
     }
    ],
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (15 + 16)/2 = 93/2; [3, 6]: 3 × (16 + 29)/2 = 135/2; [6, 9]: 3 × (29 + 26)/2 = 165/2; [9, 10]: 1 × (26 + 28)/2 = 27.",
     "Sum = 447/2."
    ],
    "standards": [
@@ -6048,8 +6168,8 @@
    "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 12 f(x) dx. f(0) = 28; f(3) = 23; f(6) = 24; f(9) = 7; f(12) = 27.",
    "answer": "489/2",
    "solutionSteps": [
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (28 + 23)/2 = 153/2; [3, 6]: 3 × (23 + 24)/2 = 141/2; [6, 9]: 3 × (24 + 7)/2 = 93/2; [9, 12]: 3 × (7 + 27)/2 = 51.",
     "Sum = 489/2."
    ],
    "standards": [
@@ -6066,8 +6186,8 @@
    "answer": "111/2",
    "solutionSteps": [
     "Mistake: Used a left Riemann sum instead of trapezoids.",
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (8 + 4)/2 = 12; [2, 3]: 1 × (4 + 9)/2 = 13/2; [3, 6]: 3 × (9 + 1)/2 = 15; [6, 8]: 2 × (1 + 21)/2 = 22.",
     "Sum = 111/2.",
     "The correct answer is 111/2, not 49."
    ],
@@ -6081,36 +6201,45 @@
    "skillId": "antiderivatives-definite-integrals-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Approximating Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Approximating Definite Integrals). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 8; R(2) = 16; R(5) = 9; R(7) = 11; R(10) = 13. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -1 gallons per hour per hour; (b) 235/2 gallons; about 235/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 1235/2 gallons",
    "parts": [
     {
-     "prompt": "Use the trapezoidal rule with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(3) = 30; f(5) = 28; f(7) = 21; f(8) = 9.",
-     "answer": "349/2"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-1 gallons per hour per hour"
     },
     {
-     "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 27; f(4) = 24; f(7) = 11; f(8) = 19.",
-     "answer": "154"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "235/2 gallons; about 235/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 9 f(x) dx. f(0) = 22; f(2) = 21; f(5) = 8; f(7) = 24; f(9) = 15.",
-     "answer": "171"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 12? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 19; f(2) = 2; f(3) = 27; f(6) = 12; f(8) = 17.",
-     "answer": "101"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "1235/2 gallons"
     }
    ],
-   "answer": "(a) 349/2; (b) 154; (c) 171; (d) 101",
    "solutionSteps": [
-    "(a) Trapezoid area = width × (average of the two heights). Sum = 349/2.",
-    "(b) Height = right endpoint value. Sum = 154.",
-    "(c) Height = left endpoint value. Sum = 171.",
-    "(d) Height = right endpoint value. Sum = 101."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (11 − 16)/5 = -1 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(8 + 16)/2 + 3(16 + 9)/2 + 2(9 + 11)/2 + 3(11 + 13)/2 = 235/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 12 is between R(0) = 8 and R(2) = 16, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 235/2 = 1235/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_trap_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s05-honors-016",
@@ -6121,8 +6250,8 @@
    "answer": "319/2",
    "solutionSteps": [
     "Mistake: Assumed equal widths.",
-    "Use each subinterval's own width.",
-    "Trapezoid area = width × (average of the two heights).",
+    "Each trapezoid: width × average of the two heights.",
+    "[0, 3]: 3 × (11 + 11)/2 = 33; [3, 6]: 3 × (11 + 21)/2 = 48; [6, 7]: 1 × (21 + 26)/2 = 47/2; [7, 9]: 2 × (26 + 29)/2 = 55.",
     "Sum = 319/2.",
     "The correct answer is 319/2, not 294."
    ],
@@ -6173,8 +6302,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-2, 0]: crosses at x = -1, triangles 1 and -1; [0, 2]: crosses at x = 1, triangles -1 and 1; [2, 4]: width 2, heights 2 and 3, signed area 5.",
     "Total = 5."
    ],
    "diagram": {
@@ -6231,8 +6360,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from 0 to 4 f(x) dx.",
    "answer": "-5",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[0, 2]: crosses at x = 1, triangles 3/2 and -3/2; [2, 4]: width 2, heights -3 and -2, signed area -5.",
     "Total = -5."
    ],
    "diagram": {
@@ -6289,8 +6418,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-2, 0]: crosses at x = -1/2, triangles 9/4 and -1/4; [0, 2]: crosses at x = 2/3, triangles -1/3 and 4/3; [2, 4]: width 2, heights 2 and 1, signed area 3.",
     "Total = 6."
    ],
    "diagram": {
@@ -6347,8 +6476,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to -2 f(x) dx.",
    "answer": "1",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -10/3, triangles -1/3 and 4/3.",
     "Total = 1."
    ],
    "diagram": {
@@ -6405,8 +6534,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[2, 4]: crosses at x = 7/2, triangles 9/4 and -1/4.",
     "Total = 2."
    ],
    "diagram": {
@@ -6463,8 +6592,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from 0 to 4 f(x) dx.",
    "answer": "-5",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[0, 2]: width 2, heights 0 and -3, signed area -3; [2, 4]: crosses at x = 7/2, triangles -9/4 and 1/4.",
     "Total = -5."
    ],
    "diagram": {
@@ -6518,36 +6647,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Integrals Using Geometry): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Integrals Using Geometry). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 1 to x f(t) dt.",
+   "answer": "(a) g(6) = 2; g(-2) = 2; (b) (-2, -1) ∪ (3, 6); (c) x = -1; (d) none",
    "parts": [
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -5 to 1 (|x + 1|) dx.",
-     "answer": "10"
+     "label": "a",
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = 2; g(-2) = 2"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from 0 to 3 (|x - 2|) dx.",
-     "answer": "5/2"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(-2, -1) ∪ (3, 6)"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -2 to 3 (|x - 2|) dx.",
-     "answer": "17/2"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = -1"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -2 to 5 (|x - 2|) dx.",
-     "answer": "25/2"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "none"
     }
    ],
-   "answer": "(a) 10; (b) 5/2; (c) 17/2; (d) 25/2",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s06-cp2-015.png",
+     "alt": "Graph of f made of line segments through (-2, 2), (0, -2), (2, -2), (4, 2), (6, 2)."
+    }
+   },
    "solutionSteps": [
-    "(a) The graph is a V; the region is two triangles. (1/2)(4)² + (1/2)(2)² = 10.",
-    "(b) The graph is a V; the region is two triangles. (1/2)(2)² + (1/2)(1)² = 5/2.",
-    "(c) The graph is a V; the region is two triangles. (1/2)(4)² + (1/2)(1)² = 17/2.",
-    "(d) The graph is a V; the region is two triangles. (1/2)(4)² + (1/2)(3)² = 25/2."
+    "(a) g(6) = signed area from 1 to 6 = 2; g(-2) = −(signed area from -2 to 1) = 2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-2, -1) ∪ (3, 6).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = -1.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: .",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_geometry_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s06-cp2-016",
@@ -6609,8 +6754,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: width 2, heights -2 and -1, signed area -3; [-2, 0]: width 2, heights -1 and -3, signed area -4; [0, 2]: crosses at x = 6/5, triangles -9/5 and 4/5.",
     "Total = -8."
    ],
    "diagram": {
@@ -6667,8 +6812,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to 0 f(x) dx.",
    "answer": "2",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -14/5, triangles 9/5 and -4/5; [-2, 0]: crosses at x = -6/5, triangles -4/5 and 9/5.",
     "Total = 2."
    ],
    "diagram": {
@@ -6725,8 +6870,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -8/3, triangles 4/3 and -1/3; [-2, 0]: width 2, heights -1 and -2, signed area -3; [0, 2]: crosses at x = 4/3, triangles -4/3 and 1/3; [2, 4]: crosses at x = 5/2, triangles 1/4 and -9/4.",
     "Total = -5."
    ],
    "diagram": {
@@ -6783,8 +6928,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to 2 f(x) dx.",
    "answer": "3",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -14/5, triangles 9/5 and -4/5; [-2, 0]: crosses at x = -6/5, triangles -4/5 and 9/5; [0, 2]: crosses at x = 6/5, triangles 9/5 and -4/5.",
     "Total = 3."
    ],
    "diagram": {
@@ -6841,8 +6986,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: width 2, heights -1 and -1, signed area -2; [-2, 0]: width 2, heights -1 and 0, signed area -1; [0, 2]: width 2, heights 0 and 0, signed area 0; [2, 4]: width 2, heights 0 and 3, signed area 3.",
     "Total = 0."
    ],
    "diagram": {
@@ -6899,8 +7044,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to 0 f(x) dx.",
    "answer": "4",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -3, triangles -3/2 and 3/2; [-2, 0]: width 2, heights 3 and 1, signed area 4.",
     "Total = 4."
    ],
    "diagram": {
@@ -6954,36 +7099,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Integrals Using Geometry): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Integrals Using Geometry). The function f is defined on [-3, 5] and its graph, made of line segments, is shown. Let g(x) = ∫ from -1 to x f(t) dt.",
+   "answer": "(a) g(5) = -4; g(-3) = -2; (b) (-3, 0) ∪ (4, 5); (c) x = 0; (d) x = -1",
    "parts": [
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from 0 to 4 (x - 3) dx.",
-     "answer": "-4"
+     "label": "a",
+     "prompt": "Find g(5) and g(-3).",
+     "answer": "g(5) = -4; g(-3) = -2"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from 0 to 5 (-x + 6) dx.",
-     "answer": "35/2"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-3, 5) is g increasing? Justify your answer.",
+     "answer": "(-3, 0) ∪ (4, 5)"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -6 to -2 (|x + 3|) dx.",
-     "answer": "5"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-3, 5) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 0"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -2 to 2 (-3x + 3) dx.",
-     "answer": "12"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-3, 5). Explain your reasoning.",
+     "answer": "x = -1"
     }
    ],
-   "answer": "(a) -4; (b) 35/2; (c) 5; (d) 12",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s06-cp1-015.png",
+     "alt": "Graph of f made of line segments through (-3, 0), (-1, 2), (1, -2), (3, -2), (5, 2)."
+    }
+   },
    "solutionSteps": [
-    "(a) The region is made of trapezoids or triangles; area below the axis counts as negative. = -4.",
-    "(b) The region is made of trapezoids or triangles; area below the axis counts as negative. = 35/2.",
-    "(c) The graph is a V; the region is two triangles. (1/2)(3)² + (1/2)(1)² = 5.",
-    "(d) The region is made of trapezoids or triangles; area below the axis counts as negative. = 12."
+    "(a) g(5) = signed area from -1 to 5 = -4; g(-3) = −(signed area from -3 to -1) = -2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-3, 0) ∪ (4, 5).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 0.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = -1.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_geometry_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s06-cp1-016",
@@ -7046,8 +7207,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-2, 0]: width 2, heights 2 and 1, signed area 3; [0, 2]: crosses at x = 1, triangles 1/2 and -1/2; [2, 4]: crosses at x = 8/3, triangles -1/3 and 4/3.",
     "Total = 4."
    ],
    "diagram": {
@@ -7105,8 +7266,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to 2 f(x) dx.",
    "answer": "-8",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -3, triangles 3/2 and -3/2; [-2, 0]: width 2, heights -3 and -1, signed area -4; [0, 2]: width 2, heights -1 and -3, signed area -4.",
     "Total = -8."
    ],
    "diagram": {
@@ -7164,8 +7325,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: crosses at x = -3, triangles -1/2 and 1/2; [-2, 0]: width 2, heights 1 and 3, signed area 4; [0, 2]: crosses at x = 6/5, triangles 9/5 and -4/5.",
     "Total = 5."
    ],
    "diagram": {
@@ -7223,8 +7384,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from -4 to 2 f(x) dx.",
    "answer": "-4",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: width 2, heights 0 and -1, signed area -1; [-2, 0]: width 2, heights -1 and -2, signed area -3; [0, 2]: crosses at x = 1, triangles -1 and 1.",
     "Total = -4."
    ],
    "diagram": {
@@ -7281,8 +7442,8 @@
     }
    ],
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[-4, -2]: width 2, heights 1 and 2, signed area 3; [-2, 0]: crosses at x = -1, triangles 1 and -1.",
     "Total = 3."
    ],
    "diagram": {
@@ -7339,8 +7500,8 @@
    "prompt": "The graph of f consists of line segments through the marked points. Evaluate ∫ from 0 to 2 f(x) dx.",
    "answer": "0",
    "solutionSteps": [
-    "Split the region into triangles and trapezoids.",
-    "Regions below the x-axis count as negative.",
+    "Split the region at the marked points; area below the x-axis counts as negative.",
+    "[0, 2]: crosses at x = 1, triangles 3/2 and -3/2.",
     "Total = 0."
    ],
    "diagram": {
@@ -7394,36 +7555,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Integrals Using Geometry): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Integrals Using Geometry). The function f is defined on [-2, 8] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(8) = 2; g(-2) = -2; (b) (-3/2, 5/2) ∪ (11/2, 8); (c) x = 5/2; (d) x = 0, x = 4",
    "parts": [
     {
-     "prompt": "Use geometry to evaluate ∫ from -2 to 2 (√(4 - x²) + 1) dx.",
-     "answer": "4 + 2π"
+     "label": "a",
+     "prompt": "Find g(8) and g(-2).",
+     "answer": "g(8) = 2; g(-2) = -2"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from -5 to 5 (√(25 - x²)) dx.",
-     "answer": "25π/2"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 8) is g increasing? Justify your answer.",
+     "answer": "(-3/2, 5/2) ∪ (11/2, 8)"
     },
     {
-     "prompt": "Use geometry to evaluate ∫ from -2 to 2 (√(4 - x²) + 4) dx.",
-     "answer": "2π + 16"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 8) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 5/2"
     },
     {
-     "prompt": "Use geometry (areas) to evaluate ∫ from 0 to 5 (√(25 - x²)) dx.",
-     "answer": "25π/4"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 8). Explain your reasoning.",
+     "answer": "x = 0, x = 4"
     }
    ],
-   "answer": "(a) 4 + 2π; (b) 25π/2; (c) 2π + 16; (d) 25π/4",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s06-honors-015.png",
+     "alt": "Graph of f made of line segments through (-2, -1), (0, 3), (2, 1), (4, -3), (6, 1), (8, 1)."
+    }
+   },
    "solutionSteps": [
-    "(a) ∫ 1 dx over an interval of length 4 = 4. Total = 4 + 2π.",
-    "(b) y = √(25 - x²) is the upper half of a circle of radius 5. The region is a half-disk: area 25π/2.",
-    "(c) ∫ 4 dx over an interval of length 4 = 16. Total = 2π + 16.",
-    "(d) y = √(25 - x²) is the upper half of a circle of radius 5. The region is a quarter-disk: area 25π/4."
+    "(a) g(8) = signed area from 0 to 8 = 2; g(-2) = −(signed area from -2 to 0) = -2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-3/2, 5/2) ∪ (11/2, 8).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 5/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 0, x = 4.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_geometry_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s06-honors-016",
@@ -7486,8 +7663,8 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -11."
+    "Reversing the limits changes the sign: ∫ from 1 to -3 f(x) dx = −∫ from -3 to 1 f(x) dx.",
+    "= −(11) = -11."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -7502,8 +7679,8 @@
    "prompt": "Given ∫ from 5 to 7 f(x) dx = -1, ∫ from 7 to 8 f(x) dx = 8, and ∫ from 5 to 7 g(x) dx = 4, find ∫ from 5 to 7 (3f(x) - 4g(x)) dx.",
    "answer": "-19",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -19."
+    "Linearity: ∫ (3f(x) - 4g(x)) dx = 3∫ f(x) dx − 4∫ g(x) dx.",
+    "= 3(-1) − 4(4) = -19."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -7552,8 +7729,8 @@
    "prompt": "Given ∫ from -1 to 0 f(x) dx = 1, ∫ from 0 to 4 f(x) dx = -11, and ∫ from -1 to 0 g(x) dx = 6, find ∫ from -1 to 0 (4f(x) - g(x)) dx.",
    "answer": "-2",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -2."
+    "Linearity: ∫ (4f(x) - g(x)) dx = 4∫ f(x) dx − 1∫ g(x) dx.",
+    "= 4(1) − 1(6) = -2."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -7791,36 +7968,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Properties of Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Properties of Definite Integrals). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(6) = 0; g(-2) = 0; (b) (-1, 3); (c) x = 3; (d) none",
    "parts": [
     {
-     "prompt": "Given ∫ from 4 to 5 f(x) dx = 8, ∫ from 5 to 8 f(x) dx = 5, and ∫ from 4 to 5 g(x) dx = 4, find ∫ from 4 to 8 f(x) dx.",
-     "answer": "13"
+     "label": "a",
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = 0; g(-2) = 0"
     },
     {
-     "prompt": "Given ∫ from -3 to -2 f(x) dx = 4, ∫ from -2 to -1 f(x) dx = 9, and ∫ from -3 to -2 g(x) dx = -4, find ∫ from -3 to -1 f(x) dx.",
-     "answer": "13"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(-1, 3)"
     },
     {
-     "prompt": "Given ∫ from 3 to 5 f(x) dx = -7, ∫ from 5 to 8 f(x) dx = -10, and ∫ from 3 to 5 g(x) dx = -1, find ∫ from 3 to 5 (f(x) - 3g(x)) dx.",
-     "answer": "-4"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 3"
     },
     {
-     "prompt": "Given ∫ from -2 to -1 f(x) dx = 10, ∫ from -1 to 1 f(x) dx = -3, and ∫ from -2 to -1 g(x) dx = 9, find ∫ from -2 to 1 f(x) dx.",
-     "answer": "7"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "none"
     }
    ],
-   "answer": "(a) 13; (b) 13; (c) -4; (d) 7",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s07-cp2-015.png",
+     "alt": "Graph of f made of line segments through (-2, -2), (0, 2), (2, 2), (4, -2), (6, -2)."
+    }
+   },
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 13.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 13.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -4.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 7."
+    "(a) g(6) = signed area from 0 to 6 = 0; g(-2) = −(signed area from -2 to 0) = 0.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-1, 3).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 3.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: .",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s07-cp2-016",
@@ -7831,8 +8024,8 @@
    "answer": "9",
    "solutionSteps": [
     "Mistake: Subtracted the two pieces. Adjacent intervals add: 4 + 5 = 9.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 9.",
+    "Adjacent intervals add: ∫ from -2 to 8 = ∫ from -2 to 5 + ∫ from 5 to 8.",
+    "= 4 + 5 = 9.",
     "The correct answer is 9, not 1."
    ],
    "standards": [
@@ -7848,8 +8041,8 @@
    "prompt": "Given ∫ from 3 to 4 f(x) dx = -1, ∫ from 4 to 7 f(x) dx = 11, and ∫ from 3 to 4 g(x) dx = -3, find ∫ from 3 to 7 f(x) dx.",
    "answer": "10",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 10."
+    "Adjacent intervals add: ∫ from 3 to 7 = ∫ from 3 to 4 + ∫ from 4 to 7.",
+    "= -1 + 11 = 10."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -7948,8 +8141,8 @@
    "prompt": "Given ∫ from -2 to 1 f(x) dx = 12, ∫ from 1 to 5 f(x) dx = 11, and ∫ from -2 to 1 g(x) dx = 12, find ∫ from 1 to -2 f(x) dx.",
    "answer": "-12",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -12."
+    "Reversing the limits changes the sign: ∫ from 1 to -2 f(x) dx = −∫ from -2 to 1 f(x) dx.",
+    "= −(12) = -12."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8187,36 +8380,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Properties of Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Properties of Definite Integrals). The function f is defined on [-3, 5] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(5) = 0; g(-3) = 2; (b) (-3, -2) ∪ (2, 5); (c) x = -2; (d) x = 3",
    "parts": [
     {
-     "prompt": "Given ∫ from -1 to 4 f(x) dx = 12, ∫ from 4 to 5 f(x) dx = -7, and ∫ from -1 to 4 g(x) dx = -8, find ∫ from -1 to 4 (-2f(x) + g(x)) dx.",
-     "answer": "-32"
+     "label": "a",
+     "prompt": "Find g(5) and g(-3).",
+     "answer": "g(5) = 0; g(-3) = 2"
     },
     {
-     "prompt": "Given ∫ from 2 to 6 f(x) dx = -3, ∫ from 6 to 8 f(x) dx = 7, and ∫ from 2 to 6 g(x) dx = 4, find ∫ from 2 to 8 f(x) dx.",
-     "answer": "4"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-3, 5) is g increasing? Justify your answer.",
+     "answer": "(-3, -2) ∪ (2, 5)"
     },
     {
-     "prompt": "Given ∫ from -3 to 4 f(x) dx = 6, ∫ from 4 to 5 f(x) dx = 1, and ∫ from -3 to 4 g(x) dx = -6, find ∫ from -3 to 5 f(x) dx.",
-     "answer": "7"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-3, 5) does g have a relative maximum? Justify your answer.",
+     "answer": "x = -2"
     },
     {
-     "prompt": "Given ∫ from 2 to 3 f(x) dx = 5, ∫ from 3 to 5 f(x) dx = 11, and ∫ from 2 to 3 g(x) dx = -4, find ∫ from 3 to 2 f(x) dx.",
-     "answer": "-5"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-3, 5). Explain your reasoning.",
+     "answer": "x = 3"
     }
    ],
-   "answer": "(a) -32; (b) 4; (c) 7; (d) -5",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s07-cp1-015.png",
+     "alt": "Graph of f made of line segments through (-3, 2), (-1, -2), (1, -2), (3, 2), (5, 0)."
+    }
+   },
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -32.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 4.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 7.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -5."
+    "(a) g(5) = signed area from 0 to 5 = 0; g(-3) = −(signed area from -3 to 0) = 2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-3, -2) ∪ (2, 5).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = -2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 3.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s07-cp1-016",
@@ -8244,8 +8453,8 @@
    "prompt": "Given ∫ from 0 to 3 f(x) dx = -2, ∫ from 3 to 8 f(x) dx = -10, and ∫ from 0 to 3 g(x) dx = 3, find ∫ from 0 to 3 (-2f(x) + 3g(x)) dx.",
    "answer": "13",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 13."
+    "Linearity: ∫ (-2f(x) + 3g(x)) dx = -2∫ f(x) dx + 3∫ g(x) dx.",
+    "= -2(-2) + 3(3) = 13."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8278,8 +8487,9 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 12."
+    "Split the integral: ∫ (f(x) + 2) dx = ∫ f(x) dx + ∫ 2 dx.",
+    "∫ from -1 to 7 2 dx = 2 × (7 − (-1)) = 16.",
+    "= -4 + 16 = 12."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8294,8 +8504,8 @@
    "prompt": "Given ∫ from 1 to 6 f(x) dx = -2, ∫ from 6 to 9 f(x) dx = -3, and ∫ from 1 to 6 g(x) dx = 8, find ∫ from 1 to 6 (f(x) - 3g(x)) dx.",
    "answer": "-26",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -26."
+    "Linearity: ∫ (f(x) - 3g(x)) dx = 1∫ f(x) dx − 3∫ g(x) dx.",
+    "= 1(-2) − 3(8) = -26."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8328,8 +8538,8 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 20."
+    "Linearity: ∫ (4f(x) + g(x)) dx = 4∫ f(x) dx + 1∫ g(x) dx.",
+    "= 4(8) + 1(-12) = 20."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8344,8 +8554,8 @@
    "prompt": "Given ∫ from 0 to 2 f(x) dx = 6, ∫ from 2 to 8 f(x) dx = -4, and ∫ from 0 to 2 g(x) dx = -12, find ∫ from 0 to 8 4f(x) dx.",
    "answer": "8",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 8."
+    "∫ from 0 to 8 f(x) dx = 6 + (-4) = 2.",
+    "Multiply by 4: 4 × 2 = 8."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8378,8 +8588,8 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 0."
+    "Linearity: ∫ (2f(x) - 3g(x)) dx = 2∫ f(x) dx − 3∫ g(x) dx.",
+    "= 2(9) − 3(6) = 0."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8394,8 +8604,8 @@
    "prompt": "Given ∫ from 0 to 1 f(x) dx = 9, ∫ from 1 to 2 f(x) dx = 9, and ∫ from 0 to 1 g(x) dx = 10, find ∫ from 0 to 2 -2f(x) dx.",
    "answer": "-36",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -36."
+    "∫ from 0 to 2 f(x) dx = 9 + 9 = 18.",
+    "Multiply by -2: -2 × 18 = -36."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8428,8 +8638,8 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -3."
+    "∫ from -2 to 8 f(x) dx = 7 + (-6) = 1.",
+    "Multiply by -3: -3 × 1 = -3."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8444,8 +8654,9 @@
    "prompt": "Given ∫ from 5 to 7 f(x) dx = -11, ∫ from 7 to 9 f(x) dx = 6, and ∫ from 5 to 7 g(x) dx = -4, find ∫ from 5 to 7 (f(x) - 2) dx.",
    "answer": "-15",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -15."
+    "Split the integral: ∫ (f(x) - 2) dx = ∫ f(x) dx − ∫ 2 dx.",
+    "∫ from 5 to 7 2 dx = 2 × (7 − 5) = 4.",
+    "= -11 − 4 = -15."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8478,8 +8689,9 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 17."
+    "Split the integral: ∫ (f(x) + 4) dx = ∫ f(x) dx + ∫ 4 dx.",
+    "∫ from 3 to 5 4 dx = 4 × (5 − 3) = 8.",
+    "= 9 + 8 = 17."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8494,8 +8706,8 @@
    "prompt": "Given ∫ from -2 to 0 f(x) dx = 11, ∫ from 0 to 3 f(x) dx = -12, and ∫ from -2 to 0 g(x) dx = -8, find ∫ from -2 to 3 -3f(x) dx.",
    "answer": "3",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 3."
+    "∫ from -2 to 3 f(x) dx = 11 + (-12) = -1.",
+    "Multiply by -3: -3 × (-1) = 3."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8528,8 +8740,8 @@
     }
    ],
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 12."
+    "∫ from -1 to 7 f(x) dx = -8 + 5 = -3.",
+    "Multiply by -4: -4 × (-3) = 12."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8544,8 +8756,8 @@
    "prompt": "Given ∫ from -3 to -2 f(x) dx = 7, ∫ from -2 to 1 f(x) dx = -7, and ∫ from -3 to -2 g(x) dx = 5, find ∫ from -3 to -2 (3f(x) - 2g(x)) dx.",
    "answer": "11",
    "solutionSteps": [
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 11."
+    "Linearity: ∫ (3f(x) - 2g(x)) dx = 3∫ f(x) dx − 2∫ g(x) dx.",
+    "= 3(7) − 2(5) = 11."
    ],
    "standards": [
     "AP FUN-6.B"
@@ -8561,8 +8773,9 @@
    "answer": "-11",
    "solutionSteps": [
     "Mistake: Subtracted 1 instead of ∫ from 0 to 2 of 1 dx = 2.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= -11.",
+    "Split the integral: ∫ (f(x) - 1) dx = ∫ f(x) dx − ∫ 1 dx.",
+    "∫ from 0 to 2 1 dx = 1 × (2 − 0) = 2.",
+    "= -9 − 2 = -11.",
     "The correct answer is -11, not -10."
    ],
    "standards": [
@@ -8575,36 +8788,52 @@
    "skillId": "antiderivatives-definite-integrals-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Properties of Definite Integrals): answer each part and show your work.",
+   "prompt": "Free response (Properties of Definite Integrals). The function f is defined on [-4, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 1 to x f(t) dt.",
+   "answer": "(a) g(6) = -1; g(-4) = -5; (b) (-3, 1) ∪ (4, 6); (c) x = 1; (d) x = 2",
    "parts": [
     {
-     "prompt": "Given ∫ from -1 to 5 f(x) dx = -4, ∫ from 5 to 9 f(x) dx = -2, and ∫ from -1 to 5 g(x) dx = -2, find ∫ from -1 to 5 (f(x) + 2) dx.",
-     "answer": "8"
+     "label": "a",
+     "prompt": "Find g(6) and g(-4).",
+     "answer": "g(6) = -1; g(-4) = -5"
     },
     {
-     "prompt": "Given ∫ from 1 to 4 f(x) dx = 10, ∫ from 4 to 7 f(x) dx = 10, and ∫ from 1 to 4 g(x) dx = 1, find ∫ from 1 to 4 (f(x) + 3) dx.",
-     "answer": "19"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-4, 6) is g increasing? Justify your answer.",
+     "answer": "(-3, 1) ∪ (4, 6)"
     },
     {
-     "prompt": "Given ∫ from 0 to 5 f(x) dx = -9, ∫ from 5 to 9 f(x) dx = -8, and ∫ from 0 to 5 g(x) dx = 4, find ∫ from 0 to 5 (f(x) - 2) dx.",
-     "answer": "-19"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-4, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 1"
     },
     {
-     "prompt": "Given ∫ from -3 to 1 f(x) dx = -8, ∫ from 1 to 6 f(x) dx = -12, and ∫ from -3 to 1 g(x) dx = -12, find ∫ from -3 to 1 (-4f(x) - 3g(x)) dx.",
-     "answer": "68"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-4, 6). Explain your reasoning.",
+     "answer": "x = 2"
     }
    ],
-   "answer": "(a) 8; (b) 19; (c) -19; (d) 68",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/antiderivatives-definite-integrals/cal-int-s07-honors-015.png",
+     "alt": "Graph of f made of line segments through (-4, -2), (-2, 2), (0, 2), (2, -2), (4, 0), (6, 2)."
+    }
+   },
    "solutionSteps": [
-    "(a) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 8.",
-    "(b) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 19.",
-    "(c) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = -19.",
-    "(d) Use additivity over adjacent intervals, reversal of limits (sign change), and linearity. = 68."
+    "(a) g(6) = signed area from 1 to 6 = -1; g(-4) = −(signed area from -4 to 1) = -5.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-3, 1) ∪ (4, 6).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 1.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_props_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-int-s07-honors-016",
@@ -8615,8 +8844,8 @@
    "answer": "20",
    "solutionSteps": [
     "Mistake: Used the g integral. ∫ from −2 to 9 f(x) dx = −4 + (−1) = −5, and −4(−5) = 20.",
-    "Use additivity over adjacent intervals, reversal of limits (sign change), and linearity.",
-    "= 20.",
+    "∫ from -2 to 9 f(x) dx = -4 + (-1) = -5.",
+    "Multiply by -4: -4 × (-5) = 20.",
     "The correct answer is 20, not 12."
    ],
    "standards": [
@@ -8716,7 +8945,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 7; f(2) = 6; f(4) = 3; f(6) = 9; f(8) = 12.",
    "answer": "60",
    "solutionSteps": [
-    "Right endpoints: 6·2 + 3·2 + 9·2 + 12·2 = 60."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 6 = 12; [2, 4]: 2 × 3 = 6; [4, 6]: 2 × 9 = 18; [6, 8]: 2 × 12 = 24.",
+    "Sum = 60."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8731,6 +8962,8 @@
    "prompt": "f is decreasing on [0, 8]. A left Riemann sum is used to approximate ∫₀⁸ f(x) dx. Which is true?",
    "answer": "The left sum is an overestimate, because f is decreasing.",
    "solutionSteps": [
+    "For an increasing f, each left endpoint is the lowest value on its subinterval, so a left sum underestimates.",
+    "For a decreasing f, each left endpoint is the highest value on its subinterval, so a left sum overestimates.",
     "For an increasing f, left endpoints are the lowest values on each subinterval (and highest for a decreasing f)."
    ],
    "standards": [
@@ -8764,7 +8997,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 8; f(2) = 1; f(4) = 11; f(6) = 4; f(8) = 12.",
    "answer": "48",
    "solutionSteps": [
-    "Left endpoints: 8·2 + 1·2 + 11·2 + 4·2 = 48."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 8 = 16; [2, 4]: 2 × 1 = 2; [4, 6]: 2 × 11 = 22; [6, 8]: 2 × 4 = 8.",
+    "Sum = 48."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8779,7 +9014,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 5; f(4) = 3; f(6) = 7; f(8) = 3.",
    "answer": "36",
    "solutionSteps": [
-    "Right endpoints: 5·2 + 3·2 + 7·2 + 3·2 = 36."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 5 = 10; [2, 4]: 2 × 3 = 6; [4, 6]: 2 × 7 = 14; [6, 8]: 2 × 3 = 6.",
+    "Sum = 36."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8794,6 +9031,8 @@
    "prompt": "f is increasing on [0, 8]. A left Riemann sum is used to approximate ∫₀⁸ f(x) dx. Which is true?",
    "answer": "The left sum is an underestimate, because f is increasing.",
    "solutionSteps": [
+    "For an increasing f, each left endpoint is the lowest value on its subinterval, so a left sum underestimates.",
+    "For a decreasing f, each left endpoint is the highest value on its subinterval, so a left sum overestimates.",
     "For an increasing f, left endpoints are the lowest values on each subinterval (and highest for a decreasing f)."
    ],
    "standards": [
@@ -8827,7 +9066,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 2; f(2) = 11; f(4) = 8; f(6) = 1; f(8) = 11.",
    "answer": "44",
    "solutionSteps": [
-    "Left endpoints: 2·2 + 11·2 + 8·2 + 1·2 = 44."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 2 = 4; [2, 4]: 2 × 11 = 22; [4, 6]: 2 × 8 = 16; [6, 8]: 2 × 1 = 2.",
+    "Sum = 44."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8842,7 +9083,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 10; f(2) = 10; f(4) = 2; f(6) = 2; f(8) = 6.",
    "answer": "48",
    "solutionSteps": [
-    "Left endpoints: 10·2 + 10·2 + 2·2 + 2·2 = 48."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 10 = 20; [2, 4]: 2 × 10 = 20; [4, 6]: 2 × 2 = 4; [6, 8]: 2 × 2 = 4.",
+    "Sum = 48."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8857,7 +9100,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 10; f(2) = 9; f(4) = 5; f(6) = 3; f(8) = 11.",
    "answer": "56",
    "solutionSteps": [
-    "Right endpoints: 9·2 + 5·2 + 3·2 + 11·2 = 56."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 9 = 18; [2, 4]: 2 × 5 = 10; [4, 6]: 2 × 3 = 6; [6, 8]: 2 × 11 = 22.",
+    "Sum = 56."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8872,7 +9117,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 11; f(2) = 4; f(4) = 8; f(6) = 5; f(8) = 7.",
    "answer": "56",
    "solutionSteps": [
-    "Left endpoints: 11·2 + 4·2 + 8·2 + 5·2 = 56."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 11 = 22; [2, 4]: 2 × 4 = 8; [4, 6]: 2 × 8 = 16; [6, 8]: 2 × 5 = 10.",
+    "Sum = 56."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8887,7 +9134,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(2) = 3; f(4) = 9; f(6) = 8; f(8) = 12.",
    "answer": "64",
    "solutionSteps": [
-    "Right endpoints: 3·2 + 9·2 + 8·2 + 12·2 = 64."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 3 = 6; [2, 4]: 2 × 9 = 18; [4, 6]: 2 × 8 = 16; [6, 8]: 2 × 12 = 24.",
+    "Sum = 64."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8902,7 +9151,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(2) = 12; f(4) = 10; f(6) = 6; f(8) = 5.",
    "answer": "66",
    "solutionSteps": [
-    "Left endpoints: 5·2 + 12·2 + 10·2 + 6·2 = 66."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 2]: 2 × 5 = 10; [2, 4]: 2 × 12 = 24; [4, 6]: 2 × 10 = 20; [6, 8]: 2 × 6 = 12.",
+    "Sum = 66."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8917,7 +9168,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 7; f(4) = 10; f(6) = 7; f(8) = 2.",
    "answer": "52",
    "solutionSteps": [
-    "Right endpoints: 7·2 + 10·2 + 7·2 + 2·2 = 52."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 2]: 2 × 7 = 14; [2, 4]: 2 × 10 = 20; [4, 6]: 2 × 7 = 14; [6, 8]: 2 × 2 = 4.",
+    "Sum = 52."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8932,7 +9185,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 6; f(1) = 5; f(3) = 3; f(4) = 2; f(6) = 6.",
    "answer": "23",
    "solutionSteps": [
-    "Left endpoints: 6·1 + 5·2 + 3·1 + 2·2 = 23."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 1]: 1 × 6 = 6; [1, 3]: 2 × 5 = 10; [3, 4]: 1 × 3 = 3; [4, 6]: 2 × 2 = 4.",
+    "Sum = 23."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8947,7 +9202,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 6; f(1) = 4; f(3) = 1; f(4) = 6; f(6) = 2.",
    "answer": "16",
    "solutionSteps": [
-    "Right endpoints: 4·1 + 1·2 + 6·1 + 2·2 = 16."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 1]: 1 × 4 = 4; [1, 3]: 2 × 1 = 2; [3, 4]: 1 × 6 = 6; [4, 6]: 2 × 2 = 4.",
+    "Sum = 16."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8962,7 +9219,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 7; f(1) = 12; f(3) = 8; f(4) = 5; f(6) = 10.",
    "answer": "49",
    "solutionSteps": [
-    "Left endpoints: 7·1 + 12·2 + 8·1 + 5·2 = 49."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 1]: 1 × 7 = 7; [1, 3]: 2 × 12 = 24; [3, 4]: 1 × 8 = 8; [4, 6]: 2 × 5 = 10.",
+    "Sum = 49."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8977,7 +9236,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 9; f(1) = 2; f(3) = 8; f(4) = 2; f(6) = 9.",
    "answer": "38",
    "solutionSteps": [
-    "Right endpoints: 2·1 + 8·2 + 2·1 + 9·2 = 38."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 1]: 1 × 2 = 2; [1, 3]: 2 × 8 = 16; [3, 4]: 1 × 2 = 2; [4, 6]: 2 × 9 = 18.",
+    "Sum = 38."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -8992,7 +9253,9 @@
    "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 1; f(1) = 10; f(3) = 2; f(4) = 2; f(6) = 11.",
    "answer": "27",
    "solutionSteps": [
-    "Left endpoints: 1·1 + 10·2 + 2·1 + 2·2 = 27."
+    "Each rectangle: width × the left endpoint value.",
+    "[0, 1]: 1 × 1 = 1; [1, 3]: 2 × 10 = 20; [3, 4]: 1 × 2 = 2; [4, 6]: 2 × 2 = 4.",
+    "Sum = 27."
    ],
    "standards": [
     "AP LIM-5.A"
@@ -9007,7 +9270,9 @@
    "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 3; f(1) = 3; f(3) = 12; f(4) = 1; f(6) = 9.",
    "answer": "46",
    "solutionSteps": [
-    "Right endpoints: 3·1 + 12·2 + 1·1 + 9·2 = 46."
+    "Each rectangle: width × the right endpoint value.",
+    "[0, 1]: 1 × 3 = 3; [1, 3]: 2 × 12 = 24; [3, 4]: 1 × 1 = 1; [4, 6]: 2 × 9 = 18.",
+    "Sum = 46."
    ],
    "standards": [
     "AP LIM-5.A"

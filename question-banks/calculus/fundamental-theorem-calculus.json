@@ -46,8 +46,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "cos(x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = cos(t²), u(x) = x, u′(x) = 1.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: cos(x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -116,8 +118,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "sin(x)/x."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = sin(t)/t, u(x) = x, u′(x) = 1.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: sin(x)/x."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -168,8 +172,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "ln(1 + x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = ln(t² + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit -3 is a constant, so it adds nothing.",
+    "Result: ln(1 + x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -238,8 +244,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "cos(x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = cos(t²), u(x) = x, u′(x) = 1.",
+    "The lower limit -3 is a constant, so it adds nothing.",
+    "Result: cos(x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -356,37 +364,46 @@
    "skillId": "fundamental-theorem-calculus-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Differentiation and Integration): answer each part and show your work.",
+   "prompt": "Free response (Connecting Differentiation and Integration). Let F(x) = ∫ from 0 to x² (t³ - 2t) dt.",
+   "answer": "(a) F′(x) = 2x³(x⁴ - 2); (b) F(0) = 0; F′(0) = 0; (c) y = 0; (d) decreasing",
    "parts": [
     {
-     "prompt": "f is differentiable with f(0) = 19 and f(8) = 12. Find ∫ from 0 to 8 f′(x) dx.",
-     "answer": "-7"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = 2x³(x⁴ - 2)"
     },
     {
-     "prompt": "f is differentiable with f(-3) = 9 and f(3) = -16. Find ∫ from -3 to 3 f′(x) dx.",
-     "answer": "-25"
+     "label": "b",
+     "prompt": "Find F(0) and F′(0).",
+     "answer": "F(0) = 0; F′(0) = 0"
     },
     {
-     "prompt": "f is differentiable with f(-2) = 18 and f(2) = -20. Find ∫ from -2 to 2 f′(x) dx.",
-     "answer": "-38"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 0.",
+     "answer": "y = 0"
     },
     {
-     "prompt": "f is differentiable with f(-1) = -3 and f(1) = 7. Find ∫ from -1 to 1 f′(x) dx.",
-     "answer": "10"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 1? Justify your answer.",
+     "answer": "decreasing"
     }
    ],
-   "answer": "(a) -7; (b) -25; (c) -38; (d) 10",
    "solutionSteps": [
-    "(a) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). 12 - 19 = -7.",
-    "(b) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). -16 - 9 = -25.",
-    "(c) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). -20 - 18 = -38.",
-    "(d) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). 7 - (-3) = 10."
+    "(a) Fundamental Theorem, part 1, with the chain rule: g(x²)·(2x).",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 0 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (0, 0), slope 0.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(1) = -2.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s01-cp2-016",
@@ -450,8 +467,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "1/(1 + x⁴)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = 1/(t⁴ + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit -3 is a constant, so it adds nothing.",
+    "Result: 1/(1 + x⁴)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -520,8 +539,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "e^(-x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = e^(-t²), u(x) = x, u′(x) = 1.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: e^(-x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -572,8 +593,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "√(1 + x³)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = √(t³ + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: √(1 + x³)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -642,8 +665,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "ln(1 + x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = ln(t² + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: ln(1 + x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -760,37 +785,46 @@
    "skillId": "fundamental-theorem-calculus-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Differentiation and Integration): answer each part and show your work.",
+   "prompt": "Free response (Connecting Differentiation and Integration). Let F(x) = ∫ from 2 to x (t + 1)² dt.",
+   "answer": "(a) F′(x) = (x + 1)²; (b) F(2) = 0; F′(2) = 9; (c) y = 9x - 18; (d) increasing",
    "parts": [
     {
-     "prompt": "f(1) = -14 and ∫ from 1 to 8 f′(x) dx = -2. Find f(8).",
-     "answer": "-16"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = (x + 1)²"
     },
     {
-     "prompt": "f(-1) = -5 and ∫ from -1 to 0 f′(x) dx = 4. Find f(0).",
-     "answer": "-1"
+     "label": "b",
+     "prompt": "Find F(2) and F′(2).",
+     "answer": "F(2) = 0; F′(2) = 9"
     },
     {
-     "prompt": "f is differentiable with f(-3) = -16 and f(5) = -7. Find ∫ from -3 to 5 f′(x) dx.",
-     "answer": "9"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 2.",
+     "answer": "y = 9x - 18"
     },
     {
-     "prompt": "f is differentiable with f(2) = -15 and f(5) = -18. Find ∫ from 2 to 5 f′(x) dx.",
-     "answer": "-3"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 3? Justify your answer.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) -16; (b) -1; (c) 9; (d) -3",
    "solutionSteps": [
-    "(a) f(b) = f(a) + ∫ from a to b f′(x) dx. -14 + (-2) = -16.",
-    "(b) f(b) = f(a) + ∫ from a to b f′(x) dx. -5 + 4 = -1.",
-    "(c) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). -7 - (-16) = 9.",
-    "(d) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). -18 - (-15) = -3."
+    "(a) Fundamental Theorem, part 1.",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 2 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (2, 0), slope 9.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(3) = 16.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s01-cp1-016",
@@ -854,8 +888,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "cos(x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = cos(t²), u(x) = x, u′(x) = 1.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: cos(x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -924,8 +960,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "√(1 + x³)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = √(t³ + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: √(1 + x³)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -976,8 +1014,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "ln(1 + x²)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = ln(t² + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: ln(1 + x²)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -1046,8 +1086,10 @@
     }
    ],
    "solutionSteps": [
-    "FTC Part 1: d/dx ∫ from a to x f(t) dt = f(x).",
-    "√(1 + x³)."
+    "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
+    "Here f(t) = √(t³ + 1), u(x) = x, u′(x) = 1.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: √(1 + x³)."
    ],
    "standards": [
     "AP FUN-5.A",
@@ -1164,37 +1206,46 @@
    "skillId": "fundamental-theorem-calculus-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Differentiation and Integration): answer each part and show your work.",
+   "prompt": "Free response (Connecting Differentiation and Integration). Let F(x) = ∫ from 0 to 3x e^(-t²) dt.",
+   "answer": "(a) F′(x) = 3e^(-9x²); (b) F(0) = 0; F′(0) = 3; (c) y = 3x; (d) increasing",
    "parts": [
     {
-     "prompt": "f is differentiable with f(2) = 13 and f(3) = 9. Find ∫ from 2 to 3 f′(x) dx.",
-     "answer": "-4"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = 3e^(-9x²)"
     },
     {
-     "prompt": "f(-2) = 4 and ∫ from -2 to 0 f′(x) dx = -2. Find f(0).",
-     "answer": "2"
+     "label": "b",
+     "prompt": "Find F(0) and F′(0).",
+     "answer": "F(0) = 0; F′(0) = 3"
     },
     {
-     "prompt": "f is differentiable with f(-3) = -13 and f(5) = -4. Find ∫ from -3 to 5 f′(x) dx.",
-     "answer": "9"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 0.",
+     "answer": "y = 3x"
     },
     {
-     "prompt": "f(2) = 15 and ∫ from 2 to 8 f′(x) dx = 15. Find f(8).",
-     "answer": "30"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 1? Justify your answer.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) -4; (b) 2; (c) 9; (d) 30",
    "solutionSteps": [
-    "(a) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). 9 - 13 = -4.",
-    "(b) f(b) = f(a) + ∫ from a to b f′(x) dx. 4 + (-2) = 2.",
-    "(c) FTC: ∫ from a to b f′(x) dx = f(b) - f(a). -4 - (-13) = 9.",
-    "(d) f(b) = f(a) + ∫ from a to b f′(x) dx. 15 + 15 = 30."
+    "(a) Fundamental Theorem, part 1, with the chain rule: g(3x)·(3).",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 0 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (0, 0), slope 3.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(1) = 3e^(-9) ≈ 0.000.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_net_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s01-honors-016",
@@ -1244,7 +1295,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 1 to x (3t² - 8t + 4) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 1 to x (3t² - 8t + 4) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = x³ - 4x² + 4x - 1",
    "options": [
     {
@@ -1321,7 +1372,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 1 to x (9t² + 4) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 1 to x (9t² + 4) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = 3x³ + 4x - 7",
    "solutionSteps": [
     "Antiderivative: 3t³ + 4t.",
@@ -1362,7 +1413,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 2 to x (3t² + 2t + 1) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 2 to x (3t² + 2t + 1) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = x³ + x² + x - 14",
    "options": [
     {
@@ -1439,7 +1490,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 0 to x (6t² + 6t - 2) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (6t² + 6t - 2) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = 2x³ + 3x² - 2x",
    "solutionSteps": [
     "Antiderivative: 2t³ + 3t² - 2t.",
@@ -1480,7 +1531,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 2 to x (9t² + 2t - 2) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 2 to x (9t² + 2t - 2) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = 3x³ + x² - 2x - 24",
    "options": [
     {
@@ -1557,7 +1608,7 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 2 to x (-6t² - 2t - 4) dt.",
+   "prompt": "Find a formula for g(x) = ∫ from 2 to x (-6t² - 2t - 4) dt. Hint: find an antiderivative, then evaluate from the lower limit to x.",
    "answer": "g(x) = -2x³ - x² - 4x + 28",
    "solutionSteps": [
     "Antiderivative: -2t³ - t² - 4t.",
@@ -1617,36 +1668,52 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation Functions): answer each part and show your work.",
+   "prompt": "Free response (Accumulation Functions). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(6) = 0; g(-2) = 0; (b) (-2, -1) ∪ (3, 6); (c) x = -1; (d) none",
    "parts": [
     {
-     "prompt": "Find a formula for g(x) = ∫ from 3 to x (6t² - 8t + 2) dt.",
-     "answer": "g(x) = 2x³ - 4x² + 2x - 24"
+     "label": "a",
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = 0; g(-2) = 0"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 3 to x (-6t² + 10t + 4) dt.",
-     "answer": "g(x) = -2x³ + 5x² + 4x - 3"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(-2, -1) ∪ (3, 6)"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 2 to x (-6t² - 10t - 4) dt.",
-     "answer": "g(x) = -2x³ - 5x² - 4x + 44"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = -1"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 0 to x (9t² + 3) dt.",
-     "answer": "g(x) = 3x³ + 3x"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "none"
     }
    ],
-   "answer": "(a) g(x) = 2x³ - 4x² + 2x - 24; (b) g(x) = -2x³ + 5x² + 4x - 3; (c) g(x) = -2x³ - 5x² - 4x + 44; (d) g(x) = 3x³ + 3x",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s02-cp2-015.png",
+     "alt": "Graph of f made of line segments through (-2, 2), (0, -2), (2, -2), (4, 2), (6, 2)."
+    }
+   },
    "solutionSteps": [
-    "(a) Evaluate from 3 to x. g(x) = 2x³ - 4x² + 2x - 24.",
-    "(b) Evaluate from 3 to x. g(x) = -2x³ + 5x² + 4x - 3.",
-    "(c) Evaluate from 2 to x. g(x) = -2x³ - 5x² - 4x + 44.",
-    "(d) Evaluate from 0 to x. g(x) = 3x³ + 3x."
+    "(a) g(6) = signed area from 0 to 6 = 0; g(-2) = −(signed area from -2 to 0) = 0.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-2, -1) ∪ (3, 6).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = -1.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: .",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-cp2-016",
@@ -2069,36 +2136,52 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation Functions): answer each part and show your work.",
+   "prompt": "Free response (Accumulation Functions). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 1 to x f(t) dt.",
+   "answer": "(a) g(6) = 4; g(-2) = 4; (b) (1/2, 9/2); (c) x = 9/2; (d) x = 2",
    "parts": [
     {
-     "prompt": "Find a formula for g(x) = ∫ from 0 to x (-6t² + 4t + 2) dt.",
-     "answer": "g(x) = -2x³ + 2x² + 2x"
+     "label": "a",
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = 4; g(-2) = 4"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 0 to x (-6t² + 8t + 3) dt.",
-     "answer": "g(x) = -2x³ + 4x² + 3x"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(1/2, 9/2)"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 3 to x (6t² - 4t - 2) dt.",
-     "answer": "g(x) = 2x³ - 2x² - 2x - 30"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 9/2"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 2 to x (-9t² + 8t - 3) dt.",
-     "answer": "g(x) = -3x³ + 4x² - 3x + 14"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "x = 2"
     }
    ],
-   "answer": "(a) g(x) = -2x³ + 2x² + 2x; (b) g(x) = -2x³ + 4x² + 3x; (c) g(x) = 2x³ - 2x² - 2x - 30; (d) g(x) = -3x³ + 4x² - 3x + 14",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s02-cp1-015.png",
+     "alt": "Graph of f made of line segments through (-2, -3), (0, -1), (2, 3), (4, 1), (6, -3)."
+    }
+   },
    "solutionSteps": [
-    "(a) Evaluate from 0 to x. g(x) = -2x³ + 2x² + 2x.",
-    "(b) Evaluate from 0 to x. g(x) = -2x³ + 4x² + 3x.",
-    "(c) Evaluate from 3 to x. g(x) = 2x³ - 2x² - 2x - 30.",
-    "(d) Evaluate from 2 to x. g(x) = -3x³ + 4x² - 3x + 14."
+    "(a) g(6) = signed area from 1 to 6 = 4; g(-2) = −(signed area from -2 to 1) = 4.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (1/2, 9/2).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 9/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-cp1-016",
@@ -2148,17 +2231,17 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 0 to x (-6t² + 10t + 4) dt.",
-   "answer": "g(x) = -2x³ + 5x² + 4x",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (2te^(t²)) dt.",
+   "answer": "g(x) = e^(x²) - 1",
    "solutionSteps": [
-    "Antiderivative: -2t³ + 5t² + 4t.",
-    "Evaluate from 0 to x.",
-    "g(x) = -2x³ + 5x² + 4x."
+    "An antiderivative of 2te^(t²) is e^(t²).",
+    "g(x) = [e^(t²)] evaluated from t = 0 to t = x = (e^(x²)) − (1).",
+    "g(x) = e^(x²) - 1."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-003",
@@ -2207,35 +2290,35 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 2 to x (3t² - 6t - 4) dt.",
-   "answer": "g(x) = x³ - 3x² - 4x + 12",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (2te^(t²)) dt.",
+   "answer": "g(x) = e^(x²) - 1",
    "options": [
     {
-     "text": "g(x) = x³ - 3x² - 4x",
-     "correct": false
-    },
-    {
-     "text": "g(x) = x³ - 3x² - 4x + 12",
+     "text": "g(x) = e^(x²) - 1",
      "correct": true
     },
     {
-     "text": "g(x) = 6x - 6",
+     "text": "g(x) = e^(x²) + 1",
      "correct": false
     },
     {
-     "text": "g(x) = 3x² - 6x - 4",
+     "text": "g(x) = 4x²e^(x²) + 2e^(x²)",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 2xe^(x²)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Antiderivative: t³ - 3t² - 4t.",
-    "Evaluate from 2 to x.",
-    "g(x) = x³ - 3x² - 4x + 12."
+    "An antiderivative of 2te^(t²) is e^(t²).",
+    "g(x) = [e^(t²)] evaluated from t = 0 to t = x = (e^(x²)) − (1).",
+    "g(x) = e^(x²) - 1."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-005",
@@ -2266,35 +2349,35 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 1 to x (-3t² + 6t - 4) dt.",
-   "answer": "g(x) = -x³ + 3x² - 4x + 2",
+   "prompt": "Find a formula for g(x) = ∫ from 1 to x 1/t dt.",
+   "answer": "g(x) = ln(x)",
    "options": [
     {
-     "text": "g(x) = -x³ + 3x² - 4x",
+     "text": "g(x) = ln(x) + 1",
      "correct": false
     },
     {
-     "text": "g(x) = -6x + 6",
+     "text": "g(x) = -1/x²",
      "correct": false
     },
     {
-     "text": "g(x) = -3x² + 6x - 4",
+     "text": "g(x) = 1/x",
      "correct": false
     },
     {
-     "text": "g(x) = -x³ + 3x² - 4x + 2",
+     "text": "g(x) = ln(x)",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Antiderivative: -t³ + 3t² - 4t.",
-    "Evaluate from 1 to x.",
-    "g(x) = -x³ + 3x² - 4x + 2."
+    "An antiderivative of 1/t is ln(t).",
+    "g(x) = [ln(t)] evaluated from t = 1 to t = x = (ln(x)) − (0).",
+    "g(x) = ln(x)."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-007",
@@ -2343,17 +2426,17 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 3 to x (3t² + 4t - 3) dt.",
-   "answer": "g(x) = x³ + 2x² - 3x - 36",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (e^(2t)) dt.",
+   "answer": "g(x) = (1/2)e^(2x) - 1/2",
    "solutionSteps": [
-    "Antiderivative: t³ + 2t² - 3t.",
-    "Evaluate from 3 to x.",
-    "g(x) = x³ + 2x² - 3x - 36."
+    "An antiderivative of e^(2t) is (1/2)e^(2t).",
+    "g(x) = [(1/2)e^(2t)] evaluated from t = 0 to t = x = ((1/2)e^(2x)) − (1/2).",
+    "g(x) = (1/2)e^(2x) - 1/2."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-009",
@@ -2384,35 +2467,35 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 2 to x (9t² + 4t - 2) dt.",
-   "answer": "g(x) = 3x³ + 2x² - 2x - 28",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (sin(3t)) dt.",
+   "answer": "g(x) = 1/3 - cos(3x)/3",
    "options": [
     {
-     "text": "g(x) = 3x³ + 2x² - 2x",
+     "text": "g(x) = -cos(3x)/3 + 1",
      "correct": false
     },
     {
-     "text": "g(x) = 18x + 4",
-     "correct": false
-    },
-    {
-     "text": "g(x) = 9x² + 4x - 2",
-     "correct": false
-    },
-    {
-     "text": "g(x) = 3x³ + 2x² - 2x - 28",
+     "text": "g(x) = 1/3 - cos(3x)/3",
      "correct": true
+    },
+    {
+     "text": "g(x) = sin(3x)",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 3cos(3x)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Antiderivative: 3t³ + 2t² - 2t.",
-    "Evaluate from 2 to x.",
-    "g(x) = 3x³ + 2x² - 2x - 28."
+    "An antiderivative of sin(3t) is -cos(3t)/3.",
+    "g(x) = [-cos(3t)/3] evaluated from t = 0 to t = x = (-cos(3x)/3) − (-1/3).",
+    "g(x) = 1/3 - cos(3x)/3."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-011",
@@ -2461,17 +2544,17 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find a formula for g(x) = ∫ from 3 to x (-9t² - 8t + 3) dt.",
-   "answer": "g(x) = -3x³ - 4x² + 3x + 108",
+   "prompt": "Find a formula for g(x) = ∫ from 4 to x (1/√t) dt.",
+   "answer": "g(x) = 2√x - 4",
    "solutionSteps": [
-    "Antiderivative: -3t³ - 4t² + 3t.",
-    "Evaluate from 3 to x.",
-    "g(x) = -3x³ - 4x² + 3x + 108."
+    "An antiderivative of 1/√t is 2√t.",
+    "g(x) = [2√t] evaluated from t = 4 to t = x = (2√x) − (4).",
+    "g(x) = 2√x - 4."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-013",
@@ -2521,36 +2604,52 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Accumulation Functions): answer each part and show your work.",
+   "prompt": "Free response (Accumulation Functions). The function f is defined on [-4, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(6) = -4; g(-4) = -5; (b) (-4, -1/2) ∪ (7/2, 6); (c) x = -1/2; (d) x = -2, x = 2",
    "parts": [
     {
-     "prompt": "Find a formula for g(x) = ∫ from 1 to x (9t² - 8t - 3) dt.",
-     "answer": "g(x) = 3x³ - 4x² - 3x + 4"
+     "label": "a",
+     "prompt": "Find g(6) and g(-4).",
+     "answer": "g(6) = -4; g(-4) = -5"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 3 to x (6t² - 6t + 1) dt.",
-     "answer": "g(x) = 2x³ - 3x² + x - 30"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-4, 6) is g increasing? Justify your answer.",
+     "answer": "(-4, -1/2) ∪ (7/2, 6)"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 0 to x (-3t² + 8t - 3) dt.",
-     "answer": "g(x) = -x³ + 4x² - 3x"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-4, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = -1/2"
     },
     {
-     "prompt": "Find a formula for g(x) = ∫ from 1 to x (9t² + 4t - 1) dt.",
-     "answer": "g(x) = 3x³ + 2x² - x - 4"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-4, 6). Explain your reasoning.",
+     "answer": "x = -2, x = 2"
     }
    ],
-   "answer": "(a) g(x) = 3x³ - 4x² - 3x + 4; (b) g(x) = 2x³ - 3x² + x - 30; (c) g(x) = -x³ + 4x² - 3x; (d) g(x) = 3x³ + 2x² - x - 4",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s02-honors-015.png",
+     "alt": "Graph of f made of line segments through (-4, 0), (-2, 3), (0, -1), (2, -3), (4, 1), (6, 1)."
+    }
+   },
    "solutionSteps": [
-    "(a) Evaluate from 1 to x. g(x) = 3x³ - 4x² - 3x + 4.",
-    "(b) Evaluate from 3 to x. g(x) = 2x³ - 3x² + x - 30.",
-    "(c) Evaluate from 0 to x. g(x) = -x³ + 4x² - 3x.",
-    "(d) Evaluate from 1 to x. g(x) = 3x³ + 2x² - x - 4."
+    "(a) g(6) = signed area from 0 to 6 = -4; g(-4) = −(signed area from -4 to 0) = -5.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-4, -1/2) ∪ (7/2, 6).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = -1/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = -2, x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s02-honors-016",
@@ -2983,41 +3082,53 @@
    "skillId": "fundamental-theorem-calculus-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Analyzing Functions Defined by Integrals): answer each part and show your work.",
-   "answer": "(a) (2, ∞); (b) x = -1; (c) 0; (d) (2, ∞)",
+   "prompt": "Free response (Analyzing Functions Defined by Integrals). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from -1 to x f(t) dt.",
+   "answer": "(a) g(6) = -11/2; g(-2) = 1/2; (b) (3, 5); (c) x = 5; (d) x = 4",
    "parts": [
     {
      "label": "a",
-     "prompt": "g(x) = ∫ from 1 to x (2t - 4) dt. On what interval(s) is g increasing?",
-     "answer": "(2, ∞)"
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = -11/2; g(-2) = 1/2"
     },
     {
      "label": "b",
-     "prompt": "g(x) = ∫ from 0 to x (-2t - 2) dt. At what x does g have a relative maximum?",
-     "answer": "x = -1"
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(3, 5)"
     },
     {
      "label": "c",
-     "prompt": "g(x) = ∫ from 1 to x (t + 2) dt. Find g′(-2).",
-     "answer": "0"
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 5"
     },
     {
      "label": "d",
-     "prompt": "g(x) = ∫ from 0 to x (-3t + 6) dt. On what interval(s) is g decreasing?",
-     "answer": "(2, ∞)"
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "x = 4"
     }
    ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s03-cp2-015.png",
+     "alt": "Graph of f made of line segments through (-2, 0), (0, -2), (2, -2), (4, 2), (6, -2)."
+    }
+   },
    "solutionSteps": [
-    "(a) g′(x) = 2x - 4 > 0 on (2, ∞).",
-    "(b) g′ = f changes from positive to negative at x = -1.",
-    "(c) g′(-2) = f(-2) = 0.",
-    "(d) g′(x) = -3x + 6 < 0 on (2, ∞)."
+    "(a) g(6) = signed area from -1 to 6 = -11/2; g(-2) = −(signed area from -2 to -1) = 1/2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (3, 5).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 5.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 4.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: acc_formula_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s03-cp2-016",
@@ -3447,41 +3558,53 @@
    "skillId": "fundamental-theorem-calculus-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Analyzing Functions Defined by Integrals): answer each part and show your work.",
-   "answer": "(a) (-4, -1); (b) x = 4; (c) 24; (d) 5",
+   "prompt": "Free response (Analyzing Functions Defined by Integrals). The function f is defined on [-3, 5] and its graph, made of line segments, is shown. Let g(x) = ∫ from 0 to x f(t) dt.",
+   "answer": "(a) g(5) = -5; g(-3) = -3; (b) (-3, 0) ∪ (4, 5); (c) x = 0; (d) x = -1",
    "parts": [
     {
      "label": "a",
-     "prompt": "g(x) = ∫ from 0 to x (-t² - 5t - 4) dt. On what interval(s) is g increasing?",
-     "answer": "(-4, -1)"
+     "prompt": "Find g(5) and g(-3).",
+     "answer": "g(5) = -5; g(-3) = -3"
     },
     {
      "label": "b",
-     "prompt": "g(x) = ∫ from 1 to x (-t² + 5t - 4) dt. At what x does g have a relative maximum?",
-     "answer": "x = 4"
+     "prompt": "On what open interval(s) in (-3, 5) is g increasing? Justify your answer.",
+     "answer": "(-3, 0) ∪ (4, 5)"
     },
     {
      "label": "c",
-     "prompt": "g(x) = ∫ from 1 to x (t² + 4t + 3) dt. Find g′(3).",
-     "answer": "24"
+     "prompt": "At what x-value(s) in (-3, 5) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 0"
     },
     {
      "label": "d",
-     "prompt": "g(x) = ∫ from 1 to x (-t² + t + 2) dt. Find g″(-2).",
-     "answer": "5"
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-3, 5). Explain your reasoning.",
+     "answer": "x = -1"
     }
    ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s03-cp1-015.png",
+     "alt": "Graph of f made of line segments through (-3, 0), (-1, 2), (1, -2), (3, -2), (5, 2)."
+    }
+   },
    "solutionSteps": [
-    "(a) g′(x) = -x² - 5x - 4 > 0 on (-4, -1).",
-    "(b) g′ = f changes from positive to negative at x = 4.",
-    "(c) g′(3) = f(3) = 24.",
-    "(d) g″(x) = f′(x) = -2x + 1, so g″(-2) = 5."
+    "(a) g(5) = signed area from 0 to 5 = -5; g(-3) = −(signed area from -3 to 0) = -3.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-3, 0) ∪ (4, 5).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 0.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = -1.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: acc_formula_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s03-cp1-016",
@@ -3914,41 +4037,53 @@
    "skillId": "fundamental-theorem-calculus-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Analyzing Functions Defined by Integrals): answer each part and show your work.",
-   "answer": "(a) (-∞, -3) ∪ (1, ∞); (b) x = 1; (c) 0; (d) -2",
+   "prompt": "Free response (Analyzing Functions Defined by Integrals). The function f is defined on [-4, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from 1 to x f(t) dt.",
+   "answer": "(a) g(6) = 5/2; g(-4) = 7/2; (b) (-1/2, 7/2); (c) x = 7/2; (d) x = -2, x = 2",
    "parts": [
     {
      "label": "a",
-     "prompt": "g(x) = ∫ from 0 to x (2t² + 4t - 6) dt. On what interval(s) is g increasing?",
-     "answer": "(-∞, -3) ∪ (1, ∞)"
+     "prompt": "Find g(6) and g(-4).",
+     "answer": "g(6) = 5/2; g(-4) = 7/2"
     },
     {
      "label": "b",
-     "prompt": "g(x) = ∫ from 0 to x (-t² + 1) dt. At what x does g have a relative maximum?",
-     "answer": "x = 1"
+     "prompt": "On what open interval(s) in (-4, 6) is g increasing? Justify your answer.",
+     "answer": "(-1/2, 7/2)"
     },
     {
      "label": "c",
-     "prompt": "g(x) = ∫ from 1 to x (2t² - 6t) dt. Find g′(3).",
-     "answer": "0"
+     "prompt": "At what x-value(s) in (-4, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 7/2"
     },
     {
      "label": "d",
-     "prompt": "g(x) = ∫ from 0 to x (-t² + 4t) dt. Find g″(3).",
-     "answer": "-2"
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-4, 6). Explain your reasoning.",
+     "answer": "x = -2, x = 2"
     }
    ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/fundamental-theorem-calculus/cal-ftc-s03-honors-015.png",
+     "alt": "Graph of f made of line segments through (-4, 0), (-2, -3), (0, 1), (2, 3), (4, -1), (6, -1)."
+    }
+   },
    "solutionSteps": [
-    "(a) g′(x) = 2x² + 4x - 6 > 0 on (-∞, -3) ∪ (1, ∞).",
-    "(b) g′ = f changes from positive to negative at x = 1.",
-    "(c) g′(3) = f(3) = 0.",
-    "(d) g″(x) = f′(x) = -2x + 4, so g″(3) = -2."
+    "(a) g(6) = signed area from 1 to 6 = 5/2; g(-4) = −(signed area from -4 to 1) = 7/2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-1/2, 7/2).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 7/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = -2, x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-5.A",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: acc_formula_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s03-honors-016",
@@ -3979,7 +4114,9 @@
    "answer": "3x¹¹",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x¹¹."
+    "Here f(t) = t³, u(x) = x³, u′(x) = 3x².",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 3x¹¹."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4013,7 +4150,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2xsin(x²)."
+    "Here f(t) = sin(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 2xsin(x²)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4029,7 +4168,9 @@
    "answer": "3x²(x³ + cos(x³))",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x²(x³ + cos(x³))."
+    "Here f(t) = t + cos(t), u(x) = x³, u′(x) = 3x².",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 3x²(x³ + cos(x³))."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4063,7 +4204,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x²sin(x³)."
+    "Here f(t) = sin(t), u(x) = x³, u′(x) = 3x².",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: 3x²sin(x³)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4079,7 +4222,9 @@
    "answer": "4sin(4x - 1)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 4sin(4x - 1)."
+    "Here f(t) = sin(t), u(x) = 4x - 1, u′(x) = 4.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 4sin(4x - 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4113,7 +4258,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 4√((4x - 1)² + 1)."
+    "Here f(t) = √(t² + 1), u(x) = 4x - 1, u′(x) = 4.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 4√((4x - 1)² + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4129,7 +4276,9 @@
    "answer": "2√(4x² + 1)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2√(4x² + 1)."
+    "Here f(t) = √(t² + 1), u(x) = 2x, u′(x) = 2.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: 2√(4x² + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4163,7 +4312,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 16x³."
+    "Here f(t) = t³, u(x) = 2x, u′(x) = 2.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 16x³."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4179,7 +4330,9 @@
    "answer": "2xe^(x²)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2xe^(x²)."
+    "Here f(t) = e^(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 2xe^(x²)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4213,7 +4366,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3sin(3x)."
+    "Here f(t) = sin(t), u(x) = 3x, u′(x) = 3.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 3sin(3x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4229,7 +4384,9 @@
    "answer": "3x²sin(x³)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x²sin(x³)."
+    "Here f(t) = sin(t), u(x) = x³, u′(x) = 3x².",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 3x²sin(x³)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4263,7 +4420,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x(x⁴ + 1)."
+    "Here f(t) = t² + 1, u(x) = x², u′(x) = 2x.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: 2x(x⁴ + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4279,7 +4438,9 @@
    "answer": "8x² + 2",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 8x² + 2."
+    "Here f(t) = t² + 1, u(x) = 2x, u′(x) = 2.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 8x² + 2."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4296,7 +4457,9 @@
    "solutionSteps": [
     "Mistake: Forgot the chain-rule factor.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 81x³.",
+    "Here f(t) = t³, u(x) = 3x, u′(x) = 3.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 81x³.",
     "The correct answer is 81x³, not 27x³."
    ],
    "standards": [
@@ -4309,36 +4472,45 @@
    "skillId": "fundamental-theorem-calculus-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Differentiating Functions Defined by Integrals): answer each part and show your work.",
+   "prompt": "Free response (Differentiating Functions Defined by Integrals). Let F(x) = ∫ from 1 to x √(t + 3) dt.",
+   "answer": "(a) F′(x) = √(x + 3); (b) F(1) = 0; F′(1) = 2; (c) y = 2x - 2; (d) increasing",
    "parts": [
     {
-     "prompt": "Find d/dx [∫ from -1 to (4x - 1) (√(t² + 1)) dt].",
-     "answer": "4√((4x - 1)² + 1)"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = √(x + 3)"
     },
     {
-     "prompt": "Find d/dx [∫ from -1 to 2x (√(t² + 1)) dt].",
-     "answer": "2√(4x² + 1)"
+     "label": "b",
+     "prompt": "Find F(1) and F′(1).",
+     "answer": "F(1) = 0; F′(1) = 2"
     },
     {
-     "prompt": "Find d/dx [∫ from 1 to x² e^t dt].",
-     "answer": "2xe^(x²)"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 1.",
+     "answer": "y = 2x - 2"
     },
     {
-     "prompt": "Find d/dx [∫ from 2 to 2x (t + cos(t)) dt].",
-     "answer": "4x + 2cos(2x)"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 2? Justify your answer.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) 4√((4x - 1)² + 1); (b) 2√(4x² + 1); (c) 2xe^(x²); (d) 4x + 2cos(2x)",
    "solutionSteps": [
-    "(a) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 4√((4x - 1)² + 1).",
-    "(b) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2√(4x² + 1).",
-    "(c) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2xe^(x²).",
-    "(d) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 4x + 2cos(2x)."
+    "(a) Fundamental Theorem, part 1.",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 1 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (1, 0), slope 2.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(2) = √5 ≈ 2.236.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_chain_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s04-cp2-016",
@@ -4350,7 +4522,9 @@
    "solutionSteps": [
     "Mistake: Substituted the wrong variable.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 8x² + 2.",
+    "Here f(t) = t² + 1, u(x) = 2x, u′(x) = 2.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: 8x² + 2.",
     "The correct answer is 8x² + 2, not 2x² + 2."
    ],
    "standards": [
@@ -4367,7 +4541,9 @@
    "answer": "(e^x + cos(e^x))e^x",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (e^x + cos(e^x))e^x."
+    "Here f(t) = t + cos(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: (e^x + cos(e^x))e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4401,7 +4577,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3sin(3x + 1)."
+    "Here f(t) = sin(t), u(x) = 3x + 1, u′(x) = 3.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 3sin(3x + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4417,7 +4595,9 @@
    "answer": "2sin(2x)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2sin(2x)."
+    "Here f(t) = sin(t), u(x) = 2x, u′(x) = 2.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 2sin(2x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4451,7 +4631,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (sin²(x) + 1)cos(x)."
+    "Here f(t) = t² + 1, u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: (sin²(x) + 1)cos(x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4467,7 +4649,9 @@
    "answer": "9x + 3cos(3x + 1) + 3",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 9x + 3cos(3x + 1) + 3."
+    "Here f(t) = t + cos(t), u(x) = 3x + 1, u′(x) = 3.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 9x + 3cos(3x + 1) + 3."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4501,7 +4685,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2√(4x² + 1)."
+    "Here f(t) = √(t² + 1), u(x) = 2x, u′(x) = 2.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 2√(4x² + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4517,7 +4703,9 @@
    "answer": "3(3x + 1)² + 3",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3(3x + 1)² + 3."
+    "Here f(t) = t² + 1, u(x) = 3x + 1, u′(x) = 3.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 3(3x + 1)² + 3."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4551,7 +4739,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= e^(3x) + e^x."
+    "Here f(t) = t² + 1, u(x) = e^x, u′(x) = e^x.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: e^(3x) + e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4567,7 +4757,9 @@
    "answer": "√(e^(2x) + 1)e^x",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= √(e^(2x) + 1)e^x."
+    "Here f(t) = √(t² + 1), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: √(e^(2x) + 1)e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4601,7 +4793,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (e^x + cos(e^x))e^x."
+    "Here f(t) = t + cos(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: (e^x + cos(e^x))e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4617,7 +4811,9 @@
    "answer": "3x²(x³ + cos(x³))",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x²(x³ + cos(x³))."
+    "Here f(t) = t + cos(t), u(x) = x³, u′(x) = 3x².",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 3x²(x³ + cos(x³))."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4651,7 +4847,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3e^(3x + 1)."
+    "Here f(t) = e^(t), u(x) = 3x + 1, u′(x) = 3.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 3e^(3x + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4667,7 +4865,9 @@
    "answer": "2x√(x⁴ + 1)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x√(x⁴ + 1)."
+    "Here f(t) = √(t² + 1), u(x) = x², u′(x) = 2x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 2x√(x⁴ + 1)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4684,7 +4884,9 @@
    "solutionSteps": [
     "Mistake: Substituted the wrong variable.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (√(x + 1))/(2√x).",
+    "Here f(t) = √(t² + 1), u(x) = √x, u′(x) = 1/(2√x).",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: (√(x + 1))/(2√x).",
     "The correct answer is (√(x + 1))/(2√x), not (√(x² + 1))/(2√x)."
    ],
    "standards": [
@@ -4697,36 +4899,45 @@
    "skillId": "fundamental-theorem-calculus-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Differentiating Functions Defined by Integrals): answer each part and show your work.",
+   "prompt": "Free response (Differentiating Functions Defined by Integrals). Let F(x) = ∫ from 1 to x (t² + 1) dt.",
+   "answer": "(a) F′(x) = x² + 1; (b) F(1) = 0; F′(1) = 2; (c) y = 2x - 2; (d) increasing",
    "parts": [
     {
-     "prompt": "Find d/dx [∫ from 2 to 2x t³ dt].",
-     "answer": "16x³"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = x² + 1"
     },
     {
-     "prompt": "Find d/dx [∫ from -2 to e^x (√(t² + 1)) dt].",
-     "answer": "√(e^(2x) + 1)e^x"
+     "label": "b",
+     "prompt": "Find F(1) and F′(1).",
+     "answer": "F(1) = 0; F′(1) = 2"
     },
     {
-     "prompt": "Find d/dx [∫ from -2 to x³ sin(t) dt].",
-     "answer": "3x²sin(x³)"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 1.",
+     "answer": "y = 2x - 2"
     },
     {
-     "prompt": "Find d/dx [∫ from 1 to 2x (√(t² + 1)) dt].",
-     "answer": "2√(4x² + 1)"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 2? Justify your answer.",
+     "answer": "increasing"
     }
    ],
-   "answer": "(a) 16x³; (b) √(e^(2x) + 1)e^x; (c) 3x²sin(x³); (d) 2√(4x² + 1)",
    "solutionSteps": [
-    "(a) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 16x³.",
-    "(b) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = √(e^(2x) + 1)e^x.",
-    "(c) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 3x²sin(x³).",
-    "(d) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2√(4x² + 1)."
+    "(a) Fundamental Theorem, part 1.",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 1 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (1, 0), slope 2.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(2) = 5.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_chain_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s04-cp1-016",
@@ -4738,7 +4949,9 @@
    "solutionSteps": [
     "Mistake: Substituted the wrong variable.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x⁷.",
+    "Here f(t) = t³, u(x) = x², u′(x) = 2x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 2x⁷.",
     "The correct answer is 2x⁷, not 2x⁴."
    ],
    "standards": [
@@ -4755,7 +4968,9 @@
    "answer": "2x³ - 4x + 2xcos(x²) - 2cos(2x)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x³ - 4x + 2xcos(x²) - 2cos(2x)."
+    "Here f(t) = t + cos(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit 2x also depends on x, so subtract f(2x)·2.",
+    "Result: 2x³ - 4x + 2xcos(x²) - 2cos(2x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4789,7 +5004,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= √(sin²(x) + 1)cos(x)."
+    "Here f(t) = √(t² + 1), u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: √(sin²(x) + 1)cos(x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4805,7 +5022,9 @@
    "answer": "-4x + (e^x + cos(e^x))e^x - 2cos(2x)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= -4x + (e^x + cos(e^x))e^x - 2cos(2x)."
+    "Here f(t) = t + cos(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit 2x also depends on x, so subtract f(2x)·2.",
+    "Result: -4x + (e^x + cos(e^x))e^x - 2cos(2x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4839,7 +5058,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (sin(√x))/(2√x)."
+    "Here f(t) = sin(t), u(x) = √x, u′(x) = 1/(2√x).",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: (sin(√x))/(2√x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4855,7 +5076,9 @@
    "answer": "(e^x + cos(e^x))e^x",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (e^x + cos(e^x))e^x."
+    "Here f(t) = t + cos(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: (e^x + cos(e^x))e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4889,7 +5112,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= e^(4x)."
+    "Here f(t) = t³, u(x) = e^x, u′(x) = e^x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: e^(4x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4905,7 +5130,9 @@
    "answer": "3x²e^(x³) - e^x",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x²e^(x³) - e^x."
+    "Here f(t) = e^(t), u(x) = x³, u′(x) = 3x².",
+    "The lower limit x also depends on x, so subtract f(x)·1.",
+    "Result: 3x²e^(x³) - e^x."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4939,7 +5166,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= sin³(x)cos(x)."
+    "Here f(t) = t³, u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: sin³(x)cos(x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4955,7 +5184,9 @@
    "answer": "2xe^(x²)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2xe^(x²)."
+    "Here f(t) = e^(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: 2xe^(x²)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -4989,7 +5220,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 4x + 2cos(2x)."
+    "Here f(t) = t + cos(t), u(x) = 2x, u′(x) = 2.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 4x + 2cos(2x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -5005,7 +5238,9 @@
    "answer": "2xe^(x²)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2xe^(x²)."
+    "Here f(t) = e^(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 2xe^(x²)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -5039,7 +5274,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= sin(sin(x))cos(x)."
+    "Here f(t) = sin(t), u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: sin(sin(x))cos(x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -5055,7 +5292,9 @@
    "answer": "e^(sin(x))cos(x)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= e^(sin(x))cos(x)."
+    "Here f(t) = e^(t), u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: e^(sin(x))cos(x)."
    ],
    "standards": [
     "AP FUN-5.A"
@@ -5072,7 +5311,9 @@
    "solutionSteps": [
     "Mistake: Subtracted f(1) = 2 for the lower limit. A constant lower limit adds nothing to the derivative.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (x + 1)/(2√x).",
+    "Here f(t) = t² + 1, u(x) = √x, u′(x) = 1/(2√x).",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: (x + 1)/(2√x).",
     "The correct answer is (x + 1)/(2√x), not (x - 4√x + 1)/(2√x)."
    ],
    "standards": [
@@ -5085,36 +5326,45 @@
    "skillId": "fundamental-theorem-calculus-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Differentiating Functions Defined by Integrals): answer each part and show your work.",
+   "prompt": "Free response (Differentiating Functions Defined by Integrals). Let F(x) = ∫ from 0 to 2x cos(t²) dt.",
+   "answer": "(a) F′(x) = 2cos(4x²); (b) F(0) = 0; F′(0) = 2; (c) y = 2x; (d) decreasing",
    "parts": [
     {
-     "prompt": "Find d/dx [∫ from 1 to x² (t + cos(t)) dt].",
-     "answer": "2x(x² + cos(x²))"
+     "label": "a",
+     "prompt": "Find F′(x).",
+     "answer": "F′(x) = 2cos(4x²)"
     },
     {
-     "prompt": "Find d/dx [∫ from 2x to x² e^t dt].",
-     "answer": "2xe^(x²) - 2e^(2x)"
+     "label": "b",
+     "prompt": "Find F(0) and F′(0).",
+     "answer": "F(0) = 0; F′(0) = 2"
     },
     {
-     "prompt": "Find d/dx [∫ from -1 to 2x (√(t² + 1)) dt].",
-     "answer": "2√(4x² + 1)"
+     "label": "c",
+     "prompt": "Write an equation of the line tangent to the graph of F at x = 0.",
+     "answer": "y = 2x"
     },
     {
-     "prompt": "Find d/dx [∫ from -2 to 2x e^t dt].",
-     "answer": "2e^(2x)"
+     "label": "d",
+     "prompt": "Is F increasing or decreasing at x = 1? Justify your answer.",
+     "answer": "decreasing"
     }
    ],
-   "answer": "(a) 2x(x² + cos(x²)); (b) 2xe^(x²) - 2e^(2x); (c) 2√(4x² + 1); (d) 2e^(2x)",
    "solutionSteps": [
-    "(a) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2x(x² + cos(x²)).",
-    "(b) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2xe^(x²) - 2e^(2x).",
-    "(c) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2√(4x² + 1).",
-    "(d) FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x). = 2e^(2x)."
+    "(a) Fundamental Theorem, part 1, with the chain rule: g(2x)·(2).",
+    "(a) Scoring, 2 points: 1 point for substituting the upper limit, 1 point for the chain-rule factor (or the result).",
+    "(b) At x = 0 the limits are equal, so F = 0.",
+    "(b) Scoring, 2 points: 1 point for each value.",
+    "(c) Point (0, 0), slope 2.",
+    "(c) Scoring, 1 point: the line.",
+    "(d) F′(1) = 2cos(4) ≈ -1.307.",
+    "(d) Scoring, 1 point: the sign of F′.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_chain_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_ftc1). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s04-honors-016",
@@ -5126,7 +5376,9 @@
    "solutionSteps": [
     "Mistake: Added 1 for the lower limit. A constant lower limit adds nothing to the derivative.",
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 3x¹¹.",
+    "Here f(t) = t³, u(x) = x³, u′(x) = 3x².",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: 3x¹¹.",
     "The correct answer is 3x¹¹, not 3x¹¹ + 1."
    ],
    "standards": [
@@ -5143,7 +5395,8 @@
    "answer": "114",
    "solutionSteps": [
     "Antiderivative: F(x) = x³ + 7x.",
-    "F(4) - F(-2) = 114."
+    "F(4) = 92 and F(-2) = -22.",
+    "F(4) − F(-2) = 92 − (-22) = 114."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5178,7 +5431,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -x³ - 4x² - 2x.",
-    "F(1) - F(-3) = -4."
+    "F(1) = -7 and F(-3) = -3.",
+    "F(1) − F(-3) = -7 − (-3) = -4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5195,7 +5449,8 @@
    "answer": "42",
    "solutionSteps": [
     "Antiderivative: F(x) = 2x³ - 4x² + 5x.",
-    "F(0) - F(-2) = 42."
+    "F(0) = 0 and F(-2) = -42.",
+    "F(0) − F(-2) = 0 − (-42) = 42."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5230,7 +5485,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ - 2x² + 5x.",
-    "F(2) - F(1) = 20."
+    "F(2) = 26 and F(1) = 6.",
+    "F(2) − F(1) = 26 − 6 = 20."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5247,7 +5503,8 @@
    "answer": "52",
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ - 2x² + 5x.",
-    "F(3) - F(2) = 52."
+    "F(3) = 78 and F(2) = 26.",
+    "F(3) − F(2) = 78 − 26 = 52."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5282,7 +5539,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = x³ + 2x² + 2x.",
-    "F(4) - F(-2) = 108."
+    "F(4) = 104 and F(-2) = -4.",
+    "F(4) − F(-2) = 104 − (-4) = 108."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5299,7 +5557,8 @@
    "answer": "-69",
    "solutionSteps": [
     "Antiderivative: F(x) = -3x³ - 4x² - 8x.",
-    "F(0) - F(-3) = -69."
+    "F(0) = 0 and F(-3) = 69.",
+    "F(0) − F(-3) = 0 − 69 = -69."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5334,7 +5593,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -x³ + 3x² - 6x.",
-    "F(4) - F(-3) = -112."
+    "F(4) = -40 and F(-3) = 72.",
+    "F(4) − F(-3) = -40 − 72 = -112."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5351,7 +5611,8 @@
    "answer": "-57",
    "solutionSteps": [
     "Antiderivative: F(x) = -3x³ + 8x.",
-    "F(0) - F(-3) = -57."
+    "F(0) = 0 and F(-3) = 57.",
+    "F(0) − F(-3) = 0 − 57 = -57."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5386,7 +5647,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 2x³ - 5x² + 8x.",
-    "F(0) - F(-1) = 15."
+    "F(0) = 0 and F(-1) = -15.",
+    "F(0) − F(-1) = 0 − (-15) = 15."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5403,7 +5665,8 @@
    "answer": "-3",
    "solutionSteps": [
     "Antiderivative: F(x) = -x³ - 6x² + 8x.",
-    "F(2) - F(-1) = -3."
+    "F(2) = -16 and F(-1) = -13.",
+    "F(2) − F(-1) = -16 − (-13) = -3."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5438,7 +5701,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = x³ + 3x² + 8x.",
-    "F(3) - F(-1) = 84."
+    "F(3) = 78 and F(-1) = -6.",
+    "F(3) − F(-1) = 78 − (-6) = 84."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5455,7 +5719,8 @@
    "answer": "-154",
    "solutionSteps": [
     "Antiderivative: F(x) = -2x³ + 6x² - 2x.",
-    "F(4) - F(-3) = -154."
+    "F(4) = -40 and F(-3) = 114.",
+    "F(4) − F(-3) = -40 − 114 = -154."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5473,7 +5738,8 @@
    "solutionSteps": [
     "Mistake: Forgot to subtract F(a).",
     "Antiderivative: F(x) = -3x³ - 4x² + 3x.",
-    "F(3) - F(2) = -74.",
+    "F(3) = -108 and F(2) = -34.",
+    "F(3) − F(2) = -108 − (-34) = -74.",
     "The correct answer is -74, not -108."
    ],
    "standards": [
@@ -5487,37 +5753,46 @@
    "skillId": "fundamental-theorem-calculus-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Definite Integrals with Antiderivatives): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Definite Integrals with Antiderivatives). The function f satisfies f′(x) = 3x² - 4x + 5 and f(0) = -1.",
+   "answer": "(a) x³ - 2x² + 5x + C; (b) f(x) = x³ - 2x² + 5x - 1; (c) 10; f(2) − f(0) = 10; (d) 5",
    "parts": [
     {
-     "prompt": "Evaluate ∫ from -3 to 4 (6x² + 4) dx.",
-     "answer": "210"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "x³ - 2x² + 5x + C"
     },
     {
-     "prompt": "Evaluate ∫ from -3 to 2 (6x² - 6x + 4) dx.",
-     "answer": "105"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = x³ - 2x² + 5x - 1"
     },
     {
-     "prompt": "Evaluate ∫ from -2 to -1 (-3x² - 12x - 9) dx.",
-     "answer": "2"
+     "label": "c",
+     "prompt": "Find ∫ from 0 to 2 f′(x) dx and explain what it tells you about f.",
+     "answer": "10; f(2) − f(0) = 10"
     },
     {
-     "prompt": "Evaluate ∫ from -1 to 2 (6x² + 8x - 1) dx.",
-     "answer": "27"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [0, 2].",
+     "answer": "5"
     }
    ],
-   "answer": "(a) 210; (b) 105; (c) 2; (d) 27",
    "solutionSteps": [
-    "(a) Antiderivative: F(x) = 2x³ + 4x. F(4) - F(-3) = 210.",
-    "(b) Antiderivative: F(x) = 2x³ - 3x² + 4x. F(2) - F(-3) = 105.",
-    "(c) Antiderivative: F(x) = -x³ - 6x² - 9x. F(-1) - F(-2) = 2.",
-    "(d) Antiderivative: F(x) = 2x³ + 4x² - x. F(2) - F(-1) = 27."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(0) = -1 gives C = -1.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(2) − f(0) = 10.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(2 − 0))∫ from 0 to 2 f′(x) dx = 5.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s05-cp2-016",
@@ -5529,7 +5804,8 @@
    "solutionSteps": [
     "Mistake: Forgot to subtract F(a).",
     "Antiderivative: F(x) = -2x³ + 4x².",
-    "F(1) - F(-2) = -30.",
+    "F(1) = 2 and F(-2) = 32.",
+    "F(1) − F(-2) = 2 − 32 = -30.",
     "The correct answer is -30, not 2."
    ],
    "standards": [
@@ -5547,7 +5823,8 @@
    "answer": "√2",
    "solutionSteps": [
     "Antiderivative: F(x) = -2cos(x).",
-    "F(π/2) - F(π/4) = √2."
+    "F(π/2) = 0 and F(π/4) = -√2.",
+    "F(π/2) − F(π/4) = 0 − (-√2) = √2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5582,7 +5859,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = sin(x).",
-    "F(π/2) - F(π/4) = 1 - (√2)/2."
+    "F(π/2) = 1 and F(π/4) = √2/2.",
+    "F(π/2) − F(π/4) = 1 − √2/2 = 1 - √2/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5599,7 +5877,8 @@
    "answer": "ln(1024)",
    "solutionSteps": [
     "Antiderivative: F(x) = 5ln(x).",
-    "F(8) - F(2) = ln(1024)."
+    "F(8) = ln(32768) and F(2) = ln(32).",
+    "F(8) − F(2) = ln(32768) − ln(32) = ln(1024)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5634,7 +5913,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -4cos(x).",
-    "F(π/2) - F(π/4) = 2√2."
+    "F(π/2) = 0 and F(π/4) = -2√2.",
+    "F(π/2) − F(π/4) = 0 − (-2√2) = 2√2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5651,7 +5931,8 @@
    "answer": "(3√3)/2",
    "solutionSteps": [
     "Antiderivative: F(x) = -3cos(x).",
-    "F(π/2) - F(π/6) = (3√3)/2."
+    "F(π/2) = 0 and F(π/6) = -3√3/2.",
+    "F(π/2) − F(π/6) = 0 − (-3√3/2) = 3√3/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5686,7 +5967,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 4ln(x).",
-    "F(8) - F(2) = ln(256)."
+    "F(8) = ln(4096) and F(2) = ln(16).",
+    "F(8) − F(2) = ln(4096) − ln(16) = ln(256)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5703,7 +5985,8 @@
    "answer": "150",
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ - 5x² + 6x.",
-    "F(4) - F(-1) = 150."
+    "F(4) = 136 and F(-1) = -14.",
+    "F(4) − F(-1) = 136 − (-14) = 150."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5738,7 +6021,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ + x² - 8x.",
-    "F(4) - F(1) = 180."
+    "F(4) = 176 and F(1) = -4.",
+    "F(4) − F(1) = 176 − (-4) = 180."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5755,7 +6039,8 @@
    "answer": "2√3",
    "solutionSteps": [
     "Antiderivative: F(x) = -4cos(x).",
-    "F(π/2) - F(π/6) = 2√3."
+    "F(π/2) = 0 and F(π/6) = -2√3.",
+    "F(π/2) − F(π/6) = 0 − (-2√3) = 2√3."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5790,7 +6075,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 6ln(x).",
-    "F(8) - F(2) = ln(4096)."
+    "F(8) = ln(262144) and F(2) = ln(64).",
+    "F(8) − F(2) = ln(262144) − ln(64) = ln(4096)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5807,7 +6093,8 @@
    "answer": "(√2)/2",
    "solutionSteps": [
     "Antiderivative: F(x) = -cos(x).",
-    "F(π/2) - F(π/4) = (√2)/2."
+    "F(π/2) = 0 and F(π/4) = -√2/2.",
+    "F(π/2) − F(π/4) = 0 − (-√2/2) = √2/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5842,7 +6129,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 2x³ + 4x² + 3x.",
-    "F(1) - F(-2) = 15."
+    "F(1) = 9 and F(-2) = -6.",
+    "F(1) − F(-2) = 9 − (-6) = 15."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5859,7 +6147,8 @@
    "answer": "1",
    "solutionSteps": [
     "Antiderivative: F(x) = 2sin(x).",
-    "F(π/2) - F(π/6) = 1."
+    "F(π/2) = 2 and F(π/6) = 1.",
+    "F(π/2) − F(π/6) = 2 − 1 = 1."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5877,7 +6166,8 @@
    "solutionSteps": [
     "Mistake: Evaluated the integrand instead of an antiderivative.",
     "Antiderivative: F(x) = 2x³ - 2x² + 8x.",
-    "F(1) - F(-3) = 104.",
+    "F(1) = 8 and F(-3) = -96.",
+    "F(1) − F(-3) = 8 − (-96) = 104.",
     "The correct answer is 104, not -64."
    ],
    "standards": [
@@ -5891,37 +6181,46 @@
    "skillId": "fundamental-theorem-calculus-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Definite Integrals with Antiderivatives): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Definite Integrals with Antiderivatives). The function f satisfies f′(x) = 3x² - 4x + 3 and f(1) = 2.",
+   "answer": "(a) x³ - 2x² + 3x + C; (b) f(x) = x(x² - 2x + 3); (c) 16; f(3) − f(1) = 16; (d) 8",
    "parts": [
     {
-     "prompt": "Evaluate ∫ from π/6 to π/2 3cos(x) dx.",
-     "answer": "3/2"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "x³ - 2x² + 3x + C"
     },
     {
-     "prompt": "Evaluate ∫ from π/6 to π/2 2sin(x) dx.",
-     "answer": "√3"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = x(x² - 2x + 3)"
     },
     {
-     "prompt": "Evaluate ∫ from π/6 to π/2 cos(x) dx.",
-     "answer": "1/2"
+     "label": "c",
+     "prompt": "Find ∫ from 1 to 3 f′(x) dx and explain what it tells you about f.",
+     "answer": "16; f(3) − f(1) = 16"
     },
     {
-     "prompt": "Evaluate ∫ from π/4 to π/2 cos(x) dx.",
-     "answer": "1 - (√2)/2"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [1, 3].",
+     "answer": "8"
     }
    ],
-   "answer": "(a) 3/2; (b) √3; (c) 1/2; (d) 1 - (√2)/2",
    "solutionSteps": [
-    "(a) Antiderivative: F(x) = 3sin(x). F(π/2) - F(π/6) = 3/2.",
-    "(b) Antiderivative: F(x) = -2cos(x). F(π/2) - F(π/6) = √3.",
-    "(c) Antiderivative: F(x) = sin(x). F(π/2) - F(π/6) = 1/2.",
-    "(d) Antiderivative: F(x) = sin(x). F(π/2) - F(π/4) = 1 - (√2)/2."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(1) = 2 gives C = 0.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(3) − f(1) = 16.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(3 − 1))∫ from 1 to 3 f′(x) dx = 8.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s05-cp1-016",
@@ -5933,7 +6232,8 @@
    "solutionSteps": [
     "Mistake: Forgot to subtract F(a).",
     "Antiderivative: F(x) = x³ + 2x² - 6x.",
-    "F(-1) - F(-3) = -2.",
+    "F(-1) = 7 and F(-3) = 9.",
+    "F(-1) − F(-3) = 7 − 9 = -2.",
     "The correct answer is -2, not 7."
    ],
    "standards": [
@@ -5951,7 +6251,8 @@
    "answer": "-10",
    "solutionSteps": [
     "Antiderivative: F(x) = x⁴ + 2x³ + 3x².",
-    "F(-1) - F(-2) = -10."
+    "F(-1) = 2 and F(-2) = 12.",
+    "F(-1) − F(-2) = 2 − 12 = -10."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -5986,7 +6287,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 2x⁴ + 2x³ - 2x² - 4x.",
-    "F(2) - F(-2) = 16."
+    "F(2) = 32 and F(-2) = 16.",
+    "F(2) − F(-2) = 32 − 16 = 16."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6003,7 +6305,8 @@
    "answer": "2",
    "solutionSteps": [
     "Antiderivative: F(x) = 4sin(x).",
-    "F(π/2) - F(π/6) = 2."
+    "F(π/2) = 4 and F(π/6) = 2.",
+    "F(π/2) − F(π/6) = 4 − 2 = 2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6038,7 +6341,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -x⁴ - 6x² - 3x.",
-    "F(-2) - F(-3) = 92."
+    "F(-2) = -34 and F(-3) = -126.",
+    "F(-2) − F(-3) = -34 − (-126) = 92."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6055,7 +6359,8 @@
    "answer": "36",
    "solutionSteps": [
     "Antiderivative: F(x) = 2x⁴ - 2x³ - 6x² - 5x.",
-    "F(3) - F(-1) = 36."
+    "F(3) = 39 and F(-1) = 3.",
+    "F(3) − F(-1) = 39 − 3 = 36."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6090,7 +6395,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -2x⁴ + 8x.",
-    "F(1) - F(-2) = 54."
+    "F(1) = 6 and F(-2) = -48.",
+    "F(1) − F(-2) = 6 − (-48) = 54."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6107,7 +6413,9 @@
    "answer": "-1 + e",
    "solutionSteps": [
     "Antiderivative: F(x) = e^(x²) (substitution u = inner function).",
-    "F(1) - F(0) = -1 + e."
+    "Antiderivative: F(x) = e^(x²).",
+    "F(1) = e and F(0) = 1.",
+    "F(1) − F(0) = e − 1 = -1 + e."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6142,7 +6450,9 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = e^(2x²) (substitution u = inner function).",
-    "F(1) - F(0) = -1 + e²."
+    "Antiderivative: F(x) = e^(2x²).",
+    "F(1) = e² and F(0) = 1.",
+    "F(1) − F(0) = e² − 1 = -1 + e²."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6159,7 +6469,8 @@
    "answer": "-8",
    "solutionSteps": [
     "Antiderivative: F(x) = -2x⁴ + x³ - 6x² - 6x.",
-    "F(2) - F(-2) = -8."
+    "F(2) = -60 and F(-2) = -52.",
+    "F(2) − F(-2) = -60 − (-52) = -8."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6194,7 +6505,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = -x⁴ - 2x³ - x² + 2x.",
-    "F(-1) - F(-3) = 40."
+    "F(-1) = -2 and F(-3) = -42.",
+    "F(-1) − F(-3) = -2 − (-42) = 40."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6211,7 +6523,8 @@
    "answer": "190",
    "solutionSteps": [
     "Antiderivative: F(x) = 2x⁴ + 2x³ - 6x² + 4x.",
-    "F(3) - F(-2) = 190."
+    "F(3) = 174 and F(-2) = -16.",
+    "F(3) − F(-2) = 174 − (-16) = 190."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6246,7 +6559,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 3sin(x).",
-    "F(π/2) - F(π/6) = 3/2."
+    "F(π/2) = 3 and F(π/6) = 3/2.",
+    "F(π/2) − F(π/6) = 3 − 3/2 = 3/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6263,7 +6577,9 @@
    "answer": "-1 + e¹²",
    "solutionSteps": [
     "Antiderivative: F(x) = e^(3x²) (substitution u = inner function).",
-    "F(2) - F(0) = -1 + e¹²."
+    "Antiderivative: F(x) = e^(3x²).",
+    "F(2) = e¹² and F(0) = 1.",
+    "F(2) − F(0) = e¹² − 1 = -1 + e¹²."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6281,7 +6597,9 @@
    "solutionSteps": [
     "Mistake: Evaluated the integrand instead of an antiderivative.",
     "Antiderivative: F(x) = e^(x²) (substitution u = inner function).",
-    "F(1) - F(0) = -1 + e.",
+    "Antiderivative: F(x) = e^(x²).",
+    "F(1) = e and F(0) = 1.",
+    "F(1) − F(0) = e − 1 = -1 + e.",
     "The correct answer is -1 + e, not 2e."
    ],
    "standards": [
@@ -6295,37 +6613,46 @@
    "skillId": "fundamental-theorem-calculus-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Definite Integrals with Antiderivatives): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Definite Integrals with Antiderivatives). The function f satisfies f′(x) = 2e^(2x) - 1 and f(0) = 2.",
+   "answer": "(a) -x + e^(2x) + C; (b) f(x) = -x + e^(2x) + 1; (c) -3 + e⁴; f(2) − f(0) = -3 + e⁴; (d) -3/2 + (1/2)e⁴",
    "parts": [
     {
-     "prompt": "Evaluate ∫ from 2 to 3 (4x³ - 9x² - 6x + 3) dx.",
-     "answer": "-4"
+     "label": "a",
+     "prompt": "Find the general antiderivative of f′(x).",
+     "answer": "-x + e^(2x) + C"
     },
     {
-     "prompt": "Evaluate ∫ from -3 to -2 (-4x³ + 6x² + 4x + 7) dx.",
-     "answer": "100"
+     "label": "b",
+     "prompt": "Find f(x).",
+     "answer": "f(x) = -x + e^(2x) + 1"
     },
     {
-     "prompt": "Evaluate ∫ from π/4 to π/2 2sin(x) dx.",
-     "answer": "√2"
+     "label": "c",
+     "prompt": "Find ∫ from 0 to 2 f′(x) dx and explain what it tells you about f.",
+     "answer": "-3 + e⁴; f(2) − f(0) = -3 + e⁴"
     },
     {
-     "prompt": "Evaluate ∫ from -1 to 1 (8x³ + 6x² + 3) dx.",
-     "answer": "10"
+     "label": "d",
+     "prompt": "Find the average value of f′ on [0, 2].",
+     "answer": "-3/2 + (1/2)e⁴"
     }
    ],
-   "answer": "(a) -4; (b) 100; (c) √2; (d) 10",
    "solutionSteps": [
-    "(a) Antiderivative: F(x) = x⁴ - 3x³ - 3x² + 3x. F(3) - F(2) = -4.",
-    "(b) Antiderivative: F(x) = -x⁴ + 2x³ + 2x² + 7x. F(-2) - F(-3) = 100.",
-    "(c) Antiderivative: F(x) = -2cos(x). F(π/2) - F(π/4) = √2.",
-    "(d) Antiderivative: F(x) = 2x⁴ + 2x³ + 3x. F(1) - F(-1) = 10."
+    "(a) Power rule (and the basic rules) term by term, plus C.",
+    "(a) Scoring, 1 point: the antiderivative with + C.",
+    "(b) f(0) = 2 gives C = 1.",
+    "(b) Scoring, 2 points: 1 point for using the initial condition, 1 point for f(x).",
+    "(c) By the Fundamental Theorem, the integral of f′ is the net change in f: f(2) − f(0) = -3 + e⁴.",
+    "(c) Scoring, 2 points: 1 point for the value, 1 point for the net-change interpretation.",
+    "(d) (1/(2 − 0))∫ from 0 to 2 f′(x) dx = -3/2 + (1/2)e⁴.",
+    "(d) Scoring, 1 point: the average value.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_antideriv). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s05-honors-016",
@@ -6337,7 +6664,9 @@
    "solutionSteps": [
     "Mistake: Evaluated the integrand instead of an antiderivative.",
     "Antiderivative: F(x) = e^(2x²) (substitution u = inner function).",
-    "F(1) - F(0) = -1 + e².",
+    "Antiderivative: F(x) = e^(2x²).",
+    "F(1) = e² and F(0) = 1.",
+    "F(1) − F(0) = e² − 1 = -1 + e².",
     "The correct answer is -1 + e², not 4e²."
    ],
    "standards": [
@@ -6388,9 +6717,9 @@
    "prompt": "Evaluate ∫ from 1 to 4 (6x² + 2x + 3) dx.",
    "answer": "150",
    "solutionSteps": [
-    "An antiderivative is 2x³ + x² + 3x.",
-    "(128 + 16 + 12) - (2 + 1 + 3) = 156 - 6.",
-    "150."
+    "Antiderivative: F(x) = 2x³ + x² + 3x.",
+    "F(4) = 156 and F(1) = 6.",
+    "F(4) − F(1) = 156 − 6 = 150."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6406,8 +6735,9 @@
    "prompt": "Evaluate ∫ from 0 to π/2 cos(x) dx.",
    "answer": "1",
    "solutionSteps": [
-    "An antiderivative is sin(x).",
-    "sin(π/2) - sin(0) = 1 - 0 = 1."
+    "Antiderivative: F(x) = sin(x).",
+    "F(π/2) = 1 and F(0) = 0.",
+    "F(π/2) − F(0) = 1 − 0 = 1."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6423,9 +6753,9 @@
    "prompt": "Evaluate ∫ from 0 to π/4 2cos(x) dx.",
    "answer": "√2",
    "solutionSteps": [
-    "An antiderivative is 2sin(x).",
-    "2sin(π/4) - 2sin(0) = 2 · (√2)/2.",
-    "√2."
+    "Antiderivative: F(x) = 2sin(x).",
+    "F(π/4) = √2 and F(0) = 0.",
+    "F(π/4) − F(0) = √2 − 0 = √2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -6545,7 +6875,9 @@
    "answer": "1/4",
    "solutionSteps": [
     "Let u = x². When x = 0, u = 0; when x = 1, u = 1.",
-    "∫ from 0 to 1 u³ du = [u⁴/4] = 1/4."
+    "Antiderivative: F(x) = x⁸/4.",
+    "F(1) = 1/4 and F(0) = 0.",
+    "F(1) − F(0) = 1/4 − 0 = 1/4."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -6596,7 +6928,9 @@
    "answer": "12",
    "solutionSteps": [
     "Let u = x² + 1. When x = 0, u = 1; when x = 2, u = 5.",
-    "∫ from 1 to 5 u¹ du = [u²/2] = 12."
+    "Antiderivative: F(x) = x⁴/2 + x².",
+    "F(2) = 12 and F(0) = 0.",
+    "F(2) − F(0) = 12 − 0 = 12."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -6646,7 +6980,9 @@
    "answer": "156",
    "solutionSteps": [
     "Let u = x² + 1. When x = 0, u = 1; when x = 2, u = 5.",
-    "∫ from 1 to 5 u³ du = [u⁴/4] = 156."
+    "Antiderivative: F(x) = x⁸/4 + x⁶ + 3x⁴/2 + x².",
+    "F(2) = 156 and F(0) = 0.",
+    "F(2) − F(0) = 156 − 0 = 156."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -6697,7 +7033,9 @@
    "answer": "208/3",
    "solutionSteps": [
     "Let u = x² + 2. When x = 0, u = 2; when x = 2, u = 6.",
-    "∫ from 2 to 6 u² du = [u³/3] = 208/3."
+    "Antiderivative: F(x) = x⁶/3 + 2x⁴ + 4x².",
+    "F(2) = 208/3 and F(0) = 0.",
+    "F(2) − F(0) = 208/3 − 0 = 208/3."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -6747,7 +7085,9 @@
    "answer": "19/3",
    "solutionSteps": [
     "Let u = x² + 2. When x = 0, u = 2; when x = 1, u = 3.",
-    "∫ from 2 to 3 u² du = [u³/3] = 19/3."
+    "Antiderivative: F(x) = x⁶/3 + 2x⁴ + 4x².",
+    "F(1) = 19/3 and F(0) = 0.",
+    "F(1) − F(0) = 19/3 − 0 = 19/3."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -6777,36 +7117,45 @@
    "skillId": "fundamental-theorem-calculus-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Integration by Substitution): answer each part and show your work.",
+   "prompt": "Free response (Integration by Substitution). Consider ∫ 3x²(x³ - 1)⁴ dx.",
+   "answer": "(a) u = x³ - 1; du = 3x² dx; (b) (1/5)(x³ - 1)⁵ + C; (c) 16807/5; (d) the integral is now in u, so the limits must be u-values",
    "parts": [
     {
-     "prompt": "Find ∫ 2x(x² + 2)² dx.",
-     "answer": "(1/3)(x² + 2)³ + C"
+     "label": "a",
+     "prompt": "Choose u and write du in terms of dx.",
+     "answer": "u = x³ - 1; du = 3x² dx"
     },
     {
-     "prompt": "Find ∫ 2x(x² + 9)² dx.",
-     "answer": "(1/3)(x² + 9)³ + C"
+     "label": "b",
+     "prompt": "Find the indefinite integral.",
+     "answer": "(1/5)(x³ - 1)⁵ + C"
     },
     {
-     "prompt": "Find ∫ e^(3x) dx.",
-     "answer": "(1/3)e^(3x) + C"
+     "label": "c",
+     "prompt": "Evaluate ∫ from 1 to 2 3x²(x³ - 1)⁴ dx by changing the limits of integration to u-values.",
+     "answer": "16807/5"
     },
     {
-     "prompt": "Find ∫ 2x(x² + 1)⁶ dx.",
-     "answer": "(1/7)(x² + 1)⁷ + C"
+     "label": "d",
+     "prompt": "Explain why the limits of integration change in part (c).",
+     "answer": "the integral is now in u, so the limits must be u-values"
     }
    ],
-   "answer": "(a) (1/3)(x² + 2)³ + C; (b) (1/3)(x² + 9)³ + C; (c) (1/3)e^(3x) + C; (d) (1/7)(x² + 1)⁷ + C",
    "solutionSteps": [
-    "(a) Let u = x² + 2, so du = 2x dx. ∫ u² du = (1/3)u³ + C. = (1/3)(x² + 2)³ + C.",
-    "(b) Let u = x² + 9, so du = 2x dx. ∫ u² du = (1/3)u³ + C. = (1/3)(x² + 9)³ + C.",
-    "(c) Choose u = the inside expression, so du appears in the integrand. = (1/3)e^(3x) + C.",
-    "(d) Let u = x² + 1, so du = 2x dx. ∫ u⁶ du = (1/7)u⁷ + C. = (1/7)(x² + 1)⁷ + C."
+    "(a) Pick the inside function whose derivative appears as a factor.",
+    "(a) Scoring, 1 point: u and du.",
+    "(b) Rewrite in u, integrate, and substitute u = x³ - 1 back.",
+    "(b) Scoring, 2 points: 1 point for the integral in u, 1 point for the answer in x with + C.",
+    "(c) x = 1 gives u = 0; x = 2 gives u = 7. Evaluate the u-antiderivative from 0 to 7: 16807/5.",
+    "(c) Scoring, 2 points: 1 point for the new limits, 1 point for the value.",
+    "(d) After substitution the variable of integration is u.",
+    "(d) Scoring, 1 point: the reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: us_poly_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_subst). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s06-cp2-016",
@@ -6939,7 +7288,9 @@
    "answer": "1/3",
    "solutionSteps": [
     "Let u = x². When x = 0, u = 0; when x = 1, u = 1.",
-    "∫ from 0 to 1 u² du = [u³/3] = 1/3."
+    "Antiderivative: F(x) = x⁶/3.",
+    "F(1) = 1/3 and F(0) = 0.",
+    "F(1) − F(0) = 1/3 − 0 = 1/3."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -7075,7 +7426,9 @@
    ],
    "solutionSteps": [
     "Let u = x² + 2. When x = 0, u = 2; when x = 2, u = 6.",
-    "∫ from 2 to 6 u¹ du = [u²/2] = 16."
+    "Antiderivative: F(x) = x⁴/2 + 2x².",
+    "F(2) = 16 and F(0) = 0.",
+    "F(2) − F(0) = 16 − 0 = 16."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -7161,7 +7514,9 @@
    "solutionSteps": [
     "Mistake: Forgot to divide by the new exponent.",
     "Let u = x². When x = 0, u = 0; when x = 2, u = 4.",
-    "∫ from 0 to 4 u² du = [u³/3] = 64/3.",
+    "Antiderivative: F(x) = x⁶/3.",
+    "F(2) = 64/3 and F(0) = 0.",
+    "F(2) − F(0) = 64/3 − 0 = 64/3.",
     "The correct answer is 64/3, not 64."
    ],
    "standards": [
@@ -7174,36 +7529,45 @@
    "skillId": "fundamental-theorem-calculus-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Integration by Substitution): answer each part and show your work.",
+   "prompt": "Free response (Integration by Substitution). Consider ∫ 6x²(2x³ + 1)² dx.",
+   "answer": "(a) u = 2x³ + 1; du = 6x² dx; (b) (1/3)(2x³ + 1)³ + C; (c) 26/3; (d) the integral is now in u, so the limits must be u-values",
    "parts": [
     {
-     "prompt": "Find ∫ x cos(x² + 8) dx.",
-     "answer": "(1/2)sin(x² + 8) + C"
+     "label": "a",
+     "prompt": "Choose u and write du in terms of dx.",
+     "answer": "u = 2x³ + 1; du = 6x² dx"
     },
     {
-     "prompt": "Find ∫ x(x² + 3)² dx.",
-     "answer": "(1/6)(x² + 3)³ + C"
+     "label": "b",
+     "prompt": "Find the indefinite integral.",
+     "answer": "(1/3)(2x³ + 1)³ + C"
     },
     {
-     "prompt": "Evaluate ∫ from 0 to 1 2x(x² + 2)³ dx.",
-     "answer": "65/4"
+     "label": "c",
+     "prompt": "Evaluate ∫ from 0 to 1 6x²(2x³ + 1)² dx by changing the limits of integration to u-values.",
+     "answer": "26/3"
     },
     {
-     "prompt": "Find ∫ 2x/(x² + 7) dx.",
-     "answer": "ln(x² + 7) + C"
+     "label": "d",
+     "prompt": "Explain why the limits of integration change in part (c).",
+     "answer": "the integral is now in u, so the limits must be u-values"
     }
    ],
-   "answer": "(a) (1/2)sin(x² + 8) + C; (b) (1/6)(x² + 3)³ + C; (c) 65/4; (d) ln(x² + 7) + C",
    "solutionSteps": [
-    "(a) Choose u = the inside expression, so du appears in the integrand. = (1/2)sin(x² + 8) + C.",
-    "(b) Let u = x² + 3, so x dx = (1/2) du. (1/2)∫ u² du = (1/6)u³ + C. = (1/6)(x² + 3)³ + C.",
-    "(c) Let u = x² + 2. When x = 0, u = 2; when x = 1, u = 3. ∫ from 2 to 3 u³ du = [u⁴/4] = 65/4.",
-    "(d) Choose u = the inside expression, so du appears in the integrand. = ln(x² + 7) + C."
+    "(a) Pick the inside function whose derivative appears as a factor.",
+    "(a) Scoring, 1 point: u and du.",
+    "(b) Rewrite in u, integrate, and substitute u = 2x³ + 1 back.",
+    "(b) Scoring, 2 points: 1 point for the integral in u, 1 point for the answer in x with + C.",
+    "(c) x = 0 gives u = 1; x = 1 gives u = 3. Evaluate the u-antiderivative from 1 to 3: 26/3.",
+    "(c) Scoring, 2 points: 1 point for the new limits, 1 point for the value.",
+    "(d) After substitution the variable of integration is u.",
+    "(d) Scoring, 1 point: the reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: us_fn_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_subst). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s06-cp1-016",
@@ -7232,7 +7596,9 @@
    "answer": "(e - 1)/2",
    "solutionSteps": [
     "Let u = x², so x dx = (1/2) du; u runs from 0 to 1.",
-    "(1/2)∫ from 0 to 1 e^u du = (e - 1)/2."
+    "Antiderivative: F(x) = (1/2)e^(x²).",
+    "F(1) = e/2 and F(0) = 1/2.",
+    "F(1) − F(0) = e/2 − 1/2 = -1/2 + e/2."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -7523,7 +7889,9 @@
    ],
    "solutionSteps": [
     "Let u = 2x; u runs from 0 to π/2.",
-    "(1/2)∫ from 0 to π/2 cos(u) du = (1/2)(1 - 0) = 1/2."
+    "Antiderivative: F(x) = sin(2x)/2.",
+    "F(π/4) = 1/2 and F(0) = 0.",
+    "F(π/4) − F(0) = 1/2 − 0 = 1/2."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -7570,36 +7938,45 @@
    "skillId": "fundamental-theorem-calculus-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Integration by Substitution): answer each part and show your work.",
+   "prompt": "Free response (Integration by Substitution). Consider ∫ ln(x)/x dx.",
+   "answer": "(a) u = ln(x); du = (1/x) dx; (b) (1/2)(ln(x))² + C; (c) 1/2; (d) the integral is now in u, so the limits must be u-values",
    "parts": [
     {
-     "prompt": "Find ∫ x²(x³ + 6)² dx.",
-     "answer": "(1/9)(x³ + 6)³ + C"
+     "label": "a",
+     "prompt": "Choose u and write du in terms of dx.",
+     "answer": "u = ln(x); du = (1/x) dx"
     },
     {
-     "prompt": "Evaluate ∫ from 0 to π/6 cos(3x) dx.",
-     "answer": "1/3"
+     "label": "b",
+     "prompt": "Find the indefinite integral.",
+     "answer": "(1/2)(ln(x))² + C"
     },
     {
-     "prompt": "Find ∫ x²(x³ + 6)⁶ dx.",
-     "answer": "(1/21)(x³ + 6)⁷ + C"
+     "label": "c",
+     "prompt": "Evaluate ∫ from 1 to e ln(x)/x dx by changing the limits of integration to u-values.",
+     "answer": "1/2"
     },
     {
-     "prompt": "Find ∫ x²/√(x³ + 2) dx.",
-     "answer": "(2/3)√(x³ + 2) + C"
+     "label": "d",
+     "prompt": "Explain why the limits of integration change in part (c).",
+     "answer": "the integral is now in u, so the limits must be u-values"
     }
    ],
-   "answer": "(a) (1/9)(x³ + 6)³ + C; (b) 1/3; (c) (1/21)(x³ + 6)⁷ + C; (d) (2/3)√(x³ + 2) + C",
    "solutionSteps": [
-    "(a) Let u = x³ + 6, so x² dx = (1/3) du. (1/3)∫ u² du = (1/9)u³ + C. = (1/9)(x³ + 6)³ + C.",
-    "(b) Let u = 3x; u runs from 0 to π/2. (1/3)∫ from 0 to π/2 cos(u) du = (1/3)(1 - 0) = 1/3.",
-    "(c) Let u = x³ + 6, so x² dx = (1/3) du. (1/3)∫ u⁶ du = (1/21)u⁷ + C. = (1/21)(x³ + 6)⁷ + C.",
-    "(d) Let u = x³ + 2, so x² dx = (1/3) du. (1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C. = (2/3)√(x³ + 2) + C."
+    "(a) Pick the inside function whose derivative appears as a factor.",
+    "(a) Scoring, 1 point: u and du.",
+    "(b) Rewrite in u, integrate, and substitute u = ln(x) back.",
+    "(b) Scoring, 2 points: 1 point for the integral in u, 1 point for the answer in x with + C.",
+    "(c) x = 1 gives u = 0; x = e gives u = 1. Evaluate the u-antiderivative from 0 to 1: 1/2.",
+    "(c) Scoring, 2 points: 1 point for the new limits, 1 point for the value.",
+    "(d) After substitution the variable of integration is u.",
+    "(d) Scoring, 1 point: the reason.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: us_poly_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_subst). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s06-honors-016",
@@ -7975,36 +8352,45 @@
    "skillId": "fundamental-theorem-calculus-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Integration Using Long Division and Completing the Square): answer each part and show your work.",
+   "prompt": "Free response (Integration Using Long Division and Completing the Square). Evaluate each integral.",
+   "answer": "(a) x - 1 + 2/(x + 1); (b) x²/2 - x + 2ln|x + 1| + C; (c) (x + 1)² + 4; (1/2)arctan((x + 1)/2) + C; (d) π/8",
    "parts": [
     {
-     "prompt": "Find ∫ 1/(x² + 2x + 5) dx.",
-     "answer": "(1/2)tan⁻¹((x + 1)/2) + C"
+     "label": "a",
+     "prompt": "Use long division to rewrite (x² + 1)/(x + 1).",
+     "answer": "x - 1 + 2/(x + 1)"
     },
     {
-     "prompt": "Complete the square: x² - 6x + 13.",
-     "answer": "(x - 3)² + 4"
+     "label": "b",
+     "prompt": "Find ∫ (x² + 1)/(x + 1) dx.",
+     "answer": "x²/2 - x + 2ln|x + 1| + C"
     },
     {
-     "prompt": "Use long division to rewrite (x + 6)/(x + 3) as a polynomial plus a proper fraction.",
-     "answer": "1 + 3/(x + 3)"
+     "label": "c",
+     "prompt": "Complete the square in x² + 2x + 5, then find ∫ 1/(x² + 2x + 5) dx.",
+     "answer": "(x + 1)² + 4; (1/2)arctan((x + 1)/2) + C"
     },
     {
-     "prompt": "Find ∫ 1/(x² - 6x + 13) dx.",
-     "answer": "(1/2)tan⁻¹((x - 3)/2) + C"
+     "label": "d",
+     "prompt": "Evaluate ∫ from -1 to 1 1/(x² + 2x + 5) dx.",
+     "answer": "π/8"
     }
    ],
-   "answer": "(a) (1/2)tan⁻¹((x + 1)/2) + C; (b) (x - 3)² + 4; (c) 1 + 3/(x + 3); (d) (1/2)tan⁻¹((x - 3)/2) + C",
    "solutionSteps": [
-    "(a) Complete the square: x² + 2x + 5 = (x + 1)² + 4. Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x + 1 and a = 2. ∫ 1/(x² + 2x + 5) dx = (1/2)tan⁻¹((x + 1)/2) + C.",
-    "(b) Half of -6 is -3, and (-3)² = 9. x² - 6x + 13 = (x² - 6x + 9) + 13 - 9. = (x - 3)² + 4.",
-    "(c) Divide x + 6 by x + 3: the quotient is 1 and the remainder is 3. (x + 6)/(x + 3) = 1 + 3/(x + 3). Check: (1)(x + 3) + 3 = x + 6.",
-    "(d) Complete the square: x² - 6x + 13 = (x - 3)² + 4. Use ∫ 1/(u² + a²) du = (1/a)tan⁻¹(u/a) + C with u = x - 3 and a = 2. ∫ 1/(x² - 6x + 13) dx = (1/2)tan⁻¹((x - 3)/2) + C."
+    "(a) Quotient x - 1, remainder 2.",
+    "(a) Scoring, 1 point: the quotient and the remainder term.",
+    "(b) Integrate term by term; the remainder term gives a natural log.",
+    "(b) Scoring, 2 points: 1 point for the polynomial part, 1 point for the ln term with + C.",
+    "(c) x² + 2x + 5 = (x + 1)² + 4; ∫ du/(u² + a²) = (1/a)arctan(u/a) + C.",
+    "(c) Scoring, 3 points: 1 point for completing the square, 1 point for the arctan form, 1 point for the constant 1/a.",
+    "(d) (1/2)[arctan(1) − arctan(0)] = π/8.",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: square_arctan_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: frq_division). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s07-cp2-016",
@@ -8068,10 +8454,9 @@
     }
    ],
    "solutionSteps": [
-    "Divide first: (x² - x - 11)/(x + 2) = x - 3 - 5/(x + 2).",
-    "An antiderivative is (1/2)x² - 3x - 5ln|x + 2|.",
-    "Evaluate from 0 to 4: the polynomial part gives -4 and the logarithm part gives -5(ln(6) - ln(2)).",
-    "The value is -4 - 5ln(3)."
+    "Antiderivative: F(x) = x²/2 - 3x - 5ln(x + 2).",
+    "F(4) = -ln(7776) - 4 and F(0) = -ln(32).",
+    "F(4) − F(0) = -ln(7776) - 4 − (-ln(32)) = -ln(243) - 4."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8174,10 +8559,10 @@
     }
    ],
    "solutionSteps": [
-    "Complete the square: x² + 6x + 18 = (x + 3)² + 9.",
-    "An antiderivative is (2/3)tan⁻¹((x + 3)/3).",
     "At x = 0, u = 1; at x = -6, u = -1.",
-    "(2/3)(tan⁻¹(1) - tan⁻¹(-1)) = π/3."
+    "Antiderivative: F(x) = 2tan⁻¹(x/3 + 1)/3.",
+    "F(0) = π/6 and F(-6) = -π/6.",
+    "F(0) − F(-6) = π/6 − (-π/6) = π/3."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8192,10 +8577,10 @@
    "prompt": "Evaluate ∫ from -3 to 5 3/(x² - 2x + 17) dx.",
    "answer": "3π/8",
    "solutionSteps": [
-    "Complete the square: x² - 2x + 17 = (x - 1)² + 16.",
-    "An antiderivative is (3/4)tan⁻¹((x - 1)/4).",
     "At x = 5, u = 1; at x = -3, u = -1.",
-    "(3/4)(tan⁻¹(1) - tan⁻¹(-1)) = 3π/8."
+    "Antiderivative: F(x) = 3tan⁻¹(x/4 - 1/4)/4.",
+    "F(5) = 3π/16 and F(-3) = -3π/16.",
+    "F(5) − F(-3) = 3π/16 − (-3π/16) = 3π/8."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8281,10 +8666,10 @@
     }
    ],
    "solutionSteps": [
-    "Complete the square: x² + 8x + 20 = (x + 4)² + 4.",
-    "An antiderivative is tan⁻¹((x + 4)/2).",
     "At x = -4, u = 0; at x = -6, u = -1.",
-    "(tan⁻¹(0) - tan⁻¹(-1)) = π/4."
+    "Antiderivative: F(x) = tan⁻¹(x/2 + 2).",
+    "F(-4) = 0 and F(-6) = -π/4.",
+    "F(-4) − F(-6) = 0 − (-π/4) = π/4."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8299,10 +8684,10 @@
    "prompt": "Evaluate ∫ from -1 to 3 1/(x² - 6x + 25) dx.",
    "answer": "π/16",
    "solutionSteps": [
-    "Complete the square: x² - 6x + 25 = (x - 3)² + 16.",
-    "An antiderivative is (1/4)tan⁻¹((x - 3)/4).",
     "At x = 3, u = 0; at x = -1, u = -1.",
-    "(1/4)(tan⁻¹(0) - tan⁻¹(-1)) = π/16."
+    "Antiderivative: F(x) = tan⁻¹(x/4 - 3/4)/4.",
+    "F(3) = 0 and F(-1) = -π/16.",
+    "F(3) − F(-1) = 0 − (-π/16) = π/16."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8386,36 +8771,45 @@
    "skillId": "fundamental-theorem-calculus-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Integration Using Long Division and Completing the Square): answer each part and show your work.",
+   "prompt": "Free response (Integration Using Long Division and Completing the Square). Evaluate each integral.",
+   "answer": "(a) x - 1 + 3/(x + 3); (b) x²/2 - x + 3ln|x + 3| + C; (c) (x + 2)² + 9; (1/3)arctan((x + 2)/3) + C; (d) π/12",
    "parts": [
     {
-     "prompt": "Evaluate ∫ from -4 to 2 3/(x² + 2x + 10) dx.",
-     "answer": "π/2"
+     "label": "a",
+     "prompt": "Use long division to rewrite (x² + 2x)/(x + 3).",
+     "answer": "x - 1 + 3/(x + 3)"
     },
     {
-     "prompt": "Complete the square: x² + 6x + 34.",
-     "answer": "(x + 3)² + 25"
+     "label": "b",
+     "prompt": "Find ∫ (x² + 2x)/(x + 3) dx.",
+     "answer": "x²/2 - x + 3ln|x + 3| + C"
     },
     {
-     "prompt": "Find ∫ (x² + 3x + 4)/(x + 1) dx.",
-     "answer": "(1/2)x² + 2x + 2ln|x + 1| + C"
+     "label": "c",
+     "prompt": "Complete the square in x² + 4x + 13, then find ∫ 1/(x² + 4x + 13) dx.",
+     "answer": "(x + 2)² + 9; (1/3)arctan((x + 2)/3) + C"
     },
     {
-     "prompt": "Evaluate ∫ from 0 to 2 (x² + 2x + 6)/(x + 1) dx.",
-     "answer": "4 + 5ln(3)"
+     "label": "d",
+     "prompt": "Evaluate ∫ from -2 to 1 1/(x² + 4x + 13) dx.",
+     "answer": "π/12"
     }
    ],
-   "answer": "(a) π/2; (b) (x + 3)² + 25; (c) (1/2)x² + 2x + 2ln|x + 1| + C; (d) 4 + 5ln(3)",
    "solutionSteps": [
-    "(a) Complete the square: x² + 2x + 10 = (x + 1)² + 9. An antiderivative is tan⁻¹((x + 1)/3). At x = 2, u = 1; at x = -4, u = -1. (tan⁻¹(1) - tan⁻¹(-1)) = π/2.",
-    "(b) Half of 6 is 3, and (3)² = 9. x² + 6x + 34 = (x² + 6x + 9) + 34 - 9. = (x + 3)² + 25.",
-    "(c) Divide first: (x² + 3x + 4)/(x + 1) = x + 2 + 2/(x + 1). Integrate the polynomial part: (1/2)x² + 2x. ∫ 2/(x + 1) dx = 2ln|x + 1|. ∫ (x² + 3x + 4)/(x + 1) dx = (1/2)x² + 2x + 2ln|x + 1| + C.",
-    "(d) Divide first: (x² + 2x + 6)/(x + 1) = x + 1 + 5/(x + 1). An antiderivative is (1/2)x² + x + 5ln|x + 1|. Evaluate from 0 to 2: the polynomial part gives 4 and the logarithm part gives 5(ln(3) - ln(1)). The value is 4 + 5ln(3)."
+    "(a) Quotient x - 1, remainder 3.",
+    "(a) Scoring, 1 point: the quotient and the remainder term.",
+    "(b) Integrate term by term; the remainder term gives a natural log.",
+    "(b) Scoring, 2 points: 1 point for the polynomial part, 1 point for the ln term with + C.",
+    "(c) x² + 4x + 13 = (x + 2)² + 9; ∫ du/(u² + a²) = (1/a)arctan(u/a) + C.",
+    "(c) Scoring, 3 points: 1 point for completing the square, 1 point for the arctan form, 1 point for the constant 1/a.",
+    "(d) (1/3)[arctan(1) − arctan(0)] = π/12.",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: square_arctan_definite_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: frq_division). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s07-cp1-016",
@@ -8444,10 +8838,9 @@
    "prompt": "Evaluate ∫ from 1 to 5 (3x² + 2x - 14)/(x + 2) dx.",
    "answer": "20 - 6ln(7/3)",
    "solutionSteps": [
-    "Divide first: (3x² + 2x - 14)/(x + 2) = 3x - 4 - 6/(x + 2).",
-    "An antiderivative is (3/2)x² - 4x - 6ln|x + 2|.",
-    "Evaluate from 1 to 5: the polynomial part gives 20 and the logarithm part gives -6(ln(7) - ln(3)).",
-    "The value is 20 - 6ln(7/3)."
+    "Antiderivative: F(x) = 3x²/2 - 4x - 6ln(x + 2).",
+    "F(5) = 35/2 - ln(117649) and F(1) = -ln(729) - 5/2.",
+    "F(5) − F(1) = 35/2 - ln(117649) − (-ln(729) - 5/2) = ln(729/117649) + 20."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8497,10 +8890,9 @@
    "prompt": "Evaluate ∫ from 0 to 1 (3x² + 10x + 15)/(x + 2) dx.",
    "answer": "11/2 + 7ln(3/2)",
    "solutionSteps": [
-    "Divide first: (3x² + 10x + 15)/(x + 2) = 3x + 4 + 7/(x + 2).",
-    "An antiderivative is (3/2)x² + 4x + 7ln|x + 2|.",
-    "Evaluate from 0 to 1: the polynomial part gives 11/2 and the logarithm part gives 7(ln(3) - ln(2)).",
-    "The value is 11/2 + 7ln(3/2)."
+    "Antiderivative: F(x) = 3x²/2 + 4x + 7ln(x + 2).",
+    "F(1) = 11/2 + ln(2187) and F(0) = ln(128).",
+    "F(1) − F(0) = 11/2 + ln(2187) − ln(128) = ln(2187/128) + 11/2."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8533,10 +8925,10 @@
     }
    ],
    "solutionSteps": [
-    "Complete the square: x² + 6x + 58 = (x + 3)² + 49.",
-    "An antiderivative is (4/7)tan⁻¹((x + 3)/7).",
     "At x = -3, u = 0; at x = -10, u = -1.",
-    "(4/7)(tan⁻¹(0) - tan⁻¹(-1)) = π/7."
+    "Antiderivative: F(x) = 4tan⁻¹(x/7 + 3/7)/7.",
+    "F(-3) = 0 and F(-10) = -π/7.",
+    "F(-3) − F(-10) = 0 − (-π/7) = π/7."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8551,10 +8943,10 @@
    "prompt": "Evaluate ∫ from -2 to 10 2/(x² - 8x + 52) dx.",
    "answer": "π/6",
    "solutionSteps": [
-    "Complete the square: x² - 8x + 52 = (x - 4)² + 36.",
-    "An antiderivative is (1/3)tan⁻¹((x - 4)/6).",
     "At x = 10, u = 1; at x = -2, u = -1.",
-    "(1/3)(tan⁻¹(1) - tan⁻¹(-1)) = π/6."
+    "Antiderivative: F(x) = tan⁻¹(x/6 - 2/3)/3.",
+    "F(10) = π/12 and F(-2) = -π/12.",
+    "F(10) − F(-2) = π/12 − (-π/12) = π/6."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8587,10 +8979,9 @@
     }
    ],
    "solutionSteps": [
-    "Divide first: (2x² + 15x + 30)/(x + 5) = 2x + 5 + 5/(x + 5).",
-    "An antiderivative is x² + 5x + 5ln|x + 5|.",
-    "Evaluate from 1 to 2: the polynomial part gives 8 and the logarithm part gives 5(ln(7) - ln(6)).",
-    "The value is 8 + 5ln(7/6)."
+    "Antiderivative: F(x) = x² + 5x + 5ln(x + 5).",
+    "F(2) = ln(16807) + 14 and F(1) = 6 + ln(7776).",
+    "F(2) − F(1) = ln(16807) + 14 − 6 + ln(7776) = ln(16807/7776) + 8."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8641,10 +9032,10 @@
     }
    ],
    "solutionSteps": [
-    "Complete the square: x² + 6x + 18 = (x + 3)² + 9.",
-    "An antiderivative is (4/3)tan⁻¹((x + 3)/3).",
     "At x = 0, u = 1; at x = -3, u = 0.",
-    "(4/3)(tan⁻¹(1) - tan⁻¹(0)) = π/3."
+    "Antiderivative: F(x) = 4tan⁻¹(x/3 + 1)/3.",
+    "F(0) = π/3 and F(-3) = 0.",
+    "F(0) − F(-3) = π/3 − 0 = π/3."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8659,10 +9050,10 @@
    "prompt": "Evaluate ∫ from -6 to 4 3/(x² + 2x + 26) dx.",
    "answer": "3π/10",
    "solutionSteps": [
-    "Complete the square: x² + 2x + 26 = (x + 1)² + 25.",
-    "An antiderivative is (3/5)tan⁻¹((x + 1)/5).",
     "At x = 4, u = 1; at x = -6, u = -1.",
-    "(3/5)(tan⁻¹(1) - tan⁻¹(-1)) = 3π/10."
+    "Antiderivative: F(x) = 3tan⁻¹(x/5 + 1/5)/5.",
+    "F(4) = 3π/20 and F(-6) = -3π/20.",
+    "F(4) − F(-6) = 3π/20 − (-3π/20) = 3π/10."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8695,10 +9086,10 @@
     }
    ],
    "solutionSteps": [
-    "Complete the square: x² - 2x + 5 = (x - 1)² + 4.",
-    "An antiderivative is 2tan⁻¹((x - 1)/2).",
     "At x = 3, u = 1; at x = -1, u = -1.",
-    "2(tan⁻¹(1) - tan⁻¹(-1)) = π."
+    "Antiderivative: F(x) = 2tan⁻¹(x/2 - 1/2).",
+    "F(3) = π/2 and F(-1) = -π/2.",
+    "F(3) − F(-1) = π/2 − (-π/2) = π."
    ],
    "standards": [
     "AP FUN-6.D"
@@ -8798,36 +9189,45 @@
    "skillId": "fundamental-theorem-calculus-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Integration Using Long Division and Completing the Square): answer each part and show your work.",
+   "prompt": "Free response (Integration Using Long Division and Completing the Square). Evaluate each integral.",
+   "answer": "(a) x - 1 + 3/(x + 1); (b) x²/2 - x + 3ln|x + 1| + C; (c) (x + 3)² + 4; (1/2)arctan((x + 3)/2) + C; (d) π/8",
    "parts": [
     {
-     "prompt": "Find ∫ 1/√(-x² - 4x + 32) dx.",
-     "answer": "sin⁻¹((x + 2)/6) + C"
+     "label": "a",
+     "prompt": "Use long division to rewrite (x² + 2)/(x + 1).",
+     "answer": "x - 1 + 3/(x + 1)"
     },
     {
-     "prompt": "Evaluate ∫ from 0 to 4 (x² + 3x - 3)/(x + 2) dx.",
-     "answer": "12 - 5ln(3)"
+     "label": "b",
+     "prompt": "Find ∫ (x² + 2)/(x + 1) dx.",
+     "answer": "x²/2 - x + 3ln|x + 1| + C"
     },
     {
-     "prompt": "Find ∫ (x³ + 6x² + 7x + 5)/(x + 5) dx.",
-     "answer": "(1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C"
+     "label": "c",
+     "prompt": "Complete the square in x² + 6x + 13, then find ∫ 1/(x² + 6x + 13) dx.",
+     "answer": "(x + 3)² + 4; (1/2)arctan((x + 3)/2) + C"
     },
     {
-     "prompt": "Evaluate ∫ from 0 to 2 (x³ + 10x² + 22x - 19)/(x + 5) dx.",
-     "answer": "20/3 - 4ln(7/5)"
+     "label": "d",
+     "prompt": "Evaluate ∫ from -3 to -1 1/(x² + 6x + 13) dx.",
+     "answer": "π/8"
     }
    ],
-   "answer": "(a) sin⁻¹((x + 2)/6) + C; (b) 12 - 5ln(3); (c) (1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C; (d) 20/3 - 4ln(7/5)",
    "solutionSteps": [
-    "(a) Complete the square: -x² - 4x + 32 = 36 - (x + 2)². Use ∫ 1/√(a² - u²) du = sin⁻¹(u/a) + C with u = x + 2 and a = 6. ∫ 1/√(-x² - 4x + 32) dx = sin⁻¹((x + 2)/6) + C.",
-    "(b) Divide first: (x² + 3x - 3)/(x + 2) = x + 1 - 5/(x + 2). An antiderivative is (1/2)x² + x - 5ln|x + 2|. Evaluate from 0 to 4: the polynomial part gives 12 and the logarithm part gives -5(ln(6) - ln(2)). The value is 12 - 5ln(3).",
-    "(c) Divide first: (x³ + 6x² + 7x + 5)/(x + 5) = x² + x + 2 - 5/(x + 5). Integrate the polynomial part: (1/3)x³ + (1/2)x² + 2x. ∫ -5/(x + 5) dx = -5ln|x + 5|. ∫ (x³ + 6x² + 7x + 5)/(x + 5) dx = (1/3)x³ + (1/2)x² + 2x - 5ln|x + 5| + C.",
-    "(d) Divide first: (x³ + 10x² + 22x - 19)/(x + 5) = x² + 5x - 3 - 4/(x + 5). An antiderivative is (1/3)x³ + (5/2)x² - 3x - 4ln|x + 5|. Evaluate from 0 to 2: the polynomial part gives 20/3 and the logarithm part gives -4(ln(7) - ln(5)). The value is 20/3 - 4ln(7/5)."
+    "(a) Quotient x - 1, remainder 3.",
+    "(a) Scoring, 1 point: the quotient and the remainder term.",
+    "(b) Integrate term by term; the remainder term gives a natural log.",
+    "(b) Scoring, 2 points: 1 point for the polynomial part, 1 point for the ln term with + C.",
+    "(c) x² + 6x + 13 = (x + 3)² + 4; ∫ du/(u² + a²) = (1/a)arctan(u/a) + C.",
+    "(c) Scoring, 3 points: 1 point for completing the square, 1 point for the arctan form, 1 point for the constant 1/a.",
+    "(d) (1/2)[arctan(1) − arctan(0)] = π/8.",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-6.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: square_arcsin_open). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (family: frq_division). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-ftc-s07-honors-016",
@@ -8838,10 +9238,10 @@
    "answer": "π/12",
    "solutionSteps": [
     "Mistake: Left out the factor 1/6.",
-    "Complete the square: x² + 6x + 45 = (x + 3)² + 36.",
-    "An antiderivative is (1/3)tan⁻¹((x + 3)/6).",
     "At x = 3, u = 1; at x = -3, u = 0.",
-    "(1/3)(tan⁻¹(1) - tan⁻¹(0)) = π/12.",
+    "Antiderivative: F(x) = tan⁻¹(x/6 + 1/2)/3.",
+    "F(3) = π/12 and F(-3) = 0.",
+    "F(3) − F(-3) = π/12 − 0 = π/12.",
     "The correct answer is π/12, not π/2."
    ],
    "standards": [

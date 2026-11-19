@@ -29,9 +29,12 @@ def notation(s):
     s = re.sub(r' \+ -(?=[a-zA-Z(\d])', ' - ', s)
     s = re.sub(r' - -(\d+(?:/\d+)?(?:\.\d+)?)', r' - (-\1)', s)
     s = re.sub(r'\((x [+-] )-(\d+/\d+)\)', lambda m: '(x ' + ('+' if m.group(1).strip().endswith('-') else '-') + ' ' + m.group(2) + ')', s)
+    s = re.sub(r'\(x - \(-(\d+(?:/\d+)?)\)\)', r'(x + \1)', s)
+    s = re.sub(r'\(x \+ \(-(\d+(?:/\d+)?)\)\)', r'(x - \1)', s)
     s = s.replace('common factor is (x - 0)', 'common factor is x').replace('common factor is (x + 0)', 'common factor is x')
     # trig powers: cos(x)⁵ -> cos⁵(x)
     s = re.sub(r'\b(sin|cos|tan|sec|csc|cot)\(x\)([' + SUPS + '])', r'\1\2(x)', s)
+    s = s.replace('are squares with a side (diameter) in the base', 'are squares with a side in the base').replace('are semicircles with a side (diameter) in the base', 'are semicircles with a diameter in the base')
     # √(-x² + 36) -> √(36 - x²)
     s = re.sub(r'√\(-x² \+ (\d+)\)', r'√(\1 - x²)', s)
     return s

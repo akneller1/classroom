@@ -69,6 +69,23 @@ function fmSplit(s,sep){ /* split at top level only */
   }
   out.push(s.slice(last));return out;
 }
+/* A numerator or denominator wrapped in one pair of parentheses is drawn without them: (x² − 9)/(x + 3) stacks as
+   x² − 9 over x + 3 (Calculus audit #4, 2026-11-18). Parentheses that are not one matching pair, (x+1)(x−2), stay. */
+function unwrap(t){
+ if(t[0]!=='('||t[t.length-1]!==')')return t;
+ let d=0;for(let k=0;k<t.length;k++){if(t[k]==='(')d++;else if(t[k]===')'){d--;if(d===0&&k<t.length-1)return t;}}
+ return t.slice(1,-1);
+}
+/* Calculus notation written in words in the banks drawn as big operators (Calculus audit #4, 2026-11-18):
+   "∫ from a to b" -> ∫ with b above and a below; "lim (x → a)" -> lim with x → a below; "Σ (k = 1 to n)" -> Σ with limits. */
+const BOUND='(\\([^()]*(?:\\([^()]*\\)[^()]*)*\\)|[^\\s()]+)';
+const INT_RE=new RegExp('∫ from '+BOUND+' to '+BOUND+' ?','g');
+function bigOps(s){
+ return String(s).replace(/(^|[^A-Za-z])d([a-zA-Z]?)\/d([a-z])(?![A-Za-z])/g,(m,p,f,v)=>p+'[[d'+f+' ; d'+v+']]').replace(INT_RE,(m,a,b)=>'\uE030∫\uE031'+bnd(a)+'\uE031'+bnd(b)+'\uE032 ')
+  .replace(/\blim \(([a-zA-Z]) → ([^()]+?)\) ?/g,(m,v,a)=>'\uE030lim\uE031'+v+' → '+a+'\uE031\uE032 ')
+  .replace(/Σ \(([a-zA-Z]) = ([^()]+?) to ([^()]+?)\) ?/g,(m,v,lo,hi)=>'\uE030Σ\uE031'+v+' = '+lo+'\uE031'+hi+'\uE032 ');
+}
+function bnd(t){return t[0]==='('&&t[t.length-1]===')'?unwrap(t):t;}
 function fm(s){
   s=String(s);let out='',i=0;const n=s.length;
   const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
@@ -77,7 +94,12 @@ function fm(s){
     const c=s[i];
     if(s.startsWith('[[',i)){
       const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
-      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+      out+=`<span class="fr"><span class="fn">${fm(unwrap(parts[0].trim()))}</span><span class="fd">${fm(unwrap((parts[1]||'').trim()))}</span></span>`;i=e;continue;
+    }
+    if(c==='\uE030'){ /* big operator from bigOps(): symbol, lower limit, upper limit */
+      const e=s.indexOf('\uE032',i),parts=s.slice(i+1,e<0?n:e).split('\uE031');i=e<0?n:e+1;
+      const sym=parts[0],lo=parts[1]||'',hi=parts[2]||'';
+      out+=`<span class="bo${sym==='lim'?' bo-lim':''}" role="math">${hi?`<span class="bo-u">${fm(hi)}</span>`:''}<span class="bo-s">${sym==='lim'?'lim':fmEsc(sym)}</span>${lo?`<span class="bo-l">${fm(lo)}</span>`:''}</span>`;continue;
     }
     if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
     if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
@@ -226,7 +248,7 @@ function hasMatrix(s){
  while((m=MATRIX.exec(s))){if(matrixMatch(s,m))return true;}
  return false;
 }
-function mini(part){return fm(trigSquares(fractions(part)).replace(/\^\(([^()]*)\)/g,'^{$1}'));}
+function mini(part){return fm(trigSquares(fractions(bigOps(part))).replace(/\^\(([^()]*)\)/g,'^{$1}'));}
 function withMatrices(part){
  let out='',last=0,m;MATRIX.lastIndex=0;
  while((m=MATRIX.exec(part))){
@@ -360,13 +382,13 @@ function decorate(root){
  while((node=walk.nextNode())){
   if(!node.parentElement||node.parentElement.closest('script,style,textarea,select,option,.katex,.mk-math,.fr'))continue;
   let tidy=money(node.nodeValue);if(!/\//.test(tidy))tidy=trigSquares(tidy);if(tidy!==node.nodeValue)node.nodeValue=tidy;
-  if((/\/(?!\/)/.test(node.nodeValue)&&fractions(node.nodeValue)!==node.nodeValue)||hasMatrix(node.nodeValue)||layout(node.nodeValue)!==null)nodes.push(node);
+  if((/\/(?!\/)/.test(node.nodeValue)&&fractions(node.nodeValue)!==node.nodeValue)||hasMatrix(node.nodeValue)||layout(node.nodeValue)!==null||/∫ from |\blim \([a-zA-Z] → |Σ \([a-zA-Z] = /.test(node.nodeValue))nodes.push(node);
  }
  nodes.forEach(n=>{const span=G.document.createElement('span');span.className='mk-math';span.innerHTML=html(n.nodeValue);n.replaceWith(span)});
 }
-G.MK_MATH_DISPLAY={html,layout,renderSystem,fractions,decorate,money,hasMatrix,trigSquares};
+G.MK_MATH_DISPLAY={html,layout,renderSystem,fractions,decorate,money,hasMatrix,trigSquares,bigOps};
 if(G.document){
- const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=aligned-givens-20261117',script.src).href;G.document.head.appendChild(link);
+ const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=cal-audit-20261118',script.src).href;G.document.head.appendChild(link);
  const selector='#agPrompt,.af-prompt,.gm-q,.gm-opt,.gm-sol,.prompt,.statement,.choices,.problem,.display,.eq,.q,.solution,.steps,.st,.item,.ord,.pm-text,.pm-big,#prPreview .page';
  let pending=false;function scan(){pending=false;G.document.querySelectorAll(selector).forEach(decorate)}
  function schedule(){if(!pending){pending=true;queueMicrotask(scan)}}

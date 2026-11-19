@@ -4,6 +4,7 @@ on:
     paths:
       - 'worksheet-generator/practice/**'
       - 'scripts/test-precalculus-audit.cjs'
+      - 'scripts/test-calculus-grading.cjs'
       - 'worksheet-generator/practice-test.html'
       - 'worksheet-generator/tests/practice-grading-test.js'
       - 'worksheet-generator/menu/mathcheck.js'
@@ -12,6 +13,7 @@ on:
     paths:
       - 'worksheet-generator/practice/**'
       - 'scripts/test-precalculus-audit.cjs'
+      - 'scripts/test-calculus-grading.cjs'
       - 'worksheet-generator/practice-test.html'
       - 'worksheet-generator/tests/practice-grading-test.js'
       - 'worksheet-generator/menu/mathcheck.js'
@@ -28,12 +30,15 @@ jobs:
         run: node worksheet-generator/tests/practice-grading-test.js
       - name: Exact-value grading for bank answers (Precalculus audit)
         run: node scripts/test-precalculus-audit.cjs
+      - name: Expression, antiderivative and family grading for bank answers (Calculus audit)
+        run: node scripts/test-calculus-grading.cjs
       - name: JavaScript syntax checks
         run: |
           node --check worksheet-generator/practice/practice.js
           node --check worksheet-generator/practice/grading.js
           node --check worksheet-generator/practice/radical-grading.js
           node --check worksheet-generator/practice/exact-grading.js
+          node --check worksheet-generator/practice/calculus-grading.js
           node --check worksheet-generator/practice/graph-input.js
           node --check worksheet-generator/practice/line-input.js
           node --check worksheet-generator/practice/system-input.js

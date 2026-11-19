@@ -18,6 +18,7 @@ on:
       - 'artifacts/interactive-math/**'
       - 'tools/calculus-audit-20261118/**'
       - 'scripts/test-calculus-*.cjs'
+      - 'artifacts/calculus-ap-practice-exam-*/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   pull_request:
     paths:
@@ -33,6 +34,7 @@ on:
       - 'artifacts/interactive-math/**'
       - 'tools/calculus-audit-20261118/**'
       - 'scripts/test-calculus-*.cjs'
+      - 'artifacts/calculus-ap-practice-exam-*/**'
       - '.github/workflows/precalculus-calculus-bank-integration.yml'
   workflow_dispatch:
 jobs:
@@ -90,8 +92,25 @@ jobs:
       - name: Calculus audit regression checks
         if: matrix.course == 'calculus'
         run: node scripts/test-calculus-audit.cjs
+      - name: Calculus graphing practice and free-response problems
+        if: matrix.course == 'calculus'
+        run: |
+          node --check worksheet-generator/plot-calculus.js
+          node scripts/test-calculus-plot.cjs
+      - name: Calculus teaching notes cover every skill
+        if: matrix.course == 'calculus'
+        run: |
+          python3 tools/calculus-audit-20261118/build_notes.py
+          git diff --exit-code -- worksheet-generator/planner/notes-teach-calculus.js
+          node scripts/test-calculus-notes.cjs
       - name: Recompute Calculus keys independently (sympy)
         if: matrix.course == 'calculus'
         run: |
           python3 -m pip install --quiet sympy==1.14.0
           python3 tools/calculus-audit-20261118/verify_keys.py
+      - name: Calculus AP practice exams match the banks
+        if: matrix.course == 'calculus'
+        run: |
+          python3 tools/calculus-audit-20261118/exams.py
+          git diff --exit-code -- artifacts/calculus-ap-practice-exam-a artifacts/calculus-ap-practice-exam-b
+          node scripts/test-calculus-exams.cjs

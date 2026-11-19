@@ -78,3 +78,9 @@ svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-widt
 .mk-given-break { display: none; }
 .mk-piecewise > .sys { margin-inline-start: .35em; }
 .mk-piecewise .mk-given-grid { column-gap: .75em; }
+/* Big operators for calculus notation (Calculus audit #4, 2026-11-18): ∫ and Σ with limits above and below, lim with its approach below. */
+.bo{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1;margin:0 .12em}
+.bo-s{font-size:1.6em;line-height:1}
+.bo-lim .bo-s{font-size:1em;font-style:normal}
+.bo-u,.bo-l{font-size:.62em;white-space:nowrap;line-height:1.1}
+.bo-u{order:0}.bo-s{order:1}.bo-l{order:2}

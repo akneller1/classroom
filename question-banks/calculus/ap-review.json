@@ -11,10 +11,10 @@
    "prompt": "Evaluate lim (x → -5) (x² + 4x - 5)/(x + 5).",
    "answer": "-6",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 5).",
-    "Substitute into what remains.",
-    "= -6."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 4x - 5) = (x + 5)(x - 1) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x - 1 for x ≠ -5.",
+    "Substitute x = -5: -6."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -84,9 +84,8 @@
    "prompt": "Evaluate lim (x → ∞) (-5x³ - 4)/(x³ + 1).",
    "answer": "-5",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -5."
+    "Leading terms: -5x³ on top, x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-5) ÷ 1 = -5."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -120,10 +119,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 3).",
-    "Substitute into what remains.",
-    "= -3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 9x + 18) = (x - 3)(x - 6) and (x - 3) = x - 3.",
+    "Cancel the common factor: the expression equals x - 6 for x ≠ 3.",
+    "Substitute x = 3: -3."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -211,9 +210,8 @@
    "prompt": "Evaluate lim (x → ∞) (4x - 4)/(4x + 2).",
    "answer": "1",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 1."
+    "Leading terms: 2x on top, 2x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: 2 ÷ 2 = 1."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -229,10 +227,10 @@
    "prompt": "Evaluate lim (x → -4) (x² + 4x)/(x + 4).",
    "answer": "-4",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 4).",
-    "Substitute into what remains.",
-    "= -4."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 4x) = x(x + 4) and (x + 4) = x + 4.",
+    "Cancel the common factor: the expression equals x for x ≠ -4.",
+    "Substitute x = -4: -4."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -302,9 +300,8 @@
    "prompt": "Evaluate lim (x → ∞) (3x + 8)/(2x - 5).",
    "answer": "3/2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 3/2."
+    "Leading terms: 3x on top, 2x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: 3 ÷ 2 = 3/2."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -338,10 +335,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 2).",
-    "Substitute into what remains.",
-    "= 5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + x - 6) = (x + 3)(x - 2) and (x - 2) = x - 2.",
+    "Cancel the common factor: the expression equals x + 3 for x ≠ 2.",
+    "Substitute x = 2: 5."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -358,10 +355,10 @@
    "answer": "2",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 2).",
-    "Substitute into what remains.",
-    "= 2.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 6x + 8) = (x + 2)(x + 4) and (x + 2) = x + 2.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ -2.",
+    "Substitute x = -2: 2.",
     "The correct answer is 2, not 0."
    ],
    "standards": [
@@ -375,37 +372,46 @@
    "skillId": "ap-review-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
+   "prompt": "Free response (Limits and Continuity Review). f(x) = x² + 3x + 1 for x < 2, and f(x) = x + k for x ≥ 2, where k is a constant.",
+   "answer": "(a) 11; (b) 2 + k; (c) k = 9; (d) No",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x for x < 1, and f(x) = 3x + k for x ≥ 1.",
-     "answer": "k = 0"
+     "label": "a",
+     "prompt": "Find lim (x → 2⁻) f(x).",
+     "answer": "11"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x + 5 for x < 1, and f(x) = -x + k for x ≥ 1.",
-     "answer": "k = 8"
+     "label": "b",
+     "prompt": "Find lim (x → 2⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -x + 4 for x < -3, and f(x) = -x + k for x ≥ -3.",
-     "answer": "k = 4"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 2. Use the definition of continuity.",
+     "answer": "k = 9"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -2x + 2 for x < 3, and f(x) = 2x + k for x ≥ 3.",
-     "answer": "k = -10"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 2? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) k = 0; (b) k = 8; (c) k = 4; (d) k = -10",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = 0.",
-    "(b) Set the left piece at a equal to the right piece at a. k = 8.",
-    "(c) Set the left piece at a equal to the right piece at a. k = 4.",
-    "(d) Set the left piece at a equal to the right piece at a. k = -10."
+    "(a) Use the left piece: 11.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (2) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 2⁻) f(x) = f(2): 11 = (2) + k, so k = 9.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 7, right slope 1: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.E",
     "AP LIM-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_ko_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s01-cp2-016",
@@ -416,10 +422,10 @@
    "answer": "1",
    "solutionSteps": [
     "Mistake: Substituted x = 3 instead of x = −3 after canceling.",
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 3).",
-    "Substitute into what remains.",
-    "= 1.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 7x + 12) = (x + 3)(x + 4) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ -3.",
+    "Substitute x = -3: 1.",
     "The correct answer is 1, not 7."
    ],
    "standards": [
@@ -436,10 +442,10 @@
    "prompt": "Evaluate lim (x → 4) (x² - x - 12)/(x - 4).",
    "answer": "7",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 4).",
-    "Substitute into what remains.",
-    "= 7."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 12) = (x + 3)(x - 4) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals x + 3 for x ≠ 4.",
+    "Substitute x = 4: 7."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -509,9 +515,8 @@
    "prompt": "Evaluate lim (x → ∞) (4x³ + 5x² + 6)/(4x³ - 4).",
    "answer": "1",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 1."
+    "Leading terms: 4x³ on top, 4x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: 4 ÷ 4 = 1."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -545,10 +550,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x + 1).",
-    "Substitute.",
-    "= -1/5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 3x + 2) = (x + 1)(x + 2) and (x² - 3x - 4) = (x + 1)(x - 4).",
+    "Cancel the common factor: the expression equals (x + 2)/(x - 4) for x ≠ -1.",
+    "Substitute x = -1: -1/5."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -636,9 +641,8 @@
    "prompt": "Evaluate lim (x → ∞) (-2x²)/(2x - 3).",
    "answer": "-∞",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Leading terms: -2x² on top, 2x on the bottom.",
+    "The numerator has higher degree (2 > 1); the quotient behaves like (-2/2)x^1, so it goes to -∞."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -654,10 +658,10 @@
    "prompt": "Evaluate lim (x → 5) (x² - 9x + 20)/(x - 5).",
    "answer": "1",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 5).",
-    "Substitute into what remains.",
-    "= 1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 9x + 20) = (x - 4)(x - 5) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x - 4 for x ≠ 5.",
+    "Substitute x = 5: 1."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -745,9 +749,8 @@
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 0."
+    "Leading terms: 2x on top, 5x² on the bottom.",
+    "The numerator has lower degree (1 < 2); dividing by x^2 sends every term on top to 0, so the limit is 0."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -763,10 +766,10 @@
    "prompt": "Evaluate lim (x → 1) (x² + 3x - 4)/(x² - 3x + 2).",
    "answer": "-5",
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x - 1).",
-    "Substitute.",
-    "= -5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 3x - 4) = (x + 4)(x - 1) and (x² - 3x + 2) = (x - 1)(x - 2).",
+    "Cancel the common factor: the expression equals (x + 4)/(x - 2) for x ≠ 1.",
+    "Substitute x = 1: -5."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -783,10 +786,10 @@
    "answer": "12",
    "solutionSteps": [
     "Mistake: Factored x³ − 8 as (x − 2)(x² + 4). The second factor is x² + 2x + 4.",
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 12.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 8) = (x - 2)(x² + 2x + 4) and (x - 2) = x - 2.",
+    "Cancel the common factor: the expression equals x² + 2x + 4 for x ≠ 2.",
+    "Substitute x = 2: 12.",
     "The correct answer is 12, not 8."
    ],
    "standards": [
@@ -800,37 +803,46 @@
    "skillId": "ap-review-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
+   "prompt": "Free response (Limits and Continuity Review). f(x) = x² - 2x for x < 1, and f(x) = 2x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) -1; (b) 2 + k; (c) k = -3; (d) No",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x + 1 for x < -2, and f(x) = kx + 3 for x ≥ -2.",
-     "answer": "k = 4"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "-1"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x + 3 for x < 2, and f(x) = kx - 1 for x ≥ 2.",
-     "answer": "k = 5"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -x for x < 2, and f(x) = kx + 3 for x ≥ 2.",
-     "answer": "k = -5/2"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -3"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 3x + 5 for x < -3, and f(x) = kx - 2 for x ≥ -3.",
-     "answer": "k = 2/3"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) k = 4; (b) k = 5; (c) k = -5/2; (d) k = 2/3",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = 4.",
-    "(b) Set the left piece at a equal to the right piece at a. k = 5.",
-    "(c) Set the left piece at a equal to the right piece at a. k = -5/2.",
-    "(d) Set the left piece at a equal to the right piece at a. k = 2/3."
+    "(a) Use the left piece: -1.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 2(1) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): -1 = 2(1) + k, so k = -3.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 0, right slope 2: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.E",
     "AP LIM-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_ko_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s01-cp1-016",
@@ -841,10 +853,10 @@
    "answer": "2/5",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "0 ÷ 0: factor both.",
-    "Cancel (x + 2).",
-    "Substitute.",
-    "= 2/5.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 2x) = x(x + 2) and (x² - x - 6) = (x + 2)(x - 3).",
+    "Cancel the common factor: the expression equals x/(x - 3) for x ≠ -2.",
+    "Substitute x = -2: 2/5.",
     "The correct answer is 2/5, not 0."
    ],
    "standards": [
@@ -861,10 +873,10 @@
    "prompt": "Evaluate lim (x → -5) (1/x + 1/5)/(x + 5).",
    "answer": "-1/25",
    "solutionSteps": [
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 25.",
-    "= -1/25."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (1/5 + 1/x) = (x + 5)/(5x) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals 1/(5x) for x ≠ -5.",
+    "Substitute x = -5: -1/25."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1061,9 +1073,8 @@
    "prompt": "Evaluate lim (x → ∞) (x³ + 3x² + 7)/(3x² - 3).",
    "answer": "∞",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= ∞."
+    "Leading terms: x³ on top, 3x² on the bottom.",
+    "The numerator has higher degree (3 > 2); the quotient behaves like (1/3)x^1, so it goes to ∞."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1079,10 +1090,10 @@
    "prompt": "Evaluate lim (x → 5) (x³ - 125)/(x - 5).",
    "answer": "75",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 75."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 125) = (x - 5)(x² + 5x + 25) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x² + 5x + 25 for x ≠ 5.",
+    "Substitute x = 5: 75."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1170,9 +1181,8 @@
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 0."
+    "Leading terms: 3x² on top, 3x³ on the bottom.",
+    "The numerator has lower degree (2 < 3); dividing by x^3 sends every term on top to 0, so the limit is 0."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1188,10 +1198,10 @@
    "prompt": "Evaluate lim (x → 4) (x³ - 64)/(x - 4).",
    "answer": "48",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 48."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 64) = (x - 4)(x² + 4x + 16) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals x² + 4x + 16 for x ≠ 4.",
+    "Substitute x = 4: 48."
    ],
    "standards": [
     "AP LIM-1.E",
@@ -1208,10 +1218,10 @@
    "answer": "48",
    "solutionSteps": [
     "Mistake: Stopped at 0 ÷ 0.",
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 48.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 64) = (x - 4)(x² + 4x + 16) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals x² + 4x + 16 for x ≠ 4.",
+    "Substitute x = 4: 48.",
     "The correct answer is 48, not does not exist."
    ],
    "standards": [
@@ -1225,37 +1235,46 @@
    "skillId": "ap-review-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Limits and Continuity Review): answer each part and show your work.",
+   "prompt": "Free response (Limits and Continuity Review). f(x) = √(x + 2) for x < 3, and f(x) = 4x + k for x ≥ 3, where k is a constant.",
+   "answer": "(a) √5; (b) 12 + k; (c) k = -12 + √5; (d) No",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x² - x for x < 3, and f(x) = kx + 1 for x ≥ 3.",
-     "answer": "k = 14/3"
+     "label": "a",
+     "prompt": "Find lim (x → 3⁻) f(x).",
+     "answer": "√5"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -x² - 4x for x < -3, and f(x) = kx - 2 for x ≥ -3.",
-     "answer": "k = -5/3"
+     "label": "b",
+     "prompt": "Find lim (x → 3⁺) f(x) in terms of k.",
+     "answer": "12 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x² - 2x for x < 3, and f(x) = kx + 2 for x ≥ 3.",
-     "answer": "k = 10/3"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 3. Use the definition of continuity.",
+     "answer": "k = -12 + √5"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = x² + 3x for x < 2, and f(x) = kx - 2 for x ≥ 2.",
-     "answer": "k = 6"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 3? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) k = 14/3; (b) k = -5/3; (c) k = 10/3; (d) k = 6",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = 14/3.",
-    "(b) Set the left piece at a equal to the right piece at a. k = -5/3.",
-    "(c) Set the left piece at a equal to the right piece at a. k = 10/3.",
-    "(d) Set the left piece at a equal to the right piece at a. k = 6."
+    "(a) Use the left piece: √5.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 4(3) + k = 12 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 3⁻) f(x) = f(3): √5 = 4(3) + k, so k = -12 + √5.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope √5/10, right slope 4: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.E",
     "AP LIM-2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_ko_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s01-honors-016",
@@ -1266,10 +1285,10 @@
    "answer": "75",
    "solutionSteps": [
     "Mistake: Factored x³ − 125 as (x − 5)(x² + 25). The second factor is x² + 5x + 25.",
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 75.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 125) = (x - 5)(x² + 5x + 25) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x² + 5x + 25 for x ≠ 5.",
+    "Substitute x = 5: 75.",
     "The correct answer is 75, not 50."
    ],
    "standards": [
@@ -1286,7 +1305,7 @@
    "prompt": "Find f′(x) for f(x) = 6x³ - x² + 4x - 3.",
    "answer": "18x² - 2x + 4",
    "solutionSteps": [
-    "Power rule term by term.",
+    "Differentiate term by term: d/dx[6x³] = 18x²; d/dx[-x²] = -2x; d/dx[4x] = 4; d/dx[-3] = 0.",
     "f′(x) = 18x² - 2x + 4."
    ],
    "standards": [
@@ -1416,7 +1435,7 @@
     }
    ],
    "solutionSteps": [
-    "Power rule.",
+    "Differentiate term by term: d/dx[-4x⁶] = -24x⁵; d/dx[9x] = 9.",
     "f′(x) = -24x⁵ + 9."
    ],
    "standards": [
@@ -1510,7 +1529,7 @@
    "prompt": "Find f′(x) for f(x) = 3x⁴ - x.",
    "answer": "12x³ - 1",
    "solutionSteps": [
-    "Power rule.",
+    "Differentiate term by term: d/dx[3x⁴] = 12x³; d/dx[-x] = -1.",
     "f′(x) = 12x³ - 1."
    ],
    "standards": [
@@ -1622,7 +1641,7 @@
    "prompt": "Find f′(x) for f(x) = 4x² - 7x.",
    "answer": "8x - 7",
    "solutionSteps": [
-    "Power rule.",
+    "Differentiate term by term: d/dx[4x²] = 8x; d/dx[-7x] = -7.",
     "f′(x) = 8x - 7."
    ],
    "standards": [
@@ -1641,7 +1660,7 @@
    "answer": "-2x - 8",
    "solutionSteps": [
     "Mistake: Doubled the coefficient: d/dx(−x²) = −2x, not −4x.",
-    "Power rule.",
+    "Differentiate term by term: d/dx[-x²] = -2x; d/dx[-8x] = -8.",
     "f′(x) = -2x - 8.",
     "The correct answer is -2x - 8, not -4x - 8."
    ],
@@ -1657,38 +1676,47 @@
    "skillId": "ap-review-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
+   "prompt": "Free response (Derivatives and Their Applications Review). Let f(x) = x³ - 12x² + 36x on the closed interval [1, 7].",
+   "answer": "(a) f′(x) = 3(x - 2)(x - 6); x = 2, x = 6; (b) relative maximum at x = 2; relative minimum at x = 6; (c) 32 at x = 2; (d) x = 4",
    "parts": [
     {
-     "prompt": "A balloon's radius increases at 1 cm/s. How fast is its volume increasing when the radius is 2 cm? Give an exact answer.",
-     "answer": "16π cm³/s"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = 3(x - 2)(x - 6); x = 2, x = 6"
     },
     {
-     "prompt": "Each side of a square increases at 3 in/min. How fast is the area increasing when a side is 15 in?",
-     "answer": "90 in²/min"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative maximum at x = 2; relative minimum at x = 6"
     },
     {
-     "prompt": "A circle's radius grows at 2 cm/s. How fast is the area changing when the radius is 11 cm? Give an exact answer.",
-     "answer": "44π cm²/s"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [1, 7]. Justify your answer.",
+     "answer": "32 at x = 2"
     },
     {
-     "prompt": "A 5-ft ladder leans against a wall. The bottom slides away at 2 ft/s. How fast is the top sliding down when the bottom is 3 ft from the wall?",
-     "answer": "3/2 ft/s"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 4"
     }
    ],
-   "answer": "(a) 16π cm³/s; (b) 90 in²/min; (c) 44π cm²/s; (d) 3/2 ft/s",
    "solutionSteps": [
-    "(a) V′ = 4πr²·r′. = 4π(2)²(1) = 16π cm³/s.",
-    "(b) A′ = 2s·s′. = 2(15)(3) = 90 in²/min.",
-    "(c) A′ = 2πr·r′. = 2π(11)(2) = 44π cm²/s.",
-    "(d) 2x·x′ + 2y·y′ = 0, so y′ = -x·x′ ÷ y. y′ = -(3)(2) ÷ 4 = -3/2; it slides down at 3/2 ft/s."
+    "(a) f′(x) = 3(x - 2)(x - 6), which is 0 at 2, 6.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = 6x - 24; f″(2) = -12; f″(6) = 12.",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(1) = 25; f(2) = 32; f(6) = 0; f(7) = 7.",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 4.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-4.A",
     "AP CHA-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_relatedo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s02-cp2-016",
@@ -1699,7 +1727,7 @@
    "answer": "2x + 3",
    "solutionSteps": [
     "Mistake: Doubled the coefficient: d/dx(x²) = 2x, not 4x.",
-    "Power rule.",
+    "Differentiate term by term: d/dx[x²] = 2x; d/dx[3x] = 3.",
     "f′(x) = 2x + 3.",
     "The correct answer is 2x + 3, not 4x + 3."
    ],
@@ -1718,7 +1746,7 @@
    "prompt": "Find f′(x) for f(x) = -x + 3tan(x).",
    "answer": "3tan(x)² + 2",
    "solutionSteps": [
-    "(sin x)′ = cos x, (cos x)′ = -sin x, (tan x)′ = sec² x.",
+    "Differentiate term by term: d/dx[-x] = -1; d/dx[3tan(x)] = 3tan²(x) + 3.",
     "f′(x) = 3tan(x)² + 2."
    ],
    "standards": [
@@ -1848,7 +1876,7 @@
     }
    ],
    "solutionSteps": [
-    "(sin x)′ = cos x, (cos x)′ = -sin x, (tan x)′ = sec² x.",
+    "Differentiate term by term: d/dx[4sin(x)] = 4cos(x); d/dx[-6cos(x)] = 6sin(x).",
     "f′(x) = 6sin(x) + 4cos(x)."
    ],
    "standards": [
@@ -1942,7 +1970,8 @@
    "prompt": "Find f′(x) for f(x) = (6x - 4)/(x² + 4).",
    "answer": "-(2(3x² - 4x - 12))/(x² + 4)²",
    "solutionSteps": [
-    "Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v².",
+    "Quotient rule with u = 6x - 4 and v = x² + 4: u′ = 6, v′ = 2x.",
+    "f′(x) = (u′v − uv′) ÷ v².",
     "f′(x) = -(2(3x² - 4x - 12))/(x² + 4)²."
    ],
    "standards": [
@@ -1980,7 +2009,7 @@
    "solutionSteps": [
     "f(-1) = -7/3.",
     "f′(-1) = -8/9.",
-    "y - (-7/3) = -(8/9)(x - (-1)).",
+    "y - (-7/3) = -(8/9)(x + 1).",
     "y = -(8/9)x - 29/9."
    ],
    "standards": [
@@ -2054,7 +2083,7 @@
    "prompt": "Find f′(x) for f(x) = 3e^(6x) + 4ln(x).",
    "answer": "18e^(6x) + 4/x",
    "solutionSteps": [
-    "(e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x.",
+    "Differentiate term by term: d/dx[3e^(6x)] = 18e^(6x); d/dx[4ln(x)] = 4/x.",
     "f′(x) = 18e^(6x) + 4/x."
    ],
    "standards": [
@@ -2073,7 +2102,7 @@
    "answer": "24e^(6x) + 4/x",
    "solutionSteps": [
     "Mistake: Doubled the exponent and halved the log term. d/dx e^(6x) = 6e^(6x) and d/dx ln(x) = 1/x.",
-    "(e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x.",
+    "Differentiate term by term: d/dx[4e^(6x)] = 24e^(6x); d/dx[4ln(x)] = 4/x.",
     "f′(x) = 24e^(6x) + 4/x.",
     "The correct answer is 24e^(6x) + 4/x, not 24e^(12x) + 2/x."
    ],
@@ -2089,38 +2118,47 @@
    "skillId": "ap-review-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
+   "prompt": "Free response (Derivatives and Their Applications Review). Let f(x) = x³ - 6x² - 15x + 1 on the closed interval [-2, 6].",
+   "answer": "(a) f′(x) = 3(x + 1)(x - 5); x = -1, x = 5; (b) relative maximum at x = -1; relative minimum at x = 5; (c) 9 at x = -1; (d) x = 2",
    "parts": [
     {
-     "prompt": "A balloon's radius increases at 1 cm/s. How fast is its volume increasing when the radius is 9 cm? Give an exact answer.",
-     "answer": "324π cm³/s"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = 3(x + 1)(x - 5); x = -1, x = 5"
     },
     {
-     "prompt": "A 20-ft ladder leans against a wall. The bottom slides away at 3 ft/s. How fast is the top sliding down when the bottom is 12 ft from the wall?",
-     "answer": "9/4 ft/s"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative maximum at x = -1; relative minimum at x = 5"
     },
     {
-     "prompt": "A 10-ft ladder leans against a wall. The bottom slides away at 1 ft/s. How fast is the top sliding down when the bottom is 6 ft from the wall?",
-     "answer": "3/4 ft/s"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [-2, 6]. Justify your answer.",
+     "answer": "9 at x = -1"
     },
     {
-     "prompt": "Each side of a square increases at 4 in/min. How fast is the area increasing when a side is 2 in?",
-     "answer": "16 in²/min"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 2"
     }
    ],
-   "answer": "(a) 324π cm³/s; (b) 9/4 ft/s; (c) 3/4 ft/s; (d) 16 in²/min",
    "solutionSteps": [
-    "(a) V′ = 4πr²·r′. = 4π(9)²(1) = 324π cm³/s.",
-    "(b) 2x·x′ + 2y·y′ = 0, so y′ = -x·x′ ÷ y. y′ = -(12)(3) ÷ 16 = -9/4; it slides down at 9/4 ft/s.",
-    "(c) 2x·x′ + 2y·y′ = 0, so y′ = -x·x′ ÷ y. y′ = -(6)(1) ÷ 8 = -3/4; it slides down at 3/4 ft/s.",
-    "(d) A′ = 2s·s′. = 2(2)(4) = 16 in²/min."
+    "(a) f′(x) = 3(x + 1)(x - 5), which is 0 at -1, 5.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = 6x - 12; f″(-1) = -18; f″(5) = 18.",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(-2) = -1; f(-1) = 9; f(5) = -99; f(6) = -89.",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 2.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-4.A",
     "AP CHA-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_relatedo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s02-cp1-016",
@@ -2131,7 +2169,7 @@
    "answer": "12e^(4x) + 5/x",
    "solutionSteps": [
     "Mistake: Doubled the exponent and halved the log term. d/dx e^(4x) = 4e^(4x) and d/dx ln(x) = 1/x.",
-    "(e^(kx))′ = ke^(kx), (ln x)′ = 1 ÷ x.",
+    "Differentiate term by term: d/dx[3e^(4x)] = 12e^(4x); d/dx[5ln(x)] = 5/x.",
     "f′(x) = 12e^(4x) + 5/x.",
     "The correct answer is 12e^(4x) + 5/x, not 12e^(8x) + 5/(2x)."
    ],
@@ -2150,7 +2188,8 @@
    "prompt": "Find f′(x) for f(x) = xln(6x).",
    "answer": "ln(6x) + 1",
    "solutionSteps": [
-    "(ln u)′ = u′ ÷ u (product rule if needed).",
+    "Product rule (u·v) with u = x and v = ln(6x): u′ = 1, v′ = 1/x.",
+    "f′(x) = u′v + uv′.",
     "f′(x) = ln(6x) + 1."
    ],
    "standards": [
@@ -2188,7 +2227,7 @@
    "solutionSteps": [
     "f(-1) = -1/2.",
     "f′(-1) = 2/3.",
-    "y - (-1/2) = (2/3)(x - (-1)).",
+    "y - (-1/2) = (2/3)(x + 1).",
     "y = (2/3)x + 1/6."
    ],
    "standards": [
@@ -2280,7 +2319,8 @@
     }
    ],
    "solutionSteps": [
-    "Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v².",
+    "Quotient rule with u = x² + 1 and v = 2x + 4: u′ = 2x, v′ = 2.",
+    "f′(x) = (u′v − uv′) ÷ v².",
     "f′(x) = (x² + 4x - 1)/(2(x + 2)²)."
    ],
    "standards": [
@@ -2374,7 +2414,8 @@
    "prompt": "Find f′(x) for f(x) = x⁵e^(3x).",
    "answer": "x⁴(3x + 5)e^(3x)",
    "solutionSteps": [
-    "Product rule with the chain rule for e^(kx).",
+    "Product rule (u·v) with u = x⁵ and v = e^(3x): u′ = 5x⁴, v′ = 3e^(3x).",
+    "f′(x) = u′v + uv′.",
     "f′(x) = x⁴(3x + 5)e^(3x)."
    ],
    "standards": [
@@ -2486,7 +2527,8 @@
     }
    ],
    "solutionSteps": [
-    "Chain rule with a trigonometric outer function.",
+    "Chain rule: the inside is u = cos(x), with u′ = -sin(x).",
+    "Differentiate the outside, keep the inside, then multiply by u′.",
     "f′(x) = -5sin(x)cos⁴(x)."
    ],
    "standards": [
@@ -2505,7 +2547,8 @@
    "answer": "-sin(2x)",
    "solutionSteps": [
     "Mistake: Lost the negative sign: d/dx cos(x) = −sin(x), so f′(x) = −2sin(x)cos(x) = −sin(2x).",
-    "Chain rule with a trigonometric outer function.",
+    "Chain rule: the inside is u = cos(x), with u′ = -sin(x).",
+    "Differentiate the outside, keep the inside, then multiply by u′.",
     "f′(x) = -sin(2x).",
     "The correct answer is -sin(2x), not sin(2x)."
    ],
@@ -2521,38 +2564,47 @@
    "skillId": "ap-review-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Derivatives and Their Applications Review): answer each part and show your work.",
+   "prompt": "Free response (Derivatives and Their Applications Review). Let f(x) = xe^(-x) on the closed interval [0, 3].",
+   "answer": "(a) f′(x) = -(x - 1)e^(-x); x = 1; (b) relative maximum at x = 1; (c) e^(-1) at x = 1; (d) x = 2",
    "parts": [
     {
-     "prompt": "Water pours into an inverted cone (height 8 ft, top radius 4 ft) at 8 ft³/min. How fast is the water level rising when the water is 7 ft deep? Give an exact answer.",
-     "answer": "32/(49π) ft/min"
+     "label": "a",
+     "prompt": "Find f′(x) and the critical numbers of f in the open interval.",
+     "answer": "f′(x) = -(x - 1)e^(-x); x = 1"
     },
     {
-     "prompt": "A 13-ft ladder leans against a wall. The bottom slides away at 3 ft/s. How fast is the top sliding down when the bottom is 5 ft from the wall?",
-     "answer": "5/4 ft/s"
+     "label": "b",
+     "prompt": "Classify each critical number as a relative maximum, a relative minimum or neither. Justify your answer.",
+     "answer": "relative maximum at x = 1"
     },
     {
-     "prompt": "Water pours into an inverted cone (height 12 ft, top radius 4 ft) at 10 ft³/min. How fast is the water level rising when the water is 9 ft deep? Give an exact answer.",
-     "answer": "10/(9π) ft/min"
+     "label": "c",
+     "prompt": "Find the absolute maximum value of f on [0, 3]. Justify your answer.",
+     "answer": "e^(-1) at x = 1"
     },
     {
-     "prompt": "A 5-ft ladder leans against a wall. The bottom slides away at 4 ft/s. How fast is the top sliding down when the bottom is 3 ft from the wall?",
-     "answer": "3 ft/s"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of any points of inflection. Justify your answer.",
+     "answer": "x = 2"
     }
    ],
-   "answer": "(a) 32/(49π) ft/min; (b) 5/4 ft/s; (c) 10/(9π) ft/min; (d) 3 ft/s",
    "solutionSteps": [
-    "(a) V′ = π(1/2)²h²·h′. h′ = 8 ÷ (π·1/4·49) = 32/(49π) ft/min.",
-    "(b) 2x·x′ + 2y·y′ = 0, so y′ = -x·x′ ÷ y. y′ = -(5)(3) ÷ 12 = -5/4; it slides down at 5/4 ft/s.",
-    "(c) V′ = π(1/3)²h²·h′. h′ = 10 ÷ (π·1/9·81) = 10/(9π) ft/min.",
-    "(d) 2x·x′ + 2y·y′ = 0, so y′ = -x·x′ ÷ y. y′ = -(3)(4) ÷ 4 = -3; it slides down at 3 ft/s."
+    "(a) f′(x) = -(x - 1)e^(-x), which is 0 at 1.",
+    "(a) Scoring, 2 points: 1 point for f′, 1 point for the critical numbers.",
+    "(b) Second derivative test: f″(x) = (x - 2)e^(-x); f″(1) = -e^(-1).",
+    "(b) Scoring, 2 points: 1 point for each classification with a correct reason (sign change of f′ or sign of f″).",
+    "(c) Candidates test: f(0) = 0; f(1) = e^(-1); f(3) = 3e^(-3).",
+    "(c) Scoring, 2 points: 1 point for evaluating every candidate (critical numbers and endpoints), 1 point for the answer.",
+    "(d) f″ changes sign at 2.",
+    "(d) Scoring, 1 point: the x-value(s) with \"f″ changes sign\".",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-3.A",
     "AP FUN-4.A",
     "AP CHA-3.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s6_relatedo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_analysis). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s02-honors-016",
@@ -2563,7 +2615,8 @@
    "answer": "(5x² + 4x - 5)/(5x + 2)²",
    "solutionSteps": [
     "Mistake: Divided the derivative of the numerator by the derivative of the denominator. Use the quotient rule.",
-    "Quotient rule: (u ÷ v)′ = (u′v - uv′) ÷ v².",
+    "Quotient rule with u = x² + 1 and v = 5x + 2: u′ = 2x, v′ = 5.",
+    "f′(x) = (u′v − uv′) ÷ v².",
     "f′(x) = (5x² + 4x - 5)/(5x + 2)².",
     "The correct answer is (5x² + 4x - 5)/(5x + 2)², not (2/5)x."
    ],
@@ -2583,7 +2636,8 @@
    "answer": "6",
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ + 5x² + x.",
-    "F(0) - F(-2) = 6."
+    "F(0) = 0 and F(-2) = -6.",
+    "F(0) − F(-2) = 0 − (-6) = 6."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2619,7 +2673,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 27x² + 3."
+    "Here f(t) = t² + 1, u(x) = 3x, u′(x) = 3.",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: 27x² + 3."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2636,9 +2692,11 @@
    "prompt": "A particle moves with velocity v(t) = 4t - 16 ft/s. Find the total distance traveled from t = 0 to t = 6.",
    "answer": "40 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 4.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 40 ft."
+    "v(t) = 0 at t = 4, so the particle changes direction there.",
+    "Antiderivative: s(t) = 2t² - 16t.",
+    "From t = 0 to t = 4: s(4) − s(0) = -32.",
+    "From t = 4 to t = 6: s(6) − s(4) = 8.",
+    "Total distance = 32 + 8 = 40 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2673,9 +2731,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: -4 = 3x² - 12x - 4 at x = 0 and x = 4.",
-    "On [0, 4], y = -4 is on top.",
-    "Area = ∫ from 0 to 4 ((top) - (bottom)) dx = 32."
+    "The curves meet where -4 = 3x² - 12x - 4: x = 0 and x = 4.",
+    "At x = 2 (between them), y = -4 is on top.",
+    "Area = ∫ from 0 to 4 [(-4) − (3x² - 12x - 4)] dx = ∫ from 0 to 4 (-3x² + 12x) dx.",
+    "Antiderivative: F(x) = -x³ + 6x².",
+    "F(4) = 32 and F(0) = 0.",
+    "F(4) − F(0) = 32 − 0 = 32.",
+    "Area = 32."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2711,7 +2773,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 2x³ + 5x² + x.",
-    "F(0) - F(-2) = -2."
+    "F(0) = 0 and F(-2) = 2.",
+    "F(0) − F(-2) = 0 − 2 = -2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2729,7 +2792,9 @@
    "answer": "2x⁷",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x⁷."
+    "Here f(t) = t³, u(x) = x², u′(x) = 2x.",
+    "The lower limit 2 is a constant, so it adds nothing.",
+    "Result: 2x⁷."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2764,9 +2829,11 @@
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 4.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 32 ft."
+    "v(t) = 0 at t = 4, so the particle changes direction there.",
+    "Antiderivative: s(t) = t² - 8t.",
+    "From t = 0 to t = 4: s(4) − s(0) = -16.",
+    "From t = 4 to t = 8: s(8) − s(4) = 16.",
+    "Total distance = 16 + 16 = 32 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2783,9 +2850,13 @@
    "prompt": "Find the area of the region bounded by y = -x + 4 and y = 2x² - 13x + 20.",
    "answer": "8/3",
    "solutionSteps": [
-    "Intersections: -x + 4 = 2x² - 13x + 20 at x = 2 and x = 4.",
-    "On [2, 4], y = -x + 4 is on top.",
-    "Area = ∫ from 2 to 4 ((top) - (bottom)) dx = 8/3."
+    "The curves meet where -x + 4 = 2x² - 13x + 20: x = 2 and x = 4.",
+    "At x = 3 (between them), y = -x + 4 is on top.",
+    "Area = ∫ from 2 to 4 [(-x + 4) − (2x² - 13x + 20)] dx = ∫ from 2 to 4 (-2x² + 12x - 16) dx.",
+    "Antiderivative: F(x) = -2x³/3 + 6x² - 16x.",
+    "F(4) = -32/3 and F(2) = -40/3.",
+    "F(4) − F(2) = -32/3 − (-40/3) = 8/3.",
+    "Area = 8/3."
    ],
    "diagram": {
     "type": "image",
@@ -2810,7 +2881,8 @@
    "answer": "-15",
    "solutionSteps": [
     "Antiderivative: F(x) = -x³ - 5x² - 7x.",
-    "F(1) - F(-2) = -15."
+    "F(1) = -13 and F(-2) = 2.",
+    "F(1) − F(-2) = -13 − 2 = -15."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2846,7 +2918,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 4(4x - 1)² + 4."
+    "Here f(t) = t² + 1, u(x) = 4x - 1, u′(x) = 4.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: 4(4x - 1)² + 4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2863,9 +2937,11 @@
    "prompt": "A particle moves with velocity v(t) = 4t - 20 ft/s. Find the total distance traveled from t = 0 to t = 9.",
    "answer": "82 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 5.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 82 ft."
+    "v(t) = 0 at t = 5, so the particle changes direction there.",
+    "Antiderivative: s(t) = 2t² - 20t.",
+    "From t = 0 to t = 5: s(5) − s(0) = -50.",
+    "From t = 5 to t = 9: s(9) − s(5) = 32.",
+    "Total distance = 50 + 32 = 82 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2900,9 +2976,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: -x - 6 = 3x² - 16x + 6 at x = 1 and x = 4.",
-    "On [1, 4], y = -x - 6 is on top.",
-    "Area = ∫ from 1 to 4 ((top) - (bottom)) dx = 27/2."
+    "The curves meet where -x - 6 = 3x² - 16x + 6: x = 1 and x = 4.",
+    "At x = 5/2 (between them), y = -x - 6 is on top.",
+    "Area = ∫ from 1 to 4 [(-x - 6) − (3x² - 16x + 6)] dx = ∫ from 1 to 4 (-3x² + 15x - 12) dx.",
+    "Antiderivative: F(x) = -x³ + 15x²/2 - 12x.",
+    "F(4) = 8 and F(1) = -11/2.",
+    "F(4) − F(1) = 8 − (-11/2) = 27/2.",
+    "Area = 27/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2920,7 +3000,8 @@
    "answer": "-88",
    "solutionSteps": [
     "Antiderivative: F(x) = -3x³ + 4x² + 7x.",
-    "F(1) - F(-3) = -88."
+    "F(1) = 8 and F(-3) = 96.",
+    "F(1) − F(-3) = 8 − 96 = -88."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -2939,7 +3020,8 @@
    "solutionSteps": [
     "Mistake: Forgot to subtract F(a).",
     "Antiderivative: F(x) = x³ + 4x² + 4x.",
-    "F(4) - F(2) = 112.",
+    "F(4) = 144 and F(2) = 32.",
+    "F(4) − F(2) = 144 − 32 = 112.",
     "The correct answer is 112, not 144."
    ],
    "standards": [
@@ -2954,38 +3036,54 @@
    "skillId": "ap-review-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
+   "prompt": "Free response (Integrals and the Fundamental Theorem Review). The function f is defined on [-1, 7] and its graph, made of line segments, is shown. Let g(x) = ∫ from 1 to x f(t) dt.",
+   "answer": "(a) g(7) = 0; g(-1) = -4; (b) (-1, 5/2) ∪ (6, 7); (c) x = 5/2; (d) x = 1",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = 9x² + 8x - 6 on [-1, 3].",
-     "answer": "23"
+     "label": "a",
+     "prompt": "Find g(7) and g(-1).",
+     "answer": "g(7) = 0; g(-1) = -4"
     },
     {
-     "prompt": "Find the average value of f(x) = 3x² + 2x - 3 on [-2, 5].",
-     "answer": "19"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-1, 7) is g increasing? Justify your answer.",
+     "answer": "(-1, 5/2) ∪ (6, 7)"
     },
     {
-     "prompt": "Find the average value of f(x) = 6x² - 6x - 4 on [1, 4].",
-     "answer": "23"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-1, 7) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 5/2"
     },
     {
-     "prompt": "Find the average value of f(x) = 3x² + 4x + 5 on [-1, 4].",
-     "answer": "24"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-1, 7). Explain your reasoning.",
+     "answer": "x = 1"
     }
    ],
-   "answer": "(a) 23; (b) 19; (c) 23; (d) 24",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/ap-review/cal-apr-s03-cp2-015.png",
+     "alt": "Graph of f made of line segments through (-1, 1), (1, 3), (3, -1), (5, -1), (7, 1)."
+    }
+   },
    "solutionSteps": [
-    "(a) ∫ = 92; divide by 4. = 23.",
-    "(b) ∫ = 133; divide by 7. = 19.",
-    "(c) ∫ = 69; divide by 3. = 23.",
-    "(d) ∫ = 120; divide by 5. = 24."
+    "(a) g(7) = signed area from 1 to 7 = 0; g(-1) = −(signed area from -1 to 1) = -4.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-1, 5/2) ∪ (6, 7).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 5/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 1.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-5.A",
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_avgo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s03-cp2-016",
@@ -2997,7 +3095,8 @@
    "solutionSteps": [
     "Mistake: Subtracted in the wrong order.",
     "Antiderivative: F(x) = x³ + 8x.",
-    "F(0) - F(-2) = 24.",
+    "F(0) = 0 and F(-2) = -24.",
+    "F(0) − F(-2) = 0 − (-24) = 24.",
     "The correct answer is 24, not -24."
    ],
    "standards": [
@@ -3016,7 +3115,8 @@
    "answer": "-30",
    "solutionSteps": [
     "Antiderivative: F(x) = x³ - 6x² - 5x.",
-    "F(4) - F(-2) = -30."
+    "F(4) = -52 and F(-2) = -22.",
+    "F(4) − F(-2) = -52 − (-22) = -30."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3052,7 +3152,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= e^xsin(e^x)."
+    "Here f(t) = sin(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: e^xsin(e^x)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3069,9 +3171,11 @@
    "prompt": "A particle moves with velocity v(t) = (t - 9)(3t - 15) ft/s. Find the total distance traveled from t = 0 to t = 8.",
    "answer": "302 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 5.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 302 ft."
+    "v(t) = 0 at t = 5, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³ - 21t² + 135t.",
+    "From t = 0 to t = 5: s(5) − s(0) = 275.",
+    "From t = 5 to t = 8: s(8) − s(5) = -27.",
+    "Total distance = 275 + 27 = 302 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3106,9 +3210,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: 2x + 1 = x² + x + 1 at x = 0 and x = 1.",
-    "On [0, 1], y = 2x + 1 is on top.",
-    "Area = ∫ from 0 to 1 ((top) - (bottom)) dx = 1/6."
+    "The curves meet where 2x + 1 = x² + x + 1: x = 0 and x = 1.",
+    "At x = 1/2 (between them), y = 2x + 1 is on top.",
+    "Area = ∫ from 0 to 1 [(2x + 1) − (x² + x + 1)] dx = ∫ from 0 to 1 (-x² + x) dx.",
+    "Antiderivative: F(x) = -x³/3 + x²/2.",
+    "F(1) = 1/6 and F(0) = 0.",
+    "F(1) − F(0) = 1/6 − 0 = 1/6.",
+    "Area = 1/6."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3144,7 +3252,8 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = 5sin(x).",
-    "F(π/2) - F(π/6) = 5/2."
+    "F(π/2) = 5 and F(π/6) = 5/2.",
+    "F(π/2) − F(π/6) = 5 − 5/2 = 5/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3162,7 +3271,9 @@
    "answer": "(sin(x) + cos(sin(x)))cos(x)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= (sin(x) + cos(sin(x)))cos(x)."
+    "Here f(t) = t + cos(t), u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit 0 is a constant, so it adds nothing.",
+    "Result: (sin(x) + cos(sin(x)))cos(x)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3179,9 +3290,11 @@
    "prompt": "A particle moves with velocity v(t) = (t - 6)(3t - 6) ft/s. Find the total distance traveled from t = 0 to t = 3.",
    "answer": "37 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 2.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 37 ft."
+    "v(t) = 0 at t = 2, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³ - 12t² + 36t.",
+    "From t = 0 to t = 2: s(2) − s(0) = 32.",
+    "From t = 2 to t = 3: s(3) − s(2) = -5.",
+    "Total distance = 32 + 5 = 37 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3216,9 +3329,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: -3x + 5 = 3x² - 6x + 5 at x = 0 and x = 1.",
-    "On [0, 1], y = -3x + 5 is on top.",
-    "Area = ∫ from 0 to 1 ((top) - (bottom)) dx = 1/2."
+    "The curves meet where -3x + 5 = 3x² - 6x + 5: x = 0 and x = 1.",
+    "At x = 1/2 (between them), y = -3x + 5 is on top.",
+    "Area = ∫ from 0 to 1 [(-3x + 5) − (3x² - 6x + 5)] dx = ∫ from 0 to 1 (-3x² + 3x) dx.",
+    "Antiderivative: F(x) = -x³ + 3x²/2.",
+    "F(1) = 1/2 and F(0) = 0.",
+    "F(1) − F(0) = 1/2 − 0 = 1/2.",
+    "Area = 1/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3236,7 +3353,8 @@
    "answer": "155",
    "solutionSteps": [
     "Antiderivative: F(x) = 3x³ + 6x² + 4x.",
-    "F(3) - F(-2) = 155."
+    "F(3) = 147 and F(-2) = -8.",
+    "F(3) − F(-2) = 147 − (-8) = 155."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3272,7 +3390,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= sin(sin(x))cos(x)."
+    "Here f(t) = sin(t), u(x) = sin(x), u′(x) = cos(x).",
+    "The lower limit 1 is a constant, so it adds nothing.",
+    "Result: sin(sin(x))cos(x)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3307,9 +3427,11 @@
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 2.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 79/6 ft."
+    "v(t) = 0 at t = 2, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³/3 - 7t²/2 + 10t.",
+    "From t = 0 to t = 2: s(2) − s(0) = 26/3.",
+    "From t = 2 to t = 5: s(5) − s(2) = -9/2.",
+    "Total distance = 26/3 + 9/2 = 79/6 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3326,9 +3448,13 @@
    "prompt": "Find the area of the region bounded by y = 2x + 1 and y = x² - 2.",
    "answer": "32/3",
    "solutionSteps": [
-    "Intersections: 2x + 1 = x² - 2 at x = -1 and x = 3.",
-    "On [-1, 3], y = 2x + 1 is on top.",
-    "Area = ∫ from -1 to 3 ((top) - (bottom)) dx = 32/3."
+    "The curves meet where 2x + 1 = x² - 2: x = -1 and x = 3.",
+    "At x = 1 (between them), y = 2x + 1 is on top.",
+    "Area = ∫ from -1 to 3 [(2x + 1) − (x² - 2)] dx = ∫ from -1 to 3 (-x² + 2x + 3) dx.",
+    "Antiderivative: F(x) = -x³/3 + x² + 3x.",
+    "F(3) = 9 and F(-1) = -5/3.",
+    "F(3) − F(-1) = 9 − (-5/3) = 32/3.",
+    "Area = 32/3."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3346,7 +3472,8 @@
    "answer": "-28",
    "solutionSteps": [
     "Antiderivative: F(x) = -3x³ + 3x² + 2x.",
-    "F(-1) - F(-2) = -28."
+    "F(-1) = 4 and F(-2) = 32.",
+    "F(-1) − F(-2) = 4 − 32 = -28."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3365,7 +3492,8 @@
    "solutionSteps": [
     "Mistake: Subtracted in the wrong order.",
     "Antiderivative: F(x) = ln(x).",
-    "F(8) - F(2) = ln(4).",
+    "F(8) = ln(8) and F(2) = ln(2).",
+    "F(8) − F(2) = ln(8) − ln(2) = ln(4).",
     "The correct answer is ln(4), not -ln(4)."
    ],
    "standards": [
@@ -3380,38 +3508,54 @@
    "skillId": "ap-review-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
+   "prompt": "Free response (Integrals and the Fundamental Theorem Review). The function f is defined on [-2, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from -1 to x f(t) dt.",
+   "answer": "(a) g(6) = 5/2; g(-2) = 5/2; (b) (1/2, 9/2); (c) x = 9/2; (d) x = 2",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = 5sin(x) on [0, π/2].",
-     "answer": "10/π"
+     "label": "a",
+     "prompt": "Find g(6) and g(-2).",
+     "answer": "g(6) = 5/2; g(-2) = 5/2"
     },
     {
-     "prompt": "Find the average value of f(x) = 6/x on [1, e].",
-     "answer": "6/(e - 1)"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-2, 6) is g increasing? Justify your answer.",
+     "answer": "(1/2, 9/2)"
     },
     {
-     "prompt": "Find the average value of f(x) = 3cos(x) on [0, π/3].",
-     "answer": "(9√3)/(2π)"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-2, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = 9/2"
     },
     {
-     "prompt": "Find the average value of f(x) = 5/x on [1, e].",
-     "answer": "5/(e - 1)"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-2, 6). Explain your reasoning.",
+     "answer": "x = 2"
     }
    ],
-   "answer": "(a) 10/π; (b) 6/(e - 1); (c) (9√3)/(2π); (d) 5/(e - 1)",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/ap-review/cal-apr-s03-cp1-015.png",
+     "alt": "Graph of f made of line segments through (-2, -3), (0, -1), (2, 3), (4, 1), (6, -3)."
+    }
+   },
    "solutionSteps": [
-    "(a) ∫ = 5; divide by π/2. = 10/π.",
-    "(b) ∫ = 6; divide by -1 + e. = 6/(e - 1).",
-    "(c) ∫ = (3√3)/2; divide by π/3. = (9√3)/(2π).",
-    "(d) ∫ = 5; divide by -1 + e. = 5/(e - 1)."
+    "(a) g(6) = signed area from -1 to 6 = 5/2; g(-2) = −(signed area from -2 to -1) = 5/2.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (1/2, 9/2).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = 9/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-5.A",
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_avgo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s03-cp1-016",
@@ -3423,7 +3567,8 @@
    "solutionSteps": [
     "Mistake: Forgot to subtract F(a).",
     "Antiderivative: F(x) = sin(x).",
-    "F(π/2) - F(π/4) = 1 - (√2)/2.",
+    "F(π/2) = 1 and F(π/4) = √2/2.",
+    "F(π/2) − F(π/4) = 1 − √2/2 = 1 - √2/2.",
     "The correct answer is 1 - (√2)/2, not 1."
    ],
    "standards": [
@@ -3442,7 +3587,8 @@
    "answer": "(5√2)/2",
    "solutionSteps": [
     "Antiderivative: F(x) = -5cos(x).",
-    "F(π/2) - F(π/4) = (5√2)/2."
+    "F(π/2) = 0 and F(π/4) = -5√2/2.",
+    "F(π/2) − F(π/4) = 0 − (-5√2/2) = 5√2/2."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3478,7 +3624,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2xsin(x²) - sin(x)."
+    "Here f(t) = sin(t), u(x) = x², u′(x) = 2x.",
+    "The lower limit x also depends on x, so subtract f(x)·1.",
+    "Result: 2xsin(x²) - sin(x)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3495,9 +3643,11 @@
    "prompt": "A particle moves with velocity v(t) = (t - 5)(2t - 4) ft/s. Find the total distance traveled from t = 0 to t = 4.",
    "answer": "24 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 2.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 24 ft."
+    "v(t) = 0 at t = 2, so the particle changes direction there.",
+    "Antiderivative: s(t) = 2t³/3 - 7t² + 20t.",
+    "From t = 0 to t = 2: s(2) − s(0) = 52/3.",
+    "From t = 2 to t = 4: s(4) − s(2) = -20/3.",
+    "Total distance = 52/3 + 20/3 = 24 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3532,9 +3682,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: x³ - 3x² - 14x - 9 = x³ - 2x at x = -3 and x = -1.",
-    "On [-3, -1], y = x³ - 3x² - 14x - 9 is on top.",
-    "Area = ∫ from -3 to -1 ((top) - (bottom)) dx = 4."
+    "The curves meet where x³ - 3x² - 14x - 9 = x³ - 2x: x = -3 and x = -1.",
+    "At x = -2 (between them), y = x³ - 3x² - 14x - 9 is on top.",
+    "Area = ∫ from -3 to -1 [(x³ - 3x² - 14x - 9) − (x³ - 2x)] dx = ∫ from -3 to -1 (-3x² - 12x - 9) dx.",
+    "Antiderivative: F(x) = -x³ - 6x² - 9x.",
+    "F(-1) = 4 and F(-3) = 0.",
+    "F(-1) − F(-3) = 4 − 0 = 4.",
+    "Area = 4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3570,7 +3724,9 @@
    ],
    "solutionSteps": [
     "Antiderivative: F(x) = e^(x²) (substitution u = inner function).",
-    "F(2) - F(0) = -1 + e⁴."
+    "Antiderivative: F(x) = e^(x²).",
+    "F(2) = e⁴ and F(0) = 1.",
+    "F(2) − F(0) = e⁴ − 1 = -1 + e⁴."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3588,7 +3744,9 @@
    "answer": "2x√(x⁴ + 1)",
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= 2x√(x⁴ + 1)."
+    "Here f(t) = √(t² + 1), u(x) = x², u′(x) = 2x.",
+    "The lower limit -2 is a constant, so it adds nothing.",
+    "Result: 2x√(x⁴ + 1)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3623,9 +3781,12 @@
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 4, 5.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 129 ft."
+    "v(t) = 0 at t = 4, 5, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³ - 27t²/2 + 60t.",
+    "From t = 0 to t = 4: s(4) − s(0) = 88.",
+    "From t = 4 to t = 5: s(5) − s(4) = -1/2.",
+    "From t = 5 to t = 8: s(8) − s(5) = 81/2.",
+    "Total distance = 88 + 1/2 + 81/2 = 129 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3642,9 +3803,13 @@
    "prompt": "Find the area of the region bounded by y = x³ - 2x² + 4x + 8 and y = x³ - 2x.",
    "answer": "125/3",
    "solutionSteps": [
-    "Intersections: x³ - 2x² + 4x + 8 = x³ - 2x at x = -1 and x = 4.",
-    "On [-1, 4], y = x³ - 2x² + 4x + 8 is on top.",
-    "Area = ∫ from -1 to 4 ((top) - (bottom)) dx = 125/3."
+    "The curves meet where x³ - 2x² + 4x + 8 = x³ - 2x: x = -1 and x = 4.",
+    "At x = 3/2 (between them), y = x³ - 2x² + 4x + 8 is on top.",
+    "Area = ∫ from -1 to 4 [(x³ - 2x² + 4x + 8) − (x³ - 2x)] dx = ∫ from -1 to 4 (-2x² + 6x + 8) dx.",
+    "Antiderivative: F(x) = -2x³/3 + 3x² + 8x.",
+    "F(4) = 112/3 and F(-1) = -13/3.",
+    "F(4) − F(-1) = 112/3 − (-13/3) = 125/3.",
+    "Area = 125/3."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3662,7 +3827,8 @@
    "answer": "4",
    "solutionSteps": [
     "Antiderivative: F(x) = -2cos(x).",
-    "F(π) - F(0) = 4."
+    "F(π) = 2 and F(0) = -2.",
+    "F(π) − F(0) = 2 − (-2) = 4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3698,7 +3864,9 @@
    ],
    "solutionSteps": [
     "FTC with the chain rule: d/dx ∫ from a to u(x) f(t) dt = f(u(x))·u′(x).",
-    "= e^(x + e^x)."
+    "Here f(t) = e^(t), u(x) = e^x, u′(x) = e^x.",
+    "The lower limit -1 is a constant, so it adds nothing.",
+    "Result: e^(x + e^x)."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3715,9 +3883,11 @@
    "prompt": "A particle moves with velocity v(t) = 3t - 9 ft/s. Find the total distance traveled from t = 0 to t = 5.",
    "answer": "39/2 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 3.",
-    "Total distance = ∫ |v(t)| dt: integrate on each piece and add absolute values.",
-    "= 39/2 ft."
+    "v(t) = 0 at t = 3, so the particle changes direction there.",
+    "Antiderivative: s(t) = 3t²/2 - 9t.",
+    "From t = 0 to t = 3: s(3) − s(0) = -27/2.",
+    "From t = 3 to t = 5: s(5) − s(3) = 6.",
+    "Total distance = 27/2 + 6 = 39/2 ft."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3752,9 +3922,13 @@
     }
    ],
    "solutionSteps": [
-    "Intersections: x³ - 3x² - 8x = x³ - 2x at x = -2 and x = 0.",
-    "On [-2, 0], y = x³ - 3x² - 8x is on top.",
-    "Area = ∫ from -2 to 0 ((top) - (bottom)) dx = 4."
+    "The curves meet where x³ - 3x² - 8x = x³ - 2x: x = -2 and x = 0.",
+    "At x = -1 (between them), y = x³ - 3x² - 8x is on top.",
+    "Area = ∫ from -2 to 0 [(x³ - 3x² - 8x) − (x³ - 2x)] dx = ∫ from -2 to 0 (-3x² - 6x) dx.",
+    "Antiderivative: F(x) = -x³ - 3x².",
+    "F(0) = 0 and F(-2) = -4.",
+    "F(0) − F(-2) = 0 − (-4) = 4.",
+    "Area = 4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3772,7 +3946,8 @@
    "answer": "-4",
    "solutionSteps": [
     "Antiderivative: F(x) = 2x⁴ + 3x³ - x² - 6x.",
-    "F(0) - F(-1) = -4."
+    "F(0) = 0 and F(-1) = 4.",
+    "F(0) − F(-1) = 0 − 4 = -4."
    ],
    "standards": [
     "AP FUN-6.B",
@@ -3791,7 +3966,9 @@
    "solutionSteps": [
     "Mistake: Subtracted in the wrong order.",
     "Antiderivative: F(x) = e^(2x²) (substitution u = inner function).",
-    "F(2) - F(0) = -1 + e⁸.",
+    "Antiderivative: F(x) = e^(2x²).",
+    "F(2) = e⁸ and F(0) = 1.",
+    "F(2) − F(0) = e⁸ − 1 = -1 + e⁸.",
     "The correct answer is -1 + e⁸, not 1 - e⁸."
    ],
    "standards": [
@@ -3806,38 +3983,54 @@
    "skillId": "ap-review-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Integrals and the Fundamental Theorem Review): answer each part and show your work.",
+   "prompt": "Free response (Integrals and the Fundamental Theorem Review). The function f is defined on [-4, 6] and its graph, made of line segments, is shown. Let g(x) = ∫ from -1 to x f(t) dt.",
+   "answer": "(a) g(6) = -4; g(-4) = -5; (b) (-4, -1/2) ∪ (7/2, 6); (c) x = -1/2; (d) x = -2, x = 2",
    "parts": [
     {
-     "prompt": "Find the average value of f(x) = -3x² + 6x + 5 on [-2, 3].",
-     "answer": "1"
+     "label": "a",
+     "prompt": "Find g(6) and g(-4).",
+     "answer": "g(6) = -4; g(-4) = -5"
     },
     {
-     "prompt": "Find the average value of f(x) = 4sin(x) on [0, π].",
-     "answer": "8/π"
+     "label": "b",
+     "prompt": "On what open interval(s) in (-4, 6) is g increasing? Justify your answer.",
+     "answer": "(-4, -1/2) ∪ (7/2, 6)"
     },
     {
-     "prompt": "Find the average value of f(x) = 3x² + 4x - 5 on [-2, 0].",
-     "answer": "-5"
+     "label": "c",
+     "prompt": "At what x-value(s) in (-4, 6) does g have a relative maximum? Justify your answer.",
+     "answer": "x = -1/2"
     },
     {
-     "prompt": "Find the average value of f(x) = 2sin(x) on [0, π].",
-     "answer": "4/π"
+     "label": "d",
+     "prompt": "Find the x-coordinate(s) of the points of inflection of the graph of g in (-4, 6). Explain your reasoning.",
+     "answer": "x = -2, x = 2"
     }
    ],
-   "answer": "(a) 1; (b) 8/π; (c) -5; (d) 4/π",
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/calculus/ap-review/cal-apr-s03-honors-015.png",
+     "alt": "Graph of f made of line segments through (-4, 0), (-2, 3), (0, -1), (2, -3), (4, 1), (6, 1)."
+    }
+   },
    "solutionSteps": [
-    "(a) ∫ = 5; divide by 5. = 1.",
-    "(b) ∫ = 8; divide by π. = 8/π.",
-    "(c) ∫ = -10; divide by 2. = -5.",
-    "(d) ∫ = 4; divide by π. = 4/π."
+    "(a) g(6) = signed area from -1 to 6 = -4; g(-4) = −(signed area from -4 to -1) = -5.",
+    "(a) Scoring, 2 points: 1 point each; the second needs the sign change for a reversed interval.",
+    "(b) g′(x) = f(x), so g increases where f > 0: (-4, -1/2) ∪ (7/2, 6).",
+    "(b) Scoring, 2 points: 1 point for the intervals, 1 point for \"g′ = f > 0\".",
+    "(c) g′ = f changes from positive to negative at x = -1/2.",
+    "(c) Scoring, 2 points: 1 point for the x-value(s), 1 point for the sign change of g′ = f.",
+    "(d) g″ = f′ changes sign where f changes from increasing to decreasing or back: x = -2, x = 2.",
+    "(d) Scoring, 2 points: 1 point for the x-values, 1 point for \"g″ = f′ changes sign\".",
+    "Total: 8 points."
    ],
    "standards": [
     "AP FUN-6.B",
     "AP FUN-5.A",
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_avgo_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_accum). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s03-honors-016",
@@ -3849,7 +4042,8 @@
    "solutionSteps": [
     "Mistake: Evaluated the integrand instead of an antiderivative.",
     "Antiderivative: F(x) = x⁴ - 2x³ + 5x² - 2x.",
-    "F(-2) - F(-3) = -130.",
+    "F(-2) = 56 and F(-3) = 186.",
+    "F(-2) − F(-3) = 56 − 186 = -130.",
     "The correct answer is -130, not 116."
    ],
    "standards": [
@@ -3957,8 +4151,8 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 1, y = 0 into y′.",
-    "y′ = 3."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = 3x - 4y = 3."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4063,8 +4257,8 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 3, y = -3 into y′.",
-    "y′ = -21."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = -3x + 4y = -21."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4170,8 +4364,8 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = 1, y = 0 into y′.",
-    "y′ = 2."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = 2x - (0) = 2."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4222,37 +4416,46 @@
    "skillId": "ap-review-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
+   "prompt": "Free response (Differential Equations Review). Consider the differential equation dy/dx = 3x/y. Let y = f(x) be the solution with f(1) = 2.",
+   "answer": "(a) y = 3x/2 + 1/2; f(1.1) ≈ 43/20; (b) 3/8; an underestimate; (c) y = √(3x² + 1); (d) √13",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(0) for y′ = -3x - 2y, y(-1) = 1.",
-     "answer": "0.75"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 3x/2 + 1/2; f(1.1) ≈ 43/20"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = -x - y, y(2) = 2.",
-     "answer": "-1.25"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 2). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "3/8; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(1) for y′ = 2x + y, y(0) = 1.",
-     "answer": "2.75"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(3x² + 1)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -x + y, y(2) = -1.",
-     "answer": "-11"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "√13"
     }
    ],
-   "answer": "(a) 0.75; (b) -1.25; (c) 2.75; (d) -11",
    "solutionSteps": [
-    "(a) Step 1: y ≈ 1.5 at x = -0.5. Step 2: y ≈ 0.75 at x = 0.",
-    "(b) Step 1: y ≈ 0 at x = 2.5. Step 2: y ≈ -1.25 at x = 3.",
-    "(c) Step 1: y ≈ 1.5 at x = 0.5. Step 2: y ≈ 2.75 at x = 1.",
-    "(d) Step 1: y ≈ -4 at x = 3. Step 2: y ≈ -11 at x = 4."
+    "(a) dy/dx at (1, 2) is 3/2; L(1.1) = 2 + (3/2)(0.1) = 43/20.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 3/8 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 3x dx; y²/2 = 3x²/2 + C; y² = 3x² + 1, so y = √(3x² + 1) (positive because f(1) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = √(3x² + 1).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D",
     "AP FUN-7.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_eulero_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s04-cp2-016",
@@ -4336,8 +4539,8 @@
    "prompt": "For y′ = x² - y, find the slope of the solution curve through (-1, -1).",
    "answer": "2",
    "solutionSteps": [
-    "Substitute x = -1, y = -1 into y′.",
-    "y′ = 2."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = (-1)² - (-1) = 2."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4478,8 +4681,8 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = -2, y = -1 into y′.",
-    "y′ = 5."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = (-2)² - (-1) = 5."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4567,8 +4770,8 @@
    "prompt": "For y′ = xy, find the slope of the solution curve through (2, 0).",
    "answer": "0",
    "solutionSteps": [
-    "Substitute x = 2, y = 0 into y′.",
-    "y′ = 0."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = xy = 0."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4637,37 +4840,46 @@
    "skillId": "ap-review-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
+   "prompt": "Free response (Differential Equations Review). Consider the differential equation dy/dx = 3x/y. Let y = f(x) be the solution with f(2) = 6.",
+   "answer": "(a) y = x + 4; f(2.1) ≈ 61/10; (b) 1/3; an underestimate; (c) y = √(3x² + 24); (d) √51",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 2 steps to approximate y(1.2) for y′ = 3x + 2y, y(1) = -2.",
-     "answer": "-2.19"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 2, and use it to approximate f(2.1).",
+     "answer": "y = x + 4; f(2.1) ≈ 61/10"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(2) for y′ = -3x + y, y(0) = 1.",
-     "answer": "1"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (2, 6). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "1/3; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 1 and 2 steps to approximate y(4) for y′ = -3x + 2y, y(2) = 0.",
-     "answer": "-27"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = √(3x² + 24)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.5 and 2 steps to approximate y(3) for y′ = 3x - y, y(2) = -3.",
-     "answer": "4.5"
+     "label": "d",
+     "prompt": "Use your solution to find f(3) exactly.",
+     "answer": "√51"
     }
    ],
-   "answer": "(a) -2.19; (b) 1; (c) -27; (d) 4.5",
    "solutionSteps": [
-    "(a) Step 1: y ≈ -2.1 at x = 1.1. Step 2: y ≈ -2.19 at x = 1.2.",
-    "(b) Step 1: y ≈ 2 at x = 1. Step 2: y ≈ 1 at x = 2.",
-    "(c) Step 1: y ≈ -6 at x = 3. Step 2: y ≈ -27 at x = 4.",
-    "(d) Step 1: y ≈ 1.5 at x = 2.5. Step 2: y ≈ 4.5 at x = 3."
+    "(a) dy/dx at (2, 6) is 1; L(2.1) = 6 + (1)(0.1) = 61/10.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 1/3 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: y dy = 3x dx; y²/2 = 3x²/2 + C; y² = 3x² + 24, so y = √(3x² + 24) (positive because f(2) > 0).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 3 into y = √(3x² + 24).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D",
     "AP FUN-7.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_eulero_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s04-cp1-016",
@@ -4788,8 +5000,8 @@
     }
    ],
    "solutionSteps": [
-    "Substitute x = -2, y = 0 into y′.",
-    "y′ = -6."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = -(0)² + 3x = -6."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4896,8 +5108,8 @@
    "prompt": "For y′ = -y² + x, find the slope of the solution curve through (1, 3).",
    "answer": "-8",
    "solutionSteps": [
-    "Substitute x = 1, y = 3 into y′.",
-    "y′ = -8."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = -(3)² + (1) = -8."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -4985,8 +5197,8 @@
    "prompt": "For y′ = (1/2)x + (1/2)y, find the slope of the solution curve through (3, -1).",
    "answer": "1",
    "solutionSteps": [
-    "Substitute x = 3, y = -1 into y′.",
-    "y′ = 1."
+    "The slope of the solution curve at a point is y′ evaluated there.",
+    "y′ = (1/2)(3) + (1/2)(-1) = 1."
    ],
    "standards": [
     "AP FUN-7.D",
@@ -5054,37 +5266,46 @@
    "skillId": "ap-review-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Differential Equations Review): answer each part and show your work.",
+   "prompt": "Free response (Differential Equations Review). Consider the differential equation dy/dx = xy/2. Let y = f(x) be the solution with f(1) = 3.",
+   "answer": "(a) y = 3x/2 + 3/2; f(1.1) ≈ 63/20; (b) 9/4; an underestimate; (c) y = 3e^((x² - 1)/4); (d) 3e^(3/4)",
    "parts": [
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-0.7) for y′ = xy - 2, y(-1) = -3.",
-     "answer": "-70297/25000"
+     "label": "a",
+     "prompt": "Write an equation of the line tangent to the graph of f at x = 1, and use it to approximate f(1.1).",
+     "answer": "y = 3x/2 + 3/2; f(1.1) ≈ 63/20"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(-1.7) for y′ = xy - 3, y(-2) = -3.",
-     "answer": "-116967/50000"
+     "label": "b",
+     "prompt": "Find d²y/dx² at (1, 3). Is the approximation in part (a) an overestimate or an underestimate? Explain.",
+     "answer": "9/4; an underestimate"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(1.3) for y′ = xy + 1, y(1) = -3.",
-     "answer": "-23539/6250"
+     "label": "c",
+     "prompt": "Use separation of variables to find y = f(x).",
+     "answer": "y = 3e^((x² - 1)/4)"
     },
     {
-     "prompt": "Use Euler's method (a BC topic) with step size 0.1 and 3 steps to approximate y(2.3) for y′ = xy - 3, y(2) = -2.",
-     "answer": "-232587/50000"
+     "label": "d",
+     "prompt": "Use your solution to find f(2) exactly.",
+     "answer": "3e^(3/4)"
     }
    ],
-   "answer": "(a) -70297/25000; (b) -116967/50000; (c) -23539/6250; (d) -232587/50000",
    "solutionSteps": [
-    "(a) Step 2: y ≈ -2.839 at x = -0.8. Step 3: y ≈ -70297/25000 at x = -0.7.",
-    "(b) Step 2: y ≈ -2.487 at x = -1.8. Step 3: y ≈ -116967/50000 at x = -1.7.",
-    "(c) Step 2: y ≈ -863/250 at x = 1.2. Step 3: y ≈ -23539/6250 at x = 1.3.",
-    "(d) Step 2: y ≈ -3.567 at x = 2.2. Step 3: y ≈ -232587/50000 at x = 2.3."
+    "(a) dy/dx at (1, 3) is 3/2; L(1.1) = 3 + (3/2)(0.1) = 63/20.",
+    "(a) Scoring, 2 points: 1 point for the tangent line, 1 point for the approximation.",
+    "(b) d²y/dx² = ∂/∂x(dy/dx) + ∂/∂y(dy/dx)·dy/dx = 9/4 at the point; concave up, so the tangent line lies below the curve.",
+    "(b) Scoring, 2 points: 1 point for d²y/dx², 1 point for the conclusion from concavity.",
+    "(c) Separate: (1/y) dy = (x/2) dx; ln|y| = x²/4 + C; y(1) = 3 gives y = 3e^((x² - 1)/4).",
+    "(c) Scoring, 4 points: 1 point for separating, 1 point for the antiderivatives, 1 point for the constant from the initial condition, 1 point for solving for y.",
+    "(d) Substitute x = 2 into y = 3e^((x² - 1)/4).",
+    "(d) Scoring, 1 point: the exact value.",
+    "Total: 9 points."
    ],
    "standards": [
     "AP FUN-7.D",
     "AP FUN-7.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cal_s3_eulero_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_de). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s04-honors-016",
@@ -5115,6 +5336,7 @@
    "answer": "24",
    "solutionSteps": [
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (10 + 1)/2 = 11; [2, 4]: 2 × (1 + (-9))/2 = -8; [4, 6]: 2 × (-9 + 5)/2 = -4; [6, 8]: 2 × (5 + 20)/2 = 25.",
     "Sum = 24."
    ],
    "standards": [
@@ -5256,7 +5478,8 @@
     }
    ],
    "solutionSteps": [
-    "(f(8) - f(4)) ÷ (8 - 4) = 13/4."
+    "Use the values on either side of x = 6: x = 4 and x = 8.",
+    "f′(6) ≈ (f(8) − f(4)) ÷ (8 − 4) = (17 − 4) ÷ 4 = 13/4."
    ],
    "standards": [
     "AP FUN-4.A",
@@ -5380,6 +5603,7 @@
    "answer": "40",
    "solutionSteps": [
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (4 + 18)/2 = 22; [2, 4]: 2 × (18 + 8)/2 = 26; [4, 6]: 2 × (8 + (-6))/2 = 2; [6, 8]: 2 × (-6 + (-4))/2 = -10.",
     "Sum = 40."
    ],
    "standards": [
@@ -5485,7 +5709,8 @@
    "prompt": "A differentiable function has f(0) = 17; f(2) = -9; f(4) = 4; f(6) = 10; f(8) = 14. Estimate f′(4) using the nearest values on either side.",
    "answer": "19/4",
    "solutionSteps": [
-    "(f(6) - f(2)) ÷ (6 - 2) = 19/4."
+    "Use the values on either side of x = 4: x = 2 and x = 6.",
+    "f′(4) ≈ (f(6) − f(2)) ÷ (6 − 2) = (10 − (-9)) ÷ 4 = 19/4."
    ],
    "standards": [
     "AP FUN-4.A",
@@ -5519,38 +5744,47 @@
    "skillId": "ap-review-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
+   "prompt": "Free response (Connecting Graphs, Tables, Formulas, and Verbal Descriptions). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 11; R(2) = 12; R(4) = 6; R(6) = 9; R(8) = 8. The tank holds 200 gallons at t = 0.",
+   "answer": "(a) -3/4 gallons per hour per hour; (b) 73 gallons; about 73 gallons flow in from t = 0 to t = 8; (c) Yes; (d) 273 gallons",
    "parts": [
     {
-     "prompt": "A differentiable function has f(0) = -6; f(2) = 4; f(4) = -8; f(6) = 10; f(8) = 16. Estimate f′(2) using the nearest values on either side.",
-     "answer": "-1/2"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(4). Show the computation and give units.",
+     "answer": "-3/4 gallons per hour per hour"
     },
     {
-     "prompt": "A continuous function has f(0) = 19; f(2) = -3; f(4) = 16; f(6) = -9; f(8) = -4. Use a trapezoidal sum with these four subintervals to approximate the average value of f on [0, 8].",
-     "answer": "23/8"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 8 R(t) dt. Explain what it means in context.",
+     "answer": "73 gallons; about 73 gallons flow in from t = 0 to t = 8"
     },
     {
-     "prompt": "A continuous function has f(0) = 10; f(2) = 19; f(4) = -2; f(6) = 19; f(8) = 10. Use a trapezoidal sum with these four subintervals to approximate the average value of f on [0, 8].",
-     "answer": "23/2"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 23/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A continuous function has f(0) = 14; f(2) = 15; f(4) = 11; f(6) = 13; f(8) = 17. Use a trapezoidal sum with these four subintervals to approximate the average value of f on [0, 8].",
-     "answer": "109/8"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 8.",
+     "answer": "273 gallons"
     }
    ],
-   "answer": "(a) -1/2; (b) 23/8; (c) 23/2; (d) 109/8",
    "solutionSteps": [
-    "(a) (f(4) - f(0)) ÷ (4 - 0) = -1/2.",
-    "(b) ∫ ≈ 23. Average ≈ 23 ÷ 8 = 23/8.",
-    "(c) ∫ ≈ 92. Average ≈ 92 ÷ 8 = 23/2.",
-    "(d) ∫ ≈ 109. Average ≈ 109 ÷ 8 = 109/8."
+    "(a) R′(4) ≈ (R(6) − R(2))/(6 − 2) = (9 − 12)/4 = -3/4 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(11 + 12)/2 + 2(12 + 6)/2 + 2(6 + 9)/2 + 2(9 + 8)/2 = 73. It estimates the gallons that flow in during the first 8 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 23/2 is between R(0) = 11 and R(2) = 12, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 200 + 73 = 273 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-4.A",
     "AP CHA-2.D",
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_table_mix_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s05-cp2-016",
@@ -5562,6 +5796,7 @@
    "solutionSteps": [
     "Mistake: Used a left sum.",
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (-8 + (-8))/2 = -16; [2, 4]: 2 × (-8 + 12)/2 = 4; [4, 6]: 2 × (12 + 8)/2 = 20; [6, 8]: 2 × (8 + 19)/2 = 27.",
     "Sum = 35.",
     "The correct answer is 35, not 8."
    ],
@@ -5580,7 +5815,8 @@
    "prompt": "A differentiable function has f(0) = -10; f(2) = -6; f(5) = 17; f(7) = 1; f(10) = 18. Estimate f′(7) using the nearest values on either side.",
    "answer": "1/5",
    "solutionSteps": [
-    "(f(10) - f(5)) ÷ (10 - 5) = 1/5."
+    "Use the values on either side of x = 7: x = 5 and x = 10.",
+    "f′(7) ≈ (f(10) − f(5)) ÷ (10 − 5) = (18 − 17) ÷ 5 = 1/5."
    ],
    "standards": [
     "AP FUN-4.A",
@@ -5721,7 +5957,8 @@
     }
    ],
    "solutionSteps": [
-    "(f(10) - f(5)) ÷ (10 - 5) = -19/5."
+    "Use the values on either side of x = 7: x = 5 and x = 10.",
+    "f′(7) ≈ (f(10) − f(5)) ÷ (10 − 5) = (1 − 20) ÷ 5 = -19/5."
    ],
    "standards": [
     "AP FUN-4.A",
@@ -5951,6 +6188,7 @@
    "answer": "55",
    "solutionSteps": [
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (12 + 8)/2 = 20; [2, 5]: 3 × (8 + 15)/2 = 69/2; [5, 7]: 2 × (15 + (-7))/2 = 8; [7, 10]: 3 × (-7 + 2)/2 = -15/2.",
     "Sum = 55."
    ],
    "standards": [
@@ -5969,7 +6207,8 @@
    "answer": "19/5",
    "solutionSteps": [
     "Mistake: Inverted the ratio.",
-    "(f(5) - f(0)) ÷ (5 - 0) = 19/5.",
+    "Use the values on either side of x = 2: x = 0 and x = 5.",
+    "f′(2) ≈ (f(5) − f(0)) ÷ (5 − 0) = (18 − (-1)) ÷ 5 = 19/5.",
     "The correct answer is 19/5, not 5/19."
    ],
    "standards": [
@@ -5984,38 +6223,47 @@
    "skillId": "ap-review-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
+   "prompt": "Free response (Connecting Graphs, Tables, Formulas, and Verbal Descriptions). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 12; R(2) = 16; R(5) = 9; R(7) = 15; R(10) = 13. The tank holds 500 gallons at t = 0.",
+   "answer": "(a) -1/5 gallons per hour per hour; (b) 263/2 gallons; about 263/2 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 1263/2 gallons",
    "parts": [
     {
-     "prompt": "A continuous function has f(0) = 19; f(2) = 11; f(5) = 17; f(7) = -8; f(10) = 2. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
-     "answer": "72"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-1/5 gallons per hour per hour"
     },
     {
-     "prompt": "A differentiable function has f(0) = 19; f(2) = 1; f(5) = 6; f(7) = 1; f(10) = -5. Estimate f′(7) using the nearest values on either side.",
-     "answer": "-11/5"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "263/2 gallons; about 263/2 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "A continuous function has f(0) = -5; f(2) = -6; f(5) = -3; f(7) = 7; f(10) = 6. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
-     "answer": "-1"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 14? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A differentiable function has f(0) = 15; f(2) = -5; f(5) = -9; f(7) = 7; f(10) = 2. Estimate f′(7) using the nearest values on either side.",
-     "answer": "11/5"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "1263/2 gallons"
     }
    ],
-   "answer": "(a) 72; (b) -11/5; (c) -1; (d) 11/5",
    "solutionSteps": [
-    "(a) Each trapezoid: width × average of the two heights. Sum = 72.",
-    "(b) (f(10) - f(5)) ÷ (10 - 5) = -11/5.",
-    "(c) Each trapezoid: width × average of the two heights. Sum = -1.",
-    "(d) (f(10) - f(5)) ÷ (10 - 5) = 11/5."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (15 − 16)/5 = -1/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(12 + 16)/2 + 3(16 + 9)/2 + 2(9 + 15)/2 + 3(15 + 13)/2 = 263/2. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 14 is between R(0) = 12 and R(2) = 16, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 500 + 263/2 = 1263/2 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-4.A",
     "AP CHA-2.D",
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_table_mix_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s05-cp1-016",
@@ -6046,6 +6294,7 @@
    "answer": "61/2",
    "solutionSteps": [
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (11 + 12)/2 = 23; [2, 5]: 3 × (12 + (-6))/2 = 9; [5, 7]: 2 × (-6 + 3)/2 = -3; [7, 10]: 3 × (3 + (-2))/2 = 3/2.",
     "Sum = 61/2."
    ],
    "standards": [
@@ -6188,6 +6437,7 @@
    ],
    "solutionSteps": [
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (20 + 2)/2 = 22; [2, 5]: 3 × (2 + 13)/2 = 45/2; [5, 7]: 2 × (13 + 6)/2 = 19; [7, 10]: 3 × (6 + 7)/2 = 39/2.",
     "Sum = 83."
    ],
    "standards": [
@@ -6437,6 +6687,7 @@
    "solutionSteps": [
     "Mistake: Added the values without widths.",
     "Each trapezoid: width × average of the two heights.",
+    "[0, 2]: 2 × (9 + 7)/2 = 16; [2, 5]: 3 × (7 + 16)/2 = 69/2; [5, 7]: 2 × (16 + 11)/2 = 27; [7, 10]: 3 × (11 + 5)/2 = 24.",
     "Sum = 203/2.",
     "The correct answer is 203/2, not 48."
    ],
@@ -6452,38 +6703,47 @@
    "skillId": "ap-review-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Connecting Graphs, Tables, Formulas, and Verbal Descriptions): answer each part and show your work.",
+   "prompt": "Free response (Connecting Graphs, Tables, Formulas, and Verbal Descriptions). Water flows into a tank at a rate R(t) gallons per hour, where R is differentiable and t is in hours. Selected values: R(0) = 16; R(2) = 14; R(5) = 10; R(7) = 13; R(10) = 13. The tank holds 200 gallons at t = 0.",
+   "answer": "(a) -1/5 gallons per hour per hour; (b) 128 gallons; about 128 gallons flow in from t = 0 to t = 10; (c) Yes; (d) 328 gallons",
    "parts": [
     {
-     "prompt": "A continuous function has f(0) = -6; f(2) = 2; f(5) = 17; f(7) = 2; f(10) = 0. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
-     "answer": "93/2"
+     "label": "a",
+     "prompt": "Use the data to estimate R′(5). Show the computation and give units.",
+     "answer": "-1/5 gallons per hour per hour"
     },
     {
-     "prompt": "A continuous function has f(0) = 11; f(2) = -5; f(5) = 0; f(7) = 8; f(10) = 4. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
-     "answer": "49/2"
+     "label": "b",
+     "prompt": "Use a trapezoidal sum with the four subintervals in the table to approximate ∫ from 0 to 10 R(t) dt. Explain what it means in context.",
+     "answer": "128 gallons; about 128 gallons flow in from t = 0 to t = 10"
     },
     {
-     "prompt": "A differentiable function has f(0) = 2; f(2) = 16; f(5) = -3; f(7) = 9; f(10) = 12. Estimate f′(2) using the nearest values on either side.",
-     "answer": "-1"
+     "label": "c",
+     "prompt": "Must there be a time t in (0, 2) when R(t) = 15? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "A continuous function has f(0) = 3; f(2) = 18; f(5) = -2; f(7) = 0; f(10) = -1. Use a trapezoidal sum with these four subintervals to approximate ∫ from 0 to 10 f(x) dx.",
-     "answer": "83/2"
+     "label": "d",
+     "prompt": "Use your answer to part (b) to estimate the amount of water in the tank at t = 10.",
+     "answer": "328 gallons"
     }
    ],
-   "answer": "(a) 93/2; (b) 49/2; (c) -1; (d) 83/2",
    "solutionSteps": [
-    "(a) Each trapezoid: width × average of the two heights. Sum = 93/2.",
-    "(b) Each trapezoid: width × average of the two heights. Sum = 49/2.",
-    "(c) (f(5) - f(0)) ÷ (5 - 0) = -1.",
-    "(d) Each trapezoid: width × average of the two heights. Sum = 83/2."
+    "(a) R′(5) ≈ (R(7) − R(2))/(7 − 2) = (13 − 14)/5 = -1/5 gallons per hour per hour.",
+    "(a) Scoring, 1 point: a difference quotient using values on either side of the point, with units.",
+    "(b) Trapezoids: 2(16 + 14)/2 + 3(14 + 10)/2 + 2(10 + 13)/2 + 3(13 + 13)/2 = 128. It estimates the gallons that flow in during the first 10 hours.",
+    "(b) Scoring, 2 points: 1 point for the trapezoidal sum, 1 point for the meaning with units.",
+    "(c) R is differentiable, so it is continuous on [0, 2]. 15 is between R(0) = 16 and R(2) = 14, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for continuity (or differentiability), 1 point for naming the theorem and the values that satisfy it.",
+    "(d) Amount ≈ 200 + 128 = 328 gallons.",
+    "(d) Scoring, 1 point: the starting amount plus the estimate from (b).",
+    "Total: 6 points."
    ],
    "standards": [
     "AP FUN-4.A",
     "AP CHA-2.D",
     "AP LIM-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_table_mix_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_table). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s05-honors-016",
@@ -6494,7 +6754,8 @@
    "answer": "-22/5",
    "solutionSteps": [
     "Mistake: Inverted the ratio.",
-    "(f(7) - f(2)) ÷ (7 - 2) = -22/5.",
+    "Use the values on either side of x = 5: x = 2 and x = 7.",
+    "f′(5) ≈ (f(7) − f(2)) ÷ (7 − 2) = (-3 − 19) ÷ 5 = -22/5.",
     "The correct answer is -22/5, not -5/22."
    ],
    "standards": [
@@ -6870,42 +7131,47 @@
    "skillId": "ap-review-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
-   "answer": "(a) f′ changes from negative to positive at x = -2; (b) W is continuous on [0, 6] and 62 is between W(0) = 60 and W(6) = 70, so the Intermediate Value Theorem applies; (c) f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0; (d) f has a relative minimum at x = 2 by the Second Derivative Test, because f′(2) = 0 and f″(2) > 0",
+   "prompt": "Free response (Justifying Solutions with Definitions and Theorems). The function f is differentiable on (−∞, ∞). Selected values: f(0) = 4; f(2) = -4; f(5) = 8; f(7) = -4.",
+   "answer": "(a) Yes; (b) 3; (c) Yes; (d) Yes",
    "parts": [
     {
      "label": "a",
-     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative minimum at x = -2.",
-     "answer": "f′ changes from negative to positive at x = -2"
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = -8/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "b",
-     "prompt": "W(t) is the amount of water in a tank, in gallons, t minutes after a start time. W is continuous on [0, 6], W(0) = 60, and W(6) = 70. Write a sentence that justifies that W(c) = 62 for some c in (0, 6).",
-     "answer": "W is continuous on [0, 6] and 62 is between W(0) = 60 and W(6) = 70, so the Intermediate Value Theorem applies"
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
+     "answer": "3"
     },
     {
      "label": "c",
-     "prompt": "f′(-2) = 0 and f″(-2) = -3. What can you conclude about x = -2, and why?",
-     "answer": "f has a relative maximum at x = -2 by the Second Derivative Test, because f′(-2) = 0 and f″(-2) < 0"
+     "prompt": "Must there be a value c in (2, 5) with f(c) = 2? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "d",
-     "prompt": "f′(2) = 0 and f″(2) = 5. What can you conclude about x = 2, and why?",
-     "answer": "f has a relative minimum at x = 2 by the Second Derivative Test, because f′(2) = 0 and f″(2) > 0"
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
    "solutionSteps": [
-    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
-    "(b) The IVT needs continuity on the closed interval and a target value between the endpoint values; both hold.",
-    "(c) f″(-2) < 0 means the graph is concave down at the critical number, so it is a relative maximum.",
-    "(d) f″(2) > 0 means the graph is concave up at the critical number, so it is a relative minimum."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = -8/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 3 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 3 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f is continuous on [2, 5] and 2 is between f(2) = -4 and f(5) = 8, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp2-016",
@@ -7295,42 +7561,47 @@
    "skillId": "ap-review-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
-   "answer": "(a) f′ changes from negative to positive at x = 4; (b) f′(c) = 25/2 for some c in (0, 2), by the Mean Value Theorem; (c) f′ changes from positive to negative at x = -2; (d) f″ changes sign at x = 2",
+   "prompt": "Free response (Justifying Solutions with Definitions and Theorems). The function f is differentiable on (−∞, ∞). Selected values: f(0) = 0; f(2) = 1; f(5) = -2; f(7) = -4.",
+   "answer": "(a) Yes; (b) 1; (c) Yes; (d) Yes",
    "parts": [
     {
      "label": "a",
-     "prompt": "f is differentiable and f′(4) = 0. Write a sentence that justifies that f has a relative minimum at x = 4.",
-     "answer": "f′ changes from negative to positive at x = 4"
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = -4/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "b",
-     "prompt": "f is continuous on [0, 2] and differentiable on (0, 2), with f(0) = 1 and f(2) = 26. State a conclusion and the theorem that justifies it.",
-     "answer": "f′(c) = 25/2 for some c in (0, 2), by the Mean Value Theorem"
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
+     "answer": "1"
     },
     {
      "label": "c",
-     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative maximum at x = -2.",
-     "answer": "f′ changes from positive to negative at x = -2"
+     "prompt": "Must there be a value c in (2, 5) with f(c) = -1/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "d",
-     "prompt": "f is twice differentiable and f″(2) = 0. Write a sentence that justifies that the graph of f has a point of inflection at x = 2.",
-     "answer": "f″ changes sign at x = 2"
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
    "solutionSteps": [
-    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
-    "(b) The MVT hypotheses hold, and the average rate of change is (26 − 1) ÷ (2 − 0) = 25/2.",
-    "(c) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
-    "(d) A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = -4/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 1 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 1 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f is continuous on [2, 5] and -1/2 is between f(2) = 1 and f(5) = -2, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-cp1-016",
@@ -7722,42 +7993,47 @@
    "skillId": "ap-review-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Justifying Solutions with Definitions and Theorems): answer each part and show your work.",
-   "answer": "(a) f′ changes from negative to positive at x = -2; (b) f′ changes from positive to negative at x = 1; (c) f has a relative minimum at x = 4 by the Second Derivative Test, because f′(4) = 0 and f″(4) > 0; (d) f″ changes sign at x = -3",
+   "prompt": "Free response (Justifying Solutions with Definitions and Theorems). The function f is differentiable on (−∞, ∞). Selected values: f(0) = 6; f(2) = -2; f(5) = -2; f(7) = 8.",
+   "answer": "(a) Yes; (b) 2; (c) Yes; (d) Yes",
    "parts": [
     {
      "label": "a",
-     "prompt": "f is differentiable and f′(-2) = 0. Write a sentence that justifies that f has a relative minimum at x = -2.",
-     "answer": "f′ changes from negative to positive at x = -2"
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = 2/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "b",
-     "prompt": "f is differentiable and f′(1) = 0. Write a sentence that justifies that f has a relative maximum at x = 1.",
-     "answer": "f′ changes from positive to negative at x = 1"
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
+     "answer": "2"
     },
     {
      "label": "c",
-     "prompt": "f′(4) = 0 and f″(4) = 5. What can you conclude about x = 4, and why?",
-     "answer": "f has a relative minimum at x = 4 by the Second Derivative Test, because f′(4) = 0 and f″(4) > 0"
+     "prompt": "Must there be a value c in (2, 5) with f′(c) = 0? Justify your answer.",
+     "answer": "Yes"
     },
     {
      "label": "d",
-     "prompt": "f is twice differentiable and f″(-3) = 0. Write a sentence that justifies that the graph of f has a point of inflection at x = -3.",
-     "answer": "f″ changes sign at x = -3"
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
    "solutionSteps": [
-    "(a) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative minimum where f′ changes from negative to positive.",
-    "(b) A zero of f′ is only a candidate. By the First Derivative Test, f has a relative maximum where f′ changes from positive to negative.",
-    "(c) f″(4) > 0 means the graph is concave up at the critical number, so it is a relative minimum.",
-    "(d) A point of inflection is where concavity changes, that is, where f″ changes sign; f″ = 0 alone is not enough."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = 2/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 2 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 2 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f(2) = f(5) and f is differentiable, so by the Mean Value Theorem (Rolle) some c has f′(c) = 0.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A",
     "AP FUN-1.B",
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: just_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s06-honors-016",
@@ -7804,6 +8080,8 @@
     }
    ],
    "solutionSteps": [
+    "The instantaneous rate of change is the limit of average rates over shorter and shorter intervals.",
+    "That is the derivative: lim (h → 0) (f(a + h) - f(a))/h.",
     "lim (h → 0) (f(a + h) - f(a))/h."
    ],
    "standards": [
@@ -7930,6 +8208,7 @@
     }
    ],
    "solutionSteps": [
+    "Average value = (1/(b − a)) times the integral of f over [a, b].",
     "(1/(7 - 0)) ∫ from 0 to 7 f(x) dx."
    ],
    "standards": [
@@ -8144,42 +8423,47 @@
    "skillId": "ap-review-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
-   "answer": "(a) The net change in the temperature from t = 5 to t = 8, in °F; (b) At t = 4 seconds, the volume of air is increasing at 3 cubic inches per second.; (c) V′(5); (d) At t = 5 seconds, the volume of air is decreasing at 3 cubic inches per second.",
+   "prompt": "Free response (Calculus Notation and Written Explanations). W(t) is the amount of water in the pond, in gallons, t days after a start time. W is twice differentiable.",
+   "answer": "(a) At t = 2 days, the amount of water in the pond is increasing at 5 gallons per day; (b) the net change in amount of water in the pond from t = 2 to t = 6, in gallons; (c) (1/4)∫ from 2 to 6 W(t) dt, in gallons; (d) gallons per day per day",
    "parts": [
     {
      "label": "a",
-     "prompt": "r(t) is the rate at which the temperature changes, in °F per hour, t hours after a start time. What does ∫ from 5 to 8 r(t) dt represent, and in what units?",
-     "answer": "The net change in the temperature from t = 5 to t = 8, in °F"
+     "prompt": "Interpret W′(2) = 5 in context, with units.",
+     "answer": "At t = 2 days, the amount of water in the pond is increasing at 5 gallons per day"
     },
     {
      "label": "b",
-     "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. Write a sentence that interprets V′(4) = 3, with units.",
-     "answer": "At t = 4 seconds, the volume of air is increasing at 3 cubic inches per second."
+     "prompt": "Interpret ∫ from 2 to 6 W′(t) dt in context.",
+     "answer": "the net change in amount of water in the pond from t = 2 to t = 6, in gallons"
     },
     {
      "label": "c",
-     "prompt": "Write the notation for \"the rate at which the volume of air changes with respect to t when t = 5\"?",
-     "answer": "V′(5)"
+     "prompt": "Write an expression for the average value of W on 2 ≤ t ≤ 6. Explain why its units are gallons.",
+     "answer": "(1/4)∫ from 2 to 6 W(t) dt, in gallons"
     },
     {
      "label": "d",
-     "prompt": "V(t) is the volume of air in a tire, in cubic inches, t seconds after a start time. Write a sentence that interprets V′(5) = -3, with units.",
-     "answer": "At t = 5 seconds, the volume of air is decreasing at 3 cubic inches per second."
+     "prompt": "What are the units of W″(t)?",
+     "answer": "gallons per day per day"
     }
    ],
    "solutionSteps": [
-    "(a) Integrating a rate (°F per hour) over time (hours) gives a net change in °F; it is not the amount at t = 8 unless the amount at t = 5 is 0.",
-    "(b) V′(4) is a rate of change at one instant, in cubic inches per second; its sign tells whether the volume of air is increasing or decreasing.",
-    "(c) The instantaneous rate of change at t = 5 is the derivative evaluated there, V′(5) (also written dV/dt at t = 5).",
-    "(d) V′(5) is a rate of change at one instant, in cubic inches per second; its sign tells whether the volume of air is increasing or decreasing."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units gallons·days, and dividing by the length of the interval (days) leaves gallons.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) W″ is the rate of change of W′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp2-016",
@@ -8226,6 +8510,8 @@
     }
    ],
    "solutionSteps": [
+    "Distance counts motion in both directions as positive.",
+    "So integrate the speed |v(t)|, not v(t).",
     "∫ from 5 to 7 |v(t)| dt."
    ],
    "standards": [
@@ -8352,6 +8638,8 @@
     }
    ],
    "solutionSteps": [
+    "Distance counts motion in both directions as positive.",
+    "So integrate the speed |v(t)|, not v(t).",
     "∫ from 2 to 4 |v(t)| dt."
    ],
    "standards": [
@@ -8566,42 +8854,47 @@
    "skillId": "ap-review-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
-   "answer": "(a) (1/7)∫ from 1 to 8 T(t) dt; (b) °F per hour; (c) °F per hour per hour; (d) At t = 5 seconds, the height is decreasing at 3 feet per second.",
+   "prompt": "Free response (Calculus Notation and Written Explanations). P(t) is the number of people in the museum, in people, t hours after a start time. P is twice differentiable.",
+   "answer": "(a) At t = 1 hour, the number of people in the museum is increasing at 3 people per hour; (b) the net change in number of people in the museum from t = 1 to t = 5, in people; (c) (1/4)∫ from 1 to 5 P(t) dt, in people; (d) people per hour per hour",
    "parts": [
     {
      "label": "a",
-     "prompt": "Write an expression for the average value of T(t) on 1 ≤ t ≤ 8.",
-     "answer": "(1/7)∫ from 1 to 8 T(t) dt"
+     "prompt": "Interpret P′(1) = 3 in context, with units.",
+     "answer": "At t = 1 hour, the number of people in the museum is increasing at 3 people per hour"
     },
     {
      "label": "b",
-     "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. What are the units of T′(t)?",
-     "answer": "°F per hour"
+     "prompt": "Interpret ∫ from 1 to 5 P′(t) dt in context.",
+     "answer": "the net change in number of people in the museum from t = 1 to t = 5, in people"
     },
     {
      "label": "c",
-     "prompt": "T(t) is the temperature of a room, in °F, t hours after a start time. What are the units of T″(t)?",
-     "answer": "°F per hour per hour"
+     "prompt": "Write an expression for the average value of P on 1 ≤ t ≤ 5. Explain why its units are people.",
+     "answer": "(1/4)∫ from 1 to 5 P(t) dt, in people"
     },
     {
      "label": "d",
-     "prompt": "H(t) is the height of a balloon, in feet, t seconds after a start time. Write a sentence that interprets H′(5) = -3, with units.",
-     "answer": "At t = 5 seconds, the height is decreasing at 3 feet per second."
+     "prompt": "What are the units of P″(t)?",
+     "answer": "people per hour per hour"
     }
    ],
    "solutionSteps": [
-    "(a) Average value = (1/(b − a))∫ from a to b T(t) dt. (T(8) − T(1))/7 is the average rate of change, a different quantity.",
-    "(b) A derivative divides a change in T (°F) by a change in t (hours).",
-    "(c) T″ is the rate of change of T′ (in °F per hour) per hour.",
-    "(d) H′(5) is a rate of change at one instant, in feet per second; its sign tells whether the height is increasing or decreasing."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units people·hours, and dividing by the length of the interval (hours) leaves people.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) P″ is the rate of change of P′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-cp1-016",
@@ -8648,6 +8941,7 @@
     }
    ],
    "solutionSteps": [
+    "The average rate of change is the slope between the endpoints: (f(b) − f(a))/(b − a).",
     "(f(7) - f(0))/(7 - 0)."
    ],
    "standards": [
@@ -8774,6 +9068,8 @@
     }
    ],
    "solutionSteps": [
+    "The second derivative is the derivative of y′.",
+    "It is written y″ or d²y/dx².",
     "y″."
    ],
    "standards": [
@@ -8988,42 +9284,47 @@
    "skillId": "ap-review-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Calculus Notation and Written Explanations): answer each part and show your work.",
-   "answer": "(a) (1/6)∫ from 4 to 10 H(t) dt; (b) P′(3); (c) feet per second; (d) (1/7)∫ from 0 to 7 T(t) dt",
+   "prompt": "Free response (Calculus Notation and Written Explanations). P(t) is the number of people in the museum, in people, t hours after a start time. P is twice differentiable.",
+   "answer": "(a) At t = 2 hours, the number of people in the museum is increasing at 5 people per hour; (b) the net change in number of people in the museum from t = 2 to t = 6, in people; (c) (1/4)∫ from 2 to 6 P(t) dt, in people; (d) people per hour per hour",
    "parts": [
     {
      "label": "a",
-     "prompt": "Write an expression for the average value of H(t) on 4 ≤ t ≤ 10.",
-     "answer": "(1/6)∫ from 4 to 10 H(t) dt"
+     "prompt": "Interpret P′(2) = 5 in context, with units.",
+     "answer": "At t = 2 hours, the number of people in the museum is increasing at 5 people per hour"
     },
     {
      "label": "b",
-     "prompt": "Write the notation for \"the rate at which the number of people changes with respect to t when t = 3\"?",
-     "answer": "P′(3)"
+     "prompt": "Interpret ∫ from 2 to 6 P′(t) dt in context.",
+     "answer": "the net change in number of people in the museum from t = 2 to t = 6, in people"
     },
     {
      "label": "c",
-     "prompt": "H(t) is the height of a balloon, in feet, t seconds after a start time. What are the units of H′(t)?",
-     "answer": "feet per second"
+     "prompt": "Write an expression for the average value of P on 2 ≤ t ≤ 6. Explain why its units are people.",
+     "answer": "(1/4)∫ from 2 to 6 P(t) dt, in people"
     },
     {
      "label": "d",
-     "prompt": "Write an expression for the average value of T(t) on 0 ≤ t ≤ 7.",
-     "answer": "(1/7)∫ from 0 to 7 T(t) dt"
+     "prompt": "What are the units of P″(t)?",
+     "answer": "people per hour per hour"
     }
    ],
    "solutionSteps": [
-    "(a) Average value = (1/(b − a))∫ from a to b H(t) dt. (H(10) − H(4))/6 is the average rate of change, a different quantity.",
-    "(b) The instantaneous rate of change at t = 3 is the derivative evaluated there, P′(3) (also written dP/dt at t = 3).",
-    "(c) A derivative divides a change in H (feet) by a change in t (seconds).",
-    "(d) Average value = (1/(b − a))∫ from a to b T(t) dt. (T(7) − T(0))/7 is the average rate of change, a different quantity."
+    "(a) A derivative is an instantaneous rate; the sign gives the direction.",
+    "(a) Scoring, 2 points: 1 point for the meaning at the instant, 1 point for the units.",
+    "(b) The integral of a rate is a net change.",
+    "(b) Scoring, 1 point: net change with the time interval and units.",
+    "(c) Average value = (1/(b − a))∫ from a to b. The integral has units people·hours, and dividing by the length of the interval (hours) leaves people.",
+    "(c) Scoring, 1 point: the expression with the units explained.",
+    "(d) P″ is the rate of change of P′.",
+    "(d) Scoring, 1 point: the units.",
+    "Total: 5 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP FUN-6.A",
     "AP CHA-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: note_open). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: frq_context). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-apr-s07-honors-016",

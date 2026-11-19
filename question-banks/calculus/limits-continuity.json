@@ -356,37 +356,46 @@
    "skillId": "limits-continuity-skill-01",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Limit Notation and Interpretation): answer each part and show your work.",
+   "prompt": "Free response (Limit Notation and Interpretation). f(x) = x² + 2x - 1 for x < 4, and f(x) = x + k for x ≥ 4, where k is a constant.",
+   "answer": "(a) 23; (b) 4 + k; (c) k = 19; (d) No",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → 3) (-3x² + 5x - 4).",
-     "answer": "-16"
+     "label": "a",
+     "prompt": "Find lim (x → 4⁻) f(x).",
+     "answer": "23"
     },
     {
-     "prompt": "Evaluate lim (x → -2) (-2x² + 4x - 4).",
-     "answer": "-20"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) in terms of k.",
+     "answer": "4 + k"
     },
     {
-     "prompt": "Evaluate lim (x → 2) (5x² - 2x + 5).",
-     "answer": "21"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 4. Use the definition of continuity.",
+     "answer": "k = 19"
     },
     {
-     "prompt": "Evaluate lim (x → 4) (5x² + 4x - 2).",
-     "answer": "94"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 4? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) -16; (b) -20; (c) 21; (d) 94",
    "solutionSteps": [
-    "(a) The function is continuous at x = 3, so substitute. = -16.",
-    "(b) The function is continuous at x = -2, so substitute. = -20.",
-    "(c) The function is continuous at x = 2, so substitute. = 21.",
-    "(d) The function is continuous at x = 4, so substitute. = 94."
+    "(a) Use the left piece: 23.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (4) + k = 4 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 4⁻) f(x) = f(4): 23 = (4) + k, so k = 19.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 10, right slope 1: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP LIM-1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_sub_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s01-cp2-016",
@@ -760,37 +769,46 @@
    "skillId": "limits-continuity-skill-01",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Limit Notation and Interpretation): answer each part and show your work.",
+   "prompt": "Free response (Limit Notation and Interpretation). f(x) = x² - 3x - 2 for x < 3, and f(x) = 3x + k for x ≥ 3, where k is a constant.",
+   "answer": "(a) -2; (b) 9 + k; (c) k = -11; (d) Yes",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → 2) (-5x³ - x² - 4x + 2).",
-     "answer": "-50"
+     "label": "a",
+     "prompt": "Find lim (x → 3⁻) f(x).",
+     "answer": "-2"
     },
     {
-     "prompt": "Evaluate lim (x → 1) (-3x³ + 5x + 3).",
-     "answer": "5"
+     "label": "b",
+     "prompt": "Find lim (x → 3⁺) f(x) in terms of k.",
+     "answer": "9 + k"
     },
     {
-     "prompt": "Evaluate lim (x → 4) (2x³ - 4x² + 4x + 3).",
-     "answer": "83"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 3. Use the definition of continuity.",
+     "answer": "k = -11"
     },
     {
-     "prompt": "Evaluate lim (x → 0) (-3x³ + 5x² - x).",
-     "answer": "0"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 3? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) -50; (b) 5; (c) 83; (d) 0",
    "solutionSteps": [
-    "(a) The function is continuous at x = 2, so substitute. = -50.",
-    "(b) The function is continuous at x = 1, so substitute. = 5.",
-    "(c) The function is continuous at x = 4, so substitute. = 83.",
-    "(d) The function is continuous at x = 0, so substitute. = 0."
+    "(a) Use the left piece: -2.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 3(3) + k = 9 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 3⁻) f(x) = f(3): -2 = 3(3) + k, so k = -11.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 3, right slope 3: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP LIM-1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_sub_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s01-cp1-016",
@@ -1164,37 +1182,46 @@
    "skillId": "limits-continuity-skill-01",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Limit Notation and Interpretation): answer each part and show your work.",
+   "prompt": "Free response (Limit Notation and Interpretation). f(x) = √(x + 2) for x < 3, and f(x) = x + k for x ≥ 3, where k is a constant.",
+   "answer": "(a) √5; (b) 3 + k; (c) k = -3 + √5; (d) No",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → -1) ((x² + 4)/(x + 9)).",
-     "answer": "5/8"
+     "label": "a",
+     "prompt": "Find lim (x → 3⁻) f(x).",
+     "answer": "√5"
     },
     {
-     "prompt": "Evaluate lim (x → -4) ((x² + 2)/(x + 8)).",
-     "answer": "9/2"
+     "label": "b",
+     "prompt": "Find lim (x → 3⁺) f(x) in terms of k.",
+     "answer": "3 + k"
     },
     {
-     "prompt": "Evaluate lim (x → -2) ((x² + 5)/(x + 6)).",
-     "answer": "9/4"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 3. Use the definition of continuity.",
+     "answer": "k = -3 + √5"
     },
     {
-     "prompt": "Evaluate lim (x → 3) (2√(x + 10)).",
-     "answer": "2√13"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 3? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) 5/8; (b) 9/2; (c) 9/4; (d) 2√13",
    "solutionSteps": [
-    "(a) The function is continuous at x = -1, so substitute. = 5/8.",
-    "(b) The function is continuous at x = -4, so substitute. = 9/2.",
-    "(c) The function is continuous at x = -2, so substitute. = 9/4.",
-    "(d) The function is continuous at x = 3, so substitute. = 2√13."
+    "(a) Use the left piece: √5.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (3) + k = 3 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 3⁻) f(x) = f(3): √5 = (3) + k, so k = -3 + √5.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope √5/10, right slope 1: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.A",
     "AP LIM-1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_sub_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s01-honors-016",
@@ -1631,37 +1658,46 @@
    "skillId": "limits-continuity-skill-02",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Limits from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Limits from Graphs and Tables). f(x) = x² + 2x + 2 for x < 2, and f(x) = 3x + k for x ≥ 2, where k is a constant.",
+   "answer": "(a) 10; (b) 6 + k; (c) k = 4; (d) No",
    "parts": [
     {
-     "prompt": "For f(x) = (x² + x - 6)/(x - 2), a table gives f(1.9) ≈ 4.9000; f(1.99) ≈ 4.9900; f(1.999) ≈ 4.9990; f(2.001) ≈ 5.0010; f(2.01) ≈ 5.0100; f(2.1) ≈ 5.1000. Estimate lim (x → 2) f(x).",
-     "answer": "5"
+     "label": "a",
+     "prompt": "Find lim (x → 2⁻) f(x).",
+     "answer": "10"
     },
     {
-     "prompt": "For f(x) = (x² - 3x + 2)/(x - 1), a table gives f(0.9) ≈ -1.1000; f(0.99) ≈ -1.0100; f(0.999) ≈ -1.0010; f(1.001) ≈ -0.9990; f(1.01) ≈ -0.9900; f(1.1) ≈ -0.9000. Estimate lim (x → 1) f(x).",
-     "answer": "-1"
+     "label": "b",
+     "prompt": "Find lim (x → 2⁺) f(x) in terms of k.",
+     "answer": "6 + k"
     },
     {
-     "prompt": "For f(x) = (x² + 6x + 5)/(x + 1), a table gives f(-1.1) ≈ 3.9000; f(-1.01) ≈ 3.9900; f(-1.001) ≈ 3.9990; f(-0.999) ≈ 4.0010; f(-0.99) ≈ 4.0100; f(-0.9) ≈ 4.1000. Estimate lim (x → -1) f(x).",
-     "answer": "4"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 2. Use the definition of continuity.",
+     "answer": "k = 4"
     },
     {
-     "prompt": "For f(x) = (x² - x - 6)/(x + 2), a table gives f(-2.1) ≈ -5.1000; f(-2.01) ≈ -5.0100; f(-2.001) ≈ -5.0010; f(-1.999) ≈ -4.9990; f(-1.99) ≈ -4.9900; f(-1.9) ≈ -4.9000. Estimate lim (x → -2) f(x).",
-     "answer": "-5"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 2? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) 5; (b) -1; (c) 4; (d) -5",
    "solutionSteps": [
-    "(a) They approach 5. lim (x → 2) f(x) = 5.",
-    "(b) They approach -1. lim (x → 1) f(x) = -1.",
-    "(c) They approach 4. lim (x → -1) f(x) = 4.",
-    "(d) They approach -5. lim (x → -2) f(x) = -5."
+    "(a) Use the left piece: 10.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 3(2) + k = 6 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 2⁻) f(x) = f(2): 10 = 3(2) + k, so k = 4.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 6, right slope 3: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s02-cp2-016",
@@ -2064,37 +2100,46 @@
    "skillId": "limits-continuity-skill-02",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Limits from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Limits from Graphs and Tables). f(x) = x² - x + 2 for x < 4, and f(x) = x + k for x ≥ 4, where k is a constant.",
+   "answer": "(a) 14; (b) 4 + k; (c) k = 10; (d) No",
    "parts": [
     {
-     "prompt": "For f(x) = sin(5x)/x, a table gives f(-0.1) ≈ 4.7943; f(-0.01) ≈ 4.9979; f(-0.001) ≈ 5.0000; f(0.001) ≈ 5.0000; f(0.01) ≈ 4.9979; f(0.1) ≈ 4.7943. Estimate lim (x → 0) f(x).",
-     "answer": "5"
+     "label": "a",
+     "prompt": "Find lim (x → 4⁻) f(x).",
+     "answer": "14"
     },
     {
-     "prompt": "For f(x) = sin(3x)/x, a table gives f(-0.1) ≈ 2.9552; f(-0.01) ≈ 2.9996; f(-0.001) ≈ 3.0000; f(0.001) ≈ 3.0000; f(0.01) ≈ 2.9996; f(0.1) ≈ 2.9552. Estimate lim (x → 0) f(x).",
-     "answer": "3"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) in terms of k.",
+     "answer": "4 + k"
     },
     {
-     "prompt": "For f(x) = sin(4x)/x, a table gives f(-0.1) ≈ 3.8942; f(-0.01) ≈ 3.9989; f(-0.001) ≈ 4.0000; f(0.001) ≈ 4.0000; f(0.01) ≈ 3.9989; f(0.1) ≈ 3.8942. Estimate lim (x → 0) f(x).",
-     "answer": "4"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 4. Use the definition of continuity.",
+     "answer": "k = 10"
     },
     {
-     "prompt": "For f(x) = (x² - x - 2)/(x - 2), a table gives f(1.9) ≈ 2.9000; f(1.99) ≈ 2.9900; f(1.999) ≈ 2.9990; f(2.001) ≈ 3.0010; f(2.01) ≈ 3.0100; f(2.1) ≈ 3.1000. Estimate lim (x → 2) f(x).",
-     "answer": "3"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 4? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) 5; (b) 3; (c) 4; (d) 3",
    "solutionSteps": [
-    "(a) They approach 5. lim (x → 0) f(x) = 5.",
-    "(b) They approach 3. lim (x → 0) f(x) = 3.",
-    "(c) They approach 4. lim (x → 0) f(x) = 4.",
-    "(d) They approach 3. lim (x → 2) f(x) = 3."
+    "(a) Use the left piece: 14.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (4) + k = 4 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 4⁻) f(x) = f(4): 14 = (4) + k, so k = 10.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 7, right slope 1: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s02-cp1-016",
@@ -2532,37 +2577,46 @@
    "skillId": "limits-continuity-skill-02",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Estimating Limits from Graphs and Tables): answer each part and show your work.",
+   "prompt": "Free response (Estimating Limits from Graphs and Tables). f(x) = e^(x - 3) for x < 3, and f(x) = x + k for x ≥ 3, where k is a constant.",
+   "answer": "(a) 1; (b) 3 + k; (c) k = -2; (d) Yes",
    "parts": [
     {
-     "prompt": "For f(x) = sin(4x)/x, a table gives f(-0.1) ≈ 3.8942; f(-0.01) ≈ 3.9989; f(-0.001) ≈ 4.0000; f(0.001) ≈ 4.0000; f(0.01) ≈ 3.9989; f(0.1) ≈ 3.8942. Estimate lim (x → 0) f(x).",
-     "answer": "4"
+     "label": "a",
+     "prompt": "Find lim (x → 3⁻) f(x).",
+     "answer": "1"
     },
     {
-     "prompt": "For f(x) = (x² - 7x + 10)/(x - 2), a table gives f(1.9) ≈ -3.1000; f(1.99) ≈ -3.0100; f(1.999) ≈ -3.0010; f(2.001) ≈ -2.9990; f(2.01) ≈ -2.9900; f(2.1) ≈ -2.9000. Estimate lim (x → 2) f(x).",
-     "answer": "-3"
+     "label": "b",
+     "prompt": "Find lim (x → 3⁺) f(x) in terms of k.",
+     "answer": "3 + k"
     },
     {
-     "prompt": "For f(x) = sin(5x)/x, a table gives f(-0.1) ≈ 4.7943; f(-0.01) ≈ 4.9979; f(-0.001) ≈ 5.0000; f(0.001) ≈ 5.0000; f(0.01) ≈ 4.9979; f(0.1) ≈ 4.7943. Estimate lim (x → 0) f(x).",
-     "answer": "5"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 3. Use the definition of continuity.",
+     "answer": "k = -2"
     },
     {
-     "prompt": "For f(x) = (x² + x - 6)/(x + 3), a table gives f(-3.1) ≈ -5.1000; f(-3.01) ≈ -5.0100; f(-3.001) ≈ -5.0010; f(-2.999) ≈ -4.9990; f(-2.99) ≈ -4.9900; f(-2.9) ≈ -4.9000. Estimate lim (x → -3) f(x).",
-     "answer": "-5"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 3? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) 4; (b) -3; (c) 5; (d) -5",
    "solutionSteps": [
-    "(a) They approach 4. lim (x → 0) f(x) = 4.",
-    "(b) They approach -3. lim (x → 2) f(x) = -3.",
-    "(c) They approach 5. lim (x → 0) f(x) = 5.",
-    "(d) They approach -5. lim (x → -3) f(x) = -5."
+    "(a) Use the left piece: 1.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (3) + k = 3 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 3⁻) f(x) = f(3): 1 = (3) + k, so k = -2.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 1, right slope 1: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s02-honors-016",
@@ -2592,10 +2646,10 @@
    "prompt": "Evaluate lim (x → 5) (x² - x - 20)/(x - 5).",
    "answer": "9",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 5).",
-    "Substitute into what remains.",
-    "= 9."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 20) = (x + 4)(x - 5) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ 5.",
+    "Substitute x = 5: 9."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2628,10 +2682,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 2).",
-    "Substitute into what remains.",
-    "= 2."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 6x + 8) = (x + 2)(x + 4) and (x + 2) = x + 2.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ -2.",
+    "Substitute x = -2: 2."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2646,10 +2700,10 @@
    "prompt": "Evaluate lim (x → 5) (x² - 6x + 5)/(x - 5).",
    "answer": "4",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 5).",
-    "Substitute into what remains.",
-    "= 4."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 6x + 5) = (x - 1)(x - 5) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x - 1 for x ≠ 5.",
+    "Substitute x = 5: 4."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2682,10 +2736,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 1).",
-    "Substitute into what remains.",
-    "= -1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + x) = x(x + 1) and (x + 1) = x + 1.",
+    "Cancel the common factor: the expression equals x for x ≠ -1.",
+    "Substitute x = -1: -1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2700,10 +2754,10 @@
    "prompt": "Evaluate lim (x → -5) (x² + 11x + 30)/(x + 5).",
    "answer": "1",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 5).",
-    "Substitute into what remains.",
-    "= 1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 11x + 30) = (x + 5)(x + 6) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x + 6 for x ≠ -5.",
+    "Substitute x = -5: 1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2736,10 +2790,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 3).",
-    "Substitute into what remains.",
-    "= 3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 9x + 18) = (x + 3)(x + 6) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals x + 6 for x ≠ -3.",
+    "Substitute x = -3: 3."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2754,10 +2808,10 @@
    "prompt": "Evaluate lim (x → -1) (x² - x - 2)/(x + 1).",
    "answer": "-3",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 1).",
-    "Substitute into what remains.",
-    "= -3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 2) = (x + 1)(x - 2) and (x + 1) = x + 1.",
+    "Cancel the common factor: the expression equals x - 2 for x ≠ -1.",
+    "Substitute x = -1: -3."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2790,10 +2844,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 1).",
-    "Substitute into what remains.",
-    "= -2."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 4x + 3) = (x - 1)(x - 3) and (x - 1) = x - 1.",
+    "Cancel the common factor: the expression equals x - 3 for x ≠ 1.",
+    "Substitute x = 1: -2."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2808,10 +2862,10 @@
    "prompt": "Evaluate lim (x → -3) (x² - 9)/(x + 3).",
    "answer": "-6",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 3).",
-    "Substitute into what remains.",
-    "= -6."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 9) = (x + 3)(x - 3) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals x - 3 for x ≠ -3.",
+    "Substitute x = -3: -6."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2844,10 +2898,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 5).",
-    "Substitute into what remains.",
-    "= -1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 9x + 20) = (x + 4)(x + 5) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ -5.",
+    "Substitute x = -5: -1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2862,10 +2916,10 @@
    "prompt": "Evaluate lim (x → 5) (x² - 11x + 30)/(x - 5).",
    "answer": "-1",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 5).",
-    "Substitute into what remains.",
-    "= -1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 11x + 30) = (x - 5)(x - 6) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals x - 6 for x ≠ 5.",
+    "Substitute x = 5: -1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2898,10 +2952,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 4).",
-    "Substitute into what remains.",
-    "= -2."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 10x + 24) = (x - 4)(x - 6) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals x - 6 for x ≠ 4.",
+    "Substitute x = 4: -2."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2916,10 +2970,10 @@
    "prompt": "Evaluate lim (x → -5) (x² + 3x - 10)/(x + 5).",
    "answer": "-7",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 5).",
-    "Substitute into what remains.",
-    "= -7."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 3x - 10) = (x + 5)(x - 2) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x - 2 for x ≠ -5.",
+    "Substitute x = -5: -7."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -2935,10 +2989,10 @@
    "answer": "7",
    "solutionSteps": [
     "Mistake: Stopped at 0 ÷ 0.",
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 1).",
-    "Substitute into what remains.",
-    "= 7.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 5x - 6) = (x + 6)(x - 1) and (x - 1) = x - 1.",
+    "Cancel the common factor: the expression equals x + 6 for x ≠ 1.",
+    "Substitute x = 1: 7.",
     "The correct answer is 7, not does not exist."
    ],
    "standards": [
@@ -2951,36 +3005,45 @@
    "skillId": "limits-continuity-skill-03",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Limits Algebraically): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Limits Algebraically). Let f(x) = (x² + x - 6)/(x² - 7x + 10).",
+   "answer": "(a) -5/3; (b) ∞; −∞; (c) 1; y = 1; (d) x = 2: removable; x = 5: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → -2) (x² + 5x + 6)/(x + 2).",
-     "answer": "1"
+     "label": "a",
+     "prompt": "Find lim (x → 2) f(x). Show the algebra.",
+     "answer": "-5/3"
     },
     {
-     "prompt": "Evaluate lim (x → 3) (x² - 8x + 15)/(x - 3).",
-     "answer": "-2"
+     "label": "b",
+     "prompt": "Find lim (x → 5⁺) f(x) and lim (x → 5⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → -1) (x² - 2x - 3)/(x + 1).",
-     "answer": "-4"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "1; y = 1"
     },
     {
-     "prompt": "Evaluate lim (x → 3) (x² - 9x + 18)/(x - 3).",
-     "answer": "-3"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 2 and x = 5. Justify your answer.",
+     "answer": "x = 2: removable; x = 5: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) 1; (b) -2; (c) -4; (d) -3",
    "solutionSteps": [
-    "(a) Substitute into what remains. = 1.",
-    "(b) Substitute into what remains. = -2.",
-    "(c) Substitute into what remains. = -4.",
-    "(d) Substitute into what remains. = -3."
+    "(a) Factor and cancel (x - 2): f(x) = (x + 3)/(x - 5) for x ≠ 2; substitute x = 2: -5/3.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 5 the numerator is about 8 and the denominator x - 5 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 2 the limit exists but f(2) is undefined; at x = 5 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-1.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_algebra_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s03-cp2-016",
@@ -2991,10 +3054,10 @@
    "answer": "-10",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 5).",
-    "Substitute into what remains.",
-    "= -10.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 25) = (x + 5)(x - 5) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x - 5 for x ≠ -5.",
+    "Substitute x = -5: -10.",
     "The correct answer is -10, not 0."
    ],
    "standards": [
@@ -3010,10 +3073,10 @@
    "prompt": "Evaluate lim (x → -3) (x² + 5x + 6)/(x² + x - 6).",
    "answer": "1/5",
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x + 3).",
-    "Substitute.",
-    "= 1/5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 5x + 6) = (x + 2)(x + 3) and (x² + x - 6) = (x + 3)(x - 2).",
+    "Cancel the common factor: the expression equals (x + 2)/(x - 2) for x ≠ -3.",
+    "Substitute x = -3: 1/5."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3046,10 +3109,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 48."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ + 64) = (x + 4)(x² - 4x + 16) and (x + 4) = x + 4.",
+    "Cancel the common factor: the expression equals x² - 4x + 16 for x ≠ -4.",
+    "Substitute x = -4: 48."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3064,10 +3127,10 @@
    "prompt": "Evaluate lim (x → -3) (x² - 2x - 15)/(x + 3).",
    "answer": "-8",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 3).",
-    "Substitute into what remains.",
-    "= -8."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 2x - 15) = (x + 3)(x - 5) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals x - 5 for x ≠ -3.",
+    "Substitute x = -3: -8."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3100,10 +3163,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x - 4).",
-    "Substitute.",
-    "= 7/5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 12) = (x + 3)(x - 4) and (x² - 3x - 4) = (x + 1)(x - 4).",
+    "Cancel the common factor: the expression equals (x + 3)/(x + 1) for x ≠ 4.",
+    "Substitute x = 4: 7/5."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3118,10 +3181,10 @@
    "prompt": "Evaluate lim (x → -5) (x³ + 125)/(x + 5).",
    "answer": "75",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 75."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ + 125) = (x + 5)(x² - 5x + 25) and (x + 5) = x + 5.",
+    "Cancel the common factor: the expression equals x² - 5x + 25 for x ≠ -5.",
+    "Substitute x = -5: 75."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3154,10 +3217,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x - 3).",
-    "Substitute.",
-    "= -5/2."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 6) = (x + 2)(x - 3) and (x² - 8x + 15) = (x - 3)(x - 5).",
+    "Cancel the common factor: the expression equals (x + 2)/(x - 5) for x ≠ 3.",
+    "Substitute x = 3: -5/2."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3172,10 +3235,10 @@
    "prompt": "Evaluate lim (x → 4) (x² - 3x - 4)/(x² - x - 12).",
    "answer": "5/7",
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x - 4).",
-    "Substitute.",
-    "= 5/7."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 3x - 4) = (x + 1)(x - 4) and (x² - x - 12) = (x + 3)(x - 4).",
+    "Cancel the common factor: the expression equals (x + 1)/(x + 3) for x ≠ 4.",
+    "Substitute x = 4: 5/7."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3208,10 +3271,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x + 1).",
-    "Substitute into what remains.",
-    "= 3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² + 5x + 4) = (x + 1)(x + 4) and (x + 1) = x + 1.",
+    "Cancel the common factor: the expression equals x + 4 for x ≠ -1.",
+    "Substitute x = -1: 3."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3226,10 +3289,10 @@
    "prompt": "Evaluate lim (x → 1) (x³ - 1)/(x - 1).",
    "answer": "3",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 1) = (x - 1)(x² + x + 1) and (x - 1) = x - 1.",
+    "Cancel the common factor: the expression equals x² + x + 1 for x ≠ 1.",
+    "Substitute x = 1: 3."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3262,10 +3325,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: factor both.",
-    "Cancel (x + 2).",
-    "Substitute.",
-    "= 5."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - x - 6) = (x + 2)(x - 3) and (x² + 3x + 2) = (x + 1)(x + 2).",
+    "Cancel the common factor: the expression equals (x - 3)/(x + 1) for x ≠ -2.",
+    "Substitute x = -2: 5."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3280,10 +3343,10 @@
    "prompt": "Evaluate lim (x → 4) (x² - 6x + 8)/(2x - 8).",
    "answer": "1",
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 4).",
-    "Substitute into what remains.",
-    "= 1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 6x + 8) = (x - 2)(x - 4) and (2x - 8) = 2(x - 4).",
+    "Cancel the common factor: the expression equals x/2 - 1 for x ≠ 4.",
+    "Substitute x = 4: 1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3316,10 +3379,10 @@
     }
    ],
    "solutionSteps": [
-    "Direct substitution gives 0 ÷ 0, an indeterminate form.",
-    "Factor and cancel (x - 3).",
-    "Substitute into what remains.",
-    "= -1."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x² - 7x + 12) = (x - 3)(x - 4) and (x - 3) = x - 3.",
+    "Cancel the common factor: the expression equals x - 4 for x ≠ 3.",
+    "Substitute x = 3: -1."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3334,10 +3397,10 @@
    "prompt": "Evaluate lim (x → 3) (x³ - 27)/(x - 3).",
    "answer": "27",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 27."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 27) = (x - 3)(x² + 3x + 9) and (x - 3) = x - 3.",
+    "Cancel the common factor: the expression equals x² + 3x + 9 for x ≠ 3.",
+    "Substitute x = 3: 27."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3353,10 +3416,10 @@
    "answer": "27",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 27.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 27) = (x - 3)(x² + 3x + 9) and (x - 3) = x - 3.",
+    "Cancel the common factor: the expression equals x² + 3x + 9 for x ≠ 3.",
+    "Substitute x = 3: 27.",
     "The correct answer is 27, not 0."
    ],
    "standards": [
@@ -3369,36 +3432,45 @@
    "skillId": "limits-continuity-skill-03",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Limits Algebraically): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Limits Algebraically). Let f(x) = (4x² - 36)/(x² - 9x + 18).",
+   "answer": "(a) -8; (b) ∞; −∞; (c) 4; y = 4; (d) x = 3: removable; x = 6: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → -3) (x³ + 27)/(x + 3).",
-     "answer": "27"
+     "label": "a",
+     "prompt": "Find lim (x → 3) f(x). Show the algebra.",
+     "answer": "-8"
     },
     {
-     "prompt": "Evaluate lim (x → -5) (x² + 11x + 30)/(2x + 10).",
-     "answer": "1/2"
+     "label": "b",
+     "prompt": "Find lim (x → 6⁺) f(x) and lim (x → 6⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → 4) (x² - 5x + 4)/(2x - 8).",
-     "answer": "3/2"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "4; y = 4"
     },
     {
-     "prompt": "Evaluate lim (x → 5) (x³ - 125)/(x - 5).",
-     "answer": "75"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 3 and x = 6. Justify your answer.",
+     "answer": "x = 3: removable; x = 6: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) 27; (b) 1/2; (c) 3/2; (d) 75",
    "solutionSteps": [
-    "(a) Cancel and substitute: 3a². = 27.",
-    "(b) Substitute into what remains. = 1/2.",
-    "(c) Substitute into what remains. = 3/2.",
-    "(d) Cancel and substitute: 3a². = 75."
+    "(a) Factor and cancel (x - 3): f(x) = (4x + 12)/(x - 6) for x ≠ 3; substitute x = 3: -8.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 6 the numerator is about 36 and the denominator x - 6 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 3 the limit exists but f(3) is undefined; at x = 6 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-1.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_algebra_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s03-cp1-016",
@@ -3409,10 +3481,10 @@
    "answer": "48",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 48.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ - 64) = (x - 4)(x² + 4x + 16) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals x² + 4x + 16 for x ≠ 4.",
+    "Substitute x = 4: 48.",
     "The correct answer is 48, not 0."
    ],
    "standards": [
@@ -3464,10 +3536,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 3."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ + 1) = (x + 1)(x² - x + 1) and (x + 1) = x + 1.",
+    "Cancel the common factor: the expression equals x² - x + 1 for x ≠ -1.",
+    "Substitute x = -1: 3."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3482,10 +3554,10 @@
    "prompt": "Evaluate lim (x → -4) (1/x + 1/4)/(x + 4).",
    "answer": "-1/16",
    "solutionSteps": [
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 16.",
-    "= -1/16."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (1/4 + 1/x) = (x + 4)/(4x) and (x + 4) = x + 4.",
+    "Cancel the common factor: the expression equals 1/(4x) for x ≠ -4.",
+    "Substitute x = -4: -1/16."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3518,10 +3590,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 12."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ + 8) = (x + 2)(x² - 2x + 4) and (x + 2) = x + 2.",
+    "Cancel the common factor: the expression equals x² - 2x + 4 for x ≠ -2.",
+    "Substitute x = -2: 12."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3590,10 +3662,10 @@
    "prompt": "Evaluate lim (x → 4) (1/x - 1/4)/(x - 4).",
    "answer": "-1/16",
    "solutionSteps": [
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 16.",
-    "= -1/16."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (-1/4 + 1/x) = -(x - 4)/(4x) and (x - 4) = x - 4.",
+    "Cancel the common factor: the expression equals -1/(4x) for x ≠ 4.",
+    "Substitute x = 4: -1/16."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3626,10 +3698,10 @@
     }
    ],
    "solutionSteps": [
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 25.",
-    "= -1/25."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (-1/5 + 1/x) = -(x - 5)/(5x) and (x - 5) = x - 5.",
+    "Cancel the common factor: the expression equals -1/(5x) for x ≠ 5.",
+    "Substitute x = 5: -1/25."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3644,10 +3716,10 @@
    "prompt": "Evaluate lim (x → -3) (x³ + 27)/(x + 3).",
    "answer": "27",
    "solutionSteps": [
-    "0 ÷ 0: use the difference (or sum) of cubes.",
-    "x³ - a³ = (x - a)(x² + ax + a²).",
-    "Cancel and substitute: 3a².",
-    "= 27."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (x³ + 27) = (x + 3)(x² - 3x + 9) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals x² - 3x + 9 for x ≠ -3.",
+    "Substitute x = -3: 27."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3698,10 +3770,10 @@
    "prompt": "Evaluate lim (x → 3) (1/x - 1/3)/(x - 3).",
    "answer": "-1/9",
    "solutionSteps": [
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 9.",
-    "= -1/9."
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (-1/3 + 1/x) = -(x - 3)/(3x) and (x - 3) = x - 3.",
+    "Cancel the common factor: the expression equals -1/(3x) for x ≠ 3.",
+    "Substitute x = 3: -1/9."
    ],
    "standards": [
     "AP LIM-1.E"
@@ -3771,10 +3843,10 @@
    "answer": "-1/9",
    "solutionSteps": [
     "Mistake: Treated 0 ÷ 0 as 0.",
-    "0 ÷ 0: combine the fractions in the numerator.",
-    "(a - x) ÷ (ax) over (x - a) simplifies to -1 ÷ (ax).",
-    "Substitute: -1 ÷ 9.",
-    "= -1/9.",
+    "Direct substitution gives 0/0, an indeterminate form.",
+    "Factor: (1/3 + 1/x) = (x + 3)/(3x) and (x + 3) = x + 3.",
+    "Cancel the common factor: the expression equals 1/(3x) for x ≠ -3.",
+    "Substitute x = -3: -1/9.",
     "The correct answer is -1/9, not 0."
    ],
    "standards": [
@@ -3787,36 +3859,45 @@
    "skillId": "limits-continuity-skill-03",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Evaluating Limits Algebraically): answer each part and show your work.",
+   "prompt": "Free response (Evaluating Limits Algebraically). Let f(x) = (3x² + 3x - 6)/(x² - 4x + 3).",
+   "answer": "(a) -9/2; (b) ∞; −∞; (c) 3; y = 3; (d) x = 1: removable; x = 3: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → -2) (1/x + 1/2)/(x + 2).",
-     "answer": "-1/4"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-9/2"
     },
     {
-     "prompt": "Evaluate lim (x → 0) tan(5x)/(6x).",
-     "answer": "5/6"
+     "label": "b",
+     "prompt": "Find lim (x → 3⁺) f(x) and lim (x → 3⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → 2) (√(x + 14) - 4)/(x - 2).",
-     "answer": "1/8"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "3; y = 3"
     },
     {
-     "prompt": "Evaluate lim (x → 0) (1 - cos(x))/x.",
-     "answer": "0"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 3. Justify your answer.",
+     "answer": "x = 1: removable; x = 3: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) -1/4; (b) 5/6; (c) 1/8; (d) 0",
    "solutionSteps": [
-    "(a) Substitute: -1 ÷ 4. = -1/4.",
-    "(b) Evaluate. = 5/6.",
-    "(c) Substitute: 1 ÷ (2·4). = 1/8.",
-    "(d) Evaluate. = 0."
+    "(a) Factor and cancel (x - 1): f(x) = (3x + 6)/(x - 3) for x ≠ 1; substitute x = 1: -9/2.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 3 the numerator is about 15 and the denominator x - 3 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 3 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-1.E"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_algebra_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s03-honors-016",
@@ -4205,37 +4286,46 @@
    "skillId": "limits-continuity-skill-04",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (One-Sided and Two-Sided Limits): answer each part and show your work.",
+   "prompt": "Free response (One-Sided and Two-Sided Limits). f(x) = x² + 3x - 1 for x < 4, and f(x) = 3x + k for x ≥ 4, where k is a constant.",
+   "answer": "(a) 27; (b) 12 + k; (c) k = 15; (d) No",
    "parts": [
     {
-     "prompt": "f(x) = -3x + 2 for x < 1, and f(x) = x - 2 for x ≥ 1. Find lim (x → 1⁻) f(x).",
-     "answer": "-1"
+     "label": "a",
+     "prompt": "Find lim (x → 4⁻) f(x).",
+     "answer": "27"
     },
     {
-     "prompt": "f(x) = -3x - 2 for x < -1, and f(x) = 3x + 4 for x ≥ -1. Find lim (x → -1⁺) f(x).",
-     "answer": "1"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) in terms of k.",
+     "answer": "12 + k"
     },
     {
-     "prompt": "f(x) = 0 for x < 3, and f(x) = 3x - 1 for x ≥ 3. Find lim (x → 3) f(x).",
-     "answer": "does not exist"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 4. Use the definition of continuity.",
+     "answer": "k = 15"
     },
     {
-     "prompt": "f(x) = -6 for x < 0, and f(x) = 2x - 1 for x ≥ 0. Find lim (x → 0⁻) f(x).",
-     "answer": "-6"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 4? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) -1; (b) 1; (c) does not exist; (d) -6",
    "solutionSteps": [
-    "(a) Left: -1. Right: -1. lim (x → 1⁻) f(x) = -1.",
-    "(b) Left: 1. Right: 1. lim (x → -1⁺) f(x) = 1.",
-    "(c) Left: 0. Right: 8. The two-sided limit exists only if they are equal.",
-    "(d) Left: -6. Right: -1. lim (x → 0⁻) f(x) = -6."
+    "(a) Use the left piece: 27.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 3(4) + k = 12 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 4⁻) f(x) = f(4): 27 = 3(4) + k, so k = 15.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 11, right slope 3: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_piece_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s04-cp2-016",
@@ -4624,37 +4714,46 @@
    "skillId": "limits-continuity-skill-04",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (One-Sided and Two-Sided Limits): answer each part and show your work.",
+   "prompt": "Free response (One-Sided and Two-Sided Limits). f(x) = x² - 1 for x < 1, and f(x) = 2x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) 0; (b) 2 + k; (c) k = -2; (d) Yes",
    "parts": [
     {
-     "prompt": "f(x) = -3 for x < 1, and f(x) = -3x for x ≥ 1. Find lim (x → 1) f(x).",
-     "answer": "-3"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "0"
     },
     {
-     "prompt": "f(x) = -2x² + 4 for x < -1, and f(x) = 3x + 5 for x ≥ -1. Find lim (x → -1⁺) f(x).",
-     "answer": "2"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "f(x) = 5 for x < 2, and f(x) = 5 for x ≥ 2. Find lim (x → 2⁻) f(x).",
-     "answer": "5"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -2"
     },
     {
-     "prompt": "f(x) = -x² - 5 for x < -1, and f(x) = x for x ≥ -1. Find lim (x → -1⁻) f(x).",
-     "answer": "-6"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) -3; (b) 2; (c) 5; (d) -6",
    "solutionSteps": [
-    "(a) Left: -3. Right: -3. The two-sided limit exists only if they are equal.",
-    "(b) Left: 2. Right: 2. lim (x → -1⁺) f(x) = 2.",
-    "(c) Left: 5. Right: 5. lim (x → 2⁻) f(x) = 5.",
-    "(d) Left: -6. Right: -1. lim (x → -1⁻) f(x) = -6."
+    "(a) Use the left piece: 0.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 2(1) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): 0 = 2(1) + k, so k = -2.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 2, right slope 2: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_piece_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s04-cp1-016",
@@ -5043,37 +5142,46 @@
    "skillId": "limits-continuity-skill-04",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (One-Sided and Two-Sided Limits): answer each part and show your work.",
+   "prompt": "Free response (One-Sided and Two-Sided Limits). f(x) = √(x + 4) for x < 1, and f(x) = 2x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) √5; (b) 2 + k; (c) k = -2 + √5; (d) No",
    "parts": [
     {
-     "prompt": "f(x) = -x² - 5 for x < -2, and f(x) = x + 3 for x ≥ -2. Find lim (x → -2⁺) f(x).",
-     "answer": "1"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "√5"
     },
     {
-     "prompt": "f(x) = 2x² - 2 for x < 1, and f(x) = 3x - 4 for x ≥ 1. Find lim (x → 1⁺) f(x).",
-     "answer": "-1"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "f(x) = 4 for x < 3, and f(x) = 2x - 3 for x ≥ 3. Find lim (x → 3⁻) f(x).",
-     "answer": "4"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -2 + √5"
     },
     {
-     "prompt": "f(x) = 3 for x < 2, and f(x) = -x - 1 for x ≥ 2. Find lim (x → 2) f(x).",
-     "answer": "does not exist"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) 1; (b) -1; (c) 4; (d) does not exist",
    "solutionSteps": [
-    "(a) Left: -9. Right: 1. lim (x → -2⁺) f(x) = 1.",
-    "(b) Left: 0. Right: -1. lim (x → 1⁺) f(x) = -1.",
-    "(c) Left: 4. Right: 3. lim (x → 3⁻) f(x) = 4.",
-    "(d) Left: 3. Right: -3. The two-sided limit exists only if they are equal."
+    "(a) Use the left piece: √5.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 2(1) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): √5 = 2(1) + k, so k = -2 + √5.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope √5/10, right slope 2: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-1.C",
     "AP LIM-1.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_piece_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s04-honors-016",
@@ -5100,12 +5208,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (x - 13)/(2x + 4).",
+   "prompt": "Evaluate lim (x → ∞) (x - 13)/(2x + 4). Hint: compare the degrees of the top and bottom.",
    "answer": "1/2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 1/2."
+    "Leading terms: x on top, 2x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: 1 ÷ 2 = 1/2."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5152,12 +5259,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-6x³ - x² - 4)/(3x³ - 5).",
+   "prompt": "Evaluate lim (x → ∞) (-6x³ - x² - 4)/(3x³ - 5). Hint: compare the degrees of the top and bottom.",
    "answer": "-2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -2."
+    "Leading terms: -6x³ on top, 3x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-6) ÷ 3 = -2."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5204,12 +5310,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-x + 9)/(6x).",
+   "prompt": "Evaluate lim (x → ∞) (-x + 9)/(6x). Hint: compare the degrees of the top and bottom.",
    "answer": "-1/6",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -1/6."
+    "Leading terms: -x on top, 6x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: (-1) ÷ 6 = -1/6."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5256,12 +5361,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (6x³ - 3x² + 3)/(5x³ - 1).",
+   "prompt": "Evaluate lim (x → ∞) (6x³ - 3x² + 3)/(5x³ - 1). Hint: compare the degrees of the top and bottom.",
    "answer": "6/5",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 6/5."
+    "Leading terms: 6x³ on top, 5x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: 6 ÷ 5 = 6/5."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5308,12 +5412,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-4x - 14)/(4x - 5).",
+   "prompt": "Evaluate lim (x → ∞) (-4x - 14)/(4x - 5). Hint: compare the degrees of the top and bottom.",
    "answer": "-1",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -1."
+    "Leading terms: -4x on top, 4x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: (-4) ÷ 4 = -1."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5360,12 +5463,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-2x³ - 4x² + 7)/(5x³ - 2).",
+   "prompt": "Evaluate lim (x → ∞) (-2x³ - 4x² + 7)/(5x³ - 2). Hint: compare the degrees of the top and bottom.",
    "answer": "-2/5",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -2/5."
+    "Leading terms: -2x³ on top, 5x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-2) ÷ 5 = -2/5."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5412,12 +5514,11 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (4x³ - 2x² + 4)/(x³).",
+   "prompt": "Evaluate lim (x → ∞) (4x³ - 2x² + 4)/(x³). Hint: compare the degrees of the top and bottom.",
    "answer": "4",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 4."
+    "Leading terms: 4x³ on top, x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: 4 ÷ 1 = 4."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5433,9 +5534,8 @@
    "answer": "-1/5",
    "solutionSteps": [
     "Mistake: Treated the degrees as unequal. Both are degree 3, so the limit is the ratio of leading coefficients.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -1/5.",
+    "Leading terms: -x³ on top, 5x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-1) ÷ 5 = -1/5.",
     "The correct answer is -1/5, not 0."
    ],
    "standards": [
@@ -5448,36 +5548,45 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Using Limits to Describe Function Behavior): answer each part and show your work.",
+   "prompt": "Free response (Using Limits to Describe Function Behavior). Let f(x) = (x² + 2x - 3)/(x² - 5x + 4).",
+   "answer": "(a) -4/3; (b) ∞; −∞; (c) 1; y = 1; (d) x = 1: removable; x = 4: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → ∞) (-x² - 2x + 3)/(3x² - 2).",
-     "answer": "-1/3"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-4/3"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (-2x + 4)/(3x - 5).",
-     "answer": "-2/3"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) and lim (x → 4⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (x)/(2x + 2).",
-     "answer": "1/2"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "1; y = 1"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (-5x² + 8)/(6x² + 4).",
-     "answer": "-5/6"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 4. Justify your answer.",
+     "answer": "x = 1: removable; x = 4: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) -1/3; (b) -2/3; (c) 1/2; (d) -5/6",
    "solutionSteps": [
-    "(a) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = -1/3.",
-    "(b) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = -2/3.",
-    "(c) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 1/2.",
-    "(d) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = -5/6."
+    "(a) Factor and cancel (x - 1): f(x) = (x + 3)/(x - 4) for x ≠ 1; substitute x = 1: -4/3.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 4 the numerator is about 7 and the denominator x - 4 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 4 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-cp2-016",
@@ -5488,9 +5597,8 @@
    "answer": "6",
    "solutionSteps": [
     "Mistake: Treated the degrees as unequal. Both are degree 1, so the limit is the ratio of leading coefficients.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 6.",
+    "Leading terms: 6x on top, x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: 6 ÷ 1 = 6.",
     "The correct answer is 6, not 0."
    ],
    "standards": [
@@ -5506,9 +5614,8 @@
    "prompt": "Evaluate lim (x → ∞) (2x² + 2x + 2)/(x² - 5).",
    "answer": "2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 2."
+    "Leading terms: 2x² on top, x² on the bottom.",
+    "Both have degree 2, so the limit is the ratio of leading coefficients: 2 ÷ 1 = 2."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5576,9 +5683,8 @@
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 0."
+    "Leading terms: -2x on top, 5x² on the bottom.",
+    "The numerator has lower degree (1 < 2); dividing by x^2 sends every term on top to 0, so the limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5610,9 +5716,8 @@
    "prompt": "Evaluate lim (x → ∞) (-3x + 13)/(5x - 1).",
    "answer": "-3/5",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -3/5."
+    "Leading terms: -3x on top, 5x on the bottom.",
+    "Both have degree 1, so the limit is the ratio of leading coefficients: (-3) ÷ 5 = -3/5."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5662,9 +5767,8 @@
    "prompt": "Evaluate lim (x → ∞) (-6x³ - 3x² - 8)/(3x³ - 5).",
    "answer": "-2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -2."
+    "Leading terms: -6x³ on top, 3x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-6) ÷ 3 = -2."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5732,9 +5836,8 @@
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Leading terms: -5x² on top, 5x on the bottom.",
+    "The numerator has higher degree (2 > 1); the quotient behaves like (-5/5)x^1, so it goes to -∞."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5766,9 +5869,8 @@
    "prompt": "Evaluate lim (x → ∞) (5x³ - x² - 8)/(4x³ - 4).",
    "answer": "5/4",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 5/4."
+    "Leading terms: 5x³ on top, 4x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: 5 ÷ 4 = 5/4."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5818,9 +5920,8 @@
    "prompt": "Evaluate lim (x → ∞) (-4x³ - 3x² - 2)/(2x³ - 1).",
    "answer": "-2",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -2."
+    "Leading terms: -4x³ on top, 2x³ on the bottom.",
+    "Both have degree 3, so the limit is the ratio of leading coefficients: (-4) ÷ 2 = -2."
    ],
    "standards": [
     "AP LIM-2.D"
@@ -5836,9 +5937,8 @@
    "answer": "-∞",
    "solutionSteps": [
     "Mistake: Used the leading-coefficient ratio when degrees differ.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞.",
+    "Leading terms: -2x² on top, 4x on the bottom.",
+    "The numerator has higher degree (2 > 1); the quotient behaves like (-2/4)x^1, so it goes to -∞.",
     "The correct answer is -∞, not -1/2."
    ],
    "standards": [
@@ -5851,36 +5951,45 @@
    "skillId": "limits-continuity-skill-05",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Using Limits to Describe Function Behavior): answer each part and show your work.",
+   "prompt": "Free response (Using Limits to Describe Function Behavior). Let f(x) = (x² + 2x - 15)/(x² - 11x + 24).",
+   "answer": "(a) -8/5; (b) ∞; −∞; (c) 1; y = 1; (d) x = 3: removable; x = 8: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → ∞) (-4x - 2)/(x² - 2).",
-     "answer": "0"
+     "label": "a",
+     "prompt": "Find lim (x → 3) f(x). Show the algebra.",
+     "answer": "-8/5"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (2x³ - 5x² - 3)/(6x³ + 5).",
-     "answer": "1/3"
+     "label": "b",
+     "prompt": "Find lim (x → 8⁺) f(x) and lim (x → 8⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (2x³ - x² - 6)/(4x³).",
-     "answer": "1/2"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "1; y = 1"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (-2x³ + 4x² - 9)/(2x² - 4).",
-     "answer": "-∞"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 3 and x = 8. Justify your answer.",
+     "answer": "x = 3: removable; x = 8: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) 0; (b) 1/3; (c) 1/2; (d) -∞",
    "solutionSteps": [
-    "(a) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 0.",
-    "(b) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 1/3.",
-    "(c) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 1/2.",
-    "(d) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = -∞."
+    "(a) Factor and cancel (x - 3): f(x) = (x + 5)/(x - 8) for x ≠ 3; substitute x = 3: -8/5.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 8 the numerator is about 13 and the denominator x - 8 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 3 the limit exists but f(3) is undefined; at x = 8 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-cp1-016",
@@ -5891,9 +6000,8 @@
    "answer": "-∞",
    "solutionSteps": [
     "Mistake: Used the constant terms.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞.",
+    "Leading terms: -5x³ on top, 6x on the bottom.",
+    "The numerator has higher degree (3 > 1); the quotient behaves like (-5/6)x^2, so it goes to -∞.",
     "The correct answer is -∞, not -3."
    ],
    "standards": [
@@ -5906,17 +6014,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → -∞) (-4x³ - 5x² - 8)/(3x³ - 4).",
-   "answer": "-4/3",
+   "prompt": "Evaluate lim (x → ∞) (5x - sin(x))/x.",
+   "answer": "5",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -4/3."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "Split: 5 - sin(x)/x, and -1/x ≤ sin(x)/x ≤ 1/x → 0 by the Squeeze Theorem.",
+    "The limit is 5."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-002",
@@ -5958,35 +6066,35 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Evaluate lim (x → ∞) (-3x² + 4x - 3)/(6x - 1).",
-   "answer": "-∞",
+   "prompt": "Evaluate lim (x → ∞) √(9x² + x)/(x + 1).",
+   "answer": "3",
    "options": [
-    {
-     "text": "3",
-     "correct": false
-    },
     {
      "text": "0",
      "correct": false
     },
     {
-     "text": "-1/2",
+     "text": "∞",
      "correct": false
     },
     {
-     "text": "-∞",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "3",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "Divide by x: √(9 + 1/x)/(1 + 1/x) → √9/1 = 3.",
+    "The limit is 3."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-004",
@@ -6010,17 +6118,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-6x² + x - 7)/(3x - 4).",
-   "answer": "-∞",
+   "prompt": "Evaluate lim (x → ∞) (2x² - x)/e^x.",
+   "answer": "0",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "e^x grows faster than any polynomial (L’Hôpital twice gives 4/e^x → 0).",
+    "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-006",
@@ -6062,35 +6170,35 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Evaluate lim (x → ∞) (-6x² - 5x - 3)/(5x).",
-   "answer": "-∞",
+   "prompt": "Evaluate lim (x → ∞) ln(x)/x.",
+   "answer": "0",
    "options": [
     {
-     "text": "-∞",
-     "correct": true
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "∞",
+     "correct": false
     },
     {
      "text": "0",
-     "correct": false
+     "correct": true
     },
     {
-     "text": "-6/5",
-     "correct": false
-    },
-    {
-     "text": "does not exist",
+     "text": "1",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "ln(x) grows more slowly than x (L’Hôpital: (1/x)/1 → 0).",
+    "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-008",
@@ -6114,17 +6222,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-x + 5)/(4x² + 3).",
+   "prompt": "Evaluate lim (x → ∞) ln(x)/x.",
    "answer": "0",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 0."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "ln(x) grows more slowly than x (L’Hôpital: (1/x)/1 → 0).",
+    "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-010",
@@ -6166,35 +6274,35 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Evaluate lim (x → ∞) (-6x)/(4x³).",
-   "answer": "0",
+   "prompt": "Evaluate lim (x → ∞) (5x - sin(x))/x.",
+   "answer": "5",
    "options": [
     {
-     "text": "∞",
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "1",
      "correct": false
     },
     {
      "text": "0",
-     "correct": true
-    },
-    {
-     "text": "does not exist",
      "correct": false
     },
     {
-     "text": "-3/2",
+     "text": "∞",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= 0."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "Split: 5 - sin(x)/x, and -1/x ≤ sin(x)/x ≤ 1/x → 0 by the Squeeze Theorem.",
+    "The limit is 5."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-012",
@@ -6218,17 +6326,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (-x³ - 3x² + 7)/(6x² + 3).",
-   "answer": "-∞",
+   "prompt": "Evaluate lim (x → ∞) (2x² - x)/e^x.",
+   "answer": "0",
    "solutionSteps": [
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= -∞."
+    "Look at how the top and bottom grow as x moves away from 0.",
+    "e^x grows faster than any polynomial (L’Hôpital twice gives 4/e^x → 0).",
+    "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-014",
@@ -6239,9 +6347,8 @@
    "answer": "∞",
    "solutionSteps": [
     "Mistake: Used the constant terms.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= ∞.",
+    "Leading terms: 4x² on top, 3x on the bottom.",
+    "The numerator has higher degree (2 > 1); the quotient behaves like (4/3)x^1, so it goes to ∞.",
     "The correct answer is ∞, not 6."
    ],
    "standards": [
@@ -6254,36 +6361,45 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Using Limits to Describe Function Behavior): answer each part and show your work.",
+   "prompt": "Free response (Using Limits to Describe Function Behavior). Let f(x) = (4x² + 8x - 12)/(x² - 5x + 4).",
+   "answer": "(a) -16/3; (b) ∞; −∞; (c) 4; y = 4; (d) x = 1: removable; x = 4: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "Evaluate lim (x → ∞) (2x²)/(6x - 1).",
-     "answer": "∞"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-16/3"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (5x³ + 4x² + 1)/(3x² - 1).",
-     "answer": "∞"
+     "label": "b",
+     "prompt": "Find lim (x → 4⁺) f(x) and lim (x → 4⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (4x² - 5x - 9)/(3x³ + 4).",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "4; y = 4"
     },
     {
-     "prompt": "Evaluate lim (x → ∞) (3x - 2)/(6x - 4).",
-     "answer": "1/2"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 4. Justify your answer.",
+     "answer": "x = 1: removable; x = 4: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) ∞; (b) ∞; (c) 0; (d) 1/2",
    "solutionSteps": [
-    "(a) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = ∞.",
-    "(b) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = ∞.",
-    "(c) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 0.",
-    "(d) Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞. = 1/2."
+    "(a) Factor and cancel (x - 1): f(x) = (4x + 12)/(x - 4) for x ≠ 1; substitute x = 1: -16/3.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 4 the numerator is about 28 and the denominator x - 4 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 4 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s05-honors-016",
@@ -6294,9 +6410,8 @@
    "answer": "∞",
    "solutionSteps": [
     "Mistake: Thought every limit at infinity is 0.",
-    "Compare the degrees of the numerator and denominator.",
-    "Equal degrees: ratio of leading coefficients. Bottom-heavy: 0. Top-heavy: ±∞.",
-    "= ∞.",
+    "Leading terms: x³ on top, x on the bottom.",
+    "The numerator has higher degree (3 > 1); the quotient behaves like (1/1)x^2, so it goes to ∞.",
     "The correct answer is ∞, not 0."
    ],
    "standards": [
@@ -6671,37 +6786,46 @@
    "skillId": "limits-continuity-skill-06",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Continuity on an Interval): answer each part and show your work.",
+   "prompt": "Free response (Continuity on an Interval). f(x) = x² + x for x < 1, and f(x) = 3x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) 2; (b) 3 + k; (c) k = -1; (d) Yes",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x - 5 for x < -2, and f(x) = -x + k for x ≥ -2.",
-     "answer": "k = -11"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "2"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -x - 3 for x < -2, and f(x) = 2x + k for x ≥ -2.",
-     "answer": "k = 3"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "3 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x + 4 for x < -3, and f(x) = -x + k for x ≥ -3.",
-     "answer": "k = -5"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -1"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -3x - 1 for x < 3, and f(x) = -2x + k for x ≥ 3.",
-     "answer": "k = -4"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) k = -11; (b) k = 3; (c) k = -5; (d) k = -4",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = -11.",
-    "(b) Set the left piece at a equal to the right piece at a. k = 3.",
-    "(c) Set the left piece at a equal to the right piece at a. k = -5.",
-    "(d) Set the left piece at a equal to the right piece at a. k = -4."
+    "(a) Use the left piece: 2.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 3(1) + k = 3 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): 2 = 3(1) + k, so k = -1.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 3, right slope 3: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_k_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s06-cp2-016",
@@ -7090,37 +7214,46 @@
    "skillId": "limits-continuity-skill-06",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Continuity on an Interval): answer each part and show your work.",
+   "prompt": "Free response (Continuity on an Interval). f(x) = x² - 3x + 2 for x < 1, and f(x) = 2x + k for x ≥ 1, where k is a constant.",
+   "answer": "(a) 0; (b) 2 + k; (c) k = -2; (d) No",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x - 5 for x < 2, and f(x) = kx - 3 for x ≥ 2.",
-     "answer": "k = 1"
+     "label": "a",
+     "prompt": "Find lim (x → 1⁻) f(x).",
+     "answer": "0"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -3x + 4 for x < -2, and f(x) = kx + 3 for x ≥ -2.",
-     "answer": "k = -7/2"
+     "label": "b",
+     "prompt": "Find lim (x → 1⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -2x + 6 for x < 2, and f(x) = kx + 1 for x ≥ 2.",
-     "answer": "k = 1/2"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 1. Use the definition of continuity.",
+     "answer": "k = -2"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = x - 6 for x < -3, and f(x) = kx - 2 for x ≥ -3.",
-     "answer": "k = 7/3"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 1? Justify your answer.",
+     "answer": "No"
     }
    ],
-   "answer": "(a) k = 1; (b) k = -7/2; (c) k = 1/2; (d) k = 7/3",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = 1.",
-    "(b) Set the left piece at a equal to the right piece at a. k = -7/2.",
-    "(c) Set the left piece at a equal to the right piece at a. k = 1/2.",
-    "(d) Set the left piece at a equal to the right piece at a. k = 7/3."
+    "(a) Use the left piece: 0.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: 2(1) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 1⁻) f(x) = f(1): 0 = 2(1) + k, so k = -2.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope -1, right slope 2: different, so f is not differentiable (a corner).",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_k_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s06-cp1-016",
@@ -7509,37 +7642,46 @@
    "skillId": "limits-continuity-skill-06",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Continuity on an Interval): answer each part and show your work.",
+   "prompt": "Free response (Continuity on an Interval). f(x) = e^(x - 2) for x < 2, and f(x) = x + k for x ≥ 2, where k is a constant.",
+   "answer": "(a) 1; (b) 2 + k; (c) k = -1; (d) Yes",
    "parts": [
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = 2x² + x for x < -2, and f(x) = kx - 1 for x ≥ -2.",
-     "answer": "k = -7/2"
+     "label": "a",
+     "prompt": "Find lim (x → 2⁻) f(x).",
+     "answer": "1"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = x² + 2x for x < -3, and f(x) = kx + 1 for x ≥ -3.",
-     "answer": "k = -2/3"
+     "label": "b",
+     "prompt": "Find lim (x → 2⁺) f(x) in terms of k.",
+     "answer": "2 + k"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -2x² - 2x for x < 3, and f(x) = kx - 2 for x ≥ 3.",
-     "answer": "k = -22/3"
+     "label": "c",
+     "prompt": "Find the value of k that makes f continuous at x = 2. Use the definition of continuity.",
+     "answer": "k = -1"
     },
     {
-     "prompt": "Find the value of k that makes f continuous everywhere: f(x) = -x² - 4x for x < -3, and f(x) = kx - 2 for x ≥ -3.",
-     "answer": "k = -5/3"
+     "label": "d",
+     "prompt": "With that k, is f differentiable at x = 2? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) k = -7/2; (b) k = -2/3; (c) k = -22/3; (d) k = -5/3",
    "solutionSteps": [
-    "(a) Set the left piece at a equal to the right piece at a. k = -7/2.",
-    "(b) Set the left piece at a equal to the right piece at a. k = -2/3.",
-    "(c) Set the left piece at a equal to the right piece at a. k = -22/3.",
-    "(d) Set the left piece at a equal to the right piece at a. k = -5/3."
+    "(a) Use the left piece: 1.",
+    "(a) Scoring, 1 point: the left-hand limit.",
+    "(b) Use the right piece: (2) + k = 2 + k.",
+    "(b) Scoring, 1 point: the right-hand limit in terms of k.",
+    "(c) Continuity needs lim (x → 2⁻) f(x) = f(2): 1 = (2) + k, so k = -1.",
+    "(c) Scoring, 2 points: 1 point for setting the one-sided limit equal to f(c), 1 point for k.",
+    "(d) Left slope 1, right slope 1: equal, so f is differentiable.",
+    "(d) Scoring, 2 points: 1 point for both one-sided derivatives, 1 point for the conclusion.",
+    "Total: 6 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_k_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_piecewise). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s06-honors-016",
@@ -7924,37 +8066,46 @@
    "skillId": "limits-continuity-skill-07",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Points and Types of Discontinuity): answer each part and show your work.",
+   "prompt": "Free response (Points and Types of Discontinuity). Let f(x) = (x² + 3x - 4)/(x² - 6x + 5).",
+   "answer": "(a) -5/4; (b) ∞; −∞; (c) 1; y = 1; (d) x = 1: removable; x = 5: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "f(x) = (x² + x - 2)/(x - 1) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(1, 3)"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-5/4"
     },
     {
-     "prompt": "f(x) = (4x² - 4x - 80)/(x + 4) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-4, -36)"
+     "label": "b",
+     "prompt": "Find lim (x → 5⁺) f(x) and lim (x → 5⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "f(x) = (2x² + 10x + 12)/(x + 2) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-2, 2)"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "1; y = 1"
     },
     {
-     "prompt": "f(x) = (x² - 3x - 10)/(x + 2) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-2, -7)"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 5. Justify your answer.",
+     "answer": "x = 1: removable; x = 5: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) (1, 3); (b) (-4, -36); (c) (-2, 2); (d) (-2, -7)",
    "solutionSteps": [
-    "(a) Cancel it and substitute x = 1. (1, 3).",
-    "(b) Cancel it and substitute x = -4. (-4, -36).",
-    "(c) Cancel it and substitute x = -2. (-2, 2).",
-    "(d) Cancel it and substitute x = -2. (-2, -7)."
+    "(a) Factor and cancel (x - 1): f(x) = (x + 4)/(x - 5) for x ≠ 1; substitute x = 1: -5/4.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 5 the numerator is about 9 and the denominator x - 5 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 5 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_hole_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s07-cp2-016",
@@ -8339,37 +8490,46 @@
    "skillId": "limits-continuity-skill-07",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Points and Types of Discontinuity): answer each part and show your work.",
+   "prompt": "Free response (Points and Types of Discontinuity). Let f(x) = (3x² + 9x - 12)/(x² - 6x + 5).",
+   "answer": "(a) -15/4; (b) ∞; −∞; (c) 3; y = 3; (d) x = 1: removable; x = 5: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "f(x) = (2x² - 12x)/(x² - 9x + 18) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(6, 4)"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-15/4"
     },
     {
-     "prompt": "f(x) = (x² + 3x - 18)/(x² + x - 12) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(3, 9/7)"
+     "label": "b",
+     "prompt": "Find lim (x → 5⁺) f(x) and lim (x → 5⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "f(x) = (4x² + 8x - 32)/(x² - x - 20) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-4, 8/3)"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "3; y = 3"
     },
     {
-     "prompt": "f(x) = (4x² - 16)/(x² - 2x - 8) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-2, 8/3)"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 5. Justify your answer.",
+     "answer": "x = 1: removable; x = 5: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) (6, 4); (b) (3, 9/7); (c) (-4, 8/3); (d) (-2, 8/3)",
    "solutionSteps": [
-    "(a) Cancel it and substitute x = 6. (6, 4).",
-    "(b) Cancel it and substitute x = 3. (3, 9/7).",
-    "(c) Cancel it and substitute x = -4. (-4, 8/3).",
-    "(d) Cancel it and substitute x = -2. (-2, 8/3)."
+    "(a) Factor and cancel (x - 1): f(x) = (3x + 12)/(x - 5) for x ≠ 1; substitute x = 1: -15/4.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 5 the numerator is about 27 and the denominator x - 5 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 5 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_hole_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s07-cp1-016",
@@ -8754,37 +8914,46 @@
    "skillId": "limits-continuity-skill-07",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Points and Types of Discontinuity): answer each part and show your work.",
+   "prompt": "Free response (Points and Types of Discontinuity). Let f(x) = (2x² + 6x - 8)/(x² - 6x + 5).",
+   "answer": "(a) -5/2; (b) ∞; −∞; (c) 2; y = 2; (d) x = 1: removable; x = 5: infinite (vertical asymptote)",
    "parts": [
     {
-     "prompt": "f(x) = (4x² - 4x - 80)/(x² - 4x - 32) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-4, 3)"
+     "label": "a",
+     "prompt": "Find lim (x → 1) f(x). Show the algebra.",
+     "answer": "-5/2"
     },
     {
-     "prompt": "f(x) = (2x² - 6x - 20)/(x² - 6x - 16) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-2, 7/5)"
+     "label": "b",
+     "prompt": "Find lim (x → 5⁺) f(x) and lim (x → 5⁻) f(x).",
+     "answer": "∞; −∞"
     },
     {
-     "prompt": "f(x) = (4x² + 12x)/(x² - 9) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(-3, 2)"
+     "label": "c",
+     "prompt": "Find lim (x → ∞) f(x) and the horizontal asymptote.",
+     "answer": "2; y = 2"
     },
     {
-     "prompt": "f(x) = (x² - x - 12)/(x² - 2x - 8) has a removable discontinuity. Give its location as a point (x, y), where y is the limit there.",
-     "answer": "(4, 7/6)"
+     "label": "d",
+     "prompt": "Classify the discontinuities of f at x = 1 and x = 5. Justify your answer.",
+     "answer": "x = 1: removable; x = 5: infinite (vertical asymptote)"
     }
    ],
-   "answer": "(a) (-4, 3); (b) (-2, 7/5); (c) (-3, 2); (d) (4, 7/6)",
    "solutionSteps": [
-    "(a) Cancel it and substitute x = -4. (-4, 3).",
-    "(b) Cancel it and substitute x = -2. (-2, 7/5).",
-    "(c) Cancel it and substitute x = -3. (-3, 2).",
-    "(d) Cancel it and substitute x = 4. (4, 7/6)."
+    "(a) Factor and cancel (x - 1): f(x) = (2x + 8)/(x - 5) for x ≠ 1; substitute x = 1: -5/2.",
+    "(a) Scoring, 2 points: 1 point for factoring and cancelling, 1 point for the value.",
+    "(b) Near x = 5 the numerator is about 18 and the denominator x - 5 changes sign.",
+    "(b) Scoring, 2 points: 1 point for each one-sided limit with a sign analysis.",
+    "(c) Divide by the highest power of x: the ratio of leading coefficients.",
+    "(c) Scoring, 1 point: the limit and the asymptote.",
+    "(d) At x = 1 the limit exists but f(1) is undefined; at x = 5 the one-sided limits are infinite.",
+    "(d) Scoring, 2 points: 1 point for each classification with its limit reason.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP LIM-2.A",
     "AP LIM-2.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_hole_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_limits). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s07-honors-016",
@@ -8849,6 +9018,8 @@
     }
    ],
    "solutionSteps": [
+    "The function g is trapped between two functions that have the same limit.",
+    "Both -|x| and |x| approach 0 as x → 0, so g must approach 0 too: the Squeeze Theorem.",
     "Squeeze Theorem."
    ],
    "standards": [
@@ -8917,6 +9088,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on the closed interval, and 0 lies between the endpoint values (one negative, one positive).",
+    "So the Intermediate Value Theorem guarantees a zero in the open interval.",
     "Intermediate Value Theorem."
    ],
    "standards": [
@@ -8946,7 +9119,7 @@
    "skillId": "limits-continuity-skill-08",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "f(x) = 1/(x - (-1/2)) on [-2, 1]. Why does the Extreme Value Theorem not apply?",
+   "prompt": "f(x) = 1/(x + 1/2) on [-2, 1]. Why does the Extreme Value Theorem not apply?",
    "answer": "f is not continuous on the interval",
    "options": [
     {
@@ -8967,6 +9140,8 @@
     }
    ],
    "solutionSteps": [
+    "The EVT needs f continuous on the closed interval.",
+    "f has a vertical asymptote where its denominator is 0, and that x-value lies inside the interval, so f is not continuous there.",
     "f is not continuous on the interval."
    ],
    "standards": [
@@ -9035,6 +9210,8 @@
     }
    ],
    "solutionSteps": [
+    "The EVT needs f continuous on the closed interval.",
+    "f has a vertical asymptote where its denominator is 0, and that x-value lies inside the interval, so f is not continuous there.",
     "f is not continuous on the interval."
    ],
    "standards": [
@@ -9151,36 +9328,45 @@
    "skillId": "limits-continuity-skill-08",
    "level": "cp2",
    "format": "open-response",
-   "prompt": "Practice set (Applying Theorems Requiring Continuity): answer each part and show your work.",
+   "prompt": "Free response (Applying Theorems Requiring Continuity). The function f is differentiable on (−∞, ∞). Selected values: f(0) = 5; f(2) = -3; f(5) = 4; f(7) = -3.",
+   "answer": "(a) Yes; (b) 3; (c) Yes; (d) Yes",
    "parts": [
     {
-     "prompt": "f is continuous on [2, 9] with f(2) = -6; f(3) = 0; f(5) = -8; f(9) = -3. How many solutions of f(x) = -2 on [2, 9] does the Intermediate Value Theorem guarantee?",
-     "answer": "2"
+     "label": "a",
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = -8/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is continuous on [1, 9] with f(1) = 8; f(5) = -4; f(6) = -1; f(9) = -3. How many solutions of f(x) = 2 on [1, 9] does the Intermediate Value Theorem guarantee?",
-     "answer": "1"
+     "label": "b",
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
+     "answer": "3"
     },
     {
-     "prompt": "f is continuous on [1, 8] with f(1) = 1; f(3) = 1; f(7) = -2; f(8) = -5. How many solutions of f(x) = 2 on [1, 8] does the Intermediate Value Theorem guarantee?",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Must there be a value c in (2, 5) with f(c) = 1/2? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is continuous on [1, 5] with f(1) = -3; f(3) = -2; f(4) = -7; f(5) = 4. How many solutions of f(x) = -1 on [1, 5] does the Intermediate Value Theorem guarantee?",
-     "answer": "1"
+     "label": "d",
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) 2; (b) 1; (c) 0; (d) 1",
    "solutionSteps": [
-    "(a) There are 2 such intervals. So the IVT guarantees at least 2 solutions.",
-    "(b) There is 1 such interval. So the IVT guarantees at least 1 solution.",
-    "(c) There are 0 such intervals. So the IVT guarantees no solutions. (f could still equal that value somewhere between the table points; the theorem just does not promise it.)",
-    "(d) There is 1 such interval. So the IVT guarantees at least 1 solution."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = -8/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 3 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 3 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f is continuous on [2, 5] and 1/2 is between f(2) = -3 and f(5) = 4, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_ivt_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s08-cp2-016",
@@ -9244,6 +9430,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on a closed interval.",
+    "The Extreme Value Theorem guarantees an absolute maximum and minimum there.",
     "Extreme Value Theorem."
    ],
    "standards": [
@@ -9313,6 +9501,8 @@
     }
    ],
    "solutionSteps": [
+    "The EVT needs f continuous on the closed interval.",
+    "f has a vertical asymptote where its denominator is 0, and that x-value lies inside the interval, so f is not continuous there.",
     "f is not continuous on the interval."
    ],
    "standards": [
@@ -9363,6 +9553,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on the closed interval, and 0 lies between the endpoint values (one negative, one positive).",
+    "So the Intermediate Value Theorem guarantees a zero in the open interval.",
     "Intermediate Value Theorem."
    ],
    "standards": [
@@ -9431,6 +9623,8 @@
     }
    ],
    "solutionSteps": [
+    "The EVT needs f continuous on the closed interval.",
+    "f has a vertical asymptote where its denominator is 0, and that x-value lies inside the interval, so f is not continuous there.",
     "f is not continuous on the interval."
    ],
    "standards": [
@@ -9547,36 +9741,45 @@
    "skillId": "limits-continuity-skill-08",
    "level": "cp1",
    "format": "open-response",
-   "prompt": "Practice set (Applying Theorems Requiring Continuity): answer each part and show your work.",
+   "prompt": "Free response (Applying Theorems Requiring Continuity). The function f is differentiable on (−∞, ∞). Selected values: f(0) = -4; f(2) = 4; f(5) = 8; f(7) = -3.",
+   "answer": "(a) Yes; (b) 2; (c) Yes; (d) Yes",
    "parts": [
     {
-     "prompt": "f is continuous on [2, 8] with f(2) = -6; f(3) = -5; f(7) = 0; f(8) = 7. How many solutions of f(x) = 1 on [2, 8] does the Intermediate Value Theorem guarantee?",
-     "answer": "1"
+     "label": "a",
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = 1/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is continuous on [2, 9] with f(2) = 8; f(6) = -4; f(7) = 8; f(9) = 0. How many solutions of f(x) = -3 on [2, 9] does the Intermediate Value Theorem guarantee?",
+     "label": "b",
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
      "answer": "2"
     },
     {
-     "prompt": "f is continuous on [0, 9] with f(0) = 5; f(1) = 7; f(3) = 4; f(9) = -1. How many solutions of f(x) = -3 on [0, 9] does the Intermediate Value Theorem guarantee?",
-     "answer": "0"
+     "label": "c",
+     "prompt": "Must there be a value c in (2, 5) with f(c) = 6? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is continuous on [3, 9] with f(3) = 7; f(4) = 1; f(5) = -4; f(9) = -2. How many solutions of f(x) = -1 on [3, 9] does the Intermediate Value Theorem guarantee?",
-     "answer": "1"
+     "label": "d",
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) 1; (b) 2; (c) 0; (d) 1",
    "solutionSteps": [
-    "(a) There is 1 such interval. So the IVT guarantees at least 1 solution.",
-    "(b) There are 2 such intervals. So the IVT guarantees at least 2 solutions.",
-    "(c) There are 0 such intervals. So the IVT guarantees no solutions. (f could still equal that value somewhere between the table points; the theorem just does not promise it.)",
-    "(d) There is 1 such interval. So the IVT guarantees at least 1 solution."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = 1/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 2 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 2 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f is continuous on [2, 5] and 6 is between f(2) = 4 and f(5) = 8, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_ivt_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s08-cp1-016",
@@ -9640,6 +9843,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on a closed interval.",
+    "The Extreme Value Theorem guarantees an absolute maximum and minimum there.",
     "Extreme Value Theorem."
    ],
    "standards": [
@@ -9709,6 +9914,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on the closed interval, and 0 lies between the endpoint values (one negative, one positive).",
+    "So the Intermediate Value Theorem guarantees a zero in the open interval.",
     "Intermediate Value Theorem."
    ],
    "standards": [
@@ -9759,6 +9966,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on a closed interval.",
+    "The Extreme Value Theorem guarantees an absolute maximum and minimum there.",
     "Extreme Value Theorem."
    ],
    "standards": [
@@ -9828,6 +10037,8 @@
     }
    ],
    "solutionSteps": [
+    "f is continuous on the closed interval, and 0 lies between the endpoint values (one negative, one positive).",
+    "So the Intermediate Value Theorem guarantees a zero in the open interval.",
     "Intermediate Value Theorem."
    ],
    "standards": [
@@ -9944,36 +10155,45 @@
    "skillId": "limits-continuity-skill-08",
    "level": "honors",
    "format": "open-response",
-   "prompt": "Practice set (Applying Theorems Requiring Continuity): answer each part and show your work.",
+   "prompt": "Free response (Applying Theorems Requiring Continuity). The function f is differentiable on (−∞, ∞). Selected values: f(0) = 3; f(2) = -1; f(5) = -2; f(7) = 2.",
+   "answer": "(a) Yes; (b) 2; (c) Yes; (d) Yes",
    "parts": [
     {
-     "prompt": "f is continuous on [0, 8] with f(0) = -2; f(5) = -6; f(7) = -8; f(8) = 1. How many solutions of f(x) = 5 on [0, 8] does the Intermediate Value Theorem guarantee?",
-     "answer": "0"
+     "label": "a",
+     "prompt": "Must there be a value c in (0, 7) with f′(c) = -1/7? Justify your answer.",
+     "answer": "Yes"
     },
     {
-     "prompt": "f is continuous on [1, 6] with f(1) = -5; f(3) = 5; f(5) = -3; f(6) = 4. How many solutions of f(x) = -1 on [1, 6] does the Intermediate Value Theorem guarantee?",
-     "answer": "3"
-    },
-    {
-     "prompt": "f is continuous on [3, 7] with f(3) = 3; f(4) = -7; f(5) = 5; f(7) = 0. How many solutions of f(x) = -3 on [3, 7] does the Intermediate Value Theorem guarantee?",
+     "label": "b",
+     "prompt": "What is the least number of zeros f must have on [0, 7]? Justify your answer.",
      "answer": "2"
     },
     {
-     "prompt": "f is continuous on [0, 8] with f(0) = 3; f(4) = -8; f(6) = -1; f(8) = -7. How many solutions of f(x) = -5 on [0, 8] does the Intermediate Value Theorem guarantee?",
-     "answer": "3"
+     "label": "c",
+     "prompt": "Must there be a value c in (2, 5) with f(c) = -3/2? Justify your answer.",
+     "answer": "Yes"
+    },
+    {
+     "label": "d",
+     "prompt": "Must f have an absolute maximum on [0, 7]? Justify your answer.",
+     "answer": "Yes"
     }
    ],
-   "answer": "(a) 0; (b) 3; (c) 2; (d) 3",
    "solutionSteps": [
-    "(a) There are 0 such intervals. So the IVT guarantees no solutions. (f could still equal that value somewhere between the table points; the theorem just does not promise it.)",
-    "(b) There are 3 such intervals. So the IVT guarantees at least 3 solutions.",
-    "(c) There are 2 such intervals. So the IVT guarantees at least 2 solutions.",
-    "(d) There are 3 such intervals. So the IVT guarantees at least 3 solutions."
+    "(a) f is differentiable, so continuous on [0, 7] and differentiable on (0, 7). By the Mean Value Theorem some c has f′(c) = (f(7) − f(0))/7 = -1/7.",
+    "(a) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem and the average rate.",
+    "(b) f is continuous; f changes sign 2 time(s) between consecutive table values, so by the Intermediate Value Theorem it has at least 2 zero(s).",
+    "(b) Scoring, 2 points: 1 point for counting sign changes, 1 point for continuity and the IVT.",
+    "(c) f is continuous on [2, 5] and -3/2 is between f(2) = -1 and f(5) = -2, so by the Intermediate Value Theorem, yes.",
+    "(c) Scoring, 2 points: 1 point for the hypotheses, 1 point for the theorem with the values.",
+    "(d) f is continuous on the closed interval [0, 7], so by the Extreme Value Theorem it has an absolute maximum there.",
+    "(d) Scoring, 1 point: continuity on a closed interval and the EVT.",
+    "Total: 7 points."
    ],
    "standards": [
     "AP FUN-1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_ivt_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: frq_theorems). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
   },
   {
    "id": "cal-lim-s08-honors-016",
