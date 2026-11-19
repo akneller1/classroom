@@ -1359,7 +1359,7 @@
   {
    "id": "dm-sq-s02-honors-005",
    "skillId": "sequences-induction-recursion-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Classify the sequence 7, 7, 7, 7, ...",
    "answer": "Both arithmetic (d = 0) and geometric (r = 1)",
@@ -1367,7 +1367,7 @@
     "Check differences between consecutive terms and ratios between consecutive terms.",
     "Both arithmetic (d = 0) and geometric (r = 1)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: classify_seq). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "Geometric, r = 2",
@@ -6699,7 +6699,7 @@
   {
    "id": "dm-sq-s04-honors-009",
    "skillId": "sequences-induction-recursion-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "With F₁ = F₂ = 1 and F_n = F_(n−1) + F_(n−2), what is F_25?",
    "answer": "75025",
@@ -6708,7 +6708,7 @@
     "F₁ to F_25: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025.",
     "F_25 = 75025."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fib_term). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "46368",
@@ -9233,6 +9233,80 @@
    "standards": [
     "DM.INDUCTION.8",
     "MP.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s02-honors-d01",
+   "skillId": "sequences-induction-recursion-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "An arithmetic sequence has a_3 = 12 and a_7 = 28. Find a_20.",
+   "answer": "80",
+   "solutionSteps": [
+    "d = (a_7 − a_3)/(7 − 3) = (28 − 12)/4 = 4.",
+    "a₁ = a_3 − 2d = 4.",
+    "a_20 = a₁ + 19d = 80."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sq02_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.INDUCTION.2",
+    "F-BF.A.2",
+    "F-LE.A.2",
+    "A-SSE.B.4"
+   ],
+   "options": [
+    {
+     "text": "81",
+     "correct": false
+    },
+    {
+     "text": "79",
+     "correct": false
+    },
+    {
+     "text": "80",
+     "correct": true
+    },
+    {
+     "text": "82",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-sq-s04-honors-d01",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find F₁ + F₃ + F₅ + … + F_15 (F₁ = F₂ = 1).",
+   "answer": "987",
+   "solutionSteps": [
+    "Each odd-index term can be rewritten as F_(2i+1) = F_(2i+2) − F_(2i), so the sum telescopes.",
+    "F₁ + F₃ + … + F_15 = F_16.",
+    "F_16 = 987."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sq04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.INDUCTION.4",
+    "F-IF.A.3"
+   ],
+   "options": [
+    {
+     "text": "988",
+     "correct": false
+    },
+    {
+     "text": "986",
+     "correct": false
+    },
+    {
+     "text": "987",
+     "correct": true
+    },
+    {
+     "text": "989",
+     "correct": false
+    }
    ]
   }
  ]

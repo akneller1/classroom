@@ -1091,7 +1091,7 @@
   {
    "id": "dm-lp-s02-honors-005",
    "skillId": "linear-programming-skill-02",
-   "level": "honors",
+   "level": "cp1",
    "format": "short-answer",
    "prompt": "The graph shows the solution region of a system with x ≥ 0 and y ≥ 0. How many corner points does the region have?",
    "answer": "3",
@@ -1099,7 +1099,7 @@
     "Count the marked corner points of the shaded region.",
     "Corners: (0, 6), (4, 2), (8, 0)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: read_region). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: read_region). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "diagram": {
     "type": "image",
     "spec": {
@@ -5026,7 +5026,7 @@
   {
    "id": "dm-lp-s03-honors-010",
    "skillId": "linear-programming-skill-03",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "How many corner points does the feasible region of 3x + 4y ≤ 8; x + 2y ≤ 19; x ≥ 0; y ≥ 0 have?",
    "answer": "3",
@@ -5034,7 +5034,7 @@
     "Corners are intersections of boundary lines that satisfy every constraint.",
     "Corners: (0, 0), (0, 2), (8/3, 0)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_vertices). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "2",
@@ -7704,91 +7704,6 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 (same template as a Support item).",
    "standards": [
     "DM.LP.3",
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-011",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 4x + 7y = 84 cross the x‑axis? Give x.",
-   "answer": "21",
-   "solutionSteps": [
-    "On the x-axis y = 0.",
-    "4x = 84, so x = 21."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.LP.2",
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-012",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 9x + 2y = 144 cross the y‑axis? Give y.",
-   "answer": "72",
-   "solutionSteps": [
-    "On the y-axis x = 0.",
-    "2y = 144, so y = 72."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.LP.2",
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s04-honors-015",
-   "skillId": "linear-programming-skill-04",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Evaluate P = 9x + 4y at the corner (4, 4).",
-   "answer": "52",
-   "solutionSteps": [
-    "Substitute x = 4, y = 4.",
-    "9·4 + 4·4 = 36 + 16 = 52."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.LP.4",
-    "A-CED.A.2"
-   ]
-  },
-  {
-   "id": "dm-lp-s03-honors-014",
-   "skillId": "linear-programming-skill-03",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Solve x + y = 10 and x − y = 0. Give the corner as (x, y).",
-   "answer": "(5, 5)",
-   "solutionSteps": [
-    "Add the equations.",
-    "Answer: (5, 5)"
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.LP.3",
-    "A-REI.D.12"
-   ]
-  },
-  {
-   "id": "dm-lp-s02-honors-015",
-   "skillId": "linear-programming-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Where does 7x + 4y = 224 cross the y‑axis? Give y.",
-   "answer": "56",
-   "solutionSteps": [
-    "On the y-axis x = 0.",
-    "4y = 224, so y = 56."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.LP.2",
     "A-REI.D.12"
    ]
   },
@@ -10649,6 +10564,150 @@
      "type": "exact-after-snap"
     }
    }
+  },
+  {
+   "id": "dm-lp-s02-honors-d01",
+   "skillId": "linear-programming-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many points (x, y) with whole-number coordinates satisfy x ≥ 0, y ≥ 0, 2x + 3y ≤ 12?",
+   "answer": "19",
+   "solutionSteps": [
+    "For each x from 0 up, count the whole-number y with 0 ≤ y ≤ (c − ax)/b.",
+    "5 + 4 + 3 + 3 + 2 + 1 + 1 = 19.",
+    "Each term counts one column of lattice points in the region."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp02_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.2",
+    "A-REI.D.12"
+   ]
+  },
+  {
+   "id": "dm-lp-s02-honors-d02",
+   "skillId": "linear-programming-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many points (x, y) with whole-number coordinates satisfy x ≥ 0, y ≥ 0, x + 2y ≤ 8?",
+   "answer": "25",
+   "solutionSteps": [
+    "For each x from 0 up, count the whole-number y with 0 ≤ y ≤ (c − ax)/b.",
+    "5 + 4 + 4 + 3 + 3 + 2 + 2 + 1 + 1 = 25.",
+    "Each term counts one column of lattice points in the region."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp02_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.2",
+    "A-REI.D.12"
+   ]
+  },
+  {
+   "id": "dm-lp-s02-honors-d03",
+   "skillId": "linear-programming-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many points (x, y) with whole-number coordinates satisfy x ≥ 0, y ≥ 0, 3x + 2y ≤ 12?",
+   "answer": "19",
+   "solutionSteps": [
+    "For each x from 0 up, count the whole-number y with 0 ≤ y ≤ (c − ax)/b.",
+    "7 + 5 + 4 + 2 + 1 = 19.",
+    "Each term counts one column of lattice points in the region."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp02_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.2",
+    "A-REI.D.12"
+   ]
+  },
+  {
+   "id": "dm-lp-s02-honors-d04",
+   "skillId": "linear-programming-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many points (x, y) with whole-number coordinates satisfy x ≥ 0, y ≥ 0, x + y ≤ 6?",
+   "answer": "28",
+   "solutionSteps": [
+    "For each x from 0 up, count the whole-number y with 0 ≤ y ≤ (c − ax)/b.",
+    "7 + 6 + 5 + 4 + 3 + 2 + 1 = 28.",
+    "Each term counts one column of lattice points in the region."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp02_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.2",
+    "A-REI.D.12"
+   ]
+  },
+  {
+   "id": "dm-lp-s03-honors-d01",
+   "skillId": "linear-programming-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many corner points does the region x + y ≤ 10, x ≤ 6, y ≤ 7, x ≥ 0, y ≥ 0 have?",
+   "answer": "5",
+   "solutionSteps": [
+    "Corners are intersections of two boundary lines that satisfy every constraint.",
+    "Corners: (0, 0), (0, 7), (3, 7), (6, 0), (6, 4).",
+    "Count: 5."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp03_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.3",
+    "A-REI.D.12"
+   ],
+   "options": [
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-lp-s03-honors-d02",
+   "skillId": "linear-programming-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many corner points does the region 2x + y ≤ 14, x + 2y ≤ 16, x ≤ 6, x ≥ 0, y ≥ 0 have?",
+   "answer": "5",
+   "solutionSteps": [
+    "Corners are intersections of two boundary lines that satisfy every constraint.",
+    "Corners: (0, 0), (0, 8), (4, 6), (6, 0), (6, 2).",
+    "Count: 5."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp03_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.3",
+    "A-REI.D.12"
+   ]
+  },
+  {
+   "id": "dm-lp-s04-honors-d01",
+   "skillId": "linear-programming-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P = 3x + 2y. The points (2, 5) and (4, y) lie on the same level line. Find y.",
+   "answer": "2",
+   "solutionSteps": [
+    "At (2, 5): P = 3·2 + 2·5 = 16.",
+    "Same level line: 3·4 + 2y = 16, so 2y = 4.",
+    "y = 2."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.LP.4",
+    "A-CED.A.2"
+   ]
   }
  ]
 }

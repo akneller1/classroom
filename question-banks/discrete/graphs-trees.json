@@ -2012,7 +2012,7 @@
   {
    "id": "dm-gr-s04-honors-001",
    "skillId": "graphs-trees-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "What is the chromatic number of the graph shown (fewest colors so that adjacent vertices differ)?",
    "answer": "5",
@@ -2020,7 +2020,7 @@
     "Find a coloring with k colors and a reason that k − 1 colors fail (for example, an odd cycle needs 3, a K₄ needs 4).",
     "χ = 5"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "4",
@@ -2054,7 +2054,7 @@
   {
    "id": "dm-gr-s04-honors-002",
    "skillId": "graphs-trees-skill-04",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "What is the chromatic number of the graph shown (fewest colors so that adjacent vertices differ)?",
    "answer": "2",
@@ -2062,7 +2062,7 @@
     "Find a coloring with k colors and a reason that k − 1 colors fail (for example, an odd cycle needs 3, a K₄ needs 4).",
     "χ = 2"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "2",
@@ -3302,7 +3302,7 @@
   {
    "id": "dm-gr-s06-honors-002",
    "skillId": "graphs-trees-skill-06",
-   "level": "honors",
+   "level": "cp1",
    "format": "multiple-choice",
    "prompt": "Does the graph shown have a Hamiltonian circuit (a cycle through every vertex exactly once)?",
    "answer": "Yes, for example A–B–C–D–A",
@@ -3310,7 +3310,7 @@
     "Search for a cycle visiting each vertex once (degree conditions alone do not decide this).",
     "Yes, for example A–B–C–D–A"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamiltonian). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py. Moved from Advanced to Standard by the Discrete Math audit 2026-11-18 follow-up (same template as a Support item).",
    "options": [
     {
      "text": "No, because some vertex has odd degree",
@@ -8672,56 +8672,6 @@
    ]
   },
   {
-   "id": "dm-gr-s01-honors-014",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "A graph has 21 edges. What is the sum of its degrees?",
-   "answer": "42",
-   "solutionSteps": [
-    "Handshake theorem: each edge adds 1 to the degree of each endpoint, so Σ deg = 2|E|.",
-    "2·21 = 42."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "options": [
-    {
-     "text": "41",
-     "correct": false
-    },
-    {
-     "text": "43",
-     "correct": false
-    },
-    {
-     "text": "44",
-     "correct": false
-    },
-    {
-     "text": "42",
-     "correct": true
-    }
-   ],
-   "standards": [
-    "DM.GRAPHS.1"
-   ]
-  },
-  {
-   "id": "dm-gr-s01-honors-015",
-   "skillId": "graphs-trees-skill-01",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In K_18, what is the degree of each vertex?",
-   "answer": "17",
-   "solutionSteps": [
-    "Each vertex is joined to every other vertex.",
-    "Degree = 18 − 1 = 17."
-   ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
-   "standards": [
-    "DM.GRAPHS.1"
-   ]
-  },
-  {
    "id": "dm-gr-s03-honors-017",
    "skillId": "graphs-trees-skill-03",
    "level": "honors",
@@ -8735,6 +8685,165 @@
    "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
    "standards": [
     "DM.GRAPHS.3"
+   ]
+  },
+  {
+   "id": "dm-gr-s01-honors-d01",
+   "skillId": "graphs-trees-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A graph has 3 vertices of degree 4, 5 vertices of degree 2. How many edges?",
+   "answer": "11",
+   "solutionSteps": [
+    "Handshake theorem: the degree sum is twice the number of edges.",
+    "Degree sum: 3·4 + 5·2 = 22.",
+    "Edges: 22/2 = 11."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gr01_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.GRAPHS.1"
+   ],
+   "options": [
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": true
+    },
+    {
+     "text": "13",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-gr-s01-honors-d02",
+   "skillId": "graphs-trees-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A graph has 2 vertices of degree 5, 4 vertices of degree 3, 2 vertices of degree 1. How many edges?",
+   "answer": "12",
+   "solutionSteps": [
+    "Handshake theorem: the degree sum is twice the number of edges.",
+    "Degree sum: 2·5 + 4·3 + 2·1 = 24.",
+    "Edges: 24/2 = 12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gr01_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.GRAPHS.1"
+   ]
+  },
+  {
+   "id": "dm-gr-s04-honors-d01",
+   "skillId": "graphs-trees-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A wheel graph has a hub joined to every vertex of a 5-cycle. What is its chromatic number?",
+   "answer": "4",
+   "solutionSteps": [
+    "The hub is adjacent to every rim vertex, so it needs a color of its own.",
+    "The rim is a 5-cycle: odd, so 3 colors.",
+    "Total: 4 colors."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gr04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.GRAPHS.4",
+    "MP.4"
+   ],
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "dm-gr-s04-honors-d02",
+   "skillId": "graphs-trees-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A wheel graph has a hub joined to every vertex of a 6-cycle. What is its chromatic number?",
+   "answer": "3",
+   "solutionSteps": [
+    "The hub is adjacent to every rim vertex, so it needs a color of its own.",
+    "The rim is a 6-cycle: even, so 2 colors.",
+    "Total: 3 colors."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gr04_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.GRAPHS.4",
+    "MP.4"
+   ],
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "dm-gr-s06-honors-d01",
+   "skillId": "graphs-trees-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Does K_4,6 have an Euler circuit?",
+   "answer": "Yes: every degree is even",
+   "solutionSteps": [
+    "In K_4,6 each of the 4 vertices has degree 6 and each of the 6 vertices has degree 4.",
+    "A connected graph has an Euler circuit exactly when every degree is even.",
+    "Yes: every degree is even."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: gr06_adv). Discrete Math audit 2026-11-18 follow-up (tools/discrete-audit-20261118/batch_d.py): multi-step Advanced item; answer computed by the script.",
+   "standards": [
+    "DM.GRAPHS.6"
+   ],
+   "options": [
+    {
+     "text": "No: some vertices have odd degree",
+     "correct": false
+    },
+    {
+     "text": "Yes: it is connected",
+     "correct": false
+    },
+    {
+     "text": "Yes: every degree is even",
+     "correct": true
+    },
+    {
+     "text": "No: bipartite graphs never have Euler circuits",
+     "correct": false
+    }
    ]
   }
  ]
