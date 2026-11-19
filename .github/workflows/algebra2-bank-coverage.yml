@@ -39,8 +39,10 @@ on:
       - 'scripts/test-classroom-presentation.cjs'
       - '.github/workflows/algebra2-bank-coverage.yml'
   workflow_dispatch:
+# One run at a time per branch: a newer push to the same branch cancels the older run, but a feature branch no
+# longer cancels the run on main (only main's runs push refreshed preview images, and they rebase before pushing).
 concurrency:
-  group: classroom-activity-parity
+  group: classroom-activity-parity-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:

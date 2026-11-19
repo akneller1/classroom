@@ -48,4 +48,4 @@
 var params=new URLSearchParams(location.search),game=params.get('game')||'flashcards';
 var target=new URL(['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html',location.href);
 params.forEach(function(value,key){target.searchParams.set(key,value);});target.searchParams.set('course','algebra2');target.searchParams.set('unit',params.get('unit')||'functions-transformations');target.searchParams.set('game',game);location.replace(target.href);
-</script><script src="core/math-display.js?v=worksheet-layout-20261111"></script></body></html>
+</script><script src="core/math-display.js?v=cal-audit-20261118"></script></body></html>
