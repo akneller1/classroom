@@ -43,7 +43,7 @@ for (const course of ['math6', 'prealgebra']) for (const q of bank(course)) {
   if (q.format !== 'short-answer' || typeof q.answer !== 'string' || P.bankAnswer(q.answer) === null || /^\d*√/.test(q.answer)) continue;
   assert.equal(g(q.answer, q.answer, q.prompt), 'correct', q.id + ' key grades itself correct: ' + q.answer);
 }
-assert.match(rd('worksheet-generator/practice-test.html'), /practice\/grading\.js\?v=g7-audit-20261119/);
+assert.match(rd('worksheet-generator/practice-test.html'), /practice\/grading\.js\?v=g[67]-audit-20261119/);
 
 // #20 text
 for (const q of all) {

@@ -158,7 +158,59 @@ function grade7(answer,typed,prompt){
  return null;
 }
 function grade7Supports(answer){if(typeof answer!=='string')return false;if(repeatingKey(answer)||inequalityKey(answer))return true;if(hasMixed(answer))return API.bankAnswer(improper(answer))!==null;return false;}
+/* Grade 6 audit #1 (2026-11-19): short answers that used to be self-checked.
+   - "Quadrant IV", "x-axis", "origin": IV, 4, Q4 and "quadrant 4" are accepted.
+   - Comparison symbols for "Compare using <, >, or =": the symbol, or the words "less than", "greater than", "equal".
+   - A named choice that appears in the prompt ("Mix A", "Town B"): the same name, any case.
+   - Equations in letters ("c = 12n", "11n = 605", "k - 13 = 83"): any equation whose two sides differ by the same
+     expression, so 12n = c and c = n × 12 match c = 12n; an equation scaled by a number is a different equation.
+   - Expressions: for "Write an expression" any equivalent expression; for "Simplify" or "Use the Distributive Property"
+     the typed answer must be equivalent AND simplified (no parentheses, one term per variable and one constant).
+   - Compound answers "-10 < -9; the diver" and "Femi, $20": each part is graded, in order. */
+var ROMAN={i:1,ii:2,iii:3,iv:4,'1':1,'2':2,'3':3,'4':4};
+function quadrant(s){var t=String(s||'').toLowerCase().replace(/[−–]/g,'-').replace(/\s+/g,' ').trim();if(/^(the )?origin$/.test(t))return 'origin';if(/^(the )?x[- ]?axis$/.test(t))return 'x-axis';if(/^(the )?y[- ]?axis$/.test(t))return 'y-axis';var m=/^(?:quadrant|q)? ?(iv|iii|ii|i|[1-4])$/.exec(t);return m?'Q'+ROMAN[m[1]]:null;}
+function symbolWord(s){var t=String(s||'').trim().toLowerCase();return {'<':'<','>':'>','=':'=','less than':'<','is less than':'<','greater than':'>','is greater than':'>','equal':'=','equals':'=','equal to':'=','is equal to':'='}[t]||null;}
+function label(s){return String(s||'').toLowerCase().replace(/^the\s+/,'').replace(/\s+/g,' ').trim();}
+function isLabel(answer,prompt){return /^[A-Z][a-z]+(?: [A-Z0-9])?$|^[A-Z]$/.test(answer)&&new RegExp('\\b'+answer.replace(/\s+/g,'\\s+')+'\\b').test(prompt||'');}
+function letterEq(s){var t=normalize(String(s||'')).replace(/×|\*/g,'*');var m=/^([^=<>]+)=([^=<>]+)$/.exec(t);return m&&/[a-zA-Z]/.test(t)&&!/\\/.test(t)?[m[1].trim(),m[2].trim()]:null;}
+function simplified(t){t=String(t).replace(/\s+/g,'');if(/[()]/.test(t))return false;var terms=t.replace(/^\+/,'').split(/(?=[+-])/).filter(Boolean),seen={},consts=0;for(var i=0;i<terms.length;i++){var v=terms[i].replace(/[^a-z]/gi,'');if(!v){if(++consts>1)return false;}else{if(seen[v])return false;seen[v]=1;}}return true;}
+function numCmp(s){var m=/^\s*(-?[\d.]+(?:\/\d+)?)\s*(<=|>=|<|>|≤|≥|=)\s*(-?[\d.]+(?:\/\d+)?)\s*$/.exec(String(s||'').replace(/[−–]/g,'-').replace(/\$/g,''));return m?[rational(m[1]),m[2].replace('<=','≤').replace('>=','≥'),rational(m[3])]:null;}
+/* Grade 6 and Grade 7 practice tests only (Grade 6 audit #1): an equivalent expression or equation is not always the
+   answer in later courses (vertex form, function notation), and 8th Grade Math has its own grader (grade8-grading.js),
+   which requires the setup equation ("33 + 20c = 133", not "20c = 100"). practice.js sets MK_PRACTICE_COURSE; tests that
+   load the graders without it get this grader. */
+function grade6On(){return !G.MK_PRACTICE_COURSE||G.MK_PRACTICE_COURSE==='math6'||G.MK_PRACTICE_COURSE==='prealgebra7';}
+function grade6Kind(answer,prompt){
+ if(typeof answer!=='string'||!C||!grade6On())return null;
+ var a=answer.trim();
+ if(/[a-zA-Z]\s*\(/.test(a)&&!/^\s*\(/.test(a)&&/[a-zA-Z]\s*\([^)]*\)\s*[=<>]|=\s*[a-zA-Z]\s*\(/.test(a))return null;   // function notation (T(2) = 61, f(-x) = f(x)) is not a product
+ if(quadrant(a)&&/quadrant|where is the point/i.test(prompt||''))return 'quadrant';
+ if(/^[<>=]$/.test(a)&&/compare using/i.test(prompt||''))return 'symbol';
+ if(isLabel(a,prompt))return 'label';
+ var parts=a.split(/\s*;\s*/);
+ if(parts.length===2&&numCmp(parts[0])&&/^(?:the )?[A-Za-z]+(?: [A-Z])?$/.test(parts[1]))return 'cmp-label';
+ if(/^[A-Z][a-z]+, \$\d+(?:\.\d\d)?$/.test(a))return 'name-amount';
+ var e=/^[\da-z\s+\-*/().=×]+$/i.test(a)&&!/^\s*[a-z]\s*=\s*-?[\d.\/\s]+$/i.test(a)&&!/^\s*y\s*=/i.test(a)&&!/[a-z]{2}/i.test(a)?letterEq(a):null;if(e){try{C.parseExpr(e[0]);C.parseExpr(e[1]);return 'equation';}catch(x){return null;}}
+ if(/[a-z]/i.test(a)&&!/[a-z]{2}/i.test(a)&&!/\bi\b|[a-z]\s*\(/i.test(a)&&!/[=<>;,]/.test(a)&&/^[\d\sa-z+\-*/().×÷]+$/i.test(a)&&/\b(?:write an? (?:algebraic )?expression|simplify|distributive property)\b/i.test(prompt||'')){try{C.parseExpr(normalize(a));return 'expression';}catch(x){return null;}}
+ return null;
+}
+function grade6(answer,typed,prompt){
+ var kind=grade6Kind(answer,prompt);if(!kind)return null;
+ var t=String(typed==null?'':typed).trim();if(!t)return {status:'empty'};
+ if(t.length>180)return {status:'invalid',message:'Enter only your final answer (180 characters maximum).'};
+ try{
+  if(kind==='quadrant'){var q=quadrant(t);return q?{status:q===quadrant(answer)?'correct':'incorrect'}:{status:'invalid',message:'Name the quadrant, such as Quadrant II, or say x-axis, y-axis or origin.'};}
+  if(kind==='symbol'){var y=symbolWord(t);return y?{status:y===answer.trim()?'correct':'incorrect'}:{status:'invalid',message:'Enter <, > or =.'};}
+  if(kind==='label')return {status:label(t)===label(answer)?'correct':'incorrect'};
+  if(kind==='name-amount'){var p=t.split(/\s*[,;]\s*|\s+by\s+|\s+and\s+/);if(p.length!==2)return {status:'invalid',message:'Give the name and the amount, separated by a comma, such as Kai, $5.'};var k=answer.split(/,\s*/);return {status:label(p[0])===label(k[0])&&rational(p[1].replace(/\$/g,'')).eq(rational(k[1].replace(/\$/g,'')))?'correct':'incorrect'};}
+  if(kind==='cmp-label'){var tp=t.split(/\s*;\s*|\s*,\s*(?=[a-z])/i);if(tp.length!==2)return {status:'invalid',message:'Write the inequality, then a semicolon, then the answer to the question, such as -4 < 2; Town B.'};var ka=answer.split(/\s*;\s*/),kc=numCmp(ka[0]),tc=numCmp(tp[0]);if(!tc)return {status:'invalid',message:'Write the inequality with the two numbers, such as -4 < 2.'};var sameOp=function(a,b){return a.replace('≤','<').replace('≥','>')===b.replace('≤','<').replace('≥','>');};return {status:kc[0].eq(tc[0])&&kc[2].eq(tc[2])&&sameOp(kc[1],tc[1])&&label(tp[1])===label(ka[1])?'correct':'incorrect'};}
+  if(kind==='equation'){var ke=letterEq(answer),te=letterEq(t);if(!te)return {status:'invalid',message:'Enter an equation with an equals sign, such as c = 12n.'};var kd='('+ke[0]+')-('+ke[1]+')',td='('+te[0]+')-('+te[1]+')';return {status:C.equivalent(kd,td)||C.equivalent(kd,'-('+td+')')?'correct':'incorrect'};}
+  if(kind==='expression'){var n=normalize(t).replace(/×/g,'*').replace(/÷/g,'/');if(/[=<>]/.test(n))return {status:'invalid',message:'Enter an expression without an equals sign.'};var ok=C.equivalent(normalize(answer),n);if(ok&&/\b(?:simplify|distributive property)\b/i.test(prompt||'')&&simplified(normalize(answer))&&!simplified(n))return {status:'invalid',message:'Simplify completely: multiply out and combine like terms.'};return {status:ok?'correct':'incorrect'};}
+ }catch(e){return {status:'invalid',message:'Answer format could not be read.'};}
+ return null;
+}
 function gradeBank(answer,typed,prompt){
+ var g6=grade6(answer,typed,prompt);if(g6)return g6;
  var g7=grade7(answer,typed,prompt);if(g7)return g7;
  if(gr8On()&&typeof answer==='string'){if(G.MKGRADE8.preferred(answer,prompt))return G.MKGRADE8.grade(answer,typed,prompt);typed=G.MKGRADE8.normalizeTyped(typed);}
  if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
@@ -167,5 +219,5 @@ function gradeBank(answer,typed,prompt){
  var input=bankCore(typed).text;
  return grade({parts:[{answer:key}]},input);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
 })(window);

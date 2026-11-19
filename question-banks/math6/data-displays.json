@@ -2964,14 +2964,14 @@
    "skillId": "data-displays-skill-03",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the mode of the data: 20, 1, 23, 15, 16, 3, 22, 20\nPriya's answer: 20\nIdentify the mistake and give the correct answer.",
+   "prompt": "Priya answered this problem incorrectly.\nFind the mode of the data: 20, 1, 23, 15, 16, 3, 22, 20\nPriya's answer: 18\nIdentify the mistake and give the correct answer.",
    "answer": "20",
    "solutionSteps": [
-    "Mistake: Gave the median.",
+    "Mistake: Gave the median (the mean of the middle values 16 and 20).",
     "Order the data: 1, 3, 15, 16, 20, 20, 22, 23.",
     "Find the value that occurs most often.",
     "The mode is 20.",
-    "The correct answer is 20, not 20."
+    "The correct answer is 20, not 18."
    ],
    "standards": [
     "6.SP.B.5c"
@@ -6372,8 +6372,8 @@
     "Team A has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6416,7 +6416,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6433,8 +6433,8 @@
     "Difference = 6 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6469,8 +6469,8 @@
     "Team A has the greater range."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6513,7 +6513,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6548,8 +6548,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6584,8 +6584,8 @@
     "Team B has the greater range."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6602,8 +6602,8 @@
     "Difference = 4 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6620,8 +6620,8 @@
     "Difference = 1 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6638,8 +6638,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6656,8 +6656,8 @@
     "Difference = 4 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6674,8 +6674,8 @@
     "Difference = 7 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6692,8 +6692,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6712,8 +6712,7 @@
     "The correct answer is 16.9, not 10.8."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s3_statc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6732,8 +6731,7 @@
     "The correct answer is 36, not 14.5."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6752,8 +6750,7 @@
     "The correct answer is 41, not 33."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6788,8 +6785,8 @@
     "Team B has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6832,7 +6829,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6849,8 +6846,8 @@
     "Difference = 4 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6885,8 +6882,8 @@
     "Team A has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6929,7 +6926,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -6964,8 +6961,8 @@
     "Difference = 7 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7000,8 +6997,8 @@
     "Team B has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7018,8 +7015,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7036,8 +7033,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7054,8 +7051,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7072,8 +7069,8 @@
     "Difference = 1 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7090,8 +7087,8 @@
     "Difference = 4 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7108,8 +7105,8 @@
     "Difference = 6 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7118,18 +7115,17 @@
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Ben answered this problem incorrectly.\nFind the mode of the data: 3.1, 19.4, 3.3, 3.4, 13.4, 6.4, 19.4\nBen's answer: 19.4\nIdentify the mistake and give the correct answer.",
-   "answer": "19.4",
+   "prompt": "Ben answered this problem incorrectly.\nFind the mode of the data: 3.1, 19.4, 3.3, 3.4, 13.4, 6.4, 3.4\nBen's answer: 19.4\nIdentify the mistake and give the correct answer.",
+   "answer": "3.4",
    "solutionSteps": [
     "Mistake: Gave the greatest value.",
-    "Order the data: 3.1, 3.3, 3.4, 6.4, 13.4, 19.4, 19.4.",
+    "Order the data: 3.1, 3.3, 3.4, 3.4, 6.4, 13.4, 19.4.",
     "Find the value that occurs most often.",
-    "The mode is 19.4.",
-    "The correct answer is 19.4, not 19.4."
+    "The mode is 3.4.",
+    "The correct answer is 3.4, not 19.4."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s3_statc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7148,8 +7144,7 @@
     "The correct answer is 32, not 40."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7168,8 +7163,7 @@
     "The correct answer is 31.5, not 48."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7204,8 +7198,8 @@
     "Team B has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7248,7 +7242,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7265,8 +7259,8 @@
     "Difference = 3 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7301,8 +7295,8 @@
     "Team A has the greater median."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7345,7 +7339,7 @@
    },
    "standards": [
     "6.SP.B.4",
-    "7.SP.B.3"
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7380,8 +7374,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7416,8 +7410,8 @@
     "Team B has the greater range."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7434,8 +7428,8 @@
     "Difference = 1 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7452,8 +7446,8 @@
     "Difference = 6 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7470,8 +7464,8 @@
     "Difference = 2 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7488,8 +7482,8 @@
     "Difference = 7 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7506,8 +7500,8 @@
     "Difference = 3 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7524,8 +7518,8 @@
     "Difference = 11 cm."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c",
+    "7.SP.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7544,8 +7538,7 @@
     "The correct answer is 78.5, not 100."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s3_statc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7564,8 +7557,7 @@
     "The correct answer is 18, not 27."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
@@ -7584,8 +7576,7 @@
     "The correct answer is 21, not 26.5."
    ],
    "standards": [
-    "6.SP.B.4",
-    "7.SP.B.3"
+    "6.SP.B.5c"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s2_summaryc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },

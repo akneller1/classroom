@@ -350,15 +350,15 @@
    "skillId": "fractions-decimals-operations-skill-01",
    "level": "cp2",
    "format": "short-answer",
-   "prompt": "Ava answered this problem incorrectly.\nDivide. Write the answer in simplest form: 3/4 ÷ 1/2\nAva's answer: 1 1/2\nIdentify the mistake and give the correct answer.",
+   "prompt": "Ava answered this problem incorrectly.\nDivide. Write the answer in simplest form: 3/4 ÷ 1/2\nAva's answer: 3/8\nIdentify the mistake and give the correct answer.",
    "answer": "1 1/2",
    "solutionSteps": [
-    "Mistake: Divided numerators and denominators separately.",
+    "Mistake: Multiplied by 1/2 instead of by its reciprocal.",
     "Keep 3/4, change ÷ to ×, and use the reciprocal of 1/2: 2.",
     "3/4 × 2 = 3/2.",
     "Simplify (rename as a mixed number if needed).",
     "Answer: 1 1/2.",
-    "The correct answer is 1 1/2, not 1 1/2."
+    "The correct answer is 1 1/2, not 3/8."
    ],
    "standards": [
     "6.NS.A.1"
@@ -1804,12 +1804,12 @@
    "level": "cp1",
    "format": "short-answer",
    "prompt": "Carmen has 10 cups of trail mix. Each bag holds 3/8 cup. How many bags can Carmen fill?",
-   "answer": "26 2/3",
+   "answer": "26",
    "solutionSteps": [
     "Keep 10, change ÷ to ×, and use the reciprocal of 3/8: 8/3.",
-    "10 × 8/3 = 80/3.",
-    "Simplify (rename as a mixed number if needed).",
-    "Answer: 26 2/3."
+    "10 × 8/3 = 80/3 = 26 2/3.",
+    "Only full bags count, so Carmen can fill 26 bags (with 2/3 of a bag of trail mix left over).",
+    "Answer: 26."
    ],
    "standards": [
     "6.NS.A.1"
