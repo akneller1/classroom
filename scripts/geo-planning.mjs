@@ -15,9 +15,11 @@ const STD = require(path.join(ROOT, "worksheet-generator/menu/standards.js"));
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const list = (items) => `<ul class="mk-skills">\n${items.map((x) => `<li>${x}</li>`).join("\n")}\n</ul>\n`;
 
+// The site folder the planning data is read from: the repository, or (Grade 4 pacing) the assembled site at deploy.
+let BASE = ROOT;
 function win(rel) {
   const w = {}; w.window = w;
-  vm.runInContext(fs.readFileSync(path.join(ROOT, rel), "utf8"), vm.createContext({ window: w, globalThis: w }), { filename: rel });
+  vm.runInContext(fs.readFileSync(path.join(BASE, rel), "utf8"), vm.createContext({ window: w, globalThis: w }), { filename: rel });
   return w;
 }
 /* Algebra 2 (2026-11-17, Algebra 2 audit #3): the planner builds its lesson sequence in scope-algebra2.js from the
@@ -33,8 +35,8 @@ function win(rel) {
 function bankScope(course, prefix, opts = {}) {
   const w = { console, Math, Date, JSON }; w.window = w; w.globalThis = w; vm.createContext(w);
   for (const rel of ["data.js", "course-catalog.js", "worksheet-generator/menu/standards.js", "worksheet-generator/menu/standards-map.js",
-    "worksheet-generator/planner/notes-teach-" + course + ".js", "worksheet-generator/planner/scope-algebra2.js"])
-    if (fs.existsSync(path.join(ROOT, rel))) vm.runInContext(fs.readFileSync(path.join(ROOT, rel), "utf8"), w, { filename: rel });
+    ...(opts.extra || []), "worksheet-generator/planner/notes-teach-" + course + ".js", "worksheet-generator/planner/scope-algebra2.js"])
+    if (fs.existsSync(path.join(BASE, rel))) vm.runInContext(fs.readFileSync(path.join(BASE, rel), "utf8"), w, { filename: rel });
   const KEY = course.toUpperCase();
   const base = w["MKPLAN_SCOPE_" + KEY], lessonsMap = w["MKPLAN_SKILLS_" + KEY].lessons, teach = (w.MKPLAN_TEACH || {})[course] || {};
   // Extra practice days: at least one in each of the 7 longest units, and more (longest units first) when the
@@ -109,7 +111,7 @@ function bankScope(course, prefix, opts = {}) {
   }
   const C = w.MK_COURSE_CATALOG;
   for (const u of w.LIBRARY.courses.find((c) => c.id === course).units) for (const sk of C.getSkillRecords(course, u.id)) names[course + "-" + u.id + "/" + sk.id] = { name: sk.name, unit: u.name };
-  return { scope: { meta: base.meta, units, days }, ideas, names };
+  return { scope: { meta: base.meta, units, days }, ideas, names, stdSkills: opts.extra ? w.MKSTD_SKILLS : null };
 }
 
 /* Per-course sources (Algebra 1 joined 2026-11-17, audit #8 and #9; Algebra 2 joined 2026-11-17, Algebra 2 audit #3). */
@@ -129,14 +131,14 @@ const COURSES = {
      algebra) follows the test. The coverage table lists every Grade 7 and Grade 8 standard. */
   prealgebra7: { name: "Pre-Algebra (Grade 7)", load: () => bankScope("prealgebra7", "PA7", { mcas: { compact: true, afterUnit: 12, review: 6, testing: 2, flex: 4,
     titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
-    sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true },
+    sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true, mcasCol: true },
   /* 6th Grade Math (2026-11-19, Grade 6 audit #13): the seven units in order, with the spring Grade 6 MCAS after Data
      Displays (the last unit), so every Grade 6 standard is taught first. Six review days use the two Grade 6 practice tests
      and the reference sheet; the remaining days are extra practice before each unit test, then a final review. */
   math6: { name: "6th Grade Math", load: () => bankScope("math6", "M6", { mcas: { grade: 6, afterUnit: 7, review: 6, testing: 2,
     post: { days: 21, titles: ["Grade 7 preview: integer operations", "Grade 7 preview: proportional relationships", "Grade 7 preview: two-step equations", "Ratio and percent project", "Geometry design project", "Statistics survey project", "Fluency and spiral review"] },
     titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
-    sets: /^math6-/, page: "grade-6-pacing/", framework: "Massachusetts Grade 6 mathematics", bank: true, mcas: 6 },
+    sets: /^math6-/, page: "grade-6-pacing/", framework: "Massachusetts Grade 6 mathematics", bank: true, mcas: 6, mcasCol: true },
   /* Statistics (2026-11-18, Statistics audit #5): an AP course like Calculus. The four course units cover the five units of
      the AP Statistics framework effective fall 2026; new content ends about mid-April, AP review and the two practice exams
      run to the exam in May, and the four Statistics projects fill the weeks after it. */
@@ -157,7 +159,7 @@ function data(course = "geometry") {
   const C = COURSES[course];
   if (C.load) {
     const got = C.load();
-    const stdSkills = win("worksheet-generator/menu/standards-map.js").MKSTD_SKILLS || {};
+    const stdSkills = { ...(win("worksheet-generator/menu/standards-map.js").MKSTD_SKILLS || {}), ...(got.stdSkills || {}) };
     return (cache[course] = { C, scope: got.scope, notes: { ideas: got.ideas }, stdSkills, names: got.names });
   }
   const scope = JSON.parse(fs.readFileSync(path.join(ROOT, C.scope), "utf8"));
@@ -243,22 +245,22 @@ const ALL_STATISTICS = [["APSTATS.1.1.A"], ["APSTATS.1.1.B"], ["APSTATS.1.2.A"],
 // 6th Grade Math (Grade 6 audit #13, 2026-11-19): every Common Core Grade 6 standard at its finest level.
 const ALL_MATH6 = "6.RP.A.1 6.RP.A.2 6.RP.A.3a 6.RP.A.3b 6.RP.A.3c 6.RP.A.3d 6.NS.A.1 6.NS.B.2 6.NS.B.3 6.NS.B.4 6.NS.C.5 6.NS.C.6a 6.NS.C.6b 6.NS.C.6c 6.NS.C.7a 6.NS.C.7b 6.NS.C.7c 6.NS.C.7d 6.NS.C.8 6.EE.A.1 6.EE.A.2a 6.EE.A.2b 6.EE.A.2c 6.EE.A.3 6.EE.A.4 6.EE.B.5 6.EE.B.6 6.EE.B.7 6.EE.B.8 6.EE.C.9 6.G.A.1 6.G.A.2 6.G.A.3 6.G.A.4 6.SP.A.1 6.SP.A.2 6.SP.A.3 6.SP.B.4 6.SP.B.5a 6.SP.B.5b 6.SP.B.5c 6.SP.B.5d".split(" ").map((c) => [c]);
 export function geoPacingMain(course = "geometry", unitHref) {
-  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, statistics: ALL_STATISTICS, math6: ALL_MATH6, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || ALL_GEOMETRY;
+  const { scope, stdSkills, names, C } = data(course), ALL = { algebra2: ALL_ALGEBRA2, precalculus: ALL_PRECALCULUS, algebra: ALL_ALGEBRA, calculus: ALL_CALCULUS, statistics: ALL_STATISTICS, math6: ALL_MATH6, prealgebra: ALL_GRADE8, discrete: discreteStandards(stdSkills), prealgebra7: ALL_PREALGEBRA7 }[course] || C.all || ALL_GEOMETRY;
   const framework = C.framework || "Common Core " + C.name, source = C.bank ? "question-bank skill" : "generator skill";
   const slug = (t) => ({ "Foundations of Geometry": "foundations-geometry", "Area, Surface Area and Volume": "area-surface-area-volume", "Right Triangles and Trigonometry": "right-triangles-trigonometry", "Quadrilaterals and Polygons": "quadrilaterals-polygons", "Angles and Parallel Lines": "angles-parallel-lines" }[t] || t.toLowerCase().replace(/ /g, "-"));
   const href = unitHref || ((t) => "../u/geometry/" + slug(t) + "/");
   const wk = (d) => Math.ceil(d / 5);
   let h = `<h1>${esc(C.name)} Pacing Guide and Standards Coverage</h1>
 <p class="lede">A 180-day full-year plan in two semesters, a compressed one-semester (90-day block) plan, and a table showing which ${source}s practice each ${C.ap ? esc(C.apName || "AP Calculus AB") + " learning objective" : esc(framework) + " standard"}. Every lesson has a ready plan in the Lesson Planner.</p>
-${C.ap ? `<p>The year is built around the ${esc(C.apName || "AP Calculus AB")} exam in May: new content ends about mid-April, ${C.apName ? "AP review and practice exams" : "the AP Review unit and practice exams"} fill the weeks before the exam, and the weeks after it go to the course projects. ${C.apNote ? esc(C.apNote) : "Euler’s method (Differential Equations) is a BC topic and can be skipped in an AB-only class."}</p>\n` : ""}${C.mcas === 6 ? `<p>The year is built around the spring Grade 6 MCAS. All seven units come first, so every Grade 6 standard is taught before the test; six review days use the two cumulative Grade 6 practice tests and the Grade 6 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 6/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 6/.test(d.title)).pop() || {}).day}; check your district’s testing window). The weeks after the test are Grade 7 previews, three projects and the final review. Lessons marked (extension) also practice a Grade 7 standard; the last column lists those Grade 7 standards.</p>\n` : C.mcas ? `<p>The year is built around the spring Grade 7 MCAS. Units 1–12 come first, so every Grade 7 standard is taught before the test; six review days use the two cumulative practice tests and the Grade 7 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 7/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 7/.test(d.title)).pop() || {}).day}; check your district’s testing window). Unit 13, high-school algebra, follows the test. Review skills (Grade 6 and earlier standards) are taught two to a day; the last column lists the Grade 7 and Grade 8 standards each unit practices.</p>\n` : ""}<p><a href="#year">Full year</a> · <a href="#block">One-semester block</a> · <a href="#standards">Standards coverage</a></p>
+${C.ap ? `<p>The year is built around the ${esc(C.apName || "AP Calculus AB")} exam in May: new content ends about mid-April, ${C.apName ? "AP review and practice exams" : "the AP Review unit and practice exams"} fill the weeks before the exam, and the weeks after it go to the course projects. ${C.apNote ? esc(C.apNote) : "Euler’s method (Differential Equations) is a BC topic and can be skipped in an AB-only class."}</p>\n` : ""}${C.intro ? `<p>${C.intro(scope)}</p>\n` : ""}${C.intro ? "" : C.mcas === 6 ? `<p>The year is built around the spring Grade 6 MCAS. All seven units come first, so every Grade 6 standard is taught before the test; six review days use the two cumulative Grade 6 practice tests and the Grade 6 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 6/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 6/.test(d.title)).pop() || {}).day}; check your district’s testing window). The weeks after the test are Grade 7 previews, three projects and the final review. Lessons marked (extension) also practice a Grade 7 standard; the last column lists those Grade 7 standards.</p>\n` : C.mcas ? `<p>The year is built around the spring Grade 7 MCAS. Units 1–12 come first, so every Grade 7 standard is taught before the test; six review days use the two cumulative practice tests and the Grade 7 reference sheet, then come the two testing sessions (about days ${(scope.days.find((d) => /^MCAS Grade 7/.test(d.title)) || {}).day}–${(scope.days.filter((d) => /^MCAS Grade 7/.test(d.title)).pop() || {}).day}; check your district’s testing window). Unit 13, high-school algebra, follows the test. Review skills (Grade 6 and earlier standards) are taught two to a day; the last column lists the Grade 7 and Grade 8 standards each unit practices.</p>\n` : ""}<p><a href="#year">Full year</a> · <a href="#block">One-semester block</a> · <a href="#standards">Standards coverage</a></p>
 <h2 id="year">Full year (180 days, 36 weeks)</h2>
-${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><th>Days</th><th>Weeks</th><th>Lessons</th>${C.mcas ? (C.mcas === 6 ? "<th>Grade 7 extension standards</th>" : "<th>Grade 7 and 8 standards</th>") : ""}</tr></thead><tbody>
+${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><th>Days</th><th>Weeks</th><th>Lessons</th>${C.mcasCol ? (C.mcas === 6 ? "<th>Grade 7 extension standards</th>" : "<th>Grade 7 and 8 standards</th>") : ""}</tr></thead><tbody>
 `;
-  const cols = C.mcas ? 5 : 4;
+  const cols = C.mcasCol ? 5 : 4;
   const row = (u) => {
     const ls = scope.days.filter((d) => d.unit === u.unit && d.day_type === "Lesson").map((d) => esc(d.title));
-    const g78 = C.mcas ? STD.sort([...new Set(STD.content(STD.split(scope.days.filter((d) => d.unit === u.unit && d.day_type === "Lesson").map((d) => d.standards).join(", "))).filter((c) => /^[78]\./.test(c)))]) : [];
-    return `<tr><td><a href="${href(u.title)}">Unit ${u.unit}: ${esc(u.title)}</a></td><td>${u.start_day}–${u.end_day} (${u.total_days})</td><td>${wk(u.start_day)}–${wk(u.end_day)}</td><td>${ls.join("; ")}</td>${C.mcas ? `<td>${g78.length ? esc(g78.join(", ")) : "—"}</td>` : ""}</tr>\n`;
+    const g78 = C.mcasCol ? STD.sort([...new Set(STD.content(STD.split(scope.days.filter((d) => d.unit === u.unit && d.day_type === "Lesson").map((d) => d.standards).join(", "))).filter((c) => /^[78]\./.test(c)))]) : [];
+    return `<tr><td><a href="${href(u.title)}">Unit ${u.unit}: ${esc(u.title)}</a></td><td>${u.start_day}–${u.end_day} (${u.total_days})</td><td>${wk(u.start_day)}–${wk(u.end_day)}</td><td>${ls.join("; ")}</td>${C.mcasCol ? `<td>${g78.length ? esc(g78.join(", ")) : "—"}</td>` : ""}</tr>\n`;
   };
   const sem = scope.days.find((d) => /^Semester Exam/.test(d.title));
   for (const u of scope.units) {
@@ -287,7 +289,7 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
   let day = 1;
   for (const u of scope.units) {
     const keep = Math.ceil(u.total_days / 2); h += `<tr><td>Unit ${u.unit}: ${esc(u.title)}</td><td>${day + 1}–${day + keep} (${keep})</td></tr>\n`; day += keep;
-    if (C.mcas && u.unit === (C.mcas === 6 ? 7 : 12)) { h += `<tr><td>MCAS review and testing</td><td>${day + 1}–${day + 4} (4)</td></tr>\n`; day += 4; }
+    if (C.mcas && u.unit === (C.mcasUnit || (C.mcas === 6 ? 7 : 12))) { h += `<tr><td>MCAS review and testing</td><td>${day + 1}–${day + 4} (4)</td></tr>\n`; day += 4; }
   }
   h += `<tr><td>${C.ap ? "AP review and practice exams" : "Final review and exam"}</td><td>${day + 1}${day + 1 < 90 ? "–90" : ""}</td></tr>\n</tbody></table>\n`;
   // standards coverage
@@ -302,4 +304,34 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
   }
   h += `</tbody></table>\n<p>${ALL.length - gaps} of ${ALL.length} standards have ${C.bank ? "question-bank" : "generator"} practice.</p>\n`;
   return h;
+}
+
+/* 4th Grade Math (2026-11-19, 4th Grade Math audit #6). Grade 4 comes from a pinned FinancialAlgebra release and is
+   assembled into the site at deploy, so its pacing page is written then, from the assembled site (siteDir): the course
+   catalog bridge (grade4-main-catalog.js, which also carries the Grade 4 standards map) and the teaching notes. The
+   ten units come first, so every Grade 4 standard is taught before the spring Grade 4 MCAS; extra practice days go to
+   the longest units, six review days and the two testing sessions follow, and the weeks after the test are Grade 5
+   previews, the Grade 4 projects and the final review. Returns null when Grade 4 is not in the site. */
+const ALL_GRADE4 = "4.OA.A.1 4.OA.A.2 4.OA.A.3 4.OA.B.4 4.OA.C.5 4.NBT.A.1 4.NBT.A.2 4.NBT.A.3 4.NBT.B.4 4.NBT.B.5 4.NBT.B.6 4.NF.A.1 4.NF.A.2 4.NF.B.3.a 4.NF.B.3.b 4.NF.B.3.c 4.NF.B.3.d 4.NF.B.4.a 4.NF.B.4.b 4.NF.B.4.c 4.NF.C.5 4.NF.C.6 4.NF.C.7 4.MD.A.1 4.MD.A.2 4.MD.A.3 4.MD.B.4 4.MD.C.5.a 4.MD.C.5.b 4.MD.C.6 4.MD.C.7 4.G.A.1 4.G.A.2 4.G.A.3".split(" ").map((c) => [c]);
+export function grade4Pacing(siteDir) {
+  if (!fs.existsSync(path.join(siteDir, "grade4-main-catalog.js"))) return null;
+  const saved = BASE;
+  BASE = siteDir;
+  try {
+    COURSES.grade4 = { name: "4th Grade Math", sets: /^grade4-/, page: "grade-4-pacing/", framework: "Common Core Grade 4", bank: true, mcas: 4, mcasUnit: 10, all: ALL_GRADE4,
+      load: () => bankScope("grade4", "G4", { extra: ["grade4-main-catalog.js", "grade4/grade4-native-notes.js"], mcas: { grade: 4, afterUnit: 10, review: 6, testing: 2,
+        titles: ["Mixed practice: place value and operations", "Mixed practice: fractions and decimals", "Mixed practice: measurement and geometry", "Multi-step word problems", "Open response practice", "Targeted reteach"],
+        post: { days: 18, titles: ["Grade 5 preview: multiplying larger numbers", "Grade 5 preview: fractions with unlike denominators", "Grade 5 preview: decimals to thousandths", "Grade 4 project", "Fluency and spiral review"] } } }),
+      intro: (scope) => {
+        const t = scope.days.filter((d) => /^MCAS Grade 4/.test(d.title));
+        return `The year is built around the spring Grade 4 MCAS. All ten units come first, so every Grade 4 standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are Grade 5 previews, the Grade 4 projects and the final review.`;
+      } };
+    const bridge = fs.readFileSync(path.join(siteDir, "grade4-main-catalog.js"), "utf8").match(/var course=(\{.*?\}),skills=/s);
+    const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
+    return geoPacingMain("grade4", (title) => "../u/grade4/" + (ids[title] || "") + "/");
+  } finally {
+    BASE = saved;
+    delete COURSES.grade4;
+    delete cache.grade4;
+  }
 }

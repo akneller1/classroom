@@ -1,0 +1,1352 @@
+[
+ {
+  "id": "m4-fe-s01-cp2-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into fourths. Place the dot at the point equal to 1/2.",
+  "answer": "1/2",
+  "solutionSteps": [
+   "1/2 = 2/4 (multiply the numerator and denominator by the same number).",
+   "Count fourths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "2/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in fourths; a dot at 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s01-cp2-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place the dot at the point equal to 1/2.",
+  "answer": "1/2",
+  "solutionSteps": [
+   "1/2 = 4/8 (multiply the numerator and denominator by the same number).",
+   "Count eighths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "4/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "4/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "5/8"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-cp2-p002.png",
+    "alt": "Number line from 0 to 1 in eighths; a dot at 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s01-cp1-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place the dot at the point equal to 3/4.",
+  "answer": "3/4",
+  "solutionSteps": [
+   "3/4 = 6/8 (multiply the numerator and denominator by the same number).",
+   "Count eighths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "6/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "6/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "7/8"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-cp1-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; a dot at 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s01-cp1-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into tenths. Place the dot at the point equal to 2/5.",
+  "answer": "2/5",
+  "solutionSteps": [
+   "2/5 = 4/10 (multiply the numerator and denominator by the same number).",
+   "Count tenths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/10",
+    "labelEvery": 10,
+    "snap": "1/10"
+   },
+   "target": {
+    "values": [
+     "4/10"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "4/10"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "5/10"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-cp1-p002.png",
+    "alt": "Number line from 0 to 1 in tenths; a dot at 2/5."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s01-honors-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each point equal to 1/2 and 3/4.",
+  "answer": "1/2, 3/4",
+  "solutionSteps": [
+   "1/2 = 4/8; 3/4 = 6/8 (multiply the numerator and denominator by the same number).",
+   "Count eighths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "4/8",
+     "6/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "4/8",
+      "6/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "5/8",
+        "7/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "6/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-honors-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 1/2 and 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s01-honors-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-01",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into tenths. Place a dot at each point equal to 1/5 and 1/2.",
+  "answer": "1/5, 1/2",
+  "solutionSteps": [
+   "1/5 = 2/10; 1/2 = 5/10 (multiply the numerator and denominator by the same number).",
+   "Count tenths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe1_plot_equivalent). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/10",
+    "labelEvery": 10,
+    "snap": "1/10"
+   },
+   "target": {
+    "values": [
+     "2/10",
+     "5/10"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/10",
+      "5/10"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/10",
+        "6/10"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "5/10"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s01-honors-p002.png",
+    "alt": "Number line from 0 to 1 in tenths; dots at 1/5 and 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-cp2-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 1/4, 5/8. Then the dots show the order from least to greatest.",
+  "answer": "1/4, 5/8",
+  "solutionSteps": [
+   "In eighths: 1/4 = 2/8, 5/8 = 5/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "2/8",
+     "5/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/8",
+      "5/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/8",
+        "6/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "5/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 1/4 and 5/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-cp2-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 3/8, 1/2. Then the dots show the order from least to greatest.",
+  "answer": "3/8, 1/2",
+  "solutionSteps": [
+   "In eighths: 3/8 = 3/8, 1/2 = 4/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "3/8",
+     "4/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "3/8",
+      "4/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "4/8",
+        "5/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "4/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-cp2-p002.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 3/8 and 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-cp1-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 3/4, 5/8. Then the dots show the order from least to greatest.",
+  "answer": "5/8, 3/4",
+  "solutionSteps": [
+   "In eighths: 3/4 = 6/8, 5/8 = 5/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "5/8",
+     "6/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "5/8",
+      "6/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "6/8",
+        "7/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "6/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-cp1-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 5/8 and 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-cp1-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 1/8, 1/4. Then the dots show the order from least to greatest.",
+  "answer": "1/8, 1/4",
+  "solutionSteps": [
+   "In eighths: 1/8 = 1/8, 1/4 = 2/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "1/8",
+     "2/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "1/8",
+      "2/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "2/8",
+        "3/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "2/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-cp1-p002.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 1/8 and 1/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-honors-p001",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 3/4, 5/8, 7/8. Then the dots show the order from least to greatest.",
+  "answer": "5/8, 3/4, 7/8",
+  "solutionSteps": [
+   "In eighths: 3/4 = 6/8, 5/8 = 5/8, 7/8 = 7/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "5/8",
+     "6/8",
+     "7/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "5/8",
+      "6/8",
+      "7/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "6/8",
+        "7/8",
+        "8/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "6/8",
+        "7/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-honors-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 5/8 and 3/4 and 7/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fe-s05-honors-p002",
+  "unit": "fractions-equivalent-fractions",
+  "skillId": "fractions-equivalent-fractions-skill-05",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at each fraction: 1/2, 3/8, 1/4. Then the dots show the order from least to greatest.",
+  "answer": "1/4, 3/8, 1/2",
+  "solutionSteps": [
+   "In eighths: 1/2 = 4/8, 3/8 = 3/8, 1/4 = 2/8.",
+   "The dot farthest to the left is the least."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fe5_plot_order). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "2/8",
+     "3/8",
+     "4/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/8",
+      "3/8",
+      "4/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/8",
+        "4/8",
+        "5/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "3/8",
+        "4/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fe-s05-honors-p002.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 1/4 and 3/8 and 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s05-cp2-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-05",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into tenths. Drag the dot to 0.7.",
+  "answer": "7/10",
+  "solutionSteps": [
+   "0.7 = 7/10.",
+   "Count 7 tenths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd5_plot_decimal). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/10",
+    "labelEvery": 10,
+    "snap": "1/10"
+   },
+   "target": {
+    "values": [
+     "7/10"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "7/10"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "8/10"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s05-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in tenths; a dot at 7/10."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s05-cp1-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-05",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into tenths. Drag the dot to 0.4.",
+  "answer": "2/5",
+  "solutionSteps": [
+   "0.4 = 4/10.",
+   "Count 4 tenths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd5_plot_decimal). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/10",
+    "labelEvery": 10,
+    "snap": "1/10"
+   },
+   "target": {
+    "values": [
+     "4/10"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "4/10"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "5/10"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s05-cp1-p001.png",
+    "alt": "Number line from 0 to 1 in tenths; a dot at 2/5."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s03-cp2-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-03",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fourths. Drag the dot to 1 1/4.",
+  "answer": "1 1/4",
+  "solutionSteps": [
+   "1 1/4 = 5/4.",
+   "Count 1 whole and then 1 more fourth."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd3_plot_mixed). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "5/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "5/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "6/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s03-cp2-p001.png",
+    "alt": "Number line from 0 to 3 in fourths; a dot at 1 1/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s03-cp1-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-03",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fourths. Drag the dot to 2 3/4.",
+  "answer": "2 3/4",
+  "solutionSteps": [
+   "2 3/4 = 11/4.",
+   "Count 2 wholes and then 3 more fourths."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd3_plot_mixed). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "11/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "11/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "12/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s03-cp1-p001.png",
+    "alt": "Number line from 0 to 3 in fourths; a dot at 2 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s03-honors-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-03",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into halves. Drag the dot to 2 1/2.",
+  "answer": "2 1/2",
+  "solutionSteps": [
+   "2 1/2 = 5/2.",
+   "Count 2 wholes and then 1 more half."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd3_plot_mixed). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/2",
+    "labelEvery": 2,
+    "snap": "1/2"
+   },
+   "target": {
+    "values": [
+     "5/2"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "5/2"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "6/2"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s03-honors-p001.png",
+    "alt": "Number line from 0 to 3 in halves; a dot at 2 1/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s02-cp2-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-02",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Start at 3/8 and jump 2/8 more. The number line from 0 to 1 is split into eighths. Drag the dot to where you land.",
+  "answer": "5/8",
+  "solutionSteps": [
+   "3/8 + 2/8 = 5/8.",
+   "Count 5 eighths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd2_plot_sum). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "5/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "5/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "6/8"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s02-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; a dot at 5/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s02-cp1-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-02",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Start at 3/4 and jump 4/4 more. The number line from 0 to 2 is split into fourths. Drag the dot to where you land.",
+  "answer": "1 3/4",
+  "solutionSteps": [
+   "3/4 + 4/4 = 7/4 = 1 3/4.",
+   "Count 7 fourths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd2_plot_sum). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 2,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "7/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "7/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "8/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s02-cp1-p001.png",
+    "alt": "Number line from 0 to 2 in fourths; a dot at 1 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s02-honors-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-02",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Start at 3/5 and jump 4/5 more. The number line from 0 to 2 is split into fifths. Drag the dot to where you land.",
+  "answer": "1 2/5",
+  "solutionSteps": [
+   "3/5 + 4/5 = 7/5 = 1 2/5.",
+   "Count 7 fifths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd2_plot_sum). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 2,
+    "tick": "1/5",
+    "labelEvery": 5,
+    "snap": "1/5"
+   },
+   "target": {
+    "values": [
+     "7/5"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "7/5"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "8/5"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s02-honors-p001.png",
+    "alt": "Number line from 0 to 2 in fifths; a dot at 1 2/5."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s04-cp1-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-04",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fifths. Drag the dot to 3 × 2/5.",
+  "answer": "1 1/5",
+  "solutionSteps": [
+   "3 × 2/5 = 6/5 = 1 1/5.",
+   "Count 6 fifths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd4_plot_product). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/5",
+    "labelEvery": 5,
+    "snap": "1/5"
+   },
+   "target": {
+    "values": [
+     "6/5"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "6/5"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "7/5"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s04-cp1-p001.png",
+    "alt": "Number line from 0 to 3 in fifths; a dot at 1 1/5."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m4-fd-s04-honors-p001",
+  "unit": "fraction-operations-decimals",
+  "skillId": "fraction-operations-decimals-skill-04",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fourths. Drag the dot to 3 × 3/4.",
+  "answer": "2 1/4",
+  "solutionSteps": [
+   "3 × 3/4 = 9/4 = 2 1/4.",
+   "Count 9 fourths from 0."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: fd4_plot_product). 4th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade4-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "9/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "9/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "10/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m4-fd-s04-honors-p001.png",
+    "alt": "Number line from 0 to 3 in fourths; a dot at 2 1/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ }
+]

@@ -1,0 +1,5360 @@
+{
+ "unit": "geometry-angles-symmetry",
+ "edits": [
+  {
+   "id": "m4-ga-s01-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 13°. What type of angle is it?",
+     "to": "Two angles together make a straight angle. One is 150°. Name the type of the other angle."
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "13° is an acute angle."
+     ],
+     "to": [
+      "The other angle is 180° − 150° = 30°.",
+      "30° is less than 90°, so it is acute."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_angle_and_partner). Rewritten from a Support template (was pl_angle_type) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 21°. What type of angle is it?",
+     "to": "Two angles together make a straight angle. One is 20°. Name the type of the other angle."
+    },
+    "answer": {
+     "from": "acute",
+     "to": "obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "21° is an acute angle."
+     ],
+     "to": [
+      "The other angle is 180° − 20° = 160°.",
+      "160° is greater than 90°, so it is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_angle_and_partner). Rewritten from a Support template (was pl_angle_type) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 90°. What type of angle is it?",
+     "to": "Two angles together make a straight angle. One is 45°. Name the type of the other angle."
+    },
+    "answer": {
+     "from": "right",
+     "to": "obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "90° is a right angle."
+     ],
+     "to": [
+      "The other angle is 180° − 45° = 135°.",
+      "135° is greater than 90°, so it is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_angle_and_partner). Rewritten from a Support template (was pl_angle_type) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": true
+      },
+      {
+       "text": "straight",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 17°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 70°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "acute",
+     "to": "110°, 70°, 110°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "17° is an acute angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 70° = 110°.",
+      "Angles across from each other are equal, so the angles go 70°, 110°, 70°, 110°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "110°, 70°, 110°",
+       "correct": true
+      },
+      {
+       "text": "70°, 70°, 70°",
+       "correct": false
+      },
+      {
+       "text": "110°, 110°, 110°",
+       "correct": false
+      },
+      {
+       "text": "20°, 70°, 20°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 104°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 95°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "obtuse",
+     "to": "85°, 95°, 85°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "104° is an obtuse angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 95° = 85°.",
+      "Angles across from each other are equal, so the angles go 95°, 85°, 95°, 85°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "95°, 95°, 95°",
+       "correct": false
+      },
+      {
+       "text": "85°, 85°, 85°",
+       "correct": false
+      },
+      {
+       "text": "85°, 95°, 85°",
+       "correct": true
+      },
+      {
+       "text": "5°, 95°, 5°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 160°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 25°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "obtuse",
+     "to": "155°, 25°, 155°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "160° is an obtuse angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 25° = 155°.",
+      "Angles across from each other are equal, so the angles go 25°, 155°, 25°, 155°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "155°, 25°, 155°",
+       "correct": true
+      },
+      {
+       "text": "25°, 25°, 25°",
+       "correct": false
+      },
+      {
+       "text": "155°, 155°, 155°",
+       "correct": false
+      },
+      {
+       "text": "65°, 25°, 65°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 140°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 40°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "obtuse",
+     "to": "140°, 40°, 140°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "140° is an obtuse angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 40° = 140°.",
+      "Angles across from each other are equal, so the angles go 40°, 140°, 40°, 140°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": true
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "40°, 40°, 40°",
+       "correct": false
+      },
+      {
+       "text": "140°, 140°, 140°",
+       "correct": false
+      },
+      {
+       "text": "140°, 40°, 140°",
+       "correct": true
+      },
+      {
+       "text": "50°, 40°, 50°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 39°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 30°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "acute",
+     "to": "150°, 30°, 150°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "39° is an acute angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 30° = 150°.",
+      "Angles across from each other are equal, so the angles go 30°, 150°, 30°, 150°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "150°, 30°, 150°",
+       "correct": true
+      },
+      {
+       "text": "30°, 30°, 30°",
+       "correct": false
+      },
+      {
+       "text": "150°, 150°, 150°",
+       "correct": false
+      },
+      {
+       "text": "60°, 30°, 60°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "An angle measures 19°. What type of angle is it?",
+     "to": "Two lines cross and make four angles. One angle measures 55°. Going around the point from that angle, what are the other three angles?"
+    },
+    "answer": {
+     "from": "acute",
+     "to": "125°, 55°, 125°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Acute: less than 90°. Right: exactly 90°. Obtuse: between 90° and 180°. Straight: exactly 180°.",
+      "19° is an acute angle."
+     ],
+     "to": [
+      "Angles next to each other along a line add to 180°: 180° − 55° = 125°.",
+      "Angles across from each other are equal, so the angles go 55°, 125°, 55°, 125°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: pl_angle_type). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga1_crossing_lines). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "straight",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "125°, 55°, 125°",
+       "correct": true
+      },
+      {
+       "text": "55°, 55°, 55°",
+       "correct": false
+      },
+      {
+       "text": "125°, 125°, 125°",
+       "correct": false
+      },
+      {
+       "text": "35°, 55°, 35°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 1/6 of the full turn. What is the measure of the angle?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 20° on that scale. The inner scale reads 160° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "60°",
+     "to": "20°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 1/6 of 360.",
+      "360 ÷ 6 = 60. The angle measures 60°."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 20°, not 160°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_fraction_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "A one‑degree angle turns through 1/360 of the circle. An angle turns through 49 one‑degree angles. What is the measure of the angle?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 50° on that scale. The inner scale reads 130° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "49°",
+     "to": "50°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each one‑degree angle adds 1°.",
+      "49 one‑degree angles make 49°."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 50°, not 130°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_one_degree) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 10 to the 4. Through how many degrees does it turn?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 75° on that scale. The inner scale reads 105° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "180°",
+     "to": "75°"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 10 to the 4 is 6 parts.",
+      "6 × 30 = 180, so the hand turns 180°."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 75°, not 105°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_clock_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees greater than one right angle is an angle of 169°?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 115° on that scale. The inner scale reads 65° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "79°",
+     "to": "115°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 169 − 90 = 79.",
+      "It is 79° greater."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 115°, not 65°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_vs_right) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "How many one‑degree angles fit together, without gaps or overlaps, to make an angle of 108°?",
+     "to": "On a protractor, one ray of an angle passes through 37° and the other through 158°. What is the measure of the angle, and what type is it?"
+    },
+    "answer": {
+     "from": "108",
+     "to": "121°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "An angle of n degrees is made of n one‑degree angles.",
+      "108° is made of 108 one‑degree angles."
+     ],
+     "to": [
+      "Subtract the readings: 158 − 37 = 121°.",
+      "121° is greater than 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_protractor_offset_type). Rewritten from a Support template (was an_one_degree) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "108",
+       "correct": true
+      },
+      {
+       "text": "252",
+       "correct": false
+      },
+      {
+       "text": "360",
+       "correct": false
+      },
+      {
+       "text": "107",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "121°, obtuse",
+       "correct": true
+      },
+      {
+       "text": "158°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "59°, acute",
+       "correct": false
+      },
+      {
+       "text": "195°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 6 to the 12. Through how many degrees does it turn?",
+     "to": "On a protractor, one ray of an angle passes through 47° and the other through 121°. What is the measure of the angle, and what type is it?"
+    },
+    "answer": {
+     "from": "180°",
+     "to": "74°, acute"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 6 to the 12 is 6 parts.",
+      "6 × 30 = 180, so the hand turns 180°."
+     ],
+     "to": [
+      "Subtract the readings: 121 − 47 = 74°.",
+      "74° is less than 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_protractor_offset_type). Rewritten from a Support template (was an_clock_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "180°",
+       "correct": true
+      },
+      {
+       "text": "30°",
+       "correct": false
+      },
+      {
+       "text": "6°",
+       "correct": false
+      },
+      {
+       "text": "210°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "74°, acute",
+       "correct": true
+      },
+      {
+       "text": "121°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "106°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "168°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees less than one right angle is an angle of 72°?",
+     "to": "On a protractor, one ray of an angle passes through 54° and the other through 115°. What is the measure of the angle, and what type is it?"
+    },
+    "answer": {
+     "from": "18°",
+     "to": "61°, acute"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 90 − 72 = 18.",
+      "It is 18° less."
+     ],
+     "to": [
+      "Subtract the readings: 115 − 54 = 61°.",
+      "61° is less than 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_protractor_offset_type). Rewritten from a Support template (was an_vs_right) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "108°",
+       "correct": false
+      },
+      {
+       "text": "162°",
+       "correct": false
+      },
+      {
+       "text": "18°",
+       "correct": true
+      },
+      {
+       "text": "28°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "115°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "61°, acute",
+       "correct": true
+      },
+      {
+       "text": "119°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "169°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 1/8 of the full turn. What is the measure of the angle?",
+     "to": "On a protractor, one ray of an angle passes through 45° and the other through 165°. What is the measure of the angle, and what type is it?"
+    },
+    "answer": {
+     "from": "45°",
+     "to": "120°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 1/8 of 360.",
+      "360 ÷ 8 = 45. The angle measures 45°."
+     ],
+     "to": [
+      "Subtract the readings: 165 − 45 = 120°.",
+      "120° is greater than 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_protractor_offset_type). Rewritten from a Support template (was an_fraction_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2880°",
+       "correct": false
+      },
+      {
+       "text": "22°",
+       "correct": false
+      },
+      {
+       "text": "45°",
+       "correct": true
+      },
+      {
+       "text": "12°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "165°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "60°, acute",
+       "correct": false
+      },
+      {
+       "text": "120°, obtuse",
+       "correct": true
+      },
+      {
+       "text": "210°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "How many one‑degree angles fit together, without gaps or overlaps, to make an angle of 22°?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 110° on that scale. The inner scale reads 70° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "22",
+     "to": "110°"
+    },
+    "solutionSteps": {
+     "from": [
+      "An angle of n degrees is made of n one‑degree angles.",
+      "22° is made of 22 one‑degree angles."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 110°, not 70°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_one_degree) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 7 to the 1. Through how many degrees does it turn?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 85° on that scale. The inner scale reads 95° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "180°",
+     "to": "85°"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 7 to the 1 is 6 parts.",
+      "6 × 30 = 180, so the hand turns 180°."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 85°, not 95°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_clock_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees less than one right angle is an angle of 67°?",
+     "to": "One ray of an angle is on 0° of the outer scale of a protractor, and the other ray passes through 100° on that scale. The inner scale reads 80° there. What is the measure of the angle?"
+    },
+    "answer": {
+     "from": "23°",
+     "to": "100°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 90 − 67 = 23.",
+      "It is 23° less."
+     ],
+     "to": [
+      "Use the scale that starts at 0° on the first ray: the outer scale.",
+      "The angle measures 100°, not 80°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_reading_both_scales). Rewritten from a Support template (was an_vs_right) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 1/12 of the full turn. What is the measure of the angle?",
+     "to": "On a protractor, one ray of an angle passes through 74° and the other through 158°. What is the measure of the angle, and what type is it?"
+    },
+    "answer": {
+     "from": "30°",
+     "to": "84°, acute"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 1/12 of 360.",
+      "360 ÷ 12 = 30. The angle measures 30°."
+     ],
+     "to": [
+      "Subtract the readings: 158 − 74 = 84°.",
+      "84° is less than 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_protractor_offset_type). Rewritten from a Support template (was an_fraction_turn) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4320°",
+       "correct": false
+      },
+      {
+       "text": "15°",
+       "correct": false
+      },
+      {
+       "text": "8°",
+       "correct": false
+      },
+      {
+       "text": "30°",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "158°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "96°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "232°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "84°, acute",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 5/6 of the full turn. What is the measure of the angle?",
+     "to": "A wheel turns through 1/3 of a full circle, 2 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "300°",
+     "to": "240°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 5/6 of 360.",
+      "360 ÷ 6 = 60, and 5 × 60 = 300. The angle measures 300°."
+     ],
+     "to": [
+      "1/3 of 360° is 120°.",
+      "2 × 120° = 240°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "How many one‑degree angles fit together, without gaps or overlaps, to make an angle of 146°?",
+     "to": "A wheel turns through 1/6 of a full circle, 5 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "146",
+     "to": "300°"
+    },
+    "solutionSteps": {
+     "from": [
+      "An angle of n degrees is made of n one‑degree angles.",
+      "146° is made of 146 one‑degree angles."
+     ],
+     "to": [
+      "1/6 of 360° is 60°.",
+      "5 × 60° = 300°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 12 to the 7. Through how many degrees does it turn?",
+     "to": "A wheel turns through 1/12 of a full circle, 9 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "210°",
+     "to": "270°"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 12 to the 7 is 7 parts.",
+      "7 × 30 = 210, so the hand turns 210°."
+     ],
+     "to": [
+      "1/12 of 360° is 30°.",
+      "9 × 30° = 270°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees greater than one right angle is an angle of 163°?",
+     "to": "A wheel turns through 1/10 of a full circle, 10 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "73°",
+     "to": "360°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 163 − 90 = 73.",
+      "It is 73° greater."
+     ],
+     "to": [
+      "1/10 of 360° is 36°.",
+      "10 × 36° = 360°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "A full turn is 360°. An angle of 36° is what fraction of the full turn? Write the fraction in simplest form.",
+     "to": "A wheel turns through 1/3 of a full circle, 4 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "1/10",
+     "to": "480°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the fraction 36/360.",
+      "Divide the numerator and denominator by 36: 1/10."
+     ],
+     "to": [
+      "1/3 of 360° is 120°.",
+      "4 × 120° = 480°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_turn_to_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 1/9 of the full turn. What is the measure of the angle?",
+     "to": "A wheel turns through 1/4 of a full circle, 6 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "40°",
+     "to": "540°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 1/9 of 360.",
+      "360 ÷ 9 = 40. The angle measures 40°."
+     ],
+     "to": [
+      "1/4 of 360° is 90°.",
+      "6 × 90° = 540°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "20°",
+       "correct": false
+      },
+      {
+       "text": "3240°",
+       "correct": false
+      },
+      {
+       "text": "11°",
+       "correct": false
+      },
+      {
+       "text": "40°",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "90°",
+       "correct": false
+      },
+      {
+       "text": "96°",
+       "correct": false
+      },
+      {
+       "text": "630°",
+       "correct": false
+      },
+      {
+       "text": "540°",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "How many one‑degree angles fit together, without gaps or overlaps, to make an angle of 153°?",
+     "to": "A wheel turns through 1/3 of a full circle, 3 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "153",
+     "to": "360°"
+    },
+    "solutionSteps": {
+     "from": [
+      "An angle of n degrees is made of n one‑degree angles.",
+      "153° is made of 153 one‑degree angles."
+     ],
+     "to": [
+      "1/3 of 360° is 120°.",
+      "3 × 120° = 360°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "207",
+       "correct": false
+      },
+      {
+       "text": "153",
+       "correct": true
+      },
+      {
+       "text": "360",
+       "correct": false
+      },
+      {
+       "text": "152",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "360°",
+       "correct": true
+      },
+      {
+       "text": "120°",
+       "correct": false
+      },
+      {
+       "text": "123°",
+       "correct": false
+      },
+      {
+       "text": "480°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees less than one right angle is an angle of 71°?",
+     "to": "A wheel turns through 1/10 of a full circle, 4 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "19°",
+     "to": "144°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 90 − 71 = 19.",
+      "It is 19° less."
+     ],
+     "to": [
+      "1/10 of 360° is 36°.",
+      "4 × 36° = 144°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "161°",
+       "correct": false
+      },
+      {
+       "text": "29°",
+       "correct": false
+      },
+      {
+       "text": "19°",
+       "correct": true
+      },
+      {
+       "text": "109°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "36°",
+       "correct": false
+      },
+      {
+       "text": "144°",
+       "correct": true
+      },
+      {
+       "text": "40°",
+       "correct": false
+      },
+      {
+       "text": "180°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 1 to the 8. Through how many degrees does it turn?",
+     "to": "A wheel turns through 1/10 of a full circle, 2 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "210°",
+     "to": "72°"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 1 to the 8 is 7 parts.",
+      "7 × 30 = 210, so the hand turns 210°."
+     ],
+     "to": [
+      "1/10 of 360° is 36°.",
+      "2 × 36° = 72°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "35°",
+       "correct": false
+      },
+      {
+       "text": "7°",
+       "correct": false
+      },
+      {
+       "text": "210°",
+       "correct": true
+      },
+      {
+       "text": "240°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "36°",
+       "correct": false
+      },
+      {
+       "text": "38°",
+       "correct": false
+      },
+      {
+       "text": "72°",
+       "correct": true
+      },
+      {
+       "text": "108°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A full turn is 360°. An angle of 180° is what fraction of the full turn? Write the fraction in simplest form.",
+     "to": "A wheel turns through 1/8 of a full circle, 6 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "1/2",
+     "to": "270°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the fraction 180/360.",
+      "Divide the numerator and denominator by 180: 1/2."
+     ],
+     "to": [
+      "1/8 of 360° is 45°.",
+      "6 × 45° = 270°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_turn_to_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1/180",
+       "correct": false
+      },
+      {
+       "text": "1/2",
+       "correct": true
+      },
+      {
+       "text": "1/4",
+       "correct": false
+      },
+      {
+       "text": "1/3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "45°",
+       "correct": false
+      },
+      {
+       "text": "51°",
+       "correct": false
+      },
+      {
+       "text": "315°",
+       "correct": false
+      },
+      {
+       "text": "270°",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "A one‑degree angle turns through 1/360 of the circle. An angle turns through 18 one‑degree angles. What is the measure of the angle?",
+     "to": "A wheel turns through 1/3 of a full circle, 5 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "18°",
+     "to": "600°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each one‑degree angle adds 1°.",
+      "18 one‑degree angles make 18°."
+     ],
+     "to": [
+      "1/3 of 360° is 120°.",
+      "5 × 120° = 600°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_one_degree). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "A right angle measures 90°. How many degrees less than one right angle is an angle of 39°?",
+     "to": "A wheel turns through 1/5 of a full circle, 6 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "51°",
+     "to": "432°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract: 90 − 39 = 51.",
+      "It is 51° less."
+     ],
+     "to": [
+      "1/5 of 360° is 72°.",
+      "6 × 72° = 432°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_vs_right). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A full turn around a circle is 360°. An angle turns through 1/5 of the full turn. What is the measure of the angle?",
+     "to": "A wheel turns through 1/10 of a full circle, 7 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "72°",
+     "to": "252°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find 1/5 of 360.",
+      "360 ÷ 5 = 72. The angle measures 72°."
+     ],
+     "to": [
+      "1/10 of 360° is 36°.",
+      "7 × 36° = 252°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_fraction_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "A clock face is a circle split into 12 equal parts, so moving from one number to the next is a turn of 30°. The minute hand moves from the 4 to the 11. Through how many degrees does it turn?",
+     "to": "A wheel turns through 1/8 of a full circle, 3 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "210°",
+     "to": "135°"
+    },
+    "solutionSteps": {
+     "from": [
+      "From the 4 to the 11 is 7 parts.",
+      "7 × 30 = 210, so the hand turns 210°."
+     ],
+     "to": [
+      "1/8 of 360° is 45°.",
+      "3 × 45° = 135°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_clock_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7°",
+       "correct": false
+      },
+      {
+       "text": "210°",
+       "correct": true
+      },
+      {
+       "text": "240°",
+       "correct": false
+      },
+      {
+       "text": "35°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "45°",
+       "correct": false
+      },
+      {
+       "text": "48°",
+       "correct": false
+      },
+      {
+       "text": "180°",
+       "correct": false
+      },
+      {
+       "text": "135°",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s02-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "A full turn is 360°. An angle of 45° is what fraction of the full turn? Write the fraction in simplest form.",
+     "to": "A wheel turns through 1/8 of a full circle, 8 times in a row. What is the total angle it has turned?"
+    },
+    "answer": {
+     "from": "1/8",
+     "to": "360°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the fraction 45/360.",
+      "Divide the numerator and denominator by 45: 1/8."
+     ],
+     "to": [
+      "1/8 of 360° is 45°.",
+      "8 × 45° = 360°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: an_turn_to_fraction). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga2_turn_parts). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1/8",
+       "correct": true
+      },
+      {
+       "text": "1/45",
+       "correct": false
+      },
+      {
+       "text": "1/16",
+       "correct": false
+      },
+      {
+       "text": "1/9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "360°",
+       "correct": true
+      },
+      {
+       "text": "45°",
+       "correct": false
+      },
+      {
+       "text": "53°",
+       "correct": false
+      },
+      {
+       "text": "405°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A fan blade turns 91° in all. First it turns 32°. How many more degrees does it turn?",
+     "to": "Angles A and B fit together without overlap and measure 34° and 15°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "59°",
+     "to": "131°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract the first turn from the total turn.",
+      "91 − 32 = 59, so it turns 59° more."
+     ],
+     "to": [
+      "C = 34° + 15° = 49°.",
+      "D = 180° − 49° = 131°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_word) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "A straight angle is split into two smaller angles. One angle measures 111° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "Angles A and B fit together without overlap and measure 15° and 42°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "111 + x = 180",
+     "to": "123°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 180°.",
+      "111 + x = 180, so x = 69."
+     ],
+     "to": [
+      "C = 15° + 42° = 57°.",
+      "D = 180° − 57° = 123°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_equation) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "111 + 180 = x",
+       "correct": false
+      },
+      {
+       "text": "x − 111 = 180",
+       "correct": false
+      },
+      {
+       "text": "111 + x = 180",
+       "correct": true
+      },
+      {
+       "text": "111 × x = 180",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "57°",
+       "correct": false
+      },
+      {
+       "text": "123°",
+       "correct": true
+      },
+      {
+       "text": "75°",
+       "correct": false
+      },
+      {
+       "text": "303°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "A door is opened to an angle of 52°. Then it is pushed open 31° more. What angle does the open door make now?",
+     "to": "Angles A and B fit together without overlap and measure 55° and 63°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "83°",
+     "to": "62°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add the two turns.",
+      "52 + 31 = 83, so the angle is 83°."
+     ],
+     "to": [
+      "C = 55° + 63° = 118°.",
+      "D = 180° − 118° = 62°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_word) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "83°",
+       "correct": true
+      },
+      {
+       "text": "97°",
+       "correct": false
+      },
+      {
+       "text": "21°",
+       "correct": false
+      },
+      {
+       "text": "93°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "62°",
+       "correct": true
+      },
+      {
+       "text": "118°",
+       "correct": false
+      },
+      {
+       "text": "35°",
+       "correct": false
+      },
+      {
+       "text": "242°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "A right angle is split into two smaller angles. One angle measures 24° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "Angles A and B fit together without overlap and measure 20° and 34°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "24 + x = 90",
+     "to": "126°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 90°.",
+      "24 + x = 90, so x = 66."
+     ],
+     "to": [
+      "C = 20° + 34° = 54°.",
+      "D = 180° − 54° = 126°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_equation) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "24 + x = 90",
+       "correct": true
+      },
+      {
+       "text": "24 × x = 90",
+       "correct": false
+      },
+      {
+       "text": "x − 24 = 90",
+       "correct": false
+      },
+      {
+       "text": "24 + 90 = x",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "54°",
+       "correct": false
+      },
+      {
+       "text": "70°",
+       "correct": false
+      },
+      {
+       "text": "126°",
+       "correct": true
+      },
+      {
+       "text": "306°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "A fan blade turns 74° in all. First it turns 56°. How many more degrees does it turn?",
+     "to": "Angles A and B fit together without overlap and measure 27° and 45°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "18°",
+     "to": "108°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Subtract the first turn from the total turn.",
+      "74 − 56 = 18, so it turns 18° more."
+     ],
+     "to": [
+      "C = 27° + 45° = 72°.",
+      "D = 180° − 72° = 108°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_word) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "A right angle is split into two smaller angles. One angle measures 47° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "Angles A and B fit together without overlap and measure 59° and 26°. Together they make angle C. Angle C and angle D form a straight angle. What is angle D?"
+    },
+    "answer": {
+     "from": "47 + x = 90",
+     "to": "95°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 90°.",
+      "47 + x = 90, so x = 43."
+     ],
+     "to": [
+      "C = 59° + 26° = 85°.",
+      "D = 180° − 85° = 95°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_two_parts_then_straight). Rewritten from a Support template (was aa_equation) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "47 × x = 90",
+       "correct": false
+      },
+      {
+       "text": "47 + 90 = x",
+       "correct": false
+      },
+      {
+       "text": "47 + x = 90",
+       "correct": true
+      },
+      {
+       "text": "x − 47 = 90",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "85°",
+       "correct": false
+      },
+      {
+       "text": "95°",
+       "correct": true
+      },
+      {
+       "text": "31°",
+       "correct": false
+      },
+      {
+       "text": "275°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "An angle of 104° is split into two smaller angles. One angle measures 46° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "3 equal angles of 23° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "46 + x = 104",
+     "to": "111°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 104°.",
+      "46 + x = 104, so x = 58."
+     ],
+     "to": [
+      "The 3 equal angles make 3 × 23° = 69°.",
+      "A straight angle is 180°: 180° − 69° = 111°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "46 + x = 104",
+       "correct": true
+      },
+      {
+       "text": "x − 46 = 104",
+       "correct": false
+      },
+      {
+       "text": "46 × x = 104",
+       "correct": false
+      },
+      {
+       "text": "46 + 104 = x",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "111°",
+       "correct": true
+      },
+      {
+       "text": "69°",
+       "correct": false
+      },
+      {
+       "text": "291°",
+       "correct": false
+      },
+      {
+       "text": "157°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "An angle of 117° is split into 3 equal angles. What is the measure of each smaller angle?",
+     "to": "6 equal angles of 15° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "39°",
+     "to": "90°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide the whole angle by 3.",
+      "117 ÷ 3 = 39, so each angle measures 39°."
+     ],
+     "to": [
+      "The 6 equal angles make 6 × 15° = 90°.",
+      "A straight angle is 180°: 180° − 90° = 90°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equal_parts). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A pizza is cut into equal slices. The tip of each slice forms an angle of 40°. Yusuf puts 7 slices side by side. What angle is formed by the 7 slices together?",
+     "to": "6 equal angles of 13° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "280°",
+     "to": "102°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 40° for each slice, or multiply.",
+      "7 × 40 = 280, so the angle is 280°."
+     ],
+     "to": [
+      "The 6 equal angles make 6 × 13° = 78°.",
+      "A straight angle is 180°: 180° − 78° = 102°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "280°",
+       "correct": true
+      },
+      {
+       "text": "80°",
+       "correct": false
+      },
+      {
+       "text": "320°",
+       "correct": false
+      },
+      {
+       "text": "47°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "78°",
+       "correct": false
+      },
+      {
+       "text": "282°",
+       "correct": false
+      },
+      {
+       "text": "102°",
+       "correct": true
+      },
+      {
+       "text": "167°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "An angle of 51° is split into two smaller angles. One angle measures 20° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "6 equal angles of 22° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "20 + x = 51",
+     "to": "48°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 51°.",
+      "20 + x = 51, so x = 31."
+     ],
+     "to": [
+      "The 6 equal angles make 6 × 22° = 132°.",
+      "A straight angle is 180°: 180° − 132° = 48°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "20 × x = 51",
+       "correct": false
+      },
+      {
+       "text": "x − 20 = 51",
+       "correct": false
+      },
+      {
+       "text": "20 + 51 = x",
+       "correct": false
+      },
+      {
+       "text": "20 + x = 51",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "48°",
+       "correct": true
+      },
+      {
+       "text": "132°",
+       "correct": false
+      },
+      {
+       "text": "228°",
+       "correct": false
+      },
+      {
+       "text": "158°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "An angle of 60° is split into 5 equal angles. What is the measure of each smaller angle?",
+     "to": "5 equal angles of 14° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "12°",
+     "to": "110°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide the whole angle by 5.",
+      "60 ÷ 5 = 12, so each angle measures 12°."
+     ],
+     "to": [
+      "The 5 equal angles make 5 × 14° = 70°.",
+      "A straight angle is 180°: 180° − 70° = 110°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equal_parts). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "17°",
+       "correct": false
+      },
+      {
+       "text": "55°",
+       "correct": false
+      },
+      {
+       "text": "12°",
+       "correct": true
+      },
+      {
+       "text": "300°",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "70°",
+       "correct": false
+      },
+      {
+       "text": "290°",
+       "correct": false
+      },
+      {
+       "text": "166°",
+       "correct": false
+      },
+      {
+       "text": "110°",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "A right angle is split into two smaller angles. One angle measures 19° and the other measures x degrees. Which equation can be used to find x?",
+     "to": "4 equal angles of 11° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "19 + x = 90",
+     "to": "136°"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts add up to the whole angle, 90°.",
+      "19 + x = 90, so x = 71."
+     ],
+     "to": [
+      "The 4 equal angles make 4 × 11° = 44°.",
+      "A straight angle is 180°: 180° − 44° = 136°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equation). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "19 × x = 90",
+       "correct": false
+      },
+      {
+       "text": "19 + x = 90",
+       "correct": true
+      },
+      {
+       "text": "19 + 90 = x",
+       "correct": false
+      },
+      {
+       "text": "x − 19 = 90",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "136°",
+       "correct": true
+      },
+      {
+       "text": "44°",
+       "correct": false
+      },
+      {
+       "text": "316°",
+       "correct": false
+      },
+      {
+       "text": "169°",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "An angle of 36° is split into 2 equal angles. What is the measure of each smaller angle?",
+     "to": "5 equal angles of 21° and one more angle fit together along a straight line without gaps. What is the measure of the last angle?"
+    },
+    "answer": {
+     "from": "18°",
+     "to": "75°"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide the whole angle by 2.",
+      "36 ÷ 2 = 18, so each angle measures 18°."
+     ],
+     "to": [
+      "The 5 equal angles make 5 × 21° = 105°.",
+      "A straight angle is 180°: 180° − 105° = 75°."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: aa_equal_parts). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga3_equal_parts_and_rest). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 59°, 90° and 31°. Classify the triangle by its angles.",
+     "to": "Two angles of a triangle are 28° and 41°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "right",
+     "to": "111°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "One angle is exactly 90°.",
+      "It is a right triangle."
+     ],
+     "to": [
+      "180° − 28° − 41° = 111°.",
+      "The largest angle is 111°, so the triangle is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_triangle_angles) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "111°, acute",
+       "correct": false
+      },
+      {
+       "text": "69°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "152°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "111°, obtuse",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 59°, 51° and 70°. Classify the triangle by its angles.",
+     "to": "Two angles of a triangle are 67° and 56°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "acute",
+     "to": "57°, acute"
+    },
+    "solutionSteps": {
+     "from": [
+      "All three angles are less than 90°.",
+      "It is an acute triangle."
+     ],
+     "to": [
+      "180° − 67° − 56° = 57°.",
+      "The largest angle is 67°, so the triangle is acute."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_triangle_angles) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "57°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "57°, acute",
+       "correct": true
+      },
+      {
+       "text": "123°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "113°, acute",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Which statement is always true?",
+     "to": "Two angles of a triangle are 29° and 22°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "A right triangle has exactly 1 right angle.",
+     "to": "129°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the parallel sides, perpendicular sides and angle sizes of each figure.",
+      "The answer is: A right triangle has exactly 1 right angle."
+     ],
+     "to": [
+      "180° − 29° − 22° = 129°.",
+      "The largest angle is 129°, so the triangle is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_always). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_always) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "An obtuse triangle has 2 obtuse angles.",
+       "correct": false
+      },
+      {
+       "text": "A right triangle has 3 right angles.",
+       "correct": false
+      },
+      {
+       "text": "An acute triangle has 1 right angle.",
+       "correct": false
+      },
+      {
+       "text": "A right triangle has exactly 1 right angle.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "129°, acute",
+       "correct": false
+      },
+      {
+       "text": "51°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "129°, obtuse",
+       "correct": true
+      },
+      {
+       "text": "151°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides, 4 sides of equal length, and no right angles. What is the most specific name for it?",
+     "to": "Two angles of a triangle are 49° and 24°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "rhombus",
+     "to": "107°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a rhombus."
+     ],
+     "to": [
+      "180° − 49° − 24° = 107°.",
+      "The largest angle is 107°, so the triangle is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_quad_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_quad_describe) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "parallelogram",
+       "correct": false
+      },
+      {
+       "text": "rhombus",
+       "correct": true
+      },
+      {
+       "text": "square",
+       "correct": false
+      },
+      {
+       "text": "trapezoid",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "107°, acute",
+       "correct": false
+      },
+      {
+       "text": "73°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "131°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "107°, obtuse",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 90°, 16° and 74°. Classify the triangle by its angles.",
+     "to": "Two angles of a triangle are 59° and 23°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "right",
+     "to": "98°, obtuse"
+    },
+    "solutionSteps": {
+     "from": [
+      "One angle is exactly 90°.",
+      "It is a right triangle."
+     ],
+     "to": [
+      "180° − 59° − 23° = 98°.",
+      "The largest angle is 98°, so the triangle is obtuse."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_triangle_angles) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "right",
+       "correct": true
+      },
+      {
+       "text": "acute",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "98°, acute",
+       "correct": false
+      },
+      {
+       "text": "98°, obtuse",
+       "correct": true
+      },
+      {
+       "text": "82°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "121°, obtuse",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides and 4 right angles. Its sides are not all the same length. What is the most specific name for it?",
+     "to": "Two angles of a triangle are 45° and 60°. Find the third angle and classify the triangle by its angles."
+    },
+    "answer": {
+     "from": "rectangle",
+     "to": "75°, acute"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "rhombus",
+       "correct": false
+      },
+      {
+       "text": "rectangle",
+       "correct": true
+      },
+      {
+       "text": "parallelogram",
+       "correct": false
+      },
+      {
+       "text": "trapezoid",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "75°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "75°, acute",
+       "correct": true
+      },
+      {
+       "text": "105°, obtuse",
+       "correct": false
+      },
+      {
+       "text": "135°, acute",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a rectangle."
+     ],
+     "to": [
+      "180° − 45° − 60° = 75°.",
+      "The largest angle is 75°, so the triangle is acute."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_quad_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_third_angle_then_classify). Rewritten from a Support template (was cl_quad_describe) as a Standard item with an added step: 4th Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-cp2-015",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides, 4 sides of equal length, and no right angles. What is the most specific name for it?",
+     "to": "A quadrilateral has 2 pairs of parallel sides, 4 right angles, and 4 sides of equal length. What is the most specific name for it?"
+    },
+    "answer": {
+     "from": "rhombus",
+     "to": "square"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "rhombus",
+       "correct": true
+      },
+      {
+       "text": "parallelogram",
+       "correct": false
+      },
+      {
+       "text": "square",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "square",
+       "correct": true
+      },
+      {
+       "text": "rhombus",
+       "correct": false
+      },
+      {
+       "text": "parallelogram",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a rhombus."
+     ],
+     "to": [
+      "4 right angles make it a rectangle, and 4 equal sides make it a rhombus.",
+      "A shape that is both is a square, the most specific name."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 80°, 57° and 43°. Classify the triangle by its angles.",
+     "to": "A quadrilateral has 4 right angles and sides 3, 7, 3 and 7 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "acute",
+     "to": "rectangle, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "All three angles are less than 90°.",
+      "It is an acute triangle."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles, but its sides are not all equal, so it is not a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "obtuse",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle, rhombus",
+       "correct": false
+      },
+      {
+       "text": "rectangle, parallelogram",
+       "correct": true
+      },
+      {
+       "text": "square, rectangle",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides, 4 right angles, and 4 sides of equal length. What is the most specific name for it?",
+     "to": "A quadrilateral has 4 right angles and sides 6, 6, 6 and 6 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "square",
+     "to": "square, rectangle, rhombus, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a square."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_quad_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "trapezoid",
+       "correct": false
+      },
+      {
+       "text": "parallelogram",
+       "correct": false
+      },
+      {
+       "text": "square",
+       "correct": true
+      },
+      {
+       "text": "rhombus",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "square, rhombus",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      },
+      {
+       "text": "square, rectangle, rhombus, parallelogram",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Which statement is always true?",
+     "to": "A quadrilateral has 4 right angles and sides 7, 6, 7 and 6 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "A square has 4 right angles.",
+     "to": "rectangle, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the parallel sides, perpendicular sides and angle sizes of each figure.",
+      "The answer is: A square has 4 right angles."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles, but its sides are not all equal, so it is not a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_always). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A square has 4 right angles.",
+       "correct": true
+      },
+      {
+       "text": "A rhombus has 4 right angles.",
+       "correct": false
+      },
+      {
+       "text": "A parallelogram has exactly 1 pair of parallel sides.",
+       "correct": false
+      },
+      {
+       "text": "A trapezoid has 2 pairs of parallel sides.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle, rhombus",
+       "correct": false
+      },
+      {
+       "text": "square, rectangle",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      },
+      {
+       "text": "rectangle, parallelogram",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 19°, 16° and 145°. Classify the triangle by its angles.",
+     "to": "A triangle has angles of 45° and 80°. Find the third angle. Can this triangle be a right triangle? Classify it by its angles."
+    },
+    "answer": {
+     "from": "obtuse",
+     "to": "55°; acute"
+    },
+    "solutionSteps": {
+     "from": [
+      "One angle, 145°, is greater than 90°.",
+      "It is an obtuse triangle."
+     ],
+     "to": [
+      "180° − 45° − 80° = 55°.",
+      "No angle is 90°; the largest is 80°, so it is acute."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_exterior_then_classify). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "acute",
+       "correct": false
+      },
+      {
+       "text": "obtuse",
+       "correct": true
+      },
+      {
+       "text": "right",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "55°; right",
+       "correct": false
+      },
+      {
+       "text": "125°; obtuse",
+       "correct": false
+      },
+      {
+       "text": "55°; obtuse",
+       "correct": false
+      },
+      {
+       "text": "55°; acute",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "The three angles of any triangle add up to 180°. Two angles of the triangle measure 63° and 53°. What is the measure of the third angle?",
+     "to": "A quadrilateral has 4 right angles and sides 3, 6, 3 and 6 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "64°",
+     "to": "rectangle, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "63 + 53 = 116.",
+      "180 − 116 = 64. The third angle is 64°, so the triangle is an acute triangle."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles, but its sides are not all equal, so it is not a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_third_angle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "116°",
+       "correct": false
+      },
+      {
+       "text": "26°",
+       "correct": false
+      },
+      {
+       "text": "244°",
+       "correct": false
+      },
+      {
+       "text": "64°",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle, rhombus",
+       "correct": false
+      },
+      {
+       "text": "rectangle, parallelogram",
+       "correct": true
+      },
+      {
+       "text": "square, rectangle",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides and no right angles. Its sides are not all the same length. What is the most specific name for it?",
+     "to": "A quadrilateral has 4 right angles and sides 5, 5, 5 and 5 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "parallelogram",
+     "to": "square, rectangle, rhombus, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a parallelogram."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_quad_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "rhombus",
+       "correct": false
+      },
+      {
+       "text": "parallelogram",
+       "correct": true
+      },
+      {
+       "text": "trapezoid",
+       "correct": false
+      },
+      {
+       "text": "rectangle",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "square, rhombus",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      },
+      {
+       "text": "square, rectangle, rhombus, parallelogram",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which statement is always true?",
+     "to": "A quadrilateral has 4 right angles and sides 3, 8, 3 and 8 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "A rectangle has 2 pairs of parallel sides.",
+     "to": "rectangle, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the parallel sides, perpendicular sides and angle sizes of each figure.",
+      "The answer is: A rectangle has 2 pairs of parallel sides."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles, but its sides are not all equal, so it is not a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_always). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A rhombus has no parallel sides.",
+       "correct": false
+      },
+      {
+       "text": "A rectangle has 2 pairs of parallel sides.",
+       "correct": true
+      },
+      {
+       "text": "A right triangle has 2 right angles.",
+       "correct": false
+      },
+      {
+       "text": "A trapezoid has 4 right angles.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle, rhombus",
+       "correct": false
+      },
+      {
+       "text": "square, rectangle",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      },
+      {
+       "text": "rectangle, parallelogram",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "The angles of the triangle measure 23°, 72° and 85°. Classify the triangle by its angles.",
+     "to": "A quadrilateral has 4 right angles and sides 3, 3, 3 and 3 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "acute",
+     "to": "square, rectangle, rhombus, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "All three angles are less than 90°.",
+      "It is an acute triangle."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_triangle_angles). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "right",
+       "correct": false
+      },
+      {
+       "text": "acute",
+       "correct": true
+      },
+      {
+       "text": "obtuse",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "square, rectangle, rhombus, parallelogram",
+       "correct": true
+      },
+      {
+       "text": "square, rhombus",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "A quadrilateral has 2 pairs of parallel sides, 4 sides of equal length, and no right angles. What is the most specific name for it?",
+     "to": "A quadrilateral has 4 right angles and sides 5, 9, 5 and 9 units long. List every name that fits it: square, rectangle, rhombus, parallelogram, trapezoid (exactly one pair of parallel sides)."
+    },
+    "answer": {
+     "from": "rhombus",
+     "to": "rectangle, parallelogram"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the description to the properties of each quadrilateral.",
+      "The figure is a rhombus."
+     ],
+     "to": [
+      "Opposite sides are parallel and equal, and every angle is a right angle.",
+      "It has 4 right angles, but its sides are not all equal, so it is not a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: cl_quad_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga4_all_names). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "rectangle",
+       "correct": false
+      },
+      {
+       "text": "trapezoid",
+       "correct": false
+      },
+      {
+       "text": "square",
+       "correct": false
+      },
+      {
+       "text": "rhombus",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "rectangle, rhombus",
+       "correct": false
+      },
+      {
+       "text": "rectangle, parallelogram",
+       "correct": true
+      },
+      {
+       "text": "square, rectangle",
+       "correct": false
+      },
+      {
+       "text": "parallelogram, trapezoid",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s05-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "A figure that has an area of 146 square inches is folded on its line of symmetry. What is the area of each matching part?",
+     "to": "A line of symmetry splits a figure into two matching halves. One half has an area of 21 square inches, and the line of symmetry is 11 inches long. What is the area of the whole figure?"
+    },
+    "answer": {
+     "from": "73 square inches",
+     "to": "42 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A line of symmetry splits a figure into two matching parts with equal areas.",
+      "146 ÷ 2 = 73 square inches."
+     ],
+     "to": [
+      "The two halves match, so they have equal areas.",
+      "21 + 21 = 42 square inches. (The length of the line does not change the area.)"
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: sy_fold_measure). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga5_half_shape_perimeter). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s05-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "A figure that has an area of 176 square centimeters is folded on its line of symmetry. What is the area of each matching part?",
+     "to": "A line of symmetry splits a figure into two matching halves. One half has an area of 25 square inches, and the line of symmetry is 12 inches long. What is the area of the whole figure?"
+    },
+    "answer": {
+     "from": "88 square centimeters",
+     "to": "50 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A line of symmetry splits a figure into two matching parts with equal areas.",
+      "176 ÷ 2 = 88 square centimeters."
+     ],
+     "to": [
+      "The two halves match, so they have equal areas.",
+      "25 + 25 = 50 square inches. (The length of the line does not change the area.)"
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: sy_fold_measure). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga5_half_shape_perimeter). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "174 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "352 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "176 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "88 square centimeters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "25 square inches",
+       "correct": false
+      },
+      {
+       "text": "37 square inches",
+       "correct": false
+      },
+      {
+       "text": "300 square inches",
+       "correct": false
+      },
+      {
+       "text": "50 square inches",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m4-ga-s05-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A figure that has an area of 126 square centimeters is folded on its line of symmetry. What is the area of each matching part?",
+     "to": "A line of symmetry splits a figure into two matching halves. One half has an area of 13 square inches, and the line of symmetry is 9 inches long. What is the area of the whole figure?"
+    },
+    "answer": {
+     "from": "63 square centimeters",
+     "to": "26 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A line of symmetry splits a figure into two matching parts with equal areas.",
+      "126 ÷ 2 = 63 square centimeters."
+     ],
+     "to": [
+      "The two halves match, so they have equal areas.",
+      "13 + 13 = 26 square inches. (The length of the line does not change the area.)"
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 4 item (family: sy_fold_measure). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade4-authoring/verify.py). Teacher reviewed 2026-11-15.",
+     "to": "Original Claude-authored item (family: ga5_half_shape_perimeter). 4th Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade4-audit-20261119/fams.py and recomputed by scripts/test-grade4-audit.cjs."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m4-ga-s01-cp2-o01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Two rays meet at a point and make an angle of 30°.",
+   "parts": [
+    {
+     "prompt": "Is the angle acute, right or obtuse?",
+     "answer": "acute"
+    },
+    {
+     "prompt": "What angle would make a straight angle with it?",
+     "answer": "150°"
+    },
+    {
+     "prompt": "Is that second angle acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "Explain the difference between a line and a ray.",
+     "answer": "Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction."
+    }
+   ],
+   "answer": "(a) acute; (b) 150°; (c) obtuse; (d) Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction.",
+   "solutionSteps": [
+    "(a) 30° is less than 90°.",
+    "(b) 180° − 30° = 150°.",
+    "(c) 150° compared with 90°.",
+    "(d) Endpoints."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_open_clock). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s01-cp1-o01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Two rays meet at a point and make an angle of 120°.",
+   "parts": [
+    {
+     "prompt": "Is the angle acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "What angle would make a straight angle with it?",
+     "answer": "60°"
+    },
+    {
+     "prompt": "Is that second angle acute, right or obtuse?",
+     "answer": "acute"
+    },
+    {
+     "prompt": "Explain the difference between a line and a ray.",
+     "answer": "Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction."
+    }
+   ],
+   "answer": "(a) obtuse; (b) 60°; (c) acute; (d) Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction.",
+   "solutionSteps": [
+    "(a) 120° is more than 90°.",
+    "(b) 180° − 120° = 60°.",
+    "(c) 60° compared with 90°.",
+    "(d) Endpoints."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_open_clock). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s01-honors-o01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Two rays meet at a point and make an angle of 135°.",
+   "parts": [
+    {
+     "prompt": "Is the angle acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "What angle would make a straight angle with it?",
+     "answer": "45°"
+    },
+    {
+     "prompt": "Is that second angle acute, right or obtuse?",
+     "answer": "acute"
+    },
+    {
+     "prompt": "Explain the difference between a line and a ray.",
+     "answer": "Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction."
+    }
+   ],
+   "answer": "(a) obtuse; (b) 45°; (c) acute; (d) Sample answer: A line goes on forever in both directions; a ray has one endpoint and goes on in one direction.",
+   "solutionSteps": [
+    "(a) 135° is more than 90°.",
+    "(b) 180° − 135° = 45°.",
+    "(c) 45° compared with 90°.",
+    "(d) Endpoints."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_open_clock). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s02-cp2-o01",
+   "skillId": "geometry-angles-symmetry-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "On a protractor, ray QR passes through 20° and ray QS passes through 127° on the same scale.",
+   "parts": [
+    {
+     "prompt": "What is the measure of angle RQS?",
+     "answer": "107°"
+    },
+    {
+     "prompt": "Is angle RQS acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "How many one-degree angles make up angle RQS?",
+     "answer": "107"
+    },
+    {
+     "prompt": "Explain why you subtract the two readings.",
+     "answer": "Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points."
+    }
+   ],
+   "answer": "(a) 107°; (b) obtuse; (c) 107; (d) Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points.",
+   "solutionSteps": [
+    "(a) 127 − 20 = 107.",
+    "(b) Compare with 90°.",
+    "(c) An angle of n° is n one-degree angles.",
+    "(d) Neither ray is at 0°."
+   ],
+   "standards": [
+    "4.MD.C.5.a",
+    "4.MD.C.5.b",
+    "4.MD.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga2_open_protractor). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s02-cp1-o01",
+   "skillId": "geometry-angles-symmetry-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "On a protractor, ray QR passes through 10° and ray QS passes through 108° on the same scale.",
+   "parts": [
+    {
+     "prompt": "What is the measure of angle RQS?",
+     "answer": "98°"
+    },
+    {
+     "prompt": "Is angle RQS acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "How many one-degree angles make up angle RQS?",
+     "answer": "98"
+    },
+    {
+     "prompt": "Explain why you subtract the two readings.",
+     "answer": "Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points."
+    }
+   ],
+   "answer": "(a) 98°; (b) obtuse; (c) 98; (d) Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points.",
+   "solutionSteps": [
+    "(a) 108 − 10 = 98.",
+    "(b) Compare with 90°.",
+    "(c) An angle of n° is n one-degree angles.",
+    "(d) Neither ray is at 0°."
+   ],
+   "standards": [
+    "4.MD.C.5.a",
+    "4.MD.C.5.b",
+    "4.MD.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga2_open_protractor). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s02-honors-o01",
+   "skillId": "geometry-angles-symmetry-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "On a protractor, ray QR passes through 19° and ray QS passes through 167° on the same scale.",
+   "parts": [
+    {
+     "prompt": "What is the measure of angle RQS?",
+     "answer": "148°"
+    },
+    {
+     "prompt": "Is angle RQS acute, right or obtuse?",
+     "answer": "obtuse"
+    },
+    {
+     "prompt": "How many one-degree angles make up angle RQS?",
+     "answer": "148"
+    },
+    {
+     "prompt": "Explain why you subtract the two readings.",
+     "answer": "Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points."
+    }
+   ],
+   "answer": "(a) 148°; (b) obtuse; (c) 148; (d) Sample answer: The angle is the turn between the rays, so it is the difference between where each ray points.",
+   "solutionSteps": [
+    "(a) 167 − 19 = 148.",
+    "(b) Compare with 90°.",
+    "(c) An angle of n° is n one-degree angles.",
+    "(d) Neither ray is at 0°."
+   ],
+   "standards": [
+    "4.MD.C.5.a",
+    "4.MD.C.5.b",
+    "4.MD.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga2_open_protractor). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s03-cp2-o01",
+   "skillId": "geometry-angles-symmetry-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Angle ABC is split by ray BD into angle ABD = 35° and angle DBC = 43°.",
+   "parts": [
+    {
+     "prompt": "What is angle ABC?",
+     "answer": "78°"
+    },
+    {
+     "prompt": "Write an equation for angle ABC.",
+     "answer": "Sample answer: 35 + 43 = 78"
+    },
+    {
+     "prompt": "If angle ABC were a right angle and angle ABD were 35°, what would angle DBC be?",
+     "answer": "55°"
+    },
+    {
+     "prompt": "Explain why angle measure is additive.",
+     "answer": "Sample answer: An angle split into parts without overlap has the same total turn as the parts together."
+    }
+   ],
+   "answer": "(a) 78°; (b) Sample answer: 35 + 43 = 78; (c) 55°; (d) Sample answer: An angle split into parts without overlap has the same total turn as the parts together.",
+   "solutionSteps": [
+    "(a) 35 + 43 = 78.",
+    "(b) The parts add to the whole.",
+    "(c) 90 − 35 = 55.",
+    "(d) Parts and whole."
+   ],
+   "standards": [
+    "4.MD.C.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga3_open_split). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s03-cp1-o01",
+   "skillId": "geometry-angles-symmetry-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Angle ABC is split by ray BD into angle ABD = 49° and angle DBC = 60°.",
+   "parts": [
+    {
+     "prompt": "What is angle ABC?",
+     "answer": "109°"
+    },
+    {
+     "prompt": "Write an equation for angle ABC.",
+     "answer": "Sample answer: 49 + 60 = 109"
+    },
+    {
+     "prompt": "If angle ABC were a right angle and angle ABD were 49°, what would angle DBC be?",
+     "answer": "41°"
+    },
+    {
+     "prompt": "Explain why angle measure is additive.",
+     "answer": "Sample answer: An angle split into parts without overlap has the same total turn as the parts together."
+    }
+   ],
+   "answer": "(a) 109°; (b) Sample answer: 49 + 60 = 109; (c) 41°; (d) Sample answer: An angle split into parts without overlap has the same total turn as the parts together.",
+   "solutionSteps": [
+    "(a) 49 + 60 = 109.",
+    "(b) The parts add to the whole.",
+    "(c) 90 − 49 = 41.",
+    "(d) Parts and whole."
+   ],
+   "standards": [
+    "4.MD.C.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga3_open_split). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s03-honors-o01",
+   "skillId": "geometry-angles-symmetry-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Angle ABC is split by ray BD into angle ABD = 58° and angle DBC = 30°.",
+   "parts": [
+    {
+     "prompt": "What is angle ABC?",
+     "answer": "88°"
+    },
+    {
+     "prompt": "Write an equation for angle ABC.",
+     "answer": "Sample answer: 58 + 30 = 88"
+    },
+    {
+     "prompt": "If angle ABC were a right angle and angle ABD were 58°, what would angle DBC be?",
+     "answer": "32°"
+    },
+    {
+     "prompt": "Explain why angle measure is additive.",
+     "answer": "Sample answer: An angle split into parts without overlap has the same total turn as the parts together."
+    }
+   ],
+   "answer": "(a) 88°; (b) Sample answer: 58 + 30 = 88; (c) 32°; (d) Sample answer: An angle split into parts without overlap has the same total turn as the parts together.",
+   "solutionSteps": [
+    "(a) 58 + 30 = 88.",
+    "(b) The parts add to the whole.",
+    "(c) 90 − 58 = 32.",
+    "(d) Parts and whole."
+   ],
+   "standards": [
+    "4.MD.C.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga3_open_split). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s04-cp2-o01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A triangle has angles of 59° and 57°.",
+   "parts": [
+    {
+     "prompt": "What is the third angle?",
+     "answer": "64°"
+    },
+    {
+     "prompt": "Classify the triangle by its angles.",
+     "answer": "acute"
+    },
+    {
+     "prompt": "Can a triangle have two obtuse angles? Answer yes or no.",
+     "answer": "no"
+    },
+    {
+     "prompt": "Explain how you classified the triangle.",
+     "answer": "Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse."
+    }
+   ],
+   "answer": "(a) 64°; (b) acute; (c) no; (d) Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse.",
+   "solutionSteps": [
+    "(a) 180 − 59 − 57 = 64.",
+    "(b) Largest angle 64°.",
+    "(c) Two obtuse angles would be more than 180°.",
+    "(d) Look at the largest angle."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_open_triangle). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s04-cp1-o01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A triangle has angles of 64° and 41°.",
+   "parts": [
+    {
+     "prompt": "What is the third angle?",
+     "answer": "75°"
+    },
+    {
+     "prompt": "Classify the triangle by its angles.",
+     "answer": "acute"
+    },
+    {
+     "prompt": "Can a triangle have two obtuse angles? Answer yes or no.",
+     "answer": "no"
+    },
+    {
+     "prompt": "Explain how you classified the triangle.",
+     "answer": "Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse."
+    }
+   ],
+   "answer": "(a) 75°; (b) acute; (c) no; (d) Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse.",
+   "solutionSteps": [
+    "(a) 180 − 64 − 41 = 75.",
+    "(b) Largest angle 75°.",
+    "(c) Two obtuse angles would be more than 180°.",
+    "(d) Look at the largest angle."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_open_triangle). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s04-honors-o01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A triangle has angles of 56° and 63°.",
+   "parts": [
+    {
+     "prompt": "What is the third angle?",
+     "answer": "61°"
+    },
+    {
+     "prompt": "Classify the triangle by its angles.",
+     "answer": "acute"
+    },
+    {
+     "prompt": "Can a triangle have two obtuse angles? Answer yes or no.",
+     "answer": "no"
+    },
+    {
+     "prompt": "Explain how you classified the triangle.",
+     "answer": "Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse."
+    }
+   ],
+   "answer": "(a) 61°; (b) acute; (c) no; (d) Sample answer: I looked at the largest angle: less than 90° is acute, exactly 90° is right, more than 90° is obtuse.",
+   "solutionSteps": [
+    "(a) 180 − 56 − 63 = 61.",
+    "(b) Largest angle 63°.",
+    "(c) Two obtuse angles would be more than 180°.",
+    "(d) Look at the largest angle."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_open_triangle). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s05-cp2-o01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Tessa folds a paper rectangle along a line of symmetry.",
+   "parts": [
+    {
+     "prompt": "How many lines of symmetry does a rectangle have?",
+     "answer": "2"
+    },
+    {
+     "prompt": "One half has an area of 16 square inches. What is the area of the whole shape?",
+     "answer": "32 square inches"
+    },
+    {
+     "prompt": "How many lines of symmetry does the letter A have?",
+     "answer": "1"
+    },
+    {
+     "prompt": "Explain how you can test whether a line is a line of symmetry.",
+     "answer": "Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry."
+    }
+   ],
+   "answer": "(a) 2; (b) 32 square inches; (c) 1; (d) Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry.",
+   "solutionSteps": [
+    "(a) Count the folds that make matching halves.",
+    "(b) 2 × 16 = 32.",
+    "(c) A vertical line through the top.",
+    "(d) Fold and match."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_open_fold). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s05-cp1-o01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Tessa folds a paper square along a line of symmetry.",
+   "parts": [
+    {
+     "prompt": "How many lines of symmetry does a square have?",
+     "answer": "4"
+    },
+    {
+     "prompt": "One half has an area of 31 square inches. What is the area of the whole shape?",
+     "answer": "62 square inches"
+    },
+    {
+     "prompt": "How many lines of symmetry does the letter A have?",
+     "answer": "1"
+    },
+    {
+     "prompt": "Explain how you can test whether a line is a line of symmetry.",
+     "answer": "Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry."
+    }
+   ],
+   "answer": "(a) 4; (b) 62 square inches; (c) 1; (d) Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry.",
+   "solutionSteps": [
+    "(a) Count the folds that make matching halves.",
+    "(b) 2 × 31 = 62.",
+    "(c) A vertical line through the top.",
+    "(d) Fold and match."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_open_fold). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s05-honors-o01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Tessa folds a paper regular hexagon along a line of symmetry.",
+   "parts": [
+    {
+     "prompt": "How many lines of symmetry does a regular hexagon have?",
+     "answer": "6"
+    },
+    {
+     "prompt": "One half has an area of 68 square inches. What is the area of the whole shape?",
+     "answer": "136 square inches"
+    },
+    {
+     "prompt": "How many lines of symmetry does the letter A have?",
+     "answer": "1"
+    },
+    {
+     "prompt": "Explain how you can test whether a line is a line of symmetry.",
+     "answer": "Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry."
+    }
+   ],
+   "answer": "(a) 6; (b) 136 square inches; (c) 1; (d) Sample answer: Fold along the line; if the two halves match exactly, it is a line of symmetry.",
+   "solutionSteps": [
+    "(a) Count the folds that make matching halves.",
+    "(b) 2 × 68 = 136.",
+    "(c) A vertical line through the top.",
+    "(d) Fold and match."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_open_fold). 4th Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade4-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m4-ga-s01-cp2-s01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL the measures of acute angles.",
+   "answer": [
+    "25°",
+    "15°"
+   ],
+   "options": [
+    {
+     "text": "105°",
+     "correct": false
+    },
+    {
+     "text": "25°",
+     "correct": true
+    },
+    {
+     "text": "175°",
+     "correct": false
+    },
+    {
+     "text": "15°",
+     "correct": true
+    },
+    {
+     "text": "140°",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An acute angle is less than 90°.",
+    "Correct choices: 25°; 15°. Not correct: 105°; 175°; 140°."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_select_angle_type). 4th Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s01-cp1-s01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL the measures of acute angles.",
+   "answer": [
+    "80°",
+    "70°",
+    "10°"
+   ],
+   "options": [
+    {
+     "text": "160°",
+     "correct": false
+    },
+    {
+     "text": "110°",
+     "correct": false
+    },
+    {
+     "text": "80°",
+     "correct": true
+    },
+    {
+     "text": "70°",
+     "correct": true
+    },
+    {
+     "text": "10°",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "An acute angle is less than 90°.",
+    "Correct choices: 80°; 70°; 10°. Not correct: 160°; 110°."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_select_angle_type). 4th Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s01-honors-s01",
+   "skillId": "geometry-angles-symmetry-skill-01",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL the measures of acute angles.",
+   "answer": [
+    "60°",
+    "45°",
+    "25°",
+    "55°"
+   ],
+   "options": [
+    {
+     "text": "60°",
+     "correct": true
+    },
+    {
+     "text": "45°",
+     "correct": true
+    },
+    {
+     "text": "140°",
+     "correct": false
+    },
+    {
+     "text": "25°",
+     "correct": true
+    },
+    {
+     "text": "55°",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "An acute angle is less than 90°.",
+    "Correct choices: 60°; 45°; 25°; 55°. Not correct: 140°."
+   ],
+   "standards": [
+    "4.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga1_select_angle_type). 4th Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s04-cp2-s01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL the names that describe a rhombus that is not a square.",
+   "answer": [
+    "parallelogram",
+    "quadrilateral"
+   ],
+   "options": [
+    {
+     "text": "square",
+     "correct": false
+    },
+    {
+     "text": "parallelogram",
+     "correct": true
+    },
+    {
+     "text": "triangle",
+     "correct": false
+    },
+    {
+     "text": "trapezoid",
+     "correct": false
+    },
+    {
+     "text": "quadrilateral",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Check the sides, the parallel sides and the angles each name needs.",
+    "Correct choices: parallelogram; quadrilateral. Not correct: triangle; square; trapezoid."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_select_names). 4th Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s04-cp1-s01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL the names that describe a square.",
+   "answer": [
+    "parallelogram",
+    "rhombus",
+    "rectangle"
+   ],
+   "options": [
+    {
+     "text": "parallelogram",
+     "correct": true
+    },
+    {
+     "text": "pentagon",
+     "correct": false
+    },
+    {
+     "text": "rhombus",
+     "correct": true
+    },
+    {
+     "text": "trapezoid",
+     "correct": false
+    },
+    {
+     "text": "rectangle",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Check the sides, the parallel sides and the angles each name needs.",
+    "Correct choices: parallelogram; rhombus; rectangle. Not correct: trapezoid; pentagon."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_select_names). 4th Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s04-honors-s01",
+   "skillId": "geometry-angles-symmetry-skill-04",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL the names that describe a square.",
+   "answer": [
+    "rectangle",
+    "parallelogram",
+    "quadrilateral",
+    "rhombus"
+   ],
+   "options": [
+    {
+     "text": "rectangle",
+     "correct": true
+    },
+    {
+     "text": "parallelogram",
+     "correct": true
+    },
+    {
+     "text": "quadrilateral",
+     "correct": true
+    },
+    {
+     "text": "rhombus",
+     "correct": true
+    },
+    {
+     "text": "pentagon",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Check the sides, the parallel sides and the angles each name needs.",
+    "Correct choices: rectangle; parallelogram; quadrilateral; rhombus. Not correct: pentagon."
+   ],
+   "standards": [
+    "4.G.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga4_select_names). 4th Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s05-cp2-s01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "Select ALL the shapes that have at least 3 lines of symmetry.",
+   "answer": [
+    "regular pentagon",
+    "regular hexagon"
+   ],
+   "options": [
+    {
+     "text": "regular pentagon",
+     "correct": true
+    },
+    {
+     "text": "regular hexagon",
+     "correct": true
+    },
+    {
+     "text": "rectangle (not a square)",
+     "correct": false
+    },
+    {
+     "text": "rhombus (not a square)",
+     "correct": false
+    },
+    {
+     "text": "parallelogram (not a rectangle or rhombus)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0.",
+    "Correct choices: regular pentagon; regular hexagon. Not correct: rhombus (not a square); rectangle (not a square); parallelogram (not a rectangle or rhombus)."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_select_symmetry). 4th Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s05-cp1-s01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL the shapes that have at least 2 lines of symmetry.",
+   "answer": [
+    "square",
+    "regular pentagon",
+    "rhombus (not a square)"
+   ],
+   "options": [
+    {
+     "text": "square",
+     "correct": true
+    },
+    {
+     "text": "regular pentagon",
+     "correct": true
+    },
+    {
+     "text": "scalene triangle",
+     "correct": false
+    },
+    {
+     "text": "rhombus (not a square)",
+     "correct": true
+    },
+    {
+     "text": "isosceles triangle (not equilateral)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0.",
+    "Correct choices: square; regular pentagon; rhombus (not a square). Not correct: scalene triangle; isosceles triangle (not equilateral)."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_select_symmetry). 4th Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  },
+  {
+   "id": "m4-ga-s05-honors-s01",
+   "skillId": "geometry-angles-symmetry-skill-05",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL the shapes that have at least 3 lines of symmetry.",
+   "answer": [
+    "equilateral triangle",
+    "regular hexagon",
+    "regular pentagon",
+    "square"
+   ],
+   "options": [
+    {
+     "text": "scalene triangle",
+     "correct": false
+    },
+    {
+     "text": "equilateral triangle",
+     "correct": true
+    },
+    {
+     "text": "regular hexagon",
+     "correct": true
+    },
+    {
+     "text": "regular pentagon",
+     "correct": true
+    },
+    {
+     "text": "square",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0.",
+    "Correct choices: equilateral triangle; regular hexagon; regular pentagon; square. Not correct: scalene triangle."
+   ],
+   "standards": [
+    "4.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ga5_select_symmetry). 4th Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade4-audit.cjs."
+  }
+ ],
+ "meta": {
+  "m4-ga-s01-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 70°, 110°, 70°, 110°.",
+   "distractors": {
+    "70°, 70°, 70°": "a common mistake",
+    "110°, 110°, 110°": "a common mistake",
+    "20°, 70°, 20°": "a common mistake"
+   }
+  },
+  "m4-ga-s01-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 95°, 85°, 95°, 85°.",
+   "distractors": {
+    "95°, 95°, 95°": "a common mistake",
+    "85°, 85°, 85°": "a common mistake",
+    "5°, 95°, 5°": "a common mistake"
+   }
+  },
+  "m4-ga-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 25°, 155°, 25°, 155°.",
+   "distractors": {
+    "25°, 25°, 25°": "a common mistake",
+    "155°, 155°, 155°": "a common mistake",
+    "65°, 25°, 65°": "a common mistake"
+   }
+  },
+  "m4-ga-s01-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 40°, 140°, 40°, 140°.",
+   "distractors": {
+    "40°, 40°, 40°": "a common mistake",
+    "140°, 140°, 140°": "a common mistake",
+    "50°, 40°, 50°": "a common mistake"
+   }
+  },
+  "m4-ga-s01-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 30°, 150°, 30°, 150°.",
+   "distractors": {
+    "30°, 30°, 30°": "a common mistake",
+    "150°, 150°, 150°": "a common mistake",
+    "60°, 30°, 60°": "a common mistake"
+   }
+  },
+  "m4-ga-s01-honors-030": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Angles across from each other are equal, so the angles go 55°, 125°, 55°, 125°.",
+   "distractors": {
+    "55°, 55°, 55°": "a common mistake",
+    "125°, 125°, 125°": "a common mistake",
+    "35°, 55°, 35°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 × 120° = 240°.",
+   "distractors": {
+    "120°": "a common mistake",
+    "122°": "a common mistake",
+    "360°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 × 60° = 300°.",
+   "distractors": {
+    "60°": "a common mistake",
+    "65°": "a common mistake",
+    "360°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 × 30° = 270°.",
+   "distractors": {
+    "30°": "a common mistake",
+    "39°": "a common mistake",
+    "300°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 × 36° = 360°.",
+   "distractors": {
+    "36°": "a common mistake",
+    "46°": "a common mistake",
+    "396°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 120° = 480°.",
+   "distractors": {
+    "120°": "a common mistake",
+    "124°": "a common mistake",
+    "600°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 90° = 540°.",
+   "distractors": {
+    "90°": "a common mistake",
+    "96°": "a common mistake",
+    "630°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 × 120° = 360°.",
+   "distractors": {
+    "120°": "a common mistake",
+    "123°": "a common mistake",
+    "480°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 36° = 144°.",
+   "distractors": {
+    "36°": "a common mistake",
+    "40°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 × 36° = 72°.",
+   "distractors": {
+    "36°": "a common mistake",
+    "38°": "a common mistake",
+    "108°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 45° = 270°.",
+   "distractors": {
+    "45°": "a common mistake",
+    "51°": "a common mistake",
+    "315°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 × 120° = 600°.",
+   "distractors": {
+    "120°": "a common mistake",
+    "125°": "a common mistake",
+    "720°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 72° = 432°.",
+   "distractors": {
+    "72°": "a common mistake",
+    "78°": "a common mistake",
+    "504°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 × 36° = 252°.",
+   "distractors": {
+    "36°": "a common mistake",
+    "43°": "a common mistake",
+    "288°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 × 45° = 135°.",
+   "distractors": {
+    "45°": "a common mistake",
+    "48°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 × 45° = 360°.",
+   "distractors": {
+    "45°": "a common mistake",
+    "53°": "a common mistake",
+    "405°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 69° = 111°.",
+   "distractors": {
+    "69°": "a common mistake",
+    "291°": "a common mistake",
+    "157°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 90° = 90°.",
+   "distractors": {
+    "270°": "a common mistake",
+    "165°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 78° = 102°.",
+   "distractors": {
+    "78°": "a common mistake",
+    "282°": "a common mistake",
+    "167°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 132° = 48°.",
+   "distractors": {
+    "132°": "a common mistake",
+    "228°": "a common mistake",
+    "158°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 70° = 110°.",
+   "distractors": {
+    "70°": "a common mistake",
+    "290°": "a common mistake",
+    "166°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 44° = 136°.",
+   "distractors": {
+    "44°": "a common mistake",
+    "316°": "a common mistake",
+    "169°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "A straight angle is 180°: 180° − 105° = 75°.",
+   "distractors": {
+    "105°": "a common mistake",
+    "255°": "a common mistake",
+    "159°": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles, but its sides are not all equal, so it is not a square.",
+   "distractors": {
+    "rectangle, rhombus": "a common mistake",
+    "square, rectangle": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus.",
+   "distractors": {
+    "rectangle": "a common mistake",
+    "square, rhombus": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles, but its sides are not all equal, so it is not a square.",
+   "distractors": {
+    "rectangle, rhombus": "a common mistake",
+    "square, rectangle": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "No angle is 90°; the largest is 80°, so it is acute.",
+   "distractors": {
+    "55°; right": "a common mistake",
+    "125°; obtuse": "a common mistake",
+    "55°; obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles, but its sides are not all equal, so it is not a square.",
+   "distractors": {
+    "rectangle, rhombus": "a common mistake",
+    "square, rectangle": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus.",
+   "distractors": {
+    "rectangle": "a common mistake",
+    "square, rhombus": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles, but its sides are not all equal, so it is not a square.",
+   "distractors": {
+    "rectangle, rhombus": "a common mistake",
+    "square, rectangle": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles and 4 equal sides, so it is also a rectangle and a rhombus.",
+   "distractors": {
+    "rectangle": "a common mistake",
+    "square, rhombus": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s04-honors-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 4 right angles, but its sides are not all equal, so it is not a square.",
+   "distractors": {
+    "rectangle, rhombus": "a common mistake",
+    "square, rectangle": "a common mistake",
+    "parallelogram, trapezoid": "a common mistake"
+   }
+  },
+  "m4-ga-s05-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "21 + 21 = 42 square inches. (The length of the line does not change the area.)",
+   "distractors": {
+    "21 square inches": "a common mistake",
+    "32 square inches": "a common mistake",
+    "231 square inches": "a common mistake"
+   }
+  },
+  "m4-ga-s05-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "25 + 25 = 50 square inches. (The length of the line does not change the area.)",
+   "distractors": {
+    "25 square inches": "a common mistake",
+    "37 square inches": "a common mistake",
+    "300 square inches": "a common mistake"
+   }
+  },
+  "m4-ga-s05-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 + 13 = 26 square inches. (The length of the line does not change the area.)",
+   "distractors": {
+    "13 square inches": "a common mistake",
+    "22 square inches": "a common mistake",
+    "117 square inches": "a common mistake"
+   }
+  },
+  "m4-ga-s01-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30° is less than 90°, so it is acute.",
+   "distractors": {
+    "right": "a common mistake",
+    "obtuse": "a common mistake",
+    "straight": "a common mistake"
+   }
+  },
+  "m4-ga-s01-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "160° is greater than 90°, so it is obtuse.",
+   "distractors": {
+    "acute": "a common mistake",
+    "right": "a common mistake",
+    "straight": "a common mistake"
+   }
+  },
+  "m4-ga-s01-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "135° is greater than 90°, so it is obtuse.",
+   "distractors": {
+    "acute": "a common mistake",
+    "right": "a common mistake",
+    "straight": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 20°, not 160°.",
+   "distractors": {
+    "160°": "a common mistake",
+    "110°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 50°, not 130°.",
+   "distractors": {
+    "130°": "a common mistake",
+    "140°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 75°, not 105°.",
+   "distractors": {
+    "105°": "a common mistake",
+    "165°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 115°, not 65°.",
+   "distractors": {
+    "65°": "a common mistake",
+    "25°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "121° is greater than 90°.",
+   "distractors": {
+    "158°, obtuse": "a common mistake",
+    "59°, acute": "a common mistake",
+    "195°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "74° is less than 90°.",
+   "distractors": {
+    "121°, obtuse": "a common mistake",
+    "106°, obtuse": "a common mistake",
+    "168°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "61° is less than 90°.",
+   "distractors": {
+    "115°, obtuse": "a common mistake",
+    "119°, obtuse": "a common mistake",
+    "169°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "120° is greater than 90°.",
+   "distractors": {
+    "165°, obtuse": "a common mistake",
+    "60°, acute": "a common mistake",
+    "210°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 110°, not 70°.",
+   "distractors": {
+    "70°": "a common mistake",
+    "20°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 85°, not 95°.",
+   "distractors": {
+    "95°": "a common mistake",
+    "175°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The angle measures 100°, not 80°.",
+   "distractors": {
+    "80°": "a common mistake",
+    "10°": "a common mistake",
+    "180°": "a common mistake"
+   }
+  },
+  "m4-ga-s02-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "84° is less than 90°.",
+   "distractors": {
+    "158°, obtuse": "a common mistake",
+    "96°, obtuse": "a common mistake",
+    "232°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 49° = 131°.",
+   "distractors": {
+    "49°": "a common mistake",
+    "56°": "a common mistake",
+    "311°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 57° = 123°.",
+   "distractors": {
+    "57°": "a common mistake",
+    "75°": "a common mistake",
+    "303°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 118° = 62°.",
+   "distractors": {
+    "118°": "a common mistake",
+    "35°": "a common mistake",
+    "242°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 54° = 126°.",
+   "distractors": {
+    "54°": "a common mistake",
+    "70°": "a common mistake",
+    "306°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 72° = 108°.",
+   "distractors": {
+    "72°": "a common mistake",
+    "63°": "a common mistake",
+    "288°": "a common mistake"
+   }
+  },
+  "m4-ga-s03-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "D = 180° − 85° = 95°.",
+   "distractors": {
+    "85°": "a common mistake",
+    "31°": "a common mistake",
+    "275°": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 111°, so the triangle is obtuse.",
+   "distractors": {
+    "111°, acute": "a common mistake",
+    "69°, obtuse": "a common mistake",
+    "152°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 67°, so the triangle is acute.",
+   "distractors": {
+    "57°, obtuse": "a common mistake",
+    "123°, obtuse": "a common mistake",
+    "113°, acute": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 129°, so the triangle is obtuse.",
+   "distractors": {
+    "129°, acute": "a common mistake",
+    "51°, obtuse": "a common mistake",
+    "151°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 107°, so the triangle is obtuse.",
+   "distractors": {
+    "107°, acute": "a common mistake",
+    "73°, obtuse": "a common mistake",
+    "131°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 98°, so the triangle is obtuse.",
+   "distractors": {
+    "98°, acute": "a common mistake",
+    "82°, obtuse": "a common mistake",
+    "121°, obtuse": "a common mistake"
+   }
+  },
+  "m4-ga-s04-cp1-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The largest angle is 75°, so the triangle is acute.",
+   "distractors": {
+    "75°, obtuse": "a common mistake",
+    "105°, obtuse": "a common mistake",
+    "135°, acute": "a common mistake"
+   }
+  },
+  "m4-ga-s01-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "150° compared with 90°."
+  },
+  "m4-ga-s01-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "60° compared with 90°."
+  },
+  "m4-ga-s01-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "45° compared with 90°."
+  },
+  "m4-ga-s02-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "An angle of n° is n one-degree angles."
+  },
+  "m4-ga-s02-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "An angle of n° is n one-degree angles."
+  },
+  "m4-ga-s02-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "An angle of n° is n one-degree angles."
+  },
+  "m4-ga-s03-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "90 − 35 = 55."
+  },
+  "m4-ga-s03-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "90 − 49 = 41."
+  },
+  "m4-ga-s03-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "90 − 58 = 32."
+  },
+  "m4-ga-s04-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two obtuse angles would be more than 180°."
+  },
+  "m4-ga-s04-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two obtuse angles would be more than 180°."
+  },
+  "m4-ga-s04-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two obtuse angles would be more than 180°."
+  },
+  "m4-ga-s05-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A vertical line through the top."
+  },
+  "m4-ga-s05-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A vertical line through the top."
+  },
+  "m4-ga-s05-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A vertical line through the top."
+  },
+  "m4-ga-s01-cp2-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "An acute angle is less than 90°."
+  },
+  "m4-ga-s01-cp1-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "An acute angle is less than 90°."
+  },
+  "m4-ga-s01-honors-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "An acute angle is less than 90°."
+  },
+  "m4-ga-s04-cp2-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Check the sides, the parallel sides and the angles each name needs."
+  },
+  "m4-ga-s04-cp1-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Check the sides, the parallel sides and the angles each name needs."
+  },
+  "m4-ga-s04-honors-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Check the sides, the parallel sides and the angles each name needs."
+  },
+  "m4-ga-s05-cp2-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0."
+  },
+  "m4-ga-s05-cp1-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0."
+  },
+  "m4-ga-s05-honors-s01": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "square: 4; rectangle (not a square): 2; equilateral triangle: 3; regular hexagon: 6; isosceles triangle (not equilateral): 1; rhombus (not a square): 2; parallelogram (not a rectangle or rhombus): 0; regular pentagon: 5; scalene triangle: 0."
+  }
+ }
+}
