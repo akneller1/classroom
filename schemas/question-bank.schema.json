@@ -116,6 +116,9 @@
                     "string",
                     "number"
                   ]
+                },
+                "label": {
+                  "type": "string"
                 }
               },
               "additionalProperties": false
@@ -189,6 +192,21 @@
           },
           "plot": {
             "type": "object"
+          },
+          "hint": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional first-step hint shown before answering (Statistics audit 2026-11-18)."
+          },
+          "selfCheck": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 3,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Self-check list for written answers that are not auto-graded (Statistics audit 2026-11-18)."
           }
         }
       }

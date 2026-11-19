@@ -20,7 +20,7 @@ for(const unit of course.units){
  for(const [id,pair] of pairs){assert(pair.A&&pair.B,'Incomplete pair '+id);assert.equal(pair.A.answer,pair.B.answer);assert.equal(pair.A.skillId,pair.B.skillId);assert.equal(pair.A.level,pair.B.level);assert.notEqual(pair.A.prompt,pair.B.prompt);partnerPairs++;}
  for(const level of ['cp2','cp1','honors']){
   const qs=bank.questions.filter(q=>q.level===level),mc=qs.filter(q=>q.format==='multiple-choice');assert(mc.length>=25,'Insufficient whole-unit game pool '+unit.id+'/'+level);
-  for(const skill of g.window.MK_COURSE_CATALOG.getSkillRecords('statistics',unit.id)){assert(qs.filter(q=>q.skillId===skill.id).length>=8,'Thin skill '+skill.id+'/'+level);cells++;}
+  for(const skill of g.window.MK_COURSE_CATALOG.getSkillRecords('statistics',unit.id)){assert(qs.filter(q=>q.skillId===skill.id).length>=24,'Thin skill (fewer than 24 items, audit #20) '+skill.id+'/'+level);cells++;}
   // Escape room needs one integer cipher and a separate substantive multi-step question.
   const pool=qs.filter(q=>['multiple-choice','short-answer'].includes(q.format));
   const cipher=pool.find(q=>{const m=/^(?:[A-Za-z]\s*=\s*)?([+-]?\d+(?:\.0+)?)$/.exec(String(q.answer).replace(/−/g,'-'));return m&&+m[1]>=1&&+m[1]<=25;});
@@ -32,7 +32,7 @@ for(const unit of course.units){
  for(const kind of ['color','who'])assert(kinds.includes(kind),'Missing expanded printable '+kind);
 }
 const auditGapItems=3*48+18; // 2026-11-16: three new inference skills (48 each) plus nine Partner Check pairs
-const audit20261118=JSON.parse(fs.readFileSync(path.join(root,'tools/statistics-audit-20261118/added.json'),'utf8')).length; // 2026-11-18 audit: new items listed in added.json
+const audit20261118=['added.json','added-s2.json'].reduce((n,f)=>n+JSON.parse(fs.readFileSync(path.join(root,'tools/statistics-audit-20261118',f),'utf8')).length,0); // 2026-11-18 audit: new items listed in added.json (batch S1) and added-s2.json (batch S2)
 assert.equal(partnerPairs,123);assert.equal(errorItems,158);assert.equal(total,1931+auditGapItems+audit20261118+require('../tests/fixtures/content-20261115.json').filter(q=>q.course==='statistics').length+require('../tests/fixtures/statistics-display-items.json').length);assert.equal(cells,123);assert.equal(g.window.LIBRARY.courses.find(c=>c.id==='discrete').units.length,10,'Discrete outline must be preserved');
 console.log('PASS '+total+' Statistics questions, all 123 topic/level cells, figure assets, answer keys, whole-unit game pools, and supported resource links');
 

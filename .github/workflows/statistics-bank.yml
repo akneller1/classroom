@@ -13,6 +13,8 @@ on:
       - 'tools/statistics-expansion-20261107/**'
       - 'tools/statistics-audit-20261118/**'
       - 'scripts/test-statistics-audit.cjs'
+      - 'scripts/test-statistics-s2.cjs'
+      - 'scripts/test-statistics-plot.cjs'
       - '.github/workflows/statistics-bank.yml'
   workflow_dispatch:
 jobs:
@@ -35,6 +37,10 @@ jobs:
         run: python tools/statistics-audit-20261118/verify_keys.py
       - name: Statistics audit regression checks
         run: node scripts/test-statistics-audit.cjs
+      - name: Statistics audit S2 (free response, grading, contexts and hints, diagrams, 24 items per set)
+        run: node scripts/test-statistics-s2.cjs
+      - name: Statistics graphing practice
+        run: node scripts/test-statistics-plot.cjs
       - name: Validate Statistics coverage, keys, figures, and activity pools
         run: node scripts/test-statistics-bank.cjs
       - name: Exercise Statistics generators, games, vocabulary, and lesson plans

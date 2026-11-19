@@ -9,7 +9,7 @@ from scipy import stats
 
 import os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MIN = 180
+MIN = 450
 Q = []
 for f in sorted(glob.glob(ROOT + '/question-banks/statistics/*.json')):
     Q += json.load(open(f))['questions']
@@ -341,6 +341,280 @@ def sampling_sd(q, p):
     if m and re.search(r'standard deviation of the sampling distribution', p):
         n, pr = int(m.group(1)), float(m.group(2))
         return has(q, [math.sqrt(pr * (1 - pr) / n)])
+    return None
+
+
+
+# ---------------------------------------------------------------------------- batch S2 shapes (2026-11-18)
+# The prompts written for batch S2 (s2fill.py) and the CP contexts added by s2polish.py are read here, independently of
+# the code that wrote them: each handler parses the printed numbers and recomputes the key with scipy.
+P_ = r'(\d*\.?\d+)'
+
+
+def tbl(z):
+    return stats.norm.cdf(round(z, 2))
+
+
+@handler
+def s2_data(q, p):
+    m = re.search(r'(?::|were)\s*((?:[−-]?\d[\d.]*,\s*){3,}(?:and\s*)?[−-]?\d[\d.]*)\.', p)
+    if not m or 'P(x)' in p:
+        return None
+    d = [num(v) for v in re.findall(r'[−-]?\d[\d.]*', m.group(1))]
+    rest = p[m.end():].lower()
+    conv = re.search(r'y = ' + N + r' \+ ' + N + r'x', p)
+    if conv and 'standard deviation' in rest:
+        return has(q, [num(conv.group(2)) * np.std(d, ddof=1)])
+    if 'sample standard deviation' in rest:
+        return has(q, [np.std(d, ddof=1)])
+    if 'find the mean' in rest:
+        return has(q, [np.mean(d)])
+    if 'find the median' in rest:
+        return has(q, [np.median(d)])
+    if 'find the range' in rest:
+        return has(q, [max(d) - min(d)])
+    return None
+
+
+@handler
+def s2_sampling_sd(q, p):
+    m = re.search(r'(?:SD|σ =?) ' + N + r'[^.]*\. For random samples of (?:n = )?(\d+)[^,]*, find the (?:SD|standard deviation) of (?:the sample mean )?x̄', p)
+    if m:
+        return has(q, [num(m.group(1)) / math.sqrt(int(m.group(2)))])
+    m = re.search(r'has SD ' + N + r' [^.]+\. A sample of (\d+) gives σ_x̄ = ' + N + r' [^.]+\. What is σ_x̄ if the sample size is multiplied by (\d+)', p)
+    if m:
+        return has(q, [num(m.group(1)) / math.sqrt(int(m.group(2)) * int(m.group(4)))])
+    m = re.search(r'has SD ' + N + r' [^.]+\. What sample size is needed so that the standard deviation of x̄ is ' + N, p)
+    if m:
+        return has(q, [(num(m.group(1)) / num(m.group(2))) ** 2], 0.6)
+    return None
+
+
+@handler
+def s2_binomial(q, p):
+    m = re.search(r'About (\d+)% of [^.]+\. In a random sample of (\d+), find the probability that (exactly|at most|at least) (\d+)', p)
+    if m:
+        pr, n, op, k = int(m.group(1)) / 100, int(m.group(2)), m.group(3), int(m.group(4))
+        B = stats.binom(n, pr)
+        return has(q, [{'exactly': B.pmf(k), 'at most': B.cdf(k), 'at least': 1 - B.cdf(k - 1)}[op]])
+    m = re.search(r'About (\d+)% of [^.]+\. X is the number in a random sample of (\d+) that do\. Find the (mean|standard deviation|probability that X is within one standard deviation)', p)
+    if m:
+        pr, n, w = int(m.group(1)) / 100, int(m.group(2)), m.group(3)
+        mu, sd = n * pr, math.sqrt(n * pr * (1 - pr))
+        if w == 'mean':
+            return has(q, [mu])
+        if w == 'standard deviation':
+            return has(q, [sd])
+        lo, hi = math.ceil(mu - sd), math.floor(mu + sd)
+        return has(q, [stats.binom.cdf(hi, n, pr) - stats.binom.cdf(lo - 1, n, pr)])
+    m = re.search(r'probability p = ' + P_ + r', independently\. For n = (\d+) of them, find the mean', p) or re.search(r'probability p = ' + P_ + r' and shoots n = (\d+)', p)
+    if m:
+        return has(q, [float(m.group(1)) * int(m.group(2))])
+    return None
+
+
+@handler
+def s2_one_prop(q, p):
+    m = re.search(r'In a random sample of (\d+) [^,]+, (\d+) [^.]+\. ', p)
+    if not m:
+        return None
+    n, x = int(m.group(1)), int(m.group(2))
+    ph = x / n
+    se = math.sqrt(ph * (1 - ph) / n)
+    rest = p[m.end():]
+    if 'standard error of p̂' in rest:
+        return has(q, [se])
+    c = re.search(r'(\d+)% confidence interval', rest)
+    if not c:
+        return None
+    zs = {90: 1.645, 95: 1.96, 99: 2.576}[int(c.group(1))]
+    if 'margin of error' in rest:
+        return has(q, [zs * se])
+    return has(q, [ph - zs * se]) and has(q, [ph + zs * se])
+
+
+@handler
+def s2_sample_size(q, p):
+    m = re.search(r'margin of error of ' + P_ + r' at (\d+)% confidence \(z\* = ' + P_ + r'\)\. (?:Use p\* = ' + P_ + r'|A pilot study suggests p is about ' + P_ + r')', p)
+    if not m:
+        return None
+    me, zs = float(m.group(1)), float(m.group(3))
+    ps = float(m.group(4) or m.group(5))
+    return has(q, [math.ceil((zs / me) ** 2 * ps * (1 - ps) - 1e-9)])
+
+
+@handler
+def s2_t_interval(q, p):
+    m = re.search(r'A random sample of (\d+) [^.]+? has mean ' + N + r' [^.]*?and standard deviation ' + N + r' ', p)
+    c = re.search(r'(\d+)% confidence interval', p)
+    if not m or not c:
+        return None
+    n, xb, s_ = int(m.group(1)), num(m.group(2)), num(m.group(3))
+    ts = stats.t.ppf(1 - (1 - int(c.group(1)) / 100) / 2, n - 1)
+    if 'critical value t*' in p:
+        return has(q, [ts])
+    me = ts * s_ / math.sqrt(n)
+    return has(q, [xb - me]) and has(q, [xb + me])
+
+
+@handler
+def s2_tests(q, p):
+    m = re.search(r'Test H₀: μ = ' + N + r' against Hₐ: μ ([<>]) [^.]+?\. A random sample of (\d+) [^.]*?has x̄ = ' + N + r' and s = ' + N + r'\.', p)
+    if m:
+        mu, alt, n, xb, s_ = num(m.group(1)), m.group(2), int(m.group(3)), num(m.group(4)), num(m.group(5))
+        t = (xb - mu) / (s_ / math.sqrt(n))
+        if 'test statistic t' in p:
+            return has(q, [t])
+        return has(q, [stats.t.sf(t, n - 1) if alt == '>' else stats.t.cdf(t, n - 1)])
+    m = re.search(r'Test H₀: p = ' + P_ + r' against Hₐ: p ([<>]) [^,]+, where [^.]+\. In a random sample of (\d+), (\d+) ', p)
+    if m:
+        p0, alt, n, x = float(m.group(1)), m.group(2), int(m.group(3)), int(m.group(4))
+        z = (x / n - p0) / math.sqrt(p0 * (1 - p0) / n)
+        if 'test statistic z' in p:
+            return has(q, [z])
+        return has(q, [1 - tbl(z) if alt == '>' else tbl(z)])
+    m = re.search(r'p₀ = ' + P_ + r'\. In n = (\d+) trials there are (\d+) successes', p)
+    if m:
+        p0, n, x = float(m.group(1)), int(m.group(2)), int(m.group(3))
+        return has(q, [(x / n - p0) / math.sqrt(p0 * (1 - p0) / n)])
+    m = re.search(r'from μ₀ = ' + N + r' \w+ uses a random sample of n = (\d+) with x̄ = ' + N + r' and s = ' + N, p)
+    if m:
+        mu, n, xb, s_ = num(m.group(1)), int(m.group(2)), num(m.group(3)), num(m.group(4))
+        return has(q, [(xb - mu) / (s_ / math.sqrt(n))])
+    m = re.search(r'Hₐ: p ([<>]) p₀ [^.]*gives z = ' + N + r'\. Find the p-value', p)
+    if m:
+        z = num(m.group(2))
+        return has(q, [stats.norm.sf(z) if m.group(1) == '>' else stats.norm.cdf(z)])
+    m = re.search(r'Group 1 has n = (\d+), x̄ = ' + N + r', s = ' + N + r'; Group 2 has n = (\d+), x̄ = ' + N + r', s = ' + N, p)
+    if m:
+        n1, x1, s1, n2, x2, s2 = int(m.group(1)), num(m.group(2)), num(m.group(3)), int(m.group(4)), num(m.group(5)), num(m.group(6))
+        se = math.sqrt(s1 ** 2 / n1 + s2 ** 2 / n2)
+        return has(q, [se]) if 'standard error' in p else has(q, [(x1 - x2) / se])
+    return None
+
+
+@handler
+def s2_slope(q, p):
+    m = re.search(r'n = (\d+)\)? gives (?:slope )?b = ' + N + r'(?: with|,| and) SE_b = ' + N, p)
+    if not m:
+        m2 = re.search(r'gives b = ' + N + r' and SE_b = ' + N + r'\. Find t for H₀', p)
+        return has(q, [num(m2.group(1)) / num(m2.group(2))]) if m2 else None
+    n, b, se = int(m.group(1)), num(m.group(2)), num(m.group(3))
+    if 'degrees of freedom' in p:
+        return has(q, [n - 2])
+    c = re.search(r'(\d+)% confidence interval for the true slope', p)
+    if c:
+        ts = stats.t.ppf(1 - (1 - int(c.group(1)) / 100) / 2, n - 2)
+        return has(q, [b - ts * se]) and has(q, [b + ts * se])
+    if 'p-value' in p:
+        return has(q, [2 * stats.t.sf(abs(b / se), n - 2)])
+    if 't statistic' in p:
+        return has(q, [b / se])
+    return None
+
+
+@handler
+def s2_chisq(q, p):
+    m = re.search(r'proportions ((?:' + P_ + r', )+' + P_ + r')\. ', p)
+    cats = re.search(r'the categories ([^.]+?) occur with', p)
+    if m and cats:
+        props = [float(v) for v in m.group(1).split(', ')]
+        names = cats.group(1).split(', ')
+        e = re.search(r'with n = (\d+), what is the expected count for "([^"]+)"', p)
+        if e:
+            return has(q, [int(e.group(1)) * props[names.index(e.group(2))]])
+        o = re.search(r'A random sample of (\d+) gives observed counts ((?:\d+, )+\d+)\.', p)
+        if o:
+            n = int(o.group(1)); obs = [int(v) for v in o.group(2).split(', ')]
+            return has(q, [sum((a - n * b) ** 2 / (n * b) for a, b in zip(obs, props))])
+    m = re.search(r'with (\d+) rows and (\d+) columns(?: and gives χ² = ' + N + r')?', p)
+    if m and 'independence' in p:
+        df = (int(m.group(1)) - 1) * (int(m.group(2)) - 1)
+        if m.group(3):
+            return has(q, [stats.chi2.sf(num(m.group(3)), df)])
+        if 'degrees of freedom' in p:
+            return has(q, [df])
+    return None
+
+
+@handler
+def s2_two_way(q, p):
+    m = re.search(r'Counts — ([^.]+?)\. (?:For a randomly chosen person, find P\(([^|]+) \| ([^)]+)\)|Find the expected count for (.+?) and (.+?)\.)', p)
+    if not m:
+        return None
+    rows = {}
+    for part in m.group(1).split('; '):
+        r, cells = part.split(': ', 1)
+        rows[r] = {c.rsplit(' ', 1)[0]: int(c.rsplit(' ', 1)[1]) for c in cells.split(', ')}
+    cols = list(next(iter(rows.values())).keys())
+    if m.group(2):
+        a, b = m.group(2), m.group(3)
+        if b in rows:
+            return has(q, [rows[b][a] / sum(rows[b].values())])
+        return has(q, [rows[a][b] / sum(rows[r][b] for r in rows)])
+    r, c = m.group(4), m.group(5)
+    N_ = sum(sum(v.values()) for v in rows.values())
+    return has(q, [sum(rows[r].values()) * sum(rows[x][c] for x in rows) / N_])
+
+
+@handler
+def s2_probability(q, p):
+    m = re.search(r'P\(A\) = ' + P_ + r' where [^,]+, P\(B\) = ' + P_ + r' where [^,]+, and P\(A and B\) = ' + P_ + r'\. Find (P\(A or B\)|the probability that the person is in neither group)', p)
+    if m:
+        u = float(m.group(1)) + float(m.group(2)) - float(m.group(3))
+        return has(q, [u if m.group(4).startswith('P(') else 1 - u])
+    m = re.search(r'the probability that ([^,]+?) is ' + P_ + r', and the probability that (.+?) and \1 is ' + P_ + r'\. Find the probability that \3, given that \1', p)
+    if m:
+        return has(q, [float(m.group(4)) / float(m.group(2))])
+    m = re.search(r'is ' + P_ + r', and outcomes are independent\. Find the probability that this (happens (\d+) times in a row|fails at least once in (\d+) tries)', p)
+    if m:
+        pr = float(m.group(1))
+        return has(q, [pr ** int(m.group(3))]) if m.group(3) else has(q, [1 - pr ** int(m.group(4))])
+    m = re.search(r'In a random sample of (\d+) [^,]+, (\d+) [^.]+\. What is the relative frequency', p) or re.search(r'runs (\d+) trials of a simulation, and in (\d+) of them', p)
+    if m:
+        return has(q, [int(m.group(2)) / int(m.group(1))])
+    return None
+
+
+@handler
+def s2_random_variables(q, p):
+    m = re.search(r'X = [^.]+\. ((?:P\(X = \d+\) = ' + P_ + r'(?:, )?)+)\. ', p)
+    if m:
+        pairs = re.findall(r'P\(X = (\d+)\) = ' + P_, m.group(1))
+        xs, ps = [int(a) for a, _ in pairs], [float(b) for _, b in pairs]
+        mu = sum(a * b for a, b in zip(xs, ps)); sd = math.sqrt(sum((a - mu) ** 2 * b for a, b in zip(xs, ps)))
+        y = re.search(r'Y = ' + N + r' \+ ' + N + r'X', p)
+        if y:
+            return has(q, [abs(num(y.group(2))) * sd])
+        return has(q, [mu]) if 'expected value' in p else has(q, [sd])
+    m = re.search(r'costs \$(\d+) to play\. A player wins \$(\d+) with probability ' + P_ + r' and \$(\d+) with probability ' + P_, p)
+    if m:
+        c, v1, p1, v2, p2 = int(m.group(1)), int(m.group(2)), float(m.group(3)), int(m.group(4)), float(m.group(5))
+        return has(q, [v1 * p1 + v2 * p2 - c], 0.006)
+    m = re.search(r'is Normal with mean ' + N + r' and SD ' + N + r' \w+; [^;]+ is Normal with mean ' + N + r' and SD ' + N + r' \w+, independent\. Find the probability that [^.]+ is longer than', p)
+    if m:
+        m1, s1, m2, s2 = (num(m.group(i)) for i in range(1, 5))
+        z = (0 - (m1 - m2)) / math.sqrt(s1 * s1 + s2 * s2)
+        return has(q, [1 - tbl(z)])
+    m = re.search(r'\(mean ' + N + r'(?:, SD ' + N + r')?\) and Y = [^(]+\(mean ' + N + r'(?:, SD ' + N + r')?\)', p)
+    if m:
+        if m.group(2) and m.group(4):
+            return has(q, [math.sqrt(num(m.group(2)) ** 2 + num(m.group(4)) ** 2)])
+        return has(q, [num(m.group(1)) + num(m.group(3))])
+    return None
+
+
+@handler
+def s2_strata_ci(q, p):
+    m = re.search(r'A population of ([\d,]+) [^.]+? is made up of ([^.]+)\. A stratified random sample of (\d+) [^.]+\. How many (.+?) are in the sample', p)
+    if m:
+        N_ = num(m.group(1)); n = int(m.group(3))
+        groups = {g.strip().split(' ', 1)[1]: num(g.strip().split(' ', 1)[0]) for g in re.split(r', | and ', m.group(2))}
+        return has(q, [n * groups[m.group(4)] / N_])
+    m = re.search(r'confidence interval for [^.]*?is \(' + N + r', ' + N + r'\)\.', p)
+    if m and re.search(r'point estimate|margin of error', p) and 'sample size' not in p:
+        a, b = num(m.group(1)), num(m.group(2))
+        return has(q, [(a + b) / 2]) if 'point estimate' in p else has(q, [(b - a) / 2])
     return None
 
 

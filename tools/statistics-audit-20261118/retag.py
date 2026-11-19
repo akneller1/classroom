@@ -234,7 +234,11 @@ def main():
     n = 0
     for u, q in lib.items(banks):
         k = int(re.search(r'skill-(\d+)', q['skillId']).group(1))
-        codes = tag(u, k, q)
+        if 'batch S2' in q.get('sourceNotes', ''):
+            # batch S2 items carry the objectives chosen when they were written (s2fill.py, s2frq.py)
+            codes = [c.split('APSTATS.', 1)[1] for c in q['standards']]
+        else:
+            codes = tag(u, k, q)
         for c in codes:
             assert c in LO or c.split('.', 1)[1] in BEYOND, c
         q['standards'] = ['APSTATS.' + c for c in codes]

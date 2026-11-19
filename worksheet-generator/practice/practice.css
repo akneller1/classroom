@@ -86,3 +86,10 @@
 .pt-mc-row:has(.pt-graph-option) .pt-mc-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .pt-option:has(.pt-graph-option){display:flex;align-items:flex-start;gap:10px}
 @media(max-width:560px){.pt-mc-row:has(.pt-graph-option) .pt-mc-buttons{grid-template-columns:1fr}}
+/* Statistics audit #7/#8 (2026-11-18): first-step hint and self-check list */
+.pt-hint{margin:.6rem 0;padding:.5rem .8rem;border:1px dashed var(--edge,#ccd5df);border-radius:10px}
+.pt-hint summary{cursor:pointer;font-weight:600}
+.pt-selfcheck{margin-top:1rem}
+.pt-selfcheck ul{list-style:none;padding-left:0}
+.pt-selfcheck li{margin:.3rem 0}
+@media print{.pt-hint{display:none}}
