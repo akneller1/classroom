@@ -150,6 +150,7 @@
     '5.G.B.3': 'Understand that attributes of a category of two-dimensional figures belong to its subcategories.',
     '5.MD.A.1': 'Convert among different-sized standard measurement units within one system.',
     '5.NBT.A.1': 'Understand place value: a digit is 10 times what it represents one place to its right.',
+    '5.NBT.A.2': 'Explain patterns in zeros and decimal places when multiplying or dividing by powers of 10; write powers of 10 with exponents.',
     '5.NBT.A.3': 'Read, write and compare decimals to thousandths.',
     '5.NBT.A.4': 'Use place value to round decimals to any place.',
     '5.NF.A.1': 'Add and subtract fractions with unlike denominators.',

@@ -1,0 +1,38 @@
+name: Grade 7 audit checks
+on:
+  push:
+    paths:
+      - 'question-banks/prealgebra7/**'
+      - 'question-banks/assets/prealgebra7/**'
+      - 'tools/grade7-audit-20261119/**'
+      - 'scripts/test-grade7-audit.cjs'
+      - 'worksheet-generator/practice/**'
+      - 'worksheet-generator/practice-test.html'
+      - 'worksheet-generator/menu/mathcheck.js'
+      - 'worksheet-generator/menu/standards.js'
+      - 'worksheet-generator/menu/standards-map.js'
+      - 'worksheet-generator/vocabulary-data-middle-grades.js'
+      - '.github/workflows/grade7-audit.yml'
+  workflow_dispatch:
+jobs:
+  grade7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the key checker's dependency
+        run: python -m pip install sympy
+      - name: Recompute Grade 7 keys from the printed prompts (Grade 7 audit 2026-11-19)
+        run: python tools/grade7-audit-20261119/verify_keys.py
+      - name: The bank changes rebuild exactly from the scripts
+        run: |
+          bash tools/grade7-audit-20261119/run_all.sh
+          git diff --exit-code -- question-banks/prealgebra7 worksheet-generator/vocabulary-data-middle-grades.js worksheet-generator/menu/standards-map.js
+      - name: Grade 7 audit regression checks
+        run: node scripts/test-grade7-audit.cjs

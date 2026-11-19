@@ -620,7 +620,7 @@
    "answer": "2 inches",
    "options": [
     {
-     "text": "1 inches",
+     "text": "1 inch",
      "correct": false
     },
     {
@@ -1395,20 +1395,20 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a parallelogram with base 5 m and height 8 m.",
-   "answer": "40 m²",
+   "prompt": "Find the area of a triangle with base 5 m and height 8 m.",
+   "answer": "20 m²",
    "options": [
+    {
+     "text": "40 m²",
+     "correct": false
+    },
     {
      "text": "13 m²",
      "correct": false
     },
     {
-     "text": "40 m²",
-     "correct": true
-    },
-    {
      "text": "20 m²",
-     "correct": false
+     "correct": true
     },
     {
      "text": "26 m²",
@@ -1416,9 +1416,9 @@
     }
    ],
    "solutionSteps": [
-    "A parallelogram can be rearranged into a rectangle with the same base and height.",
-    "A = bh.",
-    "A = 5 × 8 = 40 m²."
+    "A triangle is half of a parallelogram with the same base and height.",
+    "A = ½bh.",
+    "A = ½ × 5 × 8 = 20 m²."
    ],
    "standards": [
     "6.G.A.1"
@@ -1603,11 +1603,11 @@
    "skillId": "area-volume-skill-02",
    "level": "cp2",
    "format": "multiple-choice",
-   "prompt": "Find the area of a parallelogram with base 15 m and height 14 m.",
-   "answer": "210 m²",
+   "prompt": "Find the area of a triangle with base 15 m and height 14 m.",
+   "answer": "105 m²",
    "options": [
     {
-     "text": "105 m²",
+     "text": "210 m²",
      "correct": false
     },
     {
@@ -1615,7 +1615,7 @@
      "correct": false
     },
     {
-     "text": "210 m²",
+     "text": "105 m²",
      "correct": true
     },
     {
@@ -1624,9 +1624,9 @@
     }
    ],
    "solutionSteps": [
-    "A parallelogram can be rearranged into a rectangle with the same base and height.",
-    "A = bh.",
-    "A = 15 × 14 = 210 m²."
+    "A triangle is half of a parallelogram with the same base and height.",
+    "A = ½bh.",
+    "A = ½ × 15 × 14 = 105 m²."
    ],
    "standards": [
     "6.G.A.1"
@@ -3831,7 +3831,6 @@
     "Check with Euler's formula: F + V - E = 7 + 7 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -3865,7 +3864,6 @@
     "A triangular prism has two congruent triangular bases and three rectangular faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -3901,7 +3899,6 @@
     "Check with Euler's formula: F + V - E = 6 + 8 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -3935,7 +3932,6 @@
     "A square pyramid has one square base and four triangular faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -3953,7 +3949,6 @@
     "Check with Euler's formula: F + V - E = 4 + 4 - 6 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -3987,7 +3982,6 @@
     "A square pyramid has one square base and four triangular faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4023,7 +4017,6 @@
     "Check with Euler's formula: F + V - E = 7 + 10 - 15 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4057,7 +4050,6 @@
     "A cone has one circular base and one vertex."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4075,7 +4067,6 @@
     "Check with Euler's formula: F + V - E = 7 + 10 - 15 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4093,7 +4084,6 @@
     "Check with Euler's formula: F + V - E = 7 + 10 - 15 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4111,7 +4101,6 @@
     "Check with Euler's formula: F + V - E = 5 + 6 - 9 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4129,7 +4118,6 @@
     "Check with Euler's formula: F + V - E = 5 + 6 - 9 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4147,7 +4135,6 @@
     "Check with Euler's formula: F + V - E = 5 + 5 - 8 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4167,7 +4154,6 @@
     "The correct answer is 18, not 8."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4204,7 +4190,6 @@
     "(d) A hexagonal prism has 8 faces, 12 vertices, and 18 edges. Check with Euler's formula: F + V - E = 8 + 12 - 18 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4224,7 +4209,6 @@
     "The correct answer is 7, not 9."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4242,7 +4226,6 @@
     "Check with Euler's formula: F + V - E = 5 + 5 - 8 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4276,7 +4259,6 @@
     "A triangular prism has two congruent triangular bases and three rectangular faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4294,7 +4276,6 @@
     "Check with Euler's formula: F + V - E = 7 + 7 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4328,7 +4309,6 @@
     "A square pyramid has one square base and four triangular faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4346,7 +4326,6 @@
     "Check with Euler's formula: F + V - E = 6 + 8 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4380,7 +4359,6 @@
     "A cube has six congruent square faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4416,7 +4394,6 @@
     "Check with Euler's formula: F + V - E = 8 + 12 - 18 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4450,7 +4427,6 @@
     "A cylinder has two congruent circular bases and a curved surface."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4468,7 +4444,6 @@
     "Check with Euler's formula: F + V - E = 4 + 4 - 6 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4502,7 +4477,6 @@
     "A cube has six congruent square faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4520,7 +4494,6 @@
     "Check with Euler's formula: F + V - E = 8 + 12 - 18 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4538,7 +4511,6 @@
     "Check with Euler's formula: F + V - E = 5 + 6 - 9 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4556,7 +4528,6 @@
     "Check with Euler's formula: F + V - E = 6 + 6 - 10 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4576,7 +4547,6 @@
     "The correct answer is 4, not 6."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4613,7 +4583,6 @@
     "(d) A triangular prism has 5 faces, 6 vertices, and 9 edges. Check with Euler's formula: F + V - E = 5 + 6 - 9 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4633,7 +4602,6 @@
     "The correct answer is 6, not 4."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4651,7 +4619,6 @@
     "Check with Euler's formula: F + V - E = 6 + 6 - 10 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4685,7 +4652,6 @@
     "A cylinder has two congruent circular bases and a curved surface."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4703,7 +4669,6 @@
     "E = 21."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_euler). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4739,7 +4704,6 @@
     "Check with Euler's formula: F + V - E = 6 + 8 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4773,7 +4737,6 @@
     "A cone has one circular base and one vertex."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4809,7 +4772,6 @@
     "E = 15."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_euler). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4827,7 +4789,6 @@
     "Check with Euler's formula: F + V - E = 7 + 7 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4861,7 +4822,6 @@
     "A cube has six congruent square faces."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4879,7 +4839,6 @@
     "E = 8."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_euler). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4897,7 +4856,6 @@
     "Check with Euler's formula: F + V - E = 5 + 5 - 8 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4931,7 +4889,6 @@
     "A cone has one circular base and one vertex."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4949,7 +4906,6 @@
     "E = 16."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_euler). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4967,7 +4923,6 @@
     "Check with Euler's formula: F + V - E = 4 + 4 - 6 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -4987,7 +4942,6 @@
     "The correct answer is 4, not 6."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -5024,7 +4978,6 @@
     "(d) A hexagonal pyramid has 7 faces, 7 vertices, and 12 edges. Check with Euler's formula: F + V - E = 7 + 7 - 12 = 2."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
@@ -5044,7 +4997,6 @@
     "The correct answer is 6, not 4."
    ],
    "standards": [
-    "7.G.A.3",
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_count_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
