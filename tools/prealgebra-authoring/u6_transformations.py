@@ -630,7 +630,8 @@ def s6_apply(r, L):
 @fam("012", mode="sa")
 def s6_cong_or_sim(r, L):
     t1, t2 = rand_tf(r, True), rand_tf(r, True)
-    has_d = "d" in (t1[0], t2[0])
+    ks = [t[1] for t in (t1, t2) if t[0] == "d"]
+    has_d = bool(ks) and (ks[0] if len(ks) == 1 else ks[0] * ks[1]) != 1   # 8th Grade Math audit: 2 then 1/2 about the origin is the identity
     ans = "similar" if has_d else "congruent"
     return P(f"A figure undergoes a {tf_name(t1)}, then a {tf_name(t2)}. Is the final image congruent to the original, or similar but not congruent?", ans,
              ["A sequence of rigid motions gives a congruent image.", "Including a dilation (scale factor ≠ 1) gives a similar, not congruent, image."],

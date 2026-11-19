@@ -68,7 +68,8 @@
    "prompt": "Kim wants to see whether the time spent reading depends on the number of pages read. Which variable should go on the horizontal (x) axis?",
    "answer": "the number of pages read",
    "solutionSteps": [
-    "The variable that might explain or cause the change (the independent variable) goes on the x-axis."
+    "The variable that might explain or cause the change (the independent variable) goes on the x-axis.",
+    "So the answer is the number of pages read."
    ],
    "standards": [
     "8.SP.A.1"
@@ -158,7 +159,8 @@
    "prompt": "Kim wants to see whether the distance needed to stop depends on a car's speed. Which variable should go on the horizontal (x) axis?",
    "answer": "a car's speed",
    "solutionSteps": [
-    "The variable that might explain or cause the change (the independent variable) goes on the x-axis."
+    "The variable that might explain or cause the change (the independent variable) goes on the x-axis.",
+    "So the answer is a car's speed."
    ],
    "standards": [
     "8.SP.A.1"
@@ -230,7 +232,8 @@
    "prompt": "Kim wants to see whether the time to finish a job depends on the number of workers. Which variable should go on the horizontal (x) axis?",
    "answer": "the number of workers",
    "solutionSteps": [
-    "The variable that might explain or cause the change (the independent variable) goes on the x-axis."
+    "The variable that might explain or cause the change (the independent variable) goes on the x-axis.",
+    "So the answer is the number of workers."
    ],
    "standards": [
     "8.SP.A.1"
@@ -320,7 +323,8 @@
    "prompt": "Kim wants to see whether the candle's height depends on the number of hours a candle burns. Which variable should go on the horizontal (x) axis?",
    "answer": "the number of hours a candle burns",
    "solutionSteps": [
-    "The variable that might explain or cause the change (the independent variable) goes on the x-axis."
+    "The variable that might explain or cause the change (the independent variable) goes on the x-axis.",
+    "So the answer is the number of hours a candle burns."
    ],
    "standards": [
     "8.SP.A.1"
@@ -500,7 +504,8 @@
    ],
    "solutionSteps": [
     "Zoe reversed the coordinates.",
-    "x is height (in.) = 50; y is arm span (in.) = 56."
+    "x is height (in.) = 50; y is arm span (in.) = 56.",
+    "So the answer is (50, 56)."
    ],
    "standards": [
     "8.SP.A.1"
@@ -540,12 +545,579 @@
     "(2, 5)"
    ],
    "solutionSteps": [
-    "Each point is (x-value, y-value) from the same position in the lists."
+    "Each point is (x-value, y-value) from the same position in the lists.",
+    "Correct choices: (1, 16); (2, 5). Not correct: (1, 5); (21, 10); (5, 9)."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s01-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Hours studied: 1, 2, 3, 4, 5; test score: 60, 65, 72, 78, 84.",
+   "parts": [
+    {
+     "prompt": "Write the ordered pairs to plot.",
+     "answer": "(1, 60), (2, 65), (3, 72), (4, 78), (5, 84)"
+    },
+    {
+     "prompt": "Which variable goes on the x-axis?",
+     "answer": "hours studied"
+    },
+    {
+     "prompt": "Describe the association.",
+     "answer": "positive"
+    },
+    {
+     "prompt": "Predict the score for 6 hours if the pattern continues.",
+     "answer": "about 90"
+    }
+   ],
+   "answer": "(a) (1, 60), (2, 65), (3, 72), (4, 78), (5, 84); (b) hours studied; (c) positive; (d) about 90",
+   "solutionSteps": [
+    "Pair the lists in order.",
+    "Hours explain the score.",
+    "Scores rise as hours rise.",
+    "Scores rise about 6 points per hour: 84 + 6 = 90."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s01-cp2-p001",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Data: minutes practiced: 1, 3, 5, 7, 9; free throws made: 2, 4, 5, 8, 9. Plot the scatter plot with minutes practiced on the x-axis and free throws made on the y-axis.",
+   "answer": "(1, 2), (3, 4), (5, 5), (7, 8), (9, 9)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (1, 2), (3, 4), (5, 5), (7, 8), (9, 9).",
+    "The plot shows a positive association between minutes practiced and free throws made.",
+    "So the answer is (1, 2), (3, 4), (5, 5), (7, 8), (9, 9)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       1,
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       9,
+       9
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put minutes practiced across (x) and free throws made up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        9,
+        9
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          1
+         ],
+         [
+          4,
+          3
+         ],
+         [
+          5,
+          5
+         ],
+         [
+          8,
+          7
+         ],
+         [
+          9,
+          9
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp2-p001.png",
+     "alt": "First-quadrant grid with the points (1, 2), (3, 4), (5, 5), (7, 8), (9, 9) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp2-p002",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Data: hours of sleep: 5, 6, 7, 8, 9; quiz score (out of 12): 6, 7, 9, 10, 11. Plot the scatter plot with hours of sleep on the x-axis and quiz score (out of 12) on the y-axis.",
+   "answer": "(5, 6), (6, 7), (7, 9), (8, 10), (9, 11)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (5, 6), (6, 7), (7, 9), (8, 10), (9, 11).",
+    "The plot shows a positive association between hours of sleep and quiz score (out of 12).",
+    "So the answer is (5, 6), (6, 7), (7, 9), (8, 10), (9, 11)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       9
+      ],
+      [
+       8,
+       10
+      ],
+      [
+       9,
+       11
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put hours of sleep across (x) and quiz score (out of 12) up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        9
+       ],
+       [
+        8,
+        10
+       ],
+       [
+        9,
+        11
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          6,
+          5
+         ],
+         [
+          7,
+          6
+         ],
+         [
+          9,
+          7
+         ],
+         [
+          10,
+          8
+         ],
+         [
+          11,
+          9
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp2-p002.png",
+     "alt": "First-quadrant grid with the points (5, 6), (6, 7), (7, 9), (8, 10), (9, 11) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp2-p003",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Data: temperature (tens of °F): 3, 4, 5, 6, 8; cups of cocoa sold: 11, 9, 8, 5, 2. Plot the scatter plot with temperature (tens of °F) on the x-axis and cups of cocoa sold on the y-axis.",
+   "answer": "(3, 11), (4, 9), (5, 8), (6, 5), (8, 2)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (3, 11), (4, 9), (5, 8), (6, 5), (8, 2).",
+    "The plot shows a negative association between temperature (tens of °F) and cups of cocoa sold.",
+    "So the answer is (3, 11), (4, 9), (5, 8), (6, 5), (8, 2)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       3,
+       11
+      ],
+      [
+       4,
+       9
+      ],
+      [
+       5,
+       8
+      ],
+      [
+       6,
+       5
+      ],
+      [
+       8,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put temperature (tens of °F) across (x) and cups of cocoa sold up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        11
+       ],
+       [
+        4,
+        9
+       ],
+       [
+        5,
+        8
+       ],
+       [
+        6,
+        5
+       ],
+       [
+        8,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          11,
+          3
+         ],
+         [
+          9,
+          4
+         ],
+         [
+          8,
+          5
+         ],
+         [
+          5,
+          6
+         ],
+         [
+          2,
+          8
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          3,
+          2
+         ],
+         [
+          4,
+          5
+         ],
+         [
+          5,
+          8
+         ],
+         [
+          6,
+          9
+         ],
+         [
+          8,
+          11
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp2-p003.png",
+     "alt": "First-quadrant grid with the points (3, 11), (4, 9), (5, 8), (6, 5), (8, 2) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp2-p004",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Data: age of a phone (years): 0, 1, 2, 4, 5; value (tens of dollars): 12, 10, 8, 4, 3. Plot the scatter plot with age of a phone (years) on the x-axis and value (tens of dollars) on the y-axis.",
+   "answer": "(0, 12), (1, 10), (2, 8), (4, 4), (5, 3)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (0, 12), (1, 10), (2, 8), (4, 4), (5, 3).",
+    "The plot shows a negative association between age of a phone (years) and value (tens of dollars).",
+    "So the answer is (0, 12), (1, 10), (2, 8), (4, 4), (5, 3)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       0,
+       12
+      ],
+      [
+       1,
+       10
+      ],
+      [
+       2,
+       8
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put age of a phone (years) across (x) and value (tens of dollars) up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        12
+       ],
+       [
+        1,
+        10
+       ],
+       [
+        2,
+        8
+       ],
+       [
+        4,
+        4
+       ],
+       [
+        5,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          12,
+          0
+         ],
+         [
+          10,
+          1
+         ],
+         [
+          8,
+          2
+         ],
+         [
+          4,
+          4
+         ],
+         [
+          3,
+          5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          4
+         ],
+         [
+          2,
+          8
+         ],
+         [
+          4,
+          10
+         ],
+         [
+          5,
+          12
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp2-p004.png",
+     "alt": "First-quadrant grid with the points (0, 12), (1, 10), (2, 8), (4, 4), (5, 3) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   },
   {
    "id": "pa8-biv-s01-cp1-001",
@@ -1041,7 +1613,8 @@
    ],
    "solutionSteps": [
     "Zoe reversed the coordinates.",
-    "x is minutes practiced = 60; y is free throws made = 20."
+    "x is minutes practiced = 60; y is free throws made = 20.",
+    "So the answer is (60, 20)."
    ],
    "standards": [
     "8.SP.A.1"
@@ -1086,12 +1659,635 @@
     "(5, 8)"
    ],
    "solutionSteps": [
-    "Each point is (x-value, y-value) from the same position in the lists."
+    "Each point is (x-value, y-value) from the same position in the lists.",
+    "Correct choices: (6, 1); (4, 16); (5, 8). Not correct: (4, 8); (1, 9); (19, 10)."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s01-cp1-o01",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Outside temperature (°F): 50, 60, 70, 80, 90; drinks sold: 12, 18, 25, 33, 40.",
+   "parts": [
+    {
+     "prompt": "Write the ordered pairs to plot.",
+     "answer": "(50, 12), (60, 18), (70, 25), (80, 33), (90, 40)"
+    },
+    {
+     "prompt": "Choose a y-axis scale that fits the data.",
+     "answer": "0 to 40 by 5"
+    },
+    {
+     "prompt": "Describe the association.",
+     "answer": "positive linear"
+    },
+    {
+     "prompt": "About how many drinks are sold each time the temperature rises 10°F?",
+     "answer": "about 7"
+    }
+   ],
+   "answer": "(a) (50, 12), (60, 18), (70, 25), (80, 33), (90, 40); (b) 0 to 40 by 5; (c) positive linear; (d) about 7",
+   "solutionSteps": [
+    "Pair the lists in order.",
+    "All values are from 12 to 40.",
+    "The points rise at about the same rate.",
+    "(40 - 12) ÷ 4 = 7."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s01-cp1-p001",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Data: hours studied: 0, 2, 3, 5, 6, 8; points gained: 1, 3, 4, 7, 7, 10. Plot the scatter plot with hours studied on the x-axis and points gained on the y-axis.",
+   "answer": "(0, 1), (2, 3), (3, 4), (5, 7), (6, 7), (8, 10)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (0, 1), (2, 3), (3, 4), (5, 7), (6, 7), (8, 10).",
+    "The plot shows a positive association between hours studied and points gained.",
+    "So the answer is (0, 1), (2, 3), (3, 4), (5, 7), (6, 7), (8, 10)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       0,
+       1
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5,
+       7
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       8,
+       10
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put hours studied across (x) and points gained up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        7
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        8,
+        10
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          0
+         ],
+         [
+          3,
+          2
+         ],
+         [
+          4,
+          3
+         ],
+         [
+          7,
+          5
+         ],
+         [
+          7,
+          6
+         ],
+         [
+          10,
+          8
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp1-p001.png",
+     "alt": "First-quadrant grid with the points (0, 1), (2, 3), (3, 4), (5, 7), (6, 7), (8, 10) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp1-p002",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Data: number of workers: 1, 2, 3, 4, 6, 8; hours to finish: 12, 10, 7, 6, 4, 3. Plot the scatter plot with number of workers on the x-axis and hours to finish on the y-axis.",
+   "answer": "(1, 12), (2, 10), (3, 7), (4, 6), (6, 4), (8, 3)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (1, 12), (2, 10), (3, 7), (4, 6), (6, 4), (8, 3).",
+    "The plot shows a negative association between number of workers and hours to finish.",
+    "So the answer is (1, 12), (2, 10), (3, 7), (4, 6), (6, 4), (8, 3)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       1,
+       12
+      ],
+      [
+       2,
+       10
+      ],
+      [
+       3,
+       7
+      ],
+      [
+       4,
+       6
+      ],
+      [
+       6,
+       4
+      ],
+      [
+       8,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put number of workers across (x) and hours to finish up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        12
+       ],
+       [
+        2,
+        10
+       ],
+       [
+        3,
+        7
+       ],
+       [
+        4,
+        6
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          12,
+          1
+         ],
+         [
+          10,
+          2
+         ],
+         [
+          7,
+          3
+         ],
+         [
+          6,
+          4
+         ],
+         [
+          4,
+          6
+         ],
+         [
+          3,
+          8
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          3
+         ],
+         [
+          2,
+          4
+         ],
+         [
+          3,
+          6
+         ],
+         [
+          4,
+          7
+         ],
+         [
+          6,
+          10
+         ],
+         [
+          8,
+          12
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp1-p002.png",
+     "alt": "First-quadrant grid with the points (1, 12), (2, 10), (3, 7), (4, 6), (6, 4), (8, 3) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp1-p003",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Data: shoe size: 4, 6, 7, 9, 10, 12; spelling score: 9, 2, 11, 5, 8, 3. Plot the scatter plot with shoe size on the x-axis and spelling score on the y-axis.",
+   "answer": "(4, 9), (6, 2), (7, 11), (9, 5), (10, 8), (12, 3)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (4, 9), (6, 2), (7, 11), (9, 5), (10, 8), (12, 3).",
+    "The plot shows no clear association between shoe size and spelling score.",
+    "So the answer is (4, 9), (6, 2), (7, 11), (9, 5), (10, 8), (12, 3)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       4,
+       9
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       7,
+       11
+      ],
+      [
+       9,
+       5
+      ],
+      [
+       10,
+       8
+      ],
+      [
+       12,
+       3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put shoe size across (x) and spelling score up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        9
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        11
+       ],
+       [
+        9,
+        5
+       ],
+       [
+        10,
+        8
+       ],
+       [
+        12,
+        3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          9,
+          4
+         ],
+         [
+          2,
+          6
+         ],
+         [
+          11,
+          7
+         ],
+         [
+          5,
+          9
+         ],
+         [
+          8,
+          10
+         ],
+         [
+          3,
+          12
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          10,
+          9
+         ],
+         [
+          12,
+          11
+         ],
+         [
+          4,
+          2
+         ],
+         [
+          6,
+          3
+         ],
+         [
+          7,
+          5
+         ],
+         [
+          9,
+          8
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp1-p003.png",
+     "alt": "First-quadrant grid with the points (4, 9), (6, 2), (7, 11), (9, 5), (10, 8), (12, 3) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-cp1-p004",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Data: laps run: 2, 3, 5, 6, 9, 11; minutes of rest needed: 1, 2, 3, 5, 6, 8. Plot the scatter plot with laps run on the x-axis and minutes of rest needed on the y-axis.",
+   "answer": "(2, 1), (3, 2), (5, 3), (6, 5), (9, 6), (11, 8)",
+   "solutionSteps": [
+    "Pair the values in order: the first value of each list makes one point.",
+    "Points: (2, 1), (3, 2), (5, 3), (6, 5), (9, 6), (11, 8).",
+    "The plot shows a positive association between laps run and minutes of rest needed.",
+    "So the answer is (2, 1), (3, 2), (5, 3), (6, 5), (9, 6), (11, 8)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       2,
+       1
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       6,
+       5
+      ],
+      [
+       9,
+       6
+      ],
+      [
+       11,
+       8
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put laps run across (x) and minutes of rest needed up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        2,
+        1
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        5
+       ],
+       [
+        9,
+        6
+       ],
+       [
+        11,
+        8
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          2
+         ],
+         [
+          2,
+          3
+         ],
+         [
+          3,
+          5
+         ],
+         [
+          5,
+          6
+         ],
+         [
+          6,
+          9
+         ],
+         [
+          8,
+          11
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-cp1-p004.png",
+     "alt": "First-quadrant grid with the points (2, 1), (3, 2), (5, 3), (6, 5), (9, 6), (11, 8) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   },
   {
    "id": "pa8-biv-s01-honors-001",
@@ -1587,7 +2783,8 @@
    ],
    "solutionSteps": [
     "Zoe reversed the coordinates.",
-    "x is minutes practiced = 37; y is free throws made = 13."
+    "x is minutes practiced = 37; y is free throws made = 13.",
+    "So the answer is (37, 13)."
    ],
    "standards": [
     "8.SP.A.1"
@@ -1627,12 +2824,761 @@
     "(9, 15)"
    ],
    "solutionSteps": [
-    "Each point is (x-value, y-value) from the same position in the lists."
+    "Each point is (x-value, y-value) from the same position in the lists.",
+    "Correct choices: (4, 2); (9, 15). Not correct: (5, 12); (4, 14); (12, 10)."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s1_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s01-honors-o01",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "x: 2, 3, 4, 5, 6, 7; y: 5, 7, 9, 30, 13, 15.",
+   "parts": [
+    {
+     "prompt": "Write the ordered pairs to plot.",
+     "answer": "(2, 5), (3, 7), (4, 9), (5, 30), (6, 13), (7, 15)"
+    },
+    {
+     "prompt": "Which point is an outlier?",
+     "answer": "(5, 30)"
+    },
+    {
+     "prompt": "What y-value would fit the pattern at x = 5?",
+     "answer": "11"
+    },
+    {
+     "prompt": "Describe the association of the other five points.",
+     "answer": "positive linear"
+    }
+   ],
+   "answer": "(a) (2, 5), (3, 7), (4, 9), (5, 30), (6, 13), (7, 15); (b) (5, 30); (c) 11; (d) positive linear",
+   "solutionSteps": [
+    "Pair the lists in order.",
+    "The other points rise by 2 each step; 30 is far from that pattern.",
+    "9 + 2 = 11.",
+    "They rise by 2 for each step of 1."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s01-honors-p001",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Each pair is (hours of practice, goals scored): Ana 9 and 10; Ben 2 and 3; Cy 6 and 6; Dee 11 and 12; Eli 4 and 5; Fay 7 and 8; Gus 1 and 1. Plot a scatter plot with hours of practice on the x-axis.",
+   "answer": "(9, 10), (2, 3), (6, 6), (11, 12), (4, 5), (7, 8), (1, 1)",
+   "solutionSteps": [
+    "Pair the values in order: each name gives one point.",
+    "Points: (9, 10), (2, 3), (6, 6), (11, 12), (4, 5), (7, 8), (1, 1).",
+    "The plot shows a positive association between hours of practice and goals scored.",
+    "So the answer is (9, 10), (2, 3), (6, 6), (11, 12), (4, 5), (7, 8), (1, 1)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       9,
+       10
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       6,
+       6
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put hours of practice across (x) and goals scored up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        9,
+        10
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        6,
+        6
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        1,
+        1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          10,
+          9
+         ],
+         [
+          3,
+          2
+         ],
+         [
+          6,
+          6
+         ],
+         [
+          12,
+          11
+         ],
+         [
+          5,
+          4
+         ],
+         [
+          8,
+          7
+         ],
+         [
+          1,
+          1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          12
+         ],
+         [
+          11,
+          6
+         ],
+         [
+          2,
+          3
+         ],
+         [
+          4,
+          8
+         ],
+         [
+          6,
+          5
+         ],
+         [
+          7,
+          10
+         ],
+         [
+          9,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-honors-p001.png",
+     "alt": "First-quadrant grid with the points (9, 10), (2, 3), (6, 6), (11, 12), (4, 5), (7, 8), (1, 1) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-honors-p002",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Each pair is (days since planting, height (cm)): Plant A 10 and 9; Plant B 4 and 4; Plant C 8 and 7; Plant D 2 and 2; Plant E 6 and 5; Plant F 12 and 10; Plant G 0 and 1. Plot a scatter plot with days since planting on the x-axis.",
+   "answer": "(10, 9), (4, 4), (8, 7), (2, 2), (6, 5), (12, 10), (0, 1)",
+   "solutionSteps": [
+    "Pair the values in order: each name gives one point.",
+    "Points: (10, 9), (4, 4), (8, 7), (2, 2), (6, 5), (12, 10), (0, 1).",
+    "The plot shows a positive association between days since planting and height (cm).",
+    "So the answer is (10, 9), (4, 4), (8, 7), (2, 2), (6, 5), (12, 10), (0, 1)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       10,
+       9
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       8,
+       7
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       6,
+       5
+      ],
+      [
+       12,
+       10
+      ],
+      [
+       0,
+       1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put days since planting across (x) and height (cm) up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        10,
+        9
+       ],
+       [
+        4,
+        4
+       ],
+       [
+        8,
+        7
+       ],
+       [
+        2,
+        2
+       ],
+       [
+        6,
+        5
+       ],
+       [
+        12,
+        10
+       ],
+       [
+        0,
+        1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          9,
+          10
+         ],
+         [
+          4,
+          4
+         ],
+         [
+          7,
+          8
+         ],
+         [
+          2,
+          2
+         ],
+         [
+          5,
+          6
+         ],
+         [
+          10,
+          12
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          10
+         ],
+         [
+          10,
+          1
+         ],
+         [
+          12,
+          9
+         ],
+         [
+          2,
+          5
+         ],
+         [
+          4,
+          2
+         ],
+         [
+          6,
+          7
+         ],
+         [
+          8,
+          4
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-honors-p002.png",
+     "alt": "First-quadrant grid with the points (10, 9), (4, 4), (8, 7), (2, 2), (6, 5), (12, 10), (0, 1) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-honors-p003",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Each pair is (price (dollars), number sold (tens)): Item 1 3 and 10; Item 2 8 and 5; Item 3 5 and 8; Item 4 10 and 3; Item 5 1 and 12; Item 6 6 and 7; Item 7 12 and 1. Plot a scatter plot with price (dollars) on the x-axis.",
+   "answer": "(3, 10), (8, 5), (5, 8), (10, 3), (1, 12), (6, 7), (12, 1)",
+   "solutionSteps": [
+    "Pair the values in order: each name gives one point.",
+    "Points: (3, 10), (8, 5), (5, 8), (10, 3), (1, 12), (6, 7), (12, 1).",
+    "The plot shows a negative association between price (dollars) and number sold (tens).",
+    "So the answer is (3, 10), (8, 5), (5, 8), (10, 3), (1, 12), (6, 7), (12, 1)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       3,
+       10
+      ],
+      [
+       8,
+       5
+      ],
+      [
+       5,
+       8
+      ],
+      [
+       10,
+       3
+      ],
+      [
+       1,
+       12
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       12,
+       1
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put price (dollars) across (x) and number sold (tens) up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        10
+       ],
+       [
+        8,
+        5
+       ],
+       [
+        5,
+        8
+       ],
+       [
+        10,
+        3
+       ],
+       [
+        1,
+        12
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        12,
+        1
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          10,
+          3
+         ],
+         [
+          5,
+          8
+         ],
+         [
+          8,
+          5
+         ],
+         [
+          3,
+          10
+         ],
+         [
+          12,
+          1
+         ],
+         [
+          7,
+          6
+         ],
+         [
+          1,
+          12
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          8
+         ],
+         [
+          10,
+          7
+         ],
+         [
+          12,
+          12
+         ],
+         [
+          3,
+          1
+         ],
+         [
+          5,
+          5
+         ],
+         [
+          6,
+          10
+         ],
+         [
+          8,
+          3
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-honors-p003.png",
+     "alt": "First-quadrant grid with the points (3, 10), (8, 5), (5, 8), (10, 3), (1, 12), (6, 7), (12, 1) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-biv-s01-honors-p004",
+   "skillId": "patterns-bivariate-data-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Each pair is (outside temperature (tens of °F), heating cost (tens of dollars)): Week 1 9 and 1; Week 2 2 and 11; Week 3 5 and 6; Week 4 7 and 3; Week 5 3 and 10; Week 6 8 and 2; Week 7 4 and 8. Plot a scatter plot with outside temperature (tens of °F) on the x-axis.",
+   "answer": "(9, 1), (2, 11), (5, 6), (7, 3), (3, 10), (8, 2), (4, 8)",
+   "solutionSteps": [
+    "Pair the values in order: each name gives one point.",
+    "Points: (9, 1), (2, 11), (5, 6), (7, 3), (3, 10), (8, 2), (4, 8).",
+    "The plot shows a negative association between outside temperature (tens of °F) and heating cost (tens of dollars).",
+    "So the answer is (9, 1), (2, 11), (5, 6), (7, 3), (3, 10), (8, 2), (4, 8)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot_scatter). 8th Grade Math audit 2026-11-19 (#9, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade8-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": 0,
+     "xmax": 12,
+     "ymin": 0,
+     "ymax": 12,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "points": [
+      [
+       9,
+       1
+      ],
+      [
+       2,
+       11
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       3,
+       10
+      ],
+      [
+       8,
+       2
+      ],
+      [
+       4,
+       8
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Pair the values in order: the first x-value goes with the first y-value.",
+     "swapped-coordinates": "You swapped the axes. Put outside temperature (tens of °F) across (x) and heating cost (tens of dollars) up (y)."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        9,
+        1
+       ],
+       [
+        2,
+        11
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        3,
+        10
+       ],
+       [
+        8,
+        2
+       ],
+       [
+        4,
+        8
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          9
+         ],
+         [
+          11,
+          2
+         ],
+         [
+          6,
+          5
+         ],
+         [
+          3,
+          7
+         ],
+         [
+          10,
+          3
+         ],
+         [
+          2,
+          8
+         ],
+         [
+          8,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          2
+         ],
+         [
+          3,
+          8
+         ],
+         [
+          4,
+          11
+         ],
+         [
+          5,
+          3
+         ],
+         [
+          7,
+          6
+         ],
+         [
+          8,
+          10
+         ],
+         [
+          9,
+          1
+         ]
+        ]
+       },
+       "expectCode": "position"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/pa8-biv-s01-honors-p004.png",
+     "alt": "First-quadrant grid with the points (9, 1), (2, 11), (5, 6), (7, 3), (3, 10), (8, 2), (4, 8) plotted."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   },
   {
    "id": "pa8-biv-s02-cp2-001",
@@ -2173,7 +4119,8 @@
    ],
    "solutionSteps": [
     "Both may increase because of a third factor (hot, sunny weather).",
-    "Association is not causation."
+    "Association is not causation.",
+    "So the answer is: No. Association does not prove that one variable causes the other."
    ],
    "standards": [
     "8.SP.A.1"
@@ -2219,7 +4166,8 @@
     "The least height (in.) is 53."
    ],
    "solutionSteps": [
-    "Points: (53, 55), (57, 58), (58, 58), (61, 59), (62, 63), (66, 64), (70, 69), (75, 73)."
+    "Points: (53, 55), (57, 58), (58, 58), (61, 59), (62, 63), (66, 64), (70, 69), (75, 73).",
+    "Correct choices: The association is positive; The greatest arm span (in.) is 73; The greatest free throws made is 14; The least height (in.) is 53. Not correct: There are 9 data points; The greatest arm span (in.) is 78."
    ],
    "diagram": {
     "type": "image",
@@ -2322,7 +4270,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -2440,7 +4389,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -2558,7 +4508,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -2658,7 +4609,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -2788,7 +4740,8 @@
     "The least minutes practiced is 4."
    ],
    "solutionSteps": [
-    "Points: (4, 4), (17, 8), (25, 9), (27, 11), (34, 10), (35, 13), (36, 12), (38, 14)."
+    "Points: (4, 4), (17, 8), (25, 9), (27, 11), (34, 10), (35, 13), (36, 12), (38, 14).",
+    "Correct choices: The greatest free throws made is 14; The association is positive; The least minutes practiced is 4. Not correct: There are 9 data points; The association is negative; The greatest free throws made is 16."
    ],
    "diagram": {
     "type": "image",
@@ -2927,7 +4880,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -3045,7 +4999,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -3163,7 +5118,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -3281,7 +5237,8 @@
     }
    ],
    "solutionSteps": [
-    "Most points (7 of 10) are grouped with x from 6 to 10."
+    "Most points (7 of 10) are grouped with x from 6 to 10.",
+    "So the answer is A cluster of points with x from 6 to 10."
    ],
    "diagram": {
     "type": "image",
@@ -3388,7 +5345,8 @@
     "The least height (in.) is 54."
    ],
    "solutionSteps": [
-    "Points: (54, 56), (58, 62), (61, 64), (62, 63), (65, 65), (66, 68), (73, 75), (75, 74)."
+    "Points: (54, 56), (58, 62), (61, 64), (62, 63), (65, 65), (66, 68), (73, 75), (75, 74).",
+    "Correct choices: The greatest arm span (in.) is 75; The least height (in.) is 54. Not correct: The association is negative; There are 9 data points; The greatest arm span (in.) is 80."
    ],
    "diagram": {
     "type": "image",
@@ -3464,7 +5422,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3486,7 +5445,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the number of absences and a student's grade?",
    "answer": "negative",
    "solutionSteps": [
-    "As one increases, the other tends to decrease."
+    "As one increases, the other tends to decrease.",
+    "So the answer is negative."
    ],
    "standards": [
     "8.SP.A.1"
@@ -3535,7 +5495,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3557,7 +5518,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the outdoor temperature and the number of people at a pool?",
    "answer": "positive",
    "solutionSteps": [
-    "As one increases, the other tends to increase."
+    "As one increases, the other tends to increase.",
+    "So the answer is positive."
    ],
    "standards": [
     "8.SP.A.1"
@@ -3606,7 +5568,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3628,7 +5591,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the number of hours a student spends practicing piano and the number of mistakes in a recital?",
    "answer": "negative",
    "solutionSteps": [
-    "As one increases, the other tends to decrease."
+    "As one increases, the other tends to decrease.",
+    "So the answer is negative."
    ],
    "standards": [
     "8.SP.A.1"
@@ -3677,7 +5641,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3699,7 +5664,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between a student's favorite number and their height?",
    "answer": "no association",
    "solutionSteps": [
-    "There is no reason for one to change with the other."
+    "There is no reason for one to change with the other.",
+    "So the answer is no association."
    ],
    "standards": [
     "8.SP.A.1"
@@ -3748,7 +5714,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3770,7 +5737,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between a person's height and their shoe size?",
    "answer": "positive",
    "solutionSteps": [
-    "As one increases, the other tends to increase."
+    "As one increases, the other tends to increase.",
+    "So the answer is positive."
    ],
    "standards": [
     "8.SP.A.1"
@@ -3819,7 +5787,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3859,7 +5828,8 @@
     }
    ],
    "solutionSteps": [
-    "No clear pattern."
+    "No clear pattern.",
+    "So the answer is no association."
    ],
    "diagram": {
     "type": "image",
@@ -3899,7 +5869,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -3940,7 +5911,8 @@
    ],
    "solutionSteps": [
     "A clear linear pattern can be positive or negative.",
-    "Here y decreases as x increases: negative association."
+    "Here y decreases as x increases: negative association.",
+    "So the answer is: No. The points fall from left to right, so the association is negative."
    ],
    "diagram": {
     "type": "image",
@@ -3992,12 +5964,49 @@
     "x: 1, 2, 3, 6, 10, 11; y: 5, 6, 10, 16, 25, 25"
    ],
    "solutionSteps": [
-    "Positive: y tends to increase as x increases."
+    "Positive: y tends to increase as x increases.",
+    "Correct choices: x: 3, 4, 5, 7, 10, 11; y: 7, 11, 13, 16, 25, 24; x: 1, 6, 8, 9, 10, 12; y: 6, 15, 23, 23, 28, 30; x: 1, 2, 3, 6, 10, 11; y: 5, 6, 10, 16, 25, 25. Not correct: x: 2, 6, 7, 9, 11, 12; y: 23, 15, 12, 10, 4, 3; x: 2, 3, 4, 7, 8, 11; y: 10, 22, 2, 24, 16, 11; x: 1, 3, 5, 7, 9, 10; y: 26, 19, 18, 13, 6, 4."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s03-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Hours of TV: 0, 1, 2, 3, 4; hours of sleep: 10, 9.5, 9, 8.5, 8.",
+   "parts": [
+    {
+     "prompt": "Is the association positive, negative or none?",
+     "answer": "negative"
+    },
+    {
+     "prompt": "Is it linear or nonlinear?",
+     "answer": "linear"
+    },
+    {
+     "prompt": "Predict sleep for 5 hours of TV.",
+     "answer": "7.5 hours"
+    },
+    {
+     "prompt": "Does watching TV cause less sleep? Explain.",
+     "answer": "not necessarily: association does not show cause"
+    }
+   ],
+   "answer": "(a) negative; (b) linear; (c) 7.5 hours; (d) not necessarily: association does not show cause",
+   "solutionSteps": [
+    "Sleep goes down as TV goes up.",
+    "Sleep drops by 0.5 for each hour of TV.",
+    "8 - 0.5 = 7.5.",
+    "Another factor, such as staying up late, could explain both."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-cp1-001",
@@ -4025,7 +6034,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4047,7 +6057,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the age of a phone and its battery life?",
    "answer": "negative",
    "solutionSteps": [
-    "As one increases, the other tends to decrease."
+    "As one increases, the other tends to decrease.",
+    "So the answer is negative."
    ],
    "standards": [
     "8.SP.A.1"
@@ -4096,7 +6107,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot B."
    ],
    "diagram": {
     "type": "image",
@@ -4136,7 +6148,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4158,7 +6171,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the number of people at a party and the amount of food eaten?",
    "answer": "positive",
    "solutionSteps": [
-    "As one increases, the other tends to increase."
+    "As one increases, the other tends to increase.",
+    "So the answer is positive."
    ],
    "standards": [
     "8.SP.A.1"
@@ -4207,7 +6221,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot B."
    ],
    "diagram": {
     "type": "image",
@@ -4247,7 +6262,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4269,7 +6285,8 @@
    "prompt": "Would you expect a positive association, a negative association, or no association between the day of the month a person was born and their test score?",
    "answer": "no association",
    "solutionSteps": [
-    "There is no reason for one to change with the other."
+    "There is no reason for one to change with the other.",
+    "So the answer is no association."
    ],
    "standards": [
     "8.SP.A.1"
@@ -4318,7 +6335,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot A."
    ],
    "diagram": {
     "type": "image",
@@ -4358,7 +6376,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4414,7 +6433,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot B."
    ],
    "diagram": {
     "type": "image",
@@ -4503,7 +6523,8 @@
    ],
    "solutionSteps": [
     "A clear linear pattern can be positive or negative.",
-    "Here y decreases as x increases: negative association."
+    "Here y decreases as x increases: negative association.",
+    "So the answer is: No. The points fall from left to right, so the association is negative."
    ],
    "diagram": {
     "type": "image",
@@ -4550,12 +6571,49 @@
     "x: 1, 2, 3, 7, 10, 11; y: 3, 5, 6, 15, 19, 23"
    ],
    "solutionSteps": [
-    "Positive: y tends to increase as x increases."
+    "Positive: y tends to increase as x increases.",
+    "Correct choices: x: 2, 4, 6, 9, 11, 12; y: 9, 9, 14, 19, 23, 26; x: 1, 2, 3, 7, 10, 11; y: 3, 5, 6, 15, 19, 23. Not correct: x: 1, 2, 4, 6, 7, 10; y: 26, 22, 16, 16, 13, 4; x: 3, 4, 6, 7, 10, 11; y: 22, 13, 26, 23, 26, 11; x: 4, 6, 7, 8, 9, 10; y: 17, 14, 12, 10, 9, 7."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s03-cp1-o01",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Age of a car (years): 1, 2, 3, 4, 5; value ($1,000s): 24, 20, 17, 15, 14.",
+   "parts": [
+    {
+     "prompt": "Is the association positive, negative or none?",
+     "answer": "negative"
+    },
+    {
+     "prompt": "Find the drops in value from year to year.",
+     "answer": "4, 3, 2, 1"
+    },
+    {
+     "prompt": "Is the association linear or nonlinear? Explain.",
+     "answer": "nonlinear: the drops are not equal"
+    },
+    {
+     "prompt": "Predict the drop from year 5 to year 6 if the pattern continues.",
+     "answer": "about $1,000 or less"
+    }
+   ],
+   "answer": "(a) negative; (b) 4, 3, 2, 1; (c) nonlinear: the drops are not equal; (d) about $1,000 or less",
+   "solutionSteps": [
+    "Value goes down as age goes up.",
+    "24 - 20, 20 - 17, 17 - 15, 15 - 14.",
+    "A linear pattern would drop by the same amount each year.",
+    "The drops are shrinking: 4, 3, 2, 1."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s03-honors-001",
@@ -4583,7 +6641,8 @@
     }
    ],
    "solutionSteps": [
-    "No clear pattern."
+    "No clear pattern.",
+    "So the answer is no association."
    ],
    "diagram": {
     "type": "image",
@@ -4639,7 +6698,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot B."
    ],
    "diagram": {
     "type": "image",
@@ -4679,7 +6739,8 @@
     }
    ],
    "solutionSteps": [
-    "Points fall left to right along a line-like pattern."
+    "Points fall left to right along a line-like pattern.",
+    "So the answer is negative linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4735,7 +6796,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot A."
    ],
    "diagram": {
     "type": "image",
@@ -4775,7 +6837,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4831,7 +6894,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot B."
    ],
    "diagram": {
     "type": "image",
@@ -4871,7 +6935,8 @@
     }
    ],
    "solutionSteps": [
-    "Points rise left to right along a line-like pattern."
+    "Points rise left to right along a line-like pattern.",
+    "So the answer is positive linear association."
    ],
    "diagram": {
     "type": "image",
@@ -4927,7 +6992,8 @@
     }
    ],
    "solutionSteps": [
-    "The stronger association has points packed more closely around a line."
+    "The stronger association has points packed more closely around a line.",
+    "So the answer is Plot A."
    ],
    "diagram": {
     "type": "image",
@@ -5064,7 +7130,8 @@
    ],
    "solutionSteps": [
     "A clear linear pattern can be positive or negative.",
-    "Here y decreases as x increases: negative association."
+    "Here y decreases as x increases: negative association.",
+    "So the answer is: No. The points fall from left to right, so the association is negative."
    ],
    "diagram": {
     "type": "image",
@@ -5117,12 +7184,49 @@
     "x: 2, 3, 9, 10, 11, 12; y: 4, 9, 22, 25, 29, 28"
    ],
    "solutionSteps": [
-    "Positive: y tends to increase as x increases."
+    "Positive: y tends to increase as x increases.",
+    "Correct choices: x: 3, 5, 9, 10, 11, 12; y: 6, 9, 17, 18, 23, 23; x: 5, 7, 8, 9, 10, 11; y: 13, 17, 22, 24, 22, 28; x: 3, 4, 5, 7, 10, 11; y: 7, 11, 13, 16, 25, 24; x: 2, 3, 9, 10, 11, 12; y: 4, 9, 22, 25, 29, 28. Not correct: x: 3, 5, 7, 9, 10, 12; y: 23, 18, 16, 9, 11, 9; x: 2, 3, 8, 9, 11, 12; y: 12, 7, 2, 1, 19, 7."
    ],
    "standards": [
     "8.SP.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s3_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Teacher reviewed 2026-11-15. Correct-option count varied (selectall-audit 2026-11-19)."
+  },
+  {
+   "id": "pa8-biv-s03-honors-o01",
+   "skillId": "patterns-bivariate-data-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Side length of a square (cm): 1, 2, 3, 4, 5; area (square cm): 1, 4, 9, 16, 25.",
+   "parts": [
+    {
+     "prompt": "Is the association positive, negative or none?",
+     "answer": "positive"
+    },
+    {
+     "prompt": "Find the increases in area.",
+     "answer": "3, 5, 7, 9"
+    },
+    {
+     "prompt": "Is the association linear or nonlinear? Explain.",
+     "answer": "nonlinear: the increases grow"
+    },
+    {
+     "prompt": "Predict the area for a side length of 6 cm.",
+     "answer": "36 square cm"
+    }
+   ],
+   "answer": "(a) positive; (b) 3, 5, 7, 9; (c) nonlinear: the increases grow; (d) 36 square cm",
+   "solutionSteps": [
+    "Area rises as the side rises.",
+    "Differences of consecutive areas.",
+    "Equal steps in x give larger and larger steps in y.",
+    "6² = 36 (the next increase is 11)."
+   ],
+   "standards": [
+    "8.SP.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-s04-cp2-001",
@@ -5166,7 +7270,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the y-intercept is 56: the predicted tree height (cm) when months since planting is 0.",
+    "So the answer is: The predicted tree height (cm) is 56 when months since planting is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5183,7 +7289,8 @@
    "answer": "y = (1/2)x + 2",
    "solutionSteps": [
     "slope = (3 - 2) ÷ (2 - 0) = 1/2.",
-    "y-intercept 2."
+    "y-intercept 2.",
+    "So the answer is y = (1/2)x + 2."
    ],
    "diagram": {
     "type": "image",
@@ -5241,7 +7348,9 @@
    "answer": "The value ($1,000s) changes by -12 for each 1 increase in age of car (years).",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The value ($1,000s) changes by -12 for each 1 increase in age of car (years)."
+    "Here: The value ($1,000s) changes by -12 for each 1 increase in age of car (years).",
+    "Here the slope is -12: the predicted value ($1,000s) changes by -12 for each 1 more age of car (years).",
+    "So the answer is: The value ($1,000s) changes by -12 for each 1 increase in age of car (years)."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5258,7 +7367,8 @@
    "answer": "y = -x + 10",
    "solutionSteps": [
     "slope = (8 - 10) ÷ (2 - 0) = -1.",
-    "y-intercept 10."
+    "y-intercept 10.",
+    "So the answer is y = -x + 10."
    ],
    "diagram": {
     "type": "image",
@@ -5333,7 +7443,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the y-intercept is 52: the predicted calories burned when minutes of exercise is 0.",
+    "So the answer is: The predicted calories burned is 52 when minutes of exercise is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5368,7 +7480,8 @@
    ],
    "solutionSteps": [
     "slope = (7 - 8) ÷ (2 - 0) = -1/2.",
-    "y-intercept 8."
+    "y-intercept 8.",
+    "So the answer is y = -(1/2)x + 8."
    ],
    "diagram": {
     "type": "image",
@@ -5408,7 +7521,9 @@
    "answer": "The predicted value ($1,000s) is 30 when age of car (years) is 0.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The predicted value ($1,000s) is 30 when age of car (years) is 0."
+    "Here: The predicted value ($1,000s) is 30 when age of car (years) is 0.",
+    "Here the y-intercept is 30: the predicted value ($1,000s) when age of car (years) is 0.",
+    "So the answer is: The predicted value ($1,000s) is 30 when age of car (years) is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5425,7 +7540,8 @@
    "answer": "y = -x + 9",
    "solutionSteps": [
     "slope = (7 - 9) ÷ (2 - 0) = -1.",
-    "y-intercept 9."
+    "y-intercept 9.",
+    "So the answer is y = -x + 9."
    ],
    "diagram": {
     "type": "image",
@@ -5483,7 +7599,9 @@
    "answer": "The test score changes by 11 for each 1 increase in hours studied.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The test score changes by 11 for each 1 increase in hours studied."
+    "Here: The test score changes by 11 for each 1 increase in hours studied.",
+    "Here the slope is 11: the predicted test score changes by 11 for each 1 more hours studied.",
+    "So the answer is: The test score changes by 11 for each 1 increase in hours studied."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5500,7 +7618,8 @@
    "answer": "y = x + 1",
    "solutionSteps": [
     "slope = (3 - 1) ÷ (2 - 0) = 1.",
-    "y-intercept 1."
+    "y-intercept 1.",
+    "So the answer is y = x + 1."
    ],
    "diagram": {
     "type": "image",
@@ -5575,7 +7694,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the y-intercept is 37: the predicted test score when hours studied is 0.",
+    "So the answer is: The predicted test score is 37 when hours studied is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5592,7 +7713,8 @@
    "answer": "y = -(1/2)x + 7",
    "solutionSteps": [
     "slope = (6 - 7) ÷ (2 - 0) = -1/2.",
-    "y-intercept 7."
+    "y-intercept 7.",
+    "So the answer is y = -(1/2)x + 7."
    ],
    "diagram": {
     "type": "image",
@@ -5633,7 +7755,8 @@
     }
    ],
    "solutionSteps": [
-    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100."
+    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100.",
+    "So the answer is: No. 40 hours is far outside the data, so the prediction may not be reliable."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5679,7 +7802,8 @@
     "For x = 2, the predicted y is 37."
    ],
    "solutionSteps": [
-    "Substitute and interpret slope and intercept."
+    "Substitute and interpret slope and intercept.",
+    "Correct choices: When x = 0, the predicted y is 25; The predicted y increases by 6 for each 1 increase in x; For x = 2, the predicted y is 37. Not correct: When x = 0, the predicted y is 6; For x = 2, the predicted y is 62; The predicted y increases by 25 for each 1 increase in x."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5729,7 +7853,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the slope is 9: the predicted test score changes by 9 for each 1 more hours studied.",
+    "So the answer is: The test score changes by 9 for each 1 increase in hours studied."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5788,7 +7914,8 @@
    "answer": "y = x",
    "solutionSteps": [
     "slope = (2 - 0) ÷ (2 - 0) = 1.",
-    "y-intercept 0."
+    "y-intercept 0.",
+    "So the answer is y = x."
    ],
    "diagram": {
     "type": "image",
@@ -5863,7 +7990,9 @@
    "answer": "The predicted calories burned is 23 when minutes of exercise is 0.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The predicted calories burned is 23 when minutes of exercise is 0."
+    "Here: The predicted calories burned is 23 when minutes of exercise is 0.",
+    "Here the y-intercept is 23: the predicted calories burned when minutes of exercise is 0.",
+    "So the answer is: The predicted calories burned is 23 when minutes of exercise is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -5940,7 +8069,8 @@
    ],
    "solutionSteps": [
     "slope = (4 - 3) ÷ (2 - 0) = 1/2.",
-    "y-intercept 3."
+    "y-intercept 3.",
+    "So the answer is y = (1/2)x + 3."
    ],
    "diagram": {
     "type": "image",
@@ -6015,7 +8145,9 @@
    "answer": "The tree height (cm) changes by 10 for each 1 increase in months since planting.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The tree height (cm) changes by 10 for each 1 increase in months since planting."
+    "Here: The tree height (cm) changes by 10 for each 1 increase in months since planting.",
+    "Here the slope is 10: the predicted tree height (cm) changes by 10 for each 1 more months since planting.",
+    "So the answer is: The tree height (cm) changes by 10 for each 1 increase in months since planting."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6125,7 +8257,9 @@
    "answer": "The calories burned changes by 5 for each 1 increase in minutes of exercise.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The calories burned changes by 5 for each 1 increase in minutes of exercise."
+    "Here: The calories burned changes by 5 for each 1 increase in minutes of exercise.",
+    "Here the slope is 5: the predicted calories burned changes by 5 for each 1 more minutes of exercise.",
+    "So the answer is: The calories burned changes by 5 for each 1 increase in minutes of exercise."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6192,7 +8326,8 @@
     }
    ],
    "solutionSteps": [
-    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100."
+    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100.",
+    "So the answer is: No. 40 hours is far outside the data, so the prediction may not be reliable."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6233,7 +8368,8 @@
     "When x = 0, the predicted y is 12."
    ],
    "solutionSteps": [
-    "Substitute and interpret slope and intercept."
+    "Substitute and interpret slope and intercept.",
+    "Correct choices: The predicted y increases by 3 for each 1 increase in x; When x = 0, the predicted y is 12. Not correct: For x = 2, the predicted y is 30; The predicted y increases by 12 for each 1 increase in x; When x = 0, the predicted y is 3."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6283,7 +8419,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the y-intercept is 31: the predicted test score when hours studied is 0.",
+    "So the answer is: The predicted test score is 31 when hours studied is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6393,7 +8531,9 @@
    "answer": "The predicted tree height (cm) is 46 when months since planting is 0.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The predicted tree height (cm) is 46 when months since planting is 0."
+    "Here: The predicted tree height (cm) is 46 when months since planting is 0.",
+    "Here the y-intercept is 46: the predicted tree height (cm) when months since planting is 0.",
+    "So the answer is: The predicted tree height (cm) is 46 when months since planting is 0."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6503,7 +8643,9 @@
    "answer": "The calories burned changes by 5 for each 1 increase in minutes of exercise.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The calories burned changes by 5 for each 1 increase in minutes of exercise."
+    "Here: The calories burned changes by 5 for each 1 increase in minutes of exercise.",
+    "Here the slope is 5: the predicted calories burned changes by 5 for each 1 more minutes of exercise.",
+    "So the answer is: The calories burned changes by 5 for each 1 increase in minutes of exercise."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6630,7 +8772,9 @@
     }
    ],
    "solutionSteps": [
-    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0."
+    "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
+    "Here the slope is 9: the predicted calories burned changes by 9 for each 1 more minutes of exercise.",
+    "So the answer is: The calories burned changes by 9 for each 1 increase in minutes of exercise."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6680,7 +8824,9 @@
    "answer": "The calories burned changes by 7 for each 1 increase in minutes of exercise.",
    "solutionSteps": [
     "Slope: change in y per 1 unit of x. y-intercept: predicted y when x = 0.",
-    "Here: The calories burned changes by 7 for each 1 increase in minutes of exercise."
+    "Here: The calories burned changes by 7 for each 1 increase in minutes of exercise.",
+    "Here the slope is 7: the predicted calories burned changes by 7 for each 1 more minutes of exercise.",
+    "So the answer is: The calories burned changes by 7 for each 1 increase in minutes of exercise."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6731,7 +8877,8 @@
     }
    ],
    "solutionSteps": [
-    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100."
+    "Predicting far beyond the data (extrapolating) can give impossible results, such as a score above 100.",
+    "So the answer is: No. 40 hours is far outside the data, so the prediction may not be reliable."
    ],
    "standards": [
     "8.SP.A.2",
@@ -6772,7 +8919,8 @@
     "The predicted y increases by 4 for each 1 increase in x."
    ],
    "solutionSteps": [
-    "Substitute and interpret slope and intercept."
+    "Substitute and interpret slope and intercept.",
+    "Correct choices: When x = 0, the predicted y is 19; The predicted y increases by 4 for each 1 increase in x. Not correct: When x = 0, the predicted y is 4; The predicted y increases by 19 for each 1 increase in x; For x = 2, the predicted y is 46."
    ],
    "standards": [
     "8.SP.A.2",
@@ -7284,7 +9432,8 @@
     "The \"prefer games\" column total is 37."
    ],
    "solutionSteps": [
-    "Compute row, column and grand totals."
+    "Compute row, column and grand totals.",
+    "Correct choices: The adults row total is 35; The grand total is 83; The \"prefer games\" column total is 37. Not correct: The adults row total is 46; The grand total is 105; The \"prefer games\" column total is 48."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7367,7 +9516,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is adults: 21, 8 | teens: 11, 13 (columns: prefer movies, prefer games)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7450,7 +9600,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is juniors: 25, 5 | seniors: 25, 21 (columns: have a job, have no job)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7515,7 +9666,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is juniors: 8, 5 | seniors: 19, 24 (columns: have a job, have no job)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7616,7 +9768,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is Grade 7 students: 9, 23 | Grade 8 students: 5, 25 (columns: play a sport, do not play a sport)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7786,7 +9939,8 @@
     "The grand total is 89."
    ],
    "solutionSteps": [
-    "Compute row, column and grand totals."
+    "Compute row, column and grand totals.",
+    "Correct choices: The juniors row total is 49; The grand total is 89. Not correct: The grand total is 113; The \"have no job\" column total is 40; The juniors row total is 42."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7869,7 +10023,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is morning-shift workers: 6, 16 | evening-shift workers: 13, 21 (columns: bought lunch, brought lunch)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -7952,7 +10107,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is boys: 12, 19 | girls: 15, 25 (columns: have a pet, have no pet)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8017,7 +10173,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is Grade 7 students: 16, 24 | Grade 8 students: 5, 18 (columns: play a sport, do not play a sport)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8118,7 +10275,8 @@
     }
    ],
    "solutionSteps": [
-    "Each row is a group; each column is a response. Match every count to its row and column."
+    "Each row is a group; each column is a response. Match every count to its row and column.",
+    "So the answer is morning-shift workers: 15, 24 | evening-shift workers: 15, 18 (columns: bought lunch, brought lunch)."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8293,7 +10451,8 @@
     "The \"do not play a sport\" column total is 37."
    ],
    "solutionSteps": [
-    "Compute row, column and grand totals."
+    "Compute row, column and grand totals.",
+    "Correct choices: The Grade 7 students row total is 38; The grand total is 65; The \"do not play a sport\" column total is 37. Not correct: The \"do not play a sport\" column total is 27; The grand total is 85; The Grade 7 students row total is 28."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8790,7 +10949,8 @@
     "Among adults, the relative frequency of \"prefer movies\" is 1/2."
    ],
    "solutionSteps": [
-    "Use the correct total for each relative frequency."
+    "Use the correct total for each relative frequency.",
+    "Correct choices: Among all people, the relative frequency of adults who prefer movies is 2/15; Among adults, the relative frequency of \"prefer movies\" is 1/2. Not correct: Among adults, the relative frequency of \"prefer movies\" is 2/15; Among teens, the relative frequency of \"prefer movies\" is 21/31; Among all people, the relative frequency of adults who prefer movies is 1/2."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8839,7 +10999,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "juniors: 21/35 ≈ 60%; seniors: 10/53 ≈ 19%."
+    "juniors: 21/35 ≈ 60%; seniors: 10/53 ≈ 19%.",
+    "So the answer is: Yes, because 60% of juniors have a job compared with 19% of seniors."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8922,7 +11083,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "juniors: 38/55 ≈ 69%; seniors: 8/30 ≈ 27%."
+    "juniors: 38/55 ≈ 69%; seniors: 8/30 ≈ 27%.",
+    "So the answer is: Yes, because 69% of juniors have a job compared with 27% of seniors."
    ],
    "standards": [
     "8.SP.A.4"
@@ -8987,7 +11149,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "Grade 7 students: 41/55 ≈ 75%; Grade 8 students: 19/56 ≈ 34%."
+    "Grade 7 students: 41/55 ≈ 75%; Grade 8 students: 19/56 ≈ 34%.",
+    "So the answer is: Yes, because 75% of Grade 7 students play a sport compared with 34% of Grade 8 students."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9070,7 +11233,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "Grade 7 students: 32/50 ≈ 64%; Grade 8 students: 11/33 ≈ 33%."
+    "Grade 7 students: 32/50 ≈ 64%; Grade 8 students: 11/33 ≈ 33%.",
+    "So the answer is: Yes, because 64% of Grade 7 students play a sport compared with 33% of Grade 8 students."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9135,7 +11299,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "juniors: 38/55 ≈ 69%; seniors: 12/40 ≈ 30%."
+    "juniors: 38/55 ≈ 69%; seniors: 12/40 ≈ 30%.",
+    "So the answer is: Yes, because 69% of juniors have a job compared with 30% of seniors."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9289,7 +11454,8 @@
     "Among morning-shift workers, the relative frequency of \"bought lunch\" is 1/3."
    ],
    "solutionSteps": [
-    "Use the correct total for each relative frequency."
+    "Use the correct total for each relative frequency.",
+    "Correct choices: Among all people, the relative frequency of morning-shift workers who bought lunch is 2/19; Among morning-shift workers, the relative frequency of \"bought lunch\" is 1/3. Not correct: Among all people, the relative frequency of morning-shift workers who bought lunch is 1/3; Among evening-shift workers, the relative frequency of \"bought lunch\" is 3/4; Among morning-shift workers, the relative frequency of \"bought lunch\" is 2/19."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9338,7 +11504,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "boys: 25/41 ≈ 61%; girls: 7/37 ≈ 19%."
+    "boys: 25/41 ≈ 61%; girls: 7/37 ≈ 19%.",
+    "So the answer is: Yes, because 61% of boys have a pet compared with 19% of girls."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9455,7 +11622,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "juniors: 32/42 ≈ 76%; seniors: 15/33 ≈ 45%."
+    "juniors: 32/42 ≈ 76%; seniors: 15/33 ≈ 45%.",
+    "So the answer is: Yes, because 76% of juniors have a job compared with 45% of seniors."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9536,7 +11704,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "morning-shift workers: 21/31 ≈ 68%; evening-shift workers: 13/48 ≈ 27%."
+    "morning-shift workers: 21/31 ≈ 68%; evening-shift workers: 13/48 ≈ 27%.",
+    "So the answer is: Yes, because 68% of morning-shift workers bought lunch compared with 27% of evening-shift workers."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9635,7 +11804,8 @@
    ],
    "solutionSteps": [
     "Compare relative frequencies within each row, not raw counts.",
-    "Grade 7 students: 21/34 ≈ 62%; Grade 8 students: 9/41 ≈ 22%."
+    "Grade 7 students: 21/34 ≈ 62%; Grade 8 students: 9/41 ≈ 22%.",
+    "So the answer is: Yes, because 62% of Grade 7 students play a sport compared with 22% of Grade 8 students."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9795,7 +11965,8 @@
     "Among morning-shift workers, the relative frequency of \"bought lunch\" is 7/13."
    ],
    "solutionSteps": [
-    "Use the correct total for each relative frequency."
+    "Use the correct total for each relative frequency.",
+    "Correct choices: Among all people, the relative frequency of morning-shift workers who bought lunch is 7/30; Among evening-shift workers, the relative frequency of \"bought lunch\" is 25/51; Among morning-shift workers, the relative frequency of \"bought lunch\" is 7/13. Not correct: Among evening-shift workers, the relative frequency of \"bought lunch\" is 25/46; Among all people, the relative frequency of morning-shift workers who bought lunch is 7/13; Among morning-shift workers, the relative frequency of \"bought lunch\" is 7/30."
    ],
    "standards": [
     "8.SP.A.4"
@@ -9963,6 +12134,43 @@
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s04-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A line of best fit for test score y after x hours of study is y = 4x + 30.",
+   "parts": [
+    {
+     "prompt": "What does the slope mean?",
+     "answer": "the score rises about 4 points per hour studied"
+    },
+    {
+     "prompt": "What does the y-intercept mean?",
+     "answer": "a predicted score of 30 with 0 hours of study"
+    },
+    {
+     "prompt": "Predict the score for 5 hours.",
+     "answer": "50"
+    },
+    {
+     "prompt": "Predict the score for 12 hours. Is the prediction reasonable?",
+     "answer": "78; reasonable (below 100)"
+    }
+   ],
+   "answer": "(a) the score rises about 4 points per hour studied; (b) a predicted score of 30 with 0 hours of study; (c) 50; (d) 78; reasonable (below 100)",
+   "solutionSteps": [
+    "Slope = change in y per 1 unit of x.",
+    "y when x = 0.",
+    "4(5) + 30 = 50.",
+    "4(12) + 30 = 78."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-cp2-011",
    "skillId": "patterns-bivariate-data-skill-05",
    "level": "cp2",
@@ -10121,6 +12329,42 @@
     "8.SP.A.4"
    ],
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s05-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Of 50 students, 30 are in grade 7 and 20 are in grade 8. 18 grade 7 students and 8 grade 8 students have a pet.",
+   "parts": [
+    {
+     "prompt": "How many grade 7 students have no pet?",
+     "answer": "12"
+    },
+    {
+     "prompt": "How many grade 8 students have no pet?",
+     "answer": "12"
+    },
+    {
+     "prompt": "Find the column totals for \"pet\" and \"no pet\".",
+     "answer": "26 and 24"
+    },
+    {
+     "prompt": "What percent of all students have a pet?",
+     "answer": "52%"
+    }
+   ],
+   "answer": "(a) 12; (b) 12; (c) 26 and 24; (d) 52%",
+   "solutionSteps": [
+    "30 - 18 = 12.",
+    "20 - 8 = 12.",
+    "18 + 8 = 26; 12 + 12 = 24; check 26 + 24 = 50.",
+    "26 ÷ 50 = 0.52."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-tarsia-cp2-021",
@@ -10283,6 +12527,42 @@
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s06-cp2-o01",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Grade 7: 12 students are in band and 18 are not. Grade 8: 15 are in band and 15 are not.",
+   "parts": [
+    {
+     "prompt": "What percent of grade 7 students are in band?",
+     "answer": "40%"
+    },
+    {
+     "prompt": "What percent of grade 8 students are in band?",
+     "answer": "50%"
+    },
+    {
+     "prompt": "Is there an association between grade and band? Explain.",
+     "answer": "yes: a greater share of grade 8 students are in band"
+    },
+    {
+     "prompt": "Of the students in band, what fraction are in grade 8?",
+     "answer": "5/9"
+    }
+   ],
+   "answer": "(a) 40%; (b) 50%; (c) yes: a greater share of grade 8 students are in band; (d) 5/9",
+   "solutionSteps": [
+    "12 ÷ 30 = 0.4.",
+    "15 ÷ 30 = 0.5.",
+    "50% is noticeably more than 40%.",
+    "15 ÷ 27 = 5/9."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-cp1-001",
    "skillId": "patterns-bivariate-data-skill-04",
    "level": "cp1",
@@ -10441,6 +12721,43 @@
     "8.SP.A.3"
    ],
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s04-cp1-o01",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A line of fit on a scatter plot passes through (2, 50) and (8, 80).",
+   "parts": [
+    {
+     "prompt": "Find the slope.",
+     "answer": "5"
+    },
+    {
+     "prompt": "Write the equation of the line.",
+     "answer": "y = 5x + 40"
+    },
+    {
+     "prompt": "Predict y when x = 10.",
+     "answer": "90"
+    },
+    {
+     "prompt": "What does the slope mean if x is hours and y is score?",
+     "answer": "about 5 more points per hour"
+    }
+   ],
+   "answer": "(a) 5; (b) y = 5x + 40; (c) 90; (d) about 5 more points per hour",
+   "solutionSteps": [
+    "(80 - 50) ÷ (8 - 2) = 5.",
+    "50 = 5(2) + b, so b = 40.",
+    "5(10) + 40 = 90.",
+    "Slope = change in y per 1 unit of x."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-tarsia-cp1-011",
@@ -10603,6 +12920,42 @@
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s05-cp1-o01",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "In a survey of 80 students, 45 like soccer. 25 of the students who like soccer are girls, and 20 girls do not like soccer.",
+   "parts": [
+    {
+     "prompt": "How many boys like soccer?",
+     "answer": "20"
+    },
+    {
+     "prompt": "How many girls were surveyed?",
+     "answer": "45"
+    },
+    {
+     "prompt": "How many boys do not like soccer?",
+     "answer": "15"
+    },
+    {
+     "prompt": "How many students do not like soccer?",
+     "answer": "35"
+    }
+   ],
+   "answer": "(a) 20; (b) 45; (c) 15; (d) 35",
+   "solutionSteps": [
+    "45 - 25 = 20.",
+    "25 + 20 = 45.",
+    "80 - 45 = 35 boys; 35 - 20 = 15.",
+    "80 - 45 = 35 (20 girls and 15 boys)."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-cp1-021",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "cp1",
@@ -10761,6 +13114,42 @@
     "8.SP.A.4"
    ],
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-cp1-o01",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Juniors: 24 have a job and 16 do not. Seniors: 30 have a job and 10 do not.",
+   "parts": [
+    {
+     "prompt": "What percent of juniors have a job?",
+     "answer": "60%"
+    },
+    {
+     "prompt": "What percent of seniors have a job?",
+     "answer": "75%"
+    },
+    {
+     "prompt": "Of the students with jobs, what fraction are seniors?",
+     "answer": "5/9"
+    },
+    {
+     "prompt": "Is there an association between grade and having a job? Explain.",
+     "answer": "yes: 75% of seniors vs 60% of juniors"
+    }
+   ],
+   "answer": "(a) 60%; (b) 75%; (c) 5/9; (d) yes: 75% of seniors vs 60% of juniors",
+   "solutionSteps": [
+    "24 ÷ 40 = 0.6.",
+    "30 ÷ 40 = 0.75.",
+    "30 ÷ 54 = 5/9.",
+    "The relative frequencies differ."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   },
   {
    "id": "pa8-biv-tarsia-honors-001",
@@ -10923,6 +13312,43 @@
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s04-honors-o01",
+   "skillId": "patterns-bivariate-data-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A car's value y (thousands of dollars) after x years is modeled by y = -2.5x + 60.",
+   "parts": [
+    {
+     "prompt": "Predict the value after 8 years.",
+     "answer": "$40,000"
+    },
+    {
+     "prompt": "After how many years is the predicted value $35,000?",
+     "answer": "10 years"
+    },
+    {
+     "prompt": "What does the slope mean?",
+     "answer": "the value drops about $2,500 per year"
+    },
+    {
+     "prompt": "Why is the model not reasonable for 30 years?",
+     "answer": "it predicts a negative value (-15)"
+    }
+   ],
+   "answer": "(a) $40,000; (b) 10 years; (c) the value drops about $2,500 per year; (d) it predicts a negative value (-15)",
+   "solutionSteps": [
+    "-2.5(8) + 60 = 40.",
+    "-2.5x + 60 = 35, so x = 10.",
+    "Slope -2.5 thousand dollars per year.",
+    "-2.5(30) + 60 = -15, but a car cannot be worth less than $0."
+   ],
+   "standards": [
+    "8.SP.A.2",
+    "8.SP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-honors-011",
    "skillId": "patterns-bivariate-data-skill-05",
    "level": "honors",
@@ -11083,6 +13509,42 @@
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
   },
   {
+   "id": "pa8-biv-s05-honors-o01",
+   "skillId": "patterns-bivariate-data-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Of 120 students, 70 ride the bus. 30 of the bus riders are in grade 8, and 35 of the students who do not ride the bus are in grade 7.",
+   "parts": [
+    {
+     "prompt": "How many grade 7 students ride the bus?",
+     "answer": "40"
+    },
+    {
+     "prompt": "How many grade 8 students do not ride the bus?",
+     "answer": "15"
+    },
+    {
+     "prompt": "Find the totals for grade 7 and for grade 8.",
+     "answer": "75 and 45"
+    },
+    {
+     "prompt": "What percent of grade 7 students ride the bus, to the nearest whole percent?",
+     "answer": "53%"
+    }
+   ],
+   "answer": "(a) 40; (b) 15; (c) 75 and 45; (d) 53%",
+   "solutionSteps": [
+    "70 - 30 = 40.",
+    "120 - 70 = 50 do not ride; 50 - 35 = 15.",
+    "40 + 35 = 75; 30 + 15 = 45; check 75 + 45 = 120.",
+    "40 ÷ 75 ≈ 0.533."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
+  },
+  {
    "id": "pa8-biv-tarsia-honors-021",
    "skillId": "patterns-bivariate-data-skill-06",
    "level": "honors",
@@ -11241,6 +13703,42 @@
     "8.SP.A.4"
    ],
    "sourceNotes": "Compact Tarsia item (8th Grade Math audit 2026-11-19): short enough for Tarsia puzzles and checked by scripts/test-grade8-audit.cjs."
+  },
+  {
+   "id": "pa8-biv-s06-honors-o01",
+   "skillId": "patterns-bivariate-data-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Grade 7: 18 of 45 students eat breakfast at school. Grade 8: 22 of 55 students eat breakfast at school.",
+   "parts": [
+    {
+     "prompt": "Find the relative frequency for grade 7.",
+     "answer": "40%"
+    },
+    {
+     "prompt": "Find the relative frequency for grade 8.",
+     "answer": "40%"
+    },
+    {
+     "prompt": "Is there an association between grade and eating breakfast at school? Explain.",
+     "answer": "no: both grades are 40%"
+    },
+    {
+     "prompt": "What percent of all students eat breakfast at school?",
+     "answer": "40%"
+    }
+   ],
+   "answer": "(a) 40%; (b) 40%; (c) no: both grades are 40%; (d) 40%",
+   "solutionSteps": [
+    "18 ÷ 45 = 0.4.",
+    "22 ÷ 55 = 0.4.",
+    "Equal relative frequencies show no association.",
+    "(18 + 22) ÷ 100 = 0.4."
+   ],
+   "standards": [
+    "8.SP.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_open_audit). 8th Grade Math audit 2026-11-19 (#15, open response); answers recomputed by scripts/test-grade8-audit.cjs."
   }
  ]
 }

@@ -160,6 +160,86 @@ for (const q of Q) if (q.format === 'short-answer') {
   const html = fs.readFileSync(path.join(ROOT, 'worksheet-generator/practice-test.html'), 'utf8');
   assert(html.indexOf('practice/grade8-grading.js') > 0 && html.indexOf('practice/grade8-grading.js') < html.indexOf('practice/grading.js'), 'practice test loads the Grade 8 grader');
 }
+/* #10 item-specific steps: two or more steps (or one worked step that reaches the answer), at least one written for this item, select-all choices named; two dilations
+   about the same center with scale factors 2 and 1/2 give a congruent image */
+{
+  const count = {};
+  for (const q of Q) for (const st of new Set(q.solutionSteps || [])) count[st] = (count[st] || 0) + 1;
+  for (const q of Q) {
+    if (q.format === 'open-response') continue;
+    const st0 = q.solutionSteps || [];
+    check(q, st0.length >= 2 || (st0.length === 1 && count[st0[0]] < 10 && st0[0].includes(String(q.answer))), 'one generic step');
+    check(q, q.solutionSteps.some((st) => count[st] < 10), 'only boilerplate steps');
+    if (q.format === 'select-all') {
+      const st = q.solutionSteps.find((x) => x.startsWith('Correct choices: '));
+      check(q, st && q.options.every((o) => st.includes(o.text.replace(/\.$/, ''))), 'select-all steps name every choice');
+    }
+  }
+  for (const q of Q.filter((q) => /dilation with scale factor .*then a dilation with scale factor/.test(q.prompt))) {
+    const k = [...q.prompt.matchAll(/scale factor (\d+)(?:\/(\d+))?/g)].map((m) => +m[1] / (+m[2] || 1));
+    check(q, q.answer === (Math.abs(k[0] * k[1] - 1) < 1e-9 ? 'congruent' : 'similar'), 'two dilations: ' + k.join(' × '));
+  }
+}
+/* #15 every skill has open-response items (the 23 skills that had none now have one per level) */
+{
+  const sk = [...new Set(Q.map((q) => q.skillId))];
+  for (const s of sk) check({ id: s }, Q.some((q) => q.skillId === s && q.format === 'open-response' && q.parts.length >= 4), 'no open-response item');
+  for (const q of Q.filter((q) => /-o01$/.test(q.id))) check(q, q.format === 'open-response' && q.parts.length >= 4 && q.solutionSteps.length === q.parts.length, 'new open-response item');
+  assert.equal(Q.filter((q) => /-o01$/.test(q.id)).length, 69);
+  const o = (id) => byId[id].parts.map((p) => p.answer);
+  assert.deepEqual(o('pa8-sys-s03-honors-o01').slice(1, 3), ['c = 25', 'a = 40']);
+  assert.equal(12 * 40 + 8 * 25, 680);
+  assert.equal(o('pa8-lfr-s09-honors-o01')[2], '450 minutes');
+  assert(Math.abs((24 - 15) / (0.10 - 0.08) - 450) < 1e-6);
+}
+/* #9 Graphing Practice: plot items in four units, every target and wrong answer checked by the site's grader */
+{
+  const c = {}; vm.createContext(c);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'worksheet-generator/core/plot.js'), 'utf8'), c);
+  const PL = c.MK_PLOT, plots = Q.filter((q) => q.format === 'plot');
+  assert(plots.length >= 70, 'plot items ' + plots.length);
+  assert(new Set(plots.map((q) => q.unit)).size >= 4, 'plot units');
+  for (const q of plots) {
+    check(q, PL.valid(q.plot) && PL.check(q.plot, q.plot.testVectors.correct).ok, 'plot target');
+    for (const w of q.plot.testVectors.wrong) { const r = PL.check(q.plot, w.response); check(q, !r.ok && r.code === w.expectCode && (q.plot.feedback || {})[r.code], 'plot wrong vector ' + JSON.stringify(w)); }
+    check(q, fs.existsSync(path.join(ROOT, q.plot.answerKey.src)), 'plot answer key image');
+  }
+  for (const q of plots.filter((q) => /plot_transform/.test(q.sourceNotes))) {
+    const tri = [...q.prompt.matchAll(/[ABC]\((-?\d+), (-?\d+)\)/g)].map((m) => [+m[1], +m[2]]), w = q.prompt;
+    const f = /180°/.test(w) ? ([x, y]) => [-x, -y] : /90° counterclockwise/.test(w) ? ([x, y]) => [-y, x] : /90° clockwise|270° counterclockwise/.test(w) ? ([x, y]) => [y, -x]
+      : /over the x-axis/.test(w) ? ([x, y]) => [x, -y] : /over the y-axis/.test(w) ? ([x, y]) => [-x, y] : /line y = x/.test(w) ? ([x, y]) => [y, x] : /line y = -x/.test(w) ? ([x, y]) => [-y, -x]
+      : /scale factor (\d+)\/(\d+)/.test(w) ? (([, a, b]) => ([x, y]) => [x * a / b, y * a / b])(/scale factor (\d+)\/(\d+)/.exec(w)) : /scale factor (\d+)/.test(w) ? (([, k]) => ([x, y]) => [x * k, y * k])(/scale factor (\d+)/.exec(w))
+      : (() => { let dx = 0, dy = 0; for (const m of w.matchAll(/(\d+) units? (right|left) and (\d+) units? (up|down)/g)) { dx += (m[2] === 'right' ? 1 : -1) * m[1]; dy += (m[4] === 'up' ? 1 : -1) * m[3]; } for (const m of w.matchAll(/\(x ([+-]) (\d+), y ([+-]) (\d+)\)/g)) { dx += (m[1] === '+' ? 1 : -1) * m[2]; dy += (m[3] === '+' ? 1 : -1) * m[4]; } return ([x, y]) => [x + dx, y + dy]; })();
+    const want = tri.map(f).map((p) => p.join()).sort().join(';'), got = q.plot.target.points.map((p) => p.map(Number).join()).sort().join(';');
+    check(q, want === got, 'transformation image ' + want + ' vs ' + got);
+  }
+  const data = fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8');
+  assert(/"prealgebra": \["linear-functional-relationships", "systems-linear-equations", "patterns-bivariate-data", "congruence-similarity"\]/.test(data), 'Graphing Practice units');
+}
+/* #1 the lesson planner has teaching notes for every 8th Grade Math skill */
+{
+  const w = { console, Math, Date, JSON }; w.window = w; w.globalThis = w; vm.createContext(w);
+  for (const rel of ['data.js', 'course-catalog.js', 'worksheet-generator/menu/standards.js', 'worksheet-generator/menu/standards-map.js',
+    'worksheet-generator/planner/notes-teach-prealgebra.js', 'worksheet-generator/planner/scope-algebra2.js'])
+    vm.runInContext(fs.readFileSync(path.join(ROOT, rel), 'utf8'), w, { filename: rel });
+  const N = w.MKPLAN_TEACH.prealgebra, course = w.LIBRARY.courses.find((c) => c.id === 'prealgebra');
+  let skills = 0;
+  for (const u of course.units) for (const s of w.MK_COURSE_CATALOG.getSkillRecords('prealgebra', u.id)) {
+    skills++;
+    const r = N[s.id];
+    assert(r && r.obj && !/^work with /.test(r.obj) && r.idea.length > 40 && r.watch, 'teaching notes for ' + s.id);
+    assert(Array.isArray(r.voc) && r.voc.length >= 3 && r.voc.every((v) => v[0] && v[1]), s.id + ' vocabulary');
+    assert(r.cards.length >= 1 && r.cards.every((c) => c.h && c.big && c.steps.length >= 3 && c.steps.some((x) => /\{\{/.test(x))), s.id + ' card with blanks');
+  }
+  assert.equal(skills, 59);
+  assert.equal(Object.keys(N).length, skills, 'no notes outside the catalog');
+  const lessons = w.MKPLAN_SCOPE_PREALGEBRA.days.filter((d) => d.day_type === 'Lesson');
+  assert.equal(lessons.length, skills);
+  for (const d of lessons) assert(!/able to work with /.test(d.content_objective) && d.key_vocabulary && d.common_misconception, d.lesson_id + ' planner fields');
+  const html = fs.readFileSync(path.join(ROOT, 'worksheet-generator/lesson-planner.html'), 'utf8');
+  assert(html.indexOf('planner/notes-teach-prealgebra.js') > 0 && html.indexOf('planner/notes-teach-prealgebra.js') < html.indexOf('planner/scope-algebra2.js'), 'planner page loads the Grade 8 notes first');
+  assert(/course\(\) === 'prealgebra'/.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/planner/notes-teach.js'), 'utf8')), 'notes-teach.js uses the Grade 8 vocabulary and key ideas');
+}
 /* #2 pacing guide and standards coverage page */
 (async () => {
   const G = await import(path.join(ROOT, 'scripts/geo-planning.mjs'));
@@ -167,7 +247,8 @@ for (const q of Q) if (q.format === 'short-answer') {
   const h = G.geoPacingMain('prealgebra', (t) => '#' + t);
   assert(/31 of 31 standards have question-bank practice/.test(h), 'every Grade 8 standard is practised');
   assert(/Day|days/.test(h) && /Final Exam|Final review/i.test(h), 'full-year plan');
-  assert(G.geoUnitGuide('Real Numbers and Exponents', 'prealgebra').includes('Teaching Unit 1'), 'unit briefing');
+  const ug = G.geoUnitGuide('Real Numbers and Exponents', 'prealgebra');
+  assert(ug.includes('Teaching Unit 1') && !/Students work with/.test(ug) && ug.includes('A rational number can be written'), 'unit briefing uses the teaching notes');
   /* #7 labs for 8th-grade standards are listed in the Grade 8 units */
   const d = { console, document: { addEventListener() {}, querySelector() { return null; }, querySelectorAll() { return []; } }, location: { hash: '', search: '' }, localStorage: { getItem() { return null; }, setItem() {} } };
   d.window = d; d.self = d; d.globalThis = d; vm.createContext(d);
