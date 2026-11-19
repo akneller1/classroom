@@ -36,8 +36,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install the key checker's dependency
-        run: python -m pip install sympy
+      - name: Install the key checker's and figure builder's dependencies
+        run: python -m pip install sympy matplotlib==3.11.2   # matplotlib: figures.py, run by run_all.sh (Grade 7 G2)
       - name: Recompute Grade 7 keys from the printed prompts (Grade 7 audit 2026-11-19)
         run: python tools/grade7-audit-20261119/verify_keys.py
       - name: The bank changes rebuild exactly from the scripts
