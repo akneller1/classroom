@@ -1610,8 +1610,8 @@
    "prompt": "Select ALL problems that are matched with the correct answer.",
    "options": [
     {
-     "text": "Solve: y + 7 < 32 → y < 26",
-     "correct": false
+     "text": "Solve: y + 7 < 32 → y < 25",
+     "correct": true
     },
     {
      "text": "Solve: x + 7 ≥ 12 → x ≥ 19",
@@ -1635,17 +1635,18 @@
     }
    ],
    "answer": [
+    "Solve: y + 7 < 32 → y < 25",
     "Solve: x + 20 ≥ 42 → x ≥ 22",
     "Solve: y + 7 ≤ 11 → y ≤ 4"
    ],
    "solutionSteps": [
     "Work each problem and compare with the answer shown.",
-    "Solve: x + 20 ≥ 42 → x ≥ 22: correct.",
     "Solve: y + 7 ≤ 11 → y ≤ 4: correct.",
-    "Solve: y + 7 < 32 → y < 26: incorrect.",
-    "Solve: x + 7 ≥ 12 → x ≥ 19: incorrect.",
+    "Solve: x + 20 ≥ 42 → x ≥ 22: correct.",
+    "Solve: y + 7 < 32 → y < 25: correct.",
+    "Solve: y + 19 > 43 → y < 24: incorrect.",
     "Solve: m + 17 ≥ 27 → m ≤ 10: incorrect.",
-    "Solve: y + 19 > 43 → y < 24: incorrect."
+    "Solve: x + 7 ≥ 12 → x ≥ 19: incorrect."
    ],
    "standards": [
     "6.EE.B.5",
@@ -2505,24 +2506,23 @@
      "correct": false
     },
     {
-     "text": "Solve: y + 9/2 ≤ 23/2 → y ≤ 7",
-     "correct": true
+     "text": "Solve: (13/5)m > 26/5 → m < 2",
+     "correct": false
     }
    ],
    "answer": [
     "Solve: y + 17/5 > 42/5 → y > 5",
     "Solve: y + 16/5 > 37/5 → y > 21/5",
-    "Solve: m + 7/4 < 6 → m < 17/4",
-    "Solve: y + 9/2 ≤ 23/2 → y ≤ 7"
+    "Solve: m + 7/4 < 6 → m < 17/4"
    ],
    "solutionSteps": [
     "Work each problem and compare with the answer shown.",
     "Solve: y + 17/5 > 42/5 → y > 5: correct.",
-    "Solve: y + 16/5 > 37/5 → y > 21/5: correct.",
     "Solve: m + 7/4 < 6 → m < 17/4: correct.",
-    "Solve: y + 9/2 ≤ 23/2 → y ≤ 7: correct.",
+    "Solve: y + 16/5 > 37/5 → y > 21/5: correct.",
     "Solve: (10/3)x < 40/3 → x > 4: incorrect.",
-    "Solve: x + 15/4 ≥ 73/12 → x ≥ 73/12: incorrect."
+    "Solve: x + 15/4 ≥ 73/12 → x ≥ 73/12: incorrect.",
+    "Solve: (13/5)m > 26/5 → m < 2: incorrect."
    ],
    "standards": [
     "6.EE.B.5",

@@ -49,23 +49,20 @@ for (const id of ['algebra', 'geometry', 'algebra2']) for (const u of course(id)
 for (const u of course('algebra2').units) for (const k of [/error analysis/i, /tarsia/i, /\bmaze\b/i, /color by number/i, /whodunnit|\(printable\)/i])
   ok(u.artifacts.some((a) => k.test(a.title)), `algebra2/${u.id}: ${k}`);
 
-/* #10 select-all counts in Grades 6 and 7 */
-for (const c of ['math6', 'prealgebra7']) {
-  const n = {};
-  for (const f of fs.readdirSync(path.join(ROOT, 'question-banks', c)).filter((x) => x.endsWith('.json')))
-    for (const q of JSON.parse(rd(`question-banks/${c}/${f}`)).questions) if (q.format === 'select-all' && /matched with the correct answer/.test(q.prompt)) {
-      const k = q.options.filter((o) => o.correct).length; n[k] = (n[k] || 0) + 1;
-      ok(JSON.stringify(q.answer) === JSON.stringify(q.options.filter((o) => o.correct).map((o) => o.text)) && k >= 2 && k < q.options.length, q.id + ': answer list');
-    }
-  ok(n[2] >= 15 && n[3] >= 15 && n[4] >= 15, `${c}: select-all counts vary ${JSON.stringify(n)}`);
-}
-
 /* #12, #13: text, thumbnails, legacy pages */
-const all = fs.readdirSync(path.join(ROOT, 'question-banks')).filter((c) => fs.statSync(path.join(ROOT, 'question-banks', c)).isDirectory())
-  .flatMap((c) => fs.readdirSync(path.join(ROOT, 'question-banks', c)).filter((f) => f.endsWith('.json')).map((f) => rd(`question-banks/${c}/${f}`))).join('\n');
-ok(!/(?<![\d.])\b1 (?:feet|inches|apples|cups|years)\b/.test(all.replace(/[-+=−×] 1 /g, '')) && !/\bthe the\b/.test(all), 'plural after 1 and doubled words');
 for (const t of ['budgeting', 'borrowing', 'investing']) ok(fs.existsSync(path.join(ROOT, `thumbs/financial-algebra/${t}-spreadsheet.svg`)), t + ' spreadsheet thumbnail');
 ok(/Site audit #12[\s\S]*http-equiv="refresh"/.test(rd('scripts/build-site.mjs')), 'legacy course pages redirect to /u/');
+
+/* game labels and student links: a cache tag in the URL is not the game */
+const gw = { location: { href: 'https://mrksclassroom.com/' }, URL }; gw.window = gw; vm.createContext(gw); vm.runInContext(rd('game-capabilities.js'), gw);
+const cap = (p, t, ty) => JSON.stringify(gw.MK_GAME_CAPABILITIES.get({ path: p, title: t, type: ty }));
+ok(cap('worksheet-generator/course-game.html?course=algebra2&unit=x&game=flashcards&v=showdown-fix-20261031', 'X Flashcards', 'Study Guide') === '{"solo":true,"team":false}', 'flashcards are solo');
+ok(cap('worksheet-generator/course-game.html?course=algebra2&unit=x&game=connect4&v=showdown-fix-20261031', 'X Connect 4', 'Game') === '{"solo":true,"team":true}', 'Connect 4 is solo or team');
+ok(cap('worksheet-generator/course-game.html?course=algebra2&unit=x&game=showdown', 'X Showdown', 'Game') === '{"solo":false,"team":true}', 'Showdown stays team');
+/* UX: pacing shortcuts, tolerant links */
+const app = rd('app.js');
+ok(/var PACING_PAGES = \{/.test(app) && /pacingShortcut\(c, compact\)/.test(app) && /COURSE_ALIASES/.test(app) && /short: 'Mazes & Puzzles'/.test(app), 'app.js UX changes');
+for (const pg of ['grade-1-pacing', 'grade-6-pacing', 'algebra-1-pacing', 'calculus-pacing']) ok(new RegExp("'" + pg + "/'").test(app), pg + ' in the pacing map');
 
 if (SITE && fs.existsSync(SITE)) {
   const n = {};
@@ -73,6 +70,21 @@ if (SITE && fs.existsSync(SITE)) {
     for (const q of JSON.parse(fs.readFileSync(path.join(SITE, 'question-banks/grade5', f))).questions)
       if (q.format === 'select-all') { const k = q.options.filter((o) => o.correct).length; n[k] = (n[k] || 0) + 1; }
   ok(n[2] >= 50 && n[3] >= 50, 'Grade 5 select-all counts vary ' + JSON.stringify(n));
+  /* #10 select-all counts in Grades 6 and 7 */
+  for (const c of ['math6', 'prealgebra7']) {
+    const n = {};
+    for (const f of fs.readdirSync(path.join(SITE, 'question-banks', c)).filter((x) => x.endsWith('.json')))
+      for (const q of JSON.parse(fs.readFileSync(path.join(SITE, 'question-banks', c, f), 'utf8')).questions) if (q.format === 'select-all' && /matched with the correct answer/.test(q.prompt)) {
+        const k = q.options.filter((o) => o.correct).length; n[k] = (n[k] || 0) + 1;
+        ok(JSON.stringify(q.answer) === JSON.stringify(q.options.filter((o) => o.correct).map((o) => o.text)) && k >= 2 && k < q.options.length, q.id + ': answer list');
+      }
+    ok(n[2] >= 15 && n[3] >= 15 && n[4] >= 15, `${c}: select-all counts vary ${JSON.stringify(n)}`);
+  }
+  
+  const all = fs.readdirSync(path.join(SITE, 'question-banks')).filter((c) => !/^grade[1-4]$/.test(c) && fs.statSync(path.join(SITE, 'question-banks', c)).isDirectory())
+    .flatMap((c) => fs.readdirSync(path.join(SITE, 'question-banks', c)).filter((f) => f.endsWith('.json')).map((f) => fs.readFileSync(path.join(SITE, 'question-banks', c, f), 'utf8'))).join('\n');
+  ok(!/(?<![\d.])\b1 (?:feet|inches|apples|cups|years)\b/.test(all.replace(/[-+=−×] 1 /g, '')) && !/\bthe the\b/.test(all), 'plural after 1 and doubled words');
+  
   const g5p = path.join(SITE, 'grade-5-pacing/index.html');
   ok(fs.existsSync(g5p) && /34 of 34 standards have question-bank practice/.test(fs.readFileSync(g5p, 'utf8')) && /5th Grade Math Pacing Guide/.test(fs.readFileSync(g5p, 'utf8')), 'Grade 5 pacing page');
   const legacy = path.join(SITE, 'courses/precalculus.html');

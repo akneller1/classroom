@@ -7295,6 +7295,22 @@ window.LIBRARY = {
           "name": "Triangle Relationships",
           "artifacts": [
             {
+              "title": "Triangle Angle Sum: Tear and Line Up",
+              "path": "artifacts/motion-triangle-angle-sum/index.html?course=Geometry&unit=Triangle%20Relationships",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+              "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+              "topics": [
+                "Triangle angle sum",
+                "Straight angles",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+              "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
               "title": "Vocabulary Activities and Crosswords",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=vocabulary",
               "type": "Printable",
@@ -7778,6 +7794,22 @@ window.LIBRARY = {
           "id": "right-triangles-trigonometry",
           "name": "Right Triangles and Trigonometry",
           "artifacts": [
+            {
+              "title": "Pythagorean Theorem: A Proof in Motion",
+              "path": "artifacts/motion-pythagorean-proof/index.html?course=Geometry&unit=Right%20Triangles%20and%20Trigonometry",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-pythagorean-proof.jpg",
+              "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+              "topics": [
+                "Pythagorean theorem",
+                "Proof by rearrangement",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+              "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
             {
               "title": "Vocabulary Activities and Crosswords",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=vocabulary",
@@ -8263,6 +8295,22 @@ window.LIBRARY = {
           "name": "Circles",
           "artifacts": [
             {
+              "title": "Circle Area: Unroll the Sectors",
+              "path": "artifacts/motion-circle-area/index.html?course=Geometry&unit=Circles",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-circle-area.jpg",
+              "description": "Cut a circle into equal sectors and watch them slide into a row that is close to a parallelogram, πr wide and r tall. More sectors make it closer to a rectangle, so the area is πr².",
+              "topics": [
+                "Area of a circle",
+                "Circumference",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-circle-area/worksheet.pdf",
+              "answerKey": "artifacts/motion-circle-area/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
               "title": "Vocabulary Activities and Crosswords",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=vocabulary",
               "type": "Printable",
@@ -8526,6 +8574,40 @@ window.LIBRARY = {
           "id": "area-surface-area-volume",
           "name": "Area, Surface Area and Volume",
           "artifacts": [
+            {
+              "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+              "path": "artifacts/motion-volume-pour/index.html?course=Geometry&unit=Area%2C%20Surface%20Area%20and%20Volume",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-volume-pour.jpg",
+              "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+              "topics": [
+                "Volume of cones",
+                "Volume of spheres",
+                "Volume of cylinders",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+              "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "3D Nets: Fold and Unfold",
+              "path": "artifacts/motion-nets-fold/index.html?course=Geometry&unit=Area%2C%20Surface%20Area%20and%20Volume",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-nets-fold.jpg",
+              "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+              "topics": [
+                "Nets",
+                "Surface area",
+                "Folding and unfolding",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+              "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
             {
               "title": "Vocabulary Activities and Crosswords",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=vocabulary",
@@ -8914,6 +8996,22 @@ window.LIBRARY = {
               "name": "Congruence and Similarity",
               "artifacts": [
                 {
+                  "title": "Triangle Angle Sum: Tear and Line Up",
+                  "path": "artifacts/motion-triangle-angle-sum/index.html?course=8th%20Grade%20Math&unit=Congruence%20and%20Similarity",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+                  "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+                  "topics": [
+                    "Triangle angle sum",
+                    "Straight angles",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+                  "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
                   "title": "Transformation Matching Game",
                   "path": "worksheet-generator/match-game.html#unit=prealgebra-congruence-similarity&kind=xform",
                   "thumb": "thumbs/matching-xform.svg",
@@ -8946,6 +9044,56 @@ window.LIBRARY = {
               "id": "geometry-applications",
               "name": "Geometry",
               "artifacts": [
+                {
+                  "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+                  "path": "artifacts/motion-volume-pour/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-volume-pour.jpg",
+                  "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+                  "topics": [
+                    "Volume of cones",
+                    "Volume of spheres",
+                    "Volume of cylinders",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+                  "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
+                  "title": "Pythagorean Theorem: A Proof in Motion",
+                  "path": "artifacts/motion-pythagorean-proof/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-pythagorean-proof.jpg",
+                  "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+                  "topics": [
+                    "Pythagorean theorem",
+                    "Proof by rearrangement",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+                  "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
+                  "title": "3D Nets: Fold and Unfold",
+                  "path": "artifacts/motion-nets-fold/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-nets-fold.jpg",
+                  "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+                  "topics": [
+                    "Nets",
+                    "Surface area",
+                    "Folding and unfolding",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+                  "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
                 {
                   "title": "Geometry Cheat Sheet",
                   "path": "artifacts/prealgebra-geometry-applications-cheat-sheet/worksheet.pdf",
@@ -9084,17 +9232,99 @@ window.LIBRARY = {
     {
       "id": "spatial-thinking",
       "name": "Spatial Thinking",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Triangle Angle Sum: Tear and Line Up",
+          "path": "artifacts/motion-triangle-angle-sum/index.html?course=7th%20Grade%20Math&unit=Spatial%20Thinking",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+          "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+          "topics": [
+            "Triangle angle sum",
+            "Straight angles",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+          "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "area-volume",
       "name": "Area and Volume",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+          "path": "artifacts/motion-volume-pour/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-volume-pour.jpg",
+          "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+          "topics": [
+            "Volume of cones",
+            "Volume of spheres",
+            "Volume of cylinders",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+          "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+          "added": "2026-11-20"
+        },
+        {
+          "title": "Circle Area: Unroll the Sectors",
+          "path": "artifacts/motion-circle-area/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-circle-area.jpg",
+          "description": "Cut a circle into equal sectors and watch them slide into a row that is close to a parallelogram, πr wide and r tall. More sectors make it closer to a rectangle, so the area is πr².",
+          "topics": [
+            "Area of a circle",
+            "Circumference",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-circle-area/worksheet.pdf",
+          "answerKey": "artifacts/motion-circle-area/teacher-key.pdf",
+          "added": "2026-11-20"
+        },
+        {
+          "title": "3D Nets: Fold and Unfold",
+          "path": "artifacts/motion-nets-fold/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-nets-fold.jpg",
+          "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+          "topics": [
+            "Nets",
+            "Surface area",
+            "Folding and unfolding",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+          "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "right-triangles-algebra",
       "name": "Right Triangles in Algebra",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Pythagorean Theorem: A Proof in Motion",
+          "path": "artifacts/motion-pythagorean-proof/index.html?course=7th%20Grade%20Math&unit=Right%20Triangles%20in%20Algebra",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-pythagorean-proof.jpg",
+          "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+          "topics": [
+            "Pythagorean theorem",
+            "Proof by rearrangement",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+          "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "data-analysis-probability",
@@ -9213,7 +9443,24 @@ window.LIBRARY = {
     {
       "id": "geometry",
       "name": "Geometry",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "3D Nets: Fold and Unfold",
+          "path": "artifacts/motion-nets-fold/index.html?course=6th%20Grade%20Math&unit=Geometry",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-nets-fold.jpg",
+          "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+          "topics": [
+            "Nets",
+            "Surface area",
+            "Folding and unfolding",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+          "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "data-displays",

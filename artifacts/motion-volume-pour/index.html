@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Volume by Pouring: Cone, Sphere and Cylinder · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* Volume by Pouring (8.G.C.9, G-GMD.A.1, G-GMD.A.3). A cone with the same base and height as a cylinder is filled with
+   water and poured into the cylinder: three full cones fill it, so V(cone) = ⅓πr²h. A sphere of radius r poured into a
+   cylinder of radius r and height 2r fills two thirds of it, so V(sphere) = ⅔ · πr² · 2r = 4⁄3πr³.
+   The water level in the cone falls as the cube root of the volume left (the cone is narrow at the bottom); the level in
+   the cylinder rises evenly. */
+var L = Lab, M = Motion;
+var P = L.layout({ course: '8th Grade Math and Geometry', unit: 'Volume', title: 'Volume by Pouring: Cone, Sphere and Cylinder',
+  intro: 'Pour a full cone into a cylinder with the same base and height, and count the pours. Then pour a full sphere into a cylinder as wide as the sphere and as tall.' });
+var st = { mode: 'cone', r: 3, h: 6, t: 0, seen: {} };
+var W = 660, H = 430, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Water poured from a cone or sphere into a cylinder' }, P.stage);
+var g = L.s('g', null, svg);
+var step = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+L.chips(P.panel, { label: 'Pour from', value: 'cone', options: [{ value: 'cone', label: 'Cone (same base and height)' }, { value: 'sphere', label: 'Sphere (cylinder height 2r)' }],
+  onChange: function (v) { st.mode = v; hs.el.style.display = v === 'cone' ? '' : 'none'; tl.set(0); } });
+L.slider(P.panel, { id: 'r', label: 'Radius r', min: 1, max: 5, step: 1, value: st.r, color: 'blue', format: String, onInput: function (v) { st.r = v; draw(); } });
+var hs = L.slider(P.panel, { id: 'h', label: 'Height h', min: 2, max: 9, step: 1, value: st.h, color: 'orange', format: String, onInput: function (v) { st.h = v; draw(); } });
+var tl = M.timeline(P.panel, { id: 'pour', label: 'Pour', seconds: 7, onChange: function (t) { st.t = t; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'How many full cones fill the cylinder? Write the cone\'s volume as a fraction of the cylinder\'s.', check: function () { return st.seen.cone; } },
+  { text: 'Pour the sphere. What fraction of the cylinder fills? Use it to write the volume of a sphere.', check: function () { return st.seen.sphere; } },
+  { text: 'Change the radius and height. Does the cone still take three pours?', check: function () { return st.seen.other; } }], 'Try this');
+
+function draw() {
+  var cone = st.mode === 'cone', r = st.r, h = cone ? st.h : 2 * st.r, pours = cone ? 3 : 1;
+  var k = Math.min(105 / r, 270 / h), base = H - 50;
+  var cylX = 470, srcX = 150, rx = r * k, ry = Math.max(6, rx * 0.22), hh = h * k;
+  var frac = function (i) { return M.stage(st.t, i, pours); };
+  // which pour is running and how much has gone in
+  var done = 0, now = 0, idx = Math.min(pours - 1, Math.floor(st.t * pours));
+  for (var i = 0; i < pours; i++) { var f = frac(i); if (f >= 1) done++; else if (f > 0) now = f; }
+  var poured = (done + (done < pours ? M.ease(Math.max(0, (now - 0.25) / 0.75)) : 0));   // the first quarter of a pour moves the cup over
+  if (st.t >= 1) poured = pours;
+  var fill = cone ? poured / 3 : poured * 2 / 3;                                     // fraction of the cylinder
+  var html = '';
+  // cylinder: back rim, water, body, front rim
+  var top = base - hh, lvl = base - hh * fill;
+  html += '<ellipse cx="' + cylX + '" cy="' + L.round(top, 1) + '" rx="' + L.round(rx, 1) + '" ry="' + L.round(ry, 1) + '" fill="none" stroke="var(--ink)" stroke-width="2"/>';
+  if (fill > 0) html += '<path d="M' + L.round(cylX - rx, 1) + ',' + L.round(lvl, 1) + ' L' + L.round(cylX - rx, 1) + ',' + base + ' A' + L.round(rx, 1) + ' ' + L.round(ry, 1) + ' 0 0 0 ' + L.round(cylX + rx, 1) + ',' + base +
+    ' L' + L.round(cylX + rx, 1) + ',' + L.round(lvl, 1) + ' Z" fill="var(--blue)" fill-opacity="0.55"/><ellipse cx="' + cylX + '" cy="' + L.round(lvl, 1) + '" rx="' + L.round(rx, 1) + '" ry="' + L.round(ry, 1) + '" fill="var(--blue)" fill-opacity="0.75"/>';
+  html += '<path d="M' + L.round(cylX - rx, 1) + ',' + L.round(top, 1) + ' L' + L.round(cylX - rx, 1) + ',' + base + ' A' + L.round(rx, 1) + ' ' + L.round(ry, 1) + ' 0 0 0 ' + L.round(cylX + rx, 1) + ',' + base + ' L' + L.round(cylX + rx, 1) + ',' + L.round(top, 1) + '" fill="none" stroke="var(--ink)" stroke-width="2.5"/>';
+  for (var m = 1; m < (cone ? 3 : 3); m++) {             // thirds marks
+    var y = base - hh * m / 3;
+    html += '<line x1="' + L.round(cylX + rx, 1) + '" y1="' + L.round(y, 1) + '" x2="' + L.round(cylX + rx + 12, 1) + '" y2="' + L.round(y, 1) + '" stroke="var(--ink-soft)" stroke-width="2"/><text x="' + L.round(cylX + rx + 16, 1) + '" y="' + L.round(y + 5, 1) + '" font-size="13" fill="var(--ink-soft)">' + m + '/3</text>';
+  }
+  // the source: moves over and tips during the first quarter of each pour, drains, then comes back full
+  var phase = st.t >= 1 ? 1 : now, moving = done >= pours ? 0 : M.ease(Math.min(1, phase / 0.25)) * (phase < 0.92 ? 1 : M.ease((1 - phase) / 0.08));
+  var left = done >= pours ? 0 : 1 - M.ease(Math.max(0, (phase - 0.25) / 0.75));
+  if (st.t === 0) left = 1;
+  var sx = M.lerp(srcX, cone ? cylX - rx - hh * 0.32 : cylX - rx - r * k * 0.25, moving), sy = M.lerp(base - (cone ? hh / 2 : r * k), Math.max(cone ? rx + 14 : r * k + 12, top - (cone ? 24 : r * k * 0.6)), moving), ang = (cone ? 100 : 0) * moving;
+  html += '<g transform="translate(' + L.round(sx, 1) + ',' + L.round(sy, 1) + ') rotate(' + L.round(ang, 1) + ')">';
+  if (cone) {
+    // cone as a cup, apex down; water level follows the cube root of the volume left
+    var wl = hh * Math.cbrt(Math.max(0, left)), wr = rx * Math.cbrt(Math.max(0, left));
+    if (left > 0.001 && moving < 0.5) html += '<path d="M0,' + L.round(hh / 2, 1) + ' L' + L.round(-wr, 1) + ',' + L.round(hh / 2 - wl, 1) + ' L' + L.round(wr, 1) + ',' + L.round(hh / 2 - wl, 1) + ' Z" fill="var(--blue)" fill-opacity="0.55"/>';
+    else if (left > 0.001) {            // tipped: the water collects at the open end
+      var d = hh * (1 - Math.cbrt(Math.max(0, 1 - left))), y0 = -hh / 2, y1 = -hh / 2 + d, w1 = rx * (1 - d / hh);
+      html += '<path d="M' + L.round(-rx, 1) + ',' + L.round(y0, 1) + ' L' + L.round(rx, 1) + ',' + L.round(y0, 1) + ' L' + L.round(w1, 1) + ',' + L.round(y1, 1) + ' L' + L.round(-w1, 1) + ',' + L.round(y1, 1) + ' Z" fill="var(--blue)" fill-opacity="0.55"/>';
+    }
+    html += '<path d="M' + L.round(-rx, 1) + ',' + L.round(-hh / 2, 1) + ' L0,' + L.round(hh / 2, 1) + ' L' + L.round(rx, 1) + ',' + L.round(-hh / 2, 1) + '" fill="none" stroke="var(--ink)" stroke-width="2.5"/><ellipse cx="0" cy="' + L.round(-hh / 2, 1) + '" rx="' + L.round(rx, 1) + '" ry="' + L.round(ry, 1) + '" fill="none" stroke="var(--ink)" stroke-width="2"/>';
+  } else {
+    var R = r * k, ys = R - 2 * R * waterHeight(left);
+    if (left > 0.001) html += '<clipPath id="sph"><circle cx="0" cy="0" r="' + L.round(R, 1) + '"/></clipPath><rect x="' + L.round(-R, 1) + '" y="' + L.round(ys, 1) + '" width="' + L.round(2 * R, 1) + '" height="' + L.round(R - ys, 1) + '" fill="var(--blue)" fill-opacity="0.55" clip-path="url(#sph)"/>';
+    html += '<circle cx="0" cy="0" r="' + L.round(R, 1) + '" fill="none" stroke="var(--ink)" stroke-width="2.5"/><ellipse cx="0" cy="0" rx="' + L.round(R, 1) + '" ry="' + L.round(R * 0.22, 1) + '" fill="none" stroke="var(--ink-soft)" stroke-dasharray="4 4"/>';
+  }
+  html += '</g>';
+  if (moving > 0.95 && left > 0.002 && left < 0.999) html += '<path d="M' + L.round(cylX - rx * 0.4, 1) + ',' + L.round(top - 18, 1) + ' Q' + L.round(cylX - rx * 0.2, 1) + ',' + L.round((top + lvl) / 2, 1) + ' ' + L.round(cylX - rx * 0.1, 1) + ',' + L.round(lvl, 1) + '" fill="none" stroke="var(--blue)" stroke-width="5" stroke-linecap="round" stroke-opacity="0.7"/>';
+  g.innerHTML = html;
+  // a sphere's water height for a fraction of its volume: solve 3x² − 2x³ = v for x in [0, 1]
+  function waterHeight(v) { var lo = 0, hi = 1; for (var n = 0; n < 40; n++) { var x = (lo + hi) / 2; if (3 * x * x - 2 * x * x * x < v) lo = x; else hi = x; } return lo; }
+  var Vc = Math.PI * r * r * h, Vs = cone ? Vc / 3 : 4 / 3 * Math.PI * r * r * r;
+  step.textContent = st.t === 0 ? (cone ? 'A cone and a cylinder with the same base and height.' : 'A sphere of radius ' + r + ' and a cylinder ' + 2 * r + ' tall.') :
+    st.t >= 1 ? (cone ? 'Three full cones fill the cylinder exactly.' : 'One sphere fills two thirds of the cylinder.') : (cone ? 'Pour ' + (idx + 1) + ' of 3.' : 'Pouring the sphere…');
+  read.innerHTML = '<p>Cylinder: πr²h = π · ' + r + '² · ' + h + ' ≈ ' + L.round(Vc, 1) + '</p>' +
+    (cone ? '<p><b>Cone = ⅓ · cylinder = ⅓πr²h ≈ ' + L.round(Vs, 1) + '</b></p>' : '<p><b>Sphere = ⅔ · cylinder = ⅔ · πr² · 2r = 4⁄3πr³ ≈ ' + L.round(Vs, 1) + '</b></p>') +
+    '<p>Cylinder filled so far: ' + Math.round(fill * 100) + '%</p>';
+  if (st.t >= 1) { if (cone) st.seen.cone = true; else st.seen.sphere = true; if (cone && (r !== 3 || h !== 6)) st.seen.other = true; }
+  ch.update();
+}
+draw();
+})();
+</script>
+</body></html>

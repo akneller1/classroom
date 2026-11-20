@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Triangle Angle Sum: Tear and Line Up · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* Triangle Angle Sum: Tear and Line Up (8.G.A.5, G-CO.C.10). The three corners of a triangle are torn off and moved,
+   without turning over, so that they meet at one point. Placed side by side they fill a straight angle, so the three
+   angles add to 180°. The same happens for every triangle the sliders make. */
+var L = Lab, M = Motion;
+var P = L.layout({ course: '8th Grade Math and Geometry', unit: 'Angles and Triangles', title: 'Triangle Angle Sum: Tear and Line Up',
+  intro: 'Tear the three corners off a triangle and slide them together. Side by side they always make a straight line, so the angles of any triangle add up to 180°.' });
+var st = { A: 50, B: 70, t: 0, seen: {} };
+var W = 660, H = 430, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'The corners of a triangle moved to meet on a straight line' }, P.stage);
+var g = L.s('g', null, svg);
+var step = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+var deg = function (v) { return v + '°'; };
+var sA = L.slider(P.panel, { id: 'A', label: 'Angle A', min: 15, max: 130, step: 5, value: st.A, color: 'blue', format: deg, onInput: function (v) { st.A = v; fix('A'); draw(); } });
+var sB = L.slider(P.panel, { id: 'B', label: 'Angle B', min: 15, max: 130, step: 5, value: st.B, color: 'orange', format: deg, onInput: function (v) { st.B = v; fix('B'); draw(); } });
+function fix(which) { if (st.A + st.B > 160) { if (which === 'A') { st.B = 160 - st.A; sB.set(st.B, true); } else { st.A = 160 - st.B; sA.set(st.A, true); } } }
+M.timeline(P.panel, { id: 'tear', label: 'Tear and move', seconds: 4, onChange: function (t) { st.t = t; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'Make a right triangle (one angle 90°). What do the other two angles add to?', check: function () { return st.seen.right; } },
+  { text: 'Make an obtuse triangle and line up its corners. Is it still a straight line?', check: function () { return st.seen.obtuse; } },
+  { text: 'Make an equilateral triangle. How big is each angle?', check: function () { return st.seen.equi; } }], 'Try this');
+
+function draw() {
+  var A = st.A * Math.PI / 180, B = st.B * Math.PI / 180, C = Math.PI - A - B, base = 1;
+  // A at the origin, B on the x-axis, C from the law of sines (math coordinates, y up)
+  var b = base * Math.sin(B) / Math.sin(C), pa = [0, 0], pb = [base, 0], pc = [b * Math.cos(A), b * Math.sin(A)];
+  var xs = [pa[0], pb[0], pc[0]], minx = Math.min.apply(null, xs), maxx = Math.max.apply(null, xs), hgt = pc[1];
+  var k = Math.min(W * 0.62 / (maxx - minx), H * 0.5 / hgt), ox = W / 2 - (minx + maxx) / 2 * k, oy = H - 50;
+  var X = function (p) { return [ox + p[0] * k, oy - p[1] * k]; };
+  var F = function (p) { var q = X(p); return L.round(q[0], 1) + ',' + L.round(q[1], 1); };
+  var rho = Math.min(0.28 * Math.min(base, b, Math.hypot(pc[0] - base, pc[1])), 0.4) ;
+  // each corner: vertex, start direction of its wedge, size; in the end the wedges sit side by side at Q: B, C, A from right to left
+  var Q = [(minx + maxx) / 2, hgt + 0.18 * (maxx - minx) + rho * 0.2];
+  var dirAB = 0, dirAC = A, dirBA = Math.PI, dirBC = Math.PI - B, dirCA = Math.atan2(-pc[1], -pc[0]), dirCB = Math.atan2(-pc[1], base - pc[0]);
+  var corners = [
+    { v: pa, from: dirAB, size: A, to: Math.PI - A, color: 'var(--blue)', name: 'A', deg: st.A },
+    { v: pb, from: dirBC, size: B, to: 0, color: 'var(--orange)', name: 'B', deg: st.B },
+    { v: pc, from: dirCA, size: C, to: B, color: 'var(--green)', name: 'C', deg: 180 - st.A - st.B }];
+  var html = '<polygon points="' + [pa, pb, pc].map(F).join(' ') + '" fill="var(--wash)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>';
+  var R = rho * k;
+  corners.forEach(function (c, i) {
+    var mi = M.ease(M.stage(st.t, i, 3));
+    var center = M.lerpPt(c.v, Q, mi);
+    var d = c.to - c.from; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI;
+    var s0 = c.from + d * mi, s1 = s0 + c.size;
+    var cx = X(center), p0 = [cx[0] + R * Math.cos(s0), cx[1] - R * Math.sin(s0)], p1 = [cx[0] + R * Math.cos(s1), cx[1] - R * Math.sin(s1)];
+    html += '<path d="M' + L.round(cx[0], 1) + ',' + L.round(cx[1], 1) + ' L' + L.round(p0[0], 1) + ',' + L.round(p0[1], 1) + ' A' + L.round(R, 1) + ' ' + L.round(R, 1) + ' 0 ' + (c.size > Math.PI ? 1 : 0) + ' 0 ' + L.round(p1[0], 1) + ',' + L.round(p1[1], 1) +
+      ' Z" fill="' + c.color + '" fill-opacity="0.85" stroke="var(--card)" stroke-width="2"/>';
+    var mid = (s0 + s1) / 2, lx = cx[0] + R * 0.62 * Math.cos(mid), ly = cx[1] - R * 0.62 * Math.sin(mid);
+    html += '<text x="' + L.round(lx, 1) + '" y="' + L.round(ly + 5, 1) + '" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)" paint-order="stroke" stroke="var(--card)" stroke-width="3">' + c.name + '</text>';
+    var vx = X(c.v);
+    if (st.t < 0.02) html += '<text x="' + L.round(vx[0] + (i === 0 ? -14 : i === 1 ? 14 : 0), 1) + '" y="' + L.round(vx[1] + (i === 2 ? -10 : 20), 1) + '" text-anchor="middle" font-weight="700" fill="var(--ink-soft)">' + c.deg + '°</text>';
+  });
+  if (st.t > 0.98) {
+    var q = X(Q);
+    html += '<line x1="' + L.round(q[0] - R * 1.5, 1) + '" y1="' + L.round(q[1], 1) + '" x2="' + L.round(q[0] + R * 1.5, 1) + '" y2="' + L.round(q[1], 1) + '" stroke="var(--ink)" stroke-width="3"/>' +
+      '<text x="' + L.round(q[0], 1) + '" y="' + L.round(q[1] + 24, 1) + '" text-anchor="middle" font-weight="800" fill="var(--ink)">a straight line: 180°</text>';
+  }
+  g.innerHTML = html;
+  var Cd = 180 - st.A - st.B;
+  step.textContent = st.t < 0.02 ? 'A triangle with angles ' + st.A + '°, ' + st.B + '° and ' + Cd + '°.' : st.t > 0.98 ? 'The three corners fill a straight angle.' : 'Moving corner ' + 'ABC'[Math.min(2, Math.floor(st.t * 3))] + '…';
+  read.innerHTML = '<p>A = ' + st.A + '°, B = ' + st.B + '°, C = ' + Cd + '°</p><p><b>A + B + C = ' + st.A + ' + ' + st.B + ' + ' + Cd + ' = 180°</b></p>' +
+    '<p class="sub">The corners only slide and turn, so their sizes do not change.</p>';
+  if (st.t > 0.98) {
+    if (st.A === 90 || st.B === 90 || Cd === 90) st.seen.right = true;
+    if (st.A > 90 || st.B > 90 || Cd > 90) st.seen.obtuse = true;
+    if (st.A === 60 && st.B === 60) st.seen.equi = true;
+  }
+  ch.update();
+}
+draw();
+})();
+</script>
+</body></html>

@@ -440,7 +440,7 @@ for (const q of Q) if (q.format === 'short-answer') {
     s3_reflect_both_axes: (p) => { const [[x, y]] = pts(p); return [-x, -y]; },
     s4_two_translations: (p) => { const [[x, y]] = pts(p), m = g(/translated (\d+) units right and (\d+) units up, and then (\d+) units left and (\d+) units down/, p); return [x + +m[1] - m[3], y + +m[2] - m[4]]; },
     s5_image_perimeter: (p) => { const m = g(/is (\d+) cm long and (\d+) cm wide\. It is dilated with scale factor (\S+)\./, p); return [2 * (+m[1] + +m[2]) * ev(m[3])]; },
-    s5_dilate_then_translate: (p) => { const [[x, y]] = pts(p), m = g(/scale factor (\d+) centered at the origin, then translated (\d+) units? down/, p); return [m[1] * x, m[1] * y - m[2]]; },
+    s5_dilate_then_translate: (p) => { const [[x, y]] = pts(p), m = g(/scale factor (\d+) centered at the origin, then translated (\d+) units down/, p); return [m[1] * x, m[1] * y - m[2]]; },
     s8_similar_two_sides: (p) => { const m = g(/sides (\d+), (\d+) and (\d+)\. A similar triangle DEF has shortest side (\S+)\./, p); return [m[3] * ev(m[4]) / m[1]]; },
     s1_legs_then_perimeter: (p) => { const m = g(/legs (\d+) \S+ and (\d+)/, p); return [+m[1] + +m[2] + Math.hypot(m[1], m[2])]; },
     s1_leg_then_area: (p) => { const m = g(/hypotenuse of (\d+) m and one leg of (\d+) m/, p); return [m[2] * Math.sqrt(m[1] ** 2 - m[2] ** 2) / 2]; },
