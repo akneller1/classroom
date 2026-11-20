@@ -923,7 +923,7 @@ def pinned():
     for d, fs_ in ((lib.HERE, os.listdir(lib.HERE)), (os.path.join(lib.ROOT, 'scripts'), [f for f in os.listdir(os.path.join(lib.ROOT, 'scripts')) if 'grade7' in f or 'prealgebra7' in f or 'g7' in f])):
         for f in fs_:
             p = os.path.join(d, f)
-            if f.endswith(('.py', '.cjs', '.json')) and f not in ('levels.py', 'verify_levels.py') and os.path.isfile(p):
+            if f.endswith(('.py', '.cjs', '.json')) and f not in ('levels.py', 'verify_levels.py', 'practice-tests.json') and os.path.isfile(p):   # the practice tests are picked after this runs
                 srcs.append(open(p, encoding='utf-8').read())
     ids = set(re.findall(r'pa7-[a-z]+-s\d\d-(?:cp1|cp2|honors)-\w+', ''.join(srcs)))
     for f in os.listdir(lib.BANKS):

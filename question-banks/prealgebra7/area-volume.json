@@ -3632,35 +3632,35 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A figure is a rectangle 13 m by 8 m with a semicircle attached to one 8-m side. Find the total area. Use π and round to the nearest tenth.",
-   "answer": "129.1 m²",
+   "prompt": "A circular patio has radius 10 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
+   "answer": "96π ft²",
    "options": [
     {
-     "text": "116.6 m²",
+     "text": "4π ft²",
      "correct": false
     },
     {
-     "text": "129.1 m²",
+     "text": "2π ft²",
+     "correct": false
+    },
+    {
+     "text": "100π ft²",
+     "correct": false
+    },
+    {
+     "text": "96π ft²",
      "correct": true
-    },
-    {
-     "text": "204.5 m²",
-     "correct": false
-    },
-    {
-     "text": "154.3 m²",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Rectangle: 13 × 8 = 104.",
-    "Semicircle radius = 4: (1/2)π(4)² ≈ 25.13.",
-    "Total ≈ 129.1 m²."
+    "Big circle: π(10)² = 100π.",
+    "Fountain: π(2)² = 4π.",
+    "Patio: 100π - 4π = 96π ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_composite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 13 m by 8 m with a semicircle attached to one ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-003",
@@ -3684,30 +3684,30 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A circular patio has radius 10 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
-   "answer": "96π ft²",
+   "prompt": "A circular patio has radius 6 ft with a circular fountain of radius 3 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
+   "answer": "27π ft²",
    "options": [
     {
-     "text": "96π ft²",
+     "text": "9π ft²",
+     "correct": false
+    },
+    {
+     "text": "3π ft²",
+     "correct": false
+    },
+    {
+     "text": "27π ft²",
      "correct": true
     },
     {
-     "text": "2π ft²",
-     "correct": false
-    },
-    {
-     "text": "100π ft²",
-     "correct": false
-    },
-    {
-     "text": "4π ft²",
+     "text": "36π ft²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Big circle: π(10)² = 100π.",
-    "Fountain: π(2)² = 4π.",
-    "Patio: 100π - 4π = 96π ft²."
+    "Big circle: π(6)² = 36π.",
+    "Fountain: π(3)² = 9π.",
+    "Patio: 36π - 9π = 27π ft²."
    ],
    "standards": [
     "7.G.B.4"
@@ -3840,35 +3840,35 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A circular patio has radius 9 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
-   "answer": "77π ft²",
+   "prompt": "A circle has a diameter of 22 cm. Find its area in terms of π.",
+   "answer": "121π cm²",
    "options": [
     {
-     "text": "77π ft²",
+     "text": "11π cm²",
+     "correct": false
+    },
+    {
+     "text": "484π cm²",
+     "correct": false
+    },
+    {
+     "text": "121π cm²",
      "correct": true
     },
     {
-     "text": "2π ft²",
-     "correct": false
-    },
-    {
-     "text": "4π ft²",
-     "correct": false
-    },
-    {
-     "text": "81π ft²",
+     "text": "22π cm²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Big circle: π(9)² = 81π.",
-    "Fountain: π(2)² = 4π.",
-    "Patio: 81π - 4π = 77π ft²."
+    "A = πr².",
+    "r = 11.",
+    "A = π(11)² = 121π cm²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A circle has a diameter of 22 cm. Find its area in terms of π.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s3_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-arv-s03-honors-011",
@@ -7514,18 +7514,17 @@
    "skillId": "area-volume-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A square pyramid has base edge 14 ft and slant height 4 ft. Find its surface area.",
-   "answer": "308 ft²",
+   "prompt": "A square pyramid has base edge 13 ft and slant height 13 ft. How many square feet of material cover only its four triangular faces?",
+   "answer": "338 ft²",
    "solutionSteps": [
-    "Base: 14² = 196.",
-    "Four triangles: 4 × (1/2)(14)(4) = 112.",
-    "SA = 196 + 112 = 308 ft²."
+    "Each triangle: ½ × 13 × 13 = 169/2 ft².",
+    "Four triangles: 4 × 169/2 = 338 ft²."
    ],
    "standards": [
     "7.G.B.6",
     "G-GMD.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_pyramid). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_arv_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A square pyramid has base edge 14 ft and slant height 4 ft. Find its s”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s06-cp1-002",
@@ -8253,18 +8252,18 @@
    "skillId": "area-volume-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A square pyramid has base edge 7 ft and slant height 15 ft. Find its surface area.",
-   "answer": "259 ft²",
+   "prompt": "A gift box is a square pyramid with base edge 6 cm and slant height 10 cm. How much paper covers 3 boxes completely, including the bases?",
+   "answer": "468 cm²",
    "solutionSteps": [
-    "Base: 7² = 49.",
-    "Four triangles: 4 × (1/2)(7)(15) = 210.",
-    "SA = 49 + 210 = 259 ft²."
+    "Base: 6² = 36 cm²; 4 triangles: 4 × ½ × 6 × 10 = 120 cm².",
+    "One box: 156 cm².",
+    "3 boxes: 468 cm²."
    ],
    "standards": [
     "7.G.B.6",
     "G-GMD.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_pyramid). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A square pyramid has base edge 7 ft and slant height 15 ft. Find its s”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s06-honors-014",

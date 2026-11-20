@@ -1916,37 +1916,35 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A car uses 5 gallons of gas to go 80 miles. How many gallons does it need to go 560 miles?",
-   "answer": "35 gallons",
+   "prompt": "Find x so that 3/8 = x/16, then find x + 2.",
+   "answer": "8",
    "options": [
     {
-     "text": "61 gallons",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "40 gallons",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "5/7 gallons",
-     "correct": false
-    },
-    {
-     "text": "35 gallons",
+     "text": "8",
      "correct": true
+    },
+    {
+     "text": "16",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 5/80 = g/560.",
-    "Find the scale factor or use cross products.",
-    "g = 35.",
-    "Answer: 35 gallons."
+    "8 × 2 = 16, so x = 3 × 2 = 6.",
+    "x + 2 = 8."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A car uses 5 gallons of gas to go 80 miles. How many gallons does it n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-007",
@@ -1990,17 +1988,18 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find x so that 5/10 = x/20, then find x + 2.",
-   "answer": "12",
+   "prompt": "Do the ratios 1/12 and 3/37 form a proportion?",
+   "answer": "No",
    "solutionSteps": [
-    "10 × 2 = 20, so x = 5 × 2 = 10.",
-    "x + 2 = 12."
+    "Cross products: 1 × 37 = 37 and 12 × 3 = 36.",
+    "They are not equal.",
+    "No"
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 1/12 and 3/37 form a proportion?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-rpp-s02-cp1-009",
@@ -2288,37 +2287,36 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve the proportion: 5/8 = 25/n",
-   "answer": "n = 40",
+   "prompt": "At a camp, 5 of every 8 campers swim. There are 200 campers. How many swim? If 5 more campers join and all of them swim, how many campers swim then?",
+   "answer": "130",
    "options": [
     {
-     "text": "n = 8/5",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "n = 80",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "n = 43",
+     "text": "125",
      "correct": false
     },
     {
-     "text": "n = 40",
+     "text": "130",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Use cross products (or find the scale factor).",
-    "Cross products are equal.",
-    "Solve for n: n = 40.",
-    "Check: the cross products match."
+    "5/8 = s/200.",
+    "s = 5 × 200 ÷ 8 = 125.",
+    "125 + 5 = 130."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve the proportion: 5/8 = 25/n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-005",
@@ -2343,36 +2341,37 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "At a camp, 2 of every 5 campers swim. There are 70 campers. How many swim? If 7 more campers join and all of them swim, how many campers swim then?",
-   "answer": "35",
+   "prompt": "On a map, 3 cm represents 8 km. How many km do 27 cm represent?",
+   "answer": "72 km",
    "options": [
     {
-     "text": "5",
+     "text": "8/9 km",
      "correct": false
     },
     {
-     "text": "7",
+     "text": "27 km",
      "correct": false
     },
     {
-     "text": "28",
+     "text": "75 km",
      "correct": false
     },
     {
-     "text": "35",
+     "text": "72 km",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "2/5 = s/70.",
-    "s = 2 × 70 ÷ 5 = 28.",
-    "28 + 7 = 35."
+    "Set up a proportion: 3/8 = 27/d.",
+    "Find the scale factor or use cross products.",
+    "d = 72.",
+    "Answer: 72 km."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “On a map, 3 cm represents 8 km. How many km do 27 cm represent?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-rpp-s02-honors-007",
@@ -15699,35 +15698,35 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The expression 1.025w gives the new weekly pay following a percent increase, where w is the original amount. What is the percent increase?",
-   "answer": "2.5%",
+   "prompt": "A price b increases by 5%. Maya writes the new price as b + 0.05b. Rewrite this as a single term, and use it to find the new price of a $80 item.",
+   "answer": "$84.00",
    "options": [
     {
-     "text": "1.025%",
+     "text": "$1.05",
      "correct": false
     },
     {
-     "text": "0.025%",
-     "correct": false
-    },
-    {
-     "text": "2.5%",
+     "text": "$84.00",
      "correct": true
     },
     {
-     "text": "102.5%",
+     "text": "$1",
+     "correct": false
+    },
+    {
+     "text": "$80",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "1.025w = 1w + 0.025w.",
-    "The extra 0.025w is 2.5% of the original amount.",
-    "The increase is 2.5%."
+    "b + 0.05b = (1 + 0.05)b = 1.05b.",
+    "For b = 80: 1.05 × 80.",
+    "= $84.00."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_meaning_increase). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The expression 1.025w gives the new weekly pay following a percent inc”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-005",
@@ -15786,17 +15785,17 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A price b increases by 8%. Diego writes the new price as b + 0.08b. Rewrite this as a single term, and use it to find the new price of a $120 item.",
-   "answer": "$129.60",
+   "prompt": "A phone that costs v dollars loses 33% of its value in a year. The value after one year is v - 0.33v. Write the value after one year as a single term.",
+   "answer": "0.67v",
    "solutionSteps": [
-    "b + 0.08b = (1 + 0.08)b = 1.08b.",
-    "For b = 120: 1.08 × 120.",
-    "= $129.60."
+    "v is the same as 1v.",
+    "1v - 0.33v = 0.67v.",
+    "Multiplying by 0.67 is the same as decreasing by 33%."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A phone that costs v dollars loses 33% of its value in a year. The val”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: expr_percent_decrease). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
   },
   {
    "id": "pa7-rpp-s11-honors-008",

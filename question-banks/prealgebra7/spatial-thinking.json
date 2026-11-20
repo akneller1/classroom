@@ -1804,34 +1804,35 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Two lines intersect. One angle measures 145°. What is the measure of its vertical angle?",
-   "answer": "145°",
+   "prompt": "Two lines intersect. One angle measures 103°. Find its vertical angle plus twice an adjacent angle, in degrees.",
+   "answer": "257°",
    "options": [
     {
-     "text": "35°",
+     "text": "77°",
      "correct": false
     },
     {
-     "text": "145°",
+     "text": "103°",
+     "correct": false
+    },
+    {
+     "text": "257°",
      "correct": true
     },
     {
-     "text": "215°",
-     "correct": false
-    },
-    {
-     "text": "135°",
+     "text": "2°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Vertical angles are congruent.",
-    "The angle measures 145°."
+    "The vertical angle equals 103°.",
+    "An adjacent angle is 77°.",
+    "103 + 2 × 77 = 257°."
    ],
    "standards": [
     "7.G.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Two lines intersect. One angle measures 145°. What is the measure of i”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-cp1-004",
@@ -2343,34 +2344,36 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two angles are supplementary. One measures 36°. What is the other?",
-   "answer": "144°",
+   "prompt": "Two angles form a linear pair. One measures (4x + 19)° and the other is 93°. Find x, then find the measure of the angle vertical to the (4x + 19)° angle.",
+   "answer": "87°",
    "options": [
     {
-     "text": "54°",
+     "text": "180°",
      "correct": false
     },
     {
-     "text": "144°",
+     "text": "68°",
+     "correct": false
+    },
+    {
+     "text": "87°",
      "correct": true
     },
     {
-     "text": "324°",
-     "correct": false
-    },
-    {
-     "text": "36°",
+     "text": "17°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Supplementary angles add to 180°.",
-    "The angle measures 144°."
+    "Linear pair: (4x + 19) + 93 = 180.",
+    "4x = 68, so x = 17.",
+    "The vertical angle has the same measure as (4x + 19)°: 87°."
    ],
    "standards": [
-    "7.G.B.5"
+    "7.G.B.5",
+    "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two angles are supplementary. One measures 36°. What is the other?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-005",
@@ -2513,36 +2516,34 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two angles form a linear pair. One measures (3x + 10)° and the other is 113°. Find x, then find the measure of the angle vertical to the (3x + 10)° angle.",
-   "answer": "67°",
+   "prompt": "Two parallel lines are cut by a transversal. One angle measures 134°. What is the measure of its corresponding angle?",
+   "answer": "134°",
    "options": [
     {
-     "text": "19°",
+     "text": "124°",
      "correct": false
     },
     {
-     "text": "57°",
+     "text": "46°",
      "correct": false
     },
     {
-     "text": "180°",
+     "text": "226°",
      "correct": false
     },
     {
-     "text": "67°",
+     "text": "134°",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Linear pair: (3x + 10) + 113 = 180.",
-    "3x = 57, so x = 19.",
-    "The vertical angle has the same measure as (3x + 10)°: 67°."
+    "Corresponding angles are congruent when lines are parallel.",
+    "The angle measures 134°."
    ],
    "standards": [
-    "7.G.B.5",
-    "7.EE.B.4a"
+    "8.G.A.5"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two parallel lines are cut by a transversal. One angle measures 134°. ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-spt-s02-honors-011",

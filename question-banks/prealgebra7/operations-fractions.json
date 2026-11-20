@@ -8906,37 +8906,36 @@
    "skillId": "operations-fractions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: (3/4)x = 27/10",
-   "answer": "x = 3 3/5",
+   "prompt": "Raj has saved 3/4 of the cost of a bike, which is $180. Write and solve an equation for the cost of the bike. If he then spends 1/4 of the savings on a helmet, how much savings are left? Give the savings left.",
+   "answer": "135",
    "options": [
     {
-     "text": "x = 1 19/20",
+     "text": "45",
      "correct": false
     },
     {
-     "text": "x = -3 3/5",
+     "text": "1/4",
      "correct": false
     },
     {
-     "text": "x = 2 1/40",
+     "text": "240",
      "correct": false
     },
     {
-     "text": "x = 3 3/5",
+     "text": "135",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Multiply both sides by the reciprocal of 3/4, which is 4/3.",
-    "x = 27/10 × 4/3.",
-    "x = 3 3/5.",
-    "Check by substituting."
+    "(3/4)c = 180, so c = 180 × 4/3 = 240 dollars.",
+    "Helmet: 1/4 × 180 = 45.",
+    "Left: 180 - 45 = 135 dollars."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (3/4)x = 27/10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s07-honors-004",

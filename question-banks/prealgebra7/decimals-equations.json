@@ -1728,17 +1728,18 @@
    "skillId": "decimals-equations-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Estimate 15.6 × 8.3 by rounding each factor to the nearest whole number.",
-   "answer": "128",
+   "prompt": "Estimate 9.4 × 3.3 + 7.9 by rounding each number to the nearest whole number.",
+   "answer": "35",
    "solutionSteps": [
-    "15.6 ≈ 16 and 8.3 ≈ 8.",
-    "16 × 8 = 128."
+    "Round: 9, 3 and 8.",
+    "9 × 3 = 27.",
+    "27 + 8 = 35."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_product). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Estimate 15.6 × 8.3 by rounding each factor to the nearest whole numbe”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-cp1-002",
@@ -1871,36 +1872,36 @@
    "skillId": "decimals-equations-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Estimate 9.5 × 9.5 + 7.5 by rounding each number to the nearest whole number.",
-   "answer": "108",
+   "prompt": "Use compatible numbers to estimate 57.6 ÷ 3.1.",
+   "answer": "19",
    "options": [
     {
-     "text": "8",
+     "text": "1.9",
      "correct": false
     },
     {
-     "text": "10",
+     "text": "22",
      "correct": false
     },
     {
-     "text": "100",
-     "correct": false
-    },
-    {
-     "text": "108",
+     "text": "19",
      "correct": true
+    },
+    {
+     "text": "190",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Round: 10, 10 and 8.",
-    "10 × 10 = 100.",
-    "100 + 8 = 108."
+    "Choose numbers that divide easily: 57 ÷ 3.",
+    "57 ÷ 3 = 19.",
+    "So 57.6 ÷ 3.1 ≈ 19."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use compatible numbers to estimate 57.6 ÷ 3.1.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_compat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s02-cp1-007",
@@ -4554,37 +4555,36 @@
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use P = 2l + 2w to find the perimeter of a rectangle with l = 3 cm and w = 2 cm.",
-   "answer": "10 cm",
+   "prompt": "Zoe drives 30 miles per hour for 4 hours and then 35 miles per hour for 5 hours. Use d = rt for each part to find the total distance in miles.",
+   "answer": "295",
    "options": [
     {
-     "text": "8 cm",
+     "text": "175",
      "correct": false
     },
     {
-     "text": "6 cm",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "5 cm",
-     "correct": false
-    },
-    {
-     "text": "10 cm",
+     "text": "295",
      "correct": true
+    },
+    {
+     "text": "35",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the formula.",
-    "Substitute the given values.",
-    "Evaluate using the order of operations.",
-    "Answer: 10 cm."
+    "First part: 30 × 4 = 120 miles.",
+    "Second part: 35 × 5 = 175 miles.",
+    "Total: 295 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use P = 2l + 2w to find the perimeter of a rectangle with l = 3 cm and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-cp1-008",
@@ -4834,36 +4834,36 @@
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A train travels 82 miles in 2 hours. Use d = rt to find its rate in miles per hour.",
-   "answer": "41 miles per hour",
+   "prompt": "Zoe drives 1.5 hours at 41 mi/h and then 1.5 hours at 37 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "117",
    "options": [
     {
-     "text": "41 miles per hour",
+     "text": "111/2",
+     "correct": false
+    },
+    {
+     "text": "117",
      "correct": true
     },
     {
-     "text": "164 miles per hour",
+     "text": "37",
      "correct": false
     },
     {
-     "text": "80 miles per hour",
-     "correct": false
-    },
-    {
-     "text": "1/41 miles per hour",
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "82 = r × 2.",
-    "Divide both sides by 2.",
-    "r = 41."
+    "Part 1: 41 × 1.5 = 61.5 miles.",
+    "Part 2: 37 × 1.5 = 55.5 miles.",
+    "Total = 117 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A train travels 82 miles in 2 hours. Use d = rt to find its rate in mi”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-003",
@@ -4978,36 +4978,37 @@
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Theo drives 1.5 hours at 47 mi/h and then 1.5 hours at 39 mi/h. Use d = rt for each part to find the total distance in miles.",
-   "answer": "129",
+   "prompt": "Use A = (1/2)bh to find the area of a triangle with b = 12 in. and h = 14 in.",
+   "answer": "84 square inches",
    "options": [
     {
-     "text": "129",
+     "text": "26 square inches",
+     "correct": false
+    },
+    {
+     "text": "168 square inches",
+     "correct": false
+    },
+    {
+     "text": "84 square inches",
      "correct": true
     },
     {
-     "text": "2",
-     "correct": false
-    },
-    {
-     "text": "117/2",
-     "correct": false
-    },
-    {
-     "text": "39",
+     "text": "13 square inches",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Part 1: 47 × 1.5 = 70.5 miles.",
-    "Part 2: 39 × 1.5 = 58.5 miles.",
-    "Total = 129 miles."
+    "Write the formula.",
+    "Substitute the given values.",
+    "Evaluate using the order of operations.",
+    "Answer: 84 square inches."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use A = (1/2)bh to find the area of a triangle with b = 12 in. and h =”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s04-honors-008",
@@ -6263,18 +6264,18 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A plant grew 20.68 cm and is now 36.49 cm tall. Solve h + 20.68 = 36.49 to find h, its original height.",
-   "answer": "h = 15.81",
+   "prompt": "Kai's account had $74.37. He deposited $20.72, spent $25.80 and paid a $4.54 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$64.75",
    "solutionSteps": [
-    "Use the inverse operation.",
-    "h = 15.81.",
-    "Check by substituting."
+    "x = 74.37 + 20.72 - 25.80 - 4.54.",
+    "74.37 + 20.72 = 95.09; subtract 25.80 and 4.54.",
+    "x = $64.75."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A plant grew 20.68 cm and is now 36.49 cm tall. Solve h + 20.68 = 36.4”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-005",
@@ -6372,18 +6373,18 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Eli's account had $48.55. He deposited $13.93, spent $24.73 and paid a $6.60 fee. Write an equation for the final balance x and solve it.",
-   "answer": "$31.15",
+   "prompt": "A plant grew 24.94 cm and is now 31.78 cm tall. Solve h + 24.94 = 31.78 to find h, its original height.",
+   "answer": "h = 6.84",
    "solutionSteps": [
-    "x = 48.55 + 13.93 - 24.73 - 6.60.",
-    "48.55 + 13.93 = 62.48; subtract 24.73 and 6.60.",
-    "x = $31.15."
+    "Use the inverse operation.",
+    "h = 6.84.",
+    "Check by substituting."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A plant grew 24.94 cm and is now 31.78 cm tall. Solve h + 24.94 = 31.7”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s05-honors-009",
@@ -7515,19 +7516,18 @@
    "skillId": "decimals-equations-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 8.43a = 228.5373",
-   "answer": "a = 27.11",
+   "prompt": "A 20-ounce box of cereal costs $3.41 and a 32-ounce box costs $4.78. Solve 20u = 3.41 and 32v = 4.78 to find each price per ounce. How much less per ounce, in cents rounded to the nearest tenth, is the better buy?",
+   "answer": "2.1",
    "solutionSteps": [
-    "Divide both sides by 8.43.",
-    "Move the decimal point to divide by a whole number.",
-    "a = 27.11.",
-    "Check by substituting into the original equation."
+    "u = 3.41 ÷ 20 ≈ $0.1705 per ounce.",
+    "v = 4.78 ÷ 32 ≈ $0.1494 per ounce.",
+    "The 32 oz box is cheaper by about 2.1 cents per ounce."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 8.43a = 228.5373”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s06-honors-002",

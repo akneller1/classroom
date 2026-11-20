@@ -8555,35 +8555,34 @@
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The high temperature was 19°F and the low was -4°F. How many degrees warmer was the high than the low?",
-   "answer": "23",
+   "prompt": "Find the value: -9 - (-3) - 5",
+   "answer": "-11",
    "options": [
     {
-     "text": "23",
+     "text": "-9",
+     "correct": false
+    },
+    {
+     "text": "-11",
      "correct": true
     },
     {
-     "text": "33",
+     "text": "-6",
      "correct": false
     },
     {
-     "text": "-23",
-     "correct": false
-    },
-    {
-     "text": "15",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Find the difference: higher value minus lower value.",
-    "19 - (-4) = 23.",
-    "The difference is 23."
+    "Subtracting -3 is adding 3: -9 + 3 = -6.",
+    "Then -6 - 5 = -11."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The high temperature was 19°F and the low was -4°F. How many degrees w”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-003",
@@ -8706,34 +8705,35 @@
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the value: -14 - (-6) - 14",
-   "answer": "-22",
+   "prompt": "Death Valley is -19 meters relative to sea level and a nearby peak is 1200 meters. How much higher is the peak in meters?",
+   "answer": "1219",
    "options": [
     {
-     "text": "-22",
+     "text": "1229",
+     "correct": false
+    },
+    {
+     "text": "1181",
+     "correct": false
+    },
+    {
+     "text": "1219",
      "correct": true
     },
     {
-     "text": "-14",
-     "correct": false
-    },
-    {
-     "text": "14",
-     "correct": false
-    },
-    {
-     "text": "-8",
+     "text": "-1219",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Subtracting -6 is adding 6: -14 + 6 = -8.",
-    "Then -8 - 14 = -22."
+    "Find the difference: higher value minus lower value.",
+    "1200 - (-19) = 1219.",
+    "The difference is 1219."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Death Valley is -19 meters relative to sea level and a nearby peak is ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-aei-s07-cp1-009",

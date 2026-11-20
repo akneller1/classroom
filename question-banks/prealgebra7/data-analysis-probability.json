@@ -5260,36 +5260,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 4 times. What is P(exactly 2 heads)? Write a fraction in simplest form.",
-   "answer": "3/8",
+   "prompt": "Raj has 4 shirts, 4 pairs of pants and 3 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "48",
    "options": [
     {
-     "text": "3/4",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "3/8",
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "48",
      "correct": true
     },
     {
-     "text": "1/2",
-     "correct": false
-    },
-    {
-     "text": "1/16",
+     "text": "12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "There are 2⁴ = 16 equally likely outcomes.",
-    "Outcomes with exactly 2 heads: 6.",
-    "P = 6/16 = 3/8."
+    "Counting principle: 4 × 4 × 3.",
+    "= 48 outfits.",
+    "Each shirt appears in 12 outfits, so P = 12/48 = 1/4."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 4 times. What is P(exactly 2 heads)? Write a fra”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-007",
@@ -5367,36 +5367,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 3 times. What is P(exactly 2 heads)? Write a fraction in simplest form.",
-   "answer": "3/8",
+   "prompt": "Priya has 6 shirts, 3 pairs of pants and 3 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "54",
    "options": [
     {
-     "text": "2/3",
-     "correct": false
-    },
-    {
-     "text": "1/8",
-     "correct": false
-    },
-    {
-     "text": "3/8",
+     "text": "54",
      "correct": true
     },
     {
-     "text": "1/2",
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "1/6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "There are 2³ = 8 equally likely outcomes.",
-    "Outcomes with exactly 2 heads: 3.",
-    "P = 3/8 = 3/8."
+    "Counting principle: 6 × 3 × 3.",
+    "= 54 outfits.",
+    "Each shirt appears in 9 outfits, so P = 9/54 = 1/6."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 3 times. What is P(exactly 2 heads)? Write a fra”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-011",
@@ -5420,36 +5420,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Ana has 4 shirts, 4 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
-   "answer": "64",
+   "prompt": "Two number cubes are rolled. What is P(a sum of 10)? Write a fraction in simplest form.",
+   "answer": "1/12",
    "options": [
     {
-     "text": "1/4",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "64",
+     "text": "1/12",
      "correct": true
     },
     {
-     "text": "16",
+     "text": "1/11",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "1/4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Counting principle: 4 × 4 × 4.",
-    "= 64 outfits.",
-    "Each shirt appears in 16 outfits, so P = 16/64 = 1/4."
+    "There are 6 × 6 = 36 equally likely outcomes.",
+    "Count the outcomes with a sum of 10: 3.",
+    "P = 3/36 = 1/12."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two number cubes are rolled. What is P(a sum of 10)? Write a fraction ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s04-honors-013",
