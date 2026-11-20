@@ -4864,17 +4864,17 @@
    "skillId": "derivatives-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle's position is s(t) = √t meters. Find its acceleration at t = 4 seconds.",
-   "answer": "-1/32 m/s²",
+   "prompt": "A particle's position is s(t) = √t meters. Find its acceleration at t = 9 seconds.",
+   "answer": "-1/108 m/s²",
    "solutionSteps": [
     "v(t) = s′(t) = 1/(2√t).",
     "a(t) = v′(t) = -1/(4t^(3/2)).",
-    "a(4) = -1/32 m/s²."
+    "a(9) = -1/108 m/s²."
    ],
    "standards": [
     "AP FUN-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_accel_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_accel_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-der-s04-honors-009",
@@ -4950,17 +4950,17 @@
    "skillId": "derivatives-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle's position is s(t) = e^(-t) + 4t meters. Find its acceleration at t = 0 seconds.",
-   "answer": "1 m/s²",
+   "prompt": "A particle's position is s(t) = e^(-2t) + 3t meters. Find its acceleration at t = 0 seconds.",
+   "answer": "4 m/s²",
    "solutionSteps": [
-    "v(t) = s′(t) = 4 - e^(-t).",
-    "a(t) = v′(t) = e^(-t).",
-    "a(0) = 1 m/s²."
+    "v(t) = s′(t) = 3 - 2e^(-2t).",
+    "a(t) = v′(t) = 4e^(-2t).",
+    "a(0) = 4 m/s²."
    ],
    "standards": [
     "AP FUN-3.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_accel_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_accel_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-der-s04-honors-012",

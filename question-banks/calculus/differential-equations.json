@@ -4719,17 +4719,17 @@
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = ycos(x).",
-   "answer": "y = Ce^(sin(x))",
+   "prompt": "Find the general solution of y′ = ysin(x).",
+   "answer": "y = Ce^(-cos(x))",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = Ce^(sin(x))."
+    "Solve for y: y = Ce^(-cos(x))."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s04-honors-007",
@@ -4822,68 +4822,68 @@
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = ycos(x).",
-   "answer": "y = Ce^(sin(x))",
+   "prompt": "Find the general solution of y′ = 2xy.",
+   "answer": "y = Ce^(x²)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = Ce^(sin(x))."
+    "Solve for y: y = Ce^(x²)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s04-honors-011",
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = y/x.",
-   "answer": "y = Cx",
+   "prompt": "Find the general solution of y′ = 2y/x.",
+   "answer": "y = Cx²",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = Cx."
+    "Solve for y: y = Cx²."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s04-honors-012",
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = ycos(x).",
-   "answer": "y = Ce^(sin(x))",
+   "prompt": "Find the general solution of y′ = 3x²y.",
+   "answer": "y = Ce^(x³)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = Ce^(sin(x))."
+    "Solve for y: y = Ce^(x³)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s04-honors-013",
    "skillId": "differential-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = e^(x - y).",
-   "answer": "y = ln(e^x + C)",
+   "prompt": "Find the general solution of y′ = cos(x)e^(-y).",
+   "answer": "y = ln(sin(x) + C)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = ln(e^x + C)."
+    "Solve for y: y = ln(sin(x) + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_generals_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s04-honors-014",
@@ -5840,35 +5840,35 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the general solution of y′ = e^(x - y).",
-   "answer": "y = ln(e^x + C)",
+   "prompt": "Find the general solution of y′ = e^(2x - y).",
+   "answer": "y = ln(e^(2x)/2 + C)",
    "options": [
     {
-     "text": "y = ln(e^x + C)",
+     "text": "y = ln(e^(2x) + C)",
+     "correct": false
+    },
+    {
+     "text": "y = Ce^(2x)",
+     "correct": false
+    },
+    {
+     "text": "y = ln(e^(2x)/2 + C)",
      "correct": true
     },
     {
-     "text": "y = Ce^x",
-     "correct": false
-    },
-    {
-     "text": "y = x² + C",
-     "correct": false
-    },
-    {
-     "text": "y = Ce^(x²)",
+     "text": "y = 2x + C",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = ln(e^x + C)."
+    "Solve for y: y = ln(e^(2x)/2 + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-004",
@@ -5960,35 +5960,35 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the general solution of y′ = 1 + y².",
-   "answer": "y = tan(x + C)",
+   "prompt": "Find the general solution of y′ = 2(1 + y²).",
+   "answer": "y = tan(2x + C)",
    "options": [
     {
      "text": "y = tan(x + C)",
+     "correct": false
+    },
+    {
+     "text": "y = Ce^(2x)",
+     "correct": false
+    },
+    {
+     "text": "y = tan(2x + C)",
      "correct": true
     },
     {
-     "text": "y = x² + C",
-     "correct": false
-    },
-    {
-     "text": "y = Ce^x",
-     "correct": false
-    },
-    {
-     "text": "y = Ce^(x²)",
+     "text": "y = 2x + C",
      "correct": false
     }
    ],
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = tan(x + C)."
+    "Solve for y: y = tan(2x + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-008",
@@ -6029,85 +6029,85 @@
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = xy².",
-   "answer": "y = -2/(x² + C)",
+   "prompt": "Find the general solution of y′ = x²y².",
+   "answer": "y = -3/(x³ + C)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = -2/(x² + C)."
+    "Solve for y: y = -3/(x³ + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-010",
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = 2x√y.",
-   "answer": "y = ((x² + C)/2)²",
+   "prompt": "Find the general solution of y′ = 4x√y.",
+   "answer": "y = (x² + C)²",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = ((x² + C)/2)²."
+    "Solve for y: y = (x² + C)²."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-011",
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = xy².",
-   "answer": "y = -2/(x² + C)",
+   "prompt": "Find the general solution of y′ = y²cos(x).",
+   "answer": "y = -1/(sin(x) + C)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = -2/(x² + C)."
+    "Solve for y: y = -1/(sin(x) + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-012",
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = e^(x - y).",
-   "answer": "y = ln(e^x + C)",
+   "prompt": "Find the general solution of y′ = e^(3x - y).",
+   "answer": "y = ln(e^(3x)/3 + C)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = ln(e^x + C)."
+    "Solve for y: y = ln(e^(3x)/3 + C)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-013",
    "skillId": "differential-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the general solution of y′ = ycos(x).",
-   "answer": "y = Ce^(sin(x))",
+   "prompt": "Find the general solution of y′ = ye^x.",
+   "answer": "y = Ce^(e^x)",
    "solutionSteps": [
     "Separate the variables: put every y on the left with dy and every x on the right with dx.",
     "Integrate both sides and add one constant C.",
-    "Solve for y: y = Ce^(sin(x))."
+    "Solve for y: y = Ce^(e^x)."
    ],
    "standards": [
     "AP FUN-7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_general_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-deq-s05-honors-014",

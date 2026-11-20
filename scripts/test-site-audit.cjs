@@ -169,3 +169,12 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   }
 }
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);
+// Whole-site audit 2 #5: no question repeats within a skill and level in the high-school banks (repo copies).
+for (const c of ['calculus', 'precalculus', 'algebra2', 'algebra', 'geometry', 'math6', 'prealgebra', 'prealgebra7', 'statistics']) {
+  const d = path.join(ROOT, 'question-banks', c); if (!fs.existsSync(d)) continue;
+  const seen = new Set();
+  for (const f of fs.readdirSync(d).filter((f) => f.endsWith('.json') && !f.startsWith('manifest'))) {
+    const qs = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')).questions || [];
+    for (const q of qs) { const k = JSON.stringify([q.skillId, q.level, String(q.prompt).trim(), q.answer, q.diagram || null, (q.options || []).map((o) => (o && o.text) || String(o)).sort(), q.parts || null, q.plot || null]); ok(!seen.has(k), '#5 repeated question in ' + c + '/' + f + ': ' + q.id); seen.add(k); }
+  }
+}

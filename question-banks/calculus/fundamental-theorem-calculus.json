@@ -2290,35 +2290,35 @@
    "skillId": "fundamental-theorem-calculus-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find a formula for g(x) = ∫ from 0 to x (2te^(t²)) dt.",
-   "answer": "g(x) = e^(x²) - 1",
+   "prompt": "Find a formula for g(x) = ∫ from 0 to x (3t²e^(t³)) dt.",
+   "answer": "g(x) = e^(x³) - 1",
    "options": [
     {
-     "text": "g(x) = e^(x²) - 1",
+     "text": "g(x) = e^(x³)",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 3x²e^(x³)",
+     "correct": false
+    },
+    {
+     "text": "g(x) = e^(x³) + 1",
+     "correct": false
+    },
+    {
+     "text": "g(x) = e^(x³) - 1",
      "correct": true
-    },
-    {
-     "text": "g(x) = e^(x²) + 1",
-     "correct": false
-    },
-    {
-     "text": "g(x) = 4x²e^(x²) + 2e^(x²)",
-     "correct": false
-    },
-    {
-     "text": "g(x) = 2xe^(x²)",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "An antiderivative of 2te^(t²) is e^(t²).",
-    "g(x) = [e^(t²)] evaluated from t = 0 to t = x = (e^(x²)) − (1).",
-    "g(x) = e^(x²) - 1."
+    "An antiderivative of 3t²e^(t³) is e^(t³).",
+    "g(x) = [e^(t³)] evaluated from t = 0 to t = x = (e^(x³)) − (1).",
+    "g(x) = e^(x³) - 1."
    ],
    "standards": [
     "AP FUN-5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_formula_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-ftc-s02-honors-005",
