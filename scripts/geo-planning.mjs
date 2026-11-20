@@ -332,7 +332,7 @@ const ELEMENTARY = {
     titles: ["Mixed practice: multiplication and division facts", "Mixed practice: add and subtract within 1,000", "Mixed practice: fractions", "Mixed practice: measurement, area and perimeter", "Two-step word problems and open response", "Targeted reteach"],
     post: ["Grade 4 preview: multi-digit multiplication", "Grade 4 preview: equivalent fractions and decimals", "Grade 4 preview: angles and lines", "Grade 3 project", "Fact fluency and spiral review"], next: "Grade 4" }
 };
-export function elementaryPacing(grade, siteDir) {
+function withElementary(grade, siteDir, fn) {
   const E = ELEMENTARY[grade], id = "grade" + grade, catalog = (E && E.catalog) || id + "-main-catalog.js";
   if (!E || !fs.existsSync(path.join(siteDir, catalog))) return null;
   const saved = BASE;
@@ -344,16 +344,45 @@ export function elementaryPacing(grade, siteDir) {
         const t = scope.days.filter((d) => new RegExp("^MCAS Grade " + grade).test(d.title));
         return E.nomcas ? `There is no state test in Grade ${grade}, so the plan keeps a spring review window like Grades 3–5: all ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, six days of mixed review follow, then two days for a school or district benchmark (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}). The weeks after are ${E.next} previews, the Grade ${grade} projects and the final review.` : `The year is built around the spring Grade ${grade} MCAS. All ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, so every Grade ${grade} standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are ${E.next} previews, the Grade ${grade} projects and the final review.`;
       } };
-    const src = fs.readFileSync(path.join(siteDir, catalog), "utf8"), bridge = src.match(/var course=(\{.*?\}),skills=/s) || src.match(/var data=(\{.*?\});/s);
-    const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
-    const html = geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
-    // Grade 2 has no state test: the same spring window holds review and a school or district benchmark.
-    return E.nomcas ? html.replace(/MCAS review and testing/g, "Spring review and benchmark").replace(/After the MCAS/g, "After the spring benchmark")
-      .replace(/After MCAS · /g, "After the benchmark · ").replace(/MCAS review · /g, "Spring review · ").replace(/MCAS Grade \d+ Mathematics · Session/g, "Spring benchmark · Session").replace(/MCAS/g, "spring benchmark").replace(/Grade \d+ Mathematics · Session/g, "Benchmark · Session") : html;
+    return fn(id, E, catalog);
   } finally {
     BASE = saved;
     delete COURSES[id];
     delete cache[id];
   }
 }
+export function elementaryPacing(grade, siteDir) {
+  return withElementary(grade, siteDir, (id, E, catalog) => {
+    const src = fs.readFileSync(path.join(siteDir, catalog), "utf8"), bridge = src.match(/var course=(\{.*?\}),skills=/s) || src.match(/var data=(\{.*?\});/s);
+    const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
+    const html = geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
+    // Grade 2 has no state test: the same spring window holds review and a school or district benchmark.
+    return E.nomcas ? html.replace(/MCAS review and testing/g, "Spring review and benchmark").replace(/After the MCAS/g, "After the spring benchmark")
+      .replace(/After MCAS · /g, "After the benchmark · ").replace(/MCAS review · /g, "Spring review · ").replace(/MCAS Grade \d+ Mathematics · Session/g, "Spring benchmark · Session").replace(/MCAS/g, "spring benchmark").replace(/Grade \d+ Mathematics · Session/g, "Benchmark · Session") : html;
+  });
+}
 export const grade4Pacing = (siteDir) => elementaryPacing(4, siteDir);
+
+/* Whole-site audit 2 #1 (2026-11-20): the Lesson Planner follows the same 180-day calendar as the pacing guide. For every
+   course the planner builds from its catalog (all but Algebra 1 and Geometry, whose planner scopes are already the
+   pacing calendar), this lists the pacing guide's days in order: a planner lesson keeps its own id; the days the pacing
+   guide adds (mid-unit practice, extra practice, flex, semester and final review and exams, state-test review and
+   sessions, AP review and projects) are described here. Grades 1-5 are read from the assembled site (siteDir). */
+export function plannerCalendar(course, siteDir = ROOT) {
+  const pack = (scope) => ({
+    units: scope.units.map((u) => ({ unit: u.unit, title: u.title, start_day: u.start_day, end_day: u.end_day, total_days: u.total_days, lesson_ids: u.lesson_ids })),
+    days: scope.days.map((d) => { const o = { day: d.day, id: d.lesson_id, type: d.day_type, title: d.title, unit: d.unit == null ? null : d.unit };
+      if (d.lessons_covered && d.lessons_covered.length > 1) o.covered = d.lessons_covered; if (d.content_objective) o.obj = d.content_objective; return o; }),
+  });
+  const m = /^grade([1-5])$/.exec(course);
+  if (m) return withElementary(+m[1], siteDir, (id, E) => {
+    const cal = pack(COURSES[id].load().scope);
+    // Grade 2 has no state test: the same names as its pacing guide (a spring review and benchmark window).
+    if (E.nomcas) for (const d of cal.days) d.title = d.title.replace(/MCAS review · /g, "Spring review · ").replace(/MCAS Grade \d+ Mathematics · Session/g, "Spring benchmark · Session").replace(/After MCAS · /g, "After the benchmark · ").replace(/MCAS/g, "spring benchmark");
+    return cal;
+  });
+  const c = COURSES[course];
+  if (!c || !c.load) return null;
+  return pack(c.load().scope);
+}
+export const plannerCalendarCourses = ["grade1", "grade2", "grade3", "grade4", "grade5", ...Object.keys(COURSES).filter((k) => COURSES[k].load)];

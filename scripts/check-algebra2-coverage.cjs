@@ -35,7 +35,9 @@ const functionAdditions=require('../tests/fixtures/function-graph-items.json').f
 const auditGapItems=48; // 2026-11-16: Binomial Theorem and Pascal's Triangle
 const batchD=Object.keys(require('../tools/algebra2-gaps-20261117/out/checks.json')).length; // 2026-11-17: 7 standards-gap skills (336) + context problems (216)
 assert.equal(batchD,552);
-const plotItems=96; // 2026-11-17: Graphing Practice for linear systems, conics, sequences and probability (tools/algebra2-plots-20261117)
-assert.equal(total,4667+additions+functionAdditions+auditGapItems+batchD+plotItems); // Original bank plus reviewed November 15 additions
+const plotItems=96;
+const honorsStandards=Object.values(require('../tools/site-audit-20261120/honors_standards/out/checks.json')).filter(c=>c.course==='algebra2').length; // 2026-11-20 whole-site audit 2 #7: S-MD.B.6 and S-MD.B.7
+assert.equal(honorsStandards,24); // 2026-11-17: Graphing Practice for linear systems, conics, sequences and probability (tools/algebra2-plots-20261117)
+assert.equal(total,4667+additions+functionAdditions+auditGapItems+batchD+plotItems+honorsStandards); // Original bank plus reviewed November 15 additions
 assert.equal(skills.size,95);
 console.log('PASS 11 Algebra 2 banks, '+total+' questions, '+skills.size+' skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');

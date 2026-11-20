@@ -24512,6 +24512,318 @@
     "F-TF.A.1"
    ],
    "sourceNotes": "Original Claude-authored select-all item (family: sa_coterminal). Every choice re-decided from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-trg-s02-cp2-x001",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant I has sin θ = 15/17 and cos θ = 8/17. Use the unit circle to find sin(-θ).",
+   "answer": "-15/17",
+   "solutionSteps": [
+    "θ ends at the point (8/17, 15/17) on the unit circle.",
+    "The point for -θ is the reflection of (cos θ, sin θ) across the x-axis: (cos θ, -sin θ). So cosine is even and sine and tangent are odd.",
+    "sin(-θ) = -15/17."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp2-x002",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant I has sin θ = 3/5 and cos θ = 4/5. Use the unit circle to find cos(-θ).",
+   "answer": "4/5",
+   "options": [
+    {
+     "text": "4/5",
+     "correct": true
+    },
+    {
+     "text": "-4/5",
+     "correct": false
+    },
+    {
+     "text": "5/4",
+     "correct": false
+    },
+    {
+     "text": "-3/5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (4/5, 3/5) on the unit circle.",
+    "The point for -θ is the reflection of (cos θ, sin θ) across the x-axis: (cos θ, -sin θ). So cosine is even and sine and tangent are odd.",
+    "cos(-θ) = 4/5."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp2-x003",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant I has sin θ = 21/29 and cos θ = 20/29. Use the unit circle to find sin(-θ).",
+   "answer": "-21/29",
+   "solutionSteps": [
+    "θ ends at the point (20/29, 21/29) on the unit circle.",
+    "The point for -θ is the reflection of (cos θ, sin θ) across the x-axis: (cos θ, -sin θ). So cosine is even and sine and tangent are odd.",
+    "sin(-θ) = -21/29."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp2-x004",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant I has sin θ = 20/29 and cos θ = 21/29. Use the unit circle to find cos(-θ).",
+   "answer": "21/29",
+   "options": [
+    {
+     "text": "-21/29",
+     "correct": false
+    },
+    {
+     "text": "-20/29",
+     "correct": false
+    },
+    {
+     "text": "21/29",
+     "correct": true
+    },
+    {
+     "text": "29/21",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (21/29, 20/29) on the unit circle.",
+    "The point for -θ is the reflection of (cos θ, sin θ) across the x-axis: (cos θ, -sin θ). So cosine is even and sine and tangent are odd.",
+    "cos(-θ) = 21/29."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp1-x001",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant II has sin θ = 8/17 and cos θ = -15/17. Use the unit circle to find tan(θ - 2π).",
+   "answer": "-8/15",
+   "solutionSteps": [
+    "θ ends at the point (-15/17, 8/17) on the unit circle.",
+    "Subtracting 2π makes one full turn back, so θ - 2π ends at the same point: every trig function has period 2π.",
+    "tan(θ - 2π) = -8/15."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp1-x002",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant I has sin θ = 24/25 and cos θ = 7/25. Use the unit circle to find cos(θ + π).",
+   "answer": "-7/25",
+   "options": [
+    {
+     "text": "-25/7",
+     "correct": false
+    },
+    {
+     "text": "-7/25",
+     "correct": true
+    },
+    {
+     "text": "-24/25",
+     "correct": false
+    },
+    {
+     "text": "7/25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (7/25, 24/25) on the unit circle.",
+    "Adding π makes a half turn, so the point is reflected through the origin: (-cos θ, -sin θ). Tangent keeps its value (period π).",
+    "cos(θ + π) = -7/25."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp1-x003",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant IV has sin θ = -3/5 and cos θ = 4/5. Use the unit circle to find cos(θ + 2π).",
+   "answer": "4/5",
+   "solutionSteps": [
+    "θ ends at the point (4/5, -3/5) on the unit circle.",
+    "Adding 2π makes one full turn, so θ + 2π ends at the same point: every trig function has period 2π.",
+    "cos(θ + 2π) = 4/5."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-cp1-x004",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant IV has sin θ = -20/29 and cos θ = 21/29. Use the unit circle to find sin(θ - 2π).",
+   "answer": "-20/29",
+   "options": [
+    {
+     "text": "-20/29",
+     "correct": true
+    },
+    {
+     "text": "20/29",
+     "correct": false
+    },
+    {
+     "text": "21/29",
+     "correct": false
+    },
+    {
+     "text": "-29/20",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (21/29, -20/29) on the unit circle.",
+    "Subtracting 2π makes one full turn back, so θ - 2π ends at the same point: every trig function has period 2π.",
+    "sin(θ - 2π) = -20/29."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-honors-x001",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant II has sin θ = 8/17 and cos θ = -15/17. Use the unit circle to find tan(θ - π).",
+   "answer": "-8/15",
+   "solutionSteps": [
+    "θ ends at the point (-15/17, 8/17) on the unit circle.",
+    "Subtracting π makes a half turn, so the point is reflected through the origin: (-cos θ, -sin θ). Tangent keeps its value (period π).",
+    "tan(θ - π) = -8/15."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-honors-x002",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant IV has sin θ = -8/17 and cos θ = 15/17. Use the unit circle to find sin(π - θ).",
+   "answer": "-8/17",
+   "options": [
+    {
+     "text": "-15/17",
+     "correct": false
+    },
+    {
+     "text": "-8/17",
+     "correct": true
+    },
+    {
+     "text": "-17/8",
+     "correct": false
+    },
+    {
+     "text": "8/17",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (15/17, -8/17) on the unit circle.",
+    "The point for π - θ is the reflection of (cos θ, sin θ) across the y-axis: (-cos θ, sin θ).",
+    "sin(π - θ) = -8/17."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-honors-x003",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An angle θ in Quadrant I has sin θ = 8/17 and cos θ = 15/17. Use the unit circle to find cos(θ + 2π).",
+   "answer": "15/17",
+   "solutionSteps": [
+    "θ ends at the point (15/17, 8/17) on the unit circle.",
+    "Adding 2π makes one full turn, so θ + 2π ends at the same point: every trig function has period 2π.",
+    "cos(θ + 2π) = 15/17."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-trg-s02-honors-x004",
+   "skillId": "trigonometric-functions-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "An angle θ in Quadrant II has sin θ = 20/29 and cos θ = -21/29. Use the unit circle to find sin(-θ).",
+   "answer": "-20/29",
+   "options": [
+    {
+     "text": "-29/20",
+     "correct": false
+    },
+    {
+     "text": "-21/29",
+     "correct": false
+    },
+    {
+     "text": "-20/29",
+     "correct": true
+    },
+    {
+     "text": "20/29",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "θ ends at the point (-21/29, 20/29) on the unit circle.",
+    "The point for -θ is the reflection of (cos θ, sin θ) across the x-axis: (cos θ, -sin θ). So cosine is even and sine and tangent are odd.",
+    "sin(-θ) = -20/29."
+   ],
+   "standards": [
+    "F-TF.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tf_symmetry). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
   }
  ]
 }

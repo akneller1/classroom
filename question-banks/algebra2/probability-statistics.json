@@ -18715,6 +18715,625 @@
      "alt": "Histogram titled Test Scores: 40 to under 45: 2; 45 to under 50: 4; 50 to under 55: 7; 55 to under 60: 6; 60 to under 65: 1."
     }
    }
+  },
+  {
+   "id": "a2-ps-s06-cp2-x001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "4 students share one prize. A random number generator gives a whole number from 1 to 10, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many values does each student get?",
+   "answer": "2",
+   "solutionSteps": [
+    "10 ÷ 4 = 2 remainder 2.",
+    "Each student gets 2 values (8 values in all), so each has probability 2/8 = 1/4.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-x002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "3 teams need to choose who presents first. A random number generator gives a whole number from 1 to 20, each equally likely. To keep the choice fair, every team gets the same number of values, as many as possible, and any other value means generate again. How many values does each team get?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "20 ÷ 3 = 6 remainder 2.",
+    "Each team gets 6 values (18 values in all), so each has probability 6/18 = 1/3.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-x003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "4 students share one prize. A random number generator gives a whole number from 1 to 30, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many values does each student get?",
+   "answer": "7",
+   "solutionSteps": [
+    "30 ÷ 4 = 7 remainder 2.",
+    "Each student gets 7 values (28 values in all), so each has probability 7/28 = 1/4.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-x004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "4 friends choose who picks first. A random number generator gives a whole number from 1 to 50, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many values does each friend get?",
+   "answer": "12",
+   "options": [
+    {
+     "text": "46",
+     "correct": false
+    },
+    {
+     "text": "13",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "50 ÷ 4 = 12 remainder 2.",
+    "Each friend gets 12 values (48 values in all), so each has probability 12/48 = 1/4.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-x001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar and Farah roll two fair dice to decide who goes first. Omar goes first if the sum is 6 or less; otherwise Farah goes first. What is the probability that Omar goes first?",
+   "answer": "5/12",
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "15 of them have a sum of 6 or less.",
+    "P = 15/36 = 5/12. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-x002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "6 friends choose who picks first. A random number generator gives a whole number from 1 to 100, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many of the values mean generate again?",
+   "answer": "4",
+   "options": [
+    {
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "94",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "100 ÷ 6 = 16 remainder 4.",
+    "Each friend gets 16 values (96 values in all), so each has probability 16/96 = 1/6.",
+    "The other 4 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-x003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia and Chloe roll two fair dice to decide who goes first. Nia goes first if the sum is 8 or less; otherwise Chloe goes first. What is the probability that Nia goes first?",
+   "answer": "13/18",
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "26 of them have a sum of 8 or less.",
+    "P = 26/36 = 13/18. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-x004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Emma and Ava roll two fair dice to decide who goes first. Emma goes first if the sum is 5 or less; otherwise Ava goes first. What is the probability that Emma goes first?",
+   "answer": "5/18",
+   "options": [
+    {
+     "text": "13/18",
+     "correct": false
+    },
+    {
+     "text": "4/11",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "5/18",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "10 of them have a sum of 5 or less.",
+    "P = 10/36 = 5/18. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-x001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Kenji and Chloe roll two fair dice to decide who goes first. Kenji goes first if the sum is 11 or less; otherwise Chloe goes first. What is the probability that Kenji goes first?",
+   "answer": "35/36",
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "35 of them have a sum of 11 or less.",
+    "P = 35/36 = 35/36. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-x002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Priya and Leah roll two fair dice to decide who goes first. Priya goes first if the sum is 9 or less; otherwise Leah goes first. What is the probability that Priya goes first?",
+   "answer": "5/6",
+   "options": [
+    {
+     "text": "8/11",
+     "correct": false
+    },
+    {
+     "text": "1/6",
+     "correct": false
+    },
+    {
+     "text": "29/36",
+     "correct": false
+    },
+    {
+     "text": "5/6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "30 of them have a sum of 9 or less.",
+    "P = 30/36 = 5/6. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-x003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "4 friends choose who picks first. A random number generator gives a whole number from 1 to 30, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many of the values mean generate again?",
+   "answer": "2",
+   "solutionSteps": [
+    "30 ÷ 4 = 7 remainder 2.",
+    "Each friend gets 7 values (28 values in all), so each has probability 7/28 = 1/4.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-x004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Farah and Priya roll two fair dice to decide who goes first. Farah goes first if the sum is 8 or less; otherwise Priya goes first. What is the probability that Farah goes first?",
+   "answer": "13/18",
+   "options": [
+    {
+     "text": "5/18",
+     "correct": false
+    },
+    {
+     "text": "25/36",
+     "correct": false
+    },
+    {
+     "text": "7/11",
+     "correct": false
+    },
+    {
+     "text": "13/18",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "26 of them have a sum of 8 or less.",
+    "P = 26/36 = 13/18. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-y001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 1% of them have the condition. The test is positive for 95% of people who have the condition and negative for 98% of people who do not. How many people who have the condition test positive?",
+   "answer": "95",
+   "solutionSteps": [
+    "People with the condition: 1% of 10,000 = 100.",
+    "95% of them test positive: 95."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_tp). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-y002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 4% of them have the condition. The test is positive for 98% of people who have the condition and negative for 98% of people who do not. How many people who have the condition test positive?",
+   "answer": "392",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "392",
+     "correct": true
+    },
+    {
+     "text": "9,800",
+     "correct": false
+    },
+    {
+     "text": "400",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "People with the condition: 4% of 10,000 = 400.",
+    "98% of them test positive: 392."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_tp). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-y003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 2% of them have the condition. The test is positive for 95% of people who have the condition and negative for 98% of people who do not. How many people who have the condition test positive?",
+   "answer": "190",
+   "solutionSteps": [
+    "People with the condition: 2% of 10,000 = 200.",
+    "95% of them test positive: 190."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_tp). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp2-y004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 1% of them have the condition. The test is positive for 90% of people who have the condition and negative for 99% of people who do not. How many people who have the condition test positive?",
+   "answer": "90",
+   "options": [
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "100",
+     "correct": false
+    },
+    {
+     "text": "9,000",
+     "correct": false
+    },
+    {
+     "text": "90",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "People with the condition: 1% of 10,000 = 100.",
+    "90% of them test positive: 90."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_tp). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-y001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 4% of them have the condition. The test is positive for 98% of people who have the condition and negative for 98% of people who do not. How many people in all test positive?",
+   "answer": "584",
+   "solutionSteps": [
+    "With the condition: 400; 98% test positive: 392.",
+    "Without it: 9,600; 2% test positive: 192.",
+    "Total positives: 584."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-y002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 4% of them have the condition. The test is positive for 98% of people who have the condition and negative for 95% of people who do not. How many people in all test positive?",
+   "answer": "872",
+   "options": [
+    {
+     "text": "872",
+     "correct": true
+    },
+    {
+     "text": "480",
+     "correct": false
+    },
+    {
+     "text": "392",
+     "correct": false
+    },
+    {
+     "text": "400",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "With the condition: 400; 98% test positive: 392.",
+    "Without it: 9,600; 5% test positive: 480.",
+    "Total positives: 872."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-y003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 2% of them have the condition. The test is positive for 98% of people who have the condition and negative for 90% of people who do not. How many people who do not have the condition test positive (false positives)?",
+   "answer": "980",
+   "solutionSteps": [
+    "People without the condition: 10,000 - 200 = 9,800.",
+    "10% of them test positive: 980."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_fp). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-cp1-y004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 4% of them have the condition. The test is positive for 95% of people who have the condition and negative for 98% of people who do not. How many people in all test positive?",
+   "answer": "572",
+   "options": [
+    {
+     "text": "572",
+     "correct": true
+    },
+    {
+     "text": "192",
+     "correct": false
+    },
+    {
+     "text": "380",
+     "correct": false
+    },
+    {
+     "text": "400",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "With the condition: 400; 95% test positive: 380.",
+    "Without it: 9,600; 2% test positive: 192.",
+    "Total positives: 572."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-y001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 2% of them have the condition. The test is positive for 95% of people who have the condition and negative for 99% of people who do not. How many people in all test positive?",
+   "answer": "288",
+   "solutionSteps": [
+    "With the condition: 200; 95% test positive: 190.",
+    "Without it: 9,800; 1% test positive: 98.",
+    "Total positives: 288."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-y002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 10% of them have the condition. The test is positive for 90% of people who have the condition and negative for 98% of people who do not. How many people in all test positive?",
+   "answer": "1,080",
+   "options": [
+    {
+     "text": "900",
+     "correct": false
+    },
+    {
+     "text": "180",
+     "correct": false
+    },
+    {
+     "text": "1,000",
+     "correct": false
+    },
+    {
+     "text": "1,080",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "With the condition: 1,000; 90% test positive: 900.",
+    "Without it: 9,000; 2% test positive: 180.",
+    "Total positives: 1,080."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-y003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A screening test is given to 10,000 people. 4% of them have the condition. The test is positive for 90% of people who have the condition and negative for 90% of people who do not. How many people in all test positive?",
+   "answer": "1,320",
+   "solutionSteps": [
+    "With the condition: 400; 90% test positive: 360.",
+    "Without it: 9,600; 10% test positive: 960.",
+    "Total positives: 1,320."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "a2-ps-s06-honors-y004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A screening test is given to 10,000 people. 10% of them have the condition. The test is positive for 90% of people who have the condition and negative for 90% of people who do not. How many people in all test positive?",
+   "answer": "1,800",
+   "options": [
+    {
+     "text": "900",
+     "correct": false
+    },
+    {
+     "text": "1,000",
+     "correct": false
+    },
+    {
+     "text": "1,800",
+     "correct": true
+    },
+    {
+     "text": "9,000",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "With the condition: 1,000; 90% test positive: 900.",
+    "Without it: 9,000; 10% test positive: 900.",
+    "Total positives: 1,800."
+   ],
+   "standards": [
+    "S-MD.B.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_screen_pos). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
   }
  ]
 }
