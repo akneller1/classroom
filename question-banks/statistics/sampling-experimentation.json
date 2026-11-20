@@ -13081,6 +13081,138 @@
    ]
   },
   {
+   "id": "stat-u2-s01-cp2-o01",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The cafeteria manager at a large high school wants to find out how many of the school's students eat breakfast on school days. Write an investigative question the manager could answer with a survey.",
+   "answer": "What proportion of students at this high school eat breakfast on school days?",
+   "solutionSteps": [
+    "An investigative question names the group (population) and the variable, and can be answered with data.",
+    "Group: students at this high school. Variable: whether a student eats breakfast on school days (categorical).",
+    "Question: What proportion of students at this high school eat breakfast on school days?"
+   ],
+   "standards": [
+    "APSTATS.1.1.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_investigative_question). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: an investigative question names the group (population) and the variable, and can be answered with data.",
+   "selfCheck": [
+    "States the key idea: “What proportion of students at this high school eat breakfast on school days?”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u2-s01-cp1-o01",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A town council wonders whether residents who live near the new bike path ride bicycles more than residents who live farther away. Write an investigative question that a statistical study could answer.",
+   "answer": "Do residents who live near the bike path ride bicycles more hours per week, on average, than residents who live farther away?",
+   "solutionSteps": [
+    "Name the population (town residents), the two groups being compared (near the path, farther away) and a variable that can be measured.",
+    "Bicycle riding can be measured as hours ridden per week, a quantitative variable, so the groups can be compared by their means.",
+    "Question: Do residents who live near the bike path ride bicycles more hours per week, on average, than residents who live farther away?"
+   ],
+   "standards": [
+    "APSTATS.1.1.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_investigative_question). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Do residents who live near the bike path ride bicycles more hours per week, on average, than residents who live farther away?”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u2-s01-honors-o01",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A student proposes this study question: \"Is social media bad?\" Explain why it is not a good investigative question, and rewrite it so that a study of students at her school could answer it.",
+   "answer": "It names no population and no measurable variable (\"bad\" is not defined). Better: Is there an association between daily hours of social media use and hours of sleep on school nights for students at this school?",
+   "solutionSteps": [
+    "A good investigative question names who is studied and what is measured, and data can answer it.",
+    "\"Is social media bad?\" names no group and no variable; \"bad\" cannot be measured as stated.",
+    "Rewrite with a population (students at this school) and measurable variables (daily hours of social media use; hours of sleep on school nights).",
+    "Question: Is there an association between daily hours of social media use and hours of sleep on school nights for students at this school?"
+   ],
+   "standards": [
+    "APSTATS.1.1.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_investigative_question). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “It names no population and no measurable variable (\"bad\" is not defined)”.",
+    "Says whether a cause-and-effect conclusion is allowed, and why (random assignment or not).",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u2-s01-cp2-o02",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Investigative question: \"What is the mean number of books read last summer by seventh graders in the district?\" Name the population and the variable, and say whether the variable is categorical or quantitative.",
+   "answer": "Population: seventh graders in the district. Variable: number of books read last summer; quantitative.",
+   "solutionSteps": [
+    "The population is the whole group the question is about: seventh graders in the district.",
+    "The variable is what is recorded for each one: number of books read last summer.",
+    "A count with a meaningful mean is quantitative."
+   ],
+   "standards": [
+    "APSTATS.1.10.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_question_components). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: the population is the whole group the question is about: seventh graders in the district.",
+   "selfCheck": [
+    "States the key idea: “Population: seventh graders in the district”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u2-s01-cp1-o02",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Investigative question: \"Is the proportion of adults who recycle higher in City A than in City B?\" Name the population(s), the variable, its type, and the parameter the question is about.",
+   "answer": "Populations: adults in City A and adults in City B. Variable: whether an adult recycles; categorical. Parameter: the difference p_A − p_B in the proportions who recycle.",
+   "solutionSteps": [
+    "Two populations are compared: adults in City A and adults in City B.",
+    "For each adult we record whether he or she recycles: a categorical (yes/no) variable.",
+    "The question is about the proportions who recycle, so the parameter is p_A − p_B."
+   ],
+   "standards": [
+    "APSTATS.1.10.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_question_components). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Populations: adults in City A and adults in City B”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u2-s01-honors-o02",
+   "skillId": "sampling-experimentation-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Investigative question: \"For customers of an online store, is there a relationship between the number of items in an order and the shipping time in days?\" Name the population, both variables and their types, and the kind of display and statistic you would use to answer it.",
+   "answer": "Population: orders (customers) of the online store. Variables: number of items (quantitative) and shipping time in days (quantitative). Use a scatterplot and the correlation r (and a regression line if the pattern is linear).",
+   "solutionSteps": [
+    "The observational units are the store's orders; the population is all of its orders (customers).",
+    "Both variables are quantitative: number of items and shipping time in days.",
+    "A relationship between two quantitative variables is shown with a scatterplot.",
+    "Summarize a linear pattern with the correlation r and, if linear, a least-squares regression line."
+   ],
+   "standards": [
+    "APSTATS.1.10.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_question_components). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Population: orders (customers) of the online store”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
    "id": "stat-u2-s02-cp2-f01",
    "skillId": "sampling-experimentation-skill-02",
    "level": "cp2",

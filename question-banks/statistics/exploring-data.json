@@ -34169,6 +34169,210 @@
    "sourceNotes": "Original Claude-authored item (family: frq_compare_boxplots). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
   },
   {
+   "id": "stat-u1-s04-cp2-o01",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A dot plot shows the number of pets owned by 25 students: 1 pet 2, 2 pets 5, 3 pets 8, 4 pets 6, 5 pets 3, 6 pets 1. Does the dot plot support the claim \"Most of these students own 3 or fewer pets\"? Explain.",
+   "answer": "Yes. 15 of 25 students (60%) own 3 or fewer pets, which is more than half.",
+   "solutionSteps": [
+    "Count the dots at 1, 2 and 3: 2 + 5 + 8 = 15.",
+    "15/25 = 60%, more than half.",
+    "So the dot plot supports the claim."
+   ],
+   "standards": [
+    "APSTATS.1.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_distribution_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: count the dots at 1, 2 and 3: 2 + 5 + 8 = 15.",
+   "selfCheck": [
+    "States the key idea: “Yes”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 15, 25, 60%."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-cp1-o01",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A histogram shows the minutes 40 students spent reading on Saturday, with bars 0–10: 4, 10–20: 9, 20–30: 12, 30–40: 10, 40–50: 5 (each bar includes its left endpoint). A librarian claims \"At least 40% of these students read for 30 minutes or more.\" Does the histogram support the claim?",
+   "answer": "No. 15 of 40 students (38%) read 30 minutes or more, which is less than 40%.",
+   "solutionSteps": [
+    "Students at 30 minutes or more: 10 + 5 = 15.",
+    "15/40 = 38%.",
+    "That is less than 40%, so the histogram does not support the claim."
+   ],
+   "standards": [
+    "APSTATS.1.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_distribution_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 15, 40, 38%."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-honors-o01",
+   "skillId": "exploring-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A histogram of the wait times (minutes) for 50 customers at a clinic has bars 0–5: 22, 5–10: 14, 10–15: 7, 15–20: 4, 20–25: 2, 25–30: 1. The clinic advertises \"a typical wait of about 15 minutes,\" using the midpoint of the range. Use the shape of the distribution to justify whether that is a fair description, and say which interval contains the median.",
+   "answer": "Not fair. The distribution is strongly skewed right: most waits are short, and the median is in the 5–10 minute interval, not near 15 minutes.",
+   "solutionSteps": [
+    "The counts fall from 22 to 1 as the wait grows: the distribution is skewed right.",
+    "There are 50 customers, so the median is the average of the 25th and 26th values.",
+    "The first bar has 22 values and the first two have 36, so the 25th and 26th values are in 5–10 minutes.",
+    "The midpoint of the range (15) is pulled toward the few long waits; a typical wait is under 10 minutes."
+   ],
+   "standards": [
+    "APSTATS.1.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_distribution_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Not fair”.",
+    "Includes the key value(s): 5, 10, 15."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-cp2-o02",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two classes took the same test. Class A: mean 78, standard deviation 6. Class B: mean 78, standard deviation 12. Both distributions are roughly symmetric. Compare the centers and the spreads.",
+   "answer": "The centers are the same (mean 78). Class B has about twice the spread (SD 12 vs 6), so its scores vary more.",
+   "solutionSteps": [
+    "Center: both means are 78, so the typical score is the same.",
+    "Spread: SD 12 is twice SD 6.",
+    "Class B's scores vary more from the mean than Class A's."
+   ],
+   "standards": [
+    "APSTATS.1.7.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_summaries). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: center: both means are 78, so the typical score is the same.",
+   "selfCheck": [
+    "States the key idea: “The centers are the same (mean 78)”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 78, 12, 6."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-cp1-o02",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Weekly hours of part-time work. Group 1 (seniors): median 12, IQR 8, mean 14. Group 2 (juniors): median 9, IQR 5, mean 9.5. Group 1's distribution is skewed right. Compare the two groups using the statistics that suit the shapes.",
+   "answer": "Use the median and IQR because Group 1 is skewed. Seniors work more hours typically (median 12 vs 9) and their hours vary more (IQR 8 vs 5).",
+   "solutionSteps": [
+    "Group 1 is skewed right, so its mean is pulled up by large values; use the resistant median and IQR.",
+    "Center: median 12 for seniors vs 9 for juniors.",
+    "Spread: IQR 8 for seniors vs 5 for juniors.",
+    "Seniors typically work more hours, and their hours are more variable."
+   ],
+   "standards": [
+    "APSTATS.1.7.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_summaries). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Use the median and IQR because Group 1 is skewed”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 1, 12, 9."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-honors-o02",
+   "skillId": "exploring-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Delivery times (minutes) from two restaurants. Restaurant P: mean 31, median 30, SD 4, IQR 5, roughly symmetric. Restaurant Q: mean 31, median 26, SD 11, IQR 9, skewed right. A customer wants the delivery most likely to arrive within 35 minutes. Compare the distributions and recommend a restaurant, with a reason.",
+   "answer": "Restaurant P. Q has a lower median (26 vs 30) but much more variability (IQR 9 vs 5, SD 11 vs 4) and a long right tail, so Q is more likely to have very late deliveries; P's times stay close to 30 minutes.",
+   "solutionSteps": [
+    "Compare centers with the median because Q is skewed: Q 26, P 30.",
+    "Compare spreads: Q has IQR 9 and SD 11; P has IQR 5 and SD 4.",
+    "Q's right tail means more deliveries take much longer than 35 minutes.",
+    "P's times are consistent and centered near 30, so P is the safer choice for arriving within 35 minutes."
+   ],
+   "standards": [
+    "APSTATS.1.7.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_summaries). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Restaurant P”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 26, 30, 9."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-cp2-o03",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Side-by-side box plots show plant heights (cm). Fertilizer: min 12, Q1 18, median 22, Q3 25, max 30. No fertilizer: min 10, Q1 13, median 16, Q3 20, max 24. Which group has the greater median, and by how much?",
+   "answer": "Fertilizer, by 6 cm (22 vs 16)",
+   "solutionSteps": [
+    "Read the line inside each box: 22 cm (fertilizer) and 16 cm (no fertilizer).",
+    "22 − 16 = 6 cm."
+   ],
+   "standards": [
+    "APSTATS.1.9.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_boxplots). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: read the line inside each box: 22 cm (fertilizer) and 16 cm (no fertilizer).",
+   "selfCheck": [
+    "States the key idea: “Fertilizer, by 6 cm (22 vs 16)”.",
+    "Includes the key value(s): 6, 22, 16."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-cp1-o03",
+   "skillId": "exploring-data-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Box plots of commute times (minutes). Town X: min 8, Q1 15, median 20, Q3 24, max 31. Town Y: min 5, Q1 12, median 20, Q3 33, max 52. Compare the two distributions (center and spread).",
+   "answer": "Same median (20 minutes). Town Y is more variable: IQR 21 vs 9 and range 47 vs 23.",
+   "solutionSteps": [
+    "Center: both medians are 20 minutes.",
+    "IQR: X 24 − 15 = 9; Y 33 − 12 = 21.",
+    "Range: X 31 − 8 = 23; Y 52 − 5 = 47.",
+    "Town Y's commute times are much more spread out."
+   ],
+   "standards": [
+    "APSTATS.1.9.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_boxplots). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Same median (20 minutes)”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 20, 21, 9."
+   ]
+  },
+  {
+   "id": "stat-u1-s04-honors-o03",
+   "skillId": "exploring-data-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Box plots of the number of steps (thousands) walked on a school day. Grade 9: min 3, Q1 5, median 6, Q3 8, max 15. Grade 12: min 1, Q1 3, median 5, Q3 7, max 9. Compare shape, center, spread and outliers (use the 1.5 × IQR rule).",
+   "answer": "Grade 9 has a higher median (6 vs 5) and a smaller IQR (3 vs 4). Grade 9 is skewed right with a high outlier (15 > 12.5); Grade 12 is roughly symmetric with no outliers (fences −3 and 13).",
+   "solutionSteps": [
+    "Center: medians 6 (Grade 9) and 5 (Grade 12).",
+    "Spread: IQR 8 − 5 = 3 for Grade 9 and 7 − 3 = 4 for Grade 12.",
+    "Grade 9 fences: 5 − 4.5 = 0.5 and 8 + 4.5 = 12.5, so 15 is an outlier.",
+    "Grade 12 fences: 3 − 6 = −3 and 7 + 6 = 13, so there are no outliers.",
+    "Grade 9 is skewed right (median near Q1, long upper tail and an outlier); Grade 12 is roughly symmetric (median centered, equal whiskers)."
+   ],
+   "standards": [
+    "APSTATS.1.9.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_boxplots). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Grade 9 has a higher median (6 vs 5) and a smaller IQR (3 vs 4)”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 9, 6, 5."
+   ]
+  },
+  {
    "id": "stat-u1-s05-cp2-f01",
    "skillId": "exploring-data-skill-05",
    "level": "cp2",
@@ -34313,6 +34517,124 @@
    "sourceNotes": "Original Claude-authored item (family: frq_normal_model). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
   },
   {
+   "id": "stat-u1-s05-cp2-o01",
+   "skillId": "exploring-data-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The weights of apples in an orchard are approximately Normal. About 68% of the apples weigh between 140 and 180 grams, centered on the mean. Find the mean and standard deviation of the weights.",
+   "answer": "Mean = 160 g, SD = 20 g",
+   "solutionSteps": [
+    "About 68% of a Normal distribution is within 1 SD of the mean.",
+    "The mean is the center: (140 + 180)/2 = 160 g.",
+    "One SD is the distance from the mean to either end: 180 − 160 = 20 g."
+   ],
+   "standards": [
+    "APSTATS.2.11.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_normal_parameters). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: about 68% of a Normal distribution is within 1 SD of the mean."
+  },
+  {
+   "id": "stat-u1-s05-cp1-o01",
+   "skillId": "exploring-data-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Scores on a test are approximately Normal with mean 50. The 90th percentile is 61.4. Find the standard deviation. Use Table A (z to two decimal places) and round to one decimal place.",
+   "answer": "SD ≈ 8.9",
+   "solutionSteps": [
+    "The 90th percentile has z = 1.28 (Table A).",
+    "z = (x − μ)/σ, so σ = (x − μ)/z.",
+    "σ = (61.4 − 50)/1.28 ≈ 8.9."
+   ],
+   "standards": [
+    "APSTATS.2.11.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_normal_parameters). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py."
+  },
+  {
+   "id": "stat-u1-s05-honors-o01",
+   "skillId": "exploring-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Heights of adult men in a country are approximately Normal. The 10th percentile is 168 cm and the 90th percentile is 192 cm. Find the mean and standard deviation. Use Table A (z to two decimal places) and round the SD to one decimal place.",
+   "answer": "Mean = 180 cm, SD ≈ 9.4 cm",
+   "solutionSteps": [
+    "The 10th and 90th percentiles are symmetric about the mean: μ = (168 + 192)/2 = 180 cm.",
+    "The 90th percentile has z = 1.28, so 192 = μ + 1.28σ.",
+    "σ = (192 − 180)/1.28 ≈ 9.4 cm."
+   ],
+   "standards": [
+    "APSTATS.2.11.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_normal_parameters). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py."
+  },
+  {
+   "id": "stat-u1-s05-cp2-o02",
+   "skillId": "exploring-data-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Maya scored 88 on a history test (class mean 80, SD 5). Jon scored 91 on a science test (class mean 82, SD 7). Who did better relative to their class? Give both z-scores.",
+   "answer": "Maya (z = 1.60 vs 1.29)",
+   "solutionSteps": [
+    "Maya: z = (88 − 80)/5 = 1.60.",
+    "Jon: z = (91 − 82)/7 ≈ 1.29.",
+    "A larger z-score means farther above the class mean, so Maya did better relative to her class."
+   ],
+   "standards": [
+    "APSTATS.2.11.F"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_relative_position). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: maya: z = (88 − 80)/5 = 1.60.",
+   "selfCheck": [
+    "States the key idea: “Maya (z = 1.60 vs 1.29)”.",
+    "Includes the key value(s): 1.60, 1.29."
+   ]
+  },
+  {
+   "id": "stat-u1-s05-cp1-o02",
+   "skillId": "exploring-data-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two swimmers in different events. Lena swam 100 m freestyle in 24.1 s (event mean 22.0 s, SD 1.4 s). Rosa swam 50 m freestyle in 13.6 s (event mean 12.4 s, SD 0.6 s). Lower times are better. Who did better relative to her event? Give both z-scores (two decimal places).",
+   "answer": "Lena (z = 1.50 vs 2.00)",
+   "solutionSteps": [
+    "Lena: z = (24.1 − 22.0)/1.4 = 1.50.",
+    "Rosa: z = (13.6 − 12.4)/0.6 = 2.00.",
+    "Lower times are better, so the smaller z-score (fewer SDs slower than average) is better: Lena."
+   ],
+   "standards": [
+    "APSTATS.2.11.F"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_relative_position). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Lena (z = 1.50 vs 2.00)”.",
+    "Includes the key value(s): 1.50, 2.00."
+   ]
+  },
+  {
+   "id": "stat-u1-s05-honors-o02",
+   "skillId": "exploring-data-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A college compares two applicants. Ana scored 2140 on an exam with mean 1800 and SD 250. Ben scored 49 on a different exam with mean 44 and SD 4.5. Both distributions are approximately Normal. Who scored better relative to the other test takers, and what percentile is each score? Use z to two decimal places and Table A.",
+   "answer": "Ana. Her z-score of 1.36 (about the 91st percentile) is higher than Ben's 1.11 (about the 87th percentile).",
+   "solutionSteps": [
+    "Ana: z = (2140 − 1800)/250 = 1.36.",
+    "Ben: z = (49 − 44)/4.5 ≈ 1.11.",
+    "Table A: P(Z < 1.36) ≈ 0.9131 and P(Z < 1.11) ≈ 0.8665.",
+    "Ana's score is farther above its mean in SDs, so she did better relative to the other test takers."
+   ],
+   "standards": [
+    "APSTATS.2.11.F"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_relative_position). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Ana”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 1.36, 91, 1.11."
+   ]
+  },
+  {
    "id": "stat-u1-s06-cp2-f01",
    "skillId": "exploring-data-skill-06",
    "level": "cp2",
@@ -34455,6 +34777,202 @@
     "APSTATS.2.1.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: frq_two_way). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
+  },
+  {
+   "id": "stat-u1-s06-cp2-o01",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Twenty students said how they get to school: Car, Bus, Walk, Car, Bus, Bus, Car, Bike, Car, Bus, Walk, Car, Bus, Car, Bus, Walk, Car, Bike, Bus, Car. Make a frequency table. How many students chose each way?",
+   "answer": "Bus 7, Car 8, Walk 3, Bike 2",
+   "solutionSteps": [
+    "Tally each response: Bus 7, Car 8, Walk 3, Bike 2.",
+    "Check: 7 + 8 + 3 + 2 = 20 responses."
+   ],
+   "standards": [
+    "APSTATS.1.3.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_relative_frequency_table). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Bus 7, Car 8, Walk 3, Bike 2”.",
+    "Includes the key value(s): 7, 8, 3."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-cp1-o01",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A teacher recorded the grade on a quiz for 60 students: A 18, B 27, C 12, D or F 3. Make a relative frequency table (each grade as a proportion of the class, two decimal places).",
+   "answer": "A 0.30, B 0.45, C 0.20, D or F 0.05",
+   "solutionSteps": [
+    "Total: 60 students.",
+    "A: 18/60 = 0.30.",
+    "B: 27/60 = 0.45.",
+    "C: 12/60 = 0.20.",
+    "D or F: 3/60 = 0.05; the proportions add to 1."
+   ],
+   "standards": [
+    "APSTATS.1.3.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_relative_frequency_table). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “A 0.30, B 0.45, C 0.20, D or F 0.05”.",
+    "Includes the key value(s): 0.30, 0.45, 0.20."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-honors-o01",
+   "skillId": "exploring-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a survey of 100 households, 46 said their main pet is a dog, 31 a cat, 9 fish and the rest another animal. Make a relative frequency table in percents, and find the percent of households whose main pet is not a dog or a cat.",
+   "answer": "Dog 46%, Cat 31%, Fish 9%, Other 14%; not a dog or cat: 23%",
+   "solutionSteps": [
+    "Other: 100 − 46 − 31 − 9 = 14 households.",
+    "Divide each count by 100: Dog 46%, Cat 31%, Fish 9%, Other 14%.",
+    "Not a dog or a cat: fish + other = 9 + 14 = 23 of 100 = 23%."
+   ],
+   "standards": [
+    "APSTATS.1.3.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_relative_frequency_table). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Dog 46%, Cat 31%, Fish 9%, Other 14%”.",
+    "Includes the key value(s): 46%, 31%, 9%."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-cp2-o02",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bar graph shows the lunch choices of 50 students: Pizza 27, Tacos 14, Pasta 9. Does the graph support the claim \"More than half of these students chose pizza\"? Explain.",
+   "answer": "Yes. 27 of 50 = 54%, which is more than 50%.",
+   "solutionSteps": [
+    "Half of 50 is 25.",
+    "The pizza bar is at 27, and 27/50 = 54%.",
+    "That is more than half, so the graph supports the claim."
+   ],
+   "standards": [
+    "APSTATS.1.4.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_bar_graph_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: half of 50 is 25.",
+   "selfCheck": [
+    "States the key idea: “Yes”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 27, 50, 54%."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-cp1-o02",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bar graph shows the after-school club of 100 students: Soccer 34, Band 22, Robotics 19, Art 25. A student claims \"Soccer is chosen by more students than Band and Robotics together.\" Does the graph support the claim? Justify with the counts.",
+   "answer": "No. Band and Robotics together have 41 students, more than Soccer's 34.",
+   "solutionSteps": [
+    "Band + Robotics = 22 + 19 = 41.",
+    "Soccer = 34, which is less than 41.",
+    "The graph does not support the claim."
+   ],
+   "standards": [
+    "APSTATS.1.4.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_bar_graph_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 41, 34."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-honors-o02",
+   "skillId": "exploring-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bar graph of the colors of 100 cars in a lot has bars Gray 19, White 31, Black 26, Blue 12 and Red 12, but its vertical axis starts at 10. A dealer says the graph shows \"white cars are about twice as common as gray cars.\" Does the data support the claim? Explain what about the graph could mislead a reader.",
+   "answer": "No. White/Gray = 31/19 ≈ 1.63, not about 2. Because the axis starts at 10, the White bar is drawn 21/9 ≈ 2.3 times as tall as the Gray bar, which exaggerates the difference.",
+   "solutionSteps": [
+    "Compare the counts: 31 white and 19 gray cars; 31/19 ≈ 1.63.",
+    "White cars are about 1.6 times as common, not twice as common.",
+    "With the axis starting at 10, the drawn bar heights are 21 and 9, a ratio of about 2.3.",
+    "The truncated axis makes the difference look larger than it is, so the claim is not supported."
+   ],
+   "standards": [
+    "APSTATS.1.4.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_bar_graph_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Includes the key value(s): 31, 19, 1.63."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-cp2-o03",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "At School A, 84 of 120 students said yes to a later start time. At School B, 150 of 240 said yes. School B has more \"yes\" answers. Which school has the greater proportion saying yes?",
+   "answer": "School A (70% vs 62.5%)",
+   "solutionSteps": [
+    "School A: 84/120 = 70%.",
+    "School B: 150/240 = 62.5%.",
+    "Compare proportions, not counts, when the groups have different sizes: School A is higher."
+   ],
+   "standards": [
+    "APSTATS.1.4.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_categorical). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: school A: 84/120 = 70%.",
+   "selfCheck": [
+    "States the key idea: “School A (70% vs 62.5%)”.",
+    "Includes the key value(s): 70%, 62.5%."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-cp1-o03",
+   "skillId": "exploring-data-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A table shows the main device used for homework. Survey 1 (100 students): Phone 45, Laptop 30, Tablet 25. Survey 2 (240 students): Phone 132, Laptop 54, Tablet 54. A segmented bar graph shows the same data. Which survey has the greater proportion using a laptop, and by how many percentage points?",
+   "answer": "Survey 1, by 7.5 percentage points (30.0% vs 22.5%)",
+   "solutionSteps": [
+    "Survey 1: 30/100 = 30.0%.",
+    "Survey 2: 54/240 = 22.5%.",
+    "Difference: 30.0 − 22.5 = 7.5 percentage points; the segmented bars show the same proportions."
+   ],
+   "standards": [
+    "APSTATS.1.4.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_categorical). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Survey 1, by 7.5 percentage points (30.0% vs 22.5%)”.",
+    "Includes the key value(s): 1, 7.5, 30.0%."
+   ]
+  },
+  {
+   "id": "stat-u1-s06-honors-o03",
+   "skillId": "exploring-data-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Library 1 lent 120 books last week: Fiction 58, Nonfiction 22, Graphic novel 40. Library 2 lent 180: Fiction 87, Nonfiction 75, Graphic novel 18. A side-by-side bar graph of the counts makes Library 2 look more fiction-heavy. Compare the distributions with relative frequencies and say whether that impression is right.",
+   "answer": "No. Fiction is the same share at both (48.3% vs 48.3%). The real differences are graphic novels (33.3% vs 10.0%) and nonfiction (18.3% vs 41.7%).",
+   "solutionSteps": [
+    "Library 2 lends more books in total, so its count bars are taller; compare proportions.",
+    "Library 1: Fiction 48.3%, Nonfiction 18.3%, Graphic novel 33.3%.",
+    "Library 2: Fiction 48.3%, Nonfiction 41.7%, Graphic novel 10.0%.",
+    "Fiction is the same share at both; Library 1 lends a much larger share of graphic novels and Library 2 a larger share of nonfiction."
+   ],
+   "standards": [
+    "APSTATS.1.4.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_compare_categorical). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Includes the key value(s): 48.3%, 33.3%."
+   ]
   },
   {
    "id": "stat-u1-s07-cp2-f01",
@@ -34666,6 +35184,72 @@
     "APSTATS.5.1.C"
    ],
    "sourceNotes": "Original Claude-authored item (family: frq_scatter_corr). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
+  },
+  {
+   "id": "stat-u1-s07-cp2-o01",
+   "skillId": "exploring-data-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A student recorded hours studied and test score for 5 classmates: (1, 64), (2, 70), (3, 75), (4, 82), (5, 88), written as (hours, score). To make a scatterplot, which variable goes on the horizontal axis, and where is the point for the student who studied 4 hours?",
+   "answer": "Hours studied (explanatory) on the horizontal axis; the point is at (4, 82).",
+   "solutionSteps": [
+    "Put the explanatory variable (hours studied) on the horizontal axis and the response (score) on the vertical axis.",
+    "The student who studied 4 hours scored 82, so plot the point (4, 82)."
+   ],
+   "standards": [
+    "APSTATS.5.1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_construct_scatterplot). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: put the explanatory variable (hours studied) on the horizontal axis and the response (score) on the vertical axis.",
+   "selfCheck": [
+    "States the key idea: “Hours studied (explanatory) on the horizontal axis”.",
+    "Includes the key value(s): 4, 82."
+   ]
+  },
+  {
+   "id": "stat-u1-s07-cp1-o01",
+   "skillId": "exploring-data-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Data on outdoor temperature (°F) and number of hot chocolates sold at a stand: 30°F, 52 sold; 40°F, 41; 50°F, 33; 60°F, 20; 70°F, 12. Describe how to construct a scatterplot of the data (axes, labels, scales) and give the coordinates of the five points.",
+   "answer": "Temperature (°F, explanatory) on the horizontal axis from about 25 to 75; hot chocolates sold on the vertical axis from 0 to 60; label both axes with units. Points: (30, 52), (40, 41), (50, 33), (60, 20), (70, 12).",
+   "solutionSteps": [
+    "Temperature explains sales, so it goes on the horizontal axis; sales go on the vertical axis.",
+    "Choose scales that cover the data: about 25–75 °F and 0–60 sold, with equal spacing.",
+    "Label both axes with the variable and its units.",
+    "Plot (30, 52), (40, 41), (50, 33), (60, 20), (70, 12)."
+   ],
+   "standards": [
+    "APSTATS.5.1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_construct_scatterplot). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Temperature (°F, explanatory) on the horizontal axis from about 25 to 75”.",
+    "Includes the key value(s): 25, 75, 0."
+   ]
+  },
+  {
+   "id": "stat-u1-s07-honors-o01",
+   "skillId": "exploring-data-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A coach records, for 6 players, the number of practice free throws in a week and the free-throw percentage in the next game: 50, 60%; 80, 65%; 120, 70%; 150, 78%; 200, 74%; 250, 85%. A student makes a scatterplot with percentage on the horizontal axis and starts the vertical axis at 50. Explain what should be changed and why, and name the point that will lie farthest below the overall upward trend.",
+   "answer": "Put practice free throws (explanatory) on the horizontal axis and percentage (response) on the vertical axis, with scales that cover the data and labels with units. The point (200, 74%) lies below the trend: it is lower than the player with 150 practice shots.",
+   "solutionSteps": [
+    "The explanatory variable (practice shots) should be on the horizontal axis; the response (percentage) on the vertical axis.",
+    "Use scales that cover 50–250 shots and about 55%–90%, and label both axes.",
+    "The percentages rise with practice except at 200 shots: 74% is below the 78% at 150 shots.",
+    "So (200, 74%) lies farthest below the upward trend."
+   ],
+   "standards": [
+    "APSTATS.5.1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_construct_scatterplot). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea of the model answer.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 200, 74%, 150."
+   ]
   },
   {
    "id": "stat-u1-s08-cp2-f01",

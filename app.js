@@ -171,7 +171,7 @@
   /* One order everywhere. Games: Showdown (Jeopardy-style), Connect 4, Tic-Tac-Toe, Detective, Escape Room,
      Picture Reveal, then unit-specific activities and games. Study Guides: Assessment Readiness, Flashcards, Cheat Sheets. */
   var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'asteroid-blaster', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
-    'interactive-practice-test', 'flashcards', 'cheat-sheets'];
+    'interactive-practice-test', 'plot', 'flashcards', 'cheat-sheets'];
   function orderRank(a) { var i = ACTIVITY_ORDER.indexOf(activityFormat(a)); return i < 0 ? ACTIVITY_ORDER.length : i; }
   function sortByActivityOrder(list, get) {
     get = get || function (it) { return it.a; };
@@ -185,7 +185,7 @@
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'asteroid-blaster', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'plot', 'flashcards', 'cheat-sheets'] },
     { id: 'interactive', name: 'Interactive Math', formats: ['interactive-math'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'projects', name: 'Projects', formats: ['projects'] },
