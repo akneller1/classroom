@@ -1,0 +1,2127 @@
+{
+ "unit": "length-number-line",
+ "edits": [
+  {
+   "id": "m2-ln-s01-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "A rope was 72 inches long. A piece 12 inches long broke off. How long is the rope now?",
+     "to": "A path has three parts. They are 18 meters, 24 meters and 18 meters long. How long is the path?"
+    },
+    "answer": {
+     "from": "60 inches",
+     "to": "60 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "Take away the cut piece: 72 − 12.",
+      "72 − 12 = 60 inches."
+     ],
+     "to": [
+      "18 + 24 = 42.",
+      "42 + 18 = 60 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_cut). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_three_parts). Rewritten from a Support template (was lw_cut) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A string is 55 centimeters long. Hana cuts off 24 centimeters. Which equation finds how long the string is now? (? is the unknown.)",
+     "to": "A path has three parts. They are 31 meters, 20 meters and 23 meters long. How long is the path?"
+    },
+    "answer": {
+     "from": "55 − 24 = ?",
+     "to": "74 meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "Cutting off takes length away.",
+      "55 − 24 = 31, so the string is 31 centimeters."
+     ],
+     "to": [
+      "31 + 20 = 51.",
+      "51 + 23 = 74 meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_three_parts). Rewritten from a Support template (was lw_eq) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "55 + 24 = ?",
+       "correct": false
+      },
+      {
+       "text": "55 − 24 = ?",
+       "correct": true
+      },
+      {
+       "text": "? − 55 = 24",
+       "correct": false
+      },
+      {
+       "text": "24 − ? = 55",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "51 meters",
+       "correct": false
+      },
+      {
+       "text": "64 meters",
+       "correct": false
+      },
+      {
+       "text": "74 meters",
+       "correct": true
+      },
+      {
+       "text": "84 meters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the pairs of lengths (in meters) that make 67 meters together."
+    },
+    "answer": {
+     "from": [
+      "Max tapes one 49‑foot strip of paper to one 15‑foot strip, end to end. How long is the new strip? → 64 feet",
+      "Ted ran 59 feet and then 15 more feet. How far did Ted run? → 74 feet"
+     ],
+     "to": [
+      "38 + 29",
+      "37 + 30"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Max tapes one 49‑foot strip of paper to one 15‑foot strip, end to end. How long is the new strip? → 64 feet",
+       "correct": true
+      },
+      {
+       "text": "Ted ran 59 feet and then 15 more feet. How far did Ted run? → 74 feet",
+       "correct": true
+      },
+      {
+       "text": "Ian ran 52 meters and then 35 more meters. How far did Ian run? → 97 meters",
+       "correct": false
+      },
+      {
+       "text": "Eli tapes one 41‑meter strip of paper to one 14‑meter strip, end to end. How long is the new strip? → 54 meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "25 + 43",
+       "correct": false
+      },
+      {
+       "text": "37 + 29",
+       "correct": false
+      },
+      {
+       "text": "38 + 29",
+       "correct": true
+      },
+      {
+       "text": "37 + 30",
+       "correct": true
+      },
+      {
+       "text": "40 + 17",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Max tapes one 49‑foot strip of paper to one 15‑foot strip, end to end. How long is the new strip? → 64 feet: correct.",
+      "Ted ran 59 feet and then 15 more feet. How far did Ted run? → 74 feet: correct.",
+      "Ian ran 52 meters and then 35 more meters. How far did Ian run? → 97 meters: not correct.",
+      "Eli tapes one 41‑meter strip of paper to one 14‑meter strip, end to end. How long is the new strip? → 54 meters: not correct."
+     ],
+     "to": [
+      "Add each pair and look for 67.",
+      "Correct choices: 38 + 29; 37 + 30. Not correct: 40 + 17; 37 + 29; 25 + 43."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_select_total_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ana runs 23 meters, rests, then runs 21 meters."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A train has a car that is 41 centimeters long and one car that is 16 centimeters long. How long are the two cars together?",
+       "answer": "57 centimeters"
+      },
+      {
+       "prompt": "Rosa tapes one 25‑meter strip of paper to one 27‑meter strip, end to end. How long is the new strip?",
+       "answer": "52 meters"
+      },
+      {
+       "prompt": "Ella tapes one 17‑meter strip of paper to one 32‑meter strip, end to end. How long is the new strip?",
+       "answer": "49 meters"
+      },
+      {
+       "prompt": "Luis tapes one 17‑meter strip of paper to one 34‑meter strip, end to end. How long is the new strip?",
+       "answer": "51 meters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How far does she run in all?",
+       "answer": "44 meters"
+      },
+      {
+       "prompt": "How much farther is the longer run?",
+       "answer": "2 meters"
+      },
+      {
+       "prompt": "How many more meters to reach 100 meters?",
+       "answer": "56 meters"
+      },
+      {
+       "prompt": "Explain how a number line shows the runs.",
+       "answer": "Sample answer: Start at 0, jump 23, then jump 21 more."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 57 centimeters; (b) 52 meters; (c) 49 meters; (d) 51 meters",
+     "to": "(a) 44 meters; (b) 2 meters; (c) 56 meters; (d) Sample answer: Start at 0, jump 23, then jump 21 more."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Join the lengths: 41 + 16. 41 + 16 = 57 centimeters.",
+      "(b) Join the lengths: 25 + 27. 25 + 27 = 52 meters.",
+      "(c) Join the lengths: 17 + 32. 17 + 32 = 49 meters.",
+      "(d) Join the lengths: 17 + 34. 17 + 34 = 51 meters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Subtract from 100.",
+      "(d) Jumps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_open_track). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the pairs of lengths (in meters) that make 63 meters together."
+    },
+    "answer": {
+     "from": [
+      "Rosa ran 17 centimeters and then 18 more centimeters. How far did Rosa run? → 35 centimeters",
+      "Omar ran 31 centimeters and then 7 more centimeters. How far did Omar run? → 38 centimeters"
+     ],
+     "to": [
+      "41 + 22",
+      "32 + 31",
+      "29 + 34"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Rosa ran 17 centimeters and then 18 more centimeters. How far did Rosa run? → 35 centimeters",
+       "correct": true
+      },
+      {
+       "text": "Ella tapes one 21‑inch strip of paper to one 15‑inch strip, end to end. How long is the new strip? → 46 inches",
+       "correct": false
+      },
+      {
+       "text": "Mia tapes one 25‑inch strip of paper to one 17‑inch strip, end to end. How long is the new strip? → 52 inches",
+       "correct": false
+      },
+      {
+       "text": "Omar ran 31 centimeters and then 7 more centimeters. How far did Omar run? → 38 centimeters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "15 + 58",
+       "correct": false
+      },
+      {
+       "text": "41 + 22",
+       "correct": true
+      },
+      {
+       "text": "32 + 31",
+       "correct": true
+      },
+      {
+       "text": "14 + 48",
+       "correct": false
+      },
+      {
+       "text": "29 + 34",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Rosa ran 17 centimeters and then 18 more centimeters. How far did Rosa run? → 35 centimeters: correct.",
+      "Ella tapes one 21‑inch strip of paper to one 15‑inch strip, end to end. How long is the new strip? → 46 inches: not correct.",
+      "Mia tapes one 25‑inch strip of paper to one 17‑inch strip, end to end. How long is the new strip? → 52 inches: not correct.",
+      "Omar ran 31 centimeters and then 7 more centimeters. How far did Omar run? → 38 centimeters: correct."
+     ],
+     "to": [
+      "Add each pair and look for 63.",
+      "Correct choices: 41 + 22; 32 + 31; 29 + 34. Not correct: 15 + 58; 14 + 48."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_select_total_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ana runs 21 meters, rests, then runs 27 meters."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Mia tapes one 13‑centimeter strip of paper to one 5‑centimeter strip, end to end. How long is the new strip?",
+       "answer": "18 centimeters"
+      },
+      {
+       "prompt": "A train has a car that is 26 inches long and one car that is 13 inches long. How long are the two cars together?",
+       "answer": "39 inches"
+      },
+      {
+       "prompt": "Noah ran 21 inches and then 11 more inches. How far did Noah run?",
+       "answer": "32 inches"
+      },
+      {
+       "prompt": "A train has a car that is 15 centimeters long and one car that is 19 centimeters long. How long are the two cars together?",
+       "answer": "34 centimeters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How far does she run in all?",
+       "answer": "48 meters"
+      },
+      {
+       "prompt": "How much farther is the longer run?",
+       "answer": "6 meters"
+      },
+      {
+       "prompt": "How many more meters to reach 100 meters?",
+       "answer": "52 meters"
+      },
+      {
+       "prompt": "Explain how a number line shows the runs.",
+       "answer": "Sample answer: Start at 0, jump 21, then jump 27 more."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 18 centimeters; (b) 39 inches; (c) 32 inches; (d) 34 centimeters",
+     "to": "(a) 48 meters; (b) 6 meters; (c) 52 meters; (d) Sample answer: Start at 0, jump 21, then jump 27 more."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Join the lengths: 13 + 5. 13 + 5 = 18 centimeters.",
+      "(b) Join the lengths: 26 + 13. 26 + 13 = 39 inches.",
+      "(c) Join the lengths: 21 + 11. 21 + 11 = 32 inches.",
+      "(d) Join the lengths: 15 + 19. 15 + 19 = 34 centimeters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Subtract from 100.",
+      "(d) Jumps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_open_track). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A path has three parts. They are 12 meters, 33 meters, and 20 meters long. How long is the whole path?",
+     "to": "A fence is 78 feet long. It has three parts. Two parts are 15 feet and 27 feet. How long is the third part?"
+    },
+    "answer": {
+     "from": "65 meters",
+     "to": "36 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 12 + 33 + 20.",
+      "12 + 33 + 20 = 65 meters."
+     ],
+     "to": [
+      "15 + 27 = 42.",
+      "78 − 42 = 36 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_path). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_missing_part). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "A path has three parts. They are 25 meters, 11 meters, and 13 meters long. How long is the whole path?",
+     "to": "A fence is 69 feet long. It has three parts. Two parts are 21 feet and 19 feet. How long is the third part?"
+    },
+    "answer": {
+     "from": "49 meters",
+     "to": "29 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 25 + 11 + 13.",
+      "25 + 11 + 13 = 49 meters."
+     ],
+     "to": [
+      "21 + 19 = 40.",
+      "69 − 40 = 29 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_path). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_missing_part). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "36 meters",
+       "correct": false
+      },
+      {
+       "text": "49 meters",
+       "correct": true
+      },
+      {
+       "text": "59 meters",
+       "correct": false
+      },
+      {
+       "text": "48 meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "29 feet",
+       "correct": true
+      },
+      {
+       "text": "48 feet",
+       "correct": false
+      },
+      {
+       "text": "40 feet",
+       "correct": false
+      },
+      {
+       "text": "50 feet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "A path has three parts. They are 24 feet, 22 feet, and 21 feet long. How long is the whole path?",
+     "to": "A fence is 75 feet long. It has three parts. Two parts are 29 feet and 22 feet. How long is the third part?"
+    },
+    "answer": {
+     "from": "67 feet",
+     "to": "24 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 24 + 22 + 21.",
+      "24 + 22 + 21 = 67 feet."
+     ],
+     "to": [
+      "29 + 22 = 51.",
+      "75 − 51 = 24 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_path). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_missing_part). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "A rope was 60 inches long. A piece 25 inches long broke off. How long is the rope now?",
+     "to": "A fence is 92 feet long. It has three parts. Two parts are 20 feet and 28 feet. How long is the third part?"
+    },
+    "answer": {
+     "from": "35 inches",
+     "to": "44 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Take away the cut piece: 60 − 25.",
+      "60 − 25 = 35 inches."
+     ],
+     "to": [
+      "20 + 28 = 48.",
+      "92 − 48 = 44 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_cut). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_missing_part). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A path has three parts. They are 23 feet, 31 feet, and 18 feet long. How long is the whole path?",
+     "to": "A fence is 68 feet long. It has three parts. Two parts are 26 feet and 23 feet. How long is the third part?"
+    },
+    "answer": {
+     "from": "72 feet",
+     "to": "19 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 23 + 31 + 18.",
+      "23 + 31 + 18 = 72 feet."
+     ],
+     "to": [
+      "26 + 23 = 49.",
+      "68 − 49 = 19 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_path). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_missing_part). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "82 feet",
+       "correct": false
+      },
+      {
+       "text": "72 feet",
+       "correct": true
+      },
+      {
+       "text": "54 feet",
+       "correct": false
+      },
+      {
+       "text": "71 feet",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "42 feet",
+       "correct": false
+      },
+      {
+       "text": "49 feet",
+       "correct": false
+      },
+      {
+       "text": "19 feet",
+       "correct": true
+      },
+      {
+       "text": "45 feet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the pairs of lengths (in meters) that make 75 meters together."
+    },
+    "answer": {
+     "from": [
+      "Mia tapes one 26‑meter strip of paper to one 24‑meter strip, end to end. How long is the new strip? → 50 meters",
+      "Mei tapes one 19‑meter strip of paper to one 21‑meter strip, end to end. How long is the new strip? → 40 meters"
+     ],
+     "to": [
+      "65 + 10",
+      "36 + 39",
+      "40 + 35",
+      "27 + 48"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Lena ran 29 inches and then 12 more inches. How far did Lena run? → 17 inches",
+       "correct": false
+      },
+      {
+       "text": "Mia tapes one 26‑meter strip of paper to one 24‑meter strip, end to end. How long is the new strip? → 50 meters",
+       "correct": true
+      },
+      {
+       "text": "Zoe tapes one 19‑foot strip of paper to one 9‑foot strip, end to end. How long is the new strip? → 10 feet",
+       "correct": false
+      },
+      {
+       "text": "Mei tapes one 19‑meter strip of paper to one 21‑meter strip, end to end. How long is the new strip? → 40 meters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "65 + 10",
+       "correct": true
+      },
+      {
+       "text": "36 + 39",
+       "correct": true
+      },
+      {
+       "text": "58 + 16",
+       "correct": false
+      },
+      {
+       "text": "40 + 35",
+       "correct": true
+      },
+      {
+       "text": "27 + 48",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Lena ran 29 inches and then 12 more inches. How far did Lena run? → 17 inches: not correct.",
+      "Mia tapes one 26‑meter strip of paper to one 24‑meter strip, end to end. How long is the new strip? → 50 meters: correct.",
+      "Zoe tapes one 19‑foot strip of paper to one 9‑foot strip, end to end. How long is the new strip? → 10 feet: not correct.",
+      "Mei tapes one 19‑meter strip of paper to one 21‑meter strip, end to end. How long is the new strip? → 40 meters: correct."
+     ],
+     "to": [
+      "Add each pair and look for 75.",
+      "Correct choices: 65 + 10; 36 + 39; 40 + 35; 27 + 48. Not correct: 58 + 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_select_total_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ana runs 38 meters, rests, then runs 35 meters."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Pia tapes one 19‑inch strip of paper to one 18‑inch strip, end to end. How long is the new strip?",
+       "answer": "37 inches"
+      },
+      {
+       "prompt": "Luis tapes one 24‑meter strip of paper to one 9‑meter strip, end to end. How long is the new strip?",
+       "answer": "33 meters"
+      },
+      {
+       "prompt": "A train has a car that is 27 feet long and one car that is 23 feet long. How long are the two cars together?",
+       "answer": "50 feet"
+      },
+      {
+       "prompt": "A train has a car that is 63 meters long and one car that is 28 meters long. How long are the two cars together?",
+       "answer": "91 meters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How far does she run in all?",
+       "answer": "73 meters"
+      },
+      {
+       "prompt": "How much farther is the longer run?",
+       "answer": "3 meters"
+      },
+      {
+       "prompt": "How many more meters to reach 100 meters?",
+       "answer": "27 meters"
+      },
+      {
+       "prompt": "Explain how a number line shows the runs.",
+       "answer": "Sample answer: Start at 0, jump 38, then jump 35 more."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 37 inches; (b) 33 meters; (c) 50 feet; (d) 91 meters",
+     "to": "(a) 73 meters; (b) 3 meters; (c) 27 meters; (d) Sample answer: Start at 0, jump 38, then jump 35 more."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Join the lengths: 19 + 18. 19 + 18 = 37 inches.",
+      "(b) Join the lengths: 24 + 9. 24 + 9 = 33 meters.",
+      "(c) Join the lengths: 27 + 23. 27 + 23 = 50 feet.",
+      "(d) Join the lengths: 63 + 28. 63 + 28 = 91 meters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Subtract from 100.",
+      "(d) Jumps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: lw_join_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln1_open_track). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the lengths on a number line that are 22 units long."
+    },
+    "answer": {
+     "from": [
+      "A length starts at 0 on the number line and ends at 19. How many units long is it? → 19",
+      "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8"
+     ],
+     "to": [
+      "from 42 to 64",
+      "from 49 to 71"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A length starts at 0 on the number line and ends at 4. How many units long is it? → 5",
+       "correct": false
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 18. How many units long is it? → 17",
+       "correct": false
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 19. How many units long is it? → 19",
+       "correct": true
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "from 52 to 84",
+       "correct": false
+      },
+      {
+       "text": "from 42 to 64",
+       "correct": true
+      },
+      {
+       "text": "from 49 to 71",
+       "correct": true
+      },
+      {
+       "text": "from 59 to 82",
+       "correct": false
+      },
+      {
+       "text": "from 38 to 59",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A length starts at 0 on the number line and ends at 4. How many units long is it? → 5: not correct.",
+      "A length starts at 0 on the number line and ends at 18. How many units long is it? → 17: not correct.",
+      "A length starts at 0 on the number line and ends at 19. How many units long is it? → 19: correct.",
+      "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8: correct."
+     ],
+     "to": [
+      "Subtract the start from the end.",
+      "Correct choices: from 42 to 64; from 49 to 71. Not correct: from 38 to 59; from 59 to 82; from 52 to 84."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_select_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Point A is at 33 on a number line. Point B is 20 units to the right."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 18. How many units long is it?",
+       "answer": "18"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 4. How many units long is it?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 14. How many units long is it?",
+       "answer": "14"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 15. How many units long is it?",
+       "answer": "15"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Where is point B?",
+       "answer": "53"
+      },
+      {
+       "prompt": "How far is point A from 0?",
+       "answer": "33 units"
+      },
+      {
+       "prompt": "Where is a point 10 units left of B?",
+       "answer": "43"
+      },
+      {
+       "prompt": "Explain how the numbers are spaced on a number line.",
+       "answer": "Sample answer: Every space is the same length, one unit."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 18; (b) 4; (c) 14; (d) 15",
+     "to": "(a) 53; (b) 33 units; (c) 43; (d) Sample answer: Every space is the same length, one unit."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count the spaces from 0 to 18. It is 18 units long.",
+      "(b) Count the spaces from 0 to 4. It is 4 units long.",
+      "(c) Count the spaces from 0 to 14. It is 14 units long.",
+      "(d) Count the spaces from 0 to 15. It is 15 units long."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Count from 0.",
+      "(c) Subtract.",
+      "(d) Equal spaces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_open_points). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the lengths on a number line that are 24 units long."
+    },
+    "answer": {
+     "from": [
+      "A length starts at 0 on the number line and ends at 10. How many units long is it? → 10",
+      "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8"
+     ],
+     "to": [
+      "from 14 to 38",
+      "from 7 to 31",
+      "from 56 to 80"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A length starts at 0 on the number line and ends at 11. How many units long is it? → 12",
+       "correct": false
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 10. How many units long is it? → 10",
+       "correct": true
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8",
+       "correct": true
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 11. How many units long is it? → 9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "from 45 to 79",
+       "correct": false
+      },
+      {
+       "text": "from 14 to 38",
+       "correct": true
+      },
+      {
+       "text": "from 7 to 31",
+       "correct": true
+      },
+      {
+       "text": "from 31 to 56",
+       "correct": false
+      },
+      {
+       "text": "from 56 to 80",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A length starts at 0 on the number line and ends at 11. How many units long is it? → 12: not correct.",
+      "A length starts at 0 on the number line and ends at 10. How many units long is it? → 10: correct.",
+      "A length starts at 0 on the number line and ends at 8. How many units long is it? → 8: correct.",
+      "A length starts at 0 on the number line and ends at 11. How many units long is it? → 9: not correct."
+     ],
+     "to": [
+      "Subtract the start from the end.",
+      "Correct choices: from 14 to 38; from 7 to 31; from 56 to 80. Not correct: from 45 to 79; from 31 to 56."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_select_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Point A is at 11 on a number line. Point B is 12 units to the right."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 4. How many units long is it?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 5. How many units long is it?",
+       "answer": "5"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 14. How many units long is it?",
+       "answer": "14"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 9. How many units long is it?",
+       "answer": "9"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Where is point B?",
+       "answer": "23"
+      },
+      {
+       "prompt": "How far is point A from 0?",
+       "answer": "11 units"
+      },
+      {
+       "prompt": "Where is a point 10 units left of B?",
+       "answer": "13"
+      },
+      {
+       "prompt": "Explain how the numbers are spaced on a number line.",
+       "answer": "Sample answer: Every space is the same length, one unit."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 5; (c) 14; (d) 9",
+     "to": "(a) 23; (b) 11 units; (c) 13; (d) Sample answer: Every space is the same length, one unit."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count the spaces from 0 to 4. It is 4 units long.",
+      "(b) Count the spaces from 0 to 5. It is 5 units long.",
+      "(c) Count the spaces from 0 to 14. It is 14 units long.",
+      "(d) Count the spaces from 0 to 9. It is 9 units long."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Count from 0.",
+      "(c) Subtract.",
+      "(d) Equal spaces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_open_points). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "A length starts at 0 on the number line and ends at 27. How many units long is it? Is the answer 27?",
+     "to": "A length is 6 units long and starts at 41 on the number line. Where does it end? Then where would it end if it were 10 units longer?"
+    },
+    "answer": {
+     "from": "Yes. It is 27 units long.",
+     "to": "47; 57"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count the spaces from 0 to 27.",
+      "It is 27 units long.",
+      "The answer 27 is correct."
+     ],
+     "to": [
+      "41 + 6 = 47.",
+      "47 + 10 = 57."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_end_from_start). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 3.",
+       "correct": false
+      },
+      {
+       "text": "Yes. It is 27 units long.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 28.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 26.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "47; 48",
+       "correct": false
+      },
+      {
+       "text": "35; 57",
+       "correct": false
+      },
+      {
+       "text": "47; 57",
+       "correct": true
+      },
+      {
+       "text": "6; 16",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the lengths on a number line that are 20 units long."
+    },
+    "answer": {
+     "from": [
+      "A length starts at 0 on the number line and ends at 21. How many units long is it? → 21",
+      "A length starts at 0 on the number line and ends at 22. How many units long is it? → 22"
+     ],
+     "to": [
+      "from 14 to 34",
+      "from 35 to 55",
+      "from 28 to 48",
+      "from 49 to 69"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A length starts at 0 on the number line and ends at 21. How many units long is it? → 22",
+       "correct": false
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 9. How many units long is it? → 10",
+       "correct": false
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 21. How many units long is it? → 21",
+       "correct": true
+      },
+      {
+       "text": "A length starts at 0 on the number line and ends at 22. How many units long is it? → 22",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "from 14 to 34",
+       "correct": true
+      },
+      {
+       "text": "from 35 to 55",
+       "correct": true
+      },
+      {
+       "text": "from 28 to 48",
+       "correct": true
+      },
+      {
+       "text": "from 49 to 69",
+       "correct": true
+      },
+      {
+       "text": "from 38 to 68",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A length starts at 0 on the number line and ends at 21. How many units long is it? → 22: not correct.",
+      "A length starts at 0 on the number line and ends at 9. How many units long is it? → 10: not correct.",
+      "A length starts at 0 on the number line and ends at 21. How many units long is it? → 21: correct.",
+      "A length starts at 0 on the number line and ends at 22. How many units long is it? → 22: correct."
+     ],
+     "to": [
+      "Subtract the start from the end.",
+      "Correct choices: from 14 to 34; from 35 to 55; from 28 to 48; from 49 to 69. Not correct: from 38 to 68."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_select_length). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Point A is at 49 on a number line. Point B is 11 units to the right."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 25. How many units long is it?",
+       "answer": "25"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 14. How many units long is it?",
+       "answer": "14"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 24. How many units long is it?",
+       "answer": "24"
+      },
+      {
+       "prompt": "A length starts at 0 on the number line and ends at 26. How many units long is it?",
+       "answer": "26"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Where is point B?",
+       "answer": "60"
+      },
+      {
+       "prompt": "How far is point A from 0?",
+       "answer": "49 units"
+      },
+      {
+       "prompt": "Where is a point 10 units left of B?",
+       "answer": "50"
+      },
+      {
+       "prompt": "Explain how the numbers are spaced on a number line.",
+       "answer": "Sample answer: Every space is the same length, one unit."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 25; (b) 14; (c) 24; (d) 26",
+     "to": "(a) 60; (b) 49 units; (c) 50; (d) Sample answer: Every space is the same length, one unit."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count the spaces from 0 to 25. It is 25 units long.",
+      "(b) Count the spaces from 0 to 14. It is 14 units long.",
+      "(c) Count the spaces from 0 to 24. It is 24 units long.",
+      "(d) Count the spaces from 0 to 26. It is 26 units long."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Count from 0.",
+      "(c) Subtract.",
+      "(d) Equal spaces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nl_length_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln2_open_points). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 46 + 9 on a number line?",
+     "to": "Start at 31 on a number line. Jump forward 17, then jump back 5. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 46 and jump forward 9.",
+     "to": "43"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Adding moves forward (to the right)."
+     ],
+     "to": [
+      "31 + 17 = 48.",
+      "48 − 5 = 43."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_two_jumps). Rewritten from a Support template (was nj_describe) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 0 and jump forward 9.",
+       "correct": false
+      },
+      {
+       "text": "Start at 46 and jump back 9.",
+       "correct": false
+      },
+      {
+       "text": "Start at 9 and jump forward 46.",
+       "correct": false
+      },
+      {
+       "text": "Start at 46 and jump forward 9.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "48",
+       "correct": false
+      },
+      {
+       "text": "43",
+       "correct": true
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "53",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 43 + 19 on a number line?",
+     "to": "Start at 33 on a number line. Jump forward 26, then jump back 12. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 43 and jump forward 19.",
+     "to": "47"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Adding moves forward (to the right)."
+     ],
+     "to": [
+      "33 + 26 = 59.",
+      "59 − 12 = 47."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_two_jumps). Rewritten from a Support template (was nj_describe) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 43 and jump forward 19.",
+       "correct": true
+      },
+      {
+       "text": "Start at 19 and jump forward 43.",
+       "correct": false
+      },
+      {
+       "text": "Start at 43 and jump back 19.",
+       "correct": false
+      },
+      {
+       "text": "Start at 0 and jump forward 19.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "59",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "47",
+       "correct": true
+      },
+      {
+       "text": "71",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 32 + 14 on a number line?",
+     "to": "Start at 16 and make one jump forward to land on 52. Then jump back the same amount. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 32 and jump forward 14.",
+     "to": "16"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Adding moves forward (to the right)."
+     ],
+     "to": [
+      "The jump is 52 − 16 = 36.",
+      "52 − 36 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_jump_size). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 32 and jump back 14.",
+       "correct": false
+      },
+      {
+       "text": "Start at 32 and jump forward 14.",
+       "correct": true
+      },
+      {
+       "text": "Start at 14 and jump forward 32.",
+       "correct": false
+      },
+      {
+       "text": "Start at 0 and jump forward 14.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "36",
+       "correct": false
+      },
+      {
+       "text": "88",
+       "correct": false
+      },
+      {
+       "text": "52",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 35 + 25 on a number line?",
+     "to": "Start at 21 and make one jump forward to land on 65. Then jump back the same amount. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 35 and jump forward 25.",
+     "to": "21"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Adding moves forward (to the right)."
+     ],
+     "to": [
+      "The jump is 65 − 21 = 44.",
+      "65 − 44 = 21."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_jump_size). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 25 and jump forward 35.",
+       "correct": false
+      },
+      {
+       "text": "Start at 35 and jump back 25.",
+       "correct": false
+      },
+      {
+       "text": "Start at 35 and jump forward 25.",
+       "correct": true
+      },
+      {
+       "text": "Start at 0 and jump forward 25.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "21",
+       "correct": true
+      },
+      {
+       "text": "44",
+       "correct": false
+      },
+      {
+       "text": "31",
+       "correct": false
+      },
+      {
+       "text": "65",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 61 + 26 on a number line?",
+     "to": "Start at 21 and make one jump forward to land on 95. Then jump back the same amount. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 61 and jump forward 26.",
+     "to": "21"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Adding moves forward (to the right)."
+     ],
+     "to": [
+      "The jump is 95 − 21 = 74.",
+      "95 − 74 = 21."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_jump_size). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 61 and jump forward 26.",
+       "correct": true
+      },
+      {
+       "text": "Start at 61 and jump back 26.",
+       "correct": false
+      },
+      {
+       "text": "Start at 0 and jump forward 26.",
+       "correct": false
+      },
+      {
+       "text": "Start at 26 and jump forward 61.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "74",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": true
+      },
+      {
+       "text": "31",
+       "correct": false
+      },
+      {
+       "text": "95",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "How would you show 69 − 29 on a number line?",
+     "to": "Start at 37 and make one jump forward to land on 87. Then jump back the same amount. Where do you land?"
+    },
+    "answer": {
+     "from": "Start at 69 and jump back 29.",
+     "to": "37"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at the first number.",
+      "Subtracting moves back (to the left)."
+     ],
+     "to": [
+      "The jump is 87 − 37 = 50.",
+      "87 − 50 = 37."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_describe). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_jump_size). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Start at 69 and jump back 29.",
+       "correct": true
+      },
+      {
+       "text": "Start at 69 and jump forward 29.",
+       "correct": false
+      },
+      {
+       "text": "Start at 0 and jump back 29.",
+       "correct": false
+      },
+      {
+       "text": "Start at 29 and jump back 69.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "50",
+       "correct": false
+      },
+      {
+       "text": "37",
+       "correct": true
+      },
+      {
+       "text": "47",
+       "correct": false
+      },
+      {
+       "text": "87",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the jumps that land on 66."
+    },
+    "answer": {
+     "from": [
+      "Show 94 − 35 on a number line by jumping back 30 and then back 5. Where is the landing point? → 59",
+      "Show 93 − 38 on a number line by jumping back 30 and then back 8. Where is the landing point? → 55"
+     ],
+     "to": [
+      "start at 36, jump forward 30",
+      "start at 95, jump back 29"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Show 94 − 35 on a number line by jumping back 30 and then back 5. Where is the landing point? → 59",
+       "correct": true
+      },
+      {
+       "text": "Show 93 − 38 on a number line by jumping back 30 and then back 8. Where is the landing point? → 55",
+       "correct": true
+      },
+      {
+       "text": "Show 77 − 39 on a number line by jumping back 30 and then back 9. Where is the landing point? → 47",
+       "correct": false
+      },
+      {
+       "text": "Show 81 − 39 on a number line by jumping back 30 and then back 9. Where is the landing point? → 51",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "start at 35, jump forward 13",
+       "correct": false
+      },
+      {
+       "text": "start at 36, jump forward 30",
+       "correct": true
+      },
+      {
+       "text": "start at 95, jump back 29",
+       "correct": true
+      },
+      {
+       "text": "start at 55, jump forward 12",
+       "correct": false
+      },
+      {
+       "text": "start at 20, jump forward 15",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Show 94 − 35 on a number line by jumping back 30 and then back 5. Where is the landing point? → 59: correct.",
+      "Show 93 − 38 on a number line by jumping back 30 and then back 8. Where is the landing point? → 55: correct.",
+      "Show 77 − 39 on a number line by jumping back 30 and then back 9. Where is the landing point? → 47: not correct.",
+      "Show 81 − 39 on a number line by jumping back 30 and then back 9. Where is the landing point? → 51: not correct."
+     ],
+     "to": [
+      "Add for a jump forward and subtract for a jump back; look for 66.",
+      "Correct choices: start at 36, jump forward 30; start at 95, jump back 29. Not correct: start at 20, jump forward 15; start at 35, jump forward 13; start at 55, jump forward 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_back_two_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_select_land_on). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-ln-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A frog starts at 48 on a number line. It jumps forward 21, then back 13."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Show 91 − 26 on a number line by jumping back 20 and then back 6. Where is the landing point?",
+       "answer": "65"
+      },
+      {
+       "prompt": "Show 80 − 35 on a number line by jumping back 30 and then back 5. Where is the landing point?",
+       "answer": "45"
+      },
+      {
+       "prompt": "Show 52 − 25 on a number line by jumping back 20 and then back 5. Where is the landing point?",
+       "answer": "27"
+      },
+      {
+       "prompt": "Show 93 − 24 on a number line by jumping back 20 and then back 4. Where is the landing point?",
+       "answer": "69"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Where is the frog after the first jump?",
+       "answer": "69"
+      },
+      {
+       "prompt": "Where does the frog end?",
+       "answer": "56"
+      },
+      {
+       "prompt": "How far is the end from the start?",
+       "answer": "8 units"
+      },
+      {
+       "prompt": "Explain how the jumps show addition and subtraction.",
+       "answer": "Sample answer: Jumping right adds and jumping left subtracts."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 65; (b) 45; (c) 27; (d) 69",
+     "to": "(a) 69; (b) 56; (c) 8 units; (d) Sample answer: Jumping right adds and jumping left subtracts."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 91 − 20 = 71. 71 − 6 = 65.",
+      "(b) 80 − 30 = 50. 50 − 5 = 45.",
+      "(c) 52 − 20 = 32. 32 − 5 = 27.",
+      "(d) 93 − 20 = 73. 73 − 4 = 69."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Compare.",
+      "(d) Right adds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nj_back_two_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ln3_open_jumps). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m2-ln-s03-cp2-o01",
+   "skillId": "length-number-line-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A frog starts at 18 on a number line. It jumps forward 16, then back 11.",
+   "parts": [
+    {
+     "prompt": "Where is the frog after the first jump?",
+     "answer": "34"
+    },
+    {
+     "prompt": "Where does the frog end?",
+     "answer": "23"
+    },
+    {
+     "prompt": "How far is the end from the start?",
+     "answer": "5 units"
+    },
+    {
+     "prompt": "Explain how the jumps show addition and subtraction.",
+     "answer": "Sample answer: Jumping right adds and jumping left subtracts."
+    }
+   ],
+   "answer": "(a) 34; (b) 23; (c) 5 units; (d) Sample answer: Jumping right adds and jumping left subtracts.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Subtract.",
+    "(c) Compare.",
+    "(d) Right adds."
+   ],
+   "standards": [
+    "2.MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ln3_open_jumps). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-ln-s03-cp1-o01",
+   "skillId": "length-number-line-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A frog starts at 29 on a number line. It jumps forward 29, then back 9.",
+   "parts": [
+    {
+     "prompt": "Where is the frog after the first jump?",
+     "answer": "58"
+    },
+    {
+     "prompt": "Where does the frog end?",
+     "answer": "49"
+    },
+    {
+     "prompt": "How far is the end from the start?",
+     "answer": "20 units"
+    },
+    {
+     "prompt": "Explain how the jumps show addition and subtraction.",
+     "answer": "Sample answer: Jumping right adds and jumping left subtracts."
+    }
+   ],
+   "answer": "(a) 58; (b) 49; (c) 20 units; (d) Sample answer: Jumping right adds and jumping left subtracts.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Subtract.",
+    "(c) Compare.",
+    "(d) Right adds."
+   ],
+   "standards": [
+    "2.MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ln3_open_jumps). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m2-ln-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "78 − 42 = 36 feet.",
+   "distractors": {
+    "63 feet": "a common mistake",
+    "42 feet": "a common mistake",
+    "51 feet": "a common mistake"
+   }
+  },
+  "m2-ln-s01-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "69 − 40 = 29 feet.",
+   "distractors": {
+    "48 feet": "a common mistake",
+    "40 feet": "a common mistake",
+    "50 feet": "a common mistake"
+   }
+  },
+  "m2-ln-s01-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "75 − 51 = 24 feet.",
+   "distractors": {
+    "46 feet": "a common mistake",
+    "51 feet": "a common mistake",
+    "53 feet": "a common mistake"
+   }
+  },
+  "m2-ln-s01-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "92 − 48 = 44 feet.",
+   "distractors": {
+    "72 feet": "a common mistake",
+    "48 feet": "a common mistake",
+    "64 feet": "a common mistake"
+   }
+  },
+  "m2-ln-s01-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "68 − 49 = 19 feet.",
+   "distractors": {
+    "42 feet": "a common mistake",
+    "49 feet": "a common mistake",
+    "45 feet": "a common mistake"
+   }
+  },
+  "m2-ln-s02-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "47 + 10 = 57.",
+   "distractors": {
+    "47; 48": "a common mistake",
+    "35; 57": "a common mistake",
+    "6; 16": "a common mistake"
+   }
+  },
+  "m2-ln-s03-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "52 − 36 = 16.",
+   "distractors": {
+    "36": "a common mistake",
+    "88": "a common mistake",
+    "52": "a common mistake"
+   }
+  },
+  "m2-ln-s03-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "65 − 44 = 21.",
+   "distractors": {
+    "44": "a common mistake",
+    "31": "a common mistake",
+    "65": "a common mistake"
+   }
+  },
+  "m2-ln-s03-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "95 − 74 = 21.",
+   "distractors": {
+    "74": "a common mistake",
+    "31": "a common mistake",
+    "95": "a common mistake"
+   }
+  },
+  "m2-ln-s03-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "87 − 50 = 37.",
+   "distractors": {
+    "50": "a common mistake",
+    "47": "a common mistake",
+    "87": "a common mistake"
+   }
+  },
+  "m2-ln-s01-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "42 + 18 = 60 meters.",
+   "distractors": {
+    "42 meters": "a common mistake",
+    "50 meters": "a common mistake",
+    "70 meters": "a common mistake"
+   }
+  },
+  "m2-ln-s01-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "51 + 23 = 74 meters.",
+   "distractors": {
+    "51 meters": "a common mistake",
+    "64 meters": "a common mistake",
+    "84 meters": "a common mistake"
+   }
+  },
+  "m2-ln-s03-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "48 − 5 = 43.",
+   "distractors": {
+    "48": "a common mistake",
+    "19": "a common mistake",
+    "53": "a common mistake"
+   }
+  },
+  "m2-ln-s03-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "59 − 12 = 47.",
+   "distractors": {
+    "59": "a common mistake",
+    "19": "a common mistake",
+    "71": "a common mistake"
+   }
+  },
+  "m2-ln-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 100."
+  },
+  "m2-ln-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 100."
+  },
+  "m2-ln-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 100."
+  },
+  "m2-ln-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-ln-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-ln-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-ln-s03-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare."
+  },
+  "m2-ln-s03-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare."
+  },
+  "m2-ln-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare."
+  },
+  "m2-ln-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each pair and look for 67."
+  },
+  "m2-ln-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each pair and look for 63."
+  },
+  "m2-ln-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each pair and look for 75."
+  },
+  "m2-ln-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract the start from the end."
+  },
+  "m2-ln-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract the start from the end."
+  },
+  "m2-ln-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract the start from the end."
+  },
+  "m2-ln-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add for a jump forward and subtract for a jump back; look for 66."
+  }
+ }
+}

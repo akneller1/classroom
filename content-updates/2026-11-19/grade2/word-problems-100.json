@@ -1,0 +1,3793 @@
+{
+ "unit": "word-problems-100",
+ "edits": [
+  {
+   "id": "m2-wp-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 23 birds."
+    },
+    "answer": {
+     "from": [
+      "Pia has 31 beads. Pia gets 29 more beads. How many beads does Pia have now? → 60 beads",
+      "Omar has 39 beads. Omar gets 17 more beads. How many beads does Omar have now? → 56 beads"
+     ],
+     "to": [
+      "14 birds, then 9 more come",
+      "52 birds, then 29 fly away"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Max has 41 cubes. Max gets 15 more cubes. How many cubes does Max have now? → 26 cubes",
+       "correct": false
+      },
+      {
+       "text": "Pia has 31 beads. Pia gets 29 more beads. How many beads does Pia have now? → 60 beads",
+       "correct": true
+      },
+      {
+       "text": "Omar has 39 beads. Omar gets 17 more beads. How many beads does Omar have now? → 56 beads",
+       "correct": true
+      },
+      {
+       "text": "Omar has 92 cubes. Omar gives away 36 cubes. How many cubes does Omar have now? → 55 cubes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "14 birds, then 9 more come",
+       "correct": true
+      },
+      {
+       "text": "17 birds, then 11 more come",
+       "correct": false
+      },
+      {
+       "text": "52 birds, then 29 fly away",
+       "correct": true
+      },
+      {
+       "text": "47 birds, then 25 more come",
+       "correct": false
+      },
+      {
+       "text": "14 birds, then 10 more come",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Max has 41 cubes. Max gets 15 more cubes. How many cubes does Max have now? → 26 cubes: not correct.",
+      "Pia has 31 beads. Pia gets 29 more beads. How many beads does Pia have now? → 60 beads: correct.",
+      "Omar has 39 beads. Omar gets 17 more beads. How many beads does Omar have now? → 56 beads: correct.",
+      "Omar has 92 cubes. Omar gives away 36 cubes. How many cubes does Omar have now? → 55 cubes: not correct."
+     ],
+     "to": [
+      "Add for more coming; subtract for flying away.",
+      "Correct choices: 14 birds, then 9 more come; 52 birds, then 29 fly away. Not correct: 14 birds, then 10 more come; 17 birds, then 11 more come; 47 birds, then 25 more come."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A bus has 42 people. 13 people get on."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Jada has 85 marbles. Jada gives away 25 marbles. How many marbles does Jada have now?",
+       "answer": "60 marbles"
+      },
+      {
+       "prompt": "Pia has 69 beads. Pia gives away 30 beads. How many beads does Pia have now?",
+       "answer": "39 beads"
+      },
+      {
+       "prompt": "Ella has 76 cubes. Ella gives away 18 cubes. How many cubes does Ella have now?",
+       "answer": "58 cubes"
+      },
+      {
+       "prompt": "Finn has 52 cubes. Finn gets 38 more cubes. How many cubes does Finn have now?",
+       "answer": "90 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many people are on the bus now?",
+       "answer": "55 people"
+      },
+      {
+       "prompt": "Then 9 people get off. How many are on the bus?",
+       "answer": "46 people"
+      },
+      {
+       "prompt": "How many more people got on than got off?",
+       "answer": "4 people"
+      },
+      {
+       "prompt": "Explain how you know to add or subtract.",
+       "answer": "Sample answer: People getting on adds to the group; people getting off takes away."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 60 marbles; (b) 39 beads; (c) 58 cubes; (d) 90 cubes",
+     "to": "(a) 55 people; (b) 46 people; (c) 4 people; (d) Sample answer: People getting on adds to the group; people getting off takes away."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) This is a take‑from story: 85 − 25 = ? 85 − 25 = 60 marbles.",
+      "(b) This is a take‑from story: 69 − 30 = ? 69 − 30 = 39 beads.",
+      "(c) This is a take‑from story: 76 − 18 = ? 76 − 18 = 58 cubes.",
+      "(d) This is an add‑to story: 52 + 38 = ? 52 + 38 = 90 cubes."
+     ],
+     "to": [
+      "(a) 42 + 13.",
+      "(b) 55 − 9.",
+      "(c) Subtract.",
+      "(d) Add to, take from."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_bus). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-cp2-020",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "32 cubes",
+       "correct": false
+      },
+      {
+       "text": "1 cubes",
+       "correct": false
+      },
+      {
+       "text": "33 cubes",
+       "correct": true
+      },
+      {
+       "text": "43 cubes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32 cubes",
+       "correct": false
+      },
+      {
+       "text": "1 cube",
+       "correct": false
+      },
+      {
+       "text": "33 cubes",
+       "correct": true
+      },
+      {
+       "text": "43 cubes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 58 birds."
+    },
+    "answer": {
+     "from": [
+      "Jada has 14 cubes. Jada gets 18 more cubes. How many cubes does Jada have now? → 32 cubes",
+      "Ian has 8 cubes. Ian gets 10 more cubes. How many cubes does Ian have now? → 18 cubes"
+     ],
+     "to": [
+      "23 birds, then 35 more come",
+      "71 birds, then 13 fly away",
+      "44 birds, then 14 more come"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Jada has 14 cubes. Jada gets 18 more cubes. How many cubes does Jada have now? → 32 cubes",
+       "correct": true
+      },
+      {
+       "text": "Kai has 46 shells. Kai gives away 20 shells. How many shells does Kai have now? → 66 shells",
+       "correct": false
+      },
+      {
+       "text": "Kai has 21 cubes. Kai gets 10 more cubes. How many cubes does Kai have now? → 30 cubes",
+       "correct": false
+      },
+      {
+       "text": "Ian has 8 cubes. Ian gets 10 more cubes. How many cubes does Ian have now? → 18 cubes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "49 birds, then 19 more come",
+       "correct": false
+      },
+      {
+       "text": "23 birds, then 35 more come",
+       "correct": true
+      },
+      {
+       "text": "71 birds, then 13 fly away",
+       "correct": true
+      },
+      {
+       "text": "44 birds, then 14 more come",
+       "correct": true
+      },
+      {
+       "text": "27 birds, then 32 more come",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Jada has 14 cubes. Jada gets 18 more cubes. How many cubes does Jada have now? → 32 cubes: correct.",
+      "Kai has 46 shells. Kai gives away 20 shells. How many shells does Kai have now? → 66 shells: not correct.",
+      "Kai has 21 cubes. Kai gets 10 more cubes. How many cubes does Kai have now? → 30 cubes: not correct.",
+      "Ian has 8 cubes. Ian gets 10 more cubes. How many cubes does Ian have now? → 18 cubes: correct."
+     ],
+     "to": [
+      "Add for more coming; subtract for flying away.",
+      "Correct choices: 23 birds, then 35 more come; 71 birds, then 13 fly away; 44 birds, then 14 more come. Not correct: 27 birds, then 32 more come; 49 birds, then 19 more come."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A bus has 32 people. 19 people get on."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Omar has 6 shells. Omar gets 10 more shells. How many shells does Omar have now?",
+       "answer": "16 shells"
+      },
+      {
+       "prompt": "Tess has 50 cards. Tess gives away 20 cards. How many cards does Tess have now?",
+       "answer": "30 cards"
+      },
+      {
+       "prompt": "Hana has 10 cards. Hana gets 17 more cards. How many cards does Hana have now?",
+       "answer": "27 cards"
+      },
+      {
+       "prompt": "Lena has 27 stickers. Lena gets 12 more stickers. How many stickers does Lena have now?",
+       "answer": "39 stickers"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many people are on the bus now?",
+       "answer": "51 people"
+      },
+      {
+       "prompt": "Then 6 people get off. How many are on the bus?",
+       "answer": "45 people"
+      },
+      {
+       "prompt": "How many more people got on than got off?",
+       "answer": "13 people"
+      },
+      {
+       "prompt": "Explain how you know to add or subtract.",
+       "answer": "Sample answer: People getting on adds to the group; people getting off takes away."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16 shells; (b) 30 cards; (c) 27 cards; (d) 39 stickers",
+     "to": "(a) 51 people; (b) 45 people; (c) 13 people; (d) Sample answer: People getting on adds to the group; people getting off takes away."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) This is an add‑to story: 6 + 10 = ? 6 + 10 = 16 shells.",
+      "(b) This is a take‑from story: 50 − 20 = ? 50 − 20 = 30 cards.",
+      "(c) This is an add‑to story: 10 + 17 = ? 10 + 17 = 27 cards.",
+      "(d) This is an add‑to story: 27 + 12 = ? 27 + 12 = 39 stickers."
+     ],
+     "to": [
+      "(a) 32 + 19.",
+      "(b) 51 − 6.",
+      "(c) Subtract.",
+      "(d) Add to, take from."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_bus). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 43 birds."
+    },
+    "answer": {
+     "from": [
+      "Luis has 52 shells. Luis gives away 33 shells. How many shells does Luis have now? → 19 shells",
+      "Amir has 72 marbles. Amir gives away 34 marbles. How many marbles does Amir have now? → 38 marbles"
+     ],
+     "to": [
+      "55 birds, then 12 fly away",
+      "54 birds, then 11 fly away",
+      "79 birds, then 36 fly away",
+      "37 birds, then 6 more come"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Finn has 92 beads. Finn gives away 36 beads. How many beads does Finn have now? → 66 beads",
+       "correct": false
+      },
+      {
+       "text": "Hana has 66 cubes. Hana gives away 37 cubes. How many cubes does Hana have now? → 28 cubes",
+       "correct": false
+      },
+      {
+       "text": "Luis has 52 shells. Luis gives away 33 shells. How many shells does Luis have now? → 19 shells",
+       "correct": true
+      },
+      {
+       "text": "Amir has 72 marbles. Amir gives away 34 marbles. How many marbles does Amir have now? → 38 marbles",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "55 birds, then 12 fly away",
+       "correct": true
+      },
+      {
+       "text": "54 birds, then 11 fly away",
+       "correct": true
+      },
+      {
+       "text": "79 birds, then 36 fly away",
+       "correct": true
+      },
+      {
+       "text": "37 birds, then 6 more come",
+       "correct": true
+      },
+      {
+       "text": "31 birds, then 17 more come",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Finn has 92 beads. Finn gives away 36 beads. How many beads does Finn have now? → 66 beads: not correct.",
+      "Hana has 66 cubes. Hana gives away 37 cubes. How many cubes does Hana have now? → 28 cubes: not correct.",
+      "Luis has 52 shells. Luis gives away 33 shells. How many shells does Luis have now? → 19 shells: correct.",
+      "Amir has 72 marbles. Amir gives away 34 marbles. How many marbles does Amir have now? → 38 marbles: correct."
+     ],
+     "to": [
+      "Add for more coming; subtract for flying away.",
+      "Correct choices: 55 birds, then 12 fly away; 54 birds, then 11 fly away; 79 birds, then 36 fly away; 37 birds, then 6 more come. Not correct: 31 birds, then 17 more come."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A bus has 50 people. 24 people get on."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Luis has 67 cards. Luis gets 18 more cards. How many cards does Luis have now?",
+       "answer": "85 cards"
+      },
+      {
+       "prompt": "Nia has 48 cubes. Nia gets 32 more cubes. How many cubes does Nia have now?",
+       "answer": "80 cubes"
+      },
+      {
+       "prompt": "Dev has 63 cubes. Dev gives away 16 cubes. How many cubes does Dev have now?",
+       "answer": "47 cubes"
+      },
+      {
+       "prompt": "Zoe has 28 stickers. Zoe gets 15 more stickers. How many stickers does Zoe have now?",
+       "answer": "43 stickers"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many people are on the bus now?",
+       "answer": "74 people"
+      },
+      {
+       "prompt": "Then 5 people get off. How many are on the bus?",
+       "answer": "69 people"
+      },
+      {
+       "prompt": "How many more people got on than got off?",
+       "answer": "19 people"
+      },
+      {
+       "prompt": "Explain how you know to add or subtract.",
+       "answer": "Sample answer: People getting on adds to the group; people getting off takes away."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 85 cards; (b) 80 cubes; (c) 47 cubes; (d) 43 stickers",
+     "to": "(a) 74 people; (b) 69 people; (c) 19 people; (d) Sample answer: People getting on adds to the group; people getting off takes away."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) This is an add‑to story: 67 + 18 = ? 67 + 18 = 85 cards.",
+      "(b) This is an add‑to story: 48 + 32 = ? 48 + 32 = 80 cubes.",
+      "(c) This is a take‑from story: 63 − 16 = ? 63 − 16 = 47 cubes.",
+      "(d) This is an add‑to story: 28 + 15 = ? 28 + 15 = 43 stickers."
+     ],
+     "to": [
+      "(a) 50 + 24.",
+      "(b) 74 − 5.",
+      "(c) Subtract.",
+      "(d) Add to, take from."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: at_result_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_bus). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "There are 62 fish in the tank. 30 are big fish. The rest are small fish. Which equation can find the number of small fish?",
+     "to": "There are 25 boys and 29 girls in the club. Then 8 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "30 + ? = 62",
+     "to": "62 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "30 + ? = 62, so ? = 32."
+     ],
+     "to": [
+      "25 + 29 = 54.",
+      "54 + 8 = 62."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_eq) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "? − 30 = 62",
+       "correct": false
+      },
+      {
+       "text": "30 + 62 = ?",
+       "correct": false
+      },
+      {
+       "text": "30 + ? = 62",
+       "correct": true
+      },
+      {
+       "text": "62 + ? = 30",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "54 children",
+       "correct": false
+      },
+      {
+       "text": "46 children",
+       "correct": false
+      },
+      {
+       "text": "62 children",
+       "correct": true
+      },
+      {
+       "text": "33 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 34 red flowers, 28 yellow flowers, and 24 white flowers. How many flowers are in the garden?",
+     "to": "There are 20 boys and 27 girls in the club. Then 9 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "86 flowers",
+     "to": "56 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 34 + 28 + 24.",
+      "34 + 28 + 24 = 86 flowers."
+     ],
+     "to": [
+      "20 + 27 = 47.",
+      "47 + 9 = 56."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_three) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "There are 54 big fish and 17 small fish in the tank. How many fish are in the tank?",
+     "to": "There are 17 boys and 40 girls in the club. Then 4 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "71 fish",
+     "to": "61 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put the parts together: 54 + 17.",
+      "54 + 17 = 71 fish."
+     ],
+     "to": [
+      "17 + 40 = 57.",
+      "57 + 4 = 61."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_total) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "37 fish",
+       "correct": false
+      },
+      {
+       "text": "70 fish",
+       "correct": false
+      },
+      {
+       "text": "81 fish",
+       "correct": false
+      },
+      {
+       "text": "71 fish",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "57 children",
+       "correct": false
+      },
+      {
+       "text": "53 children",
+       "correct": false
+      },
+      {
+       "text": "21 children",
+       "correct": false
+      },
+      {
+       "text": "61 children",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "There are 25 cars in the lot. 15 are blue cars. The rest are red cars. Which equation can find the number of red cars?",
+     "to": "There are 30 boys and 25 girls in the club. Then 2 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "15 + ? = 25",
+     "to": "57 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "15 + ? = 25, so ? = 10."
+     ],
+     "to": [
+      "30 + 25 = 55.",
+      "55 + 2 = 57."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_eq) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "15 + 25 = ?",
+       "correct": false
+      },
+      {
+       "text": "25 + ? = 15",
+       "correct": false
+      },
+      {
+       "text": "? − 15 = 25",
+       "correct": false
+      },
+      {
+       "text": "15 + ? = 25",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "55 children",
+       "correct": false
+      },
+      {
+       "text": "57 children",
+       "correct": true
+      },
+      {
+       "text": "53 children",
+       "correct": false
+      },
+      {
+       "text": "32 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 24 red flowers, 16 yellow flowers, and 18 white flowers. How many flowers are in the garden?",
+     "to": "There are 29 boys and 27 girls in the club. Then 5 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "58 flowers",
+     "to": "61 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 24 + 16 + 18.",
+      "24 + 16 + 18 = 58 flowers."
+     ],
+     "to": [
+      "29 + 27 = 56.",
+      "56 + 5 = 61."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_three) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "58 flowers",
+       "correct": true
+      },
+      {
+       "text": "40 flowers",
+       "correct": false
+      },
+      {
+       "text": "57 flowers",
+       "correct": false
+      },
+      {
+       "text": "68 flowers",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "56 children",
+       "correct": false
+      },
+      {
+       "text": "61 children",
+       "correct": true
+      },
+      {
+       "text": "51 children",
+       "correct": false
+      },
+      {
+       "text": "34 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "There are 74 apples in a basket. 57 are red apples. The rest are green apples. Which equation can find the number of green apples?",
+     "to": "There are 17 boys and 38 girls in the club. Then 5 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "57 + ? = 74",
+     "to": "60 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "57 + ? = 74, so ? = 17."
+     ],
+     "to": [
+      "17 + 38 = 55.",
+      "55 + 5 = 60."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_eq) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "57 + ? = 74",
+       "correct": true
+      },
+      {
+       "text": "74 + ? = 57",
+       "correct": false
+      },
+      {
+       "text": "57 + 74 = ?",
+       "correct": false
+      },
+      {
+       "text": "? − 57 = 74",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "55 children",
+       "correct": false
+      },
+      {
+       "text": "60 children",
+       "correct": true
+      },
+      {
+       "text": "50 children",
+       "correct": false
+      },
+      {
+       "text": "22 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 12 red flowers, 29 yellow flowers, and 11 white flowers. How many flowers are in the garden?",
+     "to": "There are 22 boys and 16 girls in the club. Then 5 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "52 flowers",
+     "to": "43 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 12 + 29 + 11.",
+      "12 + 29 + 11 = 52 flowers."
+     ],
+     "to": [
+      "22 + 16 = 38.",
+      "38 + 5 = 43."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_three) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "There are 57 fish in the tank. 20 are big fish. The rest are small fish. Which equation can find the number of small fish?",
+     "to": "There are 17 boys and 30 girls in the club. Then 5 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "20 + ? = 57",
+     "to": "52 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "20 + ? = 57, so ? = 37."
+     ],
+     "to": [
+      "17 + 30 = 47.",
+      "47 + 5 = 52."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_eq) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "20 + ? = 57",
+       "correct": true
+      },
+      {
+       "text": "20 + 57 = ?",
+       "correct": false
+      },
+      {
+       "text": "57 + ? = 20",
+       "correct": false
+      },
+      {
+       "text": "? − 20 = 57",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "52 children",
+       "correct": true
+      },
+      {
+       "text": "47 children",
+       "correct": false
+      },
+      {
+       "text": "42 children",
+       "correct": false
+      },
+      {
+       "text": "22 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 28 red flowers, 15 yellow flowers, and 19 white flowers. How many flowers are in the garden?",
+     "to": "There are 31 boys and 22 girls in the club. Then 2 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "62 flowers",
+     "to": "55 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 28 + 15 + 19.",
+      "28 + 15 + 19 = 62 flowers."
+     ],
+     "to": [
+      "31 + 22 = 53.",
+      "53 + 2 = 55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_three) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "72 flowers",
+       "correct": false
+      },
+      {
+       "text": "61 flowers",
+       "correct": false
+      },
+      {
+       "text": "43 flowers",
+       "correct": false
+      },
+      {
+       "text": "62 flowers",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "55 children",
+       "correct": true
+      },
+      {
+       "text": "53 children",
+       "correct": false
+      },
+      {
+       "text": "51 children",
+       "correct": false
+      },
+      {
+       "text": "33 children",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 18 red flowers, 21 yellow flowers, and 24 white flowers. How many flowers are in the garden?",
+     "to": "There are 38 boys and 25 girls in the club. Then 2 more children join. How many children are in the club now?"
+    },
+    "answer": {
+     "from": "63 flowers",
+     "to": "65 children"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 18 + 21 + 24.",
+      "18 + 21 + 24 = 63 flowers."
+     ],
+     "to": [
+      "38 + 25 = 63.",
+      "63 + 2 = 65."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_groups_then_more). Rewritten from a Support template (was pt_three) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A club has 30 children. Select ALL the pairs (girls + boys) that could be right."
+    },
+    "answer": {
+     "from": [
+      "There are 30 boys and 11 girls in the club. How many children are in the club? → 41 children",
+      "There are 17 blue cars and 35 red cars in the lot. How many cars are in the lot? → 52 cars"
+     ],
+     "to": [
+      "14 + 16",
+      "17 + 13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 15 boys and 33 girls in the club. How many children are in the club? → 58 children",
+       "correct": false
+      },
+      {
+       "text": "There are 30 boys and 11 girls in the club. How many children are in the club? → 41 children",
+       "correct": true
+      },
+      {
+       "text": "There are 59 big fish and 17 small fish in the tank. How many fish are in the tank? → 75 fish",
+       "correct": false
+      },
+      {
+       "text": "There are 17 blue cars and 35 red cars in the lot. How many cars are in the lot? → 52 cars",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11 + 9",
+       "correct": false
+      },
+      {
+       "text": "14 + 16",
+       "correct": true
+      },
+      {
+       "text": "15 + 16",
+       "correct": false
+      },
+      {
+       "text": "19 + 12",
+       "correct": false
+      },
+      {
+       "text": "17 + 13",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 15 boys and 33 girls in the club. How many children are in the club? → 58 children: not correct.",
+      "There are 30 boys and 11 girls in the club. How many children are in the club? → 41 children: correct.",
+      "There are 59 big fish and 17 small fish in the tank. How many fish are in the tank? → 75 fish: not correct.",
+      "There are 17 blue cars and 35 red cars in the lot. How many cars are in the lot? → 52 cars: correct."
+     ],
+     "to": [
+      "The two parts must add to 30.",
+      "Correct choices: 14 + 16; 17 + 13. Not correct: 19 + 12; 15 + 16; 11 + 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts_whole). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A club has 28 girls and 32 boys."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 52 cats and 28 dogs at the shelter. How many pets are at the shelter?",
+       "answer": "80 pets"
+      },
+      {
+       "prompt": "There are 48 cats and 33 dogs at the shelter. How many pets are at the shelter?",
+       "answer": "81 pets"
+      },
+      {
+       "prompt": "There are 38 blue cars and 13 red cars in the lot. How many cars are in the lot?",
+       "answer": "51 cars"
+      },
+      {
+       "prompt": "There are 56 big fish and 26 small fish in the tank. How many fish are in the tank?",
+       "answer": "82 fish"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many children are in the club?",
+       "answer": "60 children"
+      },
+      {
+       "prompt": "Are there more girls or more boys?",
+       "answer": "boys"
+      },
+      {
+       "prompt": "How many more?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain which numbers are the parts and which is the whole.",
+       "answer": "Sample answer: 28 and 32 are the parts; 60 is the whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 80 pets; (b) 81 pets; (c) 51 cars; (d) 82 fish",
+     "to": "(a) 60 children; (b) boys; (c) 4; (d) Sample answer: 28 and 32 are the parts; 60 is the whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the parts together: 52 + 28. 52 + 28 = 80 pets.",
+      "(b) Put the parts together: 48 + 33. 48 + 33 = 81 pets.",
+      "(c) Put the parts together: 38 + 13. 38 + 13 = 51 cars.",
+      "(d) Put the parts together: 56 + 26. 56 + 26 = 82 fish."
+     ],
+     "to": [
+      "(a) 28 + 32.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Put together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_club). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A club has 51 children. Select ALL the pairs (girls + boys) that could be right."
+    },
+    "answer": {
+     "from": [
+      "There are 18 red apples and 20 green apples in a basket. How many apples are in a basket? → 38 apples",
+      "There are 20 cats and 17 dogs at the shelter. How many pets are at the shelter? → 37 pets"
+     ],
+     "to": [
+      "15 + 36",
+      "18 + 33",
+      "19 + 32"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 18 red apples and 20 green apples in a basket. How many apples are in a basket? → 38 apples",
+       "correct": true
+      },
+      {
+       "text": "There are 13 big fish and 19 small fish in the tank. How many fish are in the tank? → 6 fish",
+       "correct": false
+      },
+      {
+       "text": "There are 20 cats and 17 dogs at the shelter. How many pets are at the shelter? → 37 pets",
+       "correct": true
+      },
+      {
+       "text": "There are 10 boys and 5 girls in the club. How many children are in the club? → 5 children",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 + 36",
+       "correct": true
+      },
+      {
+       "text": "41 + 11",
+       "correct": false
+      },
+      {
+       "text": "39 + 13",
+       "correct": false
+      },
+      {
+       "text": "18 + 33",
+       "correct": true
+      },
+      {
+       "text": "19 + 32",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 18 red apples and 20 green apples in a basket. How many apples are in a basket? → 38 apples: correct.",
+      "There are 13 big fish and 19 small fish in the tank. How many fish are in the tank? → 6 fish: not correct.",
+      "There are 20 cats and 17 dogs at the shelter. How many pets are at the shelter? → 37 pets: correct.",
+      "There are 10 boys and 5 girls in the club. How many children are in the club? → 5 children: not correct."
+     ],
+     "to": [
+      "The two parts must add to 51.",
+      "Correct choices: 15 + 36; 18 + 33; 19 + 32. Not correct: 41 + 11; 39 + 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts_whole). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A club has 22 girls and 19 boys."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 23 red apples and 12 green apples in a basket. How many apples are in a basket?",
+       "answer": "35 apples"
+      },
+      {
+       "prompt": "There are 9 cats and 20 dogs at the shelter. How many pets are at the shelter?",
+       "answer": "29 pets"
+      },
+      {
+       "prompt": "There are 9 boys and 6 girls in the club. How many children are in the club?",
+       "answer": "15 children"
+      },
+      {
+       "prompt": "There are 21 big fish and 20 small fish in the tank. How many fish are in the tank?",
+       "answer": "41 fish"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many children are in the club?",
+       "answer": "41 children"
+      },
+      {
+       "prompt": "Are there more girls or more boys?",
+       "answer": "girls"
+      },
+      {
+       "prompt": "How many more?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Explain which numbers are the parts and which is the whole.",
+       "answer": "Sample answer: 22 and 19 are the parts; 41 is the whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 35 apples; (b) 29 pets; (c) 15 children; (d) 41 fish",
+     "to": "(a) 41 children; (b) girls; (c) 3; (d) Sample answer: 22 and 19 are the parts; 41 is the whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the parts together: 23 + 12. 23 + 12 = 35 apples.",
+      "(b) Put the parts together: 9 + 20. 9 + 20 = 29 pets.",
+      "(c) Put the parts together: 9 + 6. 9 + 6 = 15 children.",
+      "(d) Put the parts together: 21 + 20. 21 + 20 = 41 fish."
+     ],
+     "to": [
+      "(a) 22 + 19.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Put together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_club). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "There are 23 boys and 29 girls in the club. How many children are in the club?",
+     "to": "A basket has 57 apples. 31 are red, 5 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "52 children",
+     "to": "21 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put the parts together: 23 + 29.",
+      "23 + 29 = 52 children."
+     ],
+     "to": [
+      "31 + 5 = 36 red and yellow.",
+      "57 − 36 = 21 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "There are 72 pets at the shelter. 39 are cats. The rest are dogs. How many dogs are there?",
+     "to": "A basket has 57 apples. 25 are red, 12 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "33 dogs",
+     "to": "20 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write 39 + ? = 72.",
+      "72 − 39 = 33 dogs."
+     ],
+     "to": [
+      "25 + 12 = 37 red and yellow.",
+      "57 − 37 = 20 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_part). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 22 red flowers, 27 yellow flowers, and 11 white flowers. How many flowers are in the garden?",
+     "to": "A basket has 86 apples. 23 are red, 8 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "60 flowers",
+     "to": "55 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 22 + 27 + 11.",
+      "22 + 27 + 11 = 60 flowers."
+     ],
+     "to": [
+      "23 + 8 = 31 red and yellow.",
+      "86 − 31 = 55 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "There are 88 fish in the tank. 59 are big fish. The rest are small fish. Which equation can find the number of small fish?",
+     "to": "A basket has 83 apples. 19 are red, 12 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "59 + ? = 88",
+     "to": "52 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "59 + ? = 88, so ? = 29."
+     ],
+     "to": [
+      "19 + 12 = 31 red and yellow.",
+      "83 − 31 = 52 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "59 + 88 = ?",
+       "correct": false
+      },
+      {
+       "text": "? − 59 = 88",
+       "correct": false
+      },
+      {
+       "text": "59 + ? = 88",
+       "correct": true
+      },
+      {
+       "text": "88 + ? = 59",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "64 apples",
+       "correct": false
+      },
+      {
+       "text": "31 apples",
+       "correct": false
+      },
+      {
+       "text": "71 apples",
+       "correct": false
+      },
+      {
+       "text": "52 apples",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 29 red flowers, 14 yellow flowers, and 23 white flowers. How many flowers are in the garden?",
+     "to": "A basket has 57 apples. 13 are red, 7 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "66 flowers",
+     "to": "37 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 29 + 14 + 23.",
+      "29 + 14 + 23 = 66 flowers."
+     ],
+     "to": [
+      "13 + 7 = 20 red and yellow.",
+      "57 − 20 = 37 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "76 flowers",
+       "correct": false
+      },
+      {
+       "text": "65 flowers",
+       "correct": false
+      },
+      {
+       "text": "43 flowers",
+       "correct": false
+      },
+      {
+       "text": "66 flowers",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "44 apples",
+       "correct": false
+      },
+      {
+       "text": "20 apples",
+       "correct": false
+      },
+      {
+       "text": "50 apples",
+       "correct": false
+      },
+      {
+       "text": "37 apples",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "There are 53 fish in the tank. 37 are big fish. The rest are small fish. Which equation can find the number of small fish?",
+     "to": "A basket has 90 apples. 19 are red, 8 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "37 + ? = 53",
+     "to": "63 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "37 + ? = 53, so ? = 16."
+     ],
+     "to": [
+      "19 + 8 = 27 red and yellow.",
+      "90 − 27 = 63 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "37 + 53 = ?",
+       "correct": false
+      },
+      {
+       "text": "? − 37 = 53",
+       "correct": false
+      },
+      {
+       "text": "53 + ? = 37",
+       "correct": false
+      },
+      {
+       "text": "37 + ? = 53",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "71 apples",
+       "correct": false
+      },
+      {
+       "text": "27 apples",
+       "correct": false
+      },
+      {
+       "text": "82 apples",
+       "correct": false
+      },
+      {
+       "text": "63 apples",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "There are 64 fish in the tank. 39 are big fish. The rest are small fish. How many small fish are there?",
+     "to": "A basket has 45 apples. 30 are red, 11 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "25 small fish",
+     "to": "4 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write 39 + ? = 64.",
+      "64 − 39 = 25 small fish."
+     ],
+     "to": [
+      "30 + 11 = 41 red and yellow.",
+      "45 − 41 = 4 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_part). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "35 small fish",
+       "correct": false
+      },
+      {
+       "text": "24 small fish",
+       "correct": false
+      },
+      {
+       "text": "103 small fish",
+       "correct": false
+      },
+      {
+       "text": "25 small fish",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "15 apples",
+       "correct": false
+      },
+      {
+       "text": "41 apples",
+       "correct": false
+      },
+      {
+       "text": "34 apples",
+       "correct": false
+      },
+      {
+       "text": "4 apples",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "There are 36 boys and 19 girls in the club. How many children are in the club?",
+     "to": "A basket has 40 apples. 24 are red, 9 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "55 children",
+     "to": "7 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put the parts together: 36 + 19.",
+      "36 + 19 = 55 children."
+     ],
+     "to": [
+      "24 + 9 = 33 red and yellow.",
+      "40 − 33 = 7 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "54 children",
+       "correct": false
+      },
+      {
+       "text": "17 children",
+       "correct": false
+      },
+      {
+       "text": "55 children",
+       "correct": true
+      },
+      {
+       "text": "65 children",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "16 apples",
+       "correct": false
+      },
+      {
+       "text": "33 apples",
+       "correct": false
+      },
+      {
+       "text": "31 apples",
+       "correct": false
+      },
+      {
+       "text": "7 apples",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 22 red flowers, 34 yellow flowers, and 17 white flowers. How many flowers are in the garden?",
+     "to": "A basket has 99 apples. 13 are red, 15 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "73 flowers",
+     "to": "71 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 22 + 34 + 17.",
+      "22 + 34 + 17 = 73 flowers."
+     ],
+     "to": [
+      "13 + 15 = 28 red and yellow.",
+      "99 − 28 = 71 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "There are 82 cars in the lot. 67 are blue cars. The rest are red cars. Which equation can find the number of red cars?",
+     "to": "A basket has 73 apples. 27 are red, 11 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "67 + ? = 82",
+     "to": "35 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "67 + ? = 82, so ? = 15."
+     ],
+     "to": [
+      "27 + 11 = 38 red and yellow.",
+      "73 − 38 = 35 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "67 + 82 = ?",
+       "correct": false
+      },
+      {
+       "text": "67 + ? = 82",
+       "correct": true
+      },
+      {
+       "text": "82 + ? = 67",
+       "correct": false
+      },
+      {
+       "text": "? − 67 = 82",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "46 apples",
+       "correct": false
+      },
+      {
+       "text": "38 apples",
+       "correct": false
+      },
+      {
+       "text": "35 apples",
+       "correct": true
+      },
+      {
+       "text": "62 apples",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "A garden has 35 red flowers, 32 yellow flowers, and 12 white flowers. How many flowers are in the garden?",
+     "to": "A basket has 96 apples. 26 are red, 9 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "79 flowers",
+     "to": "61 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add all three parts: 35 + 32 + 12.",
+      "35 + 32 + 12 = 79 flowers."
+     ],
+     "to": [
+      "26 + 9 = 35 red and yellow.",
+      "96 − 35 = 61 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "89 flowers",
+       "correct": false
+      },
+      {
+       "text": "78 flowers",
+       "correct": false
+      },
+      {
+       "text": "79 flowers",
+       "correct": true
+      },
+      {
+       "text": "67 flowers",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "70 apples",
+       "correct": false
+      },
+      {
+       "text": "35 apples",
+       "correct": false
+      },
+      {
+       "text": "61 apples",
+       "correct": true
+      },
+      {
+       "text": "87 apples",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "There are 86 fish in the tank. 59 are big fish. The rest are small fish. Which equation can find the number of small fish?",
+     "to": "A basket has 81 apples. 33 are red, 11 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "59 + ? = 86",
+     "to": "37 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "The parts add to the whole.",
+      "59 + ? = 86, so ? = 27."
+     ],
+     "to": [
+      "33 + 11 = 44 red and yellow.",
+      "81 − 44 = 37 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "59 + ? = 86",
+       "correct": true
+      },
+      {
+       "text": "59 + 86 = ?",
+       "correct": false
+      },
+      {
+       "text": "86 + ? = 59",
+       "correct": false
+      },
+      {
+       "text": "? − 59 = 86",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "48 apples",
+       "correct": false
+      },
+      {
+       "text": "44 apples",
+       "correct": false
+      },
+      {
+       "text": "37 apples",
+       "correct": true
+      },
+      {
+       "text": "70 apples",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "There are 18 cats and 39 dogs at the shelter. How many pets are at the shelter?",
+     "to": "A basket has 87 apples. 25 are red, 11 are yellow, and the rest are green. How many apples are green?"
+    },
+    "answer": {
+     "from": "57 pets",
+     "to": "51 apples"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put the parts together: 18 + 39.",
+      "18 + 39 = 57 pets."
+     ],
+     "to": [
+      "25 + 11 = 36 red and yellow.",
+      "87 − 36 = 51 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_part_unknown_two_step). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A club has 52 children. Select ALL the pairs (girls + boys) that could be right."
+    },
+    "answer": {
+     "from": [
+      "There are 45 boys and 36 girls in the club. How many children are in the club? → 81 children",
+      "There are 37 red apples and 27 green apples in a basket. How many apples are in a basket? → 64 apples"
+     ],
+     "to": [
+      "28 + 24",
+      "34 + 18",
+      "10 + 42",
+      "32 + 20"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 45 boys and 36 girls in the club. How many children are in the club? → 81 children",
+       "correct": true
+      },
+      {
+       "text": "There are 37 red apples and 27 green apples in a basket. How many apples are in a basket? → 64 apples",
+       "correct": true
+      },
+      {
+       "text": "There are 54 red apples and 16 green apples in a basket. How many apples are in a basket? → 38 apples",
+       "correct": false
+      },
+      {
+       "text": "There are 29 red apples and 28 green apples in a basket. How many apples are in a basket? → 1 apple",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "28 + 24",
+       "correct": true
+      },
+      {
+       "text": "30 + 21",
+       "correct": false
+      },
+      {
+       "text": "34 + 18",
+       "correct": true
+      },
+      {
+       "text": "10 + 42",
+       "correct": true
+      },
+      {
+       "text": "32 + 20",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 45 boys and 36 girls in the club. How many children are in the club? → 81 children: correct.",
+      "There are 37 red apples and 27 green apples in a basket. How many apples are in a basket? → 64 apples: correct.",
+      "There are 54 red apples and 16 green apples in a basket. How many apples are in a basket? → 38 apples: not correct.",
+      "There are 29 red apples and 28 green apples in a basket. How many apples are in a basket? → 1 apple: not correct."
+     ],
+     "to": [
+      "The two parts must add to 52.",
+      "Correct choices: 28 + 24; 34 + 18; 10 + 42; 32 + 20. Not correct: 30 + 21."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts_whole). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A club has 45 girls and 24 boys."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 48 cats and 23 dogs at the shelter. How many pets are at the shelter?",
+       "answer": "71 pets"
+      },
+      {
+       "prompt": "There are 47 red apples and 15 green apples in a basket. How many apples are in a basket?",
+       "answer": "62 apples"
+      },
+      {
+       "prompt": "There are 58 blue cars and 32 red cars in the lot. How many cars are in the lot?",
+       "answer": "90 cars"
+      },
+      {
+       "prompt": "There are 56 cats and 19 dogs at the shelter. How many pets are at the shelter?",
+       "answer": "75 pets"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many children are in the club?",
+       "answer": "69 children"
+      },
+      {
+       "prompt": "Are there more girls or more boys?",
+       "answer": "girls"
+      },
+      {
+       "prompt": "How many more?",
+       "answer": "21"
+      },
+      {
+       "prompt": "Explain which numbers are the parts and which is the whole.",
+       "answer": "Sample answer: 45 and 24 are the parts; 69 is the whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 71 pets; (b) 62 apples; (c) 90 cars; (d) 75 pets",
+     "to": "(a) 69 children; (b) girls; (c) 21; (d) Sample answer: 45 and 24 are the parts; 69 is the whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the parts together: 48 + 23. 48 + 23 = 71 pets.",
+      "(b) Put the parts together: 47 + 15. 47 + 15 = 62 apples.",
+      "(c) Put the parts together: 58 + 32. 58 + 32 = 90 cars.",
+      "(d) Put the parts together: 56 + 19. 56 + 19 = 75 pets."
+     ],
+     "to": [
+      "(a) 45 + 24.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Put together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_club). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Lena has 8 more cards than Eli. Select ALL the pairs that could be right."
+    },
+    "answer": {
+     "from": [
+      "Nia has 66 shells. Zoe has 34 shells. How many more shells does Nia have than Zoe? → 32 shells",
+      "Luis has 56 books. Ben has 39 books. How many more books does Luis have than Ben? → 17 books"
+     ],
+     "to": [
+      "Eli 31, Lena 39",
+      "Eli 38, Lena 46"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Nia has 66 shells. Zoe has 34 shells. How many more shells does Nia have than Zoe? → 32 shells",
+       "correct": true
+      },
+      {
+       "text": "Luis has 56 books. Ben has 39 books. How many more books does Luis have than Ben? → 17 books",
+       "correct": true
+      },
+      {
+       "text": "Mei has 86 shells. Rosa has 51 shells. How many more shells does Mei have than Rosa? → 34 shells",
+       "correct": false
+      },
+      {
+       "text": "Eli has 53 coins. Dev has 31 coins. How many more coins does Eli have than Dev? → 32 coins",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Eli 54, Lena 61",
+       "correct": false
+      },
+      {
+       "text": "Eli 47, Lena 54",
+       "correct": false
+      },
+      {
+       "text": "Eli 31, Lena 39",
+       "correct": true
+      },
+      {
+       "text": "Eli 38, Lena 46",
+       "correct": true
+      },
+      {
+       "text": "Eli 26, Lena 35",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Nia has 66 shells. Zoe has 34 shells. How many more shells does Nia have than Zoe? → 32 shells: correct.",
+      "Luis has 56 books. Ben has 39 books. How many more books does Luis have than Ben? → 17 books: correct.",
+      "Mei has 86 shells. Rosa has 51 shells. How many more shells does Mei have than Rosa? → 34 shells: not correct.",
+      "Eli has 53 coins. Dev has 31 coins. How many more coins does Eli have than Dev? → 32 coins: not correct."
+     ],
+     "to": [
+      "Lena’s number minus Eli’s number must be 8.",
+      "Correct choices: Eli 31, Lena 39; Eli 38, Lena 46. Not correct: Eli 54, Lena 61; Eli 47, Lena 54; Eli 26, Lena 35."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Eli has 36 cards. Lena has 12 more cards than Eli."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Rosa has 74 books. Sam has 57 books. How many more books does Rosa have than Sam?",
+       "answer": "17 books"
+      },
+      {
+       "prompt": "Ted has 38 shells. Luis has 21 shells. How many fewer shells does Luis have than Ted?",
+       "answer": "17 shells"
+      },
+      {
+       "prompt": "Sam has 80 books. Finn has 44 books. How many more books does Sam have than Finn?",
+       "answer": "36 books"
+      },
+      {
+       "prompt": "Ivy has 84 shells. Max has 59 shells. How many more shells does Ivy have than Max?",
+       "answer": "25 shells"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cards does Lena have?",
+       "answer": "48 cards"
+      },
+      {
+       "prompt": "How many cards do they have in all?",
+       "answer": "84 cards"
+      },
+      {
+       "prompt": "How many fewer cards does Eli have than Lena?",
+       "answer": "12 cards"
+      },
+      {
+       "prompt": "Explain what \"more than\" tells you.",
+       "answer": "Sample answer: It tells the difference between the two amounts."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 17 books; (b) 17 shells; (c) 36 books; (d) 25 shells",
+     "to": "(a) 48 cards; (b) 84 cards; (c) 12 cards; (d) Sample answer: It tells the difference between the two amounts."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the difference: 74 − 57. 74 − 57 = 17 books.",
+      "(b) Find the difference: 38 − 21. 38 − 21 = 17 shells.",
+      "(c) Find the difference: 80 − 44. 80 − 44 = 36 books.",
+      "(d) Find the difference: 84 − 59. 84 − 59 = 25 shells."
+     ],
+     "to": [
+      "(a) 36 + 12.",
+      "(b) 36 + 48.",
+      "(c) The difference.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Lena has 20 more cards than Eli. Select ALL the pairs that could be right."
+    },
+    "answer": {
+     "from": [
+      "Ben has 28 books. Gus has 13 books. How many more books does Ben have than Gus? → 15 books",
+      "Kai has 22 coins. Jada has 9 coins. How many more coins does Kai have than Jada? → 13 coins"
+     ],
+     "to": [
+      "Eli 45, Lena 65",
+      "Eli 52, Lena 72",
+      "Eli 17, Lena 37"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Leo has 24 shells. Mei has 18 shells. How many more shells does Leo have than Mei? → 5 shells",
+       "correct": false
+      },
+      {
+       "text": "Ben has 28 books. Gus has 13 books. How many more books does Ben have than Gus? → 15 books",
+       "correct": true
+      },
+      {
+       "text": "Kai has 22 coins. Jada has 9 coins. How many more coins does Kai have than Jada? → 13 coins",
+       "correct": true
+      },
+      {
+       "text": "Hana has 26 books. Uma has 6 books. How many more books does Hana have than Uma? → 32 books",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Eli 45, Lena 65",
+       "correct": true
+      },
+      {
+       "text": "Eli 12, Lena 31",
+       "correct": false
+      },
+      {
+       "text": "Eli 19, Lena 40",
+       "correct": false
+      },
+      {
+       "text": "Eli 52, Lena 72",
+       "correct": true
+      },
+      {
+       "text": "Eli 17, Lena 37",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Leo has 24 shells. Mei has 18 shells. How many more shells does Leo have than Mei? → 5 shells: not correct.",
+      "Ben has 28 books. Gus has 13 books. How many more books does Ben have than Gus? → 15 books: correct.",
+      "Kai has 22 coins. Jada has 9 coins. How many more coins does Kai have than Jada? → 13 coins: correct.",
+      "Hana has 26 books. Uma has 6 books. How many more books does Hana have than Uma? → 32 books: not correct."
+     ],
+     "to": [
+      "Lena’s number minus Eli’s number must be 20.",
+      "Correct choices: Eli 45, Lena 65; Eli 52, Lena 72; Eli 17, Lena 37. Not correct: Eli 12, Lena 31; Eli 19, Lena 40."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Eli has 24 cards. Lena has 23 more cards than Eli."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Lena has 22 books. Cam has 13 books. How many more books does Lena have than Cam?",
+       "answer": "9 books"
+      },
+      {
+       "prompt": "Ian has 18 shells. Uma has 11 shells. How many more shells does Ian have than Uma?",
+       "answer": "7 shells"
+      },
+      {
+       "prompt": "Nia has 25 coins. Omar has 16 coins. How many more coins does Nia have than Omar?",
+       "answer": "9 coins"
+      },
+      {
+       "prompt": "Amir has 25 stamps. Cam has 12 stamps. How many more stamps does Amir have than Cam?",
+       "answer": "13 stamps"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cards does Lena have?",
+       "answer": "47 cards"
+      },
+      {
+       "prompt": "How many cards do they have in all?",
+       "answer": "71 cards"
+      },
+      {
+       "prompt": "How many fewer cards does Eli have than Lena?",
+       "answer": "23 cards"
+      },
+      {
+       "prompt": "Explain what \"more than\" tells you.",
+       "answer": "Sample answer: It tells the difference between the two amounts."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 books; (b) 7 shells; (c) 9 coins; (d) 13 stamps",
+     "to": "(a) 47 cards; (b) 71 cards; (c) 23 cards; (d) Sample answer: It tells the difference between the two amounts."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the difference: 22 − 13. 22 − 13 = 9 books.",
+      "(b) Find the difference: 18 − 11. 18 − 11 = 7 shells.",
+      "(c) Find the difference: 25 − 16. 25 − 16 = 9 coins.",
+      "(d) Find the difference: 25 − 12. 25 − 12 = 13 stamps."
+     ],
+     "to": [
+      "(a) 24 + 23.",
+      "(b) 24 + 47.",
+      "(c) The difference.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Lena has 7 more cards than Eli. Select ALL the pairs that could be right."
+    },
+    "answer": {
+     "from": [
+      "Eli has 81 stamps. Cam has 59 stamps. How many more stamps does Eli have than Cam? → 22 stamps",
+      "Gus has 92 stamps. Lena has 67 stamps. How many fewer stamps does Lena have than Gus? → 25 stamps"
+     ],
+     "to": [
+      "Eli 24, Lena 31",
+      "Eli 45, Lena 52",
+      "Eli 52, Lena 59",
+      "Eli 10, Lena 17"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ted has 84 books. Ana has 59 books. How many fewer books does Ana have than Ted? → 35 books",
+       "correct": false
+      },
+      {
+       "text": "Eli has 81 stamps. Cam has 59 stamps. How many more stamps does Eli have than Cam? → 22 stamps",
+       "correct": true
+      },
+      {
+       "text": "Gus has 92 stamps. Lena has 67 stamps. How many fewer stamps does Lena have than Gus? → 25 stamps",
+       "correct": true
+      },
+      {
+       "text": "Pia has 50 shells. Eli has 29 shells. How many fewer shells does Eli have than Pia? → 79 shells",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Eli 24, Lena 31",
+       "correct": true
+      },
+      {
+       "text": "Eli 45, Lena 52",
+       "correct": true
+      },
+      {
+       "text": "Eli 52, Lena 59",
+       "correct": true
+      },
+      {
+       "text": "Eli 40, Lena 48",
+       "correct": false
+      },
+      {
+       "text": "Eli 10, Lena 17",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ted has 84 books. Ana has 59 books. How many fewer books does Ana have than Ted? → 35 books: not correct.",
+      "Eli has 81 stamps. Cam has 59 stamps. How many more stamps does Eli have than Cam? → 22 stamps: correct.",
+      "Gus has 92 stamps. Lena has 67 stamps. How many fewer stamps does Lena have than Gus? → 25 stamps: correct.",
+      "Pia has 50 shells. Eli has 29 shells. How many fewer shells does Eli have than Pia? → 79 shells: not correct."
+     ],
+     "to": [
+      "Lena’s number minus Eli’s number must be 7.",
+      "Correct choices: Eli 24, Lena 31; Eli 45, Lena 52; Eli 52, Lena 59; Eli 10, Lena 17. Not correct: Eli 40, Lena 48."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Eli has 53 cards. Lena has 17 more cards than Eli."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Omar has 51 stamps. Jada has 29 stamps. How many fewer stamps does Jada have than Omar?",
+       "answer": "22 stamps"
+      },
+      {
+       "prompt": "Ted has 85 stamps. Jada has 66 stamps. How many more stamps does Ted have than Jada?",
+       "answer": "19 stamps"
+      },
+      {
+       "prompt": "Uma has 82 shells. Sam has 54 shells. How many fewer shells does Sam have than Uma?",
+       "answer": "28 shells"
+      },
+      {
+       "prompt": "Omar has 44 stamps. Ivy has 29 stamps. How many more stamps does Omar have than Ivy?",
+       "answer": "15 stamps"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cards does Lena have?",
+       "answer": "70 cards"
+      },
+      {
+       "prompt": "How many cards do they have in all?",
+       "answer": "123 cards"
+      },
+      {
+       "prompt": "How many fewer cards does Eli have than Lena?",
+       "answer": "17 cards"
+      },
+      {
+       "prompt": "Explain what \"more than\" tells you.",
+       "answer": "Sample answer: It tells the difference between the two amounts."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 22 stamps; (b) 19 stamps; (c) 28 shells; (d) 15 stamps",
+     "to": "(a) 70 cards; (b) 123 cards; (c) 17 cards; (d) Sample answer: It tells the difference between the two amounts."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the difference: 51 − 29. 51 − 29 = 22 stamps.",
+      "(b) Find the difference: 85 − 66. 85 − 66 = 19 stamps.",
+      "(c) Find the difference: 82 − 54. 82 − 54 = 28 shells.",
+      "(d) Find the difference: 44 − 29. 44 − 29 = 15 stamps."
+     ],
+     "to": [
+      "(a) 53 + 17.",
+      "(b) 53 + 70.",
+      "(c) The difference.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cm_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma had 30 stickers. She got 13 more and then gave away 11."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bus had 35 people. At the first stop, 19 people got on. At the next stop, 6 people got off. How many people are on the bus now?",
+       "answer": "48 people"
+      },
+      {
+       "prompt": "A bus had 37 people. At the first stop, 12 people got on. At the next stop, 10 people got off. How many people are on the bus now?",
+       "answer": "39 people"
+      },
+      {
+       "prompt": "A bus had 23 people. At the first stop, 27 people got on. At the next stop, 22 people got off. How many people are on the bus now?",
+       "answer": "28 people"
+      },
+      {
+       "prompt": "A bus had 37 people. At the first stop, 26 people got on. At the next stop, 29 people got off. How many people are on the bus now?",
+       "answer": "34 people"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many stickers did Uma have after she got more?",
+       "answer": "43 stickers"
+      },
+      {
+       "prompt": "How many does she have now?",
+       "answer": "32 stickers"
+      },
+      {
+       "prompt": "Write one equation with a letter for the stickers now.",
+       "answer": "Sample answer: 30 + 13 − 11 = s"
+      },
+      {
+       "prompt": "Explain how you checked your answer.",
+       "answer": "Sample answer: I added 11 back to 32 to get 43."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 48 people; (b) 39 people; (c) 28 people; (d) 34 people",
+     "to": "(a) 43 stickers; (b) 32 stickers; (c) Sample answer: 30 + 13 − 11 = s; (d) Sample answer: I added 11 back to 32 to get 43."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) First: 35 + 19 = 54. Then: 54 − 6 = 48 people.",
+      "(b) First: 37 + 12 = 49. Then: 49 − 10 = 39 people.",
+      "(c) First: 23 + 27 = 50. Then: 50 − 22 = 28 people.",
+      "(d) First: 37 + 26 = 63. Then: 63 − 29 = 34 people."
+     ],
+     "to": [
+      "(a) 30 + 13.",
+      "(b) 43 − 11.",
+      "(c) Two steps.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_two_step). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma had 20 stickers. She got 26 more and then gave away 9."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bus had 21 people. At the first stop, 15 people got on. At the next stop, 20 people got off. How many people are on the bus now?",
+       "answer": "16 people"
+      },
+      {
+       "prompt": "A bus had 24 people. At the first stop, 25 people got on. At the next stop, 19 people got off. How many people are on the bus now?",
+       "answer": "30 people"
+      },
+      {
+       "prompt": "A bus had 36 people. At the first stop, 14 people got on. At the next stop, 10 people got off. How many people are on the bus now?",
+       "answer": "40 people"
+      },
+      {
+       "prompt": "A bus had 27 people. At the first stop, 14 people got on. At the next stop, 26 people got off. How many people are on the bus now?",
+       "answer": "15 people"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many stickers did Uma have after she got more?",
+       "answer": "46 stickers"
+      },
+      {
+       "prompt": "How many does she have now?",
+       "answer": "37 stickers"
+      },
+      {
+       "prompt": "Write one equation with a letter for the stickers now.",
+       "answer": "Sample answer: 20 + 26 − 9 = s"
+      },
+      {
+       "prompt": "Explain how you checked your answer.",
+       "answer": "Sample answer: I added 9 back to 37 to get 46."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16 people; (b) 30 people; (c) 40 people; (d) 15 people",
+     "to": "(a) 46 stickers; (b) 37 stickers; (c) Sample answer: 20 + 26 − 9 = s; (d) Sample answer: I added 9 back to 37 to get 46."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) First: 21 + 15 = 36. Then: 36 − 20 = 16 people.",
+      "(b) First: 24 + 25 = 49. Then: 49 − 19 = 30 people.",
+      "(c) First: 36 + 14 = 50. Then: 50 − 10 = 40 people.",
+      "(d) First: 27 + 14 = 41. Then: 41 − 26 = 15 people."
+     ],
+     "to": [
+      "(a) 20 + 26.",
+      "(b) 46 − 9.",
+      "(c) Two steps.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_two_step). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 42 people. At the first stop, 25 people got on. At the next stop, 5 people got off. How many people are on the bus now?",
+     "to": "Hugo had some stickers. Hugo got 18 more and then gave away 5. Now Hugo has 51 stickers. How many stickers did Hugo have at first?"
+    },
+    "answer": {
+     "from": "62 people",
+     "to": "38 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 42 + 25 = 67.",
+      "Then: 67 − 5 = 62 people."
+     ],
+     "to": [
+      "Work backward: 51 + 5 = 56.",
+      "56 − 18 = 38."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "A shelf had 23 books. 26 books were added. Then 43 books were taken. Which equation shows how many books are on the shelf now?",
+     "to": "Max had some stickers. Max got 29 more and then gave away 6. Now Max has 52 stickers. How many stickers did Max have at first?"
+    },
+    "answer": {
+     "from": "23 + 26 − 43 = ?",
+     "to": "29 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Books added: plus. Books taken: minus.",
+      "23 + 26 − 43 = 6."
+     ],
+     "to": [
+      "Work backward: 52 + 6 = 58.",
+      "58 − 29 = 29."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "23 − 26 + 43 = ?",
+       "correct": false
+      },
+      {
+       "text": "23 + 26 − 43 = ?",
+       "correct": true
+      },
+      {
+       "text": "23 + 43 − 26 = ?",
+       "correct": false
+      },
+      {
+       "text": "23 + 26 + 43 = ?",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "29 stickers",
+       "correct": true
+      },
+      {
+       "text": "52 stickers",
+       "correct": false
+      },
+      {
+       "text": "75 stickers",
+       "correct": false
+      },
+      {
+       "text": "58 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 19 people. At the first stop, 27 people got on. At the next stop, 31 people got off. How many people are on the bus now?",
+     "to": "Ben had some stickers. Ben got 30 more and then gave away 19. Now Ben has 35 stickers. How many stickers did Ben have at first?"
+    },
+    "answer": {
+     "from": "15 people",
+     "to": "24 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 19 + 27 = 46.",
+      "Then: 46 − 31 = 15 people."
+     ],
+     "to": [
+      "Work backward: 35 + 19 = 54.",
+      "54 − 30 = 24."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "23 people",
+       "correct": false
+      },
+      {
+       "text": "15 people",
+       "correct": true
+      },
+      {
+       "text": "77 people",
+       "correct": false
+      },
+      {
+       "text": "46 people",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "24 stickers",
+       "correct": true
+      },
+      {
+       "text": "35 stickers",
+       "correct": false
+      },
+      {
+       "text": "46 stickers",
+       "correct": false
+      },
+      {
+       "text": "54 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "A shelf had 20 books. 27 books were added. Then 17 books were taken. Which equation shows how many books are on the shelf now?",
+     "to": "Lena had some stickers. Lena got 17 more and then gave away 20. Now Lena has 39 stickers. How many stickers did Lena have at first?"
+    },
+    "answer": {
+     "from": "20 + 27 − 17 = ?",
+     "to": "42 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Books added: plus. Books taken: minus.",
+      "20 + 27 − 17 = 30."
+     ],
+     "to": [
+      "Work backward: 39 + 20 = 59.",
+      "59 − 17 = 42."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "20 + 17 − 27 = ?",
+       "correct": false
+      },
+      {
+       "text": "20 + 27 − 17 = ?",
+       "correct": true
+      },
+      {
+       "text": "20 − 27 + 17 = ?",
+       "correct": false
+      },
+      {
+       "text": "20 + 27 + 17 = ?",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "39 stickers",
+       "correct": false
+      },
+      {
+       "text": "42 stickers",
+       "correct": true
+      },
+      {
+       "text": "36 stickers",
+       "correct": false
+      },
+      {
+       "text": "59 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 21 people. At the first stop, 12 people got on. At the next stop, 27 people got off. How many people are on the bus now?",
+     "to": "Uma had some stickers. Uma got 28 more and then gave away 17. Now Uma has 48 stickers. How many stickers did Uma have at first?"
+    },
+    "answer": {
+     "from": "6 people",
+     "to": "37 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 21 + 12 = 33.",
+      "Then: 33 − 27 = 6 people."
+     ],
+     "to": [
+      "Work backward: 48 + 17 = 65.",
+      "65 − 28 = 37."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "A shelf had 42 books. 10 books were added. Then 24 books were taken. Which equation shows how many books are on the shelf now?",
+     "to": "Nia had some stickers. Nia got 12 more and then gave away 21. Now Nia has 32 stickers. How many stickers did Nia have at first?"
+    },
+    "answer": {
+     "from": "42 + 10 − 24 = ?",
+     "to": "41 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Books added: plus. Books taken: minus.",
+      "42 + 10 − 24 = 28."
+     ],
+     "to": [
+      "Work backward: 32 + 21 = 53.",
+      "53 − 12 = 41."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "42 + 24 − 10 = ?",
+       "correct": false
+      },
+      {
+       "text": "42 − 10 − 24 = ?",
+       "correct": false
+      },
+      {
+       "text": "42 + 10 − 24 = ?",
+       "correct": true
+      },
+      {
+       "text": "42 + 10 + 24 = ?",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32 stickers",
+       "correct": false
+      },
+      {
+       "text": "23 stickers",
+       "correct": false
+      },
+      {
+       "text": "41 stickers",
+       "correct": true
+      },
+      {
+       "text": "53 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 33 people. At the first stop, 17 people got on. At the next stop, 41 people got off. How many people are on the bus now?",
+     "to": "Nia had some stickers. Nia got 30 more and then gave away 12. Now Nia has 53 stickers. How many stickers did Nia have at first?"
+    },
+    "answer": {
+     "from": "9 people",
+     "to": "35 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 33 + 17 = 50.",
+      "Then: 50 − 41 = 9 people."
+     ],
+     "to": [
+      "Work backward: 53 + 12 = 65.",
+      "65 − 30 = 35."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "50 people",
+       "correct": false
+      },
+      {
+       "text": "9 people",
+       "correct": true
+      },
+      {
+       "text": "91 people",
+       "correct": false
+      },
+      {
+       "text": "57 people",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "53 stickers",
+       "correct": false
+      },
+      {
+       "text": "71 stickers",
+       "correct": false
+      },
+      {
+       "text": "35 stickers",
+       "correct": true
+      },
+      {
+       "text": "65 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 42 people. At the first stop, 17 people got on. At the next stop, 47 people got off. How many people are on the bus now?",
+     "to": "Eli had some stickers. Eli got 20 more and then gave away 20. Now Eli has 23 stickers. How many stickers did Eli have at first?"
+    },
+    "answer": {
+     "from": "12 people",
+     "to": "23 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 42 + 17 = 59.",
+      "Then: 59 − 47 = 12 people."
+     ],
+     "to": [
+      "Work backward: 23 + 20 = 43.",
+      "43 − 20 = 23."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "A bus had 33 people. At the first stop, 24 people got on. At the next stop, 44 people got off. How many people are on the bus now? Is the answer 13 people?",
+     "to": "Nia had some stickers. Nia got 20 more and then gave away 16. Now Nia has 53 stickers. How many stickers did Nia have at first?"
+    },
+    "answer": {
+     "from": "Yes. Then: 57 − 44 = 13 people.",
+     "to": "49 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "First: 33 + 24 = 57.",
+      "Then: 57 − 44 = 13 people.",
+      "The answer 13 people is correct."
+     ],
+     "to": [
+      "Work backward: 53 + 16 = 69.",
+      "69 − 20 = 49."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 53 people.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 101 people.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 57 people.",
+       "correct": false
+      },
+      {
+       "text": "Yes. Then: 57 − 44 = 13 people.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "53 stickers",
+       "correct": false
+      },
+      {
+       "text": "49 stickers",
+       "correct": true
+      },
+      {
+       "text": "57 stickers",
+       "correct": false
+      },
+      {
+       "text": "69 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "A shelf had 31 books. 13 books were added. Then 19 books were taken. Which equation shows how many books are on the shelf now?",
+     "to": "Ava had some stickers. Ava got 20 more and then gave away 24. Now Ava has 26 stickers. How many stickers did Ava have at first?"
+    },
+    "answer": {
+     "from": "31 + 13 − 19 = ?",
+     "to": "30 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Books added: plus. Books taken: minus.",
+      "31 + 13 − 19 = 25."
+     ],
+     "to": [
+      "Work backward: 26 + 24 = 50.",
+      "50 − 20 = 30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_eq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_start_unknown). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "31 − 13 + 19 = ?",
+       "correct": false
+      },
+      {
+       "text": "31 + 13 + 19 = ?",
+       "correct": false
+      },
+      {
+       "text": "31 + 19 − 13 = ?",
+       "correct": false
+      },
+      {
+       "text": "31 + 13 − 19 = ?",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "30 stickers",
+       "correct": true
+      },
+      {
+       "text": "26 stickers",
+       "correct": false
+      },
+      {
+       "text": "22 stickers",
+       "correct": false
+      },
+      {
+       "text": "50 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-wp-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma had 46 stickers. She got 29 more and then gave away 5."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bus had 38 people. At the first stop, 19 people got on. At the next stop, 15 people got off. How many people are on the bus now?",
+       "answer": "42 people"
+      },
+      {
+       "prompt": "A bus had 18 people. At the first stop, 14 people got on. At the next stop, 12 people got off. How many people are on the bus now?",
+       "answer": "20 people"
+      },
+      {
+       "prompt": "A bus had 39 people. At the first stop, 14 people got on. At the next stop, 31 people got off. How many people are on the bus now?",
+       "answer": "22 people"
+      },
+      {
+       "prompt": "A bus had 33 people. At the first stop, 15 people got on. At the next stop, 24 people got off. How many people are on the bus now?",
+       "answer": "24 people"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many stickers did Uma have after she got more?",
+       "answer": "75 stickers"
+      },
+      {
+       "prompt": "How many does she have now?",
+       "answer": "70 stickers"
+      },
+      {
+       "prompt": "Write one equation with a letter for the stickers now.",
+       "answer": "Sample answer: 46 + 29 − 5 = s"
+      },
+      {
+       "prompt": "Explain how you checked your answer.",
+       "answer": "Sample answer: I added 5 back to 70 to get 75."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 42 people; (b) 20 people; (c) 22 people; (d) 24 people",
+     "to": "(a) 75 stickers; (b) 70 stickers; (c) Sample answer: 46 + 29 − 5 = s; (d) Sample answer: I added 5 back to 70 to get 75."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) First: 38 + 19 = 57. Then: 57 − 15 = 42 people.",
+      "(b) First: 18 + 14 = 32. Then: 32 − 12 = 20 people.",
+      "(c) First: 39 + 14 = 53. Then: 53 − 31 = 22 people.",
+      "(d) First: 33 + 15 = 48. Then: 48 − 24 = 24 people."
+     ],
+     "to": [
+      "(a) 46 + 29.",
+      "(b) 75 − 5.",
+      "(c) Two steps.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ts_add_sub_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_two_step). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m2-wp-s02-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "57 − 36 = 21 green.",
+   "distractors": {
+    "26 apples": "a common mistake",
+    "36 apples": "a common mistake",
+    "52 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "57 − 37 = 20 green.",
+   "distractors": {
+    "32 apples": "a common mistake",
+    "37 apples": "a common mistake",
+    "45 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "86 − 31 = 55 green.",
+   "distractors": {
+    "63 apples": "a common mistake",
+    "31 apples": "a common mistake",
+    "78 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "83 − 31 = 52 green.",
+   "distractors": {
+    "64 apples": "a common mistake",
+    "31 apples": "a common mistake",
+    "71 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "57 − 20 = 37 green.",
+   "distractors": {
+    "44 apples": "a common mistake",
+    "20 apples": "a common mistake",
+    "50 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "90 − 27 = 63 green.",
+   "distractors": {
+    "71 apples": "a common mistake",
+    "27 apples": "a common mistake",
+    "82 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "45 − 41 = 4 green.",
+   "distractors": {
+    "15 apples": "a common mistake",
+    "41 apples": "a common mistake",
+    "34 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 − 33 = 7 green.",
+   "distractors": {
+    "16 apples": "a common mistake",
+    "33 apples": "a common mistake",
+    "31 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "99 − 28 = 71 green.",
+   "distractors": {
+    "86 apples": "a common mistake",
+    "28 apples": "a common mistake",
+    "84 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "73 − 38 = 35 green.",
+   "distractors": {
+    "46 apples": "a common mistake",
+    "38 apples": "a common mistake",
+    "62 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "96 − 35 = 61 green.",
+   "distractors": {
+    "70 apples": "a common mistake",
+    "35 apples": "a common mistake",
+    "87 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "81 − 44 = 37 green.",
+   "distractors": {
+    "48 apples": "a common mistake",
+    "44 apples": "a common mistake",
+    "70 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s02-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "87 − 36 = 51 green.",
+   "distractors": {
+    "62 apples": "a common mistake",
+    "36 apples": "a common mistake",
+    "76 apples": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "56 − 18 = 38.",
+   "distractors": {
+    "51 stickers": "a common mistake",
+    "64 stickers": "a common mistake",
+    "56 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "58 − 29 = 29.",
+   "distractors": {
+    "52 stickers": "a common mistake",
+    "75 stickers": "a common mistake",
+    "58 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "54 − 30 = 24.",
+   "distractors": {
+    "35 stickers": "a common mistake",
+    "46 stickers": "a common mistake",
+    "54 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "59 − 17 = 42.",
+   "distractors": {
+    "39 stickers": "a common mistake",
+    "36 stickers": "a common mistake",
+    "59 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "65 − 28 = 37.",
+   "distractors": {
+    "48 stickers": "a common mistake",
+    "59 stickers": "a common mistake",
+    "65 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "53 − 12 = 41.",
+   "distractors": {
+    "32 stickers": "a common mistake",
+    "23 stickers": "a common mistake",
+    "53 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "65 − 30 = 35.",
+   "distractors": {
+    "53 stickers": "a common mistake",
+    "71 stickers": "a common mistake",
+    "65 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "43 − 20 = 23.",
+   "distractors": {
+    "43 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "69 − 20 = 49.",
+   "distractors": {
+    "53 stickers": "a common mistake",
+    "57 stickers": "a common mistake",
+    "69 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s04-honors-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 − 20 = 30.",
+   "distractors": {
+    "26 stickers": "a common mistake",
+    "22 stickers": "a common mistake",
+    "50 stickers": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "54 + 8 = 62.",
+   "distractors": {
+    "54 children": "a common mistake",
+    "46 children": "a common mistake",
+    "33 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "47 + 9 = 56.",
+   "distractors": {
+    "47 children": "a common mistake",
+    "38 children": "a common mistake",
+    "29 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "57 + 4 = 61.",
+   "distractors": {
+    "57 children": "a common mistake",
+    "53 children": "a common mistake",
+    "21 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "55 + 2 = 57.",
+   "distractors": {
+    "55 children": "a common mistake",
+    "53 children": "a common mistake",
+    "32 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "56 + 5 = 61.",
+   "distractors": {
+    "56 children": "a common mistake",
+    "51 children": "a common mistake",
+    "34 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "55 + 5 = 60.",
+   "distractors": {
+    "55 children": "a common mistake",
+    "50 children": "a common mistake",
+    "22 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "38 + 5 = 43.",
+   "distractors": {
+    "38 children": "a common mistake",
+    "33 children": "a common mistake",
+    "27 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "47 + 5 = 52.",
+   "distractors": {
+    "47 children": "a common mistake",
+    "42 children": "a common mistake",
+    "22 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "53 + 2 = 55.",
+   "distractors": {
+    "53 children": "a common mistake",
+    "51 children": "a common mistake",
+    "33 children": "a common mistake"
+   }
+  },
+  "m2-wp-s02-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "63 + 2 = 65.",
+   "distractors": {
+    "63 children": "a common mistake",
+    "61 children": "a common mistake",
+    "40 children": "a common mistake"
+   }
+  },
+  "m2-wp-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-wp-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The difference."
+  },
+  "m2-wp-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The difference."
+  },
+  "m2-wp-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The difference."
+  },
+  "m2-wp-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two steps."
+  },
+  "m2-wp-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two steps."
+  },
+  "m2-wp-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two steps."
+  },
+  "m2-wp-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add for more coming; subtract for flying away."
+  },
+  "m2-wp-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add for more coming; subtract for flying away."
+  },
+  "m2-wp-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add for more coming; subtract for flying away."
+  },
+  "m2-wp-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The two parts must add to 30."
+  },
+  "m2-wp-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The two parts must add to 51."
+  },
+  "m2-wp-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The two parts must add to 52."
+  },
+  "m2-wp-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Lena’s number minus Eli’s number must be 8."
+  },
+  "m2-wp-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Lena’s number minus Eli’s number must be 20."
+  },
+  "m2-wp-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Lena’s number minus Eli’s number must be 7."
+  }
+ }
+}

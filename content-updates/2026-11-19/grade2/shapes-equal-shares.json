@@ -1,0 +1,4229 @@
+{
+ "unit": "shapes-equal-shares",
+ "edits": [
+  {
+   "id": "m2-sh-s01-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "This closed shape has 4 straight sides. What shape is it?",
+     "to": "How many sides do a quadrilateral and a triangle have in all?"
+    },
+    "answer": {
+     "from": "quadrilateral",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the number of sides to the name.",
+      "4 sides: quadrilateral."
+     ],
+     "to": [
+      "A quadrilateral has 4 sides and a triangle has 3.",
+      "4 + 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_sides_two_shapes). Rewritten from a Support template (was sn_riddle) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "This closed shape has 6 straight sides. What shape is it?",
+     "to": "How many sides do a pentagon and a triangle have in all?"
+    },
+    "answer": {
+     "from": "hexagon",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the number of sides to the name.",
+      "6 sides: hexagon."
+     ],
+     "to": [
+      "A pentagon has 5 sides and a triangle has 3.",
+      "5 + 3 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_sides_two_shapes). Rewritten from a Support template (was sn_riddle) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have 5 sides."
+    },
+    "answer": {
+     "from": [
+      "Shape with 5 sides → pentagon",
+      "Shape with 3 sides → triangle"
+     ],
+     "to": [
+      "any shape with 5 angles",
+      "a closed shape with 5 sides",
+      "pentagon"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Shape with 3 sides → quadrilateral",
+       "correct": false
+      },
+      {
+       "text": "Shape with 5 sides → pentagon",
+       "correct": true
+      },
+      {
+       "text": "Shape with 3 sides → triangle",
+       "correct": true
+      },
+      {
+       "text": "Shape with 4 sides → pentagon",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "any shape with 5 angles",
+       "correct": true
+      },
+      {
+       "text": "quadrilateral",
+       "correct": false
+      },
+      {
+       "text": "a closed shape with 5 sides",
+       "correct": true
+      },
+      {
+       "text": "pentagon",
+       "correct": true
+      },
+      {
+       "text": "triangle",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Shape with 3 sides → quadrilateral: not correct.",
+      "Shape with 5 sides → pentagon: correct.",
+      "Shape with 3 sides → triangle: correct.",
+      "Shape with 4 sides → pentagon: not correct."
+     ],
+     "to": [
+      "Count the sides of each shape.",
+      "Correct choices: any shape with 5 angles; a closed shape with 5 sides; pentagon. Not correct: quadrilateral; triangle."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_select_sides). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Gabi draws a pentagon."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "This closed shape has 6 straight sides. What shape is it?",
+       "answer": "hexagon"
+      },
+      {
+       "prompt": "This shape has 5 sides and 5 angles. What shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "This closed shape has 4 straight sides. What shape is it?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "This closed shape has 3 straight sides. What shape is it?",
+       "answer": "triangle"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sides does it have?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many sides do 3 of them have in all?",
+       "answer": "15"
+      },
+      {
+       "prompt": "Explain how you know the name of a shape.",
+       "answer": "Sample answer: I count its sides and angles."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) hexagon; (b) pentagon; (c) quadrilateral; (d) triangle",
+     "to": "(a) 5; (b) 5; (c) 15; (d) Sample answer: I count its sides and angles."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Match the number of sides to the name. 6 sides: hexagon.",
+      "(b) Match the number of sides to the name. 5 sides: pentagon.",
+      "(c) Match the number of sides to the name. 4 sides: quadrilateral.",
+      "(d) Match the number of sides to the name. 3 sides: triangle."
+     ],
+     "to": [
+      "(a) A pentagon has 5 sides.",
+      "(b) Same as the sides.",
+      "(c) Add.",
+      "(d) Count sides."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_open_shape). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have 4 sides."
+    },
+    "answer": {
+     "from": [
+      "Shape with 5 sides → pentagon",
+      "Shape with 3 sides → triangle"
+     ],
+     "to": [
+      "square",
+      "rectangle",
+      "quadrilateral",
+      "trapezoid"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Shape with 5 sides → pentagon",
+       "correct": true
+      },
+      {
+       "text": "Shape with 3 sides → quadrilateral",
+       "correct": false
+      },
+      {
+       "text": "Shape with 6 sides → triangle",
+       "correct": false
+      },
+      {
+       "text": "Shape with 3 sides → triangle",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "square",
+       "correct": true
+      },
+      {
+       "text": "rectangle",
+       "correct": true
+      },
+      {
+       "text": "quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "triangle",
+       "correct": false
+      },
+      {
+       "text": "trapezoid",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Shape with 5 sides → pentagon: correct.",
+      "Shape with 3 sides → quadrilateral: not correct.",
+      "Shape with 6 sides → triangle: not correct.",
+      "Shape with 3 sides → triangle: correct."
+     ],
+     "to": [
+      "Count the sides of each shape.",
+      "Correct choices: square; rectangle; quadrilateral; trapezoid. Not correct: triangle."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_select_sides). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Gabi draws a triangle."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "This shape has 5 vertices and 5 straight sides. What shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "This shape has 3 sides and 3 angles. What shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "This closed shape has 4 straight sides. What shape is it?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "This shape has 4 sides and 4 angles. What shape is it?",
+       "answer": "quadrilateral"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sides does it have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many sides do 3 of them have in all?",
+       "answer": "9"
+      },
+      {
+       "prompt": "Explain how you know the name of a shape.",
+       "answer": "Sample answer: I count its sides and angles."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) pentagon; (b) triangle; (c) quadrilateral; (d) quadrilateral",
+     "to": "(a) 3; (b) 3; (c) 9; (d) Sample answer: I count its sides and angles."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Match the number of sides to the name. 5 sides: pentagon.",
+      "(b) Match the number of sides to the name. 3 sides: triangle.",
+      "(c) Match the number of sides to the name. 4 sides: quadrilateral.",
+      "(d) Match the number of sides to the name. 4 sides: quadrilateral."
+     ],
+     "to": [
+      "(a) A triangle has 3 sides.",
+      "(b) Same as the sides.",
+      "(c) Add.",
+      "(d) Count sides."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_open_shape). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "This shape has 6 sides and 6 angles. What shape is it?",
+     "to": "How many angles do 3 triangles have in all?"
+    },
+    "answer": {
+     "from": "hexagon",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the number of sides to the name.",
+      "6 sides: hexagon."
+     ],
+     "to": [
+      "A triangle has 3 angles.",
+      "3 + 3 + 3 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_angles_many). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "This shape has 4 vertices and 4 straight sides. What shape is it?",
+     "to": "How many angles do 4 pentagons have in all?"
+    },
+    "answer": {
+     "from": "quadrilateral",
+     "to": "20"
+    },
+    "solutionSteps": {
+     "from": [
+      "Match the number of sides to the name.",
+      "4 sides: quadrilateral."
+     ],
+     "to": [
+      "A pentagon has 5 angles.",
+      "5 + 5 + 5 + 5 = 20."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_angles_many). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have 6 sides."
+    },
+    "answer": {
+     "from": [
+      "Shape with 4 sides → quadrilateral",
+      "Shape with 5 sides → pentagon"
+     ],
+     "to": [
+      "hexagon",
+      "any shape with 6 angles"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Shape with 4 sides → quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "Shape with 3 sides → quadrilateral",
+       "correct": false
+      },
+      {
+       "text": "Shape with 5 sides → pentagon",
+       "correct": true
+      },
+      {
+       "text": "Shape with 5 sides → hexagon",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "hexagon",
+       "correct": true
+      },
+      {
+       "text": "quadrilateral",
+       "correct": false
+      },
+      {
+       "text": "pentagon",
+       "correct": false
+      },
+      {
+       "text": "rhombus",
+       "correct": false
+      },
+      {
+       "text": "any shape with 6 angles",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Shape with 4 sides → quadrilateral: correct.",
+      "Shape with 3 sides → quadrilateral: not correct.",
+      "Shape with 5 sides → pentagon: correct.",
+      "Shape with 5 sides → hexagon: not correct."
+     ],
+     "to": [
+      "Count the sides of each shape.",
+      "Correct choices: hexagon; any shape with 6 angles. Not correct: quadrilateral; pentagon; rhombus."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_select_sides). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Gabi draws a hexagon."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "This shape has 4 vertices and 4 straight sides. What shape is it?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "This shape has 5 vertices and 5 straight sides. What shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "This shape has 3 vertices and 3 straight sides. What shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "This closed shape has 5 straight sides. What shape is it?",
+       "answer": "pentagon"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sides does it have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many sides do 3 of them have in all?",
+       "answer": "18"
+      },
+      {
+       "prompt": "Explain how you know the name of a shape.",
+       "answer": "Sample answer: I count its sides and angles."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) quadrilateral; (b) pentagon; (c) triangle; (d) pentagon",
+     "to": "(a) 6; (b) 6; (c) 18; (d) Sample answer: I count its sides and angles."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Match the number of sides to the name. 4 sides: quadrilateral.",
+      "(b) Match the number of sides to the name. 5 sides: pentagon.",
+      "(c) Match the number of sides to the name. 3 sides: triangle.",
+      "(d) Match the number of sides to the name. 5 sides: pentagon."
+     ],
+     "to": [
+      "(a) A hexagon has 6 sides.",
+      "(b) Same as the sides.",
+      "(c) Add.",
+      "(d) Count sides."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sn_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_open_shape). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "Mei draws a closed shape with 5 straight corners. What kind of shape is it?",
+     "to": "Mei draws a closed shape with 5 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "A closed shape has 6 straight sides. Which must be true?",
+     "to": "Jada draws a closed shape with 6 straight sides. What kind of shape is it, and how many angles does it have?"
+    },
+    "answer": {
+     "from": "It has 6 angles.",
+     "to": "hexagon; 6"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each corner of one closed shape joins two sides.",
+      "6 sides means 6 angles."
+     ],
+     "to": [
+      "A closed shape with 6 sides is a hexagon.",
+      "It has 6 angles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_must). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_draw_name_angles). Rewritten from a Support template (was da_must) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It has 7 angles.",
+       "correct": false
+      },
+      {
+       "text": "All of its sides are the same length.",
+       "correct": false
+      },
+      {
+       "text": "It has 6 angles.",
+       "correct": true
+      },
+      {
+       "text": "It has a curved side.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "hexagon; 7",
+       "correct": false
+      },
+      {
+       "text": "pentagon; 6",
+       "correct": false
+      },
+      {
+       "text": "hexagon; 12",
+       "correct": false
+      },
+      {
+       "text": "hexagon; 6",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "Luis draws a closed shape with 4 straight corners. What kind of shape is it?",
+     "to": "Luis draws a closed shape with 4 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "Leo draws a closed shape with 3 straight angles. What kind of shape is it?",
+     "to": "Leo draws a closed shape with 3 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Tess draws a closed shape with 3 straight corners. What kind of shape is it?",
+     "to": "Tess draws a closed shape with 3 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Max draws a closed shape with 3 straight angles. What kind of shape is it?",
+     "to": "Max draws a closed shape with 3 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "Gus draws a closed shape with 3 straight corners. What kind of shape is it?",
+     "to": "Gus draws a closed shape with 3 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "Raj draws a closed shape with 6 straight corners. What kind of shape is it?",
+     "to": "Raj draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Rosa draws a closed shape with 6 straight corners. What kind of shape is it?",
+     "to": "Rosa draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "Ivy draws a closed shape with 5 straight corners. What kind of shape is it?",
+     "to": "Ivy draws a closed shape with 5 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-025",
+   "changes": {
+    "prompt": {
+     "from": "Ava solved this problem.\nLuis draws a closed shape with 5 straight corners. What kind of shape is it?\nAva answered: hexagon\nFind the mistake. What is the correct answer?",
+     "to": "Ava solved this problem.\nLuis draws a closed shape with 5 angles. What kind of shape is it?\nAva answered: hexagon\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-027",
+   "changes": {
+    "prompt": {
+     "from": "Finn solved this problem.\nJada draws a closed shape with 3 straight corners. What kind of shape is it?\nFinn answered: quadrilateral\nFind the mistake. What is the correct answer?",
+     "to": "Finn solved this problem.\nJada draws a closed shape with 3 angles. What kind of shape is it?\nFinn answered: quadrilateral\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-029",
+   "changes": {
+    "answer": {
+     "from": [
+      "Rosa draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral",
+      "Mei draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral"
+     ],
+     "to": [
+      "a quadrilateral",
+      "a trapezoid",
+      "a rhombus"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Jada draws a closed shape with 4 straight corners. What kind of shape is it? → pentagon",
+       "correct": false
+      },
+      {
+       "text": "Rosa draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "Mei draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "Kai draws a closed shape with 3 straight corners. What kind of shape is it? → quadrilateral",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "a pentagon",
+       "correct": false
+      },
+      {
+       "text": "a quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "an octagon",
+       "correct": false
+      },
+      {
+       "text": "a trapezoid",
+       "correct": true
+      },
+      {
+       "text": "a rhombus",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Jada draws a closed shape with 4 straight corners. What kind of shape is it? → pentagon: not correct.",
+      "Rosa draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral: correct.",
+      "Mei draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral: correct.",
+      "Kai draws a closed shape with 3 straight corners. What kind of shape is it? → quadrilateral: not correct."
+     ],
+     "to": [
+      "A shape with 4 angles has 4 sides: a quadrilateral.",
+      "Correct choices: a quadrilateral; a trapezoid; a rhombus. Not correct: a pentagon; an octagon."
+     ]
+    },
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes you could draw with exactly 4 angles."
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_four_angles). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp1-030",
+   "changes": {
+    "parts": {
+     "from": [
+      {
+       "prompt": "Gus draws a closed shape with 3 straight corners. What kind of shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "Dev draws a closed shape with 4 straight angles. What kind of shape is it?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "Max draws a closed shape with 3 straight angles. What kind of shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "Hana draws a closed shape with 5 straight sides. What kind of shape is it?",
+       "answer": "pentagon"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the shape called?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many vertices (corners) does it have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain what a closed shape is.",
+       "answer": "Sample answer: All the sides connect with no gaps."
+      }
+     ]
+    },
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Draw a closed shape with 4 straight sides."
+    },
+    "answer": {
+     "from": "(a) triangle; (b) quadrilateral; (c) triangle; (d) pentagon",
+     "to": "(a) quadrilateral; (b) 4; (c) 4; (d) Sample answer: All the sides connect with no gaps."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A closed shape with 3 corners has 3 sides. It is a triangle.",
+      "(b) A closed shape with 4 angles has 4 sides. It is a quadrilateral.",
+      "(c) A closed shape with 3 angles has 3 sides. It is a triangle.",
+      "(d) A closed shape with 5 sides has 5 sides. It is a pentagon."
+     ],
+     "to": [
+      "(a) 4 sides.",
+      "(b) 4 angles.",
+      "(c) One at each angle.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_draw). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-002",
+   "changes": {
+    "prompt": {
+     "from": "Ian draws a closed shape with 6 straight angles. What kind of shape is it?",
+     "to": "Ian draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-007",
+   "changes": {
+    "prompt": {
+     "from": "Zoe draws a closed shape with 6 straight angles. What kind of shape is it?",
+     "to": "Zoe draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-012",
+   "changes": {
+    "prompt": {
+     "from": "Amir draws a closed shape with 6 straight angles. What kind of shape is it?",
+     "to": "Amir draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-021",
+   "changes": {
+    "prompt": {
+     "from": "Ben draws a closed shape with 6 straight corners. What kind of shape is it?",
+     "to": "Ben draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-023",
+   "changes": {
+    "prompt": {
+     "from": "Lena draws a closed shape with 4 straight corners. What kind of shape is it?",
+     "to": "Lena draws a closed shape with 4 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-024",
+   "changes": {
+    "prompt": {
+     "from": "Mia draws a closed shape with 4 straight angles. What kind of shape is it?",
+     "to": "Mia draws a closed shape with 4 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-025",
+   "changes": {
+    "prompt": {
+     "from": "Ana solved this problem.\nJada draws a closed shape with 5 straight angles. What kind of shape is it?\nAna answered: hexagon\nFind the mistake. What is the correct answer?",
+     "to": "Ana solved this problem.\nJada draws a closed shape with 5 angles. What kind of shape is it?\nAna answered: hexagon\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-027",
+   "changes": {
+    "prompt": {
+     "from": "Ana solved this problem.\nJada draws a closed shape with 3 straight angles. What kind of shape is it?\nAna answered: quadrilateral\nFind the mistake. What is the correct answer?",
+     "to": "Ana solved this problem.\nJada draws a closed shape with 3 angles. What kind of shape is it?\nAna answered: quadrilateral\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-029",
+   "changes": {
+    "answer": {
+     "from": [
+      "Omar draws a closed shape with 4 straight sides. What kind of shape is it? → quadrilateral",
+      "Max draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral"
+     ],
+     "to": [
+      "a rectangle",
+      "a trapezoid",
+      "a square",
+      "a quadrilateral"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Sam draws a closed shape with 4 straight corners. What kind of shape is it? → pentagon",
+       "correct": false
+      },
+      {
+       "text": "Omar draws a closed shape with 4 straight sides. What kind of shape is it? → quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "Jada draws a closed shape with 5 straight angles. What kind of shape is it? → hexagon",
+       "correct": false
+      },
+      {
+       "text": "Max draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "a rectangle",
+       "correct": true
+      },
+      {
+       "text": "a trapezoid",
+       "correct": true
+      },
+      {
+       "text": "a square",
+       "correct": true
+      },
+      {
+       "text": "a quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "an octagon",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Sam draws a closed shape with 4 straight corners. What kind of shape is it? → pentagon: not correct.",
+      "Omar draws a closed shape with 4 straight sides. What kind of shape is it? → quadrilateral: correct.",
+      "Jada draws a closed shape with 5 straight angles. What kind of shape is it? → hexagon: not correct.",
+      "Max draws a closed shape with 4 straight corners. What kind of shape is it? → quadrilateral: correct."
+     ],
+     "to": [
+      "A shape with 4 angles has 4 sides: a quadrilateral.",
+      "Correct choices: a rectangle; a trapezoid; a square; a quadrilateral. Not correct: an octagon."
+     ]
+    },
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes you could draw with exactly 4 angles."
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_four_angles). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-cp2-030",
+   "changes": {
+    "parts": {
+     "from": [
+      {
+       "prompt": "Mei draws a closed shape with 5 straight sides. What kind of shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "Jada draws a closed shape with 5 straight sides. What kind of shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "Uma draws a closed shape with 4 straight corners. What kind of shape is it?",
+       "answer": "quadrilateral"
+      },
+      {
+       "prompt": "Omar draws a closed shape with 3 straight angles. What kind of shape is it?",
+       "answer": "triangle"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the shape called?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many vertices (corners) does it have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Explain what a closed shape is.",
+       "answer": "Sample answer: All the sides connect with no gaps."
+      }
+     ]
+    },
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Draw a closed shape with 3 straight sides."
+    },
+    "answer": {
+     "from": "(a) pentagon; (b) pentagon; (c) quadrilateral; (d) triangle",
+     "to": "(a) triangle; (b) 3; (c) 3; (d) Sample answer: All the sides connect with no gaps."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A closed shape with 5 sides has 5 sides. It is a pentagon.",
+      "(b) A closed shape with 5 sides has 5 sides. It is a pentagon.",
+      "(c) A closed shape with 4 corners has 4 sides. It is a quadrilateral.",
+      "(d) A closed shape with 3 angles has 3 sides. It is a triangle."
+     ],
+     "to": [
+      "(a) 3 sides.",
+      "(b) 3 angles.",
+      "(c) One at each angle.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_draw). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Mei draws a closed shape with 4 straight angles. What kind of shape is it?",
+     "to": "Lena draws a hexagon and Omar draws a quadrilateral. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "quadrilateral",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 4 angles has 4 sides.",
+      "It is a quadrilateral."
+     ],
+     "to": [
+      "Hexagon: 6. Quadrilateral: 4.",
+      "6 − 4 = 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Amir draws a closed shape with 5 straight corners. What kind of shape is it?",
+     "to": "Lena draws a hexagon and Omar draws a triangle. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "pentagon",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 5 corners has 5 sides.",
+      "It is a pentagon."
+     ],
+     "to": [
+      "Hexagon: 6. Triangle: 3.",
+      "6 − 3 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Omar draws a closed shape with 6 straight angles. What kind of shape is it?",
+     "to": "Omar draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Luis draws a closed shape with 3 straight corners. What kind of shape is it?",
+     "to": "Lena draws a triangle and Omar draws a quadrilateral. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "triangle",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 3 corners has 3 sides.",
+      "It is a triangle."
+     ],
+     "to": [
+      "Triangle: 3. Quadrilateral: 4.",
+      "4 − 3 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Gus draws a closed shape with 3 straight angles. What kind of shape is it?",
+     "to": "Lena draws a triangle and Omar draws a pentagon. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "triangle",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 3 angles has 3 sides.",
+      "It is a triangle."
+     ],
+     "to": [
+      "Triangle: 3. Pentagon: 5.",
+      "5 − 3 = 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "Kai draws a closed shape with 6 straight corners. What kind of shape is it?",
+     "to": "Kai draws a closed shape with 6 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "Dev draws a closed shape with 4 straight angles. What kind of shape is it?",
+     "to": "Dev draws a closed shape with 4 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Mei draws a closed shape with 3 straight sides. What kind of shape is it?",
+     "to": "Lena draws a quadrilateral and Omar draws a triangle. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "triangle",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 3 sides has 3 sides.",
+      "It is a triangle."
+     ],
+     "to": [
+      "Quadrilateral: 4. Triangle: 3.",
+      "4 − 3 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Gus draws a closed shape with 4 straight corners. What kind of shape is it?",
+     "to": "Lena draws a quadrilateral and Omar draws a hexagon. How many more sides does the shape with more sides have?"
+    },
+    "answer": {
+     "from": "quadrilateral",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "A closed shape with 4 corners has 4 sides.",
+      "It is a quadrilateral."
+     ],
+     "to": [
+      "Quadrilateral: 4. Hexagon: 6.",
+      "6 − 4 = 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_more_sides). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "Eli draws a closed shape with 3 straight corners. What kind of shape is it?",
+     "to": "Eli draws a closed shape with 3 angles. What kind of shape is it?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-025",
+   "changes": {
+    "prompt": {
+     "from": "Tess solved this problem.\nCam draws a closed shape with 4 straight corners. What kind of shape is it?\nTess answered: pentagon\nFind the mistake. What is the correct answer?",
+     "to": "Tess solved this problem.\nCam draws a closed shape with 4 angles. What kind of shape is it?\nTess answered: pentagon\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-027",
+   "changes": {
+    "prompt": {
+     "from": "Luis solved this problem.\nBen draws a closed shape with 5 straight angles. What kind of shape is it?\nLuis answered: hexagon\nFind the mistake. What is the correct answer?",
+     "to": "Luis solved this problem.\nBen draws a closed shape with 5 angles. What kind of shape is it?\nLuis answered: hexagon\nFind the mistake. What is the correct answer?"
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-029",
+   "changes": {
+    "answer": {
+     "from": [
+      "Ben draws a closed shape with 3 straight sides. What kind of shape is it? → triangle",
+      "Ella draws a closed shape with 5 straight corners. What kind of shape is it? → pentagon"
+     ],
+     "to": [
+      "a quadrilateral",
+      "a rectangle"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ben draws a closed shape with 3 straight sides. What kind of shape is it? → triangle",
+       "correct": true
+      },
+      {
+       "text": "Ella draws a closed shape with 5 straight corners. What kind of shape is it? → pentagon",
+       "correct": true
+      },
+      {
+       "text": "Omar draws a closed shape with 6 straight corners. What kind of shape is it? → triangle",
+       "correct": false
+      },
+      {
+       "text": "Kai draws a closed shape with 3 straight sides. What kind of shape is it? → quadrilateral",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "a quadrilateral",
+       "correct": true
+      },
+      {
+       "text": "a pentagon",
+       "correct": false
+      },
+      {
+       "text": "an octagon",
+       "correct": false
+      },
+      {
+       "text": "a hexagon",
+       "correct": false
+      },
+      {
+       "text": "a rectangle",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ben draws a closed shape with 3 straight sides. What kind of shape is it? → triangle: correct.",
+      "Ella draws a closed shape with 5 straight corners. What kind of shape is it? → pentagon: correct.",
+      "Omar draws a closed shape with 6 straight corners. What kind of shape is it? → triangle: not correct.",
+      "Kai draws a closed shape with 3 straight sides. What kind of shape is it? → quadrilateral: not correct."
+     ],
+     "to": [
+      "A shape with 4 angles has 4 sides: a quadrilateral.",
+      "Correct choices: a quadrilateral; a rectangle. Not correct: a hexagon; an octagon; a pentagon."
+     ]
+    },
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes you could draw with exactly 4 angles."
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_four_angles). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s02-honors-030",
+   "changes": {
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ella draws a closed shape with 3 straight angles. What kind of shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "Ava draws a closed shape with 3 straight corners. What kind of shape is it?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "Kai draws a closed shape with 5 straight corners. What kind of shape is it?",
+       "answer": "pentagon"
+      },
+      {
+       "prompt": "Finn draws a closed shape with 3 straight sides. What kind of shape is it?",
+       "answer": "triangle"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the shape called?",
+       "answer": "hexagon"
+      },
+      {
+       "prompt": "How many angles does it have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many vertices (corners) does it have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Explain what a closed shape is.",
+       "answer": "Sample answer: All the sides connect with no gaps."
+      }
+     ]
+    },
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Draw a closed shape with 6 straight sides."
+    },
+    "answer": {
+     "from": "(a) triangle; (b) triangle; (c) pentagon; (d) triangle",
+     "to": "(a) hexagon; (b) 6; (c) 6; (d) Sample answer: All the sides connect with no gaps."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A closed shape with 3 angles has 3 sides. It is a triangle.",
+      "(b) A closed shape with 3 corners has 3 sides. It is a triangle.",
+      "(c) A closed shape with 5 corners has 5 sides. It is a pentagon.",
+      "(d) A closed shape with 3 sides has 3 sides. It is a triangle."
+     ],
+     "to": [
+      "(a) 6 sides.",
+      "(b) 6 angles.",
+      "(c) One at each angle.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: da_draw_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_draw). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "Ana puts one sticker on every face of 2 cubes. How many stickers are used?",
+     "to": "Raj puts one sticker on every face of 3 cubes. 2 stickers fall off. How many stickers are still on?"
+    },
+    "answer": {
+     "from": "12 stickers",
+     "to": "16 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each cube has 6 faces.",
+      "6 + 6 = 12 stickers."
+     ],
+     "to": [
+      "A cube has 6 faces: 3 × 6 = 18.",
+      "18 − 2 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_stickers). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_faces_minus). Rewritten from a Support template (was cb_stickers) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true about a cube."
+    },
+    "answer": {
+     "from": [
+      "faces on 1 cube(s) → 6",
+      "vertices on 1 cube(s) → 8"
+     ],
+     "to": [
+      "square faces",
+      "6 faces",
+      "all faces the same size"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "edges on 1 cube(s) → 6",
+       "correct": false
+      },
+      {
+       "text": "edges on 1 cube(s) → 24",
+       "correct": false
+      },
+      {
+       "text": "faces on 1 cube(s) → 6",
+       "correct": true
+      },
+      {
+       "text": "vertices on 1 cube(s) → 8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6 vertices",
+       "correct": false
+      },
+      {
+       "text": "square faces",
+       "correct": true
+      },
+      {
+       "text": "6 faces",
+       "correct": true
+      },
+      {
+       "text": "all faces the same size",
+       "correct": true
+      },
+      {
+       "text": "4 faces",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "edges on 1 cube(s) → 6: not correct.",
+      "edges on 1 cube(s) → 24: not correct.",
+      "faces on 1 cube(s) → 6: correct.",
+      "vertices on 1 cube(s) → 8: correct."
+     ],
+     "to": [
+      "A cube has 6 square faces, 12 edges and 8 vertices.",
+      "Correct choices: square faces; 6 faces; all faces the same size. Not correct: 4 faces; 6 vertices."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_parts_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_cube). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Omar has 3 cubes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Zoe puts one sticker on every face of 4 cubes. How many stickers are used?",
+       "answer": "24 stickers"
+      },
+      {
+       "prompt": "Kai puts one sticker on every face of 4 cubes. How many stickers are used?",
+       "answer": "24 stickers"
+      },
+      {
+       "prompt": "Luis puts one sticker on every face of 3 cubes. How many stickers are used?",
+       "answer": "18 stickers"
+      },
+      {
+       "prompt": "Gus puts one sticker on every face of 2 cubes. How many stickers are used?",
+       "answer": "12 stickers"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many faces does one cube have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many faces do all the cubes have?",
+       "answer": "18"
+      },
+      {
+       "prompt": "What shape is each face?",
+       "answer": "square"
+      },
+      {
+       "prompt": "Explain how you counted the faces of a cube.",
+       "answer": "Sample answer: Top, bottom, front, back, left and right: 6 faces."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 24 stickers; (b) 24 stickers; (c) 18 stickers; (d) 12 stickers",
+     "to": "(a) 6; (b) 18; (c) square; (d) Sample answer: Top, bottom, front, back, left and right: 6 faces."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each cube has 6 faces. 6 + 6 + 6 + 6 = 24 stickers.",
+      "(b) Each cube has 6 faces. 6 + 6 + 6 + 6 = 24 stickers.",
+      "(c) Each cube has 6 faces. 6 + 6 + 6 = 18 stickers.",
+      "(d) Each cube has 6 faces. 6 + 6 = 12 stickers."
+     ],
+     "to": [
+      "(a) A cube has 6 faces.",
+      "(b) 6 + 6 + 6.",
+      "(c) Cube faces are squares.",
+      "(d) Count each side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_stickers_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_cubes). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true about a cube."
+    },
+    "answer": {
+     "from": [
+      "What shape is each face of one cube? → square",
+      "A cube's faces are all the same shape. What shape are they? → square"
+     ],
+     "to": [
+      "12 edges",
+      "square faces",
+      "6 faces",
+      "8 vertices"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "What shape is each face of one cube? → square",
+       "correct": true
+      },
+      {
+       "text": "If you trace one face of one cube, what shape is it? → triangle",
+       "correct": false
+      },
+      {
+       "text": "A cube's faces are all the same shape. What shape are they? → square",
+       "correct": true
+      },
+      {
+       "text": "A cube's faces are all the same shape. What shape are they? → circle",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 faces",
+       "correct": false
+      },
+      {
+       "text": "12 edges",
+       "correct": true
+      },
+      {
+       "text": "square faces",
+       "correct": true
+      },
+      {
+       "text": "6 faces",
+       "correct": true
+      },
+      {
+       "text": "8 vertices",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "What shape is each face of one cube? → square: correct.",
+      "If you trace one face of one cube, what shape is it? → triangle: not correct.",
+      "A cube's faces are all the same shape. What shape are they? → square: correct.",
+      "A cube's faces are all the same shape. What shape are they? → circle: not correct."
+     ],
+     "to": [
+      "A cube has 6 square faces, 12 edges and 8 vertices.",
+      "Correct choices: 12 edges; square faces; 6 faces; 8 vertices. Not correct: 4 faces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_face_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_cube). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Omar has 2 cubes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Omar puts one sticker on every face of 2 cubes. How many stickers are used?",
+       "answer": "12 stickers"
+      },
+      {
+       "prompt": "Kai puts one sticker on every face of 3 cubes. How many stickers are used?",
+       "answer": "18 stickers"
+      },
+      {
+       "prompt": "Ana puts one sticker on every face of 4 cubes. How many stickers are used?",
+       "answer": "24 stickers"
+      },
+      {
+       "prompt": "Ivy puts one sticker on every face of 2 cubes. How many stickers are used?",
+       "answer": "12 stickers"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many faces does one cube have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many faces do all the cubes have?",
+       "answer": "12"
+      },
+      {
+       "prompt": "What shape is each face?",
+       "answer": "square"
+      },
+      {
+       "prompt": "Explain how you counted the faces of a cube.",
+       "answer": "Sample answer: Top, bottom, front, back, left and right: 6 faces."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 12 stickers; (b) 18 stickers; (c) 24 stickers; (d) 12 stickers",
+     "to": "(a) 6; (b) 12; (c) square; (d) Sample answer: Top, bottom, front, back, left and right: 6 faces."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each cube has 6 faces. 6 + 6 = 12 stickers.",
+      "(b) Each cube has 6 faces. 6 + 6 + 6 = 18 stickers.",
+      "(c) Each cube has 6 faces. 6 + 6 + 6 + 6 = 24 stickers.",
+      "(d) Each cube has 6 faces. 6 + 6 = 12 stickers."
+     ],
+     "to": [
+      "(a) A cube has 6 faces.",
+      "(b) 6 + 6.",
+      "(c) Cube faces are squares.",
+      "(d) Count each side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_stickers_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_cubes). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Finn puts one sticker on every face of 6 cubes. How many stickers are used?",
+     "to": "Raj used 18 stickers to cover every face of some cubes, one sticker on each face. How many cubes are there?"
+    },
+    "answer": {
+     "from": "36 stickers",
+     "to": "3 cubes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each cube has 6 faces.",
+      "6 + 6 + 6 + 6 + 6 + 6 = 36 stickers."
+     ],
+     "to": [
+      "A cube has 6 faces.",
+      "6 + 6 + 6 = 18, so there are 3 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_stickers). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_cubes_from_stickers). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Mia puts one sticker on every face of 6 cubes. How many stickers are used?",
+     "to": "Zoe used 18 stickers to cover every face of some cubes, one sticker on each face. How many cubes are there?"
+    },
+    "answer": {
+     "from": "36 stickers",
+     "to": "3 cubes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each cube has 6 faces.",
+      "6 + 6 + 6 + 6 + 6 + 6 = 36 stickers."
+     ],
+     "to": [
+      "A cube has 6 faces.",
+      "6 + 6 + 6 = 18, so there are 3 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_stickers). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_cubes_from_stickers). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "vertices on 2 cube(s). Is the answer 16?",
+     "to": "Hugo used 30 stickers to cover every face of some cubes, one sticker on each face. How many cubes are there?"
+    },
+    "answer": {
+     "from": "Yes. 8 + 8 = 16.",
+     "to": "5 cubes"
+    },
+    "solutionSteps": {
+     "from": [
+      "A cube has 6 faces, 12 edges, and 8 vertices.",
+      "8 + 8 = 16.",
+      "The answer 16 is correct."
+     ],
+     "to": [
+      "A cube has 6 faces.",
+      "6 + 6 + 6 + 6 + 6 = 30, so there are 5 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_parts_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_cubes_from_stickers). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 12.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 8.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 24.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 8 + 8 = 16.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7 cubes",
+       "correct": false
+      },
+      {
+       "text": "30 cubes",
+       "correct": false
+      },
+      {
+       "text": "6 cubes",
+       "correct": false
+      },
+      {
+       "text": "5 cubes",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true about a cube."
+    },
+    "answer": {
+     "from": [
+      "faces on 1 cube(s) → 6",
+      "vertices on 1 cube(s) → 8"
+     ],
+     "to": [
+      "square faces",
+      "6 faces"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "faces on 1 cube(s) → 6",
+       "correct": true
+      },
+      {
+       "text": "vertices on 1 cube(s) → 8",
+       "correct": true
+      },
+      {
+       "text": "faces on 1 cube(s) → 12",
+       "correct": false
+      },
+      {
+       "text": "faces on 3 cube(s) → 12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "a curved face",
+       "correct": false
+      },
+      {
+       "text": "4 faces",
+       "correct": false
+      },
+      {
+       "text": "square faces",
+       "correct": true
+      },
+      {
+       "text": "triangle faces",
+       "correct": false
+      },
+      {
+       "text": "6 faces",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "faces on 1 cube(s) → 6: correct.",
+      "vertices on 1 cube(s) → 8: correct.",
+      "faces on 1 cube(s) → 12: not correct.",
+      "faces on 3 cube(s) → 12: not correct."
+     ],
+     "to": [
+      "A cube has 6 square faces, 12 edges and 8 vertices.",
+      "Correct choices: square faces; 6 faces. Not correct: a curved face; 4 faces; triangle faces."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_parts_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_cube). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Omar has 5 cubes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "How many vertices are on 2 cubes in all?",
+       "answer": "16"
+      },
+      {
+       "prompt": "How many edges does a cube have?",
+       "answer": "12"
+      },
+      {
+       "prompt": "How many faces are on 2 cubes in all?",
+       "answer": "12"
+      },
+      {
+       "prompt": "How many faces are on 3 cubes in all?",
+       "answer": "18"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many faces does one cube have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many faces do all the cubes have?",
+       "answer": "30"
+      },
+      {
+       "prompt": "What shape is each face?",
+       "answer": "square"
+      },
+      {
+       "prompt": "Explain how you counted the faces of a cube.",
+       "answer": "Sample answer: Top, bottom, front, back, left and right: 6 faces."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16; (b) 12; (c) 12; (d) 18",
+     "to": "(a) 6; (b) 30; (c) square; (d) Sample answer: Top, bottom, front, back, left and right: 6 faces."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A cube has 6 faces, 12 edges, and 8 vertices. 8 + 8 = 16.",
+      "(b) A cube has 6 faces, 12 edges, and 8 vertices. A cube has 12 edges.",
+      "(c) A cube has 6 faces, 12 edges, and 8 vertices. 6 + 6 = 12.",
+      "(d) A cube has 6 faces, 12 edges, and 8 vertices. 6 + 6 + 6 = 18."
+     ],
+     "to": [
+      "(a) A cube has 6 faces.",
+      "(b) 6 + 6 + 6 + 6 + 6.",
+      "(c) Cube faces are squares.",
+      "(d) Count each side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cb_parts_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_cubes). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 3 rows of 3 same‑size squares. How many squares in all?",
+     "to": "A rectangle is split into 2 rows of 5 same-size squares. 9 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 3 once for each row.",
+      "3 + 3 + 3 = 9."
+     ],
+     "to": [
+      "2 rows of 5 = 10 squares.",
+      "10 − 9 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule partition-rows); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 4 rows of 5 same‑size squares. How many squares in all?",
+     "to": "A rectangle is split into 2 rows of 3 same-size squares. 5 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "20",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 5 once for each row.",
+      "5 + 5 + 5 + 5 = 20."
+     ],
+     "to": [
+      "2 rows of 3 = 6 squares.",
+      "6 − 5 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py). Numbers changed 2026-11-16 (Claude) so this Standard item differs from the Support item with 3 rows of 4; answer re-derived: 4 × 5 = 20.",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 5 rows of 6 same‑size squares. How many squares in all?",
+     "to": "A rectangle is split into 4 rows of 5 same-size squares. 13 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "30",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 6 once for each row.",
+      "6 + 6 + 6 + 6 + 6 = 30."
+     ],
+     "to": [
+      "4 rows of 5 = 20 squares.",
+      "20 − 13 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule partition-rows); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 5 rows of 4 same‑size squares. How many squares in all?",
+     "to": "A rectangle is split into 3 rows of 5 same-size squares. 13 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "20",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 4 once for each row.",
+      "4 + 4 + 4 + 4 + 4 = 20."
+     ],
+     "to": [
+      "3 rows of 5 = 15 squares.",
+      "15 − 13 = 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule partition-rows); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "24",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": true
+      },
+      {
+       "text": "19",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "28",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 2 rows of 3 same‑size squares. How many squares in all?",
+     "to": "A rectangle is split into 3 rows of 5 same-size squares. 3 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "12"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 3 once for each row.",
+      "3 + 3 = 6."
+     ],
+     "to": [
+      "3 rows of 5 = 15 squares.",
+      "15 − 3 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule partition-rows); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "4 rows of 4 squares. Is the answer 8?",
+     "to": "A rectangle is split into 3 rows of 4 same-size squares. 9 squares are shaded. How many squares are not shaded?"
+    },
+    "answer": {
+     "from": "No. The answer is 16.",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 4 once for each row.",
+      "4 + 4 + 4 + 4 = 16.",
+      "The answer 8 is not correct; it should be 16."
+     ],
+     "to": [
+      "3 rows of 4 = 12 squares.",
+      "12 − 9 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_squares_minus_shaded). Rewritten from a Support template (was pr_text_tf) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 16.",
+       "correct": true
+      },
+      {
+       "text": "Yes. 8 is the correct answer.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 15.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 20.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles that are split into 12 same-size squares."
+    },
+    "answer": {
+     "from": [
+      "2 rows of 5 squares → 10",
+      "4 rows of 3 squares → 12"
+     ],
+     "to": [
+      "2 rows of 6 squares",
+      "6 rows of 2 squares",
+      "4 rows of 3 squares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 rows of 4 squares → 15",
+       "correct": false
+      },
+      {
+       "text": "3 rows of 5 squares → 8",
+       "correct": false
+      },
+      {
+       "text": "2 rows of 5 squares → 10",
+       "correct": true
+      },
+      {
+       "text": "4 rows of 3 squares → 12",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 rows of 6 squares",
+       "correct": true
+      },
+      {
+       "text": "2 rows of 7 squares",
+       "correct": false
+      },
+      {
+       "text": "3 rows of 5 squares",
+       "correct": false
+      },
+      {
+       "text": "6 rows of 2 squares",
+       "correct": true
+      },
+      {
+       "text": "4 rows of 3 squares",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "4 rows of 4 squares → 15: not correct.",
+      "3 rows of 5 squares → 8: not correct.",
+      "2 rows of 5 squares → 10: correct.",
+      "4 rows of 3 squares → 12: correct."
+     ],
+     "to": [
+      "Add the squares in each row.",
+      "Correct choices: 2 rows of 6 squares; 6 rows of 2 squares; 4 rows of 3 squares. Not correct: 3 rows of 5 squares; 2 rows of 7 squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_rectangle_squares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rectangle is split into 3 rows and 2 columns of same-size squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Raj partitions a rectangle into 3 rows with 5 same‑size squares in each row. How many squares are there?",
+       "answer": "15"
+      },
+      {
+       "prompt": "Mia partitions a rectangle into 5 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "20"
+      },
+      {
+       "prompt": "Omar partitions a rectangle into 4 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "16"
+      },
+      {
+       "prompt": "Ben partitions a rectangle into 3 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "12"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many squares are in one row?",
+       "answer": "2"
+      },
+      {
+       "prompt": "If one more row is added, how many squares?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Explain how you counted the squares.",
+       "answer": "Sample answer: I added 2 for each of the 3 rows."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 15; (b) 20; (c) 16; (d) 12",
+     "to": "(a) 6; (b) 2; (c) 8; (d) Sample answer: I added 2 for each of the 3 rows."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 5 once for each row. 5 + 5 + 5 = 15.",
+      "(b) Add 4 once for each row. 4 + 4 + 4 + 4 + 4 = 20.",
+      "(c) Add 4 once for each row. 4 + 4 + 4 + 4 = 16.",
+      "(d) Add 4 once for each row. 4 + 4 + 4 = 12."
+     ],
+     "to": [
+      "(a) Rows times columns, or repeated addition.",
+      "(b) One per column.",
+      "(c) Add 2.",
+      "(d) Repeated addition."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_squares). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles that are split into 24 same-size squares."
+    },
+    "answer": {
+     "from": [
+      "3 rows of 3 squares → 9",
+      "2 rows of 3 squares → 6"
+     ],
+     "to": [
+      "6 rows of 4 squares",
+      "8 rows of 3 squares",
+      "3 rows of 8 squares",
+      "4 rows of 6 squares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 rows of 3 squares → 9",
+       "correct": true
+      },
+      {
+       "text": "2 rows of 3 squares → 6",
+       "correct": true
+      },
+      {
+       "text": "2 rows of 3 squares → 9",
+       "correct": false
+      },
+      {
+       "text": "2 rows of 2 squares → 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 rows of 4 squares",
+       "correct": true
+      },
+      {
+       "text": "8 rows of 3 squares",
+       "correct": true
+      },
+      {
+       "text": "3 rows of 8 squares",
+       "correct": true
+      },
+      {
+       "text": "4 rows of 6 squares",
+       "correct": true
+      },
+      {
+       "text": "3 rows of 7 squares",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "3 rows of 3 squares → 9: correct.",
+      "2 rows of 3 squares → 6: correct.",
+      "2 rows of 3 squares → 9: not correct.",
+      "2 rows of 2 squares → 3: not correct."
+     ],
+     "to": [
+      "Add the squares in each row.",
+      "Correct choices: 6 rows of 4 squares; 8 rows of 3 squares; 3 rows of 8 squares; 4 rows of 6 squares. Not correct: 3 rows of 7 squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_rectangle_squares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rectangle is split into 2 rows and 3 columns of same-size squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Hana partitions a rectangle into 2 rows with 3 same‑size squares in each row. How many squares are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Ted partitions a rectangle into 2 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Nia partitions a rectangle into 2 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Hana partitions a rectangle into 3 rows with 3 same‑size squares in each row. How many squares are there?",
+       "answer": "9"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many squares are in one row?",
+       "answer": "3"
+      },
+      {
+       "prompt": "If one more row is added, how many squares?",
+       "answer": "9"
+      },
+      {
+       "prompt": "Explain how you counted the squares.",
+       "answer": "Sample answer: I added 3 for each of the 2 rows."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6; (b) 8; (c) 8; (d) 9",
+     "to": "(a) 6; (b) 3; (c) 9; (d) Sample answer: I added 3 for each of the 2 rows."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 3 once for each row. 3 + 3 = 6.",
+      "(b) Add 4 once for each row. 4 + 4 = 8.",
+      "(c) Add 4 once for each row. 4 + 4 = 8.",
+      "(d) Add 3 once for each row. 3 + 3 + 3 = 9."
+     ],
+     "to": [
+      "(a) Rows times columns, or repeated addition.",
+      "(b) One per column.",
+      "(c) Add 3.",
+      "(d) Repeated addition."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_squares). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has 5 rows of 5 squares. Ivy adds 1 more row of the same squares. How many squares are there now?",
+     "to": "A rectangle has 2 rows of 5 same-size squares. Uma adds 2 more columns. How many squares are there now?"
+    },
+    "answer": {
+     "from": "30",
+     "to": "14"
+    },
+    "solutionSteps": {
+     "from": [
+      "Now there are 6 rows of 5.",
+      "5 + 5 + 5 + 5 + 5 + 5 = 30."
+     ],
+     "to": [
+      "Each row now has 5 + 2 = 7 squares.",
+      "2 rows of 7 = 14."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_more_row). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_more_rows_columns). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "4 rows of 5 squares. Is the answer 20?",
+     "to": "A rectangle has 3 rows of 2 same-size squares. Omar adds 1 more column. How many squares are there now?"
+    },
+    "answer": {
+     "from": "Yes. 5 + 5 + 5 + 5 = 20.",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add 5 once for each row.",
+      "5 + 5 + 5 + 5 = 20.",
+      "The answer 20 is correct."
+     ],
+     "to": [
+      "Each row now has 2 + 1 = 3 squares.",
+      "3 rows of 3 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_more_rows_columns). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 19.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 25.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 9.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 5 + 5 + 5 + 5 = 20.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles that are split into 24 same-size squares."
+    },
+    "answer": {
+     "from": [
+      "5 rows of 5 squares → 25",
+      "5 rows of 6 squares → 30"
+     ],
+     "to": [
+      "6 rows of 4 squares",
+      "8 rows of 3 squares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 rows of 6 squares → 8",
+       "correct": false
+      },
+      {
+       "text": "3 rows of 6 squares → 9",
+       "correct": false
+      },
+      {
+       "text": "5 rows of 5 squares → 25",
+       "correct": true
+      },
+      {
+       "text": "5 rows of 6 squares → 30",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3 rows of 7 squares",
+       "correct": false
+      },
+      {
+       "text": "6 rows of 4 squares",
+       "correct": true
+      },
+      {
+       "text": "8 rows of 3 squares",
+       "correct": true
+      },
+      {
+       "text": "7 rows of 3 squares",
+       "correct": false
+      },
+      {
+       "text": "5 rows of 5 squares",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "2 rows of 6 squares → 8: not correct.",
+      "3 rows of 6 squares → 9: not correct.",
+      "5 rows of 5 squares → 25: correct.",
+      "5 rows of 6 squares → 30: correct."
+     ],
+     "to": [
+      "Add the squares in each row.",
+      "Correct choices: 6 rows of 4 squares; 8 rows of 3 squares. Not correct: 3 rows of 7 squares; 7 rows of 3 squares; 5 rows of 5 squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_rectangle_squares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rectangle is split into 4 rows and 5 columns of same-size squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Eli partitions a rectangle into 4 rows with 6 same‑size squares in each row. How many squares are there?",
+       "answer": "24"
+      },
+      {
+       "prompt": "Cam partitions a rectangle into 4 rows with 3 same‑size squares in each row. How many squares are there?",
+       "answer": "12"
+      },
+      {
+       "prompt": "Amir partitions a rectangle into 4 rows with 6 same‑size squares in each row. How many squares are there?",
+       "answer": "24"
+      },
+      {
+       "prompt": "Ava partitions a rectangle into 5 rows with 4 same‑size squares in each row. How many squares are there?",
+       "answer": "20"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares are there?",
+       "answer": "20"
+      },
+      {
+       "prompt": "How many squares are in one row?",
+       "answer": "5"
+      },
+      {
+       "prompt": "If one more row is added, how many squares?",
+       "answer": "25"
+      },
+      {
+       "prompt": "Explain how you counted the squares.",
+       "answer": "Sample answer: I added 5 for each of the 4 rows."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 24; (b) 12; (c) 24; (d) 20",
+     "to": "(a) 20; (b) 5; (c) 25; (d) Sample answer: I added 5 for each of the 4 rows."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 6 once for each row. 6 + 6 + 6 + 6 = 24.",
+      "(b) Add 3 once for each row. 3 + 3 + 3 + 3 = 12.",
+      "(c) Add 6 once for each row. 6 + 6 + 6 + 6 = 24.",
+      "(d) Add 4 once for each row. 4 + 4 + 4 + 4 + 4 = 20."
+     ],
+     "to": [
+      "(a) Rows times columns, or repeated addition.",
+      "(b) One per column.",
+      "(c) Add 5.",
+      "(d) Repeated addition."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pr_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_squares). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A circle is cut into thirds. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Two friends share a sandwich equally. What is each friend's share called? → one half",
+      "Four friends share a pancake equally. What is each friend's share called? → one fourth"
+     ],
+     "to": [
+      "there are 3 equal shares",
+      "3 thirds make the whole",
+      "each share is one third"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Four friends share a granola bar equally. What is each friend's share called? → fourths",
+       "correct": false
+      },
+      {
+       "text": "Two friends share a sandwich equally. What is each friend's share called? → one half",
+       "correct": true
+      },
+      {
+       "text": "Four friends share a pancake equally. What is each friend's share called? → one fourth",
+       "correct": true
+      },
+      {
+       "text": "Four friends share a pizza equally. What is each friend's share called? → one half",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "there are 4 equal shares",
+       "correct": false
+      },
+      {
+       "text": "each share is one half",
+       "correct": false
+      },
+      {
+       "text": "there are 3 equal shares",
+       "correct": true
+      },
+      {
+       "text": "3 thirds make the whole",
+       "correct": true
+      },
+      {
+       "text": "each share is one third",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Four friends share a granola bar equally. What is each friend's share called? → fourths: not correct.",
+      "Two friends share a sandwich equally. What is each friend's share called? → one half: correct.",
+      "Four friends share a pancake equally. What is each friend's share called? → one fourth: correct.",
+      "Four friends share a pizza equally. What is each friend's share called? → one half: not correct."
+     ],
+     "to": [
+      "Thirds are 3 equal shares of the whole.",
+      "Correct choices: there are 3 equal shares; 3 thirds make the whole; each share is one third. Not correct: there are 4 equal shares; each share is one half."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A pizza is cut into thirds."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Three friends share a pizza equally. What is each friend's share called?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "Two friends share a pizza equally. What is each friend's share called?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "Three friends share a granola bar equally. What is each friend's share called?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "Two friends share a pancake equally. What is each friend's share called?",
+       "answer": "one half"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares are there?",
+       "answer": "3"
+      },
+      {
+       "prompt": "What do you call one share?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "How many shares make the whole pizza?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Explain why the shares must be equal.",
+       "answer": "Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) one third; (b) one half; (c) one third; (d) one half",
+     "to": "(a) 3; (b) one third; (c) 3; (d) Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The pizza is cut into 3 equal shares. Each share is one third.",
+      "(b) The pizza is cut into 2 equal shares. Each share is one half.",
+      "(c) The granola bar is cut into 3 equal shares. Each share is one third.",
+      "(d) The pancake is cut into 2 equal shares. Each share is one half."
+     ],
+     "to": [
+      "(a) Thirds means 3 equal shares.",
+      "(b) One of 3 equal shares.",
+      "(c) 3 thirds.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_pizza). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A circle is cut into halves. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Two friends share a sandwich equally. What is each friend's share called? → one half",
+      "Three friends share a sandwich equally. What is each friend's share called? → one third"
+     ],
+     "to": [
+      "the shares are the same size",
+      "there are 2 equal shares",
+      "2 halves make the whole",
+      "each share is one half"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Two friends share a sandwich equally. What is each friend's share called? → one half",
+       "correct": true
+      },
+      {
+       "text": "Two friends share a pizza equally. What is each friend's share called? → halves",
+       "correct": false
+      },
+      {
+       "text": "Three friends share a sandwich equally. What is each friend's share called? → one third",
+       "correct": true
+      },
+      {
+       "text": "Two friends share a sandwich equally. What is each friend's share called? → one third",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "the shares are the same size",
+       "correct": true
+      },
+      {
+       "text": "there are 2 equal shares",
+       "correct": true
+      },
+      {
+       "text": "2 halves make the whole",
+       "correct": true
+      },
+      {
+       "text": "the shares can be different sizes",
+       "correct": false
+      },
+      {
+       "text": "each share is one half",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Two friends share a sandwich equally. What is each friend's share called? → one half: correct.",
+      "Two friends share a pizza equally. What is each friend's share called? → halves: not correct.",
+      "Three friends share a sandwich equally. What is each friend's share called? → one third: correct.",
+      "Two friends share a sandwich equally. What is each friend's share called? → one third: not correct."
+     ],
+     "to": [
+      "Halves are 2 equal shares of the whole.",
+      "Correct choices: the shares are the same size; there are 2 equal shares; 2 halves make the whole; each share is one half. Not correct: the shares can be different sizes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A pizza is cut into halves."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Three friends share a sandwich equally. What is each friend's share called?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "Two friends share a granola bar equally. What is each friend's share called?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "Three friends share a granola bar equally. What is each friend's share called?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "Four friends share a sandwich equally. What is each friend's share called?",
+       "answer": "one fourth"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares are there?",
+       "answer": "2"
+      },
+      {
+       "prompt": "What do you call one share?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "How many shares make the whole pizza?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Explain why the shares must be equal.",
+       "answer": "Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) one third; (b) one half; (c) one third; (d) one fourth",
+     "to": "(a) 2; (b) one half; (c) 2; (d) Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The sandwich is cut into 3 equal shares. Each share is one third.",
+      "(b) The granola bar is cut into 2 equal shares. Each share is one half.",
+      "(c) The granola bar is cut into 3 equal shares. Each share is one third.",
+      "(d) The sandwich is cut into 4 equal shares. Each share is one fourth."
+     ],
+     "to": [
+      "(a) Halves means 2 equal shares.",
+      "(b) One of 2 equal shares.",
+      "(c) 2 halves.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_pizza). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A circle is cut into fourths. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Two friends share a pizza equally. What is each friend's share called? → one half",
+      "Two friends share a pancake equally. What is each friend's share called? → one half"
+     ],
+     "to": [
+      "each share is one fourth",
+      "there are 4 equal shares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Two friends share a pizza equally. What is each friend's share called? → one half",
+       "correct": true
+      },
+      {
+       "text": "Two friends share a sandwich equally. What is each friend's share called? → one third",
+       "correct": false
+      },
+      {
+       "text": "Two friends share a pancake equally. What is each friend's share called? → halves",
+       "correct": false
+      },
+      {
+       "text": "Two friends share a pancake equally. What is each friend's share called? → one half",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "each share is one fourth",
+       "correct": true
+      },
+      {
+       "text": "each share is one half",
+       "correct": false
+      },
+      {
+       "text": "4 fourths make half the whole",
+       "correct": false
+      },
+      {
+       "text": "there are 4 equal shares",
+       "correct": true
+      },
+      {
+       "text": "the shares can be different sizes",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Two friends share a pizza equally. What is each friend's share called? → one half: correct.",
+      "Two friends share a sandwich equally. What is each friend's share called? → one third: not correct.",
+      "Two friends share a pancake equally. What is each friend's share called? → halves: not correct.",
+      "Two friends share a pancake equally. What is each friend's share called? → one half: correct."
+     ],
+     "to": [
+      "Fourths are 4 equal shares of the whole.",
+      "Correct choices: each share is one fourth; there are 4 equal shares. Not correct: 4 fourths make half the whole; each share is one half; the shares can be different sizes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A pizza is cut into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Four friends share a pizza equally. What is each friend's share called?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "Three friends share a pizza equally. What is each friend's share called?",
+       "answer": "one third"
+      },
+      {
+       "prompt": "Two friends share a pancake equally. What is each friend's share called?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "Two friends share a granola bar equally. What is each friend's share called?",
+       "answer": "one half"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares are there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "What do you call one share?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "How many shares make the whole pizza?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain why the shares must be equal.",
+       "answer": "Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) one fourth; (b) one third; (c) one half; (d) one half",
+     "to": "(a) 4; (b) one fourth; (c) 4; (d) Sample answer: Halves, thirds and fourths are equal shares of the same whole."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The pizza is cut into 4 equal shares. Each share is one fourth.",
+      "(b) The pizza is cut into 3 equal shares. Each share is one third.",
+      "(c) The pancake is cut into 2 equal shares. Each share is one half.",
+      "(d) The granola bar is cut into 2 equal shares. Each share is one half."
+     ],
+     "to": [
+      "(a) Fourths means 4 equal shares.",
+      "(b) One of 4 equal shares.",
+      "(c) 4 fourths.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hf_story_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_pizza). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the true statements about equal shares."
+    },
+    "answer": {
+     "from": [
+      "How many halves make one whole? → 2",
+      "How many thirds make one whole? → 3"
+     ],
+     "to": [
+      "two halves make one whole",
+      "one third of a pizza is bigger than one fourth of the same pizza",
+      "three thirds make one whole"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many fourths make one whole? → 5",
+       "correct": false
+      },
+      {
+       "text": "How many halves make one whole? → 2",
+       "correct": true
+      },
+      {
+       "text": "How many thirds make one whole? → 3",
+       "correct": true
+      },
+      {
+       "text": "How many halves make one whole? → 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "two halves make one whole",
+       "correct": true
+      },
+      {
+       "text": "one third of a pizza is bigger than one fourth of the same pizza",
+       "correct": true
+      },
+      {
+       "text": "three thirds make one whole",
+       "correct": true
+      },
+      {
+       "text": "three halves make one whole",
+       "correct": false
+      },
+      {
+       "text": "two fourths make one whole",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many fourths make one whole? → 5: not correct.",
+      "How many halves make one whole? → 2: correct.",
+      "How many thirds make one whole? → 3: correct.",
+      "How many halves make one whole? → 3: not correct."
+     ],
+     "to": [
+      "More equal shares of the same whole means each share is smaller.",
+      "Correct choices: two halves make one whole; one third of a pizza is bigger than one fourth of the same pizza; three thirds make one whole. Not correct: two fourths make one whole; three halves make one whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_count_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_select_true_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Two same-size pizzas: one is cut into thirds and one into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sandwich is cut into fourths. Raj eats three fourths. How much of the sandwich is left?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "A pie is cut into fourths. Amir eats three fourths. How much of the pie is left?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "A sandwich is cut into thirds. Cam eats one third. How much of the sandwich is left?",
+       "answer": "two thirds"
+      },
+      {
+       "prompt": "A pie is cut into thirds. Lena eats two thirds. How much of the pie is left?",
+       "answer": "one third"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pizza has more shares?",
+       "answer": "the second"
+      },
+      {
+       "prompt": "Which pizza has bigger shares?",
+       "answer": "the first"
+      },
+      {
+       "prompt": "How many shares make a whole of the first pizza?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Explain why more shares means smaller shares.",
+       "answer": "Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) one fourth; (b) one fourth; (c) two thirds; (d) one third",
+     "to": "(a) the second; (b) the first; (c) 3; (d) Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The whole is four fourths. 4 − 3 = 1, so one fourth is left.",
+      "(b) The whole is four fourths. 4 − 3 = 1, so one fourth is left.",
+      "(c) The whole is three thirds. 3 − 1 = 2, so two thirds are left.",
+      "(d) The whole is three thirds. 3 − 2 = 1, so one third is left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) 3 thirds.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_left_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_open_two_pizzas). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the true statements about equal shares."
+    },
+    "answer": {
+     "from": [
+      "How many fourths make one whole? → 4",
+      "How many halves make one whole? → 2"
+     ],
+     "to": [
+      "one third of a pizza is bigger than one fourth of the same pizza",
+      "three thirds make one whole",
+      "two halves make one whole",
+      "four fourths make one whole"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many fourths make one whole? → 4",
+       "correct": true
+      },
+      {
+       "text": "How many fourths make one whole? → 5",
+       "correct": false
+      },
+      {
+       "text": "How many halves make one whole? → 1",
+       "correct": false
+      },
+      {
+       "text": "How many halves make one whole? → 2",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "one third of a pizza is bigger than one fourth of the same pizza",
+       "correct": true
+      },
+      {
+       "text": "three thirds make one whole",
+       "correct": true
+      },
+      {
+       "text": "two halves make one whole",
+       "correct": true
+      },
+      {
+       "text": "four fourths make one whole",
+       "correct": true
+      },
+      {
+       "text": "one third is smaller than one fourth of the same whole",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many fourths make one whole? → 4: correct.",
+      "How many fourths make one whole? → 5: not correct.",
+      "How many halves make one whole? → 1: not correct.",
+      "How many halves make one whole? → 2: correct."
+     ],
+     "to": [
+      "More equal shares of the same whole means each share is smaller.",
+      "Correct choices: one third of a pizza is bigger than one fourth of the same pizza; three thirds make one whole; two halves make one whole; four fourths make one whole. Not correct: one third is smaller than one fourth of the same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_count_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_select_true_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Two same-size pizzas: one is cut into halves and one into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sandwich is cut into fourths. Finn eats three fourths. How much of the sandwich is left?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "A pizza is cut into halves. Lena eats one half. How much of the pizza is left?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "A pie is cut into halves. Ivy eats one half. How much of the pie is left?",
+       "answer": "one half"
+      },
+      {
+       "prompt": "A pie is cut into fourths. Mia eats two fourths. How much of the pie is left?",
+       "answer": "two fourths"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pizza has more shares?",
+       "answer": "the second"
+      },
+      {
+       "prompt": "Which pizza has bigger shares?",
+       "answer": "the first"
+      },
+      {
+       "prompt": "How many shares make a whole of the first pizza?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Explain why more shares means smaller shares.",
+       "answer": "Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) one fourth; (b) one half; (c) one half; (d) two fourths",
+     "to": "(a) the second; (b) the first; (c) 2; (d) Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The whole is four fourths. 4 − 3 = 1, so one fourth is left.",
+      "(b) The whole is two halves. 2 − 1 = 1, so one half is left.",
+      "(c) The whole is two halves. 2 − 1 = 1, so one half is left.",
+      "(d) The whole is four fourths. 4 − 2 = 2, so two fourths are left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) 2 halves.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_left_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_open_two_pizzas). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the true statements about equal shares."
+    },
+    "answer": {
+     "from": [
+      "How many thirds make one whole? → 3",
+      "How many fourths make one whole? → 4"
+     ],
+     "to": [
+      "one half of a pizza is bigger than one fourth of the same pizza",
+      "one third of a pizza is bigger than one fourth of the same pizza"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many thirds make one whole? → 3",
+       "correct": true
+      },
+      {
+       "text": "How many fourths make one whole? → 4",
+       "correct": true
+      },
+      {
+       "text": "How many thirds make one whole? → 2",
+       "correct": false
+      },
+      {
+       "text": "How many thirds make one whole? → 1",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "one half of a pizza is bigger than one fourth of the same pizza",
+       "correct": true
+      },
+      {
+       "text": "three halves make one whole",
+       "correct": false
+      },
+      {
+       "text": "one third is smaller than one fourth of the same whole",
+       "correct": false
+      },
+      {
+       "text": "one third of a pizza is bigger than one fourth of the same pizza",
+       "correct": true
+      },
+      {
+       "text": "more shares means bigger shares",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many thirds make one whole? → 3: correct.",
+      "How many fourths make one whole? → 4: correct.",
+      "How many thirds make one whole? → 2: not correct.",
+      "How many thirds make one whole? → 1: not correct."
+     ],
+     "to": [
+      "More equal shares of the same whole means each share is smaller.",
+      "Correct choices: one half of a pizza is bigger than one fourth of the same pizza; one third of a pizza is bigger than one fourth of the same pizza. Not correct: more shares means bigger shares; three halves make one whole; one third is smaller than one fourth of the same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_count_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_select_true_shares). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-sh-s06-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Two same-size pizzas: one is cut into fourths and one into halves."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sandwich is cut into fourths. Kai eats two fourths. How much of the sandwich is left?",
+       "answer": "two fourths"
+      },
+      {
+       "prompt": "A pie is cut into fourths. Gus eats two fourths. How much of the pie is left?",
+       "answer": "two fourths"
+      },
+      {
+       "prompt": "A pizza is cut into fourths. Ian eats three fourths. How much of the pizza is left?",
+       "answer": "one fourth"
+      },
+      {
+       "prompt": "A sandwich is cut into fourths. Luis eats one fourth. How much of the sandwich is left?",
+       "answer": "three fourths"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pizza has more shares?",
+       "answer": "the first"
+      },
+      {
+       "prompt": "Which pizza has bigger shares?",
+       "answer": "the second"
+      },
+      {
+       "prompt": "How many shares make a whole of the first pizza?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain why more shares means smaller shares.",
+       "answer": "Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) two fourths; (b) two fourths; (c) one fourth; (d) three fourths",
+     "to": "(a) the first; (b) the second; (c) 4; (d) Sample answer: The same whole is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The whole is four fourths. 4 − 2 = 2, so two fourths are left.",
+      "(b) The whole is four fourths. 4 − 2 = 2, so two fourths are left.",
+      "(c) The whole is four fourths. 4 − 3 = 1, so one fourth is left.",
+      "(d) The whole is four fourths. 4 − 1 = 3, so three fourths are left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) 4 fourths.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: wh_left_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh6_open_two_pizzas). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m2-sh-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 + 3 + 3 = 9.",
+   "distractors": {
+    "3": "a common mistake",
+    "6": "a common mistake",
+    "12": "a common mistake"
+   }
+  },
+  "m2-sh-s01-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 5 + 5 + 5 = 20.",
+   "distractors": {
+    "5": "a common mistake",
+    "9": "a common mistake",
+    "25": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 − 4 = 2.",
+   "distractors": {
+    "10": "a common mistake",
+    "6": "a common mistake",
+    "3": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 − 3 = 3.",
+   "distractors": {
+    "9": "a common mistake",
+    "6": "a common mistake",
+    "4": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 − 3 = 1.",
+   "distractors": {
+    "7": "a common mistake",
+    "4": "a common mistake",
+    "2": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 − 3 = 2.",
+   "distractors": {
+    "8": "a common mistake",
+    "5": "a common mistake",
+    "3": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 − 3 = 1.",
+   "distractors": {
+    "7": "a common mistake",
+    "4": "a common mistake",
+    "2": "a common mistake"
+   }
+  },
+  "m2-sh-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 − 4 = 2.",
+   "distractors": {
+    "10": "a common mistake",
+    "6": "a common mistake",
+    "3": "a common mistake"
+   }
+  },
+  "m2-sh-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 6 + 6 = 18, so there are 3 cubes.",
+   "distractors": {
+    "4 cubes": "a common mistake",
+    "18 cubes": "a common mistake"
+   }
+  },
+  "m2-sh-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 6 + 6 = 18, so there are 3 cubes.",
+   "distractors": {
+    "4 cubes": "a common mistake",
+    "18 cubes": "a common mistake"
+   }
+  },
+  "m2-sh-s03-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 6 + 6 + 6 + 6 = 30, so there are 5 cubes.",
+   "distractors": {
+    "7 cubes": "a common mistake",
+    "30 cubes": "a common mistake",
+    "6 cubes": "a common mistake"
+   }
+  },
+  "m2-sh-s04-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 rows of 7 = 14.",
+   "distractors": {
+    "10": "a common mistake",
+    "20": "a common mistake",
+    "12": "a common mistake"
+   }
+  },
+  "m2-sh-s04-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 rows of 3 = 9.",
+   "distractors": {
+    "6": "a common mistake",
+    "8": "a common mistake",
+    "7": "a common mistake"
+   }
+  },
+  "m2-sh-s01-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 3 = 7.",
+   "distractors": {
+    "4": "a common mistake",
+    "8": "a common mistake",
+    "12": "a common mistake"
+   }
+  },
+  "m2-sh-s01-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 3 = 8.",
+   "distractors": {
+    "5": "a common mistake",
+    "9": "a common mistake",
+    "15": "a common mistake"
+   }
+  },
+  "m2-sh-s02-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It has 6 angles.",
+   "distractors": {
+    "hexagon; 7": "a common mistake",
+    "pentagon; 6": "a common mistake",
+    "hexagon; 12": "a common mistake"
+   }
+  },
+  "m2-sh-s03-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "18 − 2 = 16.",
+   "distractors": {
+    "18 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "20 stickers": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 − 9 = 1.",
+   "distractors": {
+    "10": "a common mistake",
+    "9": "a common mistake",
+    "19": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 − 5 = 1.",
+   "distractors": {
+    "6": "a common mistake",
+    "5": "a common mistake",
+    "11": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 − 13 = 7.",
+   "distractors": {
+    "20": "a common mistake",
+    "13": "a common mistake",
+    "33": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 13 = 2.",
+   "distractors": {
+    "15": "a common mistake",
+    "13": "a common mistake",
+    "28": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 3 = 12.",
+   "distractors": {
+    "15": "a common mistake",
+    "3": "a common mistake",
+    "5": "a common mistake"
+   }
+  },
+  "m2-sh-s04-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 9 = 3.",
+   "distractors": {
+    "12": "a common mistake",
+    "9": "a common mistake",
+    "21": "a common mistake"
+   }
+  },
+  "m2-sh-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-sh-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-sh-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-sh-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "One at each angle."
+  },
+  "m2-sh-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "One at each angle."
+  },
+  "m2-sh-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "One at each angle."
+  },
+  "m2-sh-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Cube faces are squares."
+  },
+  "m2-sh-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Cube faces are squares."
+  },
+  "m2-sh-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Cube faces are squares."
+  },
+  "m2-sh-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 3."
+  },
+  "m2-sh-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 2."
+  },
+  "m2-sh-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 5."
+  },
+  "m2-sh-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "2 halves."
+  },
+  "m2-sh-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3 thirds."
+  },
+  "m2-sh-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "4 fourths."
+  },
+  "m2-sh-s06-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "2 halves."
+  },
+  "m2-sh-s06-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3 thirds."
+  },
+  "m2-sh-s06-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "4 fourths."
+  },
+  "m2-sh-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the sides of each shape."
+  },
+  "m2-sh-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the sides of each shape."
+  },
+  "m2-sh-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the sides of each shape."
+  },
+  "m2-sh-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A shape with 4 angles has 4 sides: a quadrilateral."
+  },
+  "m2-sh-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A shape with 4 angles has 4 sides: a quadrilateral."
+  },
+  "m2-sh-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A shape with 4 angles has 4 sides: a quadrilateral."
+  },
+  "m2-sh-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A cube has 6 square faces, 12 edges and 8 vertices."
+  },
+  "m2-sh-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A cube has 6 square faces, 12 edges and 8 vertices."
+  },
+  "m2-sh-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A cube has 6 square faces, 12 edges and 8 vertices."
+  },
+  "m2-sh-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the squares in each row."
+  },
+  "m2-sh-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the squares in each row."
+  },
+  "m2-sh-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the squares in each row."
+  },
+  "m2-sh-s05-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Thirds are 3 equal shares of the whole."
+  },
+  "m2-sh-s05-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Halves are 2 equal shares of the whole."
+  },
+  "m2-sh-s05-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Fourths are 4 equal shares of the whole."
+  },
+  "m2-sh-s06-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "More equal shares of the same whole means each share is smaller."
+  },
+  "m2-sh-s06-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "More equal shares of the same whole means each share is smaller."
+  },
+  "m2-sh-s06-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "More equal shares of the same whole means each share is smaller."
+  }
+ }
+}

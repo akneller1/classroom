@@ -1,0 +1,974 @@
+[
+ {
+  "id": "m2-ml-s06-cp2-p001",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The pencils measured (inches): 4, 5, 5, 4, 5, 3. Make a line plot. Put one X for each measurement.",
+  "answer": "3: 1 X; 4: 2 X; 5: 3 X",
+  "solutionSteps": [
+   "There are 6 measurements, so the line plot needs 6 X marks.",
+   "Stack an X above each length every time it appears: 3: 1 X; 4: 2 X; 5: 3 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Pencils",
+   "units": "inches",
+   "numberLine": {
+    "min": "2",
+    "max": "7",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "4",
+     "5",
+     "5",
+     "4",
+     "5",
+     "3"
+    ]
+   },
+   "target": {
+    "values": [
+     "4",
+     "5",
+     "5",
+     "4",
+     "5",
+     "3"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 6 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "4",
+      "5",
+      "5",
+      "4",
+      "5",
+      "3"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "5",
+        "5",
+        "4",
+        "5",
+        "3"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "5",
+        "5",
+        "5",
+        "4",
+        "5",
+        "3"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp2-p001.png",
+    "alt": "Line plot titled Lengths of Pencils in inches. 3: 1 X; 4: 2 X; 5: 3 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-cp2-p002",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The crayons measured (inches): 4, 3, 4, 3, 2, 3. Make a line plot. Put one X for each measurement.",
+  "answer": "2: 1 X; 3: 3 X; 4: 2 X",
+  "solutionSteps": [
+   "There are 6 measurements, so the line plot needs 6 X marks.",
+   "Stack an X above each length every time it appears: 2: 1 X; 3: 3 X; 4: 2 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Crayons",
+   "units": "inches",
+   "numberLine": {
+    "min": "1",
+    "max": "6",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "4",
+     "3",
+     "4",
+     "3",
+     "2",
+     "3"
+    ]
+   },
+   "target": {
+    "values": [
+     "4",
+     "3",
+     "4",
+     "3",
+     "2",
+     "3"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 6 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "4",
+      "3",
+      "4",
+      "3",
+      "2",
+      "3"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "3",
+        "4",
+        "3",
+        "2",
+        "3"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "5",
+        "3",
+        "4",
+        "3",
+        "2",
+        "3"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp2-p002.png",
+    "alt": "Line plot titled Lengths of Crayons in inches. 2: 1 X; 3: 3 X; 4: 2 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-cp2-p003",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The leaves measured (centimeters): 6, 6, 7, 4, 5, 5. Make a line plot. Put one X for each measurement.",
+  "answer": "4: 1 X; 5: 2 X; 6: 2 X; 7: 1 X",
+  "solutionSteps": [
+   "There are 6 measurements, so the line plot needs 6 X marks.",
+   "Stack an X above each length every time it appears: 4: 1 X; 5: 2 X; 6: 2 X; 7: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Leaves",
+   "units": "centimeters",
+   "numberLine": {
+    "min": "3",
+    "max": "8",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "6",
+     "6",
+     "7",
+     "4",
+     "5",
+     "5"
+    ]
+   },
+   "target": {
+    "values": [
+     "6",
+     "6",
+     "7",
+     "4",
+     "5",
+     "5"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 6 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "6",
+      "6",
+      "7",
+      "4",
+      "5",
+      "5"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "6",
+        "7",
+        "4",
+        "5",
+        "5"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "7",
+        "6",
+        "7",
+        "4",
+        "5",
+        "5"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp2-p003.png",
+    "alt": "Line plot titled Lengths of Leaves in centimeters. 4: 1 X; 5: 2 X; 6: 2 X; 7: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-cp1-p001",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The ribbons measured (inches): 8, 7, 7, 9, 7, 5, 6, 6. Make a line plot. Put one X for each measurement.",
+  "answer": "5: 1 X; 6: 2 X; 7: 3 X; 8: 1 X; 9: 1 X",
+  "solutionSteps": [
+   "There are 8 measurements, so the line plot needs 8 X marks.",
+   "Stack an X above each length every time it appears: 5: 1 X; 6: 2 X; 7: 3 X; 8: 1 X; 9: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Ribbons",
+   "units": "inches",
+   "numberLine": {
+    "min": "4",
+    "max": "10",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "8",
+     "7",
+     "7",
+     "9",
+     "7",
+     "5",
+     "6",
+     "6"
+    ]
+   },
+   "target": {
+    "values": [
+     "8",
+     "7",
+     "7",
+     "9",
+     "7",
+     "5",
+     "6",
+     "6"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 8 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "8",
+      "7",
+      "7",
+      "9",
+      "7",
+      "5",
+      "6",
+      "6"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "7",
+        "7",
+        "9",
+        "7",
+        "5",
+        "6",
+        "6"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "9",
+        "7",
+        "7",
+        "9",
+        "7",
+        "5",
+        "6",
+        "6"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp1-p001.png",
+    "alt": "Line plot titled Lengths of Ribbons in inches. 5: 1 X; 6: 2 X; 7: 3 X; 8: 1 X; 9: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-cp1-p002",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The shoes measured (inches): 8, 9, 8, 10, 6, 7, 7, 8. Make a line plot. Put one X for each measurement.",
+  "answer": "6: 1 X; 7: 2 X; 8: 3 X; 9: 1 X; 10: 1 X",
+  "solutionSteps": [
+   "There are 8 measurements, so the line plot needs 8 X marks.",
+   "Stack an X above each length every time it appears: 6: 1 X; 7: 2 X; 8: 3 X; 9: 1 X; 10: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Shoes",
+   "units": "inches",
+   "numberLine": {
+    "min": "5",
+    "max": "11",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "8",
+     "9",
+     "8",
+     "10",
+     "6",
+     "7",
+     "7",
+     "8"
+    ]
+   },
+   "target": {
+    "values": [
+     "8",
+     "9",
+     "8",
+     "10",
+     "6",
+     "7",
+     "7",
+     "8"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 8 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "8",
+      "9",
+      "8",
+      "10",
+      "6",
+      "7",
+      "7",
+      "8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "9",
+        "8",
+        "10",
+        "6",
+        "7",
+        "7",
+        "8"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "9",
+        "9",
+        "8",
+        "10",
+        "6",
+        "7",
+        "7",
+        "8"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp1-p002.png",
+    "alt": "Line plot titled Lengths of Shoes in inches. 6: 1 X; 7: 2 X; 8: 3 X; 9: 1 X; 10: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-cp1-p003",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The sticks measured (centimeters): 15, 14, 13, 11, 12, 12, 13, 13. Make a line plot. Put one X for each measurement.",
+  "answer": "11: 1 X; 12: 2 X; 13: 3 X; 14: 1 X; 15: 1 X",
+  "solutionSteps": [
+   "There are 8 measurements, so the line plot needs 8 X marks.",
+   "Stack an X above each length every time it appears: 11: 1 X; 12: 2 X; 13: 3 X; 14: 1 X; 15: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Sticks",
+   "units": "centimeters",
+   "numberLine": {
+    "min": "10",
+    "max": "16",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "15",
+     "14",
+     "13",
+     "11",
+     "12",
+     "12",
+     "13",
+     "13"
+    ]
+   },
+   "target": {
+    "values": [
+     "15",
+     "14",
+     "13",
+     "11",
+     "12",
+     "12",
+     "13",
+     "13"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 8 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "15",
+      "14",
+      "13",
+      "11",
+      "12",
+      "12",
+      "13",
+      "13"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "14",
+        "13",
+        "11",
+        "12",
+        "12",
+        "13",
+        "13"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "16",
+        "14",
+        "13",
+        "11",
+        "12",
+        "12",
+        "13",
+        "13"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-cp1-p003.png",
+    "alt": "Line plot titled Lengths of Sticks in centimeters. 11: 1 X; 12: 2 X; 13: 3 X; 14: 1 X; 15: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-honors-p001",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The plants measured (centimeters): 16, 18, 15, 16, 19, 13, 14, 14, 15, 15. Make a line plot. Put one X for each measurement.",
+  "answer": "13: 1 X; 14: 2 X; 15: 3 X; 16: 2 X; 18: 1 X; 19: 1 X",
+  "solutionSteps": [
+   "There are 10 measurements, so the line plot needs 10 X marks.",
+   "Stack an X above each length every time it appears: 13: 1 X; 14: 2 X; 15: 3 X; 16: 2 X; 18: 1 X; 19: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Plants",
+   "units": "centimeters",
+   "numberLine": {
+    "min": "12",
+    "max": "20",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "16",
+     "18",
+     "15",
+     "16",
+     "19",
+     "13",
+     "14",
+     "14",
+     "15",
+     "15"
+    ]
+   },
+   "target": {
+    "values": [
+     "16",
+     "18",
+     "15",
+     "16",
+     "19",
+     "13",
+     "14",
+     "14",
+     "15",
+     "15"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 10 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "16",
+      "18",
+      "15",
+      "16",
+      "19",
+      "13",
+      "14",
+      "14",
+      "15",
+      "15"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "18",
+        "15",
+        "16",
+        "19",
+        "13",
+        "14",
+        "14",
+        "15",
+        "15"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "17",
+        "18",
+        "15",
+        "16",
+        "19",
+        "13",
+        "14",
+        "14",
+        "15",
+        "15"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-honors-p001.png",
+    "alt": "Line plot titled Lengths of Plants in centimeters. 13: 1 X; 14: 2 X; 15: 3 X; 16: 2 X; 18: 1 X; 19: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-honors-p002",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The jumps measured (feet): 7, 5, 8, 6, 3, 4, 4, 5, 5, 5. Make a line plot. Put one X for each measurement.",
+  "answer": "3: 1 X; 4: 2 X; 5: 4 X; 6: 1 X; 7: 1 X; 8: 1 X",
+  "solutionSteps": [
+   "There are 10 measurements, so the line plot needs 10 X marks.",
+   "Stack an X above each length every time it appears: 3: 1 X; 4: 2 X; 5: 4 X; 6: 1 X; 7: 1 X; 8: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Jumps",
+   "units": "feet",
+   "numberLine": {
+    "min": "2",
+    "max": "9",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "7",
+     "5",
+     "8",
+     "6",
+     "3",
+     "4",
+     "4",
+     "5",
+     "5",
+     "5"
+    ]
+   },
+   "target": {
+    "values": [
+     "7",
+     "5",
+     "8",
+     "6",
+     "3",
+     "4",
+     "4",
+     "5",
+     "5",
+     "5"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 10 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "7",
+      "5",
+      "8",
+      "6",
+      "3",
+      "4",
+      "4",
+      "5",
+      "5",
+      "5"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "5",
+        "8",
+        "6",
+        "3",
+        "4",
+        "4",
+        "5",
+        "5",
+        "5"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "8",
+        "5",
+        "8",
+        "6",
+        "3",
+        "4",
+        "4",
+        "5",
+        "5",
+        "5"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-honors-p002.png",
+    "alt": "Line plot titled Lengths of Jumps in feet. 3: 1 X; 4: 2 X; 5: 4 X; 6: 1 X; 7: 1 X; 8: 1 X."
+   }
+  }
+ },
+ {
+  "id": "m2-ml-s06-honors-p003",
+  "unit": "measuring-length",
+  "skillId": "measuring-length-skill-06",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The paper strips measured (inches): 10, 13, 12, 7, 8, 8, 9, 9, 9, 10. Make a line plot. Put one X for each measurement.",
+  "answer": "7: 1 X; 8: 2 X; 9: 3 X; 10: 2 X; 12: 1 X; 13: 1 X",
+  "solutionSteps": [
+   "There are 10 measurements, so the line plot needs 10 X marks.",
+   "Stack an X above each length every time it appears: 7: 1 X; 8: 2 X; 9: 3 X; 10: 2 X; 12: 1 X; 13: 1 X."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ml6_plot_line_plot). 2nd Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade2-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "line-plot",
+   "title": "Lengths of Paper strips",
+   "units": "inches",
+   "numberLine": {
+    "min": "6",
+    "max": "14",
+    "tick": "1",
+    "labelEvery": 1,
+    "snap": "1"
+   },
+   "source": {
+    "type": "list",
+    "values": [
+     "10",
+     "13",
+     "12",
+     "7",
+     "8",
+     "8",
+     "9",
+     "9",
+     "9",
+     "10"
+    ]
+   },
+   "target": {
+    "values": [
+     "10",
+     "13",
+     "12",
+     "7",
+     "8",
+     "8",
+     "9",
+     "9",
+     "9",
+     "10"
+    ]
+   },
+   "feedback": {
+    "count": "Put one X for each measurement. There are 10 measurements.",
+    "wrong-tick": "At least one X is on the tick next to where it belongs. Count the ticks again.",
+    "position": "Not quite. Find each length on the number line and check your X marks."
+   },
+   "testVectors": {
+    "correct": {
+     "marks": [
+      "10",
+      "13",
+      "12",
+      "7",
+      "8",
+      "8",
+      "9",
+      "9",
+      "9",
+      "10"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "marks": [
+        "13",
+        "12",
+        "7",
+        "8",
+        "8",
+        "9",
+        "9",
+        "9",
+        "10"
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "marks": [
+        "11",
+        "13",
+        "12",
+        "7",
+        "8",
+        "8",
+        "9",
+        "9",
+        "9",
+        "10"
+       ]
+      },
+      "expectCode": "wrong-tick"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m2-ml-s06-honors-p003.png",
+    "alt": "Line plot titled Lengths of Paper strips in inches. 7: 1 X; 8: 2 X; 9: 3 X; 10: 2 X; 12: 1 X; 13: 1 X."
+   }
+  }
+ }
+]

@@ -1,0 +1,5483 @@
+{
+ "unit": "place-value-1000",
+ "edits": [
+  {
+   "id": "m2-pv-s01-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What number is missing? 90, ?, 110, 120, 130",
+     "to": "How many tens are in 930? How many whole hundreds?"
+    },
+    "answer": {
+     "from": "100",
+     "to": "93; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more than the one before.",
+      "The missing number is 100."
+     ],
+     "to": [
+      "930 is 93 tens.",
+      "10 tens make 1 hundred, so 93 tens is 9 whole hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_tens_then_hundreds). Rewritten from a Support template (was hu_count) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "110",
+       "correct": false
+      },
+      {
+       "text": "1000",
+       "correct": false
+      },
+      {
+       "text": "100",
+       "correct": true
+      },
+      {
+       "text": "99",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 93",
+       "correct": false
+      },
+      {
+       "text": "93; 9",
+       "correct": true
+      },
+      {
+       "text": "93; 93",
+       "correct": false
+      },
+      {
+       "text": "930; 9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What number is missing? 120, 130, 140, 150, ?",
+     "to": "How many tens are in 710? How many whole hundreds?"
+    },
+    "answer": {
+     "from": "160",
+     "to": "71; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more than the one before.",
+      "The missing number is 160."
+     ],
+     "to": [
+      "710 is 71 tens.",
+      "10 tens make 1 hundred, so 71 tens is 7 whole hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_tens_then_hundreds). Rewritten from a Support template (was hu_count) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "160",
+       "correct": true
+      },
+      {
+       "text": "170",
+       "correct": false
+      },
+      {
+       "text": "161",
+       "correct": false
+      },
+      {
+       "text": "159",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "71; 7",
+       "correct": true
+      },
+      {
+       "text": "7; 71",
+       "correct": false
+      },
+      {
+       "text": "71; 71",
+       "correct": false
+      },
+      {
+       "text": "710; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "Tens in 150. Is the answer 1?",
+     "to": "How many tens are in 670? How many whole hundreds?"
+    },
+    "answer": {
+     "from": "No. The answer is 15.",
+     "to": "67; 6"
+    },
+    "solutionSteps": {
+     "from": [
+      "150 is 1 hundred and 5 tens; 1 hundred = 10 tens.",
+      "There are 15 tens in 150.",
+      "The answer 1 is not correct; it should be 15."
+     ],
+     "to": [
+      "670 is 67 tens.",
+      "10 tens make 1 hundred, so 67 tens is 6 whole hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_tens_then_hundreds). Rewritten from a Support template (was hu_tens_in_tf) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. 1 is the correct answer.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 150.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 15.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 5.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6; 67",
+       "correct": false
+      },
+      {
+       "text": "67; 6",
+       "correct": true
+      },
+      {
+       "text": "67; 67",
+       "correct": false
+      },
+      {
+       "text": "670; 6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 800."
+    },
+    "answer": {
+     "from": [
+      "Tens in 190 → 19",
+      "Tens in 120 → 12"
+     ],
+     "to": [
+      "7 hundreds and 10 tens",
+      "80 tens"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Tens in 190 → 19",
+       "correct": true
+      },
+      {
+       "text": "Tens in 120 → 12",
+       "correct": true
+      },
+      {
+       "text": "Tens in 120 → 120",
+       "correct": false
+      },
+      {
+       "text": "Tens in 120 → 1",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8 tens",
+       "correct": false
+      },
+      {
+       "text": "7 hundreds and 10 tens",
+       "correct": true
+      },
+      {
+       "text": "80 tens",
+       "correct": true
+      },
+      {
+       "text": "81 tens",
+       "correct": false
+      },
+      {
+       "text": "8 hundreds and 10 tens",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Tens in 190 → 19: correct.",
+      "Tens in 120 → 12: correct.",
+      "Tens in 120 → 120: not correct.",
+      "Tens in 120 → 1: not correct."
+     ],
+     "to": [
+      "800 is 8 hundreds, which is 80 tens.",
+      "Correct choices: 7 hundreds and 10 tens; 80 tens. Not correct: 8 tens; 8 hundreds and 10 tens; 81 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_select_same_number). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Sam bundles sticks into tens. He has 28 bundles."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "How many tens are in 170?",
+       "answer": "17"
+      },
+      {
+       "prompt": "How many tens are in 120?",
+       "answer": "12"
+      },
+      {
+       "prompt": "How many tens are in 160?",
+       "answer": "16"
+      },
+      {
+       "prompt": "How many tens are in 140?",
+       "answer": "14"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks does Sam have?",
+       "answer": "280"
+      },
+      {
+       "prompt": "How many hundreds can he make?",
+       "answer": "2"
+      },
+      {
+       "prompt": "How many tens are left over?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Explain why 10 tens is 1 hundred.",
+       "answer": "Sample answer: 10 groups of 10 is 100."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 17; (b) 12; (c) 16; (d) 14",
+     "to": "(a) 280; (b) 2; (c) 8; (d) Sample answer: 10 groups of 10 is 100."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 170 is 1 hundred and 7 tens; 1 hundred = 10 tens. There are 17 tens in 170.",
+      "(b) 120 is 1 hundred and 2 tens; 1 hundred = 10 tens. There are 12 tens in 120.",
+      "(c) 160 is 1 hundred and 6 tens; 1 hundred = 10 tens. There are 16 tens in 160.",
+      "(d) 140 is 1 hundred and 4 tens; 1 hundred = 10 tens. There are 14 tens in 140."
+     ],
+     "to": [
+      "(a) 28 tens = 280.",
+      "(b) 10 tens make 1 hundred.",
+      "(c) 28 − 20 = 8.",
+      "(d) Bundle tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_open_bundles). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 800."
+    },
+    "answer": {
+     "from": [
+      "Tess has 10 boxes with 10 crayons in each. How many crayons is that? → 100 crayons",
+      "Cam has 10 cups with 10 beads in each. How many beads is that? → 100 beads"
+     ],
+     "to": [
+      "7 hundreds and 10 tens",
+      "8 hundreds and 0 tens",
+      "80 tens"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ella has 10 cups with 10 beads in each. How many beads is that? → 10 beads",
+       "correct": false
+      },
+      {
+       "text": "Tess has 10 boxes with 10 crayons in each. How many crayons is that? → 100 crayons",
+       "correct": true
+      },
+      {
+       "text": "Ian has 10 boxes with 10 crayons in each. How many crayons is that? → 10 crayons",
+       "correct": false
+      },
+      {
+       "text": "Cam has 10 cups with 10 beads in each. How many beads is that? → 100 beads",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "81 tens",
+       "correct": false
+      },
+      {
+       "text": "7 hundreds and 10 tens",
+       "correct": true
+      },
+      {
+       "text": "9 hundreds",
+       "correct": false
+      },
+      {
+       "text": "8 hundreds and 0 tens",
+       "correct": true
+      },
+      {
+       "text": "80 tens",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ella has 10 cups with 10 beads in each. How many beads is that? → 10 beads: not correct.",
+      "Tess has 10 boxes with 10 crayons in each. How many crayons is that? → 100 crayons: correct.",
+      "Ian has 10 boxes with 10 crayons in each. How many crayons is that? → 10 crayons: not correct.",
+      "Cam has 10 cups with 10 beads in each. How many beads is that? → 100 beads: correct."
+     ],
+     "to": [
+      "800 is 8 hundreds, which is 80 tens.",
+      "Correct choices: 7 hundreds and 10 tens; 8 hundreds and 0 tens; 80 tens. Not correct: 81 tens; 9 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_bags_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_select_same_number). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Sam bundles sticks into tens. He has 18 bundles."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Gus has 10 cups with 10 beads in each. How many beads is that?",
+       "answer": "100 beads"
+      },
+      {
+       "prompt": "Sam has 10 packs with 10 stickers in each. How many stickers is that?",
+       "answer": "100 stickers"
+      },
+      {
+       "prompt": "Uma has 10 boxes with 10 crayons in each. How many crayons is that?",
+       "answer": "100 crayons"
+      },
+      {
+       "prompt": "Zoe has 10 bags with 10 marbles in each. How many marbles is that?",
+       "answer": "100 marbles"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks does Sam have?",
+       "answer": "180"
+      },
+      {
+       "prompt": "How many hundreds can he make?",
+       "answer": "1"
+      },
+      {
+       "prompt": "How many tens are left over?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Explain why 10 tens is 1 hundred.",
+       "answer": "Sample answer: 10 groups of 10 is 100."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 100 beads; (b) 100 stickers; (c) 100 crayons; (d) 100 marbles",
+     "to": "(a) 180; (b) 1; (c) 8; (d) Sample answer: 10 groups of 10 is 100."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 tens = 1 hundred and 0 tens. That is 100 beads.",
+      "(b) 10 tens = 1 hundred and 0 tens. That is 100 stickers.",
+      "(c) 10 tens = 1 hundred and 0 tens. That is 100 crayons.",
+      "(d) 10 tens = 1 hundred and 0 tens. That is 100 marbles."
+     ],
+     "to": [
+      "(a) 18 tens = 180.",
+      "(b) 10 tens make 1 hundred.",
+      "(c) 18 − 10 = 8.",
+      "(d) Bundle tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_bags_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_open_bundles). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 280?",
+     "to": "A number has 3 hundreds and 10 tens. What is the number?"
+    },
+    "answer": {
+     "from": "28",
+     "to": "400"
+    },
+    "solutionSteps": {
+     "from": [
+      "280 is 2 hundreds and 8 tens; 1 hundred = 10 tens.",
+      "There are 28 tens in 280."
+     ],
+     "to": [
+      "10 tens = 1 hundred and 0 tens.",
+      "4 hundreds and 0 tens = 400."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Max has 20 tens. How many more tens are needed to make 300?",
+     "to": "A number has 2 hundreds and 15 tens. What is the number?"
+    },
+    "answer": {
+     "from": "10",
+     "to": "350"
+    },
+    "solutionSteps": {
+     "from": [
+      "300 = 30 tens.",
+      "30 − 20 = 10 more tens."
+     ],
+     "to": [
+      "15 tens = 1 hundred and 5 tens.",
+      "3 hundreds and 5 tens = 350."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_need). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Ben has 15 tens. How many more tens are needed to make 200?",
+     "to": "A number has 2 hundreds and 10 tens. What is the number?"
+    },
+    "answer": {
+     "from": "5",
+     "to": "300"
+    },
+    "solutionSteps": {
+     "from": [
+      "200 = 20 tens.",
+      "20 − 15 = 5 more tens."
+     ],
+     "to": [
+      "10 tens = 1 hundred and 0 tens.",
+      "3 hundreds and 0 tens = 300."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_need). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 120?",
+     "to": "A number has 3 hundreds and 11 tens. What is the number?"
+    },
+    "answer": {
+     "from": "12",
+     "to": "410"
+    },
+    "solutionSteps": {
+     "from": [
+      "120 is 1 hundred and 2 tens; 1 hundred = 10 tens.",
+      "There are 12 tens in 120."
+     ],
+     "to": [
+      "11 tens = 1 hundred and 1 tens.",
+      "4 hundreds and 1 tens = 410."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 160?",
+     "to": "A number has 8 hundreds and 12 tens. What is the number?"
+    },
+    "answer": {
+     "from": "16",
+     "to": "920"
+    },
+    "solutionSteps": {
+     "from": [
+      "160 is 1 hundred and 6 tens; 1 hundred = 10 tens.",
+      "There are 16 tens in 160."
+     ],
+     "to": [
+      "12 tens = 1 hundred and 2 tens.",
+      "9 hundreds and 2 tens = 920."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "Tens in 380. Is the answer 38?",
+     "to": "A number has 8 hundreds and 13 tens. What is the number?"
+    },
+    "answer": {
+     "from": "Yes. There are 38 tens in 380.",
+     "to": "930"
+    },
+    "solutionSteps": {
+     "from": [
+      "380 is 3 hundreds and 8 tens; 1 hundred = 10 tens.",
+      "There are 38 tens in 380.",
+      "The answer 38 is correct."
+     ],
+     "to": [
+      "13 tens = 1 hundred and 3 tens.",
+      "9 hundreds and 3 tens = 930."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_regroup_tens). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 8.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 3.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 380.",
+       "correct": false
+      },
+      {
+       "text": "Yes. There are 38 tens in 380.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "813",
+       "correct": false
+      },
+      {
+       "text": "930",
+       "correct": true
+      },
+      {
+       "text": "210",
+       "correct": false
+      },
+      {
+       "text": "1,030",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 300."
+    },
+    "answer": {
+     "from": [
+      "Tens in 230 → 23",
+      "Tens in 250 → 25"
+     ],
+     "to": [
+      "30 tens",
+      "2 hundreds and 10 tens",
+      "3 hundreds and 0 tens",
+      "3 hundreds"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Tens in 230 → 23",
+       "correct": true
+      },
+      {
+       "text": "Tens in 280 → 8",
+       "correct": false
+      },
+      {
+       "text": "Tens in 330 → 330",
+       "correct": false
+      },
+      {
+       "text": "Tens in 250 → 25",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "30 tens",
+       "correct": true
+      },
+      {
+       "text": "2 hundreds and 10 tens",
+       "correct": true
+      },
+      {
+       "text": "3 hundreds and 0 tens",
+       "correct": true
+      },
+      {
+       "text": "3 hundreds",
+       "correct": true
+      },
+      {
+       "text": "3 tens",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Tens in 230 → 23: correct.",
+      "Tens in 280 → 8: not correct.",
+      "Tens in 330 → 330: not correct.",
+      "Tens in 250 → 25: correct."
+     ],
+     "to": [
+      "300 is 3 hundreds, which is 30 tens.",
+      "Correct choices: 30 tens; 2 hundreds and 10 tens; 3 hundreds and 0 tens; 3 hundreds. Not correct: 3 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_select_same_number). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Sam bundles sticks into tens. He has 56 bundles."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "How many tens are in 160?",
+       "answer": "16"
+      },
+      {
+       "prompt": "How many tens are in 150?",
+       "answer": "15"
+      },
+      {
+       "prompt": "How many tens are in 360?",
+       "answer": "36"
+      },
+      {
+       "prompt": "How many tens are in 340?",
+       "answer": "34"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks does Sam have?",
+       "answer": "560"
+      },
+      {
+       "prompt": "How many hundreds can he make?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many tens are left over?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Explain why 10 tens is 1 hundred.",
+       "answer": "Sample answer: 10 groups of 10 is 100."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16; (b) 15; (c) 36; (d) 34",
+     "to": "(a) 560; (b) 5; (c) 6; (d) Sample answer: 10 groups of 10 is 100."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 160 is 1 hundred and 6 tens; 1 hundred = 10 tens. There are 16 tens in 160.",
+      "(b) 150 is 1 hundred and 5 tens; 1 hundred = 10 tens. There are 15 tens in 150.",
+      "(c) 360 is 3 hundreds and 6 tens; 1 hundred = 10 tens. There are 36 tens in 360.",
+      "(d) 340 is 3 hundreds and 4 tens; 1 hundred = 10 tens. There are 34 tens in 340."
+     ],
+     "to": [
+      "(a) 56 tens = 560.",
+      "(b) 10 tens make 1 hundred.",
+      "(c) 56 − 50 = 6.",
+      "(d) Bundle tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: hu_tens_in_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv1_open_bundles). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 7 in 764?",
+     "to": "Build the number with 2 hundreds, 5 tens and 2 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "700",
+     "to": "352"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 7 is in the hundreds place.",
+      "Its value is 700."
+     ],
+     "to": [
+      "2 hundreds, 5 tens and 2 ones is 252.",
+      "252 + 100 = 352."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_value) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 252?",
+     "to": "Build the number with 3 hundreds, 5 tens and 8 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "2 hundreds, 5 tens, and 2 ones",
+     "to": "458"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 252.",
+      "252 = 200 + 50 + 2, so it is 2 hundreds, 5 tens, and 2 ones."
+     ],
+     "to": [
+      "3 hundreds, 5 tens and 8 ones is 358.",
+      "358 + 100 = 458."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_hto) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "What number has 7 hundreds, 1 ten, and 7 ones?",
+     "to": "Build the number with 2 hundreds, 1 tens and 9 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "717",
+     "to": "319"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write a digit for each place.",
+      "7 in the hundreds place, 1 in the tens place, 7 in the ones place: 717."
+     ],
+     "to": [
+      "2 hundreds, 1 tens and 9 ones is 219.",
+      "219 + 100 = 319."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_build) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 956?",
+     "to": "Build the number with 2 hundreds, 0 tens and 5 ones. Then add 10. What number do you get?"
+    },
+    "answer": {
+     "from": "9 hundreds, 5 tens, and 6 ones",
+     "to": "215"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 956.",
+      "956 = 900 + 50 + 6, so it is 9 hundreds, 5 tens, and 6 ones."
+     ],
+     "to": [
+      "2 hundreds, 0 tens and 5 ones is 205.",
+      "205 + 10 = 215."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_hto) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 8 in 835?",
+     "to": "Build the number with 8 hundreds, 8 tens and 1 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "800",
+     "to": "981"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 8 is in the hundreds place.",
+      "Its value is 800."
+     ],
+     "to": [
+      "8 hundreds, 8 tens and 1 ones is 881.",
+      "881 + 100 = 981."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_value) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "835",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "800",
+       "correct": true
+      },
+      {
+       "text": "80",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "881",
+       "correct": false
+      },
+      {
+       "text": "891",
+       "correct": false
+      },
+      {
+       "text": "117",
+       "correct": false
+      },
+      {
+       "text": "981",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 432?",
+     "to": "Build the number with 5 hundreds, 5 tens and 2 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "4 hundreds, 3 tens, and 2 ones",
+     "to": "652"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 432.",
+      "432 = 400 + 30 + 2, so it is 4 hundreds, 3 tens, and 2 ones."
+     ],
+     "to": [
+      "5 hundreds, 5 tens and 2 ones is 552.",
+      "552 + 100 = 652."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_hto) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "What number has 9 hundreds, 2 tens, and 3 ones?",
+     "to": "Build the number with 3 hundreds, 2 tens and 2 ones. Then add 10. What number do you get?"
+    },
+    "answer": {
+     "from": "923",
+     "to": "332"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write a digit for each place.",
+      "9 in the hundreds place, 2 in the tens place, 3 in the ones place: 923."
+     ],
+     "to": [
+      "3 hundreds, 2 tens and 2 ones is 322.",
+      "322 + 10 = 332."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_build) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Which digit is in the hundreds place in 742?",
+     "to": "Build the number with 6 hundreds, 7 tens and 1 ones. Then add 10. What number do you get?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "681"
+    },
+    "solutionSteps": {
+     "from": [
+      "Hundreds, tens, ones are in order from left to right.",
+      "The hundreds digit is 7."
+     ],
+     "to": [
+      "6 hundreds, 7 tens and 1 ones is 671.",
+      "671 + 10 = 681."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_place). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_place) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "0",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "671",
+       "correct": false
+      },
+      {
+       "text": "771",
+       "correct": false
+      },
+      {
+       "text": "24",
+       "correct": false
+      },
+      {
+       "text": "681",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 4 in 749?",
+     "to": "Build the number with 2 hundreds, 6 tens and 2 ones. Then add 100. What number do you get?"
+    },
+    "answer": {
+     "from": "40",
+     "to": "362"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 4 is in the tens place.",
+      "Its value is 40."
+     ],
+     "to": [
+      "2 hundreds, 6 tens and 2 ones is 262.",
+      "262 + 100 = 362."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_value) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 1 in 981?",
+     "to": "Build the number with 1 hundreds, 7 tens and 2 ones. Then add 10. What number do you get?"
+    },
+    "answer": {
+     "from": "1",
+     "to": "182"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 1 is in the ones place.",
+      "Its value is 1."
+     ],
+     "to": [
+      "1 hundreds, 7 tens and 2 ones is 172.",
+      "172 + 10 = 182."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_build_then_more). Rewritten from a Support template (was pv_value) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "100",
+       "correct": false
+      },
+      {
+       "text": "981",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "172",
+       "correct": false
+      },
+      {
+       "text": "182",
+       "correct": true
+      },
+      {
+       "text": "272",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 441."
+    },
+    "answer": {
+     "from": [
+      "Value of the 5 in 356 → 50",
+      "Value of the 6 in 640 → 600"
+     ],
+     "to": [
+      "4 hundreds, 4 tens, 1 ones",
+      "4 hundreds, 3 tens, 11 ones"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Value of the 5 in 356 → 50",
+       "correct": true
+      },
+      {
+       "text": "Value of the 3 in 137 → 137",
+       "correct": false
+      },
+      {
+       "text": "Value of the 6 in 640 → 600",
+       "correct": true
+      },
+      {
+       "text": "Value of the 9 in 951 → 951",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 hundreds, 5 tens, 1 ones",
+       "correct": false
+      },
+      {
+       "text": "9 ones",
+       "correct": false
+      },
+      {
+       "text": "4 hundreds, 4 tens, 2 ones",
+       "correct": false
+      },
+      {
+       "text": "4 hundreds, 4 tens, 1 ones",
+       "correct": true
+      },
+      {
+       "text": "4 hundreds, 3 tens, 11 ones",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Value of the 5 in 356 → 50: correct.",
+      "Value of the 3 in 137 → 137: not correct.",
+      "Value of the 6 in 640 → 600: correct.",
+      "Value of the 9 in 951 → 951: not correct."
+     ],
+     "to": [
+      "Find the value of each choice and look for 441.",
+      "Correct choices: 4 hundreds, 4 tens, 1 ones; 4 hundreds, 3 tens, 11 ones. Not correct: 4 hundreds, 5 tens, 1 ones; 9 ones; 4 hundreds, 4 tens, 2 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_select_ways_to_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Ava builds a number with 5 hundreds, 6 tens and 1 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is the value of the digit 4 in 504?",
+       "answer": "4"
+      },
+      {
+       "prompt": "What is the value of the digit 1 in 371?",
+       "answer": "1"
+      },
+      {
+       "prompt": "What is the value of the digit 5 in 562?",
+       "answer": "500"
+      },
+      {
+       "prompt": "What is the value of the digit 4 in 340?",
+       "answer": "40"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "561"
+      },
+      {
+       "prompt": "What number is 10 more?",
+       "answer": "571"
+      },
+      {
+       "prompt": "What number is 1 less?",
+       "answer": "560"
+      },
+      {
+       "prompt": "Explain what each digit tells you.",
+       "answer": "Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 1; (c) 500; (d) 40",
+     "to": "(a) 561; (b) 571; (c) 560; (d) Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The 4 is in the ones place. Its value is 4.",
+      "(b) The 1 is in the ones place. Its value is 1.",
+      "(c) The 5 is in the hundreds place. Its value is 500.",
+      "(d) The 4 is in the tens place. Its value is 40."
+     ],
+     "to": [
+      "(a) 500 + 60 + 1.",
+      "(b) Add a ten.",
+      "(c) Take away a one.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_open_blocks). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 417."
+    },
+    "answer": {
+     "from": [
+      "Value of the 1 in 318 → 10",
+      "Value of the 1 in 147 → 100"
+     ],
+     "to": [
+      "3 hundreds, 11 tens, 7 ones",
+      "4 hundreds, 1 tens, 7 ones",
+      "41 tens, 7 ones"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Value of the 6 in 164 → 164",
+       "correct": false
+      },
+      {
+       "text": "Value of the 1 in 318 → 10",
+       "correct": true
+      },
+      {
+       "text": "Value of the 2 in 246 → 246",
+       "correct": false
+      },
+      {
+       "text": "Value of the 1 in 147 → 100",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "1 hundreds, 4 tens, 7 ones",
+       "correct": false
+      },
+      {
+       "text": "3 hundreds, 11 tens, 7 ones",
+       "correct": true
+      },
+      {
+       "text": "4 hundreds, 1 tens, 7 ones",
+       "correct": true
+      },
+      {
+       "text": "4 hundreds, 1 tens, 8 ones",
+       "correct": false
+      },
+      {
+       "text": "41 tens, 7 ones",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Value of the 6 in 164 → 164: not correct.",
+      "Value of the 1 in 318 → 10: correct.",
+      "Value of the 2 in 246 → 246: not correct.",
+      "Value of the 1 in 147 → 100: correct."
+     ],
+     "to": [
+      "Find the value of each choice and look for 417.",
+      "Correct choices: 3 hundreds, 11 tens, 7 ones; 4 hundreds, 1 tens, 7 ones; 41 tens, 7 ones. Not correct: 4 hundreds, 1 tens, 8 ones; 1 hundreds, 4 tens, 7 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_select_ways_to_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Ava builds a number with 1 hundreds, 9 tens and 6 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is the value of the digit 3 in 301?",
+       "answer": "300"
+      },
+      {
+       "prompt": "What is the value of the digit 2 in 230?",
+       "answer": "200"
+      },
+      {
+       "prompt": "What is the value of the digit 1 in 136?",
+       "answer": "100"
+      },
+      {
+       "prompt": "What is the value of the digit 6 in 462?",
+       "answer": "60"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "196"
+      },
+      {
+       "prompt": "What number is 10 more?",
+       "answer": "206"
+      },
+      {
+       "prompt": "What number is 1 less?",
+       "answer": "195"
+      },
+      {
+       "prompt": "Explain what each digit tells you.",
+       "answer": "Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 300; (b) 200; (c) 100; (d) 60",
+     "to": "(a) 196; (b) 206; (c) 195; (d) Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The 3 is in the hundreds place. Its value is 300.",
+      "(b) The 2 is in the hundreds place. Its value is 200.",
+      "(c) The 1 is in the hundreds place. Its value is 100.",
+      "(d) The 6 is in the tens place. Its value is 60."
+     ],
+     "to": [
+      "(a) 100 + 90 + 6.",
+      "(b) Add a ten.",
+      "(c) Take away a one.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_open_blocks). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 106?",
+     "to": "A number has 8 hundreds, 5 tens and 18 ones. What is the number?"
+    },
+    "answer": {
+     "from": "1 hundred, 0 tens, and 6 ones",
+     "to": "868"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 106.",
+      "106 = 100 + 0 + 6, so it is 1 hundred, 0 tens, and 6 ones."
+     ],
+     "to": [
+      "18 ones = 1 ten and 8 ones.",
+      "8 hundreds, 6 tens and 8 ones = 868."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "What number has 5 hundreds, 0 tens, and 5 ones?",
+     "to": "A number has 8 hundreds, 3 tens and 13 ones. What is the number?"
+    },
+    "answer": {
+     "from": "505",
+     "to": "843"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write a digit for each place.",
+      "5 in the hundreds place, 0 in the tens place, 5 in the ones place: 505."
+     ],
+     "to": [
+      "13 ones = 1 ten and 3 ones.",
+      "8 hundreds, 4 tens and 3 ones = 843."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 3 in 310?",
+     "to": "A number has 4 hundreds, 1 tens and 10 ones. What is the number?"
+    },
+    "answer": {
+     "from": "300",
+     "to": "420"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 3 is in the hundreds place.",
+      "Its value is 300."
+     ],
+     "to": [
+      "10 ones = 1 ten and 0 ones.",
+      "4 hundreds, 2 tens and 0 ones = 420."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 902?",
+     "to": "A number has 2 hundreds, 4 tens and 15 ones. What is the number?"
+    },
+    "answer": {
+     "from": "9 hundreds, 0 tens, and 2 ones",
+     "to": "255"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 902.",
+      "902 = 900 + 0 + 2, so it is 9 hundreds, 0 tens, and 2 ones."
+     ],
+     "to": [
+      "15 ones = 1 ten and 5 ones.",
+      "2 hundreds, 5 tens and 5 ones = 255."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 604?",
+     "to": "A number has 7 hundreds, 3 tens and 10 ones. What is the number?"
+    },
+    "answer": {
+     "from": "6 hundreds, 0 tens, and 4 ones",
+     "to": "740"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 604.",
+      "604 = 600 + 0 + 4, so it is 6 hundreds, 0 tens, and 4 ones."
+     ],
+     "to": [
+      "10 ones = 1 ten and 0 ones.",
+      "7 hundreds, 4 tens and 0 ones = 740."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "What is the value of the digit 9 in 890?",
+     "to": "A number has 6 hundreds, 7 tens and 11 ones. What is the number?"
+    },
+    "answer": {
+     "from": "90",
+     "to": "681"
+    },
+    "solutionSteps": {
+     "from": [
+      "The 9 is in the tens place.",
+      "Its value is 90."
+     ],
+     "to": [
+      "11 ones = 1 ten and 1 ones.",
+      "6 hundreds, 8 tens and 1 ones = 681."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "What number has 5 hundreds, 6 tens, and 0 ones?",
+     "to": "A number has 8 hundreds, 4 tens and 18 ones. What is the number?"
+    },
+    "answer": {
+     "from": "560",
+     "to": "858"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write a digit for each place.",
+      "5 in the hundreds place, 6 in the tens place, 0 in the ones place: 560."
+     ],
+     "to": [
+      "18 ones = 1 ten and 8 ones.",
+      "8 hundreds, 5 tens and 8 ones = 858."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "How many hundreds, tens, and ones are in 650?",
+     "to": "A number has 3 hundreds, 6 tens and 15 ones. What is the number?"
+    },
+    "answer": {
+     "from": "6 hundreds, 5 tens, and 0 ones",
+     "to": "375"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look at each digit of 650.",
+      "650 = 600 + 50 + 0, so it is 6 hundreds, 5 tens, and 0 ones."
+     ],
+     "to": [
+      "15 ones = 1 ten and 5 ones.",
+      "3 hundreds, 7 tens and 5 ones = 375."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_hto). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_regroup_ones). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways to make 315."
+    },
+    "answer": {
+     "from": [
+      "Value of the 4 in 460 → 400",
+      "Value of the 1 in 610 → 10"
+     ],
+     "to": [
+      "3 hundreds, 1 tens, 5 ones",
+      "2 hundreds, 11 tens, 5 ones",
+      "3 hundreds, 0 tens, 15 ones",
+      "31 tens, 5 ones"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Value of the 6 in 680 → 680",
+       "correct": false
+      },
+      {
+       "text": "Value of the 4 in 460 → 400",
+       "correct": true
+      },
+      {
+       "text": "Value of the 1 in 610 → 10",
+       "correct": true
+      },
+      {
+       "text": "Value of the 1 in 615 → 1",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3 hundreds, 1 tens, 5 ones",
+       "correct": true
+      },
+      {
+       "text": "2 hundreds, 11 tens, 5 ones",
+       "correct": true
+      },
+      {
+       "text": "3 hundreds, 0 tens, 15 ones",
+       "correct": true
+      },
+      {
+       "text": "31 tens, 5 ones",
+       "correct": true
+      },
+      {
+       "text": "3 hundreds, 5 tens, 1 ones",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Value of the 6 in 680 → 680: not correct.",
+      "Value of the 4 in 460 → 400: correct.",
+      "Value of the 1 in 610 → 10: correct.",
+      "Value of the 1 in 615 → 1: not correct."
+     ],
+     "to": [
+      "Find the value of each choice and look for 315.",
+      "Correct choices: 3 hundreds, 1 tens, 5 ones; 2 hundreds, 11 tens, 5 ones; 3 hundreds, 0 tens, 15 ones; 31 tens, 5 ones. Not correct: 3 hundreds, 5 tens, 1 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_select_ways_to_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Ava builds a number with 9 hundreds, 4 tens and 8 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is the value of the digit 3 in 230?",
+       "answer": "30"
+      },
+      {
+       "prompt": "What is the value of the digit 8 in 280?",
+       "answer": "80"
+      },
+      {
+       "prompt": "What is the value of the digit 9 in 393?",
+       "answer": "90"
+      },
+      {
+       "prompt": "What is the value of the digit 6 in 867?",
+       "answer": "60"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "948"
+      },
+      {
+       "prompt": "What number is 10 more?",
+       "answer": "958"
+      },
+      {
+       "prompt": "What number is 1 less?",
+       "answer": "947"
+      },
+      {
+       "prompt": "Explain what each digit tells you.",
+       "answer": "Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 30; (b) 80; (c) 90; (d) 60",
+     "to": "(a) 948; (b) 958; (c) 947; (d) Sample answer: The first digit is hundreds, the next is tens and the last is ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The 3 is in the tens place. Its value is 30.",
+      "(b) The 8 is in the tens place. Its value is 80.",
+      "(c) The 9 is in the tens place. Its value is 90.",
+      "(d) The 6 is in the tens place. Its value is 60."
+     ],
+     "to": [
+      "(a) 900 + 40 + 8.",
+      "(b) Add a ten.",
+      "(c) Take away a one.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: pv_value_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv2_open_blocks). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 300, 400, 500, 600, ?",
+     "to": "Start at 400 and count by hundreds 4 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "700",
+     "to": "790"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 700."
+     ],
+     "to": [
+      "400 + 4 hundreds = 800.",
+      "800 − 10 = 790."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_count) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 700?",
+     "to": "Start at 500 and count by hundreds 3 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "7 hundreds",
+     "to": "790"
+    },
+    "solutionSteps": {
+     "from": [
+      "700 has 7 in the hundreds place.",
+      "700 = 7 hundreds."
+     ],
+     "to": [
+      "500 + 3 hundreds = 800.",
+      "800 − 10 = 790."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_which) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 hundreds",
+       "correct": true
+      },
+      {
+       "text": "700 tens",
+       "correct": false
+      },
+      {
+       "text": "7 tens",
+       "correct": false
+      },
+      {
+       "text": "70 hundreds",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "800",
+       "correct": false
+      },
+      {
+       "text": "520",
+       "correct": false
+      },
+      {
+       "text": "790",
+       "correct": true
+      },
+      {
+       "text": "810",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "A store has 6 boxes. Each one holds 100 paper clips. How many paper clips are there?",
+     "to": "Start at 500 and count by hundreds 4 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "600 paper clips",
+     "to": "890"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by hundreds 6 times.",
+      "6 hundreds = 600 paper clips."
+     ],
+     "to": [
+      "500 + 4 hundreds = 900.",
+      "900 − 10 = 890."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_story) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "Write the number for 4 hundreds, 0 tens, and 0 ones.",
+     "to": "Start at 100 and count by hundreds 4 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "400",
+     "to": "490"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put 4 in the hundreds place and 0 in the tens and ones places.",
+      "The number is 400."
+     ],
+     "to": [
+      "100 + 4 hundreds = 500.",
+      "500 − 10 = 490."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_write) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "400",
+       "correct": true
+      },
+      {
+       "text": "500",
+       "correct": false
+      },
+      {
+       "text": "40",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "500",
+       "correct": false
+      },
+      {
+       "text": "490",
+       "correct": true
+      },
+      {
+       "text": "130",
+       "correct": false
+      },
+      {
+       "text": "510",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 300, 400, ?, 600, 700",
+     "to": "Start at 300 and count by hundreds 4 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "500",
+     "to": "690"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 500."
+     ],
+     "to": [
+      "300 + 4 hundreds = 700.",
+      "700 − 10 = 690."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_count) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "410",
+       "correct": false
+      },
+      {
+       "text": "401",
+       "correct": false
+      },
+      {
+       "text": "600",
+       "correct": false
+      },
+      {
+       "text": "500",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "690",
+       "correct": true
+      },
+      {
+       "text": "700",
+       "correct": false
+      },
+      {
+       "text": "330",
+       "correct": false
+      },
+      {
+       "text": "710",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 900?",
+     "to": "Start at 100 and count by hundreds 3 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "9 hundreds",
+     "to": "390"
+    },
+    "solutionSteps": {
+     "from": [
+      "900 has 9 in the hundreds place.",
+      "900 = 9 hundreds."
+     ],
+     "to": [
+      "100 + 3 hundreds = 400.",
+      "400 − 10 = 390."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_which) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 tens",
+       "correct": false
+      },
+      {
+       "text": "9 hundreds",
+       "correct": true
+      },
+      {
+       "text": "900 tens",
+       "correct": false
+      },
+      {
+       "text": "90 hundreds",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "400",
+       "correct": false
+      },
+      {
+       "text": "120",
+       "correct": false
+      },
+      {
+       "text": "390",
+       "correct": true
+      },
+      {
+       "text": "410",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "A store has 6 crates. Each one holds 100 apples. How many apples are there?",
+     "to": "Start at 300 and count by hundreds 3 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "600 apples",
+     "to": "590"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by hundreds 6 times.",
+      "6 hundreds = 600 apples."
+     ],
+     "to": [
+      "300 + 3 hundreds = 600.",
+      "600 − 10 = 590."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_story) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "60 apples",
+       "correct": false
+      },
+      {
+       "text": "700 apples",
+       "correct": false
+      },
+      {
+       "text": "106 apples",
+       "correct": false
+      },
+      {
+       "text": "600 apples",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "600",
+       "correct": false
+      },
+      {
+       "text": "590",
+       "correct": true
+      },
+      {
+       "text": "320",
+       "correct": false
+      },
+      {
+       "text": "610",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 800?",
+     "to": "Start at 200 and count by hundreds 4 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "8 hundreds",
+     "to": "590"
+    },
+    "solutionSteps": {
+     "from": [
+      "800 has 8 in the hundreds place.",
+      "800 = 8 hundreds."
+     ],
+     "to": [
+      "200 + 4 hundreds = 600.",
+      "600 − 10 = 590."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_which) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "80 hundreds",
+       "correct": false
+      },
+      {
+       "text": "8 tens",
+       "correct": false
+      },
+      {
+       "text": "8 hundreds",
+       "correct": true
+      },
+      {
+       "text": "800 tens",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "600",
+       "correct": false
+      },
+      {
+       "text": "230",
+       "correct": false
+      },
+      {
+       "text": "590",
+       "correct": true
+      },
+      {
+       "text": "610",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Write the number for 2 hundreds, 0 tens, and 0 ones.",
+     "to": "Start at 200 and count by hundreds 3 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "200",
+     "to": "490"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put 2 in the hundreds place and 0 in the tens and ones places.",
+      "The number is 200."
+     ],
+     "to": [
+      "200 + 3 hundreds = 500.",
+      "500 − 10 = 490."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_write) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 500, 600, 700, 800, ?",
+     "to": "Start at 400 and count by hundreds 3 times. Then count back 10. Where do you end?"
+    },
+    "answer": {
+     "from": "900",
+     "to": "690"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 900."
+     ],
+     "to": [
+      "400 + 3 hundreds = 700.",
+      "700 − 10 = 690."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_count_hundreds_then). Rewritten from a Support template (was ch_count) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers you say when you count by hundreds from 100."
+    },
+    "answer": {
+     "from": [
+      "3 hundreds as a number → 300",
+      "6 hundreds as a number → 600"
+     ],
+     "to": [
+      "400",
+      "300"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 hundreds as a number → 300",
+       "correct": true
+      },
+      {
+       "text": "1 hundred as a number → 1000",
+       "correct": false
+      },
+      {
+       "text": "Hundreds in 200 → 20",
+       "correct": false
+      },
+      {
+       "text": "6 hundreds as a number → 600",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "750",
+       "correct": false
+      },
+      {
+       "text": "400",
+       "correct": true
+      },
+      {
+       "text": "300",
+       "correct": true
+      },
+      {
+       "text": "110",
+       "correct": false
+      },
+      {
+       "text": "310",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "3 hundreds as a number → 300: correct.",
+      "1 hundred as a number → 1000: not correct.",
+      "Hundreds in 200 → 20: not correct.",
+      "6 hundreds as a number → 600: correct."
+     ],
+     "to": [
+      "Counting by hundreds: 100, 200, 300, ...",
+      "Correct choices: 400; 300. Not correct: 110; 750; 310."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_select_hundreds). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Max counts by hundreds starting at 300."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "600 is how many hundreds?",
+       "answer": "6"
+      },
+      {
+       "prompt": "100 is how many hundreds?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Write the number for 9 hundreds, 0 tens, and 0 ones.",
+       "answer": "900"
+      },
+      {
+       "prompt": "300 is how many hundreds?",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next three numbers?",
+       "answer": "Sample answer: 400, 500, 600"
+      },
+      {
+       "prompt": "How many hundreds is the third number?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many more hundreds to reach 1,000?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain what changes when you count by hundreds.",
+       "answer": "Sample answer: Only the hundreds digit changes; it goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6; (b) 1; (c) 900; (d) 3",
+     "to": "(a) Sample answer: 400, 500, 600; (b) 6; (c) 4; (d) Sample answer: Only the hundreds digit changes; it goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 600 has 6 in the hundreds place and zeros in the tens and ones places. 600 = 6 hundreds.",
+      "(b) 100 has 1 in the hundreds place and zeros in the tens and ones places. 100 = 1 hundred.",
+      "(c) Put 9 in the hundreds place and 0 in the tens and ones places. The number is 900.",
+      "(d) 300 has 3 in the hundreds place and zeros in the tens and ones places. 300 = 3 hundreds."
+     ],
+     "to": [
+      "(a) Add 100 each time.",
+      "(b) 600 = 6 hundreds.",
+      "(c) 1,000 is 10 hundreds.",
+      "(d) Hundreds digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_open_count_hundreds). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers you say when you count by hundreds from 100."
+    },
+    "answer": {
+     "from": [
+      "4 hundreds as a number → 400",
+      "3 hundreds as a number → 300"
+     ],
+     "to": [
+      "800",
+      "600",
+      "1,000"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 hundreds as a number → 400",
+       "correct": true
+      },
+      {
+       "text": "7 hundreds as a number → 70",
+       "correct": false
+      },
+      {
+       "text": "6 hundreds as a number → 60",
+       "correct": false
+      },
+      {
+       "text": "3 hundreds as a number → 300",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "550",
+       "correct": false
+      },
+      {
+       "text": "800",
+       "correct": true
+      },
+      {
+       "text": "610",
+       "correct": false
+      },
+      {
+       "text": "600",
+       "correct": true
+      },
+      {
+       "text": "1,000",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "4 hundreds as a number → 400: correct.",
+      "7 hundreds as a number → 70: not correct.",
+      "6 hundreds as a number → 60: not correct.",
+      "3 hundreds as a number → 300: correct."
+     ],
+     "to": [
+      "Counting by hundreds: 100, 200, 300, ...",
+      "Correct choices: 800; 600; 1,000. Not correct: 550; 610."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_select_hundreds). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Max counts by hundreds starting at 100."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number for 3 hundreds, 0 tens, and 0 ones.",
+       "answer": "300"
+      },
+      {
+       "prompt": "Write the number for 1 hundred, 0 tens, and 0 ones.",
+       "answer": "100"
+      },
+      {
+       "prompt": "Write the number for 8 hundreds, 0 tens, and 0 ones.",
+       "answer": "800"
+      },
+      {
+       "prompt": "Write the number for 6 hundreds, 0 tens, and 0 ones.",
+       "answer": "600"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next three numbers?",
+       "answer": "Sample answer: 200, 300, 400"
+      },
+      {
+       "prompt": "How many hundreds is the third number?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many more hundreds to reach 1,000?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Explain what changes when you count by hundreds.",
+       "answer": "Sample answer: Only the hundreds digit changes; it goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 300; (b) 100; (c) 800; (d) 600",
+     "to": "(a) Sample answer: 200, 300, 400; (b) 4; (c) 6; (d) Sample answer: Only the hundreds digit changes; it goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put 3 in the hundreds place and 0 in the tens and ones places. The number is 300.",
+      "(b) Put 1 in the hundreds place and 0 in the tens and ones places. The number is 100.",
+      "(c) Put 8 in the hundreds place and 0 in the tens and ones places. The number is 800.",
+      "(d) Put 6 in the hundreds place and 0 in the tens and ones places. The number is 600."
+     ],
+     "to": [
+      "(a) Add 100 each time.",
+      "(b) 400 = 4 hundreds.",
+      "(c) 1,000 is 10 hundreds.",
+      "(d) Hundreds digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_open_count_hundreds). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 200, 300, 400, ?, 600",
+     "to": "How many hundreds do you count to get from 300 to 600?"
+    },
+    "answer": {
+     "from": "500",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 500."
+     ],
+     "to": [
+      "Count 300, 400, ... 600.",
+      "That is 3 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A store has 9 bags. Each one holds 100 beads. How many beads are there?",
+     "to": "How many hundreds do you count to get from 600 to 900?"
+    },
+    "answer": {
+     "from": "900 beads",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by hundreds 9 times.",
+      "9 hundreds = 900 beads."
+     ],
+     "to": [
+      "Count 600, 700, ... 900.",
+      "That is 3 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "How many tens make 800?",
+     "to": "How many hundreds do you count to get from 400 to 700?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hundred = 10 tens, so 8 hundreds = 8 groups of 10 tens.",
+      "800 is 80 tens."
+     ],
+     "to": [
+      "Count 400, 500, ... 700.",
+      "That is 3 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_tens). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "200 is how many hundreds?",
+     "to": "How many hundreds do you count to get from 400 to 600?"
+    },
+    "solutionSteps": {
+     "from": [
+      "200 has 2 in the hundreds place and zeros in the tens and ones places.",
+      "200 = 2 hundreds."
+     ],
+     "to": [
+      "Count 400, 500, ... 600.",
+      "That is 2 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 500?",
+     "to": "How many hundreds do you count to get from 200 to 500?"
+    },
+    "answer": {
+     "from": "5 hundreds",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "500 has 5 in the hundreds place.",
+      "500 = 5 hundreds."
+     ],
+     "to": [
+      "Count 200, 300, ... 500.",
+      "That is 3 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "500 tens",
+       "correct": false
+      },
+      {
+       "text": "5 tens",
+       "correct": false
+      },
+      {
+       "text": "5 hundreds",
+       "correct": true
+      },
+      {
+       "text": "50 hundreds",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "300",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "A store has 4 crates. Each one holds 100 apples. How many apples are there?",
+     "to": "How many hundreds do you count to get from 500 to 700?"
+    },
+    "answer": {
+     "from": "400 apples",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by hundreds 4 times.",
+      "4 hundreds = 400 apples."
+     ],
+     "to": [
+      "Count 500, 600, ... 700.",
+      "That is 2 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "500 apples",
+       "correct": false
+      },
+      {
+       "text": "40 apples",
+       "correct": false
+      },
+      {
+       "text": "400 apples",
+       "correct": true
+      },
+      {
+       "text": "104 apples",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "200",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "How many tens make 900?",
+     "to": "How many hundreds do you count to get from 200 to 800?"
+    },
+    "answer": {
+     "from": "90",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hundred = 10 tens, so 9 hundreds = 9 groups of 10 tens.",
+      "900 is 90 tens."
+     ],
+     "to": [
+      "Count 200, 300, ... 800.",
+      "That is 6 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_tens). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "90",
+       "correct": true
+      },
+      {
+       "text": "900",
+       "correct": false
+      },
+      {
+       "text": "100",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "600",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "900 is how many hundreds?",
+     "to": "How many hundreds do you count to get from 600 to 800?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "900 has 9 in the hundreds place and zeros in the tens and ones places.",
+      "900 = 9 hundreds."
+     ],
+     "to": [
+      "Count 600, 700, ... 800.",
+      "That is 2 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "90",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "900",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "200",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 600?",
+     "to": "How many hundreds do you count to get from 200 to 900?"
+    },
+    "answer": {
+     "from": "6 hundreds",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "600 has 6 in the hundreds place.",
+      "600 = 6 hundreds."
+     ],
+     "to": [
+      "Count 200, 300, ... 900.",
+      "That is 7 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "60 hundreds",
+       "correct": false
+      },
+      {
+       "text": "6 tens",
+       "correct": false
+      },
+      {
+       "text": "600 tens",
+       "correct": false
+      },
+      {
+       "text": "6 hundreds",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "700",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 400, 500, ?, 700, 800",
+     "to": "How many hundreds do you count to get from 500 to 800?"
+    },
+    "answer": {
+     "from": "600",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 600."
+     ],
+     "to": [
+      "Count 500, 600, ... 800.",
+      "That is 3 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "501",
+       "correct": false
+      },
+      {
+       "text": "600",
+       "correct": true
+      },
+      {
+       "text": "510",
+       "correct": false
+      },
+      {
+       "text": "700",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "300",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "A store has 5 boxes. Each one holds 100 paper clips. How many paper clips are there?",
+     "to": "How many hundreds do you count to get from 300 to 800?"
+    },
+    "answer": {
+     "from": "500 paper clips",
+     "to": "5"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by hundreds 5 times.",
+      "5 hundreds = 500 paper clips."
+     ],
+     "to": [
+      "Count 300, 400, ... 800.",
+      "That is 5 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "Write the number for 7 hundreds, 0 tens, and 0 ones.",
+     "to": "How many hundreds do you count to get from 300 to 700?"
+    },
+    "answer": {
+     "from": "700",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put 7 in the hundreds place and 0 in the tens and ones places.",
+      "The number is 700."
+     ],
+     "to": [
+      "Count 300, 400, ... 700.",
+      "That is 4 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "How many tens make 600?",
+     "to": "How many hundreds do you count to get from 200 to 600?"
+    },
+    "answer": {
+     "from": "60",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 hundred = 10 tens, so 6 hundreds = 6 groups of 10 tens.",
+      "600 is 60 tens."
+     ],
+     "to": [
+      "Count 200, 300, ... 600.",
+      "That is 4 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_tens). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Which is the same as 200?",
+     "to": "How many hundreds do you count to get from 400 to 900?"
+    },
+    "answer": {
+     "from": "2 hundreds",
+     "to": "5"
+    },
+    "solutionSteps": {
+     "from": [
+      "200 has 2 in the hundreds place.",
+      "200 = 2 hundreds."
+     ],
+     "to": [
+      "Count 400, 500, ... 900.",
+      "That is 5 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "200 tens",
+       "correct": false
+      },
+      {
+       "text": "2 hundreds",
+       "correct": true
+      },
+      {
+       "text": "20 hundreds",
+       "correct": false
+      },
+      {
+       "text": "2 tens",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": true
+      },
+      {
+       "text": "500",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Count by hundreds. What number is missing? 400, 500, 600, ?, 800",
+     "to": "How many hundreds do you count to get from 400 to 800?"
+    },
+    "answer": {
+     "from": "700",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 100 more than the one before.",
+      "The missing number is 700."
+     ],
+     "to": [
+      "Count 400, 500, ... 800.",
+      "That is 4 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_count). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "400 is how many hundreds?",
+     "to": "How many hundreds do you count to get from 300 to 900?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "400 has 4 in the hundreds place and zeros in the tens and ones places.",
+      "400 = 4 hundreds."
+     ],
+     "to": [
+      "Count 300, 400, ... 900.",
+      "That is 6 hundreds."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_hundreds_between). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers you say when you count by hundreds from 100."
+    },
+    "answer": {
+     "from": [
+      "9 hundreds as a number → 900",
+      "6 hundreds as a number → 600"
+     ],
+     "to": [
+      "800",
+      "600",
+      "300",
+      "900"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 hundreds as a number → 900",
+       "correct": true
+      },
+      {
+       "text": "6 hundreds as a number → 600",
+       "correct": true
+      },
+      {
+       "text": "Hundreds in 300 → 4",
+       "correct": false
+      },
+      {
+       "text": "9 hundreds as a number → 1000",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "310",
+       "correct": false
+      },
+      {
+       "text": "800",
+       "correct": true
+      },
+      {
+       "text": "600",
+       "correct": true
+      },
+      {
+       "text": "300",
+       "correct": true
+      },
+      {
+       "text": "900",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "9 hundreds as a number → 900: correct.",
+      "6 hundreds as a number → 600: correct.",
+      "Hundreds in 300 → 4: not correct.",
+      "9 hundreds as a number → 1000: not correct."
+     ],
+     "to": [
+      "Counting by hundreds: 100, 200, 300, ...",
+      "Correct choices: 800; 600; 300; 900. Not correct: 310."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_select_hundreds). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Max counts by hundreds starting at 500."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number for 9 hundreds, 0 tens, and 0 ones.",
+       "answer": "900"
+      },
+      {
+       "prompt": "Write the number for 6 hundreds, 0 tens, and 0 ones.",
+       "answer": "600"
+      },
+      {
+       "prompt": "700 is how many hundreds?",
+       "answer": "7"
+      },
+      {
+       "prompt": "200 is how many hundreds?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next three numbers?",
+       "answer": "Sample answer: 600, 700, 800"
+      },
+      {
+       "prompt": "How many hundreds is the third number?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many more hundreds to reach 1,000?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Explain what changes when you count by hundreds.",
+       "answer": "Sample answer: Only the hundreds digit changes; it goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 900; (b) 600; (c) 7; (d) 2",
+     "to": "(a) Sample answer: 600, 700, 800; (b) 8; (c) 2; (d) Sample answer: Only the hundreds digit changes; it goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put 9 in the hundreds place and 0 in the tens and ones places. The number is 900.",
+      "(b) Put 6 in the hundreds place and 0 in the tens and ones places. The number is 600.",
+      "(c) 700 has 7 in the hundreds place and zeros in the tens and ones places. 700 = 7 hundreds.",
+      "(d) 200 has 2 in the hundreds place and zeros in the tens and ones places. 200 = 2 hundreds."
+     ],
+     "to": [
+      "(a) Add 100 each time.",
+      "(b) 800 = 8 hundreds.",
+      "(c) 1,000 is 10 hundreds.",
+      "(d) Hundreds digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ch_write_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv3_open_count_hundreds). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "Write 976 in words.",
+     "to": "Write 496 in expanded form. What is the value of the 9 in 496?"
+    },
+    "answer": {
+     "from": "nine hundred seventy‑six",
+     "to": "90"
+    },
+    "solutionSteps": {
+     "from": [
+      "Say the hundreds, then the tens and ones.",
+      "976 is nine hundred seventy‑six."
+     ],
+     "to": [
+      "496 = 400 + 90 + 6.",
+      "The 9 is in the tens place, so its value is 90."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_words) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Write 194 in expanded form.",
+     "to": "Write 352 in expanded form. What is the value of the 5 in 352?"
+    },
+    "answer": {
+     "from": "100 + 90 + 4",
+     "to": "50"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the value of each digit and add them.",
+      "194 = 100 + 90 + 4."
+     ],
+     "to": [
+      "352 = 300 + 50 + 2.",
+      "The 5 is in the tens place, so its value is 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_expanded). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_expanded) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "What number is 800 + 50 + 2?",
+     "to": "Write 385 in expanded form. What is the value of the 8 in 385?"
+    },
+    "answer": {
+     "from": "852",
+     "to": "80"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put each value in its place.",
+      "800 + 50 + 2 = 852."
+     ],
+     "to": [
+      "385 = 300 + 80 + 5.",
+      "The 8 is in the tens place, so its value is 80."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_from_exp). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_from_exp) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Which shows 283 in expanded form?",
+     "to": "Write 596 in expanded form. What is the value of the 9 in 596?"
+    },
+    "answer": {
+     "from": "200 + 80 + 3",
+     "to": "90"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each part is the value of one digit.",
+      "283 = 200 + 80 + 3."
+     ],
+     "to": [
+      "596 = 500 + 90 + 6.",
+      "The 9 is in the tens place, so its value is 90."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_mc) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 + 8 + 3",
+       "correct": false
+      },
+      {
+       "text": "200 + 800 + 3",
+       "correct": false
+      },
+      {
+       "text": "200 + 80 + 3",
+       "correct": true
+      },
+      {
+       "text": "200 + 30 + 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "900",
+       "correct": false
+      },
+      {
+       "text": "500",
+       "correct": false
+      },
+      {
+       "text": "90",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "Write 787 in words.",
+     "to": "Write 257 in expanded form. What is the value of the 5 in 257?"
+    },
+    "answer": {
+     "from": "seven hundred eighty‑seven",
+     "to": "50"
+    },
+    "solutionSteps": {
+     "from": [
+      "Say the hundreds, then the tens and ones.",
+      "787 is seven hundred eighty‑seven."
+     ],
+     "to": [
+      "257 = 200 + 50 + 7.",
+      "The 5 is in the tens place, so its value is 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_words) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Write 303 in expanded form.",
+     "to": "Write 845 in expanded form. What is the value of the 4 in 845?"
+    },
+    "answer": {
+     "from": "300 + 3",
+     "to": "40"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the value of each digit and add them.",
+      "303 = 300 + 3."
+     ],
+     "to": [
+      "845 = 800 + 40 + 5.",
+      "The 4 is in the tens place, so its value is 40."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_expanded). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_expanded) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "What number is 700 + 50?",
+     "to": "Write 135 in expanded form. What is the value of the 3 in 135?"
+    },
+    "answer": {
+     "from": "750",
+     "to": "30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put each value in its place.",
+      "700 + 50 = 750."
+     ],
+     "to": [
+      "135 = 100 + 30 + 5.",
+      "The 3 is in the tens place, so its value is 30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_from_exp). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_from_exp) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "850",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "760",
+       "correct": false
+      },
+      {
+       "text": "750",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "30",
+       "correct": true
+      },
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "300",
+       "correct": false
+      },
+      {
+       "text": "100",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "Which shows 695 in expanded form?",
+     "to": "Write 759 in expanded form. What is the value of the 5 in 759?"
+    },
+    "answer": {
+     "from": "600 + 90 + 5",
+     "to": "50"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each part is the value of one digit.",
+      "695 = 600 + 90 + 5."
+     ],
+     "to": [
+      "759 = 700 + 50 + 9.",
+      "The 5 is in the tens place, so its value is 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_mc) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 + 9 + 5",
+       "correct": false
+      },
+      {
+       "text": "600 + 90 + 5",
+       "correct": true
+      },
+      {
+       "text": "600 + 900 + 5",
+       "correct": false
+      },
+      {
+       "text": "600 + 50 + 9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "500",
+       "correct": false
+      },
+      {
+       "text": "700",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "Write 111 in words.",
+     "to": "Write 634 in expanded form. What is the value of the 3 in 634?"
+    },
+    "answer": {
+     "from": "one hundred eleven",
+     "to": "30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Say the hundreds, then the tens and ones.",
+      "111 is one hundred eleven."
+     ],
+     "to": [
+      "634 = 600 + 30 + 4.",
+      "The 3 is in the tens place, so its value is 30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_words) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Write 666 in expanded form.",
+     "to": "Write 574 in expanded form. What is the value of the 7 in 574?"
+    },
+    "answer": {
+     "from": "600 + 60 + 6",
+     "to": "70"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the value of each digit and add them.",
+      "666 = 600 + 60 + 6."
+     ],
+     "to": [
+      "574 = 500 + 70 + 4.",
+      "The 7 is in the tens place, so its value is 70."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_expanded). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_expanded) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "What number is 200 + 20?",
+     "to": "Write 698 in expanded form. What is the value of the 9 in 698?"
+    },
+    "answer": {
+     "from": "220",
+     "to": "90"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put each value in its place.",
+      "200 + 20 = 220."
+     ],
+     "to": [
+      "698 = 600 + 90 + 8.",
+      "The 9 is in the tens place, so its value is 90."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_from_exp). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_from_exp) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "Which shows 637 in expanded form?",
+     "to": "Write 368 in expanded form. What is the value of the 6 in 368?"
+    },
+    "answer": {
+     "from": "600 + 30 + 7",
+     "to": "60"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each part is the value of one digit.",
+      "637 = 600 + 30 + 7."
+     ],
+     "to": [
+      "368 = 300 + 60 + 8.",
+      "The 6 is in the tens place, so its value is 60."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_mc) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "600 + 300 + 7",
+       "correct": false
+      },
+      {
+       "text": "600 + 30 + 7",
+       "correct": true
+      },
+      {
+       "text": "6 + 3 + 7",
+       "correct": false
+      },
+      {
+       "text": "600 + 70 + 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "60",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "600",
+       "correct": false
+      },
+      {
+       "text": "300",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Write 446 in words.",
+     "to": "Write 495 in expanded form. What is the value of the 9 in 495?"
+    },
+    "answer": {
+     "from": "four hundred forty‑six",
+     "to": "90"
+    },
+    "solutionSteps": {
+     "from": [
+      "Say the hundreds, then the tens and ones.",
+      "446 is four hundred forty‑six."
+     ],
+     "to": [
+      "495 = 400 + 90 + 5.",
+      "The 9 is in the tens place, so its value is 90."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_words) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "Write 101 in expanded form.",
+     "to": "Write 461 in expanded form. What is the value of the 6 in 461?"
+    },
+    "answer": {
+     "from": "100 + 1",
+     "to": "60"
+    },
+    "solutionSteps": {
+     "from": [
+      "Write the value of each digit and add them.",
+      "101 = 100 + 1."
+     ],
+     "to": [
+      "461 = 400 + 60 + 1.",
+      "The 6 is in the tens place, so its value is 60."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_expanded). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_expanded) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "What number is 600 + 80 + 4?",
+     "to": "Write 213 in expanded form. What is the value of the 1 in 213?"
+    },
+    "answer": {
+     "from": "684",
+     "to": "10"
+    },
+    "solutionSteps": {
+     "from": [
+      "Put each value in its place.",
+      "600 + 80 + 4 = 684."
+     ],
+     "to": [
+      "213 = 200 + 10 + 3.",
+      "The 1 is in the tens place, so its value is 10."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_from_exp). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_from_exp) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "694",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "684",
+       "correct": true
+      },
+      {
+       "text": "784",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "100",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": true
+      },
+      {
+       "text": "200",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "Which shows 651 in expanded form?",
+     "to": "Write 749 in expanded form. What is the value of the 4 in 749?"
+    },
+    "answer": {
+     "from": "600 + 50 + 1",
+     "to": "40"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each part is the value of one digit.",
+      "651 = 600 + 50 + 1."
+     ],
+     "to": [
+      "749 = 700 + 40 + 9.",
+      "The 4 is in the tens place, so its value is 40."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_expanded_then_value). Rewritten from a Support template (was nn_mc) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 + 5 + 1",
+       "correct": false
+      },
+      {
+       "text": "600 + 500 + 1",
+       "correct": false
+      },
+      {
+       "text": "600 + 50 + 1",
+       "correct": true
+      },
+      {
+       "text": "600 + 10 + 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "400",
+       "correct": false
+      },
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "700",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that equal 415."
+    },
+    "answer": {
+     "from": [
+      "two hundred ninety in digits → 290",
+      "three hundred six in digits → 306"
+     ],
+     "to": [
+      "400 + 10 + 5",
+      "400 + 15"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "two hundred forty‑nine in digits → 20049",
+       "correct": false
+      },
+      {
+       "text": "two hundred seventy‑nine in digits → 179",
+       "correct": false
+      },
+      {
+       "text": "two hundred ninety in digits → 290",
+       "correct": true
+      },
+      {
+       "text": "three hundred six in digits → 306",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "400 + 1 + 5",
+       "correct": false
+      },
+      {
+       "text": "400 + 10 + 5",
+       "correct": true
+      },
+      {
+       "text": "400 + 15",
+       "correct": true
+      },
+      {
+       "text": "4 + 1 + 5",
+       "correct": false
+      },
+      {
+       "text": "40 + 10 + 5",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "two hundred forty‑nine in digits → 20049: not correct.",
+      "two hundred seventy‑nine in digits → 179: not correct.",
+      "two hundred ninety in digits → 290: correct.",
+      "three hundred six in digits → 306: correct."
+     ],
+     "to": [
+      "415 = 400 + 10 + 5.",
+      "Correct choices: 400 + 10 + 5; 400 + 15. Not correct: 400 + 1 + 5; 4 + 1 + 5; 40 + 10 + 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_select_expanded). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A check is written for 558 dollars."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number in digits: eight hundred forty‑six",
+       "answer": "846"
+      },
+      {
+       "prompt": "Write the number in digits: four hundred forty",
+       "answer": "440"
+      },
+      {
+       "prompt": "Write the number in digits: one hundred thirty‑eight",
+       "answer": "138"
+      },
+      {
+       "prompt": "Write the number in digits: eight hundred forty‑three",
+       "answer": "843"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the number in expanded form.",
+       "answer": "Sample answer: 500 + 50 + 8"
+      },
+      {
+       "prompt": "What is the value of the tens digit?",
+       "answer": "50"
+      },
+      {
+       "prompt": "What is the value of the hundreds digit?",
+       "answer": "500"
+      },
+      {
+       "prompt": "Explain how you would write the number name.",
+       "answer": "Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 846; (b) 440; (c) 138; (d) 843",
+     "to": "(a) Sample answer: 500 + 50 + 8; (b) 50; (c) 500; (d) Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the hundreds, tens, and ones in the name. eight hundred forty‑six = 846.",
+      "(b) Find the hundreds, tens, and ones in the name. four hundred forty = 440.",
+      "(c) Find the hundreds, tens, and ones in the name. one hundred thirty‑eight = 138.",
+      "(d) Find the hundreds, tens, and ones in the name. eight hundred forty‑three = 843."
+     ],
+     "to": [
+      "(a) Value of each digit.",
+      "(b) 5 tens.",
+      "(c) 5 hundreds.",
+      "(d) Number names."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_open_check). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that equal 472."
+    },
+    "answer": {
+     "from": [
+      "five hundred forty‑three in digits → 543",
+      "three hundred ninety‑six in digits → 396"
+     ],
+     "to": [
+      "2 + 70 + 400",
+      "400 + 70 + 2",
+      "400 + 72"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "two hundred six in digits → 2006",
+       "correct": false
+      },
+      {
+       "text": "five hundred forty‑three in digits → 543",
+       "correct": true
+      },
+      {
+       "text": "three hundred ninety‑six in digits → 396",
+       "correct": true
+      },
+      {
+       "text": "two hundred fifty‑six in digits → 266",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 + 7 + 2",
+       "correct": false
+      },
+      {
+       "text": "400 + 7 + 2",
+       "correct": false
+      },
+      {
+       "text": "2 + 70 + 400",
+       "correct": true
+      },
+      {
+       "text": "400 + 70 + 2",
+       "correct": true
+      },
+      {
+       "text": "400 + 72",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "two hundred six in digits → 2006: not correct.",
+      "five hundred forty‑three in digits → 543: correct.",
+      "three hundred ninety‑six in digits → 396: correct.",
+      "two hundred fifty‑six in digits → 266: not correct."
+     ],
+     "to": [
+      "472 = 400 + 70 + 2.",
+      "Correct choices: 2 + 70 + 400; 400 + 70 + 2; 400 + 72. Not correct: 400 + 7 + 2; 4 + 7 + 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_select_expanded). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A check is written for 254 dollars."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number in digits: three hundred ninety‑nine",
+       "answer": "399"
+      },
+      {
+       "prompt": "Write the number in digits: two hundred five",
+       "answer": "205"
+      },
+      {
+       "prompt": "Write the number in digits: two hundred thirty‑four",
+       "answer": "234"
+      },
+      {
+       "prompt": "Write the number in digits: four hundred twenty‑one",
+       "answer": "421"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the number in expanded form.",
+       "answer": "Sample answer: 200 + 50 + 4"
+      },
+      {
+       "prompt": "What is the value of the tens digit?",
+       "answer": "50"
+      },
+      {
+       "prompt": "What is the value of the hundreds digit?",
+       "answer": "200"
+      },
+      {
+       "prompt": "Explain how you would write the number name.",
+       "answer": "Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 399; (b) 205; (c) 234; (d) 421",
+     "to": "(a) Sample answer: 200 + 50 + 4; (b) 50; (c) 200; (d) Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the hundreds, tens, and ones in the name. three hundred ninety‑nine = 399.",
+      "(b) Find the hundreds, tens, and ones in the name. two hundred five = 205.",
+      "(c) Find the hundreds, tens, and ones in the name. two hundred thirty‑four = 234.",
+      "(d) Find the hundreds, tens, and ones in the name. four hundred twenty‑one = 421."
+     ],
+     "to": [
+      "(a) Value of each digit.",
+      "(b) 5 tens.",
+      "(c) 2 hundreds.",
+      "(d) Number names."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_open_check). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that equal 358."
+    },
+    "answer": {
+     "from": [
+      "five hundred nine in digits → 509",
+      "five hundred eight in digits → 508"
+     ],
+     "to": [
+      "300 + 58",
+      "300 + 50 + 8",
+      "350 + 8",
+      "8 + 50 + 300"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "five hundred nine in digits → 509",
+       "correct": true
+      },
+      {
+       "text": "six hundred fifty in digits → 550",
+       "correct": false
+      },
+      {
+       "text": "four hundred ten in digits → 420",
+       "correct": false
+      },
+      {
+       "text": "five hundred eight in digits → 508",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "300 + 58",
+       "correct": true
+      },
+      {
+       "text": "300 + 50 + 8",
+       "correct": true
+      },
+      {
+       "text": "350 + 8",
+       "correct": true
+      },
+      {
+       "text": "8 + 50 + 300",
+       "correct": true
+      },
+      {
+       "text": "500 + 30 + 8",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "five hundred nine in digits → 509: correct.",
+      "six hundred fifty in digits → 550: not correct.",
+      "four hundred ten in digits → 420: not correct.",
+      "five hundred eight in digits → 508: correct."
+     ],
+     "to": [
+      "358 = 300 + 50 + 8.",
+      "Correct choices: 300 + 58; 300 + 50 + 8; 350 + 8; 8 + 50 + 300. Not correct: 500 + 30 + 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_select_expanded). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-pv-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A check is written for 992 dollars."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number in digits: eight hundred two",
+       "answer": "802"
+      },
+      {
+       "prompt": "Write the number in digits: two hundred five",
+       "answer": "205"
+      },
+      {
+       "prompt": "Write the number in digits: three hundred seventy",
+       "answer": "370"
+      },
+      {
+       "prompt": "Write the number in digits: nine hundred eight",
+       "answer": "908"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the number in expanded form.",
+       "answer": "Sample answer: 900 + 90 + 2"
+      },
+      {
+       "prompt": "What is the value of the tens digit?",
+       "answer": "90"
+      },
+      {
+       "prompt": "What is the value of the hundreds digit?",
+       "answer": "900"
+      },
+      {
+       "prompt": "Explain how you would write the number name.",
+       "answer": "Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 802; (b) 205; (c) 370; (d) 908",
+     "to": "(a) Sample answer: 900 + 90 + 2; (b) 90; (c) 900; (d) Sample answer: Say the hundreds, then the tens and ones, like \"two hundred thirty-four\"."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Find the hundreds, tens, and ones in the name. eight hundred two = 802.",
+      "(b) Find the hundreds, tens, and ones in the name. two hundred five = 205.",
+      "(c) Find the hundreds, tens, and ones in the name. three hundred seventy = 370.",
+      "(d) Find the hundreds, tens, and ones in the name. nine hundred eight = 908."
+     ],
+     "to": [
+      "(a) Value of each digit.",
+      "(b) 9 tens.",
+      "(c) 9 hundreds.",
+      "(d) Number names."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: nn_numeral_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: pv4_open_check). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m2-pv-s01-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 hundreds and 0 tens = 400.",
+   "distractors": {
+    "310": "a common mistake",
+    "130": "a common mistake",
+    "500": "a common mistake"
+   }
+  },
+  "m2-pv-s01-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 hundreds and 5 tens = 350.",
+   "distractors": {
+    "215": "a common mistake",
+    "170": "a common mistake",
+    "450": "a common mistake"
+   }
+  },
+  "m2-pv-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 hundreds and 0 tens = 300.",
+   "distractors": {
+    "210": "a common mistake",
+    "120": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s01-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 hundreds and 1 tens = 410.",
+   "distractors": {
+    "311": "a common mistake",
+    "140": "a common mistake",
+    "510": "a common mistake"
+   }
+  },
+  "m2-pv-s01-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 hundreds and 2 tens = 920.",
+   "distractors": {
+    "812": "a common mistake",
+    "200": "a common mistake",
+    "1,020": "a common mistake"
+   }
+  },
+  "m2-pv-s01-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 hundreds and 3 tens = 930.",
+   "distractors": {
+    "813": "a common mistake",
+    "210": "a common mistake",
+    "1,030": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 hundreds, 6 tens and 8 ones = 868.",
+   "distractors": {
+    "858": "a common mistake",
+    "958": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 hundreds, 4 tens and 3 ones = 843.",
+   "distractors": {
+    "833": "a common mistake",
+    "933": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 hundreds, 2 tens and 0 ones = 420.",
+   "distractors": {
+    "410": "a common mistake",
+    "510": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 hundreds, 5 tens and 5 ones = 255.",
+   "distractors": {
+    "245": "a common mistake",
+    "345": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 hundreds, 4 tens and 0 ones = 740.",
+   "distractors": {
+    "730": "a common mistake",
+    "830": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 hundreds, 8 tens and 1 ones = 681.",
+   "distractors": {
+    "671": "a common mistake",
+    "771": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 hundreds, 5 tens and 8 ones = 858.",
+   "distractors": {
+    "848": "a common mistake",
+    "948": "a common mistake"
+   }
+  },
+  "m2-pv-s02-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 hundreds, 7 tens and 5 ones = 375.",
+   "distractors": {
+    "365": "a common mistake",
+    "465": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 hundreds.",
+   "distractors": {
+    "4": "a common mistake",
+    "6": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 hundreds.",
+   "distractors": {
+    "4": "a common mistake",
+    "9": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 hundreds.",
+   "distractors": {
+    "4": "a common mistake",
+    "7": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 2 hundreds.",
+   "distractors": {
+    "3": "a common mistake",
+    "6": "a common mistake",
+    "200": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 hundreds.",
+   "distractors": {
+    "4": "a common mistake",
+    "5": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 2 hundreds.",
+   "distractors": {
+    "3": "a common mistake",
+    "7": "a common mistake",
+    "200": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 6 hundreds.",
+   "distractors": {
+    "7": "a common mistake",
+    "8": "a common mistake",
+    "600": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 2 hundreds.",
+   "distractors": {
+    "3": "a common mistake",
+    "8": "a common mistake",
+    "200": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 7 hundreds.",
+   "distractors": {
+    "8": "a common mistake",
+    "9": "a common mistake",
+    "700": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 hundreds.",
+   "distractors": {
+    "4": "a common mistake",
+    "8": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 5 hundreds.",
+   "distractors": {
+    "6": "a common mistake",
+    "8": "a common mistake",
+    "500": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 4 hundreds.",
+   "distractors": {
+    "5": "a common mistake",
+    "7": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 4 hundreds.",
+   "distractors": {
+    "5": "a common mistake",
+    "6": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 5 hundreds.",
+   "distractors": {
+    "6": "a common mistake",
+    "9": "a common mistake",
+    "500": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 4 hundreds.",
+   "distractors": {
+    "5": "a common mistake",
+    "8": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s03-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 6 hundreds.",
+   "distractors": {
+    "7": "a common mistake",
+    "9": "a common mistake",
+    "600": "a common mistake"
+   }
+  },
+  "m2-pv-s01-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 tens make 1 hundred, so 93 tens is 9 whole hundreds.",
+   "distractors": {
+    "9; 93": "a common mistake",
+    "93; 93": "a common mistake",
+    "930; 9": "a common mistake"
+   }
+  },
+  "m2-pv-s01-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 tens make 1 hundred, so 71 tens is 7 whole hundreds.",
+   "distractors": {
+    "7; 71": "a common mistake",
+    "71; 71": "a common mistake",
+    "710; 7": "a common mistake"
+   }
+  },
+  "m2-pv-s01-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 tens make 1 hundred, so 67 tens is 6 whole hundreds.",
+   "distractors": {
+    "6; 67": "a common mistake",
+    "67; 67": "a common mistake",
+    "670; 6": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "252 + 100 = 352.",
+   "distractors": {
+    "252": "a common mistake",
+    "262": "a common mistake",
+    "109": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "358 + 100 = 458.",
+   "distractors": {
+    "358": "a common mistake",
+    "368": "a common mistake",
+    "116": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "219 + 100 = 319.",
+   "distractors": {
+    "219": "a common mistake",
+    "229": "a common mistake",
+    "112": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "205 + 10 = 215.",
+   "distractors": {
+    "205": "a common mistake",
+    "305": "a common mistake",
+    "17": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "881 + 100 = 981.",
+   "distractors": {
+    "881": "a common mistake",
+    "891": "a common mistake",
+    "117": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "552 + 100 = 652.",
+   "distractors": {
+    "552": "a common mistake",
+    "562": "a common mistake",
+    "112": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "322 + 10 = 332.",
+   "distractors": {
+    "322": "a common mistake",
+    "422": "a common mistake",
+    "17": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "671 + 10 = 681.",
+   "distractors": {
+    "671": "a common mistake",
+    "771": "a common mistake",
+    "24": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "262 + 100 = 362.",
+   "distractors": {
+    "262": "a common mistake",
+    "272": "a common mistake",
+    "110": "a common mistake"
+   }
+  },
+  "m2-pv-s02-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "172 + 10 = 182.",
+   "distractors": {
+    "172": "a common mistake",
+    "272": "a common mistake",
+    "20": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "800 − 10 = 790.",
+   "distractors": {
+    "800": "a common mistake",
+    "430": "a common mistake",
+    "810": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "800 − 10 = 790.",
+   "distractors": {
+    "800": "a common mistake",
+    "520": "a common mistake",
+    "810": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "900 − 10 = 890.",
+   "distractors": {
+    "900": "a common mistake",
+    "530": "a common mistake",
+    "910": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "500 − 10 = 490.",
+   "distractors": {
+    "500": "a common mistake",
+    "130": "a common mistake",
+    "510": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "700 − 10 = 690.",
+   "distractors": {
+    "700": "a common mistake",
+    "330": "a common mistake",
+    "710": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "400 − 10 = 390.",
+   "distractors": {
+    "400": "a common mistake",
+    "120": "a common mistake",
+    "410": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "600 − 10 = 590.",
+   "distractors": {
+    "600": "a common mistake",
+    "320": "a common mistake",
+    "610": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "600 − 10 = 590.",
+   "distractors": {
+    "600": "a common mistake",
+    "230": "a common mistake",
+    "610": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "500 − 10 = 490.",
+   "distractors": {
+    "500": "a common mistake",
+    "220": "a common mistake",
+    "510": "a common mistake"
+   }
+  },
+  "m2-pv-s03-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "700 − 10 = 690.",
+   "distractors": {
+    "700": "a common mistake",
+    "420": "a common mistake",
+    "710": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 9 is in the tens place, so its value is 90.",
+   "distractors": {
+    "9": "a common mistake",
+    "900": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 5 is in the tens place, so its value is 50.",
+   "distractors": {
+    "5": "a common mistake",
+    "500": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 8 is in the tens place, so its value is 80.",
+   "distractors": {
+    "8": "a common mistake",
+    "800": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 9 is in the tens place, so its value is 90.",
+   "distractors": {
+    "9": "a common mistake",
+    "900": "a common mistake",
+    "500": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 5 is in the tens place, so its value is 50.",
+   "distractors": {
+    "5": "a common mistake",
+    "500": "a common mistake",
+    "200": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 4 is in the tens place, so its value is 40.",
+   "distractors": {
+    "4": "a common mistake",
+    "400": "a common mistake",
+    "800": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 3 is in the tens place, so its value is 30.",
+   "distractors": {
+    "3": "a common mistake",
+    "300": "a common mistake",
+    "100": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 5 is in the tens place, so its value is 50.",
+   "distractors": {
+    "5": "a common mistake",
+    "500": "a common mistake",
+    "700": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 3 is in the tens place, so its value is 30.",
+   "distractors": {
+    "3": "a common mistake",
+    "300": "a common mistake",
+    "600": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 7 is in the tens place, so its value is 70.",
+   "distractors": {
+    "7": "a common mistake",
+    "700": "a common mistake",
+    "500": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 9 is in the tens place, so its value is 90.",
+   "distractors": {
+    "9": "a common mistake",
+    "900": "a common mistake",
+    "600": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 6 is in the tens place, so its value is 60.",
+   "distractors": {
+    "6": "a common mistake",
+    "600": "a common mistake",
+    "300": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 9 is in the tens place, so its value is 90.",
+   "distractors": {
+    "9": "a common mistake",
+    "900": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 6 is in the tens place, so its value is 60.",
+   "distractors": {
+    "6": "a common mistake",
+    "600": "a common mistake",
+    "400": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 1 is in the tens place, so its value is 10.",
+   "distractors": {
+    "1": "a common mistake",
+    "100": "a common mistake",
+    "200": "a common mistake"
+   }
+  },
+  "m2-pv-s04-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The 4 is in the tens place, so its value is 40.",
+   "distractors": {
+    "4": "a common mistake",
+    "400": "a common mistake",
+    "700": "a common mistake"
+   }
+  },
+  "m2-pv-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "18 − 10 = 8."
+  },
+  "m2-pv-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "28 − 20 = 8."
+  },
+  "m2-pv-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "56 − 50 = 6."
+  },
+  "m2-pv-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away a one."
+  },
+  "m2-pv-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away a one."
+  },
+  "m2-pv-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away a one."
+  },
+  "m2-pv-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "1,000 is 10 hundreds."
+  },
+  "m2-pv-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "1,000 is 10 hundreds."
+  },
+  "m2-pv-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "1,000 is 10 hundreds."
+  },
+  "m2-pv-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "2 hundreds."
+  },
+  "m2-pv-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "5 hundreds."
+  },
+  "m2-pv-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "9 hundreds."
+  },
+  "m2-pv-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "800 is 8 hundreds, which is 80 tens."
+  },
+  "m2-pv-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "800 is 8 hundreds, which is 80 tens."
+  },
+  "m2-pv-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "300 is 3 hundreds, which is 30 tens."
+  },
+  "m2-pv-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Find the value of each choice and look for 441."
+  },
+  "m2-pv-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Find the value of each choice and look for 417."
+  },
+  "m2-pv-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Find the value of each choice and look for 315."
+  },
+  "m2-pv-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Counting by hundreds: 100, 200, 300, ..."
+  },
+  "m2-pv-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Counting by hundreds: 100, 200, 300, ..."
+  },
+  "m2-pv-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Counting by hundreds: 100, 200, 300, ..."
+  },
+  "m2-pv-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "415 = 400 + 10 + 5."
+  },
+  "m2-pv-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "472 = 400 + 70 + 2."
+  },
+  "m2-pv-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "358 = 300 + 50 + 8."
+  }
+ }
+}

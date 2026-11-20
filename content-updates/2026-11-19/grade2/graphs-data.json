@@ -1,0 +1,1477 @@
+{
+ "unit": "graphs-data",
+ "edits": [
+  {
+   "id": "m2-gd-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Look at the bar graph. Which bar shows 1 shells?",
+     "to": "Look at the bar graph. Which bar shows 1 shell?"
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp1-012",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "7 shells",
+       "correct": false
+      },
+      {
+       "text": "8 shells",
+       "correct": true
+      },
+      {
+       "text": "1 shells",
+       "correct": false
+      },
+      {
+       "text": "10 shells",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7 shells",
+       "correct": false
+      },
+      {
+       "text": "8 shells",
+       "correct": true
+      },
+      {
+       "text": "1 shell",
+       "correct": false
+      },
+      {
+       "text": "10 shells",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp1-022",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "10 pets",
+       "correct": true
+      },
+      {
+       "text": "1 pets",
+       "correct": false
+      },
+      {
+       "text": "12 pets",
+       "correct": false
+      },
+      {
+       "text": "11 pets",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "10 pets",
+       "correct": true
+      },
+      {
+       "text": "1 pet",
+       "correct": false
+      },
+      {
+       "text": "12 pets",
+       "correct": false
+      },
+      {
+       "text": "11 pets",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A bar graph shows apples 14, bananas 13 and grapes 9. Select ALL the true statements."
+    },
+    "answer": {
+     "from": [
+      "A bar graph shows soccer 10, tennis 12, swim 7, run 1. How many more for swim than run? → 6",
+      "A bar graph shows apple 3, banana 9, grape 15. How many more for grape than banana? → 6"
+     ],
+     "to": [
+      "apples and grapes have 23 votes together",
+      "apples has more votes than grapes",
+      "apples has more votes than bananas"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A bar graph shows pizza 9, tacos 7, soup 12, salad 13. How many more for soup than tacos? → 12",
+       "correct": false
+      },
+      {
+       "text": "A bar graph shows soccer 10, tennis 12, swim 7, run 1. How many more for swim than run? → 6",
+       "correct": true
+      },
+      {
+       "text": "A bar graph shows apple 3, banana 9, grape 15. How many more for grape than banana? → 6",
+       "correct": true
+      },
+      {
+       "text": "A bar graph shows pizza 7, tacos 8, soup 14. How many more for tacos than pizza? → 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "apples and grapes have 23 votes together",
+       "correct": true
+      },
+      {
+       "text": "apples has more votes than grapes",
+       "correct": true
+      },
+      {
+       "text": "grapes has more votes than bananas",
+       "correct": false
+      },
+      {
+       "text": "apples and bananas have 28 votes together",
+       "correct": false
+      },
+      {
+       "text": "apples has more votes than bananas",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A bar graph shows pizza 9, tacos 7, soup 12, salad 13. How many more for soup than tacos? → 12: not correct.",
+      "A bar graph shows soccer 10, tennis 12, swim 7, run 1. How many more for swim than run? → 6: correct.",
+      "A bar graph shows apple 3, banana 9, grape 15. How many more for grape than banana? → 6: correct.",
+      "A bar graph shows pizza 7, tacos 8, soup 14. How many more for tacos than pizza? → 8: not correct."
+     ],
+     "to": [
+      "Read each bar and check each statement.",
+      "Correct choices: apples and grapes have 23 votes together; apples has more votes than grapes; apples has more votes than bananas. Not correct: apples and bananas have 28 votes together; grapes has more votes than bananas."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_true_graph). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A bar graph shows 8 students walk to school and 10 ride the bus."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bar graph shows sunny 7, rainy 6, cloudy 5. How many more for sunny than cloudy?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A bar graph shows sunny 8, rainy 13, cloudy 1, snowy 9. How many more for snowy than cloudy?",
+       "answer": "8"
+      },
+      {
+       "prompt": "A bar graph shows pizza 6, tacos 7, soup 2. How many more for tacos than pizza?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A bar graph shows dog 2, cat 3, fish 1. How many more for cat than fish?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students in all?",
+       "answer": "18 students"
+      },
+      {
+       "prompt": "How many more ride than walk?",
+       "answer": "2 students"
+      },
+      {
+       "prompt": "If 3 more students walk, how many walk?",
+       "answer": "11 students"
+      },
+      {
+       "prompt": "Explain how a graph helps you compare.",
+       "answer": "Sample answer: You can see which bar is taller and subtract the numbers."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2; (b) 8; (c) 1; (d) 2",
+     "to": "(a) 18 students; (b) 2 students; (c) 11 students; (d) Sample answer: You can see which bar is taller and subtract the numbers."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) sunny: 7. cloudy: 5. 7 − 5 = 2.",
+      "(b) snowy: 9. cloudy: 1. 9 − 1 = 8.",
+      "(c) tacos: 7. pizza: 6. 7 − 6 = 1.",
+      "(d) cat: 3. fish: 1. 3 − 1 = 2."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Compare bars."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_problem). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp2-022",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "8 pets",
+       "correct": false
+      },
+      {
+       "text": "3 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pets",
+       "correct": false
+      },
+      {
+       "text": "2 pets",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "8 pets",
+       "correct": false
+      },
+      {
+       "text": "3 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pet",
+       "correct": false
+      },
+      {
+       "text": "2 pets",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A bar graph shows apples 3, bananas 6 and grapes 5. Select ALL the true statements."
+    },
+    "answer": {
+     "from": [
+      "A bar graph shows apple 4, banana 1, grape 8. How many more for grape than banana? → 7",
+      "A bar graph shows Mia 6, Leo 10, Ivy 7. How many more for Ivy than Mia? → 1"
+     ],
+     "to": [
+      "bananas and grapes have 11 votes together",
+      "apples and grapes have 8 votes together",
+      "grapes has more votes than apples",
+      "bananas has more votes than grapes"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A bar graph shows apple 7, banana 8, grape 10. How many more for banana than apple? → 15",
+       "correct": false
+      },
+      {
+       "text": "A bar graph shows sunny 5, rainy 4, cloudy 8. How many more for cloudy than rainy? → 5",
+       "correct": false
+      },
+      {
+       "text": "A bar graph shows apple 4, banana 1, grape 8. How many more for grape than banana? → 7",
+       "correct": true
+      },
+      {
+       "text": "A bar graph shows Mia 6, Leo 10, Ivy 7. How many more for Ivy than Mia? → 1",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "bananas and grapes have 11 votes together",
+       "correct": true
+      },
+      {
+       "text": "apples and grapes have 8 votes together",
+       "correct": true
+      },
+      {
+       "text": "grapes has more votes than apples",
+       "correct": true
+      },
+      {
+       "text": "grapes has more votes than bananas",
+       "correct": false
+      },
+      {
+       "text": "bananas has more votes than grapes",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A bar graph shows apple 7, banana 8, grape 10. How many more for banana than apple? → 15: not correct.",
+      "A bar graph shows sunny 5, rainy 4, cloudy 8. How many more for cloudy than rainy? → 5: not correct.",
+      "A bar graph shows apple 4, banana 1, grape 8. How many more for grape than banana? → 7: correct.",
+      "A bar graph shows Mia 6, Leo 10, Ivy 7. How many more for Ivy than Mia? → 1: correct."
+     ],
+     "to": [
+      "Read each bar and check each statement.",
+      "Correct choices: bananas and grapes have 11 votes together; apples and grapes have 8 votes together; grapes has more votes than apples; bananas has more votes than grapes. Not correct: grapes has more votes than bananas."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_true_graph). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A bar graph shows 5 students walk to school and 4 ride the bus."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bar graph shows soccer 7, tennis 2, swim 10. How many more for swim than soccer?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A bar graph shows soccer 5, tennis 2, swim 1. How many more for tennis than swim?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A bar graph shows apple 7, banana 5, grape 3. How many more for apple than grape?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A bar graph shows Mia 10, Leo 3, Ivy 5. How many more for Mia than Ivy?",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students in all?",
+       "answer": "9 students"
+      },
+      {
+       "prompt": "How many more walk than ride?",
+       "answer": "1 student"
+      },
+      {
+       "prompt": "If 3 more students walk, how many walk?",
+       "answer": "8 students"
+      },
+      {
+       "prompt": "Explain how a graph helps you compare.",
+       "answer": "Sample answer: You can see which bar is taller and subtract the numbers."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 1; (c) 4; (d) 5",
+     "to": "(a) 9 students; (b) 1 student; (c) 8 students; (d) Sample answer: You can see which bar is taller and subtract the numbers."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) swim: 10. soccer: 7. 10 − 7 = 3.",
+      "(b) tennis: 2. swim: 1. 2 − 1 = 1.",
+      "(c) apple: 7. grape: 3. 7 − 3 = 4.",
+      "(d) Mia: 10. Ivy: 5. 10 − 5 = 5."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Compare bars."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_problem). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-honors-014",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "34 pets",
+       "correct": false
+      },
+      {
+       "text": "16 pets",
+       "correct": false
+      },
+      {
+       "text": "2 pets",
+       "correct": true
+      },
+      {
+       "text": "1 pets",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "34 pets",
+       "correct": false
+      },
+      {
+       "text": "16 pets",
+       "correct": false
+      },
+      {
+       "text": "2 pets",
+       "correct": true
+      },
+      {
+       "text": "1 pet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-honors-023",
+   "changes": {
+    "answer": {
+     "from": "1 pets",
+     "to": "1 pet"
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pets",
+       "correct": true
+      },
+      {
+       "text": "3 pets",
+       "correct": false
+      },
+      {
+       "text": "17 pets",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pet",
+       "correct": true
+      },
+      {
+       "text": "3 pets",
+       "correct": false
+      },
+      {
+       "text": "17 pets",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "bird: 9. cat: 8.",
+      "9 − 8 = 1 pets."
+     ],
+     "to": [
+      "bird: 9. cat: 8.",
+      "9 − 8 = 1 pet."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A bar graph shows apples 9, bananas 13 and grapes 10. Select ALL the true statements."
+    },
+    "answer": {
+     "from": [
+      "A bar graph shows soccer 13, tennis 20, swim 8, run 5. How many more for tennis than swim? → 12",
+      "A bar graph shows Ana 6, Ben 5, Kai 20. How many more for Ana than Ben? → 1"
+     ],
+     "to": [
+      "grapes has more votes than apples",
+      "apples and grapes have 19 votes together"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A bar graph shows soccer 13, tennis 20, swim 8, run 5. How many more for tennis than swim? → 12",
+       "correct": true
+      },
+      {
+       "text": "A bar graph shows Ana 6, Ben 5, Kai 20. How many more for Ana than Ben? → 1",
+       "correct": true
+      },
+      {
+       "text": "A bar graph shows sunny 11, rainy 18, cloudy 19. How many more for cloudy than rainy? → 2",
+       "correct": false
+      },
+      {
+       "text": "A bar graph shows pizza 15, tacos 6, soup 13, salad 18. How many more for salad than soup? → 18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "grapes has more votes than apples",
+       "correct": true
+      },
+      {
+       "text": "apples and grapes have 20 votes together",
+       "correct": false
+      },
+      {
+       "text": "apples and grapes have 19 votes together",
+       "correct": true
+      },
+      {
+       "text": "apples has more votes than grapes",
+       "correct": false
+      },
+      {
+       "text": "apples has more votes than bananas",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A bar graph shows soccer 13, tennis 20, swim 8, run 5. How many more for tennis than swim? → 12: correct.",
+      "A bar graph shows Ana 6, Ben 5, Kai 20. How many more for Ana than Ben? → 1: correct.",
+      "A bar graph shows sunny 11, rainy 18, cloudy 19. How many more for cloudy than rainy? → 2: not correct.",
+      "A bar graph shows pizza 15, tacos 6, soup 13, salad 18. How many more for salad than soup? → 18: not correct."
+     ],
+     "to": [
+      "Read each bar and check each statement.",
+      "Correct choices: grapes has more votes than apples; apples and grapes have 19 votes together. Not correct: apples has more votes than grapes; apples and grapes have 20 votes together; apples has more votes than bananas."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_true_graph). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A bar graph shows 14 students walk to school and 5 ride the bus."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A bar graph shows apple 18, banana 4, grape 3. How many more for banana than grape?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A bar graph shows sunny 20, rainy 10, cloudy 17, snowy 13. How many more for cloudy than snowy?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A bar graph shows Mia 12, Leo 15, Ivy 8, Sam 11. How many more for Mia than Ivy?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A bar graph shows pizza 15, tacos 2, soup 14. How many more for pizza than soup?",
+       "answer": "1"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students in all?",
+       "answer": "19 students"
+      },
+      {
+       "prompt": "How many more walk than ride?",
+       "answer": "9 students"
+      },
+      {
+       "prompt": "If 3 more students walk, how many walk?",
+       "answer": "17 students"
+      },
+      {
+       "prompt": "Explain how a graph helps you compare.",
+       "answer": "Sample answer: You can see which bar is taller and subtract the numbers."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 4; (c) 4; (d) 1",
+     "to": "(a) 19 students; (b) 9 students; (c) 17 students; (d) Sample answer: You can see which bar is taller and subtract the numbers."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) banana: 4. grape: 3. 4 − 3 = 1.",
+      "(b) cloudy: 17. snowy: 13. 17 − 13 = 4.",
+      "(c) Mia: 12. Ivy: 8. 12 − 8 = 4.",
+      "(d) pizza: 15. soup: 14. 15 − 14 = 1."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Compare bars."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: sp_text_more_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_problem). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Data: apples 10, bananas 3, grapes 6. Select ALL that are true of a correct bar graph."
+    },
+    "answer": {
+     "from": [
+      "Data: Mia 15, Leo 12, Ivy 9. On a bar graph that has a scale of 1, how tall is the Mia bar? → 15",
+      "Data: Ana 3, Ben 2, Kai 11, Zoe 13. On a bar graph that has a scale of 1, how tall is the Zoe bar? → 13"
+     ],
+     "to": [
+      "the grape bar is 6 tall",
+      "the banana bar is 3 tall",
+      "the tallest bar is 10 tall"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Data: Mia 15, Leo 12, Ivy 9. On a bar graph that has a scale of 1, how tall is the Mia bar? → 15",
+       "correct": true
+      },
+      {
+       "text": "Data: sunny 6, rainy 4, cloudy 2. On a bar graph that has a scale of 1, how tall is the rainy bar? → 12",
+       "correct": false
+      },
+      {
+       "text": "Data: Ana 11, Ben 9, Kai 13. On a bar graph that has a scale of 1, how tall is the Ben bar? → 10",
+       "correct": false
+      },
+      {
+       "text": "Data: Ana 3, Ben 2, Kai 11, Zoe 13. On a bar graph that has a scale of 1, how tall is the Zoe bar? → 13",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "the apple bar is 11 tall",
+       "correct": false
+      },
+      {
+       "text": "the grape bar is 6 tall",
+       "correct": true
+      },
+      {
+       "text": "the banana bar is 3 tall",
+       "correct": true
+      },
+      {
+       "text": "the banana bar is 5 tall",
+       "correct": false
+      },
+      {
+       "text": "the tallest bar is 10 tall",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Data: Mia 15, Leo 12, Ivy 9. On a bar graph that has a scale of 1, how tall is the Mia bar? → 15: correct.",
+      "Data: sunny 6, rainy 4, cloudy 2. On a bar graph that has a scale of 1, how tall is the rainy bar? → 12: not correct.",
+      "Data: Ana 11, Ben 9, Kai 13. On a bar graph that has a scale of 1, how tall is the Ben bar? → 10: not correct.",
+      "Data: Ana 3, Ben 2, Kai 11, Zoe 13. On a bar graph that has a scale of 1, how tall is the Zoe bar? → 13: correct."
+     ],
+     "to": [
+      "Each bar is as tall as its number.",
+      "Correct choices: the grape bar is 6 tall; the banana bar is 3 tall; the tallest bar is 10 tall. Not correct: the banana bar is 5 tall; the apple bar is 11 tall."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_select_bar_heights). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Make a bar graph: red 2, blue 9, green 9."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Data: pizza 7, tacos 3, soup 8. On a bar graph that has a scale of 1, how tall is the pizza bar?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Data: soccer 2, tennis 6, swim 7. On a bar graph that has a scale of 1, how tall is the swim bar?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Data: Ana 12, Ben 11, Kai 5, Zoe 2. On a bar graph that has a scale of 1, how tall is the Ben bar?",
+       "answer": "11"
+      },
+      {
+       "prompt": "Data: apple 14, banana 3, grape 2, pear 5. On a bar graph that has a scale of 1, how tall is the apple bar?",
+       "answer": "14"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How tall is the red bar?",
+       "answer": "2"
+      },
+      {
+       "prompt": "How many votes in all?",
+       "answer": "20"
+      },
+      {
+       "prompt": "How much taller is the tallest bar than the shortest?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Explain what you put on the graph to label it.",
+       "answer": "Sample answer: A title, the colors along the bottom and numbers up the side."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7; (b) 7; (c) 11; (d) 14",
+     "to": "(a) 2; (b) 20; (c) 7; (d) Sample answer: A title, the colors along the bottom and numbers up the side."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The data says pizza has 7. The bar goes up to 7 on the scale.",
+      "(b) The data says swim has 7. The bar goes up to 7 on the scale.",
+      "(c) The data says Ben has 11. The bar goes up to 11 on the scale.",
+      "(d) The data says apple has 14. The bar goes up to 14 on the scale."
+     ],
+     "to": [
+      "(a) One for each vote.",
+      "(b) Add.",
+      "(c) Subtract.",
+      "(d) Labels."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_open_make_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Data: apples 8, bananas 2, grapes 11. Select ALL that are true of a correct bar graph."
+    },
+    "answer": {
+     "from": [
+      "Data: soccer 3, tennis 1, swim 8. On a bar graph that has a scale of 1, how tall is the tennis bar? → 1",
+      "Data: dog 9, cat 4, fish 6. On a bar graph that has a scale of 1, how tall is the dog bar? → 9"
+     ],
+     "to": [
+      "the apple bar is 8 tall",
+      "the tallest bar is 11 tall",
+      "the grape bar is 11 tall",
+      "the banana bar is 2 tall"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Data: sunny 1, rainy 7, cloudy 3. On a bar graph that has a scale of 1, how tall is the sunny bar? → 2",
+       "correct": false
+      },
+      {
+       "text": "Data: soccer 3, tennis 1, swim 8. On a bar graph that has a scale of 1, how tall is the tennis bar? → 1",
+       "correct": true
+      },
+      {
+       "text": "Data: soccer 9, tennis 6, swim 8. On a bar graph that has a scale of 1, how tall is the tennis bar? → 23",
+       "correct": false
+      },
+      {
+       "text": "Data: dog 9, cat 4, fish 6. On a bar graph that has a scale of 1, how tall is the dog bar? → 9",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "the apple bar is 8 tall",
+       "correct": true
+      },
+      {
+       "text": "the grape bar is 10 tall",
+       "correct": false
+      },
+      {
+       "text": "the tallest bar is 11 tall",
+       "correct": true
+      },
+      {
+       "text": "the grape bar is 11 tall",
+       "correct": true
+      },
+      {
+       "text": "the banana bar is 2 tall",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Data: sunny 1, rainy 7, cloudy 3. On a bar graph that has a scale of 1, how tall is the sunny bar? → 2: not correct.",
+      "Data: soccer 3, tennis 1, swim 8. On a bar graph that has a scale of 1, how tall is the tennis bar? → 1: correct.",
+      "Data: soccer 9, tennis 6, swim 8. On a bar graph that has a scale of 1, how tall is the tennis bar? → 23: not correct.",
+      "Data: dog 9, cat 4, fish 6. On a bar graph that has a scale of 1, how tall is the dog bar? → 9: correct."
+     ],
+     "to": [
+      "Each bar is as tall as its number.",
+      "Correct choices: the apple bar is 8 tall; the tallest bar is 11 tall; the grape bar is 11 tall; the banana bar is 2 tall. Not correct: the grape bar is 10 tall."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_select_bar_heights). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Make a bar graph: red 8, blue 3, green 7."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Data: apple 3, banana 1, grape 8. On a bar graph that has a scale of 1, how tall is the grape bar?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Data: apple 9, banana 1, grape 3. On a bar graph that has a scale of 1, how tall is the grape bar?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Data: apple 7, banana 1, grape 10. On a bar graph that has a scale of 1, how tall is the grape bar?",
+       "answer": "10"
+      },
+      {
+       "prompt": "Data: Ana 4, Ben 2, Kai 9. On a bar graph that has a scale of 1, how tall is the Ben bar?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How tall is the red bar?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many votes in all?",
+       "answer": "18"
+      },
+      {
+       "prompt": "How much taller is the tallest bar than the shortest?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Explain what you put on the graph to label it.",
+       "answer": "Sample answer: A title, the colors along the bottom and numbers up the side."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 8; (b) 3; (c) 10; (d) 2",
+     "to": "(a) 8; (b) 18; (c) 5; (d) Sample answer: A title, the colors along the bottom and numbers up the side."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The data says grape has 8. The bar goes up to 8 on the scale.",
+      "(b) The data says grape has 3. The bar goes up to 3 on the scale.",
+      "(c) The data says grape has 10. The bar goes up to 10 on the scale.",
+      "(d) The data says Ben has 2. The bar goes up to 2 on the scale."
+     ],
+     "to": [
+      "(a) One for each vote.",
+      "(b) Add.",
+      "(c) Subtract.",
+      "(d) Labels."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_open_make_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Data: apples 5, bananas 4, grapes 3. Select ALL that are true of a correct bar graph."
+    },
+    "answer": {
+     "from": [
+      "Data: Ana 11, Ben 12, Kai 5, Zoe 15. On a bar graph that has a scale of 1, how tall is the Kai bar? → 5",
+      "Data: Mia 9, Leo 20, Ivy 15. On a bar graph that has a scale of 1, how tall is the Ivy bar? → 15"
+     ],
+     "to": [
+      "the banana bar is 4 tall",
+      "the grape bar is 3 tall"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Data: Ana 11, Ben 12, Kai 5, Zoe 15. On a bar graph that has a scale of 1, how tall is the Kai bar? → 5",
+       "correct": true
+      },
+      {
+       "text": "Data: Mia 9, Leo 20, Ivy 15. On a bar graph that has a scale of 1, how tall is the Ivy bar? → 15",
+       "correct": true
+      },
+      {
+       "text": "Data: soccer 1, tennis 7, swim 6. On a bar graph that has a scale of 1, how tall is the soccer bar? → 7",
+       "correct": false
+      },
+      {
+       "text": "Data: Ana 6, Ben 8, Kai 4. On a bar graph that has a scale of 1, how tall is the Kai bar? → 18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "the banana bar is 4 tall",
+       "correct": true
+      },
+      {
+       "text": "the grape bar is 3 tall",
+       "correct": true
+      },
+      {
+       "text": "the apple bar is 6 tall",
+       "correct": false
+      },
+      {
+       "text": "the banana bar is 6 tall",
+       "correct": false
+      },
+      {
+       "text": "the grape bar is 2 tall",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Data: Ana 11, Ben 12, Kai 5, Zoe 15. On a bar graph that has a scale of 1, how tall is the Kai bar? → 5: correct.",
+      "Data: Mia 9, Leo 20, Ivy 15. On a bar graph that has a scale of 1, how tall is the Ivy bar? → 15: correct.",
+      "Data: soccer 1, tennis 7, swim 6. On a bar graph that has a scale of 1, how tall is the soccer bar? → 7: not correct.",
+      "Data: Ana 6, Ben 8, Kai 4. On a bar graph that has a scale of 1, how tall is the Kai bar? → 18: not correct."
+     ],
+     "to": [
+      "Each bar is as tall as its number.",
+      "Correct choices: the banana bar is 4 tall; the grape bar is 3 tall. Not correct: the grape bar is 2 tall; the banana bar is 6 tall; the apple bar is 6 tall."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_select_bar_heights). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-gd-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Make a bar graph: red 8, blue 5, green 5."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Data: Ana 20, Ben 10, Kai 4, Zoe 9. On a bar graph that has a scale of 1, how tall is the Ben bar?",
+       "answer": "10"
+      },
+      {
+       "prompt": "Data: apple 15, banana 19, grape 10, pear 16. On a bar graph that has a scale of 1, how tall is the pear bar?",
+       "answer": "16"
+      },
+      {
+       "prompt": "Data: apple 9, banana 10, grape 14. On a bar graph that has a scale of 1, how tall is the banana bar?",
+       "answer": "10"
+      },
+      {
+       "prompt": "Data: Mia 8, Leo 4, Ivy 7, Sam 11. On a bar graph that has a scale of 1, how tall is the Sam bar?",
+       "answer": "11"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How tall is the red bar?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many votes in all?",
+       "answer": "18"
+      },
+      {
+       "prompt": "How much taller is the tallest bar than the shortest?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Explain what you put on the graph to label it.",
+       "answer": "Sample answer: A title, the colors along the bottom and numbers up the side."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 10; (b) 16; (c) 10; (d) 11",
+     "to": "(a) 8; (b) 18; (c) 3; (d) Sample answer: A title, the colors along the bottom and numbers up the side."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The data says Ben has 10. The bar goes up to 10 on the scale.",
+      "(b) The data says pear has 16. The bar goes up to 16 on the scale.",
+      "(c) The data says banana has 10. The bar goes up to 10 on the scale.",
+      "(d) The data says Sam has 11. The bar goes up to 11 on the scale."
+     ],
+     "to": [
+      "(a) One for each vote.",
+      "(b) Add.",
+      "(c) Subtract.",
+      "(d) Labels."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mk_text_height_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_open_make_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m2-gd-s01-cp2-o01",
+   "skillId": "graphs-data-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A picture graph shows pets: dogs 4, cats 7, fish 9. Each picture is 1 pet.",
+   "parts": [
+    {
+     "prompt": "How many pets in all?",
+     "answer": "20 pets"
+    },
+    {
+     "prompt": "Which pet has the most?",
+     "answer": "fish"
+    },
+    {
+     "prompt": "How many more dogs than fish?",
+     "answer": "5"
+    },
+    {
+     "prompt": "Explain how you read a picture graph.",
+     "answer": "Sample answer: I count the pictures in each row."
+    }
+   ],
+   "answer": "(a) 20 pets; (b) fish; (c) 5; (d) Sample answer: I count the pictures in each row.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Compare.",
+    "(c) Subtract.",
+    "(d) Count pictures."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-gd-s01-cp1-o01",
+   "skillId": "graphs-data-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A picture graph shows pets: dogs 2, cats 7, fish 3. Each picture is 1 pet.",
+   "parts": [
+    {
+     "prompt": "How many pets in all?",
+     "answer": "12 pets"
+    },
+    {
+     "prompt": "Which pet has the most?",
+     "answer": "cats"
+    },
+    {
+     "prompt": "How many more dogs than fish?",
+     "answer": "1"
+    },
+    {
+     "prompt": "Explain how you read a picture graph.",
+     "answer": "Sample answer: I count the pictures in each row."
+    }
+   ],
+   "answer": "(a) 12 pets; (b) cats; (c) 1; (d) Sample answer: I count the pictures in each row.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Compare.",
+    "(c) Subtract.",
+    "(d) Count pictures."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-gd-s01-honors-o01",
+   "skillId": "graphs-data-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A picture graph shows pets: dogs 5, cats 3, fish 4. Each picture is 1 pet.",
+   "parts": [
+    {
+     "prompt": "How many pets in all?",
+     "answer": "12 pets"
+    },
+    {
+     "prompt": "Which pet has the most?",
+     "answer": "dogs"
+    },
+    {
+     "prompt": "How many more dogs than fish?",
+     "answer": "1"
+    },
+    {
+     "prompt": "Explain how you read a picture graph.",
+     "answer": "Sample answer: I count the pictures in each row."
+    }
+   ],
+   "answer": "(a) 12 pets; (b) dogs; (c) 1; (d) Sample answer: I count the pictures in each row.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Compare.",
+    "(c) Subtract.",
+    "(d) Count pictures."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-gd-s02-cp2-o01",
+   "skillId": "graphs-data-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A bar graph shows favorite fruits: apple 10, banana 6, grape 3.",
+   "parts": [
+    {
+     "prompt": "How many votes in all?",
+     "answer": "19 votes"
+    },
+    {
+     "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+     "answer": "7 votes"
+    },
+    {
+     "prompt": "How many votes for apple and banana together?",
+     "answer": "16 votes"
+    },
+    {
+     "prompt": "Explain how you read the height of a bar.",
+     "answer": "Sample answer: I look across from the top of the bar to the number on the scale."
+    }
+   ],
+   "answer": "(a) 19 votes; (b) 7 votes; (c) 16 votes; (d) Sample answer: I look across from the top of the bar to the number on the scale.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Subtract.",
+    "(c) Add.",
+    "(d) Read the scale."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-gd-s02-cp1-o01",
+   "skillId": "graphs-data-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A bar graph shows favorite fruits: apple 12, banana 4, grape 11.",
+   "parts": [
+    {
+     "prompt": "How many votes in all?",
+     "answer": "27 votes"
+    },
+    {
+     "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+     "answer": "8 votes"
+    },
+    {
+     "prompt": "How many votes for apple and banana together?",
+     "answer": "16 votes"
+    },
+    {
+     "prompt": "Explain how you read the height of a bar.",
+     "answer": "Sample answer: I look across from the top of the bar to the number on the scale."
+    }
+   ],
+   "answer": "(a) 27 votes; (b) 8 votes; (c) 16 votes; (d) Sample answer: I look across from the top of the bar to the number on the scale.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Subtract.",
+    "(c) Add.",
+    "(d) Read the scale."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m2-gd-s02-honors-o01",
+   "skillId": "graphs-data-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A bar graph shows favorite fruits: apple 6, banana 13, grape 7.",
+   "parts": [
+    {
+     "prompt": "How many votes in all?",
+     "answer": "26 votes"
+    },
+    {
+     "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+     "answer": "7 votes"
+    },
+    {
+     "prompt": "How many votes for apple and banana together?",
+     "answer": "19 votes"
+    },
+    {
+     "prompt": "Explain how you read the height of a bar.",
+     "answer": "Sample answer: I look across from the top of the bar to the number on the scale."
+    }
+   ],
+   "answer": "(a) 26 votes; (b) 7 votes; (c) 19 votes; (d) Sample answer: I look across from the top of the bar to the number on the scale.",
+   "solutionSteps": [
+    "(a) Add.",
+    "(b) Subtract.",
+    "(c) Add.",
+    "(d) Read the scale."
+   ],
+   "standards": [
+    "2.MD.D.10"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m2-gd-s01-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s01-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s01-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s02-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s02-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s02-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add."
+  },
+  "m2-gd-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-gd-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Read each bar and check each statement."
+  },
+  "m2-gd-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Read each bar and check each statement."
+  },
+  "m2-gd-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Read each bar and check each statement."
+  },
+  "m2-gd-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each bar is as tall as its number."
+  },
+  "m2-gd-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each bar is as tall as its number."
+  },
+  "m2-gd-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each bar is as tall as its number."
+  }
+ }
+}

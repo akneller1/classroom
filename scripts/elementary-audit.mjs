@@ -111,8 +111,20 @@ export function applyElementaryAudit({ grade: N, player: P, date: DATE, version:
     if ((kf === 'fraction' || kf === 'mixed') && /denominator|equal parts|cut into \\d+|___\\s*\\/\\s*\\d+|[nk?]\\/\\d+|hundredths|tenths|simplest form|in (?:halves|thirds|fourths|sixths|eighths)/i.test(prompt)) return den(typed) === den(key);
     return true;
   }
+  /* 2nd Grade Math audit (2026-11-19) #3: money in any equal form. 45¢, 45 cents, $0.45; $1 and 25¢, $1.25, 125¢,
+     1 dollar 25 cents, 1 dollar and 25 cents; $8, 8 dollars, $8.00. Returns the amount in cents, or null. */
+  function cents(t) {
+    var s = String(t || '').trim().toLowerCase().replace(/\\s+/g, ' '), m;
+    if ((m = /^\\$?(\\d+)\\.(\\d\\d)$/.exec(s)) && /^\\$/.test(s)) return +m[1] * 100 + +m[2];
+    if ((m = /^\\$(\\d+)$/.exec(s))) return +m[1] * 100;
+    if ((m = /^(\\d+)\\s*(?:¢|cents?)$/.exec(s))) return +m[1];
+    if ((m = /^\\$(\\d+)\\s*(?:and\\s*)?(\\d+)\\s*(?:¢|cents?)$/.exec(s))) return +m[1] * 100 + +m[2];
+    if ((m = /^(\\d+)\\s*dollars?(?:\\s*(?:and\\s*)?(\\d+)\\s*(?:¢|cents?))?$/.exec(s))) return +m[1] * 100 + (m[2] ? +m[2] : 0);
+    return null;
+  }
   function checkAnswer(typed, key, prompt) {
     var ok = matches(typed, key) || matches(spell(typed), key);
+    if (!ok && /[¢$]/.test(String(key))) { var kc = cents(key), tc = cents(typed); ok = kc !== null && tc !== null && kc === tc; }
     // one fourth, one-fourth and one‑fourth (non-breaking hyphen) are the same answer (#18)
     if (!ok && /[a-z]/i.test(String(key))) ok = matches(String(typed).replace(/[\\s\\-\\u2010\\u2011]+/g, ' ').trim(), String(key).replace(/[\\s\\-\\u2010\\u2011]+/g, ' ').trim());
     if (!ok && /\\d, \\d/.test(String(key)) && /^\\s*\\d[\\d\\s]*\\d\\s*$/.test(String(typed))) ok = matches(String(typed).trim().split(/\\s+/).join(', '), key);
@@ -189,8 +201,8 @@ export function applyElementaryAudit({ grade: N, player: P, date: DATE, version:
     const page = tpl.replace(/<main>[\s\S]*<\/main>/, '<main>\n' + pacing + '\n</main>')
       .replace(/6th Grade Math Pacing Guide and Standards Coverage/g, `${ORD} Grade Math Pacing Guide and Standards Coverage`)
       .replace(/grade-6-pacing\//g, `grade-${N}-pacing/`)
-      .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A 180-day ${ORD} Grade Math pacing guide with Grade ${N} MCAS review, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
-      .replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="A 180-day ${ORD} Grade Math pacing guide with Grade ${N} MCAS review, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
+      .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "spring review"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
+      .replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "spring review"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
       .replace(/<a href="\.\.\/u\/math6\/">[^<]*<\/a>/, `<a href="../u/grade${N}/">${ORD} Grade Math</a>`);
     fs.mkdirSync(path.join(out, `grade-${N}-pacing`), { recursive: true });
     fs.writeFileSync(path.join(out, `grade-${N}-pacing/index.html`), page);

@@ -317,6 +317,9 @@ const ELEMENTARY = {
   4: { name: "4th Grade Math", units: 10, all: "4.OA.A.1 4.OA.A.2 4.OA.A.3 4.OA.B.4 4.OA.C.5 4.NBT.A.1 4.NBT.A.2 4.NBT.A.3 4.NBT.B.4 4.NBT.B.5 4.NBT.B.6 4.NF.A.1 4.NF.A.2 4.NF.B.3.a 4.NF.B.3.b 4.NF.B.3.c 4.NF.B.3.d 4.NF.B.4.a 4.NF.B.4.b 4.NF.B.4.c 4.NF.C.5 4.NF.C.6 4.NF.C.7 4.MD.A.1 4.MD.A.2 4.MD.A.3 4.MD.B.4 4.MD.C.5.a 4.MD.C.5.b 4.MD.C.6 4.MD.C.7 4.G.A.1 4.G.A.2 4.G.A.3",
     titles: ["Mixed practice: place value and operations", "Mixed practice: fractions and decimals", "Mixed practice: measurement and geometry", "Multi-step word problems", "Open response practice", "Targeted reteach"],
     post: ["Grade 5 preview: multiplying larger numbers", "Grade 5 preview: fractions with unlike denominators", "Grade 5 preview: decimals to thousandths", "Grade 4 project", "Fluency and spiral review"], next: "Grade 5" },
+  2: { name: "2nd Grade Math", units: 12, all: "2.OA.A.1 2.OA.B.2 2.OA.C.3 2.OA.C.4 2.NBT.A.1 2.NBT.A.1.a 2.NBT.A.1.b 2.NBT.A.2 2.NBT.A.3 2.NBT.A.4 2.NBT.B.5 2.NBT.B.6 2.NBT.B.7 2.NBT.B.8 2.NBT.B.9 2.MD.A.1 2.MD.A.2 2.MD.A.3 2.MD.A.4 2.MD.B.5 2.MD.B.6 2.MD.C.7 2.MD.C.8 2.MD.D.9 2.MD.D.10 2.G.A.1 2.G.A.2 2.G.A.3",
+    titles: ["Mixed practice: add and subtract within 100", "Mixed practice: place value and three-digit numbers", "Mixed practice: measurement, time and money", "Mixed practice: shapes and data", "Word problems and open response", "Targeted reteach"],
+    post: ["Grade 3 preview: multiplication as equal groups", "Grade 3 preview: fractions as equal parts", "Grade 3 preview: area", "Grade 2 project", "Fact fluency and spiral review"], next: "Grade 3", nomcas: true },
   3: { name: "3rd Grade Math", units: 11, all: "3.OA.A.1 3.OA.A.2 3.OA.A.3 3.OA.A.4 3.OA.B.5 3.OA.B.6 3.OA.C.7 3.OA.D.8 3.OA.D.9 3.NBT.A.1 3.NBT.A.2 3.NBT.A.3 3.NF.A.1 3.NF.A.2.a 3.NF.A.2.b 3.NF.A.3.a 3.NF.A.3.b 3.NF.A.3.c 3.NF.A.3.d 3.MD.A.1 3.MD.A.2 3.MD.B.3 3.MD.B.4 3.MD.C.5.a 3.MD.C.5.b 3.MD.C.6 3.MD.C.7.a 3.MD.C.7.b 3.MD.C.7.c 3.MD.C.7.d 3.MD.D.8 3.G.A.1 3.G.A.2",
     titles: ["Mixed practice: multiplication and division facts", "Mixed practice: add and subtract within 1,000", "Mixed practice: fractions", "Mixed practice: measurement, area and perimeter", "Two-step word problems and open response", "Targeted reteach"],
     post: ["Grade 4 preview: multi-digit multiplication", "Grade 4 preview: equivalent fractions and decimals", "Grade 4 preview: angles and lines", "Grade 3 project", "Fact fluency and spiral review"], next: "Grade 4" }
@@ -331,11 +334,14 @@ export function elementaryPacing(grade, siteDir) {
       load: () => bankScope(id, "G" + grade, { extra: [id + "-main-catalog.js", `${id}/${id}-native-notes.js`], mcas: { grade, afterUnit: E.units, review: 6, testing: 2, titles: E.titles, post: { days: 18, titles: E.post } } }),
       intro: (scope) => {
         const t = scope.days.filter((d) => new RegExp("^MCAS Grade " + grade).test(d.title));
-        return `The year is built around the spring Grade ${grade} MCAS. All ${E.units === 10 ? "ten" : "eleven"} units come first, so every Grade ${grade} standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are ${E.next} previews, the Grade ${grade} projects and the final review.`;
+        return E.nomcas ? `There is no state test in Grade ${grade}, so the plan keeps a spring review window like Grades 3–5: all ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, six days of mixed review follow, then two days for a school or district benchmark (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}). The weeks after are ${E.next} previews, the Grade ${grade} projects and the final review.` : `The year is built around the spring Grade ${grade} MCAS. All ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, so every Grade ${grade} standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are ${E.next} previews, the Grade ${grade} projects and the final review.`;
       } };
     const bridge = fs.readFileSync(path.join(siteDir, id + "-main-catalog.js"), "utf8").match(/var course=(\{.*?\}),skills=/s);
     const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
-    return geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
+    const html = geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
+    // Grade 2 has no state test: the same spring window holds review and a school or district benchmark.
+    return E.nomcas ? html.replace(/MCAS review and testing/g, "Spring review and benchmark").replace(/After the MCAS/g, "After the spring benchmark")
+      .replace(/After MCAS · /g, "After the benchmark · ").replace(/MCAS review · /g, "Spring review · ").replace(/MCAS Grade \d+ Mathematics · Session/g, "Spring benchmark · Session").replace(/MCAS/g, "spring benchmark").replace(/Grade \d+ Mathematics · Session/g, "Benchmark · Session") : html;
   } finally {
     BASE = saved;
     delete COURSES[id];
