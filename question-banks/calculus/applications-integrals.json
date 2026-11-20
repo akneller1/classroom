@@ -5009,56 +5009,56 @@
    "skillId": "applications-integrals-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A particle moves with velocity v(t) = 3√t - 1 m/s. Find its displacement from t = 0 to t = 4.",
-   "answer": "12 m",
+   "prompt": "A particle moves with velocity v(t) = 3√t - 2 m/s. Find its displacement from t = 0 to t = 4.",
+   "answer": "8 m",
    "options": [
     {
-     "text": "-12 m",
+     "text": "-8 m",
      "correct": false
     },
     {
-     "text": "24 m",
-     "correct": false
-    },
-    {
-     "text": "5 m",
-     "correct": false
-    },
-    {
-     "text": "12 m",
+     "text": "8 m",
      "correct": true
+    },
+    {
+     "text": "4 m",
+     "correct": false
+    },
+    {
+     "text": "16 m",
+     "correct": false
     }
    ],
    "solutionSteps": [
     "Displacement = ∫ from 0 to 4 v(t) dt.",
-    "an antiderivative is s(t) = 2t^(3/2) - t.",
-    "s(4) = 12 and s(0) = 0.",
-    "s(4) − s(0) = 12 − 0 = 12.",
-    "Displacement = 12 m."
+    "an antiderivative is s(t) = 2t^(3/2) - 2t.",
+    "s(4) = 8 and s(0) = 0.",
+    "s(4) − s(0) = 8 − 0 = 8.",
+    "Displacement = 8 m."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s04-honors-005",
    "skillId": "applications-integrals-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = 3√t - 1 m/s. Find its displacement from t = 0 to t = 4.",
-   "answer": "12 m",
+   "prompt": "A particle moves with velocity v(t) = 3√t - 1 m/s. Find its displacement from t = 0 to t = 9.",
+   "answer": "45 m",
    "solutionSteps": [
-    "Displacement = ∫ from 0 to 4 v(t) dt.",
+    "Displacement = ∫ from 0 to 9 v(t) dt.",
     "an antiderivative is s(t) = 2t^(3/2) - t.",
-    "s(4) = 12 and s(0) = 0.",
-    "s(4) − s(0) = 12 − 0 = 12.",
-    "Displacement = 12 m."
+    "s(9) = 45 and s(0) = 0.",
+    "s(9) − s(0) = 45 − 0 = 45.",
+    "Displacement = 45 m."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s04-honors-006",
@@ -5164,19 +5164,19 @@
    "skillId": "applications-integrals-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = 1/(t + 1) m/s. Find its displacement from t = 0 to t = 3.",
-   "answer": "ln(4) m",
+   "prompt": "A particle moves with velocity v(t) = 1/(t + 2) m/s. Find its displacement from t = 0 to t = 4.",
+   "answer": "ln(3) m",
    "solutionSteps": [
-    "Displacement = ∫ from 0 to 3 v(t) dt.",
-    "an antiderivative is s(t) = ln(t + 1).",
-    "s(3) = ln(4) and s(0) = 0.",
-    "s(3) − s(0) = ln(4) − 0 = ln(4).",
-    "Displacement = ln(4) m."
+    "Displacement = ∫ from 0 to 4 v(t) dt.",
+    "an antiderivative is s(t) = ln(t + 2).",
+    "s(4) = ln(6) and s(0) = ln(2).",
+    "s(4) − s(0) = ln(6) − ln(2) = ln(3).",
+    "Displacement = ln(3) m."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s04-honors-010",
@@ -5287,19 +5287,19 @@
    "skillId": "applications-integrals-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = 2cos(t) + t m/s. Find its displacement from t = 0 to t = π.",
-   "answer": "(π)²/2 m",
+   "prompt": "A particle moves with velocity v(t) = 2sin(t) + t m/s. Find its displacement from t = 0 to t = π.",
+   "answer": "4 + (π)²/2 m",
    "solutionSteps": [
     "Displacement = ∫ from 0 to π v(t) dt.",
-    "an antiderivative is s(t) = t²/2 + 2sin(t).",
-    "s(π) = (π)²/2 and s(0) = 0.",
-    "s(π) − s(0) = (π)²/2 − 0 = (π)²/2.",
-    "Displacement = (π)²/2 m."
+    "an antiderivative is s(t) = t²/2 - 2cos(t).",
+    "s(π) = (π)²/2 + 2 and s(0) = -2.",
+    "s(π) − s(0) = (π)²/2 + 2 − (-2) = 4 + (π)²/2.",
+    "Displacement = 4 + (π)²/2 m."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_disp_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s04-honors-014",
@@ -6361,37 +6361,37 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A particle moves with velocity v(t) = t³ - 4t ft/s. Find the total distance traveled from t = 0 to t = 3.",
-   "answer": "41/4 ft",
+   "prompt": "A particle moves with velocity v(t) = t³ - 9t ft/s. Find the total distance traveled from t = 0 to t = 4.",
+   "answer": "65/2 ft",
    "options": [
     {
-     "text": "41/2 ft",
+     "text": "8 ft",
      "correct": false
     },
     {
-     "text": "9/4 ft",
+     "text": "-8 ft",
      "correct": false
     },
     {
-     "text": "45/4 ft",
-     "correct": false
-    },
-    {
-     "text": "41/4 ft",
+     "text": "65/2 ft",
      "correct": true
+    },
+    {
+     "text": "81/4 ft",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 2, so the particle changes direction there.",
-    "Antiderivative: s(t) = t⁴/4 - 2t².",
-    "From t = 0 to t = 2: s(2) − s(0) = -4.",
-    "From t = 2 to t = 3: s(3) − s(2) = 25/4.",
-    "Total distance = 4 + 25/4 = 41/4 ft."
+    "v(t) = 0 at t = 3, so the particle changes direction there.",
+    "Antiderivative: s(t) = t⁴/4 - 9t²/2.",
+    "From t = 0 to t = 3: s(3) − s(0) = -81/4.",
+    "From t = 3 to t = 4: s(4) − s(3) = 49/4.",
+    "Total distance = 81/4 + 49/4 = 65/2 ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-005",
@@ -6418,114 +6418,112 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A particle moves with velocity v(t) = 3cos(πt/3) ft/s. Find the total distance traveled from t = 0 to t = 6.",
+   "prompt": "A particle moves with velocity v(t) = 6cos(πt/3) ft/s. Find the total distance traveled from t = 0 to t = 3.",
    "answer": "36/π ft",
    "options": [
+    {
+     "text": "36/π ft",
+     "correct": true
+    },
     {
      "text": "0 ft",
      "correct": false
     },
     {
+     "text": "18/π ft",
+     "correct": false
+    },
+    {
      "text": "72/π ft",
      "correct": false
-    },
-    {
-     "text": "1 + 36/π ft",
-     "correct": false
-    },
-    {
-     "text": "36/π ft",
-     "correct": true
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 3/2, 9/2, so the particle changes direction there.",
-    "Antiderivative: s(t) = 9sin(tπ/3)/π.",
-    "From t = 0 to t = 3/2: s(3/2) − s(0) = 9/π.",
-    "From t = 3/2 to t = 9/2: s(9/2) − s(3/2) = -18/π.",
-    "From t = 9/2 to t = 6: s(6) − s(9/2) = 9/π.",
-    "Total distance = 9/π + 18/π + 9/π = 36/π ft."
+    "v(t) = 0 at t = 3/2, so the particle changes direction there.",
+    "Antiderivative: s(t) = 18sin(tπ/3)/π.",
+    "From t = 0 to t = 3/2: s(3/2) − s(0) = 18/π.",
+    "From t = 3/2 to t = 3: s(3) − s(3/2) = -18/π.",
+    "Total distance = 18/π + 18/π = 36/π ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-007",
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = t³ - 4t ft/s. Find the total distance traveled from t = 0 to t = 3.",
-   "answer": "41/4 ft",
+   "prompt": "A particle moves with velocity v(t) = t³ - t ft/s. Find the total distance traveled from t = 0 to t = 2.",
+   "answer": "5/2 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 2, so the particle changes direction there.",
-    "Antiderivative: s(t) = t⁴/4 - 2t².",
-    "From t = 0 to t = 2: s(2) − s(0) = -4.",
-    "From t = 2 to t = 3: s(3) − s(2) = 25/4.",
-    "Total distance = 4 + 25/4 = 41/4 ft."
+    "v(t) = 0 at t = 1, so the particle changes direction there.",
+    "Antiderivative: s(t) = t⁴/4 - t²/2.",
+    "From t = 0 to t = 1: s(1) − s(0) = -1/4.",
+    "From t = 1 to t = 2: s(2) − s(1) = 9/4.",
+    "Total distance = 1/4 + 9/4 = 5/2 ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-008",
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A particle moves with velocity v(t) = 4cos(πt/4) ft/s. Find the total distance traveled from t = 0 to t = 4.",
-   "answer": "32/π ft",
+   "prompt": "A particle moves with velocity v(t) = 2cos(πt/2) ft/s. Find the total distance traveled from t = 0 to t = 2.",
+   "answer": "8/π ft",
    "options": [
-    {
-     "text": "64/π ft",
-     "correct": false
-    },
     {
      "text": "0 ft",
      "correct": false
     },
     {
-     "text": "32/π ft",
+     "text": "4/π ft",
+     "correct": false
+    },
+    {
+     "text": "8/π ft",
      "correct": true
     },
     {
-     "text": "1 + 32/π ft",
+     "text": "16/π ft",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "v(t) = 0 at t = 2, so the particle changes direction there.",
-    "Antiderivative: s(t) = 16sin(tπ/4)/π.",
-    "From t = 0 to t = 2: s(2) − s(0) = 16/π.",
-    "From t = 2 to t = 4: s(4) − s(2) = -16/π.",
-    "Total distance = 16/π + 16/π = 32/π ft."
+    "v(t) = 0 at t = 1, so the particle changes direction there.",
+    "Antiderivative: s(t) = 4sin(tπ/2)/π.",
+    "From t = 0 to t = 1: s(1) − s(0) = 4/π.",
+    "From t = 1 to t = 2: s(2) − s(1) = -4/π.",
+    "Total distance = 4/π + 4/π = 8/π ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-009",
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = 3cos(πt/3) ft/s. Find the total distance traveled from t = 0 to t = 6.",
-   "answer": "36/π ft",
+   "prompt": "A particle moves with velocity v(t) = 2cos(πt) ft/s. Find the total distance traveled from t = 0 to t = 1.",
+   "answer": "4/π ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 3/2, 9/2, so the particle changes direction there.",
-    "Antiderivative: s(t) = 9sin(tπ/3)/π.",
-    "From t = 0 to t = 3/2: s(3/2) − s(0) = 9/π.",
-    "From t = 3/2 to t = 9/2: s(9/2) − s(3/2) = -18/π.",
-    "From t = 9/2 to t = 6: s(6) − s(9/2) = 9/π.",
-    "Total distance = 9/π + 18/π + 9/π = 36/π ft."
+    "v(t) = 0 at t = 1/2, so the particle changes direction there.",
+    "Antiderivative: s(t) = 2sin(tπ)/π.",
+    "From t = 0 to t = 1/2: s(1/2) − s(0) = 2/π.",
+    "From t = 1/2 to t = 1: s(1) − s(1/2) = -2/π.",
+    "Total distance = 2/π + 2/π = 4/π ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-010",
@@ -6570,20 +6568,20 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = t² - 6t + 5 ft/s. Find the total distance traveled from t = 0 to t = 6.",
-   "answer": "46/3 ft",
+   "prompt": "A particle moves with velocity v(t) = t² - 4t + 3 ft/s. Find the total distance traveled from t = 0 to t = 4.",
+   "answer": "4 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 1, 5, so the particle changes direction there.",
-    "Antiderivative: s(t) = t³/3 - 3t² + 5t.",
-    "From t = 0 to t = 1: s(1) − s(0) = 7/3.",
-    "From t = 1 to t = 5: s(5) − s(1) = -32/3.",
-    "From t = 5 to t = 6: s(6) − s(5) = 7/3.",
-    "Total distance = 7/3 + 32/3 + 7/3 = 46/3 ft."
+    "v(t) = 0 at t = 1, 3, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³/3 - 2t² + 3t.",
+    "From t = 0 to t = 1: s(1) − s(0) = 4/3.",
+    "From t = 1 to t = 3: s(3) − s(1) = -4/3.",
+    "From t = 3 to t = 4: s(4) − s(3) = 4/3.",
+    "Total distance = 4/3 + 4/3 + 4/3 = 4 ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-012",
@@ -6627,20 +6625,20 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = t² - 6t + 5 ft/s. Find the total distance traveled from t = 0 to t = 6.",
-   "answer": "46/3 ft",
+   "prompt": "A particle moves with velocity v(t) = t² - 7t + 6 ft/s. Find the total distance traveled from t = 0 to t = 7.",
+   "answer": "53/2 ft",
    "solutionSteps": [
-    "v(t) = 0 at t = 1, 5, so the particle changes direction there.",
-    "Antiderivative: s(t) = t³/3 - 3t² + 5t.",
-    "From t = 0 to t = 1: s(1) − s(0) = 7/3.",
-    "From t = 1 to t = 5: s(5) − s(1) = -32/3.",
-    "From t = 5 to t = 6: s(6) − s(5) = 7/3.",
-    "Total distance = 7/3 + 32/3 + 7/3 = 46/3 ft."
+    "v(t) = 0 at t = 1, 6, so the particle changes direction there.",
+    "Antiderivative: s(t) = t³/3 - 7t²/2 + 6t.",
+    "From t = 0 to t = 1: s(1) − s(0) = 17/6.",
+    "From t = 1 to t = 6: s(6) − s(1) = -125/6.",
+    "From t = 6 to t = 7: s(7) − s(6) = 17/6.",
+    "Total distance = 17/6 + 125/6 + 17/6 = 53/2 ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-014",

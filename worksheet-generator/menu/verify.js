@@ -1770,6 +1770,29 @@
       var rr = m[1] === 'radius' ? +m[2] : +m[2] / 2, th = +m[4]; need(th > 0 && th < 360, 'angle');
       return rounded(part.answer || '', m[3] === 'length of an arc' ? 2 * Math.PI * rr * th / 360 : Math.PI * rr * rr * th / 360, txt);
     };
+    /* Geometry Unit 10 · tangent segments constructed from an exterior point (G-C.A.4) */
+    R['tangent-ext'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' '), rm = /radius (\d+) (?:cm|in\.|m)\b/.exec(t), om = need(/OP = (\d+) (?:cm|in\.|m)/.exec(t), 'OP'), tm = /PT = (\d+) (?:cm|in\.|m)/.exec(t), D = +om[1], want;
+      if (/Find PT\./.test(t)) { need(rm, 'radius'); want = sqrtInt(D * D - (+rm[1]) * (+rm[1])); }
+      else if (/Find the radius/.test(t)) { need(tm, 'PT'); want = sqrtInt(D * D - (+tm[1]) * (+tm[1])); }
+      else if (/Find the perimeter of quadrilateral OTPU/.test(t)) { need(rm, 'radius'); want = 2 * (+rm[1]) + 2 * sqrtInt(D * D - (+rm[1]) * (+rm[1])); }
+      else throw new C.CheckError('unknown question');
+      return exact(part.answer || '', new Q(BigInt(want)));
+    };
+    /* Geometry Unit 10 · ellipse or hyperbola from its foci and the constant sum or difference (G-GPE.A.3) */
+    R['conic-foci'] = function (p, part, raw) {
+      var t = C.plainText(raw).replace(/\s+/g, ' ').replace(/−/g, '-'), m = need(/(An ellipse|A hyperbola) has foci \((-?\d+), (-?\d+)\) and \((-?\d+), (-?\d+)\)\. The (sum|difference) of the distances .*? is (\d+)\./.exec(t), 'foci');
+      var hyp = m[1] === 'A hyperbola', x1 = +m[2], y1 = +m[3], x2 = +m[4], y2 = +m[5], two = +m[7];
+      need(hyp === (m[6] === 'difference'), 'a matching rule'); need(x1 === x2 || y1 === y2, 'foci on a horizontal or vertical line');
+      var vert = x1 === x2, h = (x1 + x2) / 2, k = (y1 + y2) / 2, c = Math.abs(vert ? y2 - y1 : x2 - x1) / 2, a = two / 2, b2 = hyp ? c * c - a * a : a * a - c * c; need(b2 > 0, 'a real conic');
+      var b = sqrtInt(b2), s = firstMath(part.answer || ''); if (!s) return { status: 'mismatch', msg: 'Write an equation.' };
+      var rel; try { rel = C.parseRelation(s); } catch (e) { return { status: 'mismatch', msg: 'Write an equation.' }; }
+      var q15 = function (z) { return new Q(BigInt(Math.round(z * 15)), 15n); }, F = function (u, v) { var env = vert ? { x: q15(h + v), y: q15(k + u) } : { x: q15(h + u), y: q15(k + v) }; return C.evalNode(rel.lhs, env).sub(C.evalNode(rel.rhs, env)); };
+      // u runs along the focal axis, v across it; points on the curve with rational coordinates (multiples of 1/15)
+      var pts = hyp ? [[a, 0], [-a, 0], [5 * a / 3, 4 * b / 3], [-5 * a / 3, 4 * b / 3], [5 * a / 3, -4 * b / 3], [-5 * a / 3, -4 * b / 3]] : [[a, 0], [-a, 0], [0, b], [0, -b], [3 * a / 5, 4 * b / 5], [-4 * a / 5, -3 * b / 5]];
+      var ok = pts.every(function (q) { return F(q[0], q[1]).n === 0n; }) && F(0, 0).n !== 0n && F(c, 0).n !== 0n;
+      return ok ? { status: 'verified', computed: 'a = ' + a + ', b = ' + b + ', c = ' + c } : { status: 'mismatch', msg: (hyp ? 'Use c² = a² + b²' : 'Use a² = b² + c²') + ' with a = ' + a + ' and c = ' + c + '.' };
+    };
     /* Geometry Unit 4 · the orthocenter from coordinates (intersection of two altitudes, exact) */
     R['ortho'] = function (p, part, raw) {
       var txt = C.plainText(raw).replace(/\s+/g, ' '), m = need(/vertices A\((-?\d+), (-?\d+)\), B\((-?\d+), (-?\d+)\) and C\((-?\d+), (-?\d+)\)/.exec(txt), 'vertices');

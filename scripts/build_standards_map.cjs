@@ -91,7 +91,7 @@ Object.assign(MANUAL, {
   'geometry-quadrilaterals-polygons': Object.assign(MANUAL['geometry-quadrilaterals-polygons'] || {}, { 'coordinate-proof-slopes': ['G-GPE.B.4', 'G-GPE.B.5'] }),
   'geometry-area-surface-area-volume': Object.assign(MANUAL['geometry-area-surface-area-volume'] || {}, { 'measure-coordinate-polygon': ['G-GPE.B.7'], 'measure-regular-polygon-apothem': ['G-MG.A.1', 'G-SRT.C.8'], 'measure-circle-circumference-area': ['G-GMD.A.1', 'G-C.B.5'], 'measure-cavalieri': ['G-GMD.A.1', 'G-GMD.A.2', 'G-GMD.A.3'], 'measure-density': ['G-MG.A.2'] }),
   'geometry-right-triangles-trigonometry': Object.assign(MANUAL['geometry-right-triangles-trigonometry'] || {}, { 'trig-complementary-cofunction': ['G-SRT.C.7'], 'trig-area-sas': ['G-SRT.D.9'] }),
-  'geometry-circles': Object.assign(MANUAL['geometry-circles'] || {}, { 'circle-inscribed-quadrilateral': ['G-C.A.3'], 'parabola-focus-directrix': ['G-GPE.A.2'] }),
+  'geometry-circles': Object.assign(MANUAL['geometry-circles'] || {}, { 'circle-inscribed-quadrilateral': ['G-C.A.3'], 'parabola-focus-directrix': ['G-GPE.A.2'], 'circle-tangent-exterior-construction': ['G-C.A.4'], 'conic-foci-ellipse-hyperbola': ['G-GPE.A.3'] }),
   'geometry-triangles-congruence': Object.assign(MANUAL['geometry-triangles-congruence'] || {}, { 'congruence-proof-error': ['G-CO.C.10', 'G-CO.B.8', 'MP.3'] })
 });
 

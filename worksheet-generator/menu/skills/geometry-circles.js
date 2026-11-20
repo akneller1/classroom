@@ -149,8 +149,39 @@ function parabola(ctx){var r=ctx.rng,c=ctx.c,p=r.pick([1,2,3,4,-1,-2,-3,-4,1.5,-
  var gr={kind:'geo-grid',shapes:[{id:'f',pts:[horiz?[h+p,k]:[h,k+p]],labels:['F']}],lines:[horiz?{x:h-p,text:dir.replace(/ /g,'')}:{y:k-p,text:dir.replace(/ /g,'')}],alt:'Focus F and the directrix on a coordinate grid'};
  if(!Number.isInteger(p))gr=null;
  return {variant:'geo-parabola-'+(horiz?'horizontal':'vertical')+'-'+c,prompt:pr,fig:gr?fig(gr):undefined,parts:[{answer:ans,check:{type:'derive',kind:'parabola',alts:alts}}],steps:st,space:[1.4,1.8,2.2]};}
+/* ---- 2026-11-20 audit 2: tangent segments from an exterior point (G-C.A.4) and ellipses/hyperbolas from foci (G-GPE.A.3) ---- */
+var TRIPLES=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29],[6,8,10],[9,12,15]];
+function tangentExt(ctx){var r=ctx.rng,c=ctx.c,tr=r.pick(TRIPLES),k=r.int(1,c>=5?3:2),legs=r.chance(0.5)?[tr[0],tr[1]]:[tr[1],tr[0]],R=legs[0]*k,T=legs[1]*k,D=tr[2]*k,unit=r.pick(['cm','ft','m']);
+ var why='Construction: bisect OP at M and draw the circle centered at M through O and P. It meets circle O at the point of tangency T, so ∠OTP is inscribed in a semicircle and measures 90°.';
+ var pr,ans,alts,st;
+ if(c<=2){pr='Point P is outside circle O, which has radius '+R+' '+unit+'. OP = '+D+' '+unit+'. You construct a tangent from P that touches the circle at T. Find PT.';ans=T;alts=[D-R,R+D,Math.round(Math.sqrt(D*D+R*R))];
+  st=[step(why),step('Use the Pythagorean theorem in right triangle OTP.',M('PT^2+'+R+'^2='+D+'^2')),step('PT = '+T+' '+unit+'.')];}
+ else if(c<=4){pr='Point P is outside circle O. A tangent constructed from P touches the circle at T. PT = '+T+' '+unit+' and OP = '+D+' '+unit+'. Find the radius of circle O.';ans=R;alts=[D-T,T,Math.round(Math.sqrt(D*D+T*T))];
+  st=[step(why),step('Use the Pythagorean theorem in right triangle OTP.',M('r^2+'+T+'^2='+D+'^2')),step('r = '+R+' '+unit+'.')];}
+ else{pr='Point P is outside circle O, which has radius '+R+' '+unit+'. OP = '+D+' '+unit+'. You construct both tangents from P; they touch the circle at T and U. Find the perimeter of quadrilateral OTPU.';ans=2*R+2*T;alts=[R+T,2*R+2*D,2*T+D];
+  st=[step(why),step('In right triangle OTP, PT² = '+D+'² − '+R+'² so PT = '+T+'. The two tangent segments from P are congruent, so PU = '+T+' too.'),step('Perimeter = '+R+' + '+T+' + '+T+' + '+R+' = '+ans+' '+unit+'.')];}
+ alts=alts.filter(function(a,i,arr){return a>0&&a!==ans&&arr.indexOf(a)===i;}).map(function(a){return M(String(a))+' '+unit;});
+ return {variant:'geo-tangent-ext-'+(c<=2?'pt':c<=4?'r':'kite')+'-'+c,prompt:pr,parts:[{answer:M(String(ans))+' '+unit,check:{type:'derive',kind:'tangent-ext',alts:alts}}],steps:st,space:[1.2,1.5,1.8]};}
+function conicFoci(ctx){var r=ctx.rng,c=ctx.c,hyp=r.chance(0.5),tr=r.pick([[3,4,5],[5,12,13],[8,15,17],[7,24,25]]),sc=tr[2]<=5?r.int(1,3):1,vert=r.chance(0.5),h=c>=4?r.int(-5,5):0,kk=c>=4?r.int(-5,5):0;tr=tr.map(function(z){return z*sc;});
+ var a,b,f;if(hyp){var p=r.chance(0.5)?[tr[0],tr[1]]:[tr[1],tr[0]];a=p[0];b=p[1];f=tr[2];}else{var q=r.chance(0.5)?[tr[0],tr[1]]:[tr[1],tr[0]];b=q[0];f=q[1];a=tr[2];}
+ K.need(a<=25&&f<=25&&(c>=4||h===0));
+ var fm=function(n){return String(n).replace('-','−');},F1=vert?[h,kk-f]:[h-f,kk],F2=vert?[h,kk+f]:[h+f,kk],pt=function(P){return '('+fm(P[0])+', '+fm(P[1])+')';};
+ var sq=function(v,s){return s===0?v+'^2':'('+v+(s>0?'-'+s:'+'+(-s))+')^2';},X=sq('x',h),Y=sq('y',kk);
+ var main=vert?'\\frac{'+Y+'}{'+a*a+'}':'\\frac{'+X+'}{'+a*a+'}',other=vert?'\\frac{'+X+'}{'+b*b+'}':'\\frac{'+Y+'}{'+b*b+'}';
+ var eq=function(m,o,sign){return M((vert&&!hyp?o+sign+m:m+sign+o)+'=1');};
+ var ans=eq(main,other,hyp?'-':'+');
+ var mainS=vert?'\\frac{'+Y+'}{'+b*b+'}':'\\frac{'+X+'}{'+b*b+'}',otherS=vert?'\\frac{'+X+'}{'+a*a+'}':'\\frac{'+Y+'}{'+a*a+'}',otherC=vert?'\\frac{'+X+'}{'+f*f+'}':'\\frac{'+Y+'}{'+f*f+'}';
+ var alts=[eq(mainS,otherS,hyp?'-':'+'),eq(main,other,hyp?'+':'-'),eq(main,otherC,hyp?'-':'+')].filter(function(z,i,arr){return z!==ans&&arr.indexOf(z)===i;});
+ var name=hyp?'A hyperbola':'An ellipse',rule=hyp?'The difference of the distances from any point on the hyperbola to the foci is '+2*a+'.':'The sum of the distances from any point on the ellipse to the foci is '+2*a+'.';
+ var pr=name+' has foci '+pt(F1)+' and '+pt(F2)+'. '+rule+' Write an equation of the '+(hyp?'hyperbola':'ellipse')+'.';
+ var st=[step('The center is the midpoint of the foci: '+pt([h,kk])+', and c = '+f+' is the distance from the center to each focus.'),
+  step((hyp?'The constant difference is 2a':'The constant sum is 2a')+', so a = '+a+' and a² = '+a*a+'.'),
+  step(hyp?'For a hyperbola c² = a² + b², so b² = '+f*f+' − '+a*a+' = '+b*b+'.':'For an ellipse a² = b² + c², so b² = '+a*a+' − '+f*f+' = '+b*b+'.'),
+  step('The '+(vert?'vertical':'horizontal')+' axis goes with a².',ans)];
+ return {variant:'geo-conic-'+(hyp?'hyperbola':'ellipse')+'-'+(vert?'v':'h')+'-'+c,prompt:pr,parts:[{answer:ans,check:{type:'derive',kind:'conic-foci',alts:alts}}],steps:st,space:[1.4,1.8,2.2]};}
+
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
-tags:{INVEST:'Four-part circle investigation',INSQUAD:'Inscribed quadrilaterals',PARABOLA:'Parabolas from focus and directrix',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
+tags:{INVEST:'Four-part circle investigation',INSQUAD:'Inscribed quadrilaterals',PARABOLA:'Parabolas from focus and directrix',TANCON:'Constructing tangents from an exterior point',CONIC:'Ellipses and hyperbolas from their foci',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
 gaps:[],
 skills:[
@@ -173,6 +204,8 @@ skills:[
 {id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1],generate:chordLengthFromDistance},
 {id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1],generate:centerFromExpandedEquation},
 {id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1],generate:radiusFromExpandedEquation},
+{id:'circle-tangent-exterior-construction',tag:'TANCON',name:'Tangent segments constructed from an exterior point',best:[0,1,2],generate:ctx=>K.retry(()=>tangentExt(ctx))},
+{id:'conic-foci-ellipse-hyperbola',tag:'CONIC',name:'Ellipses and hyperbolas from foci and a constant sum or difference',best:[2],generate:ctx=>K.retry(()=>conicFoci(ctx))},
 {id:'parabola-focus-directrix',tag:'PARABOLA',name:'Equation of a parabola from its focus and directrix',best:[1,2],generate:ctx=>K.retry(()=>parabola(ctx))},
 {id:'circles-investigation-angles',tag:'INVEST',name:'Honors: inscribed angle and arc expressions, major arc, tangent-chord angle',best:[2],generate:invAngles},
 {id:'circles-investigation-power',tag:'INVEST',name:'Honors: chords, tangent-secant and secant-secant lengths',best:[2],generate:invPower},

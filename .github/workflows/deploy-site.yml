@@ -161,6 +161,7 @@ jobs:
           node scripts/apply-site-audit2.mjs _site
           python3 tools/site-audit-20261120/grade5_levels/verify.py
           node scripts/apply-grade5-levels.mjs _site
+          node scripts/build-planner-calendar.mjs _site
           node scripts/build-standards-index.mjs _site
           node scripts/test-site-audit.cjs _site
           node scripts/test-kid-friendly.cjs _site

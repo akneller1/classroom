@@ -135,12 +135,28 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   ok(/<label for="in-x">/.test(fs.readFileSync(path.join(ROOT, 'artifacts/geometry-shipwreck-salvage/script.js'), 'utf8')), '#18 Shipwreck Salvage inputs are labelled');
   ok(/relevel\(s\.blurb\)/.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/app.js'), 'utf8')), '#14 skill hints use Support/Standard/Advanced');
   ok(!/NS\.LEVELS\[id\]\.name;\}$/m.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/match-game.js'), 'utf8')), '#14 card-sort header uses public level names');
+  const labCss = fs.readFileSync(path.join(ROOT, 'artifacts/interactive-math/lab.css'), 'utf8');
+  ok(/--orange:#ad4a00;/.test(labCss) && /--green:#0a7550;/.test(labCss) && /--red:#c8203f;/.test(labCss), '#16 Interactive Math text colors reach 4.5:1');
   if (SITE) {
     const gh = [];
     (function walk(d) { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) { if (!/^(vendor|node_modules)$/.test(f)) walk(p); } else if (f.endsWith('.html') && fs.readFileSync(p, 'utf8').includes('github.com/akneller1/classroom/issues')) gh.push(path.relative(SITE, p)); } })(SITE);
     ok(gh.length === 0, '#9 no page sends feedback to GitHub: ' + gh.slice(0, 5).join(', '));
     const fap = path.join(SITE, 'financial-algebra/financial/pacing/index.html');
     if (fs.existsSync(fap)) ok(!/href="\.\.\/\.\.\/u\//.test(fs.readFileSync(fap, 'utf8')), '#11 legacy Financial Algebra pacing links');
+    // #1 the Lesson Planner's calendar is the pacing guide's: 180 days, and the same day range for every unit
+    const calFile = path.join(SITE, 'worksheet-generator/planner/calendar.js');
+    if (fs.existsSync(path.join(SITE, 'grade-6-pacing/index.html'))) {
+      const cw = {}; cw.window = cw; vm.runInContext(fs.readFileSync(calFile, 'utf8'), vm.createContext(cw));
+      const PAGES = { grade1: 'grade-1-pacing', grade2: 'grade-2-pacing', grade3: 'grade-3-pacing', grade4: 'grade-4-pacing', grade5: 'grade-5-pacing', math6: 'grade-6-pacing', prealgebra7: 'grade-7-pacing',
+        prealgebra: '8th-grade-math-pacing', algebra2: 'algebra-2-pacing', precalculus: 'precalculus-pacing', calculus: 'calculus-pacing', statistics: 'statistics-pacing', discrete: 'discrete-math-pacing' };
+      for (const [c, pg] of Object.entries(PAGES)) {
+        const cal = (cw.MKPLAN_CALENDAR || {})[c], html = fs.readFileSync(path.join(SITE, pg, 'index.html'), 'utf8');
+        ok(cal && cal.days.length === 180 && cal.days.every((d, i) => d.day === i + 1), '#1 planner calendar has 180 days: ' + c);
+        if (!cal) continue;
+        const ranges = [...html.matchAll(/<td>(\d+)–(\d+) \((\d+)\)<\/td>/g)].slice(0, cal.units.length).map((m) => m[1] + '-' + m[2]).join(' ');
+        ok(ranges === cal.units.map((u) => u.start_day + '-' + u.end_day).join(' '), '#1 planner unit days match the pacing guide: ' + c);
+      }
+    }
     const g7 = path.join(SITE, 'u/grade7/index.html');
     if (fs.existsSync(g7)) ok(/<h1>7th Grade Math by Standard<\/h1>/.test(fs.readFileSync(g7, 'utf8')), '#12 the standards hub has its own name');
     for (const g of [1, 2, 3, 4, 5]) {
@@ -167,4 +183,13 @@ if (SITE) {
 if (SITE) for (const rel of ['financial/games/index.html', 'financial-algebra/financial/games/index.html']) {
   const f = path.join(SITE, rel); if (!fs.existsSync(f)) continue;
   ok(/id="faLevelNote"/.test(fs.readFileSync(f, 'utf8')), '#8 ' + rel + ' header names the level');
+}
+// Whole-site audit 2 #5: no question repeats within a skill and level in the high-school banks (repo copies).
+for (const c of ['calculus', 'precalculus', 'algebra2', 'algebra', 'geometry', 'math6', 'prealgebra', 'prealgebra7', 'statistics']) {
+  const d = path.join(ROOT, 'question-banks', c); if (!fs.existsSync(d)) continue;
+  const seen = new Set();
+  for (const f of fs.readdirSync(d).filter((f) => f.endsWith('.json') && !f.startsWith('manifest'))) {
+    const qs = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')).questions || [];
+    for (const q of qs) { const k = JSON.stringify([q.skillId, q.level, String(q.prompt).trim(), q.answer, q.diagram || null, (q.options || []).map((o) => (o && o.text) || String(o)).sort(), q.parts || null, q.plot || null]); ok(!seen.has(k), '#5 repeated question in ' + c + '/' + f + ': ' + q.id); seen.add(k); }
+  }
 }
