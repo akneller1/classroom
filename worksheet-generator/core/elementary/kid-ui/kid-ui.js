@@ -44,6 +44,7 @@
     if (/^(\d+\s+)?\d+\/\d+\s+[a-z]/i.test(a)) return 'fraction-unit';   // 1/6 meter, 2 3/4 inches (Grade 3 audit #12, 2026-11-19)
     if (/^\d*\.\d+$/.test(a)) return 'decimal';
     if (/^\(.+,.+\)$/.test(a)) return 'pair';
+    if (/^\d+ tens? and \d+ ones?$/i.test(a)) return 'tens-ones';   // 3 tens and 8 ones (Grade 1 audit #1, 2026-11-19)
     if (/^\d[\d,]*(?:, \d[\d,]*)+$/.test(a)) return 'list';   // 7, 14, 21 (Grade 4 audit #19, 2026-11-19)
     if (/^[\d,]+\s+[A-Za-z]/.test(a)) return 'number-unit';
     if (/^[\d,]+$/.test(a)) return 'number';
@@ -65,6 +66,7 @@
       case 'decimal': return 'Type a decimal, like 0.75.';
       case 'pair': return 'Type the point, like (3, 5).';
       case 'number-unit': return young ? 'Just type the number.' : 'Type the number. You can add the unit.';
+      case 'tens-ones': return 'Type the tens, a space, then the ones, like 3 8.';
       case 'list': return 'Type the numbers in order, with commas, like 7, 14, 21.';
       case 'number': return young ? 'Type a number.' : '';
       default: return '';
@@ -83,7 +85,7 @@
     remainder: ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', '0', '⌫', '✓'],
     'dollars-cents': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '$', '0', '¢', 'and', '⌫', '✓']
   };
-  LAYOUT['number-unit'] = LAYOUT.number; LAYOUT['fraction-unit'] = LAYOUT.fraction; LAYOUT['time-ampm'] = LAYOUT.time.slice(0, -1).concat(['AM', 'PM', '✓']);
+  LAYOUT['number-unit'] = LAYOUT.number; LAYOUT['fraction-unit'] = LAYOUT.fraction; LAYOUT['tens-ones'] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'space', '0', '⌫', '✓']; LAYOUT['time-ampm'] = LAYOUT.time.slice(0, -1).concat(['AM', 'PM', '✓']);
 
   function numberPad(host, input, opts) {
     opts = opts || {};

@@ -124,6 +124,13 @@ export function applyElementaryAudit({ grade: N, player: P, date: DATE, version:
   }
   function checkAnswer(typed, key, prompt) {
     var ok = matches(typed, key) || matches(spell(typed), key);
+    // 1st Grade Math audit (2026-11-19) #1, #3, #16: tens and ones typed as "3 8", "3 tens 8 ones" or "3 tens, 8 ones";
+    // clock words ("half past 3", "3 o'clock"); true and false as T, F, yes or no.
+    if (!ok) { var tk = /^(\\d+) tens? and (\\d+) ones?$/i.exec(String(key).trim()), tt = /^\\s*(\\d+)\\s*(?:tens?)?\\s*,?\\s*(?:and\\s*)?(\\d+)\\s*(?:ones?)?\\s*$/i.exec(String(typed)); if (tk && tt) ok = +tk[1] === +tt[1] && +tk[2] === +tt[2]; }
+    if (!ok && /^\\d{1,2}:(00|30)$/.test(String(key).trim())) { var kh = String(key).trim().split(':'), tw = String(typed).trim().toLowerCase().replace(/[’']/g, '').replace(/\\s+/g, ' '), hm;
+      if ((hm = /^half past (\\d{1,2})$/.exec(tw))) ok = kh[1] === '30' && +hm[1] === +kh[0];
+      else if ((hm = /^(\\d{1,2}) ?oclock$/.exec(tw))) ok = kh[1] === '00' && +hm[1] === +kh[0]; }
+    if (!ok && /^(true|false)$/i.test(String(key).trim())) { var tv = String(typed).trim().toLowerCase().replace(/\\.$/, ''); ok = (String(key).trim().toLowerCase() === 'true') ? /^(t|yes|y|true)$/.test(tv) : /^(f|no|n|false)$/.test(tv); }
     if (!ok && /[¢$]/.test(String(key))) { var kc = cents(key), tc = cents(typed); ok = kc !== null && tc !== null && kc === tc; }
     // one fourth, one-fourth and one‑fourth (non-breaking hyphen) are the same answer (#18)
     if (!ok && /[a-z]/i.test(String(key))) ok = matches(String(typed).replace(/[\\s\\-\\u2010\\u2011]+/g, ' ').trim(), String(key).replace(/[\\s\\-\\u2010\\u2011]+/g, ' ').trim());
@@ -201,8 +208,8 @@ export function applyElementaryAudit({ grade: N, player: P, date: DATE, version:
     const page = tpl.replace(/<main>[\s\S]*<\/main>/, '<main>\n' + pacing + '\n</main>')
       .replace(/6th Grade Math Pacing Guide and Standards Coverage/g, `${ORD} Grade Math Pacing Guide and Standards Coverage`)
       .replace(/grade-6-pacing\//g, `grade-${N}-pacing/`)
-      .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "spring review"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
-      .replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "spring review"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
+      .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "a spring review window"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
+      .replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="A 180-day ${ORD} Grade Math pacing guide with ${N > 2 ? `Grade ${N} MCAS review` : "a spring review window"}, a one-semester block plan, and Common Core Grade ${N} standards coverage for every question-bank skill."`)
       .replace(/<a href="\.\.\/u\/math6\/">[^<]*<\/a>/, `<a href="../u/grade${N}/">${ORD} Grade Math</a>`);
     fs.mkdirSync(path.join(out, `grade-${N}-pacing`), { recursive: true });
     fs.writeFileSync(path.join(out, `grade-${N}-pacing/index.html`), page);

@@ -1,0 +1,5598 @@
+{
+ "unit": "tens-ones",
+ "edits": [
+  {
+   "id": "m1-to-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are equal to 4 tens."
+    },
+    "answer": {
+     "from": [
+      "2 tens is the same as how many ones? → 20",
+      "4 tens is the same as how many ones? → 40"
+     ],
+     "to": [
+      "3 tens and 10 ones",
+      "40 ones"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 tens is the same as how many ones? → 21",
+       "correct": false
+      },
+      {
+       "text": "2 tens is the same as how many ones? → 20",
+       "correct": true
+      },
+      {
+       "text": "How many ones are in 2 tens? → 2",
+       "correct": false
+      },
+      {
+       "text": "4 tens is the same as how many ones? → 40",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3 tens",
+       "correct": false
+      },
+      {
+       "text": "3 tens and 10 ones",
+       "correct": true
+      },
+      {
+       "text": "40 ones",
+       "correct": true
+      },
+      {
+       "text": "41 ones",
+       "correct": false
+      },
+      {
+       "text": "4 ones",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "2 tens is the same as how many ones? → 21: not correct.",
+      "2 tens is the same as how many ones? → 20: correct.",
+      "How many ones are in 2 tens? → 2: not correct.",
+      "4 tens is the same as how many ones? → 40: correct."
+     ],
+     "to": [
+      "4 tens = 40 ones.",
+      "Correct choices: 3 tens and 10 ones; 40 ones. Not correct: 4 ones; 3 tens; 41 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_select_tens). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Hugo has 4 bundles of 10 sticks."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "5 tens is the same as how many ones?",
+       "answer": "50"
+      },
+      {
+       "prompt": "How many ones are in 4 tens?",
+       "answer": "40"
+      },
+      {
+       "prompt": "3 tens is the same as how many ones?",
+       "answer": "30"
+      },
+      {
+       "prompt": "How many ones are in 2 tens?",
+       "answer": "20"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks is that?",
+       "answer": "40"
+      },
+      {
+       "prompt": "How many ones is 1 bundle?",
+       "answer": "10"
+      },
+      {
+       "prompt": "How many sticks with 3 more loose sticks?",
+       "answer": "43"
+      },
+      {
+       "prompt": "Tell why a bundle is a ten.",
+       "answer": "Sample answer: It has 10 ones tied together."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 50; (b) 40; (c) 30; (d) 20",
+     "to": "(a) 40; (b) 10; (c) 43; (d) Sample answer: It has 10 ones tied together."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each ten is 10 ones. 5 tens = 50 ones.",
+      "(b) Each ten is 10 ones. 4 tens = 40 ones.",
+      "(c) Each ten is 10 ones. 3 tens = 30 ones.",
+      "(d) Each ten is 10 ones. 2 tens = 20 ones."
+     ],
+     "to": [
+      "(a) 4 tens.",
+      "(b) 1 ten is 10 ones.",
+      "(c) Add 3 ones.",
+      "(d) Ten ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_open_bundles). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are equal to 4 tens."
+    },
+    "answer": {
+     "from": [
+      "1 ten is the same as how many ones? → 10",
+      "How many cubes are in a tower of ten? → 10"
+     ],
+     "to": [
+      "3 tens and 10 ones",
+      "40 ones",
+      "40"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 ten is the same as how many ones? → 10",
+       "correct": true
+      },
+      {
+       "text": "How many cubes are in a tower of ten? → 11",
+       "correct": false
+      },
+      {
+       "text": "How many ones make 1 ten? → 100",
+       "correct": false
+      },
+      {
+       "text": "How many cubes are in a tower of ten? → 10",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "41 ones",
+       "correct": false
+      },
+      {
+       "text": "3 tens and 10 ones",
+       "correct": true
+      },
+      {
+       "text": "40 ones",
+       "correct": true
+      },
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "5 tens",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "1 ten is the same as how many ones? → 10: correct.",
+      "How many cubes are in a tower of ten? → 11: not correct.",
+      "How many ones make 1 ten? → 100: not correct.",
+      "How many cubes are in a tower of ten? → 10: correct."
+     ],
+     "to": [
+      "4 tens = 40 ones.",
+      "Correct choices: 3 tens and 10 ones; 40 ones; 40. Not correct: 41 ones; 5 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_select_tens). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Hugo has 2 bundles of 10 sticks."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Mia has 18 straws and makes bundles of 10. How many bundles of 10 can be made?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Kim has 19 cubes and makes bundles of 10. How many bundles of 10 can be made?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Abe has 17 straws and makes bundles of 10. How many bundles of 10 can be made?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Abe has 14 sticks and makes bundles of 10. How many bundles of 10 can be made?",
+       "answer": "1"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks is that?",
+       "answer": "20"
+      },
+      {
+       "prompt": "How many ones is 1 bundle?",
+       "answer": "10"
+      },
+      {
+       "prompt": "How many sticks with 3 more loose sticks?",
+       "answer": "23"
+      },
+      {
+       "prompt": "Tell why a bundle is a ten.",
+       "answer": "Sample answer: It has 10 ones tied together."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 1; (c) 1; (d) 1",
+     "to": "(a) 20; (b) 10; (c) 23; (d) Sample answer: It has 10 ones tied together."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 18 is 1 ten and 8 ones. So 1 bundle of 10 can be made, with 8 left.",
+      "(b) 19 is 1 ten and 9 ones. So 1 bundle of 10 can be made, with 9 left.",
+      "(c) 17 is 1 ten and 7 ones. So 1 bundle of 10 can be made, with 7 left.",
+      "(d) 14 is 1 ten and 4 ones. So 1 bundle of 10 can be made, with 4 left."
+     ],
+     "to": [
+      "(a) 2 tens.",
+      "(b) 1 ten is 10 ones.",
+      "(c) Add 3 ones.",
+      "(d) Ten ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_bundle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_open_bundles). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "How many ones are in 5 tens?",
+     "to": "How many ones are in 5 tens and 1 ones?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "51"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each ten is 10 ones.",
+      "5 tens = 50 ones."
+     ],
+     "to": [
+      "5 tens = 50 ones.",
+      "50 + 1 = 51 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "Trade 10 ones for 1 ten. 3 tens and 19 ones = 4 tens and ___ ones",
+     "to": "How many ones are in 3 tens and 2 ones?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "32"
+    },
+    "solutionSteps": {
+     "from": [
+      "19 ones is 1 ten and 9 ones.",
+      "So it is 4 tens and 9 ones, which is 49."
+     ],
+     "to": [
+      "3 tens = 30 ones.",
+      "30 + 2 = 32 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_trade). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "How many ones are in 8 tens?",
+     "to": "How many ones are in 4 tens and 3 ones?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "43"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each ten is 10 ones.",
+      "8 tens = 80 ones."
+     ],
+     "to": [
+      "4 tens = 40 ones.",
+      "40 + 3 = 43 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "81",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "40",
+       "correct": false
+      },
+      {
+       "text": "43",
+       "correct": true
+      },
+      {
+       "text": "34",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "Trade 10 ones for 1 ten. 3 tens and 13 ones = 4 tens and ___ ones",
+     "to": "How many ones are in 5 tens and 7 ones?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "57"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 ones is 1 ten and 3 ones.",
+      "So it is 4 tens and 3 ones, which is 43."
+     ],
+     "to": [
+      "5 tens = 50 ones.",
+      "50 + 7 = 57 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_trade). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "23",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "57",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": false
+      },
+      {
+       "text": "75",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "5 tens is the same as how many ones?",
+     "to": "How many ones are in 2 tens and 9 ones?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "29"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each ten is 10 ones.",
+      "5 tens = 50 ones."
+     ],
+     "to": [
+      "2 tens = 20 ones.",
+      "20 + 9 = 29 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Trade 10 ones for 1 ten. 4 tens and 15 ones = 5 tens and ___ ones",
+     "to": "How many ones are in 6 tens and 6 ones?"
+    },
+    "answer": {
+     "from": "5",
+     "to": "66"
+    },
+    "solutionSteps": {
+     "from": [
+      "15 ones is 1 ten and 5 ones.",
+      "So it is 5 tens and 5 ones, which is 55."
+     ],
+     "to": [
+      "6 tens = 60 ones.",
+      "60 + 6 = 66 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_trade). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "6 tens is the same as how many ones?",
+     "to": "How many ones are in 8 tens and 9 ones?"
+    },
+    "answer": {
+     "from": "60",
+     "to": "89"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each ten is 10 ones.",
+      "6 tens = 60 ones."
+     ],
+     "to": [
+      "8 tens = 80 ones.",
+      "80 + 9 = 89 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "60",
+       "correct": true
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "61",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "89",
+       "correct": true
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": false
+      },
+      {
+       "text": "98",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Trade 10 ones for 1 ten. 4 tens and 13 ones = 5 tens and ___ ones",
+     "to": "How many ones are in 7 tens and 6 ones?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "76"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 ones is 1 ten and 3 ones.",
+      "So it is 5 tens and 3 ones, which is 53."
+     ],
+     "to": [
+      "7 tens = 70 ones.",
+      "70 + 6 = 76 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_trade). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "23",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "76",
+       "correct": true
+      },
+      {
+       "text": "70",
+       "correct": false
+      },
+      {
+       "text": "67",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "How many ones are in 9 tens?",
+     "to": "How many ones are in 4 tens and 2 ones?"
+    },
+    "answer": {
+     "from": "90",
+     "to": "42"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each ten is 10 ones.",
+      "9 tens = 90 ones."
+     ],
+     "to": [
+      "4 tens = 40 ones.",
+      "40 + 2 = 42 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "Trade 10 ones for 1 ten. 7 tens and 13 ones = 8 tens and ___ ones",
+     "to": "How many ones are in 5 tens and 2 ones?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "52"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 ones is 1 ten and 3 ones.",
+      "So it is 8 tens and 3 ones, which is 83."
+     ],
+     "to": [
+      "5 tens = 50 ones.",
+      "50 + 2 = 52 ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_trade). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_tens_plus_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are equal to 6 tens."
+    },
+    "answer": {
+     "from": [
+      "How many ones are in 5 tens? → 50",
+      "How many ones are in 9 tens? → 90"
+     ],
+     "to": [
+      "60",
+      "60 ones",
+      "5 tens and 10 ones",
+      "6 tens"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many ones are in 5 tens? → 50",
+       "correct": true
+      },
+      {
+       "text": "How many ones are in 7 tens? → 700",
+       "correct": false
+      },
+      {
+       "text": "How many ones are in 9 tens? → 90",
+       "correct": true
+      },
+      {
+       "text": "How many ones are in 9 tens? → 900",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "60",
+       "correct": true
+      },
+      {
+       "text": "60 ones",
+       "correct": true
+      },
+      {
+       "text": "5 tens and 10 ones",
+       "correct": true
+      },
+      {
+       "text": "6 tens",
+       "correct": true
+      },
+      {
+       "text": "600",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many ones are in 5 tens? → 50: correct.",
+      "How many ones are in 7 tens? → 700: not correct.",
+      "How many ones are in 9 tens? → 90: correct.",
+      "How many ones are in 9 tens? → 900: not correct."
+     ],
+     "to": [
+      "6 tens = 60 ones.",
+      "Correct choices: 60; 60 ones; 5 tens and 10 ones; 6 tens. Not correct: 600."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_select_tens). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Lena has 8 bundles of 10 sticks."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "9 tens is the same as how many ones?",
+       "answer": "90"
+      },
+      {
+       "prompt": "How many ones are in 5 tens?",
+       "answer": "50"
+      },
+      {
+       "prompt": "6 tens is the same as how many ones?",
+       "answer": "60"
+      },
+      {
+       "prompt": "How many ones are in 6 tens?",
+       "answer": "60"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sticks is that?",
+       "answer": "80"
+      },
+      {
+       "prompt": "How many ones is 1 bundle?",
+       "answer": "10"
+      },
+      {
+       "prompt": "How many sticks with 3 more loose sticks?",
+       "answer": "83"
+      },
+      {
+       "prompt": "Tell why a bundle is a ten.",
+       "answer": "Sample answer: It has 10 ones tied together."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 90; (b) 50; (c) 60; (d) 60",
+     "to": "(a) 80; (b) 10; (c) 83; (d) Sample answer: It has 10 ones tied together."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each ten is 10 ones. 9 tens = 90 ones.",
+      "(b) Each ten is 10 ones. 5 tens = 50 ones.",
+      "(c) Each ten is 10 ones. 6 tens = 60 ones.",
+      "(d) Each ten is 10 ones. 6 tens = 60 ones."
+     ],
+     "to": [
+      "(a) 8 tens.",
+      "(b) 1 ten is 10 ones.",
+      "(c) Add 3 ones.",
+      "(d) Ten ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ones_in_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to1_open_bundles). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "What number is 1 ten and 6 ones?",
+     "to": "What number is 1 ten and 3 ones? Then add 5 more ones."
+    },
+    "answer": {
+     "from": "16",
+     "to": "18"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 ten is 10. 10 and 6 more is 16.",
+      "The number is 16."
+     ],
+     "to": [
+      "1 ten and 3 ones is 13.",
+      "13 + 5 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "10 + 8 = ___",
+     "to": "What number is 1 ten and 6 ones? Then add 2 more ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "1 ten is 10. 10 and 8 more is 18.",
+      "The number is 18."
+     ],
+     "to": [
+      "1 ten and 6 ones is 16.",
+      "16 + 2 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "81",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "26",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "2 + 10 = ___",
+     "to": "What number is 1 ten and 3 ones? Then add 2 more ones."
+    },
+    "answer": {
+     "from": "12",
+     "to": "15"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 ten is 10. 10 and 2 more is 12.",
+      "The number is 12."
+     ],
+     "to": [
+      "1 ten and 3 ones is 13.",
+      "13 + 2 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Which number is 1 ten and 9 ones?",
+     "to": "What number is 1 ten and 6 ones? Then add 1 more ones."
+    },
+    "answer": {
+     "from": "19",
+     "to": "17"
+    },
+    "solutionSteps": {
+     "from": [
+      "19 has 1 ten and 9 ones.",
+      "The answer is 19."
+     ],
+     "to": [
+      "1 ten and 6 ones is 16.",
+      "16 + 1 = 17."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "91",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "109",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "26",
+       "correct": false
+      },
+      {
+       "text": "17",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "What number is 1 ten and 9 ones?",
+     "to": "What number is 1 ten and 1 ones? Then add 5 more ones."
+    },
+    "answer": {
+     "from": "19",
+     "to": "16"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 ten is 10. 10 and 9 more is 19.",
+      "The number is 19."
+     ],
+     "to": [
+      "1 ten and 1 ones is 11.",
+      "11 + 5 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "91",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Fill in the blank: 11 = 10 + ___",
+     "to": "What number is 1 ten and 8 ones? Then add 1 more ones."
+    },
+    "answer": {
+     "from": "1",
+     "to": "19"
+    },
+    "solutionSteps": {
+     "from": [
+      "11 is 1 ten and 1 one.",
+      "11 = 10 + 1."
+     ],
+     "to": [
+      "1 ten and 8 ones is 18.",
+      "18 + 1 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_split) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "What number is 1 ten and 7 ones?",
+     "to": "What number is 1 ten and 7 ones? Then add 1 more ones."
+    },
+    "answer": {
+     "from": "17",
+     "to": "18"
+    },
+    "solutionSteps": {
+     "from": [
+      "1 ten is 10. 10 and 7 more is 17.",
+      "The number is 17."
+     ],
+     "to": [
+      "1 ten and 7 ones is 17.",
+      "17 + 1 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_teen_then_more). Rewritten from a Support template (was tn_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are 1 ten and some ones (teen numbers from 11 to 19)."
+    },
+    "answer": {
+     "from": [
+      "What number is 1 ten and 9 ones? → 19",
+      "What number is 1 ten and 5 ones? → 15"
+     ],
+     "to": [
+      "15",
+      "13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "What number is 1 ten and 9 ones? → 19",
+       "correct": true
+      },
+      {
+       "text": "What number is 1 ten and 5 ones? → 15",
+       "correct": true
+      },
+      {
+       "text": "10 + 2 = ___ → 13",
+       "correct": false
+      },
+      {
+       "text": "What number is 1 ten and 3 ones? → 103",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15",
+       "correct": true
+      },
+      {
+       "text": "13",
+       "correct": true
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "What number is 1 ten and 9 ones? → 19: correct.",
+      "What number is 1 ten and 5 ones? → 15: correct.",
+      "10 + 2 = ___ → 13: not correct.",
+      "What number is 1 ten and 3 ones? → 103: not correct."
+     ],
+     "to": [
+      "Teen numbers are 1 ten and 1 to 9 ones.",
+      "Correct choices: 15; 13. Not correct: 10; 20; 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_select_teen). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A number has 1 ten and 4 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What number is 1 ten and 5 ones?",
+       "answer": "15"
+      },
+      {
+       "prompt": "10 + 6 = ___",
+       "answer": "16"
+      },
+      {
+       "prompt": "What number is 1 ten and 2 ones?",
+       "answer": "12"
+      },
+      {
+       "prompt": "8 + 10 = ___",
+       "answer": "18"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "14"
+      },
+      {
+       "prompt": "How many ones are there in all?",
+       "answer": "14"
+      },
+      {
+       "prompt": "What is the number with 1 more one?",
+       "answer": "15"
+      },
+      {
+       "prompt": "Tell how teen numbers are made.",
+       "answer": "Sample answer: They are 1 ten and some more ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 15; (b) 16; (c) 12; (d) 18",
+     "to": "(a) 14; (b) 14; (c) 15; (d) Sample answer: They are 1 ten and some more ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 1 ten is 10. 10 and 5 more is 15. The number is 15.",
+      "(b) 1 ten is 10. 10 and 6 more is 16. The number is 16.",
+      "(c) 1 ten is 10. 10 and 2 more is 12. The number is 12.",
+      "(d) 1 ten is 10. 10 and 8 more is 18. The number is 18."
+     ],
+     "to": [
+      "(a) 10 + 4.",
+      "(b) 10 ones and more.",
+      "(c) Add 1.",
+      "(d) Ten and ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_open_teen). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are 1 ten and some ones (teen numbers from 11 to 19)."
+    },
+    "answer": {
+     "from": [
+      "10 + 9 = ___ → 19",
+      "10 + 4 = ___ → 14"
+     ],
+     "to": [
+      "14",
+      "19",
+      "13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10 + 7 = ___ → 18",
+       "correct": false
+      },
+      {
+       "text": "10 + 9 = ___ → 19",
+       "correct": true
+      },
+      {
+       "text": "10 + 4 = ___ → 14",
+       "correct": true
+      },
+      {
+       "text": "What number is 1 ten and 7 ones? → 107",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": true
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "13",
+       "correct": true
+      },
+      {
+       "text": "30",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "10 + 7 = ___ → 18: not correct.",
+      "10 + 9 = ___ → 19: correct.",
+      "10 + 4 = ___ → 14: correct.",
+      "What number is 1 ten and 7 ones? → 107: not correct."
+     ],
+     "to": [
+      "Teen numbers are 1 ten and 1 to 9 ones.",
+      "Correct choices: 14; 19; 13. Not correct: 30; 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_select_teen). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A number has 1 ten and 2 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What number is 1 ten and 8 ones?",
+       "answer": "18"
+      },
+      {
+       "prompt": "10 + 6 = ___",
+       "answer": "16"
+      },
+      {
+       "prompt": "10 + 3 = ___",
+       "answer": "13"
+      },
+      {
+       "prompt": "What number is 1 ten and 3 ones?",
+       "answer": "13"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "12"
+      },
+      {
+       "prompt": "How many ones are there in all?",
+       "answer": "12"
+      },
+      {
+       "prompt": "What is the number with 1 more one?",
+       "answer": "13"
+      },
+      {
+       "prompt": "Tell how teen numbers are made.",
+       "answer": "Sample answer: They are 1 ten and some more ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 18; (b) 16; (c) 13; (d) 13",
+     "to": "(a) 12; (b) 12; (c) 13; (d) Sample answer: They are 1 ten and some more ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 1 ten is 10. 10 and 8 more is 18. The number is 18.",
+      "(b) 1 ten is 10. 10 and 6 more is 16. The number is 16.",
+      "(c) 1 ten is 10. 10 and 3 more is 13. The number is 13.",
+      "(d) 1 ten is 10. 10 and 3 more is 13. The number is 13."
+     ],
+     "to": [
+      "(a) 10 + 2.",
+      "(b) 10 ones and more.",
+      "(c) Add 1.",
+      "(d) Ten and ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_open_teen). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are 1 ten and some ones (teen numbers from 11 to 19)."
+    },
+    "answer": {
+     "from": [
+      "7 ones plus 1 ten is what number? → 17",
+      "1 one plus 1 ten is what number? → 11"
+     ],
+     "to": [
+      "19",
+      "11",
+      "18",
+      "12"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 ones plus 1 ten is what number? → 17",
+       "correct": true
+      },
+      {
+       "text": "6 ones plus 1 ten is what number? → 17",
+       "correct": false
+      },
+      {
+       "text": "What number is 6 ones and 1 ten? → 106",
+       "correct": false
+      },
+      {
+       "text": "1 one plus 1 ten is what number? → 11",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": true
+      },
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "7 ones plus 1 ten is what number? → 17: correct.",
+      "6 ones plus 1 ten is what number? → 17: not correct.",
+      "What number is 6 ones and 1 ten? → 106: not correct.",
+      "1 one plus 1 ten is what number? → 11: correct."
+     ],
+     "to": [
+      "Teen numbers are 1 ten and 1 to 9 ones.",
+      "Correct choices: 19; 11; 18; 12. Not correct: 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_select_teen). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A number has 1 ten and 9 ones."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "___ = 6 + 10",
+       "answer": "16"
+      },
+      {
+       "prompt": "What number is 5 ones and 1 ten?",
+       "answer": "15"
+      },
+      {
+       "prompt": "___ = 4 + 10",
+       "answer": "14"
+      },
+      {
+       "prompt": "9 ones plus 1 ten is what number?",
+       "answer": "19"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the number?",
+       "answer": "19"
+      },
+      {
+       "prompt": "How many ones are there in all?",
+       "answer": "19"
+      },
+      {
+       "prompt": "What is the number with 1 more one?",
+       "answer": "20"
+      },
+      {
+       "prompt": "Tell how teen numbers are made.",
+       "answer": "Sample answer: They are 1 ten and some more ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16; (b) 15; (c) 14; (d) 19",
+     "to": "(a) 19; (b) 19; (c) 20; (d) Sample answer: They are 1 ten and some more ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 1 ten is 10. 10 and 6 more is 16. The number is 16.",
+      "(b) 1 ten is 10. 10 and 5 more is 15. The number is 15.",
+      "(c) 1 ten is 10. 10 and 4 more is 14. The number is 14.",
+      "(d) 1 ten is 10. 10 and 9 more is 19. The number is 19."
+     ],
+     "to": [
+      "(a) 10 + 9.",
+      "(b) 10 ones and more.",
+      "(c) Add 1.",
+      "(d) Ten and ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: tn_build_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to2_open_teen). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 40?",
+     "to": "Start at 4. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "44"
+    },
+    "solutionSteps": {
+     "from": [
+      "40 has 4 in the tens place and 0 ones.",
+      "40 = 4 tens."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "4 + 4 tens = 44."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_tens_in) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Which number is 8 tens and 0 ones?",
+     "to": "Start at 4. Count by tens 3 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "34"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 tens = 80.",
+      "The answer is 80."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "4 + 3 tens = 34."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "800",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "34",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "24",
+       "correct": false
+      },
+      {
+       "text": "44",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "What number is 7 tens?",
+     "to": "Start at 5. Count by tens 2 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "70",
+     "to": "25"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by tens: 10, 20, 30, 40, 50, 60, 70.",
+      "7 tens = 70."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "5 + 2 tens = 25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_num). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_num) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Skip count by 10: 20, 30, 40, ___",
+     "to": "Start at 5. Count by tens 3 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "35"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "40 + 10 = 50."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "5 + 3 tens = 35."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_seq) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "Which number is 5 tens and 0 ones?",
+     "to": "Start at 2. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "42"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 tens = 50.",
+      "The answer is 50."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "2 + 4 tens = 42."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "500",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": true
+      },
+      {
+       "text": "15",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "32",
+       "correct": false
+      },
+      {
+       "text": "42",
+       "correct": true
+      },
+      {
+       "text": "52",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "50 is how many tens?",
+     "to": "Start at 7. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "5",
+     "to": "47"
+    },
+    "solutionSteps": {
+     "from": [
+      "50 has 5 in the tens place and 0 ones.",
+      "50 = 5 tens."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "7 + 4 tens = 47."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_tens_in) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": false
+      },
+      {
+       "text": "0",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "47",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "37",
+       "correct": false
+      },
+      {
+       "text": "57",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "What number is 8 tens?",
+     "to": "Start at 8. Count by tens 2 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "28"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by tens: 10, 20, 30, 40, 50, 60, 70, 80.",
+      "8 tens = 80."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "8 + 2 tens = 28."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_num). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_num) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      },
+      {
+       "text": "90",
+       "correct": false
+      },
+      {
+       "text": "800",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "28",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "38",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "Skip count by 10: 50, 60, 70, ___",
+     "to": "Start at 9. Count by tens 2 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "29"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "70 + 10 = 80."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "9 + 2 tens = 29."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_seq) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "90",
+       "correct": false
+      },
+      {
+       "text": "70",
+       "correct": false
+      },
+      {
+       "text": "71",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "29",
+       "correct": true
+      },
+      {
+       "text": "39",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 90?",
+     "to": "Start at 7. Count by tens 2 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "27"
+    },
+    "solutionSteps": {
+     "from": [
+      "90 has 9 in the tens place and 0 ones.",
+      "90 = 9 tens."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "7 + 2 tens = 27."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_tens_in) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "What number is 2 tens?",
+     "to": "Start at 6. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "20",
+     "to": "46"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by tens: 10, 20.",
+      "2 tens = 20."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "6 + 4 tens = 46."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_num). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_num) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What comes next? 10, 20, 30, ___",
+     "to": "Start at 4. Count by tens 2 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "40",
+     "to": "24"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "30 + 10 = 40."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "4 + 2 tens = 24."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_seq) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 60?",
+     "to": "Start at 9. Count by tens 3 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "39"
+    },
+    "solutionSteps": {
+     "from": [
+      "60 has 6 in the tens place and 0 ones.",
+      "60 = 6 tens."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "9 + 3 tens = 39."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_tens_in) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "0",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "60",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "29",
+       "correct": false
+      },
+      {
+       "text": "49",
+       "correct": false
+      },
+      {
+       "text": "39",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "What number is 3 tens?",
+     "to": "Start at 7. Count by tens 3 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "30",
+     "to": "37"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by tens: 10, 20, 30.",
+      "3 tens = 30."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "7 + 3 tens = 37."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_num). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_num) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What comes next? 30, 40, 50, ___",
+     "to": "Start at 8. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "60",
+     "to": "48"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "50 + 10 = 60."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "8 + 4 tens = 48."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_seq) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "60 is how many tens? Is the answer 6?",
+     "to": "Start at 9. Count by tens 4 times. What number do you end on?"
+    },
+    "answer": {
+     "from": "Yes. 60 = 6 tens.",
+     "to": "49"
+    },
+    "solutionSteps": {
+     "from": [
+      "60 has 6 in the tens place and 0 ones.",
+      "60 = 6 tens.",
+      "The answer 6 is correct."
+     ],
+     "to": [
+      "Each count adds 10.",
+      "9 + 4 tens = 49."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_tens_jumps). Rewritten from a Support template (was ct_tens_in_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 7.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 60.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 0.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 60 = 6 tens.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "39",
+       "correct": false
+      },
+      {
+       "text": "59",
+       "correct": false
+      },
+      {
+       "text": "49",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Count by tens from 4. Select ALL the numbers you say."
+    },
+    "answer": {
+     "from": [
+      "How many tens are in 60? → 6",
+      "How many tens are in 20? → 2"
+     ],
+     "to": [
+      "34",
+      "74"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "30 is how many tens? → 30",
+       "correct": false
+      },
+      {
+       "text": "How many tens are in 60? → 6",
+       "correct": true
+      },
+      {
+       "text": "How many tens are in 20? → 2",
+       "correct": true
+      },
+      {
+       "text": "How many tens are in 50? → 0",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "59",
+       "correct": false
+      },
+      {
+       "text": "55",
+       "correct": false
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "34",
+       "correct": true
+      },
+      {
+       "text": "74",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "30 is how many tens? → 30: not correct.",
+      "How many tens are in 60? → 6: correct.",
+      "How many tens are in 20? → 2: correct.",
+      "How many tens are in 50? → 0: not correct."
+     ],
+     "to": [
+      "Each number is 10 more; the ones digit stays 4.",
+      "Correct choices: 34; 74. Not correct: 55; 59; 25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_select_tens_count). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Hugo counts by tens starting at 5."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "50 is how many tens?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many tens are in 30?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many tens are in 60?",
+       "answer": "6"
+      },
+      {
+       "prompt": "20 is how many tens?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next two numbers?",
+       "answer": "Sample answer: 15, 25"
+      },
+      {
+       "prompt": "What is the 5th number after the start?",
+       "answer": "55"
+      },
+      {
+       "prompt": "Which digit stays the same?",
+       "answer": "the ones digit"
+      },
+      {
+       "prompt": "Tell what changes when you count by tens.",
+       "answer": "Sample answer: The tens digit goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 3; (c) 6; (d) 2",
+     "to": "(a) Sample answer: 15, 25; (b) 55; (c) the ones digit; (d) Sample answer: The tens digit goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 50 has 5 in the tens place and 0 ones. 50 = 5 tens.",
+      "(b) 30 has 3 in the tens place and 0 ones. 30 = 3 tens.",
+      "(c) 60 has 6 in the tens place and 0 ones. 60 = 6 tens.",
+      "(d) 20 has 2 in the tens place and 0 ones. 20 = 2 tens."
+     ],
+     "to": [
+      "(a) Add 10.",
+      "(b) Add 5 tens.",
+      "(c) Only the tens change.",
+      "(d) Tens digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_open_tens_count). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Count by tens from 9. Select ALL the numbers you say."
+    },
+    "answer": {
+     "from": [
+      "How many tens are in 40? → 4",
+      "50 is how many tens? → 5"
+     ],
+     "to": [
+      "49",
+      "79",
+      "99"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many tens are in 40? → 4",
+       "correct": true
+      },
+      {
+       "text": "How many tens are in 30? → 2",
+       "correct": false
+      },
+      {
+       "text": "50 is how many tens? → 5",
+       "correct": true
+      },
+      {
+       "text": "How many tens are in 10? → 10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "54",
+       "correct": false
+      },
+      {
+       "text": "49",
+       "correct": true
+      },
+      {
+       "text": "79",
+       "correct": true
+      },
+      {
+       "text": "99",
+       "correct": true
+      },
+      {
+       "text": "70",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many tens are in 40? → 4: correct.",
+      "How many tens are in 30? → 2: not correct.",
+      "50 is how many tens? → 5: correct.",
+      "How many tens are in 10? → 10: not correct."
+     ],
+     "to": [
+      "Each number is 10 more; the ones digit stays 9.",
+      "Correct choices: 49; 79; 99. Not correct: 54; 70."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_select_tens_count). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Raj counts by tens starting at 1."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "10 is how many tens?",
+       "answer": "1"
+      },
+      {
+       "prompt": "40 is how many tens?",
+       "answer": "4"
+      },
+      {
+       "prompt": "20 is how many tens?",
+       "answer": "2"
+      },
+      {
+       "prompt": "30 is how many tens?",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next two numbers?",
+       "answer": "Sample answer: 11, 21"
+      },
+      {
+       "prompt": "What is the 5th number after the start?",
+       "answer": "51"
+      },
+      {
+       "prompt": "Which digit stays the same?",
+       "answer": "the ones digit"
+      },
+      {
+       "prompt": "Tell what changes when you count by tens.",
+       "answer": "Sample answer: The tens digit goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 4; (c) 2; (d) 3",
+     "to": "(a) Sample answer: 11, 21; (b) 51; (c) the ones digit; (d) Sample answer: The tens digit goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 has 1 in the tens place and 0 ones. 10 = 1 ten.",
+      "(b) 40 has 4 in the tens place and 0 ones. 40 = 4 tens.",
+      "(c) 20 has 2 in the tens place and 0 ones. 20 = 2 tens.",
+      "(d) 30 has 3 in the tens place and 0 ones. 30 = 3 tens."
+     ],
+     "to": [
+      "(a) Add 10.",
+      "(b) Add 5 tens.",
+      "(c) Only the tens change.",
+      "(d) Tens digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_open_tens_count). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What comes next? 22, 32, 42, ___",
+     "to": "How many tens do you count to get from 4 to 84?"
+    },
+    "answer": {
+     "from": "52",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "42 + 10 = 52."
+     ],
+     "to": [
+      "Count 14, 24, 34, 44, 54, 64, 74, 84.",
+      "That is 8 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_how_many_tens_counted). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What comes next? 28, 38, 48, ___",
+     "to": "How many tens do you count to get from 9 to 89?"
+    },
+    "answer": {
+     "from": "58",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "48 + 10 = 58."
+     ],
+     "to": [
+      "Count 19, 29, 39, 49, 59, 69, 79, 89.",
+      "That is 8 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_how_many_tens_counted). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "58",
+       "correct": true
+      },
+      {
+       "text": "49",
+       "correct": false
+      },
+      {
+       "text": "68",
+       "correct": false
+      },
+      {
+       "text": "48",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which number is 7 tens and 0 ones?",
+     "to": "How many tens do you count to get from 5 to 35?"
+    },
+    "answer": {
+     "from": "70",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 tens = 70.",
+      "The answer is 70."
+     ],
+     "to": [
+      "Count 15, 25, 35.",
+      "That is 3 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_how_many_tens_counted). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "70",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "700",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "2",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Skip count by 10: 39, 49, 59, ___",
+     "to": "How many tens do you count to get from 2 to 42?"
+    },
+    "answer": {
+     "from": "69",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "59 + 10 = 69."
+     ],
+     "to": [
+      "Count 12, 22, 32, 42.",
+      "That is 4 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_how_many_tens_counted). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Count by tens. What comes next? 17, 27, 37, ___",
+     "to": "How many tens do you count to get from 9 to 39?"
+    },
+    "answer": {
+     "from": "47",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more.",
+      "37 + 10 = 47."
+     ],
+     "to": [
+      "Count 19, 29, 39.",
+      "That is 3 tens."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_seq). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_how_many_tens_counted). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "57",
+       "correct": false
+      },
+      {
+       "text": "38",
+       "correct": false
+      },
+      {
+       "text": "37",
+       "correct": false
+      },
+      {
+       "text": "47",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Count by tens from 2. Select ALL the numbers you say."
+    },
+    "answer": {
+     "from": [
+      "50 = ___ tens and 0 ones → 5",
+      "How many tens and ones make 40? Write the number of tens. → 4"
+     ],
+     "to": [
+      "32",
+      "72",
+      "92",
+      "12"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "50 = ___ tens and 0 ones → 5",
+       "correct": true
+      },
+      {
+       "text": "70 = ___ tens and 0 ones → 0",
+       "correct": false
+      },
+      {
+       "text": "How many tens and ones make 40? Write the number of tens. → 4",
+       "correct": true
+      },
+      {
+       "text": "How many tens and ones make 70? Write the number of tens. → 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32",
+       "correct": true
+      },
+      {
+       "text": "72",
+       "correct": true
+      },
+      {
+       "text": "92",
+       "correct": true
+      },
+      {
+       "text": "33",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "50 = ___ tens and 0 ones → 5: correct.",
+      "70 = ___ tens and 0 ones → 0: not correct.",
+      "How many tens and ones make 40? Write the number of tens. → 4: correct.",
+      "How many tens and ones make 70? Write the number of tens. → 6: not correct."
+     ],
+     "to": [
+      "Each number is 10 more; the ones digit stays 2.",
+      "Correct choices: 32; 72; 92; 12. Not correct: 33."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_select_tens_count). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Hugo counts by tens starting at 7."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "How many tens and ones make 40? Write the number of tens.",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many tens and ones make 70? Write the number of tens.",
+       "answer": "7"
+      },
+      {
+       "prompt": "How many tens and ones make 80? Write the number of tens.",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many tens and ones make 50? Write the number of tens.",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What are the next two numbers?",
+       "answer": "Sample answer: 17, 27"
+      },
+      {
+       "prompt": "What is the 5th number after the start?",
+       "answer": "57"
+      },
+      {
+       "prompt": "Which digit stays the same?",
+       "answer": "the ones digit"
+      },
+      {
+       "prompt": "Tell what changes when you count by tens.",
+       "answer": "Sample answer: The tens digit goes up by 1."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 7; (c) 8; (d) 5",
+     "to": "(a) Sample answer: 17, 27; (b) 57; (c) the ones digit; (d) Sample answer: The tens digit goes up by 1."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 40 has 4 in the tens place and 0 ones. 40 = 4 tens.",
+      "(b) 70 has 7 in the tens place and 0 ones. 70 = 7 tens.",
+      "(c) 80 has 8 in the tens place and 0 ones. 80 = 8 tens.",
+      "(d) 50 has 5 in the tens place and 0 ones. 50 = 5 tens."
+     ],
+     "to": [
+      "(a) Add 10.",
+      "(b) Add 5 tens.",
+      "(c) Only the tens change.",
+      "(d) Tens digit."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ct_tens_in_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to3_open_tens_count). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 9 ones and 7 tens?",
+     "to": "What number has 4 tens and 2 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "79",
+     "to": "42; 52"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 tens and 9 ones is 79.",
+      "The answer is 79."
+     ],
+     "to": [
+      "4 tens and 2 ones is 42.",
+      "42 + 10 = 52."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "79",
+       "correct": true
+      },
+      {
+       "text": "97",
+       "correct": false
+      },
+      {
+       "text": "709",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "42; 52",
+       "correct": true
+      },
+      {
+       "text": "42; 43",
+       "correct": false
+      },
+      {
+       "text": "24; 34",
+       "correct": false
+      },
+      {
+       "text": "43; 52",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "How many tens and ones are in 53?",
+     "to": "What number has 4 tens and 1 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "5 tens and 3 ones",
+     "to": "41; 51"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 5 and the ones digit is 3.",
+      "53 = 5 tens and 3 ones."
+     ],
+     "to": [
+      "4 tens and 1 ones is 41.",
+      "41 + 10 = 51."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_split) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 tens and 3 ones",
+       "correct": true
+      },
+      {
+       "text": "5 tens and 4 ones",
+       "correct": false
+      },
+      {
+       "text": "6 tens and 3 ones",
+       "correct": false
+      },
+      {
+       "text": "3 tens and 5 ones",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "41; 42",
+       "correct": false
+      },
+      {
+       "text": "14; 24",
+       "correct": false
+      },
+      {
+       "text": "42; 51",
+       "correct": false
+      },
+      {
+       "text": "41; 51",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "What number is 7 tens and 5 ones?",
+     "to": "What number has 4 tens and 9 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "75",
+     "to": "49; 59"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 tens is 70.",
+      "70 + 5 = 75."
+     ],
+     "to": [
+      "4 tens and 9 ones is 49.",
+      "49 + 10 = 59."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "705",
+       "correct": false
+      },
+      {
+       "text": "75",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "57",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "49; 59",
+       "correct": true
+      },
+      {
+       "text": "49; 50",
+       "correct": false
+      },
+      {
+       "text": "94; 104",
+       "correct": false
+      },
+      {
+       "text": "50; 59",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "What digit is in the tens place in 26?",
+     "to": "What number has 6 tens and 3 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "2",
+     "to": "63; 73"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 26, the tens digit is 2 and the ones digit is 6.",
+      "The tens digit is 2."
+     ],
+     "to": [
+      "6 tens and 3 ones is 63.",
+      "63 + 10 = 73."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_digit) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "26",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "63; 64",
+       "correct": false
+      },
+      {
+       "text": "63; 73",
+       "correct": true
+      },
+      {
+       "text": "36; 46",
+       "correct": false
+      },
+      {
+       "text": "64; 73",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 4 ones and 3 tens?",
+     "to": "What number has 3 tens and 1 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "34",
+     "to": "31; 41"
+    },
+    "solutionSteps": {
+     "from": [
+      "3 tens and 4 ones is 34.",
+      "The answer is 34."
+     ],
+     "to": [
+      "3 tens and 1 ones is 31.",
+      "31 + 10 = 41."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "34",
+       "correct": true
+      },
+      {
+       "text": "43",
+       "correct": false
+      },
+      {
+       "text": "304",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "31; 41",
+       "correct": true
+      },
+      {
+       "text": "31; 32",
+       "correct": false
+      },
+      {
+       "text": "13; 23",
+       "correct": false
+      },
+      {
+       "text": "32; 41",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Write 42 as tens and ones.",
+     "to": "What number has 3 tens and 4 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "4 tens and 2 ones",
+     "to": "34; 44"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 4 and the ones digit is 2.",
+      "42 = 4 tens and 2 ones."
+     ],
+     "to": [
+      "3 tens and 4 ones is 34.",
+      "34 + 10 = 44."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_split) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 tens and 2 ones",
+       "correct": false
+      },
+      {
+       "text": "4 tens and 3 ones",
+       "correct": false
+      },
+      {
+       "text": "4 tens and 2 ones",
+       "correct": true
+      },
+      {
+       "text": "2 tens and 4 ones",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "34; 35",
+       "correct": false
+      },
+      {
+       "text": "43; 53",
+       "correct": false
+      },
+      {
+       "text": "35; 44",
+       "correct": false
+      },
+      {
+       "text": "34; 44",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "What number is 8 tens and 1 one?",
+     "to": "What number has 6 tens and 5 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "81",
+     "to": "65; 75"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 tens is 80.",
+      "80 + 1 = 81."
+     ],
+     "to": [
+      "6 tens and 5 ones is 65.",
+      "65 + 10 = 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_build). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_build) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "81",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "801",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "65; 75",
+       "correct": true
+      },
+      {
+       "text": "65; 66",
+       "correct": false
+      },
+      {
+       "text": "56; 66",
+       "correct": false
+      },
+      {
+       "text": "66; 75",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "58 is how many tens and how many ones? Is the answer 5 tens and 8 ones?",
+     "to": "What number has 8 tens and 2 ones? What number is 1 more ten?"
+    },
+    "answer": {
+     "from": "Yes. 58 = 5 tens and 8 ones.",
+     "to": "82; 92"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 5 and the ones digit is 8.",
+      "58 = 5 tens and 8 ones.",
+      "The answer 5 tens and 8 ones is correct."
+     ],
+     "to": [
+      "8 tens and 2 ones is 82.",
+      "82 + 10 = 92."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_tens_ones_then_ten_more). Rewritten from a Support template (was t_split_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 8 tens and 5 ones.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 58 = 5 tens and 8 ones.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 5 tens and 9 ones.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 6 tens and 8 ones.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "82; 83",
+       "correct": false
+      },
+      {
+       "text": "28; 38",
+       "correct": false
+      },
+      {
+       "text": "83; 92",
+       "correct": false
+      },
+      {
+       "text": "82; 92",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that have 4 tens."
+    },
+    "answer": {
+     "from": [
+      "How many tens and ones are in 85? → 8 tens and 5 ones",
+      "23 is how many tens and how many ones? → 2 tens and 3 ones"
+     ],
+     "to": [
+      "44",
+      "42"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "How many tens and ones are in 25? → 5 tens and 2 ones",
+       "correct": false
+      },
+      {
+       "text": "How many tens and ones are in 85? → 8 tens and 5 ones",
+       "correct": true
+      },
+      {
+       "text": "27 is how many tens and how many ones? → 1 ten and 7 ones",
+       "correct": false
+      },
+      {
+       "text": "23 is how many tens and how many ones? → 2 tens and 3 ones",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "44",
+       "correct": true
+      },
+      {
+       "text": "35",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": false
+      },
+      {
+       "text": "52",
+       "correct": false
+      },
+      {
+       "text": "42",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "How many tens and ones are in 25? → 5 tens and 2 ones: not correct.",
+      "How many tens and ones are in 85? → 8 tens and 5 ones: correct.",
+      "27 is how many tens and how many ones? → 1 ten and 7 ones: not correct.",
+      "23 is how many tens and how many ones? → 2 tens and 3 ones: correct."
+     ],
+     "to": [
+      "The tens digit must be 4.",
+      "Correct choices: 44; 42. Not correct: 35; 52; 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_select_tens_digit). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at the number 72."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "96 is how many tens and how many ones?",
+       "answer": "9 tens and 6 ones"
+      },
+      {
+       "prompt": "Write 39 as tens and ones.",
+       "answer": "3 tens and 9 ones"
+      },
+      {
+       "prompt": "How many tens and ones are in 93?",
+       "answer": "9 tens and 3 ones"
+      },
+      {
+       "prompt": "Write 35 as tens and ones.",
+       "answer": "3 tens and 5 ones"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many tens?",
+       "answer": "7"
+      },
+      {
+       "prompt": "How many ones?",
+       "answer": "2"
+      },
+      {
+       "prompt": "What number has the same digits switched?",
+       "answer": "27"
+      },
+      {
+       "prompt": "Tell why the two numbers are different.",
+       "answer": "Sample answer: The digits are in different places, so they have different values."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 tens and 6 ones; (b) 3 tens and 9 ones; (c) 9 tens and 3 ones; (d) 3 tens and 5 ones",
+     "to": "(a) 7; (b) 2; (c) 27; (d) Sample answer: The digits are in different places, so they have different values."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The tens digit is 9 and the ones digit is 6. 96 = 9 tens and 6 ones.",
+      "(b) The tens digit is 3 and the ones digit is 9. 39 = 3 tens and 9 ones.",
+      "(c) The tens digit is 9 and the ones digit is 3. 93 = 9 tens and 3 ones.",
+      "(d) The tens digit is 3 and the ones digit is 5. 35 = 3 tens and 5 ones."
+     ],
+     "to": [
+      "(a) The first digit.",
+      "(b) The last digit.",
+      "(c) Switch the digits.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_open_place). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that have 5 tens."
+    },
+    "answer": {
+     "from": [
+      "20 is how many tens and how many ones? → 2 tens and 0 ones",
+      "Write 36 as tens and ones. → 3 tens and 6 ones"
+     ],
+     "to": [
+      "54",
+      "55",
+      "52"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "47 is how many tens and how many ones? → 3 tens and 7 ones",
+       "correct": false
+      },
+      {
+       "text": "20 is how many tens and how many ones? → 2 tens and 0 ones",
+       "correct": true
+      },
+      {
+       "text": "39 is how many tens and how many ones? → 9 tens and 3 ones",
+       "correct": false
+      },
+      {
+       "text": "Write 36 as tens and ones. → 3 tens and 6 ones",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "54",
+       "correct": true
+      },
+      {
+       "text": "55",
+       "correct": true
+      },
+      {
+       "text": "46",
+       "correct": false
+      },
+      {
+       "text": "63",
+       "correct": false
+      },
+      {
+       "text": "52",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "47 is how many tens and how many ones? → 3 tens and 7 ones: not correct.",
+      "20 is how many tens and how many ones? → 2 tens and 0 ones: correct.",
+      "39 is how many tens and how many ones? → 9 tens and 3 ones: not correct.",
+      "Write 36 as tens and ones. → 3 tens and 6 ones: correct."
+     ],
+     "to": [
+      "The tens digit must be 5.",
+      "Correct choices: 54; 55; 52. Not correct: 63; 46."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_select_tens_digit). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at the number 28."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write 24 as tens and ones.",
+       "answer": "2 tens and 4 ones"
+      },
+      {
+       "prompt": "How many tens and ones are in 59?",
+       "answer": "5 tens and 9 ones"
+      },
+      {
+       "prompt": "59 is how many tens and how many ones?",
+       "answer": "5 tens and 9 ones"
+      },
+      {
+       "prompt": "How many tens and ones are in 41?",
+       "answer": "4 tens and 1 one"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many tens?",
+       "answer": "2"
+      },
+      {
+       "prompt": "How many ones?",
+       "answer": "8"
+      },
+      {
+       "prompt": "What number has the same digits switched?",
+       "answer": "82"
+      },
+      {
+       "prompt": "Tell why the two numbers are different.",
+       "answer": "Sample answer: The digits are in different places, so they have different values."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2 tens and 4 ones; (b) 5 tens and 9 ones; (c) 5 tens and 9 ones; (d) 4 tens and 1 one",
+     "to": "(a) 2; (b) 8; (c) 82; (d) Sample answer: The digits are in different places, so they have different values."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The tens digit is 2 and the ones digit is 4. 24 = 2 tens and 4 ones.",
+      "(b) The tens digit is 5 and the ones digit is 9. 59 = 5 tens and 9 ones.",
+      "(c) The tens digit is 5 and the ones digit is 9. 59 = 5 tens and 9 ones.",
+      "(d) The tens digit is 4 and the ones digit is 1. 41 = 4 tens and 1 one."
+     ],
+     "to": [
+      "(a) The first digit.",
+      "(b) The last digit.",
+      "(c) Switch the digits.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_open_place). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "Write 38 as tens and ones.",
+     "to": "A number has 5 tens and 13 ones. What is the number?"
+    },
+    "answer": {
+     "from": "3 tens and 8 ones",
+     "to": "63"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 3 and the ones digit is 8.",
+      "38 = 3 tens and 8 ones."
+     ],
+     "to": [
+      "13 ones = 1 ten and 3 ones.",
+      "6 tens and 3 ones = 63."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 4 ones and 8 tens?",
+     "to": "A number has 4 tens and 12 ones. What is the number?"
+    },
+    "answer": {
+     "from": "84",
+     "to": "52"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 tens and 4 ones is 84.",
+      "The answer is 84."
+     ],
+     "to": [
+      "12 ones = 1 ten and 2 ones.",
+      "5 tens and 2 ones = 52."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "804",
+       "correct": false
+      },
+      {
+       "text": "48",
+       "correct": false
+      },
+      {
+       "text": "84",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "42",
+       "correct": false
+      },
+      {
+       "text": "52",
+       "correct": true
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "62",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "How many tens are in 82?",
+     "to": "A number has 6 tens and 12 ones. What is the number?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "72"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 82, the tens digit is 8 and the ones digit is 2.",
+      "The tens digit is 8."
+     ],
+     "to": [
+      "12 ones = 1 ten and 2 ones.",
+      "7 tens and 2 ones = 72."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "92 is how many tens and how many ones?",
+     "to": "A number has 4 tens and 14 ones. What is the number?"
+    },
+    "answer": {
+     "from": "9 tens and 2 ones",
+     "to": "54"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 9 and the ones digit is 2.",
+      "92 = 9 tens and 2 ones."
+     ],
+     "to": [
+      "14 ones = 1 ten and 4 ones.",
+      "5 tens and 4 ones = 54."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 tens and 9 ones",
+       "correct": false
+      },
+      {
+       "text": "9 tens and 2 ones",
+       "correct": true
+      },
+      {
+       "text": "9 tens and 3 ones",
+       "correct": false
+      },
+      {
+       "text": "10 tens and 2 ones",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "44",
+       "correct": false
+      },
+      {
+       "text": "54",
+       "correct": true
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "64",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 7 ones and 4 tens?",
+     "to": "A number has 7 tens and 10 ones. What is the number?"
+    },
+    "answer": {
+     "from": "47",
+     "to": "80"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 tens and 7 ones is 47.",
+      "The answer is 47."
+     ],
+     "to": [
+      "10 ones = 1 ten and 0 ones.",
+      "8 tens and 0 ones = 80."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "407",
+       "correct": false
+      },
+      {
+       "text": "74",
+       "correct": false
+      },
+      {
+       "text": "47",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "70",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "90",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "How many ones are in 83?",
+     "to": "A number has 3 tens and 11 ones. What is the number?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "41"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 83, the tens digit is 8 and the ones digit is 3.",
+      "The ones digit is 3."
+     ],
+     "to": [
+      "11 ones = 1 ten and 1 ones.",
+      "4 tens and 1 ones = 41."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "83",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "31",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "51",
+       "correct": false
+      },
+      {
+       "text": "41",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Write 37 as tens and ones.",
+     "to": "A number has 4 tens and 15 ones. What is the number?"
+    },
+    "answer": {
+     "from": "3 tens and 7 ones",
+     "to": "55"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 3 and the ones digit is 7.",
+      "37 = 3 tens and 7 ones."
+     ],
+     "to": [
+      "15 ones = 1 ten and 5 ones.",
+      "5 tens and 5 ones = 55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 5 tens and 6 ones?",
+     "to": "A number has 7 tens and 15 ones. What is the number?"
+    },
+    "answer": {
+     "from": "56",
+     "to": "85"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 tens and 6 ones is 56.",
+      "The answer is 56."
+     ],
+     "to": [
+      "15 ones = 1 ten and 5 ones.",
+      "8 tens and 5 ones = 85."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "506",
+       "correct": false
+      },
+      {
+       "text": "65",
+       "correct": false
+      },
+      {
+       "text": "56",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "75",
+       "correct": false
+      },
+      {
+       "text": "85",
+       "correct": true
+      },
+      {
+       "text": "22",
+       "correct": false
+      },
+      {
+       "text": "95",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "What digit is in the tens place in 38?",
+     "to": "A number has 8 tens and 13 ones. What is the number?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "93"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 38, the tens digit is 3 and the ones digit is 8.",
+      "The tens digit is 3."
+     ],
+     "to": [
+      "13 ones = 1 ten and 3 ones.",
+      "9 tens and 3 ones = 93."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "How many tens and ones are in 90?",
+     "to": "A number has 7 tens and 11 ones. What is the number?"
+    },
+    "answer": {
+     "from": "9 tens and 0 ones",
+     "to": "81"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens digit is 9 and the ones digit is 0.",
+      "90 = 9 tens and 0 ones."
+     ],
+     "to": [
+      "11 ones = 1 ten and 1 ones.",
+      "8 tens and 1 ones = 81."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 tens and 0 ones",
+       "correct": true
+      },
+      {
+       "text": "0 tens and 9 ones",
+       "correct": false
+      },
+      {
+       "text": "9 tens and 1 one",
+       "correct": false
+      },
+      {
+       "text": "10 tens and 0 ones",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "71",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "91",
+       "correct": false
+      },
+      {
+       "text": "81",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Which number has 4 tens and 3 ones?",
+     "to": "A number has 8 tens and 12 ones. What is the number?"
+    },
+    "answer": {
+     "from": "43",
+     "to": "92"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 tens and 3 ones is 43.",
+      "The answer is 43."
+     ],
+     "to": [
+      "12 ones = 1 ten and 2 ones.",
+      "9 tens and 2 ones = 92."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "34",
+       "correct": false
+      },
+      {
+       "text": "403",
+       "correct": false
+      },
+      {
+       "text": "43",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "82",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "92",
+       "correct": true
+      },
+      {
+       "text": "102",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "How many ones are in 49?",
+     "to": "A number has 2 tens and 11 ones. What is the number?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "31"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 49, the tens digit is 4 and the ones digit is 9.",
+      "The ones digit is 9."
+     ],
+     "to": [
+      "11 ones = 1 ten and 1 ones.",
+      "3 tens and 1 ones = 31."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_regroup_ones). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that have 2 tens."
+    },
+    "answer": {
+     "from": [
+      "39 is how many tens and how many ones? → 3 tens and 9 ones",
+      "Write 54 as tens and ones. → 5 tens and 4 ones"
+     ],
+     "to": [
+      "22",
+      "28",
+      "24",
+      "21"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "39 is how many tens and how many ones? → 3 tens and 9 ones",
+       "correct": true
+      },
+      {
+       "text": "How many tens and ones are in 59? → 4 tens and 9 ones",
+       "correct": false
+      },
+      {
+       "text": "42 is how many tens and how many ones? → 3 tens and 2 ones",
+       "correct": false
+      },
+      {
+       "text": "Write 54 as tens and ones. → 5 tens and 4 ones",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "22",
+       "correct": true
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "28",
+       "correct": true
+      },
+      {
+       "text": "24",
+       "correct": true
+      },
+      {
+       "text": "21",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "39 is how many tens and how many ones? → 3 tens and 9 ones: correct.",
+      "How many tens and ones are in 59? → 4 tens and 9 ones: not correct.",
+      "42 is how many tens and how many ones? → 3 tens and 2 ones: not correct.",
+      "Write 54 as tens and ones. → 5 tens and 4 ones: correct."
+     ],
+     "to": [
+      "The tens digit must be 2.",
+      "Correct choices: 22; 28; 24; 21. Not correct: 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_select_tens_digit). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-to-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at the number 77."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write 26 as tens and ones.",
+       "answer": "2 tens and 6 ones"
+      },
+      {
+       "prompt": "53 is how many tens and how many ones?",
+       "answer": "5 tens and 3 ones"
+      },
+      {
+       "prompt": "78 is how many tens and how many ones?",
+       "answer": "7 tens and 8 ones"
+      },
+      {
+       "prompt": "How many tens and ones are in 52?",
+       "answer": "5 tens and 2 ones"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many tens?",
+       "answer": "7"
+      },
+      {
+       "prompt": "How many ones?",
+       "answer": "7"
+      },
+      {
+       "prompt": "What number has the same digits switched?",
+       "answer": "77"
+      },
+      {
+       "prompt": "Tell why the two numbers are different.",
+       "answer": "Sample answer: The digits are in different places, so they have different values."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2 tens and 6 ones; (b) 5 tens and 3 ones; (c) 7 tens and 8 ones; (d) 5 tens and 2 ones",
+     "to": "(a) 7; (b) 7; (c) 77; (d) Sample answer: The digits are in different places, so they have different values."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The tens digit is 2 and the ones digit is 6. 26 = 2 tens and 6 ones.",
+      "(b) The tens digit is 5 and the ones digit is 3. 53 = 5 tens and 3 ones.",
+      "(c) The tens digit is 7 and the ones digit is 8. 78 = 7 tens and 8 ones.",
+      "(d) The tens digit is 5 and the ones digit is 2. 52 = 5 tens and 2 ones."
+     ],
+     "to": [
+      "(a) The first digit.",
+      "(b) The last digit.",
+      "(c) Switch the digits.",
+      "(d) Place value."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: t_split_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: to4_open_place). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m1-to-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 + 1 = 51 ones.",
+   "distractors": {
+    "6": "a common mistake",
+    "50": "a common mistake",
+    "15": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s01-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 2 = 32 ones.",
+   "distractors": {
+    "5": "a common mistake",
+    "30": "a common mistake",
+    "23": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s01-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 3 = 43 ones.",
+   "distractors": {
+    "7": "a common mistake",
+    "40": "a common mistake",
+    "34": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 + 7 = 57 ones.",
+   "distractors": {
+    "12": "a common mistake",
+    "50": "a common mistake",
+    "75": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 + 9 = 29 ones.",
+   "distractors": {
+    "11": "a common mistake",
+    "20": "a common mistake",
+    "92": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s01-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "60 + 6 = 66 ones.",
+   "distractors": {
+    "12": "a common mistake",
+    "60": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s01-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "80 + 9 = 89 ones.",
+   "distractors": {
+    "17": "a common mistake",
+    "80": "a common mistake",
+    "98": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 + 6 = 76 ones.",
+   "distractors": {
+    "13": "a common mistake",
+    "70": "a common mistake",
+    "67": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 2 = 42 ones.",
+   "distractors": {
+    "6": "a common mistake",
+    "40": "a common mistake",
+    "24": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s01-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 + 2 = 52 ones.",
+   "distractors": {
+    "7": "a common mistake",
+    "50": "a common mistake",
+    "25": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 8 tens.",
+   "distractors": {
+    "9": "a common mistake",
+    "80": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 8 tens.",
+   "distractors": {
+    "9": "a common mistake",
+    "80": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 tens.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "4": "a common mistake",
+    "30": "a common mistake",
+    "2": "a common mistake"
+   }
+  },
+  "m1-to-s03-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 4 tens.",
+   "distractors": {
+    "5": "a common mistake",
+    "40": "a common mistake",
+    "3": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3 tens.",
+   "distractors": {
+    "4": "a common mistake",
+    "30": "a common mistake",
+    "2": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 tens and 3 ones = 63.",
+   "distractors": {
+    "53": "a common mistake",
+    "18": "a common mistake",
+    "73": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 tens and 2 ones = 52.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "42": "a common mistake",
+    "16": "a common mistake",
+    "62": "a common mistake"
+   }
+  },
+  "m1-to-s04-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 tens and 2 ones = 72.",
+   "distractors": {
+    "62": "a common mistake",
+    "18": "a common mistake",
+    "82": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s04-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 tens and 4 ones = 54.",
+   "distractors": {
+    "44": "a common mistake",
+    "18": "a common mistake",
+    "64": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 tens and 0 ones = 80.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "70": "a common mistake",
+    "17": "a common mistake",
+    "90": "a common mistake"
+   }
+  },
+  "m1-to-s04-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 tens and 1 ones = 41.",
+   "distractors": {
+    "31": "a common mistake",
+    "14": "a common mistake",
+    "51": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 tens and 5 ones = 55.",
+   "distractors": {
+    "45": "a common mistake",
+    "19": "a common mistake",
+    "65": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 tens and 5 ones = 85.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "75": "a common mistake",
+    "22": "a common mistake",
+    "95": "a common mistake"
+   }
+  },
+  "m1-to-s04-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 tens and 3 ones = 93.",
+   "distractors": {
+    "83": "a common mistake",
+    "21": "a common mistake",
+    "103": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s04-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 tens and 1 ones = 81.",
+   "distractors": {
+    "71": "a common mistake",
+    "18": "a common mistake",
+    "91": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 tens and 2 ones = 92.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "82": "a common mistake",
+    "20": "a common mistake",
+    "102": "a common mistake"
+   }
+  },
+  "m1-to-s04-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 tens and 1 ones = 31.",
+   "distractors": {
+    "21": "a common mistake",
+    "13": "a common mistake",
+    "41": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s02-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 + 5 = 18.",
+   "distractors": {
+    "13": "a common mistake",
+    "9": "a common mistake",
+    "23": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s02-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 + 2 = 18.",
+   "distractors": {
+    "16": "a common mistake",
+    "9": "a common mistake",
+    "26": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 + 2 = 15.",
+   "distractors": {
+    "13": "a common mistake",
+    "6": "a common mistake",
+    "23": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 + 1 = 17.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "16": "a common mistake",
+    "8": "a common mistake",
+    "26": "a common mistake"
+   }
+  },
+  "m1-to-s02-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 + 5 = 16.",
+   "distractors": {
+    "11": "a common mistake",
+    "7": "a common mistake",
+    "21": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "18 + 1 = 19.",
+   "distractors": {
+    "18": "a common mistake",
+    "10": "a common mistake",
+    "28": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s02-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "17 + 1 = 18.",
+   "distractors": {
+    "17": "a common mistake",
+    "9": "a common mistake",
+    "27": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 4 tens = 44.",
+   "distractors": {
+    "8": "a common mistake",
+    "34": "a common mistake",
+    "54": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 3 tens = 34.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7": "a common mistake",
+    "24": "a common mistake",
+    "44": "a common mistake"
+   }
+  },
+  "m1-to-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 2 tens = 25.",
+   "distractors": {
+    "7": "a common mistake",
+    "15": "a common mistake",
+    "35": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 3 tens = 35.",
+   "distractors": {
+    "8": "a common mistake",
+    "25": "a common mistake",
+    "45": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 + 4 tens = 42.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6": "a common mistake",
+    "32": "a common mistake",
+    "52": "a common mistake"
+   }
+  },
+  "m1-to-s03-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 4 tens = 47.",
+   "distractors": {
+    "11": "a common mistake",
+    "37": "a common mistake",
+    "57": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 2 tens = 28.",
+   "distractors": {
+    "10": "a common mistake",
+    "18": "a common mistake",
+    "38": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 + 2 tens = 29.",
+   "distractors": {
+    "11": "a common mistake",
+    "19": "a common mistake",
+    "39": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 2 tens = 27.",
+   "distractors": {
+    "9": "a common mistake",
+    "17": "a common mistake",
+    "37": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 4 tens = 46.",
+   "distractors": {
+    "10": "a common mistake",
+    "36": "a common mistake",
+    "56": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 2 tens = 24.",
+   "distractors": {
+    "6": "a common mistake",
+    "14": "a common mistake",
+    "34": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 + 3 tens = 39.",
+   "distractors": {
+    "12": "a common mistake",
+    "29": "a common mistake",
+    "49": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 3 tens = 37.",
+   "distractors": {
+    "10": "a common mistake",
+    "27": "a common mistake",
+    "47": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 4 tens = 48.",
+   "distractors": {
+    "12": "a common mistake",
+    "38": "a common mistake",
+    "58": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-to-s03-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 + 4 tens = 49.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "13": "a common mistake",
+    "39": "a common mistake",
+    "59": "a common mistake"
+   }
+  },
+  "m1-to-s04-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "42 + 10 = 52.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "42; 43": "a common mistake",
+    "24; 34": "a common mistake",
+    "43; 52": "a common mistake"
+   }
+  },
+  "m1-to-s04-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "41 + 10 = 51.",
+   "distractors": {
+    "41; 42": "a common mistake",
+    "14; 24": "a common mistake",
+    "42; 51": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "49 + 10 = 59.",
+   "distractors": {
+    "49; 50": "a common mistake",
+    "94; 104": "a common mistake",
+    "50; 59": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "63 + 10 = 73.",
+   "distractors": {
+    "63; 64": "a common mistake",
+    "36; 46": "a common mistake",
+    "64; 73": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "31 + 10 = 41.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "31; 32": "a common mistake",
+    "13; 23": "a common mistake",
+    "32; 41": "a common mistake"
+   }
+  },
+  "m1-to-s04-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "34 + 10 = 44.",
+   "distractors": {
+    "34; 35": "a common mistake",
+    "43; 53": "a common mistake",
+    "35; 44": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "65 + 10 = 75.",
+   "distractors": {
+    "65; 66": "a common mistake",
+    "56; 66": "a common mistake",
+    "66; 75": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "82 + 10 = 92.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "82; 83": "a common mistake",
+    "28; 38": "a common mistake",
+    "83; 92": "a common mistake"
+   }
+  },
+  "m1-to-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 3 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 3 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 3 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Only the tens change.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Only the tens change.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Only the tens change.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Switch the digits.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Switch the digits.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Switch the digits.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "4 tens = 40 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "4 tens = 40 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "6 tens = 60 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Teen numbers are 1 ten and 1 to 9 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Teen numbers are 1 ten and 1 to 9 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Teen numbers are 1 ten and 1 to 9 ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each number is 10 more; the ones digit stays 4.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each number is 10 more; the ones digit stays 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Each number is 10 more; the ones digit stays 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens digit must be 4.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens digit must be 5.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-to-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens digit must be 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

@@ -1,0 +1,2872 @@
+{
+ "unit": "word-problems-20",
+ "edits": [
+  {
+   "id": "m1-wp-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 15 birds."
+    },
+    "answer": {
+     "from": [
+      "Kim had 10 rocks. Then Kim found 7 more. How many rocks does Kim have now? → 17 rocks",
+      "There are 3 fish in the yard. 8 more come. How many fish are in the yard now? → 11 fish"
+     ],
+     "to": [
+      "19 birds, then 4 fly away",
+      "16 birds, then 1 fly away"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Leo has 3 leaves. Leo gets 9 more. How many leaves does Leo have now? → 11 leaves",
+       "correct": false
+      },
+      {
+       "text": "Liz had 10 buttons. Then Liz found 8 more. How many buttons does Liz have now? → 10 buttons",
+       "correct": false
+      },
+      {
+       "text": "Kim had 10 rocks. Then Kim found 7 more. How many rocks does Kim have now? → 17 rocks",
+       "correct": true
+      },
+      {
+       "text": "There are 3 fish in the yard. 8 more come. How many fish are in the yard now? → 11 fish",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7 birds, then 9 more come",
+       "correct": false
+      },
+      {
+       "text": "4 birds, then 12 more come",
+       "correct": false
+      },
+      {
+       "text": "19 birds, then 4 fly away",
+       "correct": true
+      },
+      {
+       "text": "16 birds, then 1 fly away",
+       "correct": true
+      },
+      {
+       "text": "19 birds, then 5 fly away",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Leo has 3 leaves. Leo gets 9 more. How many leaves does Leo have now? → 11 leaves: not correct.",
+      "Liz had 10 buttons. Then Liz found 8 more. How many buttons does Liz have now? → 10 buttons: not correct.",
+      "Kim had 10 rocks. Then Kim found 7 more. How many rocks does Kim have now? → 17 rocks: correct.",
+      "There are 3 fish in the yard. 8 more come. How many fish are in the yard now? → 11 fish: correct."
+     ],
+     "to": [
+      "Add when more come; subtract when some fly away.",
+      "Correct choices: 19 birds, then 4 fly away; 16 birds, then 1 fly away. Not correct: 4 birds, then 12 more come; 19 birds, then 5 fly away; 7 birds, then 9 more come."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "7 ducks are in a pond. 7 more ducks come."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Cam had 8 crayons. Then Cam found 6 more. How many crayons does Cam have now?",
+       "answer": "14 crayons"
+      },
+      {
+       "prompt": "Kim has 6 shells. Kim gets 8 more. How many shells does Kim have now?",
+       "answer": "14 shells"
+      },
+      {
+       "prompt": "Dev has 11 beads. Dev gets 9 more. How many beads does Dev have now?",
+       "answer": "20 beads"
+      },
+      {
+       "prompt": "There are 10 cats in the yard. 9 more come. How many cats are in the yard now?",
+       "answer": "19 cats"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many ducks are in the pond now?",
+       "answer": "14 ducks"
+      },
+      {
+       "prompt": "Then 3 ducks fly away. How many are left?",
+       "answer": "11 ducks"
+      },
+      {
+       "prompt": "Write an equation for the first part.",
+       "answer": "Sample answer: 7 + 7 = 14"
+      },
+      {
+       "prompt": "Tell how you knew to add.",
+       "answer": "Sample answer: More ducks came, so the group got bigger."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 14 crayons; (b) 14 shells; (c) 20 beads; (d) 19 cats",
+     "to": "(a) 14 ducks; (b) 11 ducks; (c) Sample answer: 7 + 7 = 14; (d) Sample answer: More ducks came, so the group got bigger."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Some more were added, so add: 8 + 6. 8 + 6 = 14.",
+      "(b) Some more were added, so add: 6 + 8. 6 + 8 = 14.",
+      "(c) Some more were added, so add: 11 + 9. 11 + 9 = 20.",
+      "(d) Some more were added, so add: 10 + 9. 10 + 9 = 19."
+     ],
+     "to": [
+      "(a) 7 + 7.",
+      "(b) 14 − 3.",
+      "(c) Add to.",
+      "(d) Add to."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_ducks). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 8 birds."
+    },
+    "answer": {
+     "from": [
+      "There are 4 bees in the yard. 6 more come. How many bees are in the yard now? → 10 bees",
+      "Abe has 3 cups. Abe gets 3 more. How many cups does Abe have now? → 6 cups"
+     ],
+     "to": [
+      "3 birds, then 5 more come",
+      "2 birds, then 6 more come",
+      "10 birds, then 2 fly away"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 4 bees in the yard. 6 more come. How many bees are in the yard now? → 10 bees",
+       "correct": true
+      },
+      {
+       "text": "Abe has 3 cups. Abe gets 3 more. How many cups does Abe have now? → 6 cups",
+       "correct": true
+      },
+      {
+       "text": "There are 4 bees in the yard. 6 more come. How many bees are in the yard now? → 9 bees",
+       "correct": false
+      },
+      {
+       "text": "Raj had 4 books. Then Raj found 3 more. How many books does Raj have now? → 4 books",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13 birds, then 6 fly away",
+       "correct": false
+      },
+      {
+       "text": "18 birds, then 11 fly away",
+       "correct": false
+      },
+      {
+       "text": "3 birds, then 5 more come",
+       "correct": true
+      },
+      {
+       "text": "2 birds, then 6 more come",
+       "correct": true
+      },
+      {
+       "text": "10 birds, then 2 fly away",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 4 bees in the yard. 6 more come. How many bees are in the yard now? → 10 bees: correct.",
+      "Abe has 3 cups. Abe gets 3 more. How many cups does Abe have now? → 6 cups: correct.",
+      "There are 4 bees in the yard. 6 more come. How many bees are in the yard now? → 9 bees: not correct.",
+      "Raj had 4 books. Then Raj found 3 more. How many books does Raj have now? → 4 books: not correct."
+     ],
+     "to": [
+      "Add when more come; subtract when some fly away.",
+      "Correct choices: 3 birds, then 5 more come; 2 birds, then 6 more come; 10 birds, then 2 fly away. Not correct: 18 birds, then 11 fly away; 13 birds, then 6 fly away."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "5 ducks are in a pond. 6 more ducks come."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 7 birds in the yard. 3 more come. How many birds are in the yard now?",
+       "answer": "10 birds"
+      },
+      {
+       "prompt": "There is 1 cat in the yard. 5 more come. How many cats are in the yard now?",
+       "answer": "6 cats"
+      },
+      {
+       "prompt": "There is 1 bird in the yard. 3 more come. How many birds are in the yard now?",
+       "answer": "4 birds"
+      },
+      {
+       "prompt": "Ian had 3 blocks. Then Ian found 6 more. How many blocks does Ian have now?",
+       "answer": "9 blocks"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many ducks are in the pond now?",
+       "answer": "11 ducks"
+      },
+      {
+       "prompt": "Then 3 ducks fly away. How many are left?",
+       "answer": "8 ducks"
+      },
+      {
+       "prompt": "Write an equation for the first part.",
+       "answer": "Sample answer: 5 + 6 = 11"
+      },
+      {
+       "prompt": "Tell how you knew to add.",
+       "answer": "Sample answer: More ducks came, so the group got bigger."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 10 birds; (b) 6 cats; (c) 4 birds; (d) 9 blocks",
+     "to": "(a) 11 ducks; (b) 8 ducks; (c) Sample answer: 5 + 6 = 11; (d) Sample answer: More ducks came, so the group got bigger."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Some more were added, so add: 7 + 3. 7 + 3 = 10.",
+      "(b) Some more were added, so add: 1 + 5. 1 + 5 = 6.",
+      "(c) Some more were added, so add: 1 + 3. 1 + 3 = 4.",
+      "(d) Some more were added, so add: 3 + 6. 3 + 6 = 9."
+     ],
+     "to": [
+      "(a) 5 + 6.",
+      "(b) 11 − 3.",
+      "(c) Add to.",
+      "(d) Add to."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_ducks). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "17 balls were in a box. 9 fell out. How many balls are in the box now?",
+     "to": "12 birds were on a wire. 3 more came. Then 1 flew away. How many birds are on the wire now?"
+    },
+    "answer": {
+     "from": "8 balls",
+     "to": "14 birds"
+    },
+    "solutionSteps": {
+     "from": [
+      "Some were taken away, so subtract: 17 − 9.",
+      "17 − 9 = 8."
+     ],
+     "to": [
+      "12 + 3 = 15.",
+      "15 − 1 = 14."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_take). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_in_then_out). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 balls",
+       "correct": true
+      },
+      {
+       "text": "26 balls",
+       "correct": false
+      },
+      {
+       "text": "9 balls",
+       "correct": false
+      },
+      {
+       "text": "17 balls",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 birds",
+       "correct": false
+      },
+      {
+       "text": "10 birds",
+       "correct": false
+      },
+      {
+       "text": "16 birds",
+       "correct": false
+      },
+      {
+       "text": "14 birds",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the stories that end with 14 birds."
+    },
+    "answer": {
+     "from": [
+      "There are 14 dogs in the yard. 6 more come. How many dogs are in the yard now? → 20 dogs",
+      "Kai had 8 books. Then Kai found 9 more. How many books does Kai have now? → 17 books"
+     ],
+     "to": [
+      "7 birds, then 7 more come",
+      "12 birds, then 2 more come",
+      "8 birds, then 6 more come",
+      "16 birds, then 2 fly away"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Uma has 7 rocks. Uma gets 8 more. How many rocks does Uma have now? → 14 rocks",
+       "correct": false
+      },
+      {
+       "text": "There are 14 dogs in the yard. 6 more come. How many dogs are in the yard now? → 20 dogs",
+       "correct": true
+      },
+      {
+       "text": "Eli had 4 stickers. Then Eli found 9 more. How many stickers does Eli have now? → 14 stickers",
+       "correct": false
+      },
+      {
+       "text": "Kai had 8 books. Then Kai found 9 more. How many books does Kai have now? → 17 books",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7 birds, then 7 more come",
+       "correct": true
+      },
+      {
+       "text": "12 birds, then 2 more come",
+       "correct": true
+      },
+      {
+       "text": "11 birds, then 4 more come",
+       "correct": false
+      },
+      {
+       "text": "8 birds, then 6 more come",
+       "correct": true
+      },
+      {
+       "text": "16 birds, then 2 fly away",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Uma has 7 rocks. Uma gets 8 more. How many rocks does Uma have now? → 14 rocks: not correct.",
+      "There are 14 dogs in the yard. 6 more come. How many dogs are in the yard now? → 20 dogs: correct.",
+      "Eli had 4 stickers. Then Eli found 9 more. How many stickers does Eli have now? → 14 stickers: not correct.",
+      "Kai had 8 books. Then Kai found 9 more. How many books does Kai have now? → 17 books: correct."
+     ],
+     "to": [
+      "Add when more come; subtract when some fly away.",
+      "Correct choices: 7 birds, then 7 more come; 12 birds, then 2 more come; 8 birds, then 6 more come; 16 birds, then 2 fly away. Not correct: 11 birds, then 4 more come."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_select_stories_end). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "12 ducks are in a pond. 7 more ducks come."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Mia has 10 hats. Mia gets 5 more. How many hats does Mia have now?",
+       "answer": "15 hats"
+      },
+      {
+       "prompt": "Abe had 8 beads. Then Abe found 6 more. How many beads does Abe have now?",
+       "answer": "14 beads"
+      },
+      {
+       "prompt": "There are 13 birds in the yard. 6 more come. How many birds are in the yard now?",
+       "answer": "19 birds"
+      },
+      {
+       "prompt": "There are 9 ducks in the yard. 5 more come. How many ducks are in the yard now?",
+       "answer": "14 ducks"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many ducks are in the pond now?",
+       "answer": "19 ducks"
+      },
+      {
+       "prompt": "Then 3 ducks fly away. How many are left?",
+       "answer": "16 ducks"
+      },
+      {
+       "prompt": "Write an equation for the first part.",
+       "answer": "Sample answer: 12 + 7 = 19"
+      },
+      {
+       "prompt": "Tell how you knew to add.",
+       "answer": "Sample answer: More ducks came, so the group got bigger."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 15 hats; (b) 14 beads; (c) 19 birds; (d) 14 ducks",
+     "to": "(a) 19 ducks; (b) 16 ducks; (c) Sample answer: 12 + 7 = 19; (d) Sample answer: More ducks came, so the group got bigger."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Some more were added, so add: 10 + 5. 10 + 5 = 15.",
+      "(b) Some more were added, so add: 8 + 6. 8 + 6 = 14.",
+      "(c) Some more were added, so add: 13 + 6. 13 + 6 = 19.",
+      "(d) Some more were added, so add: 9 + 5. 9 + 5 = 14."
+     ],
+     "to": [
+      "(a) 12 + 7.",
+      "(b) 19 − 3.",
+      "(c) Add to.",
+      "(d) Add to."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: at_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp1_open_ducks). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A jar has 14 crayons, some red and some blue. Select ALL the pairs (red + blue) that could be true."
+    },
+    "answer": {
+     "from": [
+      "There are 7 green stickers and 3 big stickers in a bag. How many stickers are in the bag? → 10 stickers",
+      "There are 4 red shells and 6 small shells in a bag. How many shells are in the bag? → 10 shells"
+     ],
+     "to": [
+      "1 + 13",
+      "13 + 1"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 6 small marbles and 4 green marbles in a bag. How many marbles are in the bag? → 11 marbles",
+       "correct": false
+      },
+      {
+       "text": "There are 7 green stickers and 3 big stickers in a bag. How many stickers are in the bag? → 10 stickers",
+       "correct": true
+      },
+      {
+       "text": "There are 4 red shells and 6 small shells in a bag. How many shells are in the bag? → 10 shells",
+       "correct": true
+      },
+      {
+       "text": "Ana has 11 red cookies and 7 yellow cookies. How many cookies does Ana have? → 11 cookies",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 + 9",
+       "correct": false
+      },
+      {
+       "text": "12 + 1",
+       "correct": false
+      },
+      {
+       "text": "3 + 12",
+       "correct": false
+      },
+      {
+       "text": "1 + 13",
+       "correct": true
+      },
+      {
+       "text": "13 + 1",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 6 small marbles and 4 green marbles in a bag. How many marbles are in the bag? → 11 marbles: not correct.",
+      "There are 7 green stickers and 3 big stickers in a bag. How many stickers are in the bag? → 10 stickers: correct.",
+      "There are 4 red shells and 6 small shells in a bag. How many shells are in the bag? → 10 shells: correct.",
+      "Ana has 11 red cookies and 7 yellow cookies. How many cookies does Ana have? → 11 cookies: not correct."
+     ],
+     "to": [
+      "The parts must add to 14.",
+      "Correct choices: 1 + 13; 13 + 1. Not correct: 6 + 9; 3 + 12; 12 + 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A box has 13 crayons. 4 are red and the rest are blue."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 4 big cars and 6 red cars in a bag. How many cars are in the bag?",
+       "answer": "10 cars"
+      },
+      {
+       "prompt": "There are 10 green cars and 8 small cars in a bag. How many cars are in the bag?",
+       "answer": "18 cars"
+      },
+      {
+       "prompt": "Dev has 8 red leaves and 8 yellow leaves. How many leaves does Dev have?",
+       "answer": "16 leaves"
+      },
+      {
+       "prompt": "There are 4 red cars and 6 big cars in a bag. How many cars are in the bag?",
+       "answer": "10 cars"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many crayons are blue?",
+       "answer": "9 crayons"
+      },
+      {
+       "prompt": "Write an addition equation for the box.",
+       "answer": "Sample answer: 4 + 9 = 13"
+      },
+      {
+       "prompt": "Are there more red or more blue crayons?",
+       "answer": "blue"
+      },
+      {
+       "prompt": "Tell how you found the blue crayons.",
+       "answer": "Sample answer: I took the red crayons away from all the crayons."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 10 cars; (b) 18 cars; (c) 16 leaves; (d) 10 cars",
+     "to": "(a) 9 crayons; (b) Sample answer: 4 + 9 = 13; (c) blue; (d) Sample answer: I took the red crayons away from all the crayons."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the two parts together: 4 + 6. 4 + 6 = 10.",
+      "(b) Put the two parts together: 10 + 8. 10 + 8 = 18.",
+      "(c) Put the two parts together: 8 + 8. 8 + 8 = 16.",
+      "(d) Put the two parts together: 4 + 6. 4 + 6 = 10."
+     ],
+     "to": [
+      "(a) 13 − 4.",
+      "(b) Parts make the whole.",
+      "(c) Compare.",
+      "(d) Take apart."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_crayons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A jar has 9 crayons, some red and some blue. Select ALL the pairs (red + blue) that could be true."
+    },
+    "answer": {
+     "from": [
+      "Uma has 2 big marbles and 6 small marbles. How many marbles does Uma have? → 8 marbles",
+      "Gus has 1 red car and 6 blue cars. How many cars does Gus have? → 7 cars"
+     ],
+     "to": [
+      "2 + 7",
+      "6 + 3",
+      "7 + 2"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Uma has 2 big marbles and 6 small marbles. How many marbles does Uma have? → 8 marbles",
+       "correct": true
+      },
+      {
+       "text": "There are 6 small marbles and 4 big marbles in a bag. How many marbles are in the bag? → 11 marbles",
+       "correct": false
+      },
+      {
+       "text": "Rosa has 4 big hats and 4 green hats. How many hats does Rosa have? → 0 hats",
+       "correct": false
+      },
+      {
+       "text": "Gus has 1 red car and 6 blue cars. How many cars does Gus have? → 7 cars",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 + 7",
+       "correct": true
+      },
+      {
+       "text": "6 + 3",
+       "correct": true
+      },
+      {
+       "text": "7 + 2",
+       "correct": true
+      },
+      {
+       "text": "7 + 1",
+       "correct": false
+      },
+      {
+       "text": "2 + 8",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Uma has 2 big marbles and 6 small marbles. How many marbles does Uma have? → 8 marbles: correct.",
+      "There are 6 small marbles and 4 big marbles in a bag. How many marbles are in the bag? → 11 marbles: not correct.",
+      "Rosa has 4 big hats and 4 green hats. How many hats does Rosa have? → 0 hats: not correct.",
+      "Gus has 1 red car and 6 blue cars. How many cars does Gus have? → 7 cars: correct."
+     ],
+     "to": [
+      "The parts must add to 9.",
+      "Correct choices: 2 + 7; 6 + 3; 7 + 2. Not correct: 7 + 1; 2 + 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A box has 11 crayons. 3 are red and the rest are blue."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 3 red cars and 1 big car in a bag. How many cars are in the bag?",
+       "answer": "4 cars"
+      },
+      {
+       "prompt": "There are 2 big hats and 2 green hats in a bag. How many hats are in the bag?",
+       "answer": "4 hats"
+      },
+      {
+       "prompt": "Finn has 2 blue stickers and 1 green sticker. How many stickers does Finn have?",
+       "answer": "3 stickers"
+      },
+      {
+       "prompt": "There are 3 blue cups and 5 yellow cups in a bag. How many cups are in the bag?",
+       "answer": "8 cups"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many crayons are blue?",
+       "answer": "8 crayons"
+      },
+      {
+       "prompt": "Write an addition equation for the box.",
+       "answer": "Sample answer: 3 + 8 = 11"
+      },
+      {
+       "prompt": "Are there more red or more blue crayons?",
+       "answer": "blue"
+      },
+      {
+       "prompt": "Tell how you found the blue crayons.",
+       "answer": "Sample answer: I took the red crayons away from all the crayons."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4 cars; (b) 4 hats; (c) 3 stickers; (d) 8 cups",
+     "to": "(a) 8 crayons; (b) Sample answer: 3 + 8 = 11; (c) blue; (d) Sample answer: I took the red crayons away from all the crayons."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the two parts together: 3 + 1. 3 + 1 = 4.",
+      "(b) Put the two parts together: 2 + 2. 2 + 2 = 4.",
+      "(c) Put the two parts together: 2 + 1. 2 + 1 = 3.",
+      "(d) Put the two parts together: 3 + 5. 3 + 5 = 8."
+     ],
+     "to": [
+      "(a) 11 − 3.",
+      "(b) Parts make the whole.",
+      "(c) Compare.",
+      "(d) Take apart."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_crayons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "A jar has 12 crayons. Some are red and some are blue. Which could be true?",
+     "to": "A jar has 15 crayons. 3 are red, 4 are blue, and the rest are green. How many crayons are green?"
+    },
+    "answer": {
+     "from": "4 red and 8 blue",
+     "to": "8 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts must add to 12.",
+      "4 + 8 = 12."
+     ],
+     "to": [
+      "3 + 4 = 7 red and blue.",
+      "15 − 7 = 8 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_ways). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_three_colors). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 red and 9 blue",
+       "correct": false
+      },
+      {
+       "text": "5 red and 9 blue",
+       "correct": false
+      },
+      {
+       "text": "12 red and 4 blue",
+       "correct": false
+      },
+      {
+       "text": "4 red and 8 blue",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "12 crayons",
+       "correct": false
+      },
+      {
+       "text": "8 crayons",
+       "correct": true
+      },
+      {
+       "text": "7 crayons",
+       "correct": false
+      },
+      {
+       "text": "11 crayons",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "A jar has 19 books. Some are red and some are blue. Which could be true?",
+     "to": "A jar has 14 crayons. 3 are red, 1 are blue, and the rest are green. How many crayons are green?"
+    },
+    "answer": {
+     "from": "2 red and 17 blue",
+     "to": "10 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts must add to 19.",
+      "2 + 17 = 19."
+     ],
+     "to": [
+      "3 + 1 = 4 red and blue.",
+      "14 − 4 = 10 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_ways). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_three_colors). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 red and 18 blue",
+       "correct": false
+      },
+      {
+       "text": "3 red and 18 blue",
+       "correct": false
+      },
+      {
+       "text": "19 red and 2 blue",
+       "correct": false
+      },
+      {
+       "text": "2 red and 17 blue",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11 crayons",
+       "correct": false
+      },
+      {
+       "text": "4 crayons",
+       "correct": false
+      },
+      {
+       "text": "13 crayons",
+       "correct": false
+      },
+      {
+       "text": "10 crayons",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A jar has 15 hats. Some are red and some are blue. Which could be true?",
+     "to": "A jar has 15 crayons. 6 are red, 2 are blue, and the rest are green. How many crayons are green?"
+    },
+    "answer": {
+     "from": "7 red and 8 blue",
+     "to": "7 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "The two parts must add to 15.",
+      "7 + 8 = 15."
+     ],
+     "to": [
+      "6 + 2 = 8 red and blue.",
+      "15 − 8 = 7 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_ways). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_three_colors). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 red and 9 blue",
+       "correct": false
+      },
+      {
+       "text": "7 red and 8 blue",
+       "correct": true
+      },
+      {
+       "text": "8 red and 9 blue",
+       "correct": false
+      },
+      {
+       "text": "15 red and 7 blue",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9 crayons",
+       "correct": false
+      },
+      {
+       "text": "8 crayons",
+       "correct": false
+      },
+      {
+       "text": "7 crayons",
+       "correct": true
+      },
+      {
+       "text": "13 crayons",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A jar has 14 crayons, some red and some blue. Select ALL the pairs (red + blue) that could be true."
+    },
+    "answer": {
+     "from": [
+      "There are 5 big kites and 9 green kites in a bag. How many kites are in the bag? → 14 kites",
+      "There are 10 green beads and 6 small beads in a bag. How many beads are in the bag? → 16 beads"
+     ],
+     "to": [
+      "6 + 8",
+      "8 + 6",
+      "14 + 0",
+      "11 + 3"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "There are 5 big kites and 9 green kites in a bag. How many kites are in the bag? → 14 kites",
+       "correct": true
+      },
+      {
+       "text": "There are 10 green beads and 6 small beads in a bag. How many beads are in the bag? → 16 beads",
+       "correct": true
+      },
+      {
+       "text": "Cam has 9 blue apples and 5 red apples. How many apples does Cam have? → 13 apples",
+       "correct": false
+      },
+      {
+       "text": "There are 6 blue buttons and 9 red buttons in a bag. How many buttons are in the bag? → 3 buttons",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9 + 6",
+       "correct": false
+      },
+      {
+       "text": "6 + 8",
+       "correct": true
+      },
+      {
+       "text": "8 + 6",
+       "correct": true
+      },
+      {
+       "text": "14 + 0",
+       "correct": true
+      },
+      {
+       "text": "11 + 3",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "There are 5 big kites and 9 green kites in a bag. How many kites are in the bag? → 14 kites: correct.",
+      "There are 10 green beads and 6 small beads in a bag. How many beads are in the bag? → 16 beads: correct.",
+      "Cam has 9 blue apples and 5 red apples. How many apples does Cam have? → 13 apples: not correct.",
+      "There are 6 blue buttons and 9 red buttons in a bag. How many buttons are in the bag? → 3 buttons: not correct."
+     ],
+     "to": [
+      "The parts must add to 14.",
+      "Correct choices: 6 + 8; 8 + 6; 14 + 0; 11 + 3. Not correct: 9 + 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_select_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A box has 19 crayons. 8 are red and the rest are blue."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Mei has 12 red beads and 5 blue beads. How many beads does Mei have?",
+       "answer": "17 beads"
+      },
+      {
+       "prompt": "There are 10 big shells and 6 small shells in a bag. How many shells are in the bag?",
+       "answer": "16 shells"
+      },
+      {
+       "prompt": "Dan has 4 yellow pens and 9 small pens. How many pens does Dan have?",
+       "answer": "13 pens"
+      },
+      {
+       "prompt": "Ivy has 8 red apples and 5 big apples. How many apples does Ivy have?",
+       "answer": "13 apples"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many crayons are blue?",
+       "answer": "11 crayons"
+      },
+      {
+       "prompt": "Write an addition equation for the box.",
+       "answer": "Sample answer: 8 + 11 = 19"
+      },
+      {
+       "prompt": "Are there more red or more blue crayons?",
+       "answer": "blue"
+      },
+      {
+       "prompt": "Tell how you found the blue crayons.",
+       "answer": "Sample answer: I took the red crayons away from all the crayons."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 17 beads; (b) 16 shells; (c) 13 pens; (d) 13 apples",
+     "to": "(a) 11 crayons; (b) Sample answer: 8 + 11 = 19; (c) blue; (d) Sample answer: I took the red crayons away from all the crayons."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Put the two parts together: 12 + 5. 12 + 5 = 17.",
+      "(b) Put the two parts together: 10 + 6. 10 + 6 = 16.",
+      "(c) Put the two parts together: 4 + 9. 4 + 9 = 13.",
+      "(d) Put the two parts together: 8 + 5. 8 + 5 = 13."
+     ],
+     "to": [
+      "(a) 19 − 8.",
+      "(b) Parts make the whole.",
+      "(c) Compare.",
+      "(d) Take apart."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: pt_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp2_open_crayons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Zoe has 4 more cars than Ben. Select ALL the pairs that could be true."
+    },
+    "answer": {
+     "from": [
+      "Ian has 9 rocks. Pam has 18 rocks. How many fewer rocks does Ian have than Pam? → 9 rocks",
+      "Ivy has 12 shells. Ian has 5 shells. How many more shells does Ivy have than Ian? → 7 shells"
+     ],
+     "to": [
+      "Ben 3, Zoe 7",
+      "Ben 9, Zoe 13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ian has 9 rocks. Pam has 18 rocks. How many fewer rocks does Ian have than Pam? → 9 rocks",
+       "correct": true
+      },
+      {
+       "text": "Raj has 12 stickers. Ted has 5 stickers. How many more stickers does Raj have than Ted? → 8 stickers",
+       "correct": false
+      },
+      {
+       "text": "Kim has 4 stickers. Abe has 11 stickers. How many fewer stickers does Kim have than Abe? → 15 stickers",
+       "correct": false
+      },
+      {
+       "text": "Ivy has 12 shells. Ian has 5 shells. How many more shells does Ivy have than Ian? → 7 shells",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "Ben 7, Zoe 10",
+       "correct": false
+      },
+      {
+       "text": "Ben 10, Zoe 15",
+       "correct": false
+      },
+      {
+       "text": "Ben 3, Zoe 7",
+       "correct": true
+      },
+      {
+       "text": "Ben 4, Zoe 9",
+       "correct": false
+      },
+      {
+       "text": "Ben 9, Zoe 13",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ian has 9 rocks. Pam has 18 rocks. How many fewer rocks does Ian have than Pam? → 9 rocks: correct.",
+      "Raj has 12 stickers. Ted has 5 stickers. How many more stickers does Raj have than Ted? → 8 stickers: not correct.",
+      "Kim has 4 stickers. Abe has 11 stickers. How many fewer stickers does Kim have than Abe? → 15 stickers: not correct.",
+      "Ivy has 12 shells. Ian has 5 shells. How many more shells does Ivy have than Ian? → 7 shells: correct."
+     ],
+     "to": [
+      "Zoe’s number minus Ben’s number must be 4.",
+      "Correct choices: Ben 3, Zoe 7; Ben 9, Zoe 13. Not correct: Ben 4, Zoe 9; Ben 7, Zoe 10; Ben 10, Zoe 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 8 cars. Zoe has 6 more cars than Ben."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Liz has 13 books. Dan has 10 books. How many more books does Liz have than Dan?",
+       "answer": "3 books"
+      },
+      {
+       "prompt": "Zoe has 7 pens. Leo has 9 pens. How many fewer pens does Zoe have than Leo?",
+       "answer": "2 pens"
+      },
+      {
+       "prompt": "Rosa has 4 marbles. Leo has 9 marbles. How many fewer marbles does Rosa have than Leo?",
+       "answer": "5 marbles"
+      },
+      {
+       "prompt": "Eli has 7 pens. Gus has 13 pens. How many fewer pens does Eli have than Gus?",
+       "answer": "6 pens"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cars does Zoe have?",
+       "answer": "14 cars"
+      },
+      {
+       "prompt": "How many fewer cars does Ben have than Zoe?",
+       "answer": "6 cars"
+      },
+      {
+       "prompt": "How many cars do they have in all?",
+       "answer": "22 cars"
+      },
+      {
+       "prompt": "Tell what \"more than\" means here.",
+       "answer": "Sample answer: It tells how many extra cars Zoe has."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3 books; (b) 2 pens; (c) 5 marbles; (d) 6 pens",
+     "to": "(a) 14 cars; (b) 6 cars; (c) 22 cars; (d) Sample answer: It tells how many extra cars Zoe has."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 13 and 10: 10 + ___ = 13. 13 − 10 = 3.",
+      "(b) Compare 9 and 7: 7 + ___ = 9. 9 − 7 = 2.",
+      "(c) Compare 9 and 4: 4 + ___ = 9. 9 − 4 = 5.",
+      "(d) Compare 13 and 7: 7 + ___ = 13. 13 − 7 = 6."
+     ],
+     "to": [
+      "(a) 8 + 6.",
+      "(b) The difference.",
+      "(c) 8 + 14.",
+      "(d) Difference."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Zoe has 5 more cars than Ben. Select ALL the pairs that could be true."
+    },
+    "answer": {
+     "from": [
+      "Tom has 4 marbles. Kim has 5 marbles. How many fewer marbles does Tom have than Kim? → 1 marble",
+      "Tom has 2 shells. Mia has 3 shells. How many fewer shells does Tom have than Mia? → 1 shell"
+     ],
+     "to": [
+      "Ben 4, Zoe 9",
+      "Ben 12, Zoe 17",
+      "Ben 8, Zoe 13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ted has 5 cups. Dev has 4 cups. How many more cups does Ted have than Dev? → 9 cups",
+       "correct": false
+      },
+      {
+       "text": "Kim has 6 cars. Dan has 4 cars. How many more cars does Kim have than Dan? → 10 cars",
+       "correct": false
+      },
+      {
+       "text": "Tom has 4 marbles. Kim has 5 marbles. How many fewer marbles does Tom have than Kim? → 1 marble",
+       "correct": true
+      },
+      {
+       "text": "Tom has 2 shells. Mia has 3 shells. How many fewer shells does Tom have than Mia? → 1 shell",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "Ben 4, Zoe 9",
+       "correct": true
+      },
+      {
+       "text": "Ben 6, Zoe 10",
+       "correct": false
+      },
+      {
+       "text": "Ben 12, Zoe 17",
+       "correct": true
+      },
+      {
+       "text": "Ben 8, Zoe 13",
+       "correct": true
+      },
+      {
+       "text": "Ben 9, Zoe 15",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ted has 5 cups. Dev has 4 cups. How many more cups does Ted have than Dev? → 9 cups: not correct.",
+      "Kim has 6 cars. Dan has 4 cars. How many more cars does Kim have than Dan? → 10 cars: not correct.",
+      "Tom has 4 marbles. Kim has 5 marbles. How many fewer marbles does Tom have than Kim? → 1 marble: correct.",
+      "Tom has 2 shells. Mia has 3 shells. How many fewer shells does Tom have than Mia? → 1 shell: correct."
+     ],
+     "to": [
+      "Zoe’s number minus Ben’s number must be 5.",
+      "Correct choices: Ben 4, Zoe 9; Ben 12, Zoe 17; Ben 8, Zoe 13. Not correct: Ben 6, Zoe 10; Ben 9, Zoe 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 5 cars. Zoe has 2 more cars than Ben."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ava has 9 blocks. Leo has 5 blocks. How many more blocks does Ava have than Leo?",
+       "answer": "4 blocks"
+      },
+      {
+       "prompt": "Mia has 6 shells. Sam has 3 shells. How many more shells does Mia have than Sam?",
+       "answer": "3 shells"
+      },
+      {
+       "prompt": "Sam has 6 beads. Jay has 1 bead. How many more beads does Sam have than Jay?",
+       "answer": "5 beads"
+      },
+      {
+       "prompt": "Leo has 7 beads. Ava has 6 beads. How many more beads does Leo have than Ava?",
+       "answer": "1 bead"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cars does Zoe have?",
+       "answer": "7 cars"
+      },
+      {
+       "prompt": "How many fewer cars does Ben have than Zoe?",
+       "answer": "2 cars"
+      },
+      {
+       "prompt": "How many cars do they have in all?",
+       "answer": "12 cars"
+      },
+      {
+       "prompt": "Tell what \"more than\" means here.",
+       "answer": "Sample answer: It tells how many extra cars Zoe has."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4 blocks; (b) 3 shells; (c) 5 beads; (d) 1 bead",
+     "to": "(a) 7 cars; (b) 2 cars; (c) 12 cars; (d) Sample answer: It tells how many extra cars Zoe has."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 9 and 5: 5 + ___ = 9. 9 − 5 = 4.",
+      "(b) Compare 6 and 3: 3 + ___ = 6. 6 − 3 = 3.",
+      "(c) Compare 6 and 1: 1 + ___ = 6. 6 − 1 = 5.",
+      "(d) Compare 7 and 6: 6 + ___ = 7. 7 − 6 = 1."
+     ],
+     "to": [
+      "(a) 5 + 2.",
+      "(b) The difference.",
+      "(c) 5 + 7.",
+      "(d) Difference."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Zoe has 2 more cars than Ben. Select ALL the pairs that could be true."
+    },
+    "answer": {
+     "from": [
+      "Ian has 5 cookies. Ben has 14 cookies. How many fewer cookies does Ian have than Ben? → 9 cookies",
+      "Nia has 12 marbles. Dan has 18 marbles. How many fewer marbles does Nia have than Dan? → 6 marbles"
+     ],
+     "to": [
+      "Ben 7, Zoe 9",
+      "Ben 4, Zoe 6",
+      "Ben 10, Zoe 12",
+      "Ben 13, Zoe 15"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Sam has 9 pens. Leo has 15 pens. How many fewer pens does Sam have than Leo? → 15 pens",
+       "correct": false
+      },
+      {
+       "text": "Ian has 5 cookies. Ben has 14 cookies. How many fewer cookies does Ian have than Ben? → 9 cookies",
+       "correct": true
+      },
+      {
+       "text": "Nia has 12 marbles. Dan has 18 marbles. How many fewer marbles does Nia have than Dan? → 6 marbles",
+       "correct": true
+      },
+      {
+       "text": "Ian has 11 books. Ana has 16 books. How many fewer books does Ian have than Ana? → 11 books",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Ben 7, Zoe 9",
+       "correct": true
+      },
+      {
+       "text": "Ben 4, Zoe 6",
+       "correct": true
+      },
+      {
+       "text": "Ben 10, Zoe 12",
+       "correct": true
+      },
+      {
+       "text": "Ben 13, Zoe 15",
+       "correct": true
+      },
+      {
+       "text": "Ben 3, Zoe 4",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Sam has 9 pens. Leo has 15 pens. How many fewer pens does Sam have than Leo? → 15 pens: not correct.",
+      "Ian has 5 cookies. Ben has 14 cookies. How many fewer cookies does Ian have than Ben? → 9 cookies: correct.",
+      "Nia has 12 marbles. Dan has 18 marbles. How many fewer marbles does Nia have than Dan? → 6 marbles: correct.",
+      "Ian has 11 books. Ana has 16 books. How many fewer books does Ian have than Ana? → 11 books: not correct."
+     ],
+     "to": [
+      "Zoe’s number minus Ben’s number must be 2.",
+      "Correct choices: Ben 7, Zoe 9; Ben 4, Zoe 6; Ben 10, Zoe 12; Ben 13, Zoe 15. Not correct: Ben 3, Zoe 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_select_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 15 cars. Zoe has 5 more cars than Ben."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Cam has 6 blocks. Nia has 15 blocks. How many fewer blocks does Cam have than Nia?",
+       "answer": "9 blocks"
+      },
+      {
+       "prompt": "Finn has 16 stickers. Jay has 9 stickers. How many more stickers does Finn have than Jay?",
+       "answer": "7 stickers"
+      },
+      {
+       "prompt": "Dan has 14 buttons. Ivy has 10 buttons. How many more buttons does Dan have than Ivy?",
+       "answer": "4 buttons"
+      },
+      {
+       "prompt": "Finn has 8 stickers. Dan has 13 stickers. How many fewer stickers does Finn have than Dan?",
+       "answer": "5 stickers"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many cars does Zoe have?",
+       "answer": "20 cars"
+      },
+      {
+       "prompt": "How many fewer cars does Ben have than Zoe?",
+       "answer": "5 cars"
+      },
+      {
+       "prompt": "How many cars do they have in all?",
+       "answer": "35 cars"
+      },
+      {
+       "prompt": "Tell what \"more than\" means here.",
+       "answer": "Sample answer: It tells how many extra cars Zoe has."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 blocks; (b) 7 stickers; (c) 4 buttons; (d) 5 stickers",
+     "to": "(a) 20 cars; (b) 5 cars; (c) 35 cars; (d) Sample answer: It tells how many extra cars Zoe has."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 15 and 6: 6 + ___ = 15. 15 − 6 = 9.",
+      "(b) Compare 16 and 9: 9 + ___ = 16. 16 − 9 = 7.",
+      "(c) Compare 14 and 10: 10 + ___ = 14. 14 − 10 = 4.",
+      "(d) Compare 13 and 8: 8 + ___ = 13. 13 − 8 = 5."
+     ],
+     "to": [
+      "(a) 15 + 5.",
+      "(b) The difference.",
+      "(c) 15 + 20.",
+      "(d) Difference."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: cp_more_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp3_open_compare). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Some birds were on a tree. 5 more came. Now there are 14. Select ALL the equations that match the story."
+    },
+    "answer": {
+     "from": [
+      "Max has 8 beads. Max gets some more. Now Max has 14. How many beads did Max get? → 6 beads",
+      "Gus has 4 hats. Gus gets some more. Now Gus has 13. How many hats did Gus get? → 9 hats"
+     ],
+     "to": [
+      "5 + ___ = 14",
+      "___ + 5 = 14"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Max has 8 beads. Max gets some more. Now Max has 14. How many beads did Max get? → 6 beads",
+       "correct": true
+      },
+      {
+       "text": "Ted has 12 buttons. Ted gets some more. Now Ted has 17. How many buttons did Ted get? → 17 buttons",
+       "correct": false
+      },
+      {
+       "text": "Gus has 4 hats. Gus gets some more. Now Gus has 13. How many hats did Gus get? → 9 hats",
+       "correct": true
+      },
+      {
+       "text": "Pam has 6 crayons. Pam gets some more. Now Pam has 14. How many crayons did Pam get? → 20 crayons",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5 − 14 = ___",
+       "correct": false
+      },
+      {
+       "text": "5 + ___ = 14",
+       "correct": true
+      },
+      {
+       "text": "___ − 5 = 14",
+       "correct": false
+      },
+      {
+       "text": "14 + 5 = ___",
+       "correct": false
+      },
+      {
+       "text": "___ + 5 = 14",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Max has 8 beads. Max gets some more. Now Max has 14. How many beads did Max get? → 6 beads: correct.",
+      "Ted has 12 buttons. Ted gets some more. Now Ted has 17. How many buttons did Ted get? → 17 buttons: not correct.",
+      "Gus has 4 hats. Gus gets some more. Now Gus has 13. How many hats did Gus get? → 9 hats: correct.",
+      "Pam has 6 crayons. Pam gets some more. Now Pam has 14. How many crayons did Pam get? → 20 crayons: not correct."
+     ],
+     "to": [
+      "The start is unknown: ___ + 5 = 14, so 14 − 5 = ___.",
+      "Correct choices: 5 + ___ = 14; ___ + 5 = 14. Not correct: 5 − 14 = ___; ___ − 5 = 14; 14 + 5 = ___."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_select_equations). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Some birds are on a tree. 6 more birds come. Now there are 13 birds."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ben has 3 books. Ben gets some more. Now Ben has 12. How many books did Ben get?",
+       "answer": "9 books"
+      },
+      {
+       "prompt": "Jay has 8 stickers. Jay gets some more. Now Jay has 11. How many stickers did Jay get?",
+       "answer": "3 stickers"
+      },
+      {
+       "prompt": "There were 4 cups on a shelf. Some more were put on the shelf. Now there are 9. How many were put on the shelf?",
+       "answer": "5 cups"
+      },
+      {
+       "prompt": "Ted has 6 marbles. Ted gets some more. Now Ted has 13. How many marbles did Ted get?",
+       "answer": "7 marbles"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many birds were on the tree at first?",
+       "answer": "7 birds"
+      },
+      {
+       "prompt": "Write an equation with a blank.",
+       "answer": "Sample answer: ___ + 6 = 13"
+      },
+      {
+       "prompt": "If 2 birds fly away now, how many are left?",
+       "answer": "11 birds"
+      },
+      {
+       "prompt": "Tell how you found the start.",
+       "answer": "Sample answer: I took away the birds that came."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 books; (b) 3 stickers; (c) 5 cups; (d) 7 marbles",
+     "to": "(a) 7 birds; (b) Sample answer: ___ + 6 = 13; (c) 11 birds; (d) Sample answer: I took away the birds that came."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 3 + ___ = 12. Count on from 3 to 12: that is 9.",
+      "(b) 8 + ___ = 11. Count on from 8 to 11: that is 3.",
+      "(c) 4 + ___ = 9. Count on from 4 to 9: that is 5.",
+      "(d) 6 + ___ = 13. Count on from 6 to 13: that is 7."
+     ],
+     "to": [
+      "(a) 13 − 6.",
+      "(b) Start unknown.",
+      "(c) Take away 2.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_start_unknown). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Some birds were on a tree. 3 more came. Now there are 18. Select ALL the equations that match the story."
+    },
+    "answer": {
+     "from": [
+      "Dan has 4 cars. Dan gets some more. Now Dan has 7. How many cars did Dan get? → 3 cars",
+      "Pam has 2 kites. Pam gets some more. Now Pam has 4. How many kites did Pam get? → 2 kites"
+     ],
+     "to": [
+      "18 − 3 = ___",
+      "3 + ___ = 18",
+      "___ + 3 = 18"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Dan has 4 cars. Dan gets some more. Now Dan has 7. How many cars did Dan get? → 3 cars",
+       "correct": true
+      },
+      {
+       "text": "Raj has 5 marbles. Raj gets some more. Now Raj has 10. How many marbles did Raj get? → 6 marbles",
+       "correct": false
+      },
+      {
+       "text": "Pam has 2 kites. Pam gets some more. Now Pam has 4. How many kites did Pam get? → 2 kites",
+       "correct": true
+      },
+      {
+       "text": "Cam has 6 cups. Cam gets some more. Now Cam has 7. How many cups did Cam get? → 2 cups",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "18 − 3 = ___",
+       "correct": true
+      },
+      {
+       "text": "18 + ___ = 3",
+       "correct": false
+      },
+      {
+       "text": "3 + ___ = 18",
+       "correct": true
+      },
+      {
+       "text": "18 + 3 = ___",
+       "correct": false
+      },
+      {
+       "text": "___ + 3 = 18",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Dan has 4 cars. Dan gets some more. Now Dan has 7. How many cars did Dan get? → 3 cars: correct.",
+      "Raj has 5 marbles. Raj gets some more. Now Raj has 10. How many marbles did Raj get? → 6 marbles: not correct.",
+      "Pam has 2 kites. Pam gets some more. Now Pam has 4. How many kites did Pam get? → 2 kites: correct.",
+      "Cam has 6 cups. Cam gets some more. Now Cam has 7. How many cups did Cam get? → 2 cups: not correct."
+     ],
+     "to": [
+      "The start is unknown: ___ + 3 = 18, so 18 − 3 = ___.",
+      "Correct choices: 18 − 3 = ___; 3 + ___ = 18; ___ + 3 = 18. Not correct: 18 + ___ = 3; 18 + 3 = ___."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_select_equations). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Some birds are on a tree. 3 more birds come. Now there are 7 birds."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Finn has 1 ball. Finn gets some more. Now Finn has 7. How many balls did Finn get?",
+       "answer": "6 balls"
+      },
+      {
+       "prompt": "There were 4 buttons on a shelf. Some more were put on the shelf. Now there are 9. How many were put on the shelf?",
+       "answer": "5 buttons"
+      },
+      {
+       "prompt": "There were 5 crayons on a shelf. Some more were put on the shelf. Now there are 7. How many were put on the shelf?",
+       "answer": "2 crayons"
+      },
+      {
+       "prompt": "Mei has 2 rocks. Mei gets some more. Now Mei has 7. How many rocks did Mei get?",
+       "answer": "5 rocks"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many birds were on the tree at first?",
+       "answer": "4 birds"
+      },
+      {
+       "prompt": "Write an equation with a blank.",
+       "answer": "Sample answer: ___ + 3 = 7"
+      },
+      {
+       "prompt": "If 2 birds fly away now, how many are left?",
+       "answer": "5 birds"
+      },
+      {
+       "prompt": "Tell how you found the start.",
+       "answer": "Sample answer: I took away the birds that came."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6 balls; (b) 5 buttons; (c) 2 crayons; (d) 5 rocks",
+     "to": "(a) 4 birds; (b) Sample answer: ___ + 3 = 7; (c) 5 birds; (d) Sample answer: I took away the birds that came."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 1 + ___ = 7. Count on from 1 to 7: that is 6.",
+      "(b) 4 + ___ = 9. Count on from 4 to 9: that is 5.",
+      "(c) 5 + ___ = 7. Count on from 5 to 7: that is 2.",
+      "(d) 2 + ___ = 7. Count on from 2 to 7: that is 5."
+     ],
+     "to": [
+      "(a) 7 − 3.",
+      "(b) Start unknown.",
+      "(c) Take away 2.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_start_unknown). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Some birds were on a tree. 4 more came. Now there are 14. Select ALL the equations that match the story."
+    },
+    "answer": {
+     "from": [
+      "Rosa has 11 apples. Rosa gets some more. Now Rosa has 16. How many apples did Rosa get? → 5 apples",
+      "Leo has 8 apples. Leo gets some more. Now Leo has 13. How many apples did Leo get? → 5 apples"
+     ],
+     "to": [
+      "14 − 4 = ___",
+      "4 + ___ = 14"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Rosa has 11 apples. Rosa gets some more. Now Rosa has 16. How many apples did Rosa get? → 5 apples",
+       "correct": true
+      },
+      {
+       "text": "Leo has 8 apples. Leo gets some more. Now Leo has 13. How many apples did Leo get? → 5 apples",
+       "correct": true
+      },
+      {
+       "text": "Ivy has 8 books. Ivy gets some more. Now Ivy has 13. How many books did Ivy get? → 21 books",
+       "correct": false
+      },
+      {
+       "text": "Tess has 4 crayons. Tess gets some more. Now Tess has 13. How many crayons did Tess get? → 10 crayons",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "14 − 4 = ___",
+       "correct": true
+      },
+      {
+       "text": "14 + ___ = 4",
+       "correct": false
+      },
+      {
+       "text": "4 + ___ = 14",
+       "correct": true
+      },
+      {
+       "text": "___ − 4 = 14",
+       "correct": false
+      },
+      {
+       "text": "4 − 14 = ___",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Rosa has 11 apples. Rosa gets some more. Now Rosa has 16. How many apples did Rosa get? → 5 apples: correct.",
+      "Leo has 8 apples. Leo gets some more. Now Leo has 13. How many apples did Leo get? → 5 apples: correct.",
+      "Ivy has 8 books. Ivy gets some more. Now Ivy has 13. How many books did Ivy get? → 21 books: not correct.",
+      "Tess has 4 crayons. Tess gets some more. Now Tess has 13. How many crayons did Tess get? → 10 crayons: not correct."
+     ],
+     "to": [
+      "The start is unknown: ___ + 4 = 14, so 14 − 4 = ___.",
+      "Correct choices: 14 − 4 = ___; 4 + ___ = 14. Not correct: ___ − 4 = 14; 4 − 14 = ___; 14 + ___ = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_select_equations). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Some birds are on a tree. 4 more birds come. Now there are 16 birds."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There were 10 hats on a shelf. Some more were put on the shelf. Now there are 19. How many were put on the shelf?",
+       "answer": "9 hats"
+      },
+      {
+       "prompt": "Zoe has 12 beads. Zoe gets some more. Now Zoe has 20. How many beads did Zoe get?",
+       "answer": "8 beads"
+      },
+      {
+       "prompt": "Ana has 10 books. Ana gets some more. Now Ana has 18. How many books did Ana get?",
+       "answer": "8 books"
+      },
+      {
+       "prompt": "There were 8 marbles on a shelf. Some more were put on the shelf. Now there are 13. How many were put on the shelf?",
+       "answer": "5 marbles"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many birds were on the tree at first?",
+       "answer": "12 birds"
+      },
+      {
+       "prompt": "Write an equation with a blank.",
+       "answer": "Sample answer: ___ + 4 = 16"
+      },
+      {
+       "prompt": "If 2 birds fly away now, how many are left?",
+       "answer": "14 birds"
+      },
+      {
+       "prompt": "Tell how you found the start.",
+       "answer": "Sample answer: I took away the birds that came."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 hats; (b) 8 beads; (c) 8 books; (d) 5 marbles",
+     "to": "(a) 12 birds; (b) Sample answer: ___ + 4 = 16; (c) 14 birds; (d) Sample answer: I took away the birds that came."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 + ___ = 19. Count on from 10 to 19: that is 9.",
+      "(b) 12 + ___ = 20. Count on from 12 to 20: that is 8.",
+      "(c) 10 + ___ = 18. Count on from 10 to 18: that is 8.",
+      "(d) 8 + ___ = 13. Count on from 8 to 13: that is 5."
+     ],
+     "to": [
+      "(a) 16 − 4.",
+      "(b) Start unknown.",
+      "(c) Take away 2.",
+      "(d) Work backward."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: ms_change_add_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp4_open_start_unknown). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Uma has 16 beads in three colors. Select ALL the groups that could be true."
+    },
+    "answer": {
+     "from": [
+      "Max picks 7 cars on Monday, 3 on Tuesday, and 6 on Wednesday. How many cars in all? → 16 cars",
+      "Ana picks 7 leaves on Monday, 8 on Tuesday, and 3 on Wednesday. How many leaves in all? → 18 leaves"
+     ],
+     "to": [
+      "1 red, 7 blue, 8 green",
+      "6 red, 2 blue, 8 green"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Jay has 7 red cars, 5 blue cars, and 3 green cars. How many cars does Jay have? → 12 cars",
+       "correct": false
+      },
+      {
+       "text": "Max picks 7 cars on Monday, 3 on Tuesday, and 6 on Wednesday. How many cars in all? → 16 cars",
+       "correct": true
+      },
+      {
+       "text": "There are 5 pens in one box, 4 in a second box, and 6 in a third box. How many pens are there? → 11 pens",
+       "correct": false
+      },
+      {
+       "text": "Ana picks 7 leaves on Monday, 8 on Tuesday, and 3 on Wednesday. How many leaves in all? → 18 leaves",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "1 red, 7 blue, 8 green",
+       "correct": true
+      },
+      {
+       "text": "6 red, 5 blue, 4 green",
+       "correct": false
+      },
+      {
+       "text": "4 red, 4 blue, 7 green",
+       "correct": false
+      },
+      {
+       "text": "6 red, 2 blue, 8 green",
+       "correct": true
+      },
+      {
+       "text": "6 red, 8 blue, 1 green",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Jay has 7 red cars, 5 blue cars, and 3 green cars. How many cars does Jay have? → 12 cars: not correct.",
+      "Max picks 7 cars on Monday, 3 on Tuesday, and 6 on Wednesday. How many cars in all? → 16 cars: correct.",
+      "There are 5 pens in one box, 4 in a second box, and 6 in a third box. How many pens are there? → 11 pens: not correct.",
+      "Ana picks 7 leaves on Monday, 8 on Tuesday, and 3 on Wednesday. How many leaves in all? → 18 leaves: correct."
+     ],
+     "to": [
+      "The three colors must add to 16.",
+      "Correct choices: 1 red, 7 blue, 8 green; 6 red, 2 blue, 8 green. Not correct: 4 red, 4 blue, 7 green; 6 red, 5 blue, 4 green; 6 red, 8 blue, 1 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_select_three_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma has 4 red beads, 3 blue beads and 3 green beads."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Nia picks 6 eggs on Monday, 7 on Tuesday, and 3 on Wednesday. How many eggs in all?",
+       "answer": "16 eggs"
+      },
+      {
+       "prompt": "There are 2 shells in one box, 4 in a second box, and 7 in a third box. How many shells are there?",
+       "answer": "13 shells"
+      },
+      {
+       "prompt": "There are 3 shells in one box, 7 in a second box, and 3 in a third box. How many shells are there?",
+       "answer": "13 shells"
+      },
+      {
+       "prompt": "Max has 8 red apples, 2 blue apples, and 4 green apples. How many apples does Max have?",
+       "answer": "14 apples"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many beads in all?",
+       "answer": "10 beads"
+      },
+      {
+       "prompt": "How many beads are not green?",
+       "answer": "7 beads"
+      },
+      {
+       "prompt": "How many more beads would make 20?",
+       "answer": "10 beads"
+      },
+      {
+       "prompt": "Tell which numbers you added first.",
+       "answer": "Sample answer: I looked for numbers that make 10 or a double."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16 eggs; (b) 13 shells; (c) 13 shells; (d) 14 apples",
+     "to": "(a) 10 beads; (b) 7 beads; (c) 10 beads; (d) Sample answer: I looked for numbers that make 10 or a double."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add all three numbers. Look for one ten. 6 + 7 + 3 = 16.",
+      "(b) Add all three numbers. Look for one ten. 2 + 4 + 7 = 13.",
+      "(c) Add all three numbers. Look for one ten. 3 + 7 + 3 = 13.",
+      "(d) Add all three numbers. Look for one ten. 8 + 2 + 4 = 14."
+     ],
+     "to": [
+      "(a) 4 + 3 + 3.",
+      "(b) 4 + 3.",
+      "(c) Subtract from 20.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_open_three). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Uma has 10 beads in three colors. Select ALL the groups that could be true."
+    },
+    "answer": {
+     "from": [
+      "Ava picks 3 shells on Monday, 3 on Tuesday, and 2 on Wednesday. How many shells in all? → 8 shells",
+      "Jay picks 3 kites on Monday, 3 on Tuesday, and 4 on Wednesday. How many kites in all? → 10 kites"
+     ],
+     "to": [
+      "6 red, 1 blue, 3 green",
+      "3 red, 1 blue, 6 green",
+      "2 red, 3 blue, 5 green"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ava picks 3 shells on Monday, 3 on Tuesday, and 2 on Wednesday. How many shells in all? → 8 shells",
+       "correct": true
+      },
+      {
+       "text": "Jay picks 3 kites on Monday, 3 on Tuesday, and 4 on Wednesday. How many kites in all? → 10 kites",
+       "correct": true
+      },
+      {
+       "text": "Cam has 4 red balls, 4 blue balls, and 2 green balls. How many balls does Cam have? → 8 balls",
+       "correct": false
+      },
+      {
+       "text": "Dan picks 1 pen on Monday, 4 on Tuesday, and 2 on Wednesday. How many pens in all? → 6 pens",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 red, 1 blue, 3 green",
+       "correct": true
+      },
+      {
+       "text": "5 red, 2 blue, 2 green",
+       "correct": false
+      },
+      {
+       "text": "3 red, 1 blue, 6 green",
+       "correct": true
+      },
+      {
+       "text": "5 red, 1 blue, 3 green",
+       "correct": false
+      },
+      {
+       "text": "2 red, 3 blue, 5 green",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ava picks 3 shells on Monday, 3 on Tuesday, and 2 on Wednesday. How many shells in all? → 8 shells: correct.",
+      "Jay picks 3 kites on Monday, 3 on Tuesday, and 4 on Wednesday. How many kites in all? → 10 kites: correct.",
+      "Cam has 4 red balls, 4 blue balls, and 2 green balls. How many balls does Cam have? → 8 balls: not correct.",
+      "Dan picks 1 pen on Monday, 4 on Tuesday, and 2 on Wednesday. How many pens in all? → 6 pens: not correct."
+     ],
+     "to": [
+      "The three colors must add to 10.",
+      "Correct choices: 6 red, 1 blue, 3 green; 3 red, 1 blue, 6 green; 2 red, 3 blue, 5 green. Not correct: 5 red, 2 blue, 2 green; 5 red, 1 blue, 3 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_select_three_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma has 2 red beads, 4 blue beads and 3 green beads."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Uma has 3 red books, 4 blue books, and 2 green books. How many books does Uma have?",
+       "answer": "9 books"
+      },
+      {
+       "prompt": "There is 1 marble in one box, 2 in a second box, and 3 in a third box. How many marbles are there?",
+       "answer": "6 marbles"
+      },
+      {
+       "prompt": "Rosa picks 1 apple on Monday, 3 on Tuesday, and 4 on Wednesday. How many apples in all?",
+       "answer": "8 apples"
+      },
+      {
+       "prompt": "Leo picks 4 leaves on Monday, 1 on Tuesday, and 2 on Wednesday. How many leaves in all?",
+       "answer": "7 leaves"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many beads in all?",
+       "answer": "9 beads"
+      },
+      {
+       "prompt": "How many beads are not green?",
+       "answer": "6 beads"
+      },
+      {
+       "prompt": "How many more beads would make 20?",
+       "answer": "11 beads"
+      },
+      {
+       "prompt": "Tell which numbers you added first.",
+       "answer": "Sample answer: I looked for numbers that make 10 or a double."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9 books; (b) 6 marbles; (c) 8 apples; (d) 7 leaves",
+     "to": "(a) 9 beads; (b) 6 beads; (c) 11 beads; (d) Sample answer: I looked for numbers that make 10 or a double."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add all three numbers. Look for one ten. 3 + 4 + 2 = 9.",
+      "(b) Add all three numbers. Look for one ten. 1 + 2 + 3 = 6.",
+      "(c) Add all three numbers. Look for one ten. 1 + 3 + 4 = 8.",
+      "(d) Add all three numbers. Look for one ten. 4 + 1 + 2 = 7."
+     ],
+     "to": [
+      "(a) 2 + 4 + 3.",
+      "(b) 2 + 4.",
+      "(c) Subtract from 20.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_open_three). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Uma has 13 beads in three colors. Select ALL the groups that could be true."
+    },
+    "answer": {
+     "from": [
+      "Ian picks 5 cookies on Monday, 6 on Tuesday, and 9 on Wednesday. How many cookies in all? → 20 cookies",
+      "Leo picks 5 marbles on Monday, 5 on Tuesday, and 5 on Wednesday. How many marbles in all? → 15 marbles"
+     ],
+     "to": [
+      "2 red, 8 blue, 3 green",
+      "5 red, 3 blue, 5 green",
+      "3 red, 8 blue, 2 green",
+      "4 red, 1 blue, 8 green"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Jay picks 9 hats on Monday, 4 on Tuesday, and 5 on Wednesday. How many hats in all? → 13 hats",
+       "correct": false
+      },
+      {
+       "text": "Ian picks 5 cookies on Monday, 6 on Tuesday, and 9 on Wednesday. How many cookies in all? → 20 cookies",
+       "correct": true
+      },
+      {
+       "text": "Rosa has 9 red apples, 6 blue apples, and 4 green apples. How many apples does Rosa have? → 18 apples",
+       "correct": false
+      },
+      {
+       "text": "Leo picks 5 marbles on Monday, 5 on Tuesday, and 5 on Wednesday. How many marbles in all? → 15 marbles",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 red, 8 blue, 3 green",
+       "correct": true
+      },
+      {
+       "text": "5 red, 3 blue, 5 green",
+       "correct": true
+      },
+      {
+       "text": "3 red, 8 blue, 2 green",
+       "correct": true
+      },
+      {
+       "text": "5 red, 2 blue, 5 green",
+       "correct": false
+      },
+      {
+       "text": "4 red, 1 blue, 8 green",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Jay picks 9 hats on Monday, 4 on Tuesday, and 5 on Wednesday. How many hats in all? → 13 hats: not correct.",
+      "Ian picks 5 cookies on Monday, 6 on Tuesday, and 9 on Wednesday. How many cookies in all? → 20 cookies: correct.",
+      "Rosa has 9 red apples, 6 blue apples, and 4 green apples. How many apples does Rosa have? → 18 apples: not correct.",
+      "Leo picks 5 marbles on Monday, 5 on Tuesday, and 5 on Wednesday. How many marbles in all? → 15 marbles: correct."
+     ],
+     "to": [
+      "The three colors must add to 13.",
+      "Correct choices: 2 red, 8 blue, 3 green; 5 red, 3 blue, 5 green; 3 red, 8 blue, 2 green; 4 red, 1 blue, 8 green. Not correct: 5 red, 2 blue, 5 green."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_select_three_parts). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-wp-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Uma has 5 red beads, 2 blue beads and 5 green beads."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ava picks 5 crayons on Monday, 6 on Tuesday, and 6 on Wednesday. How many crayons in all?",
+       "answer": "17 crayons"
+      },
+      {
+       "prompt": "Zoe has 8 red rocks, 6 blue rocks, and 3 green rocks. How many rocks does Zoe have?",
+       "answer": "17 rocks"
+      },
+      {
+       "prompt": "There are 9 cookies in one box, 6 in a second box, and 3 in a third box. How many cookies are there?",
+       "answer": "18 cookies"
+      },
+      {
+       "prompt": "There are 8 blocks in one box, 3 in a second box, and 6 in a third box. How many blocks are there?",
+       "answer": "17 blocks"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many beads in all?",
+       "answer": "12 beads"
+      },
+      {
+       "prompt": "How many beads are not green?",
+       "answer": "7 beads"
+      },
+      {
+       "prompt": "How many more beads would make 20?",
+       "answer": "8 beads"
+      },
+      {
+       "prompt": "Tell which numbers you added first.",
+       "answer": "Sample answer: I looked for numbers that make 10 or a double."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 17 crayons; (b) 17 rocks; (c) 18 cookies; (d) 17 blocks",
+     "to": "(a) 12 beads; (b) 7 beads; (c) 8 beads; (d) Sample answer: I looked for numbers that make 10 or a double."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add all three numbers. Look for one ten. 5 + 6 + 6 = 17.",
+      "(b) Add all three numbers. Look for one ten. 8 + 6 + 3 = 17.",
+      "(c) Add all three numbers. Look for one ten. 9 + 6 + 3 = 18.",
+      "(d) Add all three numbers. Look for one ten. 8 + 3 + 6 = 17."
+     ],
+     "to": [
+      "(a) 5 + 2 + 5.",
+      "(b) 5 + 2.",
+      "(c) Subtract from 20.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: th_sum_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: wp5_open_three). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m1-wp-s01-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 1 = 14.",
+   "distractors": {
+    "15 birds": "a common mistake",
+    "10 birds": "a common mistake",
+    "16 birds": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 7 = 8 green.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "12 crayons": "a common mistake",
+    "7 crayons": "a common mistake",
+    "11 crayons": "a common mistake"
+   }
+  },
+  "m1-wp-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 4 = 10 green.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "11 crayons": "a common mistake",
+    "4 crayons": "a common mistake",
+    "13 crayons": "a common mistake"
+   }
+  },
+  "m1-wp-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 8 = 7 green.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9 crayons": "a common mistake",
+    "8 crayons": "a common mistake",
+    "13 crayons": "a common mistake"
+   }
+  },
+  "m1-wp-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add to.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add to.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add to.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "5 + 7.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "8 + 14.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "15 + 20.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Take away 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 20.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 20.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract from 20.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add when more come; subtract when some fly away.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add when more come; subtract when some fly away.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add when more come; subtract when some fly away.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The parts must add to 14.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The parts must add to 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The parts must add to 14.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Zoe’s number minus Ben’s number must be 4.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Zoe’s number minus Ben’s number must be 5.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Zoe’s number minus Ben’s number must be 2.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The start is unknown: ___ + 5 = 14, so 14 − 5 = ___.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The start is unknown: ___ + 3 = 18, so 18 − 3 = ___.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The start is unknown: ___ + 4 = 14, so 14 − 4 = ___.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The three colors must add to 16.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The three colors must add to 10.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-wp-s05-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The three colors must add to 13.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

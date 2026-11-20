@@ -1,0 +1,1901 @@
+[
+ {
+  "id": "m1-dt-s02-cp2-p001",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Apples: 3; Grapes: 5; Pears: 2",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Apples: 3; Grapes: 5; Pears: 2.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Snacks We Like",
+   "orientation": "horizontal",
+   "categories": [
+    "Apples",
+    "Grapes",
+    "Pears"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Apples",
+     "Grapes",
+     "Pears"
+    ],
+    "counts": [
+     3,
+     5,
+     2
+    ]
+   },
+   "target": {
+    "values": [
+     3,
+     5,
+     2
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      3,
+      5,
+      2
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        3,
+        5
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        5,
+        3,
+        2
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        4,
+        5,
+        2
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p001.png",
+    "alt": "Picture graph titled Snacks We Like. Apples: 3; Grapes: 5; Pears: 2."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-cp2-p002",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Dogs: 4; Cats: 2; Fish: 6",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Dogs: 4; Cats: 2; Fish: 6.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Our Pets",
+   "orientation": "horizontal",
+   "categories": [
+    "Dogs",
+    "Cats",
+    "Fish"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Dogs",
+     "Cats",
+     "Fish"
+    ],
+    "counts": [
+     4,
+     2,
+     6
+    ]
+   },
+   "target": {
+    "values": [
+     4,
+     2,
+     6
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      4,
+      2,
+      6
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        4,
+        2
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        2,
+        4,
+        6
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        5,
+        2,
+        6
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p002.png",
+    "alt": "Picture graph titled Our Pets. Dogs: 4; Cats: 2; Fish: 6."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-cp2-p003",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Sunny: 2; Rainy: 1; Cloudy: 4",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Sunny: 2; Rainy: 1; Cloudy: 4.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Weather This Week",
+   "orientation": "horizontal",
+   "categories": [
+    "Sunny",
+    "Rainy",
+    "Cloudy"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Sunny",
+     "Rainy",
+     "Cloudy"
+    ],
+    "counts": [
+     2,
+     1,
+     4
+    ]
+   },
+   "target": {
+    "values": [
+     2,
+     1,
+     4
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      2,
+      1,
+      4
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        2,
+        1
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        1,
+        2,
+        4
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        3,
+        1,
+        4
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p003.png",
+    "alt": "Picture graph titled Weather This Week. Sunny: 2; Rainy: 1; Cloudy: 4."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-cp1-p001",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Red: 6; Blue: 8; Green: 3",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Red: 6; Blue: 8; Green: 3.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Favorite Colors",
+   "orientation": "horizontal",
+   "categories": [
+    "Red",
+    "Blue",
+    "Green"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Red",
+     "Blue",
+     "Green"
+    ],
+    "counts": [
+     6,
+     8,
+     3
+    ]
+   },
+   "target": {
+    "values": [
+     6,
+     8,
+     3
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      6,
+      8,
+      3
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        6,
+        8
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        8,
+        6,
+        3
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        7,
+        8,
+        3
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p001.png",
+    "alt": "Picture graph titled Favorite Colors. Red: 6; Blue: 8; Green: 3."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-cp1-p002",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Circles: 7; Squares: 4; Triangles: 9",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Circles: 7; Squares: 4; Triangles: 9.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Shapes in a Bag",
+   "orientation": "horizontal",
+   "categories": [
+    "Circles",
+    "Squares",
+    "Triangles"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Circles",
+     "Squares",
+     "Triangles"
+    ],
+    "counts": [
+     7,
+     4,
+     9
+    ]
+   },
+   "target": {
+    "values": [
+     7,
+     4,
+     9
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      7,
+      4,
+      9
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        7,
+        4
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        4,
+        7,
+        9
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        8,
+        4,
+        9
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p002.png",
+    "alt": "Picture graph titled Shapes in a Bag. Circles: 7; Squares: 4; Triangles: 9."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-cp1-p003",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Pizza: 9; Tacos: 5; Soup: 7",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Pizza: 9; Tacos: 5; Soup: 7.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Lunch Choices",
+   "orientation": "horizontal",
+   "categories": [
+    "Pizza",
+    "Tacos",
+    "Soup"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Pizza",
+     "Tacos",
+     "Soup"
+    ],
+    "counts": [
+     9,
+     5,
+     7
+    ]
+   },
+   "target": {
+    "values": [
+     9,
+     5,
+     7
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      9,
+      5,
+      7
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        9,
+        5
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        5,
+        9,
+        7
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        10,
+        5,
+        7
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p003.png",
+    "alt": "Picture graph titled Lunch Choices. Pizza: 9; Tacos: 5; Soup: 7."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-honors-p001",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Ana: 11; Ben: 7; Cruz: 10",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Ana: 11; Ben: 7; Cruz: 10.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Books Read",
+   "orientation": "horizontal",
+   "categories": [
+    "Ana",
+    "Ben",
+    "Cruz"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Ana",
+     "Ben",
+     "Cruz"
+    ],
+    "counts": [
+     11,
+     7,
+     10
+    ]
+   },
+   "target": {
+    "values": [
+     11,
+     7,
+     10
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      11,
+      7,
+      10
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        11,
+        7
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        7,
+        11,
+        10
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        12,
+        7,
+        10
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p001.png",
+    "alt": "Picture graph titled Books Read. Ana: 11; Ben: 7; Cruz: 10."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-honors-p002",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Ants: 12; Bees: 8; Beetles: 9",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Ants: 12; Bees: 8; Beetles: 9.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Bugs Found",
+   "orientation": "horizontal",
+   "categories": [
+    "Ants",
+    "Bees",
+    "Beetles"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Ants",
+     "Bees",
+     "Beetles"
+    ],
+    "counts": [
+     12,
+     8,
+     9
+    ]
+   },
+   "target": {
+    "values": [
+     12,
+     8,
+     9
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      12,
+      8,
+      9
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        12,
+        8
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        8,
+        12,
+        9
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        11,
+        8,
+        9
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p002.png",
+    "alt": "Picture graph titled Bugs Found. Ants: 12; Bees: 8; Beetles: 9."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s02-honors-p003",
+  "unit": "data",
+  "skillId": "data-skill-02",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+  "answer": "Tag: 10; Ball: 12; Jump rope: 6",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Tag: 10; Ball: 12; Jump rope: 6.",
+   "Draw one circle for each mark in each row."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "picture-graph",
+   "title": "Games at Recess",
+   "orientation": "horizontal",
+   "categories": [
+    "Tag",
+    "Ball",
+    "Jump rope"
+   ],
+   "key": {
+    "symbol": "circle",
+    "value": 1
+   },
+   "maxSymbols": 12,
+   "allowHalf": false,
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Tag",
+     "Ball",
+     "Jump rope"
+    ],
+    "counts": [
+     10,
+     12,
+     6
+    ]
+   },
+   "target": {
+    "values": [
+     10,
+     12,
+     6
+    ]
+   },
+   "feedback": {
+    "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+    "swapped": "Two rows are switched. Check which row goes with each name.",
+    "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+    "position": "Not quite. Use the tally chart to count each row again."
+   },
+   "testVectors": {
+    "correct": {
+     "symbols": [
+      10,
+      12,
+      6
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "symbols": [
+        10,
+        12
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "symbols": [
+        12,
+        10,
+        6
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "symbols": [
+        11,
+        12,
+        6
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p003.png",
+    "alt": "Picture graph titled Games at Recess. Tag: 10; Ball: 12; Jump rope: 6."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp2-p001",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Cars: 4; Balls: 2; Blocks: 5",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Cars: 4; Balls: 2; Blocks: 5.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Toys in the Bin",
+   "orientation": "vertical",
+   "categories": [
+    "Cars",
+    "Balls",
+    "Blocks"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Cars",
+     "Balls",
+     "Blocks"
+    ],
+    "counts": [
+     4,
+     2,
+     5
+    ]
+   },
+   "target": {
+    "values": [
+     4,
+     2,
+     5
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      4,
+      2,
+      5
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        4,
+        2
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        2,
+        4,
+        5
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        5,
+        2,
+        5
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p001.png",
+    "alt": "Bar graph titled Toys in the Bin. Cars: 4; Balls: 2; Blocks: 5."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp2-p002",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Apples: 3; Bananas: 6; Pears: 1",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Apples: 3; Bananas: 6; Pears: 1.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Fruit in a Bowl",
+   "orientation": "vertical",
+   "categories": [
+    "Apples",
+    "Bananas",
+    "Pears"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Apples",
+     "Bananas",
+     "Pears"
+    ],
+    "counts": [
+     3,
+     6,
+     1
+    ]
+   },
+   "target": {
+    "values": [
+     3,
+     6,
+     1
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      3,
+      6,
+      1
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        3,
+        6
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        6,
+        3,
+        1
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        4,
+        6,
+        1
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p002.png",
+    "alt": "Bar graph titled Fruit in a Bowl. Apples: 3; Bananas: 6; Pears: 1."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp2-p003",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Robins: 5; Crows: 3; Jays: 2",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Robins: 5; Crows: 3; Jays: 2.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Birds We Saw",
+   "orientation": "vertical",
+   "categories": [
+    "Robins",
+    "Crows",
+    "Jays"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Robins",
+     "Crows",
+     "Jays"
+    ],
+    "counts": [
+     5,
+     3,
+     2
+    ]
+   },
+   "target": {
+    "values": [
+     5,
+     3,
+     2
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      5,
+      3,
+      2
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        5,
+        3
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        3,
+        5,
+        2
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        6,
+        3,
+        2
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p003.png",
+    "alt": "Bar graph titled Birds We Saw. Robins: 5; Crows: 3; Jays: 2."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp1-p001",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Fish: 8; Frog: 5; Hamster: 9",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Fish: 8; Frog: 5; Hamster: 9.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Votes for a Class Pet",
+   "orientation": "vertical",
+   "categories": [
+    "Fish",
+    "Frog",
+    "Hamster"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Fish",
+     "Frog",
+     "Hamster"
+    ],
+    "counts": [
+     8,
+     5,
+     9
+    ]
+   },
+   "target": {
+    "values": [
+     8,
+     5,
+     9
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      8,
+      5,
+      9
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        8,
+        5
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        5,
+        8,
+        9
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        9,
+        5,
+        9
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p001.png",
+    "alt": "Bar graph titled Votes for a Class Pet. Fish: 8; Frog: 5; Hamster: 9."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp1-p002",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Stars: 6; Hearts: 9; Moons: 4",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Stars: 6; Hearts: 9; Moons: 4.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Stickers",
+   "orientation": "vertical",
+   "categories": [
+    "Stars",
+    "Hearts",
+    "Moons"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Stars",
+     "Hearts",
+     "Moons"
+    ],
+    "counts": [
+     6,
+     9,
+     4
+    ]
+   },
+   "target": {
+    "values": [
+     6,
+     9,
+     4
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      6,
+      9,
+      4
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        6,
+        9
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        9,
+        6,
+        4
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        7,
+        9,
+        4
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p002.png",
+    "alt": "Bar graph titled Stickers. Stars: 6; Hearts: 9; Moons: 4."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-cp1-p003",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Walk: 7; Bus: 10; Car: 5",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Walk: 7; Bus: 10; Car: 5.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "How We Get to School",
+   "orientation": "vertical",
+   "categories": [
+    "Walk",
+    "Bus",
+    "Car"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Walk",
+     "Bus",
+     "Car"
+    ],
+    "counts": [
+     7,
+     10,
+     5
+    ]
+   },
+   "target": {
+    "values": [
+     7,
+     10,
+     5
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      7,
+      10,
+      5
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        7,
+        10
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        10,
+        7,
+        5
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        8,
+        10,
+        5
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p003.png",
+    "alt": "Bar graph titled How We Get to School. Walk: 7; Bus: 10; Car: 5."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-honors-p001",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Mon: 12; Tue: 9; Wed: 11",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Mon: 12; Tue: 9; Wed: 11.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Pages Read",
+   "orientation": "vertical",
+   "categories": [
+    "Mon",
+    "Tue",
+    "Wed"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Mon",
+     "Tue",
+     "Wed"
+    ],
+    "counts": [
+     12,
+     9,
+     11
+    ]
+   },
+   "target": {
+    "values": [
+     12,
+     9,
+     11
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      12,
+      9,
+      11
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        12,
+        9
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        9,
+        12,
+        11
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        11,
+        9,
+        11
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p001.png",
+    "alt": "Bar graph titled Pages Read. Mon: 12; Tue: 9; Wed: 11."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-honors-p002",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Mia: 10; Leo: 12; Kai: 7",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Mia: 10; Leo: 12; Kai: 7.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Shells Collected",
+   "orientation": "vertical",
+   "categories": [
+    "Mia",
+    "Leo",
+    "Kai"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Mia",
+     "Leo",
+     "Kai"
+    ],
+    "counts": [
+     10,
+     12,
+     7
+    ]
+   },
+   "target": {
+    "values": [
+     10,
+     12,
+     7
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      10,
+      12,
+      7
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        10,
+        12
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        12,
+        10,
+        7
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        11,
+        12,
+        7
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p002.png",
+    "alt": "Bar graph titled Shells Collected. Mia: 10; Leo: 12; Kai: 7."
+   }
+  }
+ },
+ {
+  "id": "m1-dt-s03-honors-p003",
+  "unit": "data",
+  "skillId": "data-skill-03",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "Use the tally chart. Make a bar graph.",
+  "answer": "Beans: 11; Corn: 8; Peas: 12",
+  "solutionSteps": [
+   "Count the tally marks in each row. A bundle of 5 has a line across it.",
+   "Counts: Beans: 11; Corn: 8; Peas: 12.",
+   "Make each bar end at its number on the scale."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "bar-graph",
+   "title": "Seeds That Grew",
+   "orientation": "vertical",
+   "categories": [
+    "Beans",
+    "Corn",
+    "Peas"
+   ],
+   "categoryLabel": "Choice",
+   "valueAxis": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "labelEvery": 1,
+    "snap": 1,
+    "label": "Number"
+   },
+   "source": {
+    "type": "tally",
+    "categories": [
+     "Beans",
+     "Corn",
+     "Peas"
+    ],
+    "counts": [
+     11,
+     8,
+     12
+    ]
+   },
+   "target": {
+    "values": [
+     11,
+     8,
+     12
+    ]
+   },
+   "feedback": {
+    "count": "Every bar needs a height on the scale.",
+    "swapped": "Two bars are switched. Check which bar goes with each label.",
+    "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+    "position": "Not quite. Use the tally chart to set each bar again."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      11,
+      8,
+      12
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        11,
+        8
+       ]
+      },
+      "expectCode": "count"
+     },
+     {
+      "response": {
+       "values": [
+        8,
+        11,
+        12
+       ]
+      },
+      "expectCode": "swapped"
+     },
+     {
+      "response": {
+       "values": [
+        12,
+        8,
+        12
+       ]
+      },
+      "expectCode": "off-by-one"
+     }
+    ]
+   },
+   "check": {
+    "type": "exact-after-snap"
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p003.png",
+    "alt": "Bar graph titled Seeds That Grew. Beans: 11; Corn: 8; Peas: 12."
+   }
+  }
+ }
+]

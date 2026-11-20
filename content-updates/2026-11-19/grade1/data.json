@@ -1,0 +1,3802 @@
+{
+ "unit": "data",
+ "edits": [
+  {
+   "id": "m1-dt-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the tallies that show 12."
+    },
+    "answer": {
+     "from": [
+      "Sort the blocks: red, blue, red, red, green, green, green, blue. How many red blocks are there? → 3",
+      "Sort the blocks: red, blue, green, red, blue, blue, red, green. How many blue blocks are there? → 3"
+     ],
+     "to": [
+      "12 marks",
+      "2 bundles of 5 and 2 more",
+      "12 single marks",
+      "7 marks and 1 bundle of 5"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Sort the blocks: blue, red, red, blue, green, green, blue, red. How many red blocks are there? → 5",
+       "correct": false
+      },
+      {
+       "text": "Sort the blocks: red, blue, red, red, green, green, green, blue. How many red blocks are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Sort the blocks: red, blue, green, red, blue, blue, red, green. How many blue blocks are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Sort the blocks: red, blue, green, red, red, blue, green, blue. How many blue blocks are there? → 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12 marks",
+       "correct": true
+      },
+      {
+       "text": "2 bundles of 5 and 2 more",
+       "correct": true
+      },
+      {
+       "text": "12 single marks",
+       "correct": true
+      },
+      {
+       "text": "11 marks",
+       "correct": false
+      },
+      {
+       "text": "7 marks and 1 bundle of 5",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Sort the blocks: blue, red, red, blue, green, green, blue, red. How many red blocks are there? → 5: not correct.",
+      "Sort the blocks: red, blue, red, red, green, green, green, blue. How many red blocks are there? → 3: correct.",
+      "Sort the blocks: red, blue, green, red, blue, blue, red, green. How many blue blocks are there? → 3: correct.",
+      "Sort the blocks: red, blue, green, red, red, blue, green, blue. How many blue blocks are there? → 8: not correct."
+     ],
+     "to": [
+      "12 = 2 fives and 2 more.",
+      "Correct choices: 12 marks; 2 bundles of 5 and 2 more; 12 single marks; 7 marks and 1 bundle of 5. Not correct: 11 marks."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_sort_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_select_tally). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A tally chart shows votes: apples 7, bananas 11, grapes 8."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Sort the blocks: blue, green, green, green, red, blue, blue, red, red, green. How many red blocks are there?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Sort the blocks: red, blue, red, blue, green, green, blue, blue, blue. How many blue blocks are there?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Sort the blocks: big, small, small, small, small, big, big, small, medium, big, big. How many big blocks are there?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Sort the blocks: big, medium, big, medium, big, medium, medium, big, small. How many medium blocks are there?",
+       "answer": "4"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many votes in all?",
+       "answer": "26 votes"
+      },
+      {
+       "prompt": "Which fruit got the most votes?",
+       "answer": "bananas"
+      },
+      {
+       "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+       "answer": "4 votes"
+      },
+      {
+       "prompt": "Tell how tally marks are grouped.",
+       "answer": "Sample answer: In bundles of 5 so they are easy to count."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 5; (c) 5; (d) 4",
+     "to": "(a) 26 votes; (b) bananas; (c) 4 votes; (d) Sample answer: In bundles of 5 so they are easy to count."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Make a group for each kind and count the red blocks. There are 3 red blocks.",
+      "(b) Make a group for each kind and count the blue blocks. There are 5 blue blocks.",
+      "(c) Make a group for each kind and count the big blocks. There are 5 big blocks.",
+      "(d) Make a group for each kind and count the medium blocks. There are 4 medium blocks."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_sort_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_open_tally). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the tallies that show 6."
+    },
+    "answer": {
+     "from": [
+      "Sort the blocks: blue, red, red, blue, red, blue. How many red blocks are there? → 3",
+      "Sort the shapes: square, circle, square, square, circle, circle. How many squares are there? → 3"
+     ],
+     "to": [
+      "1 marks and 1 bundle of 5",
+      "6 marks"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Sort the blocks: blue, blue, red, blue, blue, red, red, red. How many red blocks are there? → 8",
+       "correct": false
+      },
+      {
+       "text": "Sort the blocks: blue, red, red, blue, red, blue. How many red blocks are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Sort the shapes: square, circle, square, square, circle, circle. How many squares are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Sort the blocks: blue, red, red, blue, red, blue, blue. How many red blocks are there? → 7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 marks and 1 bundle of 5",
+       "correct": true
+      },
+      {
+       "text": "6 marks",
+       "correct": true
+      },
+      {
+       "text": "1 bundles of 5 and 2 more",
+       "correct": false
+      },
+      {
+       "text": "7 marks",
+       "correct": false
+      },
+      {
+       "text": "2 bundles of 5",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Sort the blocks: blue, blue, red, blue, blue, red, red, red. How many red blocks are there? → 8: not correct.",
+      "Sort the blocks: blue, red, red, blue, red, blue. How many red blocks are there? → 3: correct.",
+      "Sort the shapes: square, circle, square, square, circle, circle. How many squares are there? → 3: correct.",
+      "Sort the blocks: blue, red, red, blue, red, blue, blue. How many red blocks are there? → 7: not correct."
+     ],
+     "to": [
+      "6 = 1 fives and 1 more.",
+      "Correct choices: 1 marks and 1 bundle of 5; 6 marks. Not correct: 2 bundles of 5; 7 marks; 1 bundles of 5 and 2 more."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_sort_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_select_tally). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A tally chart shows votes: apples 6, bananas 4, grapes 5."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Sort the blocks: blue, blue, red, red, blue. How many red blocks are there?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Sort the shapes: square, square, square, square, circle. How many squares are there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Sort the shapes: square, square, square, square, circle, circle. How many circles are there?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Sort the shapes: circle, circle, square, circle, circle, square, circle, circle. How many circles are there?",
+       "answer": "6"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many votes in all?",
+       "answer": "15 votes"
+      },
+      {
+       "prompt": "Which fruit got the most votes?",
+       "answer": "apples"
+      },
+      {
+       "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+       "answer": "2 votes"
+      },
+      {
+       "prompt": "Tell how tally marks are grouped.",
+       "answer": "Sample answer: In bundles of 5 so they are easy to count."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2; (b) 4; (c) 2; (d) 6",
+     "to": "(a) 15 votes; (b) apples; (c) 2 votes; (d) Sample answer: In bundles of 5 so they are easy to count."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Make a group for each kind and count the red blocks. There are 2 red blocks.",
+      "(b) Make a group for each kind and count the squares. There are 4 squares.",
+      "(c) Make a group for each kind and count the circles. There are 2 circles.",
+      "(d) Make a group for each kind and count the circles. There are 6 circles."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_sort_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_open_tally). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "How can you show 20 with tally marks?",
+     "to": "The tally chart shows 18 votes for cats and 6 votes for dogs. How many more votes did the pet with more votes get?"
+    },
+    "answer": {
+     "from": "4 bundles of 5",
+     "to": "12 votes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each bundle is 5 marks.",
+      "20 = 5 + 5 + 5 + 5, so 4 bundles of 5."
+     ],
+     "to": [
+      "Cats: 18. Dogs: 6.",
+      "18 − 6 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_bundle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_tally_difference). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 bundles of 5 and 1 more mark",
+       "correct": false
+      },
+      {
+       "text": "4 bundles of 5",
+       "correct": true
+      },
+      {
+       "text": "20 bundles of 5",
+       "correct": false
+      },
+      {
+       "text": "3 bundles of 5 and 1 more mark",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "24 votes",
+       "correct": false
+      },
+      {
+       "text": "12 votes",
+       "correct": true
+      },
+      {
+       "text": "18 votes",
+       "correct": false
+      },
+      {
+       "text": "13 votes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "How can you show 16 with tally marks?",
+     "to": "The tally chart shows 10 votes for cats and 7 votes for dogs. How many more votes did the pet with more votes get?"
+    },
+    "answer": {
+     "from": "3 bundles of 5 and 1 more mark",
+     "to": "3 votes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each bundle is 5 marks.",
+      "16 = 5 + 5 + 5 + 1, so 3 bundles of 5 and 1 more mark."
+     ],
+     "to": [
+      "Cats: 10. Dogs: 7.",
+      "10 − 7 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_bundle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_tally_difference). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 bundles of 5 and 2 more marks",
+       "correct": false
+      },
+      {
+       "text": "4 bundles of 5 and 1 more mark",
+       "correct": false
+      },
+      {
+       "text": "16 bundles of 5",
+       "correct": false
+      },
+      {
+       "text": "3 bundles of 5 and 1 more mark",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "17 votes",
+       "correct": false
+      },
+      {
+       "text": "10 votes",
+       "correct": false
+      },
+      {
+       "text": "3 votes",
+       "correct": true
+      },
+      {
+       "text": "4 votes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "How can you show 19 with tally marks?",
+     "to": "The tally chart shows 13 votes for cats and 6 votes for dogs. How many more votes did the pet with more votes get?"
+    },
+    "answer": {
+     "from": "3 bundles of 5 and 4 more marks",
+     "to": "7 votes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each bundle is 5 marks.",
+      "19 = 5 + 5 + 5 + 4, so 3 bundles of 5 and 4 more marks."
+     ],
+     "to": [
+      "Cats: 13. Dogs: 6.",
+      "13 − 6 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_bundle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_tally_difference). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 bundles of 5 and 4 more marks",
+       "correct": false
+      },
+      {
+       "text": "3 bundles of 5 and 4 more marks",
+       "correct": true
+      },
+      {
+       "text": "2 bundles of 5",
+       "correct": false
+      },
+      {
+       "text": "19 bundles of 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "19 votes",
+       "correct": false
+      },
+      {
+       "text": "13 votes",
+       "correct": false
+      },
+      {
+       "text": "8 votes",
+       "correct": false
+      },
+      {
+       "text": "7 votes",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "How can you show 15 with tally marks?",
+     "to": "The tally chart shows 14 votes for cats and 10 votes for dogs. How many more votes did the pet with more votes get?"
+    },
+    "answer": {
+     "from": "3 bundles of 5",
+     "to": "4 votes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each bundle is 5 marks.",
+      "15 = 5 + 5 + 5, so 3 bundles of 5."
+     ],
+     "to": [
+      "Cats: 14. Dogs: 10.",
+      "14 − 10 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_bundle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_tally_difference). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 bundles of 5 and 1 more mark",
+       "correct": false
+      },
+      {
+       "text": "3 bundles of 5",
+       "correct": true
+      },
+      {
+       "text": "15 bundles of 5",
+       "correct": false
+      },
+      {
+       "text": "3 bundles of 5 and 1 more mark",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "24 votes",
+       "correct": false
+      },
+      {
+       "text": "4 votes",
+       "correct": true
+      },
+      {
+       "text": "14 votes",
+       "correct": false
+      },
+      {
+       "text": "5 votes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A tally chart shows votes: apples 8, bananas 13, grapes 14."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Sort the blocks: small, medium, medium, small, big, small, small, big, small, big, small, medium. How many big blocks are there?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Sort the blocks: big, medium, small, small, big, big, big, medium, big, medium, big, small, medium, small, big. How many medium blocks are there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Sort the blocks: medium, small, medium, medium, big, small, small, small, medium, medium, medium, big, big, small. How many medium blocks are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Sort the blocks: red, green, blue, red, blue, red, blue, red, red, red, green, red, blue, red, red, red. How many green blocks are there?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many votes in all?",
+       "answer": "35 votes"
+      },
+      {
+       "prompt": "Which fruit got the most votes?",
+       "answer": "grapes"
+      },
+      {
+       "prompt": "How many more votes did the top fruit get than the bottom fruit?",
+       "answer": "6 votes"
+      },
+      {
+       "prompt": "Tell how tally marks are grouped.",
+       "answer": "Sample answer: In bundles of 5 so they are easy to count."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 4; (c) 6; (d) 2",
+     "to": "(a) 35 votes; (b) grapes; (c) 6 votes; (d) Sample answer: In bundles of 5 so they are easy to count."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Make a group for each kind and count the big blocks. There are 3 big blocks.",
+      "(b) Make a group for each kind and count the medium blocks. There are 4 medium blocks.",
+      "(c) Make a group for each kind and count the medium blocks. There are 6 medium blocks.",
+      "(d) Make a group for each kind and count the green blocks. There are 2 green blocks."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Compare.",
+      "(c) Subtract.",
+      "(d) Groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_sort_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt1_open_tally). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "A tally row has 1 bundle of 5 and 2 more marks. What number is that?",
+     "to": "A tally row has 2 bundles of 5 and 2 more marks. Then 2 more votes are added. What number is that now?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "14"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 2 = 7."
+     ],
+     "to": [
+      "2 × 5 = 10; 10 + 2 = 12.",
+      "12 + 2 = 14."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule tally-row); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: dt2_tally_then_more). Rewritten from a Support template (was g_text) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "A tally row has 1 bundle of 5 and 4 more marks. What number is that?",
+     "to": "A tally row has 1 bundle of 5 and 2 more marks. Then 4 more votes are added. What number is that now?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "11"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 4 = 9."
+     ],
+     "to": [
+      "1 × 5 = 5; 5 + 2 = 7.",
+      "7 + 4 = 11."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule tally-row); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: dt2_tally_then_more). Rewritten from a Support template (was g_text) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A picture graph shows dogs 2, cats 4 and fish 8. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "In a tally chart, the row for Red has 1 bundle of 5 and 2 more marks. What number is that? → 7",
+      "In a tally chart, the row for Soup has 1 bundle of 5. What number is that? → 5"
+     ],
+     "to": [
+      "cats and fish have 12 together",
+      "fish has more than dogs",
+      "dogs and fish have 10 together"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a tally chart, the row for Red has 1 bundle of 5 and 2 more marks. What number is that? → 7",
+       "correct": true
+      },
+      {
+       "text": "In a tally chart, the row for Dogs has 2 bundles of 5 and 3 more marks. What number is that? → 12",
+       "correct": false
+      },
+      {
+       "text": "In a tally chart, the row for Apples has 1 bundle of 5 and 3 more marks. What number is that? → 4",
+       "correct": false
+      },
+      {
+       "text": "In a tally chart, the row for Soup has 1 bundle of 5. What number is that? → 5",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "cats and fish have 12 together",
+       "correct": true
+      },
+      {
+       "text": "fish has more than dogs",
+       "correct": true
+      },
+      {
+       "text": "cats has more than fish",
+       "correct": false
+      },
+      {
+       "text": "dogs and fish have 10 together",
+       "correct": true
+      },
+      {
+       "text": "dogs has more than cats",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a tally chart, the row for Red has 1 bundle of 5 and 2 more marks. What number is that? → 7: correct.",
+      "In a tally chart, the row for Dogs has 2 bundles of 5 and 3 more marks. What number is that? → 12: not correct.",
+      "In a tally chart, the row for Apples has 1 bundle of 5 and 3 more marks. What number is that? → 4: not correct.",
+      "In a tally chart, the row for Soup has 1 bundle of 5. What number is that? → 5: correct."
+     ],
+     "to": [
+      "Count the pictures in each row and check each statement.",
+      "Correct choices: cats and fish have 12 together; fish has more than dogs; dogs and fish have 10 together. Not correct: cats has more than fish; dogs has more than cats."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_select_graph_true). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A picture graph shows pets: dogs 12, cats 7, fish 8."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a tally chart, the row for Tacos has 1 bundle of 5 and 2 more marks. What number is that?",
+       "answer": "7"
+      },
+      {
+       "prompt": "In a tally chart, the row for Green has 1 bundle of 5 and 1 more mark. What number is that?",
+       "answer": "6"
+      },
+      {
+       "prompt": "In a tally chart, the row for Tag has 1 bundle of 5 and 1 more mark. What number is that?",
+       "answer": "6"
+      },
+      {
+       "prompt": "In a tally chart, the row for Cats has 1 bundle of 5 and 3 more marks. What number is that?",
+       "answer": "8"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many pets in all?",
+       "answer": "27 pets"
+      },
+      {
+       "prompt": "How many more dogs than fish?",
+       "answer": "4 pets"
+      },
+      {
+       "prompt": "How many dogs and cats together?",
+       "answer": "19 pets"
+      },
+      {
+       "prompt": "Tell how you read a picture graph.",
+       "answer": "Sample answer: I count the pictures in each row."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7; (b) 6; (c) 6; (d) 8",
+     "to": "(a) 27 pets; (b) 4 pets; (c) 19 pets; (d) Sample answer: I count the pictures in each row."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count each bundle as 5, then add the extra marks. 5 + 2 = 7.",
+      "(b) Count each bundle as 5, then add the extra marks. 5 + 1 = 6.",
+      "(c) Count each bundle as 5, then add the extra marks. 5 + 1 = 6.",
+      "(d) Count each bundle as 5, then add the extra marks. 5 + 3 = 8."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Count pictures."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_open_picture_graph). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp2-015",
+   "changes": {
+    "prompt": {
+     "from": "A tally row has 1 bundle of 5 and 2 more marks. What number is that?",
+     "to": "A tally row has 1 bundle of 5 and 4 more marks. What number is that?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 2 = 7."
+     ],
+     "to": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 4 = 9."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp2-023",
+   "changes": {
+    "prompt": {
+     "from": "A tally row has 1 bundle of 5 and 2 more marks. What number is that?",
+     "to": "A tally row has 2 bundles of 5 and 1 more mark. What number is that?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "11"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 2 = 7."
+     ],
+     "to": [
+      "Count each bundle as 5, then add the extra marks.",
+      "5 + 5 + 1 = 11."
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A picture graph shows dogs 9, cats 7 and fish 2. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "In a tally chart, the row for Dogs has 1 bundle of 5. What number is that? → 5",
+      "In a tally chart, the row for Tag has 1 bundle of 5 and 2 more marks. What number is that? → 7"
+     ],
+     "to": [
+      "dogs and fish have 11 together",
+      "dogs has more than fish",
+      "cats and fish have 9 together",
+      "cats and dogs have 16 together"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a tally chart, the row for Dogs has 1 bundle of 5. What number is that? → 5",
+       "correct": true
+      },
+      {
+       "text": "In a tally chart, the row for Tag has 1 bundle of 5 and 2 more marks. What number is that? → 7",
+       "correct": true
+      },
+      {
+       "text": "In a tally chart, the row for Spring has 1 bundle of 5 and 2 more marks. What number is that? → 8",
+       "correct": false
+      },
+      {
+       "text": "In a tally chart, the row for Dogs has 1 bundle of 5. What number is that? → 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "dogs and fish have 11 together",
+       "correct": true
+      },
+      {
+       "text": "dogs has more than fish",
+       "correct": true
+      },
+      {
+       "text": "cats has more than dogs",
+       "correct": false
+      },
+      {
+       "text": "cats and fish have 9 together",
+       "correct": true
+      },
+      {
+       "text": "cats and dogs have 16 together",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a tally chart, the row for Dogs has 1 bundle of 5. What number is that? → 5: correct.",
+      "In a tally chart, the row for Tag has 1 bundle of 5 and 2 more marks. What number is that? → 7: correct.",
+      "In a tally chart, the row for Spring has 1 bundle of 5 and 2 more marks. What number is that? → 8: not correct.",
+      "In a tally chart, the row for Dogs has 1 bundle of 5. What number is that? → 6: not correct."
+     ],
+     "to": [
+      "Count the pictures in each row and check each statement.",
+      "Correct choices: dogs and fish have 11 together; dogs has more than fish; cats and fish have 9 together; cats and dogs have 16 together. Not correct: cats has more than dogs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_select_graph_true). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A picture graph shows pets: dogs 6, cats 8, fish 7."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a tally chart, the row for Summer has 1 bundle of 5 and 3 more marks. What number is that?",
+       "answer": "8"
+      },
+      {
+       "prompt": "In a tally chart, the row for Circles has 1 bundle of 5 and 1 more mark. What number is that?",
+       "answer": "6"
+      },
+      {
+       "prompt": "In a tally chart, the row for Rainy has 1 bundle of 5 and 1 more mark. What number is that?",
+       "answer": "6"
+      },
+      {
+       "prompt": "In a tally chart, the row for Green has 1 bundle of 5. What number is that?",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many pets in all?",
+       "answer": "21 pets"
+      },
+      {
+       "prompt": "How many more fish than dogs?",
+       "answer": "1 pet"
+      },
+      {
+       "prompt": "How many dogs and cats together?",
+       "answer": "14 pets"
+      },
+      {
+       "prompt": "Tell how you read a picture graph.",
+       "answer": "Sample answer: I count the pictures in each row."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 8; (b) 6; (c) 6; (d) 5",
+     "to": "(a) 21 pets; (b) 1 pet; (c) 14 pets; (d) Sample answer: I count the pictures in each row."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count each bundle as 5, then add the extra marks. 5 + 3 = 8.",
+      "(b) Count each bundle as 5, then add the extra marks. 5 + 1 = 6.",
+      "(c) Count each bundle as 5, then add the extra marks. 5 + 1 = 6.",
+      "(d) Count each bundle as 5, then add the extra marks. 5 + 0 = 5."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Count pictures."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_open_picture_graph). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A picture graph shows dogs 11, cats 5 and fish 7. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "In a tally chart, the row for Pizza has 3 bundles of 5 and 1 more mark. What number is that? → 16",
+      "In a tally chart, the row for Soup has 3 bundles of 5 and 1 more mark. What number is that? → 16"
+     ],
+     "to": [
+      "dogs has more than fish",
+      "dogs and fish have 18 together"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a tally chart, the row for Dogs has 3 bundles of 5 and 4 more marks. What number is that? → 7",
+       "correct": false
+      },
+      {
+       "text": "In a tally chart, the row for Pizza has 3 bundles of 5 and 1 more mark. What number is that? → 16",
+       "correct": true
+      },
+      {
+       "text": "In a tally chart, the row for Soup has 3 bundles of 5 and 1 more mark. What number is that? → 16",
+       "correct": true
+      },
+      {
+       "text": "In a tally chart, the row for Dogs has 1 bundle of 5 and 4 more marks. What number is that? → 10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "dogs has more than fish",
+       "correct": true
+      },
+      {
+       "text": "dogs and fish have 18 together",
+       "correct": true
+      },
+      {
+       "text": "dogs and fish have 19 together",
+       "correct": false
+      },
+      {
+       "text": "fish has more than dogs",
+       "correct": false
+      },
+      {
+       "text": "cats and fish have 13 together",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a tally chart, the row for Dogs has 3 bundles of 5 and 4 more marks. What number is that? → 7: not correct.",
+      "In a tally chart, the row for Pizza has 3 bundles of 5 and 1 more mark. What number is that? → 16: correct.",
+      "In a tally chart, the row for Soup has 3 bundles of 5 and 1 more mark. What number is that? → 16: correct.",
+      "In a tally chart, the row for Dogs has 1 bundle of 5 and 4 more marks. What number is that? → 10: not correct."
+     ],
+     "to": [
+      "Count the pictures in each row and check each statement.",
+      "Correct choices: dogs has more than fish; dogs and fish have 18 together. Not correct: dogs and fish have 19 together; fish has more than dogs; cats and fish have 13 together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_select_graph_true). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A picture graph shows pets: dogs 9, cats 12, fish 16."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a tally chart, the row for Banana has 2 bundles of 5 and 2 more marks. What number is that?",
+       "answer": "12"
+      },
+      {
+       "prompt": "In a tally chart, the row for Ants has 3 bundles of 5 and 3 more marks. What number is that?",
+       "answer": "18"
+      },
+      {
+       "prompt": "In a tally chart, the row for Popcorn has 3 bundles of 5 and 4 more marks. What number is that?",
+       "answer": "19"
+      },
+      {
+       "prompt": "In a tally chart, the row for Triangles has 2 bundles of 5. What number is that?",
+       "answer": "10"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many pets in all?",
+       "answer": "37 pets"
+      },
+      {
+       "prompt": "How many more fish than dogs?",
+       "answer": "7 pets"
+      },
+      {
+       "prompt": "How many dogs and cats together?",
+       "answer": "21 pets"
+      },
+      {
+       "prompt": "Tell how you read a picture graph.",
+       "answer": "Sample answer: I count the pictures in each row."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 12; (b) 18; (c) 19; (d) 10",
+     "to": "(a) 37 pets; (b) 7 pets; (c) 21 pets; (d) Sample answer: I count the pictures in each row."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count each bundle as 5, then add the extra marks. 5 + 5 + 2 = 12.",
+      "(b) Count each bundle as 5, then add the extra marks. 5 + 5 + 5 + 3 = 18.",
+      "(c) Count each bundle as 5, then add the extra marks. 5 + 5 + 5 + 4 = 19.",
+      "(d) Count each bundle as 5, then add the extra marks. 5 + 5 + 0 = 10."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Subtract.",
+      "(c) Add.",
+      "(d) Count pictures."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: g_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt2_open_picture_graph). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A table shows shapes in a bag: circles 9, squares 12, triangles 8."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A class made a table of favorite color. Red: 13, Blue: 11, Green: 3. How many more children chose Red than Blue?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A class made a table of weather this month. Sunny: 8, Rainy: 14, Cloudy: 13. How many more cloudy days than sunny days were there?",
+       "answer": "5"
+      },
+      {
+       "prompt": "A class made a table of favorite season. Spring: 6, Summer: 8, Winter: 9. How many more children chose Winter than Spring?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A class made a table of favorite color. Red: 5, Blue: 8, Green: 9. How many more children chose Green than Red?",
+       "answer": "4"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shapes in all?",
+       "answer": "29"
+      },
+      {
+       "prompt": "How many are not circles?",
+       "answer": "20"
+      },
+      {
+       "prompt": "How many more of the most common shape than the least?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell a question the table can answer.",
+       "answer": "Sample answer: How many squares and triangles are there together?"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2; (b) 5; (c) 3; (d) 4",
+     "to": "(a) 29; (b) 20; (c) 4; (d) Sample answer: How many squares and triangles are there together?"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 13 and 11. 13 − 11 = 2.",
+      "(b) Compare 13 and 8. 13 − 8 = 5.",
+      "(c) Compare 9 and 6. 9 − 6 = 3.",
+      "(d) Compare 9 and 5. 9 − 5 = 4."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Add the others.",
+      "(c) Subtract.",
+      "(d) Ask about the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: q_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt3_open_table). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A table shows shapes in a bag: circles 5, squares 4, triangles 6."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A class made a table of favorite season. Spring: 2, Summer: 4, Winter: 3. How many more children chose Summer than Spring?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A class made a table of shapes in a bag. Circles: 1, Squares: 5, Triangles: 3. How many more triangles than circles are there?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A class made a table of favorite fruit. Apple: 8, Banana: 4, Grape: 6. How many more children chose Grape than Banana?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A class made a table of recess games. Soccer: 5, Tag: 2, Swings: 7. How many more children chose Soccer than Tag?",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shapes in all?",
+       "answer": "15"
+      },
+      {
+       "prompt": "How many are not circles?",
+       "answer": "10"
+      },
+      {
+       "prompt": "How many more of the most common shape than the least?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Tell a question the table can answer.",
+       "answer": "Sample answer: How many squares and triangles are there together?"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2; (b) 2; (c) 2; (d) 3",
+     "to": "(a) 15; (b) 10; (c) 2; (d) Sample answer: How many squares and triangles are there together?"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 4 and 2. 4 − 2 = 2.",
+      "(b) Compare 3 and 1. 3 − 1 = 2.",
+      "(c) Compare 6 and 4. 6 − 4 = 2.",
+      "(d) Compare 5 and 2. 5 − 2 = 3."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Add the others.",
+      "(c) Subtract.",
+      "(d) Ask about the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: q_text_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt3_open_table). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s03-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A class made a table of shapes in a bag. Circles: 13, Squares: 16, Triangles: 9. How many more circles than triangles are there?",
+     "to": "A table shows circles 4, squares 10 and triangles 12. How many shapes are there in all?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "26"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 13 and 9.",
+      "13 − 9 = 4."
+     ],
+     "to": [
+      "4 + 10 = 14.",
+      "14 + 12 = 26."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: q_text). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt3_total_and_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "22",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "26",
+       "correct": true
+      },
+      {
+       "text": "27",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s03-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "A class made a table of shapes in a bag. Circles: 10, Squares: 12, Triangles: 8. How many more circles than triangles are there? Is the answer 2?",
+     "to": "A table shows circles 9, squares 3 and triangles 7. How many shapes are there in all?"
+    },
+    "answer": {
+     "from": "Yes. 10 − 8 = 2.",
+     "to": "19"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 10 and 8.",
+      "10 − 8 = 2.",
+      "The answer 2 is correct."
+     ],
+     "to": [
+      "9 + 3 = 12.",
+      "12 + 7 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: q_text_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt3_total_and_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 18.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 10.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 3.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 10 − 8 = 2.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-dt-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A table shows shapes in a bag: circles 12, squares 16, triangles 9."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A class made a table of lunch choice. Pizza: 12, Tacos: 17, Soup: 11. How many more children chose Tacos than Pizza?",
+       "answer": "5"
+      },
+      {
+       "prompt": "A class made a table of weather this month. Sunny: 11, Rainy: 15, Cloudy: 8. How many more rainy days than sunny days were there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "A class made a table of favorite fruit. Apple: 18, Banana: 11, Grape: 14. How many more children chose Grape than Banana?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A class made a table of favorite season. Spring: 11, Summer: 16, Winter: 19. How many more children chose Summer than Spring?",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shapes in all?",
+       "answer": "37"
+      },
+      {
+       "prompt": "How many are not circles?",
+       "answer": "25"
+      },
+      {
+       "prompt": "How many more of the most common shape than the least?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Tell a question the table can answer.",
+       "answer": "Sample answer: How many squares and triangles are there together?"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 4; (c) 3; (d) 5",
+     "to": "(a) 37; (b) 25; (c) 7; (d) Sample answer: How many squares and triangles are there together?"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 17 and 12. 17 − 12 = 5.",
+      "(b) Compare 15 and 11. 15 − 11 = 4.",
+      "(c) Compare 14 and 11. 14 − 11 = 3.",
+      "(d) Compare 16 and 11. 16 − 11 = 5."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Add the others.",
+      "(c) Subtract.",
+      "(d) Ask about the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: q_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: dt3_open_table). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m1-dt-s02-cp2-p001",
+   "skillId": "data-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Apples: 3; Grapes: 5; Pears: 2",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Apples: 3; Grapes: 5; Pears: 2.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Snacks We Like",
+    "orientation": "horizontal",
+    "categories": [
+     "Apples",
+     "Grapes",
+     "Pears"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Apples",
+      "Grapes",
+      "Pears"
+     ],
+     "counts": [
+      3,
+      5,
+      2
+     ]
+    },
+    "target": {
+     "values": [
+      3,
+      5,
+      2
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       3,
+       5,
+       2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         3,
+         5
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         5,
+         3,
+         2
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         4,
+         5,
+         2
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p001.png",
+     "alt": "Picture graph titled Snacks We Like. Apples: 3; Grapes: 5; Pears: 2."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-cp2-p002",
+   "skillId": "data-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Dogs: 4; Cats: 2; Fish: 6",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Dogs: 4; Cats: 2; Fish: 6.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Our Pets",
+    "orientation": "horizontal",
+    "categories": [
+     "Dogs",
+     "Cats",
+     "Fish"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Dogs",
+      "Cats",
+      "Fish"
+     ],
+     "counts": [
+      4,
+      2,
+      6
+     ]
+    },
+    "target": {
+     "values": [
+      4,
+      2,
+      6
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       4,
+       2,
+       6
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         4,
+         2
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         2,
+         4,
+         6
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         5,
+         2,
+         6
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p002.png",
+     "alt": "Picture graph titled Our Pets. Dogs: 4; Cats: 2; Fish: 6."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-cp2-p003",
+   "skillId": "data-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Sunny: 2; Rainy: 1; Cloudy: 4",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Sunny: 2; Rainy: 1; Cloudy: 4.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Weather This Week",
+    "orientation": "horizontal",
+    "categories": [
+     "Sunny",
+     "Rainy",
+     "Cloudy"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Sunny",
+      "Rainy",
+      "Cloudy"
+     ],
+     "counts": [
+      2,
+      1,
+      4
+     ]
+    },
+    "target": {
+     "values": [
+      2,
+      1,
+      4
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       2,
+       1,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         2,
+         1
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         1,
+         2,
+         4
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         3,
+         1,
+         4
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp2-p003.png",
+     "alt": "Picture graph titled Weather This Week. Sunny: 2; Rainy: 1; Cloudy: 4."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-cp1-p001",
+   "skillId": "data-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Red: 6; Blue: 8; Green: 3",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Red: 6; Blue: 8; Green: 3.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Favorite Colors",
+    "orientation": "horizontal",
+    "categories": [
+     "Red",
+     "Blue",
+     "Green"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "counts": [
+      6,
+      8,
+      3
+     ]
+    },
+    "target": {
+     "values": [
+      6,
+      8,
+      3
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       6,
+       8,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         6,
+         8
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         8,
+         6,
+         3
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         7,
+         8,
+         3
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p001.png",
+     "alt": "Picture graph titled Favorite Colors. Red: 6; Blue: 8; Green: 3."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-cp1-p002",
+   "skillId": "data-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Circles: 7; Squares: 4; Triangles: 9",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Circles: 7; Squares: 4; Triangles: 9.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Shapes in a Bag",
+    "orientation": "horizontal",
+    "categories": [
+     "Circles",
+     "Squares",
+     "Triangles"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Circles",
+      "Squares",
+      "Triangles"
+     ],
+     "counts": [
+      7,
+      4,
+      9
+     ]
+    },
+    "target": {
+     "values": [
+      7,
+      4,
+      9
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       7,
+       4,
+       9
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         7,
+         4
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         4,
+         7,
+         9
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         8,
+         4,
+         9
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p002.png",
+     "alt": "Picture graph titled Shapes in a Bag. Circles: 7; Squares: 4; Triangles: 9."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-cp1-p003",
+   "skillId": "data-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Pizza: 9; Tacos: 5; Soup: 7",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Pizza: 9; Tacos: 5; Soup: 7.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Lunch Choices",
+    "orientation": "horizontal",
+    "categories": [
+     "Pizza",
+     "Tacos",
+     "Soup"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Pizza",
+      "Tacos",
+      "Soup"
+     ],
+     "counts": [
+      9,
+      5,
+      7
+     ]
+    },
+    "target": {
+     "values": [
+      9,
+      5,
+      7
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       9,
+       5,
+       7
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         9,
+         5
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         5,
+         9,
+         7
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         10,
+         5,
+         7
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-cp1-p003.png",
+     "alt": "Picture graph titled Lunch Choices. Pizza: 9; Tacos: 5; Soup: 7."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-honors-p001",
+   "skillId": "data-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Ana: 11; Ben: 7; Cruz: 10",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Ana: 11; Ben: 7; Cruz: 10.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Books Read",
+    "orientation": "horizontal",
+    "categories": [
+     "Ana",
+     "Ben",
+     "Cruz"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Ana",
+      "Ben",
+      "Cruz"
+     ],
+     "counts": [
+      11,
+      7,
+      10
+     ]
+    },
+    "target": {
+     "values": [
+      11,
+      7,
+      10
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       11,
+       7,
+       10
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         11,
+         7
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         7,
+         11,
+         10
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         12,
+         7,
+         10
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p001.png",
+     "alt": "Picture graph titled Books Read. Ana: 11; Ben: 7; Cruz: 10."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-honors-p002",
+   "skillId": "data-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Ants: 12; Bees: 8; Beetles: 9",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Ants: 12; Bees: 8; Beetles: 9.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Bugs Found",
+    "orientation": "horizontal",
+    "categories": [
+     "Ants",
+     "Bees",
+     "Beetles"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Ants",
+      "Bees",
+      "Beetles"
+     ],
+     "counts": [
+      12,
+      8,
+      9
+     ]
+    },
+    "target": {
+     "values": [
+      12,
+      8,
+      9
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       12,
+       8,
+       9
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         12,
+         8
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         8,
+         12,
+         9
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         11,
+         8,
+         9
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p002.png",
+     "alt": "Picture graph titled Bugs Found. Ants: 12; Bees: 8; Beetles: 9."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s02-honors-p003",
+   "skillId": "data-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a picture graph. Put one circle for each mark.",
+   "answer": "Tag: 10; Ball: 12; Jump rope: 6",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Tag: 10; Ball: 12; Jump rope: 6.",
+    "Draw one circle for each mark in each row."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt2_plot_picture_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "picture-graph",
+    "title": "Games at Recess",
+    "orientation": "horizontal",
+    "categories": [
+     "Tag",
+     "Ball",
+     "Jump rope"
+    ],
+    "key": {
+     "symbol": "circle",
+     "value": 1
+    },
+    "maxSymbols": 12,
+    "allowHalf": false,
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Tag",
+      "Ball",
+      "Jump rope"
+     ],
+     "counts": [
+      10,
+      12,
+      6
+     ]
+    },
+    "target": {
+     "values": [
+      10,
+      12,
+      6
+     ]
+    },
+    "feedback": {
+     "count": "Check each row. Every row needs symbols, and no row can have more than the graph allows.",
+     "swapped": "Two rows are switched. Check which row goes with each name.",
+     "off-by-one": "One row has one symbol too many or too few. Count that row again.",
+     "position": "Not quite. Use the tally chart to count each row again."
+    },
+    "testVectors": {
+     "correct": {
+      "symbols": [
+       10,
+       12,
+       6
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "symbols": [
+         10,
+         12
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "symbols": [
+         12,
+         10,
+         6
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "symbols": [
+         11,
+         12,
+         6
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s02-honors-p003.png",
+     "alt": "Picture graph titled Games at Recess. Tag: 10; Ball: 12; Jump rope: 6."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp2-p001",
+   "skillId": "data-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Cars: 4; Balls: 2; Blocks: 5",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Cars: 4; Balls: 2; Blocks: 5.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Toys in the Bin",
+    "orientation": "vertical",
+    "categories": [
+     "Cars",
+     "Balls",
+     "Blocks"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Cars",
+      "Balls",
+      "Blocks"
+     ],
+     "counts": [
+      4,
+      2,
+      5
+     ]
+    },
+    "target": {
+     "values": [
+      4,
+      2,
+      5
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       4,
+       2,
+       5
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         4,
+         2
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         2,
+         4,
+         5
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         5,
+         2,
+         5
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p001.png",
+     "alt": "Bar graph titled Toys in the Bin. Cars: 4; Balls: 2; Blocks: 5."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp2-p002",
+   "skillId": "data-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Apples: 3; Bananas: 6; Pears: 1",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Apples: 3; Bananas: 6; Pears: 1.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Fruit in a Bowl",
+    "orientation": "vertical",
+    "categories": [
+     "Apples",
+     "Bananas",
+     "Pears"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Apples",
+      "Bananas",
+      "Pears"
+     ],
+     "counts": [
+      3,
+      6,
+      1
+     ]
+    },
+    "target": {
+     "values": [
+      3,
+      6,
+      1
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       3,
+       6,
+       1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         3,
+         6
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         6,
+         3,
+         1
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         4,
+         6,
+         1
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p002.png",
+     "alt": "Bar graph titled Fruit in a Bowl. Apples: 3; Bananas: 6; Pears: 1."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp2-p003",
+   "skillId": "data-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Robins: 5; Crows: 3; Jays: 2",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Robins: 5; Crows: 3; Jays: 2.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Birds We Saw",
+    "orientation": "vertical",
+    "categories": [
+     "Robins",
+     "Crows",
+     "Jays"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Robins",
+      "Crows",
+      "Jays"
+     ],
+     "counts": [
+      5,
+      3,
+      2
+     ]
+    },
+    "target": {
+     "values": [
+      5,
+      3,
+      2
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       5,
+       3,
+       2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         5,
+         3
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         3,
+         5,
+         2
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         6,
+         3,
+         2
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp2-p003.png",
+     "alt": "Bar graph titled Birds We Saw. Robins: 5; Crows: 3; Jays: 2."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp1-p001",
+   "skillId": "data-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Fish: 8; Frog: 5; Hamster: 9",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Fish: 8; Frog: 5; Hamster: 9.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Votes for a Class Pet",
+    "orientation": "vertical",
+    "categories": [
+     "Fish",
+     "Frog",
+     "Hamster"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Fish",
+      "Frog",
+      "Hamster"
+     ],
+     "counts": [
+      8,
+      5,
+      9
+     ]
+    },
+    "target": {
+     "values": [
+      8,
+      5,
+      9
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       8,
+       5,
+       9
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         8,
+         5
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         5,
+         8,
+         9
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         9,
+         5,
+         9
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p001.png",
+     "alt": "Bar graph titled Votes for a Class Pet. Fish: 8; Frog: 5; Hamster: 9."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp1-p002",
+   "skillId": "data-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Stars: 6; Hearts: 9; Moons: 4",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Stars: 6; Hearts: 9; Moons: 4.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Stickers",
+    "orientation": "vertical",
+    "categories": [
+     "Stars",
+     "Hearts",
+     "Moons"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Stars",
+      "Hearts",
+      "Moons"
+     ],
+     "counts": [
+      6,
+      9,
+      4
+     ]
+    },
+    "target": {
+     "values": [
+      6,
+      9,
+      4
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       6,
+       9,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         6,
+         9
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         9,
+         6,
+         4
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         7,
+         9,
+         4
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p002.png",
+     "alt": "Bar graph titled Stickers. Stars: 6; Hearts: 9; Moons: 4."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-cp1-p003",
+   "skillId": "data-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Walk: 7; Bus: 10; Car: 5",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Walk: 7; Bus: 10; Car: 5.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "How We Get to School",
+    "orientation": "vertical",
+    "categories": [
+     "Walk",
+     "Bus",
+     "Car"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Walk",
+      "Bus",
+      "Car"
+     ],
+     "counts": [
+      7,
+      10,
+      5
+     ]
+    },
+    "target": {
+     "values": [
+      7,
+      10,
+      5
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       7,
+       10,
+       5
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         7,
+         10
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         10,
+         7,
+         5
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         8,
+         10,
+         5
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-cp1-p003.png",
+     "alt": "Bar graph titled How We Get to School. Walk: 7; Bus: 10; Car: 5."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-honors-p001",
+   "skillId": "data-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Mon: 12; Tue: 9; Wed: 11",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Mon: 12; Tue: 9; Wed: 11.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Pages Read",
+    "orientation": "vertical",
+    "categories": [
+     "Mon",
+     "Tue",
+     "Wed"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Mon",
+      "Tue",
+      "Wed"
+     ],
+     "counts": [
+      12,
+      9,
+      11
+     ]
+    },
+    "target": {
+     "values": [
+      12,
+      9,
+      11
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       12,
+       9,
+       11
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         12,
+         9
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         9,
+         12,
+         11
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         11,
+         9,
+         11
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p001.png",
+     "alt": "Bar graph titled Pages Read. Mon: 12; Tue: 9; Wed: 11."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-honors-p002",
+   "skillId": "data-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Mia: 10; Leo: 12; Kai: 7",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Mia: 10; Leo: 12; Kai: 7.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Shells Collected",
+    "orientation": "vertical",
+    "categories": [
+     "Mia",
+     "Leo",
+     "Kai"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Mia",
+      "Leo",
+      "Kai"
+     ],
+     "counts": [
+      10,
+      12,
+      7
+     ]
+    },
+    "target": {
+     "values": [
+      10,
+      12,
+      7
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       10,
+       12,
+       7
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         10,
+         12
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         12,
+         10,
+         7
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         11,
+         12,
+         7
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p002.png",
+     "alt": "Bar graph titled Shells Collected. Mia: 10; Leo: 12; Kai: 7."
+    }
+   },
+   "courseId": "grade1"
+  },
+  {
+   "id": "m1-dt-s03-honors-p003",
+   "skillId": "data-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Use the tally chart. Make a bar graph.",
+   "answer": "Beans: 11; Corn: 8; Peas: 12",
+   "solutionSteps": [
+    "Count the tally marks in each row. A bundle of 5 has a line across it.",
+    "Counts: Beans: 11; Corn: 8; Peas: 12.",
+    "Make each bar end at its number on the scale."
+   ],
+   "standards": [
+    "1.MD.C.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: dt3_plot_bar_graph). 1st Grade Math audit 2026-11-19 (#15, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade1-audit-20261119/plots.cjs.",
+   "plot": {
+    "tool": "bar-graph",
+    "title": "Seeds That Grew",
+    "orientation": "vertical",
+    "categories": [
+     "Beans",
+     "Corn",
+     "Peas"
+    ],
+    "categoryLabel": "Choice",
+    "valueAxis": {
+     "min": 0,
+     "max": 12,
+     "step": 1,
+     "labelEvery": 1,
+     "snap": 1,
+     "label": "Number"
+    },
+    "source": {
+     "type": "tally",
+     "categories": [
+      "Beans",
+      "Corn",
+      "Peas"
+     ],
+     "counts": [
+      11,
+      8,
+      12
+     ]
+    },
+    "target": {
+     "values": [
+      11,
+      8,
+      12
+     ]
+    },
+    "feedback": {
+     "count": "Every bar needs a height on the scale.",
+     "swapped": "Two bars are switched. Check which bar goes with each label.",
+     "off-by-one": "One bar is one space too high or too low. Read the scale again.",
+     "position": "Not quite. Use the tally chart to set each bar again."
+    },
+    "testVectors": {
+     "correct": {
+      "values": [
+       11,
+       8,
+       12
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "values": [
+         11,
+         8
+        ]
+       },
+       "expectCode": "count"
+      },
+      {
+       "response": {
+        "values": [
+         8,
+         11,
+         12
+        ]
+       },
+       "expectCode": "swapped"
+      },
+      {
+       "response": {
+        "values": [
+         12,
+         8,
+         12
+        ]
+       },
+       "expectCode": "off-by-one"
+      }
+     ]
+    },
+    "check": {
+     "type": "exact-after-snap"
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m1-dt-s03-honors-p003.png",
+     "alt": "Bar graph titled Seeds That Grew. Beans: 11; Corn: 8; Peas: 12."
+    }
+   },
+   "courseId": "grade1"
+  }
+ ],
+ "meta": {
+  "m1-dt-s02-cp2-015": {
+   "questionType": "procedural",
+   "tags": [],
+   "explanation": "5 + 4 = 9.",
+   "distractors": {
+    "3": "counted each bundle as 1",
+    "8": "counted one too many",
+    "12": "counted a bundle twice",
+    "6": "counted one too few"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-dt-s02-cp2-023": {
+   "questionType": "procedural",
+   "tags": [],
+   "explanation": "5 + 5 + 1 = 11.",
+   "distractors": {
+    "3": "counted each bundle as 1",
+    "8": "counted one too many",
+    "12": "counted a bundle twice",
+    "6": "counted one too few"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-dt-s01-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "18 − 6 = 12.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "24 votes": "a common mistake",
+    "18 votes": "a common mistake",
+    "13 votes": "a common mistake"
+   }
+  },
+  "m1-dt-s01-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 − 7 = 3.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "17 votes": "a common mistake",
+    "10 votes": "a common mistake",
+    "4 votes": "a common mistake"
+   }
+  },
+  "m1-dt-s01-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 − 6 = 7.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "19 votes": "a common mistake",
+    "13 votes": "a common mistake",
+    "8 votes": "a common mistake"
+   }
+  },
+  "m1-dt-s01-honors-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 10 = 4.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "24 votes": "a common mistake",
+    "14 votes": "a common mistake",
+    "5 votes": "a common mistake"
+   }
+  },
+  "m1-dt-s03-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 + 12 = 26.",
+   "distractors": {
+    "14": "a common mistake",
+    "27": "a common mistake",
+    "12": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-dt-s03-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 + 7 = 19.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "12": "a common mistake",
+    "20": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-dt-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 + 2 = 14.",
+   "distractors": {
+    "12": "a common mistake",
+    "6": "a common mistake",
+    "15": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 4 = 11.",
+   "distractors": {
+    "7": "a common mistake",
+    "12": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-dt-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "12 = 2 fives and 2 more.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "6 = 1 fives and 1 more.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the pictures in each row and check each statement.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the pictures in each row and check each statement.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-dt-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count the pictures in each row and check each statement.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

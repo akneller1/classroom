@@ -1,0 +1,7236 @@
+{
+ "unit": "add-subtract-20",
+ "edits": [
+  {
+   "id": "m1-as-s01-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "What is 3 + 9?",
+     "to": "Find the sum: 7 + 9. Then add 1."
+    },
+    "answer": {
+     "from": "12",
+     "to": "17"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "3 + 9 = 12."
+     ],
+     "to": [
+      "7 + 9 = 16.",
+      "16 + 1 = 17."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "What is 6 + 10?",
+     "to": "Find the sum: 9 + 5. Then add 1."
+    },
+    "answer": {
+     "from": "16",
+     "to": "15"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 and 6 more is 16.",
+      "The answer is 16."
+     ],
+     "to": [
+      "9 + 5 = 14.",
+      "14 + 1 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ten_plus). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_ten_plus) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "What is 8 + 10?",
+     "to": "Find the sum: 9 + 6. Then add 3."
+    },
+    "solutionSteps": {
+     "from": [
+      "10 and 8 more is 18.",
+      "The answer is 18."
+     ],
+     "to": [
+      "9 + 6 = 15.",
+      "15 + 3 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ten_plus). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_ten_plus) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "81",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "What is 6 + 9?",
+     "to": "Find the sum: 5 + 4. Then add 2."
+    },
+    "answer": {
+     "from": "15",
+     "to": "11"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "6 + 9 = 15."
+     ],
+     "to": [
+      "5 + 4 = 9.",
+      "9 + 2 = 11."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "1 ten and 9 ones make what number?",
+     "to": "Find the sum: 9 + 5. Then add 2."
+    },
+    "answer": {
+     "from": "19",
+     "to": "16"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 and 9 more is 19.",
+      "The answer is 19."
+     ],
+     "to": [
+      "9 + 5 = 14.",
+      "14 + 2 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ten_plus). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_ten_plus) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "Find the sum: 8 + 7",
+     "to": "Find the sum: 5 + 7. Then add 3."
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "8 + 7 = 15."
+     ],
+     "to": [
+      "5 + 7 = 12.",
+      "12 + 3 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "What is 9 + 10?",
+     "to": "Find the sum: 6 + 9. Then add 1."
+    },
+    "answer": {
+     "from": "19",
+     "to": "16"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 and 9 more is 19.",
+      "The answer is 19."
+     ],
+     "to": [
+      "6 + 9 = 15.",
+      "15 + 1 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_ten_plus). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_ten_plus) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "91",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "16",
+       "correct": true
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "Add: 5 + 9 = ___",
+     "to": "Find the sum: 6 + 5. Then add 2."
+    },
+    "answer": {
+     "from": "14",
+     "to": "13"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "5 + 9 = 14."
+     ],
+     "to": [
+      "6 + 5 = 11.",
+      "11 + 2 = 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "6 + 6 = ? Is the answer 11?",
+     "to": "Find the sum: 9 + 8. Then add 2."
+    },
+    "answer": {
+     "from": "No. The answer is 12.",
+     "to": "19"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "6 + 6 = 12.",
+      "The answer 11 is not correct; it should be 12."
+     ],
+     "to": [
+      "9 + 8 = 17.",
+      "17 + 2 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_add_then_more). Rewritten from a Support template (was a_fact_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. 11 is the correct answer.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 0.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 12.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 13.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": true
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "11",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that make 14."
+    },
+    "answer": {
+     "from": [
+      "9 + 4 → 13",
+      "8 + 3 → 11"
+     ],
+     "to": [
+      "11 + 3",
+      "6 + 8"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 5 → 4",
+       "correct": false
+      },
+      {
+       "text": "9 + 4 → 13",
+       "correct": true
+      },
+      {
+       "text": "8 + 3 → 11",
+       "correct": true
+      },
+      {
+       "text": "6 + 7 → 14",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5 + 8",
+       "correct": false
+      },
+      {
+       "text": "12 + 1",
+       "correct": false
+      },
+      {
+       "text": "12 + 3",
+       "correct": false
+      },
+      {
+       "text": "11 + 3",
+       "correct": true
+      },
+      {
+       "text": "6 + 8",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "9 + 5 → 4: not correct.",
+      "9 + 4 → 13: correct.",
+      "8 + 3 → 11: correct.",
+      "6 + 7 → 14: not correct."
+     ],
+     "to": [
+      "Add each fact and look for 14.",
+      "Correct choices: 11 + 3; 6 + 8. Not correct: 5 + 8; 12 + 3; 12 + 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_select_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Sam finds 6 shells. A friend finds 7 shells."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Add: 8 + 5 = ___",
+       "answer": "13"
+      },
+      {
+       "prompt": "Add: 5 + 6 = ___",
+       "answer": "11"
+      },
+      {
+       "prompt": "What is 8 + 3?",
+       "answer": "11"
+      },
+      {
+       "prompt": "Add: 7 + 8 = ___",
+       "answer": "15"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shells in all?",
+       "answer": "13 shells"
+      },
+      {
+       "prompt": "How many more shells would make 20?",
+       "answer": "7 shells"
+      },
+      {
+       "prompt": "Who found more shells, the first child or the friend?",
+       "answer": "the friend"
+      },
+      {
+       "prompt": "Tell a strategy you used to add.",
+       "answer": "Sample answer: I made a ten first, then added the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 13; (b) 11; (c) 11; (d) 15",
+     "to": "(a) 13 shells; (b) 7 shells; (c) the friend; (d) Sample answer: I made a ten first, then added the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Make a ten, use a double, or count on. 8 + 5 = 13.",
+      "(b) Make a ten, use a double, or count on. 5 + 6 = 11.",
+      "(c) Make a ten, use a double, or count on. 8 + 3 = 11.",
+      "(d) Make a ten, use a double, or count on. 7 + 8 = 15."
+     ],
+     "to": [
+      "(a) 6 + 7 = 13.",
+      "(b) 20 − 13.",
+      "(c) Compare.",
+      "(d) Make a ten or use a double."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_open_shells). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that make 13."
+    },
+    "answer": {
+     "from": [
+      "2 + 9 → 11",
+      "9 + 7 → 16"
+     ],
+     "to": [
+      "8 + 5",
+      "10 + 3",
+      "7 + 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 + 4 → 0",
+       "correct": false
+      },
+      {
+       "text": "2 + 9 → 1",
+       "correct": false
+      },
+      {
+       "text": "2 + 9 → 11",
+       "correct": true
+      },
+      {
+       "text": "9 + 7 → 16",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 + 10",
+       "correct": false
+      },
+      {
+       "text": "8 + 5",
+       "correct": true
+      },
+      {
+       "text": "7 + 5",
+       "correct": false
+      },
+      {
+       "text": "10 + 3",
+       "correct": true
+      },
+      {
+       "text": "7 + 6",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "4 + 4 → 0: not correct.",
+      "2 + 9 → 1: not correct.",
+      "2 + 9 → 11: correct.",
+      "9 + 7 → 16: correct."
+     ],
+     "to": [
+      "Add each fact and look for 13.",
+      "Correct choices: 8 + 5; 10 + 3; 7 + 6. Not correct: 4 + 10; 7 + 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_select_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Isla finds 5 shells. A friend finds 4 shells."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is 4 + 10?",
+       "answer": "14"
+      },
+      {
+       "prompt": "Find the sum: 4 + 10",
+       "answer": "14"
+      },
+      {
+       "prompt": "Find the sum: 4 + 9",
+       "answer": "13"
+      },
+      {
+       "prompt": "Find the sum: 10 + 5",
+       "answer": "15"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shells in all?",
+       "answer": "9 shells"
+      },
+      {
+       "prompt": "How many more shells would make 20?",
+       "answer": "11 shells"
+      },
+      {
+       "prompt": "Who found more shells, the first child or the friend?",
+       "answer": "the first child"
+      },
+      {
+       "prompt": "Tell a strategy you used to add.",
+       "answer": "Sample answer: I made a ten first, then added the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 14; (b) 14; (c) 13; (d) 15",
+     "to": "(a) 9 shells; (b) 11 shells; (c) the first child; (d) Sample answer: I made a ten first, then added the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 and some ones is a teen number. 4 + 10 = 14.",
+      "(b) 10 and some ones is a teen number. 4 + 10 = 14.",
+      "(c) Make a ten, use a double, or count on. 4 + 9 = 13.",
+      "(d) 10 and some ones is a teen number. 10 + 5 = 15."
+     ],
+     "to": [
+      "(a) 5 + 4 = 9.",
+      "(b) 20 − 9.",
+      "(c) Compare.",
+      "(d) Make a ten or use a double."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_open_shells). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "Find the sum: 6 + 8",
+     "to": "Lena has 7 stickers and Pia has 6. To add, Lena moves 3 of Pia's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "14",
+     "to": "13 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "6 + 8 = 14."
+     ],
+     "to": [
+      "7 + 3 = 10, and 6 − 3 = 3 are left.",
+      "10 + 3 = 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Make a ten. 9 + 1 = 10. So 9 + 5 = 10 + ___",
+     "to": "Pia has 6 stickers and Omar has 6. To add, Pia moves 4 of Omar's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "12 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Break 5 into 1 and 4.",
+      "10 + 4 = 14, so the missing number is 4."
+     ],
+     "to": [
+      "6 + 4 = 10, and 6 − 4 = 2 are left.",
+      "10 + 2 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_make10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Use the double 6 + 6 = 12 to find 6 + 5.",
+     "to": "Gabi has 8 stickers and Isla has 8. To add, Gabi moves 2 of Isla's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "11",
+     "to": "16 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "6 + 5 is 1 less than 6 + 6.",
+      "12 − 1 = 11."
+     ],
+     "to": [
+      "8 + 2 = 10, and 8 − 2 = 6 are left.",
+      "10 + 6 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_double). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Add: 6 + 9 = ___",
+     "to": "Cora has 9 stickers and Max has 8. To add, Cora moves 1 of Max's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "15",
+     "to": "17 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "6 + 9 = 15."
+     ],
+     "to": [
+      "9 + 1 = 10, and 8 − 1 = 7 are left.",
+      "10 + 7 = 17."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "16 stickers",
+       "correct": false
+      },
+      {
+       "text": "17 stickers",
+       "correct": true
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "18 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Make a ten. 8 + 2 = 10. So 8 + 5 = 10 + ___",
+     "to": "Ava has 9 stickers and Nia has 7. To add, Ava moves 1 of Nia's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "16 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Break 5 into 2 and 3.",
+      "10 + 3 = 13, so the missing number is 3."
+     ],
+     "to": [
+      "9 + 1 = 10, and 7 − 1 = 6 are left.",
+      "10 + 6 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_make10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 stickers",
+       "correct": false
+      },
+      {
+       "text": "16 stickers",
+       "correct": true
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "17 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Use the double 7 + 7 = 14 to find 7 + 6.",
+     "to": "Uma has 8 stickers and Isla has 8. To add, Uma moves 2 of Isla's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "13",
+     "to": "16 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 + 6 is 1 less than 7 + 7.",
+      "14 − 1 = 13."
+     ],
+     "to": [
+      "8 + 2 = 10, and 8 − 2 = 6 are left.",
+      "10 + 6 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_double). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "15 stickers",
+       "correct": false
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "16 stickers",
+       "correct": true
+      },
+      {
+       "text": "17 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Find the sum: 8 + 8",
+     "to": "Uma has 8 stickers and Kai has 8. To add, Uma moves 2 of Kai's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "16",
+     "to": "16 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "8 + 8 = 16."
+     ],
+     "to": [
+      "8 + 2 = 10, and 8 − 2 = 6 are left.",
+      "10 + 6 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Make a ten. 9 + 1 = 10. So 9 + 7 = 10 + ___",
+     "to": "Sam has 7 stickers and Dev has 8. To add, Sam moves 3 of Dev's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "15 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Break 7 into 1 and 6.",
+      "10 + 6 = 16, so the missing number is 6."
+     ],
+     "to": [
+      "7 + 3 = 10, and 8 − 3 = 5 are left.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_make10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "Use the double 8 + 8 = 16 to find 8 + 7.",
+     "to": "Cora has 8 stickers and Dev has 7. To add, Cora moves 2 of Dev's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "15",
+     "to": "15 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 + 7 is 1 less than 8 + 8.",
+      "16 − 1 = 15."
+     ],
+     "to": [
+      "8 + 2 = 10, and 7 − 2 = 5 are left.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_double). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "Find the sum: 5 + 9",
+     "to": "Zoe has 6 stickers and Nia has 9. To add, Zoe moves 4 of Nia's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "14",
+     "to": "15 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "5 + 9 = 14."
+     ],
+     "to": [
+      "6 + 4 = 10, and 9 − 4 = 5 are left.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "14 stickers",
+       "correct": false
+      },
+      {
+       "text": "15 stickers",
+       "correct": true
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "16 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "Make a ten. 8 + 2 = 10. So 8 + 8 = 10 + ___",
+     "to": "Dev has 7 stickers and Cora has 5. To add, Dev moves 3 of Cora's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "12 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Break 8 into 2 and 6.",
+      "10 + 6 = 16, so the missing number is 6."
+     ],
+     "to": [
+      "7 + 3 = 10, and 5 − 3 = 2 are left.",
+      "10 + 2 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_make10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "11 stickers",
+       "correct": false
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "13 stickers",
+       "correct": false
+      },
+      {
+       "text": "12 stickers",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "Use the double 5 + 5 = 10 to find 5 + 4.",
+     "to": "Omar has 7 stickers and Eli has 8. To add, Omar moves 3 of Eli's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "15 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 + 4 is 1 less than 5 + 5.",
+      "10 − 1 = 9."
+     ],
+     "to": [
+      "7 + 3 = 10, and 8 − 3 = 5 are left.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_double). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "9 + 9 = ? Is the answer 18?",
+     "to": "Pia has 8 stickers and Nia has 7. To add, Pia moves 2 of Nia's stickers to make 10. How many stickers are there in all?"
+    },
+    "answer": {
+     "from": "Yes. 9 + 9 = 18.",
+     "to": "15 stickers"
+    },
+    "solutionSteps": {
+     "from": [
+      "Make a ten, use a double, or count on.",
+      "9 + 9 = 18.",
+      "The answer 18 is correct."
+     ],
+     "to": [
+      "8 + 2 = 10, and 7 − 2 = 5 are left.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_make_ten_story). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 17.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 19.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 9 + 9 = 18.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 0.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 stickers",
+       "correct": true
+      },
+      {
+       "text": "14 stickers",
+       "correct": false
+      },
+      {
+       "text": "10 stickers",
+       "correct": false
+      },
+      {
+       "text": "16 stickers",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that make 14."
+    },
+    "answer": {
+     "from": [
+      "8 + 8 → 16",
+      "7 + 9 → 16"
+     ],
+     "to": [
+      "11 + 3",
+      "8 + 6",
+      "10 + 4",
+      "7 + 7"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 + 8 → 2",
+       "correct": false
+      },
+      {
+       "text": "7 + 8 → 14",
+       "correct": false
+      },
+      {
+       "text": "8 + 8 → 16",
+       "correct": true
+      },
+      {
+       "text": "7 + 9 → 16",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "13 + 2",
+       "correct": false
+      },
+      {
+       "text": "11 + 3",
+       "correct": true
+      },
+      {
+       "text": "8 + 6",
+       "correct": true
+      },
+      {
+       "text": "10 + 4",
+       "correct": true
+      },
+      {
+       "text": "7 + 7",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "6 + 8 → 2: not correct.",
+      "7 + 8 → 14: not correct.",
+      "8 + 8 → 16: correct.",
+      "7 + 9 → 16: correct."
+     ],
+     "to": [
+      "Add each fact and look for 14.",
+      "Correct choices: 11 + 3; 8 + 6; 10 + 4; 7 + 7. Not correct: 13 + 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_select_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Cora finds 9 shells. A friend finds 7 shells."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Add: 8 + 9 = ___",
+       "answer": "17"
+      },
+      {
+       "prompt": "Add: 8 + 8 = ___",
+       "answer": "16"
+      },
+      {
+       "prompt": "What is 6 + 8?",
+       "answer": "14"
+      },
+      {
+       "prompt": "What is 7 + 9?",
+       "answer": "16"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many shells in all?",
+       "answer": "16 shells"
+      },
+      {
+       "prompt": "How many more shells would make 20?",
+       "answer": "4 shells"
+      },
+      {
+       "prompt": "Who found more shells, the first child or the friend?",
+       "answer": "the first child"
+      },
+      {
+       "prompt": "Tell a strategy you used to add.",
+       "answer": "Sample answer: I made a ten first, then added the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 17; (b) 16; (c) 14; (d) 16",
+     "to": "(a) 16 shells; (b) 4 shells; (c) the first child; (d) Sample answer: I made a ten first, then added the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Make a ten, use a double, or count on. 8 + 9 = 17.",
+      "(b) Make a ten, use a double, or count on. 8 + 8 = 16.",
+      "(c) Make a ten, use a double, or count on. 6 + 8 = 14.",
+      "(d) Make a ten, use a double, or count on. 7 + 9 = 16."
+     ],
+     "to": [
+      "(a) 9 + 7 = 16.",
+      "(b) 20 − 16.",
+      "(c) Compare.",
+      "(d) Make a ten or use a double."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as1_open_shells). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Subtract: 14 − 9 = ___",
+     "to": "Subtract: 18 − 9. Then take away 2 more."
+    },
+    "answer": {
+     "from": "5",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "14 − 9 = 5."
+     ],
+     "to": [
+      "18 − 9 = 9.",
+      "9 − 2 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 9 + ___ = 13. So 13 − 9 = ___. What is the missing number?",
+     "to": "Subtract: 13 − 6. Then take away 3 more."
+    },
+    "solutionSteps": {
+     "from": [
+      "9 + 4 = 13.",
+      "So 13 − 9 = 4."
+     ],
+     "to": [
+      "13 − 6 = 7.",
+      "7 − 3 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_think) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "Find the difference: 13 − 4",
+     "to": "Subtract: 13 − 9. Then take away 3 more."
+    },
+    "answer": {
+     "from": "9",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "13 − 4 = 9."
+     ],
+     "to": [
+      "13 − 9 = 4.",
+      "4 − 3 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 5 + ___ = 12. So 12 − 5 = ___. What is the missing number?",
+     "to": "Subtract: 11 − 6. Then take away 2 more."
+    },
+    "answer": {
+     "from": "7",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 + 7 = 12.",
+      "So 12 − 5 = 7."
+     ],
+     "to": [
+      "11 − 6 = 5.",
+      "5 − 2 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_think) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "Subtract: 14 − 8 = ___",
+     "to": "Subtract: 14 − 2. Then take away 3 more."
+    },
+    "answer": {
+     "from": "6",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "14 − 8 = 6."
+     ],
+     "to": [
+      "14 − 2 = 12.",
+      "12 − 3 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 5 + ___ = 13. So 13 − 5 = ___. What is the missing number?",
+     "to": "Subtract: 12 − 2. Then take away 1 more."
+    },
+    "answer": {
+     "from": "8",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 + 8 = 13.",
+      "So 13 − 5 = 8."
+     ],
+     "to": [
+      "12 − 2 = 10.",
+      "10 − 1 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_think) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "Find the difference: 12 − 6",
+     "to": "Subtract: 13 − 8. Then take away 1 more."
+    },
+    "answer": {
+     "from": "6",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "12 − 6 = 6."
+     ],
+     "to": [
+      "13 − 8 = 5.",
+      "5 − 1 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_fact) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 9 + ___ = 14. So 14 − 9 = ___. What is the missing number?",
+     "to": "Subtract: 17 − 8. Then take away 2 more."
+    },
+    "answer": {
+     "from": "5",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "9 + 5 = 14.",
+      "So 14 − 9 = 5."
+     ],
+     "to": [
+      "17 − 8 = 9.",
+      "9 − 2 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_think) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "23",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "11 − 9 = ? Is the answer 3?",
+     "to": "Subtract: 15 − 9. Then take away 3 more."
+    },
+    "answer": {
+     "from": "No. The answer is 2.",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "11 − 9 = 2.",
+      "The answer 3 is not correct; it should be 2."
+     ],
+     "to": [
+      "15 − 9 = 6.",
+      "6 − 3 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_subtract_then_more). Rewritten from a Support template (was s_fact_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. 3 is the correct answer.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 18.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 20.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 2.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that equal 3."
+    },
+    "answer": {
+     "from": [
+      "15 − 7 → 8",
+      "13 − 6 → 7"
+     ],
+     "to": [
+      "12 − 9",
+      "3 − 0"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "15 − 7 → 8",
+       "correct": true
+      },
+      {
+       "text": "13 − 6 → 7",
+       "correct": true
+      },
+      {
+       "text": "12 − 4 → 12",
+       "correct": false
+      },
+      {
+       "text": "13 − 8 → 4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12 − 10",
+       "correct": false
+      },
+      {
+       "text": "12 − 9",
+       "correct": true
+      },
+      {
+       "text": "3 − 0",
+       "correct": true
+      },
+      {
+       "text": "13 − 9",
+       "correct": false
+      },
+      {
+       "text": "5 − 1",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "15 − 7 → 8: correct.",
+      "13 − 6 → 7: correct.",
+      "12 − 4 → 12: not correct.",
+      "13 − 8 → 4: not correct."
+     ],
+     "to": [
+      "Subtract each fact and look for 3.",
+      "Correct choices: 12 − 9; 3 − 0. Not correct: 13 − 9; 5 − 1; 12 − 10."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_select_difference). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "There are 13 balloons. 4 balloons float away."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is 13 − 4?",
+       "answer": "9"
+      },
+      {
+       "prompt": "What is 13 − 8?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Subtract: 11 − 5 = ___",
+       "answer": "6"
+      },
+      {
+       "prompt": "Subtract: 14 − 7 = ___",
+       "answer": "7"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many balloons are left?",
+       "answer": "9 balloons"
+      },
+      {
+       "prompt": "Write the addition fact that helps.",
+       "answer": "Sample answer: 4 + 9 = 13"
+      },
+      {
+       "prompt": "How many balloons would make 20?",
+       "answer": "11 balloons"
+      },
+      {
+       "prompt": "Tell how you subtracted.",
+       "answer": "Sample answer: I went back to 10 first, then took away the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 9; (b) 5; (c) 6; (d) 7",
+     "to": "(a) 9 balloons; (b) Sample answer: 4 + 9 = 13; (c) 11 balloons; (d) Sample answer: I went back to 10 first, then took away the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Go back to 10 first, or think addition. 13 − 4 = 9.",
+      "(b) Go back to 10 first, or think addition. 13 − 8 = 5.",
+      "(c) Go back to 10 first, or think addition. 11 − 5 = 6.",
+      "(d) Go back to 10 first, or think addition. 14 − 7 = 7."
+     ],
+     "to": [
+      "(a) 13 − 4 = 9.",
+      "(b) Think addition.",
+      "(c) 20 − 9.",
+      "(d) Go back through ten."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_open_balloons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that equal 6."
+    },
+    "answer": {
+     "from": [
+      "17 − 2 → 15",
+      "18 − 8 → 10"
+     ],
+     "to": [
+      "10 − 4",
+      "17 − 11",
+      "12 − 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "12 − 10 → 12",
+       "correct": false
+      },
+      {
+       "text": "17 − 2 → 15",
+       "correct": true
+      },
+      {
+       "text": "15 − 10 → 25",
+       "correct": false
+      },
+      {
+       "text": "18 − 8 → 10",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "10 − 4",
+       "correct": true
+      },
+      {
+       "text": "17 − 11",
+       "correct": true
+      },
+      {
+       "text": "15 − 8",
+       "correct": false
+      },
+      {
+       "text": "16 − 9",
+       "correct": false
+      },
+      {
+       "text": "12 − 6",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "12 − 10 → 12: not correct.",
+      "17 − 2 → 15: correct.",
+      "15 − 10 → 25: not correct.",
+      "18 − 8 → 10: correct."
+     ],
+     "to": [
+      "Subtract each fact and look for 6.",
+      "Correct choices: 10 − 4; 17 − 11; 12 − 6. Not correct: 15 − 8; 16 − 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_select_difference). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "There are 12 balloons. 8 balloons float away."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What is 13 − 10?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Find the difference: 15 − 3",
+       "answer": "12"
+      },
+      {
+       "prompt": "Find the difference: 15 − 5",
+       "answer": "10"
+      },
+      {
+       "prompt": "What is 14 − 4?",
+       "answer": "10"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many balloons are left?",
+       "answer": "4 balloons"
+      },
+      {
+       "prompt": "Write the addition fact that helps.",
+       "answer": "Sample answer: 8 + 4 = 12"
+      },
+      {
+       "prompt": "How many balloons would make 20?",
+       "answer": "16 balloons"
+      },
+      {
+       "prompt": "Tell how you subtracted.",
+       "answer": "Sample answer: I went back to 10 first, then took away the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 12; (c) 10; (d) 10",
+     "to": "(a) 4 balloons; (b) Sample answer: 8 + 4 = 12; (c) 16 balloons; (d) Sample answer: I went back to 10 first, then took away the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Take away the ones or the ten. 13 − 10 = 3.",
+      "(b) Take away the ones or the ten. 15 − 3 = 12.",
+      "(c) Take away the ones or the ten. 15 − 5 = 10.",
+      "(d) Take away the ones or the ten. 14 − 4 = 10."
+     ],
+     "to": [
+      "(a) 12 − 8 = 4.",
+      "(b) Think addition.",
+      "(c) 20 − 4.",
+      "(d) Go back through ten."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_open_balloons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "Find the difference: 17 − 8",
+     "to": "Raj finds 16 − 9 by going back to 10 first. How many does Raj take away to reach 10, and what is 16 − 9?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "6; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "17 − 8 = 9."
+     ],
+     "to": [
+      "16 − 6 = 10.",
+      "Take away 3 more: 10 − 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6; 8",
+       "correct": false
+      },
+      {
+       "text": "9; 7",
+       "correct": false
+      },
+      {
+       "text": "6; 7",
+       "correct": true
+      },
+      {
+       "text": "10; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Go back to 10. 15 − 5 = 10. Then take away 2 more. What is 15 − 7?",
+     "to": "Pia finds 13 − 4 by going back to 10 first. How many does Pia take away to reach 10, and what is 13 − 4?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "3; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 is 5 and 2.",
+      "15 − 5 = 10 and 10 − 2 = 8."
+     ],
+     "to": [
+      "13 − 3 = 10.",
+      "Take away 1 more: 10 − 1 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_back10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "22",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3; 10",
+       "correct": false
+      },
+      {
+       "text": "4; 9",
+       "correct": false
+      },
+      {
+       "text": "3; 9",
+       "correct": true
+      },
+      {
+       "text": "10; 9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 8 + ___ = 17. So 17 − 8 = ___. What is the missing number?",
+     "to": "Nia finds 13 − 6 by going back to 10 first. How many does Nia take away to reach 10, and what is 13 − 6?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "3; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 + 9 = 17.",
+      "So 17 − 8 = 9."
+     ],
+     "to": [
+      "13 − 3 = 10.",
+      "Take away 3 more: 10 − 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3; 8",
+       "correct": false
+      },
+      {
+       "text": "3; 7",
+       "correct": true
+      },
+      {
+       "text": "6; 7",
+       "correct": false
+      },
+      {
+       "text": "10; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Find the difference: 15 − 6",
+     "to": "Omar finds 12 − 3 by going back to 10 first. How many does Omar take away to reach 10, and what is 12 − 3?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "2; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "15 − 6 = 9."
+     ],
+     "to": [
+      "12 − 2 = 10.",
+      "Take away 1 more: 10 − 1 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "21",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2; 10",
+       "correct": false
+      },
+      {
+       "text": "3; 9",
+       "correct": false
+      },
+      {
+       "text": "10; 9",
+       "correct": false
+      },
+      {
+       "text": "2; 9",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "Go back to 10. 17 − 7 = 10. Then take away 2 more. What is 17 − 9?",
+     "to": "Raj finds 12 − 5 by going back to 10 first. How many does Raj take away to reach 10, and what is 12 − 5?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "2; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "9 is 7 and 2.",
+      "17 − 7 = 10 and 10 − 2 = 8."
+     ],
+     "to": [
+      "12 − 2 = 10.",
+      "Take away 3 more: 10 − 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_back10). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "26",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2; 8",
+       "correct": false
+      },
+      {
+       "text": "5; 7",
+       "correct": false
+      },
+      {
+       "text": "2; 7",
+       "correct": true
+      },
+      {
+       "text": "10; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 5 + ___ = 14. So 14 − 5 = ___. What is the missing number?",
+     "to": "Ben finds 11 − 3 by going back to 10 first. How many does Ben take away to reach 10, and what is 11 − 3?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "1; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 + 9 = 14.",
+      "So 14 − 5 = 9."
+     ],
+     "to": [
+      "11 − 1 = 10.",
+      "Take away 2 more: 10 − 2 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "19",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1; 9",
+       "correct": false
+      },
+      {
+       "text": "3; 8",
+       "correct": false
+      },
+      {
+       "text": "10; 8",
+       "correct": false
+      },
+      {
+       "text": "1; 8",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "Subtract: 14 − 7 = ___",
+     "to": "Nia finds 14 − 7 by going back to 10 first. How many does Nia take away to reach 10, and what is 14 − 7?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "4; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Go back to 10 first, or think addition.",
+      "14 − 7 = 7."
+     ],
+     "to": [
+      "14 − 4 = 10.",
+      "Take away 3 more: 10 − 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4; 8",
+       "correct": false
+      },
+      {
+       "text": "7; 7",
+       "correct": false
+      },
+      {
+       "text": "4; 7",
+       "correct": true
+      },
+      {
+       "text": "10; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "Think addition. 6 + ___ = 15. So 15 − 6 = ___. What is the missing number?",
+     "to": "Jada finds 15 − 7 by going back to 10 first. How many does Jada take away to reach 10, and what is 15 − 7?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "5; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "6 + 9 = 15.",
+      "So 15 − 6 = 9."
+     ],
+     "to": [
+      "15 − 5 = 10.",
+      "Take away 2 more: 10 − 2 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_think). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_back_through_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5; 9",
+       "correct": false
+      },
+      {
+       "text": "5; 8",
+       "correct": true
+      },
+      {
+       "text": "7; 8",
+       "correct": false
+      },
+      {
+       "text": "10; 8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts that equal 8."
+    },
+    "answer": {
+     "from": [
+      "16 − 8 → 8",
+      "16 − 9 → 7"
+     ],
+     "to": [
+      "13 − 5",
+      "12 − 4",
+      "16 − 8",
+      "11 − 3"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "18 − 9 → 27",
+       "correct": false
+      },
+      {
+       "text": "16 − 8 → 8",
+       "correct": true
+      },
+      {
+       "text": "16 − 9 → 7",
+       "correct": true
+      },
+      {
+       "text": "18 − 9 → 19",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13 − 5",
+       "correct": true
+      },
+      {
+       "text": "12 − 4",
+       "correct": true
+      },
+      {
+       "text": "16 − 8",
+       "correct": true
+      },
+      {
+       "text": "10 − 3",
+       "correct": false
+      },
+      {
+       "text": "11 − 3",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "18 − 9 → 27: not correct.",
+      "16 − 8 → 8: correct.",
+      "16 − 9 → 7: correct.",
+      "18 − 9 → 19: not correct."
+     ],
+     "to": [
+      "Subtract each fact and look for 8.",
+      "Correct choices: 13 − 5; 12 − 4; 16 − 8; 11 − 3. Not correct: 10 − 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_select_difference). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "There are 16 balloons. 5 balloons float away."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Find the difference: 16 − 9",
+       "answer": "7"
+      },
+      {
+       "prompt": "Subtract: 16 − 9 = ___",
+       "answer": "7"
+      },
+      {
+       "prompt": "Subtract: 13 − 7 = ___",
+       "answer": "6"
+      },
+      {
+       "prompt": "Find the difference: 15 − 6",
+       "answer": "9"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many balloons are left?",
+       "answer": "11 balloons"
+      },
+      {
+       "prompt": "Write the addition fact that helps.",
+       "answer": "Sample answer: 5 + 11 = 16"
+      },
+      {
+       "prompt": "How many balloons would make 20?",
+       "answer": "9 balloons"
+      },
+      {
+       "prompt": "Tell how you subtracted.",
+       "answer": "Sample answer: I went back to 10 first, then took away the rest."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7; (b) 7; (c) 6; (d) 9",
+     "to": "(a) 11 balloons; (b) Sample answer: 5 + 11 = 16; (c) 9 balloons; (d) Sample answer: I went back to 10 first, then took away the rest."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Go back to 10 first, or think addition. 16 − 9 = 7.",
+      "(b) Go back to 10 first, or think addition. 16 − 9 = 7.",
+      "(c) Go back to 10 first, or think addition. 13 − 7 = 6.",
+      "(d) Go back to 10 first, or think addition. 15 − 6 = 9."
+     ],
+     "to": [
+      "(a) 16 − 5 = 11.",
+      "(b) Think addition.",
+      "(c) 20 − 11.",
+      "(d) Go back through ten."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as2_open_balloons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Which has the same sum as 6 + 7?",
+     "to": "What is 9 + 3 + 1? Then what is 1 + 3 + 9?"
+    },
+    "answer": {
+     "from": "7 + 6",
+     "to": "13; 13"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "6 + 7 = 7 + 6 = 13."
+     ],
+     "to": [
+      "9 + 3 + 1 = 13.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 + 5",
+       "correct": false
+      },
+      {
+       "text": "7 + 6",
+       "correct": true
+      },
+      {
+       "text": "7 − 6",
+       "correct": false
+      },
+      {
+       "text": "6 + 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13; 14",
+       "correct": false
+      },
+      {
+       "text": "12; 13",
+       "correct": false
+      },
+      {
+       "text": "13; 13",
+       "correct": true
+      },
+      {
+       "text": "14; 14",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "What number makes this true? 8 + 6 = 6 + ___",
+     "to": "What is 5 + 7 + 3? Then what is 3 + 7 + 5?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "15; 15"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "8 + 6 = 6 + 8."
+     ],
+     "to": [
+      "5 + 7 + 3 = 15.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_turn) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "15; 16",
+       "correct": false
+      },
+      {
+       "text": "12; 15",
+       "correct": false
+      },
+      {
+       "text": "16; 16",
+       "correct": false
+      },
+      {
+       "text": "15; 15",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Which has the same sum as 7 + 8?",
+     "to": "What is 4 + 4 + 1? Then what is 1 + 4 + 4?"
+    },
+    "answer": {
+     "from": "8 + 7",
+     "to": "9; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "7 + 8 = 8 + 7 = 15."
+     ],
+     "to": [
+      "4 + 4 + 1 = 9.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 + 6",
+       "correct": false
+      },
+      {
+       "text": "7 + 9",
+       "correct": false
+      },
+      {
+       "text": "8 − 7",
+       "correct": false
+      },
+      {
+       "text": "8 + 7",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 10",
+       "correct": false
+      },
+      {
+       "text": "8; 9",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": true
+      },
+      {
+       "text": "10; 10",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "Add the last two first. 6 + 8 + 2 = 6 + ___",
+     "to": "What is 8 + 3 + 1? Then what is 1 + 3 + 8?"
+    },
+    "answer": {
+     "from": "10",
+     "to": "12; 12"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 + 2 = 10.",
+      "So 6 + 8 + 2 = 6 + 10 = 16."
+     ],
+     "to": [
+      "8 + 3 + 1 = 12.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_regroup). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule add-last-two-first); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_regroup) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": true
+      },
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12; 13",
+       "correct": false
+      },
+      {
+       "text": "11; 12",
+       "correct": false
+      },
+      {
+       "text": "13; 13",
+       "correct": false
+      },
+      {
+       "text": "12; 12",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "What is 3 + 1 + 7?",
+     "to": "What is 6 + 7 + 2? Then what is 2 + 7 + 6?"
+    },
+    "answer": {
+     "from": "11",
+     "to": "15; 15"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for two numbers that make 10. Add them first.",
+      "3 + 1 + 7 = 11."
+     ],
+     "to": [
+      "6 + 7 + 2 = 15.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_three) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15; 16",
+       "correct": false
+      },
+      {
+       "text": "13; 15",
+       "correct": false
+      },
+      {
+       "text": "15; 15",
+       "correct": true
+      },
+      {
+       "text": "16; 16",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Which is equal to 5 + 9?",
+     "to": "What is 8 + 5 + 3? Then what is 3 + 5 + 8?"
+    },
+    "answer": {
+     "from": "9 + 5",
+     "to": "16; 16"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "5 + 9 = 9 + 5 = 14."
+     ],
+     "to": [
+      "8 + 5 + 3 = 16.",
+      "Adding in any order gives the same sum."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_three_then_order). Rewritten from a Support template (was o_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 4",
+       "correct": false
+      },
+      {
+       "text": "9 + 5",
+       "correct": true
+      },
+      {
+       "text": "9 − 5",
+       "correct": false
+      },
+      {
+       "text": "5 + 10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "16; 17",
+       "correct": false
+      },
+      {
+       "text": "16; 16",
+       "correct": true
+      },
+      {
+       "text": "13; 16",
+       "correct": false
+      },
+      {
+       "text": "17; 17",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the sums that equal 12."
+    },
+    "answer": {
+     "from": [
+      "8 + 4 = 12. Fill in the blank: 8 + 4 = 4 + ___ → 8",
+      "What number makes this true? 9 + 3 = 3 + ___ → 9"
+     ],
+     "to": [
+      "7 + 3 + 2",
+      "4 + 2 + 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "What number makes this true? 8 + 4 = 4 + ___ → 9",
+       "correct": false
+      },
+      {
+       "text": "What number makes this true? 7 + 8 = 8 + ___ → 8",
+       "correct": false
+      },
+      {
+       "text": "8 + 4 = 12. Fill in the blank: 8 + 4 = 4 + ___ → 8",
+       "correct": true
+      },
+      {
+       "text": "What number makes this true? 9 + 3 = 3 + ___ → 9",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7 + 3 + 2",
+       "correct": true
+      },
+      {
+       "text": "9 + 1 + 3",
+       "correct": false
+      },
+      {
+       "text": "5 + 7 + 1",
+       "correct": false
+      },
+      {
+       "text": "4 + 2 + 6",
+       "correct": true
+      },
+      {
+       "text": "4 + 5 + 4",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "What number makes this true? 8 + 4 = 4 + ___ → 9: not correct.",
+      "What number makes this true? 7 + 8 = 8 + ___ → 8: not correct.",
+      "8 + 4 = 12. Fill in the blank: 8 + 4 = 4 + ___ → 8: correct.",
+      "What number makes this true? 9 + 3 = 3 + ___ → 9: correct."
+     ],
+     "to": [
+      "Add the three numbers and look for 12.",
+      "Correct choices: 7 + 3 + 2; 4 + 2 + 6. Not correct: 9 + 1 + 3; 4 + 5 + 4; 5 + 7 + 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_select_three_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Three bowls have 5, 5 and 5 grapes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What number makes this true? 3 + 8 = 8 + ___",
+       "answer": "3"
+      },
+      {
+       "prompt": "8 + 5 = 13. Fill in the blank: 8 + 5 = 5 + ___",
+       "answer": "8"
+      },
+      {
+       "prompt": "9 + 3 = 12. Fill in the blank: 9 + 3 = 3 + ___",
+       "answer": "9"
+      },
+      {
+       "prompt": "4 + 7 = 11. Fill in the blank: 4 + 7 = 7 + ___",
+       "answer": "4"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many grapes in all?",
+       "answer": "15 grapes"
+      },
+      {
+       "prompt": "How many grapes are in the first two bowls?",
+       "answer": "10 grapes"
+      },
+      {
+       "prompt": "Does the order you add change the total? (yes or no)",
+       "answer": "no"
+      },
+      {
+       "prompt": "Tell which two numbers you added first and why.",
+       "answer": "Sample answer: I added two numbers that make 10 or a double first."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 8; (c) 9; (d) 4",
+     "to": "(a) 15 grapes; (b) 10 grapes; (c) no; (d) Sample answer: I added two numbers that make 10 or a double first."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Changing the order of the addends does not change the sum. 3 + 8 = 8 + 3.",
+      "(b) Changing the order of the addends does not change the sum. 8 + 5 = 5 + 8.",
+      "(c) Changing the order of the addends does not change the sum. 9 + 3 = 3 + 9.",
+      "(d) Changing the order of the addends does not change the sum. 4 + 7 = 7 + 4."
+     ],
+     "to": [
+      "(a) 5 + 5 + 5 = 15.",
+      "(b) 5 + 5.",
+      "(c) Any order gives the same sum.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_open_three_bowls). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the sums that equal 12."
+    },
+    "answer": {
+     "from": [
+      "9 + 4 = 13. Fill in the blank: 9 + 4 = 4 + ___ → 9",
+      "What number makes this true? 8 + 5 = 5 + ___ → 8"
+     ],
+     "to": [
+      "4 + 7 + 1",
+      "5 + 5 + 2",
+      "6 + 3 + 3"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 4 = 13. Fill in the blank: 9 + 4 = 4 + ___ → 9",
+       "correct": true
+      },
+      {
+       "text": "6 + 7 = 13. Fill in the blank: 6 + 7 = 7 + ___ → 1",
+       "correct": false
+      },
+      {
+       "text": "5 + 8 = 13. Fill in the blank: 5 + 8 = 8 + ___ → 3",
+       "correct": false
+      },
+      {
+       "text": "What number makes this true? 8 + 5 = 5 + ___ → 8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 + 7 + 1",
+       "correct": true
+      },
+      {
+       "text": "8 + 1 + 4",
+       "correct": false
+      },
+      {
+       "text": "5 + 5 + 2",
+       "correct": true
+      },
+      {
+       "text": "6 + 3 + 3",
+       "correct": true
+      },
+      {
+       "text": "5 + 5 + 3",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "9 + 4 = 13. Fill in the blank: 9 + 4 = 4 + ___ → 9: correct.",
+      "6 + 7 = 13. Fill in the blank: 6 + 7 = 7 + ___ → 1: not correct.",
+      "5 + 8 = 13. Fill in the blank: 5 + 8 = 8 + ___ → 3: not correct.",
+      "What number makes this true? 8 + 5 = 5 + ___ → 8: correct."
+     ],
+     "to": [
+      "Add the three numbers and look for 12.",
+      "Correct choices: 4 + 7 + 1; 5 + 5 + 2; 6 + 3 + 3. Not correct: 5 + 5 + 3; 8 + 1 + 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_select_three_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Three bowls have 3, 6 and 2 grapes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "What number makes this true? 8 + 4 = 4 + ___",
+       "answer": "8"
+      },
+      {
+       "prompt": "8 + 7 = 15. Fill in the blank: 8 + 7 = 7 + ___",
+       "answer": "8"
+      },
+      {
+       "prompt": "What number makes this true? 8 + 3 = 3 + ___",
+       "answer": "8"
+      },
+      {
+       "prompt": "What number makes this true? 8 + 5 = 5 + ___",
+       "answer": "8"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many grapes in all?",
+       "answer": "11 grapes"
+      },
+      {
+       "prompt": "How many grapes are in the first two bowls?",
+       "answer": "9 grapes"
+      },
+      {
+       "prompt": "Does the order you add change the total? (yes or no)",
+       "answer": "no"
+      },
+      {
+       "prompt": "Tell which two numbers you added first and why.",
+       "answer": "Sample answer: I added two numbers that make 10 or a double first."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 8; (b) 8; (c) 8; (d) 8",
+     "to": "(a) 11 grapes; (b) 9 grapes; (c) no; (d) Sample answer: I added two numbers that make 10 or a double first."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Changing the order of the addends does not change the sum. 8 + 4 = 4 + 8.",
+      "(b) Changing the order of the addends does not change the sum. 8 + 7 = 7 + 8.",
+      "(c) Changing the order of the addends does not change the sum. 8 + 3 = 3 + 8.",
+      "(d) Changing the order of the addends does not change the sum. 8 + 5 = 5 + 8."
+     ],
+     "to": [
+      "(a) 3 + 6 + 2 = 11.",
+      "(b) 3 + 6.",
+      "(c) Any order gives the same sum.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_open_three_bowls). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Which is equal to 8 + 9?",
+     "to": "Add 9 + 6 + 4. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "9 + 8",
+     "to": "6 and 4; 19"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "8 + 9 = 9 + 8 = 17."
+     ],
+     "to": [
+      "6 + 4 = 10.",
+      "10 + 9 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 8",
+       "correct": true
+      },
+      {
+       "text": "8 + 10",
+       "correct": false
+      },
+      {
+       "text": "9 − 8",
+       "correct": false
+      },
+      {
+       "text": "9 + 7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 and 4; 19",
+       "correct": true
+      },
+      {
+       "text": "9 and 6; 19",
+       "correct": false
+      },
+      {
+       "text": "6 and 4; 20",
+       "correct": false
+      },
+      {
+       "text": "9 and 4; 19",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "To add 7 + 2 + 8, which two numbers make a ten?",
+     "to": "Add 9 + 3 + 7. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "2 + 8",
+     "to": "3 and 7; 19"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for one pair that adds to 10.",
+      "2 + 8 = 10."
+     ],
+     "to": [
+      "3 + 7 = 10.",
+      "10 + 9 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_ten_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 + 2",
+       "correct": false
+      },
+      {
+       "text": "2 + 8",
+       "correct": true
+      },
+      {
+       "text": "8 + 8",
+       "correct": false
+      },
+      {
+       "text": "7 + 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9 and 3; 19",
+       "correct": false
+      },
+      {
+       "text": "3 and 7; 19",
+       "correct": true
+      },
+      {
+       "text": "3 and 7; 20",
+       "correct": false
+      },
+      {
+       "text": "9 and 7; 19",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Find the sum of 2, 2, and 9.",
+     "to": "Add 8 + 2 + 8. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "13",
+     "to": "2 and 8; 18"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for two numbers that make 10. Add them first.",
+      "2 + 2 + 9 = 13."
+     ],
+     "to": [
+      "2 + 8 = 10.",
+      "10 + 8 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "8 and 2; 18",
+       "correct": false
+      },
+      {
+       "text": "2 and 8; 18",
+       "correct": true
+      },
+      {
+       "text": "2 and 8; 19",
+       "correct": false
+      },
+      {
+       "text": "8 and 8; 18",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Which has the same sum as 9 + 5?",
+     "to": "Add 9 + 7 + 3. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "5 + 9",
+     "to": "7 and 3; 19"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "9 + 5 = 5 + 9 = 14."
+     ],
+     "to": [
+      "7 + 3 = 10.",
+      "10 + 9 = 19."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 + 9",
+       "correct": true
+      },
+      {
+       "text": "9 − 5",
+       "correct": false
+      },
+      {
+       "text": "5 + 8",
+       "correct": false
+      },
+      {
+       "text": "9 + 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9 and 7; 19",
+       "correct": false
+      },
+      {
+       "text": "7 and 3; 20",
+       "correct": false
+      },
+      {
+       "text": "9 and 3; 19",
+       "correct": false
+      },
+      {
+       "text": "7 and 3; 19",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "To add 2 + 4 + 8, which two numbers make a ten?",
+     "to": "Add 2 + 9 + 1. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "2 + 8",
+     "to": "9 and 1; 12"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for one pair that adds to 10.",
+      "2 + 8 = 10."
+     ],
+     "to": [
+      "9 + 1 = 10.",
+      "10 + 2 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_ten_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 + 8",
+       "correct": true
+      },
+      {
+       "text": "8 + 8",
+       "correct": false
+      },
+      {
+       "text": "2 + 4",
+       "correct": false
+      },
+      {
+       "text": "4 + 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2 and 9; 12",
+       "correct": false
+      },
+      {
+       "text": "9 and 1; 12",
+       "correct": true
+      },
+      {
+       "text": "9 and 1; 13",
+       "correct": false
+      },
+      {
+       "text": "2 and 1; 12",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which has the same sum as 9 + 6?",
+     "to": "Add 5 + 3 + 7. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "6 + 9",
+     "to": "3 and 7; 15"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "9 + 6 = 6 + 9 = 15."
+     ],
+     "to": [
+      "3 + 7 = 10.",
+      "10 + 5 = 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 − 6",
+       "correct": false
+      },
+      {
+       "text": "9 + 7",
+       "correct": false
+      },
+      {
+       "text": "6 + 8",
+       "correct": false
+      },
+      {
+       "text": "6 + 9",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5 and 3; 15",
+       "correct": false
+      },
+      {
+       "text": "3 and 7; 15",
+       "correct": true
+      },
+      {
+       "text": "3 and 7; 16",
+       "correct": false
+      },
+      {
+       "text": "5 and 7; 15",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "To add 7 + 2 + 3, which two numbers make a ten?",
+     "to": "Add 7 + 2 + 8. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "7 + 3",
+     "to": "2 and 8; 17"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for one pair that adds to 10.",
+      "7 + 3 = 10."
+     ],
+     "to": [
+      "2 + 8 = 10.",
+      "10 + 7 = 17."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_ten_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 + 7",
+       "correct": false
+      },
+      {
+       "text": "7 + 3",
+       "correct": true
+      },
+      {
+       "text": "2 + 3",
+       "correct": false
+      },
+      {
+       "text": "7 + 2",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2 and 8; 17",
+       "correct": true
+      },
+      {
+       "text": "7 and 2; 17",
+       "correct": false
+      },
+      {
+       "text": "2 and 8; 18",
+       "correct": false
+      },
+      {
+       "text": "7 and 8; 17",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "What is 6 + 3 + 5?",
+     "to": "Add 3 + 4 + 6. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "14",
+     "to": "4 and 6; 13"
+    },
+    "solutionSteps": {
+     "from": [
+      "Look for two numbers that make 10. Add them first.",
+      "6 + 3 + 5 = 14."
+     ],
+     "to": [
+      "4 + 6 = 10.",
+      "10 + 3 = 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_three). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "14",
+       "correct": true
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3 and 4; 13",
+       "correct": false
+      },
+      {
+       "text": "4 and 6; 13",
+       "correct": true
+      },
+      {
+       "text": "4 and 6; 14",
+       "correct": false
+      },
+      {
+       "text": "3 and 6; 13",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Which is equal to 9 + 7?",
+     "to": "Add 6 + 8 + 2. Which two numbers make 10, and what is the sum?"
+    },
+    "answer": {
+     "from": "7 + 9",
+     "to": "8 and 2; 16"
+    },
+    "solutionSteps": {
+     "from": [
+      "Changing the order of the addends does not change the sum.",
+      "9 + 7 = 7 + 9 = 16."
+     ],
+     "to": [
+      "8 + 2 = 10.",
+      "10 + 6 = 16."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_find_the_ten). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 8",
+       "correct": false
+      },
+      {
+       "text": "7 + 9",
+       "correct": true
+      },
+      {
+       "text": "9 − 7",
+       "correct": false
+      },
+      {
+       "text": "7 + 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 and 8; 16",
+       "correct": false
+      },
+      {
+       "text": "8 and 2; 16",
+       "correct": true
+      },
+      {
+       "text": "8 and 2; 17",
+       "correct": false
+      },
+      {
+       "text": "6 and 2; 16",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the sums that equal 16."
+    },
+    "answer": {
+     "from": [
+      "What number makes this true? 8 + ___ = 9 + 8 → 9",
+      "What number makes this true? 9 + ___ = 5 + 9 → 5"
+     ],
+     "to": [
+      "9 + 1 + 6",
+      "9 + 5 + 2",
+      "2 + 7 + 7",
+      "2 + 6 + 8"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 + 7 = 15. Fill in the blank: 8 + ___ = 7 + 8 → 15",
+       "correct": false
+      },
+      {
+       "text": "What number makes this true? 7 + ___ = 9 + 7 → 16",
+       "correct": false
+      },
+      {
+       "text": "What number makes this true? 8 + ___ = 9 + 8 → 9",
+       "correct": true
+      },
+      {
+       "text": "What number makes this true? 9 + ___ = 5 + 9 → 5",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9 + 1 + 6",
+       "correct": true
+      },
+      {
+       "text": "9 + 5 + 2",
+       "correct": true
+      },
+      {
+       "text": "2 + 7 + 7",
+       "correct": true
+      },
+      {
+       "text": "5 + 8 + 4",
+       "correct": false
+      },
+      {
+       "text": "2 + 6 + 8",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "8 + 7 = 15. Fill in the blank: 8 + ___ = 7 + 8 → 15: not correct.",
+      "What number makes this true? 7 + ___ = 9 + 7 → 16: not correct.",
+      "What number makes this true? 8 + ___ = 9 + 8 → 9: correct.",
+      "What number makes this true? 9 + ___ = 5 + 9 → 5: correct."
+     ],
+     "to": [
+      "Add the three numbers and look for 16.",
+      "Correct choices: 9 + 1 + 6; 9 + 5 + 2; 2 + 7 + 7; 2 + 6 + 8. Not correct: 5 + 8 + 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_select_three_sum). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Three bowls have 5, 5 and 4 grapes."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "8 + 5 = 13. Fill in the blank: 8 + ___ = 5 + 8",
+       "answer": "5"
+      },
+      {
+       "prompt": "What number makes this true? 8 + ___ = 6 + 8",
+       "answer": "6"
+      },
+      {
+       "prompt": "What number makes this true? 9 + ___ = 6 + 9",
+       "answer": "6"
+      },
+      {
+       "prompt": "8 + 9 = 17. Fill in the blank: 8 + ___ = 9 + 8",
+       "answer": "9"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many grapes in all?",
+       "answer": "14 grapes"
+      },
+      {
+       "prompt": "How many grapes are in the first two bowls?",
+       "answer": "10 grapes"
+      },
+      {
+       "prompt": "Does the order you add change the total? (yes or no)",
+       "answer": "no"
+      },
+      {
+       "prompt": "Tell which two numbers you added first and why.",
+       "answer": "Sample answer: I added two numbers that make 10 or a double first."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 6; (c) 6; (d) 9",
+     "to": "(a) 14 grapes; (b) 10 grapes; (c) no; (d) Sample answer: I added two numbers that make 10 or a double first."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Changing the order of the addends does not change the sum. 8 + 5 = 5 + 8.",
+      "(b) Changing the order of the addends does not change the sum. 8 + 6 = 6 + 8.",
+      "(c) Changing the order of the addends does not change the sum. 9 + 6 = 6 + 9.",
+      "(d) Changing the order of the addends does not change the sum. 8 + 9 = 9 + 8."
+     ],
+     "to": [
+      "(a) 5 + 5 + 4 = 14.",
+      "(b) 5 + 5.",
+      "(c) Any order gives the same sum.",
+      "(d) Easy pairs."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: o_turn_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as3_open_three_bowls). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Which subtraction fact uses the same numbers as 6 + 5 = 11?",
+     "to": "8 + 3 = 11. What is 11 − 8? What is 11 − 3?"
+    },
+    "answer": {
+     "from": "11 − 6 = 5",
+     "to": "3; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 11.",
+      "11 − 6 = 5 is true."
+     ],
+     "to": [
+      "11 − 8 = 3.",
+      "11 − 3 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_member) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 − 11 = 5",
+       "correct": false
+      },
+      {
+       "text": "11 − 6 = 6",
+       "correct": false
+      },
+      {
+       "text": "11 − 6 = 5",
+       "correct": true
+      },
+      {
+       "text": "6 − 5 = 11",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8; 3",
+       "correct": false
+      },
+      {
+       "text": "3; 8",
+       "correct": true
+      },
+      {
+       "text": "11; 8",
+       "correct": false
+      },
+      {
+       "text": "3; 3",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "Use 7 + 7 = 14 to find 14 − 7.",
+     "to": "7 + 6 = 13. What is 13 − 7? What is 13 − 6?"
+    },
+    "answer": {
+     "from": "7",
+     "to": "6; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "14 is made of 7 and 7.",
+      "14 − 7 = 7."
+     ],
+     "to": [
+      "13 − 7 = 6.",
+      "13 − 6 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_related) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6; 7",
+       "correct": true
+      },
+      {
+       "text": "7; 6",
+       "correct": false
+      },
+      {
+       "text": "13; 7",
+       "correct": false
+      },
+      {
+       "text": "6; 6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Find 12 − 4. Use the missing addend in 4 + ___ = 12.",
+     "to": "5 + 8 = 13. What is 13 − 5? What is 13 − 8?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "8; 5"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 4 to 12.",
+      "4 + 8 = 12, so 12 − 4 = 8."
+     ],
+     "to": [
+      "13 − 5 = 8.",
+      "13 − 8 = 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_unknown_add). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_unknown_add) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5; 8",
+       "correct": false
+      },
+      {
+       "text": "8; 5",
+       "correct": true
+      },
+      {
+       "text": "13; 5",
+       "correct": false
+      },
+      {
+       "text": "8; 8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "8 + 4 = 12. Which subtraction fact is in the same family?",
+     "to": "9 + 5 = 14. What is 14 − 9? What is 14 − 5?"
+    },
+    "answer": {
+     "from": "12 − 8 = 4",
+     "to": "5; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 12.",
+      "12 − 8 = 4 is true."
+     ],
+     "to": [
+      "14 − 9 = 5.",
+      "14 − 5 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_member) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "12 − 8 = 4",
+       "correct": true
+      },
+      {
+       "text": "8 − 4 = 12",
+       "correct": false
+      },
+      {
+       "text": "8 − 12 = 4",
+       "correct": false
+      },
+      {
+       "text": "12 − 8 = 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 5",
+       "correct": false
+      },
+      {
+       "text": "14; 9",
+       "correct": false
+      },
+      {
+       "text": "5; 5",
+       "correct": false
+      },
+      {
+       "text": "5; 9",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Which subtraction fact uses the same numbers as 6 + 9 = 15?",
+     "to": "8 + 5 = 13. What is 13 − 8? What is 13 − 5?"
+    },
+    "answer": {
+     "from": "15 − 6 = 9",
+     "to": "5; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 15.",
+      "15 − 6 = 9 is true."
+     ],
+     "to": [
+      "13 − 8 = 5.",
+      "13 − 5 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_member) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 − 15 = 9",
+       "correct": false
+      },
+      {
+       "text": "15 − 6 = 9",
+       "correct": true
+      },
+      {
+       "text": "15 − 6 = 10",
+       "correct": false
+      },
+      {
+       "text": "9 − 6 = 15",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8; 5",
+       "correct": false
+      },
+      {
+       "text": "13; 8",
+       "correct": false
+      },
+      {
+       "text": "5; 5",
+       "correct": false
+      },
+      {
+       "text": "5; 8",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Find 12 − 9. Use the missing addend in 9 + ___ = 12.",
+     "to": "7 + 5 = 12. What is 12 − 7? What is 12 − 5?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "5; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 9 to 12.",
+      "9 + 3 = 12, so 12 − 9 = 3."
+     ],
+     "to": [
+      "12 − 7 = 5.",
+      "12 − 5 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_unknown_add). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_unknown_add) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "21",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7; 5",
+       "correct": false
+      },
+      {
+       "text": "12; 7",
+       "correct": false
+      },
+      {
+       "text": "5; 5",
+       "correct": false
+      },
+      {
+       "text": "5; 7",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "9 + 4 = 13. What is 13 − 9? Is the answer 5?",
+     "to": "3 + 9 = 12. What is 12 − 3? What is 12 − 9?"
+    },
+    "answer": {
+     "from": "No. The answer is 4.",
+     "to": "9; 3"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 is made of 9 and 4.",
+      "13 − 9 = 4.",
+      "The answer 5 is not correct; it should be 4."
+     ],
+     "to": [
+      "12 − 3 = 9.",
+      "12 − 9 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_family_two_facts). Rewritten from a Support template (was f_related_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 4.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 16.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 5 is the correct answer.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 22.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 3",
+       "correct": true
+      },
+      {
+       "text": "3; 9",
+       "correct": false
+      },
+      {
+       "text": "12; 3",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts in the fact family for 4, 9 and 13."
+    },
+    "answer": {
+     "from": [
+      "7 + 5 = 12. What is 12 − 5? → 7",
+      "8 + 4 = 12. What is 12 − 4? → 8"
+     ],
+     "to": [
+      "13 − 4 = 9",
+      "13 − 9 = 4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 + 5 = 12. What is 12 − 5? → 7",
+       "correct": true
+      },
+      {
+       "text": "Use 9 + 5 = 14 to find 14 − 5. → 19",
+       "correct": false
+      },
+      {
+       "text": "8 + 4 = 12. What is 12 − 4? → 8",
+       "correct": true
+      },
+      {
+       "text": "Use 4 + 8 = 12 to find 12 − 4. → 18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13 − 4 = 9",
+       "correct": true
+      },
+      {
+       "text": "13 + 4 = 9",
+       "correct": false
+      },
+      {
+       "text": "9 − 4 = 13",
+       "correct": false
+      },
+      {
+       "text": "4 − 9 = 13",
+       "correct": false
+      },
+      {
+       "text": "13 − 9 = 4",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "7 + 5 = 12. What is 12 − 5? → 7: correct.",
+      "Use 9 + 5 = 14 to find 14 − 5. → 19: not correct.",
+      "8 + 4 = 12. What is 12 − 4? → 8: correct.",
+      "Use 4 + 8 = 12 to find 12 − 4. → 18: not correct."
+     ],
+     "to": [
+      "The family uses 4 + 9 = 13 and the related facts.",
+      "Correct choices: 13 − 4 = 9; 13 − 9 = 4. Not correct: 13 + 4 = 9; 4 − 9 = 13; 9 − 4 = 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_select_family). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Use the numbers 5, 4 and 9."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Use 7 + 5 = 12 to find 12 − 7.",
+       "answer": "5"
+      },
+      {
+       "prompt": "Use 7 + 6 = 13 to find 13 − 6.",
+       "answer": "7"
+      },
+      {
+       "prompt": "Use 9 + 4 = 13 to find 13 − 4.",
+       "answer": "9"
+      },
+      {
+       "prompt": "8 + 5 = 13. What is 13 − 8?",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is 5 + 4?",
+       "answer": "9"
+      },
+      {
+       "prompt": "What is 9 − 5?",
+       "answer": "4"
+      },
+      {
+       "prompt": "What is 9 − 4?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Tell how the facts go together.",
+       "answer": "Sample answer: They use the same three numbers, so they are a fact family."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 7; (c) 9; (d) 5",
+     "to": "(a) 9; (b) 4; (c) 5; (d) Sample answer: They use the same three numbers, so they are a fact family."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 12 is made of 7 and 5. 12 − 7 = 5.",
+      "(b) 13 is made of 7 and 6. 13 − 6 = 7.",
+      "(c) 13 is made of 9 and 4. 13 − 4 = 9.",
+      "(d) 13 is made of 8 and 5. 13 − 8 = 5."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Related fact.",
+      "(c) Related fact.",
+      "(d) Fact family."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_open_family). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts in the fact family for 9, 4 and 13."
+    },
+    "answer": {
+     "from": [
+      "Use 6 + 5 = 11 to find 11 − 5. → 6",
+      "8 + 7 = 15. What is 15 − 8? → 7"
+     ],
+     "to": [
+      "13 − 4 = 9",
+      "13 − 9 = 4",
+      "4 + 9 = 13"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Use 5 + 7 = 12 to find 12 − 5. → 6",
+       "correct": false
+      },
+      {
+       "text": "Use 6 + 5 = 11 to find 11 − 5. → 6",
+       "correct": true
+      },
+      {
+       "text": "8 + 7 = 15. What is 15 − 8? → 7",
+       "correct": true
+      },
+      {
+       "text": "3 + 2 = 5. What is 5 − 3? → 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13 − 4 = 9",
+       "correct": true
+      },
+      {
+       "text": "4 − 9 = 13",
+       "correct": false
+      },
+      {
+       "text": "13 − 9 = 4",
+       "correct": true
+      },
+      {
+       "text": "9 − 4 = 13",
+       "correct": false
+      },
+      {
+       "text": "4 + 9 = 13",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Use 5 + 7 = 12 to find 12 − 5. → 6: not correct.",
+      "Use 6 + 5 = 11 to find 11 − 5. → 6: correct.",
+      "8 + 7 = 15. What is 15 − 8? → 7: correct.",
+      "3 + 2 = 5. What is 5 − 3? → 8: not correct."
+     ],
+     "to": [
+      "The family uses 9 + 4 = 13 and the related facts.",
+      "Correct choices: 13 − 4 = 9; 13 − 9 = 4; 4 + 9 = 13. Not correct: 4 − 9 = 13; 9 − 4 = 13."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_select_family). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Use the numbers 3, 6 and 9."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Use 8 + 6 = 14 to find 14 − 8.",
+       "answer": "6"
+      },
+      {
+       "prompt": "9 + 8 = 17. What is 17 − 8?",
+       "answer": "9"
+      },
+      {
+       "prompt": "3 + 2 = 5. What is 5 − 2?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Use 3 + 8 = 11 to find 11 − 8.",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is 3 + 6?",
+       "answer": "9"
+      },
+      {
+       "prompt": "What is 9 − 3?",
+       "answer": "6"
+      },
+      {
+       "prompt": "What is 9 − 6?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Tell how the facts go together.",
+       "answer": "Sample answer: They use the same three numbers, so they are a fact family."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6; (b) 9; (c) 3; (d) 3",
+     "to": "(a) 9; (b) 6; (c) 3; (d) Sample answer: They use the same three numbers, so they are a fact family."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 14 is made of 8 and 6. 14 − 8 = 6.",
+      "(b) 17 is made of 9 and 8. 17 − 8 = 9.",
+      "(c) 5 is made of 3 and 2. 5 − 2 = 3.",
+      "(d) 11 is made of 3 and 8. 11 − 8 = 3."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Related fact.",
+      "(c) Related fact.",
+      "(d) Fact family."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_open_family). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "8 + 9 = 17. Which subtraction fact is in the same family?",
+     "to": "6 + ___ = 14. Use the fact family to write the missing number, then find 14 − ___ = 6."
+    },
+    "answer": {
+     "from": "17 − 8 = 9",
+     "to": "8; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 17.",
+      "17 − 8 = 9 is true."
+     ],
+     "to": [
+      "14 − 6 = 8.",
+      "14 − 8 = 6, so the blank is 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "17 − 8 = 10",
+       "correct": false
+      },
+      {
+       "text": "17 − 8 = 9",
+       "correct": true
+      },
+      {
+       "text": "9 − 8 = 17",
+       "correct": false
+      },
+      {
+       "text": "8 − 17 = 9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8; 6",
+       "correct": false
+      },
+      {
+       "text": "8; 8",
+       "correct": true
+      },
+      {
+       "text": "6; 6",
+       "correct": false
+      },
+      {
+       "text": "14; 8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "Which is NOT a fact in the family of 7, 9, and 16?",
+     "to": "9 + ___ = 14. Use the fact family to write the missing number, then find 14 − ___ = 9."
+    },
+    "answer": {
+     "from": "9 − 7 = 16",
+     "to": "5; 5"
+    },
+    "solutionSteps": {
+     "from": [
+      "Check each fact. The whole is the biggest number.",
+      "9 − 7 = 16 is not true."
+     ],
+     "to": [
+      "14 − 9 = 5.",
+      "14 − 5 = 9, so the blank is 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_not). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16 − 7 = 9",
+       "correct": false
+      },
+      {
+       "text": "9 + 7 = 16",
+       "correct": false
+      },
+      {
+       "text": "16 − 9 = 7",
+       "correct": false
+      },
+      {
+       "text": "9 − 7 = 16",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5; 5",
+       "correct": true
+      },
+      {
+       "text": "5; 9",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": false
+      },
+      {
+       "text": "14; 5",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Which subtraction fact uses the same numbers as 7 + 6 = 13?",
+     "to": "4 + ___ = 11. Use the fact family to write the missing number, then find 11 − ___ = 4."
+    },
+    "answer": {
+     "from": "13 − 7 = 6",
+     "to": "7; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 13.",
+      "13 − 7 = 6 is true."
+     ],
+     "to": [
+      "11 − 4 = 7.",
+      "11 − 7 = 4, so the blank is 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13 − 7 = 7",
+       "correct": false
+      },
+      {
+       "text": "7 − 13 = 6",
+       "correct": false
+      },
+      {
+       "text": "7 − 6 = 13",
+       "correct": false
+      },
+      {
+       "text": "13 − 7 = 6",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7; 4",
+       "correct": false
+      },
+      {
+       "text": "7; 7",
+       "correct": true
+      },
+      {
+       "text": "4; 4",
+       "correct": false
+      },
+      {
+       "text": "11; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "8 + 9 = 17. What is 17 − 8?",
+     "to": "8 + ___ = 14. Use the fact family to write the missing number, then find 14 − ___ = 8."
+    },
+    "answer": {
+     "from": "9",
+     "to": "6; 6"
+    },
+    "solutionSteps": {
+     "from": [
+      "17 is made of 8 and 9.",
+      "17 − 8 = 9."
+     ],
+     "to": [
+      "14 − 8 = 6.",
+      "14 − 6 = 8, so the blank is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6; 6",
+       "correct": true
+      },
+      {
+       "text": "6; 8",
+       "correct": false
+      },
+      {
+       "text": "8; 8",
+       "correct": false
+      },
+      {
+       "text": "14; 6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "What number makes 8 + ___ = 17 true? Use it to find 17 − 8.",
+     "to": "3 + ___ = 11. Use the fact family to write the missing number, then find 11 − ___ = 3."
+    },
+    "answer": {
+     "from": "9",
+     "to": "8; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 8 to 17.",
+      "8 + 9 = 17, so 17 − 8 = 9."
+     ],
+     "to": [
+      "11 − 3 = 8.",
+      "11 − 8 = 3, so the blank is 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_unknown_add). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8; 3",
+       "correct": false
+      },
+      {
+       "text": "8; 8",
+       "correct": true
+      },
+      {
+       "text": "3; 3",
+       "correct": false
+      },
+      {
+       "text": "11; 8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "Which is NOT a fact in the family of 9, 7, and 16?",
+     "to": "9 + ___ = 16. Use the fact family to write the missing number, then find 16 − ___ = 9."
+    },
+    "answer": {
+     "from": "9 − 7 = 16",
+     "to": "7; 7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Check each fact. The whole is the biggest number.",
+      "9 − 7 = 16 is not true."
+     ],
+     "to": [
+      "16 − 9 = 7.",
+      "16 − 7 = 9, so the blank is 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_not). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 7 = 16",
+       "correct": false
+      },
+      {
+       "text": "16 − 9 = 7",
+       "correct": false
+      },
+      {
+       "text": "7 + 9 = 16",
+       "correct": false
+      },
+      {
+       "text": "9 − 7 = 16",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7; 7",
+       "correct": true
+      },
+      {
+       "text": "7; 9",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": false
+      },
+      {
+       "text": "16; 7",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "5 + 9 = 14. Which subtraction fact is in the same family?",
+     "to": "4 + ___ = 13. Use the fact family to write the missing number, then find 13 − ___ = 4."
+    },
+    "answer": {
+     "from": "14 − 5 = 9",
+     "to": "9; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 14.",
+      "14 − 5 = 9 is true."
+     ],
+     "to": [
+      "13 − 4 = 9.",
+      "13 − 9 = 4, so the blank is 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 − 14 = 9",
+       "correct": false
+      },
+      {
+       "text": "14 − 5 = 9",
+       "correct": true
+      },
+      {
+       "text": "14 − 5 = 10",
+       "correct": false
+      },
+      {
+       "text": "9 − 5 = 14",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 4",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": true
+      },
+      {
+       "text": "4; 4",
+       "correct": false
+      },
+      {
+       "text": "13; 9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Which is NOT a fact in the family of 9, 6, and 15?",
+     "to": "9 + ___ = 17. Use the fact family to write the missing number, then find 17 − ___ = 9."
+    },
+    "answer": {
+     "from": "9 − 6 = 15",
+     "to": "8; 8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Check each fact. The whole is the biggest number.",
+      "9 − 6 = 15 is not true."
+     ],
+     "to": [
+      "17 − 9 = 8.",
+      "17 − 8 = 9, so the blank is 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_not). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 + 6 = 15",
+       "correct": false
+      },
+      {
+       "text": "15 − 6 = 9",
+       "correct": false
+      },
+      {
+       "text": "9 − 6 = 15",
+       "correct": true
+      },
+      {
+       "text": "15 − 9 = 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8; 8",
+       "correct": true
+      },
+      {
+       "text": "8; 9",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": false
+      },
+      {
+       "text": "17; 8",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "9 + 7 = 16. Which subtraction fact is in the same family?",
+     "to": "7 + ___ = 16. Use the fact family to write the missing number, then find 16 − ___ = 7."
+    },
+    "answer": {
+     "from": "16 − 9 = 7",
+     "to": "9; 9"
+    },
+    "solutionSteps": {
+     "from": [
+      "In subtraction, start with the whole, 16.",
+      "16 − 9 = 7 is true."
+     ],
+     "to": [
+      "16 − 7 = 9.",
+      "16 − 9 = 7, so the blank is 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_member). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16 − 9 = 7",
+       "correct": true
+      },
+      {
+       "text": "9 − 7 = 16",
+       "correct": false
+      },
+      {
+       "text": "16 − 9 = 8",
+       "correct": false
+      },
+      {
+       "text": "9 − 16 = 7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9; 7",
+       "correct": false
+      },
+      {
+       "text": "7; 7",
+       "correct": false
+      },
+      {
+       "text": "16; 9",
+       "correct": false
+      },
+      {
+       "text": "9; 9",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Use 7 + 6 = 13 to find 13 − 7.",
+     "to": "5 + ___ = 11. Use the fact family to write the missing number, then find 11 − ___ = 5."
+    },
+    "answer": {
+     "from": "6",
+     "to": "6; 6"
+    },
+    "solutionSteps": {
+     "from": [
+      "13 is made of 7 and 6.",
+      "13 − 7 = 6."
+     ],
+     "to": [
+      "11 − 5 = 6.",
+      "11 − 6 = 5, so the blank is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6; 5",
+       "correct": false
+      },
+      {
+       "text": "5; 5",
+       "correct": false
+      },
+      {
+       "text": "6; 6",
+       "correct": true
+      },
+      {
+       "text": "11; 6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "Which is NOT a fact in the family of 5, 8, and 13?",
+     "to": "7 + ___ = 11. Use the fact family to write the missing number, then find 11 − ___ = 7."
+    },
+    "answer": {
+     "from": "8 − 5 = 13",
+     "to": "4; 4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Check each fact. The whole is the biggest number.",
+      "8 − 5 = 13 is not true."
+     ],
+     "to": [
+      "11 − 7 = 4.",
+      "11 − 4 = 7, so the blank is 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_not). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13 − 8 = 5",
+       "correct": false
+      },
+      {
+       "text": "13 − 5 = 8",
+       "correct": false
+      },
+      {
+       "text": "8 − 5 = 13",
+       "correct": true
+      },
+      {
+       "text": "5 + 8 = 13",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4; 7",
+       "correct": false
+      },
+      {
+       "text": "7; 7",
+       "correct": false
+      },
+      {
+       "text": "11; 4",
+       "correct": false
+      },
+      {
+       "text": "4; 4",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "6 + 8 = 14. What is 14 − 8? Is the answer 6?",
+     "to": "7 + ___ = 12. Use the fact family to write the missing number, then find 12 − ___ = 7."
+    },
+    "answer": {
+     "from": "Yes. 14 − 8 = 6.",
+     "to": "5; 5"
+    },
+    "solutionSteps": {
+     "from": [
+      "14 is made of 6 and 8.",
+      "14 − 8 = 6.",
+      "The answer 6 is correct."
+     ],
+     "to": [
+      "12 − 7 = 5.",
+      "12 − 5 = 7, so the blank is 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_missing_in_family). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 22.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 7.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 14.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 14 − 8 = 6.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5; 7",
+       "correct": false
+      },
+      {
+       "text": "7; 7",
+       "correct": false
+      },
+      {
+       "text": "5; 5",
+       "correct": true
+      },
+      {
+       "text": "12; 5",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the facts in the fact family for 3, 4 and 7."
+    },
+    "answer": {
+     "from": [
+      "9 + 9 = 18. What is 18 − 9? → 9",
+      "Use 6 + 9 = 15 to find 15 − 6. → 9"
+     ],
+     "to": [
+      "7 − 4 = 3",
+      "4 + 3 = 7",
+      "3 + 4 = 7",
+      "7 − 3 = 4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Use 9 + 5 = 14 to find 14 − 9. → 23",
+       "correct": false
+      },
+      {
+       "text": "9 + 9 = 18. What is 18 − 9? → 9",
+       "correct": true
+      },
+      {
+       "text": "Use 6 + 9 = 15 to find 15 − 6. → 9",
+       "correct": true
+      },
+      {
+       "text": "Use 6 + 9 = 15 to find 15 − 9. → 16",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7 − 4 = 3",
+       "correct": true
+      },
+      {
+       "text": "4 + 3 = 7",
+       "correct": true
+      },
+      {
+       "text": "7 + 3 = 4",
+       "correct": false
+      },
+      {
+       "text": "3 + 4 = 7",
+       "correct": true
+      },
+      {
+       "text": "7 − 3 = 4",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Use 9 + 5 = 14 to find 14 − 9. → 23: not correct.",
+      "9 + 9 = 18. What is 18 − 9? → 9: correct.",
+      "Use 6 + 9 = 15 to find 15 − 6. → 9: correct.",
+      "Use 6 + 9 = 15 to find 15 − 9. → 16: not correct."
+     ],
+     "to": [
+      "The family uses 3 + 4 = 7 and the related facts.",
+      "Correct choices: 7 − 4 = 3; 4 + 3 = 7; 3 + 4 = 7; 7 − 3 = 4. Not correct: 7 + 3 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_select_family). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-as-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Use the numbers 9, 4 and 13."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "9 + 5 = 14. What is 14 − 9?",
+       "answer": "5"
+      },
+      {
+       "prompt": "8 + 8 = 16. What is 16 − 8?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Use 8 + 9 = 17 to find 17 − 8.",
+       "answer": "9"
+      },
+      {
+       "prompt": "Use 6 + 7 = 13 to find 13 − 6.",
+       "answer": "7"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is 9 + 4?",
+       "answer": "13"
+      },
+      {
+       "prompt": "What is 13 − 9?",
+       "answer": "4"
+      },
+      {
+       "prompt": "What is 13 − 4?",
+       "answer": "9"
+      },
+      {
+       "prompt": "Tell how the facts go together.",
+       "answer": "Sample answer: They use the same three numbers, so they are a fact family."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 8; (c) 9; (d) 7",
+     "to": "(a) 13; (b) 4; (c) 9; (d) Sample answer: They use the same three numbers, so they are a fact family."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 14 is made of 9 and 5. 14 − 9 = 5.",
+      "(b) 16 is made of 8 and 8. 16 − 8 = 8.",
+      "(c) 17 is made of 8 and 9. 17 − 8 = 9.",
+      "(d) 13 is made of 6 and 7. 13 − 6 = 7."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Related fact.",
+      "(c) Related fact.",
+      "(d) Fact family."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: f_related_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: as4_open_family). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m1-as-s01-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 3 = 13.",
+   "distractors": {
+    "12 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "14 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 2 = 12.",
+   "distractors": {
+    "11 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "13 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 6 = 16.",
+   "distractors": {
+    "15 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "17 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 7 = 17.",
+   "distractors": {
+    "16 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "18 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 6 = 16.",
+   "distractors": {
+    "15 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "17 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 6 = 16.",
+   "distractors": {
+    "15 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "17 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 6 = 16.",
+   "distractors": {
+    "15 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "17 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "distractors": {
+    "14 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "16 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "distractors": {
+    "14 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "16 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "distractors": {
+    "14 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "16 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 2 = 12.",
+   "distractors": {
+    "11 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "13 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "distractors": {
+    "14 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "16 stickers": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "14 stickers": "a common mistake",
+    "10 stickers": "a common mistake",
+    "16 stickers": "a common mistake"
+   }
+  },
+  "m1-as-s02-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 3 more: 10 − 3 = 7.",
+   "distractors": {
+    "6; 8": "a common mistake",
+    "9; 7": "a common mistake",
+    "10; 7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 1 more: 10 − 1 = 9.",
+   "distractors": {
+    "3; 10": "a common mistake",
+    "4; 9": "a common mistake",
+    "10; 9": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 3 more: 10 − 3 = 7.",
+   "distractors": {
+    "3; 8": "a common mistake",
+    "6; 7": "a common mistake",
+    "10; 7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 1 more: 10 − 1 = 9.",
+   "distractors": {
+    "2; 10": "a common mistake",
+    "3; 9": "a common mistake",
+    "10; 9": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 3 more: 10 − 3 = 7.",
+   "distractors": {
+    "2; 8": "a common mistake",
+    "5; 7": "a common mistake",
+    "10; 7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 2 more: 10 − 2 = 8.",
+   "distractors": {
+    "1; 9": "a common mistake",
+    "3; 8": "a common mistake",
+    "10; 8": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 3 more: 10 − 3 = 7.",
+   "distractors": {
+    "4; 8": "a common mistake",
+    "7; 7": "a common mistake",
+    "10; 7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Take away 2 more: 10 − 2 = 8.",
+   "distractors": {
+    "5; 9": "a common mistake",
+    "7; 8": "a common mistake",
+    "10; 8": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 9 = 19.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9 and 6; 19": "a common mistake",
+    "6 and 4; 20": "a common mistake",
+    "9 and 4; 19": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 9 = 19.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9 and 3; 19": "a common mistake",
+    "3 and 7; 20": "a common mistake",
+    "9 and 7; 19": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 8 = 18.",
+   "distractors": {
+    "8 and 2; 18": "a common mistake",
+    "2 and 8; 19": "a common mistake",
+    "8 and 8; 18": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 9 = 19.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9 and 7; 19": "a common mistake",
+    "7 and 3; 20": "a common mistake",
+    "9 and 3; 19": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 2 = 12.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "2 and 9; 12": "a common mistake",
+    "9 and 1; 13": "a common mistake",
+    "2 and 1; 12": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 5 = 15.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "5 and 3; 15": "a common mistake",
+    "3 and 7; 16": "a common mistake",
+    "5 and 7; 15": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 7 = 17.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7 and 2; 17": "a common mistake",
+    "2 and 8; 18": "a common mistake",
+    "7 and 8; 17": "a common mistake"
+   }
+  },
+  "m1-as-s03-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 3 = 13.",
+   "distractors": {
+    "3 and 4; 13": "a common mistake",
+    "4 and 6; 14": "a common mistake",
+    "3 and 6; 13": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 6 = 16.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6 and 8; 16": "a common mistake",
+    "8 and 2; 17": "a common mistake",
+    "6 and 2; 16": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 8 = 6, so the blank is 8.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8; 6": "a common mistake",
+    "6; 6": "a common mistake",
+    "14; 8": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 5 = 9, so the blank is 5.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "5; 9": "a common mistake",
+    "9; 9": "a common mistake",
+    "14; 5": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 − 7 = 4, so the blank is 7.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7; 4": "a common mistake",
+    "4; 4": "a common mistake",
+    "11; 7": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 6 = 8, so the blank is 6.",
+   "distractors": {
+    "6; 8": "a common mistake",
+    "8; 8": "a common mistake",
+    "14; 6": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 − 8 = 3, so the blank is 8.",
+   "distractors": {
+    "8; 3": "a common mistake",
+    "3; 3": "a common mistake",
+    "11; 8": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 − 7 = 9, so the blank is 7.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7; 9": "a common mistake",
+    "9; 9": "a common mistake",
+    "16; 7": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 − 9 = 4, so the blank is 9.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9; 4": "a common mistake",
+    "4; 4": "a common mistake",
+    "13; 9": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "17 − 8 = 9, so the blank is 8.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8; 9": "a common mistake",
+    "9; 9": "a common mistake",
+    "17; 8": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 − 9 = 7, so the blank is 9.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9; 7": "a common mistake",
+    "7; 7": "a common mistake",
+    "16; 9": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 − 6 = 5, so the blank is 6.",
+   "distractors": {
+    "6; 5": "a common mistake",
+    "5; 5": "a common mistake",
+    "11; 6": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 − 4 = 7, so the blank is 4.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "4; 7": "a common mistake",
+    "7; 7": "a common mistake",
+    "11; 4": "a common mistake"
+   }
+  },
+  "m1-as-s04-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 5 = 7, so the blank is 5.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "5; 7": "a common mistake",
+    "7; 7": "a common mistake",
+    "12; 5": "a common mistake"
+   }
+  },
+  "m1-as-s01-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 + 1 = 17.",
+   "distractors": {
+    "16": "a common mistake",
+    "18": "a common mistake",
+    "8": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 + 1 = 15.",
+   "distractors": {
+    "14": "a common mistake",
+    "16": "a common mistake",
+    "10": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 + 3 = 18.",
+   "distractors": {
+    "15": "a common mistake",
+    "19": "a common mistake",
+    "12": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 + 2 = 11.",
+   "distractors": {
+    "9": "a common mistake",
+    "12": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 + 2 = 16.",
+   "distractors": {
+    "14": "a common mistake",
+    "17": "a common mistake",
+    "11": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 + 3 = 15.",
+   "distractors": {
+    "12": "a common mistake",
+    "16": "a common mistake",
+    "8": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s01-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 + 1 = 16.",
+   "distractors": {
+    "15": "a common mistake",
+    "17": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 + 2 = 13.",
+   "distractors": {
+    "11": "a common mistake",
+    "14": "a common mistake",
+    "8": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "17 + 2 = 19.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "17": "a common mistake",
+    "20": "a common mistake",
+    "11": "a common mistake"
+   }
+  },
+  "m1-as-s02-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 − 2 = 7.",
+   "distractors": {
+    "9": "a common mistake",
+    "11": "a common mistake",
+    "16": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 − 3 = 4.",
+   "distractors": {
+    "7": "a common mistake",
+    "10": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s02-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 − 3 = 1.",
+   "distractors": {
+    "4": "a common mistake",
+    "7": "a common mistake",
+    "10": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 − 2 = 3.",
+   "distractors": {
+    "5": "a common mistake",
+    "7": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 3 = 9.",
+   "distractors": {
+    "12": "a common mistake",
+    "15": "a common mistake",
+    "11": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s02-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 − 1 = 9.",
+   "distractors": {
+    "10": "a common mistake",
+    "11": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-as-s02-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 − 1 = 4.",
+   "distractors": {
+    "5": "a common mistake",
+    "6": "a common mistake",
+    "12": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 − 2 = 7.",
+   "distractors": {
+    "9": "a common mistake",
+    "11": "a common mistake",
+    "15": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 − 3 = 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "6": "a common mistake",
+    "9": "a common mistake",
+    "12": "a common mistake"
+   }
+  },
+  "m1-as-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "13; 14": "a common mistake",
+    "12; 13": "a common mistake",
+    "14; 14": "a common mistake"
+   }
+  },
+  "m1-as-s03-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "distractors": {
+    "15; 16": "a common mistake",
+    "12; 15": "a common mistake",
+    "16; 16": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9; 10": "a common mistake",
+    "8; 9": "a common mistake",
+    "10; 10": "a common mistake"
+   }
+  },
+  "m1-as-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "distractors": {
+    "12; 13": "a common mistake",
+    "11; 12": "a common mistake",
+    "13; 13": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "distractors": {
+    "15; 16": "a common mistake",
+    "13; 15": "a common mistake",
+    "16; 16": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Adding in any order gives the same sum.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "16; 17": "a common mistake",
+    "13; 16": "a common mistake",
+    "17; 17": "a common mistake"
+   }
+  },
+  "m1-as-s04-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11 − 3 = 8.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8; 3": "a common mistake",
+    "11; 8": "a common mistake",
+    "3; 3": "a common mistake"
+   }
+  },
+  "m1-as-s04-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 − 6 = 7.",
+   "distractors": {
+    "7; 6": "a common mistake",
+    "13; 7": "a common mistake",
+    "6; 6": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 − 8 = 5.",
+   "distractors": {
+    "5; 8": "a common mistake",
+    "13; 5": "a common mistake",
+    "8; 8": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "14 − 5 = 9.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9; 5": "a common mistake",
+    "14; 9": "a common mistake",
+    "5; 5": "a common mistake"
+   }
+  },
+  "m1-as-s04-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 − 5 = 8.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8; 5": "a common mistake",
+    "13; 8": "a common mistake",
+    "5; 5": "a common mistake"
+   }
+  },
+  "m1-as-s04-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 5 = 7.",
+   "distractors": {
+    "7; 5": "a common mistake",
+    "12; 7": "a common mistake",
+    "5; 5": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 9 = 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "3; 9": "a common mistake",
+    "12; 3": "a common mistake",
+    "9; 9": "a common mistake"
+   }
+  },
+  "m1-as-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "20 − 4.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "20 − 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "20 − 11.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Any order gives the same sum.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Any order gives the same sum.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Any order gives the same sum.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Related fact.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Related fact.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Related fact.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each fact and look for 14.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each fact and look for 13.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add each fact and look for 14.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract each fact and look for 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract each fact and look for 6.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Subtract each fact and look for 8.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the three numbers and look for 12.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the three numbers and look for 12.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the three numbers and look for 16.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The family uses 4 + 9 = 13 and the related facts.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The family uses 9 + 4 = 13 and the related facts.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-as-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The family uses 3 + 4 = 7 and the related facts.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}
