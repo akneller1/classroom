@@ -18,7 +18,7 @@ function item(title,path,type,bankFormat,thumb,description){
   return {title:title,path:path,type:type,bankFormat:bankFormat,thumb:thumb||'thumbs/practice-test.svg',description:description||title};
 }
 var games=[['math-quest','Math Quest'],['treasure-trail','Treasure Trail'],['space-explorer','Space Explorer'],['math-builders','Math Builders'],['picture-reveal','Picture Reveal'],['math-race','Math Race'],['math-soccer','Math Soccer'],['connect-four','Connect 4'],['puzzle-masters','Puzzle Masters']];
-var models={'place-value-number-sense':['place-value-builder'],'multi-digit-multiplication-division':['area-model-explorer'],'numerical-expressions-patterns':['expression-builder'],'fraction-addition-subtraction':['fraction-explorer'],'fraction-multiplication-division':['fraction-explorer','area-model-explorer'],'measurement-conversions':['measurement-converter'],'volume-three-dimensional-figures':['volume-builder'],'coordinate-plane-graphing':['coordinate-explorer']};
+var models={'place-value-number-sense':['place-value-builder'],'multi-digit-multiplication-division':['area-model-explorer'],'numerical-expressions-patterns':['expression-builder'],'fraction-addition-subtraction':['fraction-explorer'],'decimal-operations':['decimal-grid-lab'],'fraction-multiplication-division':['fraction-explorer','area-model-explorer','scaling-lab'],'measurement-conversions':['measurement-converter'],'volume-three-dimensional-figures':['volume-builder'],'coordinate-plane-graphing':['coordinate-explorer']};
 var projects={'place-value-number-sense':'sports-stats-showdown','multi-digit-multiplication-division':'school-carnival-planner','decimal-operations':'class-party-budget','numerical-expressions-patterns':'theme-park-points','fraction-addition-subtraction':'school-garden-plan','fraction-multiplication-division':'recipe-remix','measurement-conversions':'field-trip-packing','volume-three-dimensional-figures':'miniature-city-builder','coordinate-plane-graphing':'playground-designer','classifying-two-dimensional-figures':'shape-mosaic-designer','data-line-plots-problem-solving':'plant-growth-investigation'};
 function name(slug){return slug.split('-').map(function(s){return s.charAt(0).toUpperCase()+s.slice(1);}).join(' ');}
 add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place value, fractions, decimals, measurement, geometry and data.',
@@ -55,6 +55,11 @@ add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place va
  a.push(item('Cheat Sheet',staging+'math5-'+id+'-cheat-sheet/worksheet.pdf','Study Guide','cheat-sheets',staging+'thumbs/math5-'+id+'-cheat-sheet.jpg'));
  (models[id]||[]).forEach(function(slug){a.push(item(name(slug),staging+'math5-'+slug+'/index.html','Interactive','interactive-math',staging+'thumbs/math5-'+slug+'.jpg'));});
  if(projects[id])a.push(item(name(projects[id]),staging+'math5-project-'+projects[id]+'/index.html','Project','other',staging+'thumbs/math5-project-'+projects[id]+'.jpg'));
+ // Grade 5 audit (2026-11-19) #9 and #15: reference sheet in every unit, pacing guide with Unit 1, practice tests with Unit 11.
+ // These files exist only in FinancialAlgebra commits that include the audit; deploy-site.yml's GRADE5_SOURCE_REF must point at one.
+ a.push(item('Grade 5 Reference Sheet',staging+'math5-reference-sheet/reference-sheet.pdf','Study Guide','cheat-sheets',staging+'thumbs/math5-reference-sheet.jpg','Conversions, the volume formula, powers of ten and the order of operations on one page.'));
+ if(id===gradeUnits[0].id)a.push(item('Grade 5 Pacing Guide (for teachers)',staging+'math5-pacing-guide/pacing-guide.pdf','Study Guide','cheat-sheets',staging+'thumbs/math5-pacing-guide.jpg','A 180-day plan for the eleven units, with an MCAS review block and the practice tests.'));
+ if(id===gradeUnits[gradeUnits.length-1].id)['a','b'].forEach(function(x){a.push(item('Grade 5 Practice Test '+x.toUpperCase(),staging+'math5-practice-test-'+x+'/exam.pdf','Study Guide','interactive-practice-test',staging+'thumbs/math5-practice-test-'+x+'.jpg','Two 20-question sessions in the MCAS style with constructed response; the teacher key is teacher-key.pdf in the same folder.'));});
  return {id:id,name:unit.name,artifacts:a};
  })});
 add({id:'financial-algebra',name:'Financial Algebra',color:'purple',art:'finance',blurb:'Budgeting, credit, saving, investing, borrowing and real financial decisions.',sourceUrl:'financial-algebra.html',
@@ -101,5 +106,8 @@ library.courses.forEach(function(course){
   });
  });
 })();
+// Grade 5 audit #1 (2026-11-19): data.js attaches Graphing Practice before the integrated courses exist; attach again so
+// the Grade 5 units listed there get their card.
+if(root.MK_CONTENT_UPDATES&&typeof root.MK_CONTENT_UPDATES.attach==='function')root.MK_CONTENT_UPDATES.attach();
 root.MK_INTEGRATED_COURSE_IDS=['grade5','financial-algebra'];
 })(typeof window!=='undefined'?window:globalThis);

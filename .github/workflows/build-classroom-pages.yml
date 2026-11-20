@@ -31,6 +31,11 @@ jobs:
           GRADE5_SOURCE_DIR=grade5-source node classroom/scripts/test-grade5-audit.cjs
           (cd grade5-source && node --test tests/grade5-generators.test.mjs tests/grade5-unified.test.mjs tests/grade5-error-analysis.test.mjs)
           (cd grade5-source && node scripts/test-grade5.cjs)
+          # Grade 5 audit #19 (2026-11-19): re-derive every answer, run the audit tests and the graphing practice test
+          python3 grade5-source/tools/grade5-authoring/verify.py "$PWD/grade5-source"
+          (cd grade5-source && shopt -s nullglob && set -- tests/grade5-audit*.test.mjs && if [ $# -gt 0 ]; then node --test "$@"; fi)
+          node classroom/scripts/test-grade5-plot.cjs
+          GRADE5_SOURCE_DIR=grade5-source node classroom/scripts/test-grade5-c.cjs
       - name: Assemble and audit the release artifact (validation only)
         run: |
           set -euo pipefail

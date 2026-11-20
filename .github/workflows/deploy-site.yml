@@ -24,6 +24,12 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  # Grade 5 audit #19 (2026-11-19): the Grade 5 release is one setting. To release a new Grade 5, commit it to
+  # FinancialAlgebra, then set this to that commit. The steps below verify every answer and grading rule at that commit
+  # before it is assembled. (Grade 3 and Grade 2 keep their own refs below.)
+  GRADE5_SOURCE_REF: a662c0f460aa012e9e3c1f48675c87893708385d
+
 concurrency:
   # PR validation must not hold the production deployment queue.
   group: public-site-pages-${{ github.event_name == 'schedule' && 'nightly-audit' || github.event_name == 'pull_request' && github.ref || 'production' }}
@@ -57,9 +63,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 46f1acd67d6cfb4ce030dd13e68bd6762ea15415
+          ref: ${{ env.GRADE5_SOURCE_REF }}
           path: _course_sources/grade5
           persist-credentials: false
+      - name: Verify the Grade 5 release (answers, grading, graphing practice)
+        run: |
+          set -euo pipefail
+          python3 _course_sources/grade5/tools/grade5-authoring/verify.py "$PWD/_course_sources/grade5"
+          GRADE5_SOURCE_DIR=_course_sources/grade5 node scripts/test-grade5-audit.cjs
+          node scripts/test-grade5-plot.cjs
+          GRADE5_SOURCE_DIR=_course_sources/grade5 node scripts/test-grade5-c.cjs
       - name: Assemble approved Grade 5 into production artifact
         env:
           GRADE5_SOURCE_DIR: _course_sources/grade5

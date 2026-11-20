@@ -138,7 +138,7 @@ const classroomResources=resources.units.map(function(unit){
       mode?({lesson:'lesson-planner',worksheet:'worksheet-generator',assessment:'assessment-generator',activity:'printable-generator'}[mode]):
       item.type==='Interactive'?'interactive-math':item.type==='Project'?'other':
       /flashcards/.test(item.path)?'flashcards':/understanding-check/.test(item.path)?'interactive-practice-test':
-      /cheat-sheet/.test(item.path)?'cheat-sheets':'other';
+      /cheat-sheet|reference-sheet/.test(item.path)?'cheat-sheets':/practice-test-[ab]\//.test(item.path)?'interactive-practice-test':/pacing-guide/.test(item.path)?'cheat-sheets':'other';
     const result={title:item.title,path:'/grade5/'+item.path,type:item.type==='Printable'?'Generator':item.type,
       bankFormat:format,thumb:item.thumb?'/grade5/'+item.thumb:'',description:item.description||item.title};
     if(item.title==='Error Analysis'||item.title==='Activity Generator')result.visibleInBrowse=true;
@@ -228,11 +228,23 @@ fs.writeFileSync(generatorPath,generatorPage);
 // Reuse elementary teaching notes in the native lesson planner.
 const teachingContext={window:{}};vm.createContext(teachingContext);
 vm.runInContext(fs.readFileSync(path.join(stage,'worksheet-generator/grade5/generators-content.js'),'utf8'),teachingContext);
+// Grade 5 audit #7 (2026-11-19): per-skill notes, when the source has them, replace the unit-level notes repeated for every skill.
+const skillNotesFile=path.join(stage,'worksheet-generator/grade5/skill-notes.js');
+if(fs.existsSync(skillNotesFile))vm.runInContext(fs.readFileSync(skillNotesFile,'utf8'),teachingContext);
+const skillNotes=teachingContext.window.G5_SKILL_NOTES||{};
 const nativeNotes={};
 for(const unit of course.units){
  const content=teachingContext.window.G5_GENERATOR_CONTENT.units[unit.id];
  const records=context.window.MK_COURSE_CATALOG.getSkillRecords('math5',unit.id);
  records.forEach((skill,i)=>{
+  const own=(skillNotes[unit.id]||[])[i];
+  if(own){
+   nativeNotes[skill.id]={obj:(content.objectives[i]||skill.name).replace(/^I can /,'').replace(/\.$/,''),idea:own.big,
+    voc:content.vocabulary.map(w=>[w.term,w.def]),watch:own.watch.join(' '),
+    cards:[{h:skill.name,big:own.big,steps:own.steps,figs:[]},
+      {h:'Discuss and explain',big:own.ask,steps:own.watch,figs:[]}]};
+   return;
+  }
   const watch=content.misconceptions[i%content.misconceptions.length]||[];
   nativeNotes[skill.id]={obj:(content.objectives[i]||skill.name).replace(/^I can /,'').replace(/\.$/,''),idea:content.bigIdea,
    voc:content.vocabulary.map(w=>[w.term,w.def]),watch:watch.join(' '),
@@ -272,4 +284,6 @@ for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(na
 
 
 // Attach Classroom-owned content to this newly assembled course.
-{const f=path.join(out,"grade5-main-catalog.js");fs.appendFileSync(f,"\nif(window.MK_CONTENT_UPDATES)window.MK_CONTENT_UPDATES.attach();\n");}
+// Grade 5 audit #1 (2026-11-19): append to the catalog the site loads (grade5/grade5-main-catalog.js); this used to write a
+// stray file at the site root, so Graphing Practice never attached to the Grade 5 units.
+{const f=path.join(dst,"grade5-main-catalog.js");fs.appendFileSync(f,"\nif(window.MK_CONTENT_UPDATES)window.MK_CONTENT_UPDATES.attach();\n");}
