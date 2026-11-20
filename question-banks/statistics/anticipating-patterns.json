@@ -11,7 +11,9 @@
    "prompt": "The probability that a certain free-throw shooter makes a shot is 0.75. What does this mean?",
    "answer": "In the long run, over many, many shots, the shooter makes about 75% of them.",
    "solutionSteps": [
-    "Probability is long-run relative frequency; it says nothing exact about short runs."
+    "A probability describes what happens over many repetitions, not in a few shots.",
+    "Probability is long-run relative frequency; it says nothing exact about short runs.",
+    "“Exactly 3 of every 4” and “makes the next three” claim short-run certainty, which probability never gives."
    ],
    "standards": [
     "APSTATS.2.4.A"
@@ -34,7 +36,8 @@
      "text": "If she misses one shot, she will make the next three.",
      "correct": false
     }
-   ]
+   ],
+   "hint": "First step: a probability describes what happens over many repetitions, not in a few shots."
   },
   {
    "id": "stat-u3-t1-002",
@@ -44,7 +47,9 @@
    "prompt": "A coin is tossed 10 times, then 50 times, then 100 times with an applet. What does the law of large numbers predict?",
    "answer": "The proportion of heads tends to get closer to 0.5 as the number of tosses increases.",
    "solutionSteps": [
-    "As the number of trials grows, the observed proportion settles near the true probability, but short-run results vary."
+    "The law of large numbers is about the proportion of heads, not the count.",
+    "As the number of trials grows, the observed proportion settles near the true probability, but short-run results vary.",
+    "Heads never becomes “due,” and the proportion need not be exactly 0.5 at any fixed number of tosses."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -67,7 +72,8 @@
      "text": "The proportion of heads tends to get closer to 0.5 as the number of tosses increases.",
      "correct": true
     }
-   ]
+   ],
+   "hint": "First step: the law of large numbers is about the proportion of heads, not the count."
   },
   {
    "id": "stat-u3-t1-003",
@@ -111,7 +117,9 @@
    "prompt": "To simulate a player who makes 70% of free throws, which assignment of digits works?",
    "answer": "Let digits 0–6 represent a make and 7–9 a miss; read one random digit per shot.",
    "solutionSteps": [
-    "Seven of the ten equally likely digits (0–6) give probability 0.7, and the outcomes do not overlap."
+    "A make should have probability 0.7, so 7 of the 10 digits must stand for a make.",
+    "Seven of the ten equally likely digits (0–6) give probability 0.7, and the outcomes do not overlap.",
+    "“1–7 make, 7–9 miss” uses 7 twice, and “0–7” gives 8 digits (0.8)."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -144,7 +152,9 @@
    "prompt": "A simulation of 200 trials estimated P(at least one 6 in four rolls of a die) as 0.535. What is the best way to make the estimate more accurate?",
    "answer": "Run many more trials of the simulation.",
    "solutionSteps": [
-    "By the law of large numbers, more repetitions make the simulated proportion closer to the true probability (here 1 − (5/6)⁴ ≈ 0.518)."
+    "A simulated proportion varies by chance; its accuracy depends on the number of trials.",
+    "By the law of large numbers, more repetitions make the simulated proportion closer to the true probability (here 1 − (5/6)⁴ ≈ 0.518).",
+    "Rounding, changing the die or reusing the same digits does not get closer to the true value."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -486,7 +496,9 @@
    "prompt": "A two-way table classifies 240 students by grade and whether they have a pet: Has a pet: Freshman 42, Sophomore 35, Junior 28. No pet: Freshman 38, Sophomore 45, Junior 52. Are the events “has a pet” and “junior” independent?\nTable columns (in order): Freshman; Sophomore; Junior.\nHas a pet: 42, 35, 28.\nNo pet: 38, 45, 52.",
    "answer": "No, because P(pet | junior) = 0.35 is not equal to P(pet) = 0.4375.",
    "solutionSteps": [
-    "Independent means P(A | B) = P(A). 28/80 = 0.35 ≠ 105/240 = 0.4375, so knowing a student is a junior changes the probability of owning a pet."
+    "Compute P(pet) = (42 + 35 + 28)/240 = 105/240 = 0.4375 and P(pet | junior) = 28/(28 + 52) = 28/80 = 0.35.",
+    "Independent means P(A | B) = P(A). 28/80 = 0.35 ≠ 105/240 = 0.4375, so knowing a student is a junior changes the probability of owning a pet.",
+    "The events are not mutually exclusive (28 juniors have pets), and overlap alone does not show independence."
    ],
    "standards": [
     "APSTATS.2.6.A",
@@ -1347,7 +1359,9 @@
    "prompt": "Why can drawing 10 students without replacement from a school of 2,000 still be treated as binomial?",
    "answer": "The sample is less than 10% of the population, so trials are approximately independent.",
    "solutionSteps": [
-    "When n ≤ 10% of N, the change in probability from not replacing is negligible (10% condition)."
+    "Without replacement, each draw changes the population slightly, so trials are not exactly independent.",
+    "When n ≤ 10% of N, the change in probability from not replacing is negligible (10% condition).",
+    "Here n = 10 and 10% of N is 200, so 10 ≤ 200 and the binomial model is a good approximation."
    ],
    "standards": [
     "APSTATS.2.10.A"
@@ -1765,7 +1779,9 @@
    "prompt": "Which is a parameter?",
    "answer": "The proportion of all orange candies made by a Reese's Pieces factory",
    "solutionSteps": [
-    "A parameter describes a population; a statistic describes a sample."
+    "Ask whether the number describes every member of a population or only a sample.",
+    "A parameter describes a population; a statistic describes a sample.",
+    "One bag, 30 responses and 25 times are samples, so those are statistics; all candies from the factory is the population."
    ],
    "standards": [
     "APSTATS.3.2.A"
@@ -1788,7 +1804,8 @@
      "text": "The mean of a sample of 25 KenKen times",
      "correct": false
     }
-   ]
+   ],
+   "hint": "First step: ask whether the number describes every member of a population or only a sample."
   },
   {
    "id": "stat-u3-t3-002",
@@ -1798,7 +1815,9 @@
    "prompt": "The sampling distribution of p̂ is",
    "answer": "the distribution of p̂ values from all possible samples of the same size from the population",
    "solutionSteps": [
-    "A sampling distribution describes how a statistic varies from sample to sample."
+    "Imagine taking every possible sample of the same size and computing p̂ for each one.",
+    "A sampling distribution describes how a statistic varies from sample to sample.",
+    "It is not the population or one sample’s values; it is the distribution of the statistic p̂."
    ],
    "standards": [
     "APSTATS.3.2.A"
@@ -1831,7 +1850,9 @@
    "prompt": "A statistic is an unbiased estimator of a parameter when",
    "answer": "the mean of its sampling distribution equals the true value of the parameter",
    "solutionSteps": [
-    "Unbiased means correct on average (centered on the parameter); low variability is a separate property."
+    "Bias is about the center of the sampling distribution.",
+    "Unbiased means correct on average (centered on the parameter); low variability is a separate property.",
+    "Small spread and large samples describe variability, not bias, and no statistic always equals the parameter."
    ],
    "standards": [
     "APSTATS.3.1.A"
@@ -1864,7 +1885,9 @@
    "prompt": "In the candy-machine simulation, samples of size 25 and size 100 both give dotplots of p̂ centered near 0.45. The n = 100 dotplot is narrower. What does this show?",
    "answer": "Both statistics are unbiased, and larger samples have less variability.",
    "solutionSteps": [
-    "Sample size does not affect center (bias); it reduces spread: σ_p̂ = √(p(1 − p)/n)."
+    "Both dotplots are centered near 0.45, so neither statistic is biased.",
+    "Sample size does not affect center (bias); it reduces spread: σ_p̂ = √(p(1 − p)/n).",
+    "The n = 100 dotplot is narrower, so larger samples vary less; the population proportion did not change."
    ],
    "standards": [
     "APSTATS.3.1.A"
@@ -1931,7 +1954,9 @@
    "prompt": "The Central Limit Theorem says that when n is large,",
    "answer": "the sampling distribution of x̄ is approximately Normal, whatever the shape of the population",
    "solutionSteps": [
-    "The CLT is about the sampling distribution of the mean, not about the population or a single sample."
+    "The CLT describes the sampling distribution of x̄ over many samples.",
+    "The CLT is about the sampling distribution of the mean, not about the population or a single sample.",
+    "The population and the data in one sample keep their own shape, and x̄ still varies around μ."
    ],
    "standards": [
     "APSTATS.4.1.B"
@@ -2032,7 +2057,9 @@
    "prompt": "Compared with the standard Normal curve, a t distribution",
    "answer": "is symmetric about 0 but has more area in the tails, approaching Normal as degrees of freedom increase",
    "solutionSteps": [
-    "t distributions account for the extra variability from estimating σ with s; with more df, they get closer to Normal."
+    "A t distribution replaces σ with s, which adds variability.",
+    "t distributions account for the extra variability from estimating σ with s; with more df, they get closer to Normal.",
+    "So it is symmetric about 0 with heavier tails, and it changes with the degrees of freedom."
    ],
    "standards": [
     "APSTATS.2.12.A"
@@ -2373,7 +2400,9 @@
    "prompt": "A weather forecast says there is a 30% chance of rain tomorrow. What does this mean?",
    "answer": "On many days with conditions like tomorrow's, it rains on about 30% of them.",
    "solutionSteps": [
-    "Probability is a long-run relative frequency over many similar situations."
+    "Read a probability as a long-run relative frequency.",
+    "Probability is a long-run relative frequency over many similar situations.",
+    "It does not describe the area covered or the hours of rain, and 30% does not mean “no rain.”"
    ],
    "options": [
     {
@@ -2396,7 +2425,8 @@
    "standards": [
     "APSTATS.2.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: read a probability as a long-run relative frequency."
   },
   {
    "id": "stat-u3-s01-cp2-x02",
@@ -2477,7 +2507,9 @@
    "prompt": "A fair die is rolled 6 times and shows a 4 three times. What does the law of large numbers say?",
    "answer": "Over many more rolls, the proportion of 4s will get close to 1/6.",
    "solutionSteps": [
-    "Short runs vary a lot; the long-run proportion approaches the true probability."
+    "Six rolls is a short run, so three 4s is not surprising for a fair die.",
+    "Short runs vary a lot; the long-run proportion approaches the true probability.",
+    "Dice have no memory, so the next roll still has probability 1/6 of showing a 4."
    ],
    "options": [
     {
@@ -2500,7 +2532,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: six rolls is a short run, so three 4s is not surprising for a fair die."
   },
   {
    "id": "stat-u3-s01-cp2-x05",
@@ -2510,7 +2543,9 @@
    "prompt": "An event has probability 0.02. Which description fits?",
    "answer": "It is very unlikely but can happen; it would occur about 2 times in 100 trials in the long run.",
    "solutionSteps": [
-    "Small probabilities describe rare events in the long run."
+    "A probability of 0.02 is close to 0 but not equal to 0.",
+    "Small probabilities describe rare events in the long run.",
+    "So the event is rare but possible: about 2 in 100 in the long run, not exactly 2 in every 100."
    ],
    "options": [
     {
@@ -2533,7 +2568,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_interpret_prob). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a probability of 0.02 is close to 0 but not equal to 0."
   },
   {
    "id": "stat-u3-s01-cp2-x06",
@@ -2564,7 +2600,9 @@
    "prompt": "A coin is tossed 10 times and lands heads 7 times; later it is tossed 1,000 times and lands heads 512 times. Which statement is best supported?",
    "answer": "The 1,000-toss proportion (0.512) is a much better estimate of P(heads) than the 10-toss proportion (0.7).",
    "solutionSteps": [
-    "The law of large numbers: relative frequency settles near the true probability as trials increase."
+    "Compare the two proportions: 7/10 = 0.7 and 512/1,000 = 0.512.",
+    "The law of large numbers: relative frequency settles near the true probability as trials increase.",
+    "Ten tosses vary a lot, so 0.7 is weak evidence; the larger run gives the better estimate."
    ],
    "options": [
     {
@@ -2597,7 +2635,9 @@
    "prompt": "Which is an example of the gambler's fallacy?",
    "answer": "After five losses in a row on a fair game, believing a win is now “due.”",
    "solutionSteps": [
-    "Independent trials have no memory; past results do not change future probabilities."
+    "The gambler’s fallacy is believing a streak makes the opposite result more likely.",
+    "Independent trials have no memory; past results do not change future probabilities.",
+    "Believing a win is “due” after five losses is exactly that mistake."
    ],
    "options": [
     {
@@ -2630,7 +2670,9 @@
    "prompt": "Two hospitals each record the proportion of births that are boys on each day. One hospital has about 15 births a day, the other about 150. Which will have more days on which over 60% of births are boys?",
    "answer": "The smaller hospital",
    "solutionSteps": [
-    "Proportions from small numbers of trials vary more from the long-run value."
+    "Each hospital has a long-run proportion of boys near 0.5.",
+    "Proportions from small numbers of trials vary more from the long-run value.",
+    "With only 15 births a day, the daily proportion swings more, so it passes 60% more often."
    ],
    "options": [
     {
@@ -2663,7 +2705,9 @@
    "prompt": "The probability that a randomly chosen adult is left-handed is 0.10. In a group of 50 randomly chosen adults, which statement is true?",
    "answer": "The number of left-handed adults will vary, but about 5 is expected on average.",
    "solutionSteps": [
-    "0.10 × 50 = 5 is a long-run average; actual counts vary."
+    "Expected count = n × p = 50 × 0.10 = 5.",
+    "0.10 × 50 = 5 is a long-run average; actual counts vary.",
+    "The actual count varies from group to group, so 5 is an average, not a guarantee."
    ],
    "options": [
     {
@@ -2699,7 +2743,9 @@
     "As the number of coin tosses increases, the proportion of heads tends to get closer to 0.5."
    ],
    "solutionSteps": [
-    "LLN concerns long-run proportions; it does not make single outcomes predictable or compensate for streaks."
+    "The law of large numbers: over many trials, the proportion settles near the true probability.",
+    "LLN concerns long-run proportions; it does not make single outcomes predictable or compensate for streaks.",
+    "It does not make heads “due” after tails, and it does not give exactly 50 heads in 100 tosses."
    ],
    "options": [
     {
@@ -2732,7 +2778,9 @@
    "prompt": "After 1,000 tosses of a fair coin, there are 520 heads. As tossing continues to 100,000, what most likely happens?",
    "answer": "The proportion of heads gets closer to 0.5, even though the difference between the number of heads and tails may not shrink.",
    "solutionSteps": [
-    "LLN works by swamping, not compensating: the proportion converges while the count difference can grow."
+    "Now 520/1,000 = 0.52. Over many more tosses, new results swamp the early excess.",
+    "LLN works by swamping, not compensating: the proportion converges while the count difference can grow.",
+    "The count difference can still grow even as the proportion approaches 0.5."
    ],
    "options": [
     {
@@ -2765,7 +2813,9 @@
    "prompt": "An insurance company sells 100,000 policies, each with a small chance of a large claim. Why can the company set prices confidently?",
    "answer": "With many independent policies, the proportion of claims will be close to the long-run probability, making total payouts predictable.",
    "solutionSteps": [
-    "Large numbers of independent trials make averages stable (law of large numbers)."
+    "Each policy is a trial with a small claim probability.",
+    "Large numbers of independent trials make averages stable (law of large numbers).",
+    "With 100,000 independent policies, the overall claim rate is very close to that probability."
    ],
    "options": [
     {
@@ -2798,7 +2848,9 @@
    "prompt": "A student says, “The probability of rolling a 6 is 1/6, so in 60 rolls I'll get exactly ten 6s.” What is the best correction?",
    "answer": "About ten 6s is expected on average, but the actual count varies from one set of 60 rolls to another.",
    "solutionSteps": [
-    "Expected counts are long-run averages, not guarantees."
+    "Expected count = 60 × 1/6 = 10.",
+    "Expected counts are long-run averages, not guarantees.",
+    "The actual number of 6s varies around 10 from one set of 60 rolls to the next."
    ],
    "options": [
     {
@@ -3066,7 +3118,9 @@
    "prompt": "Events A and B are mutually exclusive. Which statement is true?",
    "answer": "P(A or B) = P(A) + P(B)",
    "solutionSteps": [
-    "Mutually exclusive events cannot happen together, so P(A and B) = 0 and the addition rule simplifies."
+    "Mutually exclusive means P(A and B) = 0.",
+    "Mutually exclusive events cannot happen together, so P(A and B) = 0 and the addition rule simplifies.",
+    "So the general addition rule P(A) + P(B) − P(A and B) becomes P(A) + P(B)."
    ],
    "options": [
     {
@@ -3089,7 +3143,8 @@
    "standards": [
     "APSTATS.2.5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_disjoint). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_disjoint). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: mutually exclusive means P(A and B) = 0."
   },
   {
    "id": "stat-u3-s02-cp2-x06",
@@ -3280,7 +3335,9 @@
    "prompt": "Which statement correctly distinguishes mutually exclusive events from independent events (both with positive probabilities)?",
    "answer": "Mutually exclusive events cannot both occur; independent events can both occur and knowing one occurred doesn't change the other's probability.",
    "solutionSteps": [
-    "If A and B are disjoint with positive probabilities, P(B | A) = 0 ≠ P(B), so they are dependent."
+    "Mutually exclusive: P(A and B) = 0. Independent: P(B | A) = P(B).",
+    "If A and B are disjoint with positive probabilities, P(B | A) = 0 ≠ P(B), so they are dependent.",
+    "If A occurs, a disjoint B cannot, so they are dependent, not the same idea."
    ],
    "options": [
     {
@@ -3443,7 +3500,9 @@
    "prompt": "P(A | B) means",
    "answer": "the probability that A happens, given that B has happened",
    "solutionSteps": [
-    "The vertical bar means “given.”"
+    "Read P(A | B) as “the probability of A given B.”",
+    "The vertical bar means “given.”",
+    "It is not P(A and B) or P(A or B); it restricts attention to the cases where B happened."
    ],
    "options": [
     {
@@ -3466,7 +3525,8 @@
    "standards": [
     "APSTATS.2.6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_cond_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_cond_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: read P(A | B) as “the probability of A given B.”"
   },
   {
    "id": "stat-u3-s03-cp2-x04",
@@ -3528,7 +3588,9 @@
    "prompt": "Events A and B are independent if",
    "answer": "P(A | B) = P(A)",
    "solutionSteps": [
-    "Independence: knowing B occurred does not change the probability of A."
+    "Independence means one event gives no information about the other.",
+    "Independence: knowing B occurred does not change the probability of A.",
+    "“Cannot happen together” and P(A and B) = 0 describe mutually exclusive events, not independent ones."
    ],
    "options": [
     {
@@ -3552,7 +3614,8 @@
     "APSTATS.2.6.A",
     "APSTATS.2.7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_indep_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_indep_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: independence means one event gives no information about the other."
   },
   {
    "id": "stat-u3-s03-cp2-x07",
@@ -3691,7 +3754,9 @@
    "prompt": "Which pair of events is most likely independent?",
    "answer": "Getting heads on a coin toss and rolling a 5 on a die",
    "solutionSteps": [
-    "Physically separate random devices do not influence each other; the others are plausibly related."
+    "Look for two events produced by separate, unrelated chance processes.",
+    "Physically separate random devices do not influence each other; the others are plausibly related.",
+    "A coin and a die cannot affect each other, so those events are independent."
    ],
    "options": [
     {
@@ -3747,7 +3812,9 @@
    "prompt": "For events with positive probabilities, which statement is always true?",
    "answer": "P(A | B) · P(B) = P(B | A) · P(A)",
    "solutionSteps": [
-    "Both sides equal P(A and B)."
+    "Write P(A and B) two ways using the multiplication rule.",
+    "Both sides equal P(A and B).",
+    "P(A | B) and P(B | A) are usually different, so only the product form is always true."
    ],
    "options": [
     {
@@ -3802,7 +3869,9 @@
    "prompt": "A simulation uses random digits to model a free-throw shooter who makes 80% of her shots. Which assignment works?",
    "answer": "Digits 0–7 represent a make; 8–9 represent a miss.",
    "solutionSteps": [
-    "8 of 10 equally likely digits (0–7) give probability 0.8."
+    "A make needs probability 0.8, so 8 of the 10 digits stand for a make.",
+    "8 of 10 equally likely digits (0–7) give probability 0.8.",
+    "0–8 is 9 digits (0.9), 1–8 leaves 9 unassigned, and even digits give 0.5."
    ],
    "options": [
     {
@@ -3825,7 +3894,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a make needs probability 0.8, so 8 of the 10 digits stand for a make."
   },
   {
    "id": "stat-u3-s04-cp2-x02",
@@ -3835,7 +3905,9 @@
    "prompt": "Why are simulations useful in probability?",
    "answer": "They estimate probabilities of complicated chance processes by imitating them many times.",
    "solutionSteps": [
-    "Simulation estimates long-run relative frequencies when exact calculation is hard."
+    "Some chance processes are too complicated to find probabilities by formula.",
+    "Simulation estimates long-run relative frequencies when exact calculation is hard.",
+    "Repeating the process many times gives a relative frequency that estimates the probability."
    ],
    "options": [
     {
@@ -3858,7 +3930,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: some chance processes are too complicated to find probabilities by formula."
   },
   {
    "id": "stat-u3-s04-cp2-x03",
@@ -3868,7 +3941,9 @@
    "prompt": "A simulation of 50 trials estimates a probability as 0.34. How could the estimate be made more reliable?",
    "answer": "Run many more trials",
    "solutionSteps": [
-    "More trials → the simulated proportion is closer to the true probability (law of large numbers)."
+    "An estimate from only 50 trials varies a lot by chance.",
+    "More trials → the simulated proportion is closer to the true probability (law of large numbers).",
+    "Reusing numbers or changing the model does not help; more trials make it more reliable."
    ],
    "options": [
     {
@@ -3891,7 +3966,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: an estimate from only 50 trials varies a lot by chance."
   },
   {
    "id": "stat-u3-s04-cp2-x04",
@@ -3901,7 +3977,9 @@
    "prompt": "To simulate rolling a fair die with a random digit table, which method works?",
    "answer": "Use digits 1–6 for the faces and skip 0, 7, 8, 9.",
    "solutionSteps": [
-    "Each face must be equally likely; skipping unused digits keeps the six outcomes equally likely."
+    "Each of the six faces must get the same number of digits.",
+    "Each face must be equally likely; skipping unused digits keeps the six outcomes equally likely.",
+    "Using 1–6 and skipping the other digits keeps each face at probability 1/6."
    ],
    "options": [
     {
@@ -3924,7 +4002,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_sim_setup). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: each of the six faces must get the same number of digits."
   },
   {
    "id": "stat-u3-s04-cp2-x05",
@@ -4010,7 +4089,9 @@
    "prompt": "A cereal brand puts one of 4 equally likely toys in each box. To simulate buying boxes until you have all 4 toys, what is one trial?",
    "answer": "Generate random integers from 1 to 4 until all four values have appeared, and record how many were needed.",
    "solutionSteps": [
-    "A trial must reproduce the whole chance process: keep buying until all 4 toys are collected."
+    "One trial must copy the whole process: buy boxes until every toy has been collected.",
+    "A trial must reproduce the whole chance process: keep buying until all 4 toys are collected.",
+    "Record the number of boxes needed; stopping at a single 4 or after four draws is a different process."
    ],
    "options": [
     {
@@ -4043,7 +4124,9 @@
    "prompt": "In a simulation, why must the random numbers used in each trial be independent?",
    "answer": "Because the real chance process has independent outcomes, and dependence would make the model unrealistic.",
    "solutionSteps": [
-    "The model's assumptions must match the real situation."
+    "A simulation is only as good as how well it matches the real process.",
+    "The model's assumptions must match the real situation.",
+    "If the real outcomes are independent, the random numbers must be independent too."
    ],
    "options": [
     {
@@ -4076,7 +4159,9 @@
    "prompt": "A simulation of 1,000 trials gives 23 trials in which an event occurred. What is the best interpretation?",
    "answer": "The probability of the event is estimated to be about 0.023.",
    "solutionSteps": [
-    "Relative frequency from many trials estimates probability."
+    "Estimated probability = 23/1,000 = 0.023.",
+    "Relative frequency from many trials estimates probability.",
+    "It is an estimate: the next 1,000 trials will not give exactly 23."
    ],
    "options": [
     {
@@ -4188,7 +4273,9 @@
    "prompt": "A simulation is run with 100 trials and then with 10,000 trials. How do the two estimates compare?",
    "answer": "Both estimate the same probability, but the 10,000-trial estimate is likely much closer to the true value.",
    "solutionSteps": [
-    "The variability of a simulated proportion shrinks as the number of trials grows."
+    "Both runs estimate the same probability.",
+    "The variability of a simulated proportion shrinks as the number of trials grows.",
+    "The 10,000-trial estimate varies much less, so it is likely closer to the true value."
    ],
    "options": [
     {
@@ -4221,7 +4308,9 @@
    "prompt": "A simulation for a two-child family uses one random digit per child: even = boy, odd = girl. What assumption does this model make?",
    "answer": "Each birth is equally likely to be a boy or a girl and births are independent.",
    "solutionSteps": [
-    "Even and odd digits each have probability 0.5, and separate digits are independent."
+    "Even and odd digits each have probability 0.5.",
+    "Even and odd digits each have probability 0.5, and separate digits are independent.",
+    "So the model assumes boys and girls are equally likely and one child does not affect the next."
    ],
    "options": [
     {
@@ -4398,7 +4487,9 @@
    "prompt": "Which is a discrete random variable?",
    "answer": "The number of heads in 10 coin tosses",
    "solutionSteps": [
-    "Discrete random variables take a countable set of values (0, 1, …, 10)."
+    "A discrete random variable has values you can list, often counts.",
+    "Discrete random variables take a countable set of values (0, 1, …, 10).",
+    "Weight, height and time are measured on a continuous scale."
    ],
    "options": [
     {
@@ -4421,7 +4512,8 @@
    "standards": [
     "APSTATS.2.8.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_discrete_vs_cont). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_discrete_vs_cont). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a discrete random variable has values you can list, often counts."
   },
   {
    "id": "stat-u3-s05-cp2-x06",
@@ -4631,7 +4723,9 @@
     "Each probability is between 0 and 1."
    ],
    "solutionSteps": [
-    "Only the first two are required."
+    "A discrete distribution lists each value with its probability.",
+    "Only the first two are required.",
+    "It does not have to be symmetric, and the probabilities do not have to be equal."
    ],
    "options": [
     {
@@ -4877,7 +4971,9 @@
    "prompt": "The expected number of points per game is E(X) = 14.6. What does this mean?",
    "answer": "Over many, many games, the average number of points is about 14.6.",
    "solutionSteps": [
-    "Expected value is a long-run average."
+    "E(X) is the mean of the probability distribution.",
+    "Expected value is a long-run average.",
+    "Read it as the long-run average over many games, not a score in any one game."
    ],
    "options": [
     {
@@ -4900,7 +4996,8 @@
    "standards": [
     "APSTATS.2.9.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_ev_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_ev_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: E(X) is the mean of the probability distribution."
   },
   {
    "id": "stat-u3-s06-cp2-x05",
@@ -5271,7 +5368,9 @@
     "Trials are independent"
    ],
    "solutionSteps": [
-    "BINS: Binary, Independent, Number fixed, Same p."
+    "Check the BINS conditions for a binomial setting.",
+    "BINS: Binary, Independent, Number fixed, Same p.",
+    "The number of trials must be fixed, and success does not have to be more likely than failure."
    ],
    "options": [
     {
@@ -5302,7 +5401,8 @@
    "standards": [
     "APSTATS.2.10.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bins_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bins_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: check the BINS conditions for a binomial setting."
   },
   {
    "id": "stat-u3-s07-cp1-x01",
@@ -5380,7 +5480,9 @@
    "prompt": "Ten cards are dealt without replacement from a 52-card deck, and X = number of hearts. Why is X NOT binomial?",
    "answer": "The trials are not independent; the probability of a heart changes after each card (and 10 is more than 10% of 52).",
    "solutionSteps": [
-    "Without replacement from a small population, p changes from card to card."
+    "After a heart is dealt, fewer hearts remain, so P(heart) changes.",
+    "Without replacement from a small population, p changes from card to card.",
+    "Ten cards is more than 10% of 52, so the trials are not close to independent."
    ],
    "options": [
     {
@@ -5630,7 +5732,9 @@
    "prompt": "Why do we add variances, not standard deviations, when combining independent random variables?",
    "answer": "Variances of independent variables add mathematically; SDs do not, so we add variances and then take the square root.",
    "solutionSteps": [
-    "Var(X ± Y) = Var(X) + Var(Y) for independent X, Y; SD = √Var."
+    "For independent X and Y, the variances add.",
+    "Var(X ± Y) = Var(X) + Var(Y) for independent X, Y; SD = √Var.",
+    "Standard deviations do not add, so find the variance first, then take the square root."
    ],
    "options": [
     {
@@ -5653,7 +5757,8 @@
    "standards": [
     "APSTATS.BEYOND.COMB"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_why_var). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_why_var). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: for independent X and Y, the variances add."
   },
   {
    "id": "stat-u3-s08-cp2-x06",
@@ -5667,7 +5772,9 @@
     "σ²_(X−Y) = σ²_X + σ²_Y"
    ],
    "solutionSteps": [
-    "Means add or subtract; variances add for both sums and differences (independence)."
+    "Means: μ_(X ± Y) = μ_X ± μ_Y. Independent variances: σ²_(X ± Y) = σ²_X + σ²_Y.",
+    "Means add or subtract; variances add for both sums and differences (independence).",
+    "Variances add even for a difference, and SDs never add directly."
    ],
    "options": [
     {
@@ -5694,7 +5801,8 @@
    "standards": [
     "APSTATS.BEYOND.COMB"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_comb_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_comb_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: means: μ_(X ± Y) = μ_X ± μ_Y. Independent variances: σ²_(X ± Y) = σ²_X + σ²_Y."
   },
   {
    "id": "stat-u3-s08-cp1-x01",
@@ -5796,7 +5904,9 @@
    "prompt": "X = height of a randomly chosen husband, Y = height of his wife. Why is it NOT valid to compute SD(X − Y) as √(σ²_X + σ²_Y)?",
    "answer": "Heights of spouses are likely correlated, so X and Y are not independent.",
    "solutionSteps": [
-    "The variance rule requires independence; spouses' heights tend to be related."
+    "Adding variances is valid only when X and Y are independent.",
+    "The variance rule requires independence; spouses' heights tend to be related.",
+    "Spouses’ heights tend to be related, so the rule does not apply."
    ],
    "options": [
     {
@@ -5919,7 +6029,9 @@
    "prompt": "The sampling distribution of a statistic is",
    "answer": "the distribution of the statistic's values over all possible samples of the same size",
    "solutionSteps": [
-    "It shows how a statistic varies from sample to sample."
+    "Imagine every possible sample of the same size and the statistic from each one.",
+    "It shows how a statistic varies from sample to sample.",
+    "One sample’s data or the population distribution is not a sampling distribution."
    ],
    "options": [
     {
@@ -5942,7 +6054,8 @@
    "standards": [
     "APSTATS.3.2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_sampdist_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_sampdist_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: imagine every possible sample of the same size and the statistic from each one."
   },
   {
    "id": "stat-u3-s09-cp2-x04",
@@ -5987,7 +6100,9 @@
    "prompt": "“In a sample of 80 batteries, the mean life was 41.2 hours; the manufacturer's process mean is 40 hours.” Which is a parameter and which is a statistic?",
    "answer": "41.2 is a statistic (x̄); 40 is a parameter (μ).",
    "solutionSteps": [
-    "Sample values are statistics; process/population values are parameters."
+    "A parameter describes the whole population or process; a statistic comes from a sample.",
+    "Sample values are statistics; process/population values are parameters.",
+    "So 41.2 hours (80 batteries) is x̄, and 40 hours (the process) is μ."
    ],
    "options": [
     {
@@ -6010,7 +6125,8 @@
    "standards": [
     "APSTATS.4.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_param_stat). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_param_stat). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a parameter describes the whole population or process; a statistic comes from a sample."
   },
   {
    "id": "stat-u3-s09-cp2-x06",
@@ -6109,7 +6225,9 @@
    "prompt": "Why does the formula σ_p̂ = √(p(1 − p)/n) require the sample to be less than 10% of the population?",
    "answer": "When sampling without replacement, observations are nearly independent only if the sample is a small fraction of the population.",
    "solutionSteps": [
-    "The 10% condition justifies the independence used in the SD formula."
+    "The SD formula assumes observations are independent.",
+    "The 10% condition justifies the independence used in the SD formula.",
+    "Sampling without replacement is close to independent only when n ≤ 10% of N."
    ],
    "options": [
     {
@@ -6203,7 +6321,9 @@
    "prompt": "Two samples give p̂₁ from n = 100 and p̂₂ from n = 400, both from a large population with p = 0.5. How do the SDs of their sampling distributions compare?",
    "answer": "SD for n = 400 is half the SD for n = 100.",
    "solutionSteps": [
-    "σ ∝ 1/√n; √(400/100) = 2."
+    "σ_p̂ = √(p(1 − p)/n), so the SD is divided by √n.",
+    "σ ∝ 1/√n; √(400/100) = 2.",
+    "Multiplying n by 4 divides the SD by √4 = 2."
    ],
    "options": [
     {
@@ -6236,7 +6356,9 @@
    "prompt": "What happens to the variability of a sample statistic as the sample size increases (with random sampling)?",
    "answer": "It decreases.",
    "solutionSteps": [
-    "Larger random samples give statistics that vary less from sample to sample."
+    "Larger samples contain more information about the population.",
+    "Larger random samples give statistics that vary less from sample to sample.",
+    "So statistics vary less from sample to sample; bias does not change with n."
    ],
    "options": [
     {
@@ -6259,7 +6381,8 @@
    "standards": [
     "APSTATS.2.12.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: larger samples contain more information about the population."
   },
   {
    "id": "stat-u3-s10-cp2-x02",
@@ -6269,7 +6392,9 @@
    "prompt": "A statistic is called unbiased if",
    "answer": "the center of its sampling distribution equals the parameter",
    "solutionSteps": [
-    "Unbiased = correct on average."
+    "Unbiased describes where the sampling distribution is centered.",
+    "Unbiased = correct on average.",
+    "A small spread or a large sample is about variability, not bias."
    ],
    "options": [
     {
@@ -6292,7 +6417,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: unbiased describes where the sampling distribution is centered."
   },
   {
    "id": "stat-u3-s10-cp2-x03",
@@ -6302,7 +6428,9 @@
    "prompt": "A dartboard picture shows darts tightly grouped but far from the bullseye. In statistical terms this shows",
    "answer": "low variability, high bias",
    "solutionSteps": [
-    "Tight grouping = low variability; off-center = biased."
+    "Spread of the darts shows variability; distance from the bullseye shows bias.",
+    "Tight grouping = low variability; off-center = biased.",
+    "Tight grouping away from the center is low variability with high bias."
    ],
    "options": [
     {
@@ -6325,7 +6453,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: spread of the darts shows variability; distance from the bullseye shows bias."
   },
   {
    "id": "stat-u3-s10-cp2-x04",
@@ -6335,7 +6464,9 @@
    "prompt": "The Central Limit Theorem says that for large n,",
    "answer": "the sampling distribution of x̄ is approximately Normal regardless of the population's shape",
    "solutionSteps": [
-    "The CLT is about the distribution of sample means."
+    "The CLT is about the sampling distribution of x̄.",
+    "The CLT is about the distribution of sample means.",
+    "Individual samples and the population keep their own shapes."
    ],
    "options": [
     {
@@ -6358,7 +6489,8 @@
    "standards": [
     "APSTATS.4.1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the CLT is about the sampling distribution of x̄."
   },
   {
    "id": "stat-u3-s10-cp2-x05",
@@ -6368,7 +6500,9 @@
    "prompt": "Which change makes a sampling distribution of x̄ narrower?",
    "answer": "Increasing the sample size",
    "solutionSteps": [
-    "σ_x̄ = σ/√n depends on n, not on the population size (when n is small relative to it)."
+    "The spread of x̄ is σ/√n.",
+    "σ_x̄ = σ/√n depends on n, not on the population size (when n is small relative to it).",
+    "Only a larger n shrinks it; population size and a biased method do not."
    ],
    "options": [
     {
@@ -6391,7 +6525,8 @@
    "standards": [
     "APSTATS.2.12.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_bias_var_basic). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the spread of x̄ is σ/√n."
   },
   {
    "id": "stat-u3-s10-cp2-x06",
@@ -6426,7 +6561,9 @@
     "x̄ is an unbiased estimator of μ."
    ],
    "solutionSteps": [
-    "μ_x̄ = μ; σ_x̄ = σ/√n."
+    "The mean of the sampling distribution of x̄ is μ, and its SD is σ/√n.",
+    "μ_x̄ = μ; σ_x̄ = σ/√n.",
+    "x̄ varies from sample to sample, so it does not always equal μ, and n does not create bias."
    ],
    "options": [
     {
@@ -6449,7 +6586,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_xbar_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_xbar_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the mean of the sampling distribution of x̄ is μ, and its SD is σ/√n."
   },
   {
    "id": "stat-u3-s10-cp1-x01",
@@ -6477,7 +6615,9 @@
    "prompt": "Incomes in a town are strongly skewed right with mean $52,000 and SD $30,000. Which has an approximately Normal distribution?",
    "answer": "The mean income of a random sample of 100 residents",
    "solutionSteps": [
-    "The CLT applies to sample means with large n; individual values and small-sample means stay skewed."
+    "The CLT applies to the mean of a large random sample.",
+    "The CLT applies to sample means with large n; individual values and small-sample means stay skewed.",
+    "One income, 100 individual incomes, and the mean of only 3 incomes stay skewed right."
    ],
    "options": [
     {
@@ -6510,7 +6650,9 @@
    "prompt": "The sample range is used to estimate the population range. Why is it a biased estimator?",
    "answer": "A sample's range can never exceed the population's range and is usually smaller, so on average it underestimates.",
    "solutionSteps": [
-    "The sampling distribution of the sample range is centered below the population range."
+    "A sample cannot contain values outside the population, so its range is at most the population range.",
+    "The sampling distribution of the sample range is centered below the population range.",
+    "It is usually smaller, so its sampling distribution is centered below the true range."
    ],
    "options": [
     {
@@ -6543,7 +6685,9 @@
    "prompt": "A population of 1,000,000 and another of 10,000 each have p = 0.4. Random samples of n = 500 are taken from each. How do the SDs of p̂ compare?",
    "answer": "Approximately equal, because both samples are no more than 10% of their populations",
    "solutionSteps": [
-    "σ_p̂ = √(p(1−p)/n) does not depend on population size when n ≤ 10% of N (500 ≤ 1,000 ✓)."
+    "Check the 10% condition: 500 ≤ 10% of 10,000 = 1,000 and 500 ≤ 100,000.",
+    "σ_p̂ = √(p(1−p)/n) does not depend on population size when n ≤ 10% of N (500 ≤ 1,000 ✓).",
+    "So both SDs are √(0.4 × 0.6/500) ≈ 0.022, approximately equal."
    ],
    "options": [
     {
@@ -6637,7 +6781,9 @@
    "prompt": "A website says a new app has a 99% satisfaction rate based on 12 reviews. What is the best response?",
    "answer": "With only 12 reviews, the proportion can vary a lot; a long-run rate is not well estimated from so few observations.",
    "solutionSteps": [
-    "Short-run relative frequencies are unstable; the law of large numbers requires many trials."
+    "Twelve reviews is a very small number of trials.",
+    "Short-run relative frequencies are unstable; the law of large numbers requires many trials.",
+    "The proportion from so few observations can be far from the long-run rate."
    ],
    "options": [
     {
@@ -6691,7 +6837,9 @@
    "prompt": "In a lottery, each ticket has probability 1/1,000,000 of winning. Someone has bought tickets every week for 20 years without winning. What is true about next week's ticket?",
    "answer": "It still has probability 1/1,000,000; past losses do not change it.",
    "solutionSteps": [
-    "Independent draws have no memory."
+    "Each weekly draw is independent of the past.",
+    "Independent draws have no memory.",
+    "Twenty years of losses do not change next week’s probability of 1/1,000,000."
    ],
    "options": [
     {
@@ -6724,7 +6872,9 @@
    "prompt": "Which statement is the best interpretation of “the probability a randomly chosen new car needs a warranty repair in year one is 0.08”?",
    "answer": "Over a very large number of new cars like these, about 8% will need a warranty repair in year one.",
    "solutionSteps": [
-    "Long-run relative frequency interpretation."
+    "Read a probability as a long-run proportion of many similar cars.",
+    "Long-run relative frequency interpretation.",
+    "It is not “exactly 8 of every 100” and not part of a year or part of a car."
    ],
    "options": [
     {
@@ -6812,7 +6962,9 @@
    "prompt": "In a class, 40% of students have a part-time job. Among students with a job, 30% have a GPA above 3.5; among those without a job, 45% do. Are having a job and a GPA above 3.5 independent?",
    "answer": "No, because P(GPA > 3.5 | job) = 0.30 differs from P(GPA > 3.5 | no job) = 0.45.",
    "solutionSteps": [
-    "Independence requires the conditional probability to be the same in both groups."
+    "Compare P(GPA > 3.5) for students with and without a job.",
+    "Independence requires the conditional probability to be the same in both groups.",
+    "0.30 ≠ 0.45, so knowing about a job changes the probability: not independent."
    ],
    "options": [
     {
@@ -6868,7 +7020,9 @@
    "prompt": "A simulation of 100 trials of “number of rolls to get a 6” gives a mean of 6.3 rolls. The theoretical mean is 6. What explains the difference?",
    "answer": "Chance variation in the simulation; more trials would likely bring the average closer to 6.",
    "solutionSteps": [
-    "Simulated averages vary around the true mean."
+    "Simulated averages vary around the true mean by chance.",
+    "Simulated averages vary around the true mean.",
+    "6.3 is close to 6 for 100 trials; more trials would likely bring it closer."
    ],
    "options": [
     {
@@ -6922,7 +7076,9 @@
    "prompt": "To estimate the probability that at least two of 23 people share a birthday, a student plans a simulation. Which assumption is built into the usual model?",
    "answer": "Each of 365 birthdays is equally likely and people's birthdays are independent.",
    "solutionSteps": [
-    "Using random integers 1–365 assumes equally likely, independent birthdays."
+    "The usual simulation picks a random integer from 1 to 365 for each person.",
+    "Using random integers 1–365 assumes equally likely, independent birthdays.",
+    "That model assumes all birthdays are equally likely and independent."
    ],
    "options": [
     {
@@ -6977,7 +7133,9 @@
    "prompt": "A simulation estimates a probability as 0.12 based on 50 trials. Approximately how much might such an estimate typically vary from the true value?",
    "answer": "About 0.05 (the SD of a proportion from 50 trials, √(0.12·0.88/50) ≈ 0.046)",
    "solutionSteps": [
-    "Simulated proportions behave like sample proportions with n = number of trials."
+    "Treat the simulated proportion like p̂ with n = 50.",
+    "Simulated proportions behave like sample proportions with n = number of trials.",
+    "Its SD ≈ √(0.12 × 0.88/50) ≈ 0.046, so an error of about 0.05 is typical."
    ],
    "options": [
     {
@@ -7151,7 +7309,9 @@
    "prompt": "Which random variable is NOT discrete?",
    "answer": "The exact time until the next bus arrives",
    "solutionSteps": [
-    "Time is measured on a continuum, so it is continuous."
+    "Discrete variables count; continuous variables measure.",
+    "Time is measured on a continuum, so it is continuous.",
+    "Buses, passengers and stops are counts; exact time is a measurement."
    ],
    "options": [
     {
@@ -7467,7 +7627,9 @@
    "prompt": "X has SD 3. A student claims SD(X + X) = SD(2X) = √(9 + 9) ≈ 4.24. What is the error?",
    "answer": "X + X is not a sum of independent variables; it equals 2X, whose SD is 2 × 3 = 6.",
    "solutionSteps": [
-    "Variances add only for independent variables; X is perfectly dependent on itself."
+    "X + X = 2X, and a variable is completely dependent on itself.",
+    "Variances add only for independent variables; X is perfectly dependent on itself.",
+    "Multiplying by 2 multiplies the SD by 2: SD(2X) = 6, not √18."
    ],
    "options": [
     {
@@ -7538,7 +7700,9 @@
    "prompt": "Which statistic is an unbiased estimator of the population proportion p?",
    "answer": "p̂",
    "solutionSteps": [
-    "μ_p̂ = p."
+    "An unbiased estimator has a sampling distribution centered at the parameter.",
+    "μ_p̂ = p.",
+    "The mean of the sampling distribution of p̂ is p."
    ],
    "options": [
     {
@@ -7561,7 +7725,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_unbiased_phat). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_unbiased_phat). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: an unbiased estimator has a sampling distribution centered at the parameter."
   },
   {
    "id": "stat-u3-s10-cp1-x03",
@@ -7605,7 +7770,9 @@
    "prompt": "A survey has a biased sampling frame. What happens if the sample size is increased from 500 to 5,000?",
    "answer": "Variability decreases, but the bias remains.",
    "solutionSteps": [
-    "Sample size affects variability, not bias."
+    "Bias comes from how the sample is chosen; variability depends on n.",
+    "Sample size affects variability, not bias.",
+    "A larger sample from the same biased frame still misses the same people."
    ],
    "options": [
     {
@@ -10413,7 +10580,9 @@
    "prompt": "Error analysis. A fair coin has landed tails 5 times in a row.\nStep 1: Heads is “due.”\nStep 2: So P(heads on the next toss) > 0.5.\nFind and fix the error.",
    "answer": "Step 1: tosses are independent; P(heads) is still 0.5",
    "solutionSteps": [
-    "The coin has no memory."
+    "Check each step. Step 1 is wrong: “Heads is “due.””",
+    "The coin has no memory.",
+    "Fix: Tosses are independent; P(heads) is still 0.5."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10422,7 +10591,8 @@
    "selfCheck": [
     "States the key idea: “tosses are independent”.",
     "Includes the key value(s): 0.5."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “Heads is “due.””"
   },
   {
    "id": "stat-u3-s01-cp1-x10",
@@ -10432,7 +10602,9 @@
    "prompt": "Error analysis. P(6) = 1/6 for a fair die.\nStep 1: In 60 rolls there will be exactly 10 sixes.\nFind and fix the error.",
    "answer": "Step 1: about 10 is expected on average, but the actual count varies",
    "solutionSteps": [
-    "Expected counts are long-run averages."
+    "Check each step. Step 1 is wrong: “In 60 rolls there will be exactly 10 sixes.”",
+    "Expected counts are long-run averages.",
+    "Fix: About 10 is expected on average, but the actual count varies."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10451,7 +10623,9 @@
    "prompt": "Error analysis. After 1,000 tosses there are 520 heads.\nStep 1: By the law of large numbers, tails must catch up so heads and tails become equal.\nFind and fix the error.",
    "answer": "Step 1: the PROPORTION approaches 0.5 by swamping, not by compensation; counts need not equalize",
    "solutionSteps": [
-    "Future tosses don't correct past ones."
+    "Check each step. Step 1 is wrong: “By the law of large numbers, tails must catch up so heads and tails become equal.”",
+    "Future tosses don't correct past ones.",
+    "Fix: The PROPORTION approaches 0.5 by swamping, not by compensation; counts need not equalize."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10470,7 +10644,9 @@
    "prompt": "Error analysis. P(A) = 0.45, P(B) = 0.30, P(A and B) = 0.12.\nStep 1: P(A or B) = 0.45 + 0.30 = 0.75.\nFind and fix the error.",
    "answer": "Step 1: subtract the overlap: 0.45 + 0.30 − 0.12 = 0.63",
    "solutionSteps": [
-    "General addition rule."
+    "Check each step. Step 1 is wrong: “P(A or B) = 0.45 + 0.30 = 0.75.”",
+    "General addition rule.",
+    "Fix: Subtract the overlap: 0.45 + 0.30 − 0.12 = 0.63."
    ],
    "standards": [
     "APSTATS.2.7.A"
@@ -10479,7 +10655,8 @@
    "selfCheck": [
     "States the key idea: “subtract the overlap: 0.45 + 0.30 − 0.12 = 0.63”.",
     "Includes the key value(s): 0.45, 0.30, 0.12."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “P(A or B) = 0.45 + 0.30 = 0.75.”"
   },
   {
    "id": "stat-u3-s02-cp1-x11",
@@ -10489,7 +10666,9 @@
    "prompt": "Error analysis. Each of 4 independent bulbs fails with probability 0.2.\nStep 1: P(at least one fails) = 4 × 0.2 = 0.8.\nFind and fix the error (four decimals).",
    "answer": "Step 1: use the complement: 1 − 0.8⁴ = 0.5904",
    "solutionSteps": [
-    "Adding overlapping events overcounts."
+    "Check each step. Step 1 is wrong: “P(at least one fails) = 4 × 0.2 = 0.8.”",
+    "Adding overlapping events overcounts.",
+    "Fix: Use the complement: 1 − 0.8⁴ = 0.5904."
    ],
    "standards": [
     "APSTATS.2.7.A"
@@ -10508,7 +10687,9 @@
    "prompt": "Error analysis. A and B are mutually exclusive with P(A) = 0.3, P(B) = 0.4.\nStep 1: P(A and B) = 0.3 × 0.4 = 0.12.\nFind and fix the error.",
    "answer": "Step 1: mutually exclusive events can't occur together: P(A and B) = 0 (they are not independent)",
    "solutionSteps": [
-    "Disjoint ≠ independent."
+    "Check each step. Step 1 is wrong: “P(A and B) = 0.3 × 0.4 = 0.12.”",
+    "Disjoint ≠ independent.",
+    "Fix: Mutually exclusive events can't occur together: P(A and B) = 0 (they are not independent)."
    ],
    "standards": [
     "APSTATS.2.5.A"
@@ -10527,7 +10708,9 @@
    "prompt": "Error analysis. Of 300 students, 40 of the 50 without phones are in grade 9.\nStep 1: P(grade 9 | no phone) = 40/300.\nFind and fix the error.",
    "answer": "Step 1: condition on the 50 without phones: 40/50 = 0.8",
    "solutionSteps": [
-    "“Given” restricts the denominator."
+    "Check each step. Step 1 is wrong: “P(grade 9 | no phone) = 40/300.”",
+    "“Given” restricts the denominator.",
+    "Fix: Condition on the 50 without phones: 40/50 = 0.8."
    ],
    "standards": [
     "APSTATS.2.6.A"
@@ -10536,7 +10719,8 @@
    "selfCheck": [
     "States the key idea: “condition on the 50 without phones: 40/50 = 0.8”.",
     "Includes the key value(s): 50, 40."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “P(grade 9 | no phone) = 40/300.”"
   },
   {
    "id": "stat-u3-s03-cp1-x10",
@@ -10546,7 +10730,9 @@
    "prompt": "Error analysis. P(A and B) = 0.12, P(A) = 0.3, P(B) = 0.6.\nStep 1: P(A | B) = 0.12/0.3 = 0.4.\nFind and fix the error.",
    "answer": "Step 1: divide by P(B): 0.12/0.6 = 0.2 (0.4 is P(B | A))",
    "solutionSteps": [
-    "P(A | B) = P(A and B)/P(B)."
+    "Check each step. Step 1 is wrong: “P(A | B) = 0.12/0.3 = 0.4.”",
+    "P(A | B) = P(A and B)/P(B).",
+    "Fix: Divide by P(B): 0.12/0.6 = 0.2 (0.4 is P(B | A))."
    ],
    "standards": [
     "APSTATS.2.6.A"
@@ -10565,7 +10751,9 @@
    "prompt": "Error analysis. P(D) = 0.02; a test is positive 90% of the time with D and 10% of the time without D.\nStep 1: The test is 90% accurate.\nStep 2: So P(D | +) = 0.90.\nFind and fix the error (four decimals).",
    "answer": "Step 2: P(D | +) = 0.018/(0.018 + 0.098) ≈ 0.1552",
    "solutionSteps": [
-    "P(+) includes false positives: 0.98 × 0.10 = 0.098."
+    "Check each step. Step 2 is wrong: “So P(D | +) = 0.90.”",
+    "P(+) includes false positives: 0.98 × 0.10 = 0.098.",
+    "Fix: P(D | +) = 0.018/(0.018 + 0.098) ≈ 0.1552."
    ],
    "standards": [
     "APSTATS.2.6.A"
@@ -10584,7 +10772,9 @@
    "prompt": "Error analysis. To model a 40% chance: “Digits 0–3 = success, 3–9 = failure.”\nFind and fix the error.",
    "answer": "The digit 3 is used twice; use 0–3 for success and 4–9 for failure",
    "solutionSteps": [
-    "Outcomes must not overlap."
+    "Find the mistake in the student’s work: To model a 40% chance: “Digits 0–3 = success, 3–9 = failure.”",
+    "Outcomes must not overlap.",
+    "Fix: The digit 3 is used twice; use 0–3 for success and 4–9 for failure."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10593,7 +10783,8 @@
    "selfCheck": [
     "States the key idea: “The digit 3 is used twice”.",
     "Includes the key value(s): 3, 0."
-   ]
+   ],
+   "hint": "First step: find the mistake in the student’s work: To model a 40% chance: “Digits 0–3 = success, 3–9 = failure.”"
   },
   {
    "id": "stat-u3-s04-cp1-x11",
@@ -10603,7 +10794,9 @@
    "prompt": "Error analysis. A 10-trial simulation gives 3 successes.\nStep 1: So the true probability is exactly 0.3.\nFind and fix the error.",
    "answer": "Step 1: 0.3 is only an estimate from 10 trials; run many more trials for a reliable estimate",
    "solutionSteps": [
-    "Small simulations vary a lot."
+    "Check each step. Step 1 is wrong: “So the true probability is exactly 0.3.”",
+    "Small simulations vary a lot.",
+    "Fix: 0.3 is only an estimate from 10 trials; run many more trials for a reliable estimate."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10623,7 +10816,9 @@
    "prompt": "Error analysis. To simulate 5 independent coin tosses, a student draws 5 slips from a bag of 1 H and 1 T without replacing them.\nFind and fix the error.",
    "answer": "Slips must be replaced after each draw; without replacement the draws are not independent (and the bag empties)",
    "solutionSteps": [
-    "Replace to keep P(H) = 0.5 each time."
+    "Find the mistake in the student’s work: To simulate 5 independent coin tosses, a student draws 5 slips from a bag of 1 H and 1 T without replacing them.",
+    "Replace to keep P(H) = 0.5 each time.",
+    "Fix: Slips must be replaced after each draw; without replacement the draws are not independent (and the bag empties)."
    ],
    "standards": [
     "APSTATS.2.3.A"
@@ -10642,7 +10837,9 @@
    "prompt": "Error analysis. X = 0, 1, 2, 3 with probabilities 0.2, 0.4, 0.3, 0.1.\nStep 1: P(X < 2) = 0.2 + 0.4 + 0.3 = 0.9.\nFind and fix the error.",
    "answer": "Step 1: “< 2” excludes 2: P(X < 2) = 0.2 + 0.4 = 0.6",
    "solutionSteps": [
-    "Strict inequality."
+    "Check each step. Step 1 is wrong: “P(X < 2) = 0.2 + 0.4 + 0.3 = 0.9.”",
+    "Strict inequality.",
+    "Fix: “< 2” excludes 2: P(X < 2) = 0.2 + 0.4 = 0.6."
    ],
    "standards": [
     "APSTATS.2.8.A"
@@ -10651,7 +10848,8 @@
    "selfCheck": [
     "States the key idea: “\"< 2\" excludes 2: P(X < 2) = 0.2 + 0.4 = 0.6”.",
     "Includes the key value(s): 2."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “P(X < 2) = 0.2 + 0.4 + 0.3 = 0.9.”"
   },
   {
    "id": "stat-u3-s05-cp1-x12",
@@ -10661,7 +10859,9 @@
    "prompt": "Error analysis. A student lists P(x): 0.3, 0.4, 0.2, 0.2.\nStep 1: Each probability is between 0 and 1.\nStep 2: So it is a valid distribution.\nFind and fix the error.",
    "answer": "Step 2: the probabilities sum to 1.1, so it is not valid",
    "solutionSteps": [
-    "They must also sum to 1."
+    "Check each step. Step 2 is wrong: “So it is a valid distribution.”",
+    "They must also sum to 1.",
+    "Fix: The probabilities sum to 1.1, so it is not valid."
    ],
    "standards": [
     "APSTATS.2.8.A"
@@ -10680,7 +10880,9 @@
    "prompt": "Error analysis. X is uniform from 0 to 10.\nStep 1: P(X = 4) = 1/10 = 0.1.\nFind and fix the error.",
    "answer": "Step 1: for a continuous variable, P(X = 4) = 0; probabilities come from intervals",
    "solutionSteps": [
-    "Area over a single point is 0."
+    "Check each step. Step 1 is wrong: “P(X = 4) = 1/10 = 0.1.”",
+    "Area over a single point is 0.",
+    "Fix: For a continuous variable, P(X = 4) = 0; probabilities come from intervals."
    ],
    "standards": [
     "APSTATS.2.8.A"
@@ -10699,7 +10901,9 @@
    "prompt": "Error analysis. X = 1 or 3, each with probability 0.5, so E(X) = 2.\nStep 1: X can never equal 2.\nStep 2: So E(X) = 2 must be wrong.\nFind and fix the error.",
    "answer": "Step 2: E(X) is a long-run average and need not be a possible value; E(X) = 2 is correct",
    "solutionSteps": [
-    "1(0.5) + 3(0.5) = 2."
+    "Check each step. Step 2 is wrong: “So E(X) = 2 must be wrong.”",
+    "1(0.5) + 3(0.5) = 2.",
+    "Fix: E(X) is a long-run average and need not be a possible value; E(X) = 2 is correct."
    ],
    "standards": [
     "APSTATS.2.9.A"
@@ -10708,7 +10912,8 @@
    "selfCheck": [
     "States the key idea: “E(X) is a long-run average and need not be a possible value”.",
     "Includes the key value(s): 2."
-   ]
+   ],
+   "hint": "First step: check each step. Step 2 is wrong: “So E(X) = 2 must be wrong.”"
   },
   {
    "id": "stat-u3-s06-cp1-x10",
@@ -10718,7 +10923,9 @@
    "prompt": "Error analysis. SD(X) = 4.\nStep 1: SD(X + 5) = 4 + 5 = 9.\nFind and fix the error.",
    "answer": "Step 1: adding a constant doesn't change spread: SD(X + 5) = 4",
    "solutionSteps": [
-    "Shift, not stretch."
+    "Check each step. Step 1 is wrong: “SD(X + 5) = 4 + 5 = 9.”",
+    "Shift, not stretch.",
+    "Fix: Adding a constant doesn't change spread: SD(X + 5) = 4."
    ],
    "standards": [
     "APSTATS.BEYOND.LINRV"
@@ -10737,7 +10944,9 @@
    "prompt": "Error analysis. Var(X) = 9.\nStep 1: Var(2X) = 2 × 9 = 18.\nFind and fix the error.",
    "answer": "Step 1: Var(aX) = a²Var(X) = 4 × 9 = 36",
    "solutionSteps": [
-    "Square the multiplier for variance."
+    "Check each step. Step 1 is wrong: “Var(2X) = 2 × 9 = 18.”",
+    "Square the multiplier for variance.",
+    "Fix: Var(aX) = a²Var(X) = 4 × 9 = 36."
    ],
    "standards": [
     "APSTATS.BEYOND.LINRV"
@@ -10756,7 +10965,9 @@
    "prompt": "Error analysis. X = number of rolls until the first 6.\nStep 1: There are trials with success/failure.\nStep 2: So X is binomial.\nFind and fix the error.",
    "answer": "Step 2: the number of trials is not fixed; X is geometric",
    "solutionSteps": [
-    "Binomial needs a fixed n."
+    "Check each step. Step 2 is wrong: “So X is binomial.”",
+    "Binomial needs a fixed n.",
+    "Fix: The number of trials is not fixed; X is geometric."
    ],
    "standards": [
     "APSTATS.BEYOND.GEOM"
@@ -10765,7 +10976,8 @@
    "selfCheck": [
     "States the key idea: “the number of trials is not fixed”.",
     "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
-   ]
+   ],
+   "hint": "First step: check each step. Step 2 is wrong: “So X is binomial.”"
   },
   {
    "id": "stat-u3-s07-cp1-x10",
@@ -10775,7 +10987,9 @@
    "prompt": "Error analysis. n = 4, p = 0.5. Find P(X = 2).\nStep 1: P = 0.5² × 0.5² = 0.0625.\nFind and fix the error.",
    "answer": "Step 1: multiply by C(4,2) = 6: P(X = 2) = 0.375",
    "solutionSteps": [
-    "Count the arrangements of successes."
+    "Check each step. Step 1 is wrong: “P = 0.5² × 0.5² = 0.0625.”",
+    "Count the arrangements of successes.",
+    "Fix: Multiply by C(4,2) = 6: P(X = 2) = 0.375."
    ],
    "standards": [
     "APSTATS.2.10.E"
@@ -10794,7 +11008,9 @@
    "prompt": "Error analysis. Binomial X. Find P(X ≥ 3).\nStep 1: P(X ≥ 3) = 1 − P(X ≤ 3).\nFind and fix the error.",
    "answer": "Step 1: P(X ≥ 3) = 1 − P(X ≤ 2)",
    "solutionSteps": [
-    "The complement of X ≥ 3 is X ≤ 2."
+    "Check each step. Step 1 is wrong: “P(X ≥ 3) = 1 − P(X ≤ 3).”",
+    "The complement of X ≥ 3 is X ≤ 2.",
+    "Fix: P(X ≥ 3) = 1 − P(X ≤ 2)."
    ],
    "standards": [
     "APSTATS.2.10.E"
@@ -10813,7 +11029,9 @@
    "prompt": "Error analysis. Independent X and Y have SDs 5 and 3.\nStep 1: SD(X − Y) = √(25 − 9) = 4.\nFind and fix the error (two decimals).",
    "answer": "Step 1: variances add for differences too: √(25 + 9) ≈ 5.83",
    "solutionSteps": [
-    "Var(X − Y) = Var(X) + Var(Y)."
+    "Check each step. Step 1 is wrong: “SD(X − Y) = √(25 − 9) = 4.”",
+    "Var(X − Y) = Var(X) + Var(Y).",
+    "Fix: Variances add for differences too: √(25 + 9) ≈ 5.83."
    ],
    "standards": [
     "APSTATS.BEYOND.COMB"
@@ -10822,7 +11040,8 @@
    "selfCheck": [
     "States the key idea: “variances add for differences too: √(25 + 9) ≈ 5.83”.",
     "Includes the key value(s): 25, 9, 5.83."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “SD(X − Y) = √(25 − 9) = 4.”"
   },
   {
    "id": "stat-u3-s08-cp1-x11",
@@ -10832,7 +11051,9 @@
    "prompt": "Error analysis. E(X) = 40 and E(Y) = 25.\nStep 1: E(X − Y) = 40 + 25 = 65.\nFind and fix the error.",
    "answer": "Step 1: means subtract for a difference: 40 − 25 = 15",
    "solutionSteps": [
-    "E(X − Y) = E(X) − E(Y)."
+    "Check each step. Step 1 is wrong: “E(X − Y) = 40 + 25 = 65.”",
+    "E(X − Y) = E(X) − E(Y).",
+    "Fix: Means subtract for a difference: 40 − 25 = 15."
    ],
    "standards": [
     "APSTATS.BEYOND.COMB"
@@ -10851,7 +11072,9 @@
    "prompt": "Error analysis. X = a husband's height, Y = his wife's height.\nStep 1: SD(X − Y) = √(σ_X² + σ_Y²).\nFind and fix the error.",
    "answer": "Step 1: the rule needs independence; spouses' heights are likely correlated, so it may not apply",
    "solutionSteps": [
-    "Check independence first."
+    "Check each step. Step 1 is wrong: “SD(X − Y) = √(σ_X² + σ_Y²).”",
+    "Check independence first.",
+    "Fix: The rule needs independence; spouses' heights are likely correlated, so it may not apply."
    ],
    "standards": [
     "APSTATS.BEYOND.COMB"
@@ -10870,7 +11093,9 @@
    "prompt": "Error analysis. σ = 12 and n = 16.\nStep 1: SD of x̄ = 12/16 = 0.75.\nFind and fix the error.",
    "answer": "Step 1: divide by √n: 12/4 = 3",
    "solutionSteps": [
-    "σ_x̄ = σ/√n."
+    "Check each step. Step 1 is wrong: “SD of x̄ = 12/16 = 0.75.”",
+    "σ_x̄ = σ/√n.",
+    "Fix: Divide by √n: 12/4 = 3."
    ],
    "standards": [
     "APSTATS.4.1.A"
@@ -10879,7 +11104,8 @@
    "selfCheck": [
     "States the key idea: “divide by √n: 12/4 = 3”.",
     "Includes the key value(s): 12, 4, 3."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “SD of x̄ = 12/16 = 0.75.”"
   },
   {
    "id": "stat-u3-s09-cp1-x08",
@@ -10889,7 +11115,9 @@
    "prompt": "Error analysis. p = 0.5 and n = 100.\nStep 1: SD of p̂ = √(0.5 × 0.5) = 0.5.\nFind and fix the error.",
    "answer": "Step 1: divide by n inside the root: √(0.25/100) = 0.05",
    "solutionSteps": [
-    "σ_p̂ = √(p(1 − p)/n)."
+    "Check each step. Step 1 is wrong: “SD of p̂ = √(0.5 × 0.5) = 0.5.”",
+    "σ_p̂ = √(p(1 − p)/n).",
+    "Fix: Divide by n inside the root: √(0.25/100) = 0.05."
    ],
    "standards": [
     "APSTATS.3.2.A"
@@ -10908,7 +11136,9 @@
    "prompt": "Error analysis. A sample of 500 is drawn without replacement from 2,000 students.\nStep 1: σ_p̂ = √(p(1 − p)/n).\nFind and fix the error.",
    "answer": "Step 1: 500 is more than 10% of 2,000, so the formula overstates the SD; the 10% condition fails",
    "solutionSteps": [
-    "Check n ≤ 0.10N."
+    "Check each step. Step 1 is wrong: “σ_p̂ = √(p(1 − p)/n).”",
+    "Check n ≤ 0.10N.",
+    "Fix: 500 is more than 10% of 2,000, so the formula overstates the SD; the 10% condition fails."
    ],
    "standards": [
     "APSTATS.3.2.B"
@@ -10928,7 +11158,9 @@
    "prompt": "Error analysis. To halve the SD of x̄:\nStep 1: Double the sample size.\nFind and fix the error.",
    "answer": "Step 1: SD ∝ 1/√n, so n must be multiplied by 4",
    "solutionSteps": [
-    "√4 = 2."
+    "Check each step. Step 1 is wrong: “Double the sample size.”",
+    "√4 = 2.",
+    "Fix: SD ∝ 1/√n, so n must be multiplied by 4."
    ],
    "standards": [
     "APSTATS.2.12.A"
@@ -10937,7 +11169,8 @@
    "selfCheck": [
     "States the key idea: “SD ∝ 1/√n, so n must be multiplied by 4”.",
     "Includes the key value(s): 1, 4."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “Double the sample size.”"
   },
   {
    "id": "stat-u3-s10-cp1-x08",
@@ -10947,7 +11180,9 @@
    "prompt": "Error analysis. Two populations have p = 0.4: one has 10,000 people, one has 1,000,000.\nStep 1: Samples of 500 from the larger population vary more.\nFind and fix the error.",
    "answer": "Step 1: the variability depends on n, not on population size (both samples are under 10%)",
    "solutionSteps": [
-    "σ_p̂ = √(p(1 − p)/n)."
+    "Check each step. Step 1 is wrong: “Samples of 500 from the larger population vary more.”",
+    "σ_p̂ = √(p(1 − p)/n).",
+    "Fix: The variability depends on n, not on population size (both samples are under 10%)."
    ],
    "standards": [
     "APSTATS.2.12.A"
@@ -10966,7 +11201,9 @@
    "prompt": "Error analysis. Estimator A is unbiased with SD 8; estimator B has bias 1 and SD 1.\nStep 1: B is biased.\nStep 2: So A is always the better choice.\nFind and fix the error.",
    "answer": "Step 2: B's typical error is much smaller; low bias AND low variability both matter",
    "solutionSteps": [
-    "Weigh bias against variability."
+    "Check each step. Step 2 is wrong: “So A is always the better choice.”",
+    "Weigh bias against variability.",
+    "Fix: B's typical error is much smaller; low bias AND low variability both matter."
    ],
    "standards": [
     "APSTATS.3.1.A"
@@ -11533,7 +11770,9 @@
    "prompt": "P(event) = 0 means",
    "answer": "the event cannot occur",
    "solutionSteps": [
-    "0 = impossible."
+    "Probabilities run from 0 (impossible) to 1 (certain).",
+    "0 = impossible.",
+    "A rare but possible event has a small positive probability, not 0."
    ],
    "options": [
     {
@@ -11556,7 +11795,8 @@
    "standards": [
     "APSTATS.2.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s01_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s01_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: probabilities run from 0 (impossible) to 1 (certain)."
   },
   {
    "id": "stat-u3-s01-cp2-x13",
@@ -11636,7 +11876,9 @@
    "prompt": "Which situation illustrates the law of large numbers?",
    "answer": "A casino's average profit per bet stabilizes over millions of bets",
    "solutionSteps": [
-    "Long-run averages stabilize."
+    "The law of large numbers: averages over many trials become stable.",
+    "Long-run averages stabilize.",
+    "A casino’s millions of bets show that; a short streak does not."
    ],
    "options": [
     {
@@ -11808,7 +12050,9 @@
    "prompt": "Which statement about the law of large numbers is FALSE?",
    "answer": "It guarantees that a run of losses will be followed by wins",
    "solutionSteps": [
-    "No compensation."
+    "The law of large numbers describes long-run proportions of independent trials.",
+    "No compensation.",
+    "It never says losses must be balanced by wins."
    ],
    "options": [
     {
@@ -12119,7 +12363,9 @@
    "prompt": "How is P(B | A) read?",
    "answer": "The probability of B given A",
    "solutionSteps": [
-    "The bar means “given.”"
+    "The bar “|” is read as “given.”",
+    "The bar means “given.”",
+    "The event after the bar is what we know happened: here, A."
    ],
    "options": [
     {
@@ -12142,7 +12388,8 @@
    "standards": [
     "APSTATS.2.6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s03_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s03_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the bar “|” is read as “given.”"
   },
   {
    "id": "stat-u3-s03-cp1-x12",
@@ -12289,7 +12536,9 @@
    "prompt": "To simulate a fair coin with random digits, which assignment works?",
    "answer": "Even = heads, odd = tails",
    "solutionSteps": [
-    "5 of 10 digits each, no overlap."
+    "Heads needs probability 0.5, so 5 of the 10 digits.",
+    "5 of 10 digits each, no overlap.",
+    "Even and odd digits split 0–9 into two groups of 5 with no overlap."
    ],
    "options": [
     {
@@ -12312,7 +12561,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: heads needs probability 0.5, so 5 of the 10 digits."
   },
   {
    "id": "stat-u3-s04-cp2-x14",
@@ -12358,7 +12608,9 @@
    "prompt": "What is the purpose of a probability simulation?",
    "answer": "To estimate a probability by imitating a random process many times",
    "solutionSteps": [
-    "Simulation estimates."
+    "A simulation repeats a model of the random process many times.",
+    "Simulation estimates.",
+    "Its result is an estimate, not an exact or guaranteed answer."
    ],
    "options": [
     {
@@ -12381,7 +12633,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a simulation repeats a model of the random process many times."
   },
   {
    "id": "stat-u3-s04-cp2-x16",
@@ -12462,7 +12715,9 @@
    "prompt": "Why must each simulated trial use independent random numbers?",
    "answer": "So each trial mimics an independent real repetition",
    "solutionSteps": [
-    "Model assumptions must match reality."
+    "Real repetitions of the process do not affect each other.",
+    "Model assumptions must match reality.",
+    "Independent random numbers make each simulated trial behave the same way."
    ],
    "options": [
     {
@@ -12485,7 +12740,8 @@
    "standards": [
     "APSTATS.2.3.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: real repetitions of the process do not affect each other."
   },
   {
    "id": "stat-u3-s04-cp1-x13",
@@ -12565,7 +12821,9 @@
    "prompt": "One simulation of 200 trials gives 0.42; a second gives 0.37. Why do they differ?",
    "answer": "Chance variation between runs",
    "solutionSteps": [
-    "Random variation."
+    "Two runs of the same simulation use different random numbers.",
+    "Random variation.",
+    "So their estimates differ by chance; nothing about the probability changed."
    ],
    "options": [
     {
@@ -12598,7 +12856,9 @@
    "prompt": "To simulate drawing 2 cards without replacement from 5 cards labeled 1–5, you should",
    "answer": "skip a label that repeats within the same trial",
    "solutionSteps": [
-    "Without replacement → no repeats."
+    "Without replacement, a card cannot be drawn twice.",
+    "Without replacement → no repeats.",
+    "So if a label repeats within a trial, skip it and draw again."
    ],
    "options": [
     {
@@ -12665,7 +12925,9 @@
    "prompt": "A 1,000-trial simulation gives 0.051; the exact probability is 0.048. The difference is",
    "answer": "consistent with chance variation",
    "solutionSteps": [
-    "SD of the estimate ≈ 0.007."
+    "Estimate the typical chance error: √(0.048 × 0.952/1,000) ≈ 0.007.",
+    "SD of the estimate ≈ 0.007.",
+    "0.051 − 0.048 = 0.003 is well within that, so it is chance variation."
    ],
    "options": [
     {
@@ -12698,7 +12960,9 @@
    "prompt": "To model a 1/3 probability with single digits, which assignment works?",
    "answer": "1–3 = success, 4–9 = failure, skip 0",
    "solutionSteps": [
-    "3 of 9 usable digits."
+    "Success needs probability 1/3, so use 3 out of 9 usable digits.",
+    "3 of 9 usable digits.",
+    "Skip 0 so 1–3 is 3 of 9 equally likely digits; 0–3 would give 4/10."
    ],
    "options": [
     {
@@ -12975,7 +13239,9 @@
    "prompt": "Which is a continuous random variable?",
    "answer": "The time to finish a test",
    "solutionSteps": [
-    "Measured on a continuum."
+    "Continuous variables are measured and can take any value in an interval.",
+    "Measured on a continuum.",
+    "Heads, goals and siblings are counts, so they are discrete."
    ],
    "options": [
     {
@@ -13214,7 +13480,9 @@
    "prompt": "The expected value of a random variable is best described as",
    "answer": "its long-run average",
    "solutionSteps": [
-    "Long-run mean."
+    "E(X) is the mean of the random variable’s probability distribution.",
+    "Long-run mean.",
+    "It may not be a possible value and is not the median or the most likely value."
    ],
    "options": [
     {
@@ -13237,7 +13505,8 @@
    "standards": [
     "APSTATS.2.9.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s06_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s06_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: E(X) is the mean of the random variable’s probability distribution."
   },
   {
    "id": "stat-u3-s06-cp1-x12",
@@ -13420,7 +13689,9 @@
    "prompt": "X = the number of rolls until the first 6. X is",
    "answer": "geometric",
    "solutionSteps": [
-    "Counts trials until the first success."
+    "X counts the trials until the first success; it has no fixed number of trials.",
+    "Counts trials until the first success.",
+    "A fixed number of trials would be binomial, so this is geometric."
    ],
    "options": [
     {
@@ -13443,7 +13714,8 @@
    "standards": [
     "APSTATS.BEYOND.GEOM"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s07_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s07_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: x counts the trials until the first success; it has no fixed number of trials."
   },
   {
    "id": "stat-u3-s07-honors-x14",
@@ -13557,6 +13829,7 @@
    "prompt": "Which calculation requires X and Y to be independent?",
    "answer": "Var(X + Y) = Var(X) + Var(Y)",
    "solutionSteps": [
+    "Rules for means always hold.",
     "Only the variance rule needs independence."
    ],
    "options": [
@@ -13580,7 +13853,8 @@
    "standards": [
     "APSTATS.BEYOND.COMB"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s08_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s08_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: rules for means always hold."
   },
   {
    "id": "stat-u3-s08-cp1-x13",
@@ -13795,7 +14069,9 @@
    "prompt": "Var(X) = 9 and Var(Y) = 16, but X and Y are NOT independent. What is SD(X + Y)?",
    "answer": "It cannot be found without more information",
    "solutionSteps": [
-    "The variance rule needs independence (or the covariance)."
+    "Var(X + Y) = Var(X) + Var(Y) holds only when X and Y are independent.",
+    "The variance rule needs independence (or the covariance).",
+    "Without independence we need how X and Y vary together, so the SD cannot be found."
    ],
    "options": [
     {
@@ -14072,7 +14348,9 @@
    "prompt": "A population has 2,000 people and n = 400. Can σ_p̂ = √(p(1 − p)/n) be used?",
    "answer": "No, because the sample is more than 10% of the population",
    "solutionSteps": [
-    "10% condition fails."
+    "Check the 10% condition: 10% of 2,000 = 200.",
+    "10% condition fails.",
+    "n = 400 is more than 200, so the formula overstates the SD."
    ],
    "options": [
     {
@@ -14105,6 +14383,7 @@
    "prompt": "An unbiased estimator's sampling distribution is centered at",
    "answer": "the parameter",
    "solutionSteps": [
+    "An estimator is unbiased when its sampling distribution centers on the true value.",
     "Definition of unbiased."
    ],
    "options": [
@@ -14128,7 +14407,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: an estimator is unbiased when its sampling distribution centers on the true value."
   },
   {
    "id": "stat-u3-s10-cp2-x14",
@@ -14173,7 +14453,9 @@
    "prompt": "Which sampling method is biased for estimating the mean height of adults?",
    "answer": "Sampling only basketball players",
    "solutionSteps": [
-    "Systematically too tall."
+    "A biased method gives estimates that are systematically too high or too low.",
+    "Systematically too tall.",
+    "Basketball players are taller than most adults, so that method overestimates."
    ],
    "options": [
     {
@@ -14196,7 +14478,8 @@
    "standards": [
     "APSTATS.3.1.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a biased method gives estimates that are systematically too high or too low."
   },
   {
    "id": "stat-u3-s10-cp2-x16",
@@ -14206,7 +14489,9 @@
    "prompt": "High variability in an estimator means",
    "answer": "estimates differ a lot from sample to sample",
    "solutionSteps": [
-    "Variability = spread of the sampling distribution."
+    "Variability is the spread of the sampling distribution.",
+    "Variability = spread of the sampling distribution.",
+    "High variability means estimates differ a lot from sample to sample; it does not mean bias."
    ],
    "options": [
     {
@@ -14229,7 +14514,8 @@
    "standards": [
     "APSTATS.2.12.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u3_s10_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: variability is the spread of the sampling distribution."
   },
   {
    "id": "stat-u3-s10-cp1-x10",
@@ -14239,7 +14525,9 @@
    "prompt": "Which statistic is an unbiased estimator of μ?",
    "answer": "x̄",
    "solutionSteps": [
-    "μ_x̄ = μ."
+    "An unbiased estimator of μ has a sampling distribution centered at μ.",
+    "μ_x̄ = μ.",
+    "x̄ + 1 is always 1 too high, and the range and maximum do not estimate μ."
    ],
    "options": [
     {
@@ -14272,7 +14560,9 @@
    "prompt": "The Central Limit Theorem applies to",
    "answer": "the sampling distribution of the sample mean",
    "solutionSteps": [
-    "It describes x̄ over many samples."
+    "The CLT is about sample means over many samples.",
+    "It describes x̄ over many samples.",
+    "It does not change the population or any one sample."
    ],
    "options": [
     {
@@ -14305,7 +14595,9 @@
    "prompt": "The population is strongly right-skewed and n = 5. What shape is the sampling distribution of x̄?",
    "answer": "Somewhat right-skewed",
    "solutionSteps": [
-    "n is too small for the CLT to remove the skew."
+    "The CLT needs a large n to make x̄ approximately Normal.",
+    "n is too small for the CLT to remove the skew.",
+    "With n = 5, some right skew from the population remains."
    ],
    "options": [
     {
@@ -14338,7 +14630,9 @@
    "prompt": "Which change reduces BOTH bias and variability?",
    "answer": "Using a larger random sample instead of a voluntary response sample",
    "solutionSteps": [
-    "Random selection fixes bias; larger n reduces variability."
+    "Bias depends on how units are selected; variability depends on n.",
+    "Random selection fixes bias; larger n reduces variability.",
+    "Switching to a larger random sample fixes both."
    ],
    "options": [
     {
