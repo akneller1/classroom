@@ -175,21 +175,26 @@
   if (!NS.LEVELS[ui.level]) ui.level = 'cp1';
 
   /* ---------- groups of days for the picker ---------- */
-  function isSem(d) { return /^SEM-/.test(d.lesson_id); }
-  function isFinal(d) { return /^END-/.test(d.lesson_id) || (!GEO && !d.unit && d.day >= 100); }
+  /* Pacing-calendar days (whole-site audit 2 #1): PREFIX-SEM-…, PREFIX-MCAS-… / PREFIX-AP-…, PREFIX-FINAL-… / -POST-MCAS- / -PROJECT-. */
+  function isSem(d) { return /(^|-)SEM-/.test(d.lesson_id); }
+  function isTest(d) { return !d.unit && /-(MCAS|AP)-/.test(d.lesson_id) && !/-POST-MCAS-/.test(d.lesson_id); }
+  function isFinal(d) { return /^END-/.test(d.lesson_id) || (!d.unit && /-(FINAL|POST-MCAS|PROJECT)-/.test(d.lesson_id)) || (!GEO && !d.unit && d.day >= 100 && !isSem(d) && !isTest(d)); }
+  function testName() { var t = SC.days.filter(isTest); return !t.length ? '' : /AP /.test(t[0].title) ? 'AP review & exam' : /benchmark/i.test(t[0].title) ? 'Spring review & benchmark' : 'MCAS review & testing'; }
   function span(f) { var a = SC.days.filter(f); return a.length ? ' (days ' + a[0].day + '–' + a[a.length - 1].day + ')' : ''; }
   function dayGroups() {
-    var launchDays = SC.days.filter(function (d) { return !d.unit && !isSem(d) && !isFinal(d); });
+    var launchDays = SC.days.filter(function (d) { return !d.unit && !isSem(d) && !isTest(d) && !isFinal(d); });
     var out = [{ key: 'launch', name: 'Course launch' + (launchDays.length ? ' (days ' + launchDays[0].day + '–' + launchDays[launchDays.length - 1].day + ')' : ''), days: [] }];
     SC.units.forEach(function (u) { out.push({ key: 'u' + u.unit, name: 'Unit ' + u.unit + ': ' + u.title + ' (days ' + u.start_day + '–' + u.end_day + ')', days: [] }); });
-    out.push({ key: 'sem', name: 'Semester review & exam' + span(isSem), days: [] }, { key: 'final', name: 'Final review, exam' + (GEO ? '' : ' & project') + span(isFinal), days: [] });
+    out.push({ key: 'sem', name: 'Semester review & exam' + span(isSem), days: [] });
+    if (testName()) out.push({ key: 'test', name: testName() + span(isTest), days: [] });
+    out.push({ key: 'final', name: 'Final review, exam' + (GEO ? '' : ' & project') + span(isFinal), days: [] });
     SC.days.forEach(function (d) {
       var k = groupKey(d);
       out.filter(function (g) { return g.key === k; })[0].days.push(d);
     });
     return out;
   }
-  function groupKey(d) { return d.unit ? 'u' + d.unit : isSem(d) ? 'sem' : isFinal(d) ? 'final' : 'launch'; }
+  function groupKey(d) { return d.unit ? 'u' + d.unit : isSem(d) ? 'sem' : isTest(d) ? 'test' : isFinal(d) ? 'final' : 'launch'; }
   var TYPE_CLS = { Lesson: 'lesson', Practice: 'practice', Quiz: 'quiz', Review: 'review', Assessment: 'test', Flex: 'flex', Launch: 'launch', Diagnostic: 'launch', 'Exam Review': 'review', Exam: 'test', Project: 'project' };
 
   /* ---------- hash ---------- */
