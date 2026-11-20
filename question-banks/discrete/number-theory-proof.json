@@ -9609,6 +9609,395 @@
      "correct": false
     }
    ]
+  },
+  {
+   "id": "dm-np-s03-cp2-f01",
+   "skillId": "number-theory-proof-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "\"There is a prime number between 90 and 100.\" Which number proves it?",
+   "answer": "97",
+   "options": [
+    {
+     "text": "97",
+     "correct": true
+    },
+    {
+     "text": "94",
+     "correct": false
+    },
+    {
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "92",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A witness must be prime and lie between 90 and 100.",
+    "97 has no divisor other than 1 and itself, so it proves the statement."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: witness). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.3",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s03-cp2-f02",
+   "skillId": "number-theory-proof-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "\"There is a prime number between 50 and 60.\" Which number proves it?",
+   "answer": "53",
+   "options": [
+    {
+     "text": "51",
+     "correct": false
+    },
+    {
+     "text": "53",
+     "correct": true
+    },
+    {
+     "text": "58",
+     "correct": false
+    },
+    {
+     "text": "54",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A witness must be prime and lie between 50 and 60.",
+    "53 has no divisor other than 1 and itself, so it proves the statement."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: witness). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.3",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s03-cp1-f01",
+   "skillId": "number-theory-proof-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "\"There is a prime number between 70 and 80.\" Which number proves it?",
+   "answer": "71",
+   "options": [
+    {
+     "text": "70",
+     "correct": false
+    },
+    {
+     "text": "78",
+     "correct": false
+    },
+    {
+     "text": "71",
+     "correct": true
+    },
+    {
+     "text": "76",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A witness must be prime and lie between 70 and 80.",
+    "71 has no divisor other than 1 and itself, so it proves the statement."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: witness). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.3",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s03-honors-f01",
+   "skillId": "number-theory-proof-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The universal statement \"For every integer n ≥ 1, 2ⁿ + 1 is prime.\" is false. Which value of n is a counterexample?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A counterexample is one allowed value of n that makes the statement false.",
+    "At n = 3: 2ⁿ + 1 = 9, which is not prime (9 = 3 · 3).",
+    "Each other choice makes the statement true, so it does not disprove it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: counterexample_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.3",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s03-honors-f02",
+   "skillId": "number-theory-proof-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The universal statement \"For every positive integer n, n² + 1 is not divisible by 5.\" is false. Which value of n is a counterexample?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A counterexample is one allowed value of n that makes the statement false.",
+    "At n = 2: n² + 1 = 5, which is divisible by 5.",
+    "Each other choice makes the statement true, so it does not disprove it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: counterexample_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.3",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-cp2-f01",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which method is the most natural way to handle this statement?\n\"For every n in {1, 2, 3, 4}, n! ≤ 2n².\"",
+   "answer": "Method of exhaustion",
+   "options": [
+    {
+     "text": "Constructive proof (give a witness)",
+     "correct": false
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": true
+    },
+    {
+     "text": "Proof by contrapositive",
+     "correct": false
+    },
+    {
+     "text": "Direct proof",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Only finitely many cases are named, so check each one.",
+    "So the most natural method is: Method of exhaustion."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: proof_strategy). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-cp2-f02",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which method is the most natural way to handle this statement?\n\"If n² is odd, then n is odd.\"",
+   "answer": "Proof by contrapositive",
+   "options": [
+    {
+     "text": "Counterexample (it is false)",
+     "correct": false
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": false
+    },
+    {
+     "text": "Proof by contrapositive",
+     "correct": true
+    },
+    {
+     "text": "Proof by contradiction",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The contrapositive (if n is even, then …) is easier to prove directly.",
+    "So the most natural method is: Proof by contrapositive."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: proof_strategy). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-cp1-f01",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which method is the most natural way to handle this statement?\n\"For every n in {2, 3, 4}, n² < 2ⁿ⁺¹.\"",
+   "answer": "Method of exhaustion",
+   "options": [
+    {
+     "text": "Direct proof",
+     "correct": false
+    },
+    {
+     "text": "Proof by contradiction",
+     "correct": false
+    },
+    {
+     "text": "Counterexample (it is false)",
+     "correct": false
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Only finitely many cases are named, so check each one.",
+    "So the most natural method is: Method of exhaustion."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: proof_strategy). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-cp1-f02",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which method is the most natural way to handle this statement?\n\"There is no largest even integer.\"",
+   "answer": "Proof by contradiction",
+   "options": [
+    {
+     "text": "Proof by contradiction",
+     "correct": true
+    },
+    {
+     "text": "Method of exhaustion",
+     "correct": false
+    },
+    {
+     "text": "Counterexample (it is false)",
+     "correct": false
+    },
+    {
+     "text": "Direct proof",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Assume the opposite and reach an impossibility.",
+    "So the most natural method is: Proof by contradiction."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: proof_strategy). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-honors-f01",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A student proves \"If ab is odd, then a and b are both odd.\" by contrapositive. Which sentence should begin the proof?",
+   "answer": "Suppose a is even or b is even.",
+   "options": [
+    {
+     "text": "Suppose a and b are both odd.",
+     "correct": false
+    },
+    {
+     "text": "Suppose a is even or b is even.",
+     "correct": true
+    },
+    {
+     "text": "Suppose ab is odd.",
+     "correct": false
+    },
+    {
+     "text": "Suppose a is even and b is even.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The contrapositive of \"if P, then Q\" is \"if not Q, then not P\".",
+    "So the proof assumes the negation of the conclusion: Suppose a is even or b is even.",
+    "Then it shows the negation of the hypothesis follows."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapositive_start_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-np-s08-honors-f02",
+   "skillId": "number-theory-proof-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A student proves \"If n² is even, then n is even.\" by contrapositive. Which sentence should begin the proof?",
+   "answer": "Suppose n is odd, so n = 2k + 1 for some integer k.",
+   "options": [
+    {
+     "text": "Suppose n² is even, so n² = 2k.",
+     "correct": false
+    },
+    {
+     "text": "Suppose n is even, so n = 2k.",
+     "correct": false
+    },
+    {
+     "text": "Suppose n is odd, so n = 2k + 1 for some integer k.",
+     "correct": true
+    },
+    {
+     "text": "Suppose n² is odd and n is even.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The contrapositive of \"if P, then Q\" is \"if not Q, then not P\".",
+    "So the proof assumes the negation of the conclusion: Suppose n is odd, so n = 2k + 1 for some integer k.",
+    "Then it shows the negation of the hypothesis follows."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: contrapositive_start_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.PROOF.8",
+    "MP.3"
+   ]
   }
  ]
 }

@@ -9521,6 +9521,194 @@
    "standards": [
     "DM.RELATIONS.7"
    ]
+  },
+  {
+   "id": "dm-rl-s01-honors-f01",
+   "skillId": "properties-relations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let A = {4, 7, 8, 9, 11} and let R be the relation on A defined by a R b if and only if b = a + 2. Find the inverse relation R⁻¹. List it as a set of ordered pairs, ordered by first then second coordinate.",
+   "answer": "{(9, 7), (11, 9)}",
+   "solutionSteps": [
+    "R = {(7, 9), (9, 11)}.",
+    "The inverse swaps each pair: (a, b) ∈ R exactly when (b, a) ∈ R⁻¹.",
+    "R⁻¹ = {(9, 7), (11, 9)}."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inverse_relation_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.1"
+   ]
+  },
+  {
+   "id": "dm-rl-s05-cp2-f01",
+   "skillId": "properties-relations-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Is {{3, 6}, {5, 7}, {1, 2, 4, 8}, ∅} a partition of A = {1, 2, 3, 4, 5, 6, 7, 8}?",
+   "answer": "No: one block is empty",
+   "options": [
+    {
+     "text": "Yes",
+     "correct": false
+    },
+    {
+     "text": "No: some element is in two blocks",
+     "correct": false
+    },
+    {
+     "text": "No: some element of A is in no block",
+     "correct": false
+    },
+    {
+     "text": "No: one block is empty",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A partition uses nonempty blocks that do not overlap and together contain every element of A.",
+    "The empty set cannot be a block.",
+    "Answer: No: one block is empty."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: partition_check). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.5"
+   ]
+  },
+  {
+   "id": "dm-rl-s05-honors-f01",
+   "skillId": "properties-relations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The partition {{1, 4, 7}, {2, 3, 5, 6, 8, 9}} of A = {1, 2, 3, 4, 5, 6, 7, 8, 9} induces the relation R: a R b if and only if a and b are in the same block. How many ordered pairs are in R?",
+   "answer": "45",
+   "solutionSteps": [
+    "Inside a block of size s, every ordered pair (including (a, a)) is in R: s² pairs.",
+    "Block sizes: 3, 6.",
+    "Total = 3² + 6² = 45."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.5"
+   ]
+  },
+  {
+   "id": "dm-rl-s05-honors-f02",
+   "skillId": "properties-relations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The partition {{3, 6}, {1, 4, 5, 8, 9}, {2, 7}} of A = {1, 2, 3, 4, 5, 6, 7, 8, 9} induces the relation R: a R b if and only if a and b are in the same block. How many ordered pairs are in R?",
+   "answer": "33",
+   "solutionSteps": [
+    "Inside a block of size s, every ordered pair (including (a, a)) is in R: s² pairs.",
+    "Block sizes: 2, 5, 2.",
+    "Total = 2² + 5² + 2² = 33."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induced_relation_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.5"
+   ]
+  },
+  {
+   "id": "dm-rl-s06-cp2-f01",
+   "skillId": "properties-relations-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "On A = {1, 2, 3}, is R = {(1, 1), (2, 2), (3, 1), (3, 3)} an equivalence relation?",
+   "answer": "No: not symmetric",
+   "options": [
+    {
+     "text": "No: not symmetric",
+     "correct": true
+    },
+    {
+     "text": "Yes",
+     "correct": false
+    },
+    {
+     "text": "No: not reflexive",
+     "correct": false
+    },
+    {
+     "text": "No: not transitive",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Reflexive: yes; symmetric: no; transitive: yes.",
+    "An equivalence relation must have all three properties.",
+    "Answer: No: not symmetric."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalence_check). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.6"
+   ]
+  },
+  {
+   "id": "dm-rl-s06-cp2-f02",
+   "skillId": "properties-relations-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "On A = {1, 2, 3}, is R = {(1, 1), (1, 2), (2, 2), (3, 1), (3, 2), (3, 3)} an equivalence relation?",
+   "answer": "No: not symmetric",
+   "options": [
+    {
+     "text": "Yes",
+     "correct": false
+    },
+    {
+     "text": "No: not symmetric",
+     "correct": true
+    },
+    {
+     "text": "No: not reflexive",
+     "correct": false
+    },
+    {
+     "text": "No: not transitive",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Reflexive: yes; symmetric: no; transitive: yes.",
+    "An equivalence relation must have all three properties.",
+    "Answer: No: not symmetric."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalence_check). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.6"
+   ]
+  },
+  {
+   "id": "dm-rl-s07-honors-f01",
+   "skillId": "properties-relations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "On A = {1, 2, …, 13}, R is the equivalence relation \"a ≡ b (mod 5)\". How many distinct equivalence classes are there?",
+   "answer": "5",
+   "solutionSteps": [
+    "Each class is the set of elements with one remainder 0, 1, …, 4.",
+    "All 5 remainders occur among 1 to 13, so there are 5 classes."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: class_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.7"
+   ]
+  },
+  {
+   "id": "dm-rl-s07-honors-f02",
+   "skillId": "properties-relations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "On A = {1, 2, …, 27}, R is the equivalence relation \"a ≡ b (mod 5)\". How many distinct equivalence classes are there?",
+   "answer": "5",
+   "solutionSteps": [
+    "Each class is the set of elements with one remainder 0, 1, …, 4.",
+    "All 5 remainders occur among 1 to 27, so there are 5 classes."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: class_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.RELATIONS.7"
+   ]
   }
  ]
 }

@@ -9308,6 +9308,667 @@
      "correct": false
     }
    ]
+  },
+  {
+   "id": "dm-sq-s01-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write the first four terms of a_n = 5n + 6, starting with n = 1. Separate terms with commas (fractions as a/b).",
+   "answer": "11, 16, 21, 26",
+   "solutionSteps": [
+    "Substitute n = 1, 2, 3, 4 into 5n + 6.",
+    "The terms are 11, 16, 21, 26."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: first_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.1",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s01-cp1-f01",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the first four terms of a_n = n² − 5, starting with n = 1. Separate terms with commas (fractions as a/b).",
+   "answer": "-4, -1, 4, 11",
+   "solutionSteps": [
+    "Substitute n = 1, 2, 3, 4 into n² − 5.",
+    "The terms are -4, -1, 4, 11."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: first_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.1",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s01-cp1-f02",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the first four terms of a_n = n² − 6, starting with n = 1. Separate terms with commas (fractions as a/b).",
+   "answer": "-5, -2, 3, 10",
+   "solutionSteps": [
+    "Substitute n = 1, 2, 3, 4 into n² − 6.",
+    "The terms are -5, -2, 3, 10."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: first_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.1",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s02-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A geometric sequence has a₁ = 6 and common ratio r = 3. Find a_5.",
+   "answer": "486",
+   "options": [
+    {
+     "text": "1458",
+     "correct": false
+    },
+    {
+     "text": "72",
+     "correct": false
+    },
+    {
+     "text": "486",
+     "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a_n = a₁ · r^(n − 1).",
+    "a_5 = 6 · 3^4 = 486."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: geometric_term). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.2",
+    "A-SSE.B.4",
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ]
+  },
+  {
+   "id": "dm-sq-s03-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(8, 2) = 8!/(2! · 6!).",
+   "answer": "28",
+   "solutionSteps": [
+    "Cancel 6!: C(8, 2) = (8 · 7)/2!.",
+    "= 56/2 = 28."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: binomial_value). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.3",
+    "S-CP.B.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s03-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(6, 2) = 6!/(2! · 4!).",
+   "answer": "15",
+   "solutionSteps": [
+    "Cancel 4!: C(6, 2) = (6 · 5)/2!.",
+    "= 30/2 = 15."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: binomial_value). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.3",
+    "S-CP.B.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s03-honors-f01",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the positive integer n with n!/(n − 2)! = 132.",
+   "answer": "12",
+   "solutionSteps": [
+    "n!/(n − 2)! = n(n − 1), since the factors from (n − 2) down cancel.",
+    "Solve n(n − 1) = 132: n = 12 (because 12 · 11 = 132)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: factorial_equation_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.3",
+    "S-CP.B.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s04-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find F₁ + F₂ + … + F_6 for the Fibonacci numbers (F₁ = F₂ = 1).",
+   "answer": "20",
+   "solutionSteps": [
+    "Terms: 1, 1, 2, 3, 5, 8.",
+    "Sum = 20 (check: it equals F_8 − 1 = 21 − 1)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fibonacci_sum). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.4",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s04-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Using F₁ = 1, F₂ = 1 and each term the sum of the two before it, what is the 13th Fibonacci number?",
+   "answer": "233",
+   "solutionSteps": [
+    "Build the list: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233.",
+    "F_13 = 233."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fibonacci_term). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.4",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s05-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the first five terms of a₁ = 1, a_n = 2a_(n−1) (for n ≥ 2). Separate terms with commas.",
+   "answer": "1, 2, 4, 8, 16",
+   "solutionSteps": [
+    "Start with a₁ = 1 and apply the rule four times.",
+    "a₂ = 2, a₃ = 4, a₄ = 8, a₅ = 16."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: recursive_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.5",
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s05-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the first five terms of a₁ = 4, a_n = 3a_(n−1) + 2 (for n ≥ 2). Separate terms with commas.",
+   "answer": "4, 14, 44, 134, 404",
+   "solutionSteps": [
+    "Start with a₁ = 4 and apply the rule four times.",
+    "a₂ = 14, a₃ = 44, a₄ = 134, a₅ = 404."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: recursive_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.5",
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s05-cp1-f01",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the first five terms of a₁ = 2, a_n = 3a_(n−1) − 2 (for n ≥ 2). Separate terms with commas.",
+   "answer": "2, 4, 10, 28, 82",
+   "solutionSteps": [
+    "Start with a₁ = 2 and apply the rule four times.",
+    "a₂ = 4, a₃ = 10, a₄ = 28, a₅ = 82."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: recursive_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.5",
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s05-cp1-f02",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the first five terms of a₁ = 4, a_n = 3a_(n−1) + 3 (for n ≥ 2). Separate terms with commas.",
+   "answer": "4, 15, 48, 147, 444",
+   "solutionSteps": [
+    "Start with a₁ = 4 and apply the rule four times.",
+    "a₂ = 15, a₃ = 48, a₄ = 147, a₅ = 444."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: recursive_terms). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.5",
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s06-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use iteration to find an explicit formula for a₁ = 2, a_n = a_(n−1) + 5.",
+   "answer": "a_n = 5n − 3",
+   "options": [
+    {
+     "text": "a_n = 2n + 5",
+     "correct": false
+    },
+    {
+     "text": "a_n = 5n + 2",
+     "correct": false
+    },
+    {
+     "text": "a_n = 2·5ⁿ",
+     "correct": false
+    },
+    {
+     "text": "a_n = 5n − 3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "a₂ = 2 + 5, a₃ = 2 + 2·5, …, a_n = 2 + (n − 1)·5.",
+    "Simplify: a_n = 5n − 3."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: iteration_formula). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.6",
+    "F-BF.A.2"
+   ]
+  },
+  {
+   "id": "dm-sq-s06-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use iteration to find an explicit formula for a₁ = 8, a_n = a_(n−1) + 4.",
+   "answer": "a_n = 4n + 4",
+   "options": [
+    {
+     "text": "a_n = 4n + 4",
+     "correct": true
+    },
+    {
+     "text": "a_n = 8n + 4",
+     "correct": false
+    },
+    {
+     "text": "a_n = 4n + 8",
+     "correct": false
+    },
+    {
+     "text": "a_n = 8·4ⁿ",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₂ = 8 + 4, a₃ = 8 + 2·4, …, a_n = 8 + (n − 1)·4.",
+    "Simplify: a_n = 4n + 4."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: iteration_formula). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.6",
+    "F-BF.A.2"
+   ]
+  },
+  {
+   "id": "dm-sq-s06-cp1-f01",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use iteration to find an explicit formula for a₀ = 5, a_n = 4a_(n−1).",
+   "answer": "a_n = 5·4ⁿ",
+   "options": [
+    {
+     "text": "a_n = 4·5ⁿ",
+     "correct": false
+    },
+    {
+     "text": "a_n = 5·4ⁿ",
+     "correct": true
+    },
+    {
+     "text": "a_n = 5 + 4n",
+     "correct": false
+    },
+    {
+     "text": "a_n = 5·4ⁿ⁻¹",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 4·5, a₂ = 4²·5, …, each step multiplies by 4.",
+    "So a_n = 5·4ⁿ."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: iteration_formula). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.6",
+    "F-BF.A.2"
+   ]
+  },
+  {
+   "id": "dm-sq-s06-cp1-f02",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use iteration to find an explicit formula for a₁ = -2, a_n = a_(n−1) + 6.",
+   "answer": "a_n = 6n − 8",
+   "options": [
+    {
+     "text": "a_n = -2n + 6",
+     "correct": false
+    },
+    {
+     "text": "a_n = 6n + -2",
+     "correct": false
+    },
+    {
+     "text": "a_n = 6n − 8",
+     "correct": true
+    },
+    {
+     "text": "a_n = -2·6ⁿ",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₂ = -2 + 6, a₃ = -2 + 2·6, …, a_n = -2 + (n − 1)·6.",
+    "Simplify: a_n = 6n − 8."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: iteration_formula). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.6",
+    "F-BF.A.2"
+   ]
+  },
+  {
+   "id": "dm-sq-s07-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "What is the base case for an induction proof of \"2 + 4 + … + 2n = n(n + 1)\"?",
+   "answer": "n = 1: 2 = 1(2)",
+   "options": [
+    {
+     "text": "n = 1: 1 = 2¹ − 1",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 3 = 1(3)",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 1 = 1(2)(3)/6",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 2 = 1(2)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The base case checks the first value of n, here n = 1.",
+    "Both sides agree: n = 1: 2 = 1(2)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s07-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In an induction proof of \"1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ − 1\", what must be shown in the inductive step (assuming P(k))?",
+   "answer": "1 + 2 + … + 2ᵏ⁻¹ + 2ᵏ = 2ᵏ⁺¹ − 1",
+   "options": [
+    {
+     "text": "1 + 2 + … + 2ᵏ⁻¹ + 2ᵏ = 2ᵏ⁺¹ − 1",
+     "correct": true
+    },
+    {
+     "text": "1 + 3 + … + 3ᵏ⁻¹ + 3ᵏ = (3ᵏ⁺¹ − 1)/2",
+     "correct": false
+    },
+    {
+     "text": "3 + 7 + … + (4k − 1) + (4k + 3) = (k + 1)(2k + 3)",
+     "correct": false
+    },
+    {
+     "text": "1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ − 1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The inductive step assumes P(k) and proves P(k + 1).",
+    "P(k + 1) adds the next term and replaces n by k + 1 on the right: 1 + 2 + … + 2ᵏ⁻¹ + 2ᵏ = 2ᵏ⁺¹ − 1."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_step). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s07-cp1-f01",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the base case for an induction proof of \"1 + 3 + 9 + … + 3ⁿ⁻¹ = (3ⁿ − 1)/2\"?",
+   "answer": "n = 1: 1 = (3 − 1)/2",
+   "options": [
+    {
+     "text": "n = 1: 3 = 1(3)",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 1 = (3 − 1)/2",
+     "correct": true
+    },
+    {
+     "text": "n = 1: 2 = 1(2)",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 1 = 2¹ − 1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The base case checks the first value of n, here n = 1.",
+    "Both sides agree: n = 1: 1 = (3 − 1)/2."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s07-cp1-f02",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the base case for an induction proof of \"1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ − 1\"?",
+   "answer": "n = 1: 1 = 2¹ − 1",
+   "options": [
+    {
+     "text": "n = 1: 1 = (3 − 1)/2",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 2 = 1(2)",
+     "correct": false
+    },
+    {
+     "text": "n = 1: 1 = 2¹ − 1",
+     "correct": true
+    },
+    {
+     "text": "n = 1: 3 = 1(3)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The base case checks the first value of n, here n = 1.",
+    "Both sides agree: n = 1: 1 = 2¹ − 1."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: induction_base). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-sq-s09-cp2-f01",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Figure n is an L shape with n tiles in each arm (sharing the corner tile). How many tiles (or toothpicks) are in figure 11?",
+   "answer": "21",
+   "options": [
+    {
+     "text": "22",
+     "correct": false
+    },
+    {
+     "text": "19",
+     "correct": false
+    },
+    {
+     "text": "32",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Count the first figures and find the rule: 2n − 1.",
+    "For n = 11: 21."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: pattern_count). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s09-cp2-f02",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Figure n is a staircase of columns with heights 1, 2, …, n tiles. How many tiles (or toothpicks) are in figure 13?",
+   "answer": "91",
+   "options": [
+    {
+     "text": "91",
+     "correct": true
+    },
+    {
+     "text": "92",
+     "correct": false
+    },
+    {
+     "text": "78",
+     "correct": false
+    },
+    {
+     "text": "104",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Count the first figures and find the rule: n(n + 1)/2.",
+    "For n = 13: 91."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: pattern_count). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s09-cp1-f01",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Figure n is a plus sign with a center tile and n tiles on each of its four arms. How many tiles (or toothpicks) are in figure 10?",
+   "answer": "41",
+   "options": [
+    {
+     "text": "42",
+     "correct": false
+    },
+    {
+     "text": "41",
+     "correct": true
+    },
+    {
+     "text": "37",
+     "correct": false
+    },
+    {
+     "text": "51",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Count the first figures and find the rule: 4n + 1.",
+    "For n = 10: 41."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: pattern_count). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.9"
+   ]
+  },
+  {
+   "id": "dm-sq-s09-cp1-f02",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Figure n is a staircase of columns with heights 1, 2, …, n tiles. How many tiles (or toothpicks) are in figure 12?",
+   "answer": "78",
+   "options": [
+    {
+     "text": "79",
+     "correct": false
+    },
+    {
+     "text": "66",
+     "correct": false
+    },
+    {
+     "text": "78",
+     "correct": true
+    },
+    {
+     "text": "90",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Count the first figures and find the rule: n(n + 1)/2.",
+    "For n = 12: 78."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: pattern_count). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.INDUCTION.9"
+   ]
   }
  ]
 }
